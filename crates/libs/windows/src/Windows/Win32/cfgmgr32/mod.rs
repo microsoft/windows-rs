@@ -1510,15 +1510,15 @@ pub unsafe fn CM_Run_Detection_Ex(ulflags: super::ULONG, hmachine: Option<HMACHI
 }
 #[cfg(all(feature = "devpropdef", feature = "guiddef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Set_Class_PropertyW(classguid: super::LPCGUID, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<&[u8]>, ulflags: super::ULONG) -> CONFIGRET {
+pub unsafe fn CM_Set_Class_PropertyW(classguid: super::LPCGUID, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<super::PBYTE>, propertybuffersize: super::ULONG, ulflags: super::ULONG) -> CONFIGRET {
     windows_core::link!("cfgmgr32.dll" "system" fn CM_Set_Class_PropertyW(classguid : super::LPCGUID, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::ULONG, ulflags : super::ULONG) -> CONFIGRET);
-    unsafe { CM_Set_Class_PropertyW(classguid, propertykey, propertytype, core::mem::transmute(propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap()), ulflags) }
+    unsafe { CM_Set_Class_PropertyW(classguid, propertykey, propertytype, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize, ulflags) }
 }
 #[cfg(all(feature = "devpropdef", feature = "guiddef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Set_Class_Property_ExW(classguid: super::LPCGUID, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<&[u8]>, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+pub unsafe fn CM_Set_Class_Property_ExW(classguid: super::LPCGUID, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<super::PBYTE>, propertybuffersize: super::ULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
     windows_core::link!("cfgmgr32.dll" "system" fn CM_Set_Class_Property_ExW(classguid : super::LPCGUID, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
-    unsafe { CM_Set_Class_Property_ExW(classguid, propertykey, propertytype, core::mem::transmute(propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap()), ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CM_Set_Class_Property_ExW(classguid, propertykey, propertytype, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 #[inline]
@@ -1582,15 +1582,15 @@ pub unsafe fn CM_Set_DevNode_Problem_Ex(dndevinst: DEVINST, ulproblem: super::UL
 }
 #[cfg(all(feature = "devpropdef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Set_DevNode_PropertyW(dndevinst: DEVINST, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<&[u8]>, ulflags: super::ULONG) -> CONFIGRET {
+pub unsafe fn CM_Set_DevNode_PropertyW(dndevinst: DEVINST, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<super::PBYTE>, propertybuffersize: super::ULONG, ulflags: super::ULONG) -> CONFIGRET {
     windows_core::link!("cfgmgr32.dll" "system" fn CM_Set_DevNode_PropertyW(dndevinst : DEVINST, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::ULONG, ulflags : super::ULONG) -> CONFIGRET);
-    unsafe { CM_Set_DevNode_PropertyW(dndevinst, propertykey, propertytype, core::mem::transmute(propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap()), ulflags) }
+    unsafe { CM_Set_DevNode_PropertyW(dndevinst, propertykey, propertytype, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize, ulflags) }
 }
 #[cfg(all(feature = "devpropdef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Set_DevNode_Property_ExW(dndevinst: DEVINST, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<&[u8]>, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+pub unsafe fn CM_Set_DevNode_Property_ExW(dndevinst: DEVINST, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<super::PBYTE>, propertybuffersize: super::ULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
     windows_core::link!("cfgmgr32.dll" "system" fn CM_Set_DevNode_Property_ExW(dndevinst : DEVINST, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
-    unsafe { CM_Set_DevNode_Property_ExW(dndevinst, propertykey, propertytype, core::mem::transmute(propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap()), ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CM_Set_DevNode_Property_ExW(dndevinst, propertykey, propertytype, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -1618,21 +1618,21 @@ pub unsafe fn CM_Set_DevNode_Registry_Property_ExW(dndevinst: DEVINST, ulpropert
 }
 #[cfg(all(feature = "devpropdef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Set_Device_Interface_PropertyW<P0>(pszdeviceinterface: P0, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<&[u8]>, ulflags: super::ULONG) -> CONFIGRET
+pub unsafe fn CM_Set_Device_Interface_PropertyW<P0>(pszdeviceinterface: P0, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<super::PBYTE>, propertybuffersize: super::ULONG, ulflags: super::ULONG) -> CONFIGRET
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("cfgmgr32.dll" "system" fn CM_Set_Device_Interface_PropertyW(pszdeviceinterface : windows_core::PCWSTR, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::ULONG, ulflags : super::ULONG) -> CONFIGRET);
-    unsafe { CM_Set_Device_Interface_PropertyW(pszdeviceinterface.param().abi(), propertykey, propertytype, core::mem::transmute(propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap()), ulflags) }
+    unsafe { CM_Set_Device_Interface_PropertyW(pszdeviceinterface.param().abi(), propertykey, propertytype, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize, ulflags) }
 }
 #[cfg(all(feature = "devpropdef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Set_Device_Interface_Property_ExW<P0>(pszdeviceinterface: P0, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<&[u8]>, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET
+pub unsafe fn CM_Set_Device_Interface_Property_ExW<P0>(pszdeviceinterface: P0, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<super::PBYTE>, propertybuffersize: super::ULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("cfgmgr32.dll" "system" fn CM_Set_Device_Interface_Property_ExW(pszdeviceinterface : windows_core::PCWSTR, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
-    unsafe { CM_Set_Device_Interface_Property_ExW(pszdeviceinterface.param().abi(), propertykey, propertytype, core::mem::transmute(propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap()), ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CM_Set_Device_Interface_Property_ExW(pszdeviceinterface.param().abi(), propertykey, propertytype, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]

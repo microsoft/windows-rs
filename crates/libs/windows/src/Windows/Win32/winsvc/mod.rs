@@ -382,9 +382,9 @@ pub unsafe fn SetServiceStatus(hservicestatus: SERVICE_STATUS_HANDLE, lpservices
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn StartServiceA(hservice: SC_HANDLE, lpserviceargvectors: Option<&[windows_core::PCSTR]>) -> windows_core::BOOL {
+pub unsafe fn StartServiceA(hservice: SC_HANDLE, dwnumserviceargs: super::DWORD, lpserviceargvectors: Option<*const windows_core::PCSTR>) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn StartServiceA(hservice : SC_HANDLE, dwnumserviceargs : super::DWORD, lpserviceargvectors : *const windows_core::PCSTR) -> windows_core::BOOL);
-    unsafe { StartServiceA(hservice, lpserviceargvectors.map_or(0, |slice| slice.len().try_into().unwrap()), lpserviceargvectors.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
+    unsafe { StartServiceA(hservice, dwnumserviceargs, lpserviceargvectors.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -400,9 +400,9 @@ pub unsafe fn StartServiceCtrlDispatcherW(lpservicestarttable: *const SERVICE_TA
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn StartServiceW(hservice: SC_HANDLE, lpserviceargvectors: Option<&[windows_core::PCWSTR]>) -> windows_core::BOOL {
+pub unsafe fn StartServiceW(hservice: SC_HANDLE, dwnumserviceargs: super::DWORD, lpserviceargvectors: Option<*const windows_core::PCWSTR>) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn StartServiceW(hservice : SC_HANDLE, dwnumserviceargs : super::DWORD, lpserviceargvectors : *const windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { StartServiceW(hservice, lpserviceargvectors.map_or(0, |slice| slice.len().try_into().unwrap()), lpserviceargvectors.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
+    unsafe { StartServiceW(hservice, dwnumserviceargs, lpserviceargvectors.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn UnlockServiceDatabase(sclock: SC_LOCK) -> windows_core::BOOL {

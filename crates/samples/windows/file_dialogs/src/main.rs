@@ -17,7 +17,9 @@ fn main() -> windows_core::Result<()> {
                 pszSpec: w!("*.*"),
             },
         ];
-        dialog.SetFileTypes(&filters).ok()?;
+        dialog
+            .SetFileTypes(filters.len().try_into().unwrap(), filters.as_ptr())
+            .ok()?;
 
         if dialog.Show(None).is_ok() {
             let result = dialog.GetResult()?;

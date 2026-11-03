@@ -263,8 +263,8 @@ impl IMLangCodePages {
         unsafe { (windows_core::Interface::vtable(self).GetCharCodePages)(windows_core::Interface::as_raw(self), chsrc, pdwcodepages as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn GetStrCodePages(&self, pszsrc: &[super::WCHAR], dwprioritycodepages: super::DWORD, pdwcodepages: Option<*mut super::DWORD>, pcchcodepages: Option<*mut i32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetStrCodePages)(windows_core::Interface::as_raw(self), pszsrc.as_ptr(), pszsrc.len().try_into().unwrap(), dwprioritycodepages, pdwcodepages.unwrap_or(core::mem::zeroed()) as _, pcchcodepages.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn GetStrCodePages(&self, pszsrc: *const super::WCHAR, cchsrc: i32, dwprioritycodepages: super::DWORD, pdwcodepages: Option<*mut super::DWORD>, pcchcodepages: Option<*mut i32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetStrCodePages)(windows_core::Interface::as_raw(self), pszsrc, cchsrc, dwprioritycodepages, pdwcodepages.unwrap_or(core::mem::zeroed()) as _, pcchcodepages.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn CodePageToCodePages(&self, ucodepage: super::UINT, pdwcodepages: *mut super::DWORD) -> windows_core::HRESULT {
@@ -721,12 +721,12 @@ impl IMLangLineBreakConsole {
         unsafe { (windows_core::Interface::vtable(self).BreakLineML)(windows_core::Interface::as_raw(self), psrcmlstr.param().abi(), lsrcpos, lsrclen, cmincolumns, cmaxcolumns, pllinelen.unwrap_or(core::mem::zeroed()) as _, plskiplen.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn BreakLineW(&self, locale: super::LCID, pszsrc: &[super::WCHAR], cmaxcolumns: i32, pcchline: Option<*mut i32>, pcchskip: Option<*mut i32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).BreakLineW)(windows_core::Interface::as_raw(self), locale, pszsrc.as_ptr(), pszsrc.len().try_into().unwrap(), cmaxcolumns, pcchline.unwrap_or(core::mem::zeroed()) as _, pcchskip.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn BreakLineW(&self, locale: super::LCID, pszsrc: *const super::WCHAR, cchsrc: i32, cmaxcolumns: i32, pcchline: Option<*mut i32>, pcchskip: Option<*mut i32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).BreakLineW)(windows_core::Interface::as_raw(self), locale, pszsrc, cchsrc, cmaxcolumns, pcchline.unwrap_or(core::mem::zeroed()) as _, pcchskip.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn BreakLineA(&self, locale: super::LCID, ucodepage: super::UINT, pszsrc: &[super::CHAR], cmaxcolumns: i32, pcchline: Option<*mut i32>, pcchskip: Option<*mut i32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).BreakLineA)(windows_core::Interface::as_raw(self), locale, ucodepage, pszsrc.as_ptr(), pszsrc.len().try_into().unwrap(), cmaxcolumns, pcchline.unwrap_or(core::mem::zeroed()) as _, pcchskip.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn BreakLineA(&self, locale: super::LCID, ucodepage: super::UINT, pszsrc: *const super::CHAR, cchsrc: i32, cmaxcolumns: i32, pcchline: Option<*mut i32>, pcchskip: Option<*mut i32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).BreakLineA)(windows_core::Interface::as_raw(self), locale, ucodepage, pszsrc, cchsrc, cmaxcolumns, pcchline.unwrap_or(core::mem::zeroed()) as _, pcchskip.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -876,8 +876,8 @@ impl core::ops::Deref for IMLangStringAStr {
 windows_core::imp::interface_hierarchy!(IMLangStringAStr, windows_core::IUnknown, IMLangString);
 impl IMLangStringAStr {
     #[cfg(feature = "shared")]
-    pub unsafe fn SetAStr(&self, ldestpos: i32, ldestlen: i32, ucodepage: super::UINT, pszsrc: &[u8], pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAStr)(windows_core::Interface::as_raw(self), ldestpos, ldestlen, ucodepage, core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), pcchactual.unwrap_or(core::mem::zeroed()) as _, plactuallen.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn SetAStr(&self, ldestpos: i32, ldestlen: i32, ucodepage: super::UINT, pszsrc: windows_core::PCSTR, cchsrc: i32, pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetAStr)(windows_core::Interface::as_raw(self), ldestpos, ldestlen, ucodepage, pszsrc, cchsrc, pcchactual.unwrap_or(core::mem::zeroed()) as _, plactuallen.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetStrBufA<P3>(&self, ldestpos: i32, ldestlen: i32, ucodepage: super::UINT, psrcbuf: P3, pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::HRESULT
@@ -898,8 +898,8 @@ impl IMLangStringAStr {
     pub unsafe fn LockAStr(&self, lsrcpos: i32, lsrclen: i32, lflags: i32, ucodepagein: super::UINT, cchrequest: i32, pucodepageout: Option<*mut super::UINT>, ppszdest: Option<*mut windows_core::PSTR>, pcchdest: Option<*mut i32>, pldestlen: Option<*mut i32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).LockAStr)(windows_core::Interface::as_raw(self), lsrcpos, lsrclen, lflags, ucodepagein, cchrequest, pucodepageout.unwrap_or(core::mem::zeroed()) as _, ppszdest.unwrap_or(core::mem::zeroed()) as _, pcchdest.unwrap_or(core::mem::zeroed()) as _, pldestlen.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn UnlockAStr(&self, pszsrc: &[u8], pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).UnlockAStr)(windows_core::Interface::as_raw(self), core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), pcchactual.unwrap_or(core::mem::zeroed()) as _, plactuallen.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn UnlockAStr(&self, pszsrc: windows_core::PCSTR, cchsrc: i32, pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UnlockAStr)(windows_core::Interface::as_raw(self), pszsrc, cchsrc, pcchactual.unwrap_or(core::mem::zeroed()) as _, plactuallen.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetLocale(&self, ldestpos: i32, ldestlen: i32, locale: super::LCID) -> windows_core::HRESULT {
@@ -1219,8 +1219,8 @@ impl core::ops::Deref for IMLangStringWStr {
 }
 windows_core::imp::interface_hierarchy!(IMLangStringWStr, windows_core::IUnknown, IMLangString);
 impl IMLangStringWStr {
-    pub unsafe fn SetWStr(&self, ldestpos: i32, ldestlen: i32, pszsrc: &[u16], pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetWStr)(windows_core::Interface::as_raw(self), ldestpos, ldestlen, core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), pcchactual.unwrap_or(core::mem::zeroed()) as _, plactuallen.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn SetWStr(&self, ldestpos: i32, ldestlen: i32, pszsrc: windows_core::PCWSTR, cchsrc: i32, pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetWStr)(windows_core::Interface::as_raw(self), ldestpos, ldestlen, pszsrc, cchsrc, pcchactual.unwrap_or(core::mem::zeroed()) as _, plactuallen.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetStrBufW<P2>(&self, ldestpos: i32, ldestlen: i32, psrcbuf: P2, pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::HRESULT
     where
@@ -1237,8 +1237,8 @@ impl IMLangStringWStr {
     pub unsafe fn LockWStr(&self, lsrcpos: i32, lsrclen: i32, lflags: i32, cchrequest: i32, ppszdest: Option<*mut windows_core::PWSTR>, pcchdest: Option<*mut i32>, pldestlen: Option<*mut i32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).LockWStr)(windows_core::Interface::as_raw(self), lsrcpos, lsrclen, lflags, cchrequest, ppszdest.unwrap_or(core::mem::zeroed()) as _, pcchdest.unwrap_or(core::mem::zeroed()) as _, pldestlen.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn UnlockWStr(&self, pszsrc: &[u16], pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).UnlockWStr)(windows_core::Interface::as_raw(self), core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), pcchactual.unwrap_or(core::mem::zeroed()) as _, plactuallen.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn UnlockWStr(&self, pszsrc: windows_core::PCWSTR, cchsrc: i32, pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UnlockWStr)(windows_core::Interface::as_raw(self), pszsrc, cchsrc, pcchactual.unwrap_or(core::mem::zeroed()) as _, plactuallen.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetLocale(&self, ldestpos: i32, ldestlen: i32, locale: super::LCID) -> windows_core::HRESULT {
@@ -2155,19 +2155,19 @@ impl core::ops::Deref for IMultiLanguage3 {
 windows_core::imp::interface_hierarchy!(IMultiLanguage3, windows_core::IUnknown, IMultiLanguage2);
 impl IMultiLanguage3 {
     #[cfg(feature = "shared")]
-    pub unsafe fn DetectOutboundCodePage<P7>(&self, dwflags: super::DWORD, lpwidecharstr: &[u16], puipreferredcodepages: Option<&[super::UINT]>, puidetectedcodepages: *mut super::UINT, pndetectedcodepages: *mut super::UINT, lpspecialchar: P7) -> windows_core::HRESULT
+    pub unsafe fn DetectOutboundCodePage<P7>(&self, dwflags: super::DWORD, lpwidecharstr: windows_core::PCWSTR, cchwidechar: super::UINT, puipreferredcodepages: Option<*const super::UINT>, npreferredcodepages: super::UINT, puidetectedcodepages: *mut super::UINT, pndetectedcodepages: *mut super::UINT, lpspecialchar: P7) -> windows_core::HRESULT
     where
         P7: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DetectOutboundCodePage)(windows_core::Interface::as_raw(self), dwflags, core::mem::transmute(lpwidecharstr.as_ptr()), lpwidecharstr.len().try_into().unwrap(), puipreferredcodepages.map_or(core::ptr::null(), |slice| slice.as_ptr()), puipreferredcodepages.map_or(0, |slice| slice.len().try_into().unwrap()), puidetectedcodepages as _, pndetectedcodepages as _, lpspecialchar.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).DetectOutboundCodePage)(windows_core::Interface::as_raw(self), dwflags, lpwidecharstr, cchwidechar, puipreferredcodepages.unwrap_or(core::mem::zeroed()) as _, npreferredcodepages, puidetectedcodepages as _, pndetectedcodepages as _, lpspecialchar.param().abi()) }
     }
     #[cfg(all(feature = "objidlbase", feature = "shared"))]
-    pub unsafe fn DetectOutboundCodePageInIStream<P1, P6>(&self, dwflags: super::DWORD, pstrin: P1, puipreferredcodepages: Option<&[super::UINT]>, puidetectedcodepages: *mut super::UINT, pndetectedcodepages: *mut super::UINT, lpspecialchar: P6) -> windows_core::HRESULT
+    pub unsafe fn DetectOutboundCodePageInIStream<P1, P6>(&self, dwflags: super::DWORD, pstrin: P1, puipreferredcodepages: Option<*const super::UINT>, npreferredcodepages: super::UINT, puidetectedcodepages: *mut super::UINT, pndetectedcodepages: *mut super::UINT, lpspecialchar: P6) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::IStream>,
         P6: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DetectOutboundCodePageInIStream)(windows_core::Interface::as_raw(self), dwflags, pstrin.param().abi(), puipreferredcodepages.map_or(core::ptr::null(), |slice| slice.as_ptr()), puipreferredcodepages.map_or(0, |slice| slice.len().try_into().unwrap()), puidetectedcodepages as _, pndetectedcodepages as _, lpspecialchar.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).DetectOutboundCodePageInIStream)(windows_core::Interface::as_raw(self), dwflags, pstrin.param().abi(), puipreferredcodepages.unwrap_or(core::mem::zeroed()) as _, npreferredcodepages, puidetectedcodepages as _, pndetectedcodepages as _, lpspecialchar.param().abi()) }
     }
 }
 #[repr(C)]

@@ -21,12 +21,12 @@ pub unsafe fn CfConvertToPlaceholder(filehandle: super::HANDLE, fileidentity: Op
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn CfCreatePlaceholders<P0>(basedirectorypath: P0, placeholderarray: &mut [CF_PLACEHOLDER_CREATE_INFO], createflags: CF_CREATE_FLAGS, entriesprocessed: Option<super::PDWORD>) -> windows_core::HRESULT
+pub unsafe fn CfCreatePlaceholders<P0>(basedirectorypath: P0, placeholderarray: *mut CF_PLACEHOLDER_CREATE_INFO, placeholdercount: super::DWORD, createflags: CF_CREATE_FLAGS, entriesprocessed: Option<super::PDWORD>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("cldapi.dll" "system" fn CfCreatePlaceholders(basedirectorypath : windows_core::PCWSTR, placeholderarray : *mut CF_PLACEHOLDER_CREATE_INFO, placeholdercount : super::DWORD, createflags : CF_CREATE_FLAGS, entriesprocessed : super::PDWORD) -> windows_core::HRESULT);
-    unsafe { CfCreatePlaceholders(basedirectorypath.param().abi(), placeholderarray.as_mut_ptr(), placeholderarray.len().try_into().unwrap(), createflags, entriesprocessed.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CfCreatePlaceholders(basedirectorypath.param().abi(), placeholderarray as _, placeholdercount, createflags, entriesprocessed.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 #[inline]
@@ -224,9 +224,9 @@ where
 }
 #[cfg(all(feature = "minwinbase", feature = "shared", feature = "winbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn CfUpdatePlaceholder(filehandle: super::HANDLE, fsmetadata: Option<*const CF_FS_METADATA>, fileidentity: Option<super::LPCVOID>, fileidentitylength: super::DWORD, dehydraterangearray: Option<&[CF_FILE_RANGE]>, updateflags: CF_UPDATE_FLAGS, updateusn: Option<*mut super::USN>, overlapped: Option<super::LPOVERLAPPED>) -> windows_core::HRESULT {
+pub unsafe fn CfUpdatePlaceholder(filehandle: super::HANDLE, fsmetadata: Option<*const CF_FS_METADATA>, fileidentity: Option<super::LPCVOID>, fileidentitylength: super::DWORD, dehydraterangearray: Option<*const CF_FILE_RANGE>, dehydraterangecount: super::DWORD, updateflags: CF_UPDATE_FLAGS, updateusn: Option<*mut super::USN>, overlapped: Option<super::LPOVERLAPPED>) -> windows_core::HRESULT {
     windows_core::link!("cldapi.dll" "system" fn CfUpdatePlaceholder(filehandle : super::HANDLE, fsmetadata : *const CF_FS_METADATA, fileidentity : super::LPCVOID, fileidentitylength : super::DWORD, dehydraterangearray : *const CF_FILE_RANGE, dehydraterangecount : super::DWORD, updateflags : CF_UPDATE_FLAGS, updateusn : *mut super::USN, overlapped : super::LPOVERLAPPED) -> windows_core::HRESULT);
-    unsafe { CfUpdatePlaceholder(filehandle, fsmetadata.unwrap_or(core::mem::zeroed()) as _, fileidentity.unwrap_or(core::mem::zeroed()) as _, fileidentitylength, dehydraterangearray.map_or(core::ptr::null(), |slice| slice.as_ptr()), dehydraterangearray.map_or(0, |slice| slice.len().try_into().unwrap()), updateflags, updateusn.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CfUpdatePlaceholder(filehandle, fsmetadata.unwrap_or(core::mem::zeroed()) as _, fileidentity.unwrap_or(core::mem::zeroed()) as _, fileidentitylength, dehydraterangearray.unwrap_or(core::mem::zeroed()) as _, dehydraterangecount, updateflags, updateusn.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]

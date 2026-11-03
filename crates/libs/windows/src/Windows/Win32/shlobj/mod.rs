@@ -73,7 +73,7 @@ where
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "objidl", feature = "oleidl", feature = "shared", feature = "shobjidl_core"))]
 #[inline]
-pub unsafe fn SHOpenPropSheetW<P0, P4, P5, P6>(pszcaption: P0, ahkeys: Option<&[super::HKEY]>, pclsiddefault: Option<*const super::CLSID>, pdtobj: P4, psb: P5, pstartpage: P6) -> windows_core::BOOL
+pub unsafe fn SHOpenPropSheetW<P0, P4, P5, P6>(pszcaption: P0, ahkeys: Option<*const super::HKEY>, ckeys: super::UINT, pclsiddefault: Option<*const super::CLSID>, pdtobj: P4, psb: P5, pstartpage: P6) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<super::IDataObject>,
@@ -81,7 +81,7 @@ where
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shell32.dll" "system" fn SHOpenPropSheetW(pszcaption : windows_core::PCWSTR, ahkeys : *const super::HKEY, ckeys : super::UINT, pclsiddefault : *const super::CLSID, pdtobj : *mut core::ffi::c_void, psb : *mut core::ffi::c_void, pstartpage : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { SHOpenPropSheetW(pszcaption.param().abi(), ahkeys.map_or(core::ptr::null(), |slice| slice.as_ptr()), ahkeys.map_or(0, |slice| slice.len().try_into().unwrap()), pclsiddefault.unwrap_or(core::mem::zeroed()) as _, pdtobj.param().abi(), psb.param().abi(), pstartpage.param().abi()) }
+    unsafe { SHOpenPropSheetW(pszcaption.param().abi(), ahkeys.unwrap_or(core::mem::zeroed()) as _, ckeys, pclsiddefault.unwrap_or(core::mem::zeroed()) as _, pdtobj.param().abi(), psb.param().abi(), pstartpage.param().abi()) }
 }
 #[cfg(all(feature = "shared", feature = "urlmon", feature = "windef"))]
 #[inline]

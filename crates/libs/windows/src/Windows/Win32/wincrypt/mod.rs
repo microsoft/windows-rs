@@ -36,39 +36,39 @@ pub unsafe fn CertAddCertificateLinkToStore(hcertstore: HCERTSTORE, pcertcontext
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CertAddEncodedCRLToStore(hcertstore: Option<HCERTSTORE>, dwcertencodingtype: super::DWORD, pbcrlencoded: &[u8], dwadddisposition: super::DWORD, ppcrlcontext: Option<*mut PCCRL_CONTEXT>) -> windows_core::BOOL {
+pub unsafe fn CertAddEncodedCRLToStore(hcertstore: Option<HCERTSTORE>, dwcertencodingtype: super::DWORD, pbcrlencoded: *const super::BYTE, cbcrlencoded: super::DWORD, dwadddisposition: super::DWORD, ppcrlcontext: Option<*mut PCCRL_CONTEXT>) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CertAddEncodedCRLToStore(hcertstore : HCERTSTORE, dwcertencodingtype : super::DWORD, pbcrlencoded : *const super::BYTE, cbcrlencoded : super::DWORD, dwadddisposition : super::DWORD, ppcrlcontext : *mut PCCRL_CONTEXT) -> windows_core::BOOL);
-    unsafe { CertAddEncodedCRLToStore(hcertstore.unwrap_or(core::mem::zeroed()) as _, dwcertencodingtype, core::mem::transmute(pbcrlencoded.as_ptr()), pbcrlencoded.len().try_into().unwrap(), dwadddisposition, ppcrlcontext.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CertAddEncodedCRLToStore(hcertstore.unwrap_or(core::mem::zeroed()) as _, dwcertencodingtype, pbcrlencoded, cbcrlencoded, dwadddisposition, ppcrlcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CertAddEncodedCTLToStore(hcertstore: Option<HCERTSTORE>, dwmsgandcertencodingtype: super::DWORD, pbctlencoded: &[u8], dwadddisposition: super::DWORD, ppctlcontext: Option<*mut PCCTL_CONTEXT>) -> windows_core::BOOL {
+pub unsafe fn CertAddEncodedCTLToStore(hcertstore: Option<HCERTSTORE>, dwmsgandcertencodingtype: super::DWORD, pbctlencoded: *const super::BYTE, cbctlencoded: super::DWORD, dwadddisposition: super::DWORD, ppctlcontext: Option<*mut PCCTL_CONTEXT>) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CertAddEncodedCTLToStore(hcertstore : HCERTSTORE, dwmsgandcertencodingtype : super::DWORD, pbctlencoded : *const super::BYTE, cbctlencoded : super::DWORD, dwadddisposition : super::DWORD, ppctlcontext : *mut PCCTL_CONTEXT) -> windows_core::BOOL);
-    unsafe { CertAddEncodedCTLToStore(hcertstore.unwrap_or(core::mem::zeroed()) as _, dwmsgandcertencodingtype, core::mem::transmute(pbctlencoded.as_ptr()), pbctlencoded.len().try_into().unwrap(), dwadddisposition, ppctlcontext.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CertAddEncodedCTLToStore(hcertstore.unwrap_or(core::mem::zeroed()) as _, dwmsgandcertencodingtype, pbctlencoded, cbctlencoded, dwadddisposition, ppctlcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CertAddEncodedCertificateToStore(hcertstore: Option<HCERTSTORE>, dwcertencodingtype: super::DWORD, pbcertencoded: &[u8], dwadddisposition: super::DWORD, ppcertcontext: Option<*mut PCCERT_CONTEXT>) -> windows_core::BOOL {
+pub unsafe fn CertAddEncodedCertificateToStore(hcertstore: Option<HCERTSTORE>, dwcertencodingtype: super::DWORD, pbcertencoded: *const super::BYTE, cbcertencoded: super::DWORD, dwadddisposition: super::DWORD, ppcertcontext: Option<*mut PCCERT_CONTEXT>) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CertAddEncodedCertificateToStore(hcertstore : HCERTSTORE, dwcertencodingtype : super::DWORD, pbcertencoded : *const super::BYTE, cbcertencoded : super::DWORD, dwadddisposition : super::DWORD, ppcertcontext : *mut PCCERT_CONTEXT) -> windows_core::BOOL);
-    unsafe { CertAddEncodedCertificateToStore(hcertstore.unwrap_or(core::mem::zeroed()) as _, dwcertencodingtype, core::mem::transmute(pbcertencoded.as_ptr()), pbcertencoded.len().try_into().unwrap(), dwadddisposition, ppcertcontext.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CertAddEncodedCertificateToStore(hcertstore.unwrap_or(core::mem::zeroed()) as _, dwcertencodingtype, pbcertencoded, cbcertencoded, dwadddisposition, ppcertcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CertAddEncodedCertificateToSystemStoreA<P0>(szcertstorename: P0, pbcertencoded: &[u8]) -> windows_core::BOOL
+pub unsafe fn CertAddEncodedCertificateToSystemStoreA<P0>(szcertstorename: P0, pbcertencoded: *const super::BYTE, cbcertencoded: super::DWORD) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("crypt32.dll" "system" fn CertAddEncodedCertificateToSystemStoreA(szcertstorename : windows_core::PCSTR, pbcertencoded : *const super::BYTE, cbcertencoded : super::DWORD) -> windows_core::BOOL);
-    unsafe { CertAddEncodedCertificateToSystemStoreA(szcertstorename.param().abi(), core::mem::transmute(pbcertencoded.as_ptr()), pbcertencoded.len().try_into().unwrap()) }
+    unsafe { CertAddEncodedCertificateToSystemStoreA(szcertstorename.param().abi(), pbcertencoded, cbcertencoded) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CertAddEncodedCertificateToSystemStoreW<P0>(szcertstorename: P0, pbcertencoded: &[u8]) -> windows_core::BOOL
+pub unsafe fn CertAddEncodedCertificateToSystemStoreW<P0>(szcertstorename: P0, pbcertencoded: *const super::BYTE, cbcertencoded: super::DWORD) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("crypt32.dll" "system" fn CertAddEncodedCertificateToSystemStoreW(szcertstorename : windows_core::PCWSTR, pbcertencoded : *const super::BYTE, cbcertencoded : super::DWORD) -> windows_core::BOOL);
-    unsafe { CertAddEncodedCertificateToSystemStoreW(szcertstorename.param().abi(), core::mem::transmute(pbcertencoded.as_ptr()), pbcertencoded.len().try_into().unwrap()) }
+    unsafe { CertAddEncodedCertificateToSystemStoreW(szcertstorename.param().abi(), pbcertencoded, cbcertencoded) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -92,9 +92,9 @@ pub unsafe fn CertAddRefServerOcspResponseContext(pserverocspresponsecontext: Op
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CertAddSerializedElementToStore(hcertstore: Option<HCERTSTORE>, pbelement: &[u8], dwadddisposition: super::DWORD, dwflags: super::DWORD, dwcontexttypeflags: super::DWORD, pdwcontexttype: Option<*mut super::DWORD>, ppvcontext: Option<*mut *const core::ffi::c_void>) -> windows_core::BOOL {
+pub unsafe fn CertAddSerializedElementToStore(hcertstore: Option<HCERTSTORE>, pbelement: *const super::BYTE, cbelement: super::DWORD, dwadddisposition: super::DWORD, dwflags: super::DWORD, dwcontexttypeflags: super::DWORD, pdwcontexttype: Option<*mut super::DWORD>, ppvcontext: Option<*mut *const core::ffi::c_void>) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CertAddSerializedElementToStore(hcertstore : HCERTSTORE, pbelement : *const super::BYTE, cbelement : super::DWORD, dwadddisposition : super::DWORD, dwflags : super::DWORD, dwcontexttypeflags : super::DWORD, pdwcontexttype : *mut super::DWORD, ppvcontext : *mut *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { CertAddSerializedElementToStore(hcertstore.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pbelement.as_ptr()), pbelement.len().try_into().unwrap(), dwadddisposition, dwflags, dwcontexttypeflags, pdwcontexttype.unwrap_or(core::mem::zeroed()) as _, ppvcontext.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CertAddSerializedElementToStore(hcertstore.unwrap_or(core::mem::zeroed()) as _, pbelement, cbelement, dwadddisposition, dwflags, dwcontexttypeflags, pdwcontexttype.unwrap_or(core::mem::zeroed()) as _, ppvcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -152,21 +152,21 @@ pub unsafe fn CertControlStore(hcertstore: HCERTSTORE, dwflags: super::DWORD, dw
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CertCreateCRLContext(dwcertencodingtype: super::DWORD, pbcrlencoded: &[u8]) -> PCCRL_CONTEXT {
+pub unsafe fn CertCreateCRLContext(dwcertencodingtype: super::DWORD, pbcrlencoded: *const super::BYTE, cbcrlencoded: super::DWORD) -> PCCRL_CONTEXT {
     windows_core::link!("crypt32.dll" "system" fn CertCreateCRLContext(dwcertencodingtype : super::DWORD, pbcrlencoded : *const super::BYTE, cbcrlencoded : super::DWORD) -> PCCRL_CONTEXT);
-    unsafe { CertCreateCRLContext(dwcertencodingtype, core::mem::transmute(pbcrlencoded.as_ptr()), pbcrlencoded.len().try_into().unwrap()) }
+    unsafe { CertCreateCRLContext(dwcertencodingtype, pbcrlencoded, cbcrlencoded) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CertCreateCTLContext(dwmsgandcertencodingtype: super::DWORD, pbctlencoded: &[u8]) -> PCCTL_CONTEXT {
+pub unsafe fn CertCreateCTLContext(dwmsgandcertencodingtype: super::DWORD, pbctlencoded: *const super::BYTE, cbctlencoded: super::DWORD) -> PCCTL_CONTEXT {
     windows_core::link!("crypt32.dll" "system" fn CertCreateCTLContext(dwmsgandcertencodingtype : super::DWORD, pbctlencoded : *const super::BYTE, cbctlencoded : super::DWORD) -> PCCTL_CONTEXT);
-    unsafe { CertCreateCTLContext(dwmsgandcertencodingtype, core::mem::transmute(pbctlencoded.as_ptr()), pbctlencoded.len().try_into().unwrap()) }
+    unsafe { CertCreateCTLContext(dwmsgandcertencodingtype, pbctlencoded, cbctlencoded) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CertCreateCTLEntryFromCertificateContextProperties(pcertcontext: PCCERT_CONTEXT, rgoptattr: Option<&[CRYPT_ATTRIBUTE]>, dwflags: super::DWORD, pvreserved: Option<*mut core::ffi::c_void>, pctlentry: Option<PCTL_ENTRY>, pcbctlentry: *mut super::DWORD) -> windows_core::BOOL {
+pub unsafe fn CertCreateCTLEntryFromCertificateContextProperties(pcertcontext: PCCERT_CONTEXT, coptattr: super::DWORD, rgoptattr: Option<PCRYPT_ATTRIBUTE>, dwflags: super::DWORD, pvreserved: Option<*mut core::ffi::c_void>, pctlentry: Option<PCTL_ENTRY>, pcbctlentry: *mut super::DWORD) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CertCreateCTLEntryFromCertificateContextProperties(pcertcontext : PCCERT_CONTEXT, coptattr : super::DWORD, rgoptattr : PCRYPT_ATTRIBUTE, dwflags : super::DWORD, pvreserved : *mut core::ffi::c_void, pctlentry : PCTL_ENTRY, pcbctlentry : *mut super::DWORD) -> windows_core::BOOL);
-    unsafe { CertCreateCTLEntryFromCertificateContextProperties(pcertcontext, rgoptattr.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgoptattr.map_or(core::ptr::null(), |slice| slice.as_ptr())), dwflags, pvreserved.unwrap_or(core::mem::zeroed()) as _, pctlentry.unwrap_or(core::mem::zeroed()) as _, pcbctlentry as _) }
+    unsafe { CertCreateCTLEntryFromCertificateContextProperties(pcertcontext, coptattr, rgoptattr.unwrap_or(core::mem::zeroed()) as _, dwflags, pvreserved.unwrap_or(core::mem::zeroed()) as _, pctlentry.unwrap_or(core::mem::zeroed()) as _, pcbctlentry as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -176,15 +176,15 @@ pub unsafe fn CertCreateCertificateChainEngine(pconfig: PCERT_CHAIN_ENGINE_CONFI
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CertCreateCertificateContext(dwcertencodingtype: super::DWORD, pbcertencoded: &[u8]) -> PCCERT_CONTEXT {
+pub unsafe fn CertCreateCertificateContext(dwcertencodingtype: super::DWORD, pbcertencoded: *const super::BYTE, cbcertencoded: super::DWORD) -> PCCERT_CONTEXT {
     windows_core::link!("crypt32.dll" "system" fn CertCreateCertificateContext(dwcertencodingtype : super::DWORD, pbcertencoded : *const super::BYTE, cbcertencoded : super::DWORD) -> PCCERT_CONTEXT);
-    unsafe { CertCreateCertificateContext(dwcertencodingtype, core::mem::transmute(pbcertencoded.as_ptr()), pbcertencoded.len().try_into().unwrap()) }
+    unsafe { CertCreateCertificateContext(dwcertencodingtype, pbcertencoded, cbcertencoded) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CertCreateContext(dwcontexttype: super::DWORD, dwencodingtype: super::DWORD, pbencoded: &[u8], dwflags: super::DWORD, pcreatepara: Option<PCERT_CREATE_CONTEXT_PARA>) -> *const core::ffi::c_void {
+pub unsafe fn CertCreateContext(dwcontexttype: super::DWORD, dwencodingtype: super::DWORD, pbencoded: *const super::BYTE, cbencoded: super::DWORD, dwflags: super::DWORD, pcreatepara: Option<PCERT_CREATE_CONTEXT_PARA>) -> *const core::ffi::c_void {
     windows_core::link!("crypt32.dll" "system" fn CertCreateContext(dwcontexttype : super::DWORD, dwencodingtype : super::DWORD, pbencoded : *const super::BYTE, cbencoded : super::DWORD, dwflags : super::DWORD, pcreatepara : PCERT_CREATE_CONTEXT_PARA) -> *const core::ffi::c_void);
-    unsafe { CertCreateContext(dwcontexttype, dwencodingtype, core::mem::transmute(pbencoded.as_ptr()), pbencoded.len().try_into().unwrap(), dwflags, pcreatepara.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CertCreateContext(dwcontexttype, dwencodingtype, pbencoded, cbencoded, dwflags, pcreatepara.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -301,12 +301,12 @@ pub unsafe fn CertEnumSystemStoreLocation(dwflags: super::DWORD, pvarg: Option<*
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CertFindAttribute<P0>(pszobjid: P0, rgattr: &[CRYPT_ATTRIBUTE]) -> PCRYPT_ATTRIBUTE
+pub unsafe fn CertFindAttribute<P0>(pszobjid: P0, cattr: super::DWORD, rgattr: *const CRYPT_ATTRIBUTE) -> PCRYPT_ATTRIBUTE
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("crypt32.dll" "system" fn CertFindAttribute(pszobjid : windows_core::PCSTR, cattr : super::DWORD, rgattr : *const CRYPT_ATTRIBUTE) -> PCRYPT_ATTRIBUTE);
-    unsafe { CertFindAttribute(pszobjid.param().abi(), rgattr.len().try_into().unwrap(), rgattr.as_ptr()) }
+    unsafe { CertFindAttribute(pszobjid.param().abi(), cattr, rgattr) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -340,12 +340,12 @@ pub unsafe fn CertFindChainInStore(hcertstore: HCERTSTORE, dwcertencodingtype: s
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CertFindExtension<P0>(pszobjid: P0, rgextensions: &[CERT_EXTENSION]) -> PCERT_EXTENSION
+pub unsafe fn CertFindExtension<P0>(pszobjid: P0, cextensions: super::DWORD, rgextensions: *const CERT_EXTENSION) -> PCERT_EXTENSION
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("crypt32.dll" "system" fn CertFindExtension(pszobjid : windows_core::PCSTR, cextensions : super::DWORD, rgextensions : *const CERT_EXTENSION) -> PCERT_EXTENSION);
-    unsafe { CertFindExtension(pszobjid.param().abi(), rgextensions.len().try_into().unwrap(), rgextensions.as_ptr()) }
+    unsafe { CertFindExtension(pszobjid.param().abi(), cextensions, rgextensions) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -495,9 +495,9 @@ pub unsafe fn CertGetSubjectCertificateFromStore(hcertstore: HCERTSTORE, dwcerte
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CertGetValidUsages(rghcerts: &[PCCERT_CONTEXT], cnumoids: *mut i32, rghoids: Option<*mut windows_core::PSTR>, pcboids: *mut super::DWORD) -> windows_core::BOOL {
+pub unsafe fn CertGetValidUsages(ccerts: super::DWORD, rghcerts: *const PCCERT_CONTEXT, cnumoids: *mut i32, rghoids: Option<*mut windows_core::PSTR>, pcboids: *mut super::DWORD) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CertGetValidUsages(ccerts : super::DWORD, rghcerts : *const PCCERT_CONTEXT, cnumoids : *mut i32, rghoids : *mut windows_core::PSTR, pcboids : *mut super::DWORD) -> windows_core::BOOL);
-    unsafe { CertGetValidUsages(rghcerts.len().try_into().unwrap(), rghcerts.as_ptr(), cnumoids as _, rghoids.unwrap_or(core::mem::zeroed()) as _, pcboids as _) }
+    unsafe { CertGetValidUsages(ccerts, rghcerts, cnumoids as _, rghoids.unwrap_or(core::mem::zeroed()) as _, pcboids as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -646,9 +646,9 @@ pub unsafe fn CertSaveStore(hcertstore: HCERTSTORE, dwencodingtype: super::DWORD
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CertSelectCertificateChains(pselectioncontext: Option<super::LPCGUID>, dwflags: super::DWORD, pchainparameters: Option<PCCERT_SELECT_CHAIN_PARA>, rgpcriteria: Option<&[CERT_SELECT_CRITERIA]>, hstore: HCERTSTORE, pcselection: super::PDWORD, pprgpselection: *mut *mut PCCERT_CHAIN_CONTEXT) -> windows_core::BOOL {
+pub unsafe fn CertSelectCertificateChains(pselectioncontext: Option<super::LPCGUID>, dwflags: super::DWORD, pchainparameters: Option<PCCERT_SELECT_CHAIN_PARA>, ccriteria: super::DWORD, rgpcriteria: Option<PCCERT_SELECT_CRITERIA>, hstore: HCERTSTORE, pcselection: super::PDWORD, pprgpselection: *mut *mut PCCERT_CHAIN_CONTEXT) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CertSelectCertificateChains(pselectioncontext : super::LPCGUID, dwflags : super::DWORD, pchainparameters : PCCERT_SELECT_CHAIN_PARA, ccriteria : super::DWORD, rgpcriteria : PCCERT_SELECT_CRITERIA, hstore : HCERTSTORE, pcselection : super::PDWORD, pprgpselection : *mut *mut PCCERT_CHAIN_CONTEXT) -> windows_core::BOOL);
-    unsafe { CertSelectCertificateChains(pselectioncontext.unwrap_or(core::mem::zeroed()) as _, dwflags, pchainparameters.unwrap_or(core::mem::zeroed()) as _, rgpcriteria.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpcriteria.map_or(core::ptr::null(), |slice| slice.as_ptr())), hstore, pcselection as _, pprgpselection as _) }
+    unsafe { CertSelectCertificateChains(pselectioncontext.unwrap_or(core::mem::zeroed()) as _, dwflags, pchainparameters.unwrap_or(core::mem::zeroed()) as _, ccriteria, rgpcriteria.unwrap_or(core::mem::zeroed()) as _, hstore, pcselection as _, pprgpselection as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -739,9 +739,9 @@ pub unsafe fn CertUnregisterSystemStore(pvsystemstore: *const core::ffi::c_void,
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CertVerifyCRLRevocation(dwcertencodingtype: super::DWORD, pcertid: PCERT_INFO, rgpcrlinfo: &[PCRL_INFO]) -> windows_core::BOOL {
+pub unsafe fn CertVerifyCRLRevocation(dwcertencodingtype: super::DWORD, pcertid: PCERT_INFO, ccrlinfo: super::DWORD, rgpcrlinfo: *const PCRL_INFO) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CertVerifyCRLRevocation(dwcertencodingtype : super::DWORD, pcertid : PCERT_INFO, ccrlinfo : super::DWORD, rgpcrlinfo : *const PCRL_INFO) -> windows_core::BOOL);
-    unsafe { CertVerifyCRLRevocation(dwcertencodingtype, pcertid, rgpcrlinfo.len().try_into().unwrap(), rgpcrlinfo.as_ptr()) }
+    unsafe { CertVerifyCRLRevocation(dwcertencodingtype, pcertid, ccrlinfo, rgpcrlinfo) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -766,9 +766,9 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CertVerifyRevocation(dwencodingtype: super::DWORD, dwrevtype: super::DWORD, rgpvcontext: &[super::PVOID], dwflags: super::DWORD, prevpara: Option<PCERT_REVOCATION_PARA>, prevstatus: PCERT_REVOCATION_STATUS) -> windows_core::BOOL {
+pub unsafe fn CertVerifyRevocation(dwencodingtype: super::DWORD, dwrevtype: super::DWORD, ccontext: super::DWORD, rgpvcontext: *const super::PVOID, dwflags: super::DWORD, prevpara: Option<PCERT_REVOCATION_PARA>, prevstatus: PCERT_REVOCATION_STATUS) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CertVerifyRevocation(dwencodingtype : super::DWORD, dwrevtype : super::DWORD, ccontext : super::DWORD, rgpvcontext : *const super::PVOID, dwflags : super::DWORD, prevpara : PCERT_REVOCATION_PARA, prevstatus : PCERT_REVOCATION_STATUS) -> windows_core::BOOL);
-    unsafe { CertVerifyRevocation(dwencodingtype, dwrevtype, rgpvcontext.len().try_into().unwrap(), rgpvcontext.as_ptr(), dwflags, prevpara.unwrap_or(core::mem::zeroed()) as _, prevstatus as _) }
+    unsafe { CertVerifyRevocation(dwencodingtype, dwrevtype, ccontext, rgpvcontext, dwflags, prevpara.unwrap_or(core::mem::zeroed()) as _, prevstatus as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -816,15 +816,15 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CryptBinaryToStringA(pbbinary: &[u8], dwflags: super::DWORD, pszstring: Option<windows_core::PSTR>, pcchstring: *mut super::DWORD) -> windows_core::BOOL {
+pub unsafe fn CryptBinaryToStringA(pbbinary: *const super::BYTE, cbbinary: super::DWORD, dwflags: super::DWORD, pszstring: Option<windows_core::PSTR>, pcchstring: *mut super::DWORD) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CryptBinaryToStringA(pbbinary : *const super::BYTE, cbbinary : super::DWORD, dwflags : super::DWORD, pszstring : windows_core::PSTR, pcchstring : *mut super::DWORD) -> windows_core::BOOL);
-    unsafe { CryptBinaryToStringA(core::mem::transmute(pbbinary.as_ptr()), pbbinary.len().try_into().unwrap(), dwflags, pszstring.unwrap_or(core::mem::zeroed()) as _, pcchstring as _) }
+    unsafe { CryptBinaryToStringA(pbbinary, cbbinary, dwflags, pszstring.unwrap_or(core::mem::zeroed()) as _, pcchstring as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CryptBinaryToStringW(pbbinary: &[u8], dwflags: super::DWORD, pszstring: Option<windows_core::PWSTR>, pcchstring: *mut super::DWORD) -> windows_core::BOOL {
+pub unsafe fn CryptBinaryToStringW(pbbinary: *const super::BYTE, cbbinary: super::DWORD, dwflags: super::DWORD, pszstring: Option<windows_core::PWSTR>, pcchstring: *mut super::DWORD) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CryptBinaryToStringW(pbbinary : *const super::BYTE, cbbinary : super::DWORD, dwflags : super::DWORD, pszstring : windows_core::PWSTR, pcchstring : *mut super::DWORD) -> windows_core::BOOL);
-    unsafe { CryptBinaryToStringW(core::mem::transmute(pbbinary.as_ptr()), pbbinary.len().try_into().unwrap(), dwflags, pszstring.unwrap_or(core::mem::zeroed()) as _, pcchstring as _) }
+    unsafe { CryptBinaryToStringW(pbbinary, cbbinary, dwflags, pszstring.unwrap_or(core::mem::zeroed()) as _, pcchstring as _) }
 }
 #[inline]
 pub unsafe fn CryptCloseAsyncHandle(hasync: Option<HCRYPTASYNC>) -> windows_core::BOOL {
@@ -860,43 +860,27 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CryptDecodeMessage(dwmsgtypeflags: super::DWORD, pdecryptpara: Option<PCRYPT_DECRYPT_MESSAGE_PARA>, pverifypara: Option<PCRYPT_VERIFY_MESSAGE_PARA>, dwsignerindex: super::DWORD, pbencodedblob: &[u8], dwprevinnercontenttype: super::DWORD, pdwmsgtype: Option<*mut super::DWORD>, pdwinnercontenttype: Option<*mut super::DWORD>, pbdecoded: Option<*mut super::BYTE>, pcbdecoded: Option<*mut super::DWORD>, ppxchgcert: Option<*mut PCCERT_CONTEXT>, ppsignercert: Option<*mut PCCERT_CONTEXT>) -> windows_core::BOOL {
+pub unsafe fn CryptDecodeMessage(dwmsgtypeflags: super::DWORD, pdecryptpara: Option<PCRYPT_DECRYPT_MESSAGE_PARA>, pverifypara: Option<PCRYPT_VERIFY_MESSAGE_PARA>, dwsignerindex: super::DWORD, pbencodedblob: *const super::BYTE, cbencodedblob: super::DWORD, dwprevinnercontenttype: super::DWORD, pdwmsgtype: Option<*mut super::DWORD>, pdwinnercontenttype: Option<*mut super::DWORD>, pbdecoded: Option<*mut super::BYTE>, pcbdecoded: Option<*mut super::DWORD>, ppxchgcert: Option<*mut PCCERT_CONTEXT>, ppsignercert: Option<*mut PCCERT_CONTEXT>) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CryptDecodeMessage(dwmsgtypeflags : super::DWORD, pdecryptpara : PCRYPT_DECRYPT_MESSAGE_PARA, pverifypara : PCRYPT_VERIFY_MESSAGE_PARA, dwsignerindex : super::DWORD, pbencodedblob : *const super::BYTE, cbencodedblob : super::DWORD, dwprevinnercontenttype : super::DWORD, pdwmsgtype : *mut super::DWORD, pdwinnercontenttype : *mut super::DWORD, pbdecoded : *mut super::BYTE, pcbdecoded : *mut super::DWORD, ppxchgcert : *mut PCCERT_CONTEXT, ppsignercert : *mut PCCERT_CONTEXT) -> windows_core::BOOL);
-    unsafe {
-        CryptDecodeMessage(
-            dwmsgtypeflags,
-            pdecryptpara.unwrap_or(core::mem::zeroed()) as _,
-            pverifypara.unwrap_or(core::mem::zeroed()) as _,
-            dwsignerindex,
-            core::mem::transmute(pbencodedblob.as_ptr()),
-            pbencodedblob.len().try_into().unwrap(),
-            dwprevinnercontenttype,
-            pdwmsgtype.unwrap_or(core::mem::zeroed()) as _,
-            pdwinnercontenttype.unwrap_or(core::mem::zeroed()) as _,
-            pbdecoded.unwrap_or(core::mem::zeroed()) as _,
-            pcbdecoded.unwrap_or(core::mem::zeroed()) as _,
-            ppxchgcert.unwrap_or(core::mem::zeroed()) as _,
-            ppsignercert.unwrap_or(core::mem::zeroed()) as _,
-        )
-    }
+    unsafe { CryptDecodeMessage(dwmsgtypeflags, pdecryptpara.unwrap_or(core::mem::zeroed()) as _, pverifypara.unwrap_or(core::mem::zeroed()) as _, dwsignerindex, pbencodedblob, cbencodedblob, dwprevinnercontenttype, pdwmsgtype.unwrap_or(core::mem::zeroed()) as _, pdwinnercontenttype.unwrap_or(core::mem::zeroed()) as _, pbdecoded.unwrap_or(core::mem::zeroed()) as _, pcbdecoded.unwrap_or(core::mem::zeroed()) as _, ppxchgcert.unwrap_or(core::mem::zeroed()) as _, ppsignercert.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CryptDecodeObject<P1>(dwcertencodingtype: super::DWORD, lpszstructtype: P1, pbencoded: &[u8], dwflags: super::DWORD, pvstructinfo: Option<*mut core::ffi::c_void>, pcbstructinfo: *mut super::DWORD) -> windows_core::BOOL
+pub unsafe fn CryptDecodeObject<P1>(dwcertencodingtype: super::DWORD, lpszstructtype: P1, pbencoded: *const super::BYTE, cbencoded: super::DWORD, dwflags: super::DWORD, pvstructinfo: Option<*mut core::ffi::c_void>, pcbstructinfo: *mut super::DWORD) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("crypt32.dll" "system" fn CryptDecodeObject(dwcertencodingtype : super::DWORD, lpszstructtype : windows_core::PCSTR, pbencoded : *const super::BYTE, cbencoded : super::DWORD, dwflags : super::DWORD, pvstructinfo : *mut core::ffi::c_void, pcbstructinfo : *mut super::DWORD) -> windows_core::BOOL);
-    unsafe { CryptDecodeObject(dwcertencodingtype, lpszstructtype.param().abi(), core::mem::transmute(pbencoded.as_ptr()), pbencoded.len().try_into().unwrap(), dwflags, pvstructinfo.unwrap_or(core::mem::zeroed()) as _, pcbstructinfo as _) }
+    unsafe { CryptDecodeObject(dwcertencodingtype, lpszstructtype.param().abi(), pbencoded, cbencoded, dwflags, pvstructinfo.unwrap_or(core::mem::zeroed()) as _, pcbstructinfo as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CryptDecodeObjectEx<P1>(dwcertencodingtype: super::DWORD, lpszstructtype: P1, pbencoded: &[u8], dwflags: super::DWORD, pdecodepara: Option<PCRYPT_DECODE_PARA>, pvstructinfo: Option<*mut core::ffi::c_void>, pcbstructinfo: *mut super::DWORD) -> windows_core::BOOL
+pub unsafe fn CryptDecodeObjectEx<P1>(dwcertencodingtype: super::DWORD, lpszstructtype: P1, pbencoded: *const super::BYTE, cbencoded: super::DWORD, dwflags: super::DWORD, pdecodepara: Option<PCRYPT_DECODE_PARA>, pvstructinfo: Option<*mut core::ffi::c_void>, pcbstructinfo: *mut super::DWORD) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("crypt32.dll" "system" fn CryptDecodeObjectEx(dwcertencodingtype : super::DWORD, lpszstructtype : windows_core::PCSTR, pbencoded : *const super::BYTE, cbencoded : super::DWORD, dwflags : super::DWORD, pdecodepara : PCRYPT_DECODE_PARA, pvstructinfo : *mut core::ffi::c_void, pcbstructinfo : *mut super::DWORD) -> windows_core::BOOL);
-    unsafe { CryptDecodeObjectEx(dwcertencodingtype, lpszstructtype.param().abi(), core::mem::transmute(pbencoded.as_ptr()), pbencoded.len().try_into().unwrap(), dwflags, pdecodepara.unwrap_or(core::mem::zeroed()) as _, pvstructinfo.unwrap_or(core::mem::zeroed()) as _, pcbstructinfo as _) }
+    unsafe { CryptDecodeObjectEx(dwcertencodingtype, lpszstructtype.param().abi(), pbencoded, cbencoded, dwflags, pdecodepara.unwrap_or(core::mem::zeroed()) as _, pvstructinfo.unwrap_or(core::mem::zeroed()) as _, pcbstructinfo as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -906,15 +890,15 @@ pub unsafe fn CryptDecrypt(hkey: HCRYPTKEY, hhash: HCRYPTHASH, r#final: bool, dw
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CryptDecryptAndVerifyMessageSignature(pdecryptpara: PCRYPT_DECRYPT_MESSAGE_PARA, pverifypara: PCRYPT_VERIFY_MESSAGE_PARA, dwsignerindex: super::DWORD, pbencryptedblob: &[u8], pbdecrypted: Option<*mut super::BYTE>, pcbdecrypted: Option<*mut super::DWORD>, ppxchgcert: Option<*mut PCCERT_CONTEXT>, ppsignercert: Option<*mut PCCERT_CONTEXT>) -> windows_core::BOOL {
+pub unsafe fn CryptDecryptAndVerifyMessageSignature(pdecryptpara: PCRYPT_DECRYPT_MESSAGE_PARA, pverifypara: PCRYPT_VERIFY_MESSAGE_PARA, dwsignerindex: super::DWORD, pbencryptedblob: *const super::BYTE, cbencryptedblob: super::DWORD, pbdecrypted: Option<*mut super::BYTE>, pcbdecrypted: Option<*mut super::DWORD>, ppxchgcert: Option<*mut PCCERT_CONTEXT>, ppsignercert: Option<*mut PCCERT_CONTEXT>) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CryptDecryptAndVerifyMessageSignature(pdecryptpara : PCRYPT_DECRYPT_MESSAGE_PARA, pverifypara : PCRYPT_VERIFY_MESSAGE_PARA, dwsignerindex : super::DWORD, pbencryptedblob : *const super::BYTE, cbencryptedblob : super::DWORD, pbdecrypted : *mut super::BYTE, pcbdecrypted : *mut super::DWORD, ppxchgcert : *mut PCCERT_CONTEXT, ppsignercert : *mut PCCERT_CONTEXT) -> windows_core::BOOL);
-    unsafe { CryptDecryptAndVerifyMessageSignature(pdecryptpara, pverifypara, dwsignerindex, core::mem::transmute(pbencryptedblob.as_ptr()), pbencryptedblob.len().try_into().unwrap(), pbdecrypted.unwrap_or(core::mem::zeroed()) as _, pcbdecrypted.unwrap_or(core::mem::zeroed()) as _, ppxchgcert.unwrap_or(core::mem::zeroed()) as _, ppsignercert.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CryptDecryptAndVerifyMessageSignature(pdecryptpara, pverifypara, dwsignerindex, pbencryptedblob, cbencryptedblob, pbdecrypted.unwrap_or(core::mem::zeroed()) as _, pcbdecrypted.unwrap_or(core::mem::zeroed()) as _, ppxchgcert.unwrap_or(core::mem::zeroed()) as _, ppsignercert.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CryptDecryptMessage(pdecryptpara: PCRYPT_DECRYPT_MESSAGE_PARA, pbencryptedblob: &[u8], pbdecrypted: Option<*mut super::BYTE>, pcbdecrypted: Option<*mut super::DWORD>, ppxchgcert: Option<*mut PCCERT_CONTEXT>) -> windows_core::BOOL {
+pub unsafe fn CryptDecryptMessage(pdecryptpara: PCRYPT_DECRYPT_MESSAGE_PARA, pbencryptedblob: *const super::BYTE, cbencryptedblob: super::DWORD, pbdecrypted: Option<*mut super::BYTE>, pcbdecrypted: Option<*mut super::DWORD>, ppxchgcert: Option<*mut PCCERT_CONTEXT>) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CryptDecryptMessage(pdecryptpara : PCRYPT_DECRYPT_MESSAGE_PARA, pbencryptedblob : *const super::BYTE, cbencryptedblob : super::DWORD, pbdecrypted : *mut super::BYTE, pcbdecrypted : *mut super::DWORD, ppxchgcert : *mut PCCERT_CONTEXT) -> windows_core::BOOL);
-    unsafe { CryptDecryptMessage(pdecryptpara, core::mem::transmute(pbencryptedblob.as_ptr()), pbencryptedblob.len().try_into().unwrap(), pbdecrypted.unwrap_or(core::mem::zeroed()) as _, pcbdecrypted.unwrap_or(core::mem::zeroed()) as _, ppxchgcert.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CryptDecryptMessage(pdecryptpara, pbencryptedblob, cbencryptedblob, pbdecrypted.unwrap_or(core::mem::zeroed()) as _, pcbdecrypted.unwrap_or(core::mem::zeroed()) as _, ppxchgcert.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -964,15 +948,15 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CryptEncrypt(hkey: HCRYPTKEY, hhash: HCRYPTHASH, r#final: bool, dwflags: super::DWORD, mut pbdata: Option<&mut [u8]>, pdwdatalen: *mut super::DWORD) -> windows_core::BOOL {
+pub unsafe fn CryptEncrypt(hkey: HCRYPTKEY, hhash: HCRYPTHASH, r#final: bool, dwflags: super::DWORD, pbdata: Option<*mut super::BYTE>, pdwdatalen: *mut super::DWORD, dwbuflen: super::DWORD) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn CryptEncrypt(hkey : HCRYPTKEY, hhash : HCRYPTHASH, r#final : windows_core::BOOL, dwflags : super::DWORD, pbdata : *mut super::BYTE, pdwdatalen : *mut super::DWORD, dwbuflen : super::DWORD) -> windows_core::BOOL);
-    unsafe { CryptEncrypt(hkey, hhash, r#final.into(), dwflags, core::mem::transmute(pbdata.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr())), pdwdatalen as _, pbdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { CryptEncrypt(hkey, hhash, r#final.into(), dwflags, pbdata.unwrap_or(core::mem::zeroed()) as _, pdwdatalen as _, dwbuflen) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CryptEncryptMessage(pencryptpara: PCRYPT_ENCRYPT_MESSAGE_PARA, rgprecipientcert: &[PCCERT_CONTEXT], pbtobeencrypted: Option<&[u8]>, pbencryptedblob: Option<*mut super::BYTE>, pcbencryptedblob: *mut super::DWORD) -> windows_core::BOOL {
+pub unsafe fn CryptEncryptMessage(pencryptpara: PCRYPT_ENCRYPT_MESSAGE_PARA, crecipientcert: super::DWORD, rgprecipientcert: *const PCCERT_CONTEXT, pbtobeencrypted: Option<*const super::BYTE>, cbtobeencrypted: super::DWORD, pbencryptedblob: Option<*mut super::BYTE>, pcbencryptedblob: *mut super::DWORD) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CryptEncryptMessage(pencryptpara : PCRYPT_ENCRYPT_MESSAGE_PARA, crecipientcert : super::DWORD, rgprecipientcert : *const PCCERT_CONTEXT, pbtobeencrypted : *const super::BYTE, cbtobeencrypted : super::DWORD, pbencryptedblob : *mut super::BYTE, pcbencryptedblob : *mut super::DWORD) -> windows_core::BOOL);
-    unsafe { CryptEncryptMessage(pencryptpara, rgprecipientcert.len().try_into().unwrap(), rgprecipientcert.as_ptr(), core::mem::transmute(pbtobeencrypted.map_or(core::ptr::null(), |slice| slice.as_ptr())), pbtobeencrypted.map_or(0, |slice| slice.len().try_into().unwrap()), pbencryptedblob.unwrap_or(core::mem::zeroed()) as _, pcbencryptedblob as _) }
+    unsafe { CryptEncryptMessage(pencryptpara, crecipientcert, rgprecipientcert, pbtobeencrypted.unwrap_or(core::mem::zeroed()) as _, cbtobeencrypted, pbencryptedblob.unwrap_or(core::mem::zeroed()) as _, pcbencryptedblob as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -1084,12 +1068,12 @@ pub unsafe fn CryptFindOIDInfo(dwkeytype: super::DWORD, pvkey: *const core::ffi:
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CryptFormatObject<P4>(dwcertencodingtype: super::DWORD, dwformattype: super::DWORD, dwformatstrtype: super::DWORD, pformatstruct: Option<*const core::ffi::c_void>, lpszstructtype: P4, pbencoded: &[u8], pbformat: *mut core::ffi::c_void, pcbformat: *mut super::DWORD) -> windows_core::BOOL
+pub unsafe fn CryptFormatObject<P4>(dwcertencodingtype: super::DWORD, dwformattype: super::DWORD, dwformatstrtype: super::DWORD, pformatstruct: Option<*const core::ffi::c_void>, lpszstructtype: P4, pbencoded: *const super::BYTE, cbencoded: super::DWORD, pbformat: *mut core::ffi::c_void, pcbformat: *mut super::DWORD) -> windows_core::BOOL
 where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("crypt32.dll" "system" fn CryptFormatObject(dwcertencodingtype : super::DWORD, dwformattype : super::DWORD, dwformatstrtype : super::DWORD, pformatstruct : *const core::ffi::c_void, lpszstructtype : windows_core::PCSTR, pbencoded : *const super::BYTE, cbencoded : super::DWORD, pbformat : *mut core::ffi::c_void, pcbformat : *mut super::DWORD) -> windows_core::BOOL);
-    unsafe { CryptFormatObject(dwcertencodingtype, dwformattype, dwformatstrtype, pformatstruct.unwrap_or(core::mem::zeroed()) as _, lpszstructtype.param().abi(), core::mem::transmute(pbencoded.as_ptr()), pbencoded.len().try_into().unwrap(), pbformat as _, pcbformat as _) }
+    unsafe { CryptFormatObject(dwcertencodingtype, dwformattype, dwformatstrtype, pformatstruct.unwrap_or(core::mem::zeroed()) as _, lpszstructtype.param().abi(), pbencoded, cbencoded, pbformat as _, pcbformat as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -1105,9 +1089,9 @@ pub unsafe fn CryptGenKey(hprov: HCRYPTPROV, algid: super::ALG_ID, dwflags: supe
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CryptGenRandom(hprov: HCRYPTPROV, pbbuffer: &mut [u8]) -> windows_core::BOOL {
+pub unsafe fn CryptGenRandom(hprov: HCRYPTPROV, dwlen: super::DWORD, pbbuffer: *mut super::BYTE) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn CryptGenRandom(hprov : HCRYPTPROV, dwlen : super::DWORD, pbbuffer : *mut super::BYTE) -> windows_core::BOOL);
-    unsafe { CryptGenRandom(hprov, pbbuffer.len().try_into().unwrap(), core::mem::transmute(pbbuffer.as_mut_ptr())) }
+    unsafe { CryptGenRandom(hprov, dwlen, pbbuffer as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -1168,15 +1152,15 @@ pub unsafe fn CryptGetKeyParam(hkey: HCRYPTKEY, dwparam: super::DWORD, pbdata: O
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CryptGetMessageCertificates(dwmsgandcertencodingtype: super::DWORD, hcryptprov: Option<HCRYPTPROV_LEGACY>, dwflags: super::DWORD, pbsignedblob: &[u8]) -> HCERTSTORE {
+pub unsafe fn CryptGetMessageCertificates(dwmsgandcertencodingtype: super::DWORD, hcryptprov: Option<HCRYPTPROV_LEGACY>, dwflags: super::DWORD, pbsignedblob: *const super::BYTE, cbsignedblob: super::DWORD) -> HCERTSTORE {
     windows_core::link!("crypt32.dll" "system" fn CryptGetMessageCertificates(dwmsgandcertencodingtype : super::DWORD, hcryptprov : HCRYPTPROV_LEGACY, dwflags : super::DWORD, pbsignedblob : *const super::BYTE, cbsignedblob : super::DWORD) -> HCERTSTORE);
-    unsafe { CryptGetMessageCertificates(dwmsgandcertencodingtype, hcryptprov.unwrap_or(core::mem::zeroed()) as _, dwflags, core::mem::transmute(pbsignedblob.as_ptr()), pbsignedblob.len().try_into().unwrap()) }
+    unsafe { CryptGetMessageCertificates(dwmsgandcertencodingtype, hcryptprov.unwrap_or(core::mem::zeroed()) as _, dwflags, pbsignedblob, cbsignedblob) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CryptGetMessageSignerCount(dwmsgencodingtype: super::DWORD, pbsignedblob: &[u8]) -> super::LONG {
+pub unsafe fn CryptGetMessageSignerCount(dwmsgencodingtype: super::DWORD, pbsignedblob: *const super::BYTE, cbsignedblob: super::DWORD) -> super::LONG {
     windows_core::link!("crypt32.dll" "system" fn CryptGetMessageSignerCount(dwmsgencodingtype : super::DWORD, pbsignedblob : *const super::BYTE, cbsignedblob : super::DWORD) -> super::LONG);
-    unsafe { CryptGetMessageSignerCount(dwmsgencodingtype, core::mem::transmute(pbsignedblob.as_ptr()), pbsignedblob.len().try_into().unwrap()) }
+    unsafe { CryptGetMessageSignerCount(dwmsgencodingtype, pbsignedblob, cbsignedblob) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -1221,24 +1205,24 @@ pub unsafe fn CryptGetUserKey(hprov: HCRYPTPROV, dwkeyspec: super::DWORD, phuser
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CryptHashCertificate(hcryptprov: Option<HCRYPTPROV_LEGACY>, algid: super::ALG_ID, dwflags: super::DWORD, pbencoded: &[u8], pbcomputedhash: Option<*mut super::BYTE>, pcbcomputedhash: *mut super::DWORD) -> windows_core::BOOL {
+pub unsafe fn CryptHashCertificate(hcryptprov: Option<HCRYPTPROV_LEGACY>, algid: super::ALG_ID, dwflags: super::DWORD, pbencoded: *const super::BYTE, cbencoded: super::DWORD, pbcomputedhash: Option<*mut super::BYTE>, pcbcomputedhash: *mut super::DWORD) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CryptHashCertificate(hcryptprov : HCRYPTPROV_LEGACY, algid : super::ALG_ID, dwflags : super::DWORD, pbencoded : *const super::BYTE, cbencoded : super::DWORD, pbcomputedhash : *mut super::BYTE, pcbcomputedhash : *mut super::DWORD) -> windows_core::BOOL);
-    unsafe { CryptHashCertificate(hcryptprov.unwrap_or(core::mem::zeroed()) as _, algid, dwflags, core::mem::transmute(pbencoded.as_ptr()), pbencoded.len().try_into().unwrap(), pbcomputedhash.unwrap_or(core::mem::zeroed()) as _, pcbcomputedhash as _) }
+    unsafe { CryptHashCertificate(hcryptprov.unwrap_or(core::mem::zeroed()) as _, algid, dwflags, pbencoded, cbencoded, pbcomputedhash.unwrap_or(core::mem::zeroed()) as _, pcbcomputedhash as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CryptHashCertificate2<P0>(pwszcnghashalgid: P0, dwflags: super::DWORD, pvreserved: Option<*mut core::ffi::c_void>, pbencoded: Option<&[u8]>, pbcomputedhash: Option<*mut super::BYTE>, pcbcomputedhash: *mut super::DWORD) -> windows_core::BOOL
+pub unsafe fn CryptHashCertificate2<P0>(pwszcnghashalgid: P0, dwflags: super::DWORD, pvreserved: Option<*mut core::ffi::c_void>, pbencoded: Option<*const super::BYTE>, cbencoded: super::DWORD, pbcomputedhash: Option<*mut super::BYTE>, pcbcomputedhash: *mut super::DWORD) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("crypt32.dll" "system" fn CryptHashCertificate2(pwszcnghashalgid : windows_core::PCWSTR, dwflags : super::DWORD, pvreserved : *mut core::ffi::c_void, pbencoded : *const super::BYTE, cbencoded : super::DWORD, pbcomputedhash : *mut super::BYTE, pcbcomputedhash : *mut super::DWORD) -> windows_core::BOOL);
-    unsafe { CryptHashCertificate2(pwszcnghashalgid.param().abi(), dwflags, pvreserved.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pbencoded.map_or(core::ptr::null(), |slice| slice.as_ptr())), pbencoded.map_or(0, |slice| slice.len().try_into().unwrap()), pbcomputedhash.unwrap_or(core::mem::zeroed()) as _, pcbcomputedhash as _) }
+    unsafe { CryptHashCertificate2(pwszcnghashalgid.param().abi(), dwflags, pvreserved.unwrap_or(core::mem::zeroed()) as _, pbencoded.unwrap_or(core::mem::zeroed()) as _, cbencoded, pbcomputedhash.unwrap_or(core::mem::zeroed()) as _, pcbcomputedhash as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CryptHashData(hhash: HCRYPTHASH, pbdata: &[u8], dwflags: super::DWORD) -> windows_core::BOOL {
+pub unsafe fn CryptHashData(hhash: HCRYPTHASH, pbdata: *const super::BYTE, dwdatalen: super::DWORD, dwflags: super::DWORD) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn CryptHashData(hhash : HCRYPTHASH, pbdata : *const super::BYTE, dwdatalen : super::DWORD, dwflags : super::DWORD) -> windows_core::BOOL);
-    unsafe { CryptHashData(hhash, core::mem::transmute(pbdata.as_ptr()), pbdata.len().try_into().unwrap(), dwflags) }
+    unsafe { CryptHashData(hhash, pbdata, dwdatalen, dwflags) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -1260,15 +1244,15 @@ pub unsafe fn CryptHashSessionKey(hhash: HCRYPTHASH, hkey: HCRYPTKEY, dwflags: s
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CryptHashToBeSigned(hcryptprov: Option<HCRYPTPROV_LEGACY>, dwcertencodingtype: super::DWORD, pbencoded: &[u8], pbcomputedhash: Option<*mut super::BYTE>, pcbcomputedhash: *mut super::DWORD) -> windows_core::BOOL {
+pub unsafe fn CryptHashToBeSigned(hcryptprov: Option<HCRYPTPROV_LEGACY>, dwcertencodingtype: super::DWORD, pbencoded: *const super::BYTE, cbencoded: super::DWORD, pbcomputedhash: Option<*mut super::BYTE>, pcbcomputedhash: *mut super::DWORD) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CryptHashToBeSigned(hcryptprov : HCRYPTPROV_LEGACY, dwcertencodingtype : super::DWORD, pbencoded : *const super::BYTE, cbencoded : super::DWORD, pbcomputedhash : *mut super::BYTE, pcbcomputedhash : *mut super::DWORD) -> windows_core::BOOL);
-    unsafe { CryptHashToBeSigned(hcryptprov.unwrap_or(core::mem::zeroed()) as _, dwcertencodingtype, core::mem::transmute(pbencoded.as_ptr()), pbencoded.len().try_into().unwrap(), pbcomputedhash.unwrap_or(core::mem::zeroed()) as _, pcbcomputedhash as _) }
+    unsafe { CryptHashToBeSigned(hcryptprov.unwrap_or(core::mem::zeroed()) as _, dwcertencodingtype, pbencoded, cbencoded, pbcomputedhash.unwrap_or(core::mem::zeroed()) as _, pcbcomputedhash as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CryptImportKey(hprov: HCRYPTPROV, pbdata: &[u8], hpubkey: HCRYPTKEY, dwflags: super::DWORD, phkey: *mut HCRYPTKEY) -> windows_core::BOOL {
+pub unsafe fn CryptImportKey(hprov: HCRYPTPROV, pbdata: *const super::BYTE, dwdatalen: super::DWORD, hpubkey: HCRYPTKEY, dwflags: super::DWORD, phkey: *mut HCRYPTKEY) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn CryptImportKey(hprov : HCRYPTPROV, pbdata : *const super::BYTE, dwdatalen : super::DWORD, hpubkey : HCRYPTKEY, dwflags : super::DWORD, phkey : *mut HCRYPTKEY) -> windows_core::BOOL);
-    unsafe { CryptImportKey(hprov, core::mem::transmute(pbdata.as_ptr()), pbdata.len().try_into().unwrap(), hpubkey, dwflags, phkey as _) }
+    unsafe { CryptImportKey(hprov, pbdata, dwdatalen, hpubkey, dwflags, phkey as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -1317,12 +1301,12 @@ pub unsafe fn CryptInstallDefaultContext(hcryptprov: HCRYPTPROV, dwdefaulttype: 
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CryptInstallOIDFunctionAddress<P2>(hmodule: Option<super::HMODULE>, dwencodingtype: super::DWORD, pszfuncname: P2, rgfuncentry: &[CRYPT_OID_FUNC_ENTRY], dwflags: super::DWORD) -> windows_core::BOOL
+pub unsafe fn CryptInstallOIDFunctionAddress<P2>(hmodule: Option<super::HMODULE>, dwencodingtype: super::DWORD, pszfuncname: P2, cfuncentry: super::DWORD, rgfuncentry: *const CRYPT_OID_FUNC_ENTRY, dwflags: super::DWORD) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("crypt32.dll" "system" fn CryptInstallOIDFunctionAddress(hmodule : super::HMODULE, dwencodingtype : super::DWORD, pszfuncname : windows_core::PCSTR, cfuncentry : super::DWORD, rgfuncentry : *const CRYPT_OID_FUNC_ENTRY, dwflags : super::DWORD) -> windows_core::BOOL);
-    unsafe { CryptInstallOIDFunctionAddress(hmodule.unwrap_or(core::mem::zeroed()) as _, dwencodingtype, pszfuncname.param().abi(), rgfuncentry.len().try_into().unwrap(), rgfuncentry.as_ptr(), dwflags) }
+    unsafe { CryptInstallOIDFunctionAddress(hmodule.unwrap_or(core::mem::zeroed()) as _, dwencodingtype, pszfuncname.param().abi(), cfuncentry, rgfuncentry, dwflags) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -1364,15 +1348,15 @@ pub unsafe fn CryptMsgControl(hcryptmsg: HCRYPTMSG, dwflags: super::DWORD, dwctr
 }
 #[cfg(all(feature = "minwindef", feature = "ncrypt", feature = "shared"))]
 #[inline]
-pub unsafe fn CryptMsgCountersign(hcryptmsg: HCRYPTMSG, dwindex: super::DWORD, rgcountersigners: &[CMSG_SIGNER_ENCODE_INFO]) -> windows_core::BOOL {
+pub unsafe fn CryptMsgCountersign(hcryptmsg: HCRYPTMSG, dwindex: super::DWORD, ccountersigners: super::DWORD, rgcountersigners: PCMSG_SIGNER_ENCODE_INFO) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CryptMsgCountersign(hcryptmsg : HCRYPTMSG, dwindex : super::DWORD, ccountersigners : super::DWORD, rgcountersigners : PCMSG_SIGNER_ENCODE_INFO) -> windows_core::BOOL);
-    unsafe { CryptMsgCountersign(hcryptmsg, dwindex, rgcountersigners.len().try_into().unwrap(), core::mem::transmute(rgcountersigners.as_ptr())) }
+    unsafe { CryptMsgCountersign(hcryptmsg, dwindex, ccountersigners, rgcountersigners) }
 }
 #[cfg(all(feature = "minwindef", feature = "ncrypt", feature = "shared"))]
 #[inline]
-pub unsafe fn CryptMsgCountersignEncoded(dwencodingtype: super::DWORD, pbsignerinfo: &[u8], rgcountersigners: &[CMSG_SIGNER_ENCODE_INFO], pbcountersignature: Option<super::PBYTE>, pcbcountersignature: super::PDWORD) -> windows_core::BOOL {
+pub unsafe fn CryptMsgCountersignEncoded(dwencodingtype: super::DWORD, pbsignerinfo: super::PBYTE, cbsignerinfo: super::DWORD, ccountersigners: super::DWORD, rgcountersigners: PCMSG_SIGNER_ENCODE_INFO, pbcountersignature: Option<super::PBYTE>, pcbcountersignature: super::PDWORD) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CryptMsgCountersignEncoded(dwencodingtype : super::DWORD, pbsignerinfo : super::PBYTE, cbsignerinfo : super::DWORD, ccountersigners : super::DWORD, rgcountersigners : PCMSG_SIGNER_ENCODE_INFO, pbcountersignature : super::PBYTE, pcbcountersignature : super::PDWORD) -> windows_core::BOOL);
-    unsafe { CryptMsgCountersignEncoded(dwencodingtype, core::mem::transmute(pbsignerinfo.as_ptr()), pbsignerinfo.len().try_into().unwrap(), rgcountersigners.len().try_into().unwrap(), core::mem::transmute(rgcountersigners.as_ptr()), pbcountersignature.unwrap_or(core::mem::zeroed()) as _, pcbcountersignature as _) }
+    unsafe { CryptMsgCountersignEncoded(dwencodingtype, pbsignerinfo, cbsignerinfo, ccountersigners, rgcountersigners, pbcountersignature.unwrap_or(core::mem::zeroed()) as _, pcbcountersignature as _) }
 }
 #[inline]
 pub unsafe fn CryptMsgDuplicate(hcryptmsg: Option<HCRYPTMSG>) -> HCRYPTMSG {
@@ -1387,9 +1371,9 @@ pub unsafe fn CryptMsgEncodeAndSignCTL(dwmsgencodingtype: super::DWORD, pctlinfo
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CryptMsgGetAndVerifySigner(hcryptmsg: HCRYPTMSG, rghsignerstore: Option<&[HCERTSTORE]>, dwflags: super::DWORD, ppsigner: Option<*mut PCCERT_CONTEXT>, pdwsignerindex: Option<*mut super::DWORD>) -> windows_core::BOOL {
+pub unsafe fn CryptMsgGetAndVerifySigner(hcryptmsg: HCRYPTMSG, csignerstore: super::DWORD, rghsignerstore: Option<*const HCERTSTORE>, dwflags: super::DWORD, ppsigner: Option<*mut PCCERT_CONTEXT>, pdwsignerindex: Option<*mut super::DWORD>) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CryptMsgGetAndVerifySigner(hcryptmsg : HCRYPTMSG, csignerstore : super::DWORD, rghsignerstore : *const HCERTSTORE, dwflags : super::DWORD, ppsigner : *mut PCCERT_CONTEXT, pdwsignerindex : *mut super::DWORD) -> windows_core::BOOL);
-    unsafe { CryptMsgGetAndVerifySigner(hcryptmsg, rghsignerstore.map_or(0, |slice| slice.len().try_into().unwrap()), rghsignerstore.map_or(core::ptr::null(), |slice| slice.as_ptr()), dwflags, ppsigner.unwrap_or(core::mem::zeroed()) as _, pdwsignerindex.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CryptMsgGetAndVerifySigner(hcryptmsg, csignerstore, rghsignerstore.unwrap_or(core::mem::zeroed()) as _, dwflags, ppsigner.unwrap_or(core::mem::zeroed()) as _, pdwsignerindex.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -1414,27 +1398,27 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "ncrypt", feature = "shared"))]
 #[inline]
-pub unsafe fn CryptMsgSignCTL(dwmsgencodingtype: super::DWORD, pbctlcontent: &[u8], psigninfo: PCMSG_SIGNED_ENCODE_INFO, dwflags: super::DWORD, pbencoded: Option<*mut super::BYTE>, pcbencoded: *mut super::DWORD) -> windows_core::BOOL {
+pub unsafe fn CryptMsgSignCTL(dwmsgencodingtype: super::DWORD, pbctlcontent: *const super::BYTE, cbctlcontent: super::DWORD, psigninfo: PCMSG_SIGNED_ENCODE_INFO, dwflags: super::DWORD, pbencoded: Option<*mut super::BYTE>, pcbencoded: *mut super::DWORD) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CryptMsgSignCTL(dwmsgencodingtype : super::DWORD, pbctlcontent : *const super::BYTE, cbctlcontent : super::DWORD, psigninfo : PCMSG_SIGNED_ENCODE_INFO, dwflags : super::DWORD, pbencoded : *mut super::BYTE, pcbencoded : *mut super::DWORD) -> windows_core::BOOL);
-    unsafe { CryptMsgSignCTL(dwmsgencodingtype, core::mem::transmute(pbctlcontent.as_ptr()), pbctlcontent.len().try_into().unwrap(), psigninfo, dwflags, pbencoded.unwrap_or(core::mem::zeroed()) as _, pcbencoded as _) }
+    unsafe { CryptMsgSignCTL(dwmsgencodingtype, pbctlcontent, cbctlcontent, psigninfo, dwflags, pbencoded.unwrap_or(core::mem::zeroed()) as _, pcbencoded as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CryptMsgUpdate(hcryptmsg: HCRYPTMSG, pbdata: Option<&[u8]>, ffinal: bool) -> windows_core::BOOL {
+pub unsafe fn CryptMsgUpdate(hcryptmsg: HCRYPTMSG, pbdata: Option<*const super::BYTE>, cbdata: super::DWORD, ffinal: bool) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CryptMsgUpdate(hcryptmsg : HCRYPTMSG, pbdata : *const super::BYTE, cbdata : super::DWORD, ffinal : windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { CryptMsgUpdate(hcryptmsg, core::mem::transmute(pbdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), pbdata.map_or(0, |slice| slice.len().try_into().unwrap()), ffinal.into()) }
+    unsafe { CryptMsgUpdate(hcryptmsg, pbdata.unwrap_or(core::mem::zeroed()) as _, cbdata, ffinal.into()) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CryptMsgVerifyCountersignatureEncoded(hcryptprov: Option<HCRYPTPROV_LEGACY>, dwencodingtype: super::DWORD, pbsignerinfo: &[u8], pbsignerinfocountersignature: &[u8], pcicountersigner: PCERT_INFO) -> windows_core::BOOL {
+pub unsafe fn CryptMsgVerifyCountersignatureEncoded(hcryptprov: Option<HCRYPTPROV_LEGACY>, dwencodingtype: super::DWORD, pbsignerinfo: super::PBYTE, cbsignerinfo: super::DWORD, pbsignerinfocountersignature: super::PBYTE, cbsignerinfocountersignature: super::DWORD, pcicountersigner: PCERT_INFO) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CryptMsgVerifyCountersignatureEncoded(hcryptprov : HCRYPTPROV_LEGACY, dwencodingtype : super::DWORD, pbsignerinfo : super::PBYTE, cbsignerinfo : super::DWORD, pbsignerinfocountersignature : super::PBYTE, cbsignerinfocountersignature : super::DWORD, pcicountersigner : PCERT_INFO) -> windows_core::BOOL);
-    unsafe { CryptMsgVerifyCountersignatureEncoded(hcryptprov.unwrap_or(core::mem::zeroed()) as _, dwencodingtype, core::mem::transmute(pbsignerinfo.as_ptr()), pbsignerinfo.len().try_into().unwrap(), core::mem::transmute(pbsignerinfocountersignature.as_ptr()), pbsignerinfocountersignature.len().try_into().unwrap(), pcicountersigner) }
+    unsafe { CryptMsgVerifyCountersignatureEncoded(hcryptprov.unwrap_or(core::mem::zeroed()) as _, dwencodingtype, pbsignerinfo, cbsignerinfo, pbsignerinfocountersignature, cbsignerinfocountersignature, pcicountersigner) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CryptMsgVerifyCountersignatureEncodedEx(hcryptprov: Option<HCRYPTPROV_LEGACY>, dwencodingtype: super::DWORD, pbsignerinfo: &[u8], pbsignerinfocountersignature: &[u8], dwsignertype: super::DWORD, pvsigner: *const core::ffi::c_void, dwflags: super::DWORD, pvextra: Option<*mut core::ffi::c_void>) -> windows_core::BOOL {
+pub unsafe fn CryptMsgVerifyCountersignatureEncodedEx(hcryptprov: Option<HCRYPTPROV_LEGACY>, dwencodingtype: super::DWORD, pbsignerinfo: super::PBYTE, cbsignerinfo: super::DWORD, pbsignerinfocountersignature: super::PBYTE, cbsignerinfocountersignature: super::DWORD, dwsignertype: super::DWORD, pvsigner: *const core::ffi::c_void, dwflags: super::DWORD, pvextra: Option<*mut core::ffi::c_void>) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CryptMsgVerifyCountersignatureEncodedEx(hcryptprov : HCRYPTPROV_LEGACY, dwencodingtype : super::DWORD, pbsignerinfo : super::PBYTE, cbsignerinfo : super::DWORD, pbsignerinfocountersignature : super::PBYTE, cbsignerinfocountersignature : super::DWORD, dwsignertype : super::DWORD, pvsigner : *const core::ffi::c_void, dwflags : super::DWORD, pvextra : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { CryptMsgVerifyCountersignatureEncodedEx(hcryptprov.unwrap_or(core::mem::zeroed()) as _, dwencodingtype, core::mem::transmute(pbsignerinfo.as_ptr()), pbsignerinfo.len().try_into().unwrap(), core::mem::transmute(pbsignerinfocountersignature.as_ptr()), pbsignerinfocountersignature.len().try_into().unwrap(), dwsignertype, pvsigner, dwflags, pvextra.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CryptMsgVerifyCountersignatureEncodedEx(hcryptprov.unwrap_or(core::mem::zeroed()) as _, dwencodingtype, pbsignerinfo, cbsignerinfo, pbsignerinfocountersignature, cbsignerinfocountersignature, dwsignertype, pvsigner, dwflags, pvextra.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -1498,13 +1482,13 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CryptRetrieveTimeStamp<P0, P3>(wszurl: P0, dwretrievalflags: super::DWORD, dwtimeout: super::DWORD, pszhashid: P3, ppara: Option<*const CRYPT_TIMESTAMP_PARA>, pbdata: &[u8], pptscontext: *mut PCRYPT_TIMESTAMP_CONTEXT, pptssigner: *mut PCCERT_CONTEXT, phstore: Option<*mut HCERTSTORE>) -> windows_core::BOOL
+pub unsafe fn CryptRetrieveTimeStamp<P0, P3>(wszurl: P0, dwretrievalflags: super::DWORD, dwtimeout: super::DWORD, pszhashid: P3, ppara: Option<*const CRYPT_TIMESTAMP_PARA>, pbdata: *const super::BYTE, cbdata: super::DWORD, pptscontext: *mut PCRYPT_TIMESTAMP_CONTEXT, pptssigner: *mut PCCERT_CONTEXT, phstore: Option<*mut HCERTSTORE>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("crypt32.dll" "system" fn CryptRetrieveTimeStamp(wszurl : windows_core::PCWSTR, dwretrievalflags : super::DWORD, dwtimeout : super::DWORD, pszhashid : windows_core::PCSTR, ppara : *const CRYPT_TIMESTAMP_PARA, pbdata : *const super::BYTE, cbdata : super::DWORD, pptscontext : *mut PCRYPT_TIMESTAMP_CONTEXT, pptssigner : *mut PCCERT_CONTEXT, phstore : *mut HCERTSTORE) -> windows_core::BOOL);
-    unsafe { CryptRetrieveTimeStamp(wszurl.param().abi(), dwretrievalflags, dwtimeout, pszhashid.param().abi(), ppara.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pbdata.as_ptr()), pbdata.len().try_into().unwrap(), pptscontext as _, pptssigner as _, phstore.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CryptRetrieveTimeStamp(wszurl.param().abi(), dwretrievalflags, dwtimeout, pszhashid.param().abi(), ppara.unwrap_or(core::mem::zeroed()) as _, pbdata, cbdata, pptscontext as _, pptssigner as _, phstore.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -1538,14 +1522,14 @@ pub unsafe fn CryptSetKeyParam(hkey: HCRYPTKEY, dwparam: super::DWORD, pbdata: *
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CryptSetOIDFunctionValue<P1, P2, P3>(dwencodingtype: super::DWORD, pszfuncname: P1, pszoid: P2, pwszvaluename: P3, dwvaluetype: super::DWORD, pbvaluedata: Option<&[u8]>) -> windows_core::BOOL
+pub unsafe fn CryptSetOIDFunctionValue<P1, P2, P3>(dwencodingtype: super::DWORD, pszfuncname: P1, pszoid: P2, pwszvaluename: P3, dwvaluetype: super::DWORD, pbvaluedata: Option<*const super::BYTE>, cbvaluedata: super::DWORD) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("crypt32.dll" "system" fn CryptSetOIDFunctionValue(dwencodingtype : super::DWORD, pszfuncname : windows_core::PCSTR, pszoid : windows_core::PCSTR, pwszvaluename : windows_core::PCWSTR, dwvaluetype : super::DWORD, pbvaluedata : *const super::BYTE, cbvaluedata : super::DWORD) -> windows_core::BOOL);
-    unsafe { CryptSetOIDFunctionValue(dwencodingtype, pszfuncname.param().abi(), pszoid.param().abi(), pwszvaluename.param().abi(), dwvaluetype, core::mem::transmute(pbvaluedata.map_or(core::ptr::null(), |slice| slice.as_ptr())), pbvaluedata.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { CryptSetOIDFunctionValue(dwencodingtype, pszfuncname.param().abi(), pszoid.param().abi(), pwszvaluename.param().abi(), dwvaluetype, pbvaluedata.unwrap_or(core::mem::zeroed()) as _, cbvaluedata) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -1600,15 +1584,15 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CryptSignAndEncryptMessage(psignpara: PCRYPT_SIGN_MESSAGE_PARA, pencryptpara: PCRYPT_ENCRYPT_MESSAGE_PARA, rgprecipientcert: &[PCCERT_CONTEXT], pbtobesignedandencrypted: &[u8], pbsignedandencryptedblob: Option<*mut super::BYTE>, pcbsignedandencryptedblob: *mut super::DWORD) -> windows_core::BOOL {
+pub unsafe fn CryptSignAndEncryptMessage(psignpara: PCRYPT_SIGN_MESSAGE_PARA, pencryptpara: PCRYPT_ENCRYPT_MESSAGE_PARA, crecipientcert: super::DWORD, rgprecipientcert: *const PCCERT_CONTEXT, pbtobesignedandencrypted: *const super::BYTE, cbtobesignedandencrypted: super::DWORD, pbsignedandencryptedblob: Option<*mut super::BYTE>, pcbsignedandencryptedblob: *mut super::DWORD) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CryptSignAndEncryptMessage(psignpara : PCRYPT_SIGN_MESSAGE_PARA, pencryptpara : PCRYPT_ENCRYPT_MESSAGE_PARA, crecipientcert : super::DWORD, rgprecipientcert : *const PCCERT_CONTEXT, pbtobesignedandencrypted : *const super::BYTE, cbtobesignedandencrypted : super::DWORD, pbsignedandencryptedblob : *mut super::BYTE, pcbsignedandencryptedblob : *mut super::DWORD) -> windows_core::BOOL);
-    unsafe { CryptSignAndEncryptMessage(psignpara, pencryptpara, rgprecipientcert.len().try_into().unwrap(), rgprecipientcert.as_ptr(), core::mem::transmute(pbtobesignedandencrypted.as_ptr()), pbtobesignedandencrypted.len().try_into().unwrap(), pbsignedandencryptedblob.unwrap_or(core::mem::zeroed()) as _, pcbsignedandencryptedblob as _) }
+    unsafe { CryptSignAndEncryptMessage(psignpara, pencryptpara, crecipientcert, rgprecipientcert, pbtobesignedandencrypted, cbtobesignedandencrypted, pbsignedandencryptedblob.unwrap_or(core::mem::zeroed()) as _, pcbsignedandencryptedblob as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CryptSignCertificate(hcryptprovorncryptkey: Option<HCRYPTPROV_OR_NCRYPT_KEY_HANDLE>, dwkeyspec: Option<super::DWORD>, dwcertencodingtype: super::DWORD, pbencodedtobesigned: &[u8], psignaturealgorithm: PCRYPT_ALGORITHM_IDENTIFIER, pvhashauxinfo: Option<*const core::ffi::c_void>, pbsignature: Option<*mut super::BYTE>, pcbsignature: *mut super::DWORD) -> windows_core::BOOL {
+pub unsafe fn CryptSignCertificate(hcryptprovorncryptkey: Option<HCRYPTPROV_OR_NCRYPT_KEY_HANDLE>, dwkeyspec: Option<super::DWORD>, dwcertencodingtype: super::DWORD, pbencodedtobesigned: *const super::BYTE, cbencodedtobesigned: super::DWORD, psignaturealgorithm: PCRYPT_ALGORITHM_IDENTIFIER, pvhashauxinfo: Option<*const core::ffi::c_void>, pbsignature: Option<*mut super::BYTE>, pcbsignature: *mut super::DWORD) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CryptSignCertificate(hcryptprovorncryptkey : HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwkeyspec : super::DWORD, dwcertencodingtype : super::DWORD, pbencodedtobesigned : *const super::BYTE, cbencodedtobesigned : super::DWORD, psignaturealgorithm : PCRYPT_ALGORITHM_IDENTIFIER, pvhashauxinfo : *const core::ffi::c_void, pbsignature : *mut super::BYTE, pcbsignature : *mut super::DWORD) -> windows_core::BOOL);
-    unsafe { CryptSignCertificate(hcryptprovorncryptkey.unwrap_or(core::mem::zeroed()) as _, dwkeyspec.unwrap_or(core::mem::zeroed()) as _, dwcertencodingtype, core::mem::transmute(pbencodedtobesigned.as_ptr()), pbencodedtobesigned.len().try_into().unwrap(), psignaturealgorithm, pvhashauxinfo.unwrap_or(core::mem::zeroed()) as _, pbsignature.unwrap_or(core::mem::zeroed()) as _, pcbsignature as _) }
+    unsafe { CryptSignCertificate(hcryptprovorncryptkey.unwrap_or(core::mem::zeroed()) as _, dwkeyspec.unwrap_or(core::mem::zeroed()) as _, dwcertencodingtype, pbencodedtobesigned, cbencodedtobesigned, psignaturealgorithm, pvhashauxinfo.unwrap_or(core::mem::zeroed()) as _, pbsignature.unwrap_or(core::mem::zeroed()) as _, pcbsignature as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -1636,9 +1620,9 @@ pub unsafe fn CryptSignMessage(psignpara: PCRYPT_SIGN_MESSAGE_PARA, fdetachedsig
 }
 #[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
-pub unsafe fn CryptSignMessageWithKey(psignpara: PCRYPT_KEY_SIGN_MESSAGE_PARA, pbtobesigned: &[u8], pbsignedblob: Option<*mut super::BYTE>, pcbsignedblob: *mut super::DWORD) -> windows_core::BOOL {
+pub unsafe fn CryptSignMessageWithKey(psignpara: PCRYPT_KEY_SIGN_MESSAGE_PARA, pbtobesigned: *const super::BYTE, cbtobesigned: super::DWORD, pbsignedblob: Option<*mut super::BYTE>, pcbsignedblob: *mut super::DWORD) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CryptSignMessageWithKey(psignpara : PCRYPT_KEY_SIGN_MESSAGE_PARA, pbtobesigned : *const super::BYTE, cbtobesigned : super::DWORD, pbsignedblob : *mut super::BYTE, pcbsignedblob : *mut super::DWORD) -> windows_core::BOOL);
-    unsafe { CryptSignMessageWithKey(psignpara, core::mem::transmute(pbtobesigned.as_ptr()), pbtobesigned.len().try_into().unwrap(), pbsignedblob.unwrap_or(core::mem::zeroed()) as _, pcbsignedblob as _) }
+    unsafe { CryptSignMessageWithKey(psignpara, pbtobesigned, cbtobesigned, pbsignedblob.unwrap_or(core::mem::zeroed()) as _, pcbsignedblob as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -1692,9 +1676,9 @@ pub unsafe fn CryptUnregisterOIDInfo(pinfo: PCCRYPT_OID_INFO) -> windows_core::B
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CryptVerifyCertificateSignature(hcryptprov: Option<HCRYPTPROV_LEGACY>, dwcertencodingtype: super::DWORD, pbencoded: &[u8], ppublickey: PCERT_PUBLIC_KEY_INFO) -> windows_core::BOOL {
+pub unsafe fn CryptVerifyCertificateSignature(hcryptprov: Option<HCRYPTPROV_LEGACY>, dwcertencodingtype: super::DWORD, pbencoded: *const super::BYTE, cbencoded: super::DWORD, ppublickey: PCERT_PUBLIC_KEY_INFO) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CryptVerifyCertificateSignature(hcryptprov : HCRYPTPROV_LEGACY, dwcertencodingtype : super::DWORD, pbencoded : *const super::BYTE, cbencoded : super::DWORD, ppublickey : PCERT_PUBLIC_KEY_INFO) -> windows_core::BOOL);
-    unsafe { CryptVerifyCertificateSignature(hcryptprov.unwrap_or(core::mem::zeroed()) as _, dwcertencodingtype, core::mem::transmute(pbencoded.as_ptr()), pbencoded.len().try_into().unwrap(), ppublickey) }
+    unsafe { CryptVerifyCertificateSignature(hcryptprov.unwrap_or(core::mem::zeroed()) as _, dwcertencodingtype, pbencoded, cbencoded, ppublickey) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -1704,66 +1688,66 @@ pub unsafe fn CryptVerifyCertificateSignatureEx(hcryptprov: Option<HCRYPTPROV_LE
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CryptVerifyDetachedMessageHash(phashpara: PCRYPT_HASH_MESSAGE_PARA, pbdetachedhashblob: &[u8], ctobehashed: super::DWORD, rgpbtobehashed: *const *const super::BYTE, rgcbtobehashed: *const super::DWORD, pbcomputedhash: Option<*mut super::BYTE>, pcbcomputedhash: Option<*mut super::DWORD>) -> windows_core::BOOL {
+pub unsafe fn CryptVerifyDetachedMessageHash(phashpara: PCRYPT_HASH_MESSAGE_PARA, pbdetachedhashblob: *const super::BYTE, cbdetachedhashblob: super::DWORD, ctobehashed: super::DWORD, rgpbtobehashed: *const *const super::BYTE, rgcbtobehashed: *const super::DWORD, pbcomputedhash: Option<*mut super::BYTE>, pcbcomputedhash: Option<*mut super::DWORD>) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CryptVerifyDetachedMessageHash(phashpara : PCRYPT_HASH_MESSAGE_PARA, pbdetachedhashblob : *const super::BYTE, cbdetachedhashblob : super::DWORD, ctobehashed : super::DWORD, rgpbtobehashed : *const *const super::BYTE, rgcbtobehashed : *const super::DWORD, pbcomputedhash : *mut super::BYTE, pcbcomputedhash : *mut super::DWORD) -> windows_core::BOOL);
-    unsafe { CryptVerifyDetachedMessageHash(phashpara, core::mem::transmute(pbdetachedhashblob.as_ptr()), pbdetachedhashblob.len().try_into().unwrap(), ctobehashed, rgpbtobehashed, rgcbtobehashed, pbcomputedhash.unwrap_or(core::mem::zeroed()) as _, pcbcomputedhash.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CryptVerifyDetachedMessageHash(phashpara, pbdetachedhashblob, cbdetachedhashblob, ctobehashed, rgpbtobehashed, rgcbtobehashed, pbcomputedhash.unwrap_or(core::mem::zeroed()) as _, pcbcomputedhash.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CryptVerifyDetachedMessageSignature(pverifypara: PCRYPT_VERIFY_MESSAGE_PARA, dwsignerindex: super::DWORD, pbdetachedsignblob: &[u8], ctobesigned: super::DWORD, rgpbtobesigned: *const *const super::BYTE, rgcbtobesigned: *const super::DWORD, ppsignercert: Option<*mut PCCERT_CONTEXT>) -> windows_core::BOOL {
+pub unsafe fn CryptVerifyDetachedMessageSignature(pverifypara: PCRYPT_VERIFY_MESSAGE_PARA, dwsignerindex: super::DWORD, pbdetachedsignblob: *const super::BYTE, cbdetachedsignblob: super::DWORD, ctobesigned: super::DWORD, rgpbtobesigned: *const *const super::BYTE, rgcbtobesigned: *const super::DWORD, ppsignercert: Option<*mut PCCERT_CONTEXT>) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CryptVerifyDetachedMessageSignature(pverifypara : PCRYPT_VERIFY_MESSAGE_PARA, dwsignerindex : super::DWORD, pbdetachedsignblob : *const super::BYTE, cbdetachedsignblob : super::DWORD, ctobesigned : super::DWORD, rgpbtobesigned : *const *const super::BYTE, rgcbtobesigned : *const super::DWORD, ppsignercert : *mut PCCERT_CONTEXT) -> windows_core::BOOL);
-    unsafe { CryptVerifyDetachedMessageSignature(pverifypara, dwsignerindex, core::mem::transmute(pbdetachedsignblob.as_ptr()), pbdetachedsignblob.len().try_into().unwrap(), ctobesigned, rgpbtobesigned, rgcbtobesigned, ppsignercert.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CryptVerifyDetachedMessageSignature(pverifypara, dwsignerindex, pbdetachedsignblob, cbdetachedsignblob, ctobesigned, rgpbtobesigned, rgcbtobesigned, ppsignercert.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CryptVerifyMessageHash(phashpara: PCRYPT_HASH_MESSAGE_PARA, pbhashedblob: &[u8], pbtobehashed: Option<*mut super::BYTE>, pcbtobehashed: Option<*mut super::DWORD>, pbcomputedhash: Option<*mut super::BYTE>, pcbcomputedhash: Option<*mut super::DWORD>) -> windows_core::BOOL {
+pub unsafe fn CryptVerifyMessageHash(phashpara: PCRYPT_HASH_MESSAGE_PARA, pbhashedblob: *const super::BYTE, cbhashedblob: super::DWORD, pbtobehashed: Option<*mut super::BYTE>, pcbtobehashed: Option<*mut super::DWORD>, pbcomputedhash: Option<*mut super::BYTE>, pcbcomputedhash: Option<*mut super::DWORD>) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CryptVerifyMessageHash(phashpara : PCRYPT_HASH_MESSAGE_PARA, pbhashedblob : *const super::BYTE, cbhashedblob : super::DWORD, pbtobehashed : *mut super::BYTE, pcbtobehashed : *mut super::DWORD, pbcomputedhash : *mut super::BYTE, pcbcomputedhash : *mut super::DWORD) -> windows_core::BOOL);
-    unsafe { CryptVerifyMessageHash(phashpara, core::mem::transmute(pbhashedblob.as_ptr()), pbhashedblob.len().try_into().unwrap(), pbtobehashed.unwrap_or(core::mem::zeroed()) as _, pcbtobehashed.unwrap_or(core::mem::zeroed()) as _, pbcomputedhash.unwrap_or(core::mem::zeroed()) as _, pcbcomputedhash.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CryptVerifyMessageHash(phashpara, pbhashedblob, cbhashedblob, pbtobehashed.unwrap_or(core::mem::zeroed()) as _, pcbtobehashed.unwrap_or(core::mem::zeroed()) as _, pbcomputedhash.unwrap_or(core::mem::zeroed()) as _, pcbcomputedhash.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CryptVerifyMessageSignature(pverifypara: PCRYPT_VERIFY_MESSAGE_PARA, dwsignerindex: super::DWORD, pbsignedblob: &[u8], pbdecoded: Option<*mut super::BYTE>, pcbdecoded: Option<*mut super::DWORD>, ppsignercert: Option<*mut PCCERT_CONTEXT>) -> windows_core::BOOL {
+pub unsafe fn CryptVerifyMessageSignature(pverifypara: PCRYPT_VERIFY_MESSAGE_PARA, dwsignerindex: super::DWORD, pbsignedblob: *const super::BYTE, cbsignedblob: super::DWORD, pbdecoded: Option<*mut super::BYTE>, pcbdecoded: Option<*mut super::DWORD>, ppsignercert: Option<*mut PCCERT_CONTEXT>) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CryptVerifyMessageSignature(pverifypara : PCRYPT_VERIFY_MESSAGE_PARA, dwsignerindex : super::DWORD, pbsignedblob : *const super::BYTE, cbsignedblob : super::DWORD, pbdecoded : *mut super::BYTE, pcbdecoded : *mut super::DWORD, ppsignercert : *mut PCCERT_CONTEXT) -> windows_core::BOOL);
-    unsafe { CryptVerifyMessageSignature(pverifypara, dwsignerindex, core::mem::transmute(pbsignedblob.as_ptr()), pbsignedblob.len().try_into().unwrap(), pbdecoded.unwrap_or(core::mem::zeroed()) as _, pcbdecoded.unwrap_or(core::mem::zeroed()) as _, ppsignercert.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CryptVerifyMessageSignature(pverifypara, dwsignerindex, pbsignedblob, cbsignedblob, pbdecoded.unwrap_or(core::mem::zeroed()) as _, pcbdecoded.unwrap_or(core::mem::zeroed()) as _, ppsignercert.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CryptVerifyMessageSignatureWithKey(pverifypara: PCRYPT_KEY_VERIFY_MESSAGE_PARA, ppublickeyinfo: Option<PCERT_PUBLIC_KEY_INFO>, pbsignedblob: &[u8], pbdecoded: Option<*mut super::BYTE>, pcbdecoded: Option<*mut super::DWORD>) -> windows_core::BOOL {
+pub unsafe fn CryptVerifyMessageSignatureWithKey(pverifypara: PCRYPT_KEY_VERIFY_MESSAGE_PARA, ppublickeyinfo: Option<PCERT_PUBLIC_KEY_INFO>, pbsignedblob: *const super::BYTE, cbsignedblob: super::DWORD, pbdecoded: Option<*mut super::BYTE>, pcbdecoded: Option<*mut super::DWORD>) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CryptVerifyMessageSignatureWithKey(pverifypara : PCRYPT_KEY_VERIFY_MESSAGE_PARA, ppublickeyinfo : PCERT_PUBLIC_KEY_INFO, pbsignedblob : *const super::BYTE, cbsignedblob : super::DWORD, pbdecoded : *mut super::BYTE, pcbdecoded : *mut super::DWORD) -> windows_core::BOOL);
-    unsafe { CryptVerifyMessageSignatureWithKey(pverifypara, ppublickeyinfo.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pbsignedblob.as_ptr()), pbsignedblob.len().try_into().unwrap(), pbdecoded.unwrap_or(core::mem::zeroed()) as _, pcbdecoded.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CryptVerifyMessageSignatureWithKey(pverifypara, ppublickeyinfo.unwrap_or(core::mem::zeroed()) as _, pbsignedblob, cbsignedblob, pbdecoded.unwrap_or(core::mem::zeroed()) as _, pcbdecoded.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CryptVerifySignatureA<P4>(hhash: HCRYPTHASH, pbsignature: &[u8], hpubkey: HCRYPTKEY, szdescription: P4, dwflags: super::DWORD) -> windows_core::BOOL
+pub unsafe fn CryptVerifySignatureA<P4>(hhash: HCRYPTHASH, pbsignature: *const super::BYTE, dwsiglen: super::DWORD, hpubkey: HCRYPTKEY, szdescription: P4, dwflags: super::DWORD) -> windows_core::BOOL
 where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn CryptVerifySignatureA(hhash : HCRYPTHASH, pbsignature : *const super::BYTE, dwsiglen : super::DWORD, hpubkey : HCRYPTKEY, szdescription : windows_core::PCSTR, dwflags : super::DWORD) -> windows_core::BOOL);
-    unsafe { CryptVerifySignatureA(hhash, core::mem::transmute(pbsignature.as_ptr()), pbsignature.len().try_into().unwrap(), hpubkey, szdescription.param().abi(), dwflags) }
+    unsafe { CryptVerifySignatureA(hhash, pbsignature, dwsiglen, hpubkey, szdescription.param().abi(), dwflags) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CryptVerifySignatureW<P4>(hhash: HCRYPTHASH, pbsignature: &[u8], hpubkey: HCRYPTKEY, szdescription: P4, dwflags: super::DWORD) -> windows_core::BOOL
+pub unsafe fn CryptVerifySignatureW<P4>(hhash: HCRYPTHASH, pbsignature: *const super::BYTE, dwsiglen: super::DWORD, hpubkey: HCRYPTKEY, szdescription: P4, dwflags: super::DWORD) -> windows_core::BOOL
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn CryptVerifySignatureW(hhash : HCRYPTHASH, pbsignature : *const super::BYTE, dwsiglen : super::DWORD, hpubkey : HCRYPTKEY, szdescription : windows_core::PCWSTR, dwflags : super::DWORD) -> windows_core::BOOL);
-    unsafe { CryptVerifySignatureW(hhash, core::mem::transmute(pbsignature.as_ptr()), pbsignature.len().try_into().unwrap(), hpubkey, szdescription.param().abi(), dwflags) }
+    unsafe { CryptVerifySignatureW(hhash, pbsignature, dwsiglen, hpubkey, szdescription.param().abi(), dwflags) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CryptVerifyTimeStampSignature(pbtscontentinfo: &[u8], pbdata: Option<&[u8]>, hadditionalstore: Option<HCERTSTORE>, pptscontext: *mut PCRYPT_TIMESTAMP_CONTEXT, pptssigner: *mut PCCERT_CONTEXT, phstore: Option<*mut HCERTSTORE>) -> windows_core::BOOL {
+pub unsafe fn CryptVerifyTimeStampSignature(pbtscontentinfo: *const super::BYTE, cbtscontentinfo: super::DWORD, pbdata: Option<*const super::BYTE>, cbdata: super::DWORD, hadditionalstore: Option<HCERTSTORE>, pptscontext: *mut PCRYPT_TIMESTAMP_CONTEXT, pptssigner: *mut PCCERT_CONTEXT, phstore: Option<*mut HCERTSTORE>) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CryptVerifyTimeStampSignature(pbtscontentinfo : *const super::BYTE, cbtscontentinfo : super::DWORD, pbdata : *const super::BYTE, cbdata : super::DWORD, hadditionalstore : HCERTSTORE, pptscontext : *mut PCRYPT_TIMESTAMP_CONTEXT, pptssigner : *mut PCCERT_CONTEXT, phstore : *mut HCERTSTORE) -> windows_core::BOOL);
-    unsafe { CryptVerifyTimeStampSignature(core::mem::transmute(pbtscontentinfo.as_ptr()), pbtscontentinfo.len().try_into().unwrap(), core::mem::transmute(pbdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), pbdata.map_or(0, |slice| slice.len().try_into().unwrap()), hadditionalstore.unwrap_or(core::mem::zeroed()) as _, pptscontext as _, pptssigner as _, phstore.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CryptVerifyTimeStampSignature(pbtscontentinfo, cbtscontentinfo, pbdata.unwrap_or(core::mem::zeroed()) as _, cbdata, hadditionalstore.unwrap_or(core::mem::zeroed()) as _, pptscontext as _, pptssigner as _, phstore.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn FindCertsByIssuer<P5>(pcertchains: Option<PCERT_CHAIN>, pcbcertchains: *mut super::DWORD, pccertchains: *mut super::DWORD, pbencodedissuername: Option<&[u8]>, pwszpurpose: P5, dwkeyspec: super::DWORD) -> windows_core::HRESULT
+pub unsafe fn FindCertsByIssuer<P5>(pcertchains: Option<PCERT_CHAIN>, pcbcertchains: *mut super::DWORD, pccertchains: *mut super::DWORD, pbencodedissuername: Option<*const super::BYTE>, cbencodedissuername: super::DWORD, pwszpurpose: P5, dwkeyspec: super::DWORD) -> windows_core::HRESULT
 where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wintrust.dll" "system" fn FindCertsByIssuer(pcertchains : PCERT_CHAIN, pcbcertchains : *mut super::DWORD, pccertchains : *mut super::DWORD, pbencodedissuername : *const super::BYTE, cbencodedissuername : super::DWORD, pwszpurpose : windows_core::PCWSTR, dwkeyspec : super::DWORD) -> windows_core::HRESULT);
-    unsafe { FindCertsByIssuer(pcertchains.unwrap_or(core::mem::zeroed()) as _, pcbcertchains as _, pccertchains as _, core::mem::transmute(pbencodedissuername.map_or(core::ptr::null(), |slice| slice.as_ptr())), pbencodedissuername.map_or(0, |slice| slice.len().try_into().unwrap()), pwszpurpose.param().abi(), dwkeyspec) }
+    unsafe { FindCertsByIssuer(pcertchains.unwrap_or(core::mem::zeroed()) as _, pcbcertchains as _, pccertchains as _, pbencodedissuername.unwrap_or(core::mem::zeroed()) as _, cbencodedissuername, pwszpurpose.param().abi(), dwkeyspec) }
 }
 #[cfg(feature = "shared")]
 #[inline]

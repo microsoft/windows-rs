@@ -495,6 +495,7 @@ fn main() -> windows::core::Result<()> {
                 HMODULE::default(),
                 D3D11_CREATE_DEVICE_BGRA_SUPPORT as u32,
                 None,
+                0,
                 D3D11_SDK_VERSION as u32,
                 Some(&mut device),
                 None,
@@ -599,11 +600,15 @@ fn main() -> windows::core::Result<()> {
             let post_transform = device.CreateMatrixTransform3D()?;
             post_transform.SetMatrix(&post_matrix).ok()?;
 
-            let transform = device.CreateTransform3DGroup(&[
+            let transforms = [
                 pre_transform.cast().ok(),
                 rotation.cast().ok(),
                 post_transform.cast().ok(),
-            ])?;
+            ];
+            let transform = device.CreateTransform3DGroup(
+                transforms.as_ptr(),
+                transforms.len().try_into().unwrap(),
+            )?;
 
             visual.SetEffect(&transform).ok()
         }
@@ -638,7 +643,8 @@ fn main() -> windows::core::Result<()> {
             }));
 
             dc.DrawText(
-                &[value as _],
+                &(value as u16),
+                1,
                 format,
                 &D2D_RECT_F {
                     left: 0.0,

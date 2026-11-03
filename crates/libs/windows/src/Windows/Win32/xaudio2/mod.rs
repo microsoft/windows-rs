@@ -690,8 +690,8 @@ impl IXAudio2Voice {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetChannelVolumes(&self, pvolumes: &[f32], operationset: super::UINT32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetChannelVolumes)(windows_core::Interface::as_raw(self), pvolumes.len().try_into().unwrap(), pvolumes.as_ptr(), operationset) }
+    pub unsafe fn SetChannelVolumes(&self, channels: super::UINT32, pvolumes: *const f32, operationset: super::UINT32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetChannelVolumes)(windows_core::Interface::as_raw(self), channels, pvolumes, operationset) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetChannelVolumes(&self, channels: super::UINT32, pvolumes: *mut f32) {

@@ -4857,14 +4857,14 @@ windows_core::imp::define_interface!(IESEventFactory, IESEventFactory_Vtbl, 0x50
 windows_core::imp::interface_hierarchy!(IESEventFactory, windows_core::IUnknown);
 impl IESEventFactory {
     #[cfg(all(feature = "bdaiface", feature = "shared"))]
-    pub unsafe fn CreateESEvent<P0, P6>(&self, pserviceprovider: P0, dweventid: super::DWORD, guideventtype: windows_core::GUID, peventdata: &[super::BYTE], bstrbaseurl: &windows_core::BSTR, pinitcontext: P6) -> windows_core::Result<super::IESEvent>
+    pub unsafe fn CreateESEvent<P0, P6>(&self, pserviceprovider: P0, dweventid: super::DWORD, guideventtype: windows_core::GUID, dweventdatalength: super::DWORD, peventdata: *const super::BYTE, bstrbaseurl: &windows_core::BSTR, pinitcontext: P6) -> windows_core::Result<super::IESEvent>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P6: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateESEvent)(windows_core::Interface::as_raw(self), pserviceprovider.param().abi(), dweventid, guideventtype, peventdata.len().try_into().unwrap(), peventdata.as_ptr(), core::mem::transmute_copy(bstrbaseurl), pinitcontext.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateESEvent)(windows_core::Interface::as_raw(self), pserviceprovider.param().abi(), dweventid, guideventtype, dweventdatalength, peventdata, core::mem::transmute_copy(bstrbaseurl), pinitcontext.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

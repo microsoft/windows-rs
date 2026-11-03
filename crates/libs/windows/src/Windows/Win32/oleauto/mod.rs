@@ -433,9 +433,9 @@ where
 }
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn SysAllocStringLen(strin: Option<&[super::OLECHAR]>) -> windows_core::BSTR {
+pub unsafe fn SysAllocStringLen(strin: Option<*const super::OLECHAR>, ui: super::UINT) -> windows_core::BSTR {
     windows_core::link!("oleaut32.dll" "system" fn SysAllocStringLen(strin : *const super::OLECHAR, ui : super::UINT) -> windows_core::BSTR);
-    unsafe { SysAllocStringLen(strin.map_or(core::ptr::null(), |slice| slice.as_ptr()), strin.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { SysAllocStringLen(strin.unwrap_or(core::mem::zeroed()) as _, ui) }
 }
 #[inline]
 pub unsafe fn SysFreeString(bstrstring: windows_core::BSTR) {
@@ -2073,9 +2073,9 @@ pub unsafe fn VarSub(pvarleft: super::LPVARIANT, pvarright: super::LPVARIANT, pv
 }
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn VarTokenizeFormatString(pstrformat: Option<super::LPOLESTR>, rgbtok: &mut [u8], ifirstday: i32, ifirstweek: i32, lcid: super::LCID, pcbactual: Option<*const i32>) -> windows_core::HRESULT {
+pub unsafe fn VarTokenizeFormatString(pstrformat: Option<super::LPOLESTR>, rgbtok: super::LPBYTE, cbtok: i32, ifirstday: i32, ifirstweek: i32, lcid: super::LCID, pcbactual: Option<*const i32>) -> windows_core::HRESULT {
     windows_core::link!("oleaut32.dll" "system" fn VarTokenizeFormatString(pstrformat : super::LPOLESTR, rgbtok : super::LPBYTE, cbtok : i32, ifirstday : i32, ifirstweek : i32, lcid : super::LCID, pcbactual : *const i32) -> windows_core::HRESULT);
-    unsafe { VarTokenizeFormatString(pstrformat.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(rgbtok.as_mut_ptr()), rgbtok.len().try_into().unwrap(), ifirstday, ifirstweek, lcid, pcbactual.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { VarTokenizeFormatString(pstrformat.unwrap_or(core::mem::zeroed()) as _, rgbtok as _, cbtok, ifirstday, ifirstweek, lcid, pcbactual.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "shared", feature = "wtypes"))]
 #[inline]

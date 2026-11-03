@@ -48,9 +48,9 @@ pub unsafe fn DrawInsert(handparent: super::HWND, hlb: super::HWND, nitem: i32) 
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn DrawShadowText(hdc: super::HDC, psztext: &[u16], prc: *const super::RECT, dwflags: super::DWORD, crtext: super::COLORREF, crshadow: super::COLORREF, ixoffset: i32, iyoffset: i32) -> i32 {
+pub unsafe fn DrawShadowText(hdc: super::HDC, psztext: windows_core::PCWSTR, cch: super::UINT, prc: *const super::RECT, dwflags: super::DWORD, crtext: super::COLORREF, crshadow: super::COLORREF, ixoffset: i32, iyoffset: i32) -> i32 {
     windows_core::link!("comctl32.dll" "system" fn DrawShadowText(hdc : super::HDC, psztext : windows_core::PCWSTR, cch : super::UINT, prc : *const super::RECT, dwflags : super::DWORD, crtext : super::COLORREF, crshadow : super::COLORREF, ixoffset : i32, iyoffset : i32) -> i32);
-    unsafe { DrawShadowText(hdc, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), prc, dwflags, crtext, crshadow, ixoffset, iyoffset) }
+    unsafe { DrawShadowText(hdc, psztext, cch, prc, dwflags, crtext, crshadow, ixoffset, iyoffset) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]

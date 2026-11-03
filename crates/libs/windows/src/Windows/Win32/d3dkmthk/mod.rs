@@ -942,9 +942,9 @@ pub unsafe fn D3DKMTSetVidPnSourceOwner2(param0: *const D3DKMT_SETVIDPNSOURCEOWN
 }
 #[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn D3DKMTShareObjects(hobjects: &[super::D3DKMT_HANDLE], pobjectattributes: super::POBJECT_ATTRIBUTES, dwdesiredaccess: super::DWORD, phsharednthandle: *mut super::HANDLE) -> windows_core::NTSTATUS {
+pub unsafe fn D3DKMTShareObjects(cobjects: super::UINT, hobjects: *const super::D3DKMT_HANDLE, pobjectattributes: super::POBJECT_ATTRIBUTES, dwdesiredaccess: super::DWORD, phsharednthandle: *mut super::HANDLE) -> windows_core::NTSTATUS {
     windows_core::link!("gdi32.dll" "system" fn D3DKMTShareObjects(cobjects : super::UINT, hobjects : *const super::D3DKMT_HANDLE, pobjectattributes : super::POBJECT_ATTRIBUTES, dwdesiredaccess : super::DWORD, phsharednthandle : *mut super::HANDLE) -> windows_core::NTSTATUS);
-    unsafe { D3DKMTShareObjects(hobjects.len().try_into().unwrap(), hobjects.as_ptr(), pobjectattributes, dwdesiredaccess, phsharednthandle as _) }
+    unsafe { D3DKMTShareObjects(cobjects, hobjects, pobjectattributes, dwdesiredaccess, phsharednthandle as _) }
 }
 #[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]

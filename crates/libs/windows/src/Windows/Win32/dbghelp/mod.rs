@@ -345,30 +345,30 @@ pub unsafe fn StackWalkEx(machinetype: super::DWORD, hprocess: super::HANDLE, ht
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SymAddSourceStream<P2>(hprocess: super::HANDLE, base: super::ULONG64, streamfile: P2, buffer: Option<&[u8]>) -> windows_core::BOOL
+pub unsafe fn SymAddSourceStream<P2>(hprocess: super::HANDLE, base: super::ULONG64, streamfile: P2, buffer: Option<super::PBYTE>, size: super::size_t) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("dbghelp.dll" "system" fn SymAddSourceStream(hprocess : super::HANDLE, base : super::ULONG64, streamfile : windows_core::PCSTR, buffer : super::PBYTE, size : super::size_t) -> windows_core::BOOL);
-    unsafe { SymAddSourceStream(hprocess, base, streamfile.param().abi(), core::mem::transmute(buffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { SymAddSourceStream(hprocess, base, streamfile.param().abi(), buffer.unwrap_or(core::mem::zeroed()) as _, size) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SymAddSourceStreamA<P2>(hprocess: super::HANDLE, base: super::ULONG64, streamfile: P2, buffer: Option<&[u8]>) -> windows_core::BOOL
+pub unsafe fn SymAddSourceStreamA<P2>(hprocess: super::HANDLE, base: super::ULONG64, streamfile: P2, buffer: Option<super::PBYTE>, size: super::size_t) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("dbghelp.dll" "system" fn SymAddSourceStreamA(hprocess : super::HANDLE, base : super::ULONG64, streamfile : windows_core::PCSTR, buffer : super::PBYTE, size : super::size_t) -> windows_core::BOOL);
-    unsafe { SymAddSourceStreamA(hprocess, base, streamfile.param().abi(), core::mem::transmute(buffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { SymAddSourceStreamA(hprocess, base, streamfile.param().abi(), buffer.unwrap_or(core::mem::zeroed()) as _, size) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SymAddSourceStreamW<P2>(hprocess: super::HANDLE, base: super::ULONG64, filespec: P2, buffer: Option<&[u8]>) -> windows_core::BOOL
+pub unsafe fn SymAddSourceStreamW<P2>(hprocess: super::HANDLE, base: super::ULONG64, filespec: P2, buffer: Option<super::PBYTE>, size: super::size_t) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("dbghelp.dll" "system" fn SymAddSourceStreamW(hprocess : super::HANDLE, base : super::ULONG64, filespec : windows_core::PCWSTR, buffer : super::PBYTE, size : super::size_t) -> windows_core::BOOL);
-    unsafe { SymAddSourceStreamW(hprocess, base, filespec.param().abi(), core::mem::transmute(buffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { SymAddSourceStreamW(hprocess, base, filespec.param().abi(), buffer.unwrap_or(core::mem::zeroed()) as _, size) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]

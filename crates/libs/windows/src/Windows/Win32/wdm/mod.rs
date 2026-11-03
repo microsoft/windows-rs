@@ -355,9 +355,9 @@ pub unsafe fn RtlCompareUnicodeString(string1: super::PCUNICODE_STRING, string2:
 #[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn RtlCompareUnicodeStrings(string1: &[u16], string2: &[u16], caseinsensitive: super::BOOLEAN) -> super::LONG {
+pub unsafe fn RtlCompareUnicodeStrings(string1: super::PCWCH, string1length: super::SIZE_T, string2: super::PCWCH, string2length: super::SIZE_T, caseinsensitive: super::BOOLEAN) -> super::LONG {
     windows_core::link!("ntdll.dll" "system" fn RtlCompareUnicodeStrings(string1 : super::PCWCH, string1length : super::SIZE_T, string2 : super::PCWCH, string2length : super::SIZE_T, caseinsensitive : super::BOOLEAN) -> super::LONG);
-    unsafe { RtlCompareUnicodeStrings(core::mem::transmute(string1.as_ptr()), string1.len().try_into().unwrap(), core::mem::transmute(string2.as_ptr()), string2.len().try_into().unwrap(), caseinsensitive) }
+    unsafe { RtlCompareUnicodeStrings(string1, string1length, string2, string2length, caseinsensitive) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]

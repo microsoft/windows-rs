@@ -1615,8 +1615,8 @@ impl ISearchLanguageSupport {
         unsafe { (windows_core::Interface::vtable(self).LoadStemmer)(windows_core::Interface::as_raw(self), lcid, &T::IID, &mut result__, plcidused as _).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn IsPrefixNormalized(&self, pwcsquerytoken: &[u16], pwcsdocumenttoken: &[u16], pulprefixlength: *mut super::ULONG) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).IsPrefixNormalized)(windows_core::Interface::as_raw(self), core::mem::transmute(pwcsquerytoken.as_ptr()), pwcsquerytoken.len().try_into().unwrap(), core::mem::transmute(pwcsdocumenttoken.as_ptr()), pwcsdocumenttoken.len().try_into().unwrap(), pulprefixlength as _) }
+    pub unsafe fn IsPrefixNormalized(&self, pwcsquerytoken: windows_core::PCWSTR, cwcquerytoken: super::ULONG, pwcsdocumenttoken: windows_core::PCWSTR, cwcdocumenttoken: super::ULONG, pulprefixlength: *mut super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).IsPrefixNormalized)(windows_core::Interface::as_raw(self), pwcsquerytoken, cwcquerytoken, pwcsdocumenttoken, cwcdocumenttoken, pulprefixlength as _) }
     }
 }
 #[repr(C)]
@@ -2057,8 +2057,8 @@ windows_core::imp::define_interface!(ISearchNotifyInlineSite, ISearchNotifyInlin
 windows_core::imp::interface_hierarchy!(ISearchNotifyInlineSite, windows_core::IUnknown);
 impl ISearchNotifyInlineSite {
     #[cfg(feature = "shared")]
-    pub unsafe fn OnItemIndexedStatusChange(&self, sipstatus: SEARCH_INDEXING_PHASE, rgitemstatusentries: &[SEARCH_ITEM_INDEXING_STATUS]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnItemIndexedStatusChange)(windows_core::Interface::as_raw(self), sipstatus, rgitemstatusentries.len().try_into().unwrap(), rgitemstatusentries.as_ptr()) }
+    pub unsafe fn OnItemIndexedStatusChange(&self, sipstatus: SEARCH_INDEXING_PHASE, dwnumentries: super::DWORD, rgitemstatusentries: *const SEARCH_ITEM_INDEXING_STATUS) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnItemIndexedStatusChange)(windows_core::Interface::as_raw(self), sipstatus, dwnumentries, rgitemstatusentries) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn OnCatalogStatusChange(&self, guidcatalogresetsignature: *const windows_core::GUID, guidcheckpointsignature: *const windows_core::GUID, dwlastcheckpointnumber: super::DWORD) -> windows_core::HRESULT {

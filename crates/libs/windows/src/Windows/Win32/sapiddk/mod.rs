@@ -824,8 +824,8 @@ impl ISpSREngine {
         unsafe { (windows_core::Interface::vtable(self).SetSLMState)(windows_core::Interface::as_raw(self), pvenginegrammar, newstate) }
     }
     #[cfg(all(feature = "sapi", feature = "shared", feature = "winnt"))]
-    pub unsafe fn SetWordSequenceData(&self, pvenginegrammar: *const core::ffi::c_void, ptext: &[super::WCHAR], pinfo: *const super::SPTEXTSELECTIONINFO) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetWordSequenceData)(windows_core::Interface::as_raw(self), pvenginegrammar, ptext.as_ptr(), ptext.len().try_into().unwrap(), pinfo) }
+    pub unsafe fn SetWordSequenceData(&self, pvenginegrammar: *const core::ffi::c_void, ptext: *const super::WCHAR, cchtext: super::ULONG, pinfo: *const super::SPTEXTSELECTIONINFO) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetWordSequenceData)(windows_core::Interface::as_raw(self), pvenginegrammar, ptext, cchtext, pinfo) }
     }
     #[cfg(all(feature = "sapi", feature = "shared"))]
     pub unsafe fn SetTextSelection(&self, pvenginegrammar: *const core::ffi::c_void, pinfo: *const super::SPTEXTSELECTIONINFO) -> windows_core::HRESULT {
@@ -849,8 +849,8 @@ impl ISpSREngine {
         unsafe { (windows_core::Interface::vtable(self).PrivateCall)(windows_core::Interface::as_raw(self), pvenginecontext, pcallframe as _, ulcallframesize) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn SetAdaptationData(&self, pvenginecontext: *const core::ffi::c_void, padaptationdata: &[super::WCHAR]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAdaptationData)(windows_core::Interface::as_raw(self), pvenginecontext, padaptationdata.as_ptr(), padaptationdata.len().try_into().unwrap()) }
+    pub unsafe fn SetAdaptationData(&self, pvenginecontext: *const core::ffi::c_void, padaptationdata: *const super::WCHAR, cch: super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetAdaptationData)(windows_core::Interface::as_raw(self), pvenginecontext, padaptationdata, cch) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn SetPropertyNum(&self, esrc: SPPROPSRC, pvsrcobj: *const core::ffi::c_void, pname: *const super::WCHAR, lvalue: super::LONG) -> windows_core::HRESULT {
@@ -1247,11 +1247,11 @@ impl ISpSREngine2 {
         unsafe { (windows_core::Interface::vtable(self).PrivateCallImmediate)(windows_core::Interface::as_raw(self), pvenginecontext, pincallframe, ulincallframesize, ppvcomemresponse as _, pulresponsesize as _) }
     }
     #[cfg(all(feature = "sapi", feature = "shared", feature = "winnt"))]
-    pub unsafe fn SetAdaptationData2<P3>(&self, pvenginecontext: *const core::ffi::c_void, padaptationdata: &[super::WCHAR], ptopicname: P3, esettings: super::SPADAPTATIONSETTINGS, erelevance: super::SPADAPTATIONRELEVANCE) -> windows_core::HRESULT
+    pub unsafe fn SetAdaptationData2<P3>(&self, pvenginecontext: *const core::ffi::c_void, padaptationdata: *const super::WCHAR, cch: super::ULONG, ptopicname: P3, esettings: super::SPADAPTATIONSETTINGS, erelevance: super::SPADAPTATIONRELEVANCE) -> windows_core::HRESULT
     where
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetAdaptationData2)(windows_core::Interface::as_raw(self), pvenginecontext, padaptationdata.as_ptr(), padaptationdata.len().try_into().unwrap(), ptopicname.param().abi(), esettings, erelevance) }
+        unsafe { (windows_core::Interface::vtable(self).SetAdaptationData2)(windows_core::Interface::as_raw(self), pvenginecontext, padaptationdata, cch, ptopicname.param().abi(), esettings, erelevance) }
     }
     pub unsafe fn SetGrammarPrefix<P1>(&self, pvenginegrammar: *const core::ffi::c_void, pszprefix: P1, fisprefixrequired: bool) -> windows_core::HRESULT
     where

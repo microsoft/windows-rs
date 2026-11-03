@@ -10,12 +10,12 @@ where
 }
 #[cfg(all(feature = "msdrmdefs", feature = "shared"))]
 #[inline]
-pub unsafe fn DRMAcquireIssuanceLicenseTemplate<P5>(hclient: super::DRMHSESSION, uflags: super::UINT, pvreserved: *mut core::ffi::c_void, pwsztemplateids: Option<&[windows_core::PCWSTR]>, wszurl: P5, pvcontext: *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn DRMAcquireIssuanceLicenseTemplate<P5>(hclient: super::DRMHSESSION, uflags: super::UINT, pvreserved: *mut core::ffi::c_void, ctemplates: super::UINT, pwsztemplateids: Option<*const windows_core::PCWSTR>, wszurl: P5, pvcontext: *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("msdrm.dll" "system" fn DRMAcquireIssuanceLicenseTemplate(hclient : super::DRMHSESSION, uflags : super::UINT, pvreserved : *mut core::ffi::c_void, ctemplates : super::UINT, pwsztemplateids : *const windows_core::PCWSTR, wszurl : windows_core::PCWSTR, pvcontext : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DRMAcquireIssuanceLicenseTemplate(hclient, uflags, pvreserved as _, pwsztemplateids.map_or(0, |slice| slice.len().try_into().unwrap()), pwsztemplateids.map_or(core::ptr::null(), |slice| slice.as_ptr()), wszurl.param().abi(), pvcontext as _) }
+    unsafe { DRMAcquireIssuanceLicenseTemplate(hclient, uflags, pvreserved as _, ctemplates, pwsztemplateids.unwrap_or(core::mem::zeroed()) as _, wszurl.param().abi(), pvcontext as _) }
 }
 #[cfg(all(feature = "msdrmdefs", feature = "shared"))]
 #[inline]
@@ -103,9 +103,9 @@ pub unsafe fn DRMCloseSession(hsession: super::DRMHSESSION) -> windows_core::HRE
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DRMConstructCertificateChain(rgwszcertificates: &[windows_core::PCWSTR], pcchain: *mut super::UINT, wszchain: Option<windows_core::PWSTR>) -> windows_core::HRESULT {
+pub unsafe fn DRMConstructCertificateChain(ccertificates: super::UINT, rgwszcertificates: *const windows_core::PCWSTR, pcchain: *mut super::UINT, wszchain: Option<windows_core::PWSTR>) -> windows_core::HRESULT {
     windows_core::link!("msdrm.dll" "system" fn DRMConstructCertificateChain(ccertificates : super::UINT, rgwszcertificates : *const windows_core::PCWSTR, pcchain : *mut super::UINT, wszchain : windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { DRMConstructCertificateChain(rgwszcertificates.len().try_into().unwrap(), rgwszcertificates.as_ptr(), pcchain as _, wszchain.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { DRMConstructCertificateChain(ccertificates, rgwszcertificates, pcchain as _, wszchain.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "msdrmdefs", feature = "shared"))]
 #[inline]
@@ -441,12 +441,12 @@ where
 }
 #[cfg(all(feature = "msdrmdefs", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn DRMGetSignedIssuanceLicenseEx<P5>(henv: super::DRMENVHANDLE, hissuancelicense: super::DRMPUBHANDLE, uflags: super::UINT, pbsymkey: Option<&[u8]>, wszsymkeytype: P5, pvreserved: Option<super::PVOID>, henablingprincipal: super::DRMHANDLE, hboundlicenseclc: super::DRMHANDLE, pfncallback: super::DRMCALLBACK, pvcontext: super::PVOID) -> windows_core::HRESULT
+pub unsafe fn DRMGetSignedIssuanceLicenseEx<P5>(henv: super::DRMENVHANDLE, hissuancelicense: super::DRMPUBHANDLE, uflags: super::UINT, pbsymkey: Option<*const super::BYTE>, cbsymkey: super::UINT, wszsymkeytype: P5, pvreserved: Option<super::PVOID>, henablingprincipal: super::DRMHANDLE, hboundlicenseclc: super::DRMHANDLE, pfncallback: super::DRMCALLBACK, pvcontext: super::PVOID) -> windows_core::HRESULT
 where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("msdrm.dll" "system" fn DRMGetSignedIssuanceLicenseEx(henv : super::DRMENVHANDLE, hissuancelicense : super::DRMPUBHANDLE, uflags : super::UINT, pbsymkey : *const super::BYTE, cbsymkey : super::UINT, wszsymkeytype : windows_core::PCWSTR, pvreserved : super::PVOID, henablingprincipal : super::DRMHANDLE, hboundlicenseclc : super::DRMHANDLE, pfncallback : super::DRMCALLBACK, pvcontext : super::PVOID) -> windows_core::HRESULT);
-    unsafe { DRMGetSignedIssuanceLicenseEx(henv, hissuancelicense, uflags, core::mem::transmute(pbsymkey.map_or(core::ptr::null(), |slice| slice.as_ptr())), pbsymkey.map_or(0, |slice| slice.len().try_into().unwrap()), wszsymkeytype.param().abi(), pvreserved.unwrap_or(core::mem::zeroed()) as _, henablingprincipal, hboundlicenseclc, pfncallback, pvcontext) }
+    unsafe { DRMGetSignedIssuanceLicenseEx(henv, hissuancelicense, uflags, pbsymkey.unwrap_or(core::mem::zeroed()) as _, cbsymkey, wszsymkeytype.param().abi(), pvreserved.unwrap_or(core::mem::zeroed()) as _, henablingprincipal, hboundlicenseclc, pfncallback, pvcontext) }
 }
 #[cfg(all(feature = "minwinbase", feature = "msdrmdefs", feature = "shared"))]
 #[inline]

@@ -759,8 +759,8 @@ impl ICOMLBArguments {
         unsafe { (windows_core::Interface::vtable(self).GetMachineName)(windows_core::Interface::as_raw(self), cchsvr, szservername as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn SetMachineName(&self, szservername: &[super::WCHAR]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetMachineName)(windows_core::Interface::as_raw(self), szservername.len().try_into().unwrap(), szservername.as_ptr()) }
+    pub unsafe fn SetMachineName(&self, cchsvr: super::ULONG, szservername: *const super::WCHAR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetMachineName)(windows_core::Interface::as_raw(self), cchsvr, szservername) }
     }
 }
 #[repr(C)]
@@ -1199,8 +1199,8 @@ impl IComCRMEvents {
         unsafe { (windows_core::Interface::vtable(self).OnCRMCheckpoint)(windows_core::Interface::as_raw(self), pinfo, guidapp) }
     }
     #[cfg(all(feature = "shared", feature = "winnt", feature = "wtypesbase"))]
-    pub unsafe fn OnCRMBegin(&self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: windows_core::GUID, guidactivity: windows_core::GUID, guidtx: windows_core::GUID, szprogidcompensator: &[super::WCHAR; 64], szdescription: &[super::WCHAR; 64]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnCRMBegin)(windows_core::Interface::as_raw(self), pinfo, guidclerkclsid, guidactivity, guidtx, szprogidcompensator.as_ptr(), szdescription.as_ptr()) }
+    pub unsafe fn OnCRMBegin(&self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: windows_core::GUID, guidactivity: windows_core::GUID, guidtx: windows_core::GUID, szprogidcompensator: *const super::WCHAR, szdescription: *const super::WCHAR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnCRMBegin)(windows_core::Interface::as_raw(self), pinfo, guidclerkclsid, guidactivity, guidtx, szprogidcompensator, szdescription) }
     }
     #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub unsafe fn OnCRMPrepare(&self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: windows_core::GUID) -> windows_core::HRESULT {
@@ -2462,12 +2462,12 @@ windows_core::imp::define_interface!(IComQCEvents, IComQCEvents_Vtbl, 0x683130b2
 windows_core::imp::interface_hierarchy!(IComQCEvents, windows_core::IUnknown);
 impl IComQCEvents {
     #[cfg(all(feature = "shared", feature = "winnt", feature = "wtypesbase"))]
-    pub unsafe fn OnQCRecord(&self, pinfo: *const COMSVCSEVENTINFO, objid: super::ULONG64, szqueue: &[super::WCHAR; 60], guidmsgid: *const windows_core::GUID, guidworkflowid: *const windows_core::GUID, msmqhr: windows_core::HRESULT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnQCRecord)(windows_core::Interface::as_raw(self), pinfo, objid, szqueue.as_ptr(), guidmsgid, guidworkflowid, msmqhr) }
+    pub unsafe fn OnQCRecord(&self, pinfo: *const COMSVCSEVENTINFO, objid: super::ULONG64, szqueue: *const super::WCHAR, guidmsgid: *const windows_core::GUID, guidworkflowid: *const windows_core::GUID, msmqhr: windows_core::HRESULT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnQCRecord)(windows_core::Interface::as_raw(self), pinfo, objid, szqueue, guidmsgid, guidworkflowid, msmqhr) }
     }
     #[cfg(all(feature = "shared", feature = "winnt", feature = "wtypesbase"))]
-    pub unsafe fn OnQCQueueOpen(&self, pinfo: *const COMSVCSEVENTINFO, szqueue: &[super::WCHAR; 60], queueid: super::ULONG64, hr: windows_core::HRESULT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnQCQueueOpen)(windows_core::Interface::as_raw(self), pinfo, szqueue.as_ptr(), queueid, hr) }
+    pub unsafe fn OnQCQueueOpen(&self, pinfo: *const COMSVCSEVENTINFO, szqueue: *const super::WCHAR, queueid: super::ULONG64, hr: windows_core::HRESULT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnQCQueueOpen)(windows_core::Interface::as_raw(self), pinfo, szqueue, queueid, hr) }
     }
     #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub unsafe fn OnQCReceive(&self, pinfo: *const COMSVCSEVENTINFO, queueid: super::ULONG64, guidmsgid: *const windows_core::GUID, guidworkflowid: *const windows_core::GUID, hr: windows_core::HRESULT) -> windows_core::HRESULT {
@@ -2704,12 +2704,12 @@ windows_core::imp::define_interface!(IComSecurityEvents, IComSecurityEvents_Vtbl
 windows_core::imp::interface_hierarchy!(IComSecurityEvents, windows_core::IUnknown);
 impl IComSecurityEvents {
     #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-    pub unsafe fn OnAuthenticate(&self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const windows_core::GUID, objectid: super::ULONG64, guidiid: *const windows_core::GUID, imeth: super::ULONG, psidoriginaluser: &[super::BYTE], psidcurrentuser: &[super::BYTE], bcurrentuserinpersonatinginproc: bool) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnAuthenticate)(windows_core::Interface::as_raw(self), pinfo, guidactivity, objectid, guidiid, imeth, psidoriginaluser.len().try_into().unwrap(), psidoriginaluser.as_ptr(), psidcurrentuser.len().try_into().unwrap(), psidcurrentuser.as_ptr(), bcurrentuserinpersonatinginproc.into()) }
+    pub unsafe fn OnAuthenticate(&self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const windows_core::GUID, objectid: super::ULONG64, guidiid: *const windows_core::GUID, imeth: super::ULONG, cbbyteorig: super::ULONG, psidoriginaluser: *const super::BYTE, cbbytecur: super::ULONG, psidcurrentuser: *const super::BYTE, bcurrentuserinpersonatinginproc: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnAuthenticate)(windows_core::Interface::as_raw(self), pinfo, guidactivity, objectid, guidiid, imeth, cbbyteorig, psidoriginaluser, cbbytecur, psidcurrentuser, bcurrentuserinpersonatinginproc.into()) }
     }
     #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-    pub unsafe fn OnAuthenticateFail(&self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const windows_core::GUID, objectid: super::ULONG64, guidiid: *const windows_core::GUID, imeth: super::ULONG, psidoriginaluser: &[super::BYTE], psidcurrentuser: &[super::BYTE], bcurrentuserinpersonatinginproc: bool) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnAuthenticateFail)(windows_core::Interface::as_raw(self), pinfo, guidactivity, objectid, guidiid, imeth, psidoriginaluser.len().try_into().unwrap(), psidoriginaluser.as_ptr(), psidcurrentuser.len().try_into().unwrap(), psidcurrentuser.as_ptr(), bcurrentuserinpersonatinginproc.into()) }
+    pub unsafe fn OnAuthenticateFail(&self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const windows_core::GUID, objectid: super::ULONG64, guidiid: *const windows_core::GUID, imeth: super::ULONG, cbbyteorig: super::ULONG, psidoriginaluser: *const super::BYTE, cbbytecur: super::ULONG, psidcurrentuser: *const super::BYTE, bcurrentuserinpersonatinginproc: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnAuthenticateFail)(windows_core::Interface::as_raw(self), pinfo, guidactivity, objectid, guidiid, imeth, cbbyteorig, psidoriginaluser, cbbytecur, psidcurrentuser, bcurrentuserinpersonatinginproc.into()) }
     }
 }
 #[repr(C)]
@@ -4664,8 +4664,8 @@ impl ICrmLogControl {
         unsafe { (windows_core::Interface::vtable(self).ForceTransactionToAbort)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-    pub unsafe fn WriteLogRecord(&self, rgblob: &[super::BLOB]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).WriteLogRecord)(windows_core::Interface::as_raw(self), rgblob.as_ptr(), rgblob.len().try_into().unwrap()) }
+    pub unsafe fn WriteLogRecord(&self, rgblob: *const super::BLOB, cblob: super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).WriteLogRecord)(windows_core::Interface::as_raw(self), rgblob, cblob) }
     }
 }
 #[repr(C)]

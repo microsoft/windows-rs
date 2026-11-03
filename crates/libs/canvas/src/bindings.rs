@@ -860,15 +860,16 @@ impl ID2D1Factory1 {
     pub(crate) unsafe fn CreateStrokeStyle(
         &self,
         strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES1,
-        dashes: Option<&[FLOAT]>,
+        dashes: Option<*const FLOAT>,
+        dashescount: UINT32,
     ) -> windows_core::Result<ID2D1StrokeStyle1> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateStrokeStyle)(
                 windows_core::Interface::as_raw(self),
                 strokestyleproperties,
-                dashes.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-                dashes.map_or(0, |slice| slice.len().try_into().unwrap()),
+                dashes.unwrap_or(core::mem::zeroed()) as _,
+                dashescount,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -1279,7 +1280,8 @@ impl ID2D1RenderTarget {
     }
     pub(crate) unsafe fn CreateGradientStopCollection(
         &self,
-        gradientstops: &[D2D1_GRADIENT_STOP],
+        gradientstops: *const D2D1_GRADIENT_STOP,
+        gradientstopscount: UINT32,
         colorinterpolationgamma: D2D1_GAMMA,
         extendmode: D2D1_EXTEND_MODE,
     ) -> windows_core::Result<ID2D1GradientStopCollection> {
@@ -1287,8 +1289,8 @@ impl ID2D1RenderTarget {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateGradientStopCollection)(
                 windows_core::Interface::as_raw(self),
-                gradientstops.as_ptr(),
-                gradientstops.len().try_into().unwrap(),
+                gradientstops,
+                gradientstopscount,
                 colorinterpolationgamma,
                 extendmode,
                 &mut result__,
@@ -1497,7 +1499,8 @@ impl ID2D1RenderTarget {
     }
     pub(crate) unsafe fn DrawText<P2, P4>(
         &self,
-        string: &[WCHAR],
+        string: *const WCHAR,
+        stringlength: UINT32,
         textformat: P2,
         layoutrect: *const D2D1_RECT_F,
         defaultfillbrush: P4,
@@ -1510,8 +1513,8 @@ impl ID2D1RenderTarget {
         unsafe {
             (windows_core::Interface::vtable(self).DrawText)(
                 windows_core::Interface::as_raw(self),
-                string.as_ptr(),
-                string.len().try_into().unwrap(),
+                string,
+                stringlength,
                 textformat.param().abi(),
                 layoutrect,
                 defaultfillbrush.param().abi(),
@@ -2142,7 +2145,8 @@ impl IDWriteFactory {
     }
     pub(crate) unsafe fn CreateTextLayout<P2>(
         &self,
-        string: &[WCHAR],
+        string: *const WCHAR,
+        stringlength: UINT32,
         textformat: P2,
         maxwidth: FLOAT,
         maxheight: FLOAT,
@@ -2154,8 +2158,8 @@ impl IDWriteFactory {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateTextLayout)(
                 windows_core::Interface::as_raw(self),
-                string.as_ptr(),
-                string.len().try_into().unwrap(),
+                string,
+                stringlength,
                 textformat.param().abi(),
                 maxwidth,
                 maxheight,

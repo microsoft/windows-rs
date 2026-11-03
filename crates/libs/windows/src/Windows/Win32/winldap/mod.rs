@@ -11,14 +11,14 @@ pub unsafe fn LdapMapErrorToWin32(ldaperror: super::ULONG) -> super::ULONG {
     unsafe { LdapMapErrorToWin32(ldaperror) }
 }
 #[inline]
-pub unsafe fn LdapUTF8ToUnicode(lpsrcstr: &[u8], lpdeststr: windows_core::PWSTR, cchdest: i32) -> i32 {
+pub unsafe fn LdapUTF8ToUnicode(lpsrcstr: windows_core::PCSTR, cchsrc: i32, lpdeststr: windows_core::PWSTR, cchdest: i32) -> i32 {
     windows_core::link!("wldap32.dll" "C" fn LdapUTF8ToUnicode(lpsrcstr : windows_core::PCSTR, cchsrc : i32, lpdeststr : windows_core::PWSTR, cchdest : i32) -> i32);
-    unsafe { LdapUTF8ToUnicode(core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), lpdeststr, cchdest) }
+    unsafe { LdapUTF8ToUnicode(lpsrcstr, cchsrc, lpdeststr, cchdest) }
 }
 #[inline]
-pub unsafe fn LdapUnicodeToUTF8(lpsrcstr: &[u16], lpdeststr: windows_core::PSTR, cchdest: i32) -> i32 {
+pub unsafe fn LdapUnicodeToUTF8(lpsrcstr: windows_core::PCWSTR, cchsrc: i32, lpdeststr: windows_core::PSTR, cchdest: i32) -> i32 {
     windows_core::link!("wldap32.dll" "C" fn LdapUnicodeToUTF8(lpsrcstr : windows_core::PCWSTR, cchsrc : i32, lpdeststr : windows_core::PSTR, cchdest : i32) -> i32);
-    unsafe { LdapUnicodeToUTF8(core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), lpdeststr, cchdest) }
+    unsafe { LdapUnicodeToUTF8(lpsrcstr, cchsrc, lpdeststr, cchdest) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -660,21 +660,21 @@ pub unsafe fn ldap_err2stringW(err: super::ULONG) -> super::PWCHAR {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ldap_escape_filter_element(sourcefilterelement: &[u8], destfilterelement: Option<super::PCHAR>, destlength: super::ULONG) -> super::ULONG {
+pub unsafe fn ldap_escape_filter_element(sourcefilterelement: super::PCHAR, sourcelength: super::ULONG, destfilterelement: Option<super::PCHAR>, destlength: super::ULONG) -> super::ULONG {
     windows_core::link!("wldap32.dll" "C" fn ldap_escape_filter_element(sourcefilterelement : super::PCHAR, sourcelength : super::ULONG, destfilterelement : super::PCHAR, destlength : super::ULONG) -> super::ULONG);
-    unsafe { ldap_escape_filter_element(core::mem::transmute(sourcefilterelement.as_ptr()), sourcefilterelement.len().try_into().unwrap(), destfilterelement.unwrap_or(core::mem::zeroed()) as _, destlength) }
+    unsafe { ldap_escape_filter_element(sourcefilterelement, sourcelength, destfilterelement.unwrap_or(core::mem::zeroed()) as _, destlength) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ldap_escape_filter_elementA(sourcefilterelement: &[u8], destfilterelement: Option<super::PCHAR>, destlength: super::ULONG) -> super::ULONG {
+pub unsafe fn ldap_escape_filter_elementA(sourcefilterelement: super::PCHAR, sourcelength: super::ULONG, destfilterelement: Option<super::PCHAR>, destlength: super::ULONG) -> super::ULONG {
     windows_core::link!("wldap32.dll" "C" fn ldap_escape_filter_elementA(sourcefilterelement : super::PCHAR, sourcelength : super::ULONG, destfilterelement : super::PCHAR, destlength : super::ULONG) -> super::ULONG);
-    unsafe { ldap_escape_filter_elementA(core::mem::transmute(sourcefilterelement.as_ptr()), sourcefilterelement.len().try_into().unwrap(), destfilterelement.unwrap_or(core::mem::zeroed()) as _, destlength) }
+    unsafe { ldap_escape_filter_elementA(sourcefilterelement, sourcelength, destfilterelement.unwrap_or(core::mem::zeroed()) as _, destlength) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ldap_escape_filter_elementW(sourcefilterelement: &[u8], destfilterelement: Option<super::PWCHAR>, destlength: super::ULONG) -> super::ULONG {
+pub unsafe fn ldap_escape_filter_elementW(sourcefilterelement: super::PCHAR, sourcelength: super::ULONG, destfilterelement: Option<super::PWCHAR>, destlength: super::ULONG) -> super::ULONG {
     windows_core::link!("wldap32.dll" "C" fn ldap_escape_filter_elementW(sourcefilterelement : super::PCHAR, sourcelength : super::ULONG, destfilterelement : super::PWCHAR, destlength : super::ULONG) -> super::ULONG);
-    unsafe { ldap_escape_filter_elementW(core::mem::transmute(sourcefilterelement.as_ptr()), sourcefilterelement.len().try_into().unwrap(), destfilterelement.unwrap_or(core::mem::zeroed()) as _, destlength) }
+    unsafe { ldap_escape_filter_elementW(sourcefilterelement, sourcelength, destfilterelement.unwrap_or(core::mem::zeroed()) as _, destlength) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]

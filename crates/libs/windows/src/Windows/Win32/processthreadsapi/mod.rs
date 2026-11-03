@@ -392,27 +392,27 @@ pub unsafe fn SetProcessAffinityUpdateMode(hprocess: super::HANDLE, dwflags: sup
 }
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetProcessDefaultCpuSetMasks(process: super::HANDLE, cpusetmasks: Option<&[super::GROUP_AFFINITY]>) -> windows_core::BOOL {
+pub unsafe fn SetProcessDefaultCpuSetMasks(process: super::HANDLE, cpusetmasks: Option<super::PGROUP_AFFINITY>, cpusetmaskcount: super::USHORT) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetProcessDefaultCpuSetMasks(process : super::HANDLE, cpusetmasks : super::PGROUP_AFFINITY, cpusetmaskcount : super::USHORT) -> windows_core::BOOL);
-    unsafe { SetProcessDefaultCpuSetMasks(process, core::mem::transmute(cpusetmasks.map_or(core::ptr::null(), |slice| slice.as_ptr())), cpusetmasks.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { SetProcessDefaultCpuSetMasks(process, cpusetmasks.unwrap_or(core::mem::zeroed()) as _, cpusetmaskcount) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetProcessDefaultCpuSets(process: super::HANDLE, cpusetids: Option<&[super::ULONG]>) -> windows_core::BOOL {
+pub unsafe fn SetProcessDefaultCpuSets(process: super::HANDLE, cpusetids: Option<*const super::ULONG>, cpusetidcount: super::ULONG) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetProcessDefaultCpuSets(process : super::HANDLE, cpusetids : *const super::ULONG, cpusetidcount : super::ULONG) -> windows_core::BOOL);
-    unsafe { SetProcessDefaultCpuSets(process, cpusetids.map_or(core::ptr::null(), |slice| slice.as_ptr()), cpusetids.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { SetProcessDefaultCpuSets(process, cpusetids.unwrap_or(core::mem::zeroed()) as _, cpusetidcount) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetProcessDynamicEHContinuationTargets(process: super::HANDLE, targets: &mut [super::PROCESS_DYNAMIC_EH_CONTINUATION_TARGET]) -> windows_core::BOOL {
+pub unsafe fn SetProcessDynamicEHContinuationTargets(process: super::HANDLE, numberoftargets: super::USHORT, targets: super::PPROCESS_DYNAMIC_EH_CONTINUATION_TARGET) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetProcessDynamicEHContinuationTargets(process : super::HANDLE, numberoftargets : super::USHORT, targets : super::PPROCESS_DYNAMIC_EH_CONTINUATION_TARGET) -> windows_core::BOOL);
-    unsafe { SetProcessDynamicEHContinuationTargets(process, targets.len().try_into().unwrap(), core::mem::transmute(targets.as_mut_ptr())) }
+    unsafe { SetProcessDynamicEHContinuationTargets(process, numberoftargets, targets as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetProcessDynamicEnforcedCetCompatibleRanges(process: super::HANDLE, ranges: &mut [super::PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE]) -> windows_core::BOOL {
+pub unsafe fn SetProcessDynamicEnforcedCetCompatibleRanges(process: super::HANDLE, numberofranges: super::USHORT, ranges: super::PPROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetProcessDynamicEnforcedCetCompatibleRanges(process : super::HANDLE, numberofranges : super::USHORT, ranges : super::PPROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE) -> windows_core::BOOL);
-    unsafe { SetProcessDynamicEnforcedCetCompatibleRanges(process, ranges.len().try_into().unwrap(), core::mem::transmute(ranges.as_mut_ptr())) }
+    unsafe { SetProcessDynamicEnforcedCetCompatibleRanges(process, numberofranges, ranges as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
@@ -491,15 +491,15 @@ pub unsafe fn SetThreadPriorityBoost(hthread: super::HANDLE, bdisablepriorityboo
 }
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetThreadSelectedCpuSetMasks(thread: super::HANDLE, cpusetmasks: Option<&[super::GROUP_AFFINITY]>) -> windows_core::BOOL {
+pub unsafe fn SetThreadSelectedCpuSetMasks(thread: super::HANDLE, cpusetmasks: Option<super::PGROUP_AFFINITY>, cpusetmaskcount: super::USHORT) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetThreadSelectedCpuSetMasks(thread : super::HANDLE, cpusetmasks : super::PGROUP_AFFINITY, cpusetmaskcount : super::USHORT) -> windows_core::BOOL);
-    unsafe { SetThreadSelectedCpuSetMasks(thread, core::mem::transmute(cpusetmasks.map_or(core::ptr::null(), |slice| slice.as_ptr())), cpusetmasks.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { SetThreadSelectedCpuSetMasks(thread, cpusetmasks.unwrap_or(core::mem::zeroed()) as _, cpusetmaskcount) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetThreadSelectedCpuSets(thread: super::HANDLE, cpusetids: &[super::ULONG]) -> windows_core::BOOL {
+pub unsafe fn SetThreadSelectedCpuSets(thread: super::HANDLE, cpusetids: *const super::ULONG, cpusetidcount: super::ULONG) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetThreadSelectedCpuSets(thread : super::HANDLE, cpusetids : *const super::ULONG, cpusetidcount : super::ULONG) -> windows_core::BOOL);
-    unsafe { SetThreadSelectedCpuSets(thread, cpusetids.as_ptr(), cpusetids.len().try_into().unwrap()) }
+    unsafe { SetThreadSelectedCpuSets(thread, cpusetids, cpusetidcount) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]

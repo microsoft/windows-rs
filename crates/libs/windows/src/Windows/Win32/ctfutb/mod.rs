@@ -734,8 +734,8 @@ impl ITfLangBarItemMgr {
         unsafe { (windows_core::Interface::vtable(self).AdviseItemsSink)(windows_core::Interface::as_raw(self), ulcount, core::mem::transmute(ppunk), pguiditem, pdwcookie as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn UnadviseItemsSink(&self, pdwcookie: &[super::DWORD]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).UnadviseItemsSink)(windows_core::Interface::as_raw(self), pdwcookie.len().try_into().unwrap(), pdwcookie.as_ptr()) }
+    pub unsafe fn UnadviseItemsSink(&self, ulcount: super::ULONG, pdwcookie: *const super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UnadviseItemsSink)(windows_core::Interface::as_raw(self), ulcount, pdwcookie) }
     }
 }
 #[repr(C)]
@@ -1126,8 +1126,8 @@ windows_core::imp::define_interface!(ITfMenu, ITfMenu_Vtbl, 0x6f8a98e4_aaa0_4f15
 windows_core::imp::interface_hierarchy!(ITfMenu, windows_core::IUnknown);
 impl ITfMenu {
     #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
-    pub unsafe fn AddMenuItem(&self, uid: super::UINT, dwflags: super::DWORD, hbmp: super::HBITMAP, hbmpmask: super::HBITMAP, pch: Option<&[super::WCHAR]>, ppmenu: Option<*mut Option<Self>>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddMenuItem)(windows_core::Interface::as_raw(self), uid, dwflags, hbmp, hbmpmask, pch.map_or(core::ptr::null(), |slice| slice.as_ptr()), pch.map_or(0, |slice| slice.len().try_into().unwrap()), ppmenu.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn AddMenuItem(&self, uid: super::UINT, dwflags: super::DWORD, hbmp: super::HBITMAP, hbmpmask: super::HBITMAP, pch: Option<*const super::WCHAR>, cch: super::ULONG, ppmenu: Option<*mut Option<Self>>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddMenuItem)(windows_core::Interface::as_raw(self), uid, dwflags, hbmp, hbmpmask, pch.unwrap_or(core::mem::zeroed()) as _, cch, ppmenu.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -1225,8 +1225,8 @@ impl ITfSystemLangBarItem {
         unsafe { (windows_core::Interface::vtable(self).SetIcon)(windows_core::Interface::as_raw(self), hicon) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn SetTooltipString(&self, pchtooltip: &[super::WCHAR]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetTooltipString)(windows_core::Interface::as_raw(self), pchtooltip.as_ptr(), pchtooltip.len().try_into().unwrap()) }
+    pub unsafe fn SetTooltipString(&self, pchtooltip: *const super::WCHAR, cch: super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetTooltipString)(windows_core::Interface::as_raw(self), pchtooltip, cch) }
     }
 }
 #[repr(C)]
@@ -1334,8 +1334,8 @@ windows_core::imp::define_interface!(ITfSystemLangBarItemText, ITfSystemLangBarI
 windows_core::imp::interface_hierarchy!(ITfSystemLangBarItemText, windows_core::IUnknown);
 impl ITfSystemLangBarItemText {
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn SetItemText(&self, pch: &[super::WCHAR]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetItemText)(windows_core::Interface::as_raw(self), pch.as_ptr(), pch.len().try_into().unwrap()) }
+    pub unsafe fn SetItemText(&self, pch: *const super::WCHAR, cch: super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetItemText)(windows_core::Interface::as_raw(self), pch, cch) }
     }
     pub unsafe fn GetItemText(&self, pbstrtext: *mut windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetItemText)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrtext)) }

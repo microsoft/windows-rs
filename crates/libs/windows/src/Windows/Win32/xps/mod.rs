@@ -1,6 +1,6 @@
 #[cfg(all(feature = "objidlbase", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn StartXpsPrintJob<P0, P1, P2>(printername: P0, jobname: P1, outputfilename: P2, progressevent: super::HANDLE, completionevent: super::HANDLE, printablepageson: &[super::UINT8], xpsprintjob: *mut Option<IXpsPrintJob>, documentstream: *mut Option<IXpsPrintJobStream>) -> windows_core::Result<IXpsPrintJobStream>
+pub unsafe fn StartXpsPrintJob<P0, P1, P2>(printername: P0, jobname: P1, outputfilename: P2, progressevent: super::HANDLE, completionevent: super::HANDLE, printablepageson: *const super::UINT8, printablepagesoncount: super::UINT32, xpsprintjob: *mut Option<IXpsPrintJob>, documentstream: *mut Option<IXpsPrintJobStream>) -> windows_core::Result<IXpsPrintJobStream>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -9,7 +9,7 @@ where
     windows_core::link!("xpsprint.dll" "system" fn StartXpsPrintJob(printername : windows_core::PCWSTR, jobname : windows_core::PCWSTR, outputfilename : windows_core::PCWSTR, progressevent : super::HANDLE, completionevent : super::HANDLE, printablepageson : *const super::UINT8, printablepagesoncount : super::UINT32, xpsprintjob : *mut *mut core::ffi::c_void, documentstream : *mut *mut core::ffi::c_void, printticketstream : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        StartXpsPrintJob(printername.param().abi(), jobname.param().abi(), outputfilename.param().abi(), progressevent, completionevent, printablepageson.as_ptr(), printablepageson.len().try_into().unwrap(), core::mem::transmute(xpsprintjob), core::mem::transmute(documentstream), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        StartXpsPrintJob(printername.param().abi(), jobname.param().abi(), outputfilename.param().abi(), progressevent, completionevent, printablepageson, printablepagesoncount, core::mem::transmute(xpsprintjob), core::mem::transmute(documentstream), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "winnt")]

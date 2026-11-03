@@ -37,9 +37,9 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn EvtCreateRenderContext(valuepaths: Option<&[windows_core::PCWSTR]>, flags: super::DWORD) -> EVT_HANDLE {
+pub unsafe fn EvtCreateRenderContext(valuepathscount: super::DWORD, valuepaths: Option<*const windows_core::PCWSTR>, flags: super::DWORD) -> EVT_HANDLE {
     windows_core::link!("wevtapi.dll" "system" fn EvtCreateRenderContext(valuepathscount : super::DWORD, valuepaths : *const windows_core::PCWSTR, flags : super::DWORD) -> EVT_HANDLE);
-    unsafe { EvtCreateRenderContext(valuepaths.map_or(0, |slice| slice.len().try_into().unwrap()), valuepaths.map_or(core::ptr::null(), |slice| slice.as_ptr()), flags) }
+    unsafe { EvtCreateRenderContext(valuepathscount, valuepaths.unwrap_or(core::mem::zeroed()) as _, flags) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -54,9 +54,9 @@ where
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn EvtFormatMessage(publishermetadata: Option<EVT_HANDLE>, event: Option<EVT_HANDLE>, messageid: super::DWORD, values: Option<&[EVT_VARIANT]>, flags: super::DWORD, buffersize: super::DWORD, buffer: Option<windows_core::PWSTR>, bufferused: super::PDWORD) -> windows_core::BOOL {
+pub unsafe fn EvtFormatMessage(publishermetadata: Option<EVT_HANDLE>, event: Option<EVT_HANDLE>, messageid: super::DWORD, valuecount: super::DWORD, values: Option<PEVT_VARIANT>, flags: super::DWORD, buffersize: super::DWORD, buffer: Option<windows_core::PWSTR>, bufferused: super::PDWORD) -> windows_core::BOOL {
     windows_core::link!("wevtapi.dll" "system" fn EvtFormatMessage(publishermetadata : EVT_HANDLE, event : EVT_HANDLE, messageid : super::DWORD, valuecount : super::DWORD, values : PEVT_VARIANT, flags : super::DWORD, buffersize : super::DWORD, buffer : windows_core::PWSTR, bufferused : super::PDWORD) -> windows_core::BOOL);
-    unsafe { EvtFormatMessage(publishermetadata.unwrap_or(core::mem::zeroed()) as _, event.unwrap_or(core::mem::zeroed()) as _, messageid, values.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(values.map_or(core::ptr::null(), |slice| slice.as_ptr())), flags, buffersize, buffer.unwrap_or(core::mem::zeroed()) as _, bufferused as _) }
+    unsafe { EvtFormatMessage(publishermetadata.unwrap_or(core::mem::zeroed()) as _, event.unwrap_or(core::mem::zeroed()) as _, messageid, valuecount, values.unwrap_or(core::mem::zeroed()) as _, flags, buffersize, buffer.unwrap_or(core::mem::zeroed()) as _, bufferused as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]

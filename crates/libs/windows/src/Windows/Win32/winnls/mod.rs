@@ -1,8 +1,8 @@
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CompareStringA(locale: super::LCID, dwcmpflags: super::DWORD, lpstring1: &[i8], lpstring2: &[i8]) -> i32 {
+pub unsafe fn CompareStringA(locale: super::LCID, dwcmpflags: super::DWORD, lpstring1: super::PCNZCH, cchcount1: i32, lpstring2: super::PCNZCH, cchcount2: i32) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn CompareStringA(locale : super::LCID, dwcmpflags : super::DWORD, lpstring1 : super::PCNZCH, cchcount1 : i32, lpstring2 : super::PCNZCH, cchcount2 : i32) -> i32);
-    unsafe { CompareStringA(locale, dwcmpflags, core::mem::transmute(lpstring1.as_ptr()), lpstring1.len().try_into().unwrap(), core::mem::transmute(lpstring2.as_ptr()), lpstring2.len().try_into().unwrap()) }
+    unsafe { CompareStringA(locale, dwcmpflags, lpstring1, cchcount1, lpstring2, cchcount2) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -177,24 +177,24 @@ pub unsafe fn EnumUILanguagesW(lpuilanguageenumproc: UILANGUAGE_ENUMPROCW, dwfla
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn FindNLSString(locale: super::LCID, dwfindnlsstringflags: super::DWORD, lpstringsource: &[u16], lpstringvalue: &[u16], pcchfound: Option<super::LPINT>) -> i32 {
+pub unsafe fn FindNLSString(locale: super::LCID, dwfindnlsstringflags: super::DWORD, lpstringsource: windows_core::PCWSTR, cchsource: i32, lpstringvalue: windows_core::PCWSTR, cchvalue: i32, pcchfound: Option<super::LPINT>) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn FindNLSString(locale : super::LCID, dwfindnlsstringflags : super::DWORD, lpstringsource : windows_core::PCWSTR, cchsource : i32, lpstringvalue : windows_core::PCWSTR, cchvalue : i32, pcchfound : super::LPINT) -> i32);
-    unsafe { FindNLSString(locale, dwfindnlsstringflags, core::mem::transmute(lpstringsource.as_ptr()), lpstringsource.len().try_into().unwrap(), core::mem::transmute(lpstringvalue.as_ptr()), lpstringvalue.len().try_into().unwrap(), pcchfound.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { FindNLSString(locale, dwfindnlsstringflags, lpstringsource, cchsource, lpstringvalue, cchvalue, pcchfound.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn FindNLSStringEx<P0>(lplocalename: P0, dwfindnlsstringflags: super::DWORD, lpstringsource: &[u16], lpstringvalue: &[u16], pcchfound: Option<super::LPINT>, lpversioninformation: Option<LPNLSVERSIONINFO>, lpreserved: Option<super::LPVOID>, sorthandle: Option<super::LPARAM>) -> i32
+pub unsafe fn FindNLSStringEx<P0>(lplocalename: P0, dwfindnlsstringflags: super::DWORD, lpstringsource: windows_core::PCWSTR, cchsource: i32, lpstringvalue: windows_core::PCWSTR, cchvalue: i32, pcchfound: Option<super::LPINT>, lpversioninformation: Option<LPNLSVERSIONINFO>, lpreserved: Option<super::LPVOID>, sorthandle: Option<super::LPARAM>) -> i32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn FindNLSStringEx(lplocalename : windows_core::PCWSTR, dwfindnlsstringflags : super::DWORD, lpstringsource : windows_core::PCWSTR, cchsource : i32, lpstringvalue : windows_core::PCWSTR, cchvalue : i32, pcchfound : super::LPINT, lpversioninformation : LPNLSVERSIONINFO, lpreserved : super::LPVOID, sorthandle : super::LPARAM) -> i32);
-    unsafe { FindNLSStringEx(lplocalename.param().abi(), dwfindnlsstringflags, core::mem::transmute(lpstringsource.as_ptr()), lpstringsource.len().try_into().unwrap(), core::mem::transmute(lpstringvalue.as_ptr()), lpstringvalue.len().try_into().unwrap(), pcchfound.unwrap_or(core::mem::zeroed()) as _, lpversioninformation.unwrap_or(core::mem::zeroed()) as _, lpreserved.unwrap_or(core::mem::zeroed()) as _, sorthandle.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { FindNLSStringEx(lplocalename.param().abi(), dwfindnlsstringflags, lpstringsource, cchsource, lpstringvalue, cchvalue, pcchfound.unwrap_or(core::mem::zeroed()) as _, lpversioninformation.unwrap_or(core::mem::zeroed()) as _, lpreserved.unwrap_or(core::mem::zeroed()) as _, sorthandle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn FoldStringA(dwmapflags: super::DWORD, lpsrcstr: &[u8], lpdeststr: Option<windows_core::PSTR>, cchdest: i32) -> i32 {
+pub unsafe fn FoldStringA(dwmapflags: super::DWORD, lpsrcstr: windows_core::PCSTR, cchsrc: i32, lpdeststr: Option<windows_core::PSTR>, cchdest: i32) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn FoldStringA(dwmapflags : super::DWORD, lpsrcstr : windows_core::PCSTR, cchsrc : i32, lpdeststr : windows_core::PSTR, cchdest : i32) -> i32);
-    unsafe { FoldStringA(dwmapflags, core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), lpdeststr.unwrap_or(core::mem::zeroed()) as _, cchdest) }
+    unsafe { FoldStringA(dwmapflags, lpsrcstr, cchsrc, lpdeststr.unwrap_or(core::mem::zeroed()) as _, cchdest) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -403,9 +403,9 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn GetStringTypeA(locale: super::LCID, dwinfotype: super::DWORD, lpsrcstr: &[u8], lpchartype: super::LPWORD) -> windows_core::BOOL {
+pub unsafe fn GetStringTypeA(locale: super::LCID, dwinfotype: super::DWORD, lpsrcstr: windows_core::PCSTR, cchsrc: i32, lpchartype: super::LPWORD) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetStringTypeA(locale : super::LCID, dwinfotype : super::DWORD, lpsrcstr : windows_core::PCSTR, cchsrc : i32, lpchartype : super::LPWORD) -> windows_core::BOOL);
-    unsafe { GetStringTypeA(locale, dwinfotype, core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), lpchartype as _) }
+    unsafe { GetStringTypeA(locale, dwinfotype, lpsrcstr, cchsrc, lpchartype as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -507,21 +507,21 @@ pub unsafe fn GetUserPreferredUILanguages(dwflags: super::DWORD, pulnumlanguages
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn IdnToAscii(dwflags: super::DWORD, lpunicodecharstr: &[u16], lpasciicharstr: Option<windows_core::PWSTR>, cchasciichar: i32) -> i32 {
+pub unsafe fn IdnToAscii(dwflags: super::DWORD, lpunicodecharstr: windows_core::PCWSTR, cchunicodechar: i32, lpasciicharstr: Option<windows_core::PWSTR>, cchasciichar: i32) -> i32 {
     windows_core::link!("normaliz.dll" "system" fn IdnToAscii(dwflags : super::DWORD, lpunicodecharstr : windows_core::PCWSTR, cchunicodechar : i32, lpasciicharstr : windows_core::PWSTR, cchasciichar : i32) -> i32);
-    unsafe { IdnToAscii(dwflags, core::mem::transmute(lpunicodecharstr.as_ptr()), lpunicodecharstr.len().try_into().unwrap(), lpasciicharstr.unwrap_or(core::mem::zeroed()) as _, cchasciichar) }
+    unsafe { IdnToAscii(dwflags, lpunicodecharstr, cchunicodechar, lpasciicharstr.unwrap_or(core::mem::zeroed()) as _, cchasciichar) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn IdnToNameprepUnicode(dwflags: super::DWORD, lpunicodecharstr: &[u16], lpnameprepcharstr: Option<windows_core::PWSTR>, cchnameprepchar: i32) -> i32 {
+pub unsafe fn IdnToNameprepUnicode(dwflags: super::DWORD, lpunicodecharstr: windows_core::PCWSTR, cchunicodechar: i32, lpnameprepcharstr: Option<windows_core::PWSTR>, cchnameprepchar: i32) -> i32 {
     windows_core::link!("normaliz.dll" "system" fn IdnToNameprepUnicode(dwflags : super::DWORD, lpunicodecharstr : windows_core::PCWSTR, cchunicodechar : i32, lpnameprepcharstr : windows_core::PWSTR, cchnameprepchar : i32) -> i32);
-    unsafe { IdnToNameprepUnicode(dwflags, core::mem::transmute(lpunicodecharstr.as_ptr()), lpunicodecharstr.len().try_into().unwrap(), lpnameprepcharstr.unwrap_or(core::mem::zeroed()) as _, cchnameprepchar) }
+    unsafe { IdnToNameprepUnicode(dwflags, lpunicodecharstr, cchunicodechar, lpnameprepcharstr.unwrap_or(core::mem::zeroed()) as _, cchnameprepchar) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn IdnToUnicode(dwflags: super::DWORD, lpasciicharstr: &[u16], lpunicodecharstr: Option<windows_core::PWSTR>, cchunicodechar: i32) -> i32 {
+pub unsafe fn IdnToUnicode(dwflags: super::DWORD, lpasciicharstr: windows_core::PCWSTR, cchasciichar: i32, lpunicodecharstr: Option<windows_core::PWSTR>, cchunicodechar: i32) -> i32 {
     windows_core::link!("normaliz.dll" "system" fn IdnToUnicode(dwflags : super::DWORD, lpasciicharstr : windows_core::PCWSTR, cchasciichar : i32, lpunicodecharstr : windows_core::PWSTR, cchunicodechar : i32) -> i32);
-    unsafe { IdnToUnicode(dwflags, core::mem::transmute(lpasciicharstr.as_ptr()), lpasciicharstr.len().try_into().unwrap(), lpunicodecharstr.unwrap_or(core::mem::zeroed()) as _, cchunicodechar) }
+    unsafe { IdnToUnicode(dwflags, lpasciicharstr, cchasciichar, lpunicodecharstr.unwrap_or(core::mem::zeroed()) as _, cchunicodechar) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -537,14 +537,14 @@ pub unsafe fn IsDBCSLeadByteEx(codepage: super::UINT, testchar: super::BYTE) -> 
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn IsNLSDefinedString(function: NLS_FUNCTION, dwflags: super::DWORD, lpversioninformation: LPNLSVERSIONINFO, lpstring: &[u16]) -> windows_core::BOOL {
+pub unsafe fn IsNLSDefinedString(function: NLS_FUNCTION, dwflags: super::DWORD, lpversioninformation: LPNLSVERSIONINFO, lpstring: windows_core::PCWSTR, cchstr: super::INT) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn IsNLSDefinedString(function : NLS_FUNCTION, dwflags : super::DWORD, lpversioninformation : LPNLSVERSIONINFO, lpstring : windows_core::PCWSTR, cchstr : super::INT) -> windows_core::BOOL);
-    unsafe { IsNLSDefinedString(function, dwflags, lpversioninformation, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap()) }
+    unsafe { IsNLSDefinedString(function, dwflags, lpversioninformation, lpstring, cchstr) }
 }
 #[inline]
-pub unsafe fn IsNormalizedString(normform: NORM_FORM, lpstring: &[u16]) -> windows_core::BOOL {
+pub unsafe fn IsNormalizedString(normform: NORM_FORM, lpstring: windows_core::PCWSTR, cwlength: i32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn IsNormalizedString(normform : NORM_FORM, lpstring : windows_core::PCWSTR, cwlength : i32) -> windows_core::BOOL);
-    unsafe { IsNormalizedString(normform, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap()) }
+    unsafe { IsNormalizedString(normform, lpstring, cwlength) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -589,24 +589,24 @@ pub unsafe fn LCIDToLocaleName(locale: super::LCID, lpname: Option<windows_core:
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn LCMapStringA(locale: super::LCID, dwmapflags: super::DWORD, lpsrcstr: &[u8], lpdeststr: Option<windows_core::PSTR>, cchdest: i32) -> i32 {
+pub unsafe fn LCMapStringA(locale: super::LCID, dwmapflags: super::DWORD, lpsrcstr: windows_core::PCSTR, cchsrc: i32, lpdeststr: Option<windows_core::PSTR>, cchdest: i32) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn LCMapStringA(locale : super::LCID, dwmapflags : super::DWORD, lpsrcstr : windows_core::PCSTR, cchsrc : i32, lpdeststr : windows_core::PSTR, cchdest : i32) -> i32);
-    unsafe { LCMapStringA(locale, dwmapflags, core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), lpdeststr.unwrap_or(core::mem::zeroed()) as _, cchdest) }
+    unsafe { LCMapStringA(locale, dwmapflags, lpsrcstr, cchsrc, lpdeststr.unwrap_or(core::mem::zeroed()) as _, cchdest) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn LCMapStringEx<P0>(lplocalename: P0, dwmapflags: super::DWORD, lpsrcstr: &[u16], lpdeststr: Option<windows_core::PWSTR>, cchdest: i32, lpversioninformation: Option<LPNLSVERSIONINFO>, lpreserved: Option<super::LPVOID>, sorthandle: Option<super::LPARAM>) -> i32
+pub unsafe fn LCMapStringEx<P0>(lplocalename: P0, dwmapflags: super::DWORD, lpsrcstr: windows_core::PCWSTR, cchsrc: i32, lpdeststr: Option<windows_core::PWSTR>, cchdest: i32, lpversioninformation: Option<LPNLSVERSIONINFO>, lpreserved: Option<super::LPVOID>, sorthandle: Option<super::LPARAM>) -> i32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn LCMapStringEx(lplocalename : windows_core::PCWSTR, dwmapflags : super::DWORD, lpsrcstr : windows_core::PCWSTR, cchsrc : i32, lpdeststr : windows_core::PWSTR, cchdest : i32, lpversioninformation : LPNLSVERSIONINFO, lpreserved : super::LPVOID, sorthandle : super::LPARAM) -> i32);
-    unsafe { LCMapStringEx(lplocalename.param().abi(), dwmapflags, core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), lpdeststr.unwrap_or(core::mem::zeroed()) as _, cchdest, lpversioninformation.unwrap_or(core::mem::zeroed()) as _, lpreserved.unwrap_or(core::mem::zeroed()) as _, sorthandle.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { LCMapStringEx(lplocalename.param().abi(), dwmapflags, lpsrcstr, cchsrc, lpdeststr.unwrap_or(core::mem::zeroed()) as _, cchdest, lpversioninformation.unwrap_or(core::mem::zeroed()) as _, lpreserved.unwrap_or(core::mem::zeroed()) as _, sorthandle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn LCMapStringW(locale: super::LCID, dwmapflags: super::DWORD, lpsrcstr: &[u16], lpdeststr: Option<windows_core::PWSTR>, cchdest: i32) -> i32 {
+pub unsafe fn LCMapStringW(locale: super::LCID, dwmapflags: super::DWORD, lpsrcstr: windows_core::PCWSTR, cchsrc: i32, lpdeststr: Option<windows_core::PWSTR>, cchdest: i32) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn LCMapStringW(locale : super::LCID, dwmapflags : super::DWORD, lpsrcstr : windows_core::PCWSTR, cchsrc : i32, lpdeststr : windows_core::PWSTR, cchdest : i32) -> i32);
-    unsafe { LCMapStringW(locale, dwmapflags, core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), lpdeststr.unwrap_or(core::mem::zeroed()) as _, cchdest) }
+    unsafe { LCMapStringW(locale, dwmapflags, lpsrcstr, cchsrc, lpdeststr.unwrap_or(core::mem::zeroed()) as _, cchdest) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -618,9 +618,9 @@ where
     unsafe { LocaleNameToLCID(lpname.param().abi(), dwflags) }
 }
 #[inline]
-pub unsafe fn NormalizeString(normform: NORM_FORM, lpsrcstring: &[u16], lpdststring: Option<windows_core::PWSTR>, cwdstlength: i32) -> i32 {
+pub unsafe fn NormalizeString(normform: NORM_FORM, lpsrcstring: windows_core::PCWSTR, cwsrclength: i32, lpdststring: Option<windows_core::PWSTR>, cwdstlength: i32) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn NormalizeString(normform : NORM_FORM, lpsrcstring : windows_core::PCWSTR, cwsrclength : i32, lpdststring : windows_core::PWSTR, cwdstlength : i32) -> i32);
-    unsafe { NormalizeString(normform, core::mem::transmute(lpsrcstring.as_ptr()), lpsrcstring.len().try_into().unwrap(), lpdststring.unwrap_or(core::mem::zeroed()) as _, cwdstlength) }
+    unsafe { NormalizeString(normform, lpsrcstring, cwsrclength, lpdststring.unwrap_or(core::mem::zeroed()) as _, cwdstlength) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]

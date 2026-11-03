@@ -212,41 +212,41 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn MsiDetermineApplicablePatchesA<P0>(szproductpackagepath: P0, ppatchinfo: &mut [MSIPATCHSEQUENCEINFOA]) -> super::UINT
+pub unsafe fn MsiDetermineApplicablePatchesA<P0>(szproductpackagepath: P0, cpatchinfo: super::DWORD, ppatchinfo: PMSIPATCHSEQUENCEINFOA) -> super::UINT
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("msi.dll" "system" fn MsiDetermineApplicablePatchesA(szproductpackagepath : windows_core::PCSTR, cpatchinfo : super::DWORD, ppatchinfo : PMSIPATCHSEQUENCEINFOA) -> super::UINT);
-    unsafe { MsiDetermineApplicablePatchesA(szproductpackagepath.param().abi(), ppatchinfo.len().try_into().unwrap(), core::mem::transmute(ppatchinfo.as_mut_ptr())) }
+    unsafe { MsiDetermineApplicablePatchesA(szproductpackagepath.param().abi(), cpatchinfo, ppatchinfo as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn MsiDetermineApplicablePatchesW<P0>(szproductpackagepath: P0, ppatchinfo: &mut [MSIPATCHSEQUENCEINFOW]) -> super::UINT
+pub unsafe fn MsiDetermineApplicablePatchesW<P0>(szproductpackagepath: P0, cpatchinfo: super::DWORD, ppatchinfo: PMSIPATCHSEQUENCEINFOW) -> super::UINT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("msi.dll" "system" fn MsiDetermineApplicablePatchesW(szproductpackagepath : windows_core::PCWSTR, cpatchinfo : super::DWORD, ppatchinfo : PMSIPATCHSEQUENCEINFOW) -> super::UINT);
-    unsafe { MsiDetermineApplicablePatchesW(szproductpackagepath.param().abi(), ppatchinfo.len().try_into().unwrap(), core::mem::transmute(ppatchinfo.as_mut_ptr())) }
+    unsafe { MsiDetermineApplicablePatchesW(szproductpackagepath.param().abi(), cpatchinfo, ppatchinfo as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn MsiDeterminePatchSequenceA<P0, P1>(szproductcode: P0, szusersid: P1, dwcontext: MSIINSTALLCONTEXT, ppatchinfo: &mut [MSIPATCHSEQUENCEINFOA]) -> super::UINT
+pub unsafe fn MsiDeterminePatchSequenceA<P0, P1>(szproductcode: P0, szusersid: P1, dwcontext: MSIINSTALLCONTEXT, cpatchinfo: super::DWORD, ppatchinfo: PMSIPATCHSEQUENCEINFOA) -> super::UINT
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("msi.dll" "system" fn MsiDeterminePatchSequenceA(szproductcode : windows_core::PCSTR, szusersid : windows_core::PCSTR, dwcontext : MSIINSTALLCONTEXT, cpatchinfo : super::DWORD, ppatchinfo : PMSIPATCHSEQUENCEINFOA) -> super::UINT);
-    unsafe { MsiDeterminePatchSequenceA(szproductcode.param().abi(), szusersid.param().abi(), dwcontext, ppatchinfo.len().try_into().unwrap(), core::mem::transmute(ppatchinfo.as_mut_ptr())) }
+    unsafe { MsiDeterminePatchSequenceA(szproductcode.param().abi(), szusersid.param().abi(), dwcontext, cpatchinfo, ppatchinfo as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn MsiDeterminePatchSequenceW<P0, P1>(szproductcode: P0, szusersid: P1, dwcontext: MSIINSTALLCONTEXT, ppatchinfo: &mut [MSIPATCHSEQUENCEINFOW]) -> super::UINT
+pub unsafe fn MsiDeterminePatchSequenceW<P0, P1>(szproductcode: P0, szusersid: P1, dwcontext: MSIINSTALLCONTEXT, cpatchinfo: super::DWORD, ppatchinfo: PMSIPATCHSEQUENCEINFOW) -> super::UINT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("msi.dll" "system" fn MsiDeterminePatchSequenceW(szproductcode : windows_core::PCWSTR, szusersid : windows_core::PCWSTR, dwcontext : MSIINSTALLCONTEXT, cpatchinfo : super::DWORD, ppatchinfo : PMSIPATCHSEQUENCEINFOW) -> super::UINT);
-    unsafe { MsiDeterminePatchSequenceW(szproductcode.param().abi(), szusersid.param().abi(), dwcontext, ppatchinfo.len().try_into().unwrap(), core::mem::transmute(ppatchinfo.as_mut_ptr())) }
+    unsafe { MsiDeterminePatchSequenceW(szproductcode.param().abi(), szusersid.param().abi(), dwcontext, cpatchinfo, ppatchinfo as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]

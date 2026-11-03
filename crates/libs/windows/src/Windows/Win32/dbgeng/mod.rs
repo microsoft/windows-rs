@@ -14504,8 +14504,8 @@ impl IDebugDataSpaces {
         unsafe { (windows_core::Interface::vtable(self).ReadPointersVirtual)(windows_core::Interface::as_raw(self), count, offset, ptrs as _) }
     }
     #[cfg(all(feature = "basetsd", feature = "shared"))]
-    pub unsafe fn WritePointersVirtual(&self, offset: super::ULONG64, ptrs: &[u64]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).WritePointersVirtual)(windows_core::Interface::as_raw(self), ptrs.len().try_into().unwrap(), offset, core::mem::transmute(ptrs.as_ptr())) }
+    pub unsafe fn WritePointersVirtual(&self, count: super::ULONG, offset: super::ULONG64, ptrs: super::PULONG64) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).WritePointersVirtual)(windows_core::Interface::as_raw(self), count, offset, ptrs) }
     }
     #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
     pub unsafe fn ReadPhysical(&self, offset: super::ULONG64, buffer: super::PVOID, buffersize: super::ULONG, bytesread: Option<super::PULONG>) -> windows_core::HRESULT {
@@ -14845,8 +14845,8 @@ impl IDebugDataSpaces2 {
         unsafe { (windows_core::Interface::vtable(self).ReadPointersVirtual)(windows_core::Interface::as_raw(self), count, offset, ptrs as _) }
     }
     #[cfg(all(feature = "basetsd", feature = "shared"))]
-    pub unsafe fn WritePointersVirtual(&self, offset: super::ULONG64, ptrs: &[u64]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).WritePointersVirtual)(windows_core::Interface::as_raw(self), ptrs.len().try_into().unwrap(), offset, core::mem::transmute(ptrs.as_ptr())) }
+    pub unsafe fn WritePointersVirtual(&self, count: super::ULONG, offset: super::ULONG64, ptrs: super::PULONG64) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).WritePointersVirtual)(windows_core::Interface::as_raw(self), count, offset, ptrs) }
     }
     #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
     pub unsafe fn ReadPhysical(&self, offset: super::ULONG64, buffer: super::PVOID, buffersize: super::ULONG, bytesread: Option<super::PULONG>) -> windows_core::HRESULT {
@@ -15282,8 +15282,8 @@ impl IDebugDataSpaces3 {
         unsafe { (windows_core::Interface::vtable(self).ReadPointersVirtual)(windows_core::Interface::as_raw(self), count, offset, ptrs as _) }
     }
     #[cfg(all(feature = "basetsd", feature = "shared"))]
-    pub unsafe fn WritePointersVirtual(&self, offset: super::ULONG64, ptrs: &[u64]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).WritePointersVirtual)(windows_core::Interface::as_raw(self), ptrs.len().try_into().unwrap(), offset, core::mem::transmute(ptrs.as_ptr())) }
+    pub unsafe fn WritePointersVirtual(&self, count: super::ULONG, offset: super::ULONG64, ptrs: super::PULONG64) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).WritePointersVirtual)(windows_core::Interface::as_raw(self), count, offset, ptrs) }
     }
     #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
     pub unsafe fn ReadPhysical(&self, offset: super::ULONG64, buffer: super::PVOID, buffersize: super::ULONG, bytesread: Option<super::PULONG>) -> windows_core::HRESULT {
@@ -15799,8 +15799,8 @@ impl IDebugDataSpaces4 {
         unsafe { (windows_core::Interface::vtable(self).ReadPointersVirtual)(windows_core::Interface::as_raw(self), count, offset, ptrs as _) }
     }
     #[cfg(all(feature = "basetsd", feature = "shared"))]
-    pub unsafe fn WritePointersVirtual(&self, offset: super::ULONG64, ptrs: &[u64]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).WritePointersVirtual)(windows_core::Interface::as_raw(self), ptrs.len().try_into().unwrap(), offset, core::mem::transmute(ptrs.as_ptr())) }
+    pub unsafe fn WritePointersVirtual(&self, count: super::ULONG, offset: super::ULONG64, ptrs: super::PULONG64) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).WritePointersVirtual)(windows_core::Interface::as_raw(self), count, offset, ptrs) }
     }
     #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
     pub unsafe fn ReadPhysical(&self, offset: super::ULONG64, buffer: super::PVOID, buffersize: super::ULONG, bytesread: Option<super::PULONG>) -> windows_core::HRESULT {

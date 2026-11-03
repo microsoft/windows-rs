@@ -39,10 +39,12 @@ fn const_uri() -> Result<()> {
 #[test]
 fn const_ptr_path() {
     unsafe {
-        let result = PathFindSuffixArrayA(s!("path.txt"), &[s!("doc"), s!("txt"), s!("rs")]);
+        let result =
+            PathFindSuffixArrayA(s!("path.txt"), [s!("doc"), s!("txt"), s!("rs")].as_ptr(), 3);
         assert_eq!(result.to_string().unwrap(), "txt");
 
-        let result = PathFindSuffixArrayW(w!("path.rs"), &[w!("doc"), w!("txt"), w!("rs")]);
+        let result =
+            PathFindSuffixArrayW(w!("path.rs"), [w!("doc"), w!("txt"), w!("rs")].as_ptr(), 3);
         assert_eq!(result.to_string().unwrap(), "rs");
     }
 }
@@ -51,7 +53,12 @@ fn const_ptr_path() {
 fn const_ptr_variant() -> Result<()> {
     unsafe {
         let mut variant = PROPVARIANT::default();
-        InitPropVariantFromStringVector(Some(&[w!("first"), w!("second")]), &mut variant).ok()?;
+        InitPropVariantFromStringVector(
+            Some([w!("first"), w!("second")].as_ptr()),
+            2,
+            &mut variant,
+        )
+        .ok()?;
         let mut result = BSTR::default();
         PropVariantToBSTR(&variant, &mut result).ok()?;
         assert_eq!(result, "first; second");

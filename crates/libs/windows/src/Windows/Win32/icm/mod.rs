@@ -50,15 +50,15 @@ pub unsafe fn CMConvertIndexToColorName(hprofile: HPROFILE, paindex: super::PDWO
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CMCreateDeviceLinkProfile(pahprofiles: &[*mut core::ffi::c_void], padwintents: &[u32], dwflags: super::DWORD, lpprofiledata: *mut super::LPBYTE) -> windows_core::BOOL {
+pub unsafe fn CMCreateDeviceLinkProfile(pahprofiles: PHPROFILE, nprofiles: super::DWORD, padwintents: super::PDWORD, nintents: super::DWORD, dwflags: super::DWORD, lpprofiledata: *mut super::LPBYTE) -> windows_core::BOOL {
     windows_core::link!("icm32.dll" "system" fn CMCreateDeviceLinkProfile(pahprofiles : PHPROFILE, nprofiles : super::DWORD, padwintents : super::PDWORD, nintents : super::DWORD, dwflags : super::DWORD, lpprofiledata : *mut super::LPBYTE) -> windows_core::BOOL);
-    unsafe { CMCreateDeviceLinkProfile(core::mem::transmute(pahprofiles.as_ptr()), pahprofiles.len().try_into().unwrap(), core::mem::transmute(padwintents.as_ptr()), padwintents.len().try_into().unwrap(), dwflags, lpprofiledata as _) }
+    unsafe { CMCreateDeviceLinkProfile(pahprofiles, nprofiles, padwintents, nintents, dwflags, lpprofiledata as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CMCreateMultiProfileTransform(pahprofiles: &[*mut core::ffi::c_void], padwintents: &[u32], dwflags: super::DWORD) -> HCMTRANSFORM {
+pub unsafe fn CMCreateMultiProfileTransform(pahprofiles: PHPROFILE, nprofiles: super::DWORD, padwintents: super::PDWORD, nintents: super::DWORD, dwflags: super::DWORD) -> HCMTRANSFORM {
     windows_core::link!("icm32.dll" "system" fn CMCreateMultiProfileTransform(pahprofiles : PHPROFILE, nprofiles : super::DWORD, padwintents : super::PDWORD, nintents : super::DWORD, dwflags : super::DWORD) -> HCMTRANSFORM);
-    unsafe { CMCreateMultiProfileTransform(core::mem::transmute(pahprofiles.as_ptr()), pahprofiles.len().try_into().unwrap(), core::mem::transmute(padwintents.as_ptr()), padwintents.len().try_into().unwrap(), dwflags) }
+    unsafe { CMCreateMultiProfileTransform(pahprofiles, nprofiles, padwintents, nintents, dwflags) }
 }
 #[cfg(all(feature = "shared", feature = "wingdi"))]
 #[inline]
@@ -237,15 +237,15 @@ pub unsafe fn CreateColorTransformW(plogcolorspace: super::LPLOGCOLORSPACEW, hde
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CreateDeviceLinkProfile(hprofile: &[*mut core::ffi::c_void], padwintent: &[u32], dwflags: super::DWORD, pprofiledata: *mut super::PBYTE, indexpreferredcmm: super::DWORD) -> windows_core::BOOL {
+pub unsafe fn CreateDeviceLinkProfile(hprofile: PHPROFILE, nprofiles: super::DWORD, padwintent: super::PDWORD, nintents: super::DWORD, dwflags: super::DWORD, pprofiledata: *mut super::PBYTE, indexpreferredcmm: super::DWORD) -> windows_core::BOOL {
     windows_core::link!("mscms.dll" "system" fn CreateDeviceLinkProfile(hprofile : PHPROFILE, nprofiles : super::DWORD, padwintent : super::PDWORD, nintents : super::DWORD, dwflags : super::DWORD, pprofiledata : *mut super::PBYTE, indexpreferredcmm : super::DWORD) -> windows_core::BOOL);
-    unsafe { CreateDeviceLinkProfile(core::mem::transmute(hprofile.as_ptr()), hprofile.len().try_into().unwrap(), core::mem::transmute(padwintent.as_ptr()), padwintent.len().try_into().unwrap(), dwflags, pprofiledata as _, indexpreferredcmm) }
+    unsafe { CreateDeviceLinkProfile(hprofile, nprofiles, padwintent, nintents, dwflags, pprofiledata as _, indexpreferredcmm) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CreateMultiProfileTransform(pahprofiles: &[*mut core::ffi::c_void], padwintent: &[u32], dwflags: super::DWORD, indexpreferredcmm: super::DWORD) -> HTRANSFORM {
+pub unsafe fn CreateMultiProfileTransform(pahprofiles: PHPROFILE, nprofiles: super::DWORD, padwintent: super::PDWORD, nintents: super::DWORD, dwflags: super::DWORD, indexpreferredcmm: super::DWORD) -> HTRANSFORM {
     windows_core::link!("mscms.dll" "system" fn CreateMultiProfileTransform(pahprofiles : PHPROFILE, nprofiles : super::DWORD, padwintent : super::PDWORD, nintents : super::DWORD, dwflags : super::DWORD, indexpreferredcmm : super::DWORD) -> HTRANSFORM);
-    unsafe { CreateMultiProfileTransform(core::mem::transmute(pahprofiles.as_ptr()), pahprofiles.len().try_into().unwrap(), core::mem::transmute(padwintent.as_ptr()), padwintent.len().try_into().unwrap(), dwflags, indexpreferredcmm) }
+    unsafe { CreateMultiProfileTransform(pahprofiles, nprofiles, padwintent, nintents, dwflags, indexpreferredcmm) }
 }
 #[cfg(all(feature = "shared", feature = "wingdi"))]
 #[inline]

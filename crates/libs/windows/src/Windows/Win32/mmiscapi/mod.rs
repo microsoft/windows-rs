@@ -189,9 +189,9 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn mmioWrite(hmmio: HMMIO, pch: &[u8]) -> super::LONG {
+pub unsafe fn mmioWrite(hmmio: HMMIO, pch: *const i8, cch: super::LONG) -> super::LONG {
     windows_core::link!("winmm.dll" "system" fn mmioWrite(hmmio : HMMIO, pch : *const i8, cch : super::LONG) -> super::LONG);
-    unsafe { mmioWrite(hmmio, core::mem::transmute(pch.as_ptr()), pch.len().try_into().unwrap()) }
+    unsafe { mmioWrite(hmmio, pch, cch) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]

@@ -1424,8 +1424,8 @@ impl IWiaItem {
         unsafe { (windows_core::Interface::vtable(self).DumpTreeItemData)(windows_core::Interface::as_raw(self), core::mem::transmute(bstrdata)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn Diagnostic(&self, pbuffer: &[super::BYTE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Diagnostic)(windows_core::Interface::as_raw(self), pbuffer.len().try_into().unwrap(), pbuffer.as_ptr()) }
+    pub unsafe fn Diagnostic(&self, ulsize: super::ULONG, pbuffer: *const super::BYTE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Diagnostic)(windows_core::Interface::as_raw(self), ulsize, pbuffer) }
     }
 }
 #[repr(C)]
@@ -1753,8 +1753,8 @@ impl IWiaItem2 {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn Diagnostic(&self, pbuffer: &[super::BYTE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Diagnostic)(windows_core::Interface::as_raw(self), pbuffer.len().try_into().unwrap(), pbuffer.as_ptr()) }
+    pub unsafe fn Diagnostic(&self, ulsize: super::ULONG, pbuffer: *const super::BYTE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Diagnostic)(windows_core::Interface::as_raw(self), ulsize, pbuffer) }
     }
 }
 #[repr(C)]
@@ -2028,8 +2028,8 @@ impl IWiaItemExtras {
         unsafe { (windows_core::Interface::vtable(self).GetExtendedErrorInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(bstrerrortext)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn Escape(&self, dwescapecode: super::DWORD, lpindata: &[super::BYTE], poutdata: *mut super::BYTE, dwoutdatasize: super::DWORD, pdwactualdatasize: *mut super::DWORD) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Escape)(windows_core::Interface::as_raw(self), dwescapecode, lpindata.as_ptr(), lpindata.len().try_into().unwrap(), poutdata as _, dwoutdatasize, pdwactualdatasize as _) }
+    pub unsafe fn Escape(&self, dwescapecode: super::DWORD, lpindata: *const super::BYTE, cbindatasize: super::DWORD, poutdata: *mut super::BYTE, dwoutdatasize: super::DWORD, pdwactualdatasize: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Escape)(windows_core::Interface::as_raw(self), dwescapecode, lpindata, cbindatasize, poutdata as _, dwoutdatasize, pdwactualdatasize as _) }
     }
     pub unsafe fn CancelPendingIO(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CancelPendingIO)(windows_core::Interface::as_raw(self)) }
@@ -2392,8 +2392,8 @@ impl IWiaPropertyStorage {
         unsafe { (windows_core::Interface::vtable(self).WriteMultiple)(windows_core::Interface::as_raw(self), cpspec, rgpspec, rgpropvar, propidnamefirst) }
     }
     #[cfg(all(feature = "propidlbase", feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn DeleteMultiple(&self, rgpspec: &[super::PROPSPEC]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).DeleteMultiple)(windows_core::Interface::as_raw(self), rgpspec.len().try_into().unwrap(), rgpspec.as_ptr()) }
+    pub unsafe fn DeleteMultiple(&self, cpspec: super::ULONG, rgpspec: *const super::PROPSPEC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteMultiple)(windows_core::Interface::as_raw(self), cpspec, rgpspec) }
     }
     #[cfg(all(feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ReadPropertyNames(&self, cpropid: super::ULONG, rgpropid: *const super::PROPID, rglpwstrname: *mut super::LPOLESTR) -> windows_core::HRESULT {
@@ -2404,8 +2404,8 @@ impl IWiaPropertyStorage {
         unsafe { (windows_core::Interface::vtable(self).WritePropertyNames)(windows_core::Interface::as_raw(self), cpropid, rgpropid, rglpwstrname) }
     }
     #[cfg(all(feature = "shared", feature = "wtypes"))]
-    pub unsafe fn DeletePropertyNames(&self, rgpropid: &[super::PROPID]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).DeletePropertyNames)(windows_core::Interface::as_raw(self), rgpropid.len().try_into().unwrap(), rgpropid.as_ptr()) }
+    pub unsafe fn DeletePropertyNames(&self, cpropid: super::ULONG, rgpropid: *const super::PROPID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeletePropertyNames)(windows_core::Interface::as_raw(self), cpropid, rgpropid) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Commit(&self, grfcommitflags: super::DWORD) -> windows_core::HRESULT {

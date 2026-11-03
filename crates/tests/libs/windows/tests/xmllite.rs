@@ -32,8 +32,10 @@ fn test() -> Result<()> {
             )
             .ok()?;
         writer.WriteStartElement(None, w!("body"), None).ok()?;
-        writer.WriteChars(None).ok()?;
-        writer.WriteChars(Some(&[0x52, 0x75, 0x73, 0x74])).ok()?;
+        writer.WriteChars(None, 0).ok()?;
+        writer
+            .WriteChars(Some([0x52, 0x75, 0x73, 0x74].as_ptr()), 4)
+            .ok()?;
         writer.WriteEndDocument().ok()?;
         writer.Flush().ok()?;
 
@@ -143,14 +145,14 @@ fn lite() -> Result<()> {
         let writer: IXmlWriterLite = create_xml_writer()?;
         writer.SetOutput(&stream).ok()?;
 
-        writer.WriteStartElement(&HSTRING::from("html")).ok()?;
+        writer.WriteStartElement(w!("html").as_ptr(), 4).ok()?;
         writer
-            .WriteAttributeString(&HSTRING::from("no-value"), None)
+            .WriteAttributeString(w!("no-value").as_ptr(), 8, None, 0)
             .ok()?;
         writer
-            .WriteAttributeString(&HSTRING::from("with-value"), Some(&HSTRING::from("value")))
+            .WriteAttributeString(w!("with-value").as_ptr(), 10, Some(w!("value").as_ptr()), 5)
             .ok()?;
-        writer.WriteEndElement(&HSTRING::from("html")).ok()?;
+        writer.WriteEndElement(w!("html").as_ptr(), 4).ok()?;
         writer.Flush().ok()?;
 
         let mut pos = ULARGE_INTEGER { QuadPart: 0 };

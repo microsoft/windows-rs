@@ -73,9 +73,9 @@ pub unsafe fn DCompositionGetTargetStatistics(frameid: COMPOSITION_FRAME_ID, tar
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn DCompositionWaitForCompositorClock(handles: Option<&[super::HANDLE]>, timeoutinms: super::DWORD) -> super::DWORD {
+pub unsafe fn DCompositionWaitForCompositorClock(count: super::UINT, handles: Option<*const super::HANDLE>, timeoutinms: super::DWORD) -> super::DWORD {
     windows_core::link!("dcomp.dll" "system" fn DCompositionWaitForCompositorClock(count : super::UINT, handles : *const super::HANDLE, timeoutinms : super::DWORD) -> super::DWORD);
-    unsafe { DCompositionWaitForCompositorClock(handles.map_or(0, |slice| slice.len().try_into().unwrap()), handles.map_or(core::ptr::null(), |slice| slice.as_ptr()), timeoutinms) }
+    unsafe { DCompositionWaitForCompositorClock(count, handles.unwrap_or(core::mem::zeroed()) as _, timeoutinms) }
 }
 pub const COMPOSITIONOBJECT_ALL_ACCESS: i32 = 3;
 pub const COMPOSITIONOBJECT_READ: i32 = 1;
@@ -940,12 +940,12 @@ windows_core::imp::define_interface!(IDCompositionDelegatedInkTrail, IDCompositi
 windows_core::imp::interface_hierarchy!(IDCompositionDelegatedInkTrail, windows_core::IUnknown);
 impl IDCompositionDelegatedInkTrail {
     #[cfg(feature = "shared")]
-    pub unsafe fn AddTrailPoints(&self, inkpoints: &[DCompositionInkTrailPoint], generationid: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddTrailPoints)(windows_core::Interface::as_raw(self), inkpoints.as_ptr(), inkpoints.len().try_into().unwrap(), generationid as _) }
+    pub unsafe fn AddTrailPoints(&self, inkpoints: *const DCompositionInkTrailPoint, inkpointscount: super::UINT, generationid: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddTrailPoints)(windows_core::Interface::as_raw(self), inkpoints, inkpointscount, generationid as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn AddTrailPointsWithPrediction(&self, inkpoints: &[DCompositionInkTrailPoint], predictedinkpoints: &[DCompositionInkTrailPoint], generationid: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddTrailPointsWithPrediction)(windows_core::Interface::as_raw(self), inkpoints.as_ptr(), inkpoints.len().try_into().unwrap(), predictedinkpoints.as_ptr(), predictedinkpoints.len().try_into().unwrap(), generationid as _) }
+    pub unsafe fn AddTrailPointsWithPrediction(&self, inkpoints: *const DCompositionInkTrailPoint, inkpointscount: super::UINT, predictedinkpoints: *const DCompositionInkTrailPoint, predictedinkpointscount: super::UINT, generationid: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddTrailPointsWithPrediction)(windows_core::Interface::as_raw(self), inkpoints, inkpointscount, predictedinkpoints, predictedinkpointscount, generationid as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn RemoveTrailPoints(&self, generationid: super::UINT) -> windows_core::HRESULT {
@@ -1225,10 +1225,10 @@ impl IDCompositionDevice {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateTransformGroup(&self, transforms: &[Option<IDCompositionTransform>]) -> windows_core::Result<IDCompositionTransform> {
+    pub unsafe fn CreateTransformGroup(&self, transforms: *const Option<IDCompositionTransform>, elements: super::UINT) -> windows_core::Result<IDCompositionTransform> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTransformGroup)(windows_core::Interface::as_raw(self), core::mem::transmute(transforms.as_ptr()), transforms.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateTransformGroup)(windows_core::Interface::as_raw(self), core::mem::transmute(transforms), elements, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateTranslateTransform3D(&self) -> windows_core::Result<IDCompositionTranslateTransform3D> {
@@ -1256,10 +1256,10 @@ impl IDCompositionDevice {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateTransform3DGroup(&self, transforms3d: &[Option<IDCompositionTransform3D>]) -> windows_core::Result<IDCompositionTransform3D> {
+    pub unsafe fn CreateTransform3DGroup(&self, transforms3d: *const Option<IDCompositionTransform3D>, elements: super::UINT) -> windows_core::Result<IDCompositionTransform3D> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTransform3DGroup)(windows_core::Interface::as_raw(self), core::mem::transmute(transforms3d.as_ptr()), transforms3d.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateTransform3DGroup)(windows_core::Interface::as_raw(self), core::mem::transmute(transforms3d), elements, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateEffectGroup(&self) -> windows_core::Result<IDCompositionEffectGroup> {
@@ -1798,10 +1798,10 @@ impl IDCompositionDevice2 {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateTransformGroup(&self, transforms: &[Option<IDCompositionTransform>]) -> windows_core::Result<IDCompositionTransform> {
+    pub unsafe fn CreateTransformGroup(&self, transforms: *const Option<IDCompositionTransform>, elements: super::UINT) -> windows_core::Result<IDCompositionTransform> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTransformGroup)(windows_core::Interface::as_raw(self), core::mem::transmute(transforms.as_ptr()), transforms.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateTransformGroup)(windows_core::Interface::as_raw(self), core::mem::transmute(transforms), elements, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateTranslateTransform3D(&self) -> windows_core::Result<IDCompositionTranslateTransform3D> {
@@ -1829,10 +1829,10 @@ impl IDCompositionDevice2 {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateTransform3DGroup(&self, transforms3d: &[Option<IDCompositionTransform3D>]) -> windows_core::Result<IDCompositionTransform3D> {
+    pub unsafe fn CreateTransform3DGroup(&self, transforms3d: *const Option<IDCompositionTransform3D>, elements: super::UINT) -> windows_core::Result<IDCompositionTransform3D> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTransform3DGroup)(windows_core::Interface::as_raw(self), core::mem::transmute(transforms3d.as_ptr()), transforms3d.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateTransform3DGroup)(windows_core::Interface::as_raw(self), core::mem::transmute(transforms3d), elements, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateEffectGroup(&self) -> windows_core::Result<IDCompositionEffectGroup> {
@@ -2747,11 +2747,11 @@ windows_core::imp::define_interface!(IDCompositionDynamicTexture, IDCompositionD
 windows_core::imp::interface_hierarchy!(IDCompositionDynamicTexture, windows_core::IUnknown);
 impl IDCompositionDynamicTexture {
     #[cfg(all(feature = "dcommon", feature = "shared", feature = "windef"))]
-    pub unsafe fn SetTexture<P0>(&self, ptexture: P0, prects: &[super::D2D_RECT_L]) -> windows_core::HRESULT
+    pub unsafe fn SetTexture<P0>(&self, ptexture: P0, prects: *const super::D2D_RECT_L, rectcount: super::size_t) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDCompositionTexture>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetTexture)(windows_core::Interface::as_raw(self), ptexture.param().abi(), prects.as_ptr(), prects.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).SetTexture)(windows_core::Interface::as_raw(self), ptexture.param().abi(), prects, rectcount) }
     }
     pub unsafe fn SetTexture2<P0>(&self, ptexture: P0) -> windows_core::HRESULT
     where
@@ -5118,20 +5118,20 @@ impl core::ops::Deref for IDCompositionTableTransferEffect {
 windows_core::imp::interface_hierarchy!(IDCompositionTableTransferEffect, windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl IDCompositionTableTransferEffect {
     #[cfg(feature = "shared")]
-    pub unsafe fn SetRedTable(&self, tablevalues: &[f32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetRedTable)(windows_core::Interface::as_raw(self), tablevalues.as_ptr(), tablevalues.len().try_into().unwrap()) }
+    pub unsafe fn SetRedTable(&self, tablevalues: *const f32, count: super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetRedTable)(windows_core::Interface::as_raw(self), tablevalues, count) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetGreenTable(&self, tablevalues: &[f32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetGreenTable)(windows_core::Interface::as_raw(self), tablevalues.as_ptr(), tablevalues.len().try_into().unwrap()) }
+    pub unsafe fn SetGreenTable(&self, tablevalues: *const f32, count: super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetGreenTable)(windows_core::Interface::as_raw(self), tablevalues, count) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetBlueTable(&self, tablevalues: &[f32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetBlueTable)(windows_core::Interface::as_raw(self), tablevalues.as_ptr(), tablevalues.len().try_into().unwrap()) }
+    pub unsafe fn SetBlueTable(&self, tablevalues: *const f32, count: super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetBlueTable)(windows_core::Interface::as_raw(self), tablevalues, count) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetAlphaTable(&self, tablevalues: &[f32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAlphaTable)(windows_core::Interface::as_raw(self), tablevalues.as_ptr(), tablevalues.len().try_into().unwrap()) }
+    pub unsafe fn SetAlphaTable(&self, tablevalues: *const f32, count: super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetAlphaTable)(windows_core::Interface::as_raw(self), tablevalues, count) }
     }
     pub unsafe fn SetRedDisable(&self, reddisable: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetRedDisable)(windows_core::Interface::as_raw(self), reddisable.into()) }
@@ -5904,8 +5904,8 @@ impl IDCompositionVirtualSurface {
         unsafe { (windows_core::Interface::vtable(self).Resize)(windows_core::Interface::as_raw(self), width, height) }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
-    pub unsafe fn Trim(&self, rectangles: Option<&[super::RECT]>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Trim)(windows_core::Interface::as_raw(self), rectangles.map_or(core::ptr::null(), |slice| slice.as_ptr()), rectangles.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    pub unsafe fn Trim(&self, rectangles: Option<*const super::RECT>, count: super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Trim)(windows_core::Interface::as_raw(self), rectangles.unwrap_or(core::mem::zeroed()) as _, count) }
     }
 }
 #[repr(C)]

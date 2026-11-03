@@ -22,9 +22,9 @@ pub unsafe fn HPALETTE_UserSize64(param0: *const u32, param1: u32, param2: *cons
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn HPALETTE_UserUnmarshal64(param0: *const u32, param1: &[u8; 0], param2: *mut super::HPALETTE) -> *mut u8 {
+pub unsafe fn HPALETTE_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::HPALETTE) -> *mut u8 {
     windows_core::link!("ole32.dll" "system" fn HPALETTE_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut super::HPALETTE) -> *mut u8);
-    unsafe { HPALETTE_UserUnmarshal64(param0, param1.as_ptr(), param2 as _) }
+    unsafe { HPALETTE_UserUnmarshal64(param0, param1, param2 as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -67,16 +67,16 @@ pub unsafe fn HRGN_UserSize64(param0: *const u32, param1: u32, param2: *const su
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn HRGN_UserUnmarshal(param0: *const u32, param1: &[u8; 0], param2: *mut super::HRGN) -> *mut u8 {
+pub unsafe fn HRGN_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::HRGN) -> *mut u8 {
     windows_core::link!("ole32.dll" "system" fn HRGN_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut super::HRGN) -> *mut u8);
-    unsafe { HRGN_UserUnmarshal(param0, param1.as_ptr(), param2 as _) }
+    unsafe { HRGN_UserUnmarshal(param0, param1, param2 as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn HRGN_UserUnmarshal64(param0: *const u32, param1: &[u8; 0], param2: *mut super::HRGN) -> *mut u8 {
+pub unsafe fn HRGN_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::HRGN) -> *mut u8 {
     windows_core::link!("api-ms-win-core-marshal-l1-1-0.dll" "system" fn HRGN_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut super::HRGN) -> *mut u8);
-    unsafe { HRGN_UserUnmarshal64(param0, param1.as_ptr(), param2 as _) }
+    unsafe { HRGN_UserUnmarshal64(param0, param1, param2 as _) }
 }
 pub type ACTIVATEFLAGS = i32;
 pub const ACTIVATE_WINDOWLESS: ACTIVATEFLAGS = 1;
@@ -3470,8 +3470,8 @@ impl IPropertyPage {
         unsafe { (windows_core::Interface::vtable(self).GetPageInfo)(windows_core::Interface::as_raw(self), ppageinfo as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetObjects(&self, ppunk: &[Option<windows_core::IUnknown>]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetObjects)(windows_core::Interface::as_raw(self), ppunk.len().try_into().unwrap(), core::mem::transmute(ppunk.as_ptr())) }
+    pub unsafe fn SetObjects(&self, cobjects: super::ULONG, ppunk: *const Option<windows_core::IUnknown>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetObjects)(windows_core::Interface::as_raw(self), cobjects, core::mem::transmute(ppunk)) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Show(&self, ncmdshow: super::UINT) -> windows_core::HRESULT {

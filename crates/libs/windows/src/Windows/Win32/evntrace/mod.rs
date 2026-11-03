@@ -48,9 +48,9 @@ pub unsafe fn EnableTraceEx2(traceid: CONTROLTRACE_ID, providerid: super::LPCGUI
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn EnumerateTraceGuids(guidpropertiesarray: &mut [PTRACE_GUID_PROPERTIES], guidcount: super::PULONG) -> super::ULONG {
+pub unsafe fn EnumerateTraceGuids(guidpropertiesarray: *mut PTRACE_GUID_PROPERTIES, propertyarraycount: super::ULONG, guidcount: super::PULONG) -> super::ULONG {
     windows_core::link!("advapi32.dll" "system" fn EnumerateTraceGuids(guidpropertiesarray : *mut PTRACE_GUID_PROPERTIES, propertyarraycount : super::ULONG, guidcount : super::PULONG) -> super::ULONG);
-    unsafe { EnumerateTraceGuids(guidpropertiesarray.as_mut_ptr(), guidpropertiesarray.len().try_into().unwrap(), guidcount as _) }
+    unsafe { EnumerateTraceGuids(guidpropertiesarray as _, propertyarraycount, guidcount as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
@@ -141,9 +141,9 @@ pub unsafe fn OpenTraceW(logfile: PEVENT_TRACE_LOGFILEW) -> PROCESSTRACE_HANDLE 
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ProcessTrace(handlearray: &[PROCESSTRACE_HANDLE], starttime: Option<super::LPFILETIME>, endtime: Option<super::LPFILETIME>) -> super::ULONG {
+pub unsafe fn ProcessTrace(handlearray: *const PROCESSTRACE_HANDLE, handlecount: super::ULONG, starttime: Option<super::LPFILETIME>, endtime: Option<super::LPFILETIME>) -> super::ULONG {
     windows_core::link!("advapi32.dll" "system" fn ProcessTrace(handlearray : *const PROCESSTRACE_HANDLE, handlecount : super::ULONG, starttime : super::LPFILETIME, endtime : super::LPFILETIME) -> super::ULONG);
-    unsafe { ProcessTrace(handlearray.as_ptr(), handlearray.len().try_into().unwrap(), starttime.unwrap_or(core::mem::zeroed()) as _, endtime.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { ProcessTrace(handlearray, handlecount, starttime.unwrap_or(core::mem::zeroed()) as _, endtime.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -201,23 +201,23 @@ where
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt", feature = "wmistr"))]
 #[inline]
-pub unsafe fn RegisterTraceGuidsA<P5, P6>(requestaddress: WMIDPREQUEST, requestcontext: Option<super::PVOID>, controlguid: super::LPCGUID, traceguidreg: Option<&[TRACE_GUID_REGISTRATION]>, mofimagepath: P5, mofresourcename: P6, registrationhandle: *mut TRACEGUID_HANDLE) -> super::ULONG
+pub unsafe fn RegisterTraceGuidsA<P5, P6>(requestaddress: WMIDPREQUEST, requestcontext: Option<super::PVOID>, controlguid: super::LPCGUID, guidcount: super::ULONG, traceguidreg: Option<PTRACE_GUID_REGISTRATION>, mofimagepath: P5, mofresourcename: P6, registrationhandle: *mut TRACEGUID_HANDLE) -> super::ULONG
 where
     P5: windows_core::Param<windows_core::PCSTR>,
     P6: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn RegisterTraceGuidsA(requestaddress : WMIDPREQUEST, requestcontext : super::PVOID, controlguid : super::LPCGUID, guidcount : super::ULONG, traceguidreg : PTRACE_GUID_REGISTRATION, mofimagepath : windows_core::PCSTR, mofresourcename : windows_core::PCSTR, registrationhandle : *mut TRACEGUID_HANDLE) -> super::ULONG);
-    unsafe { RegisterTraceGuidsA(requestaddress, requestcontext.unwrap_or(core::mem::zeroed()) as _, controlguid, traceguidreg.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(traceguidreg.map_or(core::ptr::null(), |slice| slice.as_ptr())), mofimagepath.param().abi(), mofresourcename.param().abi(), registrationhandle as _) }
+    unsafe { RegisterTraceGuidsA(requestaddress, requestcontext.unwrap_or(core::mem::zeroed()) as _, controlguid, guidcount, traceguidreg.unwrap_or(core::mem::zeroed()) as _, mofimagepath.param().abi(), mofresourcename.param().abi(), registrationhandle as _) }
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt", feature = "wmistr"))]
 #[inline]
-pub unsafe fn RegisterTraceGuidsW<P5, P6>(requestaddress: WMIDPREQUEST, requestcontext: Option<super::PVOID>, controlguid: super::LPCGUID, traceguidreg: Option<&[TRACE_GUID_REGISTRATION]>, mofimagepath: P5, mofresourcename: P6, registrationhandle: *mut TRACEGUID_HANDLE) -> super::ULONG
+pub unsafe fn RegisterTraceGuidsW<P5, P6>(requestaddress: WMIDPREQUEST, requestcontext: Option<super::PVOID>, controlguid: super::LPCGUID, guidcount: super::ULONG, traceguidreg: Option<PTRACE_GUID_REGISTRATION>, mofimagepath: P5, mofresourcename: P6, registrationhandle: *mut TRACEGUID_HANDLE) -> super::ULONG
 where
     P5: windows_core::Param<windows_core::PCWSTR>,
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn RegisterTraceGuidsW(requestaddress : WMIDPREQUEST, requestcontext : super::PVOID, controlguid : super::LPCGUID, guidcount : super::ULONG, traceguidreg : PTRACE_GUID_REGISTRATION, mofimagepath : windows_core::PCWSTR, mofresourcename : windows_core::PCWSTR, registrationhandle : *mut TRACEGUID_HANDLE) -> super::ULONG);
-    unsafe { RegisterTraceGuidsW(requestaddress, requestcontext.unwrap_or(core::mem::zeroed()) as _, controlguid, traceguidreg.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(traceguidreg.map_or(core::ptr::null(), |slice| slice.as_ptr())), mofimagepath.param().abi(), mofresourcename.param().abi(), registrationhandle as _) }
+    unsafe { RegisterTraceGuidsW(requestaddress, requestcontext.unwrap_or(core::mem::zeroed()) as _, controlguid, guidcount, traceguidreg.unwrap_or(core::mem::zeroed()) as _, mofimagepath.param().abi(), mofresourcename.param().abi(), registrationhandle as _) }
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 #[inline]
@@ -269,9 +269,9 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn TraceConfigureLastBranchRecord(traceid: CONTROLTRACE_ID, lbrconfiguration: TRACE_LBR_CONFIGURATION, events: &[CLASSIC_EVENT_ID]) -> super::ULONG {
+pub unsafe fn TraceConfigureLastBranchRecord(traceid: CONTROLTRACE_ID, lbrconfiguration: TRACE_LBR_CONFIGURATION, events: *const CLASSIC_EVENT_ID, eventcount: super::ULONG) -> super::ULONG {
     windows_core::link!("api-ms-win-eventing-consumer-l1-1-2.dll" "system" fn TraceConfigureLastBranchRecord(traceid : CONTROLTRACE_ID, lbrconfiguration : TRACE_LBR_CONFIGURATION, events : *const CLASSIC_EVENT_ID, eventcount : super::ULONG) -> super::ULONG);
-    unsafe { TraceConfigureLastBranchRecord(traceid, lbrconfiguration, events.as_ptr(), events.len().try_into().unwrap()) }
+    unsafe { TraceConfigureLastBranchRecord(traceid, lbrconfiguration, events, eventcount) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]

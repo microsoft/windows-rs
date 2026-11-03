@@ -1,6 +1,10 @@
 windows_core::imp::define_interface!(Factory, Factory_Vtbl);
 impl Factory {
-    pub unsafe fn Reference<T>(&self, filters: &[windows_core::GUID]) -> windows_core::Result<T>
+    pub unsafe fn Reference<T>(
+        &self,
+        count: u32,
+        filters: *const windows_core::GUID,
+    ) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
@@ -8,15 +12,19 @@ impl Factory {
         unsafe {
             (windows_core::Interface::vtable(self).Reference)(
                 windows_core::Interface::as_raw(self),
-                filters.len().try_into().unwrap(),
-                filters.as_ptr(),
+                count,
+                filters,
                 &T::IID,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn BufferAfterId<T>(&self, filters: &[windows_core::GUID]) -> windows_core::Result<T>
+    pub unsafe fn BufferAfterId<T>(
+        &self,
+        count: u32,
+        filters: *const windows_core::GUID,
+    ) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
@@ -25,8 +33,8 @@ impl Factory {
             (windows_core::Interface::vtable(self).BufferAfterId)(
                 windows_core::Interface::as_raw(self),
                 &T::IID,
-                filters.len().try_into().unwrap(),
-                filters.as_ptr(),
+                count,
+                filters,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -34,14 +42,15 @@ impl Factory {
     }
     pub unsafe fn BufferOnly(
         &self,
-        filters: &[windows_core::GUID],
+        count: u32,
+        filters: *const windows_core::GUID,
         result: *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).BufferOnly)(
                 windows_core::Interface::as_raw(self),
-                filters.len().try_into().unwrap(),
-                filters.as_ptr(),
+                count,
+                filters,
                 result as _,
             )
         }
@@ -63,13 +72,13 @@ impl Factory {
     }
     pub unsafe fn FixedBuffer(
         &self,
-        filters: &[windows_core::GUID; 1],
+        filters: *const windows_core::GUID,
         result: *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).FixedBuffer)(
                 windows_core::Interface::as_raw(self),
-                filters.as_ptr(),
+                filters,
                 result as _,
             )
         }

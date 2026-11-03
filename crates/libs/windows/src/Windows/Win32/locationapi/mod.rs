@@ -1054,8 +1054,8 @@ impl ILocation {
         unsafe { (windows_core::Interface::vtable(self).SetDesiredAccuracy)(windows_core::Interface::as_raw(self), reporttype, desiredaccuracy) }
     }
     #[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
-    pub unsafe fn RequestPermissions(&self, hparent: Option<super::HWND>, preporttypes: &[super::IID], fmodal: bool) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RequestPermissions)(windows_core::Interface::as_raw(self), hparent.unwrap_or(core::mem::zeroed()) as _, preporttypes.as_ptr(), preporttypes.len().try_into().unwrap(), fmodal.into()) }
+    pub unsafe fn RequestPermissions(&self, hparent: Option<super::HWND>, preporttypes: *const super::IID, count: super::ULONG, fmodal: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RequestPermissions)(windows_core::Interface::as_raw(self), hparent.unwrap_or(core::mem::zeroed()) as _, preporttypes, count, fmodal.into()) }
     }
 }
 #[repr(C)]

@@ -1,42 +1,29 @@
 #[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn D3D11CreateDevice<P0>(padapter: P0, drivertype: super::D3D_DRIVER_TYPE, software: super::HMODULE, flags: super::UINT, pfeaturelevels: Option<&[super::D3D_FEATURE_LEVEL]>, sdkversion: super::UINT, ppdevice: Option<*mut Option<ID3D11Device>>, pfeaturelevel: Option<*mut super::D3D_FEATURE_LEVEL>, ppimmediatecontext: Option<*mut Option<ID3D11DeviceContext>>) -> windows_core::HRESULT
+pub unsafe fn D3D11CreateDevice<P0>(padapter: P0, drivertype: super::D3D_DRIVER_TYPE, software: super::HMODULE, flags: super::UINT, pfeaturelevels: Option<*const super::D3D_FEATURE_LEVEL>, featurelevels: super::UINT, sdkversion: super::UINT, ppdevice: Option<*mut Option<ID3D11Device>>, pfeaturelevel: Option<*mut super::D3D_FEATURE_LEVEL>, ppimmediatecontext: Option<*mut Option<ID3D11DeviceContext>>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IDXGIAdapter>,
 {
     windows_core::link!("d3d11.dll" "system" fn D3D11CreateDevice(padapter : *mut core::ffi::c_void, drivertype : super::D3D_DRIVER_TYPE, software : super::HMODULE, flags : super::UINT, pfeaturelevels : *const super::D3D_FEATURE_LEVEL, featurelevels : super::UINT, sdkversion : super::UINT, ppdevice : *mut *mut core::ffi::c_void, pfeaturelevel : *mut super::D3D_FEATURE_LEVEL, ppimmediatecontext : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { D3D11CreateDevice(padapter.param().abi(), drivertype, software as _, flags, pfeaturelevels.map_or(core::ptr::null(), |slice| slice.as_ptr()), pfeaturelevels.map_or(0, |slice| slice.len().try_into().unwrap()), sdkversion, ppdevice.unwrap_or(core::mem::zeroed()) as _, pfeaturelevel.unwrap_or(core::mem::zeroed()) as _, ppimmediatecontext.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { D3D11CreateDevice(padapter.param().abi(), drivertype, software as _, flags, pfeaturelevels.unwrap_or(core::mem::zeroed()) as _, featurelevels, sdkversion, ppdevice.unwrap_or(core::mem::zeroed()) as _, pfeaturelevel.unwrap_or(core::mem::zeroed()) as _, ppimmediatecontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn D3D11CreateDeviceAndSwapChain<P0>(padapter: P0, drivertype: super::D3D_DRIVER_TYPE, software: super::HMODULE, flags: super::UINT, pfeaturelevels: Option<&[super::D3D_FEATURE_LEVEL]>, sdkversion: super::UINT, pswapchaindesc: Option<*const super::DXGI_SWAP_CHAIN_DESC>, ppswapchain: Option<*mut Option<super::IDXGISwapChain>>, ppdevice: Option<*mut Option<ID3D11Device>>, pfeaturelevel: Option<*mut super::D3D_FEATURE_LEVEL>, ppimmediatecontext: Option<*mut Option<ID3D11DeviceContext>>) -> windows_core::HRESULT
+pub unsafe fn D3D11CreateDeviceAndSwapChain<P0>(padapter: P0, drivertype: super::D3D_DRIVER_TYPE, software: super::HMODULE, flags: super::UINT, pfeaturelevels: Option<*const super::D3D_FEATURE_LEVEL>, featurelevels: super::UINT, sdkversion: super::UINT, pswapchaindesc: Option<*const super::DXGI_SWAP_CHAIN_DESC>, ppswapchain: Option<*mut Option<super::IDXGISwapChain>>, ppdevice: Option<*mut Option<ID3D11Device>>, pfeaturelevel: Option<*mut super::D3D_FEATURE_LEVEL>, ppimmediatecontext: Option<*mut Option<ID3D11DeviceContext>>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IDXGIAdapter>,
 {
     windows_core::link!("d3d11.dll" "system" fn D3D11CreateDeviceAndSwapChain(padapter : *mut core::ffi::c_void, drivertype : super::D3D_DRIVER_TYPE, software : super::HMODULE, flags : super::UINT, pfeaturelevels : *const super::D3D_FEATURE_LEVEL, featurelevels : super::UINT, sdkversion : super::UINT, pswapchaindesc : *const super::DXGI_SWAP_CHAIN_DESC, ppswapchain : *mut *mut core::ffi::c_void, ppdevice : *mut *mut core::ffi::c_void, pfeaturelevel : *mut super::D3D_FEATURE_LEVEL, ppimmediatecontext : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { D3D11CreateDeviceAndSwapChain(padapter.param().abi(), drivertype, software as _, flags, pfeaturelevels.map_or(core::ptr::null(), |slice| slice.as_ptr()), pfeaturelevels.map_or(0, |slice| slice.len().try_into().unwrap()), sdkversion, pswapchaindesc.unwrap_or(core::mem::zeroed()) as _, ppswapchain.unwrap_or(core::mem::zeroed()) as _, ppdevice.unwrap_or(core::mem::zeroed()) as _, pfeaturelevel.unwrap_or(core::mem::zeroed()) as _, ppimmediatecontext.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { D3D11CreateDeviceAndSwapChain(padapter.param().abi(), drivertype, software as _, flags, pfeaturelevels.unwrap_or(core::mem::zeroed()) as _, featurelevels, sdkversion, pswapchaindesc.unwrap_or(core::mem::zeroed()) as _, ppswapchain.unwrap_or(core::mem::zeroed()) as _, ppdevice.unwrap_or(core::mem::zeroed()) as _, pfeaturelevel.unwrap_or(core::mem::zeroed()) as _, ppimmediatecontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
 #[inline]
-pub unsafe fn D3D11On12CreateDevice<P0>(pdevice: P0, flags: super::UINT, pfeaturelevels: Option<&[super::D3D_FEATURE_LEVEL]>, ppcommandqueues: Option<&[Option<windows_core::IUnknown>]>, nodemask: super::UINT, ppdevice: Option<*mut Option<ID3D11Device>>, ppimmediatecontext: Option<*mut Option<ID3D11DeviceContext>>, pchosenfeaturelevel: Option<*mut super::D3D_FEATURE_LEVEL>) -> windows_core::HRESULT
+pub unsafe fn D3D11On12CreateDevice<P0>(pdevice: P0, flags: super::UINT, pfeaturelevels: Option<*const super::D3D_FEATURE_LEVEL>, featurelevels: super::UINT, ppcommandqueues: Option<*const Option<windows_core::IUnknown>>, numqueues: super::UINT, nodemask: super::UINT, ppdevice: Option<*mut Option<ID3D11Device>>, ppimmediatecontext: Option<*mut Option<ID3D11DeviceContext>>, pchosenfeaturelevel: Option<*mut super::D3D_FEATURE_LEVEL>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("d3d11.dll" "system" fn D3D11On12CreateDevice(pdevice : *mut core::ffi::c_void, flags : super::UINT, pfeaturelevels : *const super::D3D_FEATURE_LEVEL, featurelevels : super::UINT, ppcommandqueues : *const *mut core::ffi::c_void, numqueues : super::UINT, nodemask : super::UINT, ppdevice : *mut *mut core::ffi::c_void, ppimmediatecontext : *mut *mut core::ffi::c_void, pchosenfeaturelevel : *mut super::D3D_FEATURE_LEVEL) -> windows_core::HRESULT);
-    unsafe {
-        D3D11On12CreateDevice(
-            pdevice.param().abi(),
-            flags,
-            pfeaturelevels.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            pfeaturelevels.map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(ppcommandqueues.map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            ppcommandqueues.map_or(0, |slice| slice.len().try_into().unwrap()),
-            nodemask,
-            ppdevice.unwrap_or(core::mem::zeroed()) as _,
-            ppimmediatecontext.unwrap_or(core::mem::zeroed()) as _,
-            pchosenfeaturelevel.unwrap_or(core::mem::zeroed()) as _,
-        )
-    }
+    unsafe { D3D11On12CreateDevice(pdevice.param().abi(), flags, pfeaturelevels.unwrap_or(core::mem::zeroed()) as _, featurelevels, ppcommandqueues.unwrap_or(core::mem::zeroed()) as _, numqueues, nodemask, ppdevice.unwrap_or(core::mem::zeroed()) as _, ppimmediatecontext.unwrap_or(core::mem::zeroed()) as _, pchosenfeaturelevel.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
 #[inline]
@@ -5964,70 +5951,57 @@ impl ID3D11Device {
         unsafe { (windows_core::Interface::vtable(self).CreateDepthStencilView)(windows_core::Interface::as_raw(self), presource.param().abi(), pdesc.unwrap_or(core::mem::zeroed()) as _, ppdepthstencilview.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(all(feature = "dxgi", feature = "shared"))]
-    pub unsafe fn CreateInputLayout(&self, pinputelementdescs: &[D3D11_INPUT_ELEMENT_DESC], pshaderbytecodewithinputsignature: &[u8], ppinputlayout: Option<*mut Option<ID3D11InputLayout>>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateInputLayout)(windows_core::Interface::as_raw(self), pinputelementdescs.as_ptr(), pinputelementdescs.len().try_into().unwrap(), core::mem::transmute(pshaderbytecodewithinputsignature.as_ptr()), pshaderbytecodewithinputsignature.len().try_into().unwrap(), ppinputlayout.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn CreateInputLayout(&self, pinputelementdescs: *const D3D11_INPUT_ELEMENT_DESC, numelements: super::UINT, pshaderbytecodewithinputsignature: *const core::ffi::c_void, bytecodelength: super::SIZE_T, ppinputlayout: Option<*mut Option<ID3D11InputLayout>>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateInputLayout)(windows_core::Interface::as_raw(self), pinputelementdescs, numelements, pshaderbytecodewithinputsignature, bytecodelength, ppinputlayout.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateVertexShader<P2>(&self, pshaderbytecode: &[u8], pclasslinkage: P2, ppvertexshader: Option<*mut Option<ID3D11VertexShader>>) -> windows_core::HRESULT
+    pub unsafe fn CreateVertexShader<P2>(&self, pshaderbytecode: *const core::ffi::c_void, bytecodelength: super::SIZE_T, pclasslinkage: P2, ppvertexshader: Option<*mut Option<ID3D11VertexShader>>) -> windows_core::HRESULT
     where
         P2: windows_core::Param<ID3D11ClassLinkage>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateVertexShader)(windows_core::Interface::as_raw(self), core::mem::transmute(pshaderbytecode.as_ptr()), pshaderbytecode.len().try_into().unwrap(), pclasslinkage.param().abi(), ppvertexshader.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).CreateVertexShader)(windows_core::Interface::as_raw(self), pshaderbytecode, bytecodelength, pclasslinkage.param().abi(), ppvertexshader.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateGeometryShader<P2>(&self, pshaderbytecode: &[u8], pclasslinkage: P2, ppgeometryshader: Option<*mut Option<ID3D11GeometryShader>>) -> windows_core::HRESULT
+    pub unsafe fn CreateGeometryShader<P2>(&self, pshaderbytecode: *const core::ffi::c_void, bytecodelength: super::SIZE_T, pclasslinkage: P2, ppgeometryshader: Option<*mut Option<ID3D11GeometryShader>>) -> windows_core::HRESULT
     where
         P2: windows_core::Param<ID3D11ClassLinkage>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateGeometryShader)(windows_core::Interface::as_raw(self), core::mem::transmute(pshaderbytecode.as_ptr()), pshaderbytecode.len().try_into().unwrap(), pclasslinkage.param().abi(), ppgeometryshader.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).CreateGeometryShader)(windows_core::Interface::as_raw(self), pshaderbytecode, bytecodelength, pclasslinkage.param().abi(), ppgeometryshader.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateGeometryShaderWithStreamOutput<P7>(&self, pshaderbytecode: &[u8], psodeclaration: Option<&[D3D11_SO_DECLARATION_ENTRY]>, pbufferstrides: Option<&[super::UINT]>, rasterizedstream: super::UINT, pclasslinkage: P7, ppgeometryshader: Option<*mut Option<ID3D11GeometryShader>>) -> windows_core::HRESULT
+    pub unsafe fn CreateGeometryShaderWithStreamOutput<P7>(&self, pshaderbytecode: *const core::ffi::c_void, bytecodelength: super::SIZE_T, psodeclaration: Option<*const D3D11_SO_DECLARATION_ENTRY>, numentries: super::UINT, pbufferstrides: Option<*const super::UINT>, numstrides: super::UINT, rasterizedstream: super::UINT, pclasslinkage: P7, ppgeometryshader: Option<*mut Option<ID3D11GeometryShader>>) -> windows_core::HRESULT
     where
         P7: windows_core::Param<ID3D11ClassLinkage>,
     {
-        unsafe {
-            (windows_core::Interface::vtable(self).CreateGeometryShaderWithStreamOutput)(
-                windows_core::Interface::as_raw(self),
-                core::mem::transmute(pshaderbytecode.as_ptr()),
-                pshaderbytecode.len().try_into().unwrap(),
-                psodeclaration.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-                psodeclaration.map_or(0, |slice| slice.len().try_into().unwrap()),
-                pbufferstrides.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-                pbufferstrides.map_or(0, |slice| slice.len().try_into().unwrap()),
-                rasterizedstream,
-                pclasslinkage.param().abi(),
-                ppgeometryshader.unwrap_or(core::mem::zeroed()) as _,
-            )
-        }
+        unsafe { (windows_core::Interface::vtable(self).CreateGeometryShaderWithStreamOutput)(windows_core::Interface::as_raw(self), pshaderbytecode, bytecodelength, psodeclaration.unwrap_or(core::mem::zeroed()) as _, numentries, pbufferstrides.unwrap_or(core::mem::zeroed()) as _, numstrides, rasterizedstream, pclasslinkage.param().abi(), ppgeometryshader.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreatePixelShader<P2>(&self, pshaderbytecode: &[u8], pclasslinkage: P2, pppixelshader: Option<*mut Option<ID3D11PixelShader>>) -> windows_core::HRESULT
+    pub unsafe fn CreatePixelShader<P2>(&self, pshaderbytecode: *const core::ffi::c_void, bytecodelength: super::SIZE_T, pclasslinkage: P2, pppixelshader: Option<*mut Option<ID3D11PixelShader>>) -> windows_core::HRESULT
     where
         P2: windows_core::Param<ID3D11ClassLinkage>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreatePixelShader)(windows_core::Interface::as_raw(self), core::mem::transmute(pshaderbytecode.as_ptr()), pshaderbytecode.len().try_into().unwrap(), pclasslinkage.param().abi(), pppixelshader.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).CreatePixelShader)(windows_core::Interface::as_raw(self), pshaderbytecode, bytecodelength, pclasslinkage.param().abi(), pppixelshader.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateHullShader<P2>(&self, pshaderbytecode: &[u8], pclasslinkage: P2, pphullshader: Option<*mut Option<ID3D11HullShader>>) -> windows_core::HRESULT
+    pub unsafe fn CreateHullShader<P2>(&self, pshaderbytecode: *const core::ffi::c_void, bytecodelength: super::SIZE_T, pclasslinkage: P2, pphullshader: Option<*mut Option<ID3D11HullShader>>) -> windows_core::HRESULT
     where
         P2: windows_core::Param<ID3D11ClassLinkage>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateHullShader)(windows_core::Interface::as_raw(self), core::mem::transmute(pshaderbytecode.as_ptr()), pshaderbytecode.len().try_into().unwrap(), pclasslinkage.param().abi(), pphullshader.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).CreateHullShader)(windows_core::Interface::as_raw(self), pshaderbytecode, bytecodelength, pclasslinkage.param().abi(), pphullshader.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateDomainShader<P2>(&self, pshaderbytecode: &[u8], pclasslinkage: P2, ppdomainshader: Option<*mut Option<ID3D11DomainShader>>) -> windows_core::HRESULT
+    pub unsafe fn CreateDomainShader<P2>(&self, pshaderbytecode: *const core::ffi::c_void, bytecodelength: super::SIZE_T, pclasslinkage: P2, ppdomainshader: Option<*mut Option<ID3D11DomainShader>>) -> windows_core::HRESULT
     where
         P2: windows_core::Param<ID3D11ClassLinkage>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateDomainShader)(windows_core::Interface::as_raw(self), core::mem::transmute(pshaderbytecode.as_ptr()), pshaderbytecode.len().try_into().unwrap(), pclasslinkage.param().abi(), ppdomainshader.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).CreateDomainShader)(windows_core::Interface::as_raw(self), pshaderbytecode, bytecodelength, pclasslinkage.param().abi(), ppdomainshader.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateComputeShader<P2>(&self, pshaderbytecode: &[u8], pclasslinkage: P2, ppcomputeshader: Option<*mut Option<ID3D11ComputeShader>>) -> windows_core::HRESULT
+    pub unsafe fn CreateComputeShader<P2>(&self, pshaderbytecode: *const core::ffi::c_void, bytecodelength: super::SIZE_T, pclasslinkage: P2, ppcomputeshader: Option<*mut Option<ID3D11ComputeShader>>) -> windows_core::HRESULT
     where
         P2: windows_core::Param<ID3D11ClassLinkage>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateComputeShader)(windows_core::Interface::as_raw(self), core::mem::transmute(pshaderbytecode.as_ptr()), pshaderbytecode.len().try_into().unwrap(), pclasslinkage.param().abi(), ppcomputeshader.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).CreateComputeShader)(windows_core::Interface::as_raw(self), pshaderbytecode, bytecodelength, pclasslinkage.param().abi(), ppcomputeshader.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn CreateClassLinkage(&self) -> windows_core::Result<ID3D11ClassLinkage> {
         unsafe {
@@ -6660,8 +6634,8 @@ impl ID3D11Device1 {
         unsafe { (windows_core::Interface::vtable(self).CreateRasterizerState1)(windows_core::Interface::as_raw(self), prasterizerdesc, pprasterizerstate.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(all(feature = "d3dcommon", feature = "guiddef", feature = "shared"))]
-    pub unsafe fn CreateDeviceContextState(&self, flags: super::UINT, pfeaturelevels: &[super::D3D_FEATURE_LEVEL], sdkversion: super::UINT, emulatedinterface: *const super::IID, pchosenfeaturelevel: Option<*mut super::D3D_FEATURE_LEVEL>, ppcontextstate: Option<*mut Option<ID3DDeviceContextState>>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateDeviceContextState)(windows_core::Interface::as_raw(self), flags, pfeaturelevels.as_ptr(), pfeaturelevels.len().try_into().unwrap(), sdkversion, emulatedinterface, pchosenfeaturelevel.unwrap_or(core::mem::zeroed()) as _, ppcontextstate.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn CreateDeviceContextState(&self, flags: super::UINT, pfeaturelevels: *const super::D3D_FEATURE_LEVEL, featurelevels: super::UINT, sdkversion: super::UINT, emulatedinterface: *const super::IID, pchosenfeaturelevel: Option<*mut super::D3D_FEATURE_LEVEL>, ppcontextstate: Option<*mut Option<ID3DDeviceContextState>>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateDeviceContextState)(windows_core::Interface::as_raw(self), flags, pfeaturelevels, featurelevels, sdkversion, emulatedinterface, pchosenfeaturelevel.unwrap_or(core::mem::zeroed()) as _, ppcontextstate.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(all(feature = "guiddef", feature = "winnt"))]
     pub unsafe fn OpenSharedResource1<T>(&self, hresource: super::HANDLE) -> windows_core::Result<T>
@@ -7335,39 +7309,39 @@ impl core::ops::Deref for ID3D11DeviceContext {
 windows_core::imp::interface_hierarchy!(ID3D11DeviceContext, windows_core::IUnknown, ID3D11DeviceChild);
 impl ID3D11DeviceContext {
     #[cfg(feature = "shared")]
-    pub unsafe fn VSSetConstantBuffers(&self, startslot: super::UINT, ppconstantbuffers: Option<&[Option<ID3D11Buffer>]>) {
+    pub unsafe fn VSSetConstantBuffers(&self, startslot: super::UINT, numbuffers: super::UINT, ppconstantbuffers: Option<*const Option<ID3D11Buffer>>) {
         unsafe {
-            (windows_core::Interface::vtable(self).VSSetConstantBuffers)(windows_core::Interface::as_raw(self), startslot, ppconstantbuffers.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppconstantbuffers.map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).VSSetConstantBuffers)(windows_core::Interface::as_raw(self), startslot, numbuffers, ppconstantbuffers.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn PSSetShaderResources(&self, startslot: super::UINT, ppshaderresourceviews: Option<&[Option<ID3D11ShaderResourceView>]>) {
+    pub unsafe fn PSSetShaderResources(&self, startslot: super::UINT, numviews: super::UINT, ppshaderresourceviews: Option<*const Option<ID3D11ShaderResourceView>>) {
         unsafe {
-            (windows_core::Interface::vtable(self).PSSetShaderResources)(windows_core::Interface::as_raw(self), startslot, ppshaderresourceviews.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppshaderresourceviews.map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).PSSetShaderResources)(windows_core::Interface::as_raw(self), startslot, numviews, ppshaderresourceviews.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn PSSetShader<P0>(&self, ppixelshader: P0, ppclassinstances: Option<&[Option<ID3D11ClassInstance>]>)
+    pub unsafe fn PSSetShader<P0>(&self, ppixelshader: P0, ppclassinstances: Option<*const Option<ID3D11ClassInstance>>, numclassinstances: super::UINT)
     where
         P0: windows_core::Param<ID3D11PixelShader>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).PSSetShader)(windows_core::Interface::as_raw(self), ppixelshader.param().abi(), core::mem::transmute(ppclassinstances.map_or(core::ptr::null(), |slice| slice.as_ptr())), ppclassinstances.map_or(0, |slice| slice.len().try_into().unwrap()));
+            (windows_core::Interface::vtable(self).PSSetShader)(windows_core::Interface::as_raw(self), ppixelshader.param().abi(), ppclassinstances.unwrap_or(core::mem::zeroed()) as _, numclassinstances);
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn PSSetSamplers(&self, startslot: super::UINT, ppsamplers: Option<&[Option<ID3D11SamplerState>]>) {
+    pub unsafe fn PSSetSamplers(&self, startslot: super::UINT, numsamplers: super::UINT, ppsamplers: Option<*const Option<ID3D11SamplerState>>) {
         unsafe {
-            (windows_core::Interface::vtable(self).PSSetSamplers)(windows_core::Interface::as_raw(self), startslot, ppsamplers.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppsamplers.map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).PSSetSamplers)(windows_core::Interface::as_raw(self), startslot, numsamplers, ppsamplers.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn VSSetShader<P0>(&self, pvertexshader: P0, ppclassinstances: Option<&[Option<ID3D11ClassInstance>]>)
+    pub unsafe fn VSSetShader<P0>(&self, pvertexshader: P0, ppclassinstances: Option<*const Option<ID3D11ClassInstance>>, numclassinstances: super::UINT)
     where
         P0: windows_core::Param<ID3D11VertexShader>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).VSSetShader)(windows_core::Interface::as_raw(self), pvertexshader.param().abi(), core::mem::transmute(ppclassinstances.map_or(core::ptr::null(), |slice| slice.as_ptr())), ppclassinstances.map_or(0, |slice| slice.len().try_into().unwrap()));
+            (windows_core::Interface::vtable(self).VSSetShader)(windows_core::Interface::as_raw(self), pvertexshader.param().abi(), ppclassinstances.unwrap_or(core::mem::zeroed()) as _, numclassinstances);
         }
     }
     #[cfg(feature = "shared")]
@@ -7399,9 +7373,9 @@ impl ID3D11DeviceContext {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn PSSetConstantBuffers(&self, startslot: super::UINT, ppconstantbuffers: Option<&[Option<ID3D11Buffer>]>) {
+    pub unsafe fn PSSetConstantBuffers(&self, startslot: super::UINT, numbuffers: super::UINT, ppconstantbuffers: Option<*const Option<ID3D11Buffer>>) {
         unsafe {
-            (windows_core::Interface::vtable(self).PSSetConstantBuffers)(windows_core::Interface::as_raw(self), startslot, ppconstantbuffers.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppconstantbuffers.map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).PSSetConstantBuffers)(windows_core::Interface::as_raw(self), startslot, numbuffers, ppconstantbuffers.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     pub unsafe fn IASetInputLayout<P0>(&self, pinputlayout: P0)
@@ -7440,18 +7414,18 @@ impl ID3D11DeviceContext {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GSSetConstantBuffers(&self, startslot: super::UINT, ppconstantbuffers: Option<&[Option<ID3D11Buffer>]>) {
+    pub unsafe fn GSSetConstantBuffers(&self, startslot: super::UINT, numbuffers: super::UINT, ppconstantbuffers: Option<*const Option<ID3D11Buffer>>) {
         unsafe {
-            (windows_core::Interface::vtable(self).GSSetConstantBuffers)(windows_core::Interface::as_raw(self), startslot, ppconstantbuffers.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppconstantbuffers.map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).GSSetConstantBuffers)(windows_core::Interface::as_raw(self), startslot, numbuffers, ppconstantbuffers.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GSSetShader<P0>(&self, pshader: P0, ppclassinstances: Option<&[Option<ID3D11ClassInstance>]>)
+    pub unsafe fn GSSetShader<P0>(&self, pshader: P0, ppclassinstances: Option<*const Option<ID3D11ClassInstance>>, numclassinstances: super::UINT)
     where
         P0: windows_core::Param<ID3D11GeometryShader>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).GSSetShader)(windows_core::Interface::as_raw(self), pshader.param().abi(), core::mem::transmute(ppclassinstances.map_or(core::ptr::null(), |slice| slice.as_ptr())), ppclassinstances.map_or(0, |slice| slice.len().try_into().unwrap()));
+            (windows_core::Interface::vtable(self).GSSetShader)(windows_core::Interface::as_raw(self), pshader.param().abi(), ppclassinstances.unwrap_or(core::mem::zeroed()) as _, numclassinstances);
         }
     }
     #[cfg(feature = "d3dcommon")]
@@ -7461,15 +7435,15 @@ impl ID3D11DeviceContext {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn VSSetShaderResources(&self, startslot: super::UINT, ppshaderresourceviews: Option<&[Option<ID3D11ShaderResourceView>]>) {
+    pub unsafe fn VSSetShaderResources(&self, startslot: super::UINT, numviews: super::UINT, ppshaderresourceviews: Option<*const Option<ID3D11ShaderResourceView>>) {
         unsafe {
-            (windows_core::Interface::vtable(self).VSSetShaderResources)(windows_core::Interface::as_raw(self), startslot, ppshaderresourceviews.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppshaderresourceviews.map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).VSSetShaderResources)(windows_core::Interface::as_raw(self), startslot, numviews, ppshaderresourceviews.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn VSSetSamplers(&self, startslot: super::UINT, ppsamplers: Option<&[Option<ID3D11SamplerState>]>) {
+    pub unsafe fn VSSetSamplers(&self, startslot: super::UINT, numsamplers: super::UINT, ppsamplers: Option<*const Option<ID3D11SamplerState>>) {
         unsafe {
-            (windows_core::Interface::vtable(self).VSSetSamplers)(windows_core::Interface::as_raw(self), startslot, ppsamplers.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppsamplers.map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).VSSetSamplers)(windows_core::Interface::as_raw(self), startslot, numsamplers, ppsamplers.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     pub unsafe fn Begin<P0>(&self, pasync: P0)
@@ -7504,33 +7478,33 @@ impl ID3D11DeviceContext {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GSSetShaderResources(&self, startslot: super::UINT, ppshaderresourceviews: Option<&[Option<ID3D11ShaderResourceView>]>) {
+    pub unsafe fn GSSetShaderResources(&self, startslot: super::UINT, numviews: super::UINT, ppshaderresourceviews: Option<*const Option<ID3D11ShaderResourceView>>) {
         unsafe {
-            (windows_core::Interface::vtable(self).GSSetShaderResources)(windows_core::Interface::as_raw(self), startslot, ppshaderresourceviews.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppshaderresourceviews.map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).GSSetShaderResources)(windows_core::Interface::as_raw(self), startslot, numviews, ppshaderresourceviews.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GSSetSamplers(&self, startslot: super::UINT, ppsamplers: Option<&[Option<ID3D11SamplerState>]>) {
+    pub unsafe fn GSSetSamplers(&self, startslot: super::UINT, numsamplers: super::UINT, ppsamplers: Option<*const Option<ID3D11SamplerState>>) {
         unsafe {
-            (windows_core::Interface::vtable(self).GSSetSamplers)(windows_core::Interface::as_raw(self), startslot, ppsamplers.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppsamplers.map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).GSSetSamplers)(windows_core::Interface::as_raw(self), startslot, numsamplers, ppsamplers.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn OMSetRenderTargets<P2>(&self, pprendertargetviews: Option<&[Option<ID3D11RenderTargetView>]>, pdepthstencilview: P2)
+    pub unsafe fn OMSetRenderTargets<P2>(&self, numviews: super::UINT, pprendertargetviews: Option<*const Option<ID3D11RenderTargetView>>, pdepthstencilview: P2)
     where
         P2: windows_core::Param<ID3D11DepthStencilView>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).OMSetRenderTargets)(windows_core::Interface::as_raw(self), pprendertargetviews.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pprendertargetviews.map_or(core::ptr::null(), |slice| slice.as_ptr())), pdepthstencilview.param().abi());
+            (windows_core::Interface::vtable(self).OMSetRenderTargets)(windows_core::Interface::as_raw(self), numviews, pprendertargetviews.unwrap_or(core::mem::zeroed()) as _, pdepthstencilview.param().abi());
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn OMSetRenderTargetsAndUnorderedAccessViews<P2>(&self, pprendertargetviews: Option<&[Option<ID3D11RenderTargetView>]>, pdepthstencilview: P2, uavstartslot: super::UINT, numuavs: super::UINT, ppunorderedaccessviews: Option<*const Option<ID3D11UnorderedAccessView>>, puavinitialcounts: Option<*const super::UINT>)
+    pub unsafe fn OMSetRenderTargetsAndUnorderedAccessViews<P2>(&self, numrtvs: super::UINT, pprendertargetviews: Option<*const Option<ID3D11RenderTargetView>>, pdepthstencilview: P2, uavstartslot: super::UINT, numuavs: super::UINT, ppunorderedaccessviews: Option<*const Option<ID3D11UnorderedAccessView>>, puavinitialcounts: Option<*const super::UINT>)
     where
         P2: windows_core::Param<ID3D11DepthStencilView>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).OMSetRenderTargetsAndUnorderedAccessViews)(windows_core::Interface::as_raw(self), pprendertargetviews.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pprendertargetviews.map_or(core::ptr::null(), |slice| slice.as_ptr())), pdepthstencilview.param().abi(), uavstartslot, numuavs, ppunorderedaccessviews.unwrap_or(core::mem::zeroed()) as _, puavinitialcounts.unwrap_or(core::mem::zeroed()) as _);
+            (windows_core::Interface::vtable(self).OMSetRenderTargetsAndUnorderedAccessViews)(windows_core::Interface::as_raw(self), numrtvs, pprendertargetviews.unwrap_or(core::mem::zeroed()) as _, pdepthstencilview.param().abi(), uavstartslot, numuavs, ppunorderedaccessviews.unwrap_or(core::mem::zeroed()) as _, puavinitialcounts.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     #[cfg(all(feature = "minwindef", feature = "shared"))]
@@ -7604,15 +7578,15 @@ impl ID3D11DeviceContext {
         }
     }
     #[cfg(all(feature = "minwindef", feature = "shared"))]
-    pub unsafe fn RSSetViewports(&self, pviewports: Option<&[D3D11_VIEWPORT]>) {
+    pub unsafe fn RSSetViewports(&self, numviewports: super::UINT, pviewports: Option<*const D3D11_VIEWPORT>) {
         unsafe {
-            (windows_core::Interface::vtable(self).RSSetViewports)(windows_core::Interface::as_raw(self), pviewports.map_or(0, |slice| slice.len().try_into().unwrap()), pviewports.map_or(core::ptr::null(), |slice| slice.as_ptr()));
+            (windows_core::Interface::vtable(self).RSSetViewports)(windows_core::Interface::as_raw(self), numviewports, pviewports.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
-    pub unsafe fn RSSetScissorRects(&self, prects: Option<&[D3D11_RECT]>) {
+    pub unsafe fn RSSetScissorRects(&self, numrects: super::UINT, prects: Option<*const D3D11_RECT>) {
         unsafe {
-            (windows_core::Interface::vtable(self).RSSetScissorRects)(windows_core::Interface::as_raw(self), prects.map_or(0, |slice| slice.len().try_into().unwrap()), prects.map_or(core::ptr::null(), |slice| slice.as_ptr()));
+            (windows_core::Interface::vtable(self).RSSetScissorRects)(windows_core::Interface::as_raw(self), numrects, prects.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     #[cfg(feature = "shared")]
@@ -7732,63 +7706,63 @@ impl ID3D11DeviceContext {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn HSSetShaderResources(&self, startslot: super::UINT, ppshaderresourceviews: Option<&[Option<ID3D11ShaderResourceView>]>) {
+    pub unsafe fn HSSetShaderResources(&self, startslot: super::UINT, numviews: super::UINT, ppshaderresourceviews: Option<*const Option<ID3D11ShaderResourceView>>) {
         unsafe {
-            (windows_core::Interface::vtable(self).HSSetShaderResources)(windows_core::Interface::as_raw(self), startslot, ppshaderresourceviews.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppshaderresourceviews.map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).HSSetShaderResources)(windows_core::Interface::as_raw(self), startslot, numviews, ppshaderresourceviews.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn HSSetShader<P0>(&self, phullshader: P0, ppclassinstances: Option<&[Option<ID3D11ClassInstance>]>)
+    pub unsafe fn HSSetShader<P0>(&self, phullshader: P0, ppclassinstances: Option<*const Option<ID3D11ClassInstance>>, numclassinstances: super::UINT)
     where
         P0: windows_core::Param<ID3D11HullShader>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).HSSetShader)(windows_core::Interface::as_raw(self), phullshader.param().abi(), core::mem::transmute(ppclassinstances.map_or(core::ptr::null(), |slice| slice.as_ptr())), ppclassinstances.map_or(0, |slice| slice.len().try_into().unwrap()));
+            (windows_core::Interface::vtable(self).HSSetShader)(windows_core::Interface::as_raw(self), phullshader.param().abi(), ppclassinstances.unwrap_or(core::mem::zeroed()) as _, numclassinstances);
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn HSSetSamplers(&self, startslot: super::UINT, ppsamplers: Option<&[Option<ID3D11SamplerState>]>) {
+    pub unsafe fn HSSetSamplers(&self, startslot: super::UINT, numsamplers: super::UINT, ppsamplers: Option<*const Option<ID3D11SamplerState>>) {
         unsafe {
-            (windows_core::Interface::vtable(self).HSSetSamplers)(windows_core::Interface::as_raw(self), startslot, ppsamplers.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppsamplers.map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).HSSetSamplers)(windows_core::Interface::as_raw(self), startslot, numsamplers, ppsamplers.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn HSSetConstantBuffers(&self, startslot: super::UINT, ppconstantbuffers: Option<&[Option<ID3D11Buffer>]>) {
+    pub unsafe fn HSSetConstantBuffers(&self, startslot: super::UINT, numbuffers: super::UINT, ppconstantbuffers: Option<*const Option<ID3D11Buffer>>) {
         unsafe {
-            (windows_core::Interface::vtable(self).HSSetConstantBuffers)(windows_core::Interface::as_raw(self), startslot, ppconstantbuffers.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppconstantbuffers.map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).HSSetConstantBuffers)(windows_core::Interface::as_raw(self), startslot, numbuffers, ppconstantbuffers.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn DSSetShaderResources(&self, startslot: super::UINT, ppshaderresourceviews: Option<&[Option<ID3D11ShaderResourceView>]>) {
+    pub unsafe fn DSSetShaderResources(&self, startslot: super::UINT, numviews: super::UINT, ppshaderresourceviews: Option<*const Option<ID3D11ShaderResourceView>>) {
         unsafe {
-            (windows_core::Interface::vtable(self).DSSetShaderResources)(windows_core::Interface::as_raw(self), startslot, ppshaderresourceviews.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppshaderresourceviews.map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).DSSetShaderResources)(windows_core::Interface::as_raw(self), startslot, numviews, ppshaderresourceviews.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn DSSetShader<P0>(&self, pdomainshader: P0, ppclassinstances: Option<&[Option<ID3D11ClassInstance>]>)
+    pub unsafe fn DSSetShader<P0>(&self, pdomainshader: P0, ppclassinstances: Option<*const Option<ID3D11ClassInstance>>, numclassinstances: super::UINT)
     where
         P0: windows_core::Param<ID3D11DomainShader>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).DSSetShader)(windows_core::Interface::as_raw(self), pdomainshader.param().abi(), core::mem::transmute(ppclassinstances.map_or(core::ptr::null(), |slice| slice.as_ptr())), ppclassinstances.map_or(0, |slice| slice.len().try_into().unwrap()));
+            (windows_core::Interface::vtable(self).DSSetShader)(windows_core::Interface::as_raw(self), pdomainshader.param().abi(), ppclassinstances.unwrap_or(core::mem::zeroed()) as _, numclassinstances);
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn DSSetSamplers(&self, startslot: super::UINT, ppsamplers: Option<&[Option<ID3D11SamplerState>]>) {
+    pub unsafe fn DSSetSamplers(&self, startslot: super::UINT, numsamplers: super::UINT, ppsamplers: Option<*const Option<ID3D11SamplerState>>) {
         unsafe {
-            (windows_core::Interface::vtable(self).DSSetSamplers)(windows_core::Interface::as_raw(self), startslot, ppsamplers.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppsamplers.map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).DSSetSamplers)(windows_core::Interface::as_raw(self), startslot, numsamplers, ppsamplers.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn DSSetConstantBuffers(&self, startslot: super::UINT, ppconstantbuffers: Option<&[Option<ID3D11Buffer>]>) {
+    pub unsafe fn DSSetConstantBuffers(&self, startslot: super::UINT, numbuffers: super::UINT, ppconstantbuffers: Option<*const Option<ID3D11Buffer>>) {
         unsafe {
-            (windows_core::Interface::vtable(self).DSSetConstantBuffers)(windows_core::Interface::as_raw(self), startslot, ppconstantbuffers.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppconstantbuffers.map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).DSSetConstantBuffers)(windows_core::Interface::as_raw(self), startslot, numbuffers, ppconstantbuffers.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CSSetShaderResources(&self, startslot: super::UINT, ppshaderresourceviews: Option<&[Option<ID3D11ShaderResourceView>]>) {
+    pub unsafe fn CSSetShaderResources(&self, startslot: super::UINT, numviews: super::UINT, ppshaderresourceviews: Option<*const Option<ID3D11ShaderResourceView>>) {
         unsafe {
-            (windows_core::Interface::vtable(self).CSSetShaderResources)(windows_core::Interface::as_raw(self), startslot, ppshaderresourceviews.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppshaderresourceviews.map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).CSSetShaderResources)(windows_core::Interface::as_raw(self), startslot, numviews, ppshaderresourceviews.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     #[cfg(feature = "shared")]
@@ -7798,24 +7772,24 @@ impl ID3D11DeviceContext {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CSSetShader<P0>(&self, pcomputeshader: P0, ppclassinstances: Option<&[Option<ID3D11ClassInstance>]>)
+    pub unsafe fn CSSetShader<P0>(&self, pcomputeshader: P0, ppclassinstances: Option<*const Option<ID3D11ClassInstance>>, numclassinstances: super::UINT)
     where
         P0: windows_core::Param<ID3D11ComputeShader>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).CSSetShader)(windows_core::Interface::as_raw(self), pcomputeshader.param().abi(), core::mem::transmute(ppclassinstances.map_or(core::ptr::null(), |slice| slice.as_ptr())), ppclassinstances.map_or(0, |slice| slice.len().try_into().unwrap()));
+            (windows_core::Interface::vtable(self).CSSetShader)(windows_core::Interface::as_raw(self), pcomputeshader.param().abi(), ppclassinstances.unwrap_or(core::mem::zeroed()) as _, numclassinstances);
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CSSetSamplers(&self, startslot: super::UINT, ppsamplers: Option<&[Option<ID3D11SamplerState>]>) {
+    pub unsafe fn CSSetSamplers(&self, startslot: super::UINT, numsamplers: super::UINT, ppsamplers: Option<*const Option<ID3D11SamplerState>>) {
         unsafe {
-            (windows_core::Interface::vtable(self).CSSetSamplers)(windows_core::Interface::as_raw(self), startslot, ppsamplers.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppsamplers.map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).CSSetSamplers)(windows_core::Interface::as_raw(self), startslot, numsamplers, ppsamplers.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CSSetConstantBuffers(&self, startslot: super::UINT, ppconstantbuffers: Option<&[Option<ID3D11Buffer>]>) {
+    pub unsafe fn CSSetConstantBuffers(&self, startslot: super::UINT, numbuffers: super::UINT, ppconstantbuffers: Option<*const Option<ID3D11Buffer>>) {
         unsafe {
-            (windows_core::Interface::vtable(self).CSSetConstantBuffers)(windows_core::Interface::as_raw(self), startslot, ppconstantbuffers.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppconstantbuffers.map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).CSSetConstantBuffers)(windows_core::Interface::as_raw(self), startslot, numbuffers, ppconstantbuffers.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     #[cfg(feature = "shared")]
@@ -9458,21 +9432,21 @@ impl ID3D11DeviceContext1 {
         }
     }
     #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
-    pub unsafe fn ClearView<P0>(&self, pview: P0, color: *const super::FLOAT, prect: Option<&[D3D11_RECT]>)
+    pub unsafe fn ClearView<P0>(&self, pview: P0, color: *const super::FLOAT, prect: Option<*const D3D11_RECT>, numrects: super::UINT)
     where
         P0: windows_core::Param<ID3D11View>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).ClearView)(windows_core::Interface::as_raw(self), pview.param().abi(), color, prect.map_or(core::ptr::null(), |slice| slice.as_ptr()), prect.map_or(0, |slice| slice.len().try_into().unwrap()));
+            (windows_core::Interface::vtable(self).ClearView)(windows_core::Interface::as_raw(self), pview.param().abi(), color, prect.unwrap_or(core::mem::zeroed()) as _, numrects);
         }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
-    pub unsafe fn DiscardView1<P0>(&self, presourceview: P0, prects: Option<&[D3D11_RECT]>)
+    pub unsafe fn DiscardView1<P0>(&self, presourceview: P0, prects: Option<*const D3D11_RECT>, numrects: super::UINT)
     where
         P0: windows_core::Param<ID3D11View>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).DiscardView1)(windows_core::Interface::as_raw(self), presourceview.param().abi(), prects.map_or(core::ptr::null(), |slice| slice.as_ptr()), prects.map_or(0, |slice| slice.len().try_into().unwrap()));
+            (windows_core::Interface::vtable(self).DiscardView1)(windows_core::Interface::as_raw(self), presourceview.param().abi(), prects.unwrap_or(core::mem::zeroed()) as _, numrects);
         }
     }
 }
@@ -10193,17 +10167,17 @@ impl ID3D11FunctionLinkingGraph {
         unsafe { (windows_core::Interface::vtable(self).CreateModuleInstance)(windows_core::Interface::as_raw(self), core::mem::transmute(ppmoduleinstance), core::mem::transmute(pperrorbuffer)) }
     }
     #[cfg(all(feature = "d3dcommon", feature = "shared"))]
-    pub unsafe fn SetInputSignature(&self, pinputparameters: &[D3D11_PARAMETER_DESC]) -> windows_core::Result<ID3D11LinkingNode> {
+    pub unsafe fn SetInputSignature(&self, pinputparameters: *const D3D11_PARAMETER_DESC, cinputparameters: super::UINT) -> windows_core::Result<ID3D11LinkingNode> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SetInputSignature)(windows_core::Interface::as_raw(self), pinputparameters.as_ptr(), pinputparameters.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SetInputSignature)(windows_core::Interface::as_raw(self), pinputparameters, cinputparameters, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "d3dcommon", feature = "shared"))]
-    pub unsafe fn SetOutputSignature(&self, poutputparameters: &[D3D11_PARAMETER_DESC]) -> windows_core::Result<ID3D11LinkingNode> {
+    pub unsafe fn SetOutputSignature(&self, poutputparameters: *const D3D11_PARAMETER_DESC, coutputparameters: super::UINT) -> windows_core::Result<ID3D11LinkingNode> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SetOutputSignature)(windows_core::Interface::as_raw(self), poutputparameters.as_ptr(), poutputparameters.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SetOutputSignature)(windows_core::Interface::as_raw(self), poutputparameters, coutputparameters, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CallFunction<P0, P1, P2>(&self, pmoduleinstancenamespace: P0, pmodulewithfunctionprototype: P1, pfunctionname: P2) -> windows_core::Result<ID3D11LinkingNode>
@@ -11682,15 +11656,15 @@ impl ID3D11On12Device {
         unsafe { (windows_core::Interface::vtable(self).CreateWrappedResource)(windows_core::Interface::as_raw(self), presource12.param().abi(), pflags11, instate, outstate, &T::IID, result__ as *mut _ as *mut _).ok() }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn ReleaseWrappedResources(&self, ppresources: &[Option<ID3D11Resource>]) {
+    pub unsafe fn ReleaseWrappedResources(&self, ppresources: *const Option<ID3D11Resource>, numresources: super::UINT) {
         unsafe {
-            (windows_core::Interface::vtable(self).ReleaseWrappedResources)(windows_core::Interface::as_raw(self), core::mem::transmute(ppresources.as_ptr()), ppresources.len().try_into().unwrap());
+            (windows_core::Interface::vtable(self).ReleaseWrappedResources)(windows_core::Interface::as_raw(self), core::mem::transmute(ppresources), numresources);
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn AcquireWrappedResources(&self, ppresources: &[Option<ID3D11Resource>]) {
+    pub unsafe fn AcquireWrappedResources(&self, ppresources: *const Option<ID3D11Resource>, numresources: super::UINT) {
         unsafe {
-            (windows_core::Interface::vtable(self).AcquireWrappedResources)(windows_core::Interface::as_raw(self), core::mem::transmute(ppresources.as_ptr()), ppresources.len().try_into().unwrap());
+            (windows_core::Interface::vtable(self).AcquireWrappedResources)(windows_core::Interface::as_raw(self), core::mem::transmute(ppresources), numresources);
         }
     }
 }
@@ -13928,11 +13902,11 @@ impl ID3D11VideoContext {
         unsafe { (windows_core::Interface::vtable(self).DecoderEndFrame)(windows_core::Interface::as_raw(self), pdecoder.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SubmitDecoderBuffers<P0>(&self, pdecoder: P0, pbufferdesc: &[D3D11_VIDEO_DECODER_BUFFER_DESC]) -> windows_core::HRESULT
+    pub unsafe fn SubmitDecoderBuffers<P0>(&self, pdecoder: P0, numbuffers: super::UINT, pbufferdesc: *const D3D11_VIDEO_DECODER_BUFFER_DESC) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ID3D11VideoDecoder>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SubmitDecoderBuffers)(windows_core::Interface::as_raw(self), pdecoder.param().abi(), pbufferdesc.len().try_into().unwrap(), pbufferdesc.as_ptr()) }
+        unsafe { (windows_core::Interface::vtable(self).SubmitDecoderBuffers)(windows_core::Interface::as_raw(self), pdecoder.param().abi(), numbuffers, pbufferdesc) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn DecoderExtension<P0>(&self, pdecoder: P0, pextensiondata: *const D3D11_VIDEO_DECODER_EXTENSION) -> APP_DEPRECATED_HRESULT
@@ -14114,12 +14088,12 @@ impl ID3D11VideoContext {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn VideoProcessorSetStreamPalette<P0>(&self, pvideoprocessor: P0, streamindex: super::UINT, pentries: Option<&[super::UINT]>)
+    pub unsafe fn VideoProcessorSetStreamPalette<P0>(&self, pvideoprocessor: P0, streamindex: super::UINT, count: super::UINT, pentries: Option<*const super::UINT>)
     where
         P0: windows_core::Param<ID3D11VideoProcessor>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).VideoProcessorSetStreamPalette)(windows_core::Interface::as_raw(self), pvideoprocessor.param().abi(), streamindex, pentries.map_or(0, |slice| slice.len().try_into().unwrap()), pentries.map_or(core::ptr::null(), |slice| slice.as_ptr()));
+            (windows_core::Interface::vtable(self).VideoProcessorSetStreamPalette)(windows_core::Interface::as_raw(self), pvideoprocessor.param().abi(), streamindex, count, pentries.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     #[cfg(all(feature = "dxgi", feature = "shared"))]
@@ -14290,12 +14264,12 @@ impl ID3D11VideoContext {
         unsafe { (windows_core::Interface::vtable(self).VideoProcessorGetStreamExtension)(windows_core::Interface::as_raw(self), pvideoprocessor.param().abi(), streamindex, pextensionguid, datasize, pdata as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn VideoProcessorBlt<P0, P1>(&self, pvideoprocessor: P0, pview: P1, outputframe: super::UINT, pstreams: &[D3D11_VIDEO_PROCESSOR_STREAM]) -> windows_core::HRESULT
+    pub unsafe fn VideoProcessorBlt<P0, P1>(&self, pvideoprocessor: P0, pview: P1, outputframe: super::UINT, streamcount: super::UINT, pstreams: *const D3D11_VIDEO_PROCESSOR_STREAM) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ID3D11VideoProcessor>,
         P1: windows_core::Param<ID3D11VideoProcessorOutputView>,
     {
-        unsafe { (windows_core::Interface::vtable(self).VideoProcessorBlt)(windows_core::Interface::as_raw(self), pvideoprocessor.param().abi(), pview.param().abi(), outputframe, pstreams.len().try_into().unwrap(), pstreams.as_ptr()) }
+        unsafe { (windows_core::Interface::vtable(self).VideoProcessorBlt)(windows_core::Interface::as_raw(self), pvideoprocessor.param().abi(), pview.param().abi(), outputframe, streamcount, pstreams) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn NegotiateCryptoSessionKeyExchange<P0>(&self, pcryptosession: P0, datasize: super::UINT, pdata: *mut core::ffi::c_void) -> windows_core::HRESULT
@@ -15096,18 +15070,18 @@ impl core::ops::Deref for ID3D11VideoContext1 {
 windows_core::imp::interface_hierarchy!(ID3D11VideoContext1, windows_core::IUnknown, ID3D11DeviceChild, ID3D11VideoContext);
 impl ID3D11VideoContext1 {
     #[cfg(feature = "shared")]
-    pub unsafe fn SubmitDecoderBuffers1<P0>(&self, pdecoder: P0, pbufferdesc: &[D3D11_VIDEO_DECODER_BUFFER_DESC1]) -> windows_core::HRESULT
+    pub unsafe fn SubmitDecoderBuffers1<P0>(&self, pdecoder: P0, numbuffers: super::UINT, pbufferdesc: *const D3D11_VIDEO_DECODER_BUFFER_DESC1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ID3D11VideoDecoder>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SubmitDecoderBuffers1)(windows_core::Interface::as_raw(self), pdecoder.param().abi(), pbufferdesc.len().try_into().unwrap(), pbufferdesc.as_ptr()) }
+        unsafe { (windows_core::Interface::vtable(self).SubmitDecoderBuffers1)(windows_core::Interface::as_raw(self), pdecoder.param().abi(), numbuffers, pbufferdesc) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetDataForNewHardwareKey<P0>(&self, pcryptosession: P0, pprivatinputdata: &[u8], pprivateoutputdata: *mut super::UINT64) -> windows_core::HRESULT
+    pub unsafe fn GetDataForNewHardwareKey<P0>(&self, pcryptosession: P0, privateinputsize: super::UINT, pprivatinputdata: *const core::ffi::c_void, pprivateoutputdata: *mut super::UINT64) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ID3D11CryptoSession>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetDataForNewHardwareKey)(windows_core::Interface::as_raw(self), pcryptosession.param().abi(), pprivatinputdata.len().try_into().unwrap(), core::mem::transmute(pprivatinputdata.as_ptr()), pprivateoutputdata as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetDataForNewHardwareKey)(windows_core::Interface::as_raw(self), pcryptosession.param().abi(), privateinputsize, pprivatinputdata, pprivateoutputdata as _) }
     }
     pub unsafe fn CheckCryptoSessionStatus<P0>(&self, pcryptosession: P0, pstatus: *mut D3D11_CRYPTO_SESSION_STATUS) -> windows_core::HRESULT
     where
@@ -15200,11 +15174,11 @@ impl ID3D11VideoContext1 {
         }
     }
     #[cfg(all(feature = "dxgi", feature = "shared"))]
-    pub unsafe fn VideoProcessorGetBehaviorHints<P0>(&self, pvideoprocessor: P0, outputwidth: super::UINT, outputheight: super::UINT, outputformat: super::DXGI_FORMAT, pstreams: &[D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT], pbehaviorhints: *mut super::UINT) -> windows_core::HRESULT
+    pub unsafe fn VideoProcessorGetBehaviorHints<P0>(&self, pvideoprocessor: P0, outputwidth: super::UINT, outputheight: super::UINT, outputformat: super::DXGI_FORMAT, streamcount: super::UINT, pstreams: *const D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT, pbehaviorhints: *mut super::UINT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ID3D11VideoProcessor>,
     {
-        unsafe { (windows_core::Interface::vtable(self).VideoProcessorGetBehaviorHints)(windows_core::Interface::as_raw(self), pvideoprocessor.param().abi(), outputwidth, outputheight, outputformat, pstreams.len().try_into().unwrap(), pstreams.as_ptr(), pbehaviorhints as _) }
+        unsafe { (windows_core::Interface::vtable(self).VideoProcessorGetBehaviorHints)(windows_core::Interface::as_raw(self), pvideoprocessor.param().abi(), outputwidth, outputheight, outputformat, streamcount, pstreams, pbehaviorhints as _) }
     }
 }
 #[repr(C)]
@@ -15520,11 +15494,11 @@ impl ID3D11VideoContext3 {
         unsafe { (windows_core::Interface::vtable(self).DecoderBeginFrame1)(windows_core::Interface::as_raw(self), pdecoder.param().abi(), pview.param().abi(), contentkeysize, pcontentkey.unwrap_or(core::mem::zeroed()) as _, numcomponenthistograms, phistogramoffsets.unwrap_or(core::mem::zeroed()) as _, pphistogrambuffers.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SubmitDecoderBuffers2<P0>(&self, pdecoder: P0, pbufferdesc: &[D3D11_VIDEO_DECODER_BUFFER_DESC2]) -> windows_core::HRESULT
+    pub unsafe fn SubmitDecoderBuffers2<P0>(&self, pdecoder: P0, numbuffers: super::UINT, pbufferdesc: *const D3D11_VIDEO_DECODER_BUFFER_DESC2) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ID3D11VideoDecoder>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SubmitDecoderBuffers2)(windows_core::Interface::as_raw(self), pdecoder.param().abi(), pbufferdesc.len().try_into().unwrap(), pbufferdesc.as_ptr()) }
+        unsafe { (windows_core::Interface::vtable(self).SubmitDecoderBuffers2)(windows_core::Interface::as_raw(self), pdecoder.param().abi(), numbuffers, pbufferdesc) }
     }
 }
 #[repr(C)]

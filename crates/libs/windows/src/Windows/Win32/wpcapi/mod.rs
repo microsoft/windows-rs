@@ -267,11 +267,11 @@ impl IWPCWebSettings {
         unsafe { (windows_core::Interface::vtable(self).GetSettings)(windows_core::Interface::as_raw(self), pdwsettings as _) }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
-    pub unsafe fn RequestURLOverride<P1>(&self, hwnd: Option<super::HWND>, pcszurl: P1, ppcszsuburls: Option<&[windows_core::PCWSTR]>, pfchanged: *mut windows_core::BOOL) -> windows_core::HRESULT
+    pub unsafe fn RequestURLOverride<P1>(&self, hwnd: Option<super::HWND>, pcszurl: P1, curls: super::DWORD, ppcszsuburls: Option<*const windows_core::PCWSTR>, pfchanged: *mut windows_core::BOOL) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RequestURLOverride)(windows_core::Interface::as_raw(self), hwnd.unwrap_or(core::mem::zeroed()) as _, pcszurl.param().abi(), ppcszsuburls.map_or(0, |slice| slice.len().try_into().unwrap()), ppcszsuburls.map_or(core::ptr::null(), |slice| slice.as_ptr()), pfchanged as _) }
+        unsafe { (windows_core::Interface::vtable(self).RequestURLOverride)(windows_core::Interface::as_raw(self), hwnd.unwrap_or(core::mem::zeroed()) as _, pcszurl.param().abi(), curls, ppcszsuburls.unwrap_or(core::mem::zeroed()) as _, pfchanged as _) }
     }
 }
 #[repr(C)]

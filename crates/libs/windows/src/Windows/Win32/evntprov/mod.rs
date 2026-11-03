@@ -36,15 +36,15 @@ pub unsafe fn EventUnregister(reghandle: REGHANDLE) -> super::ULONG {
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn EventWrite(reghandle: REGHANDLE, eventdescriptor: PCEVENT_DESCRIPTOR, userdata: Option<&[EVENT_DATA_DESCRIPTOR]>) -> super::ULONG {
+pub unsafe fn EventWrite(reghandle: REGHANDLE, eventdescriptor: PCEVENT_DESCRIPTOR, userdatacount: super::ULONG, userdata: Option<PEVENT_DATA_DESCRIPTOR>) -> super::ULONG {
     windows_core::link!("advapi32.dll" "system" fn EventWrite(reghandle : REGHANDLE, eventdescriptor : PCEVENT_DESCRIPTOR, userdatacount : super::ULONG, userdata : PEVENT_DATA_DESCRIPTOR) -> super::ULONG);
-    unsafe { EventWrite(reghandle, eventdescriptor, userdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(userdata.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { EventWrite(reghandle, eventdescriptor, userdatacount, userdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 #[inline]
-pub unsafe fn EventWriteEx(reghandle: REGHANDLE, eventdescriptor: PCEVENT_DESCRIPTOR, filter: super::ULONG64, flags: super::ULONG, activityid: Option<super::LPCGUID>, relatedactivityid: Option<super::LPCGUID>, userdata: Option<&[EVENT_DATA_DESCRIPTOR]>) -> super::ULONG {
+pub unsafe fn EventWriteEx(reghandle: REGHANDLE, eventdescriptor: PCEVENT_DESCRIPTOR, filter: super::ULONG64, flags: super::ULONG, activityid: Option<super::LPCGUID>, relatedactivityid: Option<super::LPCGUID>, userdatacount: super::ULONG, userdata: Option<PEVENT_DATA_DESCRIPTOR>) -> super::ULONG {
     windows_core::link!("advapi32.dll" "system" fn EventWriteEx(reghandle : REGHANDLE, eventdescriptor : PCEVENT_DESCRIPTOR, filter : super::ULONG64, flags : super::ULONG, activityid : super::LPCGUID, relatedactivityid : super::LPCGUID, userdatacount : super::ULONG, userdata : PEVENT_DATA_DESCRIPTOR) -> super::ULONG);
-    unsafe { EventWriteEx(reghandle, eventdescriptor, filter, flags, activityid.unwrap_or(core::mem::zeroed()) as _, relatedactivityid.unwrap_or(core::mem::zeroed()) as _, userdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(userdata.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { EventWriteEx(reghandle, eventdescriptor, filter, flags, activityid.unwrap_or(core::mem::zeroed()) as _, relatedactivityid.unwrap_or(core::mem::zeroed()) as _, userdatacount, userdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -57,9 +57,9 @@ where
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 #[inline]
-pub unsafe fn EventWriteTransfer(reghandle: REGHANDLE, eventdescriptor: PCEVENT_DESCRIPTOR, activityid: Option<super::LPCGUID>, relatedactivityid: Option<super::LPCGUID>, userdata: Option<&[EVENT_DATA_DESCRIPTOR]>) -> super::ULONG {
+pub unsafe fn EventWriteTransfer(reghandle: REGHANDLE, eventdescriptor: PCEVENT_DESCRIPTOR, activityid: Option<super::LPCGUID>, relatedactivityid: Option<super::LPCGUID>, userdatacount: super::ULONG, userdata: Option<PEVENT_DATA_DESCRIPTOR>) -> super::ULONG {
     windows_core::link!("advapi32.dll" "system" fn EventWriteTransfer(reghandle : REGHANDLE, eventdescriptor : PCEVENT_DESCRIPTOR, activityid : super::LPCGUID, relatedactivityid : super::LPCGUID, userdatacount : super::ULONG, userdata : PEVENT_DATA_DESCRIPTOR) -> super::ULONG);
-    unsafe { EventWriteTransfer(reghandle, eventdescriptor, activityid.unwrap_or(core::mem::zeroed()) as _, relatedactivityid.unwrap_or(core::mem::zeroed()) as _, userdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(userdata.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { EventWriteTransfer(reghandle, eventdescriptor, activityid.unwrap_or(core::mem::zeroed()) as _, relatedactivityid.unwrap_or(core::mem::zeroed()) as _, userdatacount, userdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 pub const EVENT_ACTIVITY_CTRL_CREATE_ID: i32 = 3;
 pub const EVENT_ACTIVITY_CTRL_CREATE_SET_ID: i32 = 5;

@@ -33,20 +33,20 @@ pub unsafe fn NetworkIsolationRegisterForAppContainerChanges(flags: super::DWORD
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn NetworkIsolationSetAppContainerConfig(appcontainersids: &[super::SID_AND_ATTRIBUTES]) -> super::DWORD {
+pub unsafe fn NetworkIsolationSetAppContainerConfig(dwnumpublicappcs: super::DWORD, appcontainersids: super::PSID_AND_ATTRIBUTES) -> super::DWORD {
     windows_core::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationSetAppContainerConfig(dwnumpublicappcs : super::DWORD, appcontainersids : super::PSID_AND_ATTRIBUTES) -> super::DWORD);
-    unsafe { NetworkIsolationSetAppContainerConfig(appcontainersids.len().try_into().unwrap(), core::mem::transmute(appcontainersids.as_ptr())) }
+    unsafe { NetworkIsolationSetAppContainerConfig(dwnumpublicappcs, appcontainersids) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn NetworkIsolationSetupAppContainerBinaries<P1, P2, P3>(applicationcontainersid: super::PSID, packagefullname: P1, packagefolder: P2, displayname: P3, bbinariesfullycomputed: bool, binaries: &[windows_core::PCWSTR]) -> windows_core::HRESULT
+pub unsafe fn NetworkIsolationSetupAppContainerBinaries<P1, P2, P3>(applicationcontainersid: super::PSID, packagefullname: P1, packagefolder: P2, displayname: P3, bbinariesfullycomputed: bool, binaries: *const windows_core::PCWSTR, binariescount: super::DWORD) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationSetupAppContainerBinaries(applicationcontainersid : super::PSID, packagefullname : windows_core::PCWSTR, packagefolder : windows_core::PCWSTR, displayname : windows_core::PCWSTR, bbinariesfullycomputed : windows_core::BOOL, binaries : *const windows_core::PCWSTR, binariescount : super::DWORD) -> windows_core::HRESULT);
-    unsafe { NetworkIsolationSetupAppContainerBinaries(applicationcontainersid, packagefullname.param().abi(), packagefolder.param().abi(), displayname.param().abi(), bbinariesfullycomputed.into(), binaries.as_ptr(), binaries.len().try_into().unwrap()) }
+    unsafe { NetworkIsolationSetupAppContainerBinaries(applicationcontainersid, packagefullname.param().abi(), packagefolder.param().abi(), displayname.param().abi(), bbinariesfullycomputed.into(), binaries, binariescount) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]

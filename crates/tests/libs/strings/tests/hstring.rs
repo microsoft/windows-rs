@@ -236,7 +236,12 @@ fn hstring_compat() -> Result<()> {
         assert_eq!(result, "HeyWorld");
 
         let mut result = HSTRING::new();
-        WindowsCreateString(Some(&hey), &mut result).ok()?;
+        WindowsCreateString(
+            Some(hey.as_ptr()),
+            hey.len().try_into().unwrap(),
+            &mut result,
+        )
+        .ok()?;
         assert_eq!(result, "Hey");
 
         let mut result = HSTRING::new();

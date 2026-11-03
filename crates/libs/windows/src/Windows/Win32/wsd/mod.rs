@@ -23,7 +23,7 @@ where
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WSDCreateDeviceHost2<P0, P1>(pszlocalid: P0, pcontext: P1, pconfigparams: Option<&[WSD_CONFIG_PARAM]>) -> windows_core::Result<IWSDDeviceHost>
+pub unsafe fn WSDCreateDeviceHost2<P0, P1>(pszlocalid: P0, pcontext: P1, pconfigparams: Option<*const WSD_CONFIG_PARAM>, dwconfigparamcount: super::DWORD) -> windows_core::Result<IWSDDeviceHost>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<IWSDXMLContext>,
@@ -31,12 +31,12 @@ where
     windows_core::link!("wsdapi.dll" "system" fn WSDCreateDeviceHost2(pszlocalid : windows_core::PCWSTR, pcontext : *mut core::ffi::c_void, pconfigparams : *const WSD_CONFIG_PARAM, dwconfigparamcount : super::DWORD, ppdevicehost : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WSDCreateDeviceHost2(pszlocalid.param().abi(), pcontext.param().abi(), pconfigparams.map_or(core::ptr::null(), |slice| slice.as_ptr()), pconfigparams.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        WSDCreateDeviceHost2(pszlocalid.param().abi(), pcontext.param().abi(), pconfigparams.unwrap_or(core::mem::zeroed()) as _, dwconfigparamcount, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WSDCreateDeviceHostAdvanced<P0, P1>(pszlocalid: P0, pcontext: P1, pphostaddresses: Option<&[Option<IWSDAddress>]>) -> windows_core::Result<IWSDDeviceHost>
+pub unsafe fn WSDCreateDeviceHostAdvanced<P0, P1>(pszlocalid: P0, pcontext: P1, pphostaddresses: Option<*const Option<IWSDAddress>>, dwhostaddresscount: super::DWORD) -> windows_core::Result<IWSDDeviceHost>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<IWSDXMLContext>,
@@ -44,7 +44,7 @@ where
     windows_core::link!("wsdapi.dll" "system" fn WSDCreateDeviceHostAdvanced(pszlocalid : windows_core::PCWSTR, pcontext : *mut core::ffi::c_void, pphostaddresses : *const *mut core::ffi::c_void, dwhostaddresscount : super::DWORD, ppdevicehost : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WSDCreateDeviceHostAdvanced(pszlocalid.param().abi(), pcontext.param().abi(), core::mem::transmute(pphostaddresses.map_or(core::ptr::null(), |slice| slice.as_ptr())), pphostaddresses.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        WSDCreateDeviceHostAdvanced(pszlocalid.param().abi(), pcontext.param().abi(), pphostaddresses.unwrap_or(core::mem::zeroed()) as _, dwhostaddresscount, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -62,7 +62,7 @@ where
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WSDCreateDeviceProxy2<P0, P1, P2>(pszdeviceid: P0, pszlocalid: P1, pcontext: P2, pconfigparams: Option<&[WSD_CONFIG_PARAM]>) -> windows_core::Result<IWSDDeviceProxy>
+pub unsafe fn WSDCreateDeviceProxy2<P0, P1, P2>(pszdeviceid: P0, pszlocalid: P1, pcontext: P2, pconfigparams: Option<*const WSD_CONFIG_PARAM>, dwconfigparamcount: super::DWORD) -> windows_core::Result<IWSDDeviceProxy>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -71,7 +71,7 @@ where
     windows_core::link!("wsdapi.dll" "system" fn WSDCreateDeviceProxy2(pszdeviceid : windows_core::PCWSTR, pszlocalid : windows_core::PCWSTR, pcontext : *mut core::ffi::c_void, pconfigparams : *const WSD_CONFIG_PARAM, dwconfigparamcount : super::DWORD, ppdeviceproxy : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WSDCreateDeviceProxy2(pszdeviceid.param().abi(), pszlocalid.param().abi(), pcontext.param().abi(), pconfigparams.map_or(core::ptr::null(), |slice| slice.as_ptr()), pconfigparams.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        WSDCreateDeviceProxy2(pszdeviceid.param().abi(), pszlocalid.param().abi(), pcontext.param().abi(), pconfigparams.unwrap_or(core::mem::zeroed()) as _, dwconfigparamcount, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -101,14 +101,14 @@ where
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WSDCreateDiscoveryProvider2<P0>(pcontext: P0, pconfigparams: Option<&[WSD_CONFIG_PARAM]>) -> windows_core::Result<IWSDiscoveryProvider>
+pub unsafe fn WSDCreateDiscoveryProvider2<P0>(pcontext: P0, pconfigparams: Option<*const WSD_CONFIG_PARAM>, dwconfigparamcount: super::DWORD) -> windows_core::Result<IWSDiscoveryProvider>
 where
     P0: windows_core::Param<IWSDXMLContext>,
 {
     windows_core::link!("wsdapi.dll" "system" fn WSDCreateDiscoveryProvider2(pcontext : *mut core::ffi::c_void, pconfigparams : *const WSD_CONFIG_PARAM, dwconfigparamcount : super::DWORD, ppprovider : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WSDCreateDiscoveryProvider2(pcontext.param().abi(), pconfigparams.map_or(core::ptr::null(), |slice| slice.as_ptr()), pconfigparams.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        WSDCreateDiscoveryProvider2(pcontext.param().abi(), pconfigparams.unwrap_or(core::mem::zeroed()) as _, dwconfigparamcount, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -124,14 +124,14 @@ where
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WSDCreateDiscoveryPublisher2<P0>(pcontext: P0, pconfigparams: Option<&[WSD_CONFIG_PARAM]>) -> windows_core::Result<IWSDiscoveryPublisher>
+pub unsafe fn WSDCreateDiscoveryPublisher2<P0>(pcontext: P0, pconfigparams: Option<*const WSD_CONFIG_PARAM>, dwconfigparamcount: super::DWORD) -> windows_core::Result<IWSDiscoveryPublisher>
 where
     P0: windows_core::Param<IWSDXMLContext>,
 {
     windows_core::link!("wsdapi.dll" "system" fn WSDCreateDiscoveryPublisher2(pcontext : *mut core::ffi::c_void, pconfigparams : *const WSD_CONFIG_PARAM, dwconfigparamcount : super::DWORD, pppublisher : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WSDCreateDiscoveryPublisher2(pcontext.param().abi(), pconfigparams.map_or(core::ptr::null(), |slice| slice.as_ptr()), pconfigparams.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        WSDCreateDiscoveryPublisher2(pcontext.param().abi(), pconfigparams.unwrap_or(core::mem::zeroed()) as _, dwconfigparamcount, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -217,15 +217,15 @@ pub unsafe fn WSDSetConfigurationOption(dwoption: super::DWORD, pvoid: super::LP
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WSDUriDecode(source: &[u16], destout: *mut windows_core::PWSTR, cchdestout: Option<*mut super::DWORD>) -> windows_core::HRESULT {
+pub unsafe fn WSDUriDecode(source: windows_core::PCWSTR, cchsource: super::DWORD, destout: *mut windows_core::PWSTR, cchdestout: Option<*mut super::DWORD>) -> windows_core::HRESULT {
     windows_core::link!("wsdapi.dll" "system" fn WSDUriDecode(source : windows_core::PCWSTR, cchsource : super::DWORD, destout : *mut windows_core::PWSTR, cchdestout : *mut super::DWORD) -> windows_core::HRESULT);
-    unsafe { WSDUriDecode(core::mem::transmute(source.as_ptr()), source.len().try_into().unwrap(), destout as _, cchdestout.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WSDUriDecode(source, cchsource, destout as _, cchdestout.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WSDUriEncode(source: &[u16], destout: *mut windows_core::PWSTR, cchdestout: Option<*mut super::DWORD>) -> windows_core::HRESULT {
+pub unsafe fn WSDUriEncode(source: windows_core::PCWSTR, cchsource: super::DWORD, destout: *mut windows_core::PWSTR, cchdestout: Option<*mut super::DWORD>) -> windows_core::HRESULT {
     windows_core::link!("wsdapi.dll" "system" fn WSDUriEncode(source : windows_core::PCWSTR, cchsource : super::DWORD, destout : *mut windows_core::PWSTR, cchdestout : *mut super::DWORD) -> windows_core::HRESULT);
-    unsafe { WSDUriEncode(core::mem::transmute(source.as_ptr()), source.len().try_into().unwrap(), destout as _, cchdestout.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WSDUriEncode(source, cchsource, destout as _, cchdestout.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -595,12 +595,12 @@ windows_core::imp::define_interface!(IWSDDeviceHost, IWSDDeviceHost_Vtbl, 0x917f
 windows_core::imp::interface_hierarchy!(IWSDDeviceHost, windows_core::IUnknown);
 impl IWSDDeviceHost {
     #[cfg(feature = "shared")]
-    pub unsafe fn Init<P0, P1>(&self, pszlocalid: P0, pcontext: P1, pphostaddresses: Option<&[Option<IWSDAddress>]>) -> windows_core::HRESULT
+    pub unsafe fn Init<P0, P1>(&self, pszlocalid: P0, pcontext: P1, pphostaddresses: Option<*const Option<IWSDAddress>>, dwhostaddresscount: Option<super::DWORD>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<IWSDXMLContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), pszlocalid.param().abi(), pcontext.param().abi(), core::mem::transmute(pphostaddresses.map_or(core::ptr::null(), |slice| slice.as_ptr())), pphostaddresses.map_or(0, |slice| slice.len().try_into().unwrap())) }
+        unsafe { (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), pszlocalid.param().abi(), pcontext.param().abi(), pphostaddresses.unwrap_or(core::mem::zeroed()) as _, dwhostaddresscount.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn Start<P2>(&self, ullinstanceid: super::ULONGLONG, pscopelist: *const WSD_URI_LIST, pnotificationsink: P2) -> windows_core::HRESULT
@@ -1827,8 +1827,8 @@ impl core::ops::Deref for IWSDOutboundAttachment {
 windows_core::imp::interface_hierarchy!(IWSDOutboundAttachment, windows_core::IUnknown, IWSDAttachment);
 impl IWSDOutboundAttachment {
     #[cfg(all(feature = "minwindef", feature = "shared"))]
-    pub unsafe fn Write(&self, pbuffer: &[super::BYTE], pdwnumberofbyteswritten: super::LPDWORD) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), pbuffer.as_ptr(), pbuffer.len().try_into().unwrap(), pdwnumberofbyteswritten as _) }
+    pub unsafe fn Write(&self, pbuffer: *const super::BYTE, dwbytestowrite: super::DWORD, pdwnumberofbyteswritten: super::LPDWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), pbuffer, dwbytestowrite, pdwnumberofbyteswritten as _) }
     }
     pub unsafe fn Close(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)) }
@@ -2232,14 +2232,14 @@ impl core::ops::Deref for IWSDServiceProxyEventing {
 windows_core::imp::interface_hierarchy!(IWSDServiceProxyEventing, windows_core::IUnknown, IWSDMetadataExchange, IWSDServiceProxy);
 impl IWSDServiceProxyEventing {
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn SubscribeToMultipleOperations<P2>(&self, poperations: &[WSD_OPERATION], punknown: P2, pexpires: Option<*const WSD_EVENTING_EXPIRES>, pany: Option<*const WSDXML_ELEMENT>, ppexpires: Option<*mut *mut WSD_EVENTING_EXPIRES>, ppany: Option<*mut *mut WSDXML_ELEMENT>) -> windows_core::HRESULT
+    pub unsafe fn SubscribeToMultipleOperations<P2>(&self, poperations: *const WSD_OPERATION, dwoperationcount: super::DWORD, punknown: P2, pexpires: Option<*const WSD_EVENTING_EXPIRES>, pany: Option<*const WSDXML_ELEMENT>, ppexpires: Option<*mut *mut WSD_EVENTING_EXPIRES>, ppany: Option<*mut *mut WSDXML_ELEMENT>) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), poperations.as_ptr(), poperations.len().try_into().unwrap(), punknown.param().abi(), pexpires.unwrap_or(core::mem::zeroed()) as _, pany.unwrap_or(core::mem::zeroed()) as _, ppexpires.unwrap_or(core::mem::zeroed()) as _, ppany.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).SubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), poperations, dwoperationcount, punknown.param().abi(), pexpires.unwrap_or(core::mem::zeroed()) as _, pany.unwrap_or(core::mem::zeroed()) as _, ppexpires.unwrap_or(core::mem::zeroed()) as _, ppany.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn BeginSubscribeToMultipleOperations<P2, P5, P6>(&self, poperations: &[WSD_OPERATION], punknown: P2, pexpires: Option<*const WSD_EVENTING_EXPIRES>, pany: Option<*const WSDXML_ELEMENT>, pasyncstate: P5, pasynccallback: P6) -> windows_core::Result<IWSDAsyncResult>
+    pub unsafe fn BeginSubscribeToMultipleOperations<P2, P5, P6>(&self, poperations: *const WSD_OPERATION, dwoperationcount: super::DWORD, punknown: P2, pexpires: Option<*const WSD_EVENTING_EXPIRES>, pany: Option<*const WSDXML_ELEMENT>, pasyncstate: P5, pasynccallback: P6) -> windows_core::Result<IWSDAsyncResult>
     where
         P2: windows_core::Param<windows_core::IUnknown>,
         P5: windows_core::Param<windows_core::IUnknown>,
@@ -2247,81 +2247,81 @@ impl IWSDServiceProxyEventing {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BeginSubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), poperations.as_ptr(), poperations.len().try_into().unwrap(), punknown.param().abi(), pexpires.unwrap_or(core::mem::zeroed()) as _, pany.unwrap_or(core::mem::zeroed()) as _, pasyncstate.param().abi(), pasynccallback.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BeginSubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), poperations, dwoperationcount, punknown.param().abi(), pexpires.unwrap_or(core::mem::zeroed()) as _, pany.unwrap_or(core::mem::zeroed()) as _, pasyncstate.param().abi(), pasynccallback.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn EndSubscribeToMultipleOperations<P2>(&self, poperations: &[WSD_OPERATION], presult: P2, ppexpires: Option<*mut *mut WSD_EVENTING_EXPIRES>, ppany: Option<*mut *mut WSDXML_ELEMENT>) -> windows_core::HRESULT
+    pub unsafe fn EndSubscribeToMultipleOperations<P2>(&self, poperations: *const WSD_OPERATION, dwoperationcount: super::DWORD, presult: P2, ppexpires: Option<*mut *mut WSD_EVENTING_EXPIRES>, ppany: Option<*mut *mut WSDXML_ELEMENT>) -> windows_core::HRESULT
     where
         P2: windows_core::Param<IWSDAsyncResult>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EndSubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), poperations.as_ptr(), poperations.len().try_into().unwrap(), presult.param().abi(), ppexpires.unwrap_or(core::mem::zeroed()) as _, ppany.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).EndSubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), poperations, dwoperationcount, presult.param().abi(), ppexpires.unwrap_or(core::mem::zeroed()) as _, ppany.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn UnsubscribeToMultipleOperations(&self, poperations: &[WSD_OPERATION], pany: *const WSDXML_ELEMENT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).UnsubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), poperations.as_ptr(), poperations.len().try_into().unwrap(), pany) }
+    pub unsafe fn UnsubscribeToMultipleOperations(&self, poperations: *const WSD_OPERATION, dwoperationcount: super::DWORD, pany: *const WSDXML_ELEMENT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UnsubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), poperations, dwoperationcount, pany) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn BeginUnsubscribeToMultipleOperations<P3, P4>(&self, poperations: &[WSD_OPERATION], pany: Option<*const WSDXML_ELEMENT>, pasyncstate: P3, pasynccallback: P4) -> windows_core::Result<IWSDAsyncResult>
+    pub unsafe fn BeginUnsubscribeToMultipleOperations<P3, P4>(&self, poperations: *const WSD_OPERATION, dwoperationcount: super::DWORD, pany: Option<*const WSDXML_ELEMENT>, pasyncstate: P3, pasynccallback: P4) -> windows_core::Result<IWSDAsyncResult>
     where
         P3: windows_core::Param<windows_core::IUnknown>,
         P4: windows_core::Param<IWSDAsyncCallback>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BeginUnsubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), poperations.as_ptr(), poperations.len().try_into().unwrap(), pany.unwrap_or(core::mem::zeroed()) as _, pasyncstate.param().abi(), pasynccallback.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BeginUnsubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), poperations, dwoperationcount, pany.unwrap_or(core::mem::zeroed()) as _, pasyncstate.param().abi(), pasynccallback.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn EndUnsubscribeToMultipleOperations<P2>(&self, poperations: &[WSD_OPERATION], presult: P2) -> windows_core::HRESULT
+    pub unsafe fn EndUnsubscribeToMultipleOperations<P2>(&self, poperations: *const WSD_OPERATION, dwoperationcount: super::DWORD, presult: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<IWSDAsyncResult>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EndUnsubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), poperations.as_ptr(), poperations.len().try_into().unwrap(), presult.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).EndUnsubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), poperations, dwoperationcount, presult.param().abi()) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn RenewMultipleOperations(&self, poperations: &[WSD_OPERATION], pexpires: Option<*const WSD_EVENTING_EXPIRES>, pany: Option<*const WSDXML_ELEMENT>, ppexpires: Option<*mut *mut WSD_EVENTING_EXPIRES>, ppany: Option<*mut *mut WSDXML_ELEMENT>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RenewMultipleOperations)(windows_core::Interface::as_raw(self), poperations.as_ptr(), poperations.len().try_into().unwrap(), pexpires.unwrap_or(core::mem::zeroed()) as _, pany.unwrap_or(core::mem::zeroed()) as _, ppexpires.unwrap_or(core::mem::zeroed()) as _, ppany.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn RenewMultipleOperations(&self, poperations: *const WSD_OPERATION, dwoperationcount: super::DWORD, pexpires: Option<*const WSD_EVENTING_EXPIRES>, pany: Option<*const WSDXML_ELEMENT>, ppexpires: Option<*mut *mut WSD_EVENTING_EXPIRES>, ppany: Option<*mut *mut WSDXML_ELEMENT>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RenewMultipleOperations)(windows_core::Interface::as_raw(self), poperations, dwoperationcount, pexpires.unwrap_or(core::mem::zeroed()) as _, pany.unwrap_or(core::mem::zeroed()) as _, ppexpires.unwrap_or(core::mem::zeroed()) as _, ppany.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn BeginRenewMultipleOperations<P4, P5>(&self, poperations: &[WSD_OPERATION], pexpires: Option<*const WSD_EVENTING_EXPIRES>, pany: Option<*const WSDXML_ELEMENT>, pasyncstate: P4, pasynccallback: P5) -> windows_core::Result<IWSDAsyncResult>
+    pub unsafe fn BeginRenewMultipleOperations<P4, P5>(&self, poperations: *const WSD_OPERATION, dwoperationcount: super::DWORD, pexpires: Option<*const WSD_EVENTING_EXPIRES>, pany: Option<*const WSDXML_ELEMENT>, pasyncstate: P4, pasynccallback: P5) -> windows_core::Result<IWSDAsyncResult>
     where
         P4: windows_core::Param<windows_core::IUnknown>,
         P5: windows_core::Param<IWSDAsyncCallback>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BeginRenewMultipleOperations)(windows_core::Interface::as_raw(self), poperations.as_ptr(), poperations.len().try_into().unwrap(), pexpires.unwrap_or(core::mem::zeroed()) as _, pany.unwrap_or(core::mem::zeroed()) as _, pasyncstate.param().abi(), pasynccallback.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BeginRenewMultipleOperations)(windows_core::Interface::as_raw(self), poperations, dwoperationcount, pexpires.unwrap_or(core::mem::zeroed()) as _, pany.unwrap_or(core::mem::zeroed()) as _, pasyncstate.param().abi(), pasynccallback.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn EndRenewMultipleOperations<P2>(&self, poperations: &[WSD_OPERATION], presult: P2, ppexpires: Option<*mut *mut WSD_EVENTING_EXPIRES>, ppany: Option<*mut *mut WSDXML_ELEMENT>) -> windows_core::HRESULT
+    pub unsafe fn EndRenewMultipleOperations<P2>(&self, poperations: *const WSD_OPERATION, dwoperationcount: super::DWORD, presult: P2, ppexpires: Option<*mut *mut WSD_EVENTING_EXPIRES>, ppany: Option<*mut *mut WSDXML_ELEMENT>) -> windows_core::HRESULT
     where
         P2: windows_core::Param<IWSDAsyncResult>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EndRenewMultipleOperations)(windows_core::Interface::as_raw(self), poperations.as_ptr(), poperations.len().try_into().unwrap(), presult.param().abi(), ppexpires.unwrap_or(core::mem::zeroed()) as _, ppany.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).EndRenewMultipleOperations)(windows_core::Interface::as_raw(self), poperations, dwoperationcount, presult.param().abi(), ppexpires.unwrap_or(core::mem::zeroed()) as _, ppany.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn GetStatusForMultipleOperations(&self, poperations: &[WSD_OPERATION], pany: Option<*const WSDXML_ELEMENT>, ppexpires: Option<*mut *mut WSD_EVENTING_EXPIRES>, ppany: Option<*mut *mut WSDXML_ELEMENT>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetStatusForMultipleOperations)(windows_core::Interface::as_raw(self), poperations.as_ptr(), poperations.len().try_into().unwrap(), pany.unwrap_or(core::mem::zeroed()) as _, ppexpires.unwrap_or(core::mem::zeroed()) as _, ppany.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn GetStatusForMultipleOperations(&self, poperations: *const WSD_OPERATION, dwoperationcount: super::DWORD, pany: Option<*const WSDXML_ELEMENT>, ppexpires: Option<*mut *mut WSD_EVENTING_EXPIRES>, ppany: Option<*mut *mut WSDXML_ELEMENT>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetStatusForMultipleOperations)(windows_core::Interface::as_raw(self), poperations, dwoperationcount, pany.unwrap_or(core::mem::zeroed()) as _, ppexpires.unwrap_or(core::mem::zeroed()) as _, ppany.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn BeginGetStatusForMultipleOperations<P3, P4>(&self, poperations: &[WSD_OPERATION], pany: Option<*const WSDXML_ELEMENT>, pasyncstate: P3, pasynccallback: P4) -> windows_core::Result<IWSDAsyncResult>
+    pub unsafe fn BeginGetStatusForMultipleOperations<P3, P4>(&self, poperations: *const WSD_OPERATION, dwoperationcount: super::DWORD, pany: Option<*const WSDXML_ELEMENT>, pasyncstate: P3, pasynccallback: P4) -> windows_core::Result<IWSDAsyncResult>
     where
         P3: windows_core::Param<windows_core::IUnknown>,
         P4: windows_core::Param<IWSDAsyncCallback>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BeginGetStatusForMultipleOperations)(windows_core::Interface::as_raw(self), poperations.as_ptr(), poperations.len().try_into().unwrap(), pany.unwrap_or(core::mem::zeroed()) as _, pasyncstate.param().abi(), pasynccallback.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BeginGetStatusForMultipleOperations)(windows_core::Interface::as_raw(self), poperations, dwoperationcount, pany.unwrap_or(core::mem::zeroed()) as _, pasyncstate.param().abi(), pasynccallback.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn EndGetStatusForMultipleOperations<P2>(&self, poperations: &[WSD_OPERATION], presult: P2, ppexpires: Option<*mut *mut WSD_EVENTING_EXPIRES>, ppany: Option<*mut *mut WSDXML_ELEMENT>) -> windows_core::HRESULT
+    pub unsafe fn EndGetStatusForMultipleOperations<P2>(&self, poperations: *const WSD_OPERATION, dwoperationcount: super::DWORD, presult: P2, ppexpires: Option<*mut *mut WSD_EVENTING_EXPIRES>, ppany: Option<*mut *mut WSDXML_ELEMENT>) -> windows_core::HRESULT
     where
         P2: windows_core::Param<IWSDAsyncResult>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EndGetStatusForMultipleOperations)(windows_core::Interface::as_raw(self), poperations.as_ptr(), poperations.len().try_into().unwrap(), presult.param().abi(), ppexpires.unwrap_or(core::mem::zeroed()) as _, ppany.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).EndGetStatusForMultipleOperations)(windows_core::Interface::as_raw(self), poperations, dwoperationcount, presult.param().abi(), ppexpires.unwrap_or(core::mem::zeroed()) as _, ppany.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -2974,12 +2974,12 @@ impl IWSDXMLContext {
         unsafe { (windows_core::Interface::vtable(self).AddNameToNamespace)(windows_core::Interface::as_raw(self), pszuri.param().abi(), pszname.param().abi(), ppname.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn SetNamespaces(&self, pnamespaces: &[PCWSDXML_NAMESPACE], blayernumber: super::BYTE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetNamespaces)(windows_core::Interface::as_raw(self), pnamespaces.as_ptr(), pnamespaces.len().try_into().unwrap(), blayernumber) }
+    pub unsafe fn SetNamespaces(&self, pnamespaces: *const PCWSDXML_NAMESPACE, wnamespacescount: super::WORD, blayernumber: super::BYTE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetNamespaces)(windows_core::Interface::as_raw(self), pnamespaces, wnamespacescount, blayernumber) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn SetTypes(&self, ptypes: &[PCWSDXML_TYPE], blayernumber: super::BYTE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetTypes)(windows_core::Interface::as_raw(self), ptypes.as_ptr(), ptypes.len().try_into().unwrap(), blayernumber) }
+    pub unsafe fn SetTypes(&self, ptypes: *const PCWSDXML_TYPE, dwtypescount: super::DWORD, blayernumber: super::BYTE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetTypes)(windows_core::Interface::as_raw(self), ptypes, dwtypescount, blayernumber) }
     }
 }
 #[repr(C)]

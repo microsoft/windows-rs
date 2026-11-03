@@ -15,9 +15,9 @@ pub unsafe fn ADsBuildVarArrayInt(lpdwobjecttypes: super::LPDWORD, dwobjecttypes
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn ADsBuildVarArrayStr(lpppathnames: &[windows_core::PCWSTR], pvar: *mut super::VARIANT) -> windows_core::HRESULT {
+pub unsafe fn ADsBuildVarArrayStr(lpppathnames: *const windows_core::PCWSTR, dwpathnames: super::DWORD, pvar: *mut super::VARIANT) -> windows_core::HRESULT {
     windows_core::link!("activeds.dll" "system" fn ADsBuildVarArrayStr(lpppathnames : *const windows_core::PCWSTR, dwpathnames : super::DWORD, pvar : *mut super::VARIANT) -> windows_core::HRESULT);
-    unsafe { ADsBuildVarArrayStr(lpppathnames.as_ptr(), lpppathnames.len().try_into().unwrap(), pvar as _) }
+    unsafe { ADsBuildVarArrayStr(lpppathnames, dwpathnames, pvar as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]

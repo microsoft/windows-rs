@@ -8,16 +8,16 @@ pub unsafe fn WHvAcceptPartitionMigration(migrationhandle: super::HANDLE, partit
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winhvplatformdefs"))]
 #[inline]
-pub unsafe fn WHvAdviseGpaRange(partition: super::WHV_PARTITION_HANDLE, gparanges: &[super::WHV_MEMORY_RANGE_ENTRY], advice: super::WHV_ADVISE_GPA_RANGE_CODE, advicebuffer: *const core::ffi::c_void, advicebuffersizeinbytes: super::UINT32) -> windows_core::HRESULT {
+pub unsafe fn WHvAdviseGpaRange(partition: super::WHV_PARTITION_HANDLE, gparanges: *const super::WHV_MEMORY_RANGE_ENTRY, gparangescount: super::UINT32, advice: super::WHV_ADVISE_GPA_RANGE_CODE, advicebuffer: *const core::ffi::c_void, advicebuffersizeinbytes: super::UINT32) -> windows_core::HRESULT {
     windows_core::link!("winhvplatform.dll" "system" fn WHvAdviseGpaRange(partition : super::WHV_PARTITION_HANDLE, gparanges : *const super::WHV_MEMORY_RANGE_ENTRY, gparangescount : super::UINT32, advice : super::WHV_ADVISE_GPA_RANGE_CODE, advicebuffer : *const core::ffi::c_void, advicebuffersizeinbytes : super::UINT32) -> windows_core::HRESULT);
-    unsafe { WHvAdviseGpaRange(partition, gparanges.as_ptr(), gparanges.len().try_into().unwrap(), advice, advicebuffer, advicebuffersizeinbytes) }
+    unsafe { WHvAdviseGpaRange(partition, gparanges, gparangescount, advice, advicebuffer, advicebuffersizeinbytes) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winhvplatformdefs", feature = "winnt"))]
 #[inline]
-pub unsafe fn WHvAllocateVpciResource(providerid: Option<*const windows_core::GUID>, flags: super::WHV_ALLOCATE_VPCI_RESOURCE_FLAGS, resourcedescriptor: Option<&[u8]>, vpciresource: *mut super::HANDLE) -> windows_core::HRESULT {
+pub unsafe fn WHvAllocateVpciResource(providerid: Option<*const windows_core::GUID>, flags: super::WHV_ALLOCATE_VPCI_RESOURCE_FLAGS, resourcedescriptor: Option<*const core::ffi::c_void>, resourcedescriptorsizeinbytes: super::UINT32, vpciresource: *mut super::HANDLE) -> windows_core::HRESULT {
     windows_core::link!("winhvplatform.dll" "system" fn WHvAllocateVpciResource(providerid : *const windows_core::GUID, flags : super::WHV_ALLOCATE_VPCI_RESOURCE_FLAGS, resourcedescriptor : *const core::ffi::c_void, resourcedescriptorsizeinbytes : super::UINT32, vpciresource : *mut super::HANDLE) -> windows_core::HRESULT);
-    unsafe { WHvAllocateVpciResource(providerid.unwrap_or(core::mem::zeroed()) as _, flags, core::mem::transmute(resourcedescriptor.map_or(core::ptr::null(), |slice| slice.as_ptr())), resourcedescriptor.map_or(0, |slice| slice.len().try_into().unwrap()), vpciresource as _) }
+    unsafe { WHvAllocateVpciResource(providerid.unwrap_or(core::mem::zeroed()) as _, flags, resourcedescriptor.unwrap_or(core::mem::zeroed()) as _, resourcedescriptorsizeinbytes, vpciresource as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winhvplatformdefs")]
@@ -71,9 +71,9 @@ pub unsafe fn WHvCreateVirtualProcessor(partition: super::WHV_PARTITION_HANDLE, 
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winhvplatformdefs"))]
 #[inline]
-pub unsafe fn WHvCreateVirtualProcessor2(partition: super::WHV_PARTITION_HANDLE, vpindex: super::UINT32, properties: &[super::WHV_VIRTUAL_PROCESSOR_PROPERTY]) -> windows_core::HRESULT {
+pub unsafe fn WHvCreateVirtualProcessor2(partition: super::WHV_PARTITION_HANDLE, vpindex: super::UINT32, properties: *const super::WHV_VIRTUAL_PROCESSOR_PROPERTY, propertycount: super::UINT32) -> windows_core::HRESULT {
     windows_core::link!("winhvplatform.dll" "system" fn WHvCreateVirtualProcessor2(partition : super::WHV_PARTITION_HANDLE, vpindex : super::UINT32, properties : *const super::WHV_VIRTUAL_PROCESSOR_PROPERTY, propertycount : super::UINT32) -> windows_core::HRESULT);
-    unsafe { WHvCreateVirtualProcessor2(partition, vpindex, properties.as_ptr(), properties.len().try_into().unwrap()) }
+    unsafe { WHvCreateVirtualProcessor2(partition, vpindex, properties, propertycount) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winhvplatformdefs", feature = "winnt"))]

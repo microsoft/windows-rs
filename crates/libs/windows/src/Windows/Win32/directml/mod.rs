@@ -1997,15 +1997,15 @@ impl core::ops::Deref for IDMLBindingTable {
 windows_core::imp::interface_hierarchy!(IDMLBindingTable, windows_core::IUnknown, IDMLObject, IDMLDeviceChild);
 impl IDMLBindingTable {
     #[cfg(feature = "shared")]
-    pub unsafe fn BindInputs(&self, bindings: Option<&[DML_BINDING_DESC]>) {
+    pub unsafe fn BindInputs(&self, bindingcount: super::UINT, bindings: Option<*const DML_BINDING_DESC>) {
         unsafe {
-            (windows_core::Interface::vtable(self).BindInputs)(windows_core::Interface::as_raw(self), bindings.map_or(0, |slice| slice.len().try_into().unwrap()), bindings.map_or(core::ptr::null(), |slice| slice.as_ptr()));
+            (windows_core::Interface::vtable(self).BindInputs)(windows_core::Interface::as_raw(self), bindingcount, bindings.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn BindOutputs(&self, bindings: Option<&[DML_BINDING_DESC]>) {
+    pub unsafe fn BindOutputs(&self, bindingcount: super::UINT, bindings: Option<*const DML_BINDING_DESC>) {
         unsafe {
-            (windows_core::Interface::vtable(self).BindOutputs)(windows_core::Interface::as_raw(self), bindings.map_or(0, |slice| slice.len().try_into().unwrap()), bindings.map_or(core::ptr::null(), |slice| slice.as_ptr()));
+            (windows_core::Interface::vtable(self).BindOutputs)(windows_core::Interface::as_raw(self), bindingcount, bindings.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     pub unsafe fn BindTemporaryResource(&self, binding: Option<*const DML_BINDING_DESC>) {
@@ -2237,12 +2237,12 @@ impl IDMLDevice {
         unsafe { (windows_core::Interface::vtable(self).CompileOperator)(windows_core::Interface::as_raw(self), op.param().abi(), flags, &T::IID, result__ as *mut _ as *mut _).ok() }
     }
     #[cfg(all(feature = "guiddef", feature = "shared"))]
-    pub unsafe fn CreateOperatorInitializer<T>(&self, operators: Option<&[Option<IDMLCompiledOperator>]>) -> windows_core::Result<T>
+    pub unsafe fn CreateOperatorInitializer<T>(&self, operatorcount: super::UINT, operators: Option<*const Option<IDMLCompiledOperator>>) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateOperatorInitializer)(windows_core::Interface::as_raw(self), operators.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(operators.map_or(core::ptr::null(), |slice| slice.as_ptr())), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateOperatorInitializer)(windows_core::Interface::as_raw(self), operatorcount, operators.unwrap_or(core::mem::zeroed()) as _, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(feature = "guiddef")]
     pub unsafe fn CreateCommandRecorder<T>(&self) -> windows_core::Result<T>
@@ -2261,12 +2261,12 @@ impl IDMLDevice {
         unsafe { (windows_core::Interface::vtable(self).CreateBindingTable)(windows_core::Interface::as_raw(self), desc.unwrap_or(core::mem::zeroed()) as _, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn Evict(&self, ppobjects: &[Option<IDMLPageable>]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Evict)(windows_core::Interface::as_raw(self), ppobjects.len().try_into().unwrap(), core::mem::transmute(ppobjects.as_ptr())) }
+    pub unsafe fn Evict(&self, count: super::UINT, ppobjects: *const Option<IDMLPageable>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Evict)(windows_core::Interface::as_raw(self), count, core::mem::transmute(ppobjects)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn MakeResident(&self, ppobjects: &[Option<IDMLPageable>]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).MakeResident)(windows_core::Interface::as_raw(self), ppobjects.len().try_into().unwrap(), core::mem::transmute(ppobjects.as_ptr())) }
+    pub unsafe fn MakeResident(&self, count: super::UINT, ppobjects: *const Option<IDMLPageable>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).MakeResident)(windows_core::Interface::as_raw(self), count, core::mem::transmute(ppobjects)) }
     }
     pub unsafe fn GetDeviceRemovedReason(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceRemovedReason)(windows_core::Interface::as_raw(self)) }
@@ -2684,8 +2684,8 @@ impl core::ops::Deref for IDMLOperatorInitializer {
 windows_core::imp::interface_hierarchy!(IDMLOperatorInitializer, windows_core::IUnknown, IDMLObject, IDMLDeviceChild, IDMLPageable, IDMLDispatchable);
 impl IDMLOperatorInitializer {
     #[cfg(feature = "shared")]
-    pub unsafe fn Reset(&self, operators: Option<&[Option<IDMLCompiledOperator>]>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), operators.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(operators.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    pub unsafe fn Reset(&self, operatorcount: super::UINT, operators: Option<*const Option<IDMLCompiledOperator>>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), operatorcount, operators.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]

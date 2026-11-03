@@ -118,15 +118,15 @@ pub unsafe fn SetConsoleMode(hconsolehandle: super::HANDLE, dwmode: super::DWORD
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WriteConsoleA(hconsoleoutput: super::HANDLE, lpbuffer: &[u8], lpnumberofcharswritten: Option<super::LPDWORD>, lpreserved: Option<super::LPVOID>) -> windows_core::BOOL {
+pub unsafe fn WriteConsoleA(hconsoleoutput: super::HANDLE, lpbuffer: *const core::ffi::c_void, nnumberofcharstowrite: super::DWORD, lpnumberofcharswritten: Option<super::LPDWORD>, lpreserved: Option<super::LPVOID>) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn WriteConsoleA(hconsoleoutput : super::HANDLE, lpbuffer : *const core::ffi::c_void, nnumberofcharstowrite : super::DWORD, lpnumberofcharswritten : super::LPDWORD, lpreserved : super::LPVOID) -> windows_core::BOOL);
-    unsafe { WriteConsoleA(hconsoleoutput, core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap(), lpnumberofcharswritten.unwrap_or(core::mem::zeroed()) as _, lpreserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WriteConsoleA(hconsoleoutput, lpbuffer, nnumberofcharstowrite, lpnumberofcharswritten.unwrap_or(core::mem::zeroed()) as _, lpreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WriteConsoleW(hconsoleoutput: super::HANDLE, lpbuffer: &[u8], lpnumberofcharswritten: Option<super::LPDWORD>, lpreserved: Option<super::LPVOID>) -> windows_core::BOOL {
+pub unsafe fn WriteConsoleW(hconsoleoutput: super::HANDLE, lpbuffer: *const core::ffi::c_void, nnumberofcharstowrite: super::DWORD, lpnumberofcharswritten: Option<super::LPDWORD>, lpreserved: Option<super::LPVOID>) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn WriteConsoleW(hconsoleoutput : super::HANDLE, lpbuffer : *const core::ffi::c_void, nnumberofcharstowrite : super::DWORD, lpnumberofcharswritten : super::LPDWORD, lpreserved : super::LPVOID) -> windows_core::BOOL);
-    unsafe { WriteConsoleW(hconsoleoutput, core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap(), lpnumberofcharswritten.unwrap_or(core::mem::zeroed()) as _, lpreserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WriteConsoleW(hconsoleoutput, lpbuffer, nnumberofcharstowrite, lpnumberofcharswritten.unwrap_or(core::mem::zeroed()) as _, lpreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 pub type ALLOC_CONSOLE_MODE = i32;
 pub const ALLOC_CONSOLE_MODE_DEFAULT: ALLOC_CONSOLE_MODE = 0;

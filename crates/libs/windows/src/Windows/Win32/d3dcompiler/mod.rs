@@ -36,9 +36,9 @@ where
 }
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
 #[inline]
-pub unsafe fn D3DCompressShaders(pshaderdata: &[D3D_SHADER_DATA], uflags: super::UINT, ppcompresseddata: *mut Option<super::ID3D10Blob>) -> windows_core::HRESULT {
+pub unsafe fn D3DCompressShaders(unumshaders: super::UINT, pshaderdata: *const D3D_SHADER_DATA, uflags: super::UINT, ppcompresseddata: *mut Option<super::ID3D10Blob>) -> windows_core::HRESULT {
     windows_core::link!("d3dcompiler_47.dll" "system" fn D3DCompressShaders(unumshaders : super::UINT, pshaderdata : *const D3D_SHADER_DATA, uflags : super::UINT, ppcompresseddata : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { D3DCompressShaders(pshaderdata.len().try_into().unwrap(), pshaderdata.as_ptr(), uflags, core::mem::transmute(ppcompresseddata)) }
+    unsafe { D3DCompressShaders(unumshaders, pshaderdata, uflags, core::mem::transmute(ppcompresseddata)) }
 }
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
 #[inline]

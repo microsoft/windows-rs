@@ -1467,18 +1467,18 @@ pub unsafe fn MoveClusterGroup(hgroup: HGROUP, hdestinationnode: Option<HNODE>) 
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn MoveClusterGroupEx(hgroup: HGROUP, hdestinationnode: Option<HNODE>, dwmoveflags: super::DWORD, lpinbuffer: Option<&[u8]>) -> super::DWORD {
+pub unsafe fn MoveClusterGroupEx(hgroup: HGROUP, hdestinationnode: Option<HNODE>, dwmoveflags: super::DWORD, lpinbuffer: Option<super::PBYTE>, cbinbuffersize: super::DWORD) -> super::DWORD {
     windows_core::link!("clusapi.dll" "system" fn MoveClusterGroupEx(hgroup : HGROUP, hdestinationnode : HNODE, dwmoveflags : super::DWORD, lpinbuffer : super::PBYTE, cbinbuffersize : super::DWORD) -> super::DWORD);
-    unsafe { MoveClusterGroupEx(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwmoveflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { MoveClusterGroupEx(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwmoveflags, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, cbinbuffersize) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn MoveClusterGroupEx2<P5>(hgroup: HGROUP, hdestinationnode: Option<HNODE>, dwmoveflags: super::DWORD, lpinbuffer: Option<&[u8]>, lpszreason: P5) -> super::DWORD
+pub unsafe fn MoveClusterGroupEx2<P5>(hgroup: HGROUP, hdestinationnode: Option<HNODE>, dwmoveflags: super::DWORD, lpinbuffer: Option<super::PBYTE>, cbinbuffersize: super::DWORD, lpszreason: P5) -> super::DWORD
 where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("clusapi.dll" "system" fn MoveClusterGroupEx2(hgroup : HGROUP, hdestinationnode : HNODE, dwmoveflags : super::DWORD, lpinbuffer : super::PBYTE, cbinbuffersize : super::DWORD, lpszreason : windows_core::PCWSTR) -> super::DWORD);
-    unsafe { MoveClusterGroupEx2(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwmoveflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
+    unsafe { MoveClusterGroupEx2(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwmoveflags, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, cbinbuffersize, lpszreason.param().abi()) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -1488,9 +1488,9 @@ pub unsafe fn OfflineClusterGroup(hgroup: HGROUP) -> super::DWORD {
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn OfflineClusterGroupEx(hgroup: HGROUP, dwofflineflags: super::DWORD, lpinbuffer: Option<&[u8]>) -> super::DWORD {
+pub unsafe fn OfflineClusterGroupEx(hgroup: HGROUP, dwofflineflags: super::DWORD, lpinbuffer: Option<super::PBYTE>, cbinbuffersize: super::DWORD) -> super::DWORD {
     windows_core::link!("clusapi.dll" "system" fn OfflineClusterGroupEx(hgroup : HGROUP, dwofflineflags : super::DWORD, lpinbuffer : super::PBYTE, cbinbuffersize : super::DWORD) -> super::DWORD);
-    unsafe { OfflineClusterGroupEx(hgroup, dwofflineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { OfflineClusterGroupEx(hgroup, dwofflineflags, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, cbinbuffersize) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -1509,18 +1509,18 @@ pub unsafe fn OfflineClusterResource(hresource: HRESOURCE) -> super::DWORD {
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn OfflineClusterResourceEx(hresource: HRESOURCE, dwofflineflags: super::DWORD, lpinbuffer: Option<&[u8]>) -> super::DWORD {
+pub unsafe fn OfflineClusterResourceEx(hresource: HRESOURCE, dwofflineflags: super::DWORD, lpinbuffer: Option<super::PBYTE>, cbinbuffersize: super::DWORD) -> super::DWORD {
     windows_core::link!("clusapi.dll" "system" fn OfflineClusterResourceEx(hresource : HRESOURCE, dwofflineflags : super::DWORD, lpinbuffer : super::PBYTE, cbinbuffersize : super::DWORD) -> super::DWORD);
-    unsafe { OfflineClusterResourceEx(hresource, dwofflineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { OfflineClusterResourceEx(hresource, dwofflineflags, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, cbinbuffersize) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn OfflineClusterResourceEx2<P4>(hresource: HRESOURCE, dwofflineflags: super::DWORD, lpinbuffer: Option<&[u8]>, lpszreason: P4) -> super::DWORD
+pub unsafe fn OfflineClusterResourceEx2<P4>(hresource: HRESOURCE, dwofflineflags: super::DWORD, lpinbuffer: Option<super::PBYTE>, cbinbuffersize: super::DWORD, lpszreason: P4) -> super::DWORD
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("clusapi.dll" "system" fn OfflineClusterResourceEx2(hresource : HRESOURCE, dwofflineflags : super::DWORD, lpinbuffer : super::PBYTE, cbinbuffersize : super::DWORD, lpszreason : windows_core::PCWSTR) -> super::DWORD);
-    unsafe { OfflineClusterResourceEx2(hresource, dwofflineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
+    unsafe { OfflineClusterResourceEx2(hresource, dwofflineflags, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, cbinbuffersize, lpszreason.param().abi()) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -1530,18 +1530,18 @@ pub unsafe fn OnlineClusterGroup(hgroup: HGROUP, hdestinationnode: Option<HNODE>
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn OnlineClusterGroupEx(hgroup: HGROUP, hdestinationnode: Option<HNODE>, dwonlineflags: super::DWORD, lpinbuffer: Option<&[u8]>) -> super::DWORD {
+pub unsafe fn OnlineClusterGroupEx(hgroup: HGROUP, hdestinationnode: Option<HNODE>, dwonlineflags: super::DWORD, lpinbuffer: Option<super::PBYTE>, cbinbuffersize: super::DWORD) -> super::DWORD {
     windows_core::link!("clusapi.dll" "system" fn OnlineClusterGroupEx(hgroup : HGROUP, hdestinationnode : HNODE, dwonlineflags : super::DWORD, lpinbuffer : super::PBYTE, cbinbuffersize : super::DWORD) -> super::DWORD);
-    unsafe { OnlineClusterGroupEx(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwonlineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { OnlineClusterGroupEx(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwonlineflags, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, cbinbuffersize) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn OnlineClusterGroupEx2<P5>(hgroup: HGROUP, hdestinationnode: Option<HNODE>, dwonlineflags: super::DWORD, lpinbuffer: Option<&[u8]>, lpszreason: P5) -> super::DWORD
+pub unsafe fn OnlineClusterGroupEx2<P5>(hgroup: HGROUP, hdestinationnode: Option<HNODE>, dwonlineflags: super::DWORD, lpinbuffer: Option<super::PBYTE>, cbinbuffersize: super::DWORD, lpszreason: P5) -> super::DWORD
 where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("clusapi.dll" "system" fn OnlineClusterGroupEx2(hgroup : HGROUP, hdestinationnode : HNODE, dwonlineflags : super::DWORD, lpinbuffer : super::PBYTE, cbinbuffersize : super::DWORD, lpszreason : windows_core::PCWSTR) -> super::DWORD);
-    unsafe { OnlineClusterGroupEx2(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwonlineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
+    unsafe { OnlineClusterGroupEx2(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwonlineflags, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, cbinbuffersize, lpszreason.param().abi()) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -1551,18 +1551,18 @@ pub unsafe fn OnlineClusterResource(hresource: HRESOURCE) -> super::DWORD {
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn OnlineClusterResourceEx(hresource: HRESOURCE, dwonlineflags: super::DWORD, lpinbuffer: Option<&[u8]>) -> super::DWORD {
+pub unsafe fn OnlineClusterResourceEx(hresource: HRESOURCE, dwonlineflags: super::DWORD, lpinbuffer: Option<super::PBYTE>, cbinbuffersize: super::DWORD) -> super::DWORD {
     windows_core::link!("clusapi.dll" "system" fn OnlineClusterResourceEx(hresource : HRESOURCE, dwonlineflags : super::DWORD, lpinbuffer : super::PBYTE, cbinbuffersize : super::DWORD) -> super::DWORD);
-    unsafe { OnlineClusterResourceEx(hresource, dwonlineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { OnlineClusterResourceEx(hresource, dwonlineflags, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, cbinbuffersize) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn OnlineClusterResourceEx2<P4>(hresource: HRESOURCE, dwonlineflags: super::DWORD, lpinbuffer: Option<&[u8]>, lpszreason: P4) -> super::DWORD
+pub unsafe fn OnlineClusterResourceEx2<P4>(hresource: HRESOURCE, dwonlineflags: super::DWORD, lpinbuffer: Option<super::PBYTE>, cbinbuffersize: super::DWORD, lpszreason: P4) -> super::DWORD
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("clusapi.dll" "system" fn OnlineClusterResourceEx2(hresource : HRESOURCE, dwonlineflags : super::DWORD, lpinbuffer : super::PBYTE, cbinbuffersize : super::DWORD, lpszreason : windows_core::PCWSTR) -> super::DWORD);
-    unsafe { OnlineClusterResourceEx2(hresource, dwonlineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
+    unsafe { OnlineClusterResourceEx2(hresource, dwonlineflags, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, cbinbuffersize, lpszreason.param().abi()) }
 }
 #[inline]
 pub unsafe fn OpenCluster<P0>(lpszclustername: P0) -> HCLUSTER
@@ -1901,18 +1901,18 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetClusterGroupNodeList(hgroup: HGROUP, nodelist: Option<&[HNODE]>) -> super::DWORD {
+pub unsafe fn SetClusterGroupNodeList(hgroup: HGROUP, nodecount: super::DWORD, nodelist: Option<*const HNODE>) -> super::DWORD {
     windows_core::link!("clusapi.dll" "system" fn SetClusterGroupNodeList(hgroup : HGROUP, nodecount : super::DWORD, nodelist : *const HNODE) -> super::DWORD);
-    unsafe { SetClusterGroupNodeList(hgroup, nodelist.map_or(0, |slice| slice.len().try_into().unwrap()), nodelist.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
+    unsafe { SetClusterGroupNodeList(hgroup, nodecount, nodelist.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetClusterGroupNodeListEx<P3>(hgroup: HGROUP, nodelist: &[HNODE], lpszreason: P3) -> super::DWORD
+pub unsafe fn SetClusterGroupNodeListEx<P3>(hgroup: HGROUP, nodecount: super::DWORD, nodelist: *const HNODE, lpszreason: P3) -> super::DWORD
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("clusapi.dll" "system" fn SetClusterGroupNodeListEx(hgroup : HGROUP, nodecount : super::DWORD, nodelist : *const HNODE, lpszreason : windows_core::PCWSTR) -> super::DWORD);
-    unsafe { SetClusterGroupNodeListEx(hgroup, nodelist.len().try_into().unwrap(), nodelist.as_ptr(), lpszreason.param().abi()) }
+    unsafe { SetClusterGroupNodeListEx(hgroup, nodecount, nodelist, lpszreason.param().abi()) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -1973,9 +1973,9 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetClusterNetworkPriorityOrder(hcluster: HCLUSTER, networklist: &[HNETWORK]) -> super::DWORD {
+pub unsafe fn SetClusterNetworkPriorityOrder(hcluster: HCLUSTER, networkcount: super::DWORD, networklist: *const HNETWORK) -> super::DWORD {
     windows_core::link!("clusapi.dll" "system" fn SetClusterNetworkPriorityOrder(hcluster : HCLUSTER, networkcount : super::DWORD, networklist : *const HNETWORK) -> super::DWORD);
-    unsafe { SetClusterNetworkPriorityOrder(hcluster, networklist.len().try_into().unwrap(), networklist.as_ptr()) }
+    unsafe { SetClusterNetworkPriorityOrder(hcluster, networkcount, networklist) }
 }
 #[cfg(feature = "shared")]
 #[inline]

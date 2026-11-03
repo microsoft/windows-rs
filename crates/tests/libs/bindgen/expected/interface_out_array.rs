@@ -48,12 +48,12 @@ impl Interface {
             )
         }
     }
-    pub unsafe fn InOutLen(&self, buffer: &mut [u32]) -> i32 {
+    pub unsafe fn InOutLen(&self, count: u32, buffer: *mut u32) -> i32 {
         unsafe {
             (windows_core::Interface::vtable(self).InOutLen)(
                 windows_core::Interface::as_raw(self),
-                buffer.len().try_into().unwrap(),
-                buffer.as_mut_ptr(),
+                count,
+                buffer as _,
             )
         }
     }
@@ -67,21 +67,21 @@ impl Interface {
             )
         }
     }
-    pub unsafe fn InLen(&self, buffer: &[u32]) -> i32 {
+    pub unsafe fn InLen(&self, count: u32, buffer: *const u32) -> i32 {
         unsafe {
             (windows_core::Interface::vtable(self).InLen)(
                 windows_core::Interface::as_raw(self),
-                buffer.len().try_into().unwrap(),
-                buffer.as_ptr(),
+                count,
+                buffer,
             )
         }
     }
-    pub unsafe fn InSignedLen(&self, buffer: &[u32]) -> i32 {
+    pub unsafe fn InSignedLen(&self, count: i32, buffer: *const u32) -> i32 {
         unsafe {
             (windows_core::Interface::vtable(self).InSignedLen)(
                 windows_core::Interface::as_raw(self),
-                buffer.len().try_into().unwrap(),
-                buffer.as_ptr(),
+                count,
+                buffer,
             )
         }
     }

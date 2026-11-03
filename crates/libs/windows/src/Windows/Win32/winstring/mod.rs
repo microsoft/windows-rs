@@ -11,9 +11,9 @@ pub unsafe fn WindowsConcatString(string1: &windows_core::HSTRING, string2: &win
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WindowsCreateString(sourcestring: Option<&[u16]>, string: *mut windows_core::HSTRING) -> windows_core::HRESULT {
+pub unsafe fn WindowsCreateString(sourcestring: Option<super::PCNZWCH>, length: super::UINT32, string: *mut windows_core::HSTRING) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsCreateString(sourcestring : super::PCNZWCH, length : super::UINT32, string : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { WindowsCreateString(core::mem::transmute(sourcestring.map_or(core::ptr::null(), |slice| slice.as_ptr())), sourcestring.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(string)) }
+    unsafe { WindowsCreateString(sourcestring.unwrap_or(core::mem::zeroed()) as _, length, core::mem::transmute(string)) }
 }
 #[cfg(all(feature = "hstring", feature = "shared", feature = "winnt"))]
 #[inline]

@@ -40,9 +40,9 @@ pub unsafe fn RmJoinSession(psessionhandle: *mut super::DWORD, strsessionkey: *c
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn RmRegisterResources(dwsessionhandle: super::DWORD, rgsfilenames: Option<&[windows_core::PCWSTR]>, rgapplications: Option<&[RM_UNIQUE_PROCESS]>, rgsservicenames: Option<&[windows_core::PCWSTR]>) -> super::DWORD {
+pub unsafe fn RmRegisterResources(dwsessionhandle: super::DWORD, nfiles: super::UINT, rgsfilenames: Option<*const windows_core::PCWSTR>, napplications: super::UINT, rgapplications: Option<*const RM_UNIQUE_PROCESS>, nservices: super::UINT, rgsservicenames: Option<*const windows_core::PCWSTR>) -> super::DWORD {
     windows_core::link!("rstrtmgr.dll" "system" fn RmRegisterResources(dwsessionhandle : super::DWORD, nfiles : super::UINT, rgsfilenames : *const windows_core::PCWSTR, napplications : super::UINT, rgapplications : *const RM_UNIQUE_PROCESS, nservices : super::UINT, rgsservicenames : *const windows_core::PCWSTR) -> super::DWORD);
-    unsafe { RmRegisterResources(dwsessionhandle, rgsfilenames.map_or(0, |slice| slice.len().try_into().unwrap()), rgsfilenames.map_or(core::ptr::null(), |slice| slice.as_ptr()), rgapplications.map_or(0, |slice| slice.len().try_into().unwrap()), rgapplications.map_or(core::ptr::null(), |slice| slice.as_ptr()), rgsservicenames.map_or(0, |slice| slice.len().try_into().unwrap()), rgsservicenames.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
+    unsafe { RmRegisterResources(dwsessionhandle, nfiles, rgsfilenames.unwrap_or(core::mem::zeroed()) as _, napplications, rgapplications.unwrap_or(core::mem::zeroed()) as _, nservices, rgsservicenames.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]

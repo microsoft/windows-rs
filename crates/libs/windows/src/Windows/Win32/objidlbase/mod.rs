@@ -25,8 +25,8 @@ windows_core::imp::define_interface!(AsyncIMultiQI, AsyncIMultiQI_Vtbl, 0x000e00
 windows_core::imp::interface_hierarchy!(AsyncIMultiQI, windows_core::IUnknown);
 impl AsyncIMultiQI {
     #[cfg(all(feature = "guiddef", feature = "shared"))]
-    pub unsafe fn Begin_QueryMultipleInterfaces(&self, pmqis: &mut [MULTI_QI]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Begin_QueryMultipleInterfaces)(windows_core::Interface::as_raw(self), pmqis.len().try_into().unwrap(), pmqis.as_mut_ptr()) }
+    pub unsafe fn Begin_QueryMultipleInterfaces(&self, cmqis: super::ULONG, pmqis: *mut MULTI_QI) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Begin_QueryMultipleInterfaces)(windows_core::Interface::as_raw(self), cmqis, pmqis) }
     }
     #[cfg(feature = "guiddef")]
     pub unsafe fn Finish_QueryMultipleInterfaces(&self, pmqis: *mut MULTI_QI) -> windows_core::HRESULT {
@@ -90,8 +90,8 @@ impl AsyncIPipeByte {
         unsafe { (windows_core::Interface::vtable(self).Finish_Pull)(windows_core::Interface::as_raw(self), buf as _, pcreturned as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn Begin_Push(&self, buf: &[super::BYTE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Begin_Push)(windows_core::Interface::as_raw(self), buf.as_ptr(), buf.len().try_into().unwrap()) }
+    pub unsafe fn Begin_Push(&self, buf: *const super::BYTE, csent: super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Begin_Push)(windows_core::Interface::as_raw(self), buf, csent) }
     }
     pub unsafe fn Finish_Push(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Finish_Push)(windows_core::Interface::as_raw(self)) }
@@ -175,8 +175,8 @@ impl AsyncIPipeDouble {
         unsafe { (windows_core::Interface::vtable(self).Finish_Pull)(windows_core::Interface::as_raw(self), buf as _, pcreturned as _) }
     }
     #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-    pub unsafe fn Begin_Push(&self, buf: &[super::DOUBLE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Begin_Push)(windows_core::Interface::as_raw(self), buf.as_ptr(), buf.len().try_into().unwrap()) }
+    pub unsafe fn Begin_Push(&self, buf: *const super::DOUBLE, csent: super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Begin_Push)(windows_core::Interface::as_raw(self), buf, csent) }
     }
     pub unsafe fn Finish_Push(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Finish_Push)(windows_core::Interface::as_raw(self)) }
@@ -260,8 +260,8 @@ impl AsyncIPipeLong {
         unsafe { (windows_core::Interface::vtable(self).Finish_Pull)(windows_core::Interface::as_raw(self), buf as _, pcreturned as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn Begin_Push(&self, buf: &[super::LONG]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Begin_Push)(windows_core::Interface::as_raw(self), buf.as_ptr(), buf.len().try_into().unwrap()) }
+    pub unsafe fn Begin_Push(&self, buf: *const super::LONG, csent: super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Begin_Push)(windows_core::Interface::as_raw(self), buf, csent) }
     }
     pub unsafe fn Finish_Push(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Finish_Push)(windows_core::Interface::as_raw(self)) }
@@ -1994,8 +1994,8 @@ windows_core::imp::define_interface!(IMultiQI, IMultiQI_Vtbl, 0x00000020_0000_00
 windows_core::imp::interface_hierarchy!(IMultiQI, windows_core::IUnknown);
 impl IMultiQI {
     #[cfg(all(feature = "guiddef", feature = "shared"))]
-    pub unsafe fn QueryMultipleInterfaces(&self, pmqis: &mut [MULTI_QI]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryMultipleInterfaces)(windows_core::Interface::as_raw(self), pmqis.len().try_into().unwrap(), pmqis.as_mut_ptr()) }
+    pub unsafe fn QueryMultipleInterfaces(&self, cmqis: super::ULONG, pmqis: *mut MULTI_QI) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).QueryMultipleInterfaces)(windows_core::Interface::as_raw(self), cmqis, pmqis) }
     }
 }
 #[repr(C)]
@@ -2169,8 +2169,8 @@ impl IPipeByte {
         unsafe { (windows_core::Interface::vtable(self).Pull)(windows_core::Interface::as_raw(self), buf as _, crequest, pcreturned as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn Push(&self, buf: &[super::BYTE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Push)(windows_core::Interface::as_raw(self), buf.as_ptr(), buf.len().try_into().unwrap()) }
+    pub unsafe fn Push(&self, buf: *const super::BYTE, csent: super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Push)(windows_core::Interface::as_raw(self), buf, csent) }
     }
 }
 #[repr(C)]
@@ -2222,8 +2222,8 @@ impl IPipeDouble {
         unsafe { (windows_core::Interface::vtable(self).Pull)(windows_core::Interface::as_raw(self), buf as _, crequest, pcreturned as _) }
     }
     #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-    pub unsafe fn Push(&self, buf: &[super::DOUBLE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Push)(windows_core::Interface::as_raw(self), buf.as_ptr(), buf.len().try_into().unwrap()) }
+    pub unsafe fn Push(&self, buf: *const super::DOUBLE, csent: super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Push)(windows_core::Interface::as_raw(self), buf, csent) }
     }
 }
 #[repr(C)]
@@ -2275,8 +2275,8 @@ impl IPipeLong {
         unsafe { (windows_core::Interface::vtable(self).Pull)(windows_core::Interface::as_raw(self), buf as _, crequest, pcreturned as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn Push(&self, buf: &[super::LONG]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Push)(windows_core::Interface::as_raw(self), buf.as_ptr(), buf.len().try_into().unwrap()) }
+    pub unsafe fn Push(&self, buf: *const super::LONG, csent: super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Push)(windows_core::Interface::as_raw(self), buf, csent) }
     }
 }
 #[repr(C)]

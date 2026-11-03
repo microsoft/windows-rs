@@ -1036,8 +1036,8 @@ impl INetworkCostManager {
         unsafe { (windows_core::Interface::vtable(self).GetDataPlanStatus)(windows_core::Interface::as_raw(self), pdataplanstatus as _, pdestipaddr.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(all(feature = "shared", feature = "wtypes"))]
-    pub unsafe fn SetDestinationAddresses(&self, pdestipaddrlist: Option<&[NLM_SOCKADDR]>, bappend: super::VARIANT_BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetDestinationAddresses)(windows_core::Interface::as_raw(self), pdestipaddrlist.map_or(0, |slice| slice.len().try_into().unwrap()), pdestipaddrlist.map_or(core::ptr::null(), |slice| slice.as_ptr()), bappend) }
+    pub unsafe fn SetDestinationAddresses(&self, length: super::UINT32, pdestipaddrlist: Option<*const NLM_SOCKADDR>, bappend: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDestinationAddresses)(windows_core::Interface::as_raw(self), length, pdestipaddrlist.unwrap_or(core::mem::zeroed()) as _, bappend) }
     }
 }
 #[repr(C)]
