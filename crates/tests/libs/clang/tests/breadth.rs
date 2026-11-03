@@ -1153,7 +1153,7 @@ fn rpc_strings() {
     let input = test_clang::fixture("rpc_strings");
     let output = project(std::slice::from_ref(&input));
     let text = &output.partitions.values().next().unwrap().rdl;
-    assert!(text.contains("#[null_terminated("), "{text}");
+    assert!(text.contains("#[null_terminated]"), "{text}");
     roundtrip("rpc_strings", &output, |index, _| {
         for (owner, name) in [
             ("Apis", "BufferFunction"),
@@ -1181,21 +1181,12 @@ fn rpc_strings() {
                 );
                 assert!(parameter.find_attribute("NativeInputAttribute").is_none());
                 assert_eq!(parameter.buffer_relationship(), None);
-                assert_eq!(
+                assert!(
                     parameter
                         .find_attribute("NullTerminatedAttribute")
                         .unwrap()
                         .value()
-                        .into_iter()
-                        .collect::<BTreeMap<_, _>>(),
-                    [
-                        ("OnEntry".into(), windows_metadata::Value::Bool(true)),
-                        (
-                            "OnSuccess".into(),
-                            windows_metadata::Value::Bool(position == 2)
-                        ),
-                    ]
-                    .into()
+                        .is_empty()
                 );
             }
         }
@@ -1220,7 +1211,7 @@ fn rpc_strings_residuals() {
         let output = project(&[input]);
         let text = &output.partitions.values().next().unwrap().rdl;
         assert!(text.contains("#[incomplete]"), "{text}");
-        for flag in ["#[null_terminated(", "#[in]", "#[out]", "#[opt]"] {
+        for flag in ["#[null_terminated]", "#[in]", "#[out]", "#[opt]"] {
             assert!(!text.contains(flag), "{text}");
         }
     }
@@ -1442,7 +1433,6 @@ fn rpc_input_buffer_agreement() {
 
 fn check_rpc_buffers() {
     use reader::ParamDirection::*;
-    use windows_metadata::Value;
     helpers::ensure_libclang();
     for (names, direction, optional, (capacity, _), terminated) in [
         (
@@ -1662,15 +1652,7 @@ fn check_rpc_buffers() {
                     let termination = parameter.find_attribute("NullTerminatedAttribute");
                     assert_eq!(termination.is_some(), terminated, "{name}");
                     if let Some(termination) = termination {
-                        assert_eq!(
-                            termination.value().into_iter().collect::<BTreeMap<_, _>>(),
-                            [
-                                ("OnEntry".into(), Value::Bool(direction != Output)),
-                                ("OnSuccess".into(), Value::Bool(direction != Input)),
-                            ]
-                            .into(),
-                            "{name}"
-                        );
+                        assert!(termination.value().is_empty(), "{name}");
                     }
                 }
             });
@@ -1740,7 +1722,7 @@ fn rpc_output_buffer_agreement() {
         let text = &output.partitions.values().next().unwrap().rdl;
         assert!(text.contains("#[incomplete]"), "{text}");
         assert!(!text.contains("#[buffer("), "{text}");
-        assert!(text.contains("#[null_terminated(success)]"), "{text}");
+        assert!(text.contains("#[null_terminated]"), "{text}");
     }
 }
 
@@ -2170,7 +2152,7 @@ fn rpc_annotation_residuals() {
             "{text}"
         );
         assert_eq!(
-            text.contains("#[null_terminated("),
+            text.contains("#[null_terminated]"),
             rpc == "__RPC__inout_opt_string",
             "{text}"
         );
@@ -2224,7 +2206,6 @@ fn rpc_annotation_residuals() {
 
 #[test]
 fn buffer_postconditions() {
-    use windows_metadata::Value;
     helpers::ensure_libclang();
     for (case, (current, legacy)) in BUFFER_POSTCONDITIONS.into_iter().enumerate() {
         for indirect in [false, true] {
@@ -2301,14 +2282,7 @@ fn buffer_postconditions() {
                         let terminated = parameter.find_attribute("NullTerminatedAttribute");
                         assert_eq!(terminated.is_some(), case < 6);
                         if let Some(terminated) = terminated {
-                            assert_eq!(
-                                terminated.value().into_iter().collect::<BTreeMap<_, _>>(),
-                                [
-                                    ("OnEntry".into(), Value::Bool(input)),
-                                    ("OnSuccess".into(), Value::Bool(output))
-                                ]
-                                .into()
-                            );
+                            assert!(terminated.value().is_empty());
                         }
                         let bytes = current.contains("_bytes_");
                         assert_eq!(
@@ -2426,7 +2400,6 @@ fn buffer_postconditions_conflicts() {
 
 #[test]
 fn buffer_postcondition_residuals() {
-    use windows_metadata::Value;
     helpers::ensure_libclang();
     let input = test_clang::fixture("buffer_postcondition_residuals");
     let output = project(&[input]);
@@ -2471,14 +2444,7 @@ fn buffer_postcondition_residuals() {
             let termination = parameter.find_attribute("NullTerminatedAttribute");
             assert_eq!(termination.is_some(), entry || success, "{name}");
             if let Some(termination) = termination {
-                assert_eq!(
-                    termination.value().into_iter().collect::<BTreeMap<_, _>>(),
-                    [
-                        ("OnEntry".into(), Value::Bool(entry)),
-                        ("OnSuccess".into(), Value::Bool(success)),
-                    ]
-                    .into()
-                );
+                assert!(termination.value().is_empty());
                 assert_eq!(
                     parameter.direction(),
                     if name == "ConstantCapacity" {

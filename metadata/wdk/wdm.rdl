@@ -1643,11 +1643,11 @@ mod Windows {
         const DRVO_UNLOAD_INVOKED: i32 = 1;
         const DUPLICATE_SAME_ATTRIBUTES: i32 = 4;
         #[library("ntdll.dll")]
-        extern "C" fn DbgPrint(#[in] #[null_terminated(entry)] Format: PCSTR, ...) -> ULONG;
+        extern "C" fn DbgPrint(#[in] #[null_terminated] Format: PCSTR, ...) -> ULONG;
         #[library("ntdll.dll")]
-        extern "C" fn DbgPrintEx(#[in] ComponentId: ULONG, #[in] Level: ULONG, #[in] #[null_terminated(entry)] Format: PCSTR, ...) -> ULONG;
+        extern "C" fn DbgPrintEx(#[in] ComponentId: ULONG, #[in] Level: ULONG, #[in] #[null_terminated] Format: PCSTR, ...) -> ULONG;
         #[library("ntdll.dll")]
-        extern "C" fn DbgPrintReturnControlC(#[in] #[null_terminated(entry)] Format: PCCH, ...) -> ULONG;
+        extern "C" fn DbgPrintReturnControlC(#[in] #[null_terminated] Format: PCCH, ...) -> ULONG;
         #[library("ntdll.dll")]
         extern fn DbgQueryDebugFilterState(#[in] ComponentId: ULONG, #[in] Level: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
@@ -7187,7 +7187,7 @@ mod Windows {
         const PROFILE_LEVEL: i32 = 27;
         type PRTL_BITMAP = *mut RTL_BITMAP;
         type PRTL_BITMAP_RUN = *mut RTL_BITMAP_RUN;
-        extern fn PRTL_QUERY_REGISTRY_ROUTINE(#[in] #[null_terminated(entry)] ValueName: PWSTR, #[in] ValueType: ULONG, #[buffer(bytes(ValueLength))] #[in] #[opt] ValueData: PVOID, #[in] ValueLength: ULONG, #[in] #[opt] Context: PVOID, #[in] #[opt] EntryContext: PVOID) -> NTSTATUS;
+        extern fn PRTL_QUERY_REGISTRY_ROUTINE(#[in] #[null_terminated] ValueName: PWSTR, #[in] ValueType: ULONG, #[buffer(bytes(ValueLength))] #[in] #[opt] ValueData: PVOID, #[in] ValueLength: ULONG, #[in] #[opt] Context: PVOID, #[in] #[opt] EntryContext: PVOID) -> NTSTATUS;
         type PRTL_QUERY_REGISTRY_TABLE = *mut RTL_QUERY_REGISTRY_TABLE;
         type PSCATTER_GATHER_ELEMENT = *mut SCATTER_GATHER_ELEMENT;
         type PSDEV_IDENTIFIER_INTERFACE = *mut SDEV_IDENTIFIER_INTERFACE;
@@ -7591,7 +7591,7 @@ mod Windows {
         const RTL_QUERY_REGISTRY_NOSTRING: i32 = 128;
         const RTL_QUERY_REGISTRY_NOVALUE: i32 = 8;
         const RTL_QUERY_REGISTRY_REQUIRED: i32 = 4;
-        extern fn RTL_QUERY_REGISTRY_ROUTINE(#[in] #[null_terminated(entry)] ValueName: PWSTR, #[in] ValueType: ULONG, #[buffer(bytes(ValueLength))] #[in] #[opt] ValueData: PVOID, #[in] ValueLength: ULONG, #[in] #[opt] Context: PVOID, #[in] #[opt] EntryContext: PVOID) -> NTSTATUS;
+        extern fn RTL_QUERY_REGISTRY_ROUTINE(#[in] #[null_terminated] ValueName: PWSTR, #[in] ValueType: ULONG, #[buffer(bytes(ValueLength))] #[in] #[opt] ValueData: PVOID, #[in] ValueLength: ULONG, #[in] #[opt] Context: PVOID, #[in] #[opt] EntryContext: PVOID) -> NTSTATUS;
         const RTL_QUERY_REGISTRY_SUBKEY: i32 = 1;
         struct RTL_QUERY_REGISTRY_TABLE {
             QueryRoutine: PRTL_QUERY_REGISTRY_ROUTINE,
@@ -7621,7 +7621,7 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlAppendUnicodeStringToString(#[in] #[out] Destination: PUNICODE_STRING, #[in] Source: PCUNICODE_STRING) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlAppendUnicodeToString(#[in] #[out] Destination: PUNICODE_STRING, #[in] #[null_terminated(entry)] #[opt] Source: PCWSTR) -> NTSTATUS;
+        extern fn RtlAppendUnicodeToString(#[in] #[out] Destination: PUNICODE_STRING, #[in] #[null_terminated] #[opt] Source: PCWSTR) -> NTSTATUS;
         #[library("ntdll.dll")]
         #[must_use]
         extern fn RtlAreBitsClear(#[in] BitMapHeader: PRTL_BITMAP, #[in] StartingIndex: ULONG, #[in] Length: ULONG) -> BOOLEAN;
@@ -7658,7 +7658,7 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlCreateSecurityDescriptor(#[out] SecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] Revision: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlDeleteRegistryValue(#[in] RelativeTo: ULONG, #[in] Path: PCWSTR, #[in] #[null_terminated(entry)] ValueName: PCWSTR) -> NTSTATUS;
+        extern fn RtlDeleteRegistryValue(#[in] RelativeTo: ULONG, #[in] Path: PCWSTR, #[in] #[null_terminated] ValueName: PCWSTR) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn RtlDowncaseUnicodeChar(#[in] SourceCharacter: WCHAR) -> WCHAR;
         #[library("ntdll.dll")]
@@ -7711,7 +7711,7 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlHashUnicodeString(#[in] String: PCUNICODE_STRING, #[in] CaseInSensitive: BOOLEAN, #[in] HashAlgorithm: ULONG, #[out] HashValue: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlInitUTF8String(#[out] DestinationString: PUTF8_STRING, #[in] #[incomplete] #[null_terminated(entry)] #[opt] SourceString: PCSZ);
+        extern fn RtlInitUTF8String(#[out] DestinationString: PUTF8_STRING, #[in] #[incomplete] #[null_terminated] #[opt] SourceString: PCSZ);
         #[library("ntdll.dll")]
         extern fn RtlInitializeBitMap(#[out] BitMapHeader: PRTL_BITMAP, #[in] #[incomplete] #[opt] BitMapBuffer: PULONG, #[in] #[opt] SizeOfBitMap: ULONG);
         #[library("ntdll.dll")]
@@ -7770,7 +7770,7 @@ mod Windows {
         #[must_use]
         extern fn RtlVerifyVersionInfo(#[in] VersionInfo: PRTL_OSVERSIONINFOEXW, #[in] TypeMask: ULONG, #[in] ConditionMask: ULONGLONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlWriteRegistryValue(#[in] RelativeTo: ULONG, #[in] Path: PCWSTR, #[in] #[null_terminated(entry)] ValueName: PCWSTR, #[in] ValueType: ULONG, #[buffer(bytes(ValueLength))] #[in] #[opt] ValueData: PVOID, #[in] ValueLength: ULONG) -> NTSTATUS;
+        extern fn RtlWriteRegistryValue(#[in] RelativeTo: ULONG, #[in] Path: PCWSTR, #[in] #[null_terminated] ValueName: PCWSTR, #[in] ValueType: ULONG, #[buffer(bytes(ValueLength))] #[in] #[opt] ValueData: PVOID, #[in] ValueLength: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn RtlxAnsiStringToUnicodeSize(#[in] AnsiString: PCANSI_STRING) -> ULONG;
         #[library("ntdll.dll")]
@@ -8479,8 +8479,8 @@ mod Windows {
         type __prefast_analysis_mode_flag1 = i32;
         const __string_type: i32 = 0;
         #[library("ntdll.dll")]
-        extern fn vDbgPrintEx(#[in] ComponentId: ULONG, #[in] Level: ULONG, #[in] #[null_terminated(entry)] Format: PCCH, #[in] arglist: va_list) -> ULONG;
+        extern fn vDbgPrintEx(#[in] ComponentId: ULONG, #[in] Level: ULONG, #[in] #[null_terminated] Format: PCCH, #[in] arglist: va_list) -> ULONG;
         #[library("ntdll.dll")]
-        extern fn vDbgPrintExWithPrefix(#[in] #[null_terminated(entry)] Prefix: PCCH, #[in] ComponentId: ULONG, #[in] Level: ULONG, #[in] #[null_terminated(entry)] Format: PCCH, #[in] arglist: va_list) -> ULONG;
+        extern fn vDbgPrintExWithPrefix(#[in] #[null_terminated] Prefix: PCCH, #[in] ComponentId: ULONG, #[in] Level: ULONG, #[in] #[null_terminated] Format: PCCH, #[in] arglist: va_list) -> ULONG;
     }
 }

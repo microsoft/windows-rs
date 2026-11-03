@@ -1326,7 +1326,7 @@ mod Windows {
         #[library("WINHTTP.dll")]
         extern fn WinHttpGetProxySettingsVersion(#[in] hSession: HINTERNET, #[out] pdwProxySettingsVersion: *mut DWORD) -> DWORD;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpOpen(#[in] #[null_terminated(entry)] #[opt] pszAgentW: LPCWSTR, #[in] dwAccessType: DWORD, #[in] #[null_terminated(entry)] #[opt] pszProxyW: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] pszProxyBypassW: LPCWSTR, #[in] dwFlags: DWORD) -> HINTERNET;
+        extern fn WinHttpOpen(#[in] #[null_terminated] #[opt] pszAgentW: LPCWSTR, #[in] dwAccessType: DWORD, #[in] #[null_terminated] #[opt] pszProxyW: LPCWSTR, #[in] #[null_terminated] #[opt] pszProxyBypassW: LPCWSTR, #[in] dwFlags: DWORD) -> HINTERNET;
         #[library("WINHTTP.dll")]
         extern fn WinHttpOpenRequest(hConnect: HINTERNET, pwszVerb: LPCWSTR, pwszObjectName: LPCWSTR, pwszVersion: LPCWSTR, pwszReferrer: LPCWSTR, ppwszAcceptTypes: *mut LPCWSTR, dwFlags: DWORD) -> HINTERNET;
         #[library("WINHTTP.dll")]
@@ -1376,7 +1376,7 @@ mod Windows {
         #[library("WINHTTP.dll")]
         extern fn WinHttpTimeFromSystemTime(#[in] pst: *const SYSTEMTIME, #[buffer(bytes(62))] #[out] pwszTime: LPWSTR) -> BOOL;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpTimeToSystemTime(#[in] #[null_terminated(entry)] pwszTime: LPCWSTR, #[out] pst: *mut SYSTEMTIME) -> BOOL;
+        extern fn WinHttpTimeToSystemTime(#[in] #[null_terminated] pwszTime: LPCWSTR, #[out] pst: *mut SYSTEMTIME) -> BOOL;
         #[library("WINHTTP.dll")]
         extern fn WinHttpUnregisterProxyChangeNotification(#[in] hRegistration: WINHTTP_PROXY_CHANGE_REGISTRATION_HANDLE) -> DWORD;
         #[library("WINHTTP.dll")]

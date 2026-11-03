@@ -660,28 +660,22 @@ record alignment uses the same spelling.
 
 #### Null termination
 
-`#[null_terminated(...)]` specifies trailing zero elements in parameter storage, independently of
-encoding, capacity, initialized length and optionality. Choose one or both phases:
+The argument-free markers describe termination of a parameter's direct buffer:
 
-| Flag | Contract |
+| Attribute | Representation |
 | --- | --- |
-| `entry` | Single-zero termination on entry. |
-| `double_entry` | Double-zero termination on entry. |
-| `success` | Single-zero termination on successful completion. |
-| `double_success` | Double-zero termination on successful completion. |
-| `indirect` | Select the pointer stored in the parameter at each specified phase. |
+| `#[null_terminated]` | A buffer terminated by one zero element. |
+| `#[null_null_terminated]` | A buffer terminated by two consecutive zero elements, typically a packed string list. |
 
-For example, `#[null_terminated(entry, double_success)]` preserves different termination at the
-two phases. Success follows the callable's contract; this does not imply termination after failure.
-`#[null_terminated(success, indirect)]` describes a returned string when non-null. Nullability,
-optional output storage and buffer extents remain separate contracts.
+They map to the argument-free `NullTerminatedAttribute` and `NullNullTerminatedAttribute`. Use only one
+marker. Neither specifies encoding, capacity, initialized length, optionality or success conditions.
+They do not describe a pointer stored through the parameter.
+
 The selected storage must be a pointer, reference or array after resolving aliases. Scalars and
 callback values are not buffer storage. Fields, return rows and declarations have no short-form
 termination contract; their explicit full attributes remain readable and retain full spelling.
-An empty list, repeated phase or unknown flag is an error. Direction is not inferred from these
-flags. The short form preserves the phase properties and true double-termination/indirection
-properties of `NullTerminatedAttribute`. The writer also retains full spelling for unsupported
-storage and other payload shapes, including explicitly false double-termination properties.
+Arguments and repeated or combined markers are errors. Direction is not inferred. The writer retains
+full spelling for unsupported storage, repeated attributes and attributes with payloads.
 
 ### Array types
 

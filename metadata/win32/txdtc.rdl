@@ -225,11 +225,11 @@ mod Windows {
         }
         #[guid(0x13741d20_87eb_11ce_8081_0080c758527e)]
         interface IResourceManagerFactory: IUnknown {
-            fn Create(&self, #[in] pguidRM: *mut GUID, #[in] #[null_terminated(entry)] pszRMName: *mut CHAR, #[in] #[opt] pIResMgrSink: IResourceManagerSink, #[out] #[retval] ppResMgr: *mut IResourceManager) -> HRESULT;
+            fn Create(&self, #[in] pguidRM: *mut GUID, #[in] #[null_terminated] pszRMName: *mut CHAR, #[in] #[opt] pIResMgrSink: IResourceManagerSink, #[out] #[retval] ppResMgr: *mut IResourceManager) -> HRESULT;
         }
         #[guid(0x6b369c21_fbd2_11d1_8f47_00c04f8ee57d)]
         interface IResourceManagerFactory2: IResourceManagerFactory {
-            fn CreateEx(&self, #[in] pguidRM: *mut GUID, #[in] #[null_terminated(entry)] pszRMName: *mut CHAR, #[in] #[opt] pIResMgrSink: IResourceManagerSink, #[in] riidRequested: &IID, #[iid_is] #[out] ppvResMgr: *mut *mut void) -> HRESULT;
+            fn CreateEx(&self, #[in] pguidRM: *mut GUID, #[in] #[null_terminated] pszRMName: *mut CHAR, #[in] #[opt] pIResMgrSink: IResourceManagerSink, #[in] riidRequested: &IID, #[iid_is] #[out] ppvResMgr: *mut *mut void) -> HRESULT;
         }
         #[guid(0x6f6de620_b5df_4f3e_9cfa_c8aebd05172b)]
         interface IResourceManagerRejoinable: IResourceManager2 {

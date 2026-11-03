@@ -356,9 +356,9 @@ mod Windows {
         #[library("WinSCard.dll")]
         extern fn SCardListInterfacesW(#[in] hContext: SCARDCONTEXT, #[in] szCard: LPCWSTR, #[out] pguidInterfaces: LPGUID, #[in] #[out] pcguidInterfaces: LPDWORD) -> LONG;
         #[library("WinSCard.dll")]
-        extern fn SCardListReaderGroupsA(#[in] hContext: SCARDCONTEXT, #[buffer(*pcchGroups)] #[null_terminated(double_success)] #[opt] #[out] mszGroups: LPSTR, #[in] #[out] pcchGroups: LPDWORD) -> LONG;
+        extern fn SCardListReaderGroupsA(#[in] hContext: SCARDCONTEXT, #[buffer(*pcchGroups)] #[null_null_terminated] #[opt] #[out] mszGroups: LPSTR, #[in] #[out] pcchGroups: LPDWORD) -> LONG;
         #[library("WinSCard.dll")]
-        extern fn SCardListReaderGroupsW(#[in] hContext: SCARDCONTEXT, #[buffer(*pcchGroups)] #[null_terminated(double_success)] #[opt] #[out] mszGroups: LPWSTR, #[in] #[out] pcchGroups: LPDWORD) -> LONG;
+        extern fn SCardListReaderGroupsW(#[in] hContext: SCARDCONTEXT, #[buffer(*pcchGroups)] #[null_null_terminated] #[opt] #[out] mszGroups: LPWSTR, #[in] #[out] pcchGroups: LPDWORD) -> LONG;
         #[library("WinSCard.dll")]
         extern fn SCardListReadersA(#[in] hContext: SCARDCONTEXT, #[in] #[opt] mszGroups: LPCSTR, #[incomplete] mszReaders: LPSTR, #[in] #[out] pcchReaders: LPDWORD) -> LONG;
         #[library("WinSCard.dll")]

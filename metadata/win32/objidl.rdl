@@ -355,18 +355,18 @@ mod Windows {
         }
         #[guid(0x0000000b_0000_0000_c000_000000000046)]
         interface IStorage: IUnknown {
-            fn CreateStream(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] grfMode: DWORD, #[in] reserved1: DWORD, #[in] reserved2: DWORD, #[out] #[retval] ppstm: *mut IStream) -> HRESULT;
-            fn OpenStream(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] #[reserved] reserved1: *mut void, #[in] grfMode: DWORD, #[in] reserved2: DWORD, #[out] #[retval] ppstm: *mut IStream) -> HRESULT;
-            fn CreateStorage(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] grfMode: DWORD, #[in] reserved1: DWORD, #[in] reserved2: DWORD, #[out] #[retval] ppstg: *mut IStorage) -> HRESULT;
-            fn OpenStorage(&self, #[in] #[null_terminated(entry)] #[opt] pwcsName: *const OLECHAR, #[in] #[opt] pstgPriority: IStorage, #[in] grfMode: DWORD, #[in] #[incomplete] #[opt] snbExclude: SNB, #[in] reserved: DWORD, #[out] #[retval] ppstg: *mut IStorage) -> HRESULT;
+            fn CreateStream(&self, #[in] #[null_terminated] pwcsName: *const OLECHAR, #[in] grfMode: DWORD, #[in] reserved1: DWORD, #[in] reserved2: DWORD, #[out] #[retval] ppstm: *mut IStream) -> HRESULT;
+            fn OpenStream(&self, #[in] #[null_terminated] pwcsName: *const OLECHAR, #[in] #[reserved] reserved1: *mut void, #[in] grfMode: DWORD, #[in] reserved2: DWORD, #[out] #[retval] ppstm: *mut IStream) -> HRESULT;
+            fn CreateStorage(&self, #[in] #[null_terminated] pwcsName: *const OLECHAR, #[in] grfMode: DWORD, #[in] reserved1: DWORD, #[in] reserved2: DWORD, #[out] #[retval] ppstg: *mut IStorage) -> HRESULT;
+            fn OpenStorage(&self, #[in] #[null_terminated] #[opt] pwcsName: *const OLECHAR, #[in] #[opt] pstgPriority: IStorage, #[in] grfMode: DWORD, #[in] #[incomplete] #[opt] snbExclude: SNB, #[in] reserved: DWORD, #[out] #[retval] ppstg: *mut IStorage) -> HRESULT;
             fn CopyTo(&self, #[in] ciidExclude: DWORD, #[buffer(ciidExclude)] #[in] #[opt] rgiidExclude: *const IID, #[in] #[opt] snbExclude: SNB, #[in] pstgDest: IStorage) -> HRESULT;
-            fn MoveElementTo(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] #[opt] pstgDest: IStorage, #[in] #[null_terminated(entry)] pwcsNewName: *const OLECHAR, #[in] grfFlags: DWORD) -> HRESULT;
+            fn MoveElementTo(&self, #[in] #[null_terminated] pwcsName: *const OLECHAR, #[in] #[opt] pstgDest: IStorage, #[in] #[null_terminated] pwcsNewName: *const OLECHAR, #[in] grfFlags: DWORD) -> HRESULT;
             fn Commit(&self, #[in] grfCommitFlags: DWORD) -> HRESULT;
             fn Revert(&self) -> HRESULT;
             fn EnumElements(&self, #[in] #[reserved] reserved1: DWORD, #[in] #[reserved] reserved2: *mut void, #[in] #[reserved] reserved3: DWORD, #[out] #[retval] ppenum: *mut IEnumSTATSTG) -> HRESULT;
-            fn DestroyElement(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR) -> HRESULT;
-            fn RenameElement(&self, #[in] #[null_terminated(entry)] pwcsOldName: *const OLECHAR, #[in] #[null_terminated(entry)] pwcsNewName: *const OLECHAR) -> HRESULT;
-            fn SetElementTimes(&self, #[in] #[null_terminated(entry)] #[opt] pwcsName: *const OLECHAR, #[in] #[opt] pctime: *const FILETIME, #[in] #[opt] patime: *const FILETIME, #[in] #[opt] pmtime: *const FILETIME) -> HRESULT;
+            fn DestroyElement(&self, #[in] #[null_terminated] pwcsName: *const OLECHAR) -> HRESULT;
+            fn RenameElement(&self, #[in] #[null_terminated] pwcsOldName: *const OLECHAR, #[in] #[null_terminated] pwcsNewName: *const OLECHAR) -> HRESULT;
+            fn SetElementTimes(&self, #[in] #[null_terminated] #[opt] pwcsName: *const OLECHAR, #[in] #[opt] pctime: *const FILETIME, #[in] #[opt] patime: *const FILETIME, #[in] #[opt] pmtime: *const FILETIME) -> HRESULT;
             fn SetClass(&self, #[in] clsid: &IID) -> HRESULT;
             fn SetStateBits(&self, #[in] grfStateBits: DWORD, #[in] grfMask: DWORD) -> HRESULT;
             fn Stat(&self, #[out] pstatstg: *mut STATSTG, #[in] grfStatFlag: DWORD) -> HRESULT;

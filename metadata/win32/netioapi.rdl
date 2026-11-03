@@ -9,7 +9,7 @@ mod Windows {
         #[library("IPHLPAPI.DLL")]
         extern fn ConvertCompartmentIdToGuid(#[in] CompartmentId: NET_IF_COMPARTMENT_ID, #[out] CompartmentGuid: *mut GUID) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn ConvertInterfaceAliasToLuid(#[in] #[null_terminated(entry)] InterfaceAlias: *const WCHAR, #[out] InterfaceLuid: PNET_LUID) -> NTSTATUS;
+        extern fn ConvertInterfaceAliasToLuid(#[in] #[null_terminated] InterfaceAlias: *const WCHAR, #[out] InterfaceLuid: PNET_LUID) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn ConvertInterfaceGuidToLuid(#[in] InterfaceGuid: *const GUID, #[out] InterfaceLuid: PNET_LUID) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
@@ -25,9 +25,9 @@ mod Windows {
         #[library("IPHLPAPI.DLL")]
         extern fn ConvertInterfaceLuidToNameW(#[in] InterfaceLuid: *const NET_LUID, #[buffer(Length)] #[out] InterfaceName: PWSTR, #[in] Length: SIZE_T) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn ConvertInterfaceNameToLuidA(#[in] #[null_terminated(entry)] InterfaceName: *const CHAR, #[out] InterfaceLuid: *mut NET_LUID) -> NTSTATUS;
+        extern fn ConvertInterfaceNameToLuidA(#[in] #[null_terminated] InterfaceName: *const CHAR, #[out] InterfaceLuid: *mut NET_LUID) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn ConvertInterfaceNameToLuidW(#[in] #[null_terminated(entry)] InterfaceName: *const WCHAR, #[out] InterfaceLuid: *mut NET_LUID) -> NTSTATUS;
+        extern fn ConvertInterfaceNameToLuidW(#[in] #[null_terminated] InterfaceName: *const WCHAR, #[out] InterfaceLuid: *mut NET_LUID) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn ConvertIpv4MaskToLength(#[in] Mask: ULONG, #[out] MaskLength: PUINT8) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
@@ -651,7 +651,7 @@ mod Windows {
         #[library("IPHLPAPI.DLL")]
         extern fn SetJobCompartmentId(#[in] JobHandle: HANDLE, #[in] CompartmentId: NET_IF_COMPARTMENT_ID) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn SetNetworkInformation(#[in] NetworkGuid: *const NET_IF_NETWORK_GUID, #[in] CompartmentId: NET_IF_COMPARTMENT_ID, #[in] #[null_terminated(entry)] NetworkName: *const WCHAR) -> NTSTATUS;
+        extern fn SetNetworkInformation(#[in] NetworkGuid: *const NET_IF_NETWORK_GUID, #[in] CompartmentId: NET_IF_COMPARTMENT_ID, #[in] #[null_terminated] NetworkName: *const WCHAR) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn SetSessionCompartmentId(#[in] SessionId: ULONG, #[in] CompartmentId: NET_IF_COMPARTMENT_ID) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]

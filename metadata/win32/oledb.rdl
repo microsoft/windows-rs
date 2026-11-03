@@ -1769,7 +1769,7 @@ mod Windows {
         }
         #[guid(0x0c733ab1_2a1c_11ce_ade5_00aa0044773d)]
         interface IBindResource: IUnknown {
-            fn Bind(&self, #[in] #[opt] pUnkOuter: IUnknown, #[in] #[null_terminated(entry)] pwszURL: LPCOLESTR, #[in] dwBindURLFlags: DBBINDURLFLAG, #[in] rguid: &GUID, #[in] riid: &IID, #[in] #[opt] pAuthenticate: IAuthenticate, #[in] #[opt] #[out] pImplSession: *mut DBIMPLICITSESSION, #[in] #[opt] #[out] pdwBindStatus: *mut DBBINDURLSTATUS, #[iid_is] #[out] ppUnk: *mut IUnknown) -> HRESULT;
+            fn Bind(&self, #[in] #[opt] pUnkOuter: IUnknown, #[in] #[null_terminated] pwszURL: LPCOLESTR, #[in] dwBindURLFlags: DBBINDURLFLAG, #[in] rguid: &GUID, #[in] riid: &IID, #[in] #[opt] pAuthenticate: IAuthenticate, #[in] #[opt] #[out] pImplSession: *mut DBIMPLICITSESSION, #[in] #[opt] #[out] pdwBindStatus: *mut DBBINDURLSTATUS, #[iid_is] #[out] ppUnk: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x0c733a93_2a1c_11ce_ade5_00aa0044773d)]
         interface IChapteredRowset: IUnknown {
@@ -1778,12 +1778,12 @@ mod Windows {
         }
         #[guid(0x0c733a11_2a1c_11ce_ade5_00aa0044773d)]
         interface IColumnsInfo: IUnknown {
-            fn GetColumnInfo(&self, #[in] #[out] pcColumns: *mut DBORDINAL, #[incomplete] #[out] prgInfo: *mut *mut DBCOLUMNINFO, #[null_terminated(success, indirect)] #[out] ppStringsBuffer: *mut *mut OLECHAR) -> HRESULT;
+            fn GetColumnInfo(&self, #[in] #[out] pcColumns: *mut DBORDINAL, #[incomplete] #[out] prgInfo: *mut *mut DBCOLUMNINFO, #[incomplete] #[out] ppStringsBuffer: *mut *mut OLECHAR) -> HRESULT;
             fn MapColumnIDs(&self, #[in] cColumnIDs: DBORDINAL, #[buffer(cColumnIDs)] #[in] #[opt] rgColumnIDs: *const DBID, #[buffer(cColumnIDs)] #[opt] #[out] rgColumns: *mut DBORDINAL) -> HRESULT;
         }
         #[guid(0x0c733ab8_2a1c_11ce_ade5_00aa0044773d)]
         interface IColumnsInfo2: IColumnsInfo {
-            fn GetRestrictedColumnInfo(&self, #[in] cColumnIDMasks: DBORDINAL, #[buffer(cColumnIDMasks)] #[in] rgColumnIDMasks: *const DBID, #[in] dwFlags: DWORD, #[in] #[out] pcColumns: *mut DBORDINAL, #[incomplete] #[out] prgColumnIDs: *mut *mut DBID, #[incomplete] #[out] prgColumnInfo: *mut *mut DBCOLUMNINFO, #[null_terminated(success, indirect)] #[opt] #[out] ppStringsBuffer: *mut *mut OLECHAR) -> HRESULT;
+            fn GetRestrictedColumnInfo(&self, #[in] cColumnIDMasks: DBORDINAL, #[buffer(cColumnIDMasks)] #[in] rgColumnIDMasks: *const DBID, #[in] dwFlags: DWORD, #[in] #[out] pcColumns: *mut DBORDINAL, #[incomplete] #[out] prgColumnIDs: *mut *mut DBID, #[incomplete] #[out] prgColumnInfo: *mut *mut DBCOLUMNINFO, #[incomplete] #[opt] #[out] ppStringsBuffer: *mut *mut OLECHAR) -> HRESULT;
         }
         #[guid(0x0c733a10_2a1c_11ce_ade5_00aa0044773d)]
         interface IColumnsRowset: IUnknown {
@@ -1821,11 +1821,11 @@ mod Windows {
         #[guid(0x0c733a27_2a1c_11ce_ade5_00aa0044773d)]
         interface ICommandText: ICommand {
             fn GetCommandText(&self, #[in] #[opt] #[out] pguidDialect: *mut GUID, #[out] ppwszCommand: *mut LPOLESTR) -> HRESULT;
-            fn SetCommandText(&self, #[in] rguidDialect: &GUID, #[in] #[null_terminated(entry)] #[opt] pwszCommand: LPCOLESTR) -> HRESULT;
+            fn SetCommandText(&self, #[in] rguidDialect: &GUID, #[in] #[null_terminated] #[opt] pwszCommand: LPCOLESTR) -> HRESULT;
         }
         #[guid(0x0c733a64_2a1c_11ce_ade5_00aa0044773d)]
         interface ICommandWithParameters: IUnknown {
-            fn GetParameterInfo(&self, #[in] #[out] pcParams: *mut DB_UPARAMS, #[incomplete] #[out] prgParamInfo: *mut *mut DBPARAMINFO, #[null_terminated(success, indirect)] #[opt] #[out] ppNamesBuffer: *mut *mut OLECHAR) -> HRESULT;
+            fn GetParameterInfo(&self, #[in] #[out] pcParams: *mut DB_UPARAMS, #[incomplete] #[out] prgParamInfo: *mut *mut DBPARAMINFO, #[incomplete] #[opt] #[out] ppNamesBuffer: *mut *mut OLECHAR) -> HRESULT;
             fn MapParameterNames(&self, #[in] cParamNames: DB_UPARAMS, #[buffer(cParamNames)] #[in] rgParamNames: *mut LPCWSTR, #[buffer(cParamNames)] #[out] rgParamOrdinals: *mut DB_LPARAMS) -> HRESULT;
             fn SetParameterInfo(&self, #[in] cParams: DB_UPARAMS, #[buffer(cParams)] #[in] #[opt] rgParamOrdinals: *const DB_UPARAMS, #[buffer(cParams)] #[in] #[opt] rgParamBindInfo: *const DBPARAMBINDINFO) -> HRESULT;
         }
@@ -1835,7 +1835,7 @@ mod Windows {
         }
         #[guid(0x0c733ab2_2a1c_11ce_ade5_00aa0044773d)]
         interface ICreateRow: IUnknown {
-            fn CreateRow(&self, #[in] #[opt] pUnkOuter: IUnknown, #[in] #[null_terminated(entry)] pwszURL: LPCOLESTR, #[in] dwBindURLFlags: DBBINDURLFLAG, #[in] rguid: &GUID, #[in] riid: &IID, #[in] #[opt] pAuthenticate: IAuthenticate, #[in] #[opt] #[out] pImplSession: *mut DBIMPLICITSESSION, #[in] #[out] pdwBindStatus: *mut DBBINDURLSTATUS, #[opt] #[out] ppwszNewURL: *mut LPOLESTR, #[iid_is] #[out] ppUnk: *mut IUnknown) -> HRESULT;
+            fn CreateRow(&self, #[in] #[opt] pUnkOuter: IUnknown, #[in] #[null_terminated] pwszURL: LPCOLESTR, #[in] dwBindURLFlags: DBBINDURLFLAG, #[in] rguid: &GUID, #[in] riid: &IID, #[in] #[opt] pAuthenticate: IAuthenticate, #[in] #[opt] #[out] pImplSession: *mut DBIMPLICITSESSION, #[in] #[out] pdwBindStatus: *mut DBBINDURLSTATUS, #[opt] #[out] ppwszNewURL: *mut LPOLESTR, #[iid_is] #[out] ppUnk: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x0c733a96_2a1c_11ce_ade5_00aa0044773d)]
         interface IDBAsynchNotify: IUnknown {
@@ -1864,13 +1864,13 @@ mod Windows {
         interface IDBDataSourceAdmin: IUnknown {
             fn CreateDataSource(&self, #[in] cPropertySets: ULONG, #[buffer(cPropertySets)] #[in] #[opt] #[out] rgPropertySets: *mut DBPROPSET, #[in] #[opt] pUnkOuter: IUnknown, #[in] riid: &IID, #[iid_is] #[opt] #[out] ppDBSession: *mut IUnknown) -> HRESULT;
             fn DestroyDataSource(&self) -> HRESULT;
-            fn GetCreationProperties(&self, #[in] cPropertyIDSets: ULONG, #[buffer(cPropertyIDSets)] #[in] #[opt] rgPropertyIDSets: *const DBPROPIDSET, #[out] pcPropertyInfoSets: *mut ULONG, #[incomplete] #[out] prgPropertyInfoSets: *mut *mut DBPROPINFOSET, #[null_terminated(success, indirect)] #[opt] #[out] ppDescBuffer: *mut *mut OLECHAR) -> HRESULT;
+            fn GetCreationProperties(&self, #[in] cPropertyIDSets: ULONG, #[buffer(cPropertyIDSets)] #[in] #[opt] rgPropertyIDSets: *const DBPROPIDSET, #[out] pcPropertyInfoSets: *mut ULONG, #[incomplete] #[out] prgPropertyInfoSets: *mut *mut DBPROPINFOSET, #[incomplete] #[opt] #[out] ppDescBuffer: *mut *mut OLECHAR) -> HRESULT;
             fn ModifyDataSource(&self, #[in] cPropertySets: ULONG, #[buffer(cPropertySets)] #[in] #[opt] #[out] rgPropertySets: *mut DBPROPSET) -> HRESULT;
         }
         #[guid(0x0c733a89_2a1c_11ce_ade5_00aa0044773d)]
         interface IDBInfo: IUnknown {
             fn GetKeywords(&self, #[out] ppwszKeywords: *mut LPOLESTR) -> HRESULT;
-            fn GetLiteralInfo(&self, #[in] cLiterals: ULONG, #[buffer(cLiterals)] #[in] #[opt] rgLiterals: *const DBLITERAL, #[in] #[out] pcLiteralInfo: *mut ULONG, #[incomplete] #[out] prgLiteralInfo: *mut *mut DBLITERALINFO, #[null_terminated(success, indirect)] #[out] ppCharBuffer: *mut *mut OLECHAR) -> HRESULT;
+            fn GetLiteralInfo(&self, #[in] cLiterals: ULONG, #[buffer(cLiterals)] #[in] #[opt] rgLiterals: *const DBLITERAL, #[in] #[out] pcLiteralInfo: *mut ULONG, #[incomplete] #[out] prgLiteralInfo: *mut *mut DBLITERALINFO, #[incomplete] #[out] ppCharBuffer: *mut *mut OLECHAR) -> HRESULT;
         }
         #[guid(0x0c733a8b_2a1c_11ce_ade5_00aa0044773d)]
         interface IDBInitialize: IUnknown {
@@ -1880,7 +1880,7 @@ mod Windows {
         #[guid(0x0c733a8a_2a1c_11ce_ade5_00aa0044773d)]
         interface IDBProperties: IUnknown {
             fn GetProperties(&self, #[in] cPropertyIDSets: ULONG, #[buffer(cPropertyIDSets)] #[in] #[opt] rgPropertyIDSets: *const DBPROPIDSET, #[in] #[out] pcPropertySets: *mut ULONG, #[incomplete] #[out] prgPropertySets: *mut *mut DBPROPSET) -> HRESULT;
-            fn GetPropertyInfo(&self, #[in] cPropertyIDSets: ULONG, #[buffer(cPropertyIDSets)] #[in] #[opt] rgPropertyIDSets: *const DBPROPIDSET, #[in] #[out] pcPropertyInfoSets: *mut ULONG, #[incomplete] #[out] prgPropertyInfoSets: *mut *mut DBPROPINFOSET, #[null_terminated(success, indirect)] #[opt] #[out] ppDescBuffer: *mut *mut OLECHAR) -> HRESULT;
+            fn GetPropertyInfo(&self, #[in] cPropertyIDSets: ULONG, #[buffer(cPropertyIDSets)] #[in] #[opt] rgPropertyIDSets: *const DBPROPIDSET, #[in] #[out] pcPropertyInfoSets: *mut ULONG, #[incomplete] #[out] prgPropertyInfoSets: *mut *mut DBPROPINFOSET, #[incomplete] #[opt] #[out] ppDescBuffer: *mut *mut OLECHAR) -> HRESULT;
             fn SetProperties(&self, #[in] cPropertySets: ULONG, #[buffer(cPropertySets)] #[in] #[opt] #[out] rgPropertySets: *mut DBPROPSET) -> HRESULT;
         }
         #[guid(0x0c733a7b_2a1c_11ce_ade5_00aa0044773d)]
@@ -1892,7 +1892,7 @@ mod Windows {
         const IDENTIFIER_SDK_MASK: u32 = 4026531840;
         #[guid(0x0c733a66_2a1c_11ce_ade5_00aa0044773d)]
         interface IErrorLookup: IUnknown {
-            fn GetErrorDescription(&self, #[in] hrError: HRESULT, #[in] dwLookupID: DWORD, #[in] pdispparams: *mut DISPPARAMS, #[in] lcid: LCID, #[null_terminated(success, indirect)] #[out] pbstrSource: *mut BSTR, #[null_terminated(success, indirect)] #[out] pbstrDescription: *mut BSTR) -> HRESULT;
+            fn GetErrorDescription(&self, #[in] hrError: HRESULT, #[in] dwLookupID: DWORD, #[in] pdispparams: *mut DISPPARAMS, #[in] lcid: LCID, #[incomplete] #[out] pbstrSource: *mut BSTR, #[incomplete] #[out] pbstrDescription: *mut BSTR) -> HRESULT;
             fn GetHelpInfo(&self, #[in] hrError: HRESULT, #[in] dwLookupID: DWORD, #[in] lcid: LCID, #[out] pbstrHelpFile: *mut BSTR, #[out] pdwHelpContext: *mut DWORD) -> HRESULT;
             fn ReleaseErrors(&self, #[in] dwDynamicErrorID: DWORD) -> HRESULT;
         }
@@ -1912,7 +1912,7 @@ mod Windows {
         #[guid(0x0c733aaf_2a1c_11ce_ade5_00aa0044773d)]
         interface IGetRow: IUnknown {
             fn GetRowFromHROW(&self, #[in] pUnkOuter: IUnknown, #[in] hRow: HROW, #[in] riid: &IID, #[iid_is] #[out] ppUnk: *mut IUnknown) -> HRESULT;
-            fn GetURLFromHROW(&self, #[in] hRow: HROW, #[null_terminated(success, indirect)] #[out] ppwszURL: *mut LPOLESTR) -> HRESULT;
+            fn GetURLFromHROW(&self, #[in] hRow: HROW, #[incomplete] #[out] ppwszURL: *mut LPOLESTR) -> HRESULT;
         }
         #[guid(0x0c733aba_2a1c_11ce_ade5_00aa0044773d)]
         interface IGetSession: IUnknown {
@@ -1966,7 +1966,7 @@ mod Windows {
         }
         #[guid(0x0c733ab9_2a1c_11ce_ade5_00aa0044773d)]
         interface IRegisterProvider: IUnknown {
-            fn GetURLMapping(&self, #[in] #[null_terminated(entry)] pwszURL: LPCOLESTR, #[in] dwReserved: DB_DWRESERVE, #[out] pclsidProvider: *mut CLSID) -> HRESULT;
+            fn GetURLMapping(&self, #[in] #[null_terminated] pwszURL: LPCOLESTR, #[in] dwReserved: DB_DWRESERVE, #[out] pclsidProvider: *mut CLSID) -> HRESULT;
             fn SetURLMapping(&self, #[in] #[opt] pwszURL: LPCOLESTR, #[in] dwReserved: DB_DWRESERVE, #[in] #[opt] rclsidProvider: &IID) -> HRESULT;
             fn UnregisterProvider(&self, #[in] #[opt] pwszURL: LPCOLESTR, #[in] dwReserved: DB_DWRESERVE, #[in] #[opt] rclsidProvider: &IID) -> HRESULT;
         }
@@ -2092,8 +2092,8 @@ mod Windows {
         }
         #[guid(0x0c733ab0_2a1c_11ce_ade5_00aa0044773d)]
         interface IScopedOperations: IBindResource {
-            fn Copy(&self, #[in] cRows: DBCOUNTITEM, #[buffer(cRows)] #[in] #[opt] rgpwszSourceURLs: *mut LPCOLESTR, #[buffer(cRows)] #[in] rgpwszDestURLs: *mut LPCOLESTR, #[in] dwCopyFlags: DWORD, #[in] #[opt] pAuthenticate: IAuthenticate, #[buffer(cRows)] #[in] #[out] rgdwStatus: *mut DBSTATUS, #[buffer(cRows)] #[opt] #[out] rgpwszNewURLs: *mut LPOLESTR, #[null_terminated(success, indirect)] #[out] ppStringsBuffer: *mut *mut OLECHAR) -> HRESULT;
-            fn Move(&self, #[in] cRows: DBCOUNTITEM, #[buffer(cRows)] #[in] #[opt] rgpwszSourceURLs: *mut LPCOLESTR, #[buffer(cRows)] #[in] rgpwszDestURLs: *mut LPCOLESTR, #[in] dwMoveFlags: DWORD, #[in] #[opt] pAuthenticate: IAuthenticate, #[buffer(cRows)] #[in] #[out] rgdwStatus: *mut DBSTATUS, #[buffer(cRows)] #[opt] #[out] rgpwszNewURLs: *mut LPOLESTR, #[null_terminated(success, indirect)] #[out] ppStringsBuffer: *mut *mut OLECHAR) -> HRESULT;
+            fn Copy(&self, #[in] cRows: DBCOUNTITEM, #[buffer(cRows)] #[in] #[opt] rgpwszSourceURLs: *mut LPCOLESTR, #[buffer(cRows)] #[in] rgpwszDestURLs: *mut LPCOLESTR, #[in] dwCopyFlags: DWORD, #[in] #[opt] pAuthenticate: IAuthenticate, #[buffer(cRows)] #[in] #[out] rgdwStatus: *mut DBSTATUS, #[buffer(cRows)] #[opt] #[out] rgpwszNewURLs: *mut LPOLESTR, #[incomplete] #[out] ppStringsBuffer: *mut *mut OLECHAR) -> HRESULT;
+            fn Move(&self, #[in] cRows: DBCOUNTITEM, #[buffer(cRows)] #[in] #[opt] rgpwszSourceURLs: *mut LPCOLESTR, #[buffer(cRows)] #[in] rgpwszDestURLs: *mut LPCOLESTR, #[in] dwMoveFlags: DWORD, #[in] #[opt] pAuthenticate: IAuthenticate, #[buffer(cRows)] #[in] #[out] rgdwStatus: *mut DBSTATUS, #[buffer(cRows)] #[opt] #[out] rgpwszNewURLs: *mut LPOLESTR, #[incomplete] #[out] ppStringsBuffer: *mut *mut OLECHAR) -> HRESULT;
             fn Delete(&self, #[in] cRows: DBCOUNTITEM, #[buffer(cRows)] #[in] rgpwszURLs: *mut LPCOLESTR, #[in] dwDeleteFlags: DWORD, #[buffer(cRows)] #[in] #[out] rgdwStatus: *mut DBSTATUS) -> HRESULT;
             fn OpenRowset(&self, #[in] #[opt] pUnkOuter: IUnknown, #[in] #[opt] pTableID: *mut DBID, #[in] #[opt] pIndexID: *mut DBID, #[in] riid: &IID, #[in] cPropertySets: ULONG, #[buffer(cPropertySets)] #[in] #[out] rgPropertySets: *mut DBPROPSET, #[iid_is] #[opt] #[out] ppRowset: *mut IUnknown) -> HRESULT;
         }

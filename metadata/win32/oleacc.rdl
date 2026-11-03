@@ -74,13 +74,13 @@ mod Windows {
             fn SetPropServer(&self, #[buffer(dwIDStringLen)] #[in] pIDString: *const BYTE, #[in] dwIDStringLen: DWORD, #[buffer(cProps)] #[in] paProps: *const MSAAPROPID, #[in] cProps: i32, #[in] #[opt] pServer: IAccPropServer, #[in] annoScope: AnnoScope) -> HRESULT;
             fn ClearProps(&self, #[buffer(dwIDStringLen)] #[in] pIDString: *const BYTE, #[in] dwIDStringLen: DWORD, #[buffer(cProps)] #[in] paProps: *const MSAAPROPID, #[in] cProps: i32) -> HRESULT;
             fn SetHwndProp(&self, #[in] hwnd: HWND, #[in] idObject: DWORD, #[in] idChild: DWORD, #[in] idProp: MSAAPROPID, #[in] var: VARIANT) -> HRESULT;
-            fn SetHwndPropStr(&self, #[in] hwnd: HWND, #[in] idObject: DWORD, #[in] idChild: DWORD, #[in] idProp: MSAAPROPID, #[in] #[null_terminated(entry)] str: LPCWSTR) -> HRESULT;
+            fn SetHwndPropStr(&self, #[in] hwnd: HWND, #[in] idObject: DWORD, #[in] idChild: DWORD, #[in] idProp: MSAAPROPID, #[in] #[null_terminated] str: LPCWSTR) -> HRESULT;
             fn SetHwndPropServer(&self, #[in] hwnd: HWND, #[in] idObject: DWORD, #[in] idChild: DWORD, #[buffer(cProps)] #[in] paProps: *const MSAAPROPID, #[in] cProps: i32, #[in] #[opt] pServer: IAccPropServer, #[in] annoScope: AnnoScope) -> HRESULT;
             fn ClearHwndProps(&self, #[in] hwnd: HWND, #[in] idObject: DWORD, #[in] idChild: DWORD, #[buffer(cProps)] #[in] paProps: *const MSAAPROPID, #[in] cProps: i32) -> HRESULT;
             fn ComposeHwndIdentityString(&self, #[in] hwnd: HWND, #[in] idObject: DWORD, #[in] idChild: DWORD, #[incomplete] #[out] ppIDString: *mut *mut BYTE, #[out] pdwIDStringLen: *mut DWORD) -> HRESULT;
             fn DecomposeHwndIdentityString(&self, #[buffer(dwIDStringLen)] #[in] pIDString: *const BYTE, #[in] dwIDStringLen: DWORD, #[out] phwnd: *mut HWND, #[out] pidObject: *mut DWORD, #[out] pidChild: *mut DWORD) -> HRESULT;
             fn SetHmenuProp(&self, #[in] hmenu: HMENU, #[in] idChild: DWORD, #[in] idProp: MSAAPROPID, #[in] var: VARIANT) -> HRESULT;
-            fn SetHmenuPropStr(&self, #[in] hmenu: HMENU, #[in] idChild: DWORD, #[in] idProp: MSAAPROPID, #[in] #[null_terminated(entry)] str: LPCWSTR) -> HRESULT;
+            fn SetHmenuPropStr(&self, #[in] hmenu: HMENU, #[in] idChild: DWORD, #[in] idProp: MSAAPROPID, #[in] #[null_terminated] str: LPCWSTR) -> HRESULT;
             fn SetHmenuPropServer(&self, #[in] hmenu: HMENU, #[in] idChild: DWORD, #[buffer(cProps)] #[in] paProps: *const MSAAPROPID, #[in] cProps: i32, #[in] #[opt] pServer: IAccPropServer, #[in] annoScope: AnnoScope) -> HRESULT;
             fn ClearHmenuProps(&self, #[in] hmenu: HMENU, #[in] idChild: DWORD, #[buffer(cProps)] #[in] paProps: *const MSAAPROPID, #[in] cProps: i32) -> HRESULT;
             fn ComposeHmenuIdentityString(&self, #[in] hmenu: HMENU, #[in] idChild: DWORD, #[incomplete] #[out] ppIDString: *mut *mut BYTE, #[out] pdwIDStringLen: *mut DWORD) -> HRESULT;

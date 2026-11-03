@@ -699,14 +699,14 @@ mod Windows {
         interface IActionProgress: IUnknown {
             fn Begin(&self, #[in] action: SPACTION, #[in] flags: SPBEGINF) -> HRESULT;
             fn UpdateProgress(&self, #[in] ulCompleted: ULONGLONG, #[in] ulTotal: ULONGLONG) -> HRESULT;
-            fn UpdateText(&self, #[in] sptext: SPTEXT, #[in] #[null_terminated(entry)] pszText: LPCWSTR, #[in] fMayCompact: BOOL) -> HRESULT;
+            fn UpdateText(&self, #[in] sptext: SPTEXT, #[in] #[null_terminated] pszText: LPCWSTR, #[in] fMayCompact: BOOL) -> HRESULT;
             fn QueryCancel(&self, #[out] pfCancelled: *mut BOOL) -> HRESULT;
             fn ResetCancel(&self) -> HRESULT;
             fn End(&self) -> HRESULT;
         }
         #[guid(0x49ff1172_eadc_446d_9285_156453a6431c)]
         interface IActionProgressDialog: IUnknown {
-            fn Initialize(&self, #[in] flags: SPINITF, #[in] #[null_terminated(entry)] #[opt] pszTitle: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] pszCancel: LPCWSTR) -> HRESULT;
+            fn Initialize(&self, #[in] flags: SPINITF, #[in] #[null_terminated] #[opt] pszTitle: LPCWSTR, #[in] #[null_terminated] #[opt] pszCancel: LPCWSTR) -> HRESULT;
             fn Stop(&self) -> HRESULT;
         }
         #[guid(0xabad189d_9fa3_4278_b3ca_8ca448a88dcb)]
@@ -737,11 +737,11 @@ mod Windows {
         }
         #[guid(0x4e530b0a_e611_4c77_a3ac_9031d022281b)]
         interface IApplicationAssociationRegistration: IUnknown {
-            fn QueryCurrentDefault(&self, #[in] #[null_terminated(entry)] pszQuery: LPCWSTR, #[in] atQueryType: ASSOCIATIONTYPE, #[in] alQueryLevel: ASSOCIATIONLEVEL, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppszAssociation: *mut LPWSTR) -> HRESULT;
-            fn QueryAppIsDefault(&self, #[in] #[null_terminated(entry)] pszQuery: LPCWSTR, #[in] atQueryType: ASSOCIATIONTYPE, #[in] alQueryLevel: ASSOCIATIONLEVEL, #[in] #[null_terminated(entry)] pszAppRegistryName: LPCWSTR, #[out] pfDefault: *mut BOOL) -> HRESULT;
-            fn QueryAppIsDefaultAll(&self, #[in] alQueryLevel: ASSOCIATIONLEVEL, #[in] #[null_terminated(entry)] pszAppRegistryName: LPCWSTR, #[out] pfDefault: *mut BOOL) -> HRESULT;
-            fn SetAppAsDefault(&self, #[in] #[null_terminated(entry)] pszAppRegistryName: LPCWSTR, #[in] #[null_terminated(entry)] pszSet: LPCWSTR, #[in] atSetType: ASSOCIATIONTYPE) -> HRESULT;
-            fn SetAppAsDefaultAll(&self, #[in] #[null_terminated(entry)] pszAppRegistryName: LPCWSTR) -> HRESULT;
+            fn QueryCurrentDefault(&self, #[in] #[null_terminated] pszQuery: LPCWSTR, #[in] atQueryType: ASSOCIATIONTYPE, #[in] alQueryLevel: ASSOCIATIONLEVEL, #[incomplete] #[out] ppszAssociation: *mut LPWSTR) -> HRESULT;
+            fn QueryAppIsDefault(&self, #[in] #[null_terminated] pszQuery: LPCWSTR, #[in] atQueryType: ASSOCIATIONTYPE, #[in] alQueryLevel: ASSOCIATIONLEVEL, #[in] #[null_terminated] pszAppRegistryName: LPCWSTR, #[out] pfDefault: *mut BOOL) -> HRESULT;
+            fn QueryAppIsDefaultAll(&self, #[in] alQueryLevel: ASSOCIATIONLEVEL, #[in] #[null_terminated] pszAppRegistryName: LPCWSTR, #[out] pfDefault: *mut BOOL) -> HRESULT;
+            fn SetAppAsDefault(&self, #[in] #[null_terminated] pszAppRegistryName: LPCWSTR, #[in] #[null_terminated] pszSet: LPCWSTR, #[in] atSetType: ASSOCIATIONTYPE) -> HRESULT;
+            fn SetAppAsDefaultAll(&self, #[in] #[null_terminated] pszAppRegistryName: LPCWSTR) -> HRESULT;
             fn ClearUserAssociations(&self) -> HRESULT;
         }
         #[guid(0x2a3dee9a_e31d_46d6_8508_bcc597db3557)]
@@ -830,7 +830,7 @@ mod Windows {
         }
         #[guid(0xa3b14589_9174_49a8_89a3_06a1ae2b9ba7)]
         interface ICategorizer: IUnknown {
-            fn GetDescription(&self, #[buffer(cch)] #[null_terminated(success)] #[out] pszDesc: LPWSTR, #[in] cch: UINT) -> HRESULT;
+            fn GetDescription(&self, #[buffer(cch)] #[null_terminated] #[out] pszDesc: LPWSTR, #[in] cch: UINT) -> HRESULT;
             fn GetCategory(&self, #[in] cidl: UINT, #[buffer(cidl)] #[in] apidl: *mut LPCITEMIDLIST, #[buffer(cidl)] #[out] rgCategoryIds: *mut DWORD) -> HRESULT;
             fn GetCategoryInfo(&self, #[in] dwCategoryId: DWORD, #[out] pci: *mut CATEGORY_INFO) -> HRESULT;
             fn CompareCategory(&self, #[in] csfFlags: CATSORT_FLAGS, #[in] dwCategoryId1: DWORD, #[in] dwCategoryId2: DWORD) -> HRESULT;
@@ -841,7 +841,7 @@ mod Windows {
             fn GetDefaultCategory(&self, #[out] pguid: *mut GUID, #[out] pscid: *mut SHCOLUMNID) -> HRESULT;
             fn GetCategoryForSCID(&self, #[in] pscid: *const SHCOLUMNID, #[out] pguid: *mut GUID) -> HRESULT;
             fn EnumCategories(&self, #[out] #[retval] penum: *mut IEnumGUID) -> HRESULT;
-            fn GetCategoryName(&self, #[in] pguid: *const GUID, #[buffer(cch)] #[null_terminated(success)] #[out] pszName: LPWSTR, #[in] cch: UINT) -> HRESULT;
+            fn GetCategoryName(&self, #[in] pguid: *const GUID, #[buffer(cch)] #[null_terminated] #[out] pszName: LPWSTR, #[in] cch: UINT) -> HRESULT;
             fn CreateCategory(&self, #[in] pguid: *const GUID, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
         }
         #[guid(0xd8ec27bb_3f3b_4042_b10a_4acfd924d453)]
@@ -861,7 +861,7 @@ mod Windows {
         #[guid(0x10339516_2894_11d2_9039_00c04f8eeb3e)]
         interface ICommDlgBrowser2: ICommDlgBrowser {
             fn Notify(&self, #[in] #[opt] ppshv: IShellView, #[in] dwNotifyType: DWORD) -> HRESULT;
-            fn GetDefaultMenuText(&self, #[in] #[opt] ppshv: IShellView, #[buffer(cchMax)] #[null_terminated(success)] #[out] pszText: LPWSTR, #[in] cchMax: i32) -> HRESULT;
+            fn GetDefaultMenuText(&self, #[in] #[opt] ppshv: IShellView, #[buffer(cchMax)] #[null_terminated] #[out] pszText: LPWSTR, #[in] cchMax: i32) -> HRESULT;
             fn GetViewFlags(&self, #[out] pdwFlags: *mut DWORD) -> HRESULT;
         }
         #[guid(0x99eacba7_e073_43b6_a896_55afe48a0833)]
@@ -908,14 +908,14 @@ mod Windows {
         interface ICurrentItem: IRelatedItem {}
         #[guid(0x6332debf_87b5_4670_90c0_5e57b408a49e)]
         interface ICustomDestinationList: IUnknown {
-            fn SetAppID(&self, #[in] #[null_terminated(entry)] pszAppID: LPCWSTR) -> HRESULT;
+            fn SetAppID(&self, #[in] #[null_terminated] pszAppID: LPCWSTR) -> HRESULT;
             fn BeginList(&self, #[out] pcMinSlots: *mut UINT, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
-            fn AppendCategory(&self, #[in] #[null_terminated(entry)] pszCategory: LPCWSTR, #[in] #[opt] poa: IObjectArray) -> HRESULT;
+            fn AppendCategory(&self, #[in] #[null_terminated] pszCategory: LPCWSTR, #[in] #[opt] poa: IObjectArray) -> HRESULT;
             fn AppendKnownCategory(&self, #[in] category: KNOWNDESTCATEGORY) -> HRESULT;
             fn AddUserTasks(&self, #[in] #[opt] poa: IObjectArray) -> HRESULT;
             fn CommitList(&self) -> HRESULT;
             fn GetRemovedDestinations(&self, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
-            fn DeleteList(&self, #[in] #[null_terminated(entry)] #[opt] pszAppID: LPCWSTR) -> HRESULT;
+            fn DeleteList(&self, #[in] #[null_terminated] #[opt] pszAppID: LPCWSTR) -> HRESULT;
             fn AbortList(&self) -> HRESULT;
         }
         #[guid(0x3d25f6d6_4b2a_433c_9184_7c33ad35d001)]
@@ -967,8 +967,8 @@ mod Windows {
         #[guid(0xb92b56a9_8b55_4e14_9a89_0199bbb6f93b)]
         interface IDesktopWallpaper: IUnknown {
             fn SetWallpaper(&self, #[in] #[opt] monitorID: LPCWSTR, #[in] wallpaper: LPCWSTR) -> HRESULT;
-            fn GetWallpaper(&self, #[in] #[opt] monitorID: LPCWSTR, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] wallpaper: *mut LPWSTR) -> HRESULT;
-            fn GetMonitorDevicePathAt(&self, #[in] monitorIndex: UINT, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] monitorID: *mut LPWSTR) -> HRESULT;
+            fn GetWallpaper(&self, #[in] #[opt] monitorID: LPCWSTR, #[incomplete] #[out] wallpaper: *mut LPWSTR) -> HRESULT;
+            fn GetMonitorDevicePathAt(&self, #[in] monitorIndex: UINT, #[incomplete] #[out] monitorID: *mut LPWSTR) -> HRESULT;
             fn GetMonitorDevicePathCount(&self, #[out] count: *mut UINT) -> HRESULT;
             fn GetMonitorRECT(&self, #[in] monitorID: LPCWSTR, #[out] displayRect: *mut RECT) -> HRESULT;
             fn SetBackgroundColor(&self, #[in] color: COLORREF) -> HRESULT;
@@ -1078,11 +1078,11 @@ mod Windows {
         #[guid(0x7f9185b0_cb92_43c5_80a9_92277a4f7b54)]
         interface IExecuteCommand: IUnknown {
             fn SetKeyState(&self, #[in] grfKeyState: DWORD) -> HRESULT;
-            fn SetParameters(&self, #[in] #[null_terminated(entry)] pszParameters: LPCWSTR) -> HRESULT;
+            fn SetParameters(&self, #[in] #[null_terminated] pszParameters: LPCWSTR) -> HRESULT;
             fn SetPosition(&self, #[in] pt: POINT) -> HRESULT;
             fn SetShowWindow(&self, #[in] nShow: i32) -> HRESULT;
             fn SetNoShowUI(&self, #[in] fNoShowUI: BOOL) -> HRESULT;
-            fn SetDirectory(&self, #[in] #[null_terminated(entry)] pszDirectory: LPCWSTR) -> HRESULT;
+            fn SetDirectory(&self, #[in] #[null_terminated] pszDirectory: LPCWSTR) -> HRESULT;
             fn Execute(&self) -> HRESULT;
         }
         #[guid(0x18b21aa9_e184_4ff0_9f5e_f882d03771b3)]
@@ -1098,8 +1098,8 @@ mod Windows {
             fn Initialize(&self, #[in] hwndParent: HWND, #[in] prc: *const RECT, #[in] #[opt] pfs: *const FOLDERSETTINGS) -> HRESULT;
             fn Destroy(&self) -> HRESULT;
             fn SetRect(&self, #[in] #[opt] #[out] phdwp: *mut HDWP, #[in] rcBrowser: RECT) -> HRESULT;
-            fn SetPropertyBag(&self, #[in] #[null_terminated(entry)] pszPropertyBag: LPCWSTR) -> HRESULT;
-            fn SetEmptyText(&self, #[in] #[null_terminated(entry)] pszEmptyText: LPCWSTR) -> HRESULT;
+            fn SetPropertyBag(&self, #[in] #[null_terminated] pszPropertyBag: LPCWSTR) -> HRESULT;
+            fn SetEmptyText(&self, #[in] #[null_terminated] pszEmptyText: LPCWSTR) -> HRESULT;
             fn SetFolderSettings(&self, #[in] pfs: *const FOLDERSETTINGS) -> HRESULT;
             fn Advise(&self, #[in] #[opt] psbe: IExplorerBrowserEvents, #[out] pdwCookie: *mut DWORD) -> HRESULT;
             fn Unadvise(&self, #[in] dwCookie: DWORD) -> HRESULT;
@@ -1120,9 +1120,9 @@ mod Windows {
         }
         #[guid(0xa08ce4d0_fa25_44ab_b57c_c7b1c323e0b9)]
         interface IExplorerCommand: IUnknown {
-            fn GetTitle(&self, #[in] #[opt] psiItemArray: IShellItemArray, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppszName: *mut LPWSTR) -> HRESULT;
-            fn GetIcon(&self, #[in] #[opt] psiItemArray: IShellItemArray, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppszIcon: *mut LPWSTR) -> HRESULT;
-            fn GetToolTip(&self, #[in] #[opt] psiItemArray: IShellItemArray, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppszInfotip: *mut LPWSTR) -> HRESULT;
+            fn GetTitle(&self, #[in] #[opt] psiItemArray: IShellItemArray, #[incomplete] #[out] ppszName: *mut LPWSTR) -> HRESULT;
+            fn GetIcon(&self, #[in] #[opt] psiItemArray: IShellItemArray, #[incomplete] #[out] ppszIcon: *mut LPWSTR) -> HRESULT;
+            fn GetToolTip(&self, #[in] #[opt] psiItemArray: IShellItemArray, #[incomplete] #[out] ppszInfotip: *mut LPWSTR) -> HRESULT;
             fn GetCanonicalName(&self, #[out] pguidCommandName: *mut GUID) -> HRESULT;
             fn GetState(&self, #[in] #[opt] psiItemArray: IShellItemArray, #[in] fOkToBeSlow: BOOL, #[out] pCmdState: *mut EXPCMDSTATE) -> HRESULT;
             fn Invoke(&self, #[in] #[opt] psiItemArray: IShellItemArray, #[in] #[opt] pbc: IBindCtx) -> HRESULT;
@@ -1144,7 +1144,7 @@ mod Windows {
         }
         #[guid(0xbb2e617c_0920_11d1_9a0b_00c04fc2d6c1)]
         interface IExtractImage: IUnknown {
-            fn GetLocation(&self, #[buffer(cch)] #[null_terminated(success)] #[out] pszPathBuffer: LPWSTR, #[in] cch: DWORD, #[in] #[opt] #[out] pdwPriority: *mut DWORD, #[in] prgSize: *const SIZE, #[in] dwRecClrDepth: DWORD, #[in] #[out] pdwFlags: *mut DWORD) -> HRESULT;
+            fn GetLocation(&self, #[buffer(cch)] #[null_terminated] #[out] pszPathBuffer: LPWSTR, #[in] cch: DWORD, #[in] #[opt] #[out] pdwPriority: *mut DWORD, #[in] prgSize: *const SIZE, #[in] dwRecClrDepth: DWORD, #[in] #[out] pdwFlags: *mut DWORD) -> HRESULT;
             fn Extract(&self, #[out] phBmpThumbnail: *mut HBITMAP) -> HRESULT;
         }
         #[guid(0x953bb1ee_93b4_11d1_98a3_00c04fb687da)]
@@ -1164,14 +1164,14 @@ mod Windows {
             fn SetFolder(&self, #[in] #[opt] psi: IShellItem) -> HRESULT;
             fn GetFolder(&self, #[out] #[retval] ppsi: *mut IShellItem) -> HRESULT;
             fn GetCurrentSelection(&self, #[out] #[retval] ppsi: *mut IShellItem) -> HRESULT;
-            fn SetFileName(&self, #[in] #[null_terminated(entry)] pszName: LPCWSTR) -> HRESULT;
-            fn GetFileName(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] pszName: *mut LPWSTR) -> HRESULT;
-            fn SetTitle(&self, #[in] #[null_terminated(entry)] pszTitle: LPCWSTR) -> HRESULT;
-            fn SetOkButtonLabel(&self, #[in] #[null_terminated(entry)] pszText: LPCWSTR) -> HRESULT;
-            fn SetFileNameLabel(&self, #[in] #[null_terminated(entry)] pszLabel: LPCWSTR) -> HRESULT;
+            fn SetFileName(&self, #[in] #[null_terminated] pszName: LPCWSTR) -> HRESULT;
+            fn GetFileName(&self, #[incomplete] #[out] pszName: *mut LPWSTR) -> HRESULT;
+            fn SetTitle(&self, #[in] #[null_terminated] pszTitle: LPCWSTR) -> HRESULT;
+            fn SetOkButtonLabel(&self, #[in] #[null_terminated] pszText: LPCWSTR) -> HRESULT;
+            fn SetFileNameLabel(&self, #[in] #[null_terminated] pszLabel: LPCWSTR) -> HRESULT;
             fn GetResult(&self, #[out] #[retval] ppsi: *mut IShellItem) -> HRESULT;
             fn AddPlace(&self, #[in] #[opt] psi: IShellItem, #[in] fdap: FDAP) -> HRESULT;
-            fn SetDefaultExtension(&self, #[in] #[null_terminated(entry)] pszDefaultExtension: LPCWSTR) -> HRESULT;
+            fn SetDefaultExtension(&self, #[in] #[null_terminated] pszDefaultExtension: LPCWSTR) -> HRESULT;
             fn Close(&self, #[in] hr: HRESULT) -> HRESULT;
             fn SetClientGuid(&self, #[in] guid: &GUID) -> HRESULT;
             fn ClearClientData(&self) -> HRESULT;
@@ -1180,19 +1180,19 @@ mod Windows {
         #[guid(0xe6fdd21a_163f_4975_9c8c_a69f1ba37034)]
         interface IFileDialogCustomize: IUnknown {
             fn EnableOpenDropDown(&self, #[in] dwIDCtl: DWORD) -> HRESULT;
-            fn AddMenu(&self, #[in] dwIDCtl: DWORD, #[in] #[null_terminated(entry)] pszLabel: LPCWSTR) -> HRESULT;
-            fn AddPushButton(&self, #[in] dwIDCtl: DWORD, #[in] #[null_terminated(entry)] pszLabel: LPCWSTR) -> HRESULT;
+            fn AddMenu(&self, #[in] dwIDCtl: DWORD, #[in] #[null_terminated] pszLabel: LPCWSTR) -> HRESULT;
+            fn AddPushButton(&self, #[in] dwIDCtl: DWORD, #[in] #[null_terminated] pszLabel: LPCWSTR) -> HRESULT;
             fn AddComboBox(&self, #[in] dwIDCtl: DWORD) -> HRESULT;
             fn AddRadioButtonList(&self, #[in] dwIDCtl: DWORD) -> HRESULT;
-            fn AddCheckButton(&self, #[in] dwIDCtl: DWORD, #[in] #[null_terminated(entry)] pszLabel: LPCWSTR, #[in] bChecked: BOOL) -> HRESULT;
-            fn AddEditBox(&self, #[in] dwIDCtl: DWORD, #[in] #[null_terminated(entry)] pszText: LPCWSTR) -> HRESULT;
+            fn AddCheckButton(&self, #[in] dwIDCtl: DWORD, #[in] #[null_terminated] pszLabel: LPCWSTR, #[in] bChecked: BOOL) -> HRESULT;
+            fn AddEditBox(&self, #[in] dwIDCtl: DWORD, #[in] #[null_terminated] pszText: LPCWSTR) -> HRESULT;
             fn AddSeparator(&self, #[in] dwIDCtl: DWORD) -> HRESULT;
-            fn AddText(&self, #[in] dwIDCtl: DWORD, #[in] #[null_terminated(entry)] pszText: LPCWSTR) -> HRESULT;
-            fn SetControlLabel(&self, #[in] dwIDCtl: DWORD, #[in] #[null_terminated(entry)] pszLabel: LPCWSTR) -> HRESULT;
+            fn AddText(&self, #[in] dwIDCtl: DWORD, #[in] #[null_terminated] pszText: LPCWSTR) -> HRESULT;
+            fn SetControlLabel(&self, #[in] dwIDCtl: DWORD, #[in] #[null_terminated] pszLabel: LPCWSTR) -> HRESULT;
             fn GetControlState(&self, #[in] dwIDCtl: DWORD, #[out] pdwState: *mut CDCONTROLSTATEF) -> HRESULT;
             fn SetControlState(&self, #[in] dwIDCtl: DWORD, #[in] dwState: CDCONTROLSTATEF) -> HRESULT;
-            fn GetEditBoxText(&self, #[in] dwIDCtl: DWORD, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppszText: *mut *mut WCHAR) -> HRESULT;
-            fn SetEditBoxText(&self, #[in] dwIDCtl: DWORD, #[in] #[null_terminated(entry)] pszText: LPCWSTR) -> HRESULT;
+            fn GetEditBoxText(&self, #[in] dwIDCtl: DWORD, #[incomplete] #[out] ppszText: *mut *mut WCHAR) -> HRESULT;
+            fn SetEditBoxText(&self, #[in] dwIDCtl: DWORD, #[in] #[null_terminated] pszText: LPCWSTR) -> HRESULT;
             fn GetCheckButtonState(&self, #[in] dwIDCtl: DWORD, #[out] pbChecked: *mut BOOL) -> HRESULT;
             fn SetCheckButtonState(&self, #[in] dwIDCtl: DWORD, #[in] bChecked: BOOL) -> HRESULT;
             fn AddControlItem(&self, #[in] dwIDCtl: DWORD, #[in] dwIDItem: DWORD, #[in] pszLabel: LPCWSTR) -> HRESULT;
@@ -1202,10 +1202,10 @@ mod Windows {
             fn SetControlItemState(&self, #[in] dwIDCtl: DWORD, #[in] dwIDItem: DWORD, #[in] dwState: CDCONTROLSTATEF) -> HRESULT;
             fn GetSelectedControlItem(&self, #[in] dwIDCtl: DWORD, #[out] pdwIDItem: *mut DWORD) -> HRESULT;
             fn SetSelectedControlItem(&self, #[in] dwIDCtl: DWORD, #[in] dwIDItem: DWORD) -> HRESULT;
-            fn StartVisualGroup(&self, #[in] dwIDCtl: DWORD, #[in] #[null_terminated(entry)] pszLabel: LPCWSTR) -> HRESULT;
+            fn StartVisualGroup(&self, #[in] dwIDCtl: DWORD, #[in] #[null_terminated] pszLabel: LPCWSTR) -> HRESULT;
             fn EndVisualGroup(&self) -> HRESULT;
             fn MakeProminent(&self, #[in] dwIDCtl: DWORD) -> HRESULT;
-            fn SetControlItemText(&self, #[in] dwIDCtl: DWORD, #[in] dwIDItem: DWORD, #[in] #[null_terminated(entry)] pszLabel: LPCWSTR) -> HRESULT;
+            fn SetControlItemText(&self, #[in] dwIDCtl: DWORD, #[in] dwIDItem: DWORD, #[in] #[null_terminated] pszLabel: LPCWSTR) -> HRESULT;
         }
         #[guid(0x973510db_7d7f_452b_8975_74a85828d354)]
         interface IFileDialogEvents: IUnknown {
@@ -1219,7 +1219,7 @@ mod Windows {
         }
         #[guid(0x64a1cbf0_3a1a_4461_9158_376969693950)]
         interface IFileIsInUse: IUnknown {
-            fn GetAppName(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppszName: *mut LPWSTR) -> HRESULT;
+            fn GetAppName(&self, #[incomplete] #[out] ppszName: *mut LPWSTR) -> HRESULT;
             fn GetUsage(&self, #[out] pfut: *mut FILE_USAGE_TYPE) -> HRESULT;
             fn GetCapabilities(&self, #[out] pdwCapFlags: *mut DWORD) -> HRESULT;
             fn GetSwitchToHWND(&self, #[out] phwnd: *mut HWND) -> HRESULT;
@@ -1235,21 +1235,21 @@ mod Windows {
             fn Advise(&self, #[in] #[opt] pfops: IFileOperationProgressSink, #[out] pdwCookie: *mut DWORD) -> HRESULT;
             fn Unadvise(&self, #[in] dwCookie: DWORD) -> HRESULT;
             fn SetOperationFlags(&self, #[in] dwOperationFlags: DWORD) -> HRESULT;
-            fn SetProgressMessage(&self, #[in] #[null_terminated(entry)] pszMessage: LPCWSTR) -> HRESULT;
+            fn SetProgressMessage(&self, #[in] #[null_terminated] pszMessage: LPCWSTR) -> HRESULT;
             fn SetProgressDialog(&self, #[in] #[opt] popd: IOperationsProgressDialog) -> HRESULT;
             fn SetProperties(&self, #[in] #[opt] pproparray: IPropertyChangeArray) -> HRESULT;
             fn SetOwnerWindow(&self, #[in] hwndOwner: HWND) -> HRESULT;
             fn ApplyPropertiesToItem(&self, #[in] #[opt] psiItem: IShellItem) -> HRESULT;
             fn ApplyPropertiesToItems(&self, #[in] #[opt] punkItems: IUnknown) -> HRESULT;
-            fn RenameItem(&self, #[in] #[opt] psiItem: IShellItem, #[in] #[null_terminated(entry)] pszNewName: LPCWSTR, #[in] #[opt] pfopsItem: IFileOperationProgressSink) -> HRESULT;
-            fn RenameItems(&self, #[in] #[opt] pUnkItems: IUnknown, #[in] #[null_terminated(entry)] pszNewName: LPCWSTR) -> HRESULT;
-            fn MoveItem(&self, #[in] #[opt] psiItem: IShellItem, #[in] #[opt] psiDestinationFolder: IShellItem, #[in] #[null_terminated(entry)] #[opt] pszNewName: LPCWSTR, #[in] #[opt] pfopsItem: IFileOperationProgressSink) -> HRESULT;
+            fn RenameItem(&self, #[in] #[opt] psiItem: IShellItem, #[in] #[null_terminated] pszNewName: LPCWSTR, #[in] #[opt] pfopsItem: IFileOperationProgressSink) -> HRESULT;
+            fn RenameItems(&self, #[in] #[opt] pUnkItems: IUnknown, #[in] #[null_terminated] pszNewName: LPCWSTR) -> HRESULT;
+            fn MoveItem(&self, #[in] #[opt] psiItem: IShellItem, #[in] #[opt] psiDestinationFolder: IShellItem, #[in] #[null_terminated] #[opt] pszNewName: LPCWSTR, #[in] #[opt] pfopsItem: IFileOperationProgressSink) -> HRESULT;
             fn MoveItems(&self, #[in] #[opt] punkItems: IUnknown, #[in] #[opt] psiDestinationFolder: IShellItem) -> HRESULT;
-            fn CopyItem(&self, #[in] #[opt] psiItem: IShellItem, #[in] #[opt] psiDestinationFolder: IShellItem, #[in] #[null_terminated(entry)] #[opt] pszCopyName: LPCWSTR, #[in] #[opt] pfopsItem: IFileOperationProgressSink) -> HRESULT;
+            fn CopyItem(&self, #[in] #[opt] psiItem: IShellItem, #[in] #[opt] psiDestinationFolder: IShellItem, #[in] #[null_terminated] #[opt] pszCopyName: LPCWSTR, #[in] #[opt] pfopsItem: IFileOperationProgressSink) -> HRESULT;
             fn CopyItems(&self, #[in] #[opt] punkItems: IUnknown, #[in] #[opt] psiDestinationFolder: IShellItem) -> HRESULT;
             fn DeleteItem(&self, #[in] #[opt] psiItem: IShellItem, #[in] #[opt] pfopsItem: IFileOperationProgressSink) -> HRESULT;
             fn DeleteItems(&self, #[in] #[opt] punkItems: IUnknown) -> HRESULT;
-            fn NewItem(&self, #[in] #[opt] psiDestinationFolder: IShellItem, #[in] dwFileAttributes: DWORD, #[in] #[null_terminated(entry)] pszName: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] pszTemplateName: LPCWSTR, #[in] #[opt] pfopsItem: IFileOperationProgressSink) -> HRESULT;
+            fn NewItem(&self, #[in] #[opt] psiDestinationFolder: IShellItem, #[in] dwFileAttributes: DWORD, #[in] #[null_terminated] pszName: LPCWSTR, #[in] #[null_terminated] #[opt] pszTemplateName: LPCWSTR, #[in] #[opt] pfopsItem: IFileOperationProgressSink) -> HRESULT;
             fn PerformOperations(&self) -> HRESULT;
             fn GetAnyOperationsAborted(&self, #[out] pfAnyOperationsAborted: *mut BOOL) -> HRESULT;
         }
@@ -1261,16 +1261,16 @@ mod Windows {
         interface IFileOperationProgressSink: IUnknown {
             fn StartOperations(&self) -> HRESULT;
             fn FinishOperations(&self, #[in] hrResult: HRESULT) -> HRESULT;
-            fn PreRenameItem(&self, #[in] dwFlags: DWORD, #[in] #[opt] psiItem: IShellItem, #[in] #[null_terminated(entry)] #[opt] pszNewName: LPCWSTR) -> HRESULT;
-            fn PostRenameItem(&self, #[in] dwFlags: DWORD, #[in] #[opt] psiItem: IShellItem, #[in] #[null_terminated(entry)] pszNewName: LPCWSTR, #[in] hrRename: HRESULT, #[in] #[opt] psiNewlyCreated: IShellItem) -> HRESULT;
-            fn PreMoveItem(&self, #[in] dwFlags: DWORD, #[in] #[opt] psiItem: IShellItem, #[in] #[opt] psiDestinationFolder: IShellItem, #[in] #[null_terminated(entry)] #[opt] pszNewName: LPCWSTR) -> HRESULT;
-            fn PostMoveItem(&self, #[in] dwFlags: DWORD, #[in] #[opt] psiItem: IShellItem, #[in] #[opt] psiDestinationFolder: IShellItem, #[in] #[null_terminated(entry)] #[opt] pszNewName: LPCWSTR, #[in] hrMove: HRESULT, #[in] #[opt] psiNewlyCreated: IShellItem) -> HRESULT;
-            fn PreCopyItem(&self, #[in] dwFlags: DWORD, #[in] #[opt] psiItem: IShellItem, #[in] #[opt] psiDestinationFolder: IShellItem, #[in] #[null_terminated(entry)] #[opt] pszNewName: LPCWSTR) -> HRESULT;
-            fn PostCopyItem(&self, #[in] dwFlags: DWORD, #[in] #[opt] psiItem: IShellItem, #[in] #[opt] psiDestinationFolder: IShellItem, #[in] #[null_terminated(entry)] #[opt] pszNewName: LPCWSTR, #[in] hrCopy: HRESULT, #[in] #[opt] psiNewlyCreated: IShellItem) -> HRESULT;
+            fn PreRenameItem(&self, #[in] dwFlags: DWORD, #[in] #[opt] psiItem: IShellItem, #[in] #[null_terminated] #[opt] pszNewName: LPCWSTR) -> HRESULT;
+            fn PostRenameItem(&self, #[in] dwFlags: DWORD, #[in] #[opt] psiItem: IShellItem, #[in] #[null_terminated] pszNewName: LPCWSTR, #[in] hrRename: HRESULT, #[in] #[opt] psiNewlyCreated: IShellItem) -> HRESULT;
+            fn PreMoveItem(&self, #[in] dwFlags: DWORD, #[in] #[opt] psiItem: IShellItem, #[in] #[opt] psiDestinationFolder: IShellItem, #[in] #[null_terminated] #[opt] pszNewName: LPCWSTR) -> HRESULT;
+            fn PostMoveItem(&self, #[in] dwFlags: DWORD, #[in] #[opt] psiItem: IShellItem, #[in] #[opt] psiDestinationFolder: IShellItem, #[in] #[null_terminated] #[opt] pszNewName: LPCWSTR, #[in] hrMove: HRESULT, #[in] #[opt] psiNewlyCreated: IShellItem) -> HRESULT;
+            fn PreCopyItem(&self, #[in] dwFlags: DWORD, #[in] #[opt] psiItem: IShellItem, #[in] #[opt] psiDestinationFolder: IShellItem, #[in] #[null_terminated] #[opt] pszNewName: LPCWSTR) -> HRESULT;
+            fn PostCopyItem(&self, #[in] dwFlags: DWORD, #[in] #[opt] psiItem: IShellItem, #[in] #[opt] psiDestinationFolder: IShellItem, #[in] #[null_terminated] #[opt] pszNewName: LPCWSTR, #[in] hrCopy: HRESULT, #[in] #[opt] psiNewlyCreated: IShellItem) -> HRESULT;
             fn PreDeleteItem(&self, #[in] dwFlags: DWORD, #[in] #[opt] psiItem: IShellItem) -> HRESULT;
             fn PostDeleteItem(&self, #[in] dwFlags: DWORD, #[in] #[opt] psiItem: IShellItem, #[in] hrDelete: HRESULT, #[in] #[opt] psiNewlyCreated: IShellItem) -> HRESULT;
-            fn PreNewItem(&self, #[in] dwFlags: DWORD, #[in] #[opt] psiDestinationFolder: IShellItem, #[in] #[null_terminated(entry)] #[opt] pszNewName: LPCWSTR) -> HRESULT;
-            fn PostNewItem(&self, #[in] dwFlags: DWORD, #[in] #[opt] psiDestinationFolder: IShellItem, #[in] #[null_terminated(entry)] #[opt] pszNewName: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] pszTemplateName: LPCWSTR, #[in] dwFileAttributes: DWORD, #[in] hrNew: HRESULT, #[in] #[opt] psiNewItem: IShellItem) -> HRESULT;
+            fn PreNewItem(&self, #[in] dwFlags: DWORD, #[in] #[opt] psiDestinationFolder: IShellItem, #[in] #[null_terminated] #[opt] pszNewName: LPCWSTR) -> HRESULT;
+            fn PostNewItem(&self, #[in] dwFlags: DWORD, #[in] #[opt] psiDestinationFolder: IShellItem, #[in] #[null_terminated] #[opt] pszNewName: LPCWSTR, #[in] #[null_terminated] #[opt] pszTemplateName: LPCWSTR, #[in] dwFileAttributes: DWORD, #[in] hrNew: HRESULT, #[in] #[opt] psiNewItem: IShellItem) -> HRESULT;
             fn UpdateProgress(&self, #[in] iWorkTotal: UINT, #[in] iWorkSoFar: UINT) -> HRESULT;
             fn ResetTimer(&self) -> HRESULT;
             fn PauseTimer(&self) -> HRESULT;
@@ -1286,7 +1286,7 @@ mod Windows {
         }
         #[guid(0xd97b5aac_c792_433c_975d_35c4eadc7a9d)]
         interface IFileSyncMergeHandler: IUnknown {
-            fn Merge(&self, #[in] #[null_terminated(entry)] localFilePath: LPCWSTR, #[in] #[null_terminated(entry)] serverFilePath: LPCWSTR, #[out] #[retval] updateStatus: *mut MERGE_UPDATE_STATUS) -> HRESULT;
+            fn Merge(&self, #[in] #[null_terminated] localFilePath: LPCWSTR, #[in] #[null_terminated] serverFilePath: LPCWSTR, #[out] #[retval] updateStatus: *mut MERGE_UPDATE_STATUS) -> HRESULT;
             fn ShowResolveConflictUIAsync(&self, #[in] localFilePath: LPCWSTR, #[in] monitorToDisplayOn: HMONITOR) -> HRESULT;
         }
         #[guid(0x01e18d10_4d8b_11d2_855d_006008059367)]
@@ -1336,9 +1336,9 @@ mod Windows {
             #[deprecated]
             fn GetViewProperty(&self, #[in] pidl: LPCITEMIDLIST, #[in] propkey: &PROPERTYKEY, #[out] ppropvar: *mut PROPVARIANT) -> HRESULT;
             #[deprecated]
-            fn SetTileViewProperties(&self, #[in] pidl: LPCITEMIDLIST, #[in] #[null_terminated(entry)] pszPropList: LPCWSTR) -> HRESULT;
+            fn SetTileViewProperties(&self, #[in] pidl: LPCITEMIDLIST, #[in] #[null_terminated] pszPropList: LPCWSTR) -> HRESULT;
             #[deprecated]
-            fn SetExtendedTileViewProperties(&self, #[in] pidl: LPCITEMIDLIST, #[in] #[null_terminated(entry)] pszPropList: LPCWSTR) -> HRESULT;
+            fn SetExtendedTileViewProperties(&self, #[in] pidl: LPCITEMIDLIST, #[in] #[null_terminated] pszPropList: LPCWSTR) -> HRESULT;
             fn SetText(&self, #[in] iType: FVTEXTTYPE, #[in] pwszText: LPCWSTR) -> HRESULT;
             fn SetCurrentFolderFlags(&self, #[in] dwMask: DWORD, #[in] dwFlags: DWORD) -> HRESULT;
             fn GetCurrentFolderFlags(&self, #[out] pdwFlags: *mut DWORD) -> HRESULT;
@@ -1350,7 +1350,7 @@ mod Windows {
             fn GetSelectedItem(&self, #[in] iStart: i32, #[out] piItem: *mut i32) -> HRESULT;
             fn GetSelection(&self, #[in] fNoneImpliesFolder: BOOL, #[out] #[retval] ppsia: *mut IShellItemArray) -> HRESULT;
             fn GetSelectionState(&self, #[in] pidl: LPCITEMIDLIST, #[out] pdwFlags: *mut DWORD) -> HRESULT;
-            fn InvokeVerbOnSelection(&self, #[in] #[null_terminated(entry)] #[opt] pszVerb: LPCSTR) -> HRESULT;
+            fn InvokeVerbOnSelection(&self, #[in] #[null_terminated] #[opt] pszVerb: LPCSTR) -> HRESULT;
             fn SetViewModeAndIconSize(&self, #[in] uViewMode: FOLDERVIEWMODE, #[in] iImageSize: i32) -> HRESULT;
             fn GetViewModeAndIconSize(&self, #[out] puViewMode: *mut FOLDERVIEWMODE, #[out] piImageSize: *mut i32) -> HRESULT;
             fn SetGroupSubsetCount(&self, #[in] cVisibleRows: UINT) -> HRESULT;
@@ -1414,11 +1414,11 @@ mod Windows {
         interface IIdentityName: IRelatedItem {}
         #[guid(0x85075acf_231f_40ea_9610_d26b7b58f638)]
         interface IInitializeCommand: IUnknown {
-            fn Initialize(&self, #[in] #[null_terminated(entry)] pszCommandName: LPCWSTR, #[in] #[opt] ppb: IPropertyBag) -> HRESULT;
+            fn Initialize(&self, #[in] #[null_terminated] pszCommandName: LPCWSTR, #[in] #[opt] ppb: IPropertyBag) -> HRESULT;
         }
         #[guid(0x6e0f9881_42a8_4f2a_97f8_8af4e026d92d)]
         interface IInitializeNetworkFolder: IUnknown {
-            fn Initialize(&self, #[in] #[opt] pidl: LPCITEMIDLIST, #[in] #[opt] pidlTarget: LPCITEMIDLIST, #[in] uDisplayType: UINT, #[in] #[null_terminated(entry)] #[opt] pszResName: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] pszProvider: LPCWSTR) -> HRESULT;
+            fn Initialize(&self, #[in] #[opt] pidl: LPCITEMIDLIST, #[in] #[opt] pidlTarget: LPCITEMIDLIST, #[in] uDisplayType: UINT, #[in] #[null_terminated] #[opt] pszResName: LPCWSTR, #[in] #[null_terminated] #[opt] pszProvider: LPCWSTR) -> HRESULT;
         }
         #[guid(0x71c0d2bc_726d_45cc_a6c0_2e31c1db2159)]
         interface IInitializeWithBindCtx: IUnknown {
@@ -1452,16 +1452,16 @@ mod Windows {
         }
         #[guid(0x1df0d7f1_b267_4d28_8b10_12e23202a5c4)]
         interface IItemNameLimits: IUnknown {
-            fn GetValidCharacters(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppwszValidChars: *mut LPWSTR, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppwszInvalidChars: *mut LPWSTR) -> HRESULT;
-            fn GetMaxLength(&self, #[in] #[null_terminated(entry)] pszName: LPCWSTR, #[out] piMaxNameLen: *mut i32) -> HRESULT;
+            fn GetValidCharacters(&self, #[incomplete] #[out] ppwszValidChars: *mut LPWSTR, #[incomplete] #[out] ppwszInvalidChars: *mut LPWSTR) -> HRESULT;
+            fn GetMaxLength(&self, #[in] #[null_terminated] pszName: LPCWSTR, #[out] piMaxNameLen: *mut i32) -> HRESULT;
         }
         #[guid(0x3aa7af7e_9b36_420c_a8e3_f77d4674a488)]
         interface IKnownFolder: IUnknown {
             fn GetId(&self, #[out] pkfid: *mut KNOWNFOLDERID) -> HRESULT;
             fn GetCategory(&self, #[out] pCategory: *mut KF_CATEGORY) -> HRESULT;
             fn GetShellItem(&self, #[in] dwFlags: DWORD, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
-            fn GetPath(&self, #[in] dwFlags: DWORD, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppszPath: *mut LPWSTR) -> HRESULT;
-            fn SetPath(&self, #[in] dwFlags: DWORD, #[in] #[null_terminated(entry)] pszPath: LPCWSTR) -> HRESULT;
+            fn GetPath(&self, #[in] dwFlags: DWORD, #[incomplete] #[out] ppszPath: *mut LPWSTR) -> HRESULT;
+            fn SetPath(&self, #[in] dwFlags: DWORD, #[in] #[null_terminated] pszPath: LPCWSTR) -> HRESULT;
             fn GetIDList(&self, #[in] dwFlags: DWORD, #[out] ppidl: *mut LPITEMIDLIST) -> HRESULT;
             fn GetFolderType(&self, #[out] pftid: *mut FOLDERTYPEID) -> HRESULT;
             fn GetRedirectionCapabilities(&self, #[out] pCapabilities: *mut KF_REDIRECTION_CAPABILITIES) -> HRESULT;
@@ -1473,16 +1473,16 @@ mod Windows {
             fn FolderIdToCsidl(&self, #[in] rfid: &KNOWNFOLDERID, #[out] pnCsidl: *mut i32) -> HRESULT;
             fn GetFolderIds(&self, #[incomplete] #[out] ppKFId: *mut *mut KNOWNFOLDERID, #[in] #[out] pCount: *mut UINT) -> HRESULT;
             fn GetFolder(&self, #[in] rfid: &KNOWNFOLDERID, #[out] #[retval] ppkf: *mut IKnownFolder) -> HRESULT;
-            fn GetFolderByName(&self, #[in] #[null_terminated(entry)] pszCanonicalName: LPCWSTR, #[out] #[retval] ppkf: *mut IKnownFolder) -> HRESULT;
+            fn GetFolderByName(&self, #[in] #[null_terminated] pszCanonicalName: LPCWSTR, #[out] #[retval] ppkf: *mut IKnownFolder) -> HRESULT;
             fn RegisterFolder(&self, #[in] rfid: &KNOWNFOLDERID, #[in] pKFD: *const KNOWNFOLDER_DEFINITION) -> HRESULT;
             fn UnregisterFolder(&self, #[in] rfid: &KNOWNFOLDERID) -> HRESULT;
-            fn FindFolderFromPath(&self, #[in] #[null_terminated(entry)] pszPath: LPCWSTR, #[in] mode: FFFP_MODE, #[out] #[retval] ppkf: *mut IKnownFolder) -> HRESULT;
+            fn FindFolderFromPath(&self, #[in] #[null_terminated] pszPath: LPCWSTR, #[in] mode: FFFP_MODE, #[out] #[retval] ppkf: *mut IKnownFolder) -> HRESULT;
             fn FindFolderFromIDList(&self, #[in] pidl: LPCITEMIDLIST, #[out] #[retval] ppkf: *mut IKnownFolder) -> HRESULT;
             fn Redirect(&self, #[in] rfid: &KNOWNFOLDERID, #[in] #[opt] hwnd: HWND, #[in] flags: KF_REDIRECT_FLAGS, #[in] #[opt] pszTargetPath: LPCWSTR, #[in] cFolders: UINT, #[buffer(cFolders)] #[in] #[opt] pExclusion: *const KNOWNFOLDERID, #[opt] #[out] ppszError: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0x989191ac_28ff_4cf0_9584_e0d078bc2396)]
         interface ILaunchSourceAppUserModelId: IUnknown {
-            fn GetAppUserModelId(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] launchingApp: *mut LPWSTR) -> HRESULT;
+            fn GetAppUserModelId(&self, #[incomplete] #[out] launchingApp: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0xe5aa01f7_1fb8_4830_8720_4e6734cbd5f3)]
         interface ILaunchSourceViewSizePreference: IUnknown {
@@ -1537,7 +1537,7 @@ mod Windows {
             fn GetItemCustomState(&self, #[in] #[opt] psi: IShellItem, #[out] piStateNumber: *mut i32) -> HRESULT;
             fn SetItemCustomState(&self, #[in] #[opt] psi: IShellItem, #[in] iStateNumber: i32) -> HRESULT;
             fn EnsureItemVisible(&self, #[in] #[opt] psi: IShellItem) -> HRESULT;
-            fn SetTheme(&self, #[in] #[null_terminated(entry)] pszTheme: LPCWSTR) -> HRESULT;
+            fn SetTheme(&self, #[in] #[null_terminated] pszTheme: LPCWSTR) -> HRESULT;
             fn GetNextItem(&self, #[in] #[opt] psi: IShellItem, #[in] nstcgi: NSTCGNI, #[out] #[retval] ppsiNext: *mut IShellItem) -> HRESULT;
             fn HitTest(&self, #[in] ppt: *mut POINT, #[out] #[retval] ppsiOut: *mut IShellItem) -> HRESULT;
             fn GetItemRect(&self, #[in] #[opt] psi: IShellItem, #[out] prect: *mut RECT) -> HRESULT;
@@ -1557,7 +1557,7 @@ mod Windows {
             fn FoundItem(&self, #[in] #[opt] psf: IShellFolder, #[in] pidl: LPCITEMIDLIST) -> HRESULT;
             fn EnterFolder(&self, #[in] #[opt] psf: IShellFolder, #[in] pidl: LPCITEMIDLIST) -> HRESULT;
             fn LeaveFolder(&self, #[in] #[opt] psf: IShellFolder, #[in] pidl: LPCITEMIDLIST) -> HRESULT;
-            fn InitializeProgressDialog(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppszTitle: *mut LPWSTR, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppszCancel: *mut LPWSTR) -> HRESULT;
+            fn InitializeProgressDialog(&self, #[incomplete] #[out] ppszTitle: *mut LPWSTR, #[incomplete] #[out] ppszCancel: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0x7ac7492b_c38e_438a_87db_68737844ff70)]
         interface INamespaceWalkCB2: INamespaceWalkCB {
@@ -1576,7 +1576,7 @@ mod Windows {
         }
         #[guid(0xd2bc4c84_3f72_4a52_a604_7bcbf3982cbb)]
         interface INewWindowManager: IUnknown {
-            fn EvaluateNewWindow(&self, #[in] #[null_terminated(entry)] pszUrl: LPCWSTR, #[in] #[null_terminated(entry)] pszName: LPCWSTR, #[in] #[null_terminated(entry)] pszUrlContext: LPCWSTR, #[in] #[null_terminated(entry)] pszFeatures: LPCWSTR, #[in] fReplace: BOOL, #[in] dwFlags: DWORD, #[in] dwUserActionTime: DWORD) -> HRESULT;
+            fn EvaluateNewWindow(&self, #[in] #[null_terminated] pszUrl: LPCWSTR, #[in] #[null_terminated] pszName: LPCWSTR, #[in] #[null_terminated] pszUrlContext: LPCWSTR, #[in] #[null_terminated] pszFeatures: LPCWSTR, #[in] fReplace: BOOL, #[in] dwFlags: DWORD, #[in] dwUserActionTime: DWORD) -> HRESULT;
         }
         #[guid(0xa6087428_3be3_4d73_b308_7c04a540bf1a)]
         interface IObjectProvider: IUnknown {
@@ -1584,8 +1584,8 @@ mod Windows {
         }
         #[guid(0x36db0196_9665_46d1_9ba7_d3709eecf9ed)]
         interface IObjectWithAppUserModelID: IUnknown {
-            fn SetAppID(&self, #[in] #[null_terminated(entry)] pszAppID: LPCWSTR) -> HRESULT;
-            fn GetAppID(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppszAppID: *mut LPWSTR) -> HRESULT;
+            fn SetAppID(&self, #[in] #[null_terminated] pszAppID: LPCWSTR) -> HRESULT;
+            fn GetAppID(&self, #[incomplete] #[out] ppszAppID: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0x321a6a6a_d61f_4bf3_97ae_14be2986bb36)]
         interface IObjectWithBackReferences: IUnknown {
@@ -1602,12 +1602,12 @@ mod Windows {
         }
         #[guid(0xed2aa515_602f_469c_a130_ce69fd0fa878)]
         interface IObjectWithPackageFullName: IUnknown {
-            fn GetPackageFullName(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] packageFullName: *mut LPWSTR) -> HRESULT;
+            fn GetPackageFullName(&self, #[incomplete] #[out] packageFullName: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0x71e806fb_8dee_46fc_bf8c_7748a8a1ae13)]
         interface IObjectWithProgID: IUnknown {
-            fn SetProgID(&self, #[in] #[null_terminated(entry)] pszProgID: LPCWSTR) -> HRESULT;
-            fn GetProgID(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppszProgID: *mut LPWSTR) -> HRESULT;
+            fn SetProgID(&self, #[in] #[null_terminated] pszProgID: LPCWSTR) -> HRESULT;
+            fn GetProgID(&self, #[incomplete] #[out] ppszProgID: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0x1c9cd5bb_98e9_4491_a60f_31aacc72b83c)]
         interface IObjectWithSelection: IUnknown {
@@ -1616,8 +1616,8 @@ mod Windows {
         }
         #[guid(0xd11ad862_66de_4df4_bf6c_1f5621996af1)]
         interface IOpenControlPanel: IUnknown {
-            fn Open(&self, #[in] #[null_terminated(entry)] #[opt] pszName: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] pszPage: LPCWSTR, #[in] #[opt] punkSite: IUnknown) -> HRESULT;
-            fn GetPath(&self, #[in] #[null_terminated(entry)] #[opt] pszName: LPCWSTR, #[buffer(cchPath)] #[null_terminated(success)] #[out] pszPath: LPWSTR, #[in] cchPath: UINT) -> HRESULT;
+            fn Open(&self, #[in] #[null_terminated] #[opt] pszName: LPCWSTR, #[in] #[null_terminated] #[opt] pszPage: LPCWSTR, #[in] #[opt] punkSite: IUnknown) -> HRESULT;
+            fn GetPath(&self, #[in] #[null_terminated] #[opt] pszName: LPCWSTR, #[buffer(cchPath)] #[null_terminated] #[out] pszPath: LPWSTR, #[in] cchPath: UINT) -> HRESULT;
             fn GetCurrentView(&self, #[out] pView: *mut CPVIEW) -> HRESULT;
         }
         #[guid(0xf0ee7333_e6fc_479b_9f25_a860c234a38e)]
@@ -1662,7 +1662,7 @@ mod Windows {
         }
         #[guid(0x1bb12a62_2ad8_432b_8ccf_0c2c52afcd5b)]
         interface IPackageExecutionStateChangeNotification: IUnknown {
-            fn OnStateChanged(&self, #[in] #[null_terminated(entry)] pszPackageFullName: LPCWSTR, #[in] pesNewState: PACKAGE_EXECUTION_STATE) -> HRESULT;
+            fn OnStateChanged(&self, #[in] #[null_terminated] pszPackageFullName: LPCWSTR, #[in] pesNewState: PACKAGE_EXECUTION_STATE) -> HRESULT;
         }
         #[guid(0xb3a4b685_b685_4805_99d9_5dead2873236)]
         interface IParentAndItem: IUnknown {
@@ -1731,14 +1731,14 @@ mod Windows {
         }
         #[guid(0x757a7d9f_919a_4118_99d7_dbb208c8cc66)]
         interface IPropertyUI: IUnknown {
-            fn ParsePropertyName(&self, #[in] #[null_terminated(entry)] pszName: LPCWSTR, #[out] pfmtid: *mut FMTID, #[out] ppid: *mut PROPID, #[in] #[out] pchEaten: *mut ULONG) -> HRESULT;
-            fn GetCannonicalName(&self, #[in] fmtid: &IID, #[in] pid: PROPID, #[buffer(cchText)] #[null_terminated(success)] #[out] pwszText: LPWSTR, #[in] cchText: DWORD) -> HRESULT;
+            fn ParsePropertyName(&self, #[in] #[null_terminated] pszName: LPCWSTR, #[out] pfmtid: *mut FMTID, #[out] ppid: *mut PROPID, #[in] #[out] pchEaten: *mut ULONG) -> HRESULT;
+            fn GetCannonicalName(&self, #[in] fmtid: &IID, #[in] pid: PROPID, #[buffer(cchText)] #[null_terminated] #[out] pwszText: LPWSTR, #[in] cchText: DWORD) -> HRESULT;
             fn GetDisplayName(&self, #[in] fmtid: &IID, #[in] pid: PROPID, #[in] flags: PROPERTYUI_NAME_FLAGS, #[buffer(cchText)] #[out] pwszText: LPWSTR, #[in] cchText: DWORD) -> HRESULT;
             fn GetPropertyDescription(&self, #[in] fmtid: &IID, #[in] pid: PROPID, #[buffer(cchText)] #[out] pwszText: LPWSTR, #[in] cchText: DWORD) -> HRESULT;
             fn GetDefaultWidth(&self, #[in] fmtid: &IID, #[in] pid: PROPID, #[out] pcxChars: *mut ULONG) -> HRESULT;
             fn GetFlags(&self, #[in] fmtid: &IID, #[in] pid: PROPID, #[out] pflags: *mut PROPERTYUI_FLAGS) -> HRESULT;
-            fn FormatForDisplay(&self, #[in] fmtid: &IID, #[in] pid: PROPID, #[in] ppropvar: *const PROPVARIANT, #[in] puiff: PROPERTYUI_FORMAT_FLAGS, #[buffer(cchText)] #[null_terminated(success)] #[out] pwszText: LPWSTR, #[in] cchText: DWORD) -> HRESULT;
-            fn GetHelpInfo(&self, #[in] fmtid: &IID, #[in] pid: PROPID, #[buffer(cch)] #[null_terminated(success)] #[out] pwszHelpFile: LPWSTR, #[in] cch: DWORD, #[out] puHelpID: *mut UINT) -> HRESULT;
+            fn FormatForDisplay(&self, #[in] fmtid: &IID, #[in] pid: PROPID, #[in] ppropvar: *const PROPVARIANT, #[in] puiff: PROPERTYUI_FORMAT_FLAGS, #[buffer(cchText)] #[null_terminated] #[out] pwszText: LPWSTR, #[in] cchText: DWORD) -> HRESULT;
+            fn GetHelpInfo(&self, #[in] fmtid: &IID, #[in] pid: PROPID, #[buffer(cch)] #[null_terminated] #[out] pwszHelpFile: LPWSTR, #[in] cch: DWORD, #[out] puHelpID: *mut UINT) -> HRESULT;
         }
         #[guid(0x7307055c_b24a_486b_9f25_163e597a28a9)]
         interface IQueryContinue: IUnknown {
@@ -1761,7 +1761,7 @@ mod Windows {
         }
         #[guid(0x000214fe_0000_0000_c000_000000000046)]
         interface IRemoteComputer: IUnknown {
-            fn Initialize(&self, #[in] #[null_terminated(entry)] pszMachine: LPCWSTR, #[in] bEnumerating: BOOL) -> HRESULT;
+            fn Initialize(&self, #[in] #[null_terminated] pszMachine: LPCWSTR, #[in] bEnumerating: BOOL) -> HRESULT;
         }
         #[guid(0x5cd52983_9449_11d2_963a_00c04f79adf0)]
         interface IResolveShellLink: IUnknown {
@@ -1779,7 +1779,7 @@ mod Windows {
         const ISIOI_ICONINDEX: i32 = 2;
         #[guid(0xa0ffbc28_5482_4366_be27_3e81e78e06c2)]
         interface ISearchFolderItemFactory: IUnknown {
-            fn SetDisplayName(&self, #[in] #[null_terminated(entry)] pszDisplayName: LPCWSTR) -> HRESULT;
+            fn SetDisplayName(&self, #[in] #[null_terminated] pszDisplayName: LPCWSTR) -> HRESULT;
             fn SetFolderTypeID(&self, #[in] ftid: FOLDERTYPEID) -> HRESULT;
             fn SetFolderLogicalViewMode(&self, #[in] flvm: FOLDERLOGICALVIEWMODE) -> HRESULT;
             fn SetIconSize(&self, #[in] iIconSize: i32) -> HRESULT;
@@ -1824,7 +1824,7 @@ mod Windows {
         }
         #[guid(0x000214e6_0000_0000_c000_000000000046)]
         interface IShellFolder: IUnknown {
-            fn ParseDisplayName(&self, #[in] #[opt] hwnd: HWND, #[in] #[opt] pbc: IBindCtx, #[in] #[null_terminated(entry)] pszDisplayName: LPWSTR, #[in] #[out] #[reserved] pchEaten: *mut ULONG, #[out] ppidl: *mut LPITEMIDLIST, #[in] #[opt] #[out] pdwAttributes: *mut ULONG) -> HRESULT;
+            fn ParseDisplayName(&self, #[in] #[opt] hwnd: HWND, #[in] #[opt] pbc: IBindCtx, #[in] #[null_terminated] pszDisplayName: LPWSTR, #[in] #[out] #[reserved] pchEaten: *mut ULONG, #[out] ppidl: *mut LPITEMIDLIST, #[in] #[opt] #[out] pdwAttributes: *mut ULONG) -> HRESULT;
             fn EnumObjects(&self, #[in] #[opt] hwnd: HWND, #[in] grfFlags: SHCONTF, #[out] #[retval] ppenumIDList: *mut IEnumIDList) -> HRESULT;
             fn BindToObject(&self, #[in] pidl: LPCITEMIDLIST, #[in] #[opt] pbc: IBindCtx, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
             fn BindToStorage(&self, #[in] pidl: LPCITEMIDLIST, #[in] #[opt] pbc: IBindCtx, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
@@ -1851,8 +1851,8 @@ mod Windows {
         }
         #[guid(0x0c6c4200_c589_11d0_999a_00c04fd655e1)]
         interface IShellIconOverlayIdentifier: IUnknown {
-            fn IsMemberOf(&self, #[in] #[null_terminated(entry)] pwszPath: LPCWSTR, #[in] dwAttrib: DWORD) -> HRESULT;
-            fn GetOverlayInfo(&self, #[buffer(cchMax)] #[null_terminated(success)] #[out] pwszIconFile: LPWSTR, #[in] cchMax: i32, #[out] pIndex: *mut i32, #[out] pdwFlags: *mut DWORD) -> HRESULT;
+            fn IsMemberOf(&self, #[in] #[null_terminated] pwszPath: LPCWSTR, #[in] dwAttrib: DWORD) -> HRESULT;
+            fn GetOverlayInfo(&self, #[buffer(cchMax)] #[null_terminated] #[out] pwszIconFile: LPWSTR, #[in] cchMax: i32, #[out] pIndex: *mut i32, #[out] pdwFlags: *mut DWORD) -> HRESULT;
             fn GetPriority(&self, #[out] pPriority: *mut i32) -> HRESULT;
         }
         #[guid(0x43826d1e_e718_42ee_bc55_a1e261c37bfe)]
@@ -1874,7 +1874,7 @@ mod Windows {
             fn GetCLSID(&self, #[in] key: &PROPERTYKEY, #[out] pclsid: *mut CLSID) -> HRESULT;
             fn GetFileTime(&self, #[in] key: &PROPERTYKEY, #[out] pft: *mut FILETIME) -> HRESULT;
             fn GetInt32(&self, #[in] key: &PROPERTYKEY, #[out] pi: *mut i32) -> HRESULT;
-            fn GetString(&self, #[in] key: &PROPERTYKEY, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppsz: *mut LPWSTR) -> HRESULT;
+            fn GetString(&self, #[in] key: &PROPERTYKEY, #[incomplete] #[out] ppsz: *mut LPWSTR) -> HRESULT;
             fn GetUInt32(&self, #[in] key: &PROPERTYKEY, #[out] pui: *mut ULONG) -> HRESULT;
             fn GetUInt64(&self, #[in] key: &PROPERTYKEY, #[out] pull: *mut ULONGLONG) -> HRESULT;
             fn GetBool(&self, #[in] key: &PROPERTYKEY, #[out] pf: *mut BOOL) -> HRESULT;
@@ -1904,7 +1904,7 @@ mod Windows {
             fn GetSize(&self, #[out] pullSize: *mut ULONGLONG) -> HRESULT;
             fn GetTimes(&self, #[out] pftCreation: *mut FILETIME, #[out] pftWrite: *mut FILETIME, #[out] pftAccess: *mut FILETIME) -> HRESULT;
             fn SetTimes(&self, #[in] #[opt] pftCreation: *const FILETIME, #[in] #[opt] pftWrite: *const FILETIME, #[in] #[opt] pftAccess: *const FILETIME) -> HRESULT;
-            fn GetResourceDescription(&self, #[in] pcsir: *const SHELL_ITEM_RESOURCE, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppszDescription: *mut LPWSTR) -> HRESULT;
+            fn GetResourceDescription(&self, #[in] pcsir: *const SHELL_ITEM_RESOURCE, #[incomplete] #[out] ppszDescription: *mut LPWSTR) -> HRESULT;
             fn EnumResources(&self, #[out] #[retval] ppenumr: *mut IEnumResources) -> HRESULT;
             fn SupportsResource(&self, #[in] pcsir: *const SHELL_ITEM_RESOURCE) -> HRESULT;
             fn OpenResource(&self, #[in] pcsir: *const SHELL_ITEM_RESOURCE, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
@@ -1925,32 +1925,32 @@ mod Windows {
             fn SetOptions(&self, #[in] lofMask: LIBRARYOPTIONFLAGS, #[in] lofOptions: LIBRARYOPTIONFLAGS) -> HRESULT;
             fn GetFolderType(&self, #[out] pftid: *mut FOLDERTYPEID) -> HRESULT;
             fn SetFolderType(&self, #[in] ftid: &FOLDERTYPEID) -> HRESULT;
-            fn GetIcon(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppszIcon: *mut LPWSTR) -> HRESULT;
-            fn SetIcon(&self, #[in] #[null_terminated(entry)] pszIcon: LPCWSTR) -> HRESULT;
+            fn GetIcon(&self, #[incomplete] #[out] ppszIcon: *mut LPWSTR) -> HRESULT;
+            fn SetIcon(&self, #[in] #[null_terminated] pszIcon: LPCWSTR) -> HRESULT;
             fn Commit(&self) -> HRESULT;
-            fn Save(&self, #[in] #[opt] psiFolderToSaveIn: IShellItem, #[in] #[null_terminated(entry)] pszLibraryName: LPCWSTR, #[in] lsf: LIBRARYSAVEFLAGS, #[out] #[retval] ppsiSavedTo: *mut IShellItem) -> HRESULT;
-            fn SaveInKnownFolder(&self, #[in] kfidToSaveIn: &KNOWNFOLDERID, #[in] #[null_terminated(entry)] pszLibraryName: LPCWSTR, #[in] lsf: LIBRARYSAVEFLAGS, #[out] #[retval] ppsiSavedTo: *mut IShellItem) -> HRESULT;
+            fn Save(&self, #[in] #[opt] psiFolderToSaveIn: IShellItem, #[in] #[null_terminated] pszLibraryName: LPCWSTR, #[in] lsf: LIBRARYSAVEFLAGS, #[out] #[retval] ppsiSavedTo: *mut IShellItem) -> HRESULT;
+            fn SaveInKnownFolder(&self, #[in] kfidToSaveIn: &KNOWNFOLDERID, #[in] #[null_terminated] pszLibraryName: LPCWSTR, #[in] lsf: LIBRARYSAVEFLAGS, #[out] #[retval] ppsiSavedTo: *mut IShellItem) -> HRESULT;
         }
         #[guid(0x000214ee_0000_0000_c000_000000000046)]
         interface IShellLinkA: IUnknown {
-            fn GetPath(&self, #[buffer(cch)] #[null_terminated(success)] #[out] pszFile: LPSTR, #[in] cch: i32, #[in] #[opt] #[out] pfd: *mut WIN32_FIND_DATAA, #[in] fFlags: DWORD) -> HRESULT;
+            fn GetPath(&self, #[buffer(cch)] #[null_terminated] #[out] pszFile: LPSTR, #[in] cch: i32, #[in] #[opt] #[out] pfd: *mut WIN32_FIND_DATAA, #[in] fFlags: DWORD) -> HRESULT;
             fn GetIDList(&self, #[out] ppidl: *mut LPITEMIDLIST) -> HRESULT;
             fn SetIDList(&self, #[in] pidl: LPCITEMIDLIST) -> HRESULT;
-            fn GetDescription(&self, #[buffer(cch)] #[null_terminated(success)] #[out] pszName: LPSTR, #[in] cch: i32) -> HRESULT;
-            fn SetDescription(&self, #[in] #[null_terminated(entry)] pszName: LPCSTR) -> HRESULT;
-            fn GetWorkingDirectory(&self, #[buffer(cch)] #[null_terminated(success)] #[out] pszDir: LPSTR, #[in] cch: i32) -> HRESULT;
-            fn SetWorkingDirectory(&self, #[in] #[null_terminated(entry)] pszDir: LPCSTR) -> HRESULT;
-            fn GetArguments(&self, #[buffer(cch)] #[null_terminated(success)] #[out] pszArgs: LPSTR, #[in] cch: i32) -> HRESULT;
-            fn SetArguments(&self, #[in] #[null_terminated(entry)] pszArgs: LPCSTR) -> HRESULT;
+            fn GetDescription(&self, #[buffer(cch)] #[null_terminated] #[out] pszName: LPSTR, #[in] cch: i32) -> HRESULT;
+            fn SetDescription(&self, #[in] #[null_terminated] pszName: LPCSTR) -> HRESULT;
+            fn GetWorkingDirectory(&self, #[buffer(cch)] #[null_terminated] #[out] pszDir: LPSTR, #[in] cch: i32) -> HRESULT;
+            fn SetWorkingDirectory(&self, #[in] #[null_terminated] pszDir: LPCSTR) -> HRESULT;
+            fn GetArguments(&self, #[buffer(cch)] #[null_terminated] #[out] pszArgs: LPSTR, #[in] cch: i32) -> HRESULT;
+            fn SetArguments(&self, #[in] #[null_terminated] pszArgs: LPCSTR) -> HRESULT;
             fn GetHotkey(&self, #[out] pwHotkey: *mut WORD) -> HRESULT;
             fn SetHotkey(&self, #[in] wHotkey: WORD) -> HRESULT;
             fn GetShowCmd(&self, #[out] piShowCmd: *mut i32) -> HRESULT;
             fn SetShowCmd(&self, #[in] iShowCmd: i32) -> HRESULT;
-            fn GetIconLocation(&self, #[buffer(cch)] #[null_terminated(success)] #[out] pszIconPath: LPSTR, #[in] cch: i32, #[out] piIcon: *mut i32) -> HRESULT;
-            fn SetIconLocation(&self, #[in] #[null_terminated(entry)] pszIconPath: LPCSTR, #[in] iIcon: i32) -> HRESULT;
-            fn SetRelativePath(&self, #[in] #[null_terminated(entry)] pszPathRel: LPCSTR, #[in] dwReserved: DWORD) -> HRESULT;
+            fn GetIconLocation(&self, #[buffer(cch)] #[null_terminated] #[out] pszIconPath: LPSTR, #[in] cch: i32, #[out] piIcon: *mut i32) -> HRESULT;
+            fn SetIconLocation(&self, #[in] #[null_terminated] pszIconPath: LPCSTR, #[in] iIcon: i32) -> HRESULT;
+            fn SetRelativePath(&self, #[in] #[null_terminated] pszPathRel: LPCSTR, #[in] dwReserved: DWORD) -> HRESULT;
             fn Resolve(&self, #[in] #[opt] hwnd: HWND, #[in] fFlags: DWORD) -> HRESULT;
-            fn SetPath(&self, #[in] #[null_terminated(entry)] pszFile: LPCSTR) -> HRESULT;
+            fn SetPath(&self, #[in] #[null_terminated] pszFile: LPCSTR) -> HRESULT;
         }
         #[guid(0x45e2b4ae_b1c3_11d0_b92f_00a0c90312e1)]
         interface IShellLinkDataList: IUnknown {
@@ -1962,24 +1962,24 @@ mod Windows {
         }
         #[guid(0x000214f9_0000_0000_c000_000000000046)]
         interface IShellLinkW: IUnknown {
-            fn GetPath(&self, #[buffer(cch)] #[null_terminated(success)] #[out] pszFile: LPWSTR, #[in] cch: i32, #[in] #[opt] #[out] pfd: *mut WIN32_FIND_DATAW, #[in] fFlags: DWORD) -> HRESULT;
+            fn GetPath(&self, #[buffer(cch)] #[null_terminated] #[out] pszFile: LPWSTR, #[in] cch: i32, #[in] #[opt] #[out] pfd: *mut WIN32_FIND_DATAW, #[in] fFlags: DWORD) -> HRESULT;
             fn GetIDList(&self, #[out] ppidl: *mut LPITEMIDLIST) -> HRESULT;
             fn SetIDList(&self, #[in] #[opt] pidl: LPCITEMIDLIST) -> HRESULT;
-            fn GetDescription(&self, #[buffer(cch)] #[null_terminated(success)] #[out] pszName: LPWSTR, cch: i32) -> HRESULT;
-            fn SetDescription(&self, #[in] #[null_terminated(entry)] pszName: LPCWSTR) -> HRESULT;
-            fn GetWorkingDirectory(&self, #[buffer(cch)] #[null_terminated(success)] #[out] pszDir: LPWSTR, cch: i32) -> HRESULT;
-            fn SetWorkingDirectory(&self, #[in] #[null_terminated(entry)] pszDir: LPCWSTR) -> HRESULT;
-            fn GetArguments(&self, #[buffer(cch)] #[null_terminated(success)] #[out] pszArgs: LPWSTR, #[in] cch: i32) -> HRESULT;
-            fn SetArguments(&self, #[in] #[null_terminated(entry)] pszArgs: LPCWSTR) -> HRESULT;
+            fn GetDescription(&self, #[buffer(cch)] #[null_terminated] #[out] pszName: LPWSTR, cch: i32) -> HRESULT;
+            fn SetDescription(&self, #[in] #[null_terminated] pszName: LPCWSTR) -> HRESULT;
+            fn GetWorkingDirectory(&self, #[buffer(cch)] #[null_terminated] #[out] pszDir: LPWSTR, cch: i32) -> HRESULT;
+            fn SetWorkingDirectory(&self, #[in] #[null_terminated] pszDir: LPCWSTR) -> HRESULT;
+            fn GetArguments(&self, #[buffer(cch)] #[null_terminated] #[out] pszArgs: LPWSTR, #[in] cch: i32) -> HRESULT;
+            fn SetArguments(&self, #[in] #[null_terminated] pszArgs: LPCWSTR) -> HRESULT;
             fn GetHotkey(&self, #[out] pwHotkey: *mut WORD) -> HRESULT;
             fn SetHotkey(&self, #[in] wHotkey: WORD) -> HRESULT;
             fn GetShowCmd(&self, #[out] piShowCmd: *mut i32) -> HRESULT;
             fn SetShowCmd(&self, #[in] iShowCmd: i32) -> HRESULT;
-            fn GetIconLocation(&self, #[buffer(cch)] #[null_terminated(success)] #[out] pszIconPath: LPWSTR, #[in] cch: i32, #[out] piIcon: *mut i32) -> HRESULT;
-            fn SetIconLocation(&self, #[in] #[null_terminated(entry)] pszIconPath: LPCWSTR, #[in] iIcon: i32) -> HRESULT;
-            fn SetRelativePath(&self, #[in] #[null_terminated(entry)] pszPathRel: LPCWSTR, #[in] dwReserved: DWORD) -> HRESULT;
+            fn GetIconLocation(&self, #[buffer(cch)] #[null_terminated] #[out] pszIconPath: LPWSTR, #[in] cch: i32, #[out] piIcon: *mut i32) -> HRESULT;
+            fn SetIconLocation(&self, #[in] #[null_terminated] pszIconPath: LPCWSTR, #[in] iIcon: i32) -> HRESULT;
+            fn SetRelativePath(&self, #[in] #[null_terminated] pszPathRel: LPCWSTR, #[in] dwReserved: DWORD) -> HRESULT;
             fn Resolve(&self, #[in] #[opt] hwnd: HWND, #[in] fFlags: DWORD) -> HRESULT;
-            fn SetPath(&self, #[in] #[null_terminated(entry)] pszFile: LPCWSTR) -> HRESULT;
+            fn SetPath(&self, #[in] #[null_terminated] pszFile: LPCWSTR) -> HRESULT;
         }
         #[guid(0xee1f7637_e138_11d1_8379_00c04fd918d0)]
         interface IShellMenu: IUnknown {
@@ -2082,8 +2082,8 @@ mod Windows {
             fn ThumbBarAddButtons(&self, #[in] hwnd: HWND, #[in] cButtons: UINT, #[buffer(cButtons)] #[in] pButton: LPTHUMBBUTTON) -> HRESULT;
             fn ThumbBarUpdateButtons(&self, #[in] hwnd: HWND, #[in] cButtons: UINT, #[buffer(cButtons)] #[in] pButton: LPTHUMBBUTTON) -> HRESULT;
             fn ThumbBarSetImageList(&self, #[in] hwnd: HWND, #[in] #[opt] himl: HIMAGELIST) -> HRESULT;
-            fn SetOverlayIcon(&self, #[in] hwnd: HWND, #[in] hIcon: HICON, #[in] #[null_terminated(entry)] #[opt] pszDescription: LPCWSTR) -> HRESULT;
-            fn SetThumbnailTooltip(&self, #[in] hwnd: HWND, #[in] #[null_terminated(entry)] #[opt] pszTip: LPCWSTR) -> HRESULT;
+            fn SetOverlayIcon(&self, #[in] hwnd: HWND, #[in] hIcon: HICON, #[in] #[null_terminated] #[opt] pszDescription: LPCWSTR) -> HRESULT;
+            fn SetThumbnailTooltip(&self, #[in] hwnd: HWND, #[in] #[null_terminated] #[opt] pszTip: LPCWSTR) -> HRESULT;
             fn SetThumbnailClip(&self, #[in] hwnd: HWND, #[in] prcClip: *mut RECT) -> HRESULT;
         }
         #[guid(0xc43dc798_95d1_4bea_9030_bb99e2983a1a)]
@@ -2098,10 +2098,10 @@ mod Windows {
         interface ITransferAdviseSink: IUnknown {
             fn UpdateProgress(&self, #[in] ullSizeCurrent: ULONGLONG, #[in] ullSizeTotal: ULONGLONG, #[in] nFilesCurrent: i32, #[in] nFilesTotal: i32, #[in] nFoldersCurrent: i32, #[in] nFoldersTotal: i32) -> HRESULT;
             fn UpdateTransferState(&self, #[in] ts: TRANSFER_ADVISE_STATE) -> HRESULT;
-            fn ConfirmOverwrite(&self, #[in] #[opt] psiSource: IShellItem, #[in] #[opt] psiDestParent: IShellItem, #[in] #[null_terminated(entry)] pszName: LPCWSTR) -> HRESULT;
+            fn ConfirmOverwrite(&self, #[in] #[opt] psiSource: IShellItem, #[in] #[opt] psiDestParent: IShellItem, #[in] #[null_terminated] pszName: LPCWSTR) -> HRESULT;
             fn ConfirmEncryptionLoss(&self, #[in] #[opt] psiSource: IShellItem) -> HRESULT;
-            fn FileFailure(&self, #[in] #[opt] psi: IShellItem, #[in] #[null_terminated(entry)] #[opt] pszItem: LPCWSTR, #[in] hrError: HRESULT, #[buffer(cchRename)] #[in] #[opt] #[out] pszRename: LPWSTR, #[in] cchRename: ULONG) -> HRESULT;
-            fn SubStreamFailure(&self, #[in] #[opt] psi: IShellItem, #[in] #[null_terminated(entry)] pszStreamName: LPCWSTR, #[in] hrError: HRESULT) -> HRESULT;
+            fn FileFailure(&self, #[in] #[opt] psi: IShellItem, #[in] #[null_terminated] #[opt] pszItem: LPCWSTR, #[in] hrError: HRESULT, #[buffer(cchRename)] #[in] #[opt] #[out] pszRename: LPWSTR, #[in] cchRename: ULONG) -> HRESULT;
+            fn SubStreamFailure(&self, #[in] #[opt] psi: IShellItem, #[in] #[null_terminated] pszStreamName: LPCWSTR, #[in] hrError: HRESULT) -> HRESULT;
             fn PropertyFailure(&self, #[in] #[opt] psi: IShellItem, #[in] #[opt] pkey: *const PROPERTYKEY, #[in] hrError: HRESULT) -> HRESULT;
         }
         #[guid(0x48addd32_3ca5_4124_abe3_b5a72531b207)]
@@ -2134,11 +2134,11 @@ mod Windows {
         }
         #[guid(0xba9711ba_5893_4787_a7e1_41277151550b)]
         interface IUserNotification: IUnknown {
-            fn SetBalloonInfo(&self, #[in] #[null_terminated(entry)] #[opt] pszTitle: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] pszText: LPCWSTR, #[in] dwInfoFlags: DWORD) -> HRESULT;
+            fn SetBalloonInfo(&self, #[in] #[null_terminated] #[opt] pszTitle: LPCWSTR, #[in] #[null_terminated] #[opt] pszText: LPCWSTR, #[in] dwInfoFlags: DWORD) -> HRESULT;
             fn SetBalloonRetry(&self, #[in] dwShowTime: DWORD, #[in] dwInterval: DWORD, #[in] cRetryCount: UINT) -> HRESULT;
-            fn SetIconInfo(&self, #[in] #[opt] hIcon: HICON, #[in] #[null_terminated(entry)] #[opt] pszToolTip: LPCWSTR) -> HRESULT;
+            fn SetIconInfo(&self, #[in] #[opt] hIcon: HICON, #[in] #[null_terminated] #[opt] pszToolTip: LPCWSTR) -> HRESULT;
             fn Show(&self, #[in] #[opt] pqc: IQueryContinue, #[in] dwContinuePollInterval: DWORD) -> HRESULT;
-            fn PlaySound(&self, #[in] #[null_terminated(entry)] pszSoundName: LPCWSTR) -> HRESULT;
+            fn PlaySound(&self, #[in] #[null_terminated] pszSoundName: LPCWSTR) -> HRESULT;
         }
         #[guid(0x9d264146_a94f_4195_9f9f_3bb12ce0c955)]
         interface IViewStateIdentityItem: IRelatedItem {}

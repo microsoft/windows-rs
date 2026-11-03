@@ -16,7 +16,7 @@ mod Windows {
             fn UnregisterForCallbacks(&self, #[in] pCallback: IXAudio2EngineCallback);
             fn CreateSourceVoice(&self, #[out] ppSourceVoice: *mut IXAudio2SourceVoice, #[in] pSourceFormat: *const WAVEFORMATEX, Flags: UINT32, MaxFrequencyRatio: f32, #[in] #[opt] pCallback: IXAudio2VoiceCallback, #[in] #[opt] pSendList: *const XAUDIO2_VOICE_SENDS, #[in] #[opt] pEffectChain: *const XAUDIO2_EFFECT_CHAIN) -> HRESULT;
             fn CreateSubmixVoice(&self, #[out] ppSubmixVoice: *mut IXAudio2SubmixVoice, InputChannels: UINT32, InputSampleRate: UINT32, Flags: UINT32, ProcessingStage: UINT32, #[in] #[opt] pSendList: *const XAUDIO2_VOICE_SENDS, #[in] #[opt] pEffectChain: *const XAUDIO2_EFFECT_CHAIN) -> HRESULT;
-            fn CreateMasteringVoice(&self, #[out] ppMasteringVoice: *mut IXAudio2MasteringVoice, InputChannels: UINT32, InputSampleRate: UINT32, Flags: UINT32, #[in] #[null_terminated(entry)] #[opt] szDeviceId: LPCWSTR, #[in] #[opt] pEffectChain: *const XAUDIO2_EFFECT_CHAIN, #[in] StreamCategory: AUDIO_STREAM_CATEGORY) -> HRESULT;
+            fn CreateMasteringVoice(&self, #[out] ppMasteringVoice: *mut IXAudio2MasteringVoice, InputChannels: UINT32, InputSampleRate: UINT32, Flags: UINT32, #[in] #[null_terminated] #[opt] szDeviceId: LPCWSTR, #[in] #[opt] pEffectChain: *const XAUDIO2_EFFECT_CHAIN, #[in] StreamCategory: AUDIO_STREAM_CATEGORY) -> HRESULT;
             fn StartEngine(&self) -> HRESULT;
             fn StopEngine(&self);
             fn CommitChanges(&self, OperationSet: UINT32) -> HRESULT;

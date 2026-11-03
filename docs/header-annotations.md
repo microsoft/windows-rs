@@ -112,20 +112,29 @@ counts. RDL/WinMD publishes only the entry extent. Produced-length metadata can 
 consumer needs it, without rebuilding SAL capture. A Rust initialized-prefix wrapper would also need
 success, completion and value-validity rules; ordinary slice arguments do not require that metadata.
 
-### `null_terminated`: trailing zero elements
+### `null_terminated` and `null_null_terminated`: trailing zero elements
 
-This attribute describes termination, independently of buffer size and character encoding.
-`entry` means the start of the call; `success` means successful return under the API's own success
-condition. These arguments belong to termination, not to `buffer`.
+These argument-free markers describe the buffer representation, independently of encoding, capacity,
+optionality and success conditions.
+
+| Attribute | Meaning |
+| --- | --- |
+| `#[null_terminated]` | A buffer terminated by one zero element |
+| `#[null_null_terminated]` | A buffer terminated by two consecutive zero elements, typically a packed string list |
 
 | Header | RDL |
 | --- | --- |
-| `_In_z_ const char* name` | `#[in] #[null_terminated(entry)] name: *const i8` |
-| `_Pre_ _NullNull_terminated_ const unsigned short* names` | `#[null_terminated(double_entry)] names: *const u16` |
-| `_Outptr_result_maybenull_z_` | `#[null_terminated(success, indirect)] #[out]` |
+| `_In_z_ const char* name` | `#[in] #[null_terminated] name: *const i8` |
+| `_Pre_ _NullNull_terminated_ const unsigned short* names` | `#[null_null_terminated] names: *const u16` |
 
-`double_entry` and `double_success` require two trailing zeros at that time. `indirect` selects the
-pointer stored through the parameter. Bindgen does not currently use this fact to change the Rust type.
+The double-zero form stands alone. Both markers describe the parameter's direct buffer, not a pointer
+stored through it. Neither guarantees initialized output after failure. Mixed single/double
+termination across the call and indirect termination remain native facts; their parameters are marked
+`incomplete` instead of publishing an ambiguous marker.
+
+Clang retains native phases for validation and reconciliation. Rust bindgen does not currently consume
+either marker. CsWin32 uses `NullNullTerminatedAttribute` to select multi-string pointer helpers rather
+than ordinary string helpers.
 
 ### `encoding`: character encoding
 

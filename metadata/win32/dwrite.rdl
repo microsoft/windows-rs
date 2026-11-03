@@ -474,7 +474,7 @@ mod Windows {
             fn CreateCustomFontCollection(&self, #[in] collectionLoader: IDWriteFontCollectionLoader, #[buffer(bytes(collectionKeySize))] #[in] collectionKey: *const void, collectionKeySize: UINT32, #[out] #[retval] fontCollection: *mut IDWriteFontCollection) -> HRESULT;
             fn RegisterFontCollectionLoader(&self, #[in] fontCollectionLoader: IDWriteFontCollectionLoader) -> HRESULT;
             fn UnregisterFontCollectionLoader(&self, #[in] fontCollectionLoader: IDWriteFontCollectionLoader) -> HRESULT;
-            fn CreateFontFileReference(&self, #[in] #[null_terminated(entry)] filePath: *const WCHAR, #[in] #[opt] lastWriteTime: *const FILETIME, #[out] #[retval] fontFile: *mut IDWriteFontFile) -> HRESULT;
+            fn CreateFontFileReference(&self, #[in] #[null_terminated] filePath: *const WCHAR, #[in] #[opt] lastWriteTime: *const FILETIME, #[out] #[retval] fontFile: *mut IDWriteFontFile) -> HRESULT;
             fn CreateCustomFontFileReference(&self, #[buffer(bytes(fontFileReferenceKeySize))] #[in] fontFileReferenceKey: *const void, fontFileReferenceKeySize: UINT32, #[in] fontFileLoader: IDWriteFontFileLoader, #[out] #[retval] fontFile: *mut IDWriteFontFile) -> HRESULT;
             fn CreateFontFace(&self, fontFaceType: DWRITE_FONT_FACE_TYPE, numberOfFiles: UINT32, #[buffer(numberOfFiles)] #[in] fontFiles: *const IDWriteFontFile, faceIndex: UINT32, fontFaceSimulationFlags: DWRITE_FONT_SIMULATIONS, #[out] #[retval] fontFace: *mut IDWriteFontFace) -> HRESULT;
             fn CreateRenderingParams(&self, #[out] #[retval] renderingParams: *mut IDWriteRenderingParams) -> HRESULT;
@@ -482,14 +482,14 @@ mod Windows {
             fn CreateCustomRenderingParams(&self, gamma: FLOAT, enhancedContrast: FLOAT, clearTypeLevel: FLOAT, pixelGeometry: DWRITE_PIXEL_GEOMETRY, renderingMode: DWRITE_RENDERING_MODE, #[out] #[retval] renderingParams: *mut IDWriteRenderingParams) -> HRESULT;
             fn RegisterFontFileLoader(&self, #[in] fontFileLoader: IDWriteFontFileLoader) -> HRESULT;
             fn UnregisterFontFileLoader(&self, #[in] fontFileLoader: IDWriteFontFileLoader) -> HRESULT;
-            fn CreateTextFormat(&self, #[in] #[null_terminated(entry)] fontFamilyName: *const WCHAR, #[in] #[opt] fontCollection: IDWriteFontCollection, fontWeight: DWRITE_FONT_WEIGHT, fontStyle: DWRITE_FONT_STYLE, fontStretch: DWRITE_FONT_STRETCH, fontSize: FLOAT, #[in] #[null_terminated(entry)] localeName: *const WCHAR, #[out] #[retval] textFormat: *mut IDWriteTextFormat) -> HRESULT;
+            fn CreateTextFormat(&self, #[in] #[null_terminated] fontFamilyName: *const WCHAR, #[in] #[opt] fontCollection: IDWriteFontCollection, fontWeight: DWRITE_FONT_WEIGHT, fontStyle: DWRITE_FONT_STYLE, fontStretch: DWRITE_FONT_STRETCH, fontSize: FLOAT, #[in] #[null_terminated] localeName: *const WCHAR, #[out] #[retval] textFormat: *mut IDWriteTextFormat) -> HRESULT;
             fn CreateTypography(&self, #[out] #[retval] typography: *mut IDWriteTypography) -> HRESULT;
             fn GetGdiInterop(&self, #[out] #[retval] gdiInterop: *mut IDWriteGdiInterop) -> HRESULT;
             fn CreateTextLayout(&self, #[buffer(stringLength)] #[in] string: *const WCHAR, stringLength: UINT32, #[in] textFormat: IDWriteTextFormat, maxWidth: FLOAT, maxHeight: FLOAT, #[out] #[retval] textLayout: *mut IDWriteTextLayout) -> HRESULT;
             fn CreateGdiCompatibleTextLayout(&self, #[buffer(stringLength)] #[in] string: *const WCHAR, stringLength: UINT32, #[in] textFormat: IDWriteTextFormat, layoutWidth: FLOAT, layoutHeight: FLOAT, pixelsPerDip: FLOAT, #[in] #[opt] transform: *const DWRITE_MATRIX, useGdiNatural: BOOL, #[out] #[retval] textLayout: *mut IDWriteTextLayout) -> HRESULT;
             fn CreateEllipsisTrimmingSign(&self, #[in] textFormat: IDWriteTextFormat, #[out] #[retval] trimmingSign: *mut IDWriteInlineObject) -> HRESULT;
             fn CreateTextAnalyzer(&self, #[out] #[retval] textAnalyzer: *mut IDWriteTextAnalyzer) -> HRESULT;
-            fn CreateNumberSubstitution(&self, #[in] substitutionMethod: DWRITE_NUMBER_SUBSTITUTION_METHOD, #[in] #[null_terminated(entry)] localeName: *const WCHAR, #[in] ignoreUserOverride: BOOL, #[out] #[retval] numberSubstitution: *mut IDWriteNumberSubstitution) -> HRESULT;
+            fn CreateNumberSubstitution(&self, #[in] substitutionMethod: DWRITE_NUMBER_SUBSTITUTION_METHOD, #[in] #[null_terminated] localeName: *const WCHAR, #[in] ignoreUserOverride: BOOL, #[out] #[retval] numberSubstitution: *mut IDWriteNumberSubstitution) -> HRESULT;
             fn CreateGlyphRunAnalysis(&self, #[in] glyphRun: *const DWRITE_GLYPH_RUN, pixelsPerDip: FLOAT, #[in] #[opt] transform: *const DWRITE_MATRIX, renderingMode: DWRITE_RENDERING_MODE, measuringMode: DWRITE_MEASURING_MODE, baselineOriginX: FLOAT, baselineOriginY: FLOAT, #[out] #[retval] glyphRunAnalysis: *mut IDWriteGlyphRunAnalysis) -> HRESULT;
         }
         #[guid(0xacd16696_8c14_4f5d_877e_fe3fc1d32737)]
@@ -510,7 +510,7 @@ mod Windows {
         interface IDWriteFontCollection: IUnknown {
             fn GetFontFamilyCount(&self) -> UINT32;
             fn GetFontFamily(&self, index: UINT32, #[out] #[retval] fontFamily: *mut IDWriteFontFamily) -> HRESULT;
-            fn FindFamilyName(&self, #[in] #[null_terminated(entry)] familyName: *const WCHAR, #[out] index: *mut UINT32, #[out] exists: *mut BOOL) -> HRESULT;
+            fn FindFamilyName(&self, #[in] #[null_terminated] familyName: *const WCHAR, #[out] index: *mut UINT32, #[out] exists: *mut BOOL) -> HRESULT;
             fn GetFontFromFontFace(&self, #[in] fontFace: IDWriteFontFace, #[out] #[retval] font: *mut IDWriteFont) -> HRESULT;
         }
         #[guid(0xcca920e4_52f0_492b_bfa8_29c72ee0a468)]
@@ -594,17 +594,17 @@ mod Windows {
         #[guid(0xb2d9f3ec_c9fe_4a11_a2ec_d86208f7c0a2)]
         interface IDWriteLocalFontFileLoader: IDWriteFontFileLoader {
             fn GetFilePathLengthFromKey(&self, #[buffer(bytes(fontFileReferenceKeySize))] #[in] fontFileReferenceKey: *const void, fontFileReferenceKeySize: UINT32, #[out] filePathLength: *mut UINT32) -> HRESULT;
-            fn GetFilePathFromKey(&self, #[buffer(bytes(fontFileReferenceKeySize))] #[in] fontFileReferenceKey: *const void, fontFileReferenceKeySize: UINT32, #[buffer(filePathSize)] #[null_terminated(success)] #[out] filePath: *mut WCHAR, filePathSize: UINT32) -> HRESULT;
+            fn GetFilePathFromKey(&self, #[buffer(bytes(fontFileReferenceKeySize))] #[in] fontFileReferenceKey: *const void, fontFileReferenceKeySize: UINT32, #[buffer(filePathSize)] #[null_terminated] #[out] filePath: *mut WCHAR, filePathSize: UINT32) -> HRESULT;
             fn GetLastWriteTimeFromKey(&self, #[buffer(bytes(fontFileReferenceKeySize))] #[in] fontFileReferenceKey: *const void, fontFileReferenceKeySize: UINT32, #[out] lastWriteTime: *mut FILETIME) -> HRESULT;
         }
         #[guid(0x08256209_099a_4b34_b86d_c22b110e7771)]
         interface IDWriteLocalizedStrings: IUnknown {
             fn GetCount(&self) -> UINT32;
-            fn FindLocaleName(&self, #[in] #[null_terminated(entry)] localeName: *const WCHAR, #[out] index: *mut UINT32, #[out] exists: *mut BOOL) -> HRESULT;
+            fn FindLocaleName(&self, #[in] #[null_terminated] localeName: *const WCHAR, #[out] index: *mut UINT32, #[out] exists: *mut BOOL) -> HRESULT;
             fn GetLocaleNameLength(&self, index: UINT32, #[out] length: *mut UINT32) -> HRESULT;
-            fn GetLocaleName(&self, index: UINT32, #[buffer(size)] #[null_terminated(success)] #[out] localeName: *mut WCHAR, size: UINT32) -> HRESULT;
+            fn GetLocaleName(&self, index: UINT32, #[buffer(size)] #[null_terminated] #[out] localeName: *mut WCHAR, size: UINT32) -> HRESULT;
             fn GetStringLength(&self, index: UINT32, #[out] length: *mut UINT32) -> HRESULT;
-            fn GetString(&self, index: UINT32, #[buffer(size)] #[null_terminated(success)] #[out] stringBuffer: *mut WCHAR, size: UINT32) -> HRESULT;
+            fn GetString(&self, index: UINT32, #[buffer(size)] #[null_terminated] #[out] stringBuffer: *mut WCHAR, size: UINT32) -> HRESULT;
         }
         #[guid(0x14885cc9_bab0_4f90_b6ed_5c366a2cd03d)]
         interface IDWriteNumberSubstitution: IUnknown {}
@@ -634,7 +634,7 @@ mod Windows {
             fn GetTextAtPosition(&self, textPosition: UINT32, #[incomplete] #[out] textString: *mut *const WCHAR, #[out] textLength: *mut UINT32) -> HRESULT;
             fn GetTextBeforePosition(&self, textPosition: UINT32, #[incomplete] #[out] textString: *mut *const WCHAR, #[out] textLength: *mut UINT32) -> HRESULT;
             fn GetParagraphReadingDirection(&self) -> DWRITE_READING_DIRECTION;
-            fn GetLocaleName(&self, textPosition: UINT32, #[out] textLength: *mut UINT32, #[null_terminated(success, indirect)] #[out] localeName: *mut *const WCHAR) -> HRESULT;
+            fn GetLocaleName(&self, textPosition: UINT32, #[out] textLength: *mut UINT32, #[incomplete] #[out] localeName: *mut *const WCHAR) -> HRESULT;
             fn GetNumberSubstitution(&self, textPosition: UINT32, #[out] textLength: *mut UINT32, #[out] #[retval] numberSubstitution: *mut IDWriteNumberSubstitution) -> HRESULT;
         }
         #[guid(0xb7e6163e_7f46_43b4_84b3_e4e6249c365d)]
@@ -643,9 +643,9 @@ mod Windows {
             fn AnalyzeBidi(&self, #[in] analysisSource: IDWriteTextAnalysisSource, textPosition: UINT32, textLength: UINT32, #[in] analysisSink: IDWriteTextAnalysisSink) -> HRESULT;
             fn AnalyzeNumberSubstitution(&self, #[in] analysisSource: IDWriteTextAnalysisSource, textPosition: UINT32, textLength: UINT32, #[in] analysisSink: IDWriteTextAnalysisSink) -> HRESULT;
             fn AnalyzeLineBreakpoints(&self, #[in] analysisSource: IDWriteTextAnalysisSource, textPosition: UINT32, textLength: UINT32, #[in] analysisSink: IDWriteTextAnalysisSink) -> HRESULT;
-            fn GetGlyphs(&self, #[buffer(textLength)] #[in] textString: *const WCHAR, textLength: UINT32, #[in] fontFace: IDWriteFontFace, isSideways: BOOL, isRightToLeft: BOOL, #[in] scriptAnalysis: *const DWRITE_SCRIPT_ANALYSIS, #[in] #[null_terminated(entry)] #[opt] localeName: *const WCHAR, #[in] #[opt] numberSubstitution: IDWriteNumberSubstitution, #[buffer(featureRanges)] #[in] #[opt] features: *mut *const DWRITE_TYPOGRAPHIC_FEATURES, #[buffer(featureRanges)] #[in] #[opt] featureRangeLengths: *const UINT32, featureRanges: UINT32, maxGlyphCount: UINT32, #[buffer(textLength)] #[out] clusterMap: *mut UINT16, #[buffer(textLength)] #[out] textProps: *mut DWRITE_SHAPING_TEXT_PROPERTIES, #[buffer(maxGlyphCount)] #[out] glyphIndices: *mut UINT16, #[buffer(maxGlyphCount)] #[out] glyphProps: *mut DWRITE_SHAPING_GLYPH_PROPERTIES, #[out] actualGlyphCount: *mut UINT32) -> HRESULT;
-            fn GetGlyphPlacements(&self, #[buffer(textLength)] #[in] textString: *const WCHAR, #[buffer(textLength)] #[in] clusterMap: *const UINT16, #[buffer(textLength)] #[in] #[out] textProps: *mut DWRITE_SHAPING_TEXT_PROPERTIES, textLength: UINT32, #[buffer(glyphCount)] #[in] glyphIndices: *const UINT16, #[buffer(glyphCount)] #[in] glyphProps: *const DWRITE_SHAPING_GLYPH_PROPERTIES, glyphCount: UINT32, #[in] fontFace: IDWriteFontFace, fontEmSize: FLOAT, isSideways: BOOL, isRightToLeft: BOOL, #[in] scriptAnalysis: *const DWRITE_SCRIPT_ANALYSIS, #[in] #[null_terminated(entry)] #[opt] localeName: *const WCHAR, #[buffer(featureRanges)] #[in] #[opt] features: *mut *const DWRITE_TYPOGRAPHIC_FEATURES, #[buffer(featureRanges)] #[in] #[opt] featureRangeLengths: *const UINT32, featureRanges: UINT32, #[buffer(glyphCount)] #[out] glyphAdvances: *mut FLOAT, #[buffer(glyphCount)] #[out] glyphOffsets: *mut DWRITE_GLYPH_OFFSET) -> HRESULT;
-            fn GetGdiCompatibleGlyphPlacements(&self, #[buffer(textLength)] #[in] textString: *const WCHAR, #[buffer(textLength)] #[in] clusterMap: *const UINT16, #[buffer(textLength)] #[in] textProps: *mut DWRITE_SHAPING_TEXT_PROPERTIES, textLength: UINT32, #[buffer(glyphCount)] #[in] glyphIndices: *const UINT16, #[buffer(glyphCount)] #[in] glyphProps: *const DWRITE_SHAPING_GLYPH_PROPERTIES, glyphCount: UINT32, #[in] fontFace: IDWriteFontFace, fontEmSize: FLOAT, pixelsPerDip: FLOAT, #[in] #[opt] transform: *const DWRITE_MATRIX, useGdiNatural: BOOL, isSideways: BOOL, isRightToLeft: BOOL, #[in] scriptAnalysis: *const DWRITE_SCRIPT_ANALYSIS, #[in] #[null_terminated(entry)] #[opt] localeName: *const WCHAR, #[buffer(featureRanges)] #[in] #[opt] features: *mut *const DWRITE_TYPOGRAPHIC_FEATURES, #[buffer(featureRanges)] #[in] #[opt] featureRangeLengths: *const UINT32, featureRanges: UINT32, #[buffer(glyphCount)] #[out] glyphAdvances: *mut FLOAT, #[buffer(glyphCount)] #[out] glyphOffsets: *mut DWRITE_GLYPH_OFFSET) -> HRESULT;
+            fn GetGlyphs(&self, #[buffer(textLength)] #[in] textString: *const WCHAR, textLength: UINT32, #[in] fontFace: IDWriteFontFace, isSideways: BOOL, isRightToLeft: BOOL, #[in] scriptAnalysis: *const DWRITE_SCRIPT_ANALYSIS, #[in] #[null_terminated] #[opt] localeName: *const WCHAR, #[in] #[opt] numberSubstitution: IDWriteNumberSubstitution, #[buffer(featureRanges)] #[in] #[opt] features: *mut *const DWRITE_TYPOGRAPHIC_FEATURES, #[buffer(featureRanges)] #[in] #[opt] featureRangeLengths: *const UINT32, featureRanges: UINT32, maxGlyphCount: UINT32, #[buffer(textLength)] #[out] clusterMap: *mut UINT16, #[buffer(textLength)] #[out] textProps: *mut DWRITE_SHAPING_TEXT_PROPERTIES, #[buffer(maxGlyphCount)] #[out] glyphIndices: *mut UINT16, #[buffer(maxGlyphCount)] #[out] glyphProps: *mut DWRITE_SHAPING_GLYPH_PROPERTIES, #[out] actualGlyphCount: *mut UINT32) -> HRESULT;
+            fn GetGlyphPlacements(&self, #[buffer(textLength)] #[in] textString: *const WCHAR, #[buffer(textLength)] #[in] clusterMap: *const UINT16, #[buffer(textLength)] #[in] #[out] textProps: *mut DWRITE_SHAPING_TEXT_PROPERTIES, textLength: UINT32, #[buffer(glyphCount)] #[in] glyphIndices: *const UINT16, #[buffer(glyphCount)] #[in] glyphProps: *const DWRITE_SHAPING_GLYPH_PROPERTIES, glyphCount: UINT32, #[in] fontFace: IDWriteFontFace, fontEmSize: FLOAT, isSideways: BOOL, isRightToLeft: BOOL, #[in] scriptAnalysis: *const DWRITE_SCRIPT_ANALYSIS, #[in] #[null_terminated] #[opt] localeName: *const WCHAR, #[buffer(featureRanges)] #[in] #[opt] features: *mut *const DWRITE_TYPOGRAPHIC_FEATURES, #[buffer(featureRanges)] #[in] #[opt] featureRangeLengths: *const UINT32, featureRanges: UINT32, #[buffer(glyphCount)] #[out] glyphAdvances: *mut FLOAT, #[buffer(glyphCount)] #[out] glyphOffsets: *mut DWRITE_GLYPH_OFFSET) -> HRESULT;
+            fn GetGdiCompatibleGlyphPlacements(&self, #[buffer(textLength)] #[in] textString: *const WCHAR, #[buffer(textLength)] #[in] clusterMap: *const UINT16, #[buffer(textLength)] #[in] textProps: *mut DWRITE_SHAPING_TEXT_PROPERTIES, textLength: UINT32, #[buffer(glyphCount)] #[in] glyphIndices: *const UINT16, #[buffer(glyphCount)] #[in] glyphProps: *const DWRITE_SHAPING_GLYPH_PROPERTIES, glyphCount: UINT32, #[in] fontFace: IDWriteFontFace, fontEmSize: FLOAT, pixelsPerDip: FLOAT, #[in] #[opt] transform: *const DWRITE_MATRIX, useGdiNatural: BOOL, isSideways: BOOL, isRightToLeft: BOOL, #[in] scriptAnalysis: *const DWRITE_SCRIPT_ANALYSIS, #[in] #[null_terminated] #[opt] localeName: *const WCHAR, #[buffer(featureRanges)] #[in] #[opt] features: *mut *const DWRITE_TYPOGRAPHIC_FEATURES, #[buffer(featureRanges)] #[in] #[opt] featureRangeLengths: *const UINT32, featureRanges: UINT32, #[buffer(glyphCount)] #[out] glyphAdvances: *mut FLOAT, #[buffer(glyphCount)] #[out] glyphOffsets: *mut DWRITE_GLYPH_OFFSET) -> HRESULT;
         }
         #[guid(0x9c906818_31d7_4fd3_a151_7c5e225db55a)]
         interface IDWriteTextFormat: IUnknown {
@@ -667,20 +667,20 @@ mod Windows {
             fn GetLineSpacing(&self, #[out] lineSpacingMethod: *mut DWRITE_LINE_SPACING_METHOD, #[out] lineSpacing: *mut FLOAT, #[out] baseline: *mut FLOAT) -> HRESULT;
             fn GetFontCollection(&self, #[out] #[retval] fontCollection: *mut IDWriteFontCollection) -> HRESULT;
             fn GetFontFamilyNameLength(&self) -> UINT32;
-            fn GetFontFamilyName(&self, #[buffer(nameSize)] #[null_terminated(success)] #[out] fontFamilyName: *mut WCHAR, nameSize: UINT32) -> HRESULT;
+            fn GetFontFamilyName(&self, #[buffer(nameSize)] #[null_terminated] #[out] fontFamilyName: *mut WCHAR, nameSize: UINT32) -> HRESULT;
             fn GetFontWeight(&self) -> DWRITE_FONT_WEIGHT;
             fn GetFontStyle(&self) -> DWRITE_FONT_STYLE;
             fn GetFontStretch(&self) -> DWRITE_FONT_STRETCH;
             fn GetFontSize(&self) -> FLOAT;
             fn GetLocaleNameLength(&self) -> UINT32;
-            fn GetLocaleName(&self, #[buffer(nameSize)] #[null_terminated(success)] #[out] localeName: *mut WCHAR, nameSize: UINT32) -> HRESULT;
+            fn GetLocaleName(&self, #[buffer(nameSize)] #[null_terminated] #[out] localeName: *mut WCHAR, nameSize: UINT32) -> HRESULT;
         }
         #[guid(0x53737037_6d14_410b_9bfe_0b182bb70961)]
         interface IDWriteTextLayout: IDWriteTextFormat {
             fn SetMaxWidth(&self, maxWidth: FLOAT) -> HRESULT;
             fn SetMaxHeight(&self, maxHeight: FLOAT) -> HRESULT;
             fn SetFontCollection(&self, #[in] fontCollection: IDWriteFontCollection, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
-            fn SetFontFamilyName(&self, #[in] #[null_terminated(entry)] fontFamilyName: *const WCHAR, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
+            fn SetFontFamilyName(&self, #[in] #[null_terminated] fontFamilyName: *const WCHAR, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
             fn SetFontWeight(&self, fontWeight: DWRITE_FONT_WEIGHT, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
             fn SetFontStyle(&self, fontStyle: DWRITE_FONT_STYLE, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
             fn SetFontStretch(&self, fontStretch: DWRITE_FONT_STRETCH, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
@@ -690,12 +690,12 @@ mod Windows {
             fn SetDrawingEffect(&self, drawingEffect: IUnknown, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
             fn SetInlineObject(&self, #[in] inlineObject: IDWriteInlineObject, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
             fn SetTypography(&self, #[in] typography: IDWriteTypography, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
-            fn SetLocaleName(&self, #[in] #[null_terminated(entry)] localeName: *const WCHAR, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
+            fn SetLocaleName(&self, #[in] #[null_terminated] localeName: *const WCHAR, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
             fn GetMaxWidth(&self) -> FLOAT;
             fn GetMaxHeight(&self) -> FLOAT;
             fn GetFontCollection(&self, currentPosition: UINT32, #[out] fontCollection: *mut IDWriteFontCollection, #[opt] #[out] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
             fn GetFontFamilyNameLength(&self, currentPosition: UINT32, #[out] nameLength: *mut UINT32, #[opt] #[out] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetFontFamilyName(&self, currentPosition: UINT32, #[buffer(nameSize)] #[null_terminated(success)] #[out] fontFamilyName: *mut WCHAR, nameSize: UINT32, #[opt] #[out] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            fn GetFontFamilyName(&self, currentPosition: UINT32, #[buffer(nameSize)] #[null_terminated] #[out] fontFamilyName: *mut WCHAR, nameSize: UINT32, #[opt] #[out] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
             fn GetFontWeight(&self, currentPosition: UINT32, #[out] fontWeight: *mut DWRITE_FONT_WEIGHT, #[opt] #[out] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
             fn GetFontStyle(&self, currentPosition: UINT32, #[out] fontStyle: *mut DWRITE_FONT_STYLE, #[opt] #[out] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
             fn GetFontStretch(&self, currentPosition: UINT32, #[out] fontStretch: *mut DWRITE_FONT_STRETCH, #[opt] #[out] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
@@ -706,7 +706,7 @@ mod Windows {
             fn GetInlineObject(&self, currentPosition: UINT32, #[out] inlineObject: *mut IDWriteInlineObject, #[opt] #[out] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
             fn GetTypography(&self, currentPosition: UINT32, #[out] typography: *mut IDWriteTypography, #[opt] #[out] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
             fn GetLocaleNameLength(&self, currentPosition: UINT32, #[out] nameLength: *mut UINT32, #[opt] #[out] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetLocaleName(&self, currentPosition: UINT32, #[buffer(nameSize)] #[null_terminated(success)] #[out] localeName: *mut WCHAR, nameSize: UINT32, #[opt] #[out] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            fn GetLocaleName(&self, currentPosition: UINT32, #[buffer(nameSize)] #[null_terminated] #[out] localeName: *mut WCHAR, nameSize: UINT32, #[opt] #[out] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
             fn Draw(&self, #[in] #[opt] clientDrawingContext: *mut void, #[in] renderer: IDWriteTextRenderer, originX: FLOAT, originY: FLOAT) -> HRESULT;
             fn GetLineMetrics(&self, #[buffer(maxLineCount)] #[opt] #[out] lineMetrics: *mut DWRITE_LINE_METRICS, maxLineCount: UINT32, #[out] actualLineCount: *mut UINT32) -> HRESULT;
             fn GetMetrics(&self, #[out] textMetrics: *mut DWRITE_TEXT_METRICS) -> HRESULT;

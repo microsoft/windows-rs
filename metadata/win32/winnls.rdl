@@ -476,7 +476,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn GetUILanguageInfo(#[in] dwFlags: DWORD, #[in] pwmszLanguage: PCZZWSTR, #[incomplete] #[opt] #[out] pwszFallbackLanguages: PZZWSTR, #[in] #[opt] #[out] pcchFallbackLanguages: PDWORD, #[out] pAttributes: PDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetUserDefaultGeoName(#[buffer(geoNameCount)] #[null_terminated(success)] #[out] geoName: LPWSTR, #[in] geoNameCount: i32) -> i32;
+        extern fn GetUserDefaultGeoName(#[buffer(geoNameCount)] #[null_terminated] #[out] geoName: LPWSTR, #[in] geoNameCount: i32) -> i32;
         #[library("KERNEL32.dll")]
         extern fn GetUserDefaultLCID() -> LCID;
         #[library("KERNEL32.dll")]

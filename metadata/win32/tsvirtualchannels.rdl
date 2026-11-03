@@ -64,7 +64,7 @@ mod Windows {
         }
         #[guid(0xa1230205_d6a7_11d8_b9fd_000bdbd1f198)]
         interface IWTSVirtualChannelManager: IUnknown {
-            fn CreateListener(&self, #[in] #[null_terminated(entry)] pszChannelName: *const i8, #[in] uFlags: ULONG, #[in] #[opt] pListenerCallback: IWTSListenerCallback, #[out] #[retval] ppListener: *mut IWTSListener) -> HRESULT;
+            fn CreateListener(&self, #[in] #[null_terminated] pszChannelName: *const i8, #[in] uFlags: ULONG, #[in] #[opt] pListenerCallback: IWTSListenerCallback, #[out] #[retval] ppListener: *mut IWTSListener) -> HRESULT;
         }
         #[guid(0xe8a47fd3_1af6_4d7f_8e15_515ccae1c00c)]
         interface IWTSWindowChangedCallback: IUnknown {

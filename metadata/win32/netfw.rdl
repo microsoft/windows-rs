@@ -542,6 +542,6 @@ mod Windows {
         type PINET_FIREWALL_AC_CAPABILITIES = *mut INET_FIREWALL_AC_CAPABILITIES;
         type PINET_FIREWALL_AC_CHANGE = *mut INET_FIREWALL_AC_CHANGE;
         type PINET_FIREWALL_APP_CONTAINER = *mut INET_FIREWALL_APP_CONTAINER;
-        extern fn PNETISO_EDP_ID_CALLBACK_FN(#[in] #[opt] #[out] context: *mut void, #[in] #[null_terminated(entry)] #[opt] wszEnterpriseId: LPCWSTR, #[in] dwErr: DWORD);
+        extern fn PNETISO_EDP_ID_CALLBACK_FN(#[in] #[opt] #[out] context: *mut void, #[in] #[null_terminated] #[opt] wszEnterpriseId: LPCWSTR, #[in] dwErr: DWORD);
     }
 }

@@ -2656,7 +2656,7 @@ mod Windows {
         extern fn RtlCreateSystemVolumeInformationFolder(#[in] VolumeRootPath: PCUNICODE_STRING) -> NTSTATUS;
         #[library("ntdll.dll")]
         #[must_use]
-        extern fn RtlCreateUnicodeString(#[incomplete] #[out] DestinationString: PUNICODE_STRING, #[in] #[null_terminated(entry)] SourceString: PCWSTR) -> BOOLEAN;
+        extern fn RtlCreateUnicodeString(#[incomplete] #[out] DestinationString: PUNICODE_STRING, #[in] #[null_terminated] SourceString: PCWSTR) -> BOOLEAN;
         #[library("ntdll.dll")]
         extern fn RtlCreateVirtualAccountSid(#[in] Name: PCUNICODE_STRING, #[in] BaseSubAuthority: ULONG, #[buffer(bytes(*SidLength))] #[out] Sid: PSID, #[in] #[out] SidLength: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
@@ -2719,7 +2719,7 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlInitCodePageTable(#[buffer(2)] #[in] #[opt] TableBase: PUSHORT, #[in] #[out] CodePageTable: PCPTABLEINFO);
         #[library("ntdll.dll")]
-        extern fn RtlInitUnicodeStringEx(#[out] DestinationString: PUNICODE_STRING, #[in] #[incomplete] #[null_terminated(entry)] #[opt] SourceString: PCWSTR) -> NTSTATUS;
+        extern fn RtlInitUnicodeStringEx(#[out] DestinationString: PUNICODE_STRING, #[in] #[incomplete] #[null_terminated] #[opt] SourceString: PCWSTR) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn RtlInitializeSid(#[out] Sid: PSID, #[in] IdentifierAuthority: PSID_IDENTIFIER_AUTHORITY, #[in] SubAuthorityCount: UCHAR) -> NTSTATUS;
         #[library("ntdll.dll")]

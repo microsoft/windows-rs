@@ -65,20 +65,15 @@ mod Windows {
                 Dereference: bool,
                 Bytes: bool,
             }
-            // Zero termination is independent of capacity and does not specify an encoding.
-            // OnSuccess is a postcondition subject to the callable's success contract.
-            // DoubleNullOnEntry/DoubleNullOnSuccess require two trailing zero elements at that
-            // phase; absence means single zero termination. The corresponding phase must be true.
-            // Indirect selects the pointer stored in the parameter at each specified phase.
-            // Termination applies when that pointer is non-null; nullability is a separate contract.
-            // RDL: `#[null_terminated(entry, double_success)]`.
+            // A buffer terminated by one zero element. Encoding, capacity and success are separate.
+            // RDL: `#[null_terminated]`.
             attribute NullTerminatedAttribute {
                 fn();
-                OnEntry: bool,
-                OnSuccess: bool,
-                DoubleNullOnEntry: bool,
-                DoubleNullOnSuccess: bool,
-                Indirect: bool,
+            }
+            // A buffer terminated by two consecutive zero elements, typically a packed string list.
+            // RDL: `#[null_null_terminated]`.
+            attribute NullNullTerminatedAttribute {
+                fn();
             }
             // Marks a parameter that is reserved and must be zero/null (SAL `_Reserved_`).
             // RDL: `#[reserved]`.

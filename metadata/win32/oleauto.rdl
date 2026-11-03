@@ -74,7 +74,7 @@ mod Windows {
         #[must_use]
         extern fn LoadRegTypeLib(rguid: &GUID, wVerMajor: WORD, wVerMinor: WORD, lcid: LCID, pptlib: *mut ITypeLib) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn LoadTypeLib(#[in] #[null_terminated(entry)] szFile: LPCOLESTR, pptlib: *mut ITypeLib) -> HRESULT;
+        extern fn LoadTypeLib(#[in] #[null_terminated] szFile: LPCOLESTR, pptlib: *mut ITypeLib) -> HRESULT;
         #[library("OLEAUT32.dll")]
         #[must_use]
         extern fn LoadTypeLibEx(szFile: LPCOLESTR, regkind: REGKIND, pptlib: *mut ITypeLib) -> HRESULT;
@@ -221,18 +221,18 @@ mod Windows {
         #[library("OLEAUT32.dll")]
         extern fn SysAddRefString(#[in] bstrString: BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn SysAllocString(#[in] #[null_terminated(entry)] #[opt] psz: *const OLECHAR) -> BSTR;
+        extern fn SysAllocString(#[in] #[null_terminated] #[opt] psz: *const OLECHAR) -> BSTR;
         #[library("OLEAUT32.dll")]
-        extern fn SysAllocStringByteLen(#[in] #[null_terminated(entry)] #[opt] psz: LPCSTR, #[in] len: UINT) -> BSTR;
+        extern fn SysAllocStringByteLen(#[in] #[null_terminated] #[opt] psz: LPCSTR, #[in] len: UINT) -> BSTR;
         #[library("OLEAUT32.dll")]
         extern fn SysAllocStringLen(#[buffer(ui)] #[in] #[opt] strIn: *const OLECHAR, ui: UINT) -> BSTR;
         #[library("OLEAUT32.dll")]
         extern fn SysFreeString(#[incomplete] bstrString: BSTR);
         #[library("OLEAUT32.dll")]
-        extern fn SysReAllocString(#[in] #[incomplete] #[out] pbstr: *mut BSTR, #[in] #[null_terminated(entry)] #[opt] psz: *const OLECHAR) -> INT;
+        extern fn SysReAllocString(#[in] #[incomplete] #[out] pbstr: *mut BSTR, #[in] #[null_terminated] #[opt] psz: *const OLECHAR) -> INT;
         #[library("OLEAUT32.dll")]
         #[must_use]
-        extern fn SysReAllocStringLen(#[in] #[incomplete] #[out] pbstr: *mut BSTR, #[in] #[null_terminated(entry)] #[opt] psz: *const OLECHAR, #[in] len: u32) -> INT;
+        extern fn SysReAllocStringLen(#[in] #[incomplete] #[out] pbstr: *mut BSTR, #[in] #[null_terminated] #[opt] psz: *const OLECHAR, #[in] len: u32) -> INT;
         #[library("OLEAUT32.dll")]
         extern fn SysReleaseString(#[in] bstrString: BSTR);
         #[library("OLEAUT32.dll")]

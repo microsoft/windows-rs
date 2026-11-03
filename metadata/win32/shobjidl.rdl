@@ -42,15 +42,15 @@ mod Windows {
         }
         #[guid(0x95a391c5_9ed4_4c28_8401_ab9e06719e11)]
         interface IAccessibleObject: IUnknown {
-            fn SetAccessibleName(&self, #[in] #[null_terminated(entry)] pszName: LPCWSTR) -> HRESULT;
+            fn SetAccessibleName(&self, #[in] #[null_terminated] pszName: LPCWSTR) -> HRESULT;
         }
         #[guid(0x1f76a169_f994_40ac_8fc8_0959e8874710)]
         interface IApplicationAssociationRegistrationUI: IUnknown {
-            fn LaunchAdvancedAssociationUI(&self, #[in] #[null_terminated(entry)] pszAppRegistryName: LPCWSTR) -> HRESULT;
+            fn LaunchAdvancedAssociationUI(&self, #[in] #[null_terminated] pszAppRegistryName: LPCWSTR) -> HRESULT;
         }
         #[guid(0x3cd141f4_3c6a_11d2_bcaa_00c04fd929db)]
         interface IAutoCompleteDropDown: IUnknown {
-            fn GetDropDownStatus(&self, #[out] pdwFlags: *mut DWORD, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppwszString: *mut LPWSTR) -> HRESULT;
+            fn GetDropDownStatus(&self, #[out] pdwFlags: *mut DWORD, #[incomplete] #[out] ppwszString: *mut LPWSTR) -> HRESULT;
             fn ResetEnumerator(&self) -> HRESULT;
         }
         #[guid(0xb9075c7c_d48e_403f_ab99_d6c77a1084ac)]
@@ -61,7 +61,7 @@ mod Windows {
         }
         #[guid(0x3d73a659_e5d0_4d42_afc0_5121ba425c8d)]
         interface ICDBurn: IUnknown {
-            fn GetRecorderDriveLetter(&self, #[buffer(cch)] #[null_terminated(success)] #[out] pszDrive: LPWSTR, #[in] cch: UINT) -> HRESULT;
+            fn GetRecorderDriveLetter(&self, #[buffer(cch)] #[null_terminated] #[out] pszDrive: LPWSTR, #[in] cch: UINT) -> HRESULT;
             fn Burn(&self, #[in] hwnd: HWND) -> HRESULT;
             fn HasRecordableDrive(&self, #[out] pfHasRecorder: *mut BOOL) -> HRESULT;
         }
@@ -72,7 +72,7 @@ mod Windows {
         #[guid(0xc8ad25a1_3294_41ee_8165_71174bd01c57)]
         interface ICommDlgBrowser3: ICommDlgBrowser2 {
             fn OnColumnClicked(&self, #[in] #[opt] ppshv: IShellView, #[in] iColumn: i32) -> HRESULT;
-            fn GetCurrentFilter(&self, #[buffer(cchFileSpec)] #[null_terminated(success)] #[out] pszFileSpec: LPWSTR, #[in] cchFileSpec: i32) -> HRESULT;
+            fn GetCurrentFilter(&self, #[buffer(cchFileSpec)] #[null_terminated] #[out] pszFileSpec: LPWSTR, #[in] cchFileSpec: i32) -> HRESULT;
             fn OnPreViewCreated(&self, #[in] #[opt] ppshv: IShellView) -> HRESULT;
         }
         #[guid(0x0df60d92_6818_46d6_b358_d66170dde466)]
@@ -98,7 +98,7 @@ mod Windows {
         }
         #[guid(0xdc2601d7_059e_42fc_a09d_2afd21b6d5f7)]
         interface IDynamicHWHandler: IUnknown {
-            fn GetDynamicInfo(&self, #[in] #[null_terminated(entry)] pszDeviceID: LPCWSTR, #[in] dwContentType: DWORD, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppszAction: *mut LPWSTR) -> HRESULT;
+            fn GetDynamicInfo(&self, #[in] #[null_terminated] pszDeviceID: LPCWSTR, #[in] dwContentType: DWORD, #[incomplete] #[out] ppszAction: *mut LPWSTR) -> HRESULT;
         }
         const IENamespaceTreeControl: GUID = 0xace52d03_e5cd_4b20_82ff_e71b11beae1d;
         #[guid(0x61e00d45_8fff_4e60_924e_6537b61612dd)]
@@ -140,13 +140,13 @@ mod Windows {
         }
         #[guid(0xc1fb73d0_ec3a_4ba2_b512_8cdb9187b6d1)]
         interface IHWEventHandler: IUnknown {
-            fn Initialize(&self, #[in] #[null_terminated(entry)] pszParams: LPCWSTR) -> HRESULT;
-            fn HandleEvent(&self, #[in] #[null_terminated(entry)] pszDeviceID: LPCWSTR, #[in] #[null_terminated(entry)] pszAltDeviceID: LPCWSTR, #[in] #[null_terminated(entry)] pszEventType: LPCWSTR) -> HRESULT;
-            fn HandleEventWithContent(&self, #[in] #[null_terminated(entry)] pszDeviceID: LPCWSTR, #[in] #[null_terminated(entry)] pszAltDeviceID: LPCWSTR, #[in] #[null_terminated(entry)] pszEventType: LPCWSTR, #[in] #[null_terminated(entry)] pszContentTypeHandler: LPCWSTR, #[in] #[opt] pdataobject: IDataObject) -> HRESULT;
+            fn Initialize(&self, #[in] #[null_terminated] pszParams: LPCWSTR) -> HRESULT;
+            fn HandleEvent(&self, #[in] #[null_terminated] pszDeviceID: LPCWSTR, #[in] #[null_terminated] pszAltDeviceID: LPCWSTR, #[in] #[null_terminated] pszEventType: LPCWSTR) -> HRESULT;
+            fn HandleEventWithContent(&self, #[in] #[null_terminated] pszDeviceID: LPCWSTR, #[in] #[null_terminated] pszAltDeviceID: LPCWSTR, #[in] #[null_terminated] pszEventType: LPCWSTR, #[in] #[null_terminated] pszContentTypeHandler: LPCWSTR, #[in] #[opt] pdataobject: IDataObject) -> HRESULT;
         }
         #[guid(0xcfcc809f_295d_42e8_9ffc_424b33c487e6)]
         interface IHWEventHandler2: IHWEventHandler {
-            fn HandleEventWithHWND(&self, #[in] #[null_terminated(entry)] pszDeviceID: LPCWSTR, #[in] #[null_terminated(entry)] pszAltDeviceID: LPCWSTR, #[in] #[null_terminated(entry)] pszEventType: LPCWSTR, #[in] hwndOwner: HWND) -> HRESULT;
+            fn HandleEventWithHWND(&self, #[in] #[null_terminated] pszDeviceID: LPCWSTR, #[in] #[null_terminated] pszAltDeviceID: LPCWSTR, #[in] #[null_terminated] pszEventType: LPCWSTR, #[in] hwndOwner: HWND) -> HRESULT;
         }
         #[guid(0x505f1513_6b3e_4892_a272_59f8889a4d3e)]
         interface IImageRecompress: IUnknown {
@@ -218,7 +218,7 @@ mod Windows {
         }
         #[guid(0xddefe873_6997_4e68_be26_39b633adbe12)]
         interface IQueryCancelAutoPlay: IUnknown {
-            fn AllowAutoPlay(&self, #[in] #[null_terminated(entry)] pszPath: LPCWSTR, #[in] dwContentType: DWORD, #[in] #[null_terminated(entry)] pszLabel: LPCWSTR, #[in] dwSerialNumber: DWORD) -> HRESULT;
+            fn AllowAutoPlay(&self, #[in] #[null_terminated] pszPath: LPCWSTR, #[in] dwContentType: DWORD, #[in] #[null_terminated] pszLabel: LPCWSTR, #[in] dwSerialNumber: DWORD) -> HRESULT;
         }
         #[guid(0xc7b236ce_ee80_11d0_985f_006008059382)]
         interface IQueryCodePage: IUnknown {
@@ -236,7 +236,7 @@ mod Windows {
         #[guid(0x6af6e03f_d664_4ef4_9626_f7e0ed36755e)]
         interface ISearchBoxInfo: IUnknown {
             fn GetCondition(&self, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
-            fn GetText(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppsz: *mut LPWSTR) -> HRESULT;
+            fn GetText(&self, #[incomplete] #[out] ppsz: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0xfce4bde0_4b68_4b80_8e9c_7426315a7388)]
         interface IShellRunDll: IUnknown {
@@ -259,7 +259,7 @@ mod Windows {
         }
         #[guid(0x7bf992a9_af7a_4dba_b2e5_4d080b1ecbc6)]
         interface IStorageProviderCopyHook: IUnknown {
-            fn CopyCallback(&self, #[in] #[opt] hwnd: HWND, #[in] operation: UINT, #[in] flags: UINT, #[in] #[null_terminated(entry)] srcFile: LPCWSTR, #[in] srcAttribs: DWORD, #[in] #[null_terminated(entry)] #[opt] destFile: LPCWSTR, #[in] destAttribs: DWORD, #[out] result: *mut UINT) -> HRESULT;
+            fn CopyCallback(&self, #[in] #[opt] hwnd: HWND, #[in] operation: UINT, #[in] flags: UINT, #[in] #[null_terminated] srcFile: LPCWSTR, #[in] srcAttribs: DWORD, #[in] #[null_terminated] #[opt] destFile: LPCWSTR, #[in] destAttribs: DWORD, #[out] result: *mut UINT) -> HRESULT;
         }
         #[guid(0xfe0b6665_e0ca_49b9_a178_2b5cb48d92a5)]
         interface IStreamAsync: IStream {
@@ -283,15 +283,15 @@ mod Windows {
         interface IUseToBrowseItem: IRelatedItem {}
         #[guid(0xa561e69a_b4b8_4113_91a5_64c6bcca3430)]
         interface IUserAccountChangeCallback: IUnknown {
-            fn OnPictureChange(&self, #[in] #[null_terminated(entry)] pszUserName: LPCWSTR) -> HRESULT;
+            fn OnPictureChange(&self, #[in] #[null_terminated] pszUserName: LPCWSTR) -> HRESULT;
         }
         #[guid(0x215913cc_57eb_4fab_ab5a_e5fa7bea2a6c)]
         interface IUserNotification2: IUnknown {
-            fn SetBalloonInfo(&self, #[in] #[null_terminated(entry)] #[opt] pszTitle: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] pszText: LPCWSTR, #[in] dwInfoFlags: DWORD) -> HRESULT;
+            fn SetBalloonInfo(&self, #[in] #[null_terminated] #[opt] pszTitle: LPCWSTR, #[in] #[null_terminated] #[opt] pszText: LPCWSTR, #[in] dwInfoFlags: DWORD) -> HRESULT;
             fn SetBalloonRetry(&self, #[in] dwShowTime: DWORD, #[in] dwInterval: DWORD, #[in] cRetryCount: UINT) -> HRESULT;
-            fn SetIconInfo(&self, #[in] #[opt] hIcon: HICON, #[in] #[null_terminated(entry)] #[opt] pszToolTip: LPCWSTR) -> HRESULT;
+            fn SetIconInfo(&self, #[in] #[opt] hIcon: HICON, #[in] #[null_terminated] #[opt] pszToolTip: LPCWSTR) -> HRESULT;
             fn Show(&self, #[in] #[opt] pqc: IQueryContinue, #[in] dwContinuePollInterval: DWORD, #[in] #[opt] pSink: IUserNotificationCallback) -> HRESULT;
-            fn PlaySound(&self, #[in] #[null_terminated(entry)] pszSoundName: LPCWSTR) -> HRESULT;
+            fn PlaySound(&self, #[in] #[null_terminated] pszSoundName: LPCWSTR) -> HRESULT;
         }
         #[guid(0x19108294_0441_4aff_8013_fa0a730b0bea)]
         interface IUserNotificationCallback: IUnknown {
@@ -308,7 +308,7 @@ mod Windows {
             fn GetItemHeight(&self, #[out] cyItemInPixels: *mut i32) -> HRESULT;
             fn SetFont(&self, #[in] plf: *const LOGFONTW, #[in] bRedraw: BOOL) -> HRESULT;
             fn GetFont(&self, #[out] plf: *mut LOGFONTW) -> HRESULT;
-            fn SetTheme(&self, #[in] #[null_terminated(entry)] #[opt] pszSubAppName: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] pszSubIdList: LPCWSTR) -> HRESULT;
+            fn SetTheme(&self, #[in] #[null_terminated] #[opt] pszSubAppName: LPCWSTR, #[in] #[null_terminated] #[opt] pszSubIdList: LPCWSTR) -> HRESULT;
         }
         #[guid(0x0e6b3f66_98d1_48c0_a222_fbde74e2fbc5)]
         interface IWebWizardExtension: IWizardExtension {

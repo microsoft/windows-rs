@@ -44,8 +44,8 @@ mod Windows {
         }
         #[guid(0xc49e32c7_bc8b_11d2_85d4_00105a1f8304)]
         interface IWbemBackupRestore: IUnknown {
-            fn Backup(&self, #[in] #[null_terminated(entry)] strBackupToFile: LPCWSTR, #[in] lFlags: i32) -> HRESULT;
-            fn Restore(&self, #[in] #[null_terminated(entry)] strRestoreFromFile: LPCWSTR, #[in] lFlags: i32) -> HRESULT;
+            fn Backup(&self, #[in] #[null_terminated] strBackupToFile: LPCWSTR, #[in] lFlags: i32) -> HRESULT;
+            fn Restore(&self, #[in] #[null_terminated] strRestoreFromFile: LPCWSTR, #[in] lFlags: i32) -> HRESULT;
         }
         #[guid(0xa359dec5_e813_4834_8a2a_ba7f1d777d76)]
         interface IWbemBackupRestoreEx: IWbemBackupRestore {

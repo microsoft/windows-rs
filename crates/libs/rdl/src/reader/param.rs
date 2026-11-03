@@ -95,8 +95,10 @@ impl Encoder<'_> {
                 .output
                 .Param("", 0, metadata::ParamAttributes::default());
             for attr in return_attrs {
-                if attr.path().is_ident("null_terminated") {
-                    return self.err(attr, "termination phases require a parameter owner");
+                if attr.path().is_ident("null_terminated")
+                    || attr.path().is_ident("null_null_terminated")
+                {
+                    return self.err(attr, "termination requires a parameter owner");
                 }
             }
             self.encode_attrs(

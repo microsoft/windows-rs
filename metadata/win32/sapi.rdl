@@ -661,8 +661,8 @@ mod Windows {
         interface ISpPhoneticAlphabetConverter: IUnknown {
             fn GetLangId(&self, #[buffer(1)] #[out] pLangID: *mut WORD) -> HRESULT;
             fn SetLangId(&self, #[in] LangID: WORD) -> HRESULT;
-            fn SAPI2UPS(&self, #[in] #[null_terminated(entry)] pszSAPIId: *const SPPHONEID, #[buffer(cMaxLength)] #[null_terminated(success)] #[out] pszUPSId: *mut SPPHONEID, #[in] cMaxLength: DWORD) -> HRESULT;
-            fn UPS2SAPI(&self, #[in] #[null_terminated(entry)] pszUPSId: *const SPPHONEID, #[buffer(cMaxLength)] #[null_terminated(success)] #[out] pszSAPIId: *mut SPPHONEID, #[in] cMaxLength: DWORD) -> HRESULT;
+            fn SAPI2UPS(&self, #[in] #[null_terminated] pszSAPIId: *const SPPHONEID, #[buffer(cMaxLength)] #[null_terminated] #[out] pszUPSId: *mut SPPHONEID, #[in] cMaxLength: DWORD) -> HRESULT;
+            fn UPS2SAPI(&self, #[in] #[null_terminated] pszUPSId: *const SPPHONEID, #[buffer(cMaxLength)] #[null_terminated] #[out] pszSAPIId: *mut SPPHONEID, #[in] cMaxLength: DWORD) -> HRESULT;
             fn GetMaxConvertLength(&self, #[in] cSrcLength: DWORD, #[in] bSAPI2UPS: BOOL, #[buffer(1)] #[out] pcMaxDestLength: *mut DWORD) -> HRESULT;
         }
         #[guid(0xb2745efd_42ce_48ca_81f1_a96e02538a90)]
@@ -834,7 +834,7 @@ mod Windows {
         interface ISpStream: ISpStreamFormat {
             fn SetBaseStream(&self, #[in] pStream: IStream, #[in] rguidFormat: &GUID, #[in] pWaveFormatEx: *const WAVEFORMATEX) -> HRESULT;
             fn GetBaseStream(&self, #[out] #[retval] ppStream: *mut IStream) -> HRESULT;
-            fn BindToFile(&self, #[in] #[null_terminated(entry)] pszFileName: LPCWSTR, #[in] eMode: SPFILEMODE, #[in] #[opt] pFormatId: *const GUID, #[in] #[opt] pWaveFormatEx: *const WAVEFORMATEX, #[in] ullEventInterest: ULONGLONG) -> HRESULT;
+            fn BindToFile(&self, #[in] #[null_terminated] pszFileName: LPCWSTR, #[in] eMode: SPFILEMODE, #[in] #[opt] pFormatId: *const GUID, #[in] #[opt] pWaveFormatEx: *const WAVEFORMATEX, #[in] ullEventInterest: ULONGLONG) -> HRESULT;
             fn Close(&self) -> HRESULT;
         }
         #[guid(0xbed530be_2606_4f4d_a1c0_54c5cda5566f)]
@@ -852,8 +852,8 @@ mod Windows {
         }
         #[guid(0x10f63bce_201a_11d3_ac70_00c04f8ee6c0)]
         interface ISpTranscript: IUnknown {
-            fn GetTranscript(&self, #[incomplete] #[null_terminated(entry, success, indirect)] #[out] ppszTranscript: *mut LPWSTR) -> HRESULT;
-            fn AppendTranscript(&self, #[in] #[null_terminated(entry)] pszTranscript: LPCWSTR) -> HRESULT;
+            fn GetTranscript(&self, #[incomplete] #[out] ppszTranscript: *mut LPWSTR) -> HRESULT;
+            fn AppendTranscript(&self, #[in] #[null_terminated] pszTranscript: LPCWSTR) -> HRESULT;
         }
         #[guid(0x6c44df74_72b9_4992_a1ec_ef996e0422d4)]
         interface ISpVoice: ISpEventSource {

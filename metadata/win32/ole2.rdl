@@ -155,7 +155,7 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn OleUninitialize();
         #[library("ole32.dll")]
-        extern fn ReadFmtUserTypeStg(pstg: LPSTORAGE, pcf: *mut CLIPFORMAT, #[null_terminated(success, indirect)] #[opt] #[out] lplpszUserType: *mut LPOLESTR) -> HRESULT;
+        extern fn ReadFmtUserTypeStg(pstg: LPSTORAGE, pcf: *mut CLIPFORMAT, #[incomplete] #[opt] #[out] lplpszUserType: *mut LPOLESTR) -> HRESULT;
         #[library("ole32.dll")]
         extern fn RegisterDragDrop(hwnd: HWND, pDropTarget: LPDROPTARGET) -> HRESULT;
         #[library("ole32.dll")]
@@ -166,6 +166,6 @@ mod Windows {
         extern fn SetConvertStg(pStg: LPSTORAGE, fConvert: BOOL) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn WriteFmtUserTypeStg(pstg: LPSTORAGE, cf: CLIPFORMAT, #[in] #[null_terminated(entry)] lpszUserType: LPOLESTR) -> HRESULT;
+        extern fn WriteFmtUserTypeStg(pstg: LPSTORAGE, cf: CLIPFORMAT, #[in] #[null_terminated] lpszUserType: LPOLESTR) -> HRESULT;
     }
 }

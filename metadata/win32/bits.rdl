@@ -134,7 +134,7 @@ mod Windows {
             fn SetNoProgressTimeout(&self, #[in] Seconds: ULONG) -> HRESULT;
             fn GetNoProgressTimeout(&self, #[out] Seconds: *mut ULONG) -> HRESULT;
             fn GetErrorCount(&self, #[out] Errors: *mut ULONG) -> HRESULT;
-            fn SetProxySettings(&self, #[in] ProxyUsage: BG_JOB_PROXY_USAGE, #[in] #[null_terminated(entry)] #[opt] ProxyList: *const WCHAR, #[in] #[null_terminated(entry)] #[opt] ProxyBypassList: *const WCHAR) -> HRESULT;
+            fn SetProxySettings(&self, #[in] ProxyUsage: BG_JOB_PROXY_USAGE, #[in] #[null_terminated] #[opt] ProxyList: *const WCHAR, #[in] #[null_terminated] #[opt] ProxyBypassList: *const WCHAR) -> HRESULT;
             fn GetProxySettings(&self, #[out] pProxyUsage: *mut BG_JOB_PROXY_USAGE, #[out] pProxyList: *mut LPWSTR, #[out] pProxyBypassList: *mut LPWSTR) -> HRESULT;
             fn TakeOwnership(&self) -> HRESULT;
         }

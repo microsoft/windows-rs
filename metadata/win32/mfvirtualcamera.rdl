@@ -14,9 +14,9 @@ mod Windows {
         }
         #[guid(0x1c08a864_ef6c_4c75_af59_5f2d68da9563)]
         interface IMFVirtualCamera: IMFAttributes {
-            fn AddDeviceSourceInfo(&self, #[in] #[null_terminated(entry)] DeviceSourceInfo: LPCWSTR) -> HRESULT;
+            fn AddDeviceSourceInfo(&self, #[in] #[null_terminated] DeviceSourceInfo: LPCWSTR) -> HRESULT;
             fn AddProperty(&self, #[in] pKey: *const DEVPROPKEY, #[in] Type: DEVPROPTYPE, #[buffer(bytes(cbData))] #[in] pbData: *const BYTE, #[in] cbData: ULONG) -> HRESULT;
-            fn AddRegistryEntry(&self, #[in] #[null_terminated(entry)] EntryName: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] SubkeyPath: LPCWSTR, #[in] dwRegType: DWORD, #[buffer(bytes(cbData))] #[in] pbData: *const BYTE, #[in] cbData: ULONG) -> HRESULT;
+            fn AddRegistryEntry(&self, #[in] #[null_terminated] EntryName: LPCWSTR, #[in] #[null_terminated] #[opt] SubkeyPath: LPCWSTR, #[in] dwRegType: DWORD, #[buffer(bytes(cbData))] #[in] pbData: *const BYTE, #[in] cbData: ULONG) -> HRESULT;
             fn Start(&self, #[in] #[opt] pCallback: IMFAsyncCallback) -> HRESULT;
             fn Stop(&self) -> HRESULT;
             fn Remove(&self) -> HRESULT;
@@ -27,7 +27,7 @@ mod Windows {
             fn Shutdown(&self) -> HRESULT;
         }
         #[library("MFSENSORGROUP.dll")]
-        extern fn MFCreateVirtualCamera(#[in] r#type: MFVirtualCameraType, #[in] lifetime: MFVirtualCameraLifetime, #[in] access: MFVirtualCameraAccess, #[in] #[null_terminated(entry)] friendlyName: LPCWSTR, #[in] #[null_terminated(entry)] sourceId: LPCWSTR, #[buffer(categoryCount)] #[in] #[opt] categories: *const GUID, #[in] categoryCount: ULONG, #[out] #[retval] virtualCamera: *mut IMFVirtualCamera) -> HRESULT;
+        extern fn MFCreateVirtualCamera(#[in] r#type: MFVirtualCameraType, #[in] lifetime: MFVirtualCameraLifetime, #[in] access: MFVirtualCameraAccess, #[in] #[null_terminated] friendlyName: LPCWSTR, #[in] #[null_terminated] sourceId: LPCWSTR, #[buffer(categoryCount)] #[in] #[opt] categories: *const GUID, #[in] categoryCount: ULONG, #[out] #[retval] virtualCamera: *mut IMFVirtualCamera) -> HRESULT;
         #[library("MFSENSORGROUP.dll")]
         extern fn MFIsVirtualCameraTypeSupported(#[in] r#type: MFVirtualCameraType, #[out] supported: *mut BOOL) -> HRESULT;
         #[repr(i32)]

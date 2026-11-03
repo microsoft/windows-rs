@@ -434,7 +434,7 @@ mod Windows {
         #[library("DNSAPI.dll")]
         extern fn DnsConnectionDeletePolicyEntries(#[in] PolicyEntryTag: DNS_CONNECTION_POLICY_TAG) -> DWORD;
         #[library("DNSAPI.dll")]
-        extern fn DnsConnectionDeleteProxyInfo(#[in] #[null_terminated(entry)] pwszConnectionName: PCWSTR, #[in] Type: DNS_CONNECTION_PROXY_TYPE) -> DWORD;
+        extern fn DnsConnectionDeleteProxyInfo(#[in] #[null_terminated] pwszConnectionName: PCWSTR, #[in] Type: DNS_CONNECTION_PROXY_TYPE) -> DWORD;
         #[library("DNSAPI.dll")]
         extern fn DnsConnectionFreeNameList(#[in] #[out] pNameList: *mut DNS_CONNECTION_NAME_LIST);
         #[library("DNSAPI.dll")]
@@ -446,17 +446,17 @@ mod Windows {
         #[library("DNSAPI.dll")]
         extern fn DnsConnectionGetNameList(#[out] pNameList: *mut DNS_CONNECTION_NAME_LIST) -> DWORD;
         #[library("DNSAPI.dll")]
-        extern fn DnsConnectionGetProxyInfo(#[in] #[null_terminated(entry)] pwszConnectionName: PCWSTR, #[in] Type: DNS_CONNECTION_PROXY_TYPE, #[out] pProxyInfo: *mut DNS_CONNECTION_PROXY_INFO) -> DWORD;
+        extern fn DnsConnectionGetProxyInfo(#[in] #[null_terminated] pwszConnectionName: PCWSTR, #[in] Type: DNS_CONNECTION_PROXY_TYPE, #[out] pProxyInfo: *mut DNS_CONNECTION_PROXY_INFO) -> DWORD;
         #[library("DNSAPI.dll")]
-        extern fn DnsConnectionGetProxyInfoForHostUrl(#[in] #[null_terminated(entry)] pwszHostUrl: PCWSTR, #[buffer(dwSelectionContextLength)] #[in] #[opt] pSelectionContext: *mut BYTE, #[in] dwSelectionContextLength: DWORD, #[in] dwExplicitInterfaceIndex: DWORD, #[out] pProxyInfoEx: *mut DNS_CONNECTION_PROXY_INFO_EX) -> DWORD;
+        extern fn DnsConnectionGetProxyInfoForHostUrl(#[in] #[null_terminated] pwszHostUrl: PCWSTR, #[buffer(dwSelectionContextLength)] #[in] #[opt] pSelectionContext: *mut BYTE, #[in] dwSelectionContextLength: DWORD, #[in] dwExplicitInterfaceIndex: DWORD, #[out] pProxyInfoEx: *mut DNS_CONNECTION_PROXY_INFO_EX) -> DWORD;
         #[library("DNSAPI.dll")]
-        extern fn DnsConnectionGetProxyInfoForHostUrlEx(#[in] #[null_terminated(entry)] pwszHostUrl: PCWSTR, #[buffer(dwSelectionContextLength)] #[in] #[opt] pSelectionContext: *mut BYTE, #[in] dwSelectionContextLength: DWORD, #[in] dwExplicitInterfaceIndex: DWORD, #[in] #[null_terminated(entry)] #[opt] pwszConnectionName: PCWSTR, #[out] pProxyInfoEx: *mut DNS_CONNECTION_PROXY_INFO_EX) -> DWORD;
+        extern fn DnsConnectionGetProxyInfoForHostUrlEx(#[in] #[null_terminated] pwszHostUrl: PCWSTR, #[buffer(dwSelectionContextLength)] #[in] #[opt] pSelectionContext: *mut BYTE, #[in] dwSelectionContextLength: DWORD, #[in] dwExplicitInterfaceIndex: DWORD, #[in] #[null_terminated] #[opt] pwszConnectionName: PCWSTR, #[out] pProxyInfoEx: *mut DNS_CONNECTION_PROXY_INFO_EX) -> DWORD;
         #[library("DNSAPI.dll")]
-        extern fn DnsConnectionGetProxyList(#[in] #[null_terminated(entry)] pwszConnectionName: PCWSTR, #[out] pProxyList: *mut DNS_CONNECTION_PROXY_LIST) -> DWORD;
+        extern fn DnsConnectionGetProxyList(#[in] #[null_terminated] pwszConnectionName: PCWSTR, #[out] pProxyList: *mut DNS_CONNECTION_PROXY_LIST) -> DWORD;
         #[library("DNSAPI.dll")]
         extern fn DnsConnectionSetPolicyEntries(#[in] PolicyEntryTag: DNS_CONNECTION_POLICY_TAG, #[in] pPolicyEntryList: *mut DNS_CONNECTION_POLICY_ENTRY_LIST) -> DWORD;
         #[library("DNSAPI.dll")]
-        extern fn DnsConnectionSetProxyInfo(#[in] #[null_terminated(entry)] pwszConnectionName: PCWSTR, #[in] Type: DNS_CONNECTION_PROXY_TYPE, #[in] pProxyInfo: *const DNS_CONNECTION_PROXY_INFO) -> DWORD;
+        extern fn DnsConnectionSetProxyInfo(#[in] #[null_terminated] pwszConnectionName: PCWSTR, #[in] Type: DNS_CONNECTION_PROXY_TYPE, #[in] pProxyInfo: *const DNS_CONNECTION_PROXY_INFO) -> DWORD;
         #[library("DNSAPI.dll")]
         extern fn DnsConnectionUpdateIfIndexTable(#[in] pConnectionIfIndexEntries: *mut DNS_CONNECTION_IFINDEX_LIST) -> DWORD;
         #[library("DNSAPI.dll")]

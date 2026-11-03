@@ -40,7 +40,7 @@ mod Windows {
         #[arch(X86)]
         const RESULT_ZERO: i32 = 16384;
         #[library("ntdll.dll")]
-        extern fn RtlInitUTF8StringEx(#[out] DestinationString: PUTF8_STRING, #[in] #[incomplete] #[null_terminated(entry)] #[opt] SourceString: PCSZ) -> NTSTATUS;
+        extern fn RtlInitUTF8StringEx(#[out] DestinationString: PUTF8_STRING, #[in] #[incomplete] #[null_terminated] #[opt] SourceString: PCSZ) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn RtlIsUntrustedObject(#[in] #[opt] Handle: HANDLE, #[in] #[opt] Object: PVOID, #[out] UntrustedObject: PBOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]

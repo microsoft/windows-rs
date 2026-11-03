@@ -564,14 +564,8 @@ pub(super) fn buffer(
             && (contract.returned_pointer.is_some() || contract.returned_buffer.is_some())
         {
             returned_storage(snapshot, function, index, canonical_ty)?;
-            if contract.returned_string_on_entry {
-                incomplete = true;
-            }
-            attributes.extend(windows_rdl::emit::write_null_terminated(
-                contract.returned_string_on_entry.then_some(false),
-                Some(false),
-                true,
-            ));
+            // A marker on this parameter would describe the outer buffer, not the returned string.
+            incomplete = true;
         }
     }
     let midl = resolve::midl_parameter(&parameters[index]);
@@ -727,11 +721,13 @@ pub(super) fn buffer(
         attributes.extend(quote! { #[iid_is] });
     }
     if on_entry || on_success {
-        attributes.extend(windows_rdl::emit::write_null_terminated(
-            on_entry.then_some(double_entry),
-            on_success.then_some(double_success),
-            false,
-        ));
+        if on_entry && on_success && double_entry != double_success {
+            incomplete = true;
+        } else {
+            attributes.extend(windows_rdl::emit::write_null_terminated(
+                double_entry || double_success,
+            ));
+        }
     }
     has_buffer_contract |=
         size.is_some() || initialized.is_some() || indirect_readable && !returned_pointer;

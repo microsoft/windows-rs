@@ -1,5 +1,5 @@
 use windows_clang::*;
-use windows_metadata::{HasAttributes, Value, reader};
+use windows_metadata::{HasAttributes, reader};
 
 const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
 
@@ -60,16 +60,15 @@ fn check_output(name: &str, snapshots: &[Snapshot]) {
                 vec![reader::File::read(path).unwrap()],
                 architecture,
             );
-            for (owner, method, entry, success, double_entry, double_success) in [
-                ("Apis", "InputSingle", true, false, false, false),
-                ("Apis", "OutputSingle", false, true, false, false),
-                ("Apis", "InputMulti", true, false, true, false),
-                ("Apis", "OutputMulti", false, true, false, true),
-                ("Apis", "MultiString", false, true, false, true),
-                ("Apis", "Both", true, true, true, true),
-                ("Apis", "Mixed", true, true, false, true),
-                ("MultiCallback", "Invoke", false, true, false, true),
-                ("IMultiString", "Get", false, true, false, true),
+            for (owner, method, double) in [
+                ("Apis", "InputSingle", false),
+                ("Apis", "OutputSingle", false),
+                ("Apis", "InputMulti", true),
+                ("Apis", "OutputMulti", true),
+                ("Apis", "MultiString", true),
+                ("Apis", "Both", true),
+                ("MultiCallback", "Invoke", true),
+                ("IMultiString", "Get", true),
             ] {
                 let parameter = index
                     .expect("Fixture", owner)
@@ -79,22 +78,23 @@ fn check_output(name: &str, snapshots: &[Snapshot]) {
                     .params()
                     .next()
                     .unwrap();
-                let attribute = parameter.find_attribute("NullTerminatedAttribute").unwrap();
                 assert_eq!(parameter.direction(), reader::ParamDirection::Unspecified);
-                let mut expected = vec![
-                    ("OnEntry".into(), Value::Bool(entry)),
-                    ("OnSuccess".into(), Value::Bool(success)),
-                ];
-                if double_entry {
-                    expected.push(("DoubleNullOnEntry".into(), Value::Bool(true)));
+                for (name, present) in [
+                    ("NullTerminatedAttribute", !double),
+                    ("NullNullTerminatedAttribute", double),
+                ] {
+                    let attribute = parameter.find_attribute(name);
+                    assert_eq!(attribute.is_some(), present, "{owner}::{method}");
+                    if let Some(attribute) = attribute {
+                        assert!(attribute.value().is_empty(), "{owner}::{method}");
+                    }
                 }
-                if double_success {
-                    expected.push(("DoubleNullOnSuccess".into(), Value::Bool(true)));
-                }
-                assert_eq!(attribute.value(), expected, "{owner}::{method}");
                 assert!(parameter.find_attribute("IncompleteAttribute").is_none());
             }
             for name in [
+                "Mixed",
+                "Returned",
+                "ReturnedOptional",
                 "OtherProperty",
                 "Conditional",
                 "Grouped",
@@ -115,6 +115,10 @@ fn check_output(name: &str, snapshots: &[Snapshot]) {
                     parameter
                         .find_attribute("NullTerminatedAttribute")
                         .is_none(),
+                    "{name}"
+                );
+                assert!(
+                    !parameter.has_attribute("NullNullTerminatedAttribute"),
                     "{name}"
                 );
                 assert!(parameter.has_attribute("IncompleteAttribute"), "{name}");
@@ -152,6 +156,30 @@ fn modifiers_bind_before_comparison() {
             .to_string();
         assert!(
             error.contains("Mixed") && error.contains("differ"),
+            "{error}"
+        );
+        inputs.reverse();
+    }
+}
+
+#[test]
+fn returned_termination_remains_native_evidence() {
+    helpers::ensure_libclang();
+    let mut inputs = [
+        test_clang::selected_fixture("scoped_termination", &["Returned"]),
+        test_clang::selected_fixture("scoped_termination", &["Returned"]),
+    ];
+    inputs[1].name = "other.h".into();
+    inputs[1].source = inputs[1]
+        .source
+        .replace("_Outptr_result_z_ char**", "_Outptr_ char**");
+    for _ in 0..2 {
+        let error = capture_partial(&inputs, &TARGETS)
+            .err()
+            .unwrap()
+            .to_string();
+        assert!(
+            error.contains("Returned") && error.contains("differ"),
             "{error}"
         );
         inputs.reverse();

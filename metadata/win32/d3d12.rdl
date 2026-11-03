@@ -4252,7 +4252,7 @@ mod Windows {
             fn GetPrivateData(&self, #[in] guid: &GUID, #[in] #[out] pDataSize: *mut UINT, #[buffer(bytes(*pDataSize))] #[opt] #[out] pData: *mut void) -> HRESULT;
             fn SetPrivateData(&self, #[in] guid: &GUID, #[in] DataSize: UINT, #[buffer(bytes(DataSize))] #[in] #[opt] pData: *const void) -> HRESULT;
             fn SetPrivateDataInterface(&self, #[in] guid: &GUID, #[in] #[opt] pData: IUnknown) -> HRESULT;
-            fn SetName(&self, #[in] #[null_terminated(entry)] Name: LPCWSTR) -> HRESULT;
+            fn SetName(&self, #[in] #[null_terminated] Name: LPCWSTR) -> HRESULT;
         }
         #[guid(0x63ee58fb_1268_4835_86da_f008ce62f0d6)]
         interface ID3D12Pageable: ID3D12DeviceChild {}
@@ -4321,7 +4321,7 @@ mod Windows {
         }
         #[guid(0xe9eb5314_33aa_42b2_a718_d77f58b1f1c7)]
         interface ID3D12SDKConfiguration: IUnknown {
-            fn SetSDKVersion(&self, SDKVersion: UINT, #[in] #[null_terminated(entry)] SDKPath: LPCSTR) -> HRESULT;
+            fn SetSDKVersion(&self, SDKVersion: UINT, #[in] #[null_terminated] SDKPath: LPCSTR) -> HRESULT;
         }
         #[guid(0x8aaf9303_ad25_48b9_9a57_d9c37e009d9f)]
         interface ID3D12SDKConfiguration1: ID3D12SDKConfiguration {

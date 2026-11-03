@@ -65,7 +65,7 @@ mod Windows {
             fn SetUINT64(&self, #[in] guidKey: &GUID, unValue: UINT64) -> HRESULT;
             fn SetDouble(&self, #[in] guidKey: &GUID, fValue: f64) -> HRESULT;
             fn SetGUID(&self, #[in] guidKey: &GUID, #[in] guidValue: &GUID) -> HRESULT;
-            fn SetString(&self, #[in] guidKey: &GUID, #[in] #[null_terminated(entry)] wszValue: LPCWSTR) -> HRESULT;
+            fn SetString(&self, #[in] guidKey: &GUID, #[in] #[null_terminated] wszValue: LPCWSTR) -> HRESULT;
             fn SetBlob(&self, #[in] guidKey: &GUID, #[buffer(cbBufSize)] #[in] pBuf: *const UINT8, cbBufSize: UINT32) -> HRESULT;
             fn SetUnknown(&self, #[in] guidKey: &GUID, #[in] #[opt] pUnknown: IUnknown) -> HRESULT;
             fn LockStore(&self) -> HRESULT;

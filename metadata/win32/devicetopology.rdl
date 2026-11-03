@@ -69,8 +69,8 @@ mod Windows {
             fn Disconnect(&self) -> HRESULT;
             fn IsConnected(&self, #[out] pbConnected: *mut BOOL) -> HRESULT;
             fn GetConnectedTo(&self, #[out] ppConTo: *mut IConnector) -> HRESULT;
-            fn GetConnectorIdConnectedTo(&self, #[null_terminated(success, indirect)] #[out] ppwstrConnectorId: *mut LPWSTR) -> HRESULT;
-            fn GetDeviceIdConnectedTo(&self, #[null_terminated(success, indirect)] #[out] ppwstrDeviceId: *mut LPWSTR) -> HRESULT;
+            fn GetConnectorIdConnectedTo(&self, #[incomplete] #[out] ppwstrConnectorId: *mut LPWSTR) -> HRESULT;
+            fn GetDeviceIdConnectedTo(&self, #[incomplete] #[out] ppwstrDeviceId: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0xa09513ed_c709_4d21_bd7b_5f34c47f3947)]
         interface IControlChangeNotify: IUnknown {
