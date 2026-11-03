@@ -2,11 +2,11 @@
 mod Windows {
     mod Win32 {
         #[library("KERNEL32.dll")]
-        extern fn AllocateUserPhysicalPages(#[in] hProcess: HANDLE, #[in] #[out] NumberOfPages: PULONG_PTR, #[Windows::Win32::Metadata::Buffer(CountParamIndex = 1, Dereference = true)] #[out] PageArray: PULONG_PTR) -> BOOL;
+        extern fn AllocateUserPhysicalPages(#[in] hProcess: HANDLE, #[in] #[out] NumberOfPages: PULONG_PTR, #[buffer(*NumberOfPages)] #[out] PageArray: PULONG_PTR) -> BOOL;
         #[library("api-ms-win-core-memory-l1-1-8.dll")]
-        extern fn AllocateUserPhysicalPages2(#[in] ObjectHandle: HANDLE, #[in] #[out] NumberOfPages: PULONG_PTR, #[Windows::Win32::Metadata::Buffer(CountParamIndex = 1, Dereference = true)] #[out] PageArray: PULONG_PTR, #[buffer(ExtendedParameterCount)] #[in] #[opt] #[out] ExtendedParameters: PMEM_EXTENDED_PARAMETER, #[in] ExtendedParameterCount: ULONG) -> BOOL;
+        extern fn AllocateUserPhysicalPages2(#[in] ObjectHandle: HANDLE, #[in] #[out] NumberOfPages: PULONG_PTR, #[buffer(*NumberOfPages)] #[out] PageArray: PULONG_PTR, #[buffer(ExtendedParameterCount)] #[in] #[opt] #[out] ExtendedParameters: PMEM_EXTENDED_PARAMETER, #[in] ExtendedParameterCount: ULONG) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn AllocateUserPhysicalPagesNuma(#[in] hProcess: HANDLE, #[in] #[out] NumberOfPages: PULONG_PTR, #[Windows::Win32::Metadata::Buffer(CountParamIndex = 1, Dereference = true)] #[out] PageArray: PULONG_PTR, #[in] nndPreferred: DWORD) -> BOOL;
+        extern fn AllocateUserPhysicalPagesNuma(#[in] hProcess: HANDLE, #[in] #[out] NumberOfPages: PULONG_PTR, #[buffer(*NumberOfPages)] #[out] PageArray: PULONG_PTR, #[in] nndPreferred: DWORD) -> BOOL;
         extern fn BAD_MEMORY_CALLBACK_ROUTINE();
         #[library("api-ms-win-core-memory-l1-1-7.dll")]
         extern fn CreateFileMapping2(#[in] File: HANDLE, #[in] #[opt] SecurityAttributes: *mut SECURITY_ATTRIBUTES, #[in] DesiredAccess: ULONG, #[in] PageProtection: ULONG, #[in] AllocationAttributes: ULONG, #[in] MaximumSize: ULONG64, #[in] #[opt] Name: PCWSTR, #[buffer(ParameterCount)] #[in] #[opt] #[out] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, #[in] ParameterCount: ULONG) -> #[nullable] HANDLE;
@@ -35,7 +35,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn FlushViewOfFile(#[in] lpBaseAddress: LPCVOID, #[in] dwNumberOfBytesToFlush: SIZE_T) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn FreeUserPhysicalPages(#[in] hProcess: HANDLE, #[in] #[out] NumberOfPages: PULONG_PTR, #[Windows::Win32::Metadata::Buffer(CountParamIndex = 1, Dereference = true)] #[in] PageArray: PULONG_PTR) -> BOOL;
+        extern fn FreeUserPhysicalPages(#[in] hProcess: HANDLE, #[in] #[out] NumberOfPages: PULONG_PTR, #[buffer(*NumberOfPages)] #[in] PageArray: PULONG_PTR) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetLargePageMinimum() -> SIZE_T;
         #[library("KERNEL32.dll")]
@@ -65,7 +65,7 @@ mod Windows {
             HighMemoryResourceNotification = 1,
         }
         #[library("KERNEL32.dll")]
-        extern fn MapUserPhysicalPages(#[in] VirtualAddress: PVOID, #[in] NumberOfPages: ULONG_PTR, #[Windows::Win32::Metadata::Buffer(CountParamIndex = 1)] #[in] #[opt] PageArray: PULONG_PTR) -> BOOL;
+        extern fn MapUserPhysicalPages(#[in] VirtualAddress: PVOID, #[in] NumberOfPages: ULONG_PTR, #[buffer(NumberOfPages)] #[in] #[opt] PageArray: PULONG_PTR) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn MapViewOfFile(#[in] hFileMappingObject: HANDLE, #[in] dwDesiredAccess: DWORD, #[in] dwFileOffsetHigh: DWORD, #[in] dwFileOffsetLow: DWORD, #[in] dwNumberOfBytesToMap: SIZE_T) -> #[nullable] LPVOID;
         #[library("api-ms-win-core-memory-l1-1-6.dll")]

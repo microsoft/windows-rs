@@ -755,14 +755,14 @@ mod Windows {
         extern fn PWINDBG_GET_SYMBOL(#[in] offset: PVOID, #[buffer(256)] #[null_terminated(success)] #[out] pchBuffer: PCHAR, #[out] pDisplacement: *mut ULONG_PTR);
         extern fn PWINDBG_GET_SYMBOL32(#[in] offset: ULONG, #[buffer(256)] #[null_terminated(success)] #[out] pchBuffer: PCHAR, #[out] pDisplacement: PULONG);
         extern fn PWINDBG_GET_SYMBOL64(#[in] offset: ULONG64, #[buffer(256)] #[null_terminated(success)] #[out] pchBuffer: PCHAR, #[out] pDisplacement: PULONG64);
-        extern fn PWINDBG_GET_THREAD_CONTEXT_ROUTINE(#[in] Processor: ULONG, #[Windows::Win32::Metadata::Buffer(CountParamIndex = 2, Bytes = true)] #[out] lpContext: PCONTEXT, #[in] cbSizeOfContext: ULONG) -> ULONG;
+        extern fn PWINDBG_GET_THREAD_CONTEXT_ROUTINE(#[in] Processor: ULONG, #[buffer(bytes(cbSizeOfContext))] #[out] lpContext: PCONTEXT, #[in] cbSizeOfContext: ULONG) -> ULONG;
         extern fn PWINDBG_IOCTL_ROUTINE(#[in] IoctlType: USHORT, #[incomplete] lpvData: PVOID, #[in] cbSize: ULONG) -> ULONG;
         extern fn PWINDBG_OLDKD_READ_PHYSICAL_MEMORY(#[in] address: ULONGLONG, #[buffer(bytes(count))] #[out] buffer: PVOID, #[in] count: ULONG, #[out] bytesread: PULONG) -> ULONG;
         extern fn PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY(#[in] address: ULONGLONG, #[buffer(bytes(length))] #[in] buffer: PVOID, #[in] length: ULONG, #[out] byteswritten: PULONG) -> ULONG;
         extern fn PWINDBG_READ_PROCESS_MEMORY_ROUTINE(#[in] offset: ULONG_PTR, #[buffer(bytes(cb))] #[out] lpBuffer: PVOID, #[in] cb: ULONG, #[out] lpcbBytesRead: PULONG) -> ULONG;
         extern fn PWINDBG_READ_PROCESS_MEMORY_ROUTINE32(#[in] offset: ULONG, #[buffer(bytes(cb))] #[out] lpBuffer: PVOID, #[in] cb: ULONG, #[out] lpcbBytesRead: PULONG) -> ULONG;
         extern fn PWINDBG_READ_PROCESS_MEMORY_ROUTINE64(#[in] offset: ULONG64, #[buffer(bytes(cb))] #[out] lpBuffer: PVOID, #[in] cb: ULONG, #[out] lpcbBytesRead: PULONG) -> ULONG;
-        extern fn PWINDBG_SET_THREAD_CONTEXT_ROUTINE(#[in] Processor: ULONG, #[Windows::Win32::Metadata::Buffer(CountParamIndex = 2, Bytes = true)] #[in] lpContext: PCONTEXT, #[in] cbSizeOfContext: ULONG) -> ULONG;
+        extern fn PWINDBG_SET_THREAD_CONTEXT_ROUTINE(#[in] Processor: ULONG, #[buffer(bytes(cbSizeOfContext))] #[in] lpContext: PCONTEXT, #[in] cbSizeOfContext: ULONG) -> ULONG;
         extern fn PWINDBG_STACKTRACE_ROUTINE(#[in] FramePointer: ULONG, #[in] StackPointer: ULONG, #[in] ProgramCounter: ULONG, #[buffer(Frames)] #[incomplete] #[out] StackFrames: PEXTSTACKTRACE, #[in] Frames: ULONG) -> ULONG;
         extern fn PWINDBG_STACKTRACE_ROUTINE32(#[in] FramePointer: ULONG, #[in] StackPointer: ULONG, #[in] ProgramCounter: ULONG, #[buffer(Frames)] #[incomplete] #[out] StackFrames: PEXTSTACKTRACE32, #[in] Frames: ULONG) -> ULONG;
         extern fn PWINDBG_STACKTRACE_ROUTINE64(#[in] FramePointer: ULONG64, #[in] StackPointer: ULONG64, #[in] ProgramCounter: ULONG64, #[buffer(Frames)] #[incomplete] #[out] StackFrames: PEXTSTACKTRACE64, #[in] Frames: ULONG) -> ULONG;

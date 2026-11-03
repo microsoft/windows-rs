@@ -115,6 +115,59 @@ fn unsupported_buffer_attributes_keep_full_spelling() {
 }
 
 #[test]
+fn architecture_variant_aliases_keep_short_forms() {
+    let source = r#"
+        #[win32] mod Test {
+            #[arch(X86)] type Count = u32;
+            #[arch(X64 | Arm64)] type Count = u64;
+            #[arch(X86)] type Storage = *mut u32;
+            #[arch(X64 | Arm64)] type Storage = *mut u64;
+            type CountPointer = *mut Count;
+            extern fn Direct(#[buffer(count)] data: Storage, count: Count);
+            extern fn Indirect(#[buffer(bytes(*count))] data: Storage, count: CountPointer);
+
+            #[arch(X86)] type MixedCount = u32;
+            #[arch(X64 | Arm64)] type MixedCount = f32;
+            extern fn Mixed(
+                #[Windows::Win32::Metadata::Buffer(CountParamIndex = 1u16)] data: Storage,
+                count: MixedCount,
+            );
+        }
+    "#;
+    let path = std::path::Path::new(env!("OUT_DIR")).join("buffer-architectures.winmd");
+    let text = path.with_extension("rdl");
+    windows_rdl::reader()
+        .input(root().join("metadata\\metadata.rdl"))
+        .input_text(source)
+        .output(&path)
+        .write()
+        .unwrap();
+    let mut previous = None;
+    for _ in 0..2 {
+        windows_rdl::writer()
+            .input(&path)
+            .filter("Test")
+            .output(&text)
+            .write()
+            .unwrap();
+        let output = std::fs::read_to_string(&text).unwrap();
+        assert!(output.contains("#[buffer(count)]"), "{output}");
+        assert!(output.contains("#[buffer(bytes(*count))]"), "{output}");
+        assert_eq!(output.matches("::Buffer(").count(), 1, "{output}");
+        if let Some(previous) = &previous {
+            assert_eq!(previous, &output);
+        }
+        previous = Some(output);
+        windows_rdl::reader()
+            .input(root().join("metadata\\metadata.rdl"))
+            .input(&text)
+            .output(&path)
+            .write()
+            .unwrap();
+    }
+}
+
+#[test]
 fn boundaries() {
     for declaration in [
         "extern fn F(#[buffer(n + 1)] data: *mut u8, n: u32);",

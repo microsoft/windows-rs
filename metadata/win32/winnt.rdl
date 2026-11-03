@@ -7524,13 +7524,13 @@ mod Windows {
         }
         #[arch(Arm64)]
         #[library("KERNEL32.dll")]
-        extern "C" fn RtlAddFunctionTable(#[Windows::Win32::Metadata::Buffer(CountParamIndex = 1)] #[in] FunctionTable: PRUNTIME_FUNCTION, #[in] EntryCount: DWORD, #[in] BaseAddress: ULONG_PTR) -> BOOLEAN;
+        extern "C" fn RtlAddFunctionTable(#[buffer(EntryCount)] #[in] FunctionTable: PRUNTIME_FUNCTION, #[in] EntryCount: DWORD, #[in] BaseAddress: ULONG_PTR) -> BOOLEAN;
         #[arch(X64)]
         #[library("KERNEL32.dll")]
-        extern "C" fn RtlAddFunctionTable(#[Windows::Win32::Metadata::Buffer(CountParamIndex = 1)] #[in] FunctionTable: PRUNTIME_FUNCTION, #[in] EntryCount: DWORD, #[in] BaseAddress: DWORD64) -> BOOLEAN;
+        extern "C" fn RtlAddFunctionTable(#[buffer(EntryCount)] #[in] FunctionTable: PRUNTIME_FUNCTION, #[in] EntryCount: DWORD, #[in] BaseAddress: DWORD64) -> BOOLEAN;
         #[arch(X64 | Arm64)]
         #[library("ntdll.dll")]
-        extern fn RtlAddGrowableFunctionTable(#[out] DynamicTable: *mut PVOID, #[Windows::Win32::Metadata::Buffer(CountParamIndex = 3)] #[in] FunctionTable: PRUNTIME_FUNCTION, #[in] EntryCount: DWORD, #[in] MaximumEntryCount: DWORD, #[in] RangeBase: ULONG_PTR, #[in] RangeEnd: ULONG_PTR) -> DWORD;
+        extern fn RtlAddGrowableFunctionTable(#[out] DynamicTable: *mut PVOID, #[buffer(MaximumEntryCount)] #[in] FunctionTable: PRUNTIME_FUNCTION, #[in] EntryCount: DWORD, #[in] MaximumEntryCount: DWORD, #[in] RangeBase: ULONG_PTR, #[in] RangeEnd: ULONG_PTR) -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn RtlCaptureContext(#[out] ContextRecord: PCONTEXT);
         #[arch(X64)]

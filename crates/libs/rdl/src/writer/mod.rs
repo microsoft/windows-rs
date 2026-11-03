@@ -832,31 +832,52 @@ impl ExtentOwner<'_> {
 }
 
 fn metadata_underlying(
-    mut ty: metadata::Type,
+    ty: metadata::Type,
     index: &metadata::reader::Index,
 ) -> Option<metadata::Type> {
-    let mut seen = HashSet::new();
-    while let metadata::Type::ValueName(name) = &ty {
-        if !seen.insert((name.namespace.clone(), name.name.clone())) {
-            return None;
+    let mut types = metadata_underlying_types(ty, index).into_iter();
+    let first = types.next()?;
+    types.all(|ty| ty == first).then_some(first)
+}
+
+fn metadata_underlying_types(
+    ty: metadata::Type,
+    index: &metadata::reader::Index,
+) -> Vec<metadata::Type> {
+    fn collect(
+        ty: metadata::Type,
+        index: &metadata::reader::Index,
+        seen: &mut HashSet<(String, String)>,
+        types: &mut Vec<metadata::Type>,
+    ) -> Option<()> {
+        if let metadata::Type::ValueName(name) = &ty {
+            let key = (name.namespace.clone(), name.name.clone());
+            if !seen.insert(key.clone()) {
+                return None;
+            }
+            let mut definitions = index.get(&name.namespace, &name.name).peekable();
+            if definitions.peek().is_none() {
+                types.push(ty);
+            } else {
+                for def in definitions {
+                    if def.has_attribute("NativeTypedefAttribute") {
+                        collect(def.underlying_type()?, index, seen, types)?;
+                    } else {
+                        types.push(ty.clone());
+                    }
+                }
+            }
+            seen.remove(&key);
+        } else {
+            types.push(ty);
         }
-        let mut definitions = index.get(&name.namespace, &name.name);
-        let Some(def) = definitions.next() else {
-            return Some(ty);
-        };
-        if !def.has_attribute("NativeTypedefAttribute") {
-            return Some(ty);
-        }
-        let underlying = def.underlying_type()?;
-        if definitions.any(|other| {
-            !other.has_attribute("NativeTypedefAttribute")
-                || other.underlying_type().as_ref() != Some(&underlying)
-        }) {
-            return None;
-        }
-        ty = underlying;
+        Some(())
     }
-    Some(ty)
+    let mut types = Vec::new();
+    if collect(ty, index, &mut HashSet::new(), &mut types).is_none() {
+        types.clear();
+    }
+    types
 }
 
 fn write_custom_attributes_with_names<'a>(
@@ -891,12 +912,12 @@ fn write_custom_attributes_with_names<'a>(
                 && let Some(info) = metadata::BufferInfo::from_values(&values)
                 && let Some(ExtentOwner::Parameter(names, ty, _, counts, optional)) = extent_owner
                 && buffer_info::is_buffer_count(&info.count, counts, |ty| {
-                    metadata_underlying(ty, index)
+                    metadata_underlying_types(ty, index)
                 })
                 && !matches!(info.count, metadata::BufferSize::Dereference(index)
                     if optional.get(index as usize).copied().unwrap_or(true))
                 && buffer_info::is_buffer_storage(ty.clone(), false, |ty| {
-                    metadata_underlying(ty, index)
+                    metadata_underlying_types(ty, index)
                 })
                 && let Some(tokens) = write_buffer_info(&info, names)
             {

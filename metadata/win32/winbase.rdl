@@ -1495,7 +1495,7 @@ mod Windows {
         const MS_RING_ON: DWORD = 64;
         const MS_RLSD_ON: DWORD = 128;
         #[library("KERNEL32.dll")]
-        extern fn MapUserPhysicalPagesScatter(#[buffer(NumberOfPages)] #[in] VirtualAddresses: *mut PVOID, #[in] NumberOfPages: ULONG_PTR, #[Windows::Win32::Metadata::Buffer(CountParamIndex = 1)] #[in] #[opt] PageArray: PULONG_PTR) -> BOOL;
+        extern fn MapUserPhysicalPagesScatter(#[buffer(NumberOfPages)] #[in] VirtualAddresses: *mut PVOID, #[in] NumberOfPages: ULONG_PTR, #[buffer(NumberOfPages)] #[in] #[opt] PageArray: PULONG_PTR) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn MapViewOfFileExNuma(#[in] hFileMappingObject: HANDLE, #[in] dwDesiredAccess: DWORD, #[in] dwFileOffsetHigh: DWORD, #[in] dwFileOffsetLow: DWORD, #[in] dwNumberOfBytesToMap: SIZE_T, #[in] #[opt] lpBaseAddress: LPVOID, #[in] nndPreferred: DWORD) -> #[nullable] LPVOID;
         #[library("KERNEL32.dll")]

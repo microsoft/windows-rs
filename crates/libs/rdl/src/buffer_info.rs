@@ -2,34 +2,37 @@ use super::*;
 use metadata::{BufferInfo, BufferSize};
 use syn::ext::IdentExt;
 
-pub(crate) fn is_buffer_count(
+pub(crate) fn is_buffer_count<I: IntoIterator<Item = metadata::Type>>(
     count: &BufferSize,
     types: &[metadata::Type],
-    underlying: impl Fn(metadata::Type) -> Option<metadata::Type>,
+    underlying: impl Fn(metadata::Type) -> I,
 ) -> bool {
     let index = match *count {
         BufferSize::Constant(_) => return true,
         BufferSize::Parameter(index) | BufferSize::Dereference(index) => index,
     };
-    let mut ty = types.get(index as usize).cloned().and_then(&underlying);
-    if matches!(count, BufferSize::Dereference(_)) {
-        ty = ty.and_then(pointee).and_then(underlying);
-    }
-    matches!(
-        ty,
-        Some(
-            metadata::Type::I8
-                | metadata::Type::U8
-                | metadata::Type::I16
-                | metadata::Type::U16
-                | metadata::Type::I32
-                | metadata::Type::U32
-                | metadata::Type::I64
-                | metadata::Type::U64
-                | metadata::Type::ISize
-                | metadata::Type::USize
+    types.get(index as usize).is_some_and(|ty| {
+        matches_underlying(
+            ty.clone(),
+            matches!(count, BufferSize::Dereference(_)),
+            underlying,
+            |ty| {
+                matches!(
+                    ty,
+                    metadata::Type::I8
+                        | metadata::Type::U8
+                        | metadata::Type::I16
+                        | metadata::Type::U16
+                        | metadata::Type::I32
+                        | metadata::Type::U32
+                        | metadata::Type::I64
+                        | metadata::Type::U64
+                        | metadata::Type::ISize
+                        | metadata::Type::USize
+                )
+            },
         )
-    )
+    })
 }
 
 pub(crate) fn pointee(ty: metadata::Type) -> Option<metadata::Type> {
@@ -48,16 +51,12 @@ pub(crate) fn pointee(ty: metadata::Type) -> Option<metadata::Type> {
     }
 }
 
-pub(crate) fn is_buffer_storage(
+pub(crate) fn is_buffer_storage<I: IntoIterator<Item = metadata::Type>>(
     ty: metadata::Type,
     indirect: bool,
-    underlying: impl Fn(metadata::Type) -> Option<metadata::Type>,
+    underlying: impl Fn(metadata::Type) -> I,
 ) -> bool {
-    let mut subject = underlying(ty);
-    if indirect {
-        subject = subject.and_then(pointee).and_then(underlying);
-    }
-    subject.is_some_and(|ty| {
+    matches_underlying(ty, indirect, underlying, |ty| {
         matches!(
             ty,
             metadata::Type::PtrMut(..)
@@ -68,6 +67,27 @@ pub(crate) fn is_buffer_storage(
                 | metadata::Type::ArrayFixed(..)
         )
     })
+}
+
+fn matches_underlying<I: IntoIterator<Item = metadata::Type>>(
+    ty: metadata::Type,
+    indirect: bool,
+    underlying: impl Fn(metadata::Type) -> I,
+    predicate: impl Fn(metadata::Type) -> bool,
+) -> bool {
+    let mut types = underlying(ty).into_iter().peekable();
+    types.peek().is_some()
+        && types.all(|ty| {
+            if indirect {
+                let Some(ty) = pointee(ty) else {
+                    return false;
+                };
+                let mut types = underlying(ty).into_iter().peekable();
+                types.peek().is_some() && types.all(&predicate)
+            } else {
+                predicate(ty)
+            }
+        })
 }
 
 fn parameter(input: syn::parse::ParseStream, names: &[&str]) -> syn::Result<u16> {
