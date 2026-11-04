@@ -334,6 +334,10 @@ impl RecordingAdapter {
                     collection: pending_collection,
                     container: pending_container,
                     ..
+                } | RealizationRequest::RealizeKey {
+                    collection: pending_collection,
+                    container: pending_container,
+                    ..
                 }) if *pending_collection == collection && *pending_container == container
             )
         });

@@ -450,7 +450,7 @@ fn recycled_physical_shell_keeps_old_token_until_acknowledged() {
 
 #[test]
 fn virtual_source_generates_indices_on_demand() {
-    let source = ComObject::new(NativeVirtualSource::new(3).unwrap());
+    let source = ComObject::new(NativeVirtualSource::new(Arc::new(vec![0, 1, 2])).unwrap());
     let vector: IObservableVector<IInspectable> = source.to_interface();
 
     assert_eq!(vector.Size().unwrap(), 3);
@@ -498,21 +498,49 @@ fn virtual_source_generates_indices_on_demand() {
 }
 
 #[test]
+fn native_recycling_cancels_pending_keyed_realization() {
+    let queue = Rc::new(NativeEventQueue::default());
+    let collection = ObjectId::test(1);
+    let container = RealizedContainer(2);
+    queue.queue_realization(RealizationRequest::RealizeKey {
+        collection,
+        container,
+        index: 4,
+        token: 9,
+    });
+    queue.queue_realization(RealizationRequest::Recycle {
+        collection,
+        container,
+        source_revision: 3,
+    });
+    let events = queue.events.borrow();
+    assert_eq!(events.len(), 1);
+    assert!(matches!(
+        events.front(),
+        Some(NativeEvent::Realization(RealizationRequest::Cancel {
+            collection: owner,
+            container: recycled,
+            source_revision: 3,
+        })) if *owner == collection && *recycled == container
+    ));
+}
+
+#[test]
 fn virtual_source_is_read_only_and_validates_index_limits() {
     let max_count = i32::MAX as usize + 1;
-    let source = ComObject::new(NativeVirtualSource::new(max_count).unwrap());
+    let source = ComObject::new(NativeVirtualSource::new(Arc::new(vec![0])).unwrap());
     let vector: IObservableVector<IInspectable> = source.to_interface();
 
-    assert_eq!(vector.Size().unwrap(), max_count as u32);
+    assert_eq!(virtual_item_count(max_count).unwrap(), max_count as u32);
     assert_eq!(
-        virtual_index(vector.GetAt(i32::MAX as u32).unwrap()),
+        virtual_index(virtual_item_value(i32::MAX as u32).unwrap()),
         i32::MAX
     );
     assert_eq!(
-        vector.GetAt(i32::MAX as u32 + 1).unwrap_err().code(),
+        virtual_item_value(i32::MAX as u32 + 1).unwrap_err().code(),
         E_BOUNDS
     );
-    assert!(NativeVirtualSource::new(max_count + 1).is_err());
+    assert!(virtual_item_count(max_count + 1).is_err());
 
     let value = virtual_item_value(0).unwrap();
     assert_eq!(
@@ -532,7 +560,7 @@ fn virtual_source_is_read_only_and_validates_index_limits() {
 
 #[test]
 fn virtual_source_reset_notifies_once_and_honors_event_removal() {
-    let source = ComObject::new(NativeVirtualSource::new(0).unwrap());
+    let source = ComObject::new(NativeVirtualSource::new(Arc::default()).unwrap());
     let vector: IObservableVector<IInspectable> = source.to_interface();
     let first = Arc::new(AtomicUsize::new(0));
     let second = Arc::new(AtomicUsize::new(0));
@@ -552,21 +580,51 @@ fn virtual_source_reset_notifies_once_and_honors_event_removal() {
         })
         .unwrap();
 
-    source.reset(10_000);
+    let keys = Arc::new((0..10_000).collect::<Vec<_>>());
+    source.reset(keys.clone()).unwrap();
     assert_eq!(vector.Size().unwrap(), 10_000);
     assert_eq!(first.load(Ordering::Relaxed), 1);
     assert_eq!(second.load(Ordering::Relaxed), 1);
 
     drop(first_revoker);
-    source.reset(10_000);
+    source.reset(keys).unwrap();
     assert_eq!(first.load(Ordering::Relaxed), 1);
     assert_eq!(second.load(Ordering::Relaxed), 2);
 
     drop(second_revoker);
-    source.reset(0);
+    source.reset(Arc::default()).unwrap();
     assert_eq!(vector.Size().unwrap(), 0);
     assert_eq!(first.load(Ordering::Relaxed), 1);
     assert_eq!(second.load(Ordering::Relaxed), 2);
+}
+
+#[test]
+fn virtual_source_maps_native_tokens_across_reset() {
+    use native::IKeyIndexMapping_Impl;
+
+    let source = ComObject::new(NativeVirtualSource::new(Arc::new(vec![0, 1, 2])).unwrap());
+    let mapping = &*source;
+    let tokens = [0, 1, 2].map(|index| mapping.KeyFromIndex(index).unwrap());
+    assert_ne!(tokens[0], tokens[1]);
+    assert_ne!(tokens[1], tokens[2]);
+    assert_eq!(mapping.KeyFromIndex(-1).unwrap_err().code(), E_BOUNDS);
+    assert_eq!(mapping.KeyFromIndex(3).unwrap_err().code(), E_BOUNDS);
+    for missing in ["", "unknown", "+0", "00"] {
+        assert_eq!(mapping.IndexFromKey(&HSTRING::from(missing)).unwrap(), -1);
+    }
+
+    source.reset(Arc::new(vec![2, 0])).unwrap();
+    assert_eq!(mapping.KeyFromIndex(0).unwrap(), tokens[2]);
+    assert_eq!(mapping.KeyFromIndex(1).unwrap(), tokens[0]);
+    assert_eq!(mapping.IndexFromKey(&tokens[2]).unwrap(), 0);
+    assert_eq!(mapping.IndexFromKey(&tokens[0]).unwrap(), 1);
+    assert_eq!(mapping.IndexFromKey(&tokens[1]).unwrap(), -1);
+
+    source.reset(Arc::new(vec![0, 3, 2])).unwrap();
+    assert_eq!(mapping.KeyFromIndex(0).unwrap(), tokens[0]);
+    assert_eq!(mapping.KeyFromIndex(2).unwrap(), tokens[2]);
+    assert_ne!(mapping.KeyFromIndex(1).unwrap(), tokens[1]);
+    assert_eq!(mapping.IndexFromKey(&tokens[1]).unwrap(), -1);
 }
 
 #[test]

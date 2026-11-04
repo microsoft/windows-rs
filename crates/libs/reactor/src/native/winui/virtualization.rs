@@ -7,6 +7,7 @@ implement_decl! {
 struct NativeElementFactory {
     collection: ObjectId,
     queue: Rc<NativeEventQueue>,
+    source: ComObject<NativeVirtualSource>,
     source_revision: Rc<Cell<u64>>,
     shells: Rc<RealizedShells>,
 }
@@ -22,20 +23,21 @@ impl NativeVirtualItems {
     pub(super) fn new(
         repeater: &native::ItemsRepeater,
         collection: ObjectId,
-        item_count: usize,
+        keys: &Arc<Vec<u64>>,
         source_revision: u64,
         queue: Rc<NativeEventQueue>,
     ) -> Result<Self, windows_core::Error> {
         let shells = Rc::new(RealizedShells::default());
         let source_revision = Rc::new(Cell::new(source_revision));
+        let source = ComObject::new(NativeVirtualSource::new(Arc::clone(keys))?);
         let factory: IElementFactory = ComObject::new(NativeElementFactory {
             collection,
             queue,
+            source: source.clone(),
             source_revision: Rc::clone(&source_revision),
             shells: Rc::clone(&shells),
         })
         .into_interface();
-        let source = ComObject::new(NativeVirtualSource::new(item_count)?);
         let source_interface: IObservableVector<IInspectable> = source.to_interface();
         repeater.SetItemTemplate(&factory)?;
         repeater.SetItemsSource(&source_interface)?;
@@ -49,13 +51,11 @@ impl NativeVirtualItems {
 
     pub(super) fn reset(
         &self,
-        item_count: usize,
+        keys: &Arc<Vec<u64>>,
         source_revision: u64,
     ) -> windows_core::Result<()> {
-        let item_count = virtual_item_count(item_count)?;
         self.source_revision.set(source_revision);
-        self.source.reset(item_count);
-        Ok(())
+        self.source.reset(Arc::clone(keys))
     }
 }
 
@@ -75,24 +75,28 @@ type NativeIterator = IIterator<IInspectable>;
 
 type NativeVectorChangedEventArgs = IVectorChangedEventArgs;
 
+type NativeKeyIndexMapping = native::IKeyIndexMapping;
+
 implement_decl! {
     impl NativeVirtualSource as pub(super) NativeVirtualSource_Impl: [
         NativeObservableVector,
         NativeVector,
         NativeVectorView,
         NativeIterable,
+        NativeKeyIndexMapping,
     ]
 }
 
 pub(super) struct NativeVirtualSource {
-    item_count: AtomicU32,
+    keys: Mutex<Arc<Vec<u64>>>,
     handlers: WinEvent<VectorChangedEventHandler<IInspectable>>,
 }
 
 impl NativeVirtualSource {
-    pub(super) fn new(count: usize) -> windows_core::Result<Self> {
+    pub(super) fn new(keys: Arc<Vec<u64>>) -> windows_core::Result<Self> {
+        virtual_item_count(keys.len())?;
         Ok(Self {
-            item_count: AtomicU32::new(virtual_item_count(count)?),
+            keys: Mutex::new(keys),
             handlers: WinEvent::new(),
         })
     }
@@ -100,7 +104,7 @@ impl NativeVirtualSource {
 
 impl NativeVirtualSource_Impl {
     fn count(&self) -> u32 {
-        self.item_count.load(Ordering::Acquire)
+        self.keys.lock().unwrap().len().try_into().unwrap()
     }
 
     fn get_at(&self, index: u32) -> windows_core::Result<IInspectable> {
@@ -153,8 +157,9 @@ impl NativeVirtualSource_Impl {
         windows_core::Error::new(E_ILLEGAL_METHOD_CALL, "virtual item source is read-only")
     }
 
-    pub(super) fn reset(&self, count: u32) {
-        self.item_count.store(count, Ordering::Release);
+    pub(super) fn reset(&self, keys: Arc<Vec<u64>>) -> windows_core::Result<()> {
+        virtual_item_count(keys.len())?;
+        *self.keys.lock().unwrap() = keys;
         let source: IObservableVector<IInspectable> = self.to_object().into_interface();
         let args: IVectorChangedEventArgs =
             ComObject::new(NativeVirtualChangedEventArgs).into_interface();
@@ -162,6 +167,36 @@ impl NativeVirtualSource_Impl {
             .call(|handler: &VectorChangedEventHandler<IInspectable>| {
                 handler.Invoke(&source, &args)
             });
+        Ok(())
+    }
+}
+
+impl native::IKeyIndexMapping_Impl for NativeVirtualSource_Impl {
+    fn KeyFromIndex(&self, index: i32) -> windows_core::Result<HSTRING> {
+        let index = usize::try_from(index).map_err(|_| windows_core::Error::from(E_BOUNDS))?;
+        self.keys
+            .lock()
+            .unwrap()
+            .get(index)
+            .map(|token| HSTRING::from(token.to_string()))
+            .ok_or_else(|| E_BOUNDS.into())
+    }
+
+    fn IndexFromKey(&self, key: &HSTRING) -> windows_core::Result<i32> {
+        let text = key.to_string_lossy();
+        let Ok(token) = text.parse::<u64>() else {
+            return Ok(-1);
+        };
+        if text != token.to_string() {
+            return Ok(-1);
+        }
+        Ok(self
+            .keys
+            .lock()
+            .unwrap()
+            .iter()
+            .position(|candidate| *candidate == token)
+            .map_or(-1, |index| index.try_into().unwrap()))
     }
 }
 
@@ -468,13 +503,15 @@ impl native::IElementFactory_Impl for NativeElementFactory_Impl {
         let value = data.cast::<windows_reference::IReference<i32>>()?.Value()?;
         let index = usize::try_from(value)
             .map_err(|_| windows_core::Error::new(native::E_FAIL, "negative item index"))?;
+        let token = self.source.keys.lock().unwrap()[index];
         let (container, element) = self.shells.take()?;
-        self.queue.queue_realization(RealizationRequest::Realize {
-            collection: self.collection,
-            container,
-            index,
-            source_revision: self.source_revision.get(),
-        });
+        self.queue
+            .queue_realization(RealizationRequest::RealizeKey {
+                collection: self.collection,
+                container,
+                index,
+                token,
+            });
         self.queue.realize_now();
         Ok(element)
     }
@@ -496,7 +533,7 @@ impl native::IElementFactory_Impl for NativeElementFactory_Impl {
     }
 }
 
-fn virtual_item_count(item_count: usize) -> windows_core::Result<u32> {
+pub(super) fn virtual_item_count(item_count: usize) -> windows_core::Result<u32> {
     let max_count = i32::MAX as usize + 1;
     if item_count > max_count {
         return Err(windows_core::Error::new(

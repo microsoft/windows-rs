@@ -39,11 +39,14 @@ pub(super) fn retain_virtual_items(declaration: &Declaration) -> Option<Box<Reta
         declaration.kind
     );
     let keys = virtual_keys(&declared.items);
+    let next_token = u64::try_from(keys.len()).unwrap();
     Some(Box::new(RetainedVirtualItems {
         relation,
         owner: declared.owner.or(declaration.component),
         items: declared.items,
         keys: Rc::new(keys),
+        tokens: Arc::new((0..next_token).collect()),
+        next_token,
         source_revision: 0,
         lease_revision: 0,
         active: HashMap::new(),
@@ -52,6 +55,36 @@ pub(super) fn retain_virtual_items(declaration: &Declaration) -> Option<Box<Reta
 }
 
 impl RetainedGraph {
+    fn resolve_realization_request(
+        &self,
+        request: RealizationRequest,
+    ) -> Option<RealizationRequest> {
+        let RealizationRequest::RealizeKey {
+            collection,
+            container,
+            index,
+            token,
+        } = request
+        else {
+            return Some(request);
+        };
+        let items = self.get(collection)?.virtual_items.as_ref()?;
+        let index = if items.tokens.get(index) == Some(&token) {
+            index
+        } else {
+            items
+                .tokens
+                .iter()
+                .position(|candidate| *candidate == token)?
+        };
+        Some(RealizationRequest::Realize {
+            collection,
+            container,
+            index,
+            source_revision: items.source_revision,
+        })
+    }
+
     pub(crate) fn virtual_realization(
         &self,
         collection: ObjectId,
@@ -88,7 +121,11 @@ impl RetainedGraph {
         applying: &[(ObjectId, Key)],
         pending: &[(ObjectId, Key)],
     ) -> bool {
+        let Some(request) = self.resolve_realization_request(request) else {
+            return false;
+        };
         let (collection, container, index) = match request {
+            RealizationRequest::RealizeKey { .. } => unreachable!(),
             RealizationRequest::Realize {
                 collection,
                 container,
@@ -125,6 +162,7 @@ impl RetainedGraph {
 
     fn validate_realization_request(&self, request: RealizationRequest) -> bool {
         let (collection, source_revision, index) = match request {
+            RealizationRequest::RealizeKey { .. } => unreachable!(),
             RealizationRequest::Realize {
                 collection,
                 source_revision,
@@ -148,10 +186,11 @@ impl RetainedGraph {
         let Some(items) = &object.virtual_items else {
             panic!("{collection:?} does not realize virtual items");
         };
-        if items.source_revision != source_revision {
-            return false;
-        }
+        // Recycling names a shell, not a source index, and still needs acknowledgement after reset.
         if let Some(index) = index {
+            if items.source_revision != source_revision {
+                return false;
+            }
             assert!(
                 index < items.keys.len(),
                 "invalid realization {index} for {collection:?}"
@@ -161,10 +200,12 @@ impl RetainedGraph {
     }
 
     pub(super) fn virtual_work(&self, request: RealizationRequest) -> Option<VirtualWork> {
+        let request = self.resolve_realization_request(request)?;
         if !self.validate_realization_request(request) {
             return None;
         }
         match request {
+            RealizationRequest::RealizeKey { .. } => unreachable!(),
             RealizationRequest::Realize {
                 collection,
                 container,
@@ -205,17 +246,21 @@ impl RetainedGraph {
                     .virtual_items
                     .as_ref()
                     .unwrap();
-                items
-                    .containers
-                    .get(&container)
-                    .map(|realization| VirtualWork::Recycle {
+                Some(match items.containers.get(&container) {
+                    Some(realization) => VirtualWork::Recycle {
                         lease: RealizationLease {
                             collection,
                             container,
                             key: realization.key.clone(),
                             revision: realization.revision,
                         },
-                    })
+                    },
+                    None => VirtualWork::Cancel {
+                        collection,
+                        relation: items.relation,
+                        container,
+                    },
+                })
             }
             RealizationRequest::Cancel {
                 collection,
@@ -564,72 +609,64 @@ impl Planner<'_> {
         } else {
             previous.source_revision
         };
-        let old_by_key = previous
-            .containers
-            .values()
-            .map(|realization| (realization.key.clone(), realization.clone()))
-            .collect::<HashMap<_, _>>();
-        let represented = previous
-            .containers
-            .values()
-            .filter_map(|realization| keys.get(realization.index))
-            .cloned()
-            .collect::<HashSet<_>>();
-        let mut lease_revision = previous.lease_revision;
+        let indices = keys_changed.then(|| {
+            keys.iter()
+                .enumerate()
+                .map(|(index, key)| (key, index))
+                .collect::<HashMap<_, _>>()
+        });
+        let mut next_token = previous.next_token;
+        let tokens = if let Some(indices) = &indices {
+            let mut tokens = vec![None; keys.len()];
+            for (key, token) in previous.keys.iter().zip(previous.tokens.iter()) {
+                if let Some(index) = indices.get(key) {
+                    tokens[*index] = Some(*token);
+                }
+            }
+            Arc::new(
+                tokens
+                    .into_iter()
+                    .map(|token| {
+                        token.unwrap_or_else(|| {
+                            let token = next_token;
+                            next_token = next_token.checked_add(1).unwrap();
+                            token
+                        })
+                    })
+                    .collect(),
+            )
+        } else {
+            Arc::clone(&previous.tokens)
+        };
         let mut containers = HashMap::with_capacity(previous.containers.len());
         let mut active = HashMap::with_capacity(previous.active.len());
-        let mut retired = HashSet::new();
         let mut previous_containers = previous.containers.iter().collect::<Vec<_>>();
         previous_containers
             .sort_unstable_by_key(|(container, realization)| (realization.index, container.0));
         for (container, current) in previous_containers {
-            let Some(key) = keys.get(current.index).cloned() else {
+            let Some(index) = indices.as_ref().map_or(Some(current.index), |indices| {
+                indices.get(&current.key).copied()
+            }) else {
                 self.mutations.push(Mutation::Recycle {
                     parent: object,
                     relation: previous.relation,
                     container: *container,
                     child: current.child,
                 });
-                if let Some(child) = current.child
-                    && !represented.contains(&current.key)
-                    && retired.insert(child)
-                {
+                if let Some(child) = current.child {
                     self.retire(child);
                 }
                 continue;
             };
-            let preserved = old_by_key.get(&key);
-            let child = preserved.and_then(|realization| realization.child);
-            let revision = if let Some(realization) = preserved {
-                realization.revision
-            } else {
-                lease_revision = lease_revision.checked_add(1).unwrap();
-                lease_revision
-            };
-            if current.key != key || current.child != child {
-                self.mutations.push(Mutation::Recycle {
-                    parent: object,
-                    relation: previous.relation,
-                    container: *container,
-                    child: current.child,
-                });
-                if let Some(current_child) = current.child
-                    && !represented.contains(&current.key)
-                    && retired.insert(current_child)
-                {
-                    self.retire(current_child);
-                }
-            }
+            // WinUI's keyed reset keeps each surviving shell with its item, not its old index.
             containers.insert(
                 *container,
                 RetainedRealization {
-                    key: key.clone(),
-                    revision,
-                    index: current.index,
-                    child,
+                    index,
+                    ..current.clone()
                 },
             );
-            active.insert(key, (revision, *container));
+            active.insert(current.key.clone(), (current.revision, *container));
         }
         let children = {
             let mut children = containers
@@ -653,14 +690,15 @@ impl Planner<'_> {
         retained.owner = declared.owner.or(declaration.component);
         retained.items = declared.items;
         retained.keys = keys;
+        retained.tokens = tokens;
+        retained.next_token = next_token;
         retained.source_revision = source_revision;
-        retained.lease_revision = lease_revision;
         retained.containers = containers;
         retained.active = active;
         if keys_changed {
             self.mutations.push(Mutation::SetVirtualSource {
                 object,
-                item_count: retained.keys.len(),
+                keys: Arc::clone(&retained.tokens),
                 source_revision,
             });
         }

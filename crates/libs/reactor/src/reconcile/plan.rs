@@ -107,7 +107,7 @@ impl Planner<'_> {
         if let Some(items) = &self.retained.get(object).unwrap().virtual_items {
             self.mutations.push(Mutation::SetVirtualSource {
                 object,
-                item_count: items.keys.len(),
+                keys: Arc::clone(&items.tokens),
                 source_revision: items.source_revision,
             });
         }
@@ -183,7 +183,7 @@ impl Planner<'_> {
         if let Some(items) = &self.retained.get(object).unwrap().virtual_items {
             self.mutations.push(Mutation::SetVirtualSource {
                 object,
-                item_count: items.keys.len(),
+                keys: Arc::clone(&items.tokens),
                 source_revision: items.source_revision,
             });
         }
