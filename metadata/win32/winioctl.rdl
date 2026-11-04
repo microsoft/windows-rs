@@ -1757,9 +1757,11 @@ mod Windows {
         const FSCTL_REFS_SET_VOLUME_DEDUP_INFO: i32 = 590960;
         const FSCTL_REFS_SET_VOLUME_IO_METRICS_INFO: i32 = 590984;
         const FSCTL_REFS_STREAM_SNAPSHOT_MANAGEMENT: i32 = 590912;
+        const FSCTL_REFS_VOLUME_ATTESTATION_BIND_TO_TPM: i32 = 591020;
         const FSCTL_REFS_VOLUME_ATTESTATION_INJECT_CERTIFICATE: i32 = 591016;
         const FSCTL_REFS_VOLUME_ATTESTATION_PREPARE_TO_SIGN: i32 = 591012;
-        const FSCTL_REFS_VOLUME_ATTESTATION_QUERY_STATUS: i32 = 591020;
+        const FSCTL_REFS_VOLUME_ATTESTATION_QUERY_STATUS: i32 = 591024;
+        const FSCTL_REFS_VOLUME_ATTESTATION_RESET: i32 = 591028;
         const FSCTL_REMOVE_OVERLAY: i32 = 623412;
         const FSCTL_REPAIR_COPIES: i32 = 639668;
         const FSCTL_REQUEST_BATCH_OPLOCK: i32 = 589832;
@@ -3214,6 +3216,8 @@ mod Windows {
         type PSTORAGE_ZONE_DESCRIPTOR = *mut STORAGE_ZONE_DESCRIPTOR;
         type PSTORAGE_ZONE_GROUP = *mut STORAGE_ZONE_GROUP;
         type PSTORAGE_ZONE_TYPES = *mut STORAGE_ZONE_TYPES;
+        type PSTOR_PAGING_DEVICE_DUMP_DATA = *mut STOR_PAGING_DEVICE_DUMP_DATA;
+        type PSTOR_PAGING_DEVICE_DUMP_ENTRY = *mut STOR_PAGING_DEVICE_DUMP_ENTRY;
         type PSTREAMS_ASSOCIATE_ID_INPUT_BUFFER = *mut STREAMS_ASSOCIATE_ID_INPUT_BUFFER;
         type PSTREAMS_QUERY_ID_OUTPUT_BUFFER = *mut STREAMS_QUERY_ID_OUTPUT_BUFFER;
         type PSTREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER = *mut STREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER;
@@ -5570,6 +5574,34 @@ mod Windows {
         }
         const STORATTRIBUTE_MANAGEMENT_STATE: i32 = 1;
         const STORATTRIBUTE_NONE: i32 = 0;
+        const STOR_MAX_PAGING_DEVICES: i32 = 16;
+        #[packed(1)]
+        struct STOR_PAGING_DEVICE_DUMP_DATA {
+            Descriptor: DEVICEDUMP_STRUCTURE_VERSION,
+            EntryCount: DWORD,
+            EntrySize: DWORD,
+            Entries: [STOR_PAGING_DEVICE_DUMP_ENTRY; 1],
+        }
+        #[packed(1)]
+        struct STOR_PAGING_DEVICE_DUMP_ENTRY {
+            MiniportName: [CHAR; 33],
+            ModelName: [CHAR; 65],
+            FirmwareRevision: [CHAR; 17],
+            PagingPathCount: WORD,
+            Flags: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u8 {
+                        IsBootDevice: BYTE: 1,
+                        IsNativeNVMe: BYTE: 1,
+                        Reserved: BYTE: 6,
+                    },
+                },
+                AsUchar: BYTE,
+            },
+        }
+        const STOR_PAGING_DEVICE_FW_REVISION_LENGTH: i32 = 16;
+        const STOR_PAGING_DEVICE_MINIPORT_NAME_LENGTH: i32 = 32;
+        const STOR_PAGING_DEVICE_MODEL_NAME_LENGTH: i32 = 64;
         const STREAMS_ASSOCIATE_ID_CLEAR: i32 = 1;
         struct STREAMS_ASSOCIATE_ID_INPUT_BUFFER {
             Flags: DWORD,

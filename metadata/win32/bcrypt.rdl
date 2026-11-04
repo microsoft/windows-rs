@@ -89,6 +89,45 @@ mod Windows {
         const BCRYPT_CIPHER_INTERFACE: i32 = 1;
         const BCRYPT_CIPHER_OPERATION: i32 = 1;
         #[encoding("utf-16")]
+        const BCRYPT_COMPOSITE_MLDSA_ALGORITHM: String = "Composite-ML-DSA";
+        const BCRYPT_COMPOSITE_MLDSA_ALG_HANDLE: BCRYPT_ALG_HANDLE = 1169;
+        #[encoding("utf-16")]
+        const BCRYPT_COMPOSITE_MLDSA_PARAMETER_SET_44_ECDSA_P256_SHA256: String = "44-ECDSA-P256-SHA256";
+        #[encoding("utf-16")]
+        const BCRYPT_COMPOSITE_MLDSA_PARAMETER_SET_65_ECDSA_P256_SHA512: String = "65-ECDSA-P256-SHA512";
+        #[encoding("utf-16")]
+        const BCRYPT_COMPOSITE_MLDSA_PARAMETER_SET_65_ECDSA_P384_SHA512: String = "65-ECDSA-P384-SHA512";
+        #[encoding("utf-16")]
+        const BCRYPT_COMPOSITE_MLDSA_PARAMETER_SET_87_ECDSA_P384_SHA512: String = "87-ECDSA-P384-SHA512";
+        const BCRYPT_COMPOSITE_MLDSA_PRIVATE_MAGIC: i32 = 1263750467;
+        const BCRYPT_COMPOSITE_MLDSA_PUBLIC_MAGIC: i32 = 1263553859;
+        #[encoding("utf-16")]
+        const BCRYPT_COMPOSITE_MLKEM_ALGORITHM: String = "Composite-ML-KEM";
+        const BCRYPT_COMPOSITE_MLKEM_ALG_HANDLE: BCRYPT_ALG_HANDLE = 1185;
+        #[encoding("utf-16")]
+        const BCRYPT_COMPOSITE_MLKEM_DECAPSULATION_BLOB: String = "COMPMLKEMPRIVATELAMPSBLOB";
+        #[encoding("utf-16")]
+        const BCRYPT_COMPOSITE_MLKEM_ENCAPSULATION_BLOB: String = "COMPMLKEMPUBLICBLOB";
+        type BCRYPT_COMPOSITE_MLKEM_KEY_BLOB = _BCRYPT_PARAMETER_SET_KEY_BLOB;
+        #[encoding("utf-16")]
+        const BCRYPT_COMPOSITE_MLKEM_PARAMETER_SET_1024_P384: String = "1024-P384";
+        #[encoding("utf-16")]
+        const BCRYPT_COMPOSITE_MLKEM_PARAMETER_SET_768_P256: String = "768-P256";
+        #[encoding("utf-16")]
+        const BCRYPT_COMPOSITE_MLKEM_PARAMETER_SET_768_X25519: String = "768-X25519";
+        #[encoding("utf-16")]
+        const BCRYPT_COMPOSITE_MLKEM_PRIVATE_BLOB: String = "COMPMLKEMPRIVATELAMPSBLOB";
+        #[encoding("utf-16")]
+        const BCRYPT_COMPOSITE_MLKEM_PRIVATE_IRTF_SEED_BLOB: String = "COMPMLKEMPRIVATEIRTFSEEDBLOB";
+        const BCRYPT_COMPOSITE_MLKEM_PRIVATE_IRTF_SEED_MAGIC: i32 = 1397443907;
+        #[encoding("utf-16")]
+        const BCRYPT_COMPOSITE_MLKEM_PRIVATE_LAMPS_BLOB: String = "COMPMLKEMPRIVATELAMPSBLOB";
+        const BCRYPT_COMPOSITE_MLKEM_PRIVATE_LAMPS_MAGIC: i32 = 1380666691;
+        const BCRYPT_COMPOSITE_MLKEM_PRIVATE_MAGIC: i32 = 1380666691;
+        #[encoding("utf-16")]
+        const BCRYPT_COMPOSITE_MLKEM_PUBLIC_BLOB: String = "COMPMLKEMPUBLICBLOB";
+        const BCRYPT_COMPOSITE_MLKEM_PUBLIC_MAGIC: i32 = 1347112259;
+        #[encoding("utf-16")]
         const BCRYPT_CSHAKE128_ALGORITHM: String = "CSHAKE128";
         const BCRYPT_CSHAKE128_ALG_HANDLE: BCRYPT_ALG_HANDLE = 1041;
         #[encoding("utf-16")]
@@ -487,11 +526,7 @@ mod Windows {
         const BCRYPT_MLKEM_DECAPSULATION_BLOB: String = "MLKEMPRIVATEBLOB";
         #[encoding("utf-16")]
         const BCRYPT_MLKEM_ENCAPSULATION_BLOB: String = "MLKEMPUBLICBLOB";
-        struct BCRYPT_MLKEM_KEY_BLOB {
-            dwMagic: ULONG,
-            cbParameterSet: ULONG,
-            cbKey: ULONG,
-        }
+        type BCRYPT_MLKEM_KEY_BLOB = _BCRYPT_PARAMETER_SET_KEY_BLOB;
         #[encoding("utf-16")]
         const BCRYPT_MLKEM_PARAMETER_SET_1024: String = "1024";
         #[encoding("utf-16")]
@@ -551,8 +586,15 @@ mod Windows {
         const BCRYPT_PAD_PKCS1_OPTIONAL_HASH_OID: i32 = 16;
         const BCRYPT_PAD_PQDSA: i32 = 32;
         const BCRYPT_PAD_PSS: i32 = 8;
+        type BCRYPT_PARAMETER_SET_KEY_BLOB = _BCRYPT_PARAMETER_SET_KEY_BLOB;
         #[encoding("utf-16")]
         const BCRYPT_PARAMETER_SET_NAME: String = "ParameterSetName";
+        struct BCRYPT_PARAMETER_SET_NAMES {
+            dwParameterSetNames: ULONG,
+            ppszParameterSetNames: *mut PWSTR,
+        }
+        #[encoding("utf-16")]
+        const BCRYPT_PARAMETER_SET_NAME_LIST: String = "ParameterSetNameList";
         #[encoding("utf-16")]
         const BCRYPT_PBKDF2_ALGORITHM: String = "PBKDF2";
         const BCRYPT_PBKDF2_ALG_HANDLE: BCRYPT_ALG_HANDLE = 817;
@@ -572,11 +614,7 @@ mod Windows {
         struct BCRYPT_PKCS1_PADDING_INFO {
             pszAlgId: LPCWSTR,
         }
-        struct BCRYPT_PQDSA_KEY_BLOB {
-            dwMagic: ULONG,
-            cbParameterSet: ULONG,
-            cbKey: ULONG,
-        }
+        type BCRYPT_PQDSA_KEY_BLOB = _BCRYPT_PARAMETER_SET_KEY_BLOB;
         struct BCRYPT_PQDSA_PADDING_INFO {
             pbCtx: PUCHAR,
             cbCtx: ULONG,
@@ -1050,6 +1088,7 @@ mod Windows {
         #[encoding("utf-16")]
         const MS_PRIMITIVE_PROVIDER: String = "Microsoft Primitive Provider";
         type PBCRYPT_AUTHENTICATED_CIPHER_MODE_INFO = *mut BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO;
+        type PBCRYPT_COMPOSITE_MLKEM_KEY_BLOB = *mut _BCRYPT_PARAMETER_SET_KEY_BLOB;
         type PBCRYPT_DH_KEY_BLOB = *mut BCRYPT_DH_KEY_BLOB;
         type PBCRYPT_DSA_KEY_BLOB = *mut BCRYPT_DSA_KEY_BLOB;
         type PBCRYPT_DSA_KEY_BLOB_V2 = *mut BCRYPT_DSA_KEY_BLOB_V2;
@@ -1057,9 +1096,11 @@ mod Windows {
         type PBCRYPT_ECCKEY_BLOB = *mut BCRYPT_ECCKEY_BLOB;
         type PBCRYPT_INTERFACE_VERSION = *mut BCRYPT_INTERFACE_VERSION;
         type PBCRYPT_KEY_DATA_BLOB_HEADER = *mut BCRYPT_KEY_DATA_BLOB_HEADER;
-        type PBCRYPT_MLKEM_KEY_BLOB = *mut BCRYPT_MLKEM_KEY_BLOB;
+        type PBCRYPT_MLKEM_KEY_BLOB = *mut _BCRYPT_PARAMETER_SET_KEY_BLOB;
+        type PBCRYPT_PARAMETER_SET_KEY_BLOB = *mut _BCRYPT_PARAMETER_SET_KEY_BLOB;
+        type PBCRYPT_PARAMETER_SET_NAMES = *mut BCRYPT_PARAMETER_SET_NAMES;
         type PBCRYPT_PKCS11_RSA_AES_WRAP_BLOB = *mut BCRYPT_PKCS11_RSA_AES_WRAP_BLOB;
-        type PBCRYPT_PQDSA_KEY_BLOB = *mut BCRYPT_PQDSA_KEY_BLOB;
+        type PBCRYPT_PQDSA_KEY_BLOB = *mut _BCRYPT_PARAMETER_SET_KEY_BLOB;
         type PBCryptBuffer = *mut BCryptBuffer;
         type PBCryptBufferDesc = *mut BCryptBufferDesc;
         type PCRYPT_CONTEXTS = *mut CRYPT_CONTEXTS;
@@ -1103,5 +1144,10 @@ mod Windows {
             cbLength: ULONG,
         }
         const TLS_KEM_CIPHERTEXT_MAGIC: i32 = 1129008205;
+        struct _BCRYPT_PARAMETER_SET_KEY_BLOB {
+            dwMagic: ULONG,
+            cbParameterSet: ULONG,
+            cbKey: ULONG,
+        }
     }
 }

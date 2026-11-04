@@ -1160,6 +1160,8 @@ mod Windows {
         const PKEY_Devices_TextMessages: PROPERTYKEY = 3;
         #[guid(0x49cd1f76_5626_4b17_a4e8_18b4aa1a2213)]
         const PKEY_Devices_Voicemail: PROPERTYKEY = 6;
+        #[guid(0x9d2e9e67_70d4_4d1a_aefd_113cf6a7dfca)]
+        const PKEY_Devices_WiFiAware_IsSupported: PROPERTYKEY = 2;
         #[guid(0x31b37743_7c5e_4005_93e6_e953f92b82e9)]
         const PKEY_Devices_WiFiDirectServices_AdvertisementId: PROPERTYKEY = 5;
         #[guid(0x31b37743_7c5e_4005_93e6_e953f92b82e9)]

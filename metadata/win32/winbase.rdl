@@ -1896,6 +1896,7 @@ mod Windows {
         const PROC_THREAD_ATTRIBUTE_ALL_APPLICATION_PACKAGES_POLICY: i32 = 131087;
         const PROC_THREAD_ATTRIBUTE_CHILD_PROCESS_POLICY: i32 = 131086;
         const PROC_THREAD_ATTRIBUTE_COMPONENT_FILTER: i32 = 131098;
+        const PROC_THREAD_ATTRIBUTE_CONTAINMENT_CONFIGURATION: i32 = 131105;
         const PROC_THREAD_ATTRIBUTE_DESKTOP_APP_POLICY: i32 = 131090;
         const PROC_THREAD_ATTRIBUTE_ENABLE_OPTIONAL_XSTATE_FEATURES: i32 = 196635;
         const PROC_THREAD_ATTRIBUTE_GROUP_AFFINITY: i32 = 196611;
@@ -1931,6 +1932,7 @@ mod Windows {
             ProcThreadAttributeTrustedApp = 29,
             ProcThreadAttributeSveVectorLength = 30,
             ProcThreadAttributeSmeVectorLength = 31,
+            ProcThreadAttributeContainmentConfiguration = 33,
         }
         const PROC_THREAD_ATTRIBUTE_NUMBER: i32 = 65535;
         const PROC_THREAD_ATTRIBUTE_PARENT_PROCESS: i32 = 131072;

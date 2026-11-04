@@ -4773,6 +4773,7 @@ mod Windows {
         type LPOSVERSIONINFOEXW = *mut _OSVERSIONINFOEXW;
         type LPOSVERSIONINFOW = *mut _OSVERSIONINFOW;
         type LPSECURITY_CAPABILITIES = *mut SECURITY_CAPABILITIES;
+        type LPSECURITY_CONTAINMENT_CONFIGURATION = *mut SECURITY_CONTAINMENT_CONFIGURATION;
         type LPSTR = *mut i8;
         type LPTCH = *mut i8;
         type LPTSTR = *mut i8;
@@ -7030,6 +7031,7 @@ mod Windows {
         extern fn PSECURE_MEMORY_CACHE_CALLBACK(#[buffer(bytes(Range))] #[in] Addr: PVOID, #[in] Range: SIZE_T) -> BOOLEAN;
         type PSECURITY_ATTRIBUTES_OPAQUE = *mut void;
         type PSECURITY_CAPABILITIES = *mut SECURITY_CAPABILITIES;
+        type PSECURITY_CONTAINMENT_CONFIGURATION = *mut SECURITY_CONTAINMENT_CONFIGURATION;
         type PSECURITY_CONTEXT_TRACKING_MODE = *mut u8;
         type PSECURITY_DESCRIPTOR = *mut void;
         type PSECURITY_DESCRIPTOR_CONTROL = *mut u16;
@@ -7826,6 +7828,21 @@ mod Windows {
         const SECURITY_CLOUD_INFRASTRUCTURE_SERVICES_ID_BASE_RID: i32 = 85;
         const SECURITY_CLOUD_INFRASTRUCTURE_SERVICES_ID_RID_COUNT: i32 = 6;
         const SECURITY_COM_ID_BASE_RID: i32 = 89;
+        struct SECURITY_CONTAINMENT_CONFIGURATION {
+            Size: DWORD,
+            Anonymous: union {
+                Flags: DWORD,
+                Anonymous: struct {
+                    _bitfield: u32 {
+                        UseDefaultIntegrityLevel: DWORD: 1,
+                        Reserved: DWORD: 31,
+                    },
+                },
+            },
+            ExistingTokenHandle: HANDLE,
+            SecurityCapabilities: SECURITY_CAPABILITIES,
+            AppContainerIntegrityLevel: DWORD,
+        }
         type SECURITY_CONTEXT_TRACKING_MODE = u8;
         const SECURITY_CREATOR_GROUP_RID: i32 = 1;
         const SECURITY_CREATOR_GROUP_SERVER_RID: i32 = 3;

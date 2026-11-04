@@ -47,6 +47,7 @@ mod Windows {
         const CODECAPI_AVDecVideoThumbnailGenerationMode: GUID = 0x2efd8eee_1150_4328_9cf5_66dce933fcf4;
         const CODECAPI_AVEnableInLoopDeblockFilter: GUID = 0xd2e8e399_0623_4bf3_92a8_4d1818529ded;
         const CODECAPI_AVEncAACEnableVBR: GUID = 0xe836bb98_fca3_44b6_9a39_24786be41be1;
+        const CODECAPI_AVEncAV1EncoderOperatingMode: GUID = 0x8f2e1f91_5b4c_4e1a_9c3d_2f6a8b1d4e7c;
         const CODECAPI_AVEncAdaptiveMode: GUID = 0x4419b185_da1f_4f53_bc76_097d0c1efb1e;
         const CODECAPI_AVEncAudioDualMono: GUID = 0x3648126b_a3e8_4329_9b3a_5ce566a43bd3;
         const CODECAPI_AVEncAudioInputContent: GUID = 0x3e226c2b_60b9_4a39_b00b_a7b40f70d566;
@@ -331,6 +332,12 @@ mod Windows {
         const CODECAPI_GetOPMContext: GUID = 0x2f036c05_4c14_4689_8839_294c6d73e053;
         const CODECAPI_SetHDCPManagerContext: GUID = 0x6d2d1fc8_3dc9_47eb_a1a2_471c80cd60d0;
         const CODECAPI_VideoEncoderDisplayContentType: GUID = 0x79b90b27_f4b1_42dc_9dd7_cdaf8135c400;
+        #[repr(i32)]
+        enum eAV1EncoderOperatingMode {
+            eAV1EncoderOperatingMode_Auto = 0,
+            eAV1EncoderOperatingMode_Reference = 1,
+            eAV1EncoderOperatingMode_Optimized = 2,
+        }
         #[repr(i32)]
         enum eAVAudioChannelConfig {
             eAVAudioChannelConfig_FRONT_LEFT = 1,
