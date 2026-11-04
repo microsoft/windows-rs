@@ -121,9 +121,7 @@ impl TypeClosure {
                         _ => unreachable!(),
                     };
                     for method in def.methods() {
-                        if matches!(ty, Type::CppInterface(_))
-                            && matches!(filter.type_role(ty.type_name()), TypeRole::Named(_))
-                        {
+                        if matches!(ty, Type::CppInterface(_)) {
                             for dependency in method.associated_enums(reader) {
                                 dependency.combine_root(&mut types, reader, references, style);
                             }

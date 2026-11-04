@@ -59,6 +59,7 @@ fn interface_helpers_respect_dead_code() {
     let winmd = scratch.join("input.winmd");
     windows_rdl::reader()
         .input("input/minimal_interfaces.rdl")
+        .input("input/associated_enum_methods.rdl")
         .output(&winmd)
         .write()
         .unwrap();
@@ -154,9 +155,17 @@ struct Scoped;
 impl bindings::Scoped_Impl for Scoped {
     fn Value(&self) -> i32 { 5 }
 }
+impl bindings::I_Impl for Scoped {
+    fn Plain(&self) {}
+    fn Annotated(&self, _: u32) {}
+}
 pub fn create() -> bindings::NativeDerived { Object.into() }
 pub fn scoped() -> windows_core::ScopedInterface<'static, bindings::Scoped> {
     bindings::Scoped::new(&Scoped)
+}
+pub fn annotated() -> windows_core::ScopedInterface<'static, bindings::I> {
+    bindings::I_Impl::Annotated(&Scoped, bindings::One);
+    bindings::I::new(&Scoped)
 }
 "#,
     )
@@ -170,6 +179,7 @@ pub fn scoped() -> windows_core::ScopedInterface<'static, bindings::Scoped> {
                 "Test.Native.Scoped::{}",
                 "Test.Runtime.RuntimeBase::{}",
                 "Test.Runtime.RuntimeDerived::{}",
+                "Windows.Win32.Api.I::{}",
             ])
             .minimal()
             .dead_code()
@@ -178,7 +188,7 @@ pub fn scoped() -> windows_core::ScopedInterface<'static, bindings::Scoped> {
         if all {
             builder.implement_all();
         } else {
-            builder.implement("Test");
+            builder.implement("Test").implement("Windows.Win32.Api.I");
         }
         builder.write();
         let result = compile();
