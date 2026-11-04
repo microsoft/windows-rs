@@ -6,13 +6,7 @@ pub(super) fn groups<'a>(
     let mut groups = HashMap::new();
     let mut members = HashMap::new();
     for alias in &resolution.aliases {
-        let Some(group) = alias.observations.iter().find_map(|reference| {
-            resolve::enum_annotation(
-                &resolution.snapshots[reference.snapshot].aliases[reference.alias.0].observations
-                    [reference.observation]
-                    .attributes,
-            )
-        }) else {
+        let Some(group) = alias.annotation.as_ref() else {
             continue;
         };
         groups.insert(alias.name.as_str(), group);

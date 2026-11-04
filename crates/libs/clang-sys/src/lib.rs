@@ -66,9 +66,9 @@ fn load_from(directory: &Path) -> Result<Functions, String> {
     let extension = open(EXTENSION)?;
     let functions = unsafe { Functions::load(&base, &extension)? };
     let abi = unsafe { (functions.windows_clang_getABIVersion)() };
-    if abi != 23 {
+    if abi != 24 {
         return Err(format!(
-            "unsupported windows-clang native ABI {abi}; expected 23"
+            "unsupported windows-clang native ABI {abi}; expected 24"
         ));
     }
     if unsafe { (functions.windows_clang_getRuntimeIdentity)() }

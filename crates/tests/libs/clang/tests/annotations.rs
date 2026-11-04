@@ -3,6 +3,60 @@ use windows_clang::*;
 const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
 
 #[test]
+fn function_metadata_redeclarations() {
+    helpers::ensure_libclang();
+    let source = include_str!("../input/fixtures/function_metadata_redeclarations.h");
+    let mut inputs = ["first.h", "second.h"].map(|name| Input {
+        name: name.into(),
+        source: source.into(),
+        ..Default::default()
+    });
+    inputs[1].source.insert_str(0, "#define REVERSE\n");
+    let snapshots = capture(&inputs, &TARGETS).unwrap();
+    for snapshot in &snapshots {
+        let observations = &snapshot.values[0].observations;
+        assert_eq!(observations.len(), 3);
+        for observation in observations {
+            assert!(
+                observation
+                    .attributes
+                    .iter()
+                    .any(|attribute| { matches!(attribute.kind, AttributeKind::PreserveResult) })
+            );
+            assert!(
+                observation.attributes.iter().any(|attribute| {
+                    matches!(attribute.kind, AttributeKind::AssociatedEnum(_))
+                })
+            );
+        }
+    }
+    let expected = projection::generate(&inputs, "Fixture").unwrap();
+    inputs.reverse();
+    assert_eq!(projection::generate(&inputs, "Fixture").unwrap(), expected);
+
+    for declarations in [
+        "_P _P int F(); int F();",
+        "_I(\"first.dll\") int F(); _I(\"second.dll\") int F();",
+    ] {
+        let input = Input {
+            name: "invalid_redeclarations.h".into(),
+            source: format!(
+                "#define _P __attribute__((annotate(\"Win32Metadata.PreserveResult\")))\n\
+                 #define _I(name) __attribute__((annotate(\"Win32Metadata.ImportLibrary\", name)))\n\
+                 extern \"C\" {{ {declarations} }}"
+            ),
+            ..Default::default()
+        };
+        assert!(
+            capture(&[input], &TARGETS)
+                .and_then(|snapshots| merge(&snapshots).map(|_| ()))
+                .is_err(),
+            "{declarations}",
+        );
+    }
+}
+
+#[test]
 fn preserve_result_validation() {
     helpers::ensure_libclang();
     for (declaration, message) in [

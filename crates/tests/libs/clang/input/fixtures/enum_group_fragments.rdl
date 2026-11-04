@@ -1,0 +1,10 @@
+#[win32]
+mod Fixture {
+    #[flags]
+    #[repr(u32)]
+    enum OPTIONS {
+        OPTION_A = 1,
+        OPTION_B = 2,
+        OPTION_C = 4,
+    }
+}

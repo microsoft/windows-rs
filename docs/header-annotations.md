@@ -168,8 +168,13 @@ Bindgen uses it to select narrow string constants. It specifies neither terminat
 
 `_Win32_SetLastError_` expands to `__attribute__((annotate("Win32Metadata.SetLastError")))`
 with the upstream helper and `WIN32METADATA` enabled. It accepts no arguments and belongs on a
-free function, not a method, callback, type or parameter. Duplicate markers fail, and its presence
-must agree across native observations. It does not supply DLL ownership.
+free function, not a method, callback, type or parameter. Duplicate markers on one declaration fail.
+It does not supply DLL ownership.
+
+Function-level `SetLastError`, `ImportLibrary`, `PreserveResult`, and `AssociatedEnum` annotations
+can accumulate across the compiler's redeclaration chain within one translation unit. Capture fills
+missing metadata from the latest declaration without replacing existing contracts. Separate inputs
+and targets must still agree. Parameter annotations are not combined this way.
 
 The marker requests last-error capture by consumers such as C# P/Invoke. It does not specify when
 the function fails. Rust signatures and error handling are unchanged.
@@ -223,9 +228,11 @@ their integer types and values. Every value must fit the declared storage withou
 wrapping. For example, `-1` cannot enter a `u32` group; an explicitly converted native constant such
 as `#define ALL_OPTIONS ((DWORD)-1)` can. Unrelated constants keep their native types.
 
-A group can annotate an existing compatible typedef, as with `ADDRESS_FAMILY`. Members replace
-loose constants of the same name after checking their native definitions. Conflicting group
-declarations, overlapping membership and regrouping native enum members fail.
+A group can annotate an existing compatible typedef, as with `ADDRESS_FAMILY`. Repeated group
+declarations add members; storage and flags must agree, and repeated members must have the same
+native identity, integer type, and value. Members replace loose constants of the same name after
+checking their native definitions. Conflicting group declarations, membership in different groups,
+and regrouping native enum members fail.
 Native constant declarations must be at namespace scope; class-member constants are unsupported.
 
 ### `associated_enum`: enum use beside native storage

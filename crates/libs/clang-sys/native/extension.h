@@ -150,6 +150,13 @@ WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getParameterDefaultArgum
 // The caller disposes the string.
 WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getWrittenName(
     CXCursor cursor, CXString* name);
+// Resolves the object-like macro active at a file location using compiler history, including
+// restored definitions. The location must belong to unit, with detailed preprocessing enabled.
+WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getMacroDefinition(
+    CXTranslationUnit unit, const char* name, CXSourceLocation location, CXCursor* definition);
+// Reports the compiler's most recent function redeclaration in the same translation unit.
+WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getLatestFunctionDeclaration(
+    CXCursor cursor, CXCursor* declaration);
 // Writes the requested maximum field alignment in bits, not the observed record alignment.
 WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getMaxFieldAlignment(
     CXCursor cursor, unsigned* alignment_bits);

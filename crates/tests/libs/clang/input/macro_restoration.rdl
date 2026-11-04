@@ -1,0 +1,7 @@
+#[win32]
+mod Fixture {
+    const Inner: u16 = 99;
+    const RESTORED: Word = 32;
+    const SHADOWED: u16 = 7;
+    type Word = u32;
+}

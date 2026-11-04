@@ -43,6 +43,41 @@ fn enum_forward() {
 }
 
 #[test]
+fn enum_flags_forward() {
+    helpers::ensure_libclang();
+    let input = |name: &str, prefix: &str| Input {
+        name: name.into(),
+        source: format!(
+            "{prefix}{}",
+            include_str!("../input/fixtures/enum_flags_forward.h")
+        ),
+        ..Default::default()
+    };
+    let mut inputs = [
+        input("definition.h", ""),
+        input("forward.h", "#define FORWARD_ONLY\n"),
+    ];
+    let snapshots = capture(&inputs, &TARGETS).unwrap();
+    let expected = projection::project(&merge(&snapshots).unwrap(), "Fixture").unwrap();
+    inputs.reverse();
+    assert_eq!(projection::generate(&inputs, "Fixture").unwrap(), expected);
+
+    for (definition, other) in [
+        ("", "#define DEFINITION_FLAGS\n"),
+        (
+            "#define DEFINITION_FLAGS\n",
+            "#define FORWARD_ONLY\n#define FORWARD_FLAGS __attribute__((flag_enum))\n",
+        ),
+    ] {
+        let mut inputs = [input("definition.h", definition), input("other.h", other)];
+        for _ in 0..2 {
+            assert!(merge(&capture(&inputs, &TARGETS).unwrap()).is_err());
+            inputs.reverse();
+        }
+    }
+}
+
+#[test]
 fn enum_projection() {
     helpers::ensure_libclang();
     values();

@@ -1,0 +1,16 @@
+#ifndef FORWARD_FLAGS
+#define FORWARD_FLAGS
+#endif
+#ifndef DEFINITION_FLAGS
+#define DEFINITION_FLAGS __attribute__((flag_enum))
+#endif
+
+typedef enum FORWARD_FLAGS tagCOINIT COINIT;
+#ifndef FORWARD_ONLY
+typedef enum DEFINITION_FLAGS tagCOINIT {
+    COINIT_MULTITHREADED = 0,
+    COINIT_APARTMENTTHREADED = 2,
+    COINIT_DISABLE_OLE1DDE = 4,
+    COINIT_SPEED_OVER_MEMORY = 8,
+} COINIT;
+#endif

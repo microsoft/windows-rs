@@ -21,26 +21,19 @@ pub(super) fn macro_definition(
     file: CXFile,
     probe: &MacroProbe,
 ) -> Result<CXCursor, Error> {
-    let expansion = unsafe {
-        clang_getCursor(
+    let name = std::ffi::CString::new(probe.name.as_str()).unwrap();
+    let mut definition = unsafe { clang_getNullCursor() };
+    let status = unsafe {
+        windows_clang_getMacroDefinition(
             unit,
+            name.as_ptr(),
             clang_getLocationForOffset(unit, file, probe.expansion),
+            &raw mut definition,
         )
     };
-    if expansion.kind != CXCursor_MacroExpansion
-        || text(unsafe { clang_getCursorSpelling(expansion) }) != probe.name
-    {
+    if status != WindowsClangSuccess {
         return Err(Error(format!(
-            "macro `{}` has no expansion at its evaluation probe",
-            probe.name
-        )));
-    }
-    let definition = unsafe { clang_getCursorReferenced(expansion) };
-    if definition.kind != CXCursor_MacroDefinition
-        || unsafe { clang_Cursor_isMacroFunctionLike(definition) } != 0
-    {
-        return Err(Error(format!(
-            "macro `{}` is not an object-like definition",
+            "macro `{}` definition at its evaluation probe unavailable: {status}",
             probe.name
         )));
     }
@@ -1216,7 +1209,6 @@ impl Capture<'_> {
                     AttributeKind::SetLastError => Some("SetLastError"),
                     AttributeKind::PreserveResult => Some("PreserveResult"),
                     AttributeKind::ImportLibrary(_) => Some("ImportLibrary"),
-                    AttributeKind::EnumGroup(_) => Some("enum group"),
                     AttributeKind::AssociatedEnum(_) => Some("AssociatedEnum"),
                     _ => None,
                 };
