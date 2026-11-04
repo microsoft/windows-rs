@@ -9,6 +9,26 @@
 
 include!(concat!(env!("OUT_DIR"), "/compile_fixtures.rs"));
 
+#[test]
+fn associated_enum_storage_and_sign_extension() {
+    use associated_enum::*;
+    let flags: u32 = CloseSource | SameAccess | HighBit;
+    assert_eq!(flags, 0x80000003);
+    assert_eq!(Arguments { family: Inet }.family, 2);
+    assert_eq!(Negative as u32, 0xFFFFFF9C);
+    assert_eq!(Negative as u16 as u32, 0x0000FF9C);
+}
+
+#[cfg(test)]
+fn associated_enum_native_calls() {
+    use associated_enum::*;
+    unsafe {
+        Duplicate(CloseSource | SameAccess);
+        Socket(Inet.into());
+        let _: i32 = GetFamily();
+    }
+}
+
 #[cfg(test)]
 mod com_results_tests;
 

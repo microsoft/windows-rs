@@ -1,0 +1,54 @@
+#[win32]
+mod Fixture {
+    #[repr(u16)]
+    enum ADDRESS_FAMILY {
+        AF_UNSPEC = 0,
+        AF_INET = 2,
+        AF_INET6 = 23,
+    }
+    #[library("fixture.dll")]
+    extern "C" fn Access(#[associated_enum(GENERIC_ACCESS_RIGHTS)] rights: DWORD);
+    struct Arguments {
+        #[associated_enum(ADDRESS_FAMILY)]
+        family: u16,
+        #[associated_enum(ResourceType)]
+        resource: u32,
+    }
+    extern "C" fn Callback(#[associated_enum(DUPLICATE_HANDLE_OPTIONS)] options: DWORD);
+    #[flags]
+    #[repr(u32)]
+    enum DUPLICATE_HANDLE_OPTIONS {
+        DUPLICATE_CLOSE_SOURCE = 1,
+        DUPLICATE_SAME_ACCESS = 2,
+    }
+    type DWORD = u32;
+    #[library("fixture.dll")]
+    extern "C" fn Duplicate(#[associated_enum(DUPLICATE_HANDLE_OPTIONS)] options: DWORD);
+    #[library("fixture.dll")]
+    extern "C" fn Families(#[associated_enum(ADDRESS_FAMILY)] families: *mut u16);
+    #[library("fixture.dll")]
+    extern "C" fn Family() -> #[associated_enum(ADDRESS_FAMILY)] i32;
+    #[flags]
+    #[repr(u32)]
+    enum GENERIC_ACCESS_RIGHTS {
+        GENERIC_READ = 2147483648,
+        GENERIC_WRITE = 1073741824,
+    }
+    interface IOptions {
+        fn Apply(&self, #[associated_enum(DUPLICATE_HANDLE_OPTIONS)] options: DWORD);
+    }
+    #[repr(i32)]
+    enum LegacyValue {
+        #[deprecated("use CURRENT_VALUE")]
+        LEGACY_VALUE = 3,
+    }
+    #[library("fixture.dll")]
+    extern "C" fn Resource(#[associated_enum(ResourceType)] resource: u32);
+    #[repr(i32)]
+    enum ResourceType {
+        Heap = 0,
+        Handle = 1,
+    }
+    #[library("fixture.dll")]
+    extern "C" fn Socket(#[associated_enum(ADDRESS_FAMILY)] family: i32);
+}

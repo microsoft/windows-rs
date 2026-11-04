@@ -149,6 +149,7 @@ impl Encoder<'_> {
         let type_name = metadata::Type::value_named(self.namespace, self.name);
 
         for variant in &item.variants {
+            self.validate_associated_enum_storage(&variant.attrs, &type_name)?;
             let name = variant.ident.unraw_to_string();
 
             let field = self.output.Field(

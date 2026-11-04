@@ -8,7 +8,8 @@ the metadata into Rust. This catalog gives representative header spellings, RDL 
 The parameter, buffer, callable and layout tables describe implemented mappings. `-` means bindgen
 does not interpret the fact. Rust examples describe wrappers, not the raw ABI.
 
-`_Win32_SetLastError_` and `_Win32_ImportLibrary_` are supported. The other
+`_Win32_SetLastError_`, `_Win32_ImportLibrary_`, `_Win32_Enum_`, `_Win32_FlagsEnum_` and
+`_Win32_AssociatedEnum_` are supported. The remaining
 [`_Win32_*` proposals](#proposed-annotations) are design candidates, not supported syntax or an
 agreement with microsoft/win32metadata#2365.
 `windows-clang` rejects unknown `annotate` payloads.
@@ -207,6 +208,43 @@ Bindgen does not support ordinal linking and excludes these imports from generat
 
 Flags come from compiler-observed declarations, not from macro, enum or constant names.
 
+### `_Win32_Enum_` and `_Win32_FlagsEnum_`: constant groups
+
+These macros declare a metadata enum with explicit integer storage. `_Win32_FlagsEnum_` also marks
+the group as flags; neither macro guesses membership from names or values.
+
+| Header | RDL | Rust |
+| --- | --- | --- |
+| `_Win32_Enum_(ADDRESS_FAMILY, USHORT, AF_UNSPEC, AF_INET, AF_INET6);` | `#[repr(u16)] enum ADDRESS_FAMILY { AF_UNSPEC = 0, AF_INET = 2, AF_INET6 = 23 }` | `type ADDRESS_FAMILY = u16;` and typed global constants |
+| `_Win32_FlagsEnum_(DUPLICATE_HANDLE_OPTIONS, DWORD, DUPLICATE_CLOSE_SOURCE, DUPLICATE_SAME_ACCESS);` | `#[flags] #[repr(u32)] enum DUPLICATE_HANDLE_OPTIONS { DUPLICATE_CLOSE_SOURCE = 1, DUPLICATE_SAME_ACCESS = 2 }` | Constants can be combined and passed to a `u32` parameter without casts |
+
+Member names are distinct unqualified identifiers from the macro arguments. The compiler supplies
+their integer types and values. Every value must fit the declared storage without truncation or
+wrapping. For example, `-1` cannot enter a `u32` group; an explicitly converted native constant such
+as `#define ALL_OPTIONS ((DWORD)-1)` can. Unrelated constants keep their native types.
+
+A group can annotate an existing compatible typedef, as with `ADDRESS_FAMILY`. Members replace
+loose constants of the same name after checking their native definitions. Conflicting group
+declarations, overlapping membership and regrouping native enum members fail.
+Native constant declarations must be at namespace scope; class-member constants are unsupported.
+
+### `associated_enum`: enum use beside native storage
+
+`_Win32_AssociatedEnum_(ADDRESS_FAMILY) int family` becomes
+`#[associated_enum(ADDRESS_FAMILY)] family: i32`. The annotation belongs on an integer parameter,
+return value or field, including integer storage reached through pointers or arrays. It names a
+logical group or an existing native enum, not a replacement ABI type.
+
+Names resolve in enclosing namespaces or through explicit namespace qualification.
+`_Win32_AssociatedEnum_(enum ResourceType)` names an enum tag. Lookup through C++ `using` declarations,
+class-scoped lookup, bitfields and already enum-typed uses are unsupported. Use a globally qualified
+name in scopes with `using` directives. Missing, ambiguous and non-enum targets fail.
+
+Bindgen retains the associated enum and its constants when selecting the annotated API, but leaves
+its native signature unchanged. An `ADDRESS_FAMILY` constant is `u16`; a socket API taking `i32`
+still needs a conversion. Signed values keep signed conversion behavior: `-100_i16 as u32` is
+`0xFFFFFF9C`, not the `0x0000FF9C` obtained by converting through `u16`.
+
 ## Bindgen boundary
 
 Metadata facts do not by themselves authorize a wrapper transformation:
@@ -246,9 +284,6 @@ replacements for them.
 | Release | `_Out_ _Win32_RAIIFree_(WinHttpCloseHandle, 0) HINTERNET* session` | `#[invalid(0)] #[out] #[release(WinHttpCloseHandle)] session: *mut HINTERNET` | Rust owned handles or C# `SafeHandle`; requires an ownership-aware wrapper |
 | Retained | `_In_ _Win32_Retained_ OVERLAPPED* overlapped` | `#[in] #[retained] overlapped: *mut OVERLAPPED` | No call-scoped slice/reference/span wrapper; caller manages lifetime |
 | Interior pointers | `_Out_writes_bytes_opt_(cbBuf) _Win32_ContainsInteriorPointers_ BYTE* info` | `#[buffer(bytes(cbBuf))] #[interior_pointers] #[opt] #[out] info: *mut u8` | Keep caller-owned storage alive and in place while interior pointers are used |
-| Logical enum | `_Win32_Enum_(FILE_CREATION_DISPOSITION, DWORD, CREATE_NEW, OPEN_EXISTING);` | `#[repr(u32)] enum FILE_CREATION_DISPOSITION { CREATE_NEW = 1, OPEN_EXISTING = 3 }` | Enum type and constants |
-| Logical flags | `_Win32_FlagsEnum_(DXGI_MAP_FLAGS, UINT, DXGI_MAP_READ, DXGI_MAP_WRITE);` | `#[flags] #[repr(u32)] enum DXGI_MAP_FLAGS { ... }` | Bitwise operators |
-| Enum use | `_Win32_AssociatedEnum_(FILE_CREATION_DISPOSITION) _In_ DWORD disposition` | `#[associated_enum(FILE_CREATION_DISPOSITION)] #[in] disposition: u32` | Typed wrapper parameter in Rust or C#; metadata keeps native storage |
 | Compatible typedef | `typedef _Win32_AlsoUsableFor_(HGDIOBJ) HANDLE HBITMAP;` | `#[also_usable_for(HGDIOBJ)] type HBITMAP = HANDLE;` | Directional handle conversion, not ownership transfer |
 
 The proposed contracts require these checks:
@@ -256,8 +291,6 @@ The proposed contracts require these checks:
 | Contract | Rule |
 | --- | --- |
 | Release | Resolve a declared cleanup function with a compatible parameter; invalid values are integer constants, one `invalid` each. `_Win32_RAIIFree_Handle_(F)` supplies `-1` and `0` |
-| Logical enum names | Member names come from the macro arguments and values from the compiler; members replace the loose constants of the same name |
-| Enum use | Resolve the name after the whole capture; require exactly one enum with compatible storage |
 | Retained | The API uses the pointer after return; this does not describe when that use ends |
 | Minimum OS | Use platform version numbers, not marketing names; availability guards need separate evidence before becoming minimum-version claims |
 
@@ -278,8 +311,9 @@ Their Clang pragma covers functions, records, enums and typedefs, including incl
 nested annotations accumulate rather than override.
 
 MIDL's `annotation("...")` replaces generated SAL rather than adding to it. It is not a general
-additive transport for these macros. The upstream proposal uses owned `Win32Metadata:` comments
-emitted with `cpp_quote` for IDL; that transport is not implemented here.
+additive transport for these macros. The upstream helpers use `cpp_quote` to emit annotated
+metadata-only declarations that identify a method, parameter or field. Those carriers are not
+implemented here.
 
 ### Other unimplemented forms
 
@@ -294,7 +328,7 @@ Related SAL/MIDL forms do not establish that the custom forms are interchangeabl
 | `_Win32_Retval_` | MIDL `[retval]` is supported; hand-written C++ needs a separate spelling |
 | `_Win32_Flags_` | `[[clang::flag_enum]]` is supported but also affects compiler diagnostics |
 | `_Win32_AssociatedConstant_` | No published association between a global constant and multiple enum groups |
-| `/* Win32Metadata: ... */` comments | Owned comment transport is not implemented |
+| `_Win32_AnnotateMethod_`, `_Win32_AnnotateParameter_`, `_Win32_AnnotateField_` | Metadata-only declaration carriers from IDL are not implemented |
 
 Unknown `annotate` payloads are rejected today. Arbitrary comments are not directives and are
 ignored; only the recognized MIDL bracket comments carry contracts.
@@ -303,7 +337,7 @@ ignored; only the recognized MIDL bracket comments carry contracts.
 
 DLL/entry-point and calling-convention facts can populate C# P/Invoke declarations.
 `SetLastError = true` asks the runtime to capture the native error, not decide whether a call failed.
-Custom families such as `Buffer` and `Incomplete` require
+Custom families such as `AssociatedEnum`, `Buffer` and `Incomplete` require
 explicit generator support. This repository does not establish C# support for this vocabulary;
 metadata round trips are not a substitute for consumer and generated-code coverage.
 
@@ -345,13 +379,14 @@ language-neutral API facts.
 | `guid(...)` | `Windows.Foundation.Metadata.Guid` |
 | `type Name = T;` | `NativeTypedef` |
 | `scoped`, `flags` | `ScopedEnum`, `System.Flags` |
+| `associated_enum(T)` | `AssociatedEnum` with a `System.Type` argument; the parameter, return or field type is unchanged |
 | `*const T`, `ptr64<T>` | `System.Runtime.CompilerServices.IsConst` and `NativePointer64` modifiers |
 | `packed(N)`, `align(N)` | ClassLayout, `Alignment` |
 | Bitfield blocks, `anonymous(N)` | `NativeBitfield`, `NativeAnonymous` |
 | `library(..., last_error)` | ImplMap flag `SupportsLastError` |
 | **Proposed** `preserve_result`, `retained`, `interior_pointers` | `PreserveResult`, `Retained`, `InteriorPointers` |
 | **Proposed** `release(F)`, `invalid(N)` | `Release`, `InvalidValue` |
-| **Proposed** `associated_enum(T)`, `also_usable_for(T)` | `AssociatedEnum`, `AlsoUsableFor` |
+| **Proposed** `also_usable_for(T)` | `AlsoUsableFor` |
 | **Proposed** `supported_os("...")` | `System.Runtime.Versioning.SupportedOSPlatform` |
 
 `NativeAnonymous` stores the native field position, which can differ from the metadata position

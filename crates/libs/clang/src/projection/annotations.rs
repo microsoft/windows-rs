@@ -7,7 +7,10 @@ pub(super) fn covering<'a>(
     let sets: Vec<_> = observations
         .map(|attrs| (attrs, resolve::sal(attrs)))
         .collect();
-    let Some((attributes, largest)) = sets.iter().max_by_key(|(_, sal)| sal.len()) else {
+    let Some((attributes, largest)) = sets
+        .iter()
+        .max_by_key(|(attrs, sal)| (resolve::enum_annotation(attrs).is_some(), sal.len()))
+    else {
         return Err(Error(format!("no annotation observations for `{name}`")));
     };
     if sets.iter().any(|(_, sal)| {
@@ -309,6 +312,7 @@ pub(super) fn callable(attributes: &[Attribute]) -> bool {
                 | AttributeKind::NoThrow
                 | AttributeKind::Cxx11NoReturn
                 | AttributeKind::MSAllocator
+                | AttributeKind::AssociatedEnum(_)
         )
     })
 }
@@ -402,7 +406,7 @@ pub(super) fn only_contracts(attributes: &[Attribute]) -> bool {
     attributes.iter().all(|attribute| {
         matches!(
             attribute.kind,
-            AttributeKind::Sal(_) | AttributeKind::Deprecated(_)
+            AttributeKind::Sal(_) | AttributeKind::Deprecated(_) | AttributeKind::AssociatedEnum(_)
         )
     })
 }

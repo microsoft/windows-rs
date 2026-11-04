@@ -533,6 +533,9 @@ impl Dependencies for CppInterface {
         }
 
         for method in self.def.methods() {
+            for ty in method.associated_enums(reader) {
+                ty.combine(dependencies, reader);
+            }
             for ty in method.method_signature(&[], reader).types() {
                 if ty.is_core() {
                     ty.combine(dependencies, reader);

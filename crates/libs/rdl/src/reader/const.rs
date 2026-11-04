@@ -35,6 +35,16 @@ impl syn::parse::Parse for Const {
 
 impl Encoder<'_> {
     pub fn encode_const(&mut self, item: &Const) -> Result<(), Error> {
+        if let Some(attr) = item
+            .attrs
+            .iter()
+            .find(|attr| attr.path().is_ident("associated_enum"))
+        {
+            return self.err(
+                attr,
+                "associated_enum requires a parameter, return value, or field, not a constant",
+            );
+        }
         let name = item.name.to_string();
         let ty = self.encode_type(&item.ty)?;
 

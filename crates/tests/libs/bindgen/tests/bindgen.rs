@@ -1,6 +1,55 @@
 include!(concat!(env!("OUT_DIR"), "/generated_tests.rs"));
 
 #[test]
+fn associated_enum_dependencies() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("associated_enum_dependencies");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let winmd = scratch.join("input.winmd");
+    windows_rdl::reader()
+        .input("input/associated_enum.rdl")
+        .output(&winmd)
+        .write()
+        .unwrap();
+    for style in ["default", "minimal", "sys"] {
+        for (root, dependency) in [
+            ("Duplicate", "Options"),
+            ("Socket", "Family"),
+            ("GetFamily", "Family"),
+            ("Callback", "Options"),
+            ("Arguments", "Family"),
+            ("IOptions::Apply", "Options"),
+        ] {
+            let output = scratch.join(format!("{style}-{}.rs", root.replace("::", "-")));
+            let mut builder = windows_bindgen::builder();
+            builder
+                .input(&winmd)
+                .filter(&format!("Test.{root}"))
+                .flat()
+                .output(&output);
+            match style {
+                "minimal" => {
+                    builder.minimal();
+                }
+                "sys" => {
+                    builder.sys();
+                }
+                _ => {}
+            }
+            builder.write();
+            let source = std::fs::read_to_string(output).unwrap();
+            assert!(
+                source.contains(&format!("pub type {dependency} =")),
+                "{style} {root}: {source}"
+            );
+            assert!(
+                !source.contains("pub type Signed ="),
+                "{style} {root}: {source}"
+            );
+        }
+    }
+}
+
+#[test]
 fn minimal_abi_dependency_styles() {
     let scratch = std::path::Path::new(env!("OUT_DIR")).join("minimal_abi_dependency_styles");
     std::fs::create_dir_all(&scratch).unwrap();

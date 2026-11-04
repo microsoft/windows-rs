@@ -12,6 +12,11 @@
 mod Windows {
     mod Win32 {
         mod Metadata {
+            // Associates integer storage with an enum without changing the native signature.
+            // RDL: `#[associated_enum(EnumType)]` on parameters, returns and fields.
+            attribute AssociatedEnumAttribute {
+                fn(#[in] enumType: Type);
+            }
             // Marks a function that never returns (`__declspec(noreturn)`). RDL: `#[noreturn]`.
             attribute DoesNotReturnAttribute {
                 fn();

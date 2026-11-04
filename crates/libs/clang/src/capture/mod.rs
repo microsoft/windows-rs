@@ -107,6 +107,7 @@ pub(super) fn read(
         .collect::<Result<HashMap<_, _>, Error>>()?;
     let mut capture = Capture {
         declarations: HashMap::new(),
+        named_types: HashMap::new(),
         pending: Vec::new(),
         records: HashMap::new(),
         aliases: HashMap::new(),
@@ -258,6 +259,23 @@ pub(super) fn read(
         }
         result
     };
+    capture.named_types = names
+        .into_iter()
+        .filter_map(|(name, mut cursors)| {
+            cursors.retain(|cursor| {
+                matches!(
+                    cursor.0.kind,
+                    CXCursor_EnumDecl
+                        | CXCursor_TypedefDecl
+                        | CXCursor_TypeAliasDecl
+                        | CXCursor_StructDecl
+                        | CXCursor_ClassDecl
+                        | CXCursor_UnionDecl
+                )
+            });
+            (!cursors.is_empty()).then_some((name, cursors))
+        })
+        .collect();
     let mut c_functions = HashSet::new();
     for cursor in &selected {
         if unsafe { clang_getCursorKind(cursor.0) } == CXCursor_FunctionDecl
@@ -494,6 +512,7 @@ fn bitwise_enum(cursor: CXCursor) -> Option<Cursor> {
 
 struct Capture<'a> {
     declarations: HashMap<Cursor, Vec<CXCursor>>,
+    named_types: HashMap<String, Vec<Cursor>>,
     pending: Vec<Cursor>,
     values: HashMap<Cursor, ValueId>,
     probes: HashMap<Cursor, (String, CXCursor)>,
@@ -1074,7 +1093,7 @@ impl Capture<'_> {
             "NoThrow" => AttributeKind::NoThrow,
             "CXX11NoReturn" => AttributeKind::Cxx11NoReturn,
             "SelectAny" => AttributeKind::SelectAny,
-            "Annotate" => annotations::read(cursor, owner)?,
+            "Annotate" => annotations::read(self, cursor, owner)?,
             "Deprecated" => {
                 let mut message = CXString::default();
                 let mut replacement = CXString::default();
@@ -1194,6 +1213,8 @@ impl Capture<'_> {
                 let name = match &attribute.kind {
                     AttributeKind::SetLastError => Some("SetLastError"),
                     AttributeKind::ImportLibrary(_) => Some("ImportLibrary"),
+                    AttributeKind::EnumGroup(_) => Some("enum group"),
+                    AttributeKind::AssociatedEnum(_) => Some("AssociatedEnum"),
                     _ => None,
                 };
                 if let Some(name) = name

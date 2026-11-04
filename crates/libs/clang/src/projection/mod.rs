@@ -11,6 +11,7 @@ use windows_rdl::emit::{write_ident, write_param_direction, write_value};
 mod annotations;
 mod bitfields;
 mod callbacks;
+mod enum_annotations;
 mod integer_expression;
 mod native_object;
 mod plan;
@@ -317,6 +318,7 @@ fn project_impl(
             interface_ids: &interface_ids,
             x86_callbacks: &x86_callbacks,
             callback_abis: RefCell::new(HashMap::new()),
+            enum_groups: enum_annotations::groups(resolution)?,
         };
         projector.validate_references(&mut rejected)?;
         if rejected
@@ -488,6 +490,7 @@ struct Projector<'a, 'b> {
     interface_ids: &'a HashMap<&'a str, u128>,
     x86_callbacks: &'a HashMap<String, (String, CallingConvention)>,
     callback_abis: RefCell<HashMap<String, Vec<CallingConvention>>>,
+    enum_groups: HashMap<&'a str, &'a EnumAnnotation>,
 }
 
 /// Indexes `IID_<name>` GUID constants, the C spelling of an interface's IID, by interface name.
@@ -906,6 +909,9 @@ impl Projector<'_, '_> {
         attributes: &[Attribute],
     ) -> Result<Body, Error> {
         let snapshot = self.resolution.snapshots[snapshot_id];
+        if let Some(group) = self.enum_groups.get(name) {
+            return self.logical_enum(snapshot_id, observation, name, group, attributes);
+        }
         if !publishable_alias(snapshot, observation) {
             return Err(Error(format!(
                 "typedef `{name}` is not an unqualified value type"

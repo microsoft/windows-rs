@@ -89,7 +89,12 @@ impl Encoder<'_> {
         })
     }
 
-    pub fn encode_return_attrs(&mut self, return_attrs: &[syn::Attribute]) -> Result<(), Error> {
+    pub fn encode_return_attrs(
+        &mut self,
+        return_attrs: &[syn::Attribute],
+        ty: &metadata::Type,
+    ) -> Result<(), Error> {
+        self.validate_associated_enum_storage(return_attrs, ty)?;
         if !return_attrs.is_empty() {
             let param_id = self
                 .output
@@ -122,6 +127,7 @@ impl Encoder<'_> {
             })
             .collect();
         for (sequence, param) in params.iter().enumerate() {
+            self.validate_associated_enum_storage(&param.attrs, &param.ty)?;
             let param_id = self.output.Param(
                 &param.name,
                 (sequence + 1).try_into().unwrap(),
