@@ -282,13 +282,13 @@ pub struct IFsrmClassificationManager_Vtbl {
 #[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmClassificationManager_Impl: super::IDispatch_Impl {
     fn ClassificationReportFormats(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
-    fn SetClassificationReportFormats(&self, formats: *const super::SAFEARRAY) -> windows_core::Result<()>;
+    fn SetClassificationReportFormats(&self, formats: *const super::SAFEARRAY) -> windows_core::HRESULT;
     fn Logging(&self) -> windows_core::Result<i32>;
-    fn SetLogging(&self, logging: i32) -> windows_core::Result<()>;
+    fn SetLogging(&self, logging: i32) -> windows_core::HRESULT;
     fn ClassificationReportMailTo(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetClassificationReportMailTo(&self, mailto: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetClassificationReportMailTo(&self, mailto: &windows_core::BSTR) -> windows_core::HRESULT;
     fn ClassificationReportEnabled(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetClassificationReportEnabled(&self, reportenabled: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetClassificationReportEnabled(&self, reportenabled: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn ClassificationLastReportPathWithoutExtension(&self) -> windows_core::Result<windows_core::BSTR>;
     fn ClassificationLastError(&self) -> windows_core::Result<windows_core::BSTR>;
     fn ClassificationRunningStatus(&self) -> windows_core::Result<super::FsrmReportRunningStatus>;
@@ -301,13 +301,13 @@ pub trait IFsrmClassificationManager_Impl: super::IDispatch_Impl {
     fn EnumModuleDefinitions(&self, moduletype: super::FsrmPipelineModuleType, options: super::FsrmEnumOptions) -> windows_core::Result<super::IFsrmCollection>;
     fn CreateModuleDefinition(&self, moduletype: super::FsrmPipelineModuleType) -> windows_core::Result<IFsrmPipelineModuleDefinition>;
     fn GetModuleDefinition(&self, modulename: &windows_core::BSTR, moduletype: super::FsrmPipelineModuleType) -> windows_core::Result<IFsrmPipelineModuleDefinition>;
-    fn RunClassification(&self, context: super::FsrmReportGenerationContext, reserved: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn RunClassification(&self, context: super::FsrmReportGenerationContext, reserved: &windows_core::BSTR) -> windows_core::HRESULT;
     fn WaitForClassificationCompletion(&self, waitseconds: i32) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn CancelClassification(&self) -> windows_core::Result<()>;
+    fn CancelClassification(&self) -> windows_core::HRESULT;
     fn EnumFileProperties(&self, filepath: &windows_core::BSTR, options: super::FsrmGetFilePropertyOptions) -> windows_core::Result<super::IFsrmCollection>;
     fn GetFileProperty(&self, filepath: &windows_core::BSTR, propertyname: &windows_core::BSTR, options: super::FsrmGetFilePropertyOptions) -> windows_core::Result<IFsrmProperty>;
-    fn SetFileProperty(&self, filepath: &windows_core::BSTR, propertyname: &windows_core::BSTR, propertyvalue: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ClearFileProperty(&self, filepath: &windows_core::BSTR, property: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetFileProperty(&self, filepath: &windows_core::BSTR, propertyname: &windows_core::BSTR, propertyvalue: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn ClearFileProperty(&self, filepath: &windows_core::BSTR, property: &windows_core::BSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmClassificationManager_Vtbl {
@@ -330,7 +330,7 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn SetClassificationReportFormats<Identity: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, formats: *const super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmClassificationManager_Impl::SetClassificationReportFormats(this, core::mem::transmute_copy(&formats)).into()
+                IFsrmClassificationManager_Impl::SetClassificationReportFormats(this, core::mem::transmute_copy(&formats))
             }
         }
         unsafe extern "system" fn Logging<Identity: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, logging: *mut i32) -> windows_core::HRESULT {
@@ -351,7 +351,7 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn SetLogging<Identity: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, logging: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmClassificationManager_Impl::SetLogging(this, core::mem::transmute_copy(&logging)).into()
+                IFsrmClassificationManager_Impl::SetLogging(this, core::mem::transmute_copy(&logging))
             }
         }
         unsafe extern "system" fn ClassificationReportMailTo<Identity: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailto: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -372,7 +372,7 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn SetClassificationReportMailTo<Identity: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailto: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmClassificationManager_Impl::SetClassificationReportMailTo(this, core::mem::transmute(&mailto)).into()
+                IFsrmClassificationManager_Impl::SetClassificationReportMailTo(this, core::mem::transmute(&mailto))
             }
         }
         unsafe extern "system" fn ClassificationReportEnabled<Identity: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reportenabled: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -393,7 +393,7 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn SetClassificationReportEnabled<Identity: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reportenabled: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmClassificationManager_Impl::SetClassificationReportEnabled(this, core::mem::transmute_copy(&reportenabled)).into()
+                IFsrmClassificationManager_Impl::SetClassificationReportEnabled(this, core::mem::transmute_copy(&reportenabled))
             }
         }
         unsafe extern "system" fn ClassificationLastReportPathWithoutExtension<Identity: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lastreportpath: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -579,7 +579,7 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn RunClassification<Identity: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: super::FsrmReportGenerationContext, reserved: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmClassificationManager_Impl::RunClassification(this, core::mem::transmute_copy(&context), core::mem::transmute(&reserved)).into()
+                IFsrmClassificationManager_Impl::RunClassification(this, core::mem::transmute_copy(&context), core::mem::transmute(&reserved))
             }
         }
         unsafe extern "system" fn WaitForClassificationCompletion<Identity: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, waitseconds: i32, completed: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -600,7 +600,7 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn CancelClassification<Identity: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmClassificationManager_Impl::CancelClassification(this).into()
+                IFsrmClassificationManager_Impl::CancelClassification(this)
             }
         }
         unsafe extern "system" fn EnumFileProperties<Identity: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: *mut core::ffi::c_void, options: super::FsrmGetFilePropertyOptions, fileproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -636,13 +636,13 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn SetFileProperty<Identity: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: *mut core::ffi::c_void, propertyname: *mut core::ffi::c_void, propertyvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmClassificationManager_Impl::SetFileProperty(this, core::mem::transmute(&filepath), core::mem::transmute(&propertyname), core::mem::transmute(&propertyvalue)).into()
+                IFsrmClassificationManager_Impl::SetFileProperty(this, core::mem::transmute(&filepath), core::mem::transmute(&propertyname), core::mem::transmute(&propertyvalue))
             }
         }
         unsafe extern "system" fn ClearFileProperty<Identity: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: *mut core::ffi::c_void, property: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmClassificationManager_Impl::ClearFileProperty(this, core::mem::transmute(&filepath), core::mem::transmute(&property)).into()
+                IFsrmClassificationManager_Impl::ClearFileProperty(this, core::mem::transmute(&filepath), core::mem::transmute(&property))
             }
         }
         Self {
@@ -712,7 +712,7 @@ pub struct IFsrmClassificationManager2_Vtbl {
 }
 #[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmClassificationManager2_Impl: IFsrmClassificationManager_Impl {
-    fn ClassifyFiles(&self, filepaths: *const super::SAFEARRAY, propertynames: *const super::SAFEARRAY, propertyvalues: *const super::SAFEARRAY, options: super::FsrmGetFilePropertyOptions) -> windows_core::Result<()>;
+    fn ClassifyFiles(&self, filepaths: *const super::SAFEARRAY, propertynames: *const super::SAFEARRAY, propertyvalues: *const super::SAFEARRAY, options: super::FsrmGetFilePropertyOptions) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmClassificationManager2_Vtbl {
@@ -720,7 +720,7 @@ impl IFsrmClassificationManager2_Vtbl {
         unsafe extern "system" fn ClassifyFiles<Identity: IFsrmClassificationManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepaths: *const super::SAFEARRAY, propertynames: *const super::SAFEARRAY, propertyvalues: *const super::SAFEARRAY, options: super::FsrmGetFilePropertyOptions) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmClassificationManager2_Impl::ClassifyFiles(this, core::mem::transmute_copy(&filepaths), core::mem::transmute_copy(&propertynames), core::mem::transmute_copy(&propertyvalues), core::mem::transmute_copy(&options)).into()
+                IFsrmClassificationManager2_Impl::ClassifyFiles(this, core::mem::transmute_copy(&filepaths), core::mem::transmute_copy(&propertynames), core::mem::transmute_copy(&propertyvalues), core::mem::transmute_copy(&options))
             }
         }
         Self { base__: IFsrmClassificationManager_Vtbl::new::<Identity, OFFSET>(), ClassifyFiles: ClassifyFiles::<Identity, OFFSET> }
@@ -795,11 +795,11 @@ pub struct IFsrmClassificationRule_Vtbl {
 #[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmClassificationRule_Impl: IFsrmRule_Impl {
     fn ExecutionOption(&self) -> windows_core::Result<super::FsrmExecutionOption>;
-    fn SetExecutionOption(&self, executionoption: super::FsrmExecutionOption) -> windows_core::Result<()>;
+    fn SetExecutionOption(&self, executionoption: super::FsrmExecutionOption) -> windows_core::HRESULT;
     fn PropertyAffected(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetPropertyAffected(&self, property: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetPropertyAffected(&self, property: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Value(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetValue(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetValue(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmClassificationRule_Vtbl {
@@ -822,7 +822,7 @@ impl IFsrmClassificationRule_Vtbl {
         unsafe extern "system" fn SetExecutionOption<Identity: IFsrmClassificationRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, executionoption: super::FsrmExecutionOption) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmClassificationRule_Impl::SetExecutionOption(this, core::mem::transmute_copy(&executionoption)).into()
+                IFsrmClassificationRule_Impl::SetExecutionOption(this, core::mem::transmute_copy(&executionoption))
             }
         }
         unsafe extern "system" fn PropertyAffected<Identity: IFsrmClassificationRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -843,7 +843,7 @@ impl IFsrmClassificationRule_Vtbl {
         unsafe extern "system" fn SetPropertyAffected<Identity: IFsrmClassificationRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmClassificationRule_Impl::SetPropertyAffected(this, core::mem::transmute(&property)).into()
+                IFsrmClassificationRule_Impl::SetPropertyAffected(this, core::mem::transmute(&property))
             }
         }
         unsafe extern "system" fn Value<Identity: IFsrmClassificationRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -864,7 +864,7 @@ impl IFsrmClassificationRule_Vtbl {
         unsafe extern "system" fn SetValue<Identity: IFsrmClassificationRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmClassificationRule_Impl::SetValue(this, core::mem::transmute(&value)).into()
+                IFsrmClassificationRule_Impl::SetValue(this, core::mem::transmute(&value))
             }
         }
         Self {
@@ -963,11 +963,11 @@ pub struct IFsrmClassifierModuleDefinition_Vtbl {
 #[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmClassifierModuleDefinition_Impl: IFsrmPipelineModuleDefinition_Impl {
     fn PropertiesAffected(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
-    fn SetPropertiesAffected(&self, propertiesaffected: *const super::SAFEARRAY) -> windows_core::Result<()>;
+    fn SetPropertiesAffected(&self, propertiesaffected: *const super::SAFEARRAY) -> windows_core::HRESULT;
     fn PropertiesUsed(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
-    fn SetPropertiesUsed(&self, propertiesused: *const super::SAFEARRAY) -> windows_core::Result<()>;
+    fn SetPropertiesUsed(&self, propertiesused: *const super::SAFEARRAY) -> windows_core::HRESULT;
     fn NeedsExplicitValue(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetNeedsExplicitValue(&self, needsexplicitvalue: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetNeedsExplicitValue(&self, needsexplicitvalue: super::VARIANT_BOOL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmClassifierModuleDefinition_Vtbl {
@@ -990,7 +990,7 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
         unsafe extern "system" fn SetPropertiesAffected<Identity: IFsrmClassifierModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertiesaffected: *const super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmClassifierModuleDefinition_Impl::SetPropertiesAffected(this, core::mem::transmute_copy(&propertiesaffected)).into()
+                IFsrmClassifierModuleDefinition_Impl::SetPropertiesAffected(this, core::mem::transmute_copy(&propertiesaffected))
             }
         }
         unsafe extern "system" fn PropertiesUsed<Identity: IFsrmClassifierModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertiesused: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
@@ -1011,7 +1011,7 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
         unsafe extern "system" fn SetPropertiesUsed<Identity: IFsrmClassifierModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertiesused: *const super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmClassifierModuleDefinition_Impl::SetPropertiesUsed(this, core::mem::transmute_copy(&propertiesused)).into()
+                IFsrmClassifierModuleDefinition_Impl::SetPropertiesUsed(this, core::mem::transmute_copy(&propertiesused))
             }
         }
         unsafe extern "system" fn NeedsExplicitValue<Identity: IFsrmClassifierModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, needsexplicitvalue: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -1032,7 +1032,7 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
         unsafe extern "system" fn SetNeedsExplicitValue<Identity: IFsrmClassifierModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, needsexplicitvalue: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmClassifierModuleDefinition_Impl::SetNeedsExplicitValue(this, core::mem::transmute_copy(&needsexplicitvalue)).into()
+                IFsrmClassifierModuleDefinition_Impl::SetNeedsExplicitValue(this, core::mem::transmute_copy(&needsexplicitvalue))
             }
         }
         Self {
@@ -1128,11 +1128,11 @@ pub struct IFsrmClassifierModuleImplementation_Vtbl {
 #[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmClassifierModuleImplementation_Impl: IFsrmPipelineModuleImplementation_Impl {
     fn LastModified(&self) -> windows_core::Result<super::VARIANT>;
-    fn UseRulesAndDefinitions(&self, rules: windows_core::Ref<super::IFsrmCollection>, propertydefinitions: windows_core::Ref<super::IFsrmCollection>) -> windows_core::Result<()>;
-    fn OnBeginFile(&self, propertybag: windows_core::Ref<IFsrmPropertyBag>, arrayruleids: *const super::SAFEARRAY) -> windows_core::Result<()>;
-    fn DoesPropertyValueApply(&self, property: &windows_core::BSTR, value: &windows_core::BSTR, applyvalue: *mut super::VARIANT_BOOL, idrule: &super::FSRM_OBJECT_ID, idpropdef: &super::FSRM_OBJECT_ID) -> windows_core::Result<()>;
-    fn GetPropertyValueToApply(&self, property: &windows_core::BSTR, value: *mut windows_core::BSTR, idrule: &super::FSRM_OBJECT_ID, idpropdef: &super::FSRM_OBJECT_ID) -> windows_core::Result<()>;
-    fn OnEndFile(&self) -> windows_core::Result<()>;
+    fn UseRulesAndDefinitions(&self, rules: windows_core::Ref<super::IFsrmCollection>, propertydefinitions: windows_core::Ref<super::IFsrmCollection>) -> windows_core::HRESULT;
+    fn OnBeginFile(&self, propertybag: windows_core::Ref<IFsrmPropertyBag>, arrayruleids: *const super::SAFEARRAY) -> windows_core::HRESULT;
+    fn DoesPropertyValueApply(&self, property: &windows_core::BSTR, value: &windows_core::BSTR, applyvalue: *mut super::VARIANT_BOOL, idrule: &super::FSRM_OBJECT_ID, idpropdef: &super::FSRM_OBJECT_ID) -> windows_core::HRESULT;
+    fn GetPropertyValueToApply(&self, property: &windows_core::BSTR, value: *mut windows_core::BSTR, idrule: &super::FSRM_OBJECT_ID, idpropdef: &super::FSRM_OBJECT_ID) -> windows_core::HRESULT;
+    fn OnEndFile(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmClassifierModuleImplementation_Vtbl {
@@ -1155,31 +1155,31 @@ impl IFsrmClassifierModuleImplementation_Vtbl {
         unsafe extern "system" fn UseRulesAndDefinitions<Identity: IFsrmClassifierModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rules: *mut core::ffi::c_void, propertydefinitions: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmClassifierModuleImplementation_Impl::UseRulesAndDefinitions(this, core::mem::transmute_copy(&rules), core::mem::transmute_copy(&propertydefinitions)).into()
+                IFsrmClassifierModuleImplementation_Impl::UseRulesAndDefinitions(this, core::mem::transmute_copy(&rules), core::mem::transmute_copy(&propertydefinitions))
             }
         }
         unsafe extern "system" fn OnBeginFile<Identity: IFsrmClassifierModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertybag: *mut core::ffi::c_void, arrayruleids: *const super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmClassifierModuleImplementation_Impl::OnBeginFile(this, core::mem::transmute_copy(&propertybag), core::mem::transmute_copy(&arrayruleids)).into()
+                IFsrmClassifierModuleImplementation_Impl::OnBeginFile(this, core::mem::transmute_copy(&propertybag), core::mem::transmute_copy(&arrayruleids))
             }
         }
         unsafe extern "system" fn DoesPropertyValueApply<Identity: IFsrmClassifierModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: *mut core::ffi::c_void, value: *mut core::ffi::c_void, applyvalue: *mut super::VARIANT_BOOL, idrule: super::FSRM_OBJECT_ID, idpropdef: super::FSRM_OBJECT_ID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmClassifierModuleImplementation_Impl::DoesPropertyValueApply(this, core::mem::transmute(&property), core::mem::transmute(&value), core::mem::transmute_copy(&applyvalue), core::mem::transmute(&idrule), core::mem::transmute(&idpropdef)).into()
+                IFsrmClassifierModuleImplementation_Impl::DoesPropertyValueApply(this, core::mem::transmute(&property), core::mem::transmute(&value), core::mem::transmute_copy(&applyvalue), core::mem::transmute(&idrule), core::mem::transmute(&idpropdef))
             }
         }
         unsafe extern "system" fn GetPropertyValueToApply<Identity: IFsrmClassifierModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void, idrule: super::FSRM_OBJECT_ID, idpropdef: super::FSRM_OBJECT_ID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmClassifierModuleImplementation_Impl::GetPropertyValueToApply(this, core::mem::transmute(&property), core::mem::transmute_copy(&value), core::mem::transmute(&idrule), core::mem::transmute(&idpropdef)).into()
+                IFsrmClassifierModuleImplementation_Impl::GetPropertyValueToApply(this, core::mem::transmute(&property), core::mem::transmute_copy(&value), core::mem::transmute(&idrule), core::mem::transmute(&idpropdef))
             }
         }
         unsafe extern "system" fn OnEndFile<Identity: IFsrmClassifierModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmClassifierModuleImplementation_Impl::OnEndFile(this).into()
+                IFsrmClassifierModuleImplementation_Impl::OnEndFile(this)
             }
         }
         Self {
@@ -1264,7 +1264,7 @@ pub trait IFsrmPipelineModuleConnector_Impl: super::IDispatch_Impl {
     fn ModuleName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn HostingUserAccount(&self) -> windows_core::Result<windows_core::BSTR>;
     fn HostingProcessPid(&self) -> windows_core::Result<i32>;
-    fn Bind(&self, moduledefinition: windows_core::Ref<IFsrmPipelineModuleDefinition>, moduleimplementation: windows_core::Ref<IFsrmPipelineModuleImplementation>) -> windows_core::Result<()>;
+    fn Bind(&self, moduledefinition: windows_core::Ref<IFsrmPipelineModuleDefinition>, moduleimplementation: windows_core::Ref<IFsrmPipelineModuleImplementation>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "fsrm", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmPipelineModuleConnector_Vtbl {
@@ -1332,7 +1332,7 @@ impl IFsrmPipelineModuleConnector_Vtbl {
         unsafe extern "system" fn Bind<Identity: IFsrmPipelineModuleConnector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduledefinition: *mut core::ffi::c_void, moduleimplementation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmPipelineModuleConnector_Impl::Bind(this, core::mem::transmute_copy(&moduledefinition), core::mem::transmute_copy(&moduleimplementation)).into()
+                IFsrmPipelineModuleConnector_Impl::Bind(this, core::mem::transmute_copy(&moduledefinition), core::mem::transmute_copy(&moduleimplementation))
             }
         }
         Self {
@@ -1523,24 +1523,24 @@ pub struct IFsrmPipelineModuleDefinition_Vtbl {
 #[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmPipelineModuleDefinition_Impl: super::IFsrmObject_Impl {
     fn ModuleClsid(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetModuleClsid(&self, moduleclsid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetModuleClsid(&self, moduleclsid: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetName(&self, name: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Company(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetCompany(&self, company: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetCompany(&self, company: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Version(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetVersion(&self, version: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetVersion(&self, version: &windows_core::BSTR) -> windows_core::HRESULT;
     fn ModuleType(&self) -> windows_core::Result<super::FsrmPipelineModuleType>;
     fn Enabled(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetEnabled(&self, enabled: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetEnabled(&self, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn NeedsFileContent(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetNeedsFileContent(&self, needsfilecontent: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetNeedsFileContent(&self, needsfilecontent: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn Account(&self) -> windows_core::Result<super::FsrmAccountType>;
-    fn SetAccount(&self, retrievalaccount: super::FsrmAccountType) -> windows_core::Result<()>;
+    fn SetAccount(&self, retrievalaccount: super::FsrmAccountType) -> windows_core::HRESULT;
     fn SupportedExtensions(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
-    fn SetSupportedExtensions(&self, supportedextensions: *const super::SAFEARRAY) -> windows_core::Result<()>;
+    fn SetSupportedExtensions(&self, supportedextensions: *const super::SAFEARRAY) -> windows_core::HRESULT;
     fn Parameters(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
-    fn SetParameters(&self, parameters: *const super::SAFEARRAY) -> windows_core::Result<()>;
+    fn SetParameters(&self, parameters: *const super::SAFEARRAY) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmPipelineModuleDefinition_Vtbl {
@@ -1563,7 +1563,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
         unsafe extern "system" fn SetModuleClsid<Identity: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleclsid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmPipelineModuleDefinition_Impl::SetModuleClsid(this, core::mem::transmute(&moduleclsid)).into()
+                IFsrmPipelineModuleDefinition_Impl::SetModuleClsid(this, core::mem::transmute(&moduleclsid))
             }
         }
         unsafe extern "system" fn Name<Identity: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1584,7 +1584,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
         unsafe extern "system" fn SetName<Identity: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmPipelineModuleDefinition_Impl::SetName(this, core::mem::transmute(&name)).into()
+                IFsrmPipelineModuleDefinition_Impl::SetName(this, core::mem::transmute(&name))
             }
         }
         unsafe extern "system" fn Company<Identity: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, company: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1605,7 +1605,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
         unsafe extern "system" fn SetCompany<Identity: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, company: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmPipelineModuleDefinition_Impl::SetCompany(this, core::mem::transmute(&company)).into()
+                IFsrmPipelineModuleDefinition_Impl::SetCompany(this, core::mem::transmute(&company))
             }
         }
         unsafe extern "system" fn Version<Identity: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, version: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1626,7 +1626,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
         unsafe extern "system" fn SetVersion<Identity: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, version: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmPipelineModuleDefinition_Impl::SetVersion(this, core::mem::transmute(&version)).into()
+                IFsrmPipelineModuleDefinition_Impl::SetVersion(this, core::mem::transmute(&version))
             }
         }
         unsafe extern "system" fn ModuleType<Identity: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduletype: *mut super::FsrmPipelineModuleType) -> windows_core::HRESULT {
@@ -1662,7 +1662,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
         unsafe extern "system" fn SetEnabled<Identity: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmPipelineModuleDefinition_Impl::SetEnabled(this, core::mem::transmute_copy(&enabled)).into()
+                IFsrmPipelineModuleDefinition_Impl::SetEnabled(this, core::mem::transmute_copy(&enabled))
             }
         }
         unsafe extern "system" fn NeedsFileContent<Identity: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, needsfilecontent: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -1683,7 +1683,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
         unsafe extern "system" fn SetNeedsFileContent<Identity: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, needsfilecontent: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmPipelineModuleDefinition_Impl::SetNeedsFileContent(this, core::mem::transmute_copy(&needsfilecontent)).into()
+                IFsrmPipelineModuleDefinition_Impl::SetNeedsFileContent(this, core::mem::transmute_copy(&needsfilecontent))
             }
         }
         unsafe extern "system" fn Account<Identity: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retrievalaccount: *mut super::FsrmAccountType) -> windows_core::HRESULT {
@@ -1704,7 +1704,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
         unsafe extern "system" fn SetAccount<Identity: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retrievalaccount: super::FsrmAccountType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmPipelineModuleDefinition_Impl::SetAccount(this, core::mem::transmute_copy(&retrievalaccount)).into()
+                IFsrmPipelineModuleDefinition_Impl::SetAccount(this, core::mem::transmute_copy(&retrievalaccount))
             }
         }
         unsafe extern "system" fn SupportedExtensions<Identity: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, supportedextensions: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
@@ -1725,7 +1725,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
         unsafe extern "system" fn SetSupportedExtensions<Identity: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, supportedextensions: *const super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmPipelineModuleDefinition_Impl::SetSupportedExtensions(this, core::mem::transmute_copy(&supportedextensions)).into()
+                IFsrmPipelineModuleDefinition_Impl::SetSupportedExtensions(this, core::mem::transmute_copy(&supportedextensions))
             }
         }
         unsafe extern "system" fn Parameters<Identity: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parameters: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
@@ -1746,7 +1746,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
         unsafe extern "system" fn SetParameters<Identity: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parameters: *const super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmPipelineModuleDefinition_Impl::SetParameters(this, core::mem::transmute_copy(&parameters)).into()
+                IFsrmPipelineModuleDefinition_Impl::SetParameters(this, core::mem::transmute_copy(&parameters))
             }
         }
         Self {
@@ -1819,7 +1819,7 @@ pub struct IFsrmPipelineModuleImplementation_Vtbl {
 #[cfg(all(feature = "fsrm", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmPipelineModuleImplementation_Impl: super::IDispatch_Impl {
     fn OnLoad(&self, moduledefinition: windows_core::Ref<IFsrmPipelineModuleDefinition>) -> windows_core::Result<IFsrmPipelineModuleConnector>;
-    fn OnUnload(&self) -> windows_core::Result<()>;
+    fn OnUnload(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "fsrm", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmPipelineModuleImplementation_Vtbl {
@@ -1842,7 +1842,7 @@ impl IFsrmPipelineModuleImplementation_Vtbl {
         unsafe extern "system" fn OnUnload<Identity: IFsrmPipelineModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmPipelineModuleImplementation_Impl::OnUnload(this).into()
+                IFsrmPipelineModuleImplementation_Impl::OnUnload(this)
             }
         }
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), OnLoad: OnLoad::<Identity, OFFSET>, OnUnload: OnUnload::<Identity, OFFSET> }
@@ -2210,8 +2210,8 @@ pub trait IFsrmPropertyBag_Impl: super::IDispatch_Impl {
     fn Messages(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
     fn PropertyBagFlags(&self) -> windows_core::Result<u32>;
     fn GetFileProperty(&self, name: &windows_core::BSTR) -> windows_core::Result<IFsrmProperty>;
-    fn SetFileProperty(&self, name: &windows_core::BSTR, value: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn AddMessage(&self, message: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetFileProperty(&self, name: &windows_core::BSTR, value: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn AddMessage(&self, message: &windows_core::BSTR) -> windows_core::HRESULT;
     fn GetFileStreamInterface(&self, accessmode: super::FsrmFileStreamingMode, interfacetype: super::FsrmFileStreamingInterfaceType) -> windows_core::Result<super::VARIANT>;
 }
 #[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2490,13 +2490,13 @@ impl IFsrmPropertyBag_Vtbl {
         unsafe extern "system" fn SetFileProperty<Identity: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmPropertyBag_Impl::SetFileProperty(this, core::mem::transmute(&name), core::mem::transmute(&value)).into()
+                IFsrmPropertyBag_Impl::SetFileProperty(this, core::mem::transmute(&name), core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn AddMessage<Identity: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, message: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmPropertyBag_Impl::AddMessage(this, core::mem::transmute(&message)).into()
+                IFsrmPropertyBag_Impl::AddMessage(this, core::mem::transmute(&message))
             }
         }
         unsafe extern "system" fn GetFileStreamInterface<Identity: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, accessmode: super::FsrmFileStreamingMode, interfacetype: super::FsrmFileStreamingInterfaceType, pstreaminterface: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -2747,15 +2747,15 @@ pub struct IFsrmPropertyDefinition_Vtbl {
 #[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmPropertyDefinition_Impl: super::IFsrmObject_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetName(&self, name: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Type(&self) -> windows_core::Result<super::FsrmPropertyDefinitionType>;
-    fn SetType(&self, r#type: super::FsrmPropertyDefinitionType) -> windows_core::Result<()>;
+    fn SetType(&self, r#type: super::FsrmPropertyDefinitionType) -> windows_core::HRESULT;
     fn PossibleValues(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
-    fn SetPossibleValues(&self, possiblevalues: *const super::SAFEARRAY) -> windows_core::Result<()>;
+    fn SetPossibleValues(&self, possiblevalues: *const super::SAFEARRAY) -> windows_core::HRESULT;
     fn ValueDescriptions(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
-    fn SetValueDescriptions(&self, valuedescriptions: *const super::SAFEARRAY) -> windows_core::Result<()>;
+    fn SetValueDescriptions(&self, valuedescriptions: *const super::SAFEARRAY) -> windows_core::HRESULT;
     fn Parameters(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
-    fn SetParameters(&self, parameters: *const super::SAFEARRAY) -> windows_core::Result<()>;
+    fn SetParameters(&self, parameters: *const super::SAFEARRAY) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmPropertyDefinition_Vtbl {
@@ -2778,7 +2778,7 @@ impl IFsrmPropertyDefinition_Vtbl {
         unsafe extern "system" fn SetName<Identity: IFsrmPropertyDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmPropertyDefinition_Impl::SetName(this, core::mem::transmute(&name)).into()
+                IFsrmPropertyDefinition_Impl::SetName(this, core::mem::transmute(&name))
             }
         }
         unsafe extern "system" fn Type<Identity: IFsrmPropertyDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: *mut super::FsrmPropertyDefinitionType) -> windows_core::HRESULT {
@@ -2799,7 +2799,7 @@ impl IFsrmPropertyDefinition_Vtbl {
         unsafe extern "system" fn SetType<Identity: IFsrmPropertyDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: super::FsrmPropertyDefinitionType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmPropertyDefinition_Impl::SetType(this, core::mem::transmute_copy(&r#type)).into()
+                IFsrmPropertyDefinition_Impl::SetType(this, core::mem::transmute_copy(&r#type))
             }
         }
         unsafe extern "system" fn PossibleValues<Identity: IFsrmPropertyDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, possiblevalues: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
@@ -2820,7 +2820,7 @@ impl IFsrmPropertyDefinition_Vtbl {
         unsafe extern "system" fn SetPossibleValues<Identity: IFsrmPropertyDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, possiblevalues: *const super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmPropertyDefinition_Impl::SetPossibleValues(this, core::mem::transmute_copy(&possiblevalues)).into()
+                IFsrmPropertyDefinition_Impl::SetPossibleValues(this, core::mem::transmute_copy(&possiblevalues))
             }
         }
         unsafe extern "system" fn ValueDescriptions<Identity: IFsrmPropertyDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, valuedescriptions: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
@@ -2841,7 +2841,7 @@ impl IFsrmPropertyDefinition_Vtbl {
         unsafe extern "system" fn SetValueDescriptions<Identity: IFsrmPropertyDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, valuedescriptions: *const super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmPropertyDefinition_Impl::SetValueDescriptions(this, core::mem::transmute_copy(&valuedescriptions)).into()
+                IFsrmPropertyDefinition_Impl::SetValueDescriptions(this, core::mem::transmute_copy(&valuedescriptions))
             }
         }
         unsafe extern "system" fn Parameters<Identity: IFsrmPropertyDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parameters: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
@@ -2862,7 +2862,7 @@ impl IFsrmPropertyDefinition_Vtbl {
         unsafe extern "system" fn SetParameters<Identity: IFsrmPropertyDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parameters: *const super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmPropertyDefinition_Impl::SetParameters(this, core::mem::transmute_copy(&parameters)).into()
+                IFsrmPropertyDefinition_Impl::SetParameters(this, core::mem::transmute_copy(&parameters))
             }
         }
         Self {
@@ -2941,7 +2941,7 @@ pub struct IFsrmPropertyDefinition2_Vtbl {
 pub trait IFsrmPropertyDefinition2_Impl: IFsrmPropertyDefinition_Impl {
     fn PropertyDefinitionFlags(&self) -> windows_core::Result<i32>;
     fn DisplayName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetDisplayName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetDisplayName(&self, name: &windows_core::BSTR) -> windows_core::HRESULT;
     fn AppliesTo(&self) -> windows_core::Result<i32>;
     fn ValueDefinitions(&self) -> windows_core::Result<super::IFsrmCollection>;
 }
@@ -2981,7 +2981,7 @@ impl IFsrmPropertyDefinition2_Vtbl {
         unsafe extern "system" fn SetDisplayName<Identity: IFsrmPropertyDefinition2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmPropertyDefinition2_Impl::SetDisplayName(this, core::mem::transmute(&name)).into()
+                IFsrmPropertyDefinition2_Impl::SetDisplayName(this, core::mem::transmute(&name))
             }
         }
         unsafe extern "system" fn AppliesTo<Identity: IFsrmPropertyDefinition2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, appliesto: *mut i32) -> windows_core::HRESULT {
@@ -3277,16 +3277,16 @@ pub struct IFsrmRule_Vtbl {
 #[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmRule_Impl: super::IFsrmObject_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetName(&self, name: &windows_core::BSTR) -> windows_core::HRESULT;
     fn RuleType(&self) -> windows_core::Result<super::FsrmRuleType>;
     fn ModuleDefinitionName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetModuleDefinitionName(&self, moduledefinitionname: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetModuleDefinitionName(&self, moduledefinitionname: &windows_core::BSTR) -> windows_core::HRESULT;
     fn NamespaceRoots(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
-    fn SetNamespaceRoots(&self, namespaceroots: *const super::SAFEARRAY) -> windows_core::Result<()>;
+    fn SetNamespaceRoots(&self, namespaceroots: *const super::SAFEARRAY) -> windows_core::HRESULT;
     fn RuleFlags(&self) -> windows_core::Result<i32>;
-    fn SetRuleFlags(&self, ruleflags: i32) -> windows_core::Result<()>;
+    fn SetRuleFlags(&self, ruleflags: i32) -> windows_core::HRESULT;
     fn Parameters(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
-    fn SetParameters(&self, parameters: *const super::SAFEARRAY) -> windows_core::Result<()>;
+    fn SetParameters(&self, parameters: *const super::SAFEARRAY) -> windows_core::HRESULT;
     fn LastModified(&self) -> windows_core::Result<super::VARIANT>;
 }
 #[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3310,7 +3310,7 @@ impl IFsrmRule_Vtbl {
         unsafe extern "system" fn SetName<Identity: IFsrmRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmRule_Impl::SetName(this, core::mem::transmute(&name)).into()
+                IFsrmRule_Impl::SetName(this, core::mem::transmute(&name))
             }
         }
         unsafe extern "system" fn RuleType<Identity: IFsrmRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ruletype: *mut super::FsrmRuleType) -> windows_core::HRESULT {
@@ -3346,7 +3346,7 @@ impl IFsrmRule_Vtbl {
         unsafe extern "system" fn SetModuleDefinitionName<Identity: IFsrmRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduledefinitionname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmRule_Impl::SetModuleDefinitionName(this, core::mem::transmute(&moduledefinitionname)).into()
+                IFsrmRule_Impl::SetModuleDefinitionName(this, core::mem::transmute(&moduledefinitionname))
             }
         }
         unsafe extern "system" fn NamespaceRoots<Identity: IFsrmRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaceroots: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
@@ -3367,7 +3367,7 @@ impl IFsrmRule_Vtbl {
         unsafe extern "system" fn SetNamespaceRoots<Identity: IFsrmRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaceroots: *const super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmRule_Impl::SetNamespaceRoots(this, core::mem::transmute_copy(&namespaceroots)).into()
+                IFsrmRule_Impl::SetNamespaceRoots(this, core::mem::transmute_copy(&namespaceroots))
             }
         }
         unsafe extern "system" fn RuleFlags<Identity: IFsrmRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ruleflags: *mut i32) -> windows_core::HRESULT {
@@ -3388,7 +3388,7 @@ impl IFsrmRule_Vtbl {
         unsafe extern "system" fn SetRuleFlags<Identity: IFsrmRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ruleflags: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmRule_Impl::SetRuleFlags(this, core::mem::transmute_copy(&ruleflags)).into()
+                IFsrmRule_Impl::SetRuleFlags(this, core::mem::transmute_copy(&ruleflags))
             }
         }
         unsafe extern "system" fn Parameters<Identity: IFsrmRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parameters: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
@@ -3409,7 +3409,7 @@ impl IFsrmRule_Vtbl {
         unsafe extern "system" fn SetParameters<Identity: IFsrmRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parameters: *const super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmRule_Impl::SetParameters(this, core::mem::transmute_copy(&parameters)).into()
+                IFsrmRule_Impl::SetParameters(this, core::mem::transmute_copy(&parameters))
             }
         }
         unsafe extern "system" fn LastModified<Identity: IFsrmRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lastmodified: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -3529,11 +3529,11 @@ pub struct IFsrmStorageModuleDefinition_Vtbl {
 #[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmStorageModuleDefinition_Impl: IFsrmPipelineModuleDefinition_Impl {
     fn Capabilities(&self) -> windows_core::Result<super::FsrmStorageModuleCaps>;
-    fn SetCapabilities(&self, capabilities: super::FsrmStorageModuleCaps) -> windows_core::Result<()>;
+    fn SetCapabilities(&self, capabilities: super::FsrmStorageModuleCaps) -> windows_core::HRESULT;
     fn StorageType(&self) -> windows_core::Result<super::FsrmStorageModuleType>;
-    fn SetStorageType(&self, storagetype: super::FsrmStorageModuleType) -> windows_core::Result<()>;
+    fn SetStorageType(&self, storagetype: super::FsrmStorageModuleType) -> windows_core::HRESULT;
     fn UpdatesFileContent(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetUpdatesFileContent(&self, updatesfilecontent: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetUpdatesFileContent(&self, updatesfilecontent: super::VARIANT_BOOL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmStorageModuleDefinition_Vtbl {
@@ -3556,7 +3556,7 @@ impl IFsrmStorageModuleDefinition_Vtbl {
         unsafe extern "system" fn SetCapabilities<Identity: IFsrmStorageModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, capabilities: super::FsrmStorageModuleCaps) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmStorageModuleDefinition_Impl::SetCapabilities(this, core::mem::transmute_copy(&capabilities)).into()
+                IFsrmStorageModuleDefinition_Impl::SetCapabilities(this, core::mem::transmute_copy(&capabilities))
             }
         }
         unsafe extern "system" fn StorageType<Identity: IFsrmStorageModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, storagetype: *mut super::FsrmStorageModuleType) -> windows_core::HRESULT {
@@ -3577,7 +3577,7 @@ impl IFsrmStorageModuleDefinition_Vtbl {
         unsafe extern "system" fn SetStorageType<Identity: IFsrmStorageModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, storagetype: super::FsrmStorageModuleType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmStorageModuleDefinition_Impl::SetStorageType(this, core::mem::transmute_copy(&storagetype)).into()
+                IFsrmStorageModuleDefinition_Impl::SetStorageType(this, core::mem::transmute_copy(&storagetype))
             }
         }
         unsafe extern "system" fn UpdatesFileContent<Identity: IFsrmStorageModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, updatesfilecontent: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -3598,7 +3598,7 @@ impl IFsrmStorageModuleDefinition_Vtbl {
         unsafe extern "system" fn SetUpdatesFileContent<Identity: IFsrmStorageModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, updatesfilecontent: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmStorageModuleDefinition_Impl::SetUpdatesFileContent(this, core::mem::transmute_copy(&updatesfilecontent)).into()
+                IFsrmStorageModuleDefinition_Impl::SetUpdatesFileContent(this, core::mem::transmute_copy(&updatesfilecontent))
             }
         }
         Self {
@@ -3664,9 +3664,9 @@ pub struct IFsrmStorageModuleImplementation_Vtbl {
 }
 #[cfg(all(feature = "fsrm", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmStorageModuleImplementation_Impl: IFsrmPipelineModuleImplementation_Impl {
-    fn UseDefinitions(&self, propertydefinitions: windows_core::Ref<super::IFsrmCollection>) -> windows_core::Result<()>;
-    fn LoadProperties(&self, propertybag: windows_core::Ref<IFsrmPropertyBag>) -> windows_core::Result<()>;
-    fn SaveProperties(&self, propertybag: windows_core::Ref<IFsrmPropertyBag>) -> windows_core::Result<()>;
+    fn UseDefinitions(&self, propertydefinitions: windows_core::Ref<super::IFsrmCollection>) -> windows_core::HRESULT;
+    fn LoadProperties(&self, propertybag: windows_core::Ref<IFsrmPropertyBag>) -> windows_core::HRESULT;
+    fn SaveProperties(&self, propertybag: windows_core::Ref<IFsrmPropertyBag>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "fsrm", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmStorageModuleImplementation_Vtbl {
@@ -3674,19 +3674,19 @@ impl IFsrmStorageModuleImplementation_Vtbl {
         unsafe extern "system" fn UseDefinitions<Identity: IFsrmStorageModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertydefinitions: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmStorageModuleImplementation_Impl::UseDefinitions(this, core::mem::transmute_copy(&propertydefinitions)).into()
+                IFsrmStorageModuleImplementation_Impl::UseDefinitions(this, core::mem::transmute_copy(&propertydefinitions))
             }
         }
         unsafe extern "system" fn LoadProperties<Identity: IFsrmStorageModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertybag: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmStorageModuleImplementation_Impl::LoadProperties(this, core::mem::transmute_copy(&propertybag)).into()
+                IFsrmStorageModuleImplementation_Impl::LoadProperties(this, core::mem::transmute_copy(&propertybag))
             }
         }
         unsafe extern "system" fn SaveProperties<Identity: IFsrmStorageModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertybag: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmStorageModuleImplementation_Impl::SaveProperties(this, core::mem::transmute_copy(&propertybag)).into()
+                IFsrmStorageModuleImplementation_Impl::SaveProperties(this, core::mem::transmute_copy(&propertybag))
             }
         }
         Self {

@@ -395,16 +395,16 @@ pub struct Buffers_Vtbl {
 }
 pub trait Buffers_Impl {
     fn Input(&self, count: u32, values: *const u32);
-    fn Output(&self, count: u32, values: *mut u32) -> windows_core::Result<()>;
-    fn Explicit(&self, values: *mut u32) -> windows_core::Result<()>;
-    fn Arithmetic(&self, count: u32, values: *mut u32) -> windows_core::Result<()>;
-    fn Returned(&self, count: u32, values: *mut *mut u32) -> windows_core::Result<()>;
-    fn OptionalCount(&self, count: *const u32, values: *mut u32) -> windows_core::Result<()>;
+    fn Output(&self, count: u32, values: *mut u32) -> windows_core::HRESULT;
+    fn Explicit(&self, values: *mut u32) -> windows_core::HRESULT;
+    fn Arithmetic(&self, count: u32, values: *mut u32) -> windows_core::HRESULT;
+    fn Returned(&self, count: u32, values: *mut *mut u32) -> windows_core::HRESULT;
+    fn OptionalCount(&self, count: *const u32, values: *mut u32) -> windows_core::HRESULT;
     fn UnknownDirection(&self, count: u32, values: *const u32);
-    fn Residual(&self, count: u32, values: *mut u32) -> windows_core::Result<()>;
+    fn Residual(&self, count: u32, values: *mut u32) -> windows_core::HRESULT;
     fn ResidualInput(&self, count: u32, values: *const u32);
     fn ResidualCount(&self, count: u32, values: *const u32);
-    fn Scalar(&self, value: *mut u32) -> windows_core::Result<()>;
+    fn Scalar(&self, value: *mut u32) -> windows_core::HRESULT;
     fn Query(
         &self,
         riid: *const windows_core::GUID,
@@ -415,68 +415,68 @@ pub trait Buffers_Impl {
         count: u32,
         filters: *const windows_core::GUID,
         result: *mut *mut core::ffi::c_void,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
     fn OutputBuffer(
         &self,
         riid: *const windows_core::GUID,
         count: u32,
         results: *mut *mut core::ffi::c_void,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
     fn ResidualQuery(
         &self,
         filters: *const windows_core::GUID,
         result: *mut *mut core::ffi::c_void,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
     fn ResidualOutput(
         &self,
         riid: *const windows_core::GUID,
         result: *mut *mut core::ffi::c_void,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
     fn UnknownSlot(
         &self,
         iid: *const windows_core::GUID,
         result: *mut *mut core::ffi::c_void,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
     fn UnknownEntry(
         &self,
         iid: *const windows_core::GUID,
         result: *mut *mut core::ffi::c_void,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
     fn UnknownWritable(
         &self,
         iid: *const windows_core::GUID,
         result: *mut *mut core::ffi::c_void,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
     fn UnknownWithoutReturnedContract(
         &self,
         iid: *const windows_core::GUID,
         result: *mut *mut core::ffi::c_void,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
     fn UnknownResidual(
         &self,
         iid: *const windows_core::GUID,
         result: *mut *mut core::ffi::c_void,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
     fn UnknownMixed(
         &self,
         iid: *const windows_core::GUID,
         result: *mut *mut core::ffi::c_void,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
     fn KnownPointeeCount(
         &self,
         iid: *const windows_core::GUID,
         result: *mut *mut core::ffi::c_void,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
     fn ConstSlot(
         &self,
         iid: *const windows_core::GUID,
         result: *const RawObject,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
     fn ConstPointee(
         &self,
         iid: *const windows_core::GUID,
         result: *mut ConstObject,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
 }
 impl Buffers_Vtbl {
     pub const fn new<Identity: Buffers_Impl>() -> Self {
@@ -508,7 +508,6 @@ impl Buffers_Vtbl {
                     core::mem::transmute_copy(&count),
                     core::mem::transmute_copy(&values),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn Explicit<Identity: Buffers_Impl>(
@@ -518,7 +517,7 @@ impl Buffers_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                Buffers_Impl::Explicit(this, core::mem::transmute_copy(&values)).into()
+                Buffers_Impl::Explicit(this, core::mem::transmute_copy(&values))
             }
         }
         unsafe extern "system" fn Arithmetic<Identity: Buffers_Impl>(
@@ -534,7 +533,6 @@ impl Buffers_Vtbl {
                     core::mem::transmute_copy(&count),
                     core::mem::transmute_copy(&values),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn Returned<Identity: Buffers_Impl>(
@@ -550,7 +548,6 @@ impl Buffers_Vtbl {
                     core::mem::transmute_copy(&count),
                     core::mem::transmute_copy(&values),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn OptionalCount<Identity: Buffers_Impl>(
@@ -566,7 +563,6 @@ impl Buffers_Vtbl {
                     core::mem::transmute_copy(&count),
                     core::mem::transmute_copy(&values),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn UnknownDirection<Identity: Buffers_Impl>(
@@ -597,7 +593,6 @@ impl Buffers_Vtbl {
                     core::mem::transmute_copy(&count),
                     core::mem::transmute_copy(&values),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn ResidualInput<Identity: Buffers_Impl>(
@@ -637,7 +632,7 @@ impl Buffers_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                Buffers_Impl::Scalar(this, core::mem::transmute_copy(&value)).into()
+                Buffers_Impl::Scalar(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn Query<Identity: Buffers_Impl>(
@@ -671,7 +666,6 @@ impl Buffers_Vtbl {
                     core::mem::transmute_copy(&filters),
                     core::mem::transmute_copy(&result),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn OutputBuffer<Identity: Buffers_Impl>(
@@ -689,7 +683,6 @@ impl Buffers_Vtbl {
                     core::mem::transmute_copy(&count),
                     core::mem::transmute_copy(&results),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn ResidualQuery<Identity: Buffers_Impl>(
@@ -705,7 +698,6 @@ impl Buffers_Vtbl {
                     core::mem::transmute_copy(&filters),
                     core::mem::transmute_copy(&result),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn ResidualOutput<Identity: Buffers_Impl>(
@@ -721,7 +713,6 @@ impl Buffers_Vtbl {
                     core::mem::transmute_copy(&riid),
                     core::mem::transmute_copy(&result),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn UnknownSlot<Identity: Buffers_Impl>(
@@ -737,7 +728,6 @@ impl Buffers_Vtbl {
                     core::mem::transmute_copy(&iid),
                     core::mem::transmute_copy(&result),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn UnknownEntry<Identity: Buffers_Impl>(
@@ -753,7 +743,6 @@ impl Buffers_Vtbl {
                     core::mem::transmute_copy(&iid),
                     core::mem::transmute_copy(&result),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn UnknownWritable<Identity: Buffers_Impl>(
@@ -769,7 +758,6 @@ impl Buffers_Vtbl {
                     core::mem::transmute_copy(&iid),
                     core::mem::transmute_copy(&result),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn UnknownWithoutReturnedContract<Identity: Buffers_Impl>(
@@ -785,7 +773,6 @@ impl Buffers_Vtbl {
                     core::mem::transmute_copy(&iid),
                     core::mem::transmute_copy(&result),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn UnknownResidual<Identity: Buffers_Impl>(
@@ -801,7 +788,6 @@ impl Buffers_Vtbl {
                     core::mem::transmute_copy(&iid),
                     core::mem::transmute_copy(&result),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn UnknownMixed<Identity: Buffers_Impl>(
@@ -817,7 +803,6 @@ impl Buffers_Vtbl {
                     core::mem::transmute_copy(&iid),
                     core::mem::transmute_copy(&result),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn KnownPointeeCount<Identity: Buffers_Impl>(
@@ -833,7 +818,6 @@ impl Buffers_Vtbl {
                     core::mem::transmute_copy(&iid),
                     core::mem::transmute_copy(&result),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn ConstSlot<Identity: Buffers_Impl>(
@@ -849,7 +833,6 @@ impl Buffers_Vtbl {
                     core::mem::transmute_copy(&iid),
                     core::mem::transmute_copy(&result),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn ConstPointee<Identity: Buffers_Impl>(
@@ -865,7 +848,6 @@ impl Buffers_Vtbl {
                     core::mem::transmute_copy(&iid),
                     core::mem::transmute_copy(&result),
                 )
-                .into()
             }
         }
         Self {

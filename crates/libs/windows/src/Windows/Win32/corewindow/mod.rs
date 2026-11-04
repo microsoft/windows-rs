@@ -24,8 +24,8 @@ pub struct ICoreInputInterop_Vtbl {
 }
 #[cfg(feature = "rpc")]
 pub trait ICoreInputInterop_Impl: windows_core::IUnknownImpl {
-    fn SetInputSource(&self, value: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn SetMessageHandled(&self, value: super::boolean) -> windows_core::Result<()>;
+    fn SetInputSource(&self, value: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn SetMessageHandled(&self, value: super::boolean) -> windows_core::HRESULT;
 }
 #[cfg(feature = "rpc")]
 impl ICoreInputInterop_Vtbl {
@@ -33,13 +33,13 @@ impl ICoreInputInterop_Vtbl {
         unsafe extern "system" fn SetInputSource<Identity: ICoreInputInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreInputInterop_Impl::SetInputSource(this, core::mem::transmute_copy(&value)).into()
+                ICoreInputInterop_Impl::SetInputSource(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn SetMessageHandled<Identity: ICoreInputInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::boolean) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreInputInterop_Impl::SetMessageHandled(this, core::mem::transmute_copy(&value)).into()
+                ICoreInputInterop_Impl::SetMessageHandled(this, core::mem::transmute_copy(&value))
             }
         }
         Self {
@@ -85,7 +85,7 @@ pub struct ICoreInputInterop2_Vtbl {
 #[cfg(all(feature = "shared", feature = "windef"))]
 pub trait ICoreInputInterop2_Impl: windows_core::IUnknownImpl {
     fn WindowHandle(&self) -> windows_core::Result<super::HWND>;
-    fn ChangeHostingContext(&self, newparentwindow: super::HWND, newviewinstanceid: super::UINT32) -> windows_core::Result<()>;
+    fn ChangeHostingContext(&self, newparentwindow: super::HWND, newviewinstanceid: super::UINT32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 impl ICoreInputInterop2_Vtbl {
@@ -108,7 +108,7 @@ impl ICoreInputInterop2_Vtbl {
         unsafe extern "system" fn ChangeHostingContext<Identity: ICoreInputInterop2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newparentwindow: super::HWND, newviewinstanceid: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreInputInterop2_Impl::ChangeHostingContext(this, core::mem::transmute_copy(&newparentwindow), core::mem::transmute_copy(&newviewinstanceid)).into()
+                ICoreInputInterop2_Impl::ChangeHostingContext(this, core::mem::transmute_copy(&newparentwindow), core::mem::transmute_copy(&newviewinstanceid))
             }
         }
         Self {
@@ -196,7 +196,7 @@ pub trait ICoreWindowAdapterInterop_Impl: windows_core::IUnknownImpl {
     fn PositionerClientAdapter(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn SystemNavigationClientAdapter(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn TitleBarClientAdapter(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn SetWindowClientAdapter(&self, value: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetWindowClientAdapter(&self, value: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
 }
 impl ICoreWindowAdapterInterop_Vtbl {
     pub const fn new<Identity: ICoreWindowAdapterInterop_Impl, const OFFSET: isize>() -> Self {
@@ -308,7 +308,7 @@ impl ICoreWindowAdapterInterop_Vtbl {
         unsafe extern "system" fn SetWindowClientAdapter<Identity: ICoreWindowAdapterInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWindowAdapterInterop_Impl::SetWindowClientAdapter(this, core::mem::transmute_copy(&value)).into()
+                ICoreWindowAdapterInterop_Impl::SetWindowClientAdapter(this, core::mem::transmute_copy(&value))
             }
         }
         Self {
@@ -358,8 +358,8 @@ pub struct ICoreWindowComponentInterop_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 pub trait ICoreWindowComponentInterop_Impl: windows_core::IUnknownImpl {
-    fn ConfigureComponentInput(&self, hostviewinstanceid: super::UINT32, hwndhost: super::HWND, inputsourcevisual: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn GetViewInstanceId(&self, componentviewinstanceid: *mut super::UINT32) -> windows_core::Result<()>;
+    fn ConfigureComponentInput(&self, hostviewinstanceid: super::UINT32, hwndhost: super::HWND, inputsourcevisual: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn GetViewInstanceId(&self, componentviewinstanceid: *mut super::UINT32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 impl ICoreWindowComponentInterop_Vtbl {
@@ -367,13 +367,13 @@ impl ICoreWindowComponentInterop_Vtbl {
         unsafe extern "system" fn ConfigureComponentInput<Identity: ICoreWindowComponentInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hostviewinstanceid: super::UINT32, hwndhost: super::HWND, inputsourcevisual: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWindowComponentInterop_Impl::ConfigureComponentInput(this, core::mem::transmute_copy(&hostviewinstanceid), core::mem::transmute_copy(&hwndhost), core::mem::transmute_copy(&inputsourcevisual)).into()
+                ICoreWindowComponentInterop_Impl::ConfigureComponentInput(this, core::mem::transmute_copy(&hostviewinstanceid), core::mem::transmute_copy(&hwndhost), core::mem::transmute_copy(&inputsourcevisual))
             }
         }
         unsafe extern "system" fn GetViewInstanceId<Identity: ICoreWindowComponentInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, componentviewinstanceid: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWindowComponentInterop_Impl::GetViewInstanceId(this, core::mem::transmute_copy(&componentviewinstanceid)).into()
+                ICoreWindowComponentInterop_Impl::GetViewInstanceId(this, core::mem::transmute_copy(&componentviewinstanceid))
             }
         }
         Self {
@@ -419,7 +419,7 @@ pub struct ICoreWindowInterop_Vtbl {
 #[cfg(all(feature = "rpc", feature = "windef"))]
 pub trait ICoreWindowInterop_Impl: windows_core::IUnknownImpl {
     fn WindowHandle(&self) -> windows_core::Result<super::HWND>;
-    fn SetMessageHandled(&self, value: super::boolean) -> windows_core::Result<()>;
+    fn SetMessageHandled(&self, value: super::boolean) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "rpc", feature = "windef"))]
 impl ICoreWindowInterop_Vtbl {
@@ -442,7 +442,7 @@ impl ICoreWindowInterop_Vtbl {
         unsafe extern "system" fn SetMessageHandled<Identity: ICoreWindowInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::boolean) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWindowInterop_Impl::SetMessageHandled(this, core::mem::transmute_copy(&value)).into()
+                ICoreWindowInterop_Impl::SetMessageHandled(this, core::mem::transmute_copy(&value))
             }
         }
         Self {

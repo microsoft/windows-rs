@@ -23,9 +23,9 @@ impl IServiceProvider_Impl for Borrowed_Impl {
         _service: *const GUID,
         iid: *const GUID,
         object: *mut *mut std::ffi::c_void,
-    ) -> Result<()> {
+    ) -> HRESULT {
         let unknown = self.as_interface::<IUnknown>();
-        unsafe { unknown.query(iid, object).ok() }
+        unsafe { unknown.query(iid, object) }
     }
 }
 
@@ -35,19 +35,22 @@ impl IProfferService_Impl for Borrowed_Impl {
         _: *const GUID,
         provider: Ref<IServiceProvider>,
         cookie: *mut u32,
-    ) -> Result<()> {
+    ) -> HRESULT {
         unsafe {
             *cookie = if let Ok(provider) = provider.ok() {
-                provider.cast::<IBorrowed>()?.Call()
+                match provider.cast::<IBorrowed>() {
+                    Ok(provider) => provider.Call(),
+                    Err(error) => return error.into(),
+                }
             } else {
                 0
             };
-            Ok(())
+            S_OK
         }
     }
 
-    fn RevokeService(&self, _: u32) -> Result<()> {
-        Ok(())
+    fn RevokeService(&self, _: u32) -> HRESULT {
+        S_OK
     }
 }
 

@@ -47,10 +47,10 @@ pub struct IEnumCodePage_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IEnumCodePage_Impl: windows_core::IUnknownImpl {
-    fn Clone(&self, ppenum: windows_core::OutRef<IEnumCodePage>) -> windows_core::Result<()>;
-    fn Next(&self, celt: super::ULONG, rgelt: PMIMECPINFO, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
+    fn Clone(&self, ppenum: windows_core::OutRef<IEnumCodePage>) -> windows_core::HRESULT;
+    fn Next(&self, celt: super::ULONG, rgelt: PMIMECPINFO, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT;
+    fn Reset(&self) -> windows_core::HRESULT;
+    fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 impl IEnumCodePage_Vtbl {
@@ -58,25 +58,25 @@ impl IEnumCodePage_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumCodePage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumCodePage_Impl::Clone(this, core::mem::transmute_copy(&ppenum)).into()
+                IEnumCodePage_Impl::Clone(this, core::mem::transmute_copy(&ppenum))
             }
         }
         unsafe extern "system" fn Next<Identity: IEnumCodePage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG, rgelt: PMIMECPINFO, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumCodePage_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
+                IEnumCodePage_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched))
             }
         }
         unsafe extern "system" fn Reset<Identity: IEnumCodePage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumCodePage_Impl::Reset(this).into()
+                IEnumCodePage_Impl::Reset(this)
             }
         }
         unsafe extern "system" fn Skip<Identity: IEnumCodePage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumCodePage_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+                IEnumCodePage_Impl::Skip(this, core::mem::transmute_copy(&celt))
             }
         }
         Self {
@@ -128,10 +128,10 @@ pub struct IEnumRfc1766_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IEnumRfc1766_Impl: windows_core::IUnknownImpl {
-    fn Clone(&self, ppenum: windows_core::OutRef<IEnumRfc1766>) -> windows_core::Result<()>;
-    fn Next(&self, celt: super::ULONG, rgelt: PRFC1766INFO, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
+    fn Clone(&self, ppenum: windows_core::OutRef<IEnumRfc1766>) -> windows_core::HRESULT;
+    fn Next(&self, celt: super::ULONG, rgelt: PRFC1766INFO, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT;
+    fn Reset(&self) -> windows_core::HRESULT;
+    fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 impl IEnumRfc1766_Vtbl {
@@ -139,25 +139,25 @@ impl IEnumRfc1766_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumRfc1766_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumRfc1766_Impl::Clone(this, core::mem::transmute_copy(&ppenum)).into()
+                IEnumRfc1766_Impl::Clone(this, core::mem::transmute_copy(&ppenum))
             }
         }
         unsafe extern "system" fn Next<Identity: IEnumRfc1766_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG, rgelt: PRFC1766INFO, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumRfc1766_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
+                IEnumRfc1766_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched))
             }
         }
         unsafe extern "system" fn Reset<Identity: IEnumRfc1766_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumRfc1766_Impl::Reset(this).into()
+                IEnumRfc1766_Impl::Reset(this)
             }
         }
         unsafe extern "system" fn Skip<Identity: IEnumRfc1766_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumRfc1766_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+                IEnumRfc1766_Impl::Skip(this, core::mem::transmute_copy(&celt))
             }
         }
         Self {
@@ -209,10 +209,10 @@ pub struct IEnumScript_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IEnumScript_Impl: windows_core::IUnknownImpl {
-    fn Clone(&self, ppenum: windows_core::OutRef<IEnumScript>) -> windows_core::Result<()>;
-    fn Next(&self, celt: super::ULONG, rgelt: PSCRIPTINFO, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
+    fn Clone(&self, ppenum: windows_core::OutRef<IEnumScript>) -> windows_core::HRESULT;
+    fn Next(&self, celt: super::ULONG, rgelt: PSCRIPTINFO, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT;
+    fn Reset(&self) -> windows_core::HRESULT;
+    fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 impl IEnumScript_Vtbl {
@@ -220,25 +220,25 @@ impl IEnumScript_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumScript_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumScript_Impl::Clone(this, core::mem::transmute_copy(&ppenum)).into()
+                IEnumScript_Impl::Clone(this, core::mem::transmute_copy(&ppenum))
             }
         }
         unsafe extern "system" fn Next<Identity: IEnumScript_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG, rgelt: PSCRIPTINFO, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumScript_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
+                IEnumScript_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched))
             }
         }
         unsafe extern "system" fn Reset<Identity: IEnumScript_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumScript_Impl::Reset(this).into()
+                IEnumScript_Impl::Reset(this)
             }
         }
         unsafe extern "system" fn Skip<Identity: IEnumScript_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumScript_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+                IEnumScript_Impl::Skip(this, core::mem::transmute_copy(&celt))
             }
         }
         Self {
@@ -298,10 +298,10 @@ pub struct IMLangCodePages_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IMLangCodePages_Impl: windows_core::IUnknownImpl {
-    fn GetCharCodePages(&self, chsrc: super::WCHAR, pdwcodepages: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetStrCodePages(&self, pszsrc: *const super::WCHAR, cchsrc: i32, dwprioritycodepages: super::DWORD, pdwcodepages: *mut super::DWORD, pcchcodepages: *mut i32) -> windows_core::Result<()>;
-    fn CodePageToCodePages(&self, ucodepage: super::UINT, pdwcodepages: *mut super::DWORD) -> windows_core::Result<()>;
-    fn CodePagesToCodePage(&self, dwcodepages: super::DWORD, udefaultcodepage: super::UINT, pucodepage: *mut super::UINT) -> windows_core::Result<()>;
+    fn GetCharCodePages(&self, chsrc: super::WCHAR, pdwcodepages: *mut super::DWORD) -> windows_core::HRESULT;
+    fn GetStrCodePages(&self, pszsrc: *const super::WCHAR, cchsrc: i32, dwprioritycodepages: super::DWORD, pdwcodepages: *mut super::DWORD, pcchcodepages: *mut i32) -> windows_core::HRESULT;
+    fn CodePageToCodePages(&self, ucodepage: super::UINT, pdwcodepages: *mut super::DWORD) -> windows_core::HRESULT;
+    fn CodePagesToCodePage(&self, dwcodepages: super::DWORD, udefaultcodepage: super::UINT, pucodepage: *mut super::UINT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 impl IMLangCodePages_Vtbl {
@@ -309,25 +309,25 @@ impl IMLangCodePages_Vtbl {
         unsafe extern "system" fn GetCharCodePages<Identity: IMLangCodePages_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, chsrc: super::WCHAR, pdwcodepages: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangCodePages_Impl::GetCharCodePages(this, core::mem::transmute_copy(&chsrc), core::mem::transmute_copy(&pdwcodepages)).into()
+                IMLangCodePages_Impl::GetCharCodePages(this, core::mem::transmute_copy(&chsrc), core::mem::transmute_copy(&pdwcodepages))
             }
         }
         unsafe extern "system" fn GetStrCodePages<Identity: IMLangCodePages_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszsrc: *const super::WCHAR, cchsrc: i32, dwprioritycodepages: super::DWORD, pdwcodepages: *mut super::DWORD, pcchcodepages: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangCodePages_Impl::GetStrCodePages(this, core::mem::transmute_copy(&pszsrc), core::mem::transmute_copy(&cchsrc), core::mem::transmute_copy(&dwprioritycodepages), core::mem::transmute_copy(&pdwcodepages), core::mem::transmute_copy(&pcchcodepages)).into()
+                IMLangCodePages_Impl::GetStrCodePages(this, core::mem::transmute_copy(&pszsrc), core::mem::transmute_copy(&cchsrc), core::mem::transmute_copy(&dwprioritycodepages), core::mem::transmute_copy(&pdwcodepages), core::mem::transmute_copy(&pcchcodepages))
             }
         }
         unsafe extern "system" fn CodePageToCodePages<Identity: IMLangCodePages_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ucodepage: super::UINT, pdwcodepages: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangCodePages_Impl::CodePageToCodePages(this, core::mem::transmute_copy(&ucodepage), core::mem::transmute_copy(&pdwcodepages)).into()
+                IMLangCodePages_Impl::CodePageToCodePages(this, core::mem::transmute_copy(&ucodepage), core::mem::transmute_copy(&pdwcodepages))
             }
         }
         unsafe extern "system" fn CodePagesToCodePage<Identity: IMLangCodePages_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcodepages: super::DWORD, udefaultcodepage: super::UINT, pucodepage: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangCodePages_Impl::CodePagesToCodePage(this, core::mem::transmute_copy(&dwcodepages), core::mem::transmute_copy(&udefaultcodepage), core::mem::transmute_copy(&pucodepage)).into()
+                IMLangCodePages_Impl::CodePagesToCodePage(this, core::mem::transmute_copy(&dwcodepages), core::mem::transmute_copy(&udefaultcodepage), core::mem::transmute_copy(&pucodepage))
             }
         }
         Self {
@@ -411,13 +411,13 @@ pub struct IMLangConvertCharset_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IMLangConvertCharset_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, uisrccodepage: super::UINT, uidstcodepage: super::UINT, dwproperty: super::DWORD) -> windows_core::Result<()>;
-    fn GetSourceCodePage(&self, puisrccodepage: *mut super::UINT) -> windows_core::Result<()>;
-    fn GetDestinationCodePage(&self, puidstcodepage: *mut super::UINT) -> windows_core::Result<()>;
-    fn GetProperty(&self, pdwproperty: *mut super::DWORD) -> windows_core::Result<()>;
-    fn DoConversion(&self, psrcstr: *const super::BYTE, pcsrcsize: *mut super::UINT, pdststr: *mut super::BYTE, pcdstsize: *mut super::UINT) -> windows_core::Result<()>;
-    fn DoConversionToUnicode(&self, psrcstr: *const super::CHAR, pcsrcsize: *mut super::UINT, pdststr: *mut super::WCHAR, pcdstsize: *mut super::UINT) -> windows_core::Result<()>;
-    fn DoConversionFromUnicode(&self, psrcstr: *const super::WCHAR, pcsrcsize: *mut super::UINT, pdststr: *mut super::CHAR, pcdstsize: *mut super::UINT) -> windows_core::Result<()>;
+    fn Initialize(&self, uisrccodepage: super::UINT, uidstcodepage: super::UINT, dwproperty: super::DWORD) -> windows_core::HRESULT;
+    fn GetSourceCodePage(&self, puisrccodepage: *mut super::UINT) -> windows_core::HRESULT;
+    fn GetDestinationCodePage(&self, puidstcodepage: *mut super::UINT) -> windows_core::HRESULT;
+    fn GetProperty(&self, pdwproperty: *mut super::DWORD) -> windows_core::HRESULT;
+    fn DoConversion(&self, psrcstr: *const super::BYTE, pcsrcsize: *mut super::UINT, pdststr: *mut super::BYTE, pcdstsize: *mut super::UINT) -> windows_core::HRESULT;
+    fn DoConversionToUnicode(&self, psrcstr: *const super::CHAR, pcsrcsize: *mut super::UINT, pdststr: *mut super::WCHAR, pcdstsize: *mut super::UINT) -> windows_core::HRESULT;
+    fn DoConversionFromUnicode(&self, psrcstr: *const super::WCHAR, pcsrcsize: *mut super::UINT, pdststr: *mut super::CHAR, pcdstsize: *mut super::UINT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 impl IMLangConvertCharset_Vtbl {
@@ -425,43 +425,43 @@ impl IMLangConvertCharset_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IMLangConvertCharset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uisrccodepage: super::UINT, uidstcodepage: super::UINT, dwproperty: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangConvertCharset_Impl::Initialize(this, core::mem::transmute_copy(&uisrccodepage), core::mem::transmute_copy(&uidstcodepage), core::mem::transmute_copy(&dwproperty)).into()
+                IMLangConvertCharset_Impl::Initialize(this, core::mem::transmute_copy(&uisrccodepage), core::mem::transmute_copy(&uidstcodepage), core::mem::transmute_copy(&dwproperty))
             }
         }
         unsafe extern "system" fn GetSourceCodePage<Identity: IMLangConvertCharset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puisrccodepage: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangConvertCharset_Impl::GetSourceCodePage(this, core::mem::transmute_copy(&puisrccodepage)).into()
+                IMLangConvertCharset_Impl::GetSourceCodePage(this, core::mem::transmute_copy(&puisrccodepage))
             }
         }
         unsafe extern "system" fn GetDestinationCodePage<Identity: IMLangConvertCharset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puidstcodepage: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangConvertCharset_Impl::GetDestinationCodePage(this, core::mem::transmute_copy(&puidstcodepage)).into()
+                IMLangConvertCharset_Impl::GetDestinationCodePage(this, core::mem::transmute_copy(&puidstcodepage))
             }
         }
         unsafe extern "system" fn GetProperty<Identity: IMLangConvertCharset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwproperty: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangConvertCharset_Impl::GetProperty(this, core::mem::transmute_copy(&pdwproperty)).into()
+                IMLangConvertCharset_Impl::GetProperty(this, core::mem::transmute_copy(&pdwproperty))
             }
         }
         unsafe extern "system" fn DoConversion<Identity: IMLangConvertCharset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psrcstr: *const super::BYTE, pcsrcsize: *mut super::UINT, pdststr: *mut super::BYTE, pcdstsize: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangConvertCharset_Impl::DoConversion(this, core::mem::transmute_copy(&psrcstr), core::mem::transmute_copy(&pcsrcsize), core::mem::transmute_copy(&pdststr), core::mem::transmute_copy(&pcdstsize)).into()
+                IMLangConvertCharset_Impl::DoConversion(this, core::mem::transmute_copy(&psrcstr), core::mem::transmute_copy(&pcsrcsize), core::mem::transmute_copy(&pdststr), core::mem::transmute_copy(&pcdstsize))
             }
         }
         unsafe extern "system" fn DoConversionToUnicode<Identity: IMLangConvertCharset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psrcstr: *const super::CHAR, pcsrcsize: *mut super::UINT, pdststr: *mut super::WCHAR, pcdstsize: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangConvertCharset_Impl::DoConversionToUnicode(this, core::mem::transmute_copy(&psrcstr), core::mem::transmute_copy(&pcsrcsize), core::mem::transmute_copy(&pdststr), core::mem::transmute_copy(&pcdstsize)).into()
+                IMLangConvertCharset_Impl::DoConversionToUnicode(this, core::mem::transmute_copy(&psrcstr), core::mem::transmute_copy(&pcsrcsize), core::mem::transmute_copy(&pdststr), core::mem::transmute_copy(&pcdstsize))
             }
         }
         unsafe extern "system" fn DoConversionFromUnicode<Identity: IMLangConvertCharset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psrcstr: *const super::WCHAR, pcsrcsize: *mut super::UINT, pdststr: *mut super::CHAR, pcdstsize: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangConvertCharset_Impl::DoConversionFromUnicode(this, core::mem::transmute_copy(&psrcstr), core::mem::transmute_copy(&pcsrcsize), core::mem::transmute_copy(&pdststr), core::mem::transmute_copy(&pcdstsize)).into()
+                IMLangConvertCharset_Impl::DoConversionFromUnicode(this, core::mem::transmute_copy(&psrcstr), core::mem::transmute_copy(&pcsrcsize), core::mem::transmute_copy(&pdststr), core::mem::transmute_copy(&pcdstsize))
             }
         }
         Self {
@@ -526,10 +526,10 @@ pub struct IMLangFontLink_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IMLangFontLink_Impl: IMLangCodePages_Impl {
-    fn GetFontCodePages(&self, hdc: super::HDC, hfont: super::HFONT, pdwcodepages: *mut super::DWORD) -> windows_core::Result<()>;
-    fn MapFont(&self, hdc: super::HDC, dwcodepages: super::DWORD, hsrcfont: super::HFONT, phdestfont: *mut super::HFONT) -> windows_core::Result<()>;
-    fn ReleaseFont(&self, hfont: super::HFONT) -> windows_core::Result<()>;
-    fn ResetFontMapping(&self) -> windows_core::Result<()>;
+    fn GetFontCodePages(&self, hdc: super::HDC, hfont: super::HFONT, pdwcodepages: *mut super::DWORD) -> windows_core::HRESULT;
+    fn MapFont(&self, hdc: super::HDC, dwcodepages: super::DWORD, hsrcfont: super::HFONT, phdestfont: *mut super::HFONT) -> windows_core::HRESULT;
+    fn ReleaseFont(&self, hfont: super::HFONT) -> windows_core::HRESULT;
+    fn ResetFontMapping(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl IMLangFontLink_Vtbl {
@@ -537,25 +537,25 @@ impl IMLangFontLink_Vtbl {
         unsafe extern "system" fn GetFontCodePages<Identity: IMLangFontLink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdc: super::HDC, hfont: super::HFONT, pdwcodepages: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangFontLink_Impl::GetFontCodePages(this, core::mem::transmute_copy(&hdc), core::mem::transmute_copy(&hfont), core::mem::transmute_copy(&pdwcodepages)).into()
+                IMLangFontLink_Impl::GetFontCodePages(this, core::mem::transmute_copy(&hdc), core::mem::transmute_copy(&hfont), core::mem::transmute_copy(&pdwcodepages))
             }
         }
         unsafe extern "system" fn MapFont<Identity: IMLangFontLink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdc: super::HDC, dwcodepages: super::DWORD, hsrcfont: super::HFONT, phdestfont: *mut super::HFONT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangFontLink_Impl::MapFont(this, core::mem::transmute_copy(&hdc), core::mem::transmute_copy(&dwcodepages), core::mem::transmute_copy(&hsrcfont), core::mem::transmute_copy(&phdestfont)).into()
+                IMLangFontLink_Impl::MapFont(this, core::mem::transmute_copy(&hdc), core::mem::transmute_copy(&dwcodepages), core::mem::transmute_copy(&hsrcfont), core::mem::transmute_copy(&phdestfont))
             }
         }
         unsafe extern "system" fn ReleaseFont<Identity: IMLangFontLink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hfont: super::HFONT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangFontLink_Impl::ReleaseFont(this, core::mem::transmute_copy(&hfont)).into()
+                IMLangFontLink_Impl::ReleaseFont(this, core::mem::transmute_copy(&hfont))
             }
         }
         unsafe extern "system" fn ResetFontMapping<Identity: IMLangFontLink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangFontLink_Impl::ResetFontMapping(this).into()
+                IMLangFontLink_Impl::ResetFontMapping(this)
             }
         }
         Self {
@@ -641,13 +641,13 @@ pub struct IMLangFontLink2_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IMLangFontLink2_Impl: IMLangCodePages_Impl {
-    fn GetFontCodePages(&self, hdc: super::HDC, hfont: super::HFONT, pdwcodepages: *mut super::DWORD) -> windows_core::Result<()>;
-    fn ReleaseFont(&self, hfont: super::HFONT) -> windows_core::Result<()>;
-    fn ResetFontMapping(&self) -> windows_core::Result<()>;
-    fn MapFont(&self, hdc: super::HDC, dwcodepages: super::DWORD, chsrc: super::WCHAR, pfont: *mut super::HFONT) -> windows_core::Result<()>;
-    fn GetFontUnicodeRanges(&self, hdc: super::HDC, puiranges: *mut super::UINT, puranges: *mut UNICODERANGE) -> windows_core::Result<()>;
-    fn GetScriptFontInfo(&self, sid: SCRIPT_ID, dwflags: super::DWORD, puifonts: *mut super::UINT, pscriptfont: *mut SCRIPTFONTINFO) -> windows_core::Result<()>;
-    fn CodePageToScriptID(&self, uicodepage: super::UINT, psid: *mut SCRIPT_ID) -> windows_core::Result<()>;
+    fn GetFontCodePages(&self, hdc: super::HDC, hfont: super::HFONT, pdwcodepages: *mut super::DWORD) -> windows_core::HRESULT;
+    fn ReleaseFont(&self, hfont: super::HFONT) -> windows_core::HRESULT;
+    fn ResetFontMapping(&self) -> windows_core::HRESULT;
+    fn MapFont(&self, hdc: super::HDC, dwcodepages: super::DWORD, chsrc: super::WCHAR, pfont: *mut super::HFONT) -> windows_core::HRESULT;
+    fn GetFontUnicodeRanges(&self, hdc: super::HDC, puiranges: *mut super::UINT, puranges: *mut UNICODERANGE) -> windows_core::HRESULT;
+    fn GetScriptFontInfo(&self, sid: SCRIPT_ID, dwflags: super::DWORD, puifonts: *mut super::UINT, pscriptfont: *mut SCRIPTFONTINFO) -> windows_core::HRESULT;
+    fn CodePageToScriptID(&self, uicodepage: super::UINT, psid: *mut SCRIPT_ID) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl IMLangFontLink2_Vtbl {
@@ -655,43 +655,43 @@ impl IMLangFontLink2_Vtbl {
         unsafe extern "system" fn GetFontCodePages<Identity: IMLangFontLink2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdc: super::HDC, hfont: super::HFONT, pdwcodepages: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangFontLink2_Impl::GetFontCodePages(this, core::mem::transmute_copy(&hdc), core::mem::transmute_copy(&hfont), core::mem::transmute_copy(&pdwcodepages)).into()
+                IMLangFontLink2_Impl::GetFontCodePages(this, core::mem::transmute_copy(&hdc), core::mem::transmute_copy(&hfont), core::mem::transmute_copy(&pdwcodepages))
             }
         }
         unsafe extern "system" fn ReleaseFont<Identity: IMLangFontLink2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hfont: super::HFONT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangFontLink2_Impl::ReleaseFont(this, core::mem::transmute_copy(&hfont)).into()
+                IMLangFontLink2_Impl::ReleaseFont(this, core::mem::transmute_copy(&hfont))
             }
         }
         unsafe extern "system" fn ResetFontMapping<Identity: IMLangFontLink2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangFontLink2_Impl::ResetFontMapping(this).into()
+                IMLangFontLink2_Impl::ResetFontMapping(this)
             }
         }
         unsafe extern "system" fn MapFont<Identity: IMLangFontLink2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdc: super::HDC, dwcodepages: super::DWORD, chsrc: super::WCHAR, pfont: *mut super::HFONT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangFontLink2_Impl::MapFont(this, core::mem::transmute_copy(&hdc), core::mem::transmute_copy(&dwcodepages), core::mem::transmute_copy(&chsrc), core::mem::transmute_copy(&pfont)).into()
+                IMLangFontLink2_Impl::MapFont(this, core::mem::transmute_copy(&hdc), core::mem::transmute_copy(&dwcodepages), core::mem::transmute_copy(&chsrc), core::mem::transmute_copy(&pfont))
             }
         }
         unsafe extern "system" fn GetFontUnicodeRanges<Identity: IMLangFontLink2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdc: super::HDC, puiranges: *mut super::UINT, puranges: *mut UNICODERANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangFontLink2_Impl::GetFontUnicodeRanges(this, core::mem::transmute_copy(&hdc), core::mem::transmute_copy(&puiranges), core::mem::transmute_copy(&puranges)).into()
+                IMLangFontLink2_Impl::GetFontUnicodeRanges(this, core::mem::transmute_copy(&hdc), core::mem::transmute_copy(&puiranges), core::mem::transmute_copy(&puranges))
             }
         }
         unsafe extern "system" fn GetScriptFontInfo<Identity: IMLangFontLink2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sid: SCRIPT_ID, dwflags: super::DWORD, puifonts: *mut super::UINT, pscriptfont: *mut SCRIPTFONTINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangFontLink2_Impl::GetScriptFontInfo(this, core::mem::transmute_copy(&sid), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&puifonts), core::mem::transmute_copy(&pscriptfont)).into()
+                IMLangFontLink2_Impl::GetScriptFontInfo(this, core::mem::transmute_copy(&sid), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&puifonts), core::mem::transmute_copy(&pscriptfont))
             }
         }
         unsafe extern "system" fn CodePageToScriptID<Identity: IMLangFontLink2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uicodepage: super::UINT, psid: *mut SCRIPT_ID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangFontLink2_Impl::CodePageToScriptID(this, core::mem::transmute_copy(&uicodepage), core::mem::transmute_copy(&psid)).into()
+                IMLangFontLink2_Impl::CodePageToScriptID(this, core::mem::transmute_copy(&uicodepage), core::mem::transmute_copy(&psid))
             }
         }
         Self {
@@ -745,9 +745,9 @@ pub struct IMLangLineBreakConsole_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IMLangLineBreakConsole_Impl: windows_core::IUnknownImpl {
-    fn BreakLineML(&self, psrcmlstr: windows_core::Ref<IMLangString>, lsrcpos: i32, lsrclen: i32, cmincolumns: i32, cmaxcolumns: i32, pllinelen: *mut i32, plskiplen: *mut i32) -> windows_core::Result<()>;
-    fn BreakLineW(&self, locale: super::LCID, pszsrc: *const super::WCHAR, cchsrc: i32, cmaxcolumns: i32, pcchline: *mut i32, pcchskip: *mut i32) -> windows_core::Result<()>;
-    fn BreakLineA(&self, locale: super::LCID, ucodepage: super::UINT, pszsrc: *const super::CHAR, cchsrc: i32, cmaxcolumns: i32, pcchline: *mut i32, pcchskip: *mut i32) -> windows_core::Result<()>;
+    fn BreakLineML(&self, psrcmlstr: windows_core::Ref<IMLangString>, lsrcpos: i32, lsrclen: i32, cmincolumns: i32, cmaxcolumns: i32, pllinelen: *mut i32, plskiplen: *mut i32) -> windows_core::HRESULT;
+    fn BreakLineW(&self, locale: super::LCID, pszsrc: *const super::WCHAR, cchsrc: i32, cmaxcolumns: i32, pcchline: *mut i32, pcchskip: *mut i32) -> windows_core::HRESULT;
+    fn BreakLineA(&self, locale: super::LCID, ucodepage: super::UINT, pszsrc: *const super::CHAR, cchsrc: i32, cmaxcolumns: i32, pcchline: *mut i32, pcchskip: *mut i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 impl IMLangLineBreakConsole_Vtbl {
@@ -755,19 +755,19 @@ impl IMLangLineBreakConsole_Vtbl {
         unsafe extern "system" fn BreakLineML<Identity: IMLangLineBreakConsole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psrcmlstr: *mut core::ffi::c_void, lsrcpos: i32, lsrclen: i32, cmincolumns: i32, cmaxcolumns: i32, pllinelen: *mut i32, plskiplen: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangLineBreakConsole_Impl::BreakLineML(this, core::mem::transmute_copy(&psrcmlstr), core::mem::transmute_copy(&lsrcpos), core::mem::transmute_copy(&lsrclen), core::mem::transmute_copy(&cmincolumns), core::mem::transmute_copy(&cmaxcolumns), core::mem::transmute_copy(&pllinelen), core::mem::transmute_copy(&plskiplen)).into()
+                IMLangLineBreakConsole_Impl::BreakLineML(this, core::mem::transmute_copy(&psrcmlstr), core::mem::transmute_copy(&lsrcpos), core::mem::transmute_copy(&lsrclen), core::mem::transmute_copy(&cmincolumns), core::mem::transmute_copy(&cmaxcolumns), core::mem::transmute_copy(&pllinelen), core::mem::transmute_copy(&plskiplen))
             }
         }
         unsafe extern "system" fn BreakLineW<Identity: IMLangLineBreakConsole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, locale: super::LCID, pszsrc: *const super::WCHAR, cchsrc: i32, cmaxcolumns: i32, pcchline: *mut i32, pcchskip: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangLineBreakConsole_Impl::BreakLineW(this, core::mem::transmute_copy(&locale), core::mem::transmute_copy(&pszsrc), core::mem::transmute_copy(&cchsrc), core::mem::transmute_copy(&cmaxcolumns), core::mem::transmute_copy(&pcchline), core::mem::transmute_copy(&pcchskip)).into()
+                IMLangLineBreakConsole_Impl::BreakLineW(this, core::mem::transmute_copy(&locale), core::mem::transmute_copy(&pszsrc), core::mem::transmute_copy(&cchsrc), core::mem::transmute_copy(&cmaxcolumns), core::mem::transmute_copy(&pcchline), core::mem::transmute_copy(&pcchskip))
             }
         }
         unsafe extern "system" fn BreakLineA<Identity: IMLangLineBreakConsole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, locale: super::LCID, ucodepage: super::UINT, pszsrc: *const super::CHAR, cchsrc: i32, cmaxcolumns: i32, pcchline: *mut i32, pcchskip: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangLineBreakConsole_Impl::BreakLineA(this, core::mem::transmute_copy(&locale), core::mem::transmute_copy(&ucodepage), core::mem::transmute_copy(&pszsrc), core::mem::transmute_copy(&cchsrc), core::mem::transmute_copy(&cmaxcolumns), core::mem::transmute_copy(&pcchline), core::mem::transmute_copy(&pcchskip)).into()
+                IMLangLineBreakConsole_Impl::BreakLineA(this, core::mem::transmute_copy(&locale), core::mem::transmute_copy(&ucodepage), core::mem::transmute_copy(&pszsrc), core::mem::transmute_copy(&cchsrc), core::mem::transmute_copy(&cmaxcolumns), core::mem::transmute_copy(&pcchline), core::mem::transmute_copy(&pcchskip))
             }
         }
         Self {
@@ -820,10 +820,10 @@ pub struct IMLangString_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait IMLangString_Impl: windows_core::IUnknownImpl {
-    fn Sync(&self, fnoaccess: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetLength(&self, pllen: *mut i32) -> windows_core::Result<()>;
-    fn SetMLStr(&self, ldestpos: i32, ldestlen: i32, psrcmlstr: windows_core::Ref<windows_core::IUnknown>, lsrcpos: i32, lsrclen: i32) -> windows_core::Result<()>;
-    fn GetMLStr(&self, lsrcpos: i32, lsrclen: i32, punkouter: windows_core::Ref<windows_core::IUnknown>, dwclscontext: super::DWORD, piid: *const super::IID, ppdestmlstr: windows_core::OutRef<windows_core::IUnknown>, pldestpos: *mut i32, pldestlen: *mut i32) -> windows_core::Result<()>;
+    fn Sync(&self, fnoaccess: windows_core::BOOL) -> windows_core::HRESULT;
+    fn GetLength(&self, pllen: *mut i32) -> windows_core::HRESULT;
+    fn SetMLStr(&self, ldestpos: i32, ldestlen: i32, psrcmlstr: windows_core::Ref<windows_core::IUnknown>, lsrcpos: i32, lsrclen: i32) -> windows_core::HRESULT;
+    fn GetMLStr(&self, lsrcpos: i32, lsrclen: i32, punkouter: windows_core::Ref<windows_core::IUnknown>, dwclscontext: super::DWORD, piid: *const super::IID, ppdestmlstr: windows_core::OutRef<windows_core::IUnknown>, pldestpos: *mut i32, pldestlen: *mut i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 impl IMLangString_Vtbl {
@@ -831,25 +831,25 @@ impl IMLangString_Vtbl {
         unsafe extern "system" fn Sync<Identity: IMLangString_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fnoaccess: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangString_Impl::Sync(this, core::mem::transmute_copy(&fnoaccess)).into()
+                IMLangString_Impl::Sync(this, core::mem::transmute_copy(&fnoaccess))
             }
         }
         unsafe extern "system" fn GetLength<Identity: IMLangString_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pllen: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangString_Impl::GetLength(this, core::mem::transmute_copy(&pllen)).into()
+                IMLangString_Impl::GetLength(this, core::mem::transmute_copy(&pllen))
             }
         }
         unsafe extern "system" fn SetMLStr<Identity: IMLangString_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ldestpos: i32, ldestlen: i32, psrcmlstr: *mut core::ffi::c_void, lsrcpos: i32, lsrclen: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangString_Impl::SetMLStr(this, core::mem::transmute_copy(&ldestpos), core::mem::transmute_copy(&ldestlen), core::mem::transmute_copy(&psrcmlstr), core::mem::transmute_copy(&lsrcpos), core::mem::transmute_copy(&lsrclen)).into()
+                IMLangString_Impl::SetMLStr(this, core::mem::transmute_copy(&ldestpos), core::mem::transmute_copy(&ldestlen), core::mem::transmute_copy(&psrcmlstr), core::mem::transmute_copy(&lsrcpos), core::mem::transmute_copy(&lsrclen))
             }
         }
         unsafe extern "system" fn GetMLStr<Identity: IMLangString_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lsrcpos: i32, lsrclen: i32, punkouter: *mut core::ffi::c_void, dwclscontext: super::DWORD, piid: *const super::IID, ppdestmlstr: *mut *mut core::ffi::c_void, pldestpos: *mut i32, pldestlen: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangString_Impl::GetMLStr(this, core::mem::transmute_copy(&lsrcpos), core::mem::transmute_copy(&lsrclen), core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&dwclscontext), core::mem::transmute_copy(&piid), core::mem::transmute_copy(&ppdestmlstr), core::mem::transmute_copy(&pldestpos), core::mem::transmute_copy(&pldestlen)).into()
+                IMLangString_Impl::GetMLStr(this, core::mem::transmute_copy(&lsrcpos), core::mem::transmute_copy(&lsrclen), core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&dwclscontext), core::mem::transmute_copy(&piid), core::mem::transmute_copy(&ppdestmlstr), core::mem::transmute_copy(&pldestpos), core::mem::transmute_copy(&pldestlen))
             }
         }
         Self {
@@ -946,14 +946,14 @@ pub struct IMLangStringAStr_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait IMLangStringAStr_Impl: IMLangString_Impl {
-    fn SetAStr(&self, ldestpos: i32, ldestlen: i32, ucodepage: super::UINT, pszsrc: &windows_core::PCSTR, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::Result<()>;
-    fn SetStrBufA(&self, ldestpos: i32, ldestlen: i32, ucodepage: super::UINT, psrcbuf: windows_core::Ref<IMLangStringBufA>, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::Result<()>;
-    fn GetAStr(&self, lsrcpos: i32, lsrclen: i32, ucodepagein: super::UINT, pucodepageout: *mut super::UINT, pszdest: windows_core::PSTR, cchdest: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::Result<()>;
-    fn GetStrBufA(&self, lsrcpos: i32, lsrcmaxlen: i32, pudestcodepage: *mut super::UINT, ppdestbuf: windows_core::OutRef<IMLangStringBufA>, pldestlen: *mut i32) -> windows_core::Result<()>;
-    fn LockAStr(&self, lsrcpos: i32, lsrclen: i32, lflags: i32, ucodepagein: super::UINT, cchrequest: i32, pucodepageout: *mut super::UINT, ppszdest: *mut windows_core::PSTR, pcchdest: *mut i32, pldestlen: *mut i32) -> windows_core::Result<()>;
-    fn UnlockAStr(&self, pszsrc: &windows_core::PCSTR, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::Result<()>;
-    fn SetLocale(&self, ldestpos: i32, ldestlen: i32, locale: super::LCID) -> windows_core::Result<()>;
-    fn GetLocale(&self, lsrcpos: i32, lsrcmaxlen: i32, plocale: *mut super::LCID, pllocalepos: *mut i32, pllocalelen: *mut i32) -> windows_core::Result<()>;
+    fn SetAStr(&self, ldestpos: i32, ldestlen: i32, ucodepage: super::UINT, pszsrc: &windows_core::PCSTR, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::HRESULT;
+    fn SetStrBufA(&self, ldestpos: i32, ldestlen: i32, ucodepage: super::UINT, psrcbuf: windows_core::Ref<IMLangStringBufA>, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::HRESULT;
+    fn GetAStr(&self, lsrcpos: i32, lsrclen: i32, ucodepagein: super::UINT, pucodepageout: *mut super::UINT, pszdest: windows_core::PSTR, cchdest: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::HRESULT;
+    fn GetStrBufA(&self, lsrcpos: i32, lsrcmaxlen: i32, pudestcodepage: *mut super::UINT, ppdestbuf: windows_core::OutRef<IMLangStringBufA>, pldestlen: *mut i32) -> windows_core::HRESULT;
+    fn LockAStr(&self, lsrcpos: i32, lsrclen: i32, lflags: i32, ucodepagein: super::UINT, cchrequest: i32, pucodepageout: *mut super::UINT, ppszdest: *mut windows_core::PSTR, pcchdest: *mut i32, pldestlen: *mut i32) -> windows_core::HRESULT;
+    fn UnlockAStr(&self, pszsrc: &windows_core::PCSTR, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::HRESULT;
+    fn SetLocale(&self, ldestpos: i32, ldestlen: i32, locale: super::LCID) -> windows_core::HRESULT;
+    fn GetLocale(&self, lsrcpos: i32, lsrcmaxlen: i32, plocale: *mut super::LCID, pllocalepos: *mut i32, pllocalelen: *mut i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 impl IMLangStringAStr_Vtbl {
@@ -961,49 +961,49 @@ impl IMLangStringAStr_Vtbl {
         unsafe extern "system" fn SetAStr<Identity: IMLangStringAStr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ldestpos: i32, ldestlen: i32, ucodepage: super::UINT, pszsrc: windows_core::PCSTR, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangStringAStr_Impl::SetAStr(this, core::mem::transmute_copy(&ldestpos), core::mem::transmute_copy(&ldestlen), core::mem::transmute_copy(&ucodepage), core::mem::transmute(&pszsrc), core::mem::transmute_copy(&cchsrc), core::mem::transmute_copy(&pcchactual), core::mem::transmute_copy(&plactuallen)).into()
+                IMLangStringAStr_Impl::SetAStr(this, core::mem::transmute_copy(&ldestpos), core::mem::transmute_copy(&ldestlen), core::mem::transmute_copy(&ucodepage), core::mem::transmute(&pszsrc), core::mem::transmute_copy(&cchsrc), core::mem::transmute_copy(&pcchactual), core::mem::transmute_copy(&plactuallen))
             }
         }
         unsafe extern "system" fn SetStrBufA<Identity: IMLangStringAStr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ldestpos: i32, ldestlen: i32, ucodepage: super::UINT, psrcbuf: *mut core::ffi::c_void, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangStringAStr_Impl::SetStrBufA(this, core::mem::transmute_copy(&ldestpos), core::mem::transmute_copy(&ldestlen), core::mem::transmute_copy(&ucodepage), core::mem::transmute_copy(&psrcbuf), core::mem::transmute_copy(&pcchactual), core::mem::transmute_copy(&plactuallen)).into()
+                IMLangStringAStr_Impl::SetStrBufA(this, core::mem::transmute_copy(&ldestpos), core::mem::transmute_copy(&ldestlen), core::mem::transmute_copy(&ucodepage), core::mem::transmute_copy(&psrcbuf), core::mem::transmute_copy(&pcchactual), core::mem::transmute_copy(&plactuallen))
             }
         }
         unsafe extern "system" fn GetAStr<Identity: IMLangStringAStr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lsrcpos: i32, lsrclen: i32, ucodepagein: super::UINT, pucodepageout: *mut super::UINT, pszdest: windows_core::PSTR, cchdest: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangStringAStr_Impl::GetAStr(this, core::mem::transmute_copy(&lsrcpos), core::mem::transmute_copy(&lsrclen), core::mem::transmute_copy(&ucodepagein), core::mem::transmute_copy(&pucodepageout), core::mem::transmute_copy(&pszdest), core::mem::transmute_copy(&cchdest), core::mem::transmute_copy(&pcchactual), core::mem::transmute_copy(&plactuallen)).into()
+                IMLangStringAStr_Impl::GetAStr(this, core::mem::transmute_copy(&lsrcpos), core::mem::transmute_copy(&lsrclen), core::mem::transmute_copy(&ucodepagein), core::mem::transmute_copy(&pucodepageout), core::mem::transmute_copy(&pszdest), core::mem::transmute_copy(&cchdest), core::mem::transmute_copy(&pcchactual), core::mem::transmute_copy(&plactuallen))
             }
         }
         unsafe extern "system" fn GetStrBufA<Identity: IMLangStringAStr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lsrcpos: i32, lsrcmaxlen: i32, pudestcodepage: *mut super::UINT, ppdestbuf: *mut *mut core::ffi::c_void, pldestlen: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangStringAStr_Impl::GetStrBufA(this, core::mem::transmute_copy(&lsrcpos), core::mem::transmute_copy(&lsrcmaxlen), core::mem::transmute_copy(&pudestcodepage), core::mem::transmute_copy(&ppdestbuf), core::mem::transmute_copy(&pldestlen)).into()
+                IMLangStringAStr_Impl::GetStrBufA(this, core::mem::transmute_copy(&lsrcpos), core::mem::transmute_copy(&lsrcmaxlen), core::mem::transmute_copy(&pudestcodepage), core::mem::transmute_copy(&ppdestbuf), core::mem::transmute_copy(&pldestlen))
             }
         }
         unsafe extern "system" fn LockAStr<Identity: IMLangStringAStr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lsrcpos: i32, lsrclen: i32, lflags: i32, ucodepagein: super::UINT, cchrequest: i32, pucodepageout: *mut super::UINT, ppszdest: *mut windows_core::PSTR, pcchdest: *mut i32, pldestlen: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangStringAStr_Impl::LockAStr(this, core::mem::transmute_copy(&lsrcpos), core::mem::transmute_copy(&lsrclen), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&ucodepagein), core::mem::transmute_copy(&cchrequest), core::mem::transmute_copy(&pucodepageout), core::mem::transmute_copy(&ppszdest), core::mem::transmute_copy(&pcchdest), core::mem::transmute_copy(&pldestlen)).into()
+                IMLangStringAStr_Impl::LockAStr(this, core::mem::transmute_copy(&lsrcpos), core::mem::transmute_copy(&lsrclen), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&ucodepagein), core::mem::transmute_copy(&cchrequest), core::mem::transmute_copy(&pucodepageout), core::mem::transmute_copy(&ppszdest), core::mem::transmute_copy(&pcchdest), core::mem::transmute_copy(&pldestlen))
             }
         }
         unsafe extern "system" fn UnlockAStr<Identity: IMLangStringAStr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszsrc: windows_core::PCSTR, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangStringAStr_Impl::UnlockAStr(this, core::mem::transmute(&pszsrc), core::mem::transmute_copy(&cchsrc), core::mem::transmute_copy(&pcchactual), core::mem::transmute_copy(&plactuallen)).into()
+                IMLangStringAStr_Impl::UnlockAStr(this, core::mem::transmute(&pszsrc), core::mem::transmute_copy(&cchsrc), core::mem::transmute_copy(&pcchactual), core::mem::transmute_copy(&plactuallen))
             }
         }
         unsafe extern "system" fn SetLocale<Identity: IMLangStringAStr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ldestpos: i32, ldestlen: i32, locale: super::LCID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangStringAStr_Impl::SetLocale(this, core::mem::transmute_copy(&ldestpos), core::mem::transmute_copy(&ldestlen), core::mem::transmute_copy(&locale)).into()
+                IMLangStringAStr_Impl::SetLocale(this, core::mem::transmute_copy(&ldestpos), core::mem::transmute_copy(&ldestlen), core::mem::transmute_copy(&locale))
             }
         }
         unsafe extern "system" fn GetLocale<Identity: IMLangStringAStr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lsrcpos: i32, lsrcmaxlen: i32, plocale: *mut super::LCID, pllocalepos: *mut i32, pllocalelen: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangStringAStr_Impl::GetLocale(this, core::mem::transmute_copy(&lsrcpos), core::mem::transmute_copy(&lsrcmaxlen), core::mem::transmute_copy(&plocale), core::mem::transmute_copy(&pllocalepos), core::mem::transmute_copy(&pllocalelen)).into()
+                IMLangStringAStr_Impl::GetLocale(this, core::mem::transmute_copy(&lsrcpos), core::mem::transmute_copy(&lsrcmaxlen), core::mem::transmute_copy(&plocale), core::mem::transmute_copy(&pllocalepos), core::mem::transmute_copy(&pllocalelen))
             }
         }
         Self {
@@ -1063,11 +1063,11 @@ pub struct IMLangStringBufA_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IMLangStringBufA_Impl: windows_core::IUnknownImpl {
-    fn GetStatus(&self, plflags: *mut i32, pcchbuf: *mut i32) -> windows_core::Result<()>;
-    fn LockBuf(&self, cchoffset: i32, cchmaxlock: i32, ppszbuf: *mut *mut super::CHAR, pcchbuf: *mut i32) -> windows_core::Result<()>;
-    fn UnlockBuf(&self, pszbuf: *const super::CHAR, cchoffset: i32, cchwrite: i32) -> windows_core::Result<()>;
-    fn Insert(&self, cchoffset: i32, cchmaxinsert: i32, pcchactual: *mut i32) -> windows_core::Result<()>;
-    fn Delete(&self, cchoffset: i32, cchdelete: i32) -> windows_core::Result<()>;
+    fn GetStatus(&self, plflags: *mut i32, pcchbuf: *mut i32) -> windows_core::HRESULT;
+    fn LockBuf(&self, cchoffset: i32, cchmaxlock: i32, ppszbuf: *mut *mut super::CHAR, pcchbuf: *mut i32) -> windows_core::HRESULT;
+    fn UnlockBuf(&self, pszbuf: *const super::CHAR, cchoffset: i32, cchwrite: i32) -> windows_core::HRESULT;
+    fn Insert(&self, cchoffset: i32, cchmaxinsert: i32, pcchactual: *mut i32) -> windows_core::HRESULT;
+    fn Delete(&self, cchoffset: i32, cchdelete: i32) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IMLangStringBufA_Vtbl {
@@ -1075,31 +1075,31 @@ impl IMLangStringBufA_Vtbl {
         unsafe extern "system" fn GetStatus<Identity: IMLangStringBufA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plflags: *mut i32, pcchbuf: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangStringBufA_Impl::GetStatus(this, core::mem::transmute_copy(&plflags), core::mem::transmute_copy(&pcchbuf)).into()
+                IMLangStringBufA_Impl::GetStatus(this, core::mem::transmute_copy(&plflags), core::mem::transmute_copy(&pcchbuf))
             }
         }
         unsafe extern "system" fn LockBuf<Identity: IMLangStringBufA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cchoffset: i32, cchmaxlock: i32, ppszbuf: *mut *mut super::CHAR, pcchbuf: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangStringBufA_Impl::LockBuf(this, core::mem::transmute_copy(&cchoffset), core::mem::transmute_copy(&cchmaxlock), core::mem::transmute_copy(&ppszbuf), core::mem::transmute_copy(&pcchbuf)).into()
+                IMLangStringBufA_Impl::LockBuf(this, core::mem::transmute_copy(&cchoffset), core::mem::transmute_copy(&cchmaxlock), core::mem::transmute_copy(&ppszbuf), core::mem::transmute_copy(&pcchbuf))
             }
         }
         unsafe extern "system" fn UnlockBuf<Identity: IMLangStringBufA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszbuf: *const super::CHAR, cchoffset: i32, cchwrite: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangStringBufA_Impl::UnlockBuf(this, core::mem::transmute_copy(&pszbuf), core::mem::transmute_copy(&cchoffset), core::mem::transmute_copy(&cchwrite)).into()
+                IMLangStringBufA_Impl::UnlockBuf(this, core::mem::transmute_copy(&pszbuf), core::mem::transmute_copy(&cchoffset), core::mem::transmute_copy(&cchwrite))
             }
         }
         unsafe extern "system" fn Insert<Identity: IMLangStringBufA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cchoffset: i32, cchmaxinsert: i32, pcchactual: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangStringBufA_Impl::Insert(this, core::mem::transmute_copy(&cchoffset), core::mem::transmute_copy(&cchmaxinsert), core::mem::transmute_copy(&pcchactual)).into()
+                IMLangStringBufA_Impl::Insert(this, core::mem::transmute_copy(&cchoffset), core::mem::transmute_copy(&cchmaxinsert), core::mem::transmute_copy(&pcchactual))
             }
         }
         unsafe extern "system" fn Delete<Identity: IMLangStringBufA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cchoffset: i32, cchdelete: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangStringBufA_Impl::Delete(this, core::mem::transmute_copy(&cchoffset), core::mem::transmute_copy(&cchdelete)).into()
+                IMLangStringBufA_Impl::Delete(this, core::mem::transmute_copy(&cchoffset), core::mem::transmute_copy(&cchdelete))
             }
         }
         Self {
@@ -1156,11 +1156,11 @@ pub struct IMLangStringBufW_Vtbl {
 }
 #[cfg(feature = "winnt")]
 pub trait IMLangStringBufW_Impl: windows_core::IUnknownImpl {
-    fn GetStatus(&self, plflags: *mut i32, pcchbuf: *mut i32) -> windows_core::Result<()>;
-    fn LockBuf(&self, cchoffset: i32, cchmaxlock: i32, ppszbuf: *mut *mut super::WCHAR, pcchbuf: *mut i32) -> windows_core::Result<()>;
-    fn UnlockBuf(&self, pszbuf: *const super::WCHAR, cchoffset: i32, cchwrite: i32) -> windows_core::Result<()>;
-    fn Insert(&self, cchoffset: i32, cchmaxinsert: i32, pcchactual: *mut i32) -> windows_core::Result<()>;
-    fn Delete(&self, cchoffset: i32, cchdelete: i32) -> windows_core::Result<()>;
+    fn GetStatus(&self, plflags: *mut i32, pcchbuf: *mut i32) -> windows_core::HRESULT;
+    fn LockBuf(&self, cchoffset: i32, cchmaxlock: i32, ppszbuf: *mut *mut super::WCHAR, pcchbuf: *mut i32) -> windows_core::HRESULT;
+    fn UnlockBuf(&self, pszbuf: *const super::WCHAR, cchoffset: i32, cchwrite: i32) -> windows_core::HRESULT;
+    fn Insert(&self, cchoffset: i32, cchmaxinsert: i32, pcchactual: *mut i32) -> windows_core::HRESULT;
+    fn Delete(&self, cchoffset: i32, cchdelete: i32) -> windows_core::HRESULT;
 }
 #[cfg(feature = "winnt")]
 impl IMLangStringBufW_Vtbl {
@@ -1168,31 +1168,31 @@ impl IMLangStringBufW_Vtbl {
         unsafe extern "system" fn GetStatus<Identity: IMLangStringBufW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plflags: *mut i32, pcchbuf: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangStringBufW_Impl::GetStatus(this, core::mem::transmute_copy(&plflags), core::mem::transmute_copy(&pcchbuf)).into()
+                IMLangStringBufW_Impl::GetStatus(this, core::mem::transmute_copy(&plflags), core::mem::transmute_copy(&pcchbuf))
             }
         }
         unsafe extern "system" fn LockBuf<Identity: IMLangStringBufW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cchoffset: i32, cchmaxlock: i32, ppszbuf: *mut *mut super::WCHAR, pcchbuf: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangStringBufW_Impl::LockBuf(this, core::mem::transmute_copy(&cchoffset), core::mem::transmute_copy(&cchmaxlock), core::mem::transmute_copy(&ppszbuf), core::mem::transmute_copy(&pcchbuf)).into()
+                IMLangStringBufW_Impl::LockBuf(this, core::mem::transmute_copy(&cchoffset), core::mem::transmute_copy(&cchmaxlock), core::mem::transmute_copy(&ppszbuf), core::mem::transmute_copy(&pcchbuf))
             }
         }
         unsafe extern "system" fn UnlockBuf<Identity: IMLangStringBufW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszbuf: *const super::WCHAR, cchoffset: i32, cchwrite: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangStringBufW_Impl::UnlockBuf(this, core::mem::transmute_copy(&pszbuf), core::mem::transmute_copy(&cchoffset), core::mem::transmute_copy(&cchwrite)).into()
+                IMLangStringBufW_Impl::UnlockBuf(this, core::mem::transmute_copy(&pszbuf), core::mem::transmute_copy(&cchoffset), core::mem::transmute_copy(&cchwrite))
             }
         }
         unsafe extern "system" fn Insert<Identity: IMLangStringBufW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cchoffset: i32, cchmaxinsert: i32, pcchactual: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangStringBufW_Impl::Insert(this, core::mem::transmute_copy(&cchoffset), core::mem::transmute_copy(&cchmaxinsert), core::mem::transmute_copy(&pcchactual)).into()
+                IMLangStringBufW_Impl::Insert(this, core::mem::transmute_copy(&cchoffset), core::mem::transmute_copy(&cchmaxinsert), core::mem::transmute_copy(&pcchactual))
             }
         }
         unsafe extern "system" fn Delete<Identity: IMLangStringBufW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cchoffset: i32, cchdelete: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangStringBufW_Impl::Delete(this, core::mem::transmute_copy(&cchoffset), core::mem::transmute_copy(&cchdelete)).into()
+                IMLangStringBufW_Impl::Delete(this, core::mem::transmute_copy(&cchoffset), core::mem::transmute_copy(&cchdelete))
             }
         }
         Self {
@@ -1270,14 +1270,14 @@ pub struct IMLangStringWStr_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait IMLangStringWStr_Impl: IMLangString_Impl {
-    fn SetWStr(&self, ldestpos: i32, ldestlen: i32, pszsrc: &windows_core::PCWSTR, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::Result<()>;
-    fn SetStrBufW(&self, ldestpos: i32, ldestlen: i32, psrcbuf: windows_core::Ref<IMLangStringBufW>, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::Result<()>;
-    fn GetWStr(&self, lsrcpos: i32, lsrclen: i32, pszdest: windows_core::PWSTR, cchdest: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::Result<()>;
-    fn GetStrBufW(&self, lsrcpos: i32, lsrcmaxlen: i32, ppdestbuf: windows_core::OutRef<IMLangStringBufW>, pldestlen: *mut i32) -> windows_core::Result<()>;
-    fn LockWStr(&self, lsrcpos: i32, lsrclen: i32, lflags: i32, cchrequest: i32, ppszdest: *mut windows_core::PWSTR, pcchdest: *mut i32, pldestlen: *mut i32) -> windows_core::Result<()>;
-    fn UnlockWStr(&self, pszsrc: &windows_core::PCWSTR, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::Result<()>;
-    fn SetLocale(&self, ldestpos: i32, ldestlen: i32, locale: super::LCID) -> windows_core::Result<()>;
-    fn GetLocale(&self, lsrcpos: i32, lsrcmaxlen: i32, plocale: *mut super::LCID, pllocalepos: *mut i32, pllocalelen: *mut i32) -> windows_core::Result<()>;
+    fn SetWStr(&self, ldestpos: i32, ldestlen: i32, pszsrc: &windows_core::PCWSTR, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::HRESULT;
+    fn SetStrBufW(&self, ldestpos: i32, ldestlen: i32, psrcbuf: windows_core::Ref<IMLangStringBufW>, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::HRESULT;
+    fn GetWStr(&self, lsrcpos: i32, lsrclen: i32, pszdest: windows_core::PWSTR, cchdest: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::HRESULT;
+    fn GetStrBufW(&self, lsrcpos: i32, lsrcmaxlen: i32, ppdestbuf: windows_core::OutRef<IMLangStringBufW>, pldestlen: *mut i32) -> windows_core::HRESULT;
+    fn LockWStr(&self, lsrcpos: i32, lsrclen: i32, lflags: i32, cchrequest: i32, ppszdest: *mut windows_core::PWSTR, pcchdest: *mut i32, pldestlen: *mut i32) -> windows_core::HRESULT;
+    fn UnlockWStr(&self, pszsrc: &windows_core::PCWSTR, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::HRESULT;
+    fn SetLocale(&self, ldestpos: i32, ldestlen: i32, locale: super::LCID) -> windows_core::HRESULT;
+    fn GetLocale(&self, lsrcpos: i32, lsrcmaxlen: i32, plocale: *mut super::LCID, pllocalepos: *mut i32, pllocalelen: *mut i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 impl IMLangStringWStr_Vtbl {
@@ -1285,49 +1285,49 @@ impl IMLangStringWStr_Vtbl {
         unsafe extern "system" fn SetWStr<Identity: IMLangStringWStr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ldestpos: i32, ldestlen: i32, pszsrc: windows_core::PCWSTR, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangStringWStr_Impl::SetWStr(this, core::mem::transmute_copy(&ldestpos), core::mem::transmute_copy(&ldestlen), core::mem::transmute(&pszsrc), core::mem::transmute_copy(&cchsrc), core::mem::transmute_copy(&pcchactual), core::mem::transmute_copy(&plactuallen)).into()
+                IMLangStringWStr_Impl::SetWStr(this, core::mem::transmute_copy(&ldestpos), core::mem::transmute_copy(&ldestlen), core::mem::transmute(&pszsrc), core::mem::transmute_copy(&cchsrc), core::mem::transmute_copy(&pcchactual), core::mem::transmute_copy(&plactuallen))
             }
         }
         unsafe extern "system" fn SetStrBufW<Identity: IMLangStringWStr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ldestpos: i32, ldestlen: i32, psrcbuf: *mut core::ffi::c_void, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangStringWStr_Impl::SetStrBufW(this, core::mem::transmute_copy(&ldestpos), core::mem::transmute_copy(&ldestlen), core::mem::transmute_copy(&psrcbuf), core::mem::transmute_copy(&pcchactual), core::mem::transmute_copy(&plactuallen)).into()
+                IMLangStringWStr_Impl::SetStrBufW(this, core::mem::transmute_copy(&ldestpos), core::mem::transmute_copy(&ldestlen), core::mem::transmute_copy(&psrcbuf), core::mem::transmute_copy(&pcchactual), core::mem::transmute_copy(&plactuallen))
             }
         }
         unsafe extern "system" fn GetWStr<Identity: IMLangStringWStr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lsrcpos: i32, lsrclen: i32, pszdest: windows_core::PWSTR, cchdest: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangStringWStr_Impl::GetWStr(this, core::mem::transmute_copy(&lsrcpos), core::mem::transmute_copy(&lsrclen), core::mem::transmute_copy(&pszdest), core::mem::transmute_copy(&cchdest), core::mem::transmute_copy(&pcchactual), core::mem::transmute_copy(&plactuallen)).into()
+                IMLangStringWStr_Impl::GetWStr(this, core::mem::transmute_copy(&lsrcpos), core::mem::transmute_copy(&lsrclen), core::mem::transmute_copy(&pszdest), core::mem::transmute_copy(&cchdest), core::mem::transmute_copy(&pcchactual), core::mem::transmute_copy(&plactuallen))
             }
         }
         unsafe extern "system" fn GetStrBufW<Identity: IMLangStringWStr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lsrcpos: i32, lsrcmaxlen: i32, ppdestbuf: *mut *mut core::ffi::c_void, pldestlen: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangStringWStr_Impl::GetStrBufW(this, core::mem::transmute_copy(&lsrcpos), core::mem::transmute_copy(&lsrcmaxlen), core::mem::transmute_copy(&ppdestbuf), core::mem::transmute_copy(&pldestlen)).into()
+                IMLangStringWStr_Impl::GetStrBufW(this, core::mem::transmute_copy(&lsrcpos), core::mem::transmute_copy(&lsrcmaxlen), core::mem::transmute_copy(&ppdestbuf), core::mem::transmute_copy(&pldestlen))
             }
         }
         unsafe extern "system" fn LockWStr<Identity: IMLangStringWStr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lsrcpos: i32, lsrclen: i32, lflags: i32, cchrequest: i32, ppszdest: *mut windows_core::PWSTR, pcchdest: *mut i32, pldestlen: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangStringWStr_Impl::LockWStr(this, core::mem::transmute_copy(&lsrcpos), core::mem::transmute_copy(&lsrclen), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&cchrequest), core::mem::transmute_copy(&ppszdest), core::mem::transmute_copy(&pcchdest), core::mem::transmute_copy(&pldestlen)).into()
+                IMLangStringWStr_Impl::LockWStr(this, core::mem::transmute_copy(&lsrcpos), core::mem::transmute_copy(&lsrclen), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&cchrequest), core::mem::transmute_copy(&ppszdest), core::mem::transmute_copy(&pcchdest), core::mem::transmute_copy(&pldestlen))
             }
         }
         unsafe extern "system" fn UnlockWStr<Identity: IMLangStringWStr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszsrc: windows_core::PCWSTR, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangStringWStr_Impl::UnlockWStr(this, core::mem::transmute(&pszsrc), core::mem::transmute_copy(&cchsrc), core::mem::transmute_copy(&pcchactual), core::mem::transmute_copy(&plactuallen)).into()
+                IMLangStringWStr_Impl::UnlockWStr(this, core::mem::transmute(&pszsrc), core::mem::transmute_copy(&cchsrc), core::mem::transmute_copy(&pcchactual), core::mem::transmute_copy(&plactuallen))
             }
         }
         unsafe extern "system" fn SetLocale<Identity: IMLangStringWStr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ldestpos: i32, ldestlen: i32, locale: super::LCID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangStringWStr_Impl::SetLocale(this, core::mem::transmute_copy(&ldestpos), core::mem::transmute_copy(&ldestlen), core::mem::transmute_copy(&locale)).into()
+                IMLangStringWStr_Impl::SetLocale(this, core::mem::transmute_copy(&ldestpos), core::mem::transmute_copy(&ldestlen), core::mem::transmute_copy(&locale))
             }
         }
         unsafe extern "system" fn GetLocale<Identity: IMLangStringWStr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lsrcpos: i32, lsrcmaxlen: i32, plocale: *mut super::LCID, pllocalepos: *mut i32, pllocalelen: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLangStringWStr_Impl::GetLocale(this, core::mem::transmute_copy(&lsrcpos), core::mem::transmute_copy(&lsrcmaxlen), core::mem::transmute_copy(&plocale), core::mem::transmute_copy(&pllocalepos), core::mem::transmute_copy(&pllocalelen)).into()
+                IMLangStringWStr_Impl::GetLocale(this, core::mem::transmute_copy(&lsrcpos), core::mem::transmute_copy(&lsrcmaxlen), core::mem::transmute_copy(&plocale), core::mem::transmute_copy(&pllocalepos), core::mem::transmute_copy(&pllocalelen))
             }
         }
         Self {
@@ -1480,20 +1480,20 @@ pub struct IMultiLanguage_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IMultiLanguage_Impl: windows_core::IUnknownImpl {
-    fn GetNumberOfCodePageInfo(&self, pccodepage: *mut super::UINT) -> windows_core::Result<()>;
-    fn GetCodePageInfo(&self, uicodepage: super::UINT, pcodepageinfo: PMIMECPINFO) -> windows_core::Result<()>;
-    fn GetFamilyCodePage(&self, uicodepage: super::UINT, puifamilycodepage: *mut super::UINT) -> windows_core::Result<()>;
+    fn GetNumberOfCodePageInfo(&self, pccodepage: *mut super::UINT) -> windows_core::HRESULT;
+    fn GetCodePageInfo(&self, uicodepage: super::UINT, pcodepageinfo: PMIMECPINFO) -> windows_core::HRESULT;
+    fn GetFamilyCodePage(&self, uicodepage: super::UINT, puifamilycodepage: *mut super::UINT) -> windows_core::HRESULT;
     fn EnumCodePages(&self, grfflags: super::DWORD) -> windows_core::Result<IEnumCodePage>;
-    fn GetCharsetInfo(&self, charset: &windows_core::BSTR, pcharsetinfo: PMIMECSETINFO) -> windows_core::Result<()>;
-    fn IsConvertible(&self, dwsrcencoding: super::DWORD, dwdstencoding: super::DWORD) -> windows_core::Result<()>;
-    fn ConvertString(&self, pdwmode: *mut super::DWORD, dwsrcencoding: super::DWORD, dwdstencoding: super::DWORD, psrcstr: *const super::BYTE, pcsrcsize: *mut super::UINT, pdststr: *mut super::BYTE, pcdstsize: *mut super::UINT) -> windows_core::Result<()>;
-    fn ConvertStringToUnicode(&self, pdwmode: *mut super::DWORD, dwencoding: super::DWORD, psrcstr: *const super::CHAR, pcsrcsize: *mut super::UINT, pdststr: *mut super::WCHAR, pcdstsize: *mut super::UINT) -> windows_core::Result<()>;
-    fn ConvertStringFromUnicode(&self, pdwmode: *mut super::DWORD, dwencoding: super::DWORD, psrcstr: *const super::WCHAR, pcsrcsize: *mut super::UINT, pdststr: *mut super::CHAR, pcdstsize: *mut super::UINT) -> windows_core::Result<()>;
-    fn ConvertStringReset(&self) -> windows_core::Result<()>;
-    fn GetRfc1766FromLcid(&self, locale: super::LCID, pbstrrfc1766: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetLcidFromRfc1766(&self, plocale: *mut super::LCID, bstrrfc1766: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn GetCharsetInfo(&self, charset: &windows_core::BSTR, pcharsetinfo: PMIMECSETINFO) -> windows_core::HRESULT;
+    fn IsConvertible(&self, dwsrcencoding: super::DWORD, dwdstencoding: super::DWORD) -> windows_core::HRESULT;
+    fn ConvertString(&self, pdwmode: *mut super::DWORD, dwsrcencoding: super::DWORD, dwdstencoding: super::DWORD, psrcstr: *const super::BYTE, pcsrcsize: *mut super::UINT, pdststr: *mut super::BYTE, pcdstsize: *mut super::UINT) -> windows_core::HRESULT;
+    fn ConvertStringToUnicode(&self, pdwmode: *mut super::DWORD, dwencoding: super::DWORD, psrcstr: *const super::CHAR, pcsrcsize: *mut super::UINT, pdststr: *mut super::WCHAR, pcdstsize: *mut super::UINT) -> windows_core::HRESULT;
+    fn ConvertStringFromUnicode(&self, pdwmode: *mut super::DWORD, dwencoding: super::DWORD, psrcstr: *const super::WCHAR, pcsrcsize: *mut super::UINT, pdststr: *mut super::CHAR, pcdstsize: *mut super::UINT) -> windows_core::HRESULT;
+    fn ConvertStringReset(&self) -> windows_core::HRESULT;
+    fn GetRfc1766FromLcid(&self, locale: super::LCID, pbstrrfc1766: *mut windows_core::BSTR) -> windows_core::HRESULT;
+    fn GetLcidFromRfc1766(&self, plocale: *mut super::LCID, bstrrfc1766: &windows_core::BSTR) -> windows_core::HRESULT;
     fn EnumRfc1766(&self) -> windows_core::Result<IEnumRfc1766>;
-    fn GetRfc1766Info(&self, locale: super::LCID, prfc1766info: PRFC1766INFO) -> windows_core::Result<()>;
+    fn GetRfc1766Info(&self, locale: super::LCID, prfc1766info: PRFC1766INFO) -> windows_core::HRESULT;
     fn CreateConvertCharset(&self, uisrccodepage: super::UINT, uidstcodepage: super::UINT, dwproperty: super::DWORD) -> windows_core::Result<IMLangConvertCharset>;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -1502,19 +1502,19 @@ impl IMultiLanguage_Vtbl {
         unsafe extern "system" fn GetNumberOfCodePageInfo<Identity: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pccodepage: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage_Impl::GetNumberOfCodePageInfo(this, core::mem::transmute_copy(&pccodepage)).into()
+                IMultiLanguage_Impl::GetNumberOfCodePageInfo(this, core::mem::transmute_copy(&pccodepage))
             }
         }
         unsafe extern "system" fn GetCodePageInfo<Identity: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uicodepage: super::UINT, pcodepageinfo: PMIMECPINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage_Impl::GetCodePageInfo(this, core::mem::transmute_copy(&uicodepage), core::mem::transmute_copy(&pcodepageinfo)).into()
+                IMultiLanguage_Impl::GetCodePageInfo(this, core::mem::transmute_copy(&uicodepage), core::mem::transmute_copy(&pcodepageinfo))
             }
         }
         unsafe extern "system" fn GetFamilyCodePage<Identity: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uicodepage: super::UINT, puifamilycodepage: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage_Impl::GetFamilyCodePage(this, core::mem::transmute_copy(&uicodepage), core::mem::transmute_copy(&puifamilycodepage)).into()
+                IMultiLanguage_Impl::GetFamilyCodePage(this, core::mem::transmute_copy(&uicodepage), core::mem::transmute_copy(&puifamilycodepage))
             }
         }
         unsafe extern "system" fn EnumCodePages<Identity: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfflags: super::DWORD, ppenumcodepage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1535,49 +1535,49 @@ impl IMultiLanguage_Vtbl {
         unsafe extern "system" fn GetCharsetInfo<Identity: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, charset: *mut core::ffi::c_void, pcharsetinfo: PMIMECSETINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage_Impl::GetCharsetInfo(this, core::mem::transmute(&charset), core::mem::transmute_copy(&pcharsetinfo)).into()
+                IMultiLanguage_Impl::GetCharsetInfo(this, core::mem::transmute(&charset), core::mem::transmute_copy(&pcharsetinfo))
             }
         }
         unsafe extern "system" fn IsConvertible<Identity: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsrcencoding: super::DWORD, dwdstencoding: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage_Impl::IsConvertible(this, core::mem::transmute_copy(&dwsrcencoding), core::mem::transmute_copy(&dwdstencoding)).into()
+                IMultiLanguage_Impl::IsConvertible(this, core::mem::transmute_copy(&dwsrcencoding), core::mem::transmute_copy(&dwdstencoding))
             }
         }
         unsafe extern "system" fn ConvertString<Identity: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwmode: *mut super::DWORD, dwsrcencoding: super::DWORD, dwdstencoding: super::DWORD, psrcstr: *const super::BYTE, pcsrcsize: *mut super::UINT, pdststr: *mut super::BYTE, pcdstsize: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage_Impl::ConvertString(this, core::mem::transmute_copy(&pdwmode), core::mem::transmute_copy(&dwsrcencoding), core::mem::transmute_copy(&dwdstencoding), core::mem::transmute_copy(&psrcstr), core::mem::transmute_copy(&pcsrcsize), core::mem::transmute_copy(&pdststr), core::mem::transmute_copy(&pcdstsize)).into()
+                IMultiLanguage_Impl::ConvertString(this, core::mem::transmute_copy(&pdwmode), core::mem::transmute_copy(&dwsrcencoding), core::mem::transmute_copy(&dwdstencoding), core::mem::transmute_copy(&psrcstr), core::mem::transmute_copy(&pcsrcsize), core::mem::transmute_copy(&pdststr), core::mem::transmute_copy(&pcdstsize))
             }
         }
         unsafe extern "system" fn ConvertStringToUnicode<Identity: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwmode: *mut super::DWORD, dwencoding: super::DWORD, psrcstr: *const super::CHAR, pcsrcsize: *mut super::UINT, pdststr: *mut super::WCHAR, pcdstsize: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage_Impl::ConvertStringToUnicode(this, core::mem::transmute_copy(&pdwmode), core::mem::transmute_copy(&dwencoding), core::mem::transmute_copy(&psrcstr), core::mem::transmute_copy(&pcsrcsize), core::mem::transmute_copy(&pdststr), core::mem::transmute_copy(&pcdstsize)).into()
+                IMultiLanguage_Impl::ConvertStringToUnicode(this, core::mem::transmute_copy(&pdwmode), core::mem::transmute_copy(&dwencoding), core::mem::transmute_copy(&psrcstr), core::mem::transmute_copy(&pcsrcsize), core::mem::transmute_copy(&pdststr), core::mem::transmute_copy(&pcdstsize))
             }
         }
         unsafe extern "system" fn ConvertStringFromUnicode<Identity: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwmode: *mut super::DWORD, dwencoding: super::DWORD, psrcstr: *const super::WCHAR, pcsrcsize: *mut super::UINT, pdststr: *mut super::CHAR, pcdstsize: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage_Impl::ConvertStringFromUnicode(this, core::mem::transmute_copy(&pdwmode), core::mem::transmute_copy(&dwencoding), core::mem::transmute_copy(&psrcstr), core::mem::transmute_copy(&pcsrcsize), core::mem::transmute_copy(&pdststr), core::mem::transmute_copy(&pcdstsize)).into()
+                IMultiLanguage_Impl::ConvertStringFromUnicode(this, core::mem::transmute_copy(&pdwmode), core::mem::transmute_copy(&dwencoding), core::mem::transmute_copy(&psrcstr), core::mem::transmute_copy(&pcsrcsize), core::mem::transmute_copy(&pdststr), core::mem::transmute_copy(&pcdstsize))
             }
         }
         unsafe extern "system" fn ConvertStringReset<Identity: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage_Impl::ConvertStringReset(this).into()
+                IMultiLanguage_Impl::ConvertStringReset(this)
             }
         }
         unsafe extern "system" fn GetRfc1766FromLcid<Identity: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, locale: super::LCID, pbstrrfc1766: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage_Impl::GetRfc1766FromLcid(this, core::mem::transmute_copy(&locale), core::mem::transmute_copy(&pbstrrfc1766)).into()
+                IMultiLanguage_Impl::GetRfc1766FromLcid(this, core::mem::transmute_copy(&locale), core::mem::transmute_copy(&pbstrrfc1766))
             }
         }
         unsafe extern "system" fn GetLcidFromRfc1766<Identity: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plocale: *mut super::LCID, bstrrfc1766: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage_Impl::GetLcidFromRfc1766(this, core::mem::transmute_copy(&plocale), core::mem::transmute(&bstrrfc1766)).into()
+                IMultiLanguage_Impl::GetLcidFromRfc1766(this, core::mem::transmute_copy(&plocale), core::mem::transmute(&bstrrfc1766))
             }
         }
         unsafe extern "system" fn EnumRfc1766<Identity: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumrfc1766: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1598,7 +1598,7 @@ impl IMultiLanguage_Vtbl {
         unsafe extern "system" fn GetRfc1766Info<Identity: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, locale: super::LCID, prfc1766info: PRFC1766INFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage_Impl::GetRfc1766Info(this, core::mem::transmute_copy(&locale), core::mem::transmute_copy(&prfc1766info)).into()
+                IMultiLanguage_Impl::GetRfc1766Info(this, core::mem::transmute_copy(&locale), core::mem::transmute_copy(&prfc1766info))
             }
         }
         unsafe extern "system" fn CreateConvertCharset<Identity: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uisrccodepage: super::UINT, uidstcodepage: super::UINT, dwproperty: super::DWORD, ppmlangconvertcharset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1879,33 +1879,33 @@ pub struct IMultiLanguage2_Vtbl {
 }
 #[cfg(all(feature = "objidlbase", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IMultiLanguage2_Impl: windows_core::IUnknownImpl {
-    fn GetNumberOfCodePageInfo(&self, pccodepage: *mut super::UINT) -> windows_core::Result<()>;
-    fn GetCodePageInfo(&self, uicodepage: super::UINT, langid: super::LANGID, pcodepageinfo: PMIMECPINFO) -> windows_core::Result<()>;
-    fn GetFamilyCodePage(&self, uicodepage: super::UINT, puifamilycodepage: *mut super::UINT) -> windows_core::Result<()>;
+    fn GetNumberOfCodePageInfo(&self, pccodepage: *mut super::UINT) -> windows_core::HRESULT;
+    fn GetCodePageInfo(&self, uicodepage: super::UINT, langid: super::LANGID, pcodepageinfo: PMIMECPINFO) -> windows_core::HRESULT;
+    fn GetFamilyCodePage(&self, uicodepage: super::UINT, puifamilycodepage: *mut super::UINT) -> windows_core::HRESULT;
     fn EnumCodePages(&self, grfflags: super::DWORD, langid: super::LANGID) -> windows_core::Result<IEnumCodePage>;
-    fn GetCharsetInfo(&self, charset: &windows_core::BSTR, pcharsetinfo: PMIMECSETINFO) -> windows_core::Result<()>;
-    fn IsConvertible(&self, dwsrcencoding: super::DWORD, dwdstencoding: super::DWORD) -> windows_core::Result<()>;
-    fn ConvertString(&self, pdwmode: *mut super::DWORD, dwsrcencoding: super::DWORD, dwdstencoding: super::DWORD, psrcstr: *const super::BYTE, pcsrcsize: *mut super::UINT, pdststr: *mut super::BYTE, pcdstsize: *mut super::UINT) -> windows_core::Result<()>;
-    fn ConvertStringToUnicode(&self, pdwmode: *mut super::DWORD, dwencoding: super::DWORD, psrcstr: *const super::CHAR, pcsrcsize: *mut super::UINT, pdststr: *mut super::WCHAR, pcdstsize: *mut super::UINT) -> windows_core::Result<()>;
-    fn ConvertStringFromUnicode(&self, pdwmode: *mut super::DWORD, dwencoding: super::DWORD, psrcstr: *const super::WCHAR, pcsrcsize: *mut super::UINT, pdststr: *mut super::CHAR, pcdstsize: *mut super::UINT) -> windows_core::Result<()>;
-    fn ConvertStringReset(&self) -> windows_core::Result<()>;
-    fn GetRfc1766FromLcid(&self, locale: super::LCID, pbstrrfc1766: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetLcidFromRfc1766(&self, plocale: *mut super::LCID, bstrrfc1766: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn GetCharsetInfo(&self, charset: &windows_core::BSTR, pcharsetinfo: PMIMECSETINFO) -> windows_core::HRESULT;
+    fn IsConvertible(&self, dwsrcencoding: super::DWORD, dwdstencoding: super::DWORD) -> windows_core::HRESULT;
+    fn ConvertString(&self, pdwmode: *mut super::DWORD, dwsrcencoding: super::DWORD, dwdstencoding: super::DWORD, psrcstr: *const super::BYTE, pcsrcsize: *mut super::UINT, pdststr: *mut super::BYTE, pcdstsize: *mut super::UINT) -> windows_core::HRESULT;
+    fn ConvertStringToUnicode(&self, pdwmode: *mut super::DWORD, dwencoding: super::DWORD, psrcstr: *const super::CHAR, pcsrcsize: *mut super::UINT, pdststr: *mut super::WCHAR, pcdstsize: *mut super::UINT) -> windows_core::HRESULT;
+    fn ConvertStringFromUnicode(&self, pdwmode: *mut super::DWORD, dwencoding: super::DWORD, psrcstr: *const super::WCHAR, pcsrcsize: *mut super::UINT, pdststr: *mut super::CHAR, pcdstsize: *mut super::UINT) -> windows_core::HRESULT;
+    fn ConvertStringReset(&self) -> windows_core::HRESULT;
+    fn GetRfc1766FromLcid(&self, locale: super::LCID, pbstrrfc1766: *mut windows_core::BSTR) -> windows_core::HRESULT;
+    fn GetLcidFromRfc1766(&self, plocale: *mut super::LCID, bstrrfc1766: &windows_core::BSTR) -> windows_core::HRESULT;
     fn EnumRfc1766(&self, langid: super::LANGID) -> windows_core::Result<IEnumRfc1766>;
-    fn GetRfc1766Info(&self, locale: super::LCID, langid: super::LANGID, prfc1766info: PRFC1766INFO) -> windows_core::Result<()>;
+    fn GetRfc1766Info(&self, locale: super::LCID, langid: super::LANGID, prfc1766info: PRFC1766INFO) -> windows_core::HRESULT;
     fn CreateConvertCharset(&self, uisrccodepage: super::UINT, uidstcodepage: super::UINT, dwproperty: super::DWORD) -> windows_core::Result<IMLangConvertCharset>;
-    fn ConvertStringInIStream(&self, pdwmode: *mut super::DWORD, dwflag: super::DWORD, lpfallback: *const super::WCHAR, dwsrcencoding: super::DWORD, dwdstencoding: super::DWORD, pstmin: windows_core::Ref<super::IStream>, pstmout: windows_core::Ref<super::IStream>) -> windows_core::Result<()>;
-    fn ConvertStringToUnicodeEx(&self, pdwmode: *mut super::DWORD, dwencoding: super::DWORD, psrcstr: *const super::CHAR, pcsrcsize: *mut super::UINT, pdststr: *mut super::WCHAR, pcdstsize: *mut super::UINT, dwflag: super::DWORD, lpfallback: *const super::WCHAR) -> windows_core::Result<()>;
-    fn ConvertStringFromUnicodeEx(&self, pdwmode: *mut super::DWORD, dwencoding: super::DWORD, psrcstr: *const super::WCHAR, pcsrcsize: *mut super::UINT, pdststr: *mut super::CHAR, pcdstsize: *mut super::UINT, dwflag: super::DWORD, lpfallback: *const super::WCHAR) -> windows_core::Result<()>;
-    fn DetectCodepageInIStream(&self, dwflag: super::DWORD, dwprefwincodepage: super::DWORD, pstmin: windows_core::Ref<super::IStream>, lpencoding: *mut DetectEncodingInfo, pnscores: *mut super::INT) -> windows_core::Result<()>;
-    fn DetectInputCodepage(&self, dwflag: super::DWORD, dwprefwincodepage: super::DWORD, psrcstr: *const super::CHAR, pcsrcsize: *mut super::INT, lpencoding: *mut DetectEncodingInfo, pnscores: *mut super::INT) -> windows_core::Result<()>;
-    fn ValidateCodePage(&self, uicodepage: super::UINT, hwnd: super::HWND) -> windows_core::Result<()>;
-    fn GetCodePageDescription(&self, uicodepage: super::UINT, lcid: super::LCID, lpwidecharstr: windows_core::PWSTR, cchwidechar: i32) -> windows_core::Result<()>;
-    fn IsCodePageInstallable(&self, uicodepage: super::UINT) -> windows_core::Result<()>;
-    fn SetMimeDBSource(&self, dwsource: MIMECONTF) -> windows_core::Result<()>;
-    fn GetNumberOfScripts(&self, pnscripts: *mut super::UINT) -> windows_core::Result<()>;
+    fn ConvertStringInIStream(&self, pdwmode: *mut super::DWORD, dwflag: super::DWORD, lpfallback: *const super::WCHAR, dwsrcencoding: super::DWORD, dwdstencoding: super::DWORD, pstmin: windows_core::Ref<super::IStream>, pstmout: windows_core::Ref<super::IStream>) -> windows_core::HRESULT;
+    fn ConvertStringToUnicodeEx(&self, pdwmode: *mut super::DWORD, dwencoding: super::DWORD, psrcstr: *const super::CHAR, pcsrcsize: *mut super::UINT, pdststr: *mut super::WCHAR, pcdstsize: *mut super::UINT, dwflag: super::DWORD, lpfallback: *const super::WCHAR) -> windows_core::HRESULT;
+    fn ConvertStringFromUnicodeEx(&self, pdwmode: *mut super::DWORD, dwencoding: super::DWORD, psrcstr: *const super::WCHAR, pcsrcsize: *mut super::UINT, pdststr: *mut super::CHAR, pcdstsize: *mut super::UINT, dwflag: super::DWORD, lpfallback: *const super::WCHAR) -> windows_core::HRESULT;
+    fn DetectCodepageInIStream(&self, dwflag: super::DWORD, dwprefwincodepage: super::DWORD, pstmin: windows_core::Ref<super::IStream>, lpencoding: *mut DetectEncodingInfo, pnscores: *mut super::INT) -> windows_core::HRESULT;
+    fn DetectInputCodepage(&self, dwflag: super::DWORD, dwprefwincodepage: super::DWORD, psrcstr: *const super::CHAR, pcsrcsize: *mut super::INT, lpencoding: *mut DetectEncodingInfo, pnscores: *mut super::INT) -> windows_core::HRESULT;
+    fn ValidateCodePage(&self, uicodepage: super::UINT, hwnd: super::HWND) -> windows_core::HRESULT;
+    fn GetCodePageDescription(&self, uicodepage: super::UINT, lcid: super::LCID, lpwidecharstr: windows_core::PWSTR, cchwidechar: i32) -> windows_core::HRESULT;
+    fn IsCodePageInstallable(&self, uicodepage: super::UINT) -> windows_core::HRESULT;
+    fn SetMimeDBSource(&self, dwsource: MIMECONTF) -> windows_core::HRESULT;
+    fn GetNumberOfScripts(&self, pnscripts: *mut super::UINT) -> windows_core::HRESULT;
     fn EnumScripts(&self, dwflags: super::DWORD, langid: super::LANGID) -> windows_core::Result<IEnumScript>;
-    fn ValidateCodePageEx(&self, uicodepage: super::UINT, hwnd: super::HWND, dwfiodcontrol: super::DWORD) -> windows_core::Result<()>;
+    fn ValidateCodePageEx(&self, uicodepage: super::UINT, hwnd: super::HWND, dwfiodcontrol: super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "objidlbase", feature = "shared", feature = "windef", feature = "winnt"))]
 impl IMultiLanguage2_Vtbl {
@@ -1913,19 +1913,19 @@ impl IMultiLanguage2_Vtbl {
         unsafe extern "system" fn GetNumberOfCodePageInfo<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pccodepage: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage2_Impl::GetNumberOfCodePageInfo(this, core::mem::transmute_copy(&pccodepage)).into()
+                IMultiLanguage2_Impl::GetNumberOfCodePageInfo(this, core::mem::transmute_copy(&pccodepage))
             }
         }
         unsafe extern "system" fn GetCodePageInfo<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uicodepage: super::UINT, langid: super::LANGID, pcodepageinfo: PMIMECPINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage2_Impl::GetCodePageInfo(this, core::mem::transmute_copy(&uicodepage), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&pcodepageinfo)).into()
+                IMultiLanguage2_Impl::GetCodePageInfo(this, core::mem::transmute_copy(&uicodepage), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&pcodepageinfo))
             }
         }
         unsafe extern "system" fn GetFamilyCodePage<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uicodepage: super::UINT, puifamilycodepage: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage2_Impl::GetFamilyCodePage(this, core::mem::transmute_copy(&uicodepage), core::mem::transmute_copy(&puifamilycodepage)).into()
+                IMultiLanguage2_Impl::GetFamilyCodePage(this, core::mem::transmute_copy(&uicodepage), core::mem::transmute_copy(&puifamilycodepage))
             }
         }
         unsafe extern "system" fn EnumCodePages<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfflags: super::DWORD, langid: super::LANGID, ppenumcodepage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1946,49 +1946,49 @@ impl IMultiLanguage2_Vtbl {
         unsafe extern "system" fn GetCharsetInfo<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, charset: *mut core::ffi::c_void, pcharsetinfo: PMIMECSETINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage2_Impl::GetCharsetInfo(this, core::mem::transmute(&charset), core::mem::transmute_copy(&pcharsetinfo)).into()
+                IMultiLanguage2_Impl::GetCharsetInfo(this, core::mem::transmute(&charset), core::mem::transmute_copy(&pcharsetinfo))
             }
         }
         unsafe extern "system" fn IsConvertible<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsrcencoding: super::DWORD, dwdstencoding: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage2_Impl::IsConvertible(this, core::mem::transmute_copy(&dwsrcencoding), core::mem::transmute_copy(&dwdstencoding)).into()
+                IMultiLanguage2_Impl::IsConvertible(this, core::mem::transmute_copy(&dwsrcencoding), core::mem::transmute_copy(&dwdstencoding))
             }
         }
         unsafe extern "system" fn ConvertString<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwmode: *mut super::DWORD, dwsrcencoding: super::DWORD, dwdstencoding: super::DWORD, psrcstr: *const super::BYTE, pcsrcsize: *mut super::UINT, pdststr: *mut super::BYTE, pcdstsize: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage2_Impl::ConvertString(this, core::mem::transmute_copy(&pdwmode), core::mem::transmute_copy(&dwsrcencoding), core::mem::transmute_copy(&dwdstencoding), core::mem::transmute_copy(&psrcstr), core::mem::transmute_copy(&pcsrcsize), core::mem::transmute_copy(&pdststr), core::mem::transmute_copy(&pcdstsize)).into()
+                IMultiLanguage2_Impl::ConvertString(this, core::mem::transmute_copy(&pdwmode), core::mem::transmute_copy(&dwsrcencoding), core::mem::transmute_copy(&dwdstencoding), core::mem::transmute_copy(&psrcstr), core::mem::transmute_copy(&pcsrcsize), core::mem::transmute_copy(&pdststr), core::mem::transmute_copy(&pcdstsize))
             }
         }
         unsafe extern "system" fn ConvertStringToUnicode<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwmode: *mut super::DWORD, dwencoding: super::DWORD, psrcstr: *const super::CHAR, pcsrcsize: *mut super::UINT, pdststr: *mut super::WCHAR, pcdstsize: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage2_Impl::ConvertStringToUnicode(this, core::mem::transmute_copy(&pdwmode), core::mem::transmute_copy(&dwencoding), core::mem::transmute_copy(&psrcstr), core::mem::transmute_copy(&pcsrcsize), core::mem::transmute_copy(&pdststr), core::mem::transmute_copy(&pcdstsize)).into()
+                IMultiLanguage2_Impl::ConvertStringToUnicode(this, core::mem::transmute_copy(&pdwmode), core::mem::transmute_copy(&dwencoding), core::mem::transmute_copy(&psrcstr), core::mem::transmute_copy(&pcsrcsize), core::mem::transmute_copy(&pdststr), core::mem::transmute_copy(&pcdstsize))
             }
         }
         unsafe extern "system" fn ConvertStringFromUnicode<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwmode: *mut super::DWORD, dwencoding: super::DWORD, psrcstr: *const super::WCHAR, pcsrcsize: *mut super::UINT, pdststr: *mut super::CHAR, pcdstsize: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage2_Impl::ConvertStringFromUnicode(this, core::mem::transmute_copy(&pdwmode), core::mem::transmute_copy(&dwencoding), core::mem::transmute_copy(&psrcstr), core::mem::transmute_copy(&pcsrcsize), core::mem::transmute_copy(&pdststr), core::mem::transmute_copy(&pcdstsize)).into()
+                IMultiLanguage2_Impl::ConvertStringFromUnicode(this, core::mem::transmute_copy(&pdwmode), core::mem::transmute_copy(&dwencoding), core::mem::transmute_copy(&psrcstr), core::mem::transmute_copy(&pcsrcsize), core::mem::transmute_copy(&pdststr), core::mem::transmute_copy(&pcdstsize))
             }
         }
         unsafe extern "system" fn ConvertStringReset<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage2_Impl::ConvertStringReset(this).into()
+                IMultiLanguage2_Impl::ConvertStringReset(this)
             }
         }
         unsafe extern "system" fn GetRfc1766FromLcid<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, locale: super::LCID, pbstrrfc1766: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage2_Impl::GetRfc1766FromLcid(this, core::mem::transmute_copy(&locale), core::mem::transmute_copy(&pbstrrfc1766)).into()
+                IMultiLanguage2_Impl::GetRfc1766FromLcid(this, core::mem::transmute_copy(&locale), core::mem::transmute_copy(&pbstrrfc1766))
             }
         }
         unsafe extern "system" fn GetLcidFromRfc1766<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plocale: *mut super::LCID, bstrrfc1766: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage2_Impl::GetLcidFromRfc1766(this, core::mem::transmute_copy(&plocale), core::mem::transmute(&bstrrfc1766)).into()
+                IMultiLanguage2_Impl::GetLcidFromRfc1766(this, core::mem::transmute_copy(&plocale), core::mem::transmute(&bstrrfc1766))
             }
         }
         unsafe extern "system" fn EnumRfc1766<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, langid: super::LANGID, ppenumrfc1766: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2009,7 +2009,7 @@ impl IMultiLanguage2_Vtbl {
         unsafe extern "system" fn GetRfc1766Info<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, locale: super::LCID, langid: super::LANGID, prfc1766info: PRFC1766INFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage2_Impl::GetRfc1766Info(this, core::mem::transmute_copy(&locale), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&prfc1766info)).into()
+                IMultiLanguage2_Impl::GetRfc1766Info(this, core::mem::transmute_copy(&locale), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&prfc1766info))
             }
         }
         unsafe extern "system" fn CreateConvertCharset<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uisrccodepage: super::UINT, uidstcodepage: super::UINT, dwproperty: super::DWORD, ppmlangconvertcharset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2030,61 +2030,61 @@ impl IMultiLanguage2_Vtbl {
         unsafe extern "system" fn ConvertStringInIStream<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwmode: *mut super::DWORD, dwflag: super::DWORD, lpfallback: *const super::WCHAR, dwsrcencoding: super::DWORD, dwdstencoding: super::DWORD, pstmin: *mut core::ffi::c_void, pstmout: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage2_Impl::ConvertStringInIStream(this, core::mem::transmute_copy(&pdwmode), core::mem::transmute_copy(&dwflag), core::mem::transmute_copy(&lpfallback), core::mem::transmute_copy(&dwsrcencoding), core::mem::transmute_copy(&dwdstencoding), core::mem::transmute_copy(&pstmin), core::mem::transmute_copy(&pstmout)).into()
+                IMultiLanguage2_Impl::ConvertStringInIStream(this, core::mem::transmute_copy(&pdwmode), core::mem::transmute_copy(&dwflag), core::mem::transmute_copy(&lpfallback), core::mem::transmute_copy(&dwsrcencoding), core::mem::transmute_copy(&dwdstencoding), core::mem::transmute_copy(&pstmin), core::mem::transmute_copy(&pstmout))
             }
         }
         unsafe extern "system" fn ConvertStringToUnicodeEx<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwmode: *mut super::DWORD, dwencoding: super::DWORD, psrcstr: *const super::CHAR, pcsrcsize: *mut super::UINT, pdststr: *mut super::WCHAR, pcdstsize: *mut super::UINT, dwflag: super::DWORD, lpfallback: *const super::WCHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage2_Impl::ConvertStringToUnicodeEx(this, core::mem::transmute_copy(&pdwmode), core::mem::transmute_copy(&dwencoding), core::mem::transmute_copy(&psrcstr), core::mem::transmute_copy(&pcsrcsize), core::mem::transmute_copy(&pdststr), core::mem::transmute_copy(&pcdstsize), core::mem::transmute_copy(&dwflag), core::mem::transmute_copy(&lpfallback)).into()
+                IMultiLanguage2_Impl::ConvertStringToUnicodeEx(this, core::mem::transmute_copy(&pdwmode), core::mem::transmute_copy(&dwencoding), core::mem::transmute_copy(&psrcstr), core::mem::transmute_copy(&pcsrcsize), core::mem::transmute_copy(&pdststr), core::mem::transmute_copy(&pcdstsize), core::mem::transmute_copy(&dwflag), core::mem::transmute_copy(&lpfallback))
             }
         }
         unsafe extern "system" fn ConvertStringFromUnicodeEx<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwmode: *mut super::DWORD, dwencoding: super::DWORD, psrcstr: *const super::WCHAR, pcsrcsize: *mut super::UINT, pdststr: *mut super::CHAR, pcdstsize: *mut super::UINT, dwflag: super::DWORD, lpfallback: *const super::WCHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage2_Impl::ConvertStringFromUnicodeEx(this, core::mem::transmute_copy(&pdwmode), core::mem::transmute_copy(&dwencoding), core::mem::transmute_copy(&psrcstr), core::mem::transmute_copy(&pcsrcsize), core::mem::transmute_copy(&pdststr), core::mem::transmute_copy(&pcdstsize), core::mem::transmute_copy(&dwflag), core::mem::transmute_copy(&lpfallback)).into()
+                IMultiLanguage2_Impl::ConvertStringFromUnicodeEx(this, core::mem::transmute_copy(&pdwmode), core::mem::transmute_copy(&dwencoding), core::mem::transmute_copy(&psrcstr), core::mem::transmute_copy(&pcsrcsize), core::mem::transmute_copy(&pdststr), core::mem::transmute_copy(&pcdstsize), core::mem::transmute_copy(&dwflag), core::mem::transmute_copy(&lpfallback))
             }
         }
         unsafe extern "system" fn DetectCodepageInIStream<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflag: super::DWORD, dwprefwincodepage: super::DWORD, pstmin: *mut core::ffi::c_void, lpencoding: *mut DetectEncodingInfo, pnscores: *mut super::INT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage2_Impl::DetectCodepageInIStream(this, core::mem::transmute_copy(&dwflag), core::mem::transmute_copy(&dwprefwincodepage), core::mem::transmute_copy(&pstmin), core::mem::transmute_copy(&lpencoding), core::mem::transmute_copy(&pnscores)).into()
+                IMultiLanguage2_Impl::DetectCodepageInIStream(this, core::mem::transmute_copy(&dwflag), core::mem::transmute_copy(&dwprefwincodepage), core::mem::transmute_copy(&pstmin), core::mem::transmute_copy(&lpencoding), core::mem::transmute_copy(&pnscores))
             }
         }
         unsafe extern "system" fn DetectInputCodepage<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflag: super::DWORD, dwprefwincodepage: super::DWORD, psrcstr: *const super::CHAR, pcsrcsize: *mut super::INT, lpencoding: *mut DetectEncodingInfo, pnscores: *mut super::INT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage2_Impl::DetectInputCodepage(this, core::mem::transmute_copy(&dwflag), core::mem::transmute_copy(&dwprefwincodepage), core::mem::transmute_copy(&psrcstr), core::mem::transmute_copy(&pcsrcsize), core::mem::transmute_copy(&lpencoding), core::mem::transmute_copy(&pnscores)).into()
+                IMultiLanguage2_Impl::DetectInputCodepage(this, core::mem::transmute_copy(&dwflag), core::mem::transmute_copy(&dwprefwincodepage), core::mem::transmute_copy(&psrcstr), core::mem::transmute_copy(&pcsrcsize), core::mem::transmute_copy(&lpencoding), core::mem::transmute_copy(&pnscores))
             }
         }
         unsafe extern "system" fn ValidateCodePage<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uicodepage: super::UINT, hwnd: super::HWND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage2_Impl::ValidateCodePage(this, core::mem::transmute_copy(&uicodepage), core::mem::transmute_copy(&hwnd)).into()
+                IMultiLanguage2_Impl::ValidateCodePage(this, core::mem::transmute_copy(&uicodepage), core::mem::transmute_copy(&hwnd))
             }
         }
         unsafe extern "system" fn GetCodePageDescription<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uicodepage: super::UINT, lcid: super::LCID, lpwidecharstr: windows_core::PWSTR, cchwidechar: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage2_Impl::GetCodePageDescription(this, core::mem::transmute_copy(&uicodepage), core::mem::transmute_copy(&lcid), core::mem::transmute_copy(&lpwidecharstr), core::mem::transmute_copy(&cchwidechar)).into()
+                IMultiLanguage2_Impl::GetCodePageDescription(this, core::mem::transmute_copy(&uicodepage), core::mem::transmute_copy(&lcid), core::mem::transmute_copy(&lpwidecharstr), core::mem::transmute_copy(&cchwidechar))
             }
         }
         unsafe extern "system" fn IsCodePageInstallable<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uicodepage: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage2_Impl::IsCodePageInstallable(this, core::mem::transmute_copy(&uicodepage)).into()
+                IMultiLanguage2_Impl::IsCodePageInstallable(this, core::mem::transmute_copy(&uicodepage))
             }
         }
         unsafe extern "system" fn SetMimeDBSource<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsource: MIMECONTF) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage2_Impl::SetMimeDBSource(this, core::mem::transmute_copy(&dwsource)).into()
+                IMultiLanguage2_Impl::SetMimeDBSource(this, core::mem::transmute_copy(&dwsource))
             }
         }
         unsafe extern "system" fn GetNumberOfScripts<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnscripts: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage2_Impl::GetNumberOfScripts(this, core::mem::transmute_copy(&pnscripts)).into()
+                IMultiLanguage2_Impl::GetNumberOfScripts(this, core::mem::transmute_copy(&pnscripts))
             }
         }
         unsafe extern "system" fn EnumScripts<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD, langid: super::LANGID, ppenumscript: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2105,7 +2105,7 @@ impl IMultiLanguage2_Vtbl {
         unsafe extern "system" fn ValidateCodePageEx<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uicodepage: super::UINT, hwnd: super::HWND, dwfiodcontrol: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage2_Impl::ValidateCodePageEx(this, core::mem::transmute_copy(&uicodepage), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&dwfiodcontrol)).into()
+                IMultiLanguage2_Impl::ValidateCodePageEx(this, core::mem::transmute_copy(&uicodepage), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&dwfiodcontrol))
             }
         }
         Self {
@@ -2185,8 +2185,8 @@ pub struct IMultiLanguage3_Vtbl {
 }
 #[cfg(all(feature = "objidlbase", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IMultiLanguage3_Impl: IMultiLanguage2_Impl {
-    fn DetectOutboundCodePage(&self, dwflags: super::DWORD, lpwidecharstr: &windows_core::PCWSTR, cchwidechar: super::UINT, puipreferredcodepages: *const super::UINT, npreferredcodepages: super::UINT, puidetectedcodepages: *mut super::UINT, pndetectedcodepages: *mut super::UINT, lpspecialchar: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn DetectOutboundCodePageInIStream(&self, dwflags: super::DWORD, pstrin: windows_core::Ref<super::IStream>, puipreferredcodepages: *const super::UINT, npreferredcodepages: super::UINT, puidetectedcodepages: *mut super::UINT, pndetectedcodepages: *mut super::UINT, lpspecialchar: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn DetectOutboundCodePage(&self, dwflags: super::DWORD, lpwidecharstr: &windows_core::PCWSTR, cchwidechar: super::UINT, puipreferredcodepages: *const super::UINT, npreferredcodepages: super::UINT, puidetectedcodepages: *mut super::UINT, pndetectedcodepages: *mut super::UINT, lpspecialchar: &windows_core::PCWSTR) -> windows_core::HRESULT;
+    fn DetectOutboundCodePageInIStream(&self, dwflags: super::DWORD, pstrin: windows_core::Ref<super::IStream>, puipreferredcodepages: *const super::UINT, npreferredcodepages: super::UINT, puidetectedcodepages: *mut super::UINT, pndetectedcodepages: *mut super::UINT, lpspecialchar: &windows_core::PCWSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "objidlbase", feature = "shared", feature = "windef", feature = "winnt"))]
 impl IMultiLanguage3_Vtbl {
@@ -2194,13 +2194,13 @@ impl IMultiLanguage3_Vtbl {
         unsafe extern "system" fn DetectOutboundCodePage<Identity: IMultiLanguage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD, lpwidecharstr: windows_core::PCWSTR, cchwidechar: super::UINT, puipreferredcodepages: *const super::UINT, npreferredcodepages: super::UINT, puidetectedcodepages: *mut super::UINT, pndetectedcodepages: *mut super::UINT, lpspecialchar: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage3_Impl::DetectOutboundCodePage(this, core::mem::transmute_copy(&dwflags), core::mem::transmute(&lpwidecharstr), core::mem::transmute_copy(&cchwidechar), core::mem::transmute_copy(&puipreferredcodepages), core::mem::transmute_copy(&npreferredcodepages), core::mem::transmute_copy(&puidetectedcodepages), core::mem::transmute_copy(&pndetectedcodepages), core::mem::transmute(&lpspecialchar)).into()
+                IMultiLanguage3_Impl::DetectOutboundCodePage(this, core::mem::transmute_copy(&dwflags), core::mem::transmute(&lpwidecharstr), core::mem::transmute_copy(&cchwidechar), core::mem::transmute_copy(&puipreferredcodepages), core::mem::transmute_copy(&npreferredcodepages), core::mem::transmute_copy(&puidetectedcodepages), core::mem::transmute_copy(&pndetectedcodepages), core::mem::transmute(&lpspecialchar))
             }
         }
         unsafe extern "system" fn DetectOutboundCodePageInIStream<Identity: IMultiLanguage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD, pstrin: *mut core::ffi::c_void, puipreferredcodepages: *const super::UINT, npreferredcodepages: super::UINT, puidetectedcodepages: *mut super::UINT, pndetectedcodepages: *mut super::UINT, lpspecialchar: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultiLanguage3_Impl::DetectOutboundCodePageInIStream(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pstrin), core::mem::transmute_copy(&puipreferredcodepages), core::mem::transmute_copy(&npreferredcodepages), core::mem::transmute_copy(&puidetectedcodepages), core::mem::transmute_copy(&pndetectedcodepages), core::mem::transmute(&lpspecialchar)).into()
+                IMultiLanguage3_Impl::DetectOutboundCodePageInIStream(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pstrin), core::mem::transmute_copy(&puipreferredcodepages), core::mem::transmute_copy(&npreferredcodepages), core::mem::transmute_copy(&puidetectedcodepages), core::mem::transmute_copy(&pndetectedcodepages), core::mem::transmute(&lpspecialchar))
             }
         }
         Self {

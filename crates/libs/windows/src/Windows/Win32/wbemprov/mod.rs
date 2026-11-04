@@ -37,8 +37,8 @@ pub struct IWbemDecoupledBasicEventProvider_Vtbl {
 }
 #[cfg(feature = "wbemcli")]
 pub trait IWbemDecoupledBasicEventProvider_Impl: IWbemDecoupledRegistrar_Impl {
-    fn GetSink(&self, a_flags: i32, a_context: windows_core::Ref<super::IWbemContext>, a_sink: windows_core::OutRef<super::IWbemObjectSink>) -> windows_core::Result<()>;
-    fn GetService(&self, a_flags: i32, a_context: windows_core::Ref<super::IWbemContext>, a_service: windows_core::OutRef<super::IWbemServices>) -> windows_core::Result<()>;
+    fn GetSink(&self, a_flags: i32, a_context: windows_core::Ref<super::IWbemContext>, a_sink: windows_core::OutRef<super::IWbemObjectSink>) -> windows_core::HRESULT;
+    fn GetService(&self, a_flags: i32, a_context: windows_core::Ref<super::IWbemContext>, a_service: windows_core::OutRef<super::IWbemServices>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "wbemcli")]
 impl IWbemDecoupledBasicEventProvider_Vtbl {
@@ -46,13 +46,13 @@ impl IWbemDecoupledBasicEventProvider_Vtbl {
         unsafe extern "system" fn GetSink<Identity: IWbemDecoupledBasicEventProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, a_flags: i32, a_context: *mut core::ffi::c_void, a_sink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemDecoupledBasicEventProvider_Impl::GetSink(this, core::mem::transmute_copy(&a_flags), core::mem::transmute_copy(&a_context), core::mem::transmute_copy(&a_sink)).into()
+                IWbemDecoupledBasicEventProvider_Impl::GetSink(this, core::mem::transmute_copy(&a_flags), core::mem::transmute_copy(&a_context), core::mem::transmute_copy(&a_sink))
             }
         }
         unsafe extern "system" fn GetService<Identity: IWbemDecoupledBasicEventProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, a_flags: i32, a_context: *mut core::ffi::c_void, a_service: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemDecoupledBasicEventProvider_Impl::GetService(this, core::mem::transmute_copy(&a_flags), core::mem::transmute_copy(&a_context), core::mem::transmute_copy(&a_service)).into()
+                IWbemDecoupledBasicEventProvider_Impl::GetService(this, core::mem::transmute_copy(&a_flags), core::mem::transmute_copy(&a_context), core::mem::transmute_copy(&a_service))
             }
         }
         Self {
@@ -98,8 +98,8 @@ pub struct IWbemDecoupledRegistrar_Vtbl {
 }
 #[cfg(feature = "wbemcli")]
 pub trait IWbemDecoupledRegistrar_Impl: windows_core::IUnknownImpl {
-    fn Register(&self, a_flags: i32, a_context: windows_core::Ref<super::IWbemContext>, a_user: &windows_core::PCWSTR, a_locale: &windows_core::PCWSTR, a_scope: &windows_core::PCWSTR, a_registration: &windows_core::PCWSTR, piunknown: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn UnRegister(&self) -> windows_core::Result<()>;
+    fn Register(&self, a_flags: i32, a_context: windows_core::Ref<super::IWbemContext>, a_user: &windows_core::PCWSTR, a_locale: &windows_core::PCWSTR, a_scope: &windows_core::PCWSTR, a_registration: &windows_core::PCWSTR, piunknown: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn UnRegister(&self) -> windows_core::HRESULT;
 }
 #[cfg(feature = "wbemcli")]
 impl IWbemDecoupledRegistrar_Vtbl {
@@ -107,13 +107,13 @@ impl IWbemDecoupledRegistrar_Vtbl {
         unsafe extern "system" fn Register<Identity: IWbemDecoupledRegistrar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, a_flags: i32, a_context: *mut core::ffi::c_void, a_user: windows_core::PCWSTR, a_locale: windows_core::PCWSTR, a_scope: windows_core::PCWSTR, a_registration: windows_core::PCWSTR, piunknown: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemDecoupledRegistrar_Impl::Register(this, core::mem::transmute_copy(&a_flags), core::mem::transmute_copy(&a_context), core::mem::transmute(&a_user), core::mem::transmute(&a_locale), core::mem::transmute(&a_scope), core::mem::transmute(&a_registration), core::mem::transmute_copy(&piunknown)).into()
+                IWbemDecoupledRegistrar_Impl::Register(this, core::mem::transmute_copy(&a_flags), core::mem::transmute_copy(&a_context), core::mem::transmute(&a_user), core::mem::transmute(&a_locale), core::mem::transmute(&a_scope), core::mem::transmute(&a_registration), core::mem::transmute_copy(&piunknown))
             }
         }
         unsafe extern "system" fn UnRegister<Identity: IWbemDecoupledRegistrar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemDecoupledRegistrar_Impl::UnRegister(this).into()
+                IWbemDecoupledRegistrar_Impl::UnRegister(this)
             }
         }
         Self {
@@ -203,7 +203,7 @@ pub struct IWbemEventProvider_Vtbl {
 }
 #[cfg(feature = "wbemcli")]
 pub trait IWbemEventProvider_Impl: windows_core::IUnknownImpl {
-    fn ProvideEvents(&self, psink: windows_core::Ref<super::IWbemObjectSink>, lflags: i32) -> windows_core::Result<()>;
+    fn ProvideEvents(&self, psink: windows_core::Ref<super::IWbemObjectSink>, lflags: i32) -> windows_core::HRESULT;
 }
 #[cfg(feature = "wbemcli")]
 impl IWbemEventProvider_Vtbl {
@@ -211,7 +211,7 @@ impl IWbemEventProvider_Vtbl {
         unsafe extern "system" fn ProvideEvents<Identity: IWbemEventProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psink: *mut core::ffi::c_void, lflags: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemEventProvider_Impl::ProvideEvents(this, core::mem::transmute_copy(&psink), core::mem::transmute_copy(&lflags)).into()
+                IWbemEventProvider_Impl::ProvideEvents(this, core::mem::transmute_copy(&psink), core::mem::transmute_copy(&lflags))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ProvideEvents: ProvideEvents::<Identity, OFFSET> }
@@ -240,21 +240,21 @@ pub struct IWbemEventProviderQuerySink_Vtbl {
     pub CancelQuery: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IWbemEventProviderQuerySink_Impl: windows_core::IUnknownImpl {
-    fn NewQuery(&self, dwid: u32, wszquerylanguage: WBEM_WSTR, wszquery: WBEM_WSTR) -> windows_core::Result<()>;
-    fn CancelQuery(&self, dwid: u32) -> windows_core::Result<()>;
+    fn NewQuery(&self, dwid: u32, wszquerylanguage: WBEM_WSTR, wszquery: WBEM_WSTR) -> windows_core::HRESULT;
+    fn CancelQuery(&self, dwid: u32) -> windows_core::HRESULT;
 }
 impl IWbemEventProviderQuerySink_Vtbl {
     pub const fn new<Identity: IWbemEventProviderQuerySink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn NewQuery<Identity: IWbemEventProviderQuerySink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwid: u32, wszquerylanguage: WBEM_WSTR, wszquery: WBEM_WSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemEventProviderQuerySink_Impl::NewQuery(this, core::mem::transmute_copy(&dwid), core::mem::transmute_copy(&wszquerylanguage), core::mem::transmute_copy(&wszquery)).into()
+                IWbemEventProviderQuerySink_Impl::NewQuery(this, core::mem::transmute_copy(&dwid), core::mem::transmute_copy(&wszquerylanguage), core::mem::transmute_copy(&wszquery))
             }
         }
         unsafe extern "system" fn CancelQuery<Identity: IWbemEventProviderQuerySink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwid: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemEventProviderQuerySink_Impl::CancelQuery(this, core::mem::transmute_copy(&dwid)).into()
+                IWbemEventProviderQuerySink_Impl::CancelQuery(this, core::mem::transmute_copy(&dwid))
             }
         }
         Self {
@@ -287,7 +287,7 @@ pub struct IWbemEventProviderSecurity_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IWbemEventProviderSecurity_Impl: windows_core::IUnknownImpl {
-    fn AccessCheck(&self, wszquerylanguage: WBEM_CWSTR, wszquery: WBEM_CWSTR, lsidlength: i32, psid: *const super::BYTE) -> windows_core::Result<()>;
+    fn AccessCheck(&self, wszquerylanguage: WBEM_CWSTR, wszquery: WBEM_CWSTR, lsidlength: i32, psid: *const super::BYTE) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IWbemEventProviderSecurity_Vtbl {
@@ -295,7 +295,7 @@ impl IWbemEventProviderSecurity_Vtbl {
         unsafe extern "system" fn AccessCheck<Identity: IWbemEventProviderSecurity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszquerylanguage: WBEM_CWSTR, wszquery: WBEM_CWSTR, lsidlength: i32, psid: *const super::BYTE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemEventProviderSecurity_Impl::AccessCheck(this, core::mem::transmute_copy(&wszquerylanguage), core::mem::transmute_copy(&wszquery), core::mem::transmute_copy(&lsidlength), core::mem::transmute_copy(&psid)).into()
+                IWbemEventProviderSecurity_Impl::AccessCheck(this, core::mem::transmute_copy(&wszquerylanguage), core::mem::transmute_copy(&wszquery), core::mem::transmute_copy(&lsidlength), core::mem::transmute_copy(&psid))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AccessCheck: AccessCheck::<Identity, OFFSET> }
@@ -358,10 +358,10 @@ pub struct IWbemEventSink_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "wbemcli"))]
 pub trait IWbemEventSink_Impl: super::IWbemObjectSink_Impl {
-    fn SetSinkSecurity(&self, lsdlength: i32, psd: *const super::BYTE) -> windows_core::Result<()>;
-    fn IsActive(&self) -> windows_core::Result<()>;
+    fn SetSinkSecurity(&self, lsdlength: i32, psd: *const super::BYTE) -> windows_core::HRESULT;
+    fn IsActive(&self) -> windows_core::HRESULT;
     fn GetRestrictedSink(&self, lnumqueries: i32, awszqueries: *const windows_core::PCWSTR, pcallback: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<IWbemEventSink>;
-    fn SetBatchingParameters(&self, lflags: super::LONG, dwmaxbuffersize: super::DWORD, dwmaxsendlatency: super::DWORD) -> windows_core::Result<()>;
+    fn SetBatchingParameters(&self, lflags: super::LONG, dwmaxbuffersize: super::DWORD, dwmaxsendlatency: super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "wbemcli"))]
 impl IWbemEventSink_Vtbl {
@@ -369,13 +369,13 @@ impl IWbemEventSink_Vtbl {
         unsafe extern "system" fn SetSinkSecurity<Identity: IWbemEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lsdlength: i32, psd: *const super::BYTE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemEventSink_Impl::SetSinkSecurity(this, core::mem::transmute_copy(&lsdlength), core::mem::transmute_copy(&psd)).into()
+                IWbemEventSink_Impl::SetSinkSecurity(this, core::mem::transmute_copy(&lsdlength), core::mem::transmute_copy(&psd))
             }
         }
         unsafe extern "system" fn IsActive<Identity: IWbemEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemEventSink_Impl::IsActive(this).into()
+                IWbemEventSink_Impl::IsActive(this)
             }
         }
         unsafe extern "system" fn GetRestrictedSink<Identity: IWbemEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lnumqueries: i32, awszqueries: *const windows_core::PCWSTR, pcallback: *mut core::ffi::c_void, ppsink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -396,7 +396,7 @@ impl IWbemEventSink_Vtbl {
         unsafe extern "system" fn SetBatchingParameters<Identity: IWbemEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: super::LONG, dwmaxbuffersize: super::DWORD, dwmaxsendlatency: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemEventSink_Impl::SetBatchingParameters(this, core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&dwmaxbuffersize), core::mem::transmute_copy(&dwmaxsendlatency)).into()
+                IWbemEventSink_Impl::SetBatchingParameters(this, core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&dwmaxbuffersize), core::mem::transmute_copy(&dwmaxsendlatency))
             }
         }
         Self {
@@ -500,12 +500,12 @@ pub struct IWbemHiPerfProvider_Vtbl {
 }
 #[cfg(all(feature = "wbemcli", feature = "winnt"))]
 pub trait IWbemHiPerfProvider_Impl: windows_core::IUnknownImpl {
-    fn QueryInstances(&self, pnamespace: windows_core::Ref<super::IWbemServices>, wszclass: *const super::WCHAR, lflags: i32, pctx: windows_core::Ref<super::IWbemContext>, psink: windows_core::Ref<super::IWbemObjectSink>) -> windows_core::Result<()>;
-    fn CreateRefresher(&self, pnamespace: windows_core::Ref<super::IWbemServices>, lflags: i32, pprefresher: windows_core::OutRef<super::IWbemRefresher>) -> windows_core::Result<()>;
-    fn CreateRefreshableObject(&self, pnamespace: windows_core::Ref<super::IWbemServices>, ptemplate: windows_core::Ref<super::IWbemObjectAccess>, prefresher: windows_core::Ref<super::IWbemRefresher>, lflags: i32, pcontext: windows_core::Ref<super::IWbemContext>, pprefreshable: windows_core::OutRef<super::IWbemObjectAccess>, plid: *mut i32) -> windows_core::Result<()>;
-    fn StopRefreshing(&self, prefresher: windows_core::Ref<super::IWbemRefresher>, lid: i32, lflags: i32) -> windows_core::Result<()>;
-    fn CreateRefreshableEnum(&self, pnamespace: windows_core::Ref<super::IWbemServices>, wszclass: &windows_core::PCWSTR, prefresher: windows_core::Ref<super::IWbemRefresher>, lflags: i32, pcontext: windows_core::Ref<super::IWbemContext>, phiperfenum: windows_core::Ref<super::IWbemHiPerfEnum>, plid: *mut i32) -> windows_core::Result<()>;
-    fn GetObjects(&self, pnamespace: windows_core::Ref<super::IWbemServices>, lnumobjects: i32, apobj: *mut Option<super::IWbemObjectAccess>, lflags: i32, pcontext: windows_core::Ref<super::IWbemContext>) -> windows_core::Result<()>;
+    fn QueryInstances(&self, pnamespace: windows_core::Ref<super::IWbemServices>, wszclass: *const super::WCHAR, lflags: i32, pctx: windows_core::Ref<super::IWbemContext>, psink: windows_core::Ref<super::IWbemObjectSink>) -> windows_core::HRESULT;
+    fn CreateRefresher(&self, pnamespace: windows_core::Ref<super::IWbemServices>, lflags: i32, pprefresher: windows_core::OutRef<super::IWbemRefresher>) -> windows_core::HRESULT;
+    fn CreateRefreshableObject(&self, pnamespace: windows_core::Ref<super::IWbemServices>, ptemplate: windows_core::Ref<super::IWbemObjectAccess>, prefresher: windows_core::Ref<super::IWbemRefresher>, lflags: i32, pcontext: windows_core::Ref<super::IWbemContext>, pprefreshable: windows_core::OutRef<super::IWbemObjectAccess>, plid: *mut i32) -> windows_core::HRESULT;
+    fn StopRefreshing(&self, prefresher: windows_core::Ref<super::IWbemRefresher>, lid: i32, lflags: i32) -> windows_core::HRESULT;
+    fn CreateRefreshableEnum(&self, pnamespace: windows_core::Ref<super::IWbemServices>, wszclass: &windows_core::PCWSTR, prefresher: windows_core::Ref<super::IWbemRefresher>, lflags: i32, pcontext: windows_core::Ref<super::IWbemContext>, phiperfenum: windows_core::Ref<super::IWbemHiPerfEnum>, plid: *mut i32) -> windows_core::HRESULT;
+    fn GetObjects(&self, pnamespace: windows_core::Ref<super::IWbemServices>, lnumobjects: i32, apobj: *mut Option<super::IWbemObjectAccess>, lflags: i32, pcontext: windows_core::Ref<super::IWbemContext>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "wbemcli", feature = "winnt"))]
 impl IWbemHiPerfProvider_Vtbl {
@@ -513,37 +513,37 @@ impl IWbemHiPerfProvider_Vtbl {
         unsafe extern "system" fn QueryInstances<Identity: IWbemHiPerfProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnamespace: *mut core::ffi::c_void, wszclass: *const super::WCHAR, lflags: i32, pctx: *mut core::ffi::c_void, psink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemHiPerfProvider_Impl::QueryInstances(this, core::mem::transmute_copy(&pnamespace), core::mem::transmute_copy(&wszclass), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pctx), core::mem::transmute_copy(&psink)).into()
+                IWbemHiPerfProvider_Impl::QueryInstances(this, core::mem::transmute_copy(&pnamespace), core::mem::transmute_copy(&wszclass), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pctx), core::mem::transmute_copy(&psink))
             }
         }
         unsafe extern "system" fn CreateRefresher<Identity: IWbemHiPerfProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnamespace: *mut core::ffi::c_void, lflags: i32, pprefresher: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemHiPerfProvider_Impl::CreateRefresher(this, core::mem::transmute_copy(&pnamespace), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pprefresher)).into()
+                IWbemHiPerfProvider_Impl::CreateRefresher(this, core::mem::transmute_copy(&pnamespace), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pprefresher))
             }
         }
         unsafe extern "system" fn CreateRefreshableObject<Identity: IWbemHiPerfProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnamespace: *mut core::ffi::c_void, ptemplate: *mut core::ffi::c_void, prefresher: *mut core::ffi::c_void, lflags: i32, pcontext: *mut core::ffi::c_void, pprefreshable: *mut *mut core::ffi::c_void, plid: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemHiPerfProvider_Impl::CreateRefreshableObject(this, core::mem::transmute_copy(&pnamespace), core::mem::transmute_copy(&ptemplate), core::mem::transmute_copy(&prefresher), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pcontext), core::mem::transmute_copy(&pprefreshable), core::mem::transmute_copy(&plid)).into()
+                IWbemHiPerfProvider_Impl::CreateRefreshableObject(this, core::mem::transmute_copy(&pnamespace), core::mem::transmute_copy(&ptemplate), core::mem::transmute_copy(&prefresher), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pcontext), core::mem::transmute_copy(&pprefreshable), core::mem::transmute_copy(&plid))
             }
         }
         unsafe extern "system" fn StopRefreshing<Identity: IWbemHiPerfProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prefresher: *mut core::ffi::c_void, lid: i32, lflags: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemHiPerfProvider_Impl::StopRefreshing(this, core::mem::transmute_copy(&prefresher), core::mem::transmute_copy(&lid), core::mem::transmute_copy(&lflags)).into()
+                IWbemHiPerfProvider_Impl::StopRefreshing(this, core::mem::transmute_copy(&prefresher), core::mem::transmute_copy(&lid), core::mem::transmute_copy(&lflags))
             }
         }
         unsafe extern "system" fn CreateRefreshableEnum<Identity: IWbemHiPerfProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnamespace: *mut core::ffi::c_void, wszclass: windows_core::PCWSTR, prefresher: *mut core::ffi::c_void, lflags: i32, pcontext: *mut core::ffi::c_void, phiperfenum: *mut core::ffi::c_void, plid: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemHiPerfProvider_Impl::CreateRefreshableEnum(this, core::mem::transmute_copy(&pnamespace), core::mem::transmute(&wszclass), core::mem::transmute_copy(&prefresher), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pcontext), core::mem::transmute_copy(&phiperfenum), core::mem::transmute_copy(&plid)).into()
+                IWbemHiPerfProvider_Impl::CreateRefreshableEnum(this, core::mem::transmute_copy(&pnamespace), core::mem::transmute(&wszclass), core::mem::transmute_copy(&prefresher), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pcontext), core::mem::transmute_copy(&phiperfenum), core::mem::transmute_copy(&plid))
             }
         }
         unsafe extern "system" fn GetObjects<Identity: IWbemHiPerfProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnamespace: *mut core::ffi::c_void, lnumobjects: i32, apobj: *mut *mut core::ffi::c_void, lflags: i32, pcontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemHiPerfProvider_Impl::GetObjects(this, core::mem::transmute_copy(&pnamespace), core::mem::transmute_copy(&lnumobjects), core::mem::transmute_copy(&apobj), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pcontext)).into()
+                IWbemHiPerfProvider_Impl::GetObjects(this, core::mem::transmute_copy(&pnamespace), core::mem::transmute_copy(&lnumobjects), core::mem::transmute_copy(&apobj), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pcontext))
             }
         }
         Self {
@@ -589,8 +589,8 @@ pub struct IWbemPropertyProvider_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWbemPropertyProvider_Impl: windows_core::IUnknownImpl {
-    fn GetProperty(&self, lflags: i32, strlocale: &windows_core::BSTR, strclassmapping: &windows_core::BSTR, strinstmapping: &windows_core::BSTR, strpropmapping: &windows_core::BSTR, pvvalue: *mut super::VARIANT) -> windows_core::Result<()>;
-    fn PutProperty(&self, lflags: i32, strlocale: &windows_core::BSTR, strclassmapping: &windows_core::BSTR, strinstmapping: &windows_core::BSTR, strpropmapping: &windows_core::BSTR, pvvalue: *const super::VARIANT) -> windows_core::Result<()>;
+    fn GetProperty(&self, lflags: i32, strlocale: &windows_core::BSTR, strclassmapping: &windows_core::BSTR, strinstmapping: &windows_core::BSTR, strpropmapping: &windows_core::BSTR, pvvalue: *mut super::VARIANT) -> windows_core::HRESULT;
+    fn PutProperty(&self, lflags: i32, strlocale: &windows_core::BSTR, strclassmapping: &windows_core::BSTR, strinstmapping: &windows_core::BSTR, strpropmapping: &windows_core::BSTR, pvvalue: *const super::VARIANT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWbemPropertyProvider_Vtbl {
@@ -598,13 +598,13 @@ impl IWbemPropertyProvider_Vtbl {
         unsafe extern "system" fn GetProperty<Identity: IWbemPropertyProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, strlocale: *mut core::ffi::c_void, strclassmapping: *mut core::ffi::c_void, strinstmapping: *mut core::ffi::c_void, strpropmapping: *mut core::ffi::c_void, pvvalue: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemPropertyProvider_Impl::GetProperty(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&strlocale), core::mem::transmute(&strclassmapping), core::mem::transmute(&strinstmapping), core::mem::transmute(&strpropmapping), core::mem::transmute_copy(&pvvalue)).into()
+                IWbemPropertyProvider_Impl::GetProperty(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&strlocale), core::mem::transmute(&strclassmapping), core::mem::transmute(&strinstmapping), core::mem::transmute(&strpropmapping), core::mem::transmute_copy(&pvvalue))
             }
         }
         unsafe extern "system" fn PutProperty<Identity: IWbemPropertyProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, strlocale: *mut core::ffi::c_void, strclassmapping: *mut core::ffi::c_void, strinstmapping: *mut core::ffi::c_void, strpropmapping: *mut core::ffi::c_void, pvvalue: *const super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemPropertyProvider_Impl::PutProperty(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&strlocale), core::mem::transmute(&strclassmapping), core::mem::transmute(&strinstmapping), core::mem::transmute(&strpropmapping), core::mem::transmute_copy(&pvvalue)).into()
+                IWbemPropertyProvider_Impl::PutProperty(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&strlocale), core::mem::transmute(&strclassmapping), core::mem::transmute(&strinstmapping), core::mem::transmute(&strpropmapping), core::mem::transmute_copy(&pvvalue))
             }
         }
         Self {
@@ -641,7 +641,7 @@ pub struct IWbemProviderIdentity_Vtbl {
 }
 #[cfg(feature = "wbemcli")]
 pub trait IWbemProviderIdentity_Impl: windows_core::IUnknownImpl {
-    fn SetRegistrationObject(&self, lflags: i32, pprovreg: windows_core::Ref<super::IWbemClassObject>) -> windows_core::Result<()>;
+    fn SetRegistrationObject(&self, lflags: i32, pprovreg: windows_core::Ref<super::IWbemClassObject>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "wbemcli")]
 impl IWbemProviderIdentity_Vtbl {
@@ -649,7 +649,7 @@ impl IWbemProviderIdentity_Vtbl {
         unsafe extern "system" fn SetRegistrationObject<Identity: IWbemProviderIdentity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, pprovreg: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemProviderIdentity_Impl::SetRegistrationObject(this, core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pprovreg)).into()
+                IWbemProviderIdentity_Impl::SetRegistrationObject(this, core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pprovreg))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetRegistrationObject: SetRegistrationObject::<Identity, OFFSET> }
@@ -687,7 +687,7 @@ pub struct IWbemProviderInit_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "wbemcli"))]
 pub trait IWbemProviderInit_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, wszuser: &windows_core::PCWSTR, lflags: super::LONG, wsznamespace: &windows_core::PCWSTR, wszlocale: &windows_core::PCWSTR, pnamespace: windows_core::Ref<super::IWbemServices>, pctx: windows_core::Ref<super::IWbemContext>, pinitsink: windows_core::Ref<IWbemProviderInitSink>) -> windows_core::Result<()>;
+    fn Initialize(&self, wszuser: &windows_core::PCWSTR, lflags: super::LONG, wsznamespace: &windows_core::PCWSTR, wszlocale: &windows_core::PCWSTR, pnamespace: windows_core::Ref<super::IWbemServices>, pctx: windows_core::Ref<super::IWbemContext>, pinitsink: windows_core::Ref<IWbemProviderInitSink>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "wbemcli"))]
 impl IWbemProviderInit_Vtbl {
@@ -695,7 +695,7 @@ impl IWbemProviderInit_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IWbemProviderInit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszuser: windows_core::PCWSTR, lflags: super::LONG, wsznamespace: windows_core::PCWSTR, wszlocale: windows_core::PCWSTR, pnamespace: *mut core::ffi::c_void, pctx: *mut core::ffi::c_void, pinitsink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemProviderInit_Impl::Initialize(this, core::mem::transmute(&wszuser), core::mem::transmute_copy(&lflags), core::mem::transmute(&wsznamespace), core::mem::transmute(&wszlocale), core::mem::transmute_copy(&pnamespace), core::mem::transmute_copy(&pctx), core::mem::transmute_copy(&pinitsink)).into()
+                IWbemProviderInit_Impl::Initialize(this, core::mem::transmute(&wszuser), core::mem::transmute_copy(&lflags), core::mem::transmute(&wsznamespace), core::mem::transmute(&wszlocale), core::mem::transmute_copy(&pnamespace), core::mem::transmute_copy(&pctx), core::mem::transmute_copy(&pinitsink))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, OFFSET> }
@@ -725,7 +725,7 @@ pub struct IWbemProviderInitSink_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IWbemProviderInitSink_Impl: windows_core::IUnknownImpl {
-    fn SetStatus(&self, lstatus: super::LONG, lflags: super::LONG) -> windows_core::Result<()>;
+    fn SetStatus(&self, lstatus: super::LONG, lflags: super::LONG) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IWbemProviderInitSink_Vtbl {
@@ -733,7 +733,7 @@ impl IWbemProviderInitSink_Vtbl {
         unsafe extern "system" fn SetStatus<Identity: IWbemProviderInitSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lstatus: super::LONG, lflags: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemProviderInitSink_Impl::SetStatus(this, core::mem::transmute_copy(&lstatus), core::mem::transmute_copy(&lflags)).into()
+                IWbemProviderInitSink_Impl::SetStatus(this, core::mem::transmute_copy(&lstatus), core::mem::transmute_copy(&lflags))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetStatus: SetStatus::<Identity, OFFSET> }
@@ -766,7 +766,7 @@ pub struct IWbemUnboundObjectSink_Vtbl {
 }
 #[cfg(feature = "wbemcli")]
 pub trait IWbemUnboundObjectSink_Impl: windows_core::IUnknownImpl {
-    fn IndicateToConsumer(&self, plogicalconsumer: windows_core::Ref<super::IWbemClassObject>, lnumobjects: i32, apobjects: *const Option<super::IWbemClassObject>) -> windows_core::Result<()>;
+    fn IndicateToConsumer(&self, plogicalconsumer: windows_core::Ref<super::IWbemClassObject>, lnumobjects: i32, apobjects: *const Option<super::IWbemClassObject>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "wbemcli")]
 impl IWbemUnboundObjectSink_Vtbl {
@@ -774,7 +774,7 @@ impl IWbemUnboundObjectSink_Vtbl {
         unsafe extern "system" fn IndicateToConsumer<Identity: IWbemUnboundObjectSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plogicalconsumer: *mut core::ffi::c_void, lnumobjects: i32, apobjects: *const *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemUnboundObjectSink_Impl::IndicateToConsumer(this, core::mem::transmute_copy(&plogicalconsumer), core::mem::transmute_copy(&lnumobjects), core::mem::transmute_copy(&apobjects)).into()
+                IWbemUnboundObjectSink_Impl::IndicateToConsumer(this, core::mem::transmute_copy(&plogicalconsumer), core::mem::transmute_copy(&lnumobjects), core::mem::transmute_copy(&apobjects))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IndicateToConsumer: IndicateToConsumer::<Identity, OFFSET> }

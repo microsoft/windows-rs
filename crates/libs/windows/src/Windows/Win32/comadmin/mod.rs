@@ -431,27 +431,27 @@ pub trait ICOMAdminCatalog_Impl: super::IDispatch_Impl {
     fn MajorVersion(&self) -> windows_core::Result<i32>;
     fn MinorVersion(&self) -> windows_core::Result<i32>;
     fn GetCollectionByQuery(&self, bstrcollname: &windows_core::BSTR, ppsavarquery: *const *const super::SAFEARRAY) -> windows_core::Result<super::IDispatch>;
-    fn ImportComponent(&self, bstrapplidorname: &windows_core::BSTR, bstrclsidorprogid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn InstallComponent(&self, bstrapplidorname: &windows_core::BSTR, bstrdll: &windows_core::BSTR, bstrtlb: &windows_core::BSTR, bstrpsdll: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ShutdownApplication(&self, bstrapplidorname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ExportApplication(&self, bstrapplidorname: &windows_core::BSTR, bstrapplicationfile: &windows_core::BSTR, loptions: i32) -> windows_core::Result<()>;
-    fn InstallApplication(&self, bstrapplicationfile: &windows_core::BSTR, bstrdestinationdirectory: &windows_core::BSTR, loptions: i32, bstruserid: &windows_core::BSTR, bstrpassword: &windows_core::BSTR, bstrrsn: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn StopRouter(&self) -> windows_core::Result<()>;
-    fn RefreshRouter(&self) -> windows_core::Result<()>;
-    fn StartRouter(&self) -> windows_core::Result<()>;
-    fn Reserved1(&self) -> windows_core::Result<()>;
-    fn Reserved2(&self) -> windows_core::Result<()>;
-    fn InstallMultipleComponents(&self, bstrapplidorname: &windows_core::BSTR, ppsavarfilenames: *const *const super::SAFEARRAY, ppsavarclsids: *const *const super::SAFEARRAY) -> windows_core::Result<()>;
-    fn GetMultipleComponentsInfo(&self, bstrapplidorname: &windows_core::BSTR, ppsavarfilenames: *const *const super::SAFEARRAY, ppsavarclsids: *mut *mut super::SAFEARRAY, ppsavarclassnames: *mut *mut super::SAFEARRAY, ppsavarfileflags: *mut *mut super::SAFEARRAY, ppsavarcomponentflags: *mut *mut super::SAFEARRAY) -> windows_core::Result<()>;
-    fn RefreshComponents(&self) -> windows_core::Result<()>;
-    fn BackupREGDB(&self, bstrbackupfilepath: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn RestoreREGDB(&self, bstrbackupfilepath: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn QueryApplicationFile(&self, bstrapplicationfile: &windows_core::BSTR, pbstrapplicationname: *mut windows_core::BSTR, pbstrapplicationdescription: *mut windows_core::BSTR, pbhasusers: *mut super::VARIANT_BOOL, pbisproxy: *mut super::VARIANT_BOOL, ppsavarfilenames: *mut *mut super::SAFEARRAY) -> windows_core::Result<()>;
-    fn StartApplication(&self, bstrapplidorname: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn ImportComponent(&self, bstrapplidorname: &windows_core::BSTR, bstrclsidorprogid: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn InstallComponent(&self, bstrapplidorname: &windows_core::BSTR, bstrdll: &windows_core::BSTR, bstrtlb: &windows_core::BSTR, bstrpsdll: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn ShutdownApplication(&self, bstrapplidorname: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn ExportApplication(&self, bstrapplidorname: &windows_core::BSTR, bstrapplicationfile: &windows_core::BSTR, loptions: i32) -> windows_core::HRESULT;
+    fn InstallApplication(&self, bstrapplicationfile: &windows_core::BSTR, bstrdestinationdirectory: &windows_core::BSTR, loptions: i32, bstruserid: &windows_core::BSTR, bstrpassword: &windows_core::BSTR, bstrrsn: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn StopRouter(&self) -> windows_core::HRESULT;
+    fn RefreshRouter(&self) -> windows_core::HRESULT;
+    fn StartRouter(&self) -> windows_core::HRESULT;
+    fn Reserved1(&self) -> windows_core::HRESULT;
+    fn Reserved2(&self) -> windows_core::HRESULT;
+    fn InstallMultipleComponents(&self, bstrapplidorname: &windows_core::BSTR, ppsavarfilenames: *const *const super::SAFEARRAY, ppsavarclsids: *const *const super::SAFEARRAY) -> windows_core::HRESULT;
+    fn GetMultipleComponentsInfo(&self, bstrapplidorname: &windows_core::BSTR, ppsavarfilenames: *const *const super::SAFEARRAY, ppsavarclsids: *mut *mut super::SAFEARRAY, ppsavarclassnames: *mut *mut super::SAFEARRAY, ppsavarfileflags: *mut *mut super::SAFEARRAY, ppsavarcomponentflags: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT;
+    fn RefreshComponents(&self) -> windows_core::HRESULT;
+    fn BackupREGDB(&self, bstrbackupfilepath: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn RestoreREGDB(&self, bstrbackupfilepath: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn QueryApplicationFile(&self, bstrapplicationfile: &windows_core::BSTR, pbstrapplicationname: *mut windows_core::BSTR, pbstrapplicationdescription: *mut windows_core::BSTR, pbhasusers: *mut super::VARIANT_BOOL, pbisproxy: *mut super::VARIANT_BOOL, ppsavarfilenames: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT;
+    fn StartApplication(&self, bstrapplidorname: &windows_core::BSTR) -> windows_core::HRESULT;
     fn ServiceCheck(&self, lservice: i32) -> windows_core::Result<i32>;
-    fn InstallMultipleEventClasses(&self, bstrapplidorname: &windows_core::BSTR, ppsavarfilenames: *const *const super::SAFEARRAY, ppsavarclsids: *const *const super::SAFEARRAY) -> windows_core::Result<()>;
-    fn InstallEventClass(&self, bstrapplidorname: &windows_core::BSTR, bstrdll: &windows_core::BSTR, bstrtlb: &windows_core::BSTR, bstrpsdll: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetEventClassesForIID(&self, bstriid: &windows_core::BSTR, ppsavarclsids: *mut *mut super::SAFEARRAY, ppsavarprogids: *mut *mut super::SAFEARRAY, ppsavardescriptions: *mut *mut super::SAFEARRAY) -> windows_core::Result<()>;
+    fn InstallMultipleEventClasses(&self, bstrapplidorname: &windows_core::BSTR, ppsavarfilenames: *const *const super::SAFEARRAY, ppsavarclsids: *const *const super::SAFEARRAY) -> windows_core::HRESULT;
+    fn InstallEventClass(&self, bstrapplidorname: &windows_core::BSTR, bstrdll: &windows_core::BSTR, bstrtlb: &windows_core::BSTR, bstrpsdll: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn GetEventClassesForIID(&self, bstriid: &windows_core::BSTR, ppsavarclsids: *mut *mut super::SAFEARRAY, ppsavarprogids: *mut *mut super::SAFEARRAY, ppsavardescriptions: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICOMAdminCatalog_Vtbl {
@@ -534,103 +534,103 @@ impl ICOMAdminCatalog_Vtbl {
         unsafe extern "system" fn ImportComponent<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplidorname: *mut core::ffi::c_void, bstrclsidorprogid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::ImportComponent(this, core::mem::transmute(&bstrapplidorname), core::mem::transmute(&bstrclsidorprogid)).into()
+                ICOMAdminCatalog_Impl::ImportComponent(this, core::mem::transmute(&bstrapplidorname), core::mem::transmute(&bstrclsidorprogid))
             }
         }
         unsafe extern "system" fn InstallComponent<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplidorname: *mut core::ffi::c_void, bstrdll: *mut core::ffi::c_void, bstrtlb: *mut core::ffi::c_void, bstrpsdll: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::InstallComponent(this, core::mem::transmute(&bstrapplidorname), core::mem::transmute(&bstrdll), core::mem::transmute(&bstrtlb), core::mem::transmute(&bstrpsdll)).into()
+                ICOMAdminCatalog_Impl::InstallComponent(this, core::mem::transmute(&bstrapplidorname), core::mem::transmute(&bstrdll), core::mem::transmute(&bstrtlb), core::mem::transmute(&bstrpsdll))
             }
         }
         unsafe extern "system" fn ShutdownApplication<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplidorname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::ShutdownApplication(this, core::mem::transmute(&bstrapplidorname)).into()
+                ICOMAdminCatalog_Impl::ShutdownApplication(this, core::mem::transmute(&bstrapplidorname))
             }
         }
         unsafe extern "system" fn ExportApplication<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplidorname: *mut core::ffi::c_void, bstrapplicationfile: *mut core::ffi::c_void, loptions: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::ExportApplication(this, core::mem::transmute(&bstrapplidorname), core::mem::transmute(&bstrapplicationfile), core::mem::transmute_copy(&loptions)).into()
+                ICOMAdminCatalog_Impl::ExportApplication(this, core::mem::transmute(&bstrapplidorname), core::mem::transmute(&bstrapplicationfile), core::mem::transmute_copy(&loptions))
             }
         }
         unsafe extern "system" fn InstallApplication<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplicationfile: *mut core::ffi::c_void, bstrdestinationdirectory: *mut core::ffi::c_void, loptions: i32, bstruserid: *mut core::ffi::c_void, bstrpassword: *mut core::ffi::c_void, bstrrsn: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::InstallApplication(this, core::mem::transmute(&bstrapplicationfile), core::mem::transmute(&bstrdestinationdirectory), core::mem::transmute_copy(&loptions), core::mem::transmute(&bstruserid), core::mem::transmute(&bstrpassword), core::mem::transmute(&bstrrsn)).into()
+                ICOMAdminCatalog_Impl::InstallApplication(this, core::mem::transmute(&bstrapplicationfile), core::mem::transmute(&bstrdestinationdirectory), core::mem::transmute_copy(&loptions), core::mem::transmute(&bstruserid), core::mem::transmute(&bstrpassword), core::mem::transmute(&bstrrsn))
             }
         }
         unsafe extern "system" fn StopRouter<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::StopRouter(this).into()
+                ICOMAdminCatalog_Impl::StopRouter(this)
             }
         }
         unsafe extern "system" fn RefreshRouter<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::RefreshRouter(this).into()
+                ICOMAdminCatalog_Impl::RefreshRouter(this)
             }
         }
         unsafe extern "system" fn StartRouter<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::StartRouter(this).into()
+                ICOMAdminCatalog_Impl::StartRouter(this)
             }
         }
         unsafe extern "system" fn Reserved1<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::Reserved1(this).into()
+                ICOMAdminCatalog_Impl::Reserved1(this)
             }
         }
         unsafe extern "system" fn Reserved2<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::Reserved2(this).into()
+                ICOMAdminCatalog_Impl::Reserved2(this)
             }
         }
         unsafe extern "system" fn InstallMultipleComponents<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplidorname: *mut core::ffi::c_void, ppsavarfilenames: *const *const super::SAFEARRAY, ppsavarclsids: *const *const super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::InstallMultipleComponents(this, core::mem::transmute(&bstrapplidorname), core::mem::transmute_copy(&ppsavarfilenames), core::mem::transmute_copy(&ppsavarclsids)).into()
+                ICOMAdminCatalog_Impl::InstallMultipleComponents(this, core::mem::transmute(&bstrapplidorname), core::mem::transmute_copy(&ppsavarfilenames), core::mem::transmute_copy(&ppsavarclsids))
             }
         }
         unsafe extern "system" fn GetMultipleComponentsInfo<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplidorname: *mut core::ffi::c_void, ppsavarfilenames: *const *const super::SAFEARRAY, ppsavarclsids: *mut *mut super::SAFEARRAY, ppsavarclassnames: *mut *mut super::SAFEARRAY, ppsavarfileflags: *mut *mut super::SAFEARRAY, ppsavarcomponentflags: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::GetMultipleComponentsInfo(this, core::mem::transmute(&bstrapplidorname), core::mem::transmute_copy(&ppsavarfilenames), core::mem::transmute_copy(&ppsavarclsids), core::mem::transmute_copy(&ppsavarclassnames), core::mem::transmute_copy(&ppsavarfileflags), core::mem::transmute_copy(&ppsavarcomponentflags)).into()
+                ICOMAdminCatalog_Impl::GetMultipleComponentsInfo(this, core::mem::transmute(&bstrapplidorname), core::mem::transmute_copy(&ppsavarfilenames), core::mem::transmute_copy(&ppsavarclsids), core::mem::transmute_copy(&ppsavarclassnames), core::mem::transmute_copy(&ppsavarfileflags), core::mem::transmute_copy(&ppsavarcomponentflags))
             }
         }
         unsafe extern "system" fn RefreshComponents<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::RefreshComponents(this).into()
+                ICOMAdminCatalog_Impl::RefreshComponents(this)
             }
         }
         unsafe extern "system" fn BackupREGDB<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrbackupfilepath: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::BackupREGDB(this, core::mem::transmute(&bstrbackupfilepath)).into()
+                ICOMAdminCatalog_Impl::BackupREGDB(this, core::mem::transmute(&bstrbackupfilepath))
             }
         }
         unsafe extern "system" fn RestoreREGDB<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrbackupfilepath: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::RestoreREGDB(this, core::mem::transmute(&bstrbackupfilepath)).into()
+                ICOMAdminCatalog_Impl::RestoreREGDB(this, core::mem::transmute(&bstrbackupfilepath))
             }
         }
         unsafe extern "system" fn QueryApplicationFile<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplicationfile: *mut core::ffi::c_void, pbstrapplicationname: *mut *mut core::ffi::c_void, pbstrapplicationdescription: *mut *mut core::ffi::c_void, pbhasusers: *mut super::VARIANT_BOOL, pbisproxy: *mut super::VARIANT_BOOL, ppsavarfilenames: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::QueryApplicationFile(this, core::mem::transmute(&bstrapplicationfile), core::mem::transmute_copy(&pbstrapplicationname), core::mem::transmute_copy(&pbstrapplicationdescription), core::mem::transmute_copy(&pbhasusers), core::mem::transmute_copy(&pbisproxy), core::mem::transmute_copy(&ppsavarfilenames)).into()
+                ICOMAdminCatalog_Impl::QueryApplicationFile(this, core::mem::transmute(&bstrapplicationfile), core::mem::transmute_copy(&pbstrapplicationname), core::mem::transmute_copy(&pbstrapplicationdescription), core::mem::transmute_copy(&pbhasusers), core::mem::transmute_copy(&pbisproxy), core::mem::transmute_copy(&ppsavarfilenames))
             }
         }
         unsafe extern "system" fn StartApplication<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplidorname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::StartApplication(this, core::mem::transmute(&bstrapplidorname)).into()
+                ICOMAdminCatalog_Impl::StartApplication(this, core::mem::transmute(&bstrapplidorname))
             }
         }
         unsafe extern "system" fn ServiceCheck<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lservice: i32, plstatus: *mut i32) -> windows_core::HRESULT {
@@ -651,19 +651,19 @@ impl ICOMAdminCatalog_Vtbl {
         unsafe extern "system" fn InstallMultipleEventClasses<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplidorname: *mut core::ffi::c_void, ppsavarfilenames: *const *const super::SAFEARRAY, ppsavarclsids: *const *const super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::InstallMultipleEventClasses(this, core::mem::transmute(&bstrapplidorname), core::mem::transmute_copy(&ppsavarfilenames), core::mem::transmute_copy(&ppsavarclsids)).into()
+                ICOMAdminCatalog_Impl::InstallMultipleEventClasses(this, core::mem::transmute(&bstrapplidorname), core::mem::transmute_copy(&ppsavarfilenames), core::mem::transmute_copy(&ppsavarclsids))
             }
         }
         unsafe extern "system" fn InstallEventClass<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplidorname: *mut core::ffi::c_void, bstrdll: *mut core::ffi::c_void, bstrtlb: *mut core::ffi::c_void, bstrpsdll: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::InstallEventClass(this, core::mem::transmute(&bstrapplidorname), core::mem::transmute(&bstrdll), core::mem::transmute(&bstrtlb), core::mem::transmute(&bstrpsdll)).into()
+                ICOMAdminCatalog_Impl::InstallEventClass(this, core::mem::transmute(&bstrapplidorname), core::mem::transmute(&bstrdll), core::mem::transmute(&bstrtlb), core::mem::transmute(&bstrpsdll))
             }
         }
         unsafe extern "system" fn GetEventClassesForIID<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstriid: *mut core::ffi::c_void, ppsavarclsids: *mut *mut super::SAFEARRAY, ppsavarprogids: *mut *mut super::SAFEARRAY, ppsavardescriptions: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::GetEventClassesForIID(this, core::mem::transmute(&bstriid), core::mem::transmute_copy(&ppsavarclsids), core::mem::transmute_copy(&ppsavarprogids), core::mem::transmute_copy(&ppsavardescriptions)).into()
+                ICOMAdminCatalog_Impl::GetEventClassesForIID(this, core::mem::transmute(&bstriid), core::mem::transmute_copy(&ppsavarclsids), core::mem::transmute_copy(&ppsavarprogids), core::mem::transmute_copy(&ppsavardescriptions))
             }
         }
         Self {
@@ -952,33 +952,33 @@ pub struct ICOMAdminCatalog2_Vtbl {
 pub trait ICOMAdminCatalog2_Impl: ICOMAdminCatalog_Impl {
     fn GetCollectionByQuery2(&self, bstrcollectionname: &windows_core::BSTR, pvarquerystrings: *const super::VARIANT) -> windows_core::Result<super::IDispatch>;
     fn GetApplicationInstanceIDFromProcessID(&self, lprocessid: i32) -> windows_core::Result<windows_core::BSTR>;
-    fn ShutdownApplicationInstances(&self, pvarapplicationinstanceid: *const super::VARIANT) -> windows_core::Result<()>;
-    fn PauseApplicationInstances(&self, pvarapplicationinstanceid: *const super::VARIANT) -> windows_core::Result<()>;
-    fn ResumeApplicationInstances(&self, pvarapplicationinstanceid: *const super::VARIANT) -> windows_core::Result<()>;
-    fn RecycleApplicationInstances(&self, pvarapplicationinstanceid: *const super::VARIANT, lreasoncode: i32) -> windows_core::Result<()>;
+    fn ShutdownApplicationInstances(&self, pvarapplicationinstanceid: *const super::VARIANT) -> windows_core::HRESULT;
+    fn PauseApplicationInstances(&self, pvarapplicationinstanceid: *const super::VARIANT) -> windows_core::HRESULT;
+    fn ResumeApplicationInstances(&self, pvarapplicationinstanceid: *const super::VARIANT) -> windows_core::HRESULT;
+    fn RecycleApplicationInstances(&self, pvarapplicationinstanceid: *const super::VARIANT, lreasoncode: i32) -> windows_core::HRESULT;
     fn AreApplicationInstancesPaused(&self, pvarapplicationinstanceid: *const super::VARIANT) -> windows_core::Result<super::VARIANT_BOOL>;
     fn DumpApplicationInstance(&self, bstrapplicationinstanceid: &windows_core::BSTR, bstrdirectory: &windows_core::BSTR, lmaximages: i32) -> windows_core::Result<windows_core::BSTR>;
     fn IsApplicationInstanceDumpSupported(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn CreateServiceForApplication(&self, bstrapplicationidorname: &windows_core::BSTR, bstrservicename: &windows_core::BSTR, bstrstarttype: &windows_core::BSTR, bstrerrorcontrol: &windows_core::BSTR, bstrdependencies: &windows_core::BSTR, bstrrunas: &windows_core::BSTR, bstrpassword: &windows_core::BSTR, bdesktopok: super::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn DeleteServiceForApplication(&self, bstrapplicationidorname: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn CreateServiceForApplication(&self, bstrapplicationidorname: &windows_core::BSTR, bstrservicename: &windows_core::BSTR, bstrstarttype: &windows_core::BSTR, bstrerrorcontrol: &windows_core::BSTR, bstrdependencies: &windows_core::BSTR, bstrrunas: &windows_core::BSTR, bstrpassword: &windows_core::BSTR, bdesktopok: super::VARIANT_BOOL) -> windows_core::HRESULT;
+    fn DeleteServiceForApplication(&self, bstrapplicationidorname: &windows_core::BSTR) -> windows_core::HRESULT;
     fn GetPartitionID(&self, bstrapplicationidorname: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
     fn GetPartitionName(&self, bstrapplicationidorname: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
-    fn SetCurrentPartition(&self, bstrpartitionidorname: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetCurrentPartition(&self, bstrpartitionidorname: &windows_core::BSTR) -> windows_core::HRESULT;
     fn CurrentPartitionID(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CurrentPartitionName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GlobalPartitionID(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn FlushPartitionCache(&self) -> windows_core::Result<()>;
-    fn CopyApplications(&self, bstrsourcepartitionidorname: &windows_core::BSTR, pvarapplicationid: *const super::VARIANT, bstrdestinationpartitionidorname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn CopyComponents(&self, bstrsourceapplicationidorname: &windows_core::BSTR, pvarclsidorprogid: *const super::VARIANT, bstrdestinationapplicationidorname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn MoveComponents(&self, bstrsourceapplicationidorname: &windows_core::BSTR, pvarclsidorprogid: *const super::VARIANT, bstrdestinationapplicationidorname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn AliasComponent(&self, bstrsrcapplicationidorname: &windows_core::BSTR, bstrclsidorprogid: &windows_core::BSTR, bstrdestapplicationidorname: &windows_core::BSTR, bstrnewprogid: &windows_core::BSTR, bstrnewclsid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn FlushPartitionCache(&self) -> windows_core::HRESULT;
+    fn CopyApplications(&self, bstrsourcepartitionidorname: &windows_core::BSTR, pvarapplicationid: *const super::VARIANT, bstrdestinationpartitionidorname: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn CopyComponents(&self, bstrsourceapplicationidorname: &windows_core::BSTR, pvarclsidorprogid: *const super::VARIANT, bstrdestinationapplicationidorname: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn MoveComponents(&self, bstrsourceapplicationidorname: &windows_core::BSTR, pvarclsidorprogid: *const super::VARIANT, bstrdestinationapplicationidorname: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn AliasComponent(&self, bstrsrcapplicationidorname: &windows_core::BSTR, bstrclsidorprogid: &windows_core::BSTR, bstrdestapplicationidorname: &windows_core::BSTR, bstrnewprogid: &windows_core::BSTR, bstrnewclsid: &windows_core::BSTR) -> windows_core::HRESULT;
     fn IsSafeToDelete(&self, bstrdllname: &windows_core::BSTR) -> windows_core::Result<COMAdminInUse>;
-    fn ImportUnconfiguredComponents(&self, bstrapplicationidorname: &windows_core::BSTR, pvarclsidorprogid: *const super::VARIANT, pvarcomponenttype: *const super::VARIANT) -> windows_core::Result<()>;
-    fn PromoteUnconfiguredComponents(&self, bstrapplicationidorname: &windows_core::BSTR, pvarclsidorprogid: *const super::VARIANT, pvarcomponenttype: *const super::VARIANT) -> windows_core::Result<()>;
-    fn ImportComponents(&self, bstrapplicationidorname: &windows_core::BSTR, pvarclsidorprogid: *const super::VARIANT, pvarcomponenttype: *const super::VARIANT) -> windows_core::Result<()>;
+    fn ImportUnconfiguredComponents(&self, bstrapplicationidorname: &windows_core::BSTR, pvarclsidorprogid: *const super::VARIANT, pvarcomponenttype: *const super::VARIANT) -> windows_core::HRESULT;
+    fn PromoteUnconfiguredComponents(&self, bstrapplicationidorname: &windows_core::BSTR, pvarclsidorprogid: *const super::VARIANT, pvarcomponenttype: *const super::VARIANT) -> windows_core::HRESULT;
+    fn ImportComponents(&self, bstrapplicationidorname: &windows_core::BSTR, pvarclsidorprogid: *const super::VARIANT, pvarcomponenttype: *const super::VARIANT) -> windows_core::HRESULT;
     fn Is64BitCatalogServer(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn ExportPartition(&self, bstrpartitionidorname: &windows_core::BSTR, bstrpartitionfilename: &windows_core::BSTR, loptions: i32) -> windows_core::Result<()>;
-    fn InstallPartition(&self, bstrfilename: &windows_core::BSTR, bstrdestdirectory: &windows_core::BSTR, loptions: i32, bstruserid: &windows_core::BSTR, bstrpassword: &windows_core::BSTR, bstrrsn: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn ExportPartition(&self, bstrpartitionidorname: &windows_core::BSTR, bstrpartitionfilename: &windows_core::BSTR, loptions: i32) -> windows_core::HRESULT;
+    fn InstallPartition(&self, bstrfilename: &windows_core::BSTR, bstrdestdirectory: &windows_core::BSTR, loptions: i32, bstruserid: &windows_core::BSTR, bstrpassword: &windows_core::BSTR, bstrrsn: &windows_core::BSTR) -> windows_core::HRESULT;
     fn QueryApplicationFile2(&self, bstrapplicationfile: &windows_core::BSTR) -> windows_core::Result<super::IDispatch>;
     fn GetComponentVersionCount(&self, bstrclsidorprogid: &windows_core::BSTR) -> windows_core::Result<i32>;
 }
@@ -1018,25 +1018,25 @@ impl ICOMAdminCatalog2_Vtbl {
         unsafe extern "system" fn ShutdownApplicationInstances<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarapplicationinstanceid: *const super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog2_Impl::ShutdownApplicationInstances(this, core::mem::transmute_copy(&pvarapplicationinstanceid)).into()
+                ICOMAdminCatalog2_Impl::ShutdownApplicationInstances(this, core::mem::transmute_copy(&pvarapplicationinstanceid))
             }
         }
         unsafe extern "system" fn PauseApplicationInstances<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarapplicationinstanceid: *const super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog2_Impl::PauseApplicationInstances(this, core::mem::transmute_copy(&pvarapplicationinstanceid)).into()
+                ICOMAdminCatalog2_Impl::PauseApplicationInstances(this, core::mem::transmute_copy(&pvarapplicationinstanceid))
             }
         }
         unsafe extern "system" fn ResumeApplicationInstances<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarapplicationinstanceid: *const super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog2_Impl::ResumeApplicationInstances(this, core::mem::transmute_copy(&pvarapplicationinstanceid)).into()
+                ICOMAdminCatalog2_Impl::ResumeApplicationInstances(this, core::mem::transmute_copy(&pvarapplicationinstanceid))
             }
         }
         unsafe extern "system" fn RecycleApplicationInstances<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarapplicationinstanceid: *const super::VARIANT, lreasoncode: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog2_Impl::RecycleApplicationInstances(this, core::mem::transmute_copy(&pvarapplicationinstanceid), core::mem::transmute_copy(&lreasoncode)).into()
+                ICOMAdminCatalog2_Impl::RecycleApplicationInstances(this, core::mem::transmute_copy(&pvarapplicationinstanceid), core::mem::transmute_copy(&lreasoncode))
             }
         }
         unsafe extern "system" fn AreApplicationInstancesPaused<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarapplicationinstanceid: *const super::VARIANT, pvarboolpaused: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -1087,13 +1087,13 @@ impl ICOMAdminCatalog2_Vtbl {
         unsafe extern "system" fn CreateServiceForApplication<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplicationidorname: *mut core::ffi::c_void, bstrservicename: *mut core::ffi::c_void, bstrstarttype: *mut core::ffi::c_void, bstrerrorcontrol: *mut core::ffi::c_void, bstrdependencies: *mut core::ffi::c_void, bstrrunas: *mut core::ffi::c_void, bstrpassword: *mut core::ffi::c_void, bdesktopok: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog2_Impl::CreateServiceForApplication(this, core::mem::transmute(&bstrapplicationidorname), core::mem::transmute(&bstrservicename), core::mem::transmute(&bstrstarttype), core::mem::transmute(&bstrerrorcontrol), core::mem::transmute(&bstrdependencies), core::mem::transmute(&bstrrunas), core::mem::transmute(&bstrpassword), core::mem::transmute_copy(&bdesktopok)).into()
+                ICOMAdminCatalog2_Impl::CreateServiceForApplication(this, core::mem::transmute(&bstrapplicationidorname), core::mem::transmute(&bstrservicename), core::mem::transmute(&bstrstarttype), core::mem::transmute(&bstrerrorcontrol), core::mem::transmute(&bstrdependencies), core::mem::transmute(&bstrrunas), core::mem::transmute(&bstrpassword), core::mem::transmute_copy(&bdesktopok))
             }
         }
         unsafe extern "system" fn DeleteServiceForApplication<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplicationidorname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog2_Impl::DeleteServiceForApplication(this, core::mem::transmute(&bstrapplicationidorname)).into()
+                ICOMAdminCatalog2_Impl::DeleteServiceForApplication(this, core::mem::transmute(&bstrapplicationidorname))
             }
         }
         unsafe extern "system" fn GetPartitionID<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplicationidorname: *mut core::ffi::c_void, pbstrpartitionid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1129,7 +1129,7 @@ impl ICOMAdminCatalog2_Vtbl {
         unsafe extern "system" fn SetCurrentPartition<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpartitionidorname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog2_Impl::SetCurrentPartition(this, core::mem::transmute(&bstrpartitionidorname)).into()
+                ICOMAdminCatalog2_Impl::SetCurrentPartition(this, core::mem::transmute(&bstrpartitionidorname))
             }
         }
         unsafe extern "system" fn CurrentPartitionID<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpartitionid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1180,31 +1180,31 @@ impl ICOMAdminCatalog2_Vtbl {
         unsafe extern "system" fn FlushPartitionCache<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog2_Impl::FlushPartitionCache(this).into()
+                ICOMAdminCatalog2_Impl::FlushPartitionCache(this)
             }
         }
         unsafe extern "system" fn CopyApplications<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsourcepartitionidorname: *mut core::ffi::c_void, pvarapplicationid: *const super::VARIANT, bstrdestinationpartitionidorname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog2_Impl::CopyApplications(this, core::mem::transmute(&bstrsourcepartitionidorname), core::mem::transmute_copy(&pvarapplicationid), core::mem::transmute(&bstrdestinationpartitionidorname)).into()
+                ICOMAdminCatalog2_Impl::CopyApplications(this, core::mem::transmute(&bstrsourcepartitionidorname), core::mem::transmute_copy(&pvarapplicationid), core::mem::transmute(&bstrdestinationpartitionidorname))
             }
         }
         unsafe extern "system" fn CopyComponents<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsourceapplicationidorname: *mut core::ffi::c_void, pvarclsidorprogid: *const super::VARIANT, bstrdestinationapplicationidorname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog2_Impl::CopyComponents(this, core::mem::transmute(&bstrsourceapplicationidorname), core::mem::transmute_copy(&pvarclsidorprogid), core::mem::transmute(&bstrdestinationapplicationidorname)).into()
+                ICOMAdminCatalog2_Impl::CopyComponents(this, core::mem::transmute(&bstrsourceapplicationidorname), core::mem::transmute_copy(&pvarclsidorprogid), core::mem::transmute(&bstrdestinationapplicationidorname))
             }
         }
         unsafe extern "system" fn MoveComponents<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsourceapplicationidorname: *mut core::ffi::c_void, pvarclsidorprogid: *const super::VARIANT, bstrdestinationapplicationidorname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog2_Impl::MoveComponents(this, core::mem::transmute(&bstrsourceapplicationidorname), core::mem::transmute_copy(&pvarclsidorprogid), core::mem::transmute(&bstrdestinationapplicationidorname)).into()
+                ICOMAdminCatalog2_Impl::MoveComponents(this, core::mem::transmute(&bstrsourceapplicationidorname), core::mem::transmute_copy(&pvarclsidorprogid), core::mem::transmute(&bstrdestinationapplicationidorname))
             }
         }
         unsafe extern "system" fn AliasComponent<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsrcapplicationidorname: *mut core::ffi::c_void, bstrclsidorprogid: *mut core::ffi::c_void, bstrdestapplicationidorname: *mut core::ffi::c_void, bstrnewprogid: *mut core::ffi::c_void, bstrnewclsid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog2_Impl::AliasComponent(this, core::mem::transmute(&bstrsrcapplicationidorname), core::mem::transmute(&bstrclsidorprogid), core::mem::transmute(&bstrdestapplicationidorname), core::mem::transmute(&bstrnewprogid), core::mem::transmute(&bstrnewclsid)).into()
+                ICOMAdminCatalog2_Impl::AliasComponent(this, core::mem::transmute(&bstrsrcapplicationidorname), core::mem::transmute(&bstrclsidorprogid), core::mem::transmute(&bstrdestapplicationidorname), core::mem::transmute(&bstrnewprogid), core::mem::transmute(&bstrnewclsid))
             }
         }
         unsafe extern "system" fn IsSafeToDelete<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdllname: *mut core::ffi::c_void, pcomadmininuse: *mut COMAdminInUse) -> windows_core::HRESULT {
@@ -1225,19 +1225,19 @@ impl ICOMAdminCatalog2_Vtbl {
         unsafe extern "system" fn ImportUnconfiguredComponents<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplicationidorname: *mut core::ffi::c_void, pvarclsidorprogid: *const super::VARIANT, pvarcomponenttype: *const super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog2_Impl::ImportUnconfiguredComponents(this, core::mem::transmute(&bstrapplicationidorname), core::mem::transmute_copy(&pvarclsidorprogid), core::mem::transmute_copy(&pvarcomponenttype)).into()
+                ICOMAdminCatalog2_Impl::ImportUnconfiguredComponents(this, core::mem::transmute(&bstrapplicationidorname), core::mem::transmute_copy(&pvarclsidorprogid), core::mem::transmute_copy(&pvarcomponenttype))
             }
         }
         unsafe extern "system" fn PromoteUnconfiguredComponents<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplicationidorname: *mut core::ffi::c_void, pvarclsidorprogid: *const super::VARIANT, pvarcomponenttype: *const super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog2_Impl::PromoteUnconfiguredComponents(this, core::mem::transmute(&bstrapplicationidorname), core::mem::transmute_copy(&pvarclsidorprogid), core::mem::transmute_copy(&pvarcomponenttype)).into()
+                ICOMAdminCatalog2_Impl::PromoteUnconfiguredComponents(this, core::mem::transmute(&bstrapplicationidorname), core::mem::transmute_copy(&pvarclsidorprogid), core::mem::transmute_copy(&pvarcomponenttype))
             }
         }
         unsafe extern "system" fn ImportComponents<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplicationidorname: *mut core::ffi::c_void, pvarclsidorprogid: *const super::VARIANT, pvarcomponenttype: *const super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog2_Impl::ImportComponents(this, core::mem::transmute(&bstrapplicationidorname), core::mem::transmute_copy(&pvarclsidorprogid), core::mem::transmute_copy(&pvarcomponenttype)).into()
+                ICOMAdminCatalog2_Impl::ImportComponents(this, core::mem::transmute(&bstrapplicationidorname), core::mem::transmute_copy(&pvarclsidorprogid), core::mem::transmute_copy(&pvarcomponenttype))
             }
         }
         unsafe extern "system" fn Is64BitCatalogServer<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbis64bit: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -1258,13 +1258,13 @@ impl ICOMAdminCatalog2_Vtbl {
         unsafe extern "system" fn ExportPartition<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpartitionidorname: *mut core::ffi::c_void, bstrpartitionfilename: *mut core::ffi::c_void, loptions: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog2_Impl::ExportPartition(this, core::mem::transmute(&bstrpartitionidorname), core::mem::transmute(&bstrpartitionfilename), core::mem::transmute_copy(&loptions)).into()
+                ICOMAdminCatalog2_Impl::ExportPartition(this, core::mem::transmute(&bstrpartitionidorname), core::mem::transmute(&bstrpartitionfilename), core::mem::transmute_copy(&loptions))
             }
         }
         unsafe extern "system" fn InstallPartition<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrfilename: *mut core::ffi::c_void, bstrdestdirectory: *mut core::ffi::c_void, loptions: i32, bstruserid: *mut core::ffi::c_void, bstrpassword: *mut core::ffi::c_void, bstrrsn: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog2_Impl::InstallPartition(this, core::mem::transmute(&bstrfilename), core::mem::transmute(&bstrdestdirectory), core::mem::transmute_copy(&loptions), core::mem::transmute(&bstruserid), core::mem::transmute(&bstrpassword), core::mem::transmute(&bstrrsn)).into()
+                ICOMAdminCatalog2_Impl::InstallPartition(this, core::mem::transmute(&bstrfilename), core::mem::transmute(&bstrdestdirectory), core::mem::transmute_copy(&loptions), core::mem::transmute(&bstruserid), core::mem::transmute(&bstrpassword), core::mem::transmute(&bstrrsn))
             }
         }
         unsafe extern "system" fn QueryApplicationFile2<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplicationfile: *mut core::ffi::c_void, ppfilesforimport: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1483,9 +1483,9 @@ pub trait ICatalogCollection_Impl: super::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Item(&self, lindex: i32) -> windows_core::Result<super::IDispatch>;
     fn Count(&self) -> windows_core::Result<i32>;
-    fn Remove(&self, lindex: i32) -> windows_core::Result<()>;
+    fn Remove(&self, lindex: i32) -> windows_core::HRESULT;
     fn Add(&self) -> windows_core::Result<super::IDispatch>;
-    fn Populate(&self) -> windows_core::Result<()>;
+    fn Populate(&self) -> windows_core::HRESULT;
     fn SaveChanges(&self) -> windows_core::Result<i32>;
     fn GetCollection(&self, bstrcollname: &windows_core::BSTR, varobjectkey: &super::VARIANT) -> windows_core::Result<super::IDispatch>;
     fn Name(&self) -> windows_core::Result<super::VARIANT>;
@@ -1494,8 +1494,8 @@ pub trait ICatalogCollection_Impl: super::IDispatch_Impl {
     fn GetUtilInterface(&self) -> windows_core::Result<super::IDispatch>;
     fn DataStoreMajorVersion(&self) -> windows_core::Result<i32>;
     fn DataStoreMinorVersion(&self) -> windows_core::Result<i32>;
-    fn PopulateByKey(&self, psakeys: *const super::SAFEARRAY) -> windows_core::Result<()>;
-    fn PopulateByQuery(&self, bstrquerystring: &windows_core::BSTR, lquerytype: i32) -> windows_core::Result<()>;
+    fn PopulateByKey(&self, psakeys: *const super::SAFEARRAY) -> windows_core::HRESULT;
+    fn PopulateByQuery(&self, bstrquerystring: &windows_core::BSTR, lquerytype: i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICatalogCollection_Vtbl {
@@ -1548,7 +1548,7 @@ impl ICatalogCollection_Vtbl {
         unsafe extern "system" fn Remove<Identity: ICatalogCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICatalogCollection_Impl::Remove(this, core::mem::transmute_copy(&lindex)).into()
+                ICatalogCollection_Impl::Remove(this, core::mem::transmute_copy(&lindex))
             }
         }
         unsafe extern "system" fn Add<Identity: ICatalogCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcatalogobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1569,7 +1569,7 @@ impl ICatalogCollection_Vtbl {
         unsafe extern "system" fn Populate<Identity: ICatalogCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICatalogCollection_Impl::Populate(this).into()
+                ICatalogCollection_Impl::Populate(this)
             }
         }
         unsafe extern "system" fn SaveChanges<Identity: ICatalogCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcchanges: *mut i32) -> windows_core::HRESULT {
@@ -1695,13 +1695,13 @@ impl ICatalogCollection_Vtbl {
         unsafe extern "system" fn PopulateByKey<Identity: ICatalogCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psakeys: *const super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICatalogCollection_Impl::PopulateByKey(this, core::mem::transmute_copy(&psakeys)).into()
+                ICatalogCollection_Impl::PopulateByKey(this, core::mem::transmute_copy(&psakeys))
             }
         }
         unsafe extern "system" fn PopulateByQuery<Identity: ICatalogCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrquerystring: *mut core::ffi::c_void, lquerytype: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICatalogCollection_Impl::PopulateByQuery(this, core::mem::transmute(&bstrquerystring), core::mem::transmute_copy(&lquerytype)).into()
+                ICatalogCollection_Impl::PopulateByQuery(this, core::mem::transmute(&bstrquerystring), core::mem::transmute_copy(&lquerytype))
             }
         }
         Self {
@@ -1827,7 +1827,7 @@ pub struct ICatalogObject_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICatalogObject_Impl: super::IDispatch_Impl {
     fn Value(&self, bstrpropname: &windows_core::BSTR) -> windows_core::Result<super::VARIANT>;
-    fn SetValue(&self, bstrpropname: &windows_core::BSTR, val: &super::VARIANT) -> windows_core::Result<()>;
+    fn SetValue(&self, bstrpropname: &windows_core::BSTR, val: &super::VARIANT) -> windows_core::HRESULT;
     fn Key(&self) -> windows_core::Result<super::VARIANT>;
     fn Name(&self) -> windows_core::Result<super::VARIANT>;
     fn IsPropertyReadOnly(&self, bstrpropname: &windows_core::BSTR) -> windows_core::Result<super::VARIANT_BOOL>;
@@ -1855,7 +1855,7 @@ impl ICatalogObject_Vtbl {
         unsafe extern "system" fn SetValue<Identity: ICatalogObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropname: *mut core::ffi::c_void, val: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICatalogObject_Impl::SetValue(this, core::mem::transmute(&bstrpropname), core::mem::transmute(&val)).into()
+                ICatalogObject_Impl::SetValue(this, core::mem::transmute(&bstrpropname), core::mem::transmute(&val))
             }
         }
         unsafe extern "system" fn Key<Identity: ICatalogObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarretval: *mut super::VARIANT) -> windows_core::HRESULT {

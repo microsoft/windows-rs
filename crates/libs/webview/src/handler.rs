@@ -18,7 +18,7 @@ impl EnvironmentCompleted {
 }
 
 impl ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Impl for EnvironmentCompleted_Impl {
-    fn Invoke(&self, errorcode: HRESULT, result: Ref<ICoreWebView2Environment>) -> Result<()> {
+    fn Invoke(&self, errorcode: HRESULT, result: Ref<ICoreWebView2Environment>) -> HRESULT {
         let outcome = errorcode
             .ok()
             .and_then(|()| Ok(Environment(result.ok()?.clone())));
@@ -27,7 +27,7 @@ impl ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Impl for Environ
             handler(outcome);
         }
 
-        Ok(())
+        HRESULT(0)
     }
 }
 
@@ -47,7 +47,7 @@ impl ControllerCompleted {
 }
 
 impl ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Impl for ControllerCompleted_Impl {
-    fn Invoke(&self, errorcode: HRESULT, result: Ref<ICoreWebView2Controller>) -> Result<()> {
+    fn Invoke(&self, errorcode: HRESULT, result: Ref<ICoreWebView2Controller>) -> HRESULT {
         let outcome = errorcode
             .ok()
             .and_then(|()| Ok(Controller(result.ok()?.clone())));
@@ -56,7 +56,7 @@ impl ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Impl for Controll
             handler(outcome);
         }
 
-        Ok(())
+        HRESULT(0)
     }
 }
 
@@ -76,7 +76,7 @@ impl ExecuteScriptCompleted {
 }
 
 impl ICoreWebView2ExecuteScriptCompletedHandler_Impl for ExecuteScriptCompleted_Impl {
-    fn Invoke(&self, errorcode: HRESULT, result: &PCWSTR) -> Result<()> {
+    fn Invoke(&self, errorcode: HRESULT, result: &PCWSTR) -> HRESULT {
         let outcome = errorcode
             .ok()
             .map(|()| unsafe { result.to_string().unwrap_or_default() });
@@ -85,7 +85,7 @@ impl ICoreWebView2ExecuteScriptCompletedHandler_Impl for ExecuteScriptCompleted_
             handler(outcome);
         }
 
-        Ok(())
+        HRESULT(0)
     }
 }
 
@@ -107,7 +107,7 @@ impl AddScriptCompleted {
 impl ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Impl
     for AddScriptCompleted_Impl
 {
-    fn Invoke(&self, errorcode: HRESULT, id: &PCWSTR) -> Result<()> {
+    fn Invoke(&self, errorcode: HRESULT, id: &PCWSTR) -> HRESULT {
         let outcome = errorcode
             .ok()
             .map(|()| unsafe { id.to_string().unwrap_or_default() });
@@ -116,7 +116,7 @@ impl ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Impl
             handler(outcome);
         }
 
-        Ok(())
+        HRESULT(0)
     }
 }
 
@@ -136,14 +136,14 @@ impl GetCookiesCompleted {
 }
 
 impl ICoreWebView2GetCookiesCompletedHandler_Impl for GetCookiesCompleted_Impl {
-    fn Invoke(&self, errorcode: HRESULT, result: Ref<ICoreWebView2CookieList>) -> Result<()> {
+    fn Invoke(&self, errorcode: HRESULT, result: Ref<ICoreWebView2CookieList>) -> HRESULT {
         let outcome = errorcode.ok().and_then(|()| cookie::collect(result.ok()?));
 
         if let Some(handler) = self.0.take() {
             handler(outcome);
         }
 
-        Ok(())
+        HRESULT(0)
     }
 }
 
@@ -163,12 +163,12 @@ impl ClearBrowsingDataCompleted {
 }
 
 impl ICoreWebView2ClearBrowsingDataCompletedHandler_Impl for ClearBrowsingDataCompleted_Impl {
-    fn Invoke(&self, errorcode: HRESULT) -> Result<()> {
+    fn Invoke(&self, errorcode: HRESULT) -> HRESULT {
         if let Some(handler) = self.0.take() {
             handler(errorcode.ok());
         }
 
-        Ok(())
+        HRESULT(0)
     }
 }
 
@@ -192,7 +192,7 @@ impl CallDevToolsProtocolMethodCompleted {
 impl ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Impl
     for CallDevToolsProtocolMethodCompleted_Impl
 {
-    fn Invoke(&self, errorcode: HRESULT, result: &PCWSTR) -> Result<()> {
+    fn Invoke(&self, errorcode: HRESULT, result: &PCWSTR) -> HRESULT {
         let outcome = errorcode
             .ok()
             .map(|()| unsafe { result.to_string().unwrap_or_default() });
@@ -201,7 +201,7 @@ impl ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Impl
             handler(outcome);
         }
 
-        Ok(())
+        HRESULT(0)
     }
 }
 
@@ -224,10 +224,11 @@ macro_rules! event_handler {
         }
 
         impl $handler_trait for $impl {
-            fn Invoke(&self, _sender: Ref<$sender>, args: Ref<$args>) -> Result<()> {
-                let args = $wrapper(args.ok()?.clone());
-                (*self.0.borrow_mut())(args);
-                Ok(())
+            fn Invoke(&self, _sender: Ref<$sender>, args: Ref<$args>) -> HRESULT {
+                args.ok().map(|args| {
+                    let args = $wrapper(args.clone());
+                    (*self.0.borrow_mut())(args);
+                }).into()
             }
         }
     };
@@ -245,10 +246,11 @@ macro_rules! event_handler {
         }
 
         impl $handler_trait for $impl {
-            fn Invoke(&self, sender: Ref<$sender>, _args: Ref<IUnknown>) -> Result<()> {
-                let value = $wrapper(sender.ok()?.clone());
-                (*self.0.borrow_mut())(value);
-                Ok(())
+            fn Invoke(&self, sender: Ref<$sender>, _args: Ref<IUnknown>) -> HRESULT {
+                sender.ok().map(|sender| {
+                    let value = $wrapper(sender.clone());
+                    (*self.0.borrow_mut())(value);
+                }).into()
             }
         }
     };
@@ -284,9 +286,9 @@ impl FocusChanged {
 }
 
 impl ICoreWebView2FocusChangedEventHandler_Impl for FocusChanged_Impl {
-    fn Invoke(&self, _sender: Ref<ICoreWebView2Controller>, _args: Ref<IUnknown>) -> Result<()> {
+    fn Invoke(&self, _sender: Ref<ICoreWebView2Controller>, _args: Ref<IUnknown>) -> HRESULT {
         (*self.0.borrow_mut())();
-        Ok(())
+        HRESULT(0)
     }
 }
 
@@ -306,11 +308,11 @@ impl DocumentTitleChanged {
 }
 
 impl ICoreWebView2DocumentTitleChangedEventHandler_Impl for DocumentTitleChanged_Impl {
-    fn Invoke(&self, sender: Ref<ICoreWebView2>, _args: Ref<IUnknown>) -> Result<()> {
+    fn Invoke(&self, sender: Ref<ICoreWebView2>, _args: Ref<IUnknown>) -> HRESULT {
         let title =
             unsafe { string::take_result(sender.ok().and_then(|sender| sender.DocumentTitle())) };
         (*self.0.borrow_mut())(title);
-        Ok(())
+        HRESULT(0)
     }
 }
 
@@ -332,13 +334,13 @@ impl ContainsFullScreenElementChanged {
 impl ICoreWebView2ContainsFullScreenElementChangedEventHandler_Impl
     for ContainsFullScreenElementChanged_Impl
 {
-    fn Invoke(&self, sender: Ref<ICoreWebView2>, _args: Ref<IUnknown>) -> Result<()> {
+    fn Invoke(&self, sender: Ref<ICoreWebView2>, _args: Ref<IUnknown>) -> HRESULT {
         let contains = sender
             .ok()
             .and_then(|sender| unsafe { sender.ContainsFullScreenElement() })
             .is_ok_and(|value| value.as_bool());
         (*self.0.borrow_mut())(contains);
-        Ok(())
+        HRESULT(0)
     }
 }
 
@@ -358,9 +360,9 @@ impl WindowCloseRequested {
 }
 
 impl ICoreWebView2WindowCloseRequestedEventHandler_Impl for WindowCloseRequested_Impl {
-    fn Invoke(&self, _sender: Ref<ICoreWebView2>, _args: Ref<IUnknown>) -> Result<()> {
+    fn Invoke(&self, _sender: Ref<ICoreWebView2>, _args: Ref<IUnknown>) -> HRESULT {
         (*self.0.borrow_mut())();
-        Ok(())
+        HRESULT(0)
     }
 }
 

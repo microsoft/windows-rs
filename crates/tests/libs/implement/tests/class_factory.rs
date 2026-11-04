@@ -33,9 +33,9 @@ impl IClassFactory_Impl for Factory_Impl {
         unsafe { unknown.query(iid, object).ok() }
     }
 
-    fn LockServer(&self, lock: BOOL) -> Result<()> {
+    fn LockServer(&self, lock: BOOL) -> HRESULT {
         assert!(lock.as_bool());
-        Ok(())
+        S_OK
     }
 }
 

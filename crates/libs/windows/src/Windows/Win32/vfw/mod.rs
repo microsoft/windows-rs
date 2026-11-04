@@ -1343,9 +1343,9 @@ pub struct IAVIEditStream_Vtbl {
 pub trait IAVIEditStream_Impl: windows_core::IUnknownImpl {
     fn Cut(&self, plstart: *mut super::LONG, pllength: *mut super::LONG) -> windows_core::Result<PAVISTREAM>;
     fn Copy(&self, plstart: *mut super::LONG, pllength: *mut super::LONG) -> windows_core::Result<PAVISTREAM>;
-    fn Paste(&self, plpos: *mut super::LONG, pllength: *mut super::LONG, pstream: windows_core::Ref<PAVISTREAM>, lstart: super::LONG, lend: super::LONG) -> windows_core::Result<()>;
+    fn Paste(&self, plpos: *mut super::LONG, pllength: *mut super::LONG, pstream: windows_core::Ref<PAVISTREAM>, lstart: super::LONG, lend: super::LONG) -> windows_core::HRESULT;
     fn Clone(&self) -> windows_core::Result<PAVISTREAM>;
-    fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: super::LONG) -> windows_core::Result<()>;
+    fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: super::LONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl IAVIEditStream_Vtbl {
@@ -1383,7 +1383,7 @@ impl IAVIEditStream_Vtbl {
         unsafe extern "system" fn Paste<Identity: IAVIEditStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plpos: *mut super::LONG, pllength: *mut super::LONG, pstream: *mut core::ffi::c_void, lstart: super::LONG, lend: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIEditStream_Impl::Paste(this, core::mem::transmute_copy(&plpos), core::mem::transmute_copy(&pllength), core::mem::transmute_copy(&pstream), core::mem::transmute_copy(&lstart), core::mem::transmute_copy(&lend)).into()
+                IAVIEditStream_Impl::Paste(this, core::mem::transmute_copy(&plpos), core::mem::transmute_copy(&pllength), core::mem::transmute_copy(&pstream), core::mem::transmute_copy(&lstart), core::mem::transmute_copy(&lend))
             }
         }
         unsafe extern "system" fn Clone<Identity: IAVIEditStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1404,7 +1404,7 @@ impl IAVIEditStream_Vtbl {
         unsafe extern "system" fn SetInfo<Identity: IAVIEditStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpinfo: *const AVISTREAMINFOW, cbinfo: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIEditStream_Impl::SetInfo(this, core::mem::transmute_copy(&lpinfo), core::mem::transmute_copy(&cbinfo)).into()
+                IAVIEditStream_Impl::SetInfo(this, core::mem::transmute_copy(&lpinfo), core::mem::transmute_copy(&cbinfo))
             }
         }
         Self {
@@ -1485,13 +1485,13 @@ pub struct IAVIFile_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IAVIFile_Impl: windows_core::IUnknownImpl {
-    fn Info(&self, pfi: *mut AVIFILEINFOW, lsize: super::LONG) -> windows_core::Result<()>;
-    fn GetStream(&self, ppstream: windows_core::OutRef<PAVISTREAM>, fcctype: super::DWORD, lparam: super::LONG) -> windows_core::Result<()>;
-    fn CreateStream(&self, ppstream: windows_core::OutRef<PAVISTREAM>, psi: *const AVISTREAMINFOW) -> windows_core::Result<()>;
-    fn WriteData(&self, ckid: super::DWORD, lpdata: super::LPVOID, cbdata: super::LONG) -> windows_core::Result<()>;
-    fn ReadData(&self, ckid: super::DWORD, lpdata: super::LPVOID, lpcbdata: *mut super::LONG) -> windows_core::Result<()>;
-    fn EndRecord(&self) -> windows_core::Result<()>;
-    fn DeleteStream(&self, fcctype: super::DWORD, lparam: super::LONG) -> windows_core::Result<()>;
+    fn Info(&self, pfi: *mut AVIFILEINFOW, lsize: super::LONG) -> windows_core::HRESULT;
+    fn GetStream(&self, ppstream: windows_core::OutRef<PAVISTREAM>, fcctype: super::DWORD, lparam: super::LONG) -> windows_core::HRESULT;
+    fn CreateStream(&self, ppstream: windows_core::OutRef<PAVISTREAM>, psi: *const AVISTREAMINFOW) -> windows_core::HRESULT;
+    fn WriteData(&self, ckid: super::DWORD, lpdata: super::LPVOID, cbdata: super::LONG) -> windows_core::HRESULT;
+    fn ReadData(&self, ckid: super::DWORD, lpdata: super::LPVOID, lpcbdata: *mut super::LONG) -> windows_core::HRESULT;
+    fn EndRecord(&self) -> windows_core::HRESULT;
+    fn DeleteStream(&self, fcctype: super::DWORD, lparam: super::LONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl IAVIFile_Vtbl {
@@ -1499,43 +1499,43 @@ impl IAVIFile_Vtbl {
         unsafe extern "system" fn Info<Identity: IAVIFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfi: *mut AVIFILEINFOW, lsize: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIFile_Impl::Info(this, core::mem::transmute_copy(&pfi), core::mem::transmute_copy(&lsize)).into()
+                IAVIFile_Impl::Info(this, core::mem::transmute_copy(&pfi), core::mem::transmute_copy(&lsize))
             }
         }
         unsafe extern "system" fn GetStream<Identity: IAVIFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppstream: *mut *mut core::ffi::c_void, fcctype: super::DWORD, lparam: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIFile_Impl::GetStream(this, core::mem::transmute_copy(&ppstream), core::mem::transmute_copy(&fcctype), core::mem::transmute_copy(&lparam)).into()
+                IAVIFile_Impl::GetStream(this, core::mem::transmute_copy(&ppstream), core::mem::transmute_copy(&fcctype), core::mem::transmute_copy(&lparam))
             }
         }
         unsafe extern "system" fn CreateStream<Identity: IAVIFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppstream: *mut *mut core::ffi::c_void, psi: *const AVISTREAMINFOW) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIFile_Impl::CreateStream(this, core::mem::transmute_copy(&ppstream), core::mem::transmute_copy(&psi)).into()
+                IAVIFile_Impl::CreateStream(this, core::mem::transmute_copy(&ppstream), core::mem::transmute_copy(&psi))
             }
         }
         unsafe extern "system" fn WriteData<Identity: IAVIFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ckid: super::DWORD, lpdata: super::LPVOID, cbdata: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIFile_Impl::WriteData(this, core::mem::transmute_copy(&ckid), core::mem::transmute_copy(&lpdata), core::mem::transmute_copy(&cbdata)).into()
+                IAVIFile_Impl::WriteData(this, core::mem::transmute_copy(&ckid), core::mem::transmute_copy(&lpdata), core::mem::transmute_copy(&cbdata))
             }
         }
         unsafe extern "system" fn ReadData<Identity: IAVIFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ckid: super::DWORD, lpdata: super::LPVOID, lpcbdata: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIFile_Impl::ReadData(this, core::mem::transmute_copy(&ckid), core::mem::transmute_copy(&lpdata), core::mem::transmute_copy(&lpcbdata)).into()
+                IAVIFile_Impl::ReadData(this, core::mem::transmute_copy(&ckid), core::mem::transmute_copy(&lpdata), core::mem::transmute_copy(&lpcbdata))
             }
         }
         unsafe extern "system" fn EndRecord<Identity: IAVIFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIFile_Impl::EndRecord(this).into()
+                IAVIFile_Impl::EndRecord(this)
             }
         }
         unsafe extern "system" fn DeleteStream<Identity: IAVIFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fcctype: super::DWORD, lparam: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIFile_Impl::DeleteStream(this, core::mem::transmute_copy(&fcctype), core::mem::transmute_copy(&lparam)).into()
+                IAVIFile_Impl::DeleteStream(this, core::mem::transmute_copy(&fcctype), core::mem::transmute_copy(&lparam))
             }
         }
         Self {
@@ -1581,7 +1581,7 @@ pub struct IAVIPersistFile_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "objidl", feature = "shared", feature = "wtypesbase"))]
 pub trait IAVIPersistFile_Impl: super::IPersistFile_Impl {
-    fn Reserved1(&self) -> windows_core::Result<()>;
+    fn Reserved1(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "objidl", feature = "shared", feature = "wtypesbase"))]
 impl IAVIPersistFile_Vtbl {
@@ -1589,7 +1589,7 @@ impl IAVIPersistFile_Vtbl {
         unsafe extern "system" fn Reserved1<Identity: IAVIPersistFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIPersistFile_Impl::Reserved1(this).into()
+                IAVIPersistFile_Impl::Reserved1(this)
             }
         }
         Self { base__: super::IPersistFile_Vtbl::new::<Identity, OFFSET>(), Reserved1: Reserved1::<Identity, OFFSET> }
@@ -1699,17 +1699,17 @@ pub struct IAVIStream_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IAVIStream_Impl: windows_core::IUnknownImpl {
-    fn Create(&self, lparam1: super::LPARAM, lparam2: super::LPARAM) -> windows_core::Result<()>;
-    fn Info(&self, psi: *mut AVISTREAMINFOW, lsize: super::LONG) -> windows_core::Result<()>;
+    fn Create(&self, lparam1: super::LPARAM, lparam2: super::LPARAM) -> windows_core::HRESULT;
+    fn Info(&self, psi: *mut AVISTREAMINFOW, lsize: super::LONG) -> windows_core::HRESULT;
     fn FindSample(&self, lpos: super::LONG, lflags: super::LONG) -> super::LONG;
-    fn ReadFormat(&self, lpos: super::LONG, lpformat: super::LPVOID, lpcbformat: *mut super::LONG) -> windows_core::Result<()>;
-    fn SetFormat(&self, lpos: super::LONG, lpformat: super::LPVOID, cbformat: super::LONG) -> windows_core::Result<()>;
-    fn Read(&self, lstart: super::LONG, lsamples: super::LONG, lpbuffer: super::LPVOID, cbbuffer: super::LONG, plbytes: *mut super::LONG, plsamples: *mut super::LONG) -> windows_core::Result<()>;
-    fn Write(&self, lstart: super::LONG, lsamples: super::LONG, lpbuffer: super::LPVOID, cbbuffer: super::LONG, dwflags: super::DWORD, plsampwritten: *mut super::LONG, plbyteswritten: *mut super::LONG) -> windows_core::Result<()>;
-    fn Delete(&self, lstart: super::LONG, lsamples: super::LONG) -> windows_core::Result<()>;
-    fn ReadData(&self, fcc: super::DWORD, lp: super::LPVOID, lpcb: *mut super::LONG) -> windows_core::Result<()>;
-    fn WriteData(&self, fcc: super::DWORD, lp: super::LPVOID, cb: super::LONG) -> windows_core::Result<()>;
-    fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: super::LONG) -> windows_core::Result<()>;
+    fn ReadFormat(&self, lpos: super::LONG, lpformat: super::LPVOID, lpcbformat: *mut super::LONG) -> windows_core::HRESULT;
+    fn SetFormat(&self, lpos: super::LONG, lpformat: super::LPVOID, cbformat: super::LONG) -> windows_core::HRESULT;
+    fn Read(&self, lstart: super::LONG, lsamples: super::LONG, lpbuffer: super::LPVOID, cbbuffer: super::LONG, plbytes: *mut super::LONG, plsamples: *mut super::LONG) -> windows_core::HRESULT;
+    fn Write(&self, lstart: super::LONG, lsamples: super::LONG, lpbuffer: super::LPVOID, cbbuffer: super::LONG, dwflags: super::DWORD, plsampwritten: *mut super::LONG, plbyteswritten: *mut super::LONG) -> windows_core::HRESULT;
+    fn Delete(&self, lstart: super::LONG, lsamples: super::LONG) -> windows_core::HRESULT;
+    fn ReadData(&self, fcc: super::DWORD, lp: super::LPVOID, lpcb: *mut super::LONG) -> windows_core::HRESULT;
+    fn WriteData(&self, fcc: super::DWORD, lp: super::LPVOID, cb: super::LONG) -> windows_core::HRESULT;
+    fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: super::LONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl IAVIStream_Vtbl {
@@ -1717,13 +1717,13 @@ impl IAVIStream_Vtbl {
         unsafe extern "system" fn Create<Identity: IAVIStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lparam1: super::LPARAM, lparam2: super::LPARAM) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIStream_Impl::Create(this, core::mem::transmute_copy(&lparam1), core::mem::transmute_copy(&lparam2)).into()
+                IAVIStream_Impl::Create(this, core::mem::transmute_copy(&lparam1), core::mem::transmute_copy(&lparam2))
             }
         }
         unsafe extern "system" fn Info<Identity: IAVIStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psi: *mut AVISTREAMINFOW, lsize: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIStream_Impl::Info(this, core::mem::transmute_copy(&psi), core::mem::transmute_copy(&lsize)).into()
+                IAVIStream_Impl::Info(this, core::mem::transmute_copy(&psi), core::mem::transmute_copy(&lsize))
             }
         }
         unsafe extern "system" fn FindSample<Identity: IAVIStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpos: super::LONG, lflags: super::LONG) -> super::LONG {
@@ -1735,49 +1735,49 @@ impl IAVIStream_Vtbl {
         unsafe extern "system" fn ReadFormat<Identity: IAVIStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpos: super::LONG, lpformat: super::LPVOID, lpcbformat: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIStream_Impl::ReadFormat(this, core::mem::transmute_copy(&lpos), core::mem::transmute_copy(&lpformat), core::mem::transmute_copy(&lpcbformat)).into()
+                IAVIStream_Impl::ReadFormat(this, core::mem::transmute_copy(&lpos), core::mem::transmute_copy(&lpformat), core::mem::transmute_copy(&lpcbformat))
             }
         }
         unsafe extern "system" fn SetFormat<Identity: IAVIStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpos: super::LONG, lpformat: super::LPVOID, cbformat: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIStream_Impl::SetFormat(this, core::mem::transmute_copy(&lpos), core::mem::transmute_copy(&lpformat), core::mem::transmute_copy(&cbformat)).into()
+                IAVIStream_Impl::SetFormat(this, core::mem::transmute_copy(&lpos), core::mem::transmute_copy(&lpformat), core::mem::transmute_copy(&cbformat))
             }
         }
         unsafe extern "system" fn Read<Identity: IAVIStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lstart: super::LONG, lsamples: super::LONG, lpbuffer: super::LPVOID, cbbuffer: super::LONG, plbytes: *mut super::LONG, plsamples: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIStream_Impl::Read(this, core::mem::transmute_copy(&lstart), core::mem::transmute_copy(&lsamples), core::mem::transmute_copy(&lpbuffer), core::mem::transmute_copy(&cbbuffer), core::mem::transmute_copy(&plbytes), core::mem::transmute_copy(&plsamples)).into()
+                IAVIStream_Impl::Read(this, core::mem::transmute_copy(&lstart), core::mem::transmute_copy(&lsamples), core::mem::transmute_copy(&lpbuffer), core::mem::transmute_copy(&cbbuffer), core::mem::transmute_copy(&plbytes), core::mem::transmute_copy(&plsamples))
             }
         }
         unsafe extern "system" fn Write<Identity: IAVIStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lstart: super::LONG, lsamples: super::LONG, lpbuffer: super::LPVOID, cbbuffer: super::LONG, dwflags: super::DWORD, plsampwritten: *mut super::LONG, plbyteswritten: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIStream_Impl::Write(this, core::mem::transmute_copy(&lstart), core::mem::transmute_copy(&lsamples), core::mem::transmute_copy(&lpbuffer), core::mem::transmute_copy(&cbbuffer), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&plsampwritten), core::mem::transmute_copy(&plbyteswritten)).into()
+                IAVIStream_Impl::Write(this, core::mem::transmute_copy(&lstart), core::mem::transmute_copy(&lsamples), core::mem::transmute_copy(&lpbuffer), core::mem::transmute_copy(&cbbuffer), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&plsampwritten), core::mem::transmute_copy(&plbyteswritten))
             }
         }
         unsafe extern "system" fn Delete<Identity: IAVIStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lstart: super::LONG, lsamples: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIStream_Impl::Delete(this, core::mem::transmute_copy(&lstart), core::mem::transmute_copy(&lsamples)).into()
+                IAVIStream_Impl::Delete(this, core::mem::transmute_copy(&lstart), core::mem::transmute_copy(&lsamples))
             }
         }
         unsafe extern "system" fn ReadData<Identity: IAVIStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fcc: super::DWORD, lp: super::LPVOID, lpcb: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIStream_Impl::ReadData(this, core::mem::transmute_copy(&fcc), core::mem::transmute_copy(&lp), core::mem::transmute_copy(&lpcb)).into()
+                IAVIStream_Impl::ReadData(this, core::mem::transmute_copy(&fcc), core::mem::transmute_copy(&lp), core::mem::transmute_copy(&lpcb))
             }
         }
         unsafe extern "system" fn WriteData<Identity: IAVIStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fcc: super::DWORD, lp: super::LPVOID, cb: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIStream_Impl::WriteData(this, core::mem::transmute_copy(&fcc), core::mem::transmute_copy(&lp), core::mem::transmute_copy(&cb)).into()
+                IAVIStream_Impl::WriteData(this, core::mem::transmute_copy(&fcc), core::mem::transmute_copy(&lp), core::mem::transmute_copy(&cb))
             }
         }
         unsafe extern "system" fn SetInfo<Identity: IAVIStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpinfo: *const AVISTREAMINFOW, cbinfo: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIStream_Impl::SetInfo(this, core::mem::transmute_copy(&lpinfo), core::mem::transmute_copy(&cbinfo)).into()
+                IAVIStream_Impl::SetInfo(this, core::mem::transmute_copy(&lpinfo), core::mem::transmute_copy(&cbinfo))
             }
         }
         Self {
@@ -1824,8 +1824,8 @@ pub struct IAVIStreaming_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IAVIStreaming_Impl: windows_core::IUnknownImpl {
-    fn Begin(&self, lstart: super::LONG, lend: super::LONG, lrate: super::LONG) -> windows_core::Result<()>;
-    fn End(&self) -> windows_core::Result<()>;
+    fn Begin(&self, lstart: super::LONG, lend: super::LONG, lrate: super::LONG) -> windows_core::HRESULT;
+    fn End(&self) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IAVIStreaming_Vtbl {
@@ -1833,13 +1833,13 @@ impl IAVIStreaming_Vtbl {
         unsafe extern "system" fn Begin<Identity: IAVIStreaming_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lstart: super::LONG, lend: super::LONG, lrate: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIStreaming_Impl::Begin(this, core::mem::transmute_copy(&lstart), core::mem::transmute_copy(&lend), core::mem::transmute_copy(&lrate)).into()
+                IAVIStreaming_Impl::Begin(this, core::mem::transmute_copy(&lstart), core::mem::transmute_copy(&lend), core::mem::transmute_copy(&lrate))
             }
         }
         unsafe extern "system" fn End<Identity: IAVIStreaming_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIStreaming_Impl::End(this).into()
+                IAVIStreaming_Impl::End(this)
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Begin: Begin::<Identity, OFFSET>, End: End::<Identity, OFFSET> }
@@ -2209,9 +2209,9 @@ pub struct IGetFrame_Vtbl {
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "wingdi"))]
 pub trait IGetFrame_Impl: windows_core::IUnknownImpl {
     fn GetFrame(&self, lpos: super::LONG) -> super::LPVOID;
-    fn Begin(&self, lstart: super::LONG, lend: super::LONG, lrate: super::LONG) -> windows_core::Result<()>;
-    fn End(&self) -> windows_core::Result<()>;
-    fn SetFormat(&self, lpbi: super::LPBITMAPINFOHEADER, lpbits: super::LPVOID, x: i32, y: i32, dx: i32, dy: i32) -> windows_core::Result<()>;
+    fn Begin(&self, lstart: super::LONG, lend: super::LONG, lrate: super::LONG) -> windows_core::HRESULT;
+    fn End(&self) -> windows_core::HRESULT;
+    fn SetFormat(&self, lpbi: super::LPBITMAPINFOHEADER, lpbits: super::LPVOID, x: i32, y: i32, dx: i32, dy: i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "wingdi"))]
 impl IGetFrame_Vtbl {
@@ -2225,19 +2225,19 @@ impl IGetFrame_Vtbl {
         unsafe extern "system" fn Begin<Identity: IGetFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lstart: super::LONG, lend: super::LONG, lrate: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGetFrame_Impl::Begin(this, core::mem::transmute_copy(&lstart), core::mem::transmute_copy(&lend), core::mem::transmute_copy(&lrate)).into()
+                IGetFrame_Impl::Begin(this, core::mem::transmute_copy(&lstart), core::mem::transmute_copy(&lend), core::mem::transmute_copy(&lrate))
             }
         }
         unsafe extern "system" fn End<Identity: IGetFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGetFrame_Impl::End(this).into()
+                IGetFrame_Impl::End(this)
             }
         }
         unsafe extern "system" fn SetFormat<Identity: IGetFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpbi: super::LPBITMAPINFOHEADER, lpbits: super::LPVOID, x: i32, y: i32, dx: i32, dy: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGetFrame_Impl::SetFormat(this, core::mem::transmute_copy(&lpbi), core::mem::transmute_copy(&lpbits), core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&dx), core::mem::transmute_copy(&dy)).into()
+                IGetFrame_Impl::SetFormat(this, core::mem::transmute_copy(&lpbi), core::mem::transmute_copy(&lpbits), core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&dx), core::mem::transmute_copy(&dy))
             }
         }
         Self {

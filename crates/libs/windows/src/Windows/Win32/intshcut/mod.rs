@@ -45,9 +45,9 @@ pub struct IUniformResourceLocatorA_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 pub trait IUniformResourceLocatorA_Impl: windows_core::IUnknownImpl {
-    fn SetURL(&self, pcszurl: &windows_core::PCSTR, dwinflags: super::DWORD) -> windows_core::Result<()>;
-    fn GetURL(&self, ppszurl: *mut windows_core::PSTR) -> windows_core::Result<()>;
-    fn InvokeCommand(&self, purlici: PURLINVOKECOMMANDINFOA) -> windows_core::Result<()>;
+    fn SetURL(&self, pcszurl: &windows_core::PCSTR, dwinflags: super::DWORD) -> windows_core::HRESULT;
+    fn GetURL(&self, ppszurl: *mut windows_core::PSTR) -> windows_core::HRESULT;
+    fn InvokeCommand(&self, purlici: PURLINVOKECOMMANDINFOA) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 impl IUniformResourceLocatorA_Vtbl {
@@ -55,19 +55,19 @@ impl IUniformResourceLocatorA_Vtbl {
         unsafe extern "system" fn SetURL<Identity: IUniformResourceLocatorA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcszurl: windows_core::PCSTR, dwinflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUniformResourceLocatorA_Impl::SetURL(this, core::mem::transmute(&pcszurl), core::mem::transmute_copy(&dwinflags)).into()
+                IUniformResourceLocatorA_Impl::SetURL(this, core::mem::transmute(&pcszurl), core::mem::transmute_copy(&dwinflags))
             }
         }
         unsafe extern "system" fn GetURL<Identity: IUniformResourceLocatorA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszurl: *mut windows_core::PSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUniformResourceLocatorA_Impl::GetURL(this, core::mem::transmute_copy(&ppszurl)).into()
+                IUniformResourceLocatorA_Impl::GetURL(this, core::mem::transmute_copy(&ppszurl))
             }
         }
         unsafe extern "system" fn InvokeCommand<Identity: IUniformResourceLocatorA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, purlici: PURLINVOKECOMMANDINFOA) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUniformResourceLocatorA_Impl::InvokeCommand(this, core::mem::transmute_copy(&purlici)).into()
+                IUniformResourceLocatorA_Impl::InvokeCommand(this, core::mem::transmute_copy(&purlici))
             }
         }
         Self {
@@ -117,9 +117,9 @@ pub struct IUniformResourceLocatorW_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 pub trait IUniformResourceLocatorW_Impl: windows_core::IUnknownImpl {
-    fn SetURL(&self, pcszurl: &windows_core::PCWSTR, dwinflags: super::DWORD) -> windows_core::Result<()>;
-    fn GetURL(&self, ppszurl: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn InvokeCommand(&self, purlici: PURLINVOKECOMMANDINFOW) -> windows_core::Result<()>;
+    fn SetURL(&self, pcszurl: &windows_core::PCWSTR, dwinflags: super::DWORD) -> windows_core::HRESULT;
+    fn GetURL(&self, ppszurl: *mut windows_core::PWSTR) -> windows_core::HRESULT;
+    fn InvokeCommand(&self, purlici: PURLINVOKECOMMANDINFOW) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 impl IUniformResourceLocatorW_Vtbl {
@@ -127,19 +127,19 @@ impl IUniformResourceLocatorW_Vtbl {
         unsafe extern "system" fn SetURL<Identity: IUniformResourceLocatorW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcszurl: windows_core::PCWSTR, dwinflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUniformResourceLocatorW_Impl::SetURL(this, core::mem::transmute(&pcszurl), core::mem::transmute_copy(&dwinflags)).into()
+                IUniformResourceLocatorW_Impl::SetURL(this, core::mem::transmute(&pcszurl), core::mem::transmute_copy(&dwinflags))
             }
         }
         unsafe extern "system" fn GetURL<Identity: IUniformResourceLocatorW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszurl: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUniformResourceLocatorW_Impl::GetURL(this, core::mem::transmute_copy(&ppszurl)).into()
+                IUniformResourceLocatorW_Impl::GetURL(this, core::mem::transmute_copy(&ppszurl))
             }
         }
         unsafe extern "system" fn InvokeCommand<Identity: IUniformResourceLocatorW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, purlici: PURLINVOKECOMMANDINFOW) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUniformResourceLocatorW_Impl::InvokeCommand(this, core::mem::transmute_copy(&purlici)).into()
+                IUniformResourceLocatorW_Impl::InvokeCommand(this, core::mem::transmute_copy(&purlici))
             }
         }
         Self {

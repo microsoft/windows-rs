@@ -357,7 +357,7 @@ pub struct IModalWindow_Vtbl {
     pub Show: unsafe extern "system" fn(*mut core::ffi::c_void, HWND) -> windows_core::HRESULT,
 }
 pub trait IModalWindow_Impl: windows_core::IUnknownImpl {
-    fn Show(&self, hwndowner: HWND) -> windows_core::Result<()>;
+    fn Show(&self, hwndowner: HWND) -> windows_core::HRESULT;
 }
 impl IModalWindow_Vtbl {
     pub const fn new<Identity: IModalWindow_Impl, const OFFSET: isize>() -> Self {
@@ -368,7 +368,7 @@ impl IModalWindow_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IModalWindow_Impl::Show(this, core::mem::transmute_copy(&hwndowner)).into()
+                IModalWindow_Impl::Show(this, core::mem::transmute_copy(&hwndowner))
             }
         }
         Self {

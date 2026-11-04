@@ -74,11 +74,11 @@ pub struct AsyncIUnknown_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait AsyncIUnknown_Impl: windows_core::IUnknownImpl {
-    fn Begin_QueryInterface(&self, riid: *const super::IID) -> windows_core::Result<()>;
-    fn Finish_QueryInterface(&self, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn Begin_AddRef(&self) -> windows_core::Result<()>;
+    fn Begin_QueryInterface(&self, riid: *const super::IID) -> windows_core::HRESULT;
+    fn Finish_QueryInterface(&self, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT;
+    fn Begin_AddRef(&self) -> windows_core::HRESULT;
     fn Finish_AddRef(&self) -> super::ULONG;
-    fn Begin_Release(&self) -> windows_core::Result<()>;
+    fn Begin_Release(&self) -> windows_core::HRESULT;
     fn Finish_Release(&self) -> super::ULONG;
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
@@ -87,19 +87,19 @@ impl AsyncIUnknown_Vtbl {
         unsafe extern "system" fn Begin_QueryInterface<Identity: AsyncIUnknown_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                AsyncIUnknown_Impl::Begin_QueryInterface(this, core::mem::transmute_copy(&riid)).into()
+                AsyncIUnknown_Impl::Begin_QueryInterface(this, core::mem::transmute_copy(&riid))
             }
         }
         unsafe extern "system" fn Finish_QueryInterface<Identity: AsyncIUnknown_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                AsyncIUnknown_Impl::Finish_QueryInterface(this, core::mem::transmute_copy(&ppvobject)).into()
+                AsyncIUnknown_Impl::Finish_QueryInterface(this, core::mem::transmute_copy(&ppvobject))
             }
         }
         unsafe extern "system" fn Begin_AddRef<Identity: AsyncIUnknown_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                AsyncIUnknown_Impl::Begin_AddRef(this).into()
+                AsyncIUnknown_Impl::Begin_AddRef(this)
             }
         }
         unsafe extern "system" fn Finish_AddRef<Identity: AsyncIUnknown_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::ULONG {
@@ -111,7 +111,7 @@ impl AsyncIUnknown_Vtbl {
         unsafe extern "system" fn Begin_Release<Identity: AsyncIUnknown_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                AsyncIUnknown_Impl::Begin_Release(this).into()
+                AsyncIUnknown_Impl::Begin_Release(this)
             }
         }
         unsafe extern "system" fn Finish_Release<Identity: AsyncIUnknown_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::ULONG {
@@ -165,7 +165,7 @@ pub struct IClassFactory_Vtbl {
 #[cfg(feature = "guiddef")]
 pub trait IClassFactory_Impl: windows_core::IUnknownImpl {
     fn CreateInstance(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const super::IID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn LockServer(&self, flock: windows_core::BOOL) -> windows_core::Result<()>;
+    fn LockServer(&self, flock: windows_core::BOOL) -> windows_core::HRESULT;
 }
 #[cfg(feature = "guiddef")]
 impl IClassFactory_Vtbl {
@@ -179,7 +179,7 @@ impl IClassFactory_Vtbl {
         unsafe extern "system" fn LockServer<Identity: IClassFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flock: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IClassFactory_Impl::LockServer(this, core::mem::transmute_copy(&flock)).into()
+                IClassFactory_Impl::LockServer(this, core::mem::transmute_copy(&flock))
             }
         }
         Self {

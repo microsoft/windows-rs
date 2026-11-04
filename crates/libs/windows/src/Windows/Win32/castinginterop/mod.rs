@@ -61,11 +61,11 @@ pub struct ICastingController_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ICastingController_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, castingengine: windows_core::Ref<windows_core::IUnknown>, castingsource: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn Connect(&self) -> windows_core::Result<()>;
-    fn Disconnect(&self) -> windows_core::Result<()>;
-    fn Advise(&self, eventhandler: windows_core::Ref<ICastingEventHandler>, cookie: *mut super::DWORD) -> windows_core::Result<()>;
-    fn UnAdvise(&self, cookie: super::DWORD) -> windows_core::Result<()>;
+    fn Initialize(&self, castingengine: windows_core::Ref<windows_core::IUnknown>, castingsource: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn Connect(&self) -> windows_core::HRESULT;
+    fn Disconnect(&self) -> windows_core::HRESULT;
+    fn Advise(&self, eventhandler: windows_core::Ref<ICastingEventHandler>, cookie: *mut super::DWORD) -> windows_core::HRESULT;
+    fn UnAdvise(&self, cookie: super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ICastingController_Vtbl {
@@ -73,31 +73,31 @@ impl ICastingController_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICastingController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, castingengine: *mut core::ffi::c_void, castingsource: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICastingController_Impl::Initialize(this, core::mem::transmute_copy(&castingengine), core::mem::transmute_copy(&castingsource)).into()
+                ICastingController_Impl::Initialize(this, core::mem::transmute_copy(&castingengine), core::mem::transmute_copy(&castingsource))
             }
         }
         unsafe extern "system" fn Connect<Identity: ICastingController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICastingController_Impl::Connect(this).into()
+                ICastingController_Impl::Connect(this)
             }
         }
         unsafe extern "system" fn Disconnect<Identity: ICastingController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICastingController_Impl::Disconnect(this).into()
+                ICastingController_Impl::Disconnect(this)
             }
         }
         unsafe extern "system" fn Advise<Identity: ICastingController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventhandler: *mut core::ffi::c_void, cookie: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICastingController_Impl::Advise(this, core::mem::transmute_copy(&eventhandler), core::mem::transmute_copy(&cookie)).into()
+                ICastingController_Impl::Advise(this, core::mem::transmute_copy(&eventhandler), core::mem::transmute_copy(&cookie))
             }
         }
         unsafe extern "system" fn UnAdvise<Identity: ICastingController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICastingController_Impl::UnAdvise(this, core::mem::transmute_copy(&cookie)).into()
+                ICastingController_Impl::UnAdvise(this, core::mem::transmute_copy(&cookie))
             }
         }
         Self {
@@ -136,21 +136,21 @@ pub struct ICastingEventHandler_Vtbl {
     pub OnError: unsafe extern "system" fn(*mut core::ffi::c_void, CASTING_CONNECTION_ERROR_STATUS, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait ICastingEventHandler_Impl: windows_core::IUnknownImpl {
-    fn OnStateChanged(&self, newstate: CASTING_CONNECTION_STATE) -> windows_core::Result<()>;
-    fn OnError(&self, errorstatus: CASTING_CONNECTION_ERROR_STATUS, errormessage: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn OnStateChanged(&self, newstate: CASTING_CONNECTION_STATE) -> windows_core::HRESULT;
+    fn OnError(&self, errorstatus: CASTING_CONNECTION_ERROR_STATUS, errormessage: &windows_core::PCWSTR) -> windows_core::HRESULT;
 }
 impl ICastingEventHandler_Vtbl {
     pub const fn new<Identity: ICastingEventHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnStateChanged<Identity: ICastingEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newstate: CASTING_CONNECTION_STATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICastingEventHandler_Impl::OnStateChanged(this, core::mem::transmute_copy(&newstate)).into()
+                ICastingEventHandler_Impl::OnStateChanged(this, core::mem::transmute_copy(&newstate))
             }
         }
         unsafe extern "system" fn OnError<Identity: ICastingEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, errorstatus: CASTING_CONNECTION_ERROR_STATUS, errormessage: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICastingEventHandler_Impl::OnError(this, core::mem::transmute_copy(&errorstatus), core::mem::transmute(&errormessage)).into()
+                ICastingEventHandler_Impl::OnError(this, core::mem::transmute_copy(&errorstatus), core::mem::transmute(&errormessage))
             }
         }
         Self {

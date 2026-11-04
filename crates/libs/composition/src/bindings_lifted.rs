@@ -2313,7 +2313,7 @@ pub trait IMicrosoftCompositorInterop_Impl: windows_core::IUnknownImpl {
         &self,
         renderingdevice: windows_core::Ref<windows_core::IUnknown>,
         result: *mut *mut core::ffi::c_void,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
 }
 impl IMicrosoftCompositorInterop_Vtbl {
     pub const fn new<Identity: IMicrosoftCompositorInterop_Impl, const OFFSET: isize>() -> Self {
@@ -2333,7 +2333,6 @@ impl IMicrosoftCompositorInterop_Vtbl {
                     core::mem::transmute_copy(&renderingdevice),
                     core::mem::transmute_copy(&result),
                 )
-                .into()
             }
         }
         Self {

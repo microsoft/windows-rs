@@ -38,35 +38,35 @@ pub struct IGameExplorer_Vtbl {
     pub VerifyAccess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IGameExplorer_Impl: windows_core::IUnknownImpl {
-    fn AddGame(&self, bstrgdfbinarypath: &windows_core::BSTR, bstrgameinstalldirectory: &windows_core::BSTR, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut windows_core::GUID) -> windows_core::Result<()>;
-    fn RemoveGame(&self, guidinstanceid: &windows_core::GUID) -> windows_core::Result<()>;
-    fn UpdateGame(&self, guidinstanceid: &windows_core::GUID) -> windows_core::Result<()>;
-    fn VerifyAccess(&self, bstrgdfbinarypath: &windows_core::BSTR, pfhasaccess: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn AddGame(&self, bstrgdfbinarypath: &windows_core::BSTR, bstrgameinstalldirectory: &windows_core::BSTR, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut windows_core::GUID) -> windows_core::HRESULT;
+    fn RemoveGame(&self, guidinstanceid: &windows_core::GUID) -> windows_core::HRESULT;
+    fn UpdateGame(&self, guidinstanceid: &windows_core::GUID) -> windows_core::HRESULT;
+    fn VerifyAccess(&self, bstrgdfbinarypath: &windows_core::BSTR, pfhasaccess: *mut windows_core::BOOL) -> windows_core::HRESULT;
 }
 impl IGameExplorer_Vtbl {
     pub const fn new<Identity: IGameExplorer_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddGame<Identity: IGameExplorer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrgdfbinarypath: *mut core::ffi::c_void, bstrgameinstalldirectory: *mut core::ffi::c_void, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameExplorer_Impl::AddGame(this, core::mem::transmute(&bstrgdfbinarypath), core::mem::transmute(&bstrgameinstalldirectory), core::mem::transmute_copy(&installscope), core::mem::transmute_copy(&pguidinstanceid)).into()
+                IGameExplorer_Impl::AddGame(this, core::mem::transmute(&bstrgdfbinarypath), core::mem::transmute(&bstrgameinstalldirectory), core::mem::transmute_copy(&installscope), core::mem::transmute_copy(&pguidinstanceid))
             }
         }
         unsafe extern "system" fn RemoveGame<Identity: IGameExplorer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidinstanceid: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameExplorer_Impl::RemoveGame(this, core::mem::transmute(&guidinstanceid)).into()
+                IGameExplorer_Impl::RemoveGame(this, core::mem::transmute(&guidinstanceid))
             }
         }
         unsafe extern "system" fn UpdateGame<Identity: IGameExplorer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidinstanceid: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameExplorer_Impl::UpdateGame(this, core::mem::transmute(&guidinstanceid)).into()
+                IGameExplorer_Impl::UpdateGame(this, core::mem::transmute(&guidinstanceid))
             }
         }
         unsafe extern "system" fn VerifyAccess<Identity: IGameExplorer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrgdfbinarypath: *mut core::ffi::c_void, pfhasaccess: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameExplorer_Impl::VerifyAccess(this, core::mem::transmute(&bstrgdfbinarypath), core::mem::transmute_copy(&pfhasaccess)).into()
+                IGameExplorer_Impl::VerifyAccess(this, core::mem::transmute(&bstrgdfbinarypath), core::mem::transmute_copy(&pfhasaccess))
             }
         }
         Self {
@@ -117,8 +117,8 @@ pub struct IGameExplorer2_Vtbl {
     pub CheckAccess: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IGameExplorer2_Impl: windows_core::IUnknownImpl {
-    fn InstallGame(&self, binarygdfpath: &windows_core::PCWSTR, installdirectory: &windows_core::PCWSTR, installscope: GAME_INSTALL_SCOPE) -> windows_core::Result<()>;
-    fn UninstallGame(&self, binarygdfpath: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn InstallGame(&self, binarygdfpath: &windows_core::PCWSTR, installdirectory: &windows_core::PCWSTR, installscope: GAME_INSTALL_SCOPE) -> windows_core::HRESULT;
+    fn UninstallGame(&self, binarygdfpath: &windows_core::PCWSTR) -> windows_core::HRESULT;
     fn CheckAccess(&self, binarygdfpath: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IGameExplorer2_Vtbl {
@@ -126,13 +126,13 @@ impl IGameExplorer2_Vtbl {
         unsafe extern "system" fn InstallGame<Identity: IGameExplorer2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, binarygdfpath: windows_core::PCWSTR, installdirectory: windows_core::PCWSTR, installscope: GAME_INSTALL_SCOPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameExplorer2_Impl::InstallGame(this, core::mem::transmute(&binarygdfpath), core::mem::transmute(&installdirectory), core::mem::transmute_copy(&installscope)).into()
+                IGameExplorer2_Impl::InstallGame(this, core::mem::transmute(&binarygdfpath), core::mem::transmute(&installdirectory), core::mem::transmute_copy(&installscope))
             }
         }
         unsafe extern "system" fn UninstallGame<Identity: IGameExplorer2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, binarygdfpath: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameExplorer2_Impl::UninstallGame(this, core::mem::transmute(&binarygdfpath)).into()
+                IGameExplorer2_Impl::UninstallGame(this, core::mem::transmute(&binarygdfpath))
             }
         }
         unsafe extern "system" fn CheckAccess<Identity: IGameExplorer2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, binarygdfpath: windows_core::PCWSTR, phasaccess: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -295,12 +295,12 @@ pub trait IGameStatistics_Impl: windows_core::IUnknownImpl {
     fn GetMaxValueLength(&self) -> windows_core::Result<super::UINT>;
     fn GetMaxCategories(&self) -> windows_core::Result<super::WORD>;
     fn GetMaxStatsPerCategory(&self) -> windows_core::Result<super::WORD>;
-    fn SetCategoryTitle(&self, categoryindex: super::WORD, title: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetCategoryTitle(&self, categoryindex: super::WORD, ptitle: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn GetStatistic(&self, categoryindex: super::WORD, statindex: super::WORD, pname: *mut windows_core::PWSTR, pvalue: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn SetStatistic(&self, categoryindex: super::WORD, statindex: super::WORD, name: &windows_core::PCWSTR, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn Save(&self, trackchanges: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetLastPlayedCategory(&self, categoryindex: super::UINT) -> windows_core::Result<()>;
+    fn SetCategoryTitle(&self, categoryindex: super::WORD, title: &windows_core::PCWSTR) -> windows_core::HRESULT;
+    fn GetCategoryTitle(&self, categoryindex: super::WORD, ptitle: *mut windows_core::PWSTR) -> windows_core::HRESULT;
+    fn GetStatistic(&self, categoryindex: super::WORD, statindex: super::WORD, pname: *mut windows_core::PWSTR, pvalue: *mut windows_core::PWSTR) -> windows_core::HRESULT;
+    fn SetStatistic(&self, categoryindex: super::WORD, statindex: super::WORD, name: &windows_core::PCWSTR, value: &windows_core::PCWSTR) -> windows_core::HRESULT;
+    fn Save(&self, trackchanges: windows_core::BOOL) -> windows_core::HRESULT;
+    fn SetLastPlayedCategory(&self, categoryindex: super::UINT) -> windows_core::HRESULT;
     fn GetLastPlayedCategory(&self) -> windows_core::Result<super::UINT>;
 }
 #[cfg(feature = "shared")]
@@ -384,37 +384,37 @@ impl IGameStatistics_Vtbl {
         unsafe extern "system" fn SetCategoryTitle<Identity: IGameStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, categoryindex: super::WORD, title: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameStatistics_Impl::SetCategoryTitle(this, core::mem::transmute_copy(&categoryindex), core::mem::transmute(&title)).into()
+                IGameStatistics_Impl::SetCategoryTitle(this, core::mem::transmute_copy(&categoryindex), core::mem::transmute(&title))
             }
         }
         unsafe extern "system" fn GetCategoryTitle<Identity: IGameStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, categoryindex: super::WORD, ptitle: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameStatistics_Impl::GetCategoryTitle(this, core::mem::transmute_copy(&categoryindex), core::mem::transmute_copy(&ptitle)).into()
+                IGameStatistics_Impl::GetCategoryTitle(this, core::mem::transmute_copy(&categoryindex), core::mem::transmute_copy(&ptitle))
             }
         }
         unsafe extern "system" fn GetStatistic<Identity: IGameStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, categoryindex: super::WORD, statindex: super::WORD, pname: *mut windows_core::PWSTR, pvalue: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameStatistics_Impl::GetStatistic(this, core::mem::transmute_copy(&categoryindex), core::mem::transmute_copy(&statindex), core::mem::transmute_copy(&pname), core::mem::transmute_copy(&pvalue)).into()
+                IGameStatistics_Impl::GetStatistic(this, core::mem::transmute_copy(&categoryindex), core::mem::transmute_copy(&statindex), core::mem::transmute_copy(&pname), core::mem::transmute_copy(&pvalue))
             }
         }
         unsafe extern "system" fn SetStatistic<Identity: IGameStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, categoryindex: super::WORD, statindex: super::WORD, name: windows_core::PCWSTR, value: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameStatistics_Impl::SetStatistic(this, core::mem::transmute_copy(&categoryindex), core::mem::transmute_copy(&statindex), core::mem::transmute(&name), core::mem::transmute(&value)).into()
+                IGameStatistics_Impl::SetStatistic(this, core::mem::transmute_copy(&categoryindex), core::mem::transmute_copy(&statindex), core::mem::transmute(&name), core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn Save<Identity: IGameStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, trackchanges: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameStatistics_Impl::Save(this, core::mem::transmute_copy(&trackchanges)).into()
+                IGameStatistics_Impl::Save(this, core::mem::transmute_copy(&trackchanges))
             }
         }
         unsafe extern "system" fn SetLastPlayedCategory<Identity: IGameStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, categoryindex: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameStatistics_Impl::SetLastPlayedCategory(this, core::mem::transmute_copy(&categoryindex)).into()
+                IGameStatistics_Impl::SetLastPlayedCategory(this, core::mem::transmute_copy(&categoryindex))
             }
         }
         unsafe extern "system" fn GetLastPlayedCategory<Identity: IGameStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcategoryindex: *mut super::UINT) -> windows_core::HRESULT {
@@ -482,7 +482,7 @@ pub struct IGameStatisticsMgr_Vtbl {
 }
 pub trait IGameStatisticsMgr_Impl: windows_core::IUnknownImpl {
     fn GetGameStatistics(&self, gdfbinarypath: &windows_core::PCWSTR, opentype: GAMESTATS_OPEN_TYPE, popenresult: *mut GAMESTATS_OPEN_RESULT) -> windows_core::Result<IGameStatistics>;
-    fn RemoveGameStatistics(&self, gdfbinarypath: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn RemoveGameStatistics(&self, gdfbinarypath: &windows_core::PCWSTR) -> windows_core::HRESULT;
 }
 impl IGameStatisticsMgr_Vtbl {
     pub const fn new<Identity: IGameStatisticsMgr_Impl, const OFFSET: isize>() -> Self {
@@ -504,7 +504,7 @@ impl IGameStatisticsMgr_Vtbl {
         unsafe extern "system" fn RemoveGameStatistics<Identity: IGameStatisticsMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gdfbinarypath: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameStatisticsMgr_Impl::RemoveGameStatistics(this, core::mem::transmute(&gdfbinarypath)).into()
+                IGameStatisticsMgr_Impl::RemoveGameStatistics(this, core::mem::transmute(&gdfbinarypath))
             }
         }
         Self {

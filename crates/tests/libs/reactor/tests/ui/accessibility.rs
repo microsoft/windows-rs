@@ -1,6 +1,6 @@
 use super::*;
 use std::sync::{Arc, Mutex};
-use windows_core::{BSTR, Interface, Ref, implement};
+use windows_core::{BSTR, HRESULT, Interface, Ref, implement};
 
 const LIVE_REGION_CHANGED: i32 = 20024;
 const POLITE: i32 = 1;
@@ -14,14 +14,12 @@ type Log<T> = Arc<Mutex<Vec<T>>>;
 struct LiveRegions(Log<String>);
 
 impl IUIAutomationEventHandler_Impl for LiveRegions_Impl {
-    fn HandleAutomationEvent(
-        &self,
-        sender: Ref<IUIAutomationElement>,
-        _: EVENTID,
-    ) -> windows_core::Result<()> {
-        let id = unsafe { sender.ok()?.CurrentAutomationId()? };
-        self.0.lock().unwrap().push(String::from_utf16_lossy(&id));
-        Ok(())
+    fn HandleAutomationEvent(&self, sender: Ref<IUIAutomationElement>, _: EVENTID) -> HRESULT {
+        sender
+            .ok()
+            .and_then(|sender| unsafe { sender.CurrentAutomationId() })
+            .map(|id| self.0.lock().unwrap().push(String::from_utf16_lossy(&id)))
+            .into()
     }
 }
 
@@ -36,14 +34,14 @@ impl IUIAutomationNotificationEventHandler_Impl for Notifications_Impl {
         processing: NotificationProcessing,
         text: &BSTR,
         activity: &BSTR,
-    ) -> windows_core::Result<()> {
+    ) -> HRESULT {
         self.0.lock().unwrap().push((
             kind,
             processing,
             String::from_utf16_lossy(text),
             String::from_utf16_lossy(activity),
         ));
-        Ok(())
+        HRESULT(0)
     }
 }
 

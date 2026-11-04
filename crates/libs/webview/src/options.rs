@@ -176,32 +176,32 @@ impl ICoreWebView2EnvironmentOptions_Impl for OptionsObject_Impl {
         Ok(unsafe { string::allocate(&self.additional_browser_arguments) })
     }
 
-    fn SetAdditionalBrowserArguments(&self, _value: &PCWSTR) -> Result<()> {
-        Ok(())
+    fn SetAdditionalBrowserArguments(&self, _value: &PCWSTR) -> HRESULT {
+        HRESULT(0)
     }
 
     fn Language(&self) -> Result<PWSTR> {
         Ok(unsafe { string::allocate(&self.language) })
     }
 
-    fn SetLanguage(&self, _value: &PCWSTR) -> Result<()> {
-        Ok(())
+    fn SetLanguage(&self, _value: &PCWSTR) -> HRESULT {
+        HRESULT(0)
     }
 
     fn TargetCompatibleBrowserVersion(&self) -> Result<PWSTR> {
         Ok(unsafe { string::allocate(&self.target_compatible_browser_version) })
     }
 
-    fn SetTargetCompatibleBrowserVersion(&self, _value: &PCWSTR) -> Result<()> {
-        Ok(())
+    fn SetTargetCompatibleBrowserVersion(&self, _value: &PCWSTR) -> HRESULT {
+        HRESULT(0)
     }
 
     fn AllowSingleSignOnUsingOSPrimaryAccount(&self) -> Result<BOOL> {
         Ok(self.allow_single_sign_on_using_os_primary_account)
     }
 
-    fn SetAllowSingleSignOnUsingOSPrimaryAccount(&self, _allow: BOOL) -> Result<()> {
-        Ok(())
+    fn SetAllowSingleSignOnUsingOSPrimaryAccount(&self, _allow: BOOL) -> HRESULT {
+        HRESULT(0)
     }
 }
 
@@ -210,8 +210,8 @@ impl ICoreWebView2EnvironmentOptions6_Impl for OptionsObject_Impl {
         Ok(self.are_browser_extensions_enabled)
     }
 
-    fn SetAreBrowserExtensionsEnabled(&self, _value: BOOL) -> Result<()> {
-        Ok(())
+    fn SetAreBrowserExtensionsEnabled(&self, _value: BOOL) -> HRESULT {
+        HRESULT(0)
     }
 }
 
@@ -220,7 +220,7 @@ impl ICoreWebView2EnvironmentOptions8_Impl for OptionsObject_Impl {
         Ok(self.scrollbar_style)
     }
 
-    fn SetScrollBarStyle(&self, _value: COREWEBVIEW2_SCROLLBAR_STYLE) -> Result<()> {
-        Ok(())
+    fn SetScrollBarStyle(&self, _value: COREWEBVIEW2_SCROLLBAR_STYLE) -> HRESULT {
+        HRESULT(0)
     }
 }

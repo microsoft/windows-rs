@@ -63,10 +63,10 @@ pub struct IMFSpatialAudioObjectBuffer_Vtbl {
 }
 #[cfg(all(feature = "mfobjects", feature = "shared", feature = "spatialaudioclient", feature = "spatialaudiometadata"))]
 pub trait IMFSpatialAudioObjectBuffer_Impl: super::IMFMediaBuffer_Impl {
-    fn SetID(&self, u32id: super::UINT32) -> windows_core::Result<()>;
-    fn GetID(&self, pu32id: *mut super::UINT32) -> windows_core::Result<()>;
-    fn SetType(&self, r#type: super::AudioObjectType) -> windows_core::Result<()>;
-    fn GetType(&self, ptype: *mut super::AudioObjectType) -> windows_core::Result<()>;
+    fn SetID(&self, u32id: super::UINT32) -> windows_core::HRESULT;
+    fn GetID(&self, pu32id: *mut super::UINT32) -> windows_core::HRESULT;
+    fn SetType(&self, r#type: super::AudioObjectType) -> windows_core::HRESULT;
+    fn GetType(&self, ptype: *mut super::AudioObjectType) -> windows_core::HRESULT;
     fn GetMetadataItems(&self) -> windows_core::Result<super::ISpatialAudioMetadataItems>;
 }
 #[cfg(all(feature = "mfobjects", feature = "shared", feature = "spatialaudioclient", feature = "spatialaudiometadata"))]
@@ -75,25 +75,25 @@ impl IMFSpatialAudioObjectBuffer_Vtbl {
         unsafe extern "system" fn SetID<Identity: IMFSpatialAudioObjectBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, u32id: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFSpatialAudioObjectBuffer_Impl::SetID(this, core::mem::transmute_copy(&u32id)).into()
+                IMFSpatialAudioObjectBuffer_Impl::SetID(this, core::mem::transmute_copy(&u32id))
             }
         }
         unsafe extern "system" fn GetID<Identity: IMFSpatialAudioObjectBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pu32id: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFSpatialAudioObjectBuffer_Impl::GetID(this, core::mem::transmute_copy(&pu32id)).into()
+                IMFSpatialAudioObjectBuffer_Impl::GetID(this, core::mem::transmute_copy(&pu32id))
             }
         }
         unsafe extern "system" fn SetType<Identity: IMFSpatialAudioObjectBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: super::AudioObjectType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFSpatialAudioObjectBuffer_Impl::SetType(this, core::mem::transmute_copy(&r#type)).into()
+                IMFSpatialAudioObjectBuffer_Impl::SetType(this, core::mem::transmute_copy(&r#type))
             }
         }
         unsafe extern "system" fn GetType<Identity: IMFSpatialAudioObjectBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptype: *mut super::AudioObjectType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFSpatialAudioObjectBuffer_Impl::GetType(this, core::mem::transmute_copy(&ptype)).into()
+                IMFSpatialAudioObjectBuffer_Impl::GetType(this, core::mem::transmute_copy(&ptype))
             }
         }
         unsafe extern "system" fn GetMetadataItems<Identity: IMFSpatialAudioObjectBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppmetadataitems: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -174,8 +174,8 @@ pub struct IMFSpatialAudioSample_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFSpatialAudioSample_Impl: super::IMFSample_Impl {
-    fn GetObjectCount(&self, pdwobjectcount: *mut super::DWORD) -> windows_core::Result<()>;
-    fn AddSpatialAudioObject(&self, paudioobjbuffer: windows_core::Ref<IMFSpatialAudioObjectBuffer>) -> windows_core::Result<()>;
+    fn GetObjectCount(&self, pdwobjectcount: *mut super::DWORD) -> windows_core::HRESULT;
+    fn AddSpatialAudioObject(&self, paudioobjbuffer: windows_core::Ref<IMFSpatialAudioObjectBuffer>) -> windows_core::HRESULT;
     fn GetSpatialAudioObjectByIndex(&self, dwindex: super::DWORD) -> windows_core::Result<IMFSpatialAudioObjectBuffer>;
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -184,13 +184,13 @@ impl IMFSpatialAudioSample_Vtbl {
         unsafe extern "system" fn GetObjectCount<Identity: IMFSpatialAudioSample_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwobjectcount: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFSpatialAudioSample_Impl::GetObjectCount(this, core::mem::transmute_copy(&pdwobjectcount)).into()
+                IMFSpatialAudioSample_Impl::GetObjectCount(this, core::mem::transmute_copy(&pdwobjectcount))
             }
         }
         unsafe extern "system" fn AddSpatialAudioObject<Identity: IMFSpatialAudioSample_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paudioobjbuffer: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFSpatialAudioSample_Impl::AddSpatialAudioObject(this, core::mem::transmute_copy(&paudioobjbuffer)).into()
+                IMFSpatialAudioSample_Impl::AddSpatialAudioObject(this, core::mem::transmute_copy(&paudioobjbuffer))
             }
         }
         unsafe extern "system" fn GetSpatialAudioObjectByIndex<Identity: IMFSpatialAudioSample_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: super::DWORD, ppaudioobjbuffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {

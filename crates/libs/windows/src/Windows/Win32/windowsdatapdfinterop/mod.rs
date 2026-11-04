@@ -42,8 +42,8 @@ pub struct IPdfRendererNative_Vtbl {
 }
 #[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared", feature = "windef"))]
 pub trait IPdfRendererNative_Impl: windows_core::IUnknownImpl {
-    fn RenderPageToSurface(&self, pdfpage: windows_core::Ref<windows_core::IUnknown>, psurface: windows_core::Ref<super::IDXGISurface>, offset: &super::POINT, prenderparams: *const PDF_RENDER_PARAMS) -> windows_core::Result<()>;
-    fn RenderPageToDeviceContext(&self, pdfpage: windows_core::Ref<windows_core::IUnknown>, pd2ddevicecontext: windows_core::Ref<super::ID2D1DeviceContext>, prenderparams: *const PDF_RENDER_PARAMS) -> windows_core::Result<()>;
+    fn RenderPageToSurface(&self, pdfpage: windows_core::Ref<windows_core::IUnknown>, psurface: windows_core::Ref<super::IDXGISurface>, offset: &super::POINT, prenderparams: *const PDF_RENDER_PARAMS) -> windows_core::HRESULT;
+    fn RenderPageToDeviceContext(&self, pdfpage: windows_core::Ref<windows_core::IUnknown>, pd2ddevicecontext: windows_core::Ref<super::ID2D1DeviceContext>, prenderparams: *const PDF_RENDER_PARAMS) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared", feature = "windef"))]
 impl IPdfRendererNative_Vtbl {
@@ -51,13 +51,13 @@ impl IPdfRendererNative_Vtbl {
         unsafe extern "system" fn RenderPageToSurface<Identity: IPdfRendererNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdfpage: *mut core::ffi::c_void, psurface: *mut core::ffi::c_void, offset: super::POINT, prenderparams: *const PDF_RENDER_PARAMS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPdfRendererNative_Impl::RenderPageToSurface(this, core::mem::transmute_copy(&pdfpage), core::mem::transmute_copy(&psurface), core::mem::transmute(&offset), core::mem::transmute_copy(&prenderparams)).into()
+                IPdfRendererNative_Impl::RenderPageToSurface(this, core::mem::transmute_copy(&pdfpage), core::mem::transmute_copy(&psurface), core::mem::transmute(&offset), core::mem::transmute_copy(&prenderparams))
             }
         }
         unsafe extern "system" fn RenderPageToDeviceContext<Identity: IPdfRendererNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdfpage: *mut core::ffi::c_void, pd2ddevicecontext: *mut core::ffi::c_void, prenderparams: *const PDF_RENDER_PARAMS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPdfRendererNative_Impl::RenderPageToDeviceContext(this, core::mem::transmute_copy(&pdfpage), core::mem::transmute_copy(&pd2ddevicecontext), core::mem::transmute_copy(&prenderparams)).into()
+                IPdfRendererNative_Impl::RenderPageToDeviceContext(this, core::mem::transmute_copy(&pdfpage), core::mem::transmute_copy(&pd2ddevicecontext), core::mem::transmute_copy(&prenderparams))
             }
         }
         Self {

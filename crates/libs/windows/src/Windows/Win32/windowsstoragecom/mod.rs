@@ -57,7 +57,7 @@ pub struct IDDEInitializer_Vtbl {
 }
 #[cfg(feature = "shobjidl_core")]
 pub trait IDDEInitializer_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, fileextensionorprotocol: &windows_core::PCWSTR, method: CreateProcessMethod, currentdirectory: &windows_core::PCWSTR, exectarget: windows_core::Ref<super::IShellItem>, site: windows_core::Ref<windows_core::IUnknown>, application: &windows_core::PCWSTR, targetfile: &windows_core::PCWSTR, arguments: &windows_core::PCWSTR, verb: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn Initialize(&self, fileextensionorprotocol: &windows_core::PCWSTR, method: CreateProcessMethod, currentdirectory: &windows_core::PCWSTR, exectarget: windows_core::Ref<super::IShellItem>, site: windows_core::Ref<windows_core::IUnknown>, application: &windows_core::PCWSTR, targetfile: &windows_core::PCWSTR, arguments: &windows_core::PCWSTR, verb: &windows_core::PCWSTR) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shobjidl_core")]
 impl IDDEInitializer_Vtbl {
@@ -65,7 +65,7 @@ impl IDDEInitializer_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IDDEInitializer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fileextensionorprotocol: windows_core::PCWSTR, method: CreateProcessMethod, currentdirectory: windows_core::PCWSTR, exectarget: *mut core::ffi::c_void, site: *mut core::ffi::c_void, application: windows_core::PCWSTR, targetfile: windows_core::PCWSTR, arguments: windows_core::PCWSTR, verb: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDDEInitializer_Impl::Initialize(this, core::mem::transmute(&fileextensionorprotocol), core::mem::transmute_copy(&method), core::mem::transmute(&currentdirectory), core::mem::transmute_copy(&exectarget), core::mem::transmute_copy(&site), core::mem::transmute(&application), core::mem::transmute(&targetfile), core::mem::transmute(&arguments), core::mem::transmute(&verb)).into()
+                IDDEInitializer_Impl::Initialize(this, core::mem::transmute(&fileextensionorprotocol), core::mem::transmute_copy(&method), core::mem::transmute(&currentdirectory), core::mem::transmute_copy(&exectarget), core::mem::transmute_copy(&site), core::mem::transmute(&application), core::mem::transmute(&targetfile), core::mem::transmute(&arguments), core::mem::transmute(&verb))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, OFFSET> }
@@ -90,14 +90,14 @@ pub struct IOplockBreakingHandler_Vtbl {
     pub OplockBreaking: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IOplockBreakingHandler_Impl: windows_core::IUnknownImpl {
-    fn OplockBreaking(&self) -> windows_core::Result<()>;
+    fn OplockBreaking(&self) -> windows_core::HRESULT;
 }
 impl IOplockBreakingHandler_Vtbl {
     pub const fn new<Identity: IOplockBreakingHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OplockBreaking<Identity: IOplockBreakingHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOplockBreakingHandler_Impl::OplockBreaking(this).into()
+                IOplockBreakingHandler_Impl::OplockBreaking(this)
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OplockBreaking: OplockBreaking::<Identity, OFFSET> }
@@ -126,7 +126,7 @@ pub struct IRandomAccessStreamFileAccessMode_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IRandomAccessStreamFileAccessMode_Impl: windows_core::IUnknownImpl {
-    fn GetMode(&self, fileaccessmode: *mut super::DWORD) -> windows_core::Result<()>;
+    fn GetMode(&self, fileaccessmode: *mut super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IRandomAccessStreamFileAccessMode_Vtbl {
@@ -134,7 +134,7 @@ impl IRandomAccessStreamFileAccessMode_Vtbl {
         unsafe extern "system" fn GetMode<Identity: IRandomAccessStreamFileAccessMode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fileaccessmode: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRandomAccessStreamFileAccessMode_Impl::GetMode(this, core::mem::transmute_copy(&fileaccessmode)).into()
+                IRandomAccessStreamFileAccessMode_Impl::GetMode(this, core::mem::transmute_copy(&fileaccessmode))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetMode: GetMode::<Identity, OFFSET> }
@@ -266,14 +266,14 @@ pub struct IUnbufferedFileHandleOplockCallback_Vtbl {
     pub OnBrokenCallback: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUnbufferedFileHandleOplockCallback_Impl: windows_core::IUnknownImpl {
-    fn OnBrokenCallback(&self) -> windows_core::Result<()>;
+    fn OnBrokenCallback(&self) -> windows_core::HRESULT;
 }
 impl IUnbufferedFileHandleOplockCallback_Vtbl {
     pub const fn new<Identity: IUnbufferedFileHandleOplockCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnBrokenCallback<Identity: IUnbufferedFileHandleOplockCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUnbufferedFileHandleOplockCallback_Impl::OnBrokenCallback(this).into()
+                IUnbufferedFileHandleOplockCallback_Impl::OnBrokenCallback(this)
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnBrokenCallback: OnBrokenCallback::<Identity, OFFSET> }
@@ -313,7 +313,7 @@ pub struct IUnbufferedFileHandleProvider_Vtbl {
 #[cfg(feature = "shared")]
 pub trait IUnbufferedFileHandleProvider_Impl: windows_core::IUnknownImpl {
     fn OpenUnbufferedFileHandle(&self, oplockbreakcallback: windows_core::Ref<IUnbufferedFileHandleOplockCallback>) -> windows_core::Result<super::DWORD_PTR>;
-    fn CloseUnbufferedFileHandle(&self) -> windows_core::Result<()>;
+    fn CloseUnbufferedFileHandle(&self) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IUnbufferedFileHandleProvider_Vtbl {
@@ -336,7 +336,7 @@ impl IUnbufferedFileHandleProvider_Vtbl {
         unsafe extern "system" fn CloseUnbufferedFileHandle<Identity: IUnbufferedFileHandleProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUnbufferedFileHandleProvider_Impl::CloseUnbufferedFileHandle(this).into()
+                IUnbufferedFileHandleProvider_Impl::CloseUnbufferedFileHandle(this)
             }
         }
         Self {

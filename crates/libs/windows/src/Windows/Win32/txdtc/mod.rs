@@ -61,8 +61,8 @@ pub struct IDtcLuConfigure_Vtbl {
 }
 #[cfg(all(feature = "rpc", feature = "shared"))]
 pub trait IDtcLuConfigure_Impl: windows_core::IUnknownImpl {
-    fn Add(&self, puclupair: *const super::byte, cblupair: super::DWORD) -> windows_core::Result<()>;
-    fn Delete(&self, puclupair: *const super::byte, cblupair: super::DWORD) -> windows_core::Result<()>;
+    fn Add(&self, puclupair: *const super::byte, cblupair: super::DWORD) -> windows_core::HRESULT;
+    fn Delete(&self, puclupair: *const super::byte, cblupair: super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "rpc", feature = "shared"))]
 impl IDtcLuConfigure_Vtbl {
@@ -70,13 +70,13 @@ impl IDtcLuConfigure_Vtbl {
         unsafe extern "system" fn Add<Identity: IDtcLuConfigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puclupair: *const super::byte, cblupair: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuConfigure_Impl::Add(this, core::mem::transmute_copy(&puclupair), core::mem::transmute_copy(&cblupair)).into()
+                IDtcLuConfigure_Impl::Add(this, core::mem::transmute_copy(&puclupair), core::mem::transmute_copy(&cblupair))
             }
         }
         unsafe extern "system" fn Delete<Identity: IDtcLuConfigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puclupair: *const super::byte, cblupair: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuConfigure_Impl::Delete(this, core::mem::transmute_copy(&puclupair), core::mem::transmute_copy(&cblupair)).into()
+                IDtcLuConfigure_Impl::Delete(this, core::mem::transmute_copy(&puclupair), core::mem::transmute_copy(&cblupair))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Add: Add::<Identity, OFFSET>, Delete: Delete::<Identity, OFFSET> }
@@ -168,14 +168,14 @@ pub struct IDtcLuRecoveryInitiatedByDtc_Vtbl {
     pub GetWork: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DTCINITIATEDRECOVERYWORK, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDtcLuRecoveryInitiatedByDtc_Impl: windows_core::IUnknownImpl {
-    fn GetWork(&self, pwork: *mut DTCINITIATEDRECOVERYWORK, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetWork(&self, pwork: *mut DTCINITIATEDRECOVERYWORK, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT;
 }
 impl IDtcLuRecoveryInitiatedByDtc_Vtbl {
     pub const fn new<Identity: IDtcLuRecoveryInitiatedByDtc_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetWork<Identity: IDtcLuRecoveryInitiatedByDtc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwork: *mut DTCINITIATEDRECOVERYWORK, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRecoveryInitiatedByDtc_Impl::GetWork(this, core::mem::transmute_copy(&pwork), core::mem::transmute_copy(&ppv)).into()
+                IDtcLuRecoveryInitiatedByDtc_Impl::GetWork(this, core::mem::transmute_copy(&pwork), core::mem::transmute_copy(&ppv))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetWork: GetWork::<Identity, OFFSET> }
@@ -204,7 +204,7 @@ pub struct IDtcLuRecoveryInitiatedByDtcStatusWork_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IDtcLuRecoveryInitiatedByDtcStatusWork_Impl: windows_core::IUnknownImpl {
-    fn HandleCheckLuStatus(&self, lrecoveryseqnum: super::LONG) -> windows_core::Result<()>;
+    fn HandleCheckLuStatus(&self, lrecoveryseqnum: super::LONG) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IDtcLuRecoveryInitiatedByDtcStatusWork_Vtbl {
@@ -212,7 +212,7 @@ impl IDtcLuRecoveryInitiatedByDtcStatusWork_Vtbl {
         unsafe extern "system" fn HandleCheckLuStatus<Identity: IDtcLuRecoveryInitiatedByDtcStatusWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lrecoveryseqnum: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRecoveryInitiatedByDtcStatusWork_Impl::HandleCheckLuStatus(this, core::mem::transmute_copy(&lrecoveryseqnum)).into()
+                IDtcLuRecoveryInitiatedByDtcStatusWork_Impl::HandleCheckLuStatus(this, core::mem::transmute_copy(&lrecoveryseqnum))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandleCheckLuStatus: HandleCheckLuStatus::<Identity, OFFSET> }
@@ -310,19 +310,19 @@ pub struct IDtcLuRecoveryInitiatedByDtcTransWork_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IDtcLuRecoveryInitiatedByDtcTransWork_Impl: windows_core::IUnknownImpl {
-    fn GetLogNameSizes(&self, pcbourlogname: *mut super::DWORD, pcbremotelogname: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetOurXln(&self, pxln: *mut DTCLUXLN, pourlogname: *mut u8, premotelogname: *mut u8, pdwprotocol: *mut super::DWORD) -> windows_core::Result<()>;
-    fn HandleConfirmationFromOurXln(&self, confirmation: DTCLUXLNCONFIRMATION) -> windows_core::Result<()>;
-    fn HandleTheirXlnResponse(&self, xln: DTCLUXLN, premotelogname: *const u8, cbremotelogname: super::DWORD, dwprotocol: super::DWORD, pconfirmation: *mut DTCLUXLNCONFIRMATION) -> windows_core::Result<()>;
-    fn HandleErrorFromOurXln(&self, error: DTCLUXLNERROR) -> windows_core::Result<()>;
-    fn CheckForCompareStates(&self, fcomparestates: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetOurTransIdSize(&self, pcbourtransid: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetOurCompareStates(&self, pourtransid: *mut u8, pcomparestate: *mut DTCLUCOMPARESTATE) -> windows_core::Result<()>;
-    fn HandleTheirCompareStatesResponse(&self, comparestate: DTCLUCOMPARESTATE, pconfirmation: *mut DTCLUCOMPARESTATESCONFIRMATION) -> windows_core::Result<()>;
-    fn HandleErrorFromOurCompareStates(&self, error: DTCLUCOMPARESTATESERROR) -> windows_core::Result<()>;
-    fn ConversationLost(&self) -> windows_core::Result<()>;
-    fn GetRecoverySeqNum(&self, plrecoveryseqnum: *mut super::LONG) -> windows_core::Result<()>;
-    fn ObsoleteRecoverySeqNum(&self, lnewrecoveryseqnum: super::LONG) -> windows_core::Result<()>;
+    fn GetLogNameSizes(&self, pcbourlogname: *mut super::DWORD, pcbremotelogname: *mut super::DWORD) -> windows_core::HRESULT;
+    fn GetOurXln(&self, pxln: *mut DTCLUXLN, pourlogname: *mut u8, premotelogname: *mut u8, pdwprotocol: *mut super::DWORD) -> windows_core::HRESULT;
+    fn HandleConfirmationFromOurXln(&self, confirmation: DTCLUXLNCONFIRMATION) -> windows_core::HRESULT;
+    fn HandleTheirXlnResponse(&self, xln: DTCLUXLN, premotelogname: *const u8, cbremotelogname: super::DWORD, dwprotocol: super::DWORD, pconfirmation: *mut DTCLUXLNCONFIRMATION) -> windows_core::HRESULT;
+    fn HandleErrorFromOurXln(&self, error: DTCLUXLNERROR) -> windows_core::HRESULT;
+    fn CheckForCompareStates(&self, fcomparestates: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn GetOurTransIdSize(&self, pcbourtransid: *mut super::DWORD) -> windows_core::HRESULT;
+    fn GetOurCompareStates(&self, pourtransid: *mut u8, pcomparestate: *mut DTCLUCOMPARESTATE) -> windows_core::HRESULT;
+    fn HandleTheirCompareStatesResponse(&self, comparestate: DTCLUCOMPARESTATE, pconfirmation: *mut DTCLUCOMPARESTATESCONFIRMATION) -> windows_core::HRESULT;
+    fn HandleErrorFromOurCompareStates(&self, error: DTCLUCOMPARESTATESERROR) -> windows_core::HRESULT;
+    fn ConversationLost(&self) -> windows_core::HRESULT;
+    fn GetRecoverySeqNum(&self, plrecoveryseqnum: *mut super::LONG) -> windows_core::HRESULT;
+    fn ObsoleteRecoverySeqNum(&self, lnewrecoveryseqnum: super::LONG) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IDtcLuRecoveryInitiatedByDtcTransWork_Vtbl {
@@ -330,79 +330,79 @@ impl IDtcLuRecoveryInitiatedByDtcTransWork_Vtbl {
         unsafe extern "system" fn GetLogNameSizes<Identity: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbourlogname: *mut super::DWORD, pcbremotelogname: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRecoveryInitiatedByDtcTransWork_Impl::GetLogNameSizes(this, core::mem::transmute_copy(&pcbourlogname), core::mem::transmute_copy(&pcbremotelogname)).into()
+                IDtcLuRecoveryInitiatedByDtcTransWork_Impl::GetLogNameSizes(this, core::mem::transmute_copy(&pcbourlogname), core::mem::transmute_copy(&pcbremotelogname))
             }
         }
         unsafe extern "system" fn GetOurXln<Identity: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxln: *mut DTCLUXLN, pourlogname: *mut u8, premotelogname: *mut u8, pdwprotocol: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRecoveryInitiatedByDtcTransWork_Impl::GetOurXln(this, core::mem::transmute_copy(&pxln), core::mem::transmute_copy(&pourlogname), core::mem::transmute_copy(&premotelogname), core::mem::transmute_copy(&pdwprotocol)).into()
+                IDtcLuRecoveryInitiatedByDtcTransWork_Impl::GetOurXln(this, core::mem::transmute_copy(&pxln), core::mem::transmute_copy(&pourlogname), core::mem::transmute_copy(&premotelogname), core::mem::transmute_copy(&pdwprotocol))
             }
         }
         unsafe extern "system" fn HandleConfirmationFromOurXln<Identity: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, confirmation: DTCLUXLNCONFIRMATION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRecoveryInitiatedByDtcTransWork_Impl::HandleConfirmationFromOurXln(this, core::mem::transmute_copy(&confirmation)).into()
+                IDtcLuRecoveryInitiatedByDtcTransWork_Impl::HandleConfirmationFromOurXln(this, core::mem::transmute_copy(&confirmation))
             }
         }
         unsafe extern "system" fn HandleTheirXlnResponse<Identity: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xln: DTCLUXLN, premotelogname: *const u8, cbremotelogname: super::DWORD, dwprotocol: super::DWORD, pconfirmation: *mut DTCLUXLNCONFIRMATION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRecoveryInitiatedByDtcTransWork_Impl::HandleTheirXlnResponse(this, core::mem::transmute_copy(&xln), core::mem::transmute_copy(&premotelogname), core::mem::transmute_copy(&cbremotelogname), core::mem::transmute_copy(&dwprotocol), core::mem::transmute_copy(&pconfirmation)).into()
+                IDtcLuRecoveryInitiatedByDtcTransWork_Impl::HandleTheirXlnResponse(this, core::mem::transmute_copy(&xln), core::mem::transmute_copy(&premotelogname), core::mem::transmute_copy(&cbremotelogname), core::mem::transmute_copy(&dwprotocol), core::mem::transmute_copy(&pconfirmation))
             }
         }
         unsafe extern "system" fn HandleErrorFromOurXln<Identity: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, error: DTCLUXLNERROR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRecoveryInitiatedByDtcTransWork_Impl::HandleErrorFromOurXln(this, core::mem::transmute_copy(&error)).into()
+                IDtcLuRecoveryInitiatedByDtcTransWork_Impl::HandleErrorFromOurXln(this, core::mem::transmute_copy(&error))
             }
         }
         unsafe extern "system" fn CheckForCompareStates<Identity: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fcomparestates: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRecoveryInitiatedByDtcTransWork_Impl::CheckForCompareStates(this, core::mem::transmute_copy(&fcomparestates)).into()
+                IDtcLuRecoveryInitiatedByDtcTransWork_Impl::CheckForCompareStates(this, core::mem::transmute_copy(&fcomparestates))
             }
         }
         unsafe extern "system" fn GetOurTransIdSize<Identity: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbourtransid: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRecoveryInitiatedByDtcTransWork_Impl::GetOurTransIdSize(this, core::mem::transmute_copy(&pcbourtransid)).into()
+                IDtcLuRecoveryInitiatedByDtcTransWork_Impl::GetOurTransIdSize(this, core::mem::transmute_copy(&pcbourtransid))
             }
         }
         unsafe extern "system" fn GetOurCompareStates<Identity: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pourtransid: *mut u8, pcomparestate: *mut DTCLUCOMPARESTATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRecoveryInitiatedByDtcTransWork_Impl::GetOurCompareStates(this, core::mem::transmute_copy(&pourtransid), core::mem::transmute_copy(&pcomparestate)).into()
+                IDtcLuRecoveryInitiatedByDtcTransWork_Impl::GetOurCompareStates(this, core::mem::transmute_copy(&pourtransid), core::mem::transmute_copy(&pcomparestate))
             }
         }
         unsafe extern "system" fn HandleTheirCompareStatesResponse<Identity: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, comparestate: DTCLUCOMPARESTATE, pconfirmation: *mut DTCLUCOMPARESTATESCONFIRMATION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRecoveryInitiatedByDtcTransWork_Impl::HandleTheirCompareStatesResponse(this, core::mem::transmute_copy(&comparestate), core::mem::transmute_copy(&pconfirmation)).into()
+                IDtcLuRecoveryInitiatedByDtcTransWork_Impl::HandleTheirCompareStatesResponse(this, core::mem::transmute_copy(&comparestate), core::mem::transmute_copy(&pconfirmation))
             }
         }
         unsafe extern "system" fn HandleErrorFromOurCompareStates<Identity: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, error: DTCLUCOMPARESTATESERROR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRecoveryInitiatedByDtcTransWork_Impl::HandleErrorFromOurCompareStates(this, core::mem::transmute_copy(&error)).into()
+                IDtcLuRecoveryInitiatedByDtcTransWork_Impl::HandleErrorFromOurCompareStates(this, core::mem::transmute_copy(&error))
             }
         }
         unsafe extern "system" fn ConversationLost<Identity: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRecoveryInitiatedByDtcTransWork_Impl::ConversationLost(this).into()
+                IDtcLuRecoveryInitiatedByDtcTransWork_Impl::ConversationLost(this)
             }
         }
         unsafe extern "system" fn GetRecoverySeqNum<Identity: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plrecoveryseqnum: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRecoveryInitiatedByDtcTransWork_Impl::GetRecoverySeqNum(this, core::mem::transmute_copy(&plrecoveryseqnum)).into()
+                IDtcLuRecoveryInitiatedByDtcTransWork_Impl::GetRecoverySeqNum(this, core::mem::transmute_copy(&plrecoveryseqnum))
             }
         }
         unsafe extern "system" fn ObsoleteRecoverySeqNum<Identity: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lnewrecoveryseqnum: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRecoveryInitiatedByDtcTransWork_Impl::ObsoleteRecoverySeqNum(this, core::mem::transmute_copy(&lnewrecoveryseqnum)).into()
+                IDtcLuRecoveryInitiatedByDtcTransWork_Impl::ObsoleteRecoverySeqNum(this, core::mem::transmute_copy(&lnewrecoveryseqnum))
             }
         }
         Self {
@@ -530,14 +530,14 @@ pub struct IDtcLuRecoveryInitiatedByLuWork_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IDtcLuRecoveryInitiatedByLuWork_Impl: windows_core::IUnknownImpl {
-    fn HandleTheirXln(&self, lrecoveryseqnum: super::LONG, xln: DTCLUXLN, premotelogname: *const u8, cbremotelogname: super::DWORD, pourlogname: *const u8, cbourlogname: super::DWORD, dwprotocol: super::DWORD, presponse: *mut DTCLUXLNRESPONSE) -> windows_core::Result<()>;
-    fn GetOurLogNameSize(&self, pcbourlogname: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetOurXln(&self, pxln: *mut DTCLUXLN, pourlogname: *mut u8, pdwprotocol: *mut super::DWORD) -> windows_core::Result<()>;
-    fn HandleConfirmationOfOurXln(&self, confirmation: DTCLUXLNCONFIRMATION) -> windows_core::Result<()>;
-    fn HandleTheirCompareStates(&self, premotetransid: *mut u8, cbremotetransid: super::DWORD, comparestate: DTCLUCOMPARESTATE, presponse: *mut DTCLUCOMPARESTATESRESPONSE, pcomparestate: *mut DTCLUCOMPARESTATE) -> windows_core::Result<()>;
-    fn HandleConfirmationOfOurCompareStates(&self, confirmation: DTCLUCOMPARESTATESCONFIRMATION) -> windows_core::Result<()>;
-    fn HandleErrorFromOurCompareStates(&self, error: DTCLUCOMPARESTATESERROR) -> windows_core::Result<()>;
-    fn ConversationLost(&self) -> windows_core::Result<()>;
+    fn HandleTheirXln(&self, lrecoveryseqnum: super::LONG, xln: DTCLUXLN, premotelogname: *const u8, cbremotelogname: super::DWORD, pourlogname: *const u8, cbourlogname: super::DWORD, dwprotocol: super::DWORD, presponse: *mut DTCLUXLNRESPONSE) -> windows_core::HRESULT;
+    fn GetOurLogNameSize(&self, pcbourlogname: *mut super::DWORD) -> windows_core::HRESULT;
+    fn GetOurXln(&self, pxln: *mut DTCLUXLN, pourlogname: *mut u8, pdwprotocol: *mut super::DWORD) -> windows_core::HRESULT;
+    fn HandleConfirmationOfOurXln(&self, confirmation: DTCLUXLNCONFIRMATION) -> windows_core::HRESULT;
+    fn HandleTheirCompareStates(&self, premotetransid: *mut u8, cbremotetransid: super::DWORD, comparestate: DTCLUCOMPARESTATE, presponse: *mut DTCLUCOMPARESTATESRESPONSE, pcomparestate: *mut DTCLUCOMPARESTATE) -> windows_core::HRESULT;
+    fn HandleConfirmationOfOurCompareStates(&self, confirmation: DTCLUCOMPARESTATESCONFIRMATION) -> windows_core::HRESULT;
+    fn HandleErrorFromOurCompareStates(&self, error: DTCLUCOMPARESTATESERROR) -> windows_core::HRESULT;
+    fn ConversationLost(&self) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IDtcLuRecoveryInitiatedByLuWork_Vtbl {
@@ -545,49 +545,49 @@ impl IDtcLuRecoveryInitiatedByLuWork_Vtbl {
         unsafe extern "system" fn HandleTheirXln<Identity: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lrecoveryseqnum: super::LONG, xln: DTCLUXLN, premotelogname: *const u8, cbremotelogname: super::DWORD, pourlogname: *const u8, cbourlogname: super::DWORD, dwprotocol: super::DWORD, presponse: *mut DTCLUXLNRESPONSE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRecoveryInitiatedByLuWork_Impl::HandleTheirXln(this, core::mem::transmute_copy(&lrecoveryseqnum), core::mem::transmute_copy(&xln), core::mem::transmute_copy(&premotelogname), core::mem::transmute_copy(&cbremotelogname), core::mem::transmute_copy(&pourlogname), core::mem::transmute_copy(&cbourlogname), core::mem::transmute_copy(&dwprotocol), core::mem::transmute_copy(&presponse)).into()
+                IDtcLuRecoveryInitiatedByLuWork_Impl::HandleTheirXln(this, core::mem::transmute_copy(&lrecoveryseqnum), core::mem::transmute_copy(&xln), core::mem::transmute_copy(&premotelogname), core::mem::transmute_copy(&cbremotelogname), core::mem::transmute_copy(&pourlogname), core::mem::transmute_copy(&cbourlogname), core::mem::transmute_copy(&dwprotocol), core::mem::transmute_copy(&presponse))
             }
         }
         unsafe extern "system" fn GetOurLogNameSize<Identity: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbourlogname: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRecoveryInitiatedByLuWork_Impl::GetOurLogNameSize(this, core::mem::transmute_copy(&pcbourlogname)).into()
+                IDtcLuRecoveryInitiatedByLuWork_Impl::GetOurLogNameSize(this, core::mem::transmute_copy(&pcbourlogname))
             }
         }
         unsafe extern "system" fn GetOurXln<Identity: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxln: *mut DTCLUXLN, pourlogname: *mut u8, pdwprotocol: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRecoveryInitiatedByLuWork_Impl::GetOurXln(this, core::mem::transmute_copy(&pxln), core::mem::transmute_copy(&pourlogname), core::mem::transmute_copy(&pdwprotocol)).into()
+                IDtcLuRecoveryInitiatedByLuWork_Impl::GetOurXln(this, core::mem::transmute_copy(&pxln), core::mem::transmute_copy(&pourlogname), core::mem::transmute_copy(&pdwprotocol))
             }
         }
         unsafe extern "system" fn HandleConfirmationOfOurXln<Identity: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, confirmation: DTCLUXLNCONFIRMATION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRecoveryInitiatedByLuWork_Impl::HandleConfirmationOfOurXln(this, core::mem::transmute_copy(&confirmation)).into()
+                IDtcLuRecoveryInitiatedByLuWork_Impl::HandleConfirmationOfOurXln(this, core::mem::transmute_copy(&confirmation))
             }
         }
         unsafe extern "system" fn HandleTheirCompareStates<Identity: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, premotetransid: *mut u8, cbremotetransid: super::DWORD, comparestate: DTCLUCOMPARESTATE, presponse: *mut DTCLUCOMPARESTATESRESPONSE, pcomparestate: *mut DTCLUCOMPARESTATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRecoveryInitiatedByLuWork_Impl::HandleTheirCompareStates(this, core::mem::transmute_copy(&premotetransid), core::mem::transmute_copy(&cbremotetransid), core::mem::transmute_copy(&comparestate), core::mem::transmute_copy(&presponse), core::mem::transmute_copy(&pcomparestate)).into()
+                IDtcLuRecoveryInitiatedByLuWork_Impl::HandleTheirCompareStates(this, core::mem::transmute_copy(&premotetransid), core::mem::transmute_copy(&cbremotetransid), core::mem::transmute_copy(&comparestate), core::mem::transmute_copy(&presponse), core::mem::transmute_copy(&pcomparestate))
             }
         }
         unsafe extern "system" fn HandleConfirmationOfOurCompareStates<Identity: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, confirmation: DTCLUCOMPARESTATESCONFIRMATION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRecoveryInitiatedByLuWork_Impl::HandleConfirmationOfOurCompareStates(this, core::mem::transmute_copy(&confirmation)).into()
+                IDtcLuRecoveryInitiatedByLuWork_Impl::HandleConfirmationOfOurCompareStates(this, core::mem::transmute_copy(&confirmation))
             }
         }
         unsafe extern "system" fn HandleErrorFromOurCompareStates<Identity: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, error: DTCLUCOMPARESTATESERROR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRecoveryInitiatedByLuWork_Impl::HandleErrorFromOurCompareStates(this, core::mem::transmute_copy(&error)).into()
+                IDtcLuRecoveryInitiatedByLuWork_Impl::HandleErrorFromOurCompareStates(this, core::mem::transmute_copy(&error))
             }
         }
         unsafe extern "system" fn ConversationLost<Identity: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRecoveryInitiatedByLuWork_Impl::ConversationLost(this).into()
+                IDtcLuRecoveryInitiatedByLuWork_Impl::ConversationLost(this)
             }
         }
         Self {
@@ -642,49 +642,49 @@ pub struct IDtcLuRmEnlistment_Vtbl {
     pub RequestCommit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDtcLuRmEnlistment_Impl: windows_core::IUnknownImpl {
-    fn Unplug(&self, fconversationlost: windows_core::BOOL) -> windows_core::Result<()>;
-    fn BackedOut(&self) -> windows_core::Result<()>;
-    fn BackOut(&self) -> windows_core::Result<()>;
-    fn Committed(&self) -> windows_core::Result<()>;
-    fn Forget(&self) -> windows_core::Result<()>;
-    fn RequestCommit(&self) -> windows_core::Result<()>;
+    fn Unplug(&self, fconversationlost: windows_core::BOOL) -> windows_core::HRESULT;
+    fn BackedOut(&self) -> windows_core::HRESULT;
+    fn BackOut(&self) -> windows_core::HRESULT;
+    fn Committed(&self) -> windows_core::HRESULT;
+    fn Forget(&self) -> windows_core::HRESULT;
+    fn RequestCommit(&self) -> windows_core::HRESULT;
 }
 impl IDtcLuRmEnlistment_Vtbl {
     pub const fn new<Identity: IDtcLuRmEnlistment_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Unplug<Identity: IDtcLuRmEnlistment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fconversationlost: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRmEnlistment_Impl::Unplug(this, core::mem::transmute_copy(&fconversationlost)).into()
+                IDtcLuRmEnlistment_Impl::Unplug(this, core::mem::transmute_copy(&fconversationlost))
             }
         }
         unsafe extern "system" fn BackedOut<Identity: IDtcLuRmEnlistment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRmEnlistment_Impl::BackedOut(this).into()
+                IDtcLuRmEnlistment_Impl::BackedOut(this)
             }
         }
         unsafe extern "system" fn BackOut<Identity: IDtcLuRmEnlistment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRmEnlistment_Impl::BackOut(this).into()
+                IDtcLuRmEnlistment_Impl::BackOut(this)
             }
         }
         unsafe extern "system" fn Committed<Identity: IDtcLuRmEnlistment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRmEnlistment_Impl::Committed(this).into()
+                IDtcLuRmEnlistment_Impl::Committed(this)
             }
         }
         unsafe extern "system" fn Forget<Identity: IDtcLuRmEnlistment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRmEnlistment_Impl::Forget(this).into()
+                IDtcLuRmEnlistment_Impl::Forget(this)
             }
         }
         unsafe extern "system" fn RequestCommit<Identity: IDtcLuRmEnlistment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRmEnlistment_Impl::RequestCommit(this).into()
+                IDtcLuRmEnlistment_Impl::RequestCommit(this)
             }
         }
         Self {
@@ -725,7 +725,7 @@ pub struct IDtcLuRmEnlistmentFactory_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "transact"))]
 pub trait IDtcLuRmEnlistmentFactory_Impl: windows_core::IUnknownImpl {
-    fn Create(&self, puclupair: *const u8, cblupair: super::DWORD, pitransaction: windows_core::Ref<super::ITransaction>, ptransid: *const u8, cbtransid: super::DWORD, prmenlistmentsink: windows_core::Ref<IDtcLuRmEnlistmentSink>, pprmenlistment: windows_core::OutRef<IDtcLuRmEnlistment>) -> windows_core::Result<()>;
+    fn Create(&self, puclupair: *const u8, cblupair: super::DWORD, pitransaction: windows_core::Ref<super::ITransaction>, ptransid: *const u8, cbtransid: super::DWORD, prmenlistmentsink: windows_core::Ref<IDtcLuRmEnlistmentSink>, pprmenlistment: windows_core::OutRef<IDtcLuRmEnlistment>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "transact"))]
 impl IDtcLuRmEnlistmentFactory_Vtbl {
@@ -733,7 +733,7 @@ impl IDtcLuRmEnlistmentFactory_Vtbl {
         unsafe extern "system" fn Create<Identity: IDtcLuRmEnlistmentFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puclupair: *const u8, cblupair: super::DWORD, pitransaction: *mut core::ffi::c_void, ptransid: *const u8, cbtransid: super::DWORD, prmenlistmentsink: *mut core::ffi::c_void, pprmenlistment: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRmEnlistmentFactory_Impl::Create(this, core::mem::transmute_copy(&puclupair), core::mem::transmute_copy(&cblupair), core::mem::transmute_copy(&pitransaction), core::mem::transmute_copy(&ptransid), core::mem::transmute_copy(&cbtransid), core::mem::transmute_copy(&prmenlistmentsink), core::mem::transmute_copy(&pprmenlistment)).into()
+                IDtcLuRmEnlistmentFactory_Impl::Create(this, core::mem::transmute_copy(&puclupair), core::mem::transmute_copy(&cblupair), core::mem::transmute_copy(&pitransaction), core::mem::transmute_copy(&ptransid), core::mem::transmute_copy(&cbtransid), core::mem::transmute_copy(&prmenlistmentsink), core::mem::transmute_copy(&pprmenlistment))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Create: Create::<Identity, OFFSET> }
@@ -790,70 +790,70 @@ pub struct IDtcLuRmEnlistmentSink_Vtbl {
     pub RequestCommit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDtcLuRmEnlistmentSink_Impl: windows_core::IUnknownImpl {
-    fn AckUnplug(&self) -> windows_core::Result<()>;
-    fn TmDown(&self) -> windows_core::Result<()>;
-    fn SessionLost(&self) -> windows_core::Result<()>;
-    fn BackedOut(&self) -> windows_core::Result<()>;
-    fn BackOut(&self) -> windows_core::Result<()>;
-    fn Committed(&self) -> windows_core::Result<()>;
-    fn Forget(&self) -> windows_core::Result<()>;
-    fn Prepare(&self) -> windows_core::Result<()>;
-    fn RequestCommit(&self) -> windows_core::Result<()>;
+    fn AckUnplug(&self) -> windows_core::HRESULT;
+    fn TmDown(&self) -> windows_core::HRESULT;
+    fn SessionLost(&self) -> windows_core::HRESULT;
+    fn BackedOut(&self) -> windows_core::HRESULT;
+    fn BackOut(&self) -> windows_core::HRESULT;
+    fn Committed(&self) -> windows_core::HRESULT;
+    fn Forget(&self) -> windows_core::HRESULT;
+    fn Prepare(&self) -> windows_core::HRESULT;
+    fn RequestCommit(&self) -> windows_core::HRESULT;
 }
 impl IDtcLuRmEnlistmentSink_Vtbl {
     pub const fn new<Identity: IDtcLuRmEnlistmentSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AckUnplug<Identity: IDtcLuRmEnlistmentSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRmEnlistmentSink_Impl::AckUnplug(this).into()
+                IDtcLuRmEnlistmentSink_Impl::AckUnplug(this)
             }
         }
         unsafe extern "system" fn TmDown<Identity: IDtcLuRmEnlistmentSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRmEnlistmentSink_Impl::TmDown(this).into()
+                IDtcLuRmEnlistmentSink_Impl::TmDown(this)
             }
         }
         unsafe extern "system" fn SessionLost<Identity: IDtcLuRmEnlistmentSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRmEnlistmentSink_Impl::SessionLost(this).into()
+                IDtcLuRmEnlistmentSink_Impl::SessionLost(this)
             }
         }
         unsafe extern "system" fn BackedOut<Identity: IDtcLuRmEnlistmentSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRmEnlistmentSink_Impl::BackedOut(this).into()
+                IDtcLuRmEnlistmentSink_Impl::BackedOut(this)
             }
         }
         unsafe extern "system" fn BackOut<Identity: IDtcLuRmEnlistmentSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRmEnlistmentSink_Impl::BackOut(this).into()
+                IDtcLuRmEnlistmentSink_Impl::BackOut(this)
             }
         }
         unsafe extern "system" fn Committed<Identity: IDtcLuRmEnlistmentSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRmEnlistmentSink_Impl::Committed(this).into()
+                IDtcLuRmEnlistmentSink_Impl::Committed(this)
             }
         }
         unsafe extern "system" fn Forget<Identity: IDtcLuRmEnlistmentSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRmEnlistmentSink_Impl::Forget(this).into()
+                IDtcLuRmEnlistmentSink_Impl::Forget(this)
             }
         }
         unsafe extern "system" fn Prepare<Identity: IDtcLuRmEnlistmentSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRmEnlistmentSink_Impl::Prepare(this).into()
+                IDtcLuRmEnlistmentSink_Impl::Prepare(this)
             }
         }
         unsafe extern "system" fn RequestCommit<Identity: IDtcLuRmEnlistmentSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuRmEnlistmentSink_Impl::RequestCommit(this).into()
+                IDtcLuRmEnlistmentSink_Impl::RequestCommit(this)
             }
         }
         Self {
@@ -912,56 +912,56 @@ pub struct IDtcLuSubordinateDtc_Vtbl {
     pub RequestCommit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDtcLuSubordinateDtc_Impl: windows_core::IUnknownImpl {
-    fn Unplug(&self, fconversationlost: windows_core::BOOL) -> windows_core::Result<()>;
-    fn BackedOut(&self) -> windows_core::Result<()>;
-    fn BackOut(&self) -> windows_core::Result<()>;
-    fn Committed(&self) -> windows_core::Result<()>;
-    fn Forget(&self) -> windows_core::Result<()>;
-    fn Prepare(&self) -> windows_core::Result<()>;
-    fn RequestCommit(&self) -> windows_core::Result<()>;
+    fn Unplug(&self, fconversationlost: windows_core::BOOL) -> windows_core::HRESULT;
+    fn BackedOut(&self) -> windows_core::HRESULT;
+    fn BackOut(&self) -> windows_core::HRESULT;
+    fn Committed(&self) -> windows_core::HRESULT;
+    fn Forget(&self) -> windows_core::HRESULT;
+    fn Prepare(&self) -> windows_core::HRESULT;
+    fn RequestCommit(&self) -> windows_core::HRESULT;
 }
 impl IDtcLuSubordinateDtc_Vtbl {
     pub const fn new<Identity: IDtcLuSubordinateDtc_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Unplug<Identity: IDtcLuSubordinateDtc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fconversationlost: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuSubordinateDtc_Impl::Unplug(this, core::mem::transmute_copy(&fconversationlost)).into()
+                IDtcLuSubordinateDtc_Impl::Unplug(this, core::mem::transmute_copy(&fconversationlost))
             }
         }
         unsafe extern "system" fn BackedOut<Identity: IDtcLuSubordinateDtc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuSubordinateDtc_Impl::BackedOut(this).into()
+                IDtcLuSubordinateDtc_Impl::BackedOut(this)
             }
         }
         unsafe extern "system" fn BackOut<Identity: IDtcLuSubordinateDtc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuSubordinateDtc_Impl::BackOut(this).into()
+                IDtcLuSubordinateDtc_Impl::BackOut(this)
             }
         }
         unsafe extern "system" fn Committed<Identity: IDtcLuSubordinateDtc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuSubordinateDtc_Impl::Committed(this).into()
+                IDtcLuSubordinateDtc_Impl::Committed(this)
             }
         }
         unsafe extern "system" fn Forget<Identity: IDtcLuSubordinateDtc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuSubordinateDtc_Impl::Forget(this).into()
+                IDtcLuSubordinateDtc_Impl::Forget(this)
             }
         }
         unsafe extern "system" fn Prepare<Identity: IDtcLuSubordinateDtc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuSubordinateDtc_Impl::Prepare(this).into()
+                IDtcLuSubordinateDtc_Impl::Prepare(this)
             }
         }
         unsafe extern "system" fn RequestCommit<Identity: IDtcLuSubordinateDtc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuSubordinateDtc_Impl::RequestCommit(this).into()
+                IDtcLuSubordinateDtc_Impl::RequestCommit(this)
             }
         }
         Self {
@@ -1004,7 +1004,7 @@ pub struct IDtcLuSubordinateDtcFactory_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "transact"))]
 pub trait IDtcLuSubordinateDtcFactory_Impl: windows_core::IUnknownImpl {
-    fn Create(&self, puclupair: *const u8, cblupair: super::DWORD, punktransactionouter: windows_core::Ref<windows_core::IUnknown>, isolevel: super::ISOLEVEL, isoflags: super::ULONG, poptions: windows_core::Ref<super::ITransactionOptions>, pptransaction: windows_core::OutRef<super::ITransaction>, ptransid: *const u8, cbtransid: super::DWORD, psubordinatedtcsink: windows_core::Ref<IDtcLuSubordinateDtcSink>, ppsubordinatedtc: windows_core::OutRef<IDtcLuSubordinateDtc>) -> windows_core::Result<()>;
+    fn Create(&self, puclupair: *const u8, cblupair: super::DWORD, punktransactionouter: windows_core::Ref<windows_core::IUnknown>, isolevel: super::ISOLEVEL, isoflags: super::ULONG, poptions: windows_core::Ref<super::ITransactionOptions>, pptransaction: windows_core::OutRef<super::ITransaction>, ptransid: *const u8, cbtransid: super::DWORD, psubordinatedtcsink: windows_core::Ref<IDtcLuSubordinateDtcSink>, ppsubordinatedtc: windows_core::OutRef<IDtcLuSubordinateDtc>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "transact"))]
 impl IDtcLuSubordinateDtcFactory_Vtbl {
@@ -1012,7 +1012,7 @@ impl IDtcLuSubordinateDtcFactory_Vtbl {
         unsafe extern "system" fn Create<Identity: IDtcLuSubordinateDtcFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puclupair: *const u8, cblupair: super::DWORD, punktransactionouter: *mut core::ffi::c_void, isolevel: super::ISOLEVEL, isoflags: super::ULONG, poptions: *mut core::ffi::c_void, pptransaction: *mut *mut core::ffi::c_void, ptransid: *const u8, cbtransid: super::DWORD, psubordinatedtcsink: *mut core::ffi::c_void, ppsubordinatedtc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuSubordinateDtcFactory_Impl::Create(this, core::mem::transmute_copy(&puclupair), core::mem::transmute_copy(&cblupair), core::mem::transmute_copy(&punktransactionouter), core::mem::transmute_copy(&isolevel), core::mem::transmute_copy(&isoflags), core::mem::transmute_copy(&poptions), core::mem::transmute_copy(&pptransaction), core::mem::transmute_copy(&ptransid), core::mem::transmute_copy(&cbtransid), core::mem::transmute_copy(&psubordinatedtcsink), core::mem::transmute_copy(&ppsubordinatedtc)).into()
+                IDtcLuSubordinateDtcFactory_Impl::Create(this, core::mem::transmute_copy(&puclupair), core::mem::transmute_copy(&cblupair), core::mem::transmute_copy(&punktransactionouter), core::mem::transmute_copy(&isolevel), core::mem::transmute_copy(&isoflags), core::mem::transmute_copy(&poptions), core::mem::transmute_copy(&pptransaction), core::mem::transmute_copy(&ptransid), core::mem::transmute_copy(&cbtransid), core::mem::transmute_copy(&psubordinatedtcsink), core::mem::transmute_copy(&ppsubordinatedtc))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Create: Create::<Identity, OFFSET> }
@@ -1065,63 +1065,63 @@ pub struct IDtcLuSubordinateDtcSink_Vtbl {
     pub RequestCommit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDtcLuSubordinateDtcSink_Impl: windows_core::IUnknownImpl {
-    fn AckUnplug(&self) -> windows_core::Result<()>;
-    fn TmDown(&self) -> windows_core::Result<()>;
-    fn SessionLost(&self) -> windows_core::Result<()>;
-    fn BackedOut(&self) -> windows_core::Result<()>;
-    fn BackOut(&self) -> windows_core::Result<()>;
-    fn Committed(&self) -> windows_core::Result<()>;
-    fn Forget(&self) -> windows_core::Result<()>;
-    fn RequestCommit(&self) -> windows_core::Result<()>;
+    fn AckUnplug(&self) -> windows_core::HRESULT;
+    fn TmDown(&self) -> windows_core::HRESULT;
+    fn SessionLost(&self) -> windows_core::HRESULT;
+    fn BackedOut(&self) -> windows_core::HRESULT;
+    fn BackOut(&self) -> windows_core::HRESULT;
+    fn Committed(&self) -> windows_core::HRESULT;
+    fn Forget(&self) -> windows_core::HRESULT;
+    fn RequestCommit(&self) -> windows_core::HRESULT;
 }
 impl IDtcLuSubordinateDtcSink_Vtbl {
     pub const fn new<Identity: IDtcLuSubordinateDtcSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AckUnplug<Identity: IDtcLuSubordinateDtcSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuSubordinateDtcSink_Impl::AckUnplug(this).into()
+                IDtcLuSubordinateDtcSink_Impl::AckUnplug(this)
             }
         }
         unsafe extern "system" fn TmDown<Identity: IDtcLuSubordinateDtcSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuSubordinateDtcSink_Impl::TmDown(this).into()
+                IDtcLuSubordinateDtcSink_Impl::TmDown(this)
             }
         }
         unsafe extern "system" fn SessionLost<Identity: IDtcLuSubordinateDtcSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuSubordinateDtcSink_Impl::SessionLost(this).into()
+                IDtcLuSubordinateDtcSink_Impl::SessionLost(this)
             }
         }
         unsafe extern "system" fn BackedOut<Identity: IDtcLuSubordinateDtcSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuSubordinateDtcSink_Impl::BackedOut(this).into()
+                IDtcLuSubordinateDtcSink_Impl::BackedOut(this)
             }
         }
         unsafe extern "system" fn BackOut<Identity: IDtcLuSubordinateDtcSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuSubordinateDtcSink_Impl::BackOut(this).into()
+                IDtcLuSubordinateDtcSink_Impl::BackOut(this)
             }
         }
         unsafe extern "system" fn Committed<Identity: IDtcLuSubordinateDtcSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuSubordinateDtcSink_Impl::Committed(this).into()
+                IDtcLuSubordinateDtcSink_Impl::Committed(this)
             }
         }
         unsafe extern "system" fn Forget<Identity: IDtcLuSubordinateDtcSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuSubordinateDtcSink_Impl::Forget(this).into()
+                IDtcLuSubordinateDtcSink_Impl::Forget(this)
             }
         }
         unsafe extern "system" fn RequestCommit<Identity: IDtcLuSubordinateDtcSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcLuSubordinateDtcSink_Impl::RequestCommit(this).into()
+                IDtcLuSubordinateDtcSink_Impl::RequestCommit(this)
             }
         }
         Self {
@@ -1245,8 +1245,8 @@ pub struct ILastResourceManager_Vtbl {
 }
 #[cfg(all(feature = "rpc", feature = "shared"))]
 pub trait ILastResourceManager_Impl: windows_core::IUnknownImpl {
-    fn TransactionCommitted(&self, pprepinfo: *const super::byte, cbprepinfo: super::ULONG) -> windows_core::Result<()>;
-    fn RecoveryDone(&self) -> windows_core::Result<()>;
+    fn TransactionCommitted(&self, pprepinfo: *const super::byte, cbprepinfo: super::ULONG) -> windows_core::HRESULT;
+    fn RecoveryDone(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "rpc", feature = "shared"))]
 impl ILastResourceManager_Vtbl {
@@ -1254,13 +1254,13 @@ impl ILastResourceManager_Vtbl {
         unsafe extern "system" fn TransactionCommitted<Identity: ILastResourceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprepinfo: *const super::byte, cbprepinfo: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILastResourceManager_Impl::TransactionCommitted(this, core::mem::transmute_copy(&pprepinfo), core::mem::transmute_copy(&cbprepinfo)).into()
+                ILastResourceManager_Impl::TransactionCommitted(this, core::mem::transmute_copy(&pprepinfo), core::mem::transmute_copy(&cbprepinfo))
             }
         }
         unsafe extern "system" fn RecoveryDone<Identity: ILastResourceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILastResourceManager_Impl::RecoveryDone(this).into()
+                ILastResourceManager_Impl::RecoveryDone(this)
             }
         }
         Self {
@@ -1302,8 +1302,8 @@ pub struct IPrepareInfo_Vtbl {
 }
 #[cfg(all(feature = "rpc", feature = "shared"))]
 pub trait IPrepareInfo_Impl: windows_core::IUnknownImpl {
-    fn GetPrepareInfoSize(&self, pcbprepinfo: *mut super::ULONG) -> windows_core::Result<()>;
-    fn GetPrepareInfo(&self, pprepinfo: *mut super::byte) -> windows_core::Result<()>;
+    fn GetPrepareInfoSize(&self, pcbprepinfo: *mut super::ULONG) -> windows_core::HRESULT;
+    fn GetPrepareInfo(&self, pprepinfo: *mut super::byte) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "rpc", feature = "shared"))]
 impl IPrepareInfo_Vtbl {
@@ -1311,13 +1311,13 @@ impl IPrepareInfo_Vtbl {
         unsafe extern "system" fn GetPrepareInfoSize<Identity: IPrepareInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbprepinfo: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPrepareInfo_Impl::GetPrepareInfoSize(this, core::mem::transmute_copy(&pcbprepinfo)).into()
+                IPrepareInfo_Impl::GetPrepareInfoSize(this, core::mem::transmute_copy(&pcbprepinfo))
             }
         }
         unsafe extern "system" fn GetPrepareInfo<Identity: IPrepareInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprepinfo: *mut super::byte) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPrepareInfo_Impl::GetPrepareInfo(this, core::mem::transmute_copy(&pprepinfo)).into()
+                IPrepareInfo_Impl::GetPrepareInfo(this, core::mem::transmute_copy(&pprepinfo))
             }
         }
         Self {
@@ -1359,8 +1359,8 @@ pub struct IPrepareInfo2_Vtbl {
 }
 #[cfg(all(feature = "rpc", feature = "shared"))]
 pub trait IPrepareInfo2_Impl: windows_core::IUnknownImpl {
-    fn GetPrepareInfoSize(&self, pcbprepinfo: *mut super::ULONG) -> windows_core::Result<()>;
-    fn GetPrepareInfo(&self, cbprepareinfo: super::ULONG, pprepinfo: *mut super::byte) -> windows_core::Result<()>;
+    fn GetPrepareInfoSize(&self, pcbprepinfo: *mut super::ULONG) -> windows_core::HRESULT;
+    fn GetPrepareInfo(&self, cbprepareinfo: super::ULONG, pprepinfo: *mut super::byte) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "rpc", feature = "shared"))]
 impl IPrepareInfo2_Vtbl {
@@ -1368,13 +1368,13 @@ impl IPrepareInfo2_Vtbl {
         unsafe extern "system" fn GetPrepareInfoSize<Identity: IPrepareInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbprepinfo: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPrepareInfo2_Impl::GetPrepareInfoSize(this, core::mem::transmute_copy(&pcbprepinfo)).into()
+                IPrepareInfo2_Impl::GetPrepareInfoSize(this, core::mem::transmute_copy(&pcbprepinfo))
             }
         }
         unsafe extern "system" fn GetPrepareInfo<Identity: IPrepareInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbprepareinfo: super::ULONG, pprepinfo: *mut super::byte) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPrepareInfo2_Impl::GetPrepareInfo(this, core::mem::transmute_copy(&cbprepareinfo), core::mem::transmute_copy(&pprepinfo)).into()
+                IPrepareInfo2_Impl::GetPrepareInfo(this, core::mem::transmute_copy(&cbprepareinfo), core::mem::transmute_copy(&pprepinfo))
             }
         }
         Self {
@@ -1412,8 +1412,8 @@ pub struct IRMHelper_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IRMHelper_Impl: windows_core::IUnknownImpl {
-    fn RMCount(&self, dwctotalnumberofrms: super::DWORD) -> windows_core::Result<()>;
-    fn RMInfo(&self, pxa_switch: *const xa_switch_t, fcdeclcallingconv: windows_core::BOOL, pszopenstring: *const i8, pszclosestring: *const i8, guidrmrecovery: &windows_core::GUID) -> windows_core::Result<()>;
+    fn RMCount(&self, dwctotalnumberofrms: super::DWORD) -> windows_core::HRESULT;
+    fn RMInfo(&self, pxa_switch: *const xa_switch_t, fcdeclcallingconv: windows_core::BOOL, pszopenstring: *const i8, pszclosestring: *const i8, guidrmrecovery: &windows_core::GUID) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IRMHelper_Vtbl {
@@ -1421,13 +1421,13 @@ impl IRMHelper_Vtbl {
         unsafe extern "system" fn RMCount<Identity: IRMHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwctotalnumberofrms: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRMHelper_Impl::RMCount(this, core::mem::transmute_copy(&dwctotalnumberofrms)).into()
+                IRMHelper_Impl::RMCount(this, core::mem::transmute_copy(&dwctotalnumberofrms))
             }
         }
         unsafe extern "system" fn RMInfo<Identity: IRMHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxa_switch: *const xa_switch_t, fcdeclcallingconv: windows_core::BOOL, pszopenstring: *const i8, pszclosestring: *const i8, guidrmrecovery: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRMHelper_Impl::RMInfo(this, core::mem::transmute_copy(&pxa_switch), core::mem::transmute_copy(&fcdeclcallingconv), core::mem::transmute_copy(&pszopenstring), core::mem::transmute_copy(&pszclosestring), core::mem::transmute(&guidrmrecovery)).into()
+                IRMHelper_Impl::RMInfo(this, core::mem::transmute_copy(&pxa_switch), core::mem::transmute_copy(&fcdeclcallingconv), core::mem::transmute_copy(&pszopenstring), core::mem::transmute_copy(&pszclosestring), core::mem::transmute(&guidrmrecovery))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), RMCount: RMCount::<Identity, OFFSET>, RMInfo: RMInfo::<Identity, OFFSET> }
@@ -1484,7 +1484,7 @@ pub struct IResourceManager2_Vtbl {
 #[cfg(all(feature = "rpc", feature = "shared", feature = "strmif", feature = "transact", feature = "txcoord"))]
 pub trait IResourceManager2_Impl: super::IResourceManager_Impl {
     fn Enlist2(&self, ptransaction: windows_core::Ref<super::ITransaction>, presasync: windows_core::Ref<super::ITransactionResourceAsync>, puow: *mut super::XACTUOW, pisolevel: *mut super::LONG, pxid: *mut XID) -> windows_core::Result<super::ITransactionEnlistmentAsync>;
-    fn Reenlist2(&self, pxid: *const XID, dwtimeout: super::DWORD, pxactstat: *mut super::XACTSTAT) -> windows_core::Result<()>;
+    fn Reenlist2(&self, pxid: *const XID, dwtimeout: super::DWORD, pxactstat: *mut super::XACTSTAT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "rpc", feature = "shared", feature = "strmif", feature = "transact", feature = "txcoord"))]
 impl IResourceManager2_Vtbl {
@@ -1507,7 +1507,7 @@ impl IResourceManager2_Vtbl {
         unsafe extern "system" fn Reenlist2<Identity: IResourceManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxid: *const XID, dwtimeout: super::DWORD, pxactstat: *mut super::XACTSTAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IResourceManager2_Impl::Reenlist2(this, core::mem::transmute_copy(&pxid), core::mem::transmute_copy(&dwtimeout), core::mem::transmute_copy(&pxactstat)).into()
+                IResourceManager2_Impl::Reenlist2(this, core::mem::transmute_copy(&pxid), core::mem::transmute_copy(&dwtimeout), core::mem::transmute_copy(&pxactstat))
             }
         }
         Self { base__: super::IResourceManager_Vtbl::new::<Identity, OFFSET>(), Enlist2: Enlist2::<Identity, OFFSET>, Reenlist2: Reenlist2::<Identity, OFFSET> }
@@ -1650,7 +1650,7 @@ pub struct IResourceManagerRejoinable_Vtbl {
 }
 #[cfg(all(feature = "rpc", feature = "shared", feature = "strmif", feature = "transact", feature = "txcoord"))]
 pub trait IResourceManagerRejoinable_Impl: IResourceManager2_Impl {
-    fn Rejoin(&self, pprepinfo: *const super::byte, cbprepinfo: super::ULONG, ltimeout: super::DWORD, pxactstat: *mut super::XACTSTAT) -> windows_core::Result<()>;
+    fn Rejoin(&self, pprepinfo: *const super::byte, cbprepinfo: super::ULONG, ltimeout: super::DWORD, pxactstat: *mut super::XACTSTAT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "rpc", feature = "shared", feature = "strmif", feature = "transact", feature = "txcoord"))]
 impl IResourceManagerRejoinable_Vtbl {
@@ -1658,7 +1658,7 @@ impl IResourceManagerRejoinable_Vtbl {
         unsafe extern "system" fn Rejoin<Identity: IResourceManagerRejoinable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprepinfo: *const super::byte, cbprepinfo: super::ULONG, ltimeout: super::DWORD, pxactstat: *mut super::XACTSTAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IResourceManagerRejoinable_Impl::Rejoin(this, core::mem::transmute_copy(&pprepinfo), core::mem::transmute_copy(&cbprepinfo), core::mem::transmute_copy(&ltimeout), core::mem::transmute_copy(&pxactstat)).into()
+                IResourceManagerRejoinable_Impl::Rejoin(this, core::mem::transmute_copy(&pprepinfo), core::mem::transmute_copy(&cbprepinfo), core::mem::transmute_copy(&ltimeout), core::mem::transmute_copy(&pxactstat))
             }
         }
         Self { base__: IResourceManager2_Vtbl::new::<Identity, OFFSET>(), Rejoin: Rejoin::<Identity, OFFSET> }
@@ -1683,14 +1683,14 @@ pub struct IResourceManagerSink_Vtbl {
     pub TMDown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IResourceManagerSink_Impl: windows_core::IUnknownImpl {
-    fn TMDown(&self) -> windows_core::Result<()>;
+    fn TMDown(&self) -> windows_core::HRESULT;
 }
 impl IResourceManagerSink_Vtbl {
     pub const fn new<Identity: IResourceManagerSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn TMDown<Identity: IResourceManagerSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IResourceManagerSink_Impl::TMDown(this).into()
+                IResourceManagerSink_Impl::TMDown(this)
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), TMDown: TMDown::<Identity, OFFSET> }
@@ -1738,10 +1738,10 @@ pub struct ITransactionPhase0EnlistmentAsync_Vtbl {
 }
 #[cfg(feature = "transact")]
 pub trait ITransactionPhase0EnlistmentAsync_Impl: windows_core::IUnknownImpl {
-    fn Enable(&self) -> windows_core::Result<()>;
-    fn WaitForEnlistment(&self) -> windows_core::Result<()>;
-    fn Phase0Done(&self) -> windows_core::Result<()>;
-    fn Unenlist(&self) -> windows_core::Result<()>;
+    fn Enable(&self) -> windows_core::HRESULT;
+    fn WaitForEnlistment(&self) -> windows_core::HRESULT;
+    fn Phase0Done(&self) -> windows_core::HRESULT;
+    fn Unenlist(&self) -> windows_core::HRESULT;
     fn GetTransaction(&self) -> windows_core::Result<super::ITransaction>;
 }
 #[cfg(feature = "transact")]
@@ -1750,25 +1750,25 @@ impl ITransactionPhase0EnlistmentAsync_Vtbl {
         unsafe extern "system" fn Enable<Identity: ITransactionPhase0EnlistmentAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionPhase0EnlistmentAsync_Impl::Enable(this).into()
+                ITransactionPhase0EnlistmentAsync_Impl::Enable(this)
             }
         }
         unsafe extern "system" fn WaitForEnlistment<Identity: ITransactionPhase0EnlistmentAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionPhase0EnlistmentAsync_Impl::WaitForEnlistment(this).into()
+                ITransactionPhase0EnlistmentAsync_Impl::WaitForEnlistment(this)
             }
         }
         unsafe extern "system" fn Phase0Done<Identity: ITransactionPhase0EnlistmentAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionPhase0EnlistmentAsync_Impl::Phase0Done(this).into()
+                ITransactionPhase0EnlistmentAsync_Impl::Phase0Done(this)
             }
         }
         unsafe extern "system" fn Unenlist<Identity: ITransactionPhase0EnlistmentAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionPhase0EnlistmentAsync_Impl::Unenlist(this).into()
+                ITransactionPhase0EnlistmentAsync_Impl::Unenlist(this)
             }
         }
         unsafe extern "system" fn GetTransaction<Identity: ITransactionPhase0EnlistmentAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppitransaction: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1865,21 +1865,21 @@ pub struct ITransactionPhase0NotifyAsync_Vtbl {
     pub EnlistCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
 }
 pub trait ITransactionPhase0NotifyAsync_Impl: windows_core::IUnknownImpl {
-    fn Phase0Request(&self, fabortinghint: windows_core::BOOL) -> windows_core::Result<()>;
-    fn EnlistCompleted(&self, status: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn Phase0Request(&self, fabortinghint: windows_core::BOOL) -> windows_core::HRESULT;
+    fn EnlistCompleted(&self, status: windows_core::HRESULT) -> windows_core::HRESULT;
 }
 impl ITransactionPhase0NotifyAsync_Vtbl {
     pub const fn new<Identity: ITransactionPhase0NotifyAsync_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Phase0Request<Identity: ITransactionPhase0NotifyAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fabortinghint: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionPhase0NotifyAsync_Impl::Phase0Request(this, core::mem::transmute_copy(&fabortinghint)).into()
+                ITransactionPhase0NotifyAsync_Impl::Phase0Request(this, core::mem::transmute_copy(&fabortinghint))
             }
         }
         unsafe extern "system" fn EnlistCompleted<Identity: ITransactionPhase0NotifyAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, status: windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionPhase0NotifyAsync_Impl::EnlistCompleted(this, core::mem::transmute_copy(&status)).into()
+                ITransactionPhase0NotifyAsync_Impl::EnlistCompleted(this, core::mem::transmute_copy(&status))
             }
         }
         Self {
@@ -1936,9 +1936,9 @@ pub struct ITransactionReceiver_Vtbl {
 #[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
 pub trait ITransactionReceiver_Impl: windows_core::IUnknownImpl {
     fn UnmarshalPropagationToken(&self, cbtoken: super::ULONG, rgbtoken: *const super::byte) -> windows_core::Result<super::ITransaction>;
-    fn GetReturnTokenSize(&self, pcbreturntoken: *mut super::ULONG) -> windows_core::Result<()>;
-    fn MarshalReturnToken(&self, cbreturntoken: super::ULONG, rgbreturntoken: *mut super::byte, pcbused: *mut super::ULONG) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
+    fn GetReturnTokenSize(&self, pcbreturntoken: *mut super::ULONG) -> windows_core::HRESULT;
+    fn MarshalReturnToken(&self, cbreturntoken: super::ULONG, rgbreturntoken: *mut super::byte, pcbused: *mut super::ULONG) -> windows_core::HRESULT;
+    fn Reset(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
 impl ITransactionReceiver_Vtbl {
@@ -1961,19 +1961,19 @@ impl ITransactionReceiver_Vtbl {
         unsafe extern "system" fn GetReturnTokenSize<Identity: ITransactionReceiver_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbreturntoken: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionReceiver_Impl::GetReturnTokenSize(this, core::mem::transmute_copy(&pcbreturntoken)).into()
+                ITransactionReceiver_Impl::GetReturnTokenSize(this, core::mem::transmute_copy(&pcbreturntoken))
             }
         }
         unsafe extern "system" fn MarshalReturnToken<Identity: ITransactionReceiver_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbreturntoken: super::ULONG, rgbreturntoken: *mut super::byte, pcbused: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionReceiver_Impl::MarshalReturnToken(this, core::mem::transmute_copy(&cbreturntoken), core::mem::transmute_copy(&rgbreturntoken), core::mem::transmute_copy(&pcbused)).into()
+                ITransactionReceiver_Impl::MarshalReturnToken(this, core::mem::transmute_copy(&cbreturntoken), core::mem::transmute_copy(&rgbreturntoken), core::mem::transmute_copy(&pcbused))
             }
         }
         unsafe extern "system" fn Reset<Identity: ITransactionReceiver_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionReceiver_Impl::Reset(this).into()
+                ITransactionReceiver_Impl::Reset(this)
             }
         }
         Self {
@@ -2083,11 +2083,11 @@ pub struct ITransactionTransmitter_Vtbl {
 }
 #[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
 pub trait ITransactionTransmitter_Impl: windows_core::IUnknownImpl {
-    fn Set(&self, ptransaction: windows_core::Ref<super::ITransaction>) -> windows_core::Result<()>;
-    fn GetPropagationTokenSize(&self, pcbtoken: *mut super::ULONG) -> windows_core::Result<()>;
-    fn MarshalPropagationToken(&self, cbtoken: super::ULONG, rgbtoken: *mut super::byte, pcbused: *mut super::ULONG) -> windows_core::Result<()>;
-    fn UnmarshalReturnToken(&self, cbreturntoken: super::ULONG, rgbreturntoken: *const super::byte) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
+    fn Set(&self, ptransaction: windows_core::Ref<super::ITransaction>) -> windows_core::HRESULT;
+    fn GetPropagationTokenSize(&self, pcbtoken: *mut super::ULONG) -> windows_core::HRESULT;
+    fn MarshalPropagationToken(&self, cbtoken: super::ULONG, rgbtoken: *mut super::byte, pcbused: *mut super::ULONG) -> windows_core::HRESULT;
+    fn UnmarshalReturnToken(&self, cbreturntoken: super::ULONG, rgbreturntoken: *const super::byte) -> windows_core::HRESULT;
+    fn Reset(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
 impl ITransactionTransmitter_Vtbl {
@@ -2095,31 +2095,31 @@ impl ITransactionTransmitter_Vtbl {
         unsafe extern "system" fn Set<Identity: ITransactionTransmitter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptransaction: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionTransmitter_Impl::Set(this, core::mem::transmute_copy(&ptransaction)).into()
+                ITransactionTransmitter_Impl::Set(this, core::mem::transmute_copy(&ptransaction))
             }
         }
         unsafe extern "system" fn GetPropagationTokenSize<Identity: ITransactionTransmitter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbtoken: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionTransmitter_Impl::GetPropagationTokenSize(this, core::mem::transmute_copy(&pcbtoken)).into()
+                ITransactionTransmitter_Impl::GetPropagationTokenSize(this, core::mem::transmute_copy(&pcbtoken))
             }
         }
         unsafe extern "system" fn MarshalPropagationToken<Identity: ITransactionTransmitter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbtoken: super::ULONG, rgbtoken: *mut super::byte, pcbused: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionTransmitter_Impl::MarshalPropagationToken(this, core::mem::transmute_copy(&cbtoken), core::mem::transmute_copy(&rgbtoken), core::mem::transmute_copy(&pcbused)).into()
+                ITransactionTransmitter_Impl::MarshalPropagationToken(this, core::mem::transmute_copy(&cbtoken), core::mem::transmute_copy(&rgbtoken), core::mem::transmute_copy(&pcbused))
             }
         }
         unsafe extern "system" fn UnmarshalReturnToken<Identity: ITransactionTransmitter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbreturntoken: super::ULONG, rgbreturntoken: *const super::byte) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionTransmitter_Impl::UnmarshalReturnToken(this, core::mem::transmute_copy(&cbreturntoken), core::mem::transmute_copy(&rgbreturntoken)).into()
+                ITransactionTransmitter_Impl::UnmarshalReturnToken(this, core::mem::transmute_copy(&cbreturntoken), core::mem::transmute_copy(&rgbreturntoken))
             }
         }
         unsafe extern "system" fn Reset<Identity: ITransactionTransmitter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionTransmitter_Impl::Reset(this).into()
+                ITransactionTransmitter_Impl::Reset(this)
             }
         }
         Self {
@@ -2199,7 +2199,7 @@ pub struct ITransactionVoterBallotAsync2_Vtbl {
 }
 #[cfg(all(feature = "rpc", feature = "transact"))]
 pub trait ITransactionVoterBallotAsync2_Impl: windows_core::IUnknownImpl {
-    fn VoteRequestDone(&self, hr: windows_core::HRESULT, pboidreason: *const super::BOID) -> windows_core::Result<()>;
+    fn VoteRequestDone(&self, hr: windows_core::HRESULT, pboidreason: *const super::BOID) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "rpc", feature = "transact"))]
 impl ITransactionVoterBallotAsync2_Vtbl {
@@ -2207,7 +2207,7 @@ impl ITransactionVoterBallotAsync2_Vtbl {
         unsafe extern "system" fn VoteRequestDone<Identity: ITransactionVoterBallotAsync2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hr: windows_core::HRESULT, pboidreason: *const super::BOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionVoterBallotAsync2_Impl::VoteRequestDone(this, core::mem::transmute_copy(&hr), core::mem::transmute_copy(&pboidreason)).into()
+                ITransactionVoterBallotAsync2_Impl::VoteRequestDone(this, core::mem::transmute_copy(&hr), core::mem::transmute_copy(&pboidreason))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), VoteRequestDone: VoteRequestDone::<Identity, OFFSET> }
@@ -2298,7 +2298,7 @@ pub struct ITransactionVoterNotifyAsync2_Vtbl {
 }
 #[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
 pub trait ITransactionVoterNotifyAsync2_Impl: super::ITransactionOutcomeEvents_Impl {
-    fn VoteRequest(&self) -> windows_core::Result<()>;
+    fn VoteRequest(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
 impl ITransactionVoterNotifyAsync2_Vtbl {
@@ -2306,7 +2306,7 @@ impl ITransactionVoterNotifyAsync2_Vtbl {
         unsafe extern "system" fn VoteRequest<Identity: ITransactionVoterNotifyAsync2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionVoterNotifyAsync2_Impl::VoteRequest(this).into()
+                ITransactionVoterNotifyAsync2_Impl::VoteRequest(this)
             }
         }
         Self { base__: super::ITransactionOutcomeEvents_Vtbl::new::<Identity, OFFSET>(), VoteRequest: VoteRequest::<Identity, OFFSET> }
@@ -2335,21 +2335,21 @@ pub struct IXAConfig_Vtbl {
     pub Terminate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IXAConfig_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, clsidhelperdll: &windows_core::GUID) -> windows_core::Result<()>;
-    fn Terminate(&self) -> windows_core::Result<()>;
+    fn Initialize(&self, clsidhelperdll: &windows_core::GUID) -> windows_core::HRESULT;
+    fn Terminate(&self) -> windows_core::HRESULT;
 }
 impl IXAConfig_Vtbl {
     pub const fn new<Identity: IXAConfig_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IXAConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clsidhelperdll: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXAConfig_Impl::Initialize(this, core::mem::transmute(&clsidhelperdll)).into()
+                IXAConfig_Impl::Initialize(this, core::mem::transmute(&clsidhelperdll))
             }
         }
         unsafe extern "system" fn Terminate<Identity: IXAConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXAConfig_Impl::Terminate(this).into()
+                IXAConfig_Impl::Terminate(this)
             }
         }
         Self {
@@ -2380,14 +2380,14 @@ pub struct IXAObtainRMInfo_Vtbl {
     pub ObtainRMInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IXAObtainRMInfo_Impl: windows_core::IUnknownImpl {
-    fn ObtainRMInfo(&self, pirmhelper: windows_core::Ref<IRMHelper>) -> windows_core::Result<()>;
+    fn ObtainRMInfo(&self, pirmhelper: windows_core::Ref<IRMHelper>) -> windows_core::HRESULT;
 }
 impl IXAObtainRMInfo_Vtbl {
     pub const fn new<Identity: IXAObtainRMInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ObtainRMInfo<Identity: IXAObtainRMInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pirmhelper: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXAObtainRMInfo_Impl::ObtainRMInfo(this, core::mem::transmute_copy(&pirmhelper)).into()
+                IXAObtainRMInfo_Impl::ObtainRMInfo(this, core::mem::transmute_copy(&pirmhelper))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ObtainRMInfo: ObtainRMInfo::<Identity, OFFSET> }

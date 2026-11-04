@@ -21,39 +21,39 @@ struct TestData {
 struct Test(std::cell::UnsafeCell<TestData>);
 
 impl IDataObject_Impl for Test_Impl {
-    fn GetData(&self, _: *const FORMATETC, medium: *mut STGMEDIUM) -> Result<()> {
+    fn GetData(&self, _: *const FORMATETC, medium: *mut STGMEDIUM) -> HRESULT {
         unsafe {
             (*self.0.get()).GetData = true;
             medium.write(STGMEDIUM::default());
-            Ok(())
+            S_OK
         }
     }
 
-    fn GetDataHere(&self, _: *const FORMATETC, _: *mut STGMEDIUM) -> Result<()> {
+    fn GetDataHere(&self, _: *const FORMATETC, _: *mut STGMEDIUM) -> HRESULT {
         unsafe {
             (*self.0.get()).GetDataHere = true;
-            Ok(())
+            S_OK
         }
     }
 
-    fn QueryGetData(&self, _: *const FORMATETC) -> Result<()> {
+    fn QueryGetData(&self, _: *const FORMATETC) -> HRESULT {
         unsafe {
             (*self.0.get()).QueryGetData = true;
-            Ok(())
+            S_OK
         }
     }
 
-    fn GetCanonicalFormatEtc(&self, _: *const FORMATETC, _: *mut FORMATETC) -> Result<()> {
+    fn GetCanonicalFormatEtc(&self, _: *const FORMATETC, _: *mut FORMATETC) -> HRESULT {
         unsafe {
             (*self.0.get()).GetCanonicalFormatEtc = true;
-            Ok(())
+            S_OK
         }
     }
 
-    fn SetData(&self, _: *const FORMATETC, _: *const STGMEDIUM, _: BOOL) -> Result<()> {
+    fn SetData(&self, _: *const FORMATETC, _: *const STGMEDIUM, _: BOOL) -> HRESULT {
         unsafe {
             (*self.0.get()).SetData = true;
-            Ok(())
+            S_OK
         }
     }
 
@@ -70,18 +70,18 @@ impl IDataObject_Impl for Test_Impl {
         _: u32,
         _: Ref<IAdviseSink>,
         connection: *mut u32,
-    ) -> Result<()> {
+    ) -> HRESULT {
         unsafe {
             (*self.0.get()).DAdvise = true;
             *connection = 0;
-            Ok(())
+            S_OK
         }
     }
 
-    fn DUnadvise(&self, _: u32) -> Result<()> {
+    fn DUnadvise(&self, _: u32) -> HRESULT {
         unsafe {
             (*self.0.get()).DUnadvise = true;
-            Ok(())
+            S_OK
         }
     }
 

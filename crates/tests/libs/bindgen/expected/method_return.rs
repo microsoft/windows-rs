@@ -145,15 +145,15 @@ pub struct Interface_Vtbl {
     ) -> windows_core::HRESULT,
 }
 pub trait Interface_Impl {
-    fn ResultVoid(&self, value: u32) -> windows_core::Result<()>;
-    fn ResultValue(&self, value: u32, result: *mut Struct) -> windows_core::Result<()>;
+    fn ResultVoid(&self, value: u32) -> windows_core::HRESULT;
+    fn ResultValue(&self, value: u32, result: *mut Struct) -> windows_core::HRESULT;
     fn ReturnStruct(&self, value: u32, result: *mut Struct);
     fn ReturnValue(&self, value: u32, result: *mut Struct);
     fn ExplicitAfterInputOutput(&self, state: *mut u32) -> windows_core::Result<Struct>;
-    fn RetvalInputOutput(&self, result: *mut Struct) -> windows_core::Result<()>;
-    fn RetvalOptional(&self, result: *mut Struct) -> windows_core::Result<()>;
-    fn RetvalReserved(&self, result: *mut Struct) -> windows_core::Result<()>;
-    fn RetvalArray(&self, result: *mut Struct) -> windows_core::Result<()>;
+    fn RetvalInputOutput(&self, result: *mut Struct) -> windows_core::HRESULT;
+    fn RetvalOptional(&self, result: *mut Struct) -> windows_core::HRESULT;
+    fn RetvalReserved(&self, result: *mut Struct) -> windows_core::HRESULT;
+    fn RetvalArray(&self, result: *mut Struct) -> windows_core::HRESULT;
     fn ExplicitLarge(&self) -> windows_core::Result<Large>;
     fn ExplicitVoidPointer(&self) -> windows_core::Result<*mut core::ffi::c_void>;
 }
@@ -166,7 +166,7 @@ impl Interface_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                Interface_Impl::ResultVoid(this, core::mem::transmute_copy(&value)).into()
+                Interface_Impl::ResultVoid(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn ResultValue<Identity: Interface_Impl>(
@@ -182,7 +182,6 @@ impl Interface_Vtbl {
                     core::mem::transmute_copy(&value),
                     core::mem::transmute_copy(&result),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn ReturnStruct<Identity: Interface_Impl>(
@@ -245,7 +244,7 @@ impl Interface_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                Interface_Impl::RetvalInputOutput(this, core::mem::transmute_copy(&result)).into()
+                Interface_Impl::RetvalInputOutput(this, core::mem::transmute_copy(&result))
             }
         }
         unsafe extern "system" fn RetvalOptional<Identity: Interface_Impl>(
@@ -255,7 +254,7 @@ impl Interface_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                Interface_Impl::RetvalOptional(this, core::mem::transmute_copy(&result)).into()
+                Interface_Impl::RetvalOptional(this, core::mem::transmute_copy(&result))
             }
         }
         unsafe extern "system" fn RetvalReserved<Identity: Interface_Impl>(
@@ -265,7 +264,7 @@ impl Interface_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                Interface_Impl::RetvalReserved(this, core::mem::transmute_copy(&result)).into()
+                Interface_Impl::RetvalReserved(this, core::mem::transmute_copy(&result))
             }
         }
         unsafe extern "system" fn RetvalArray<Identity: Interface_Impl>(
@@ -275,7 +274,7 @@ impl Interface_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                Interface_Impl::RetvalArray(this, core::mem::transmute_copy(&result)).into()
+                Interface_Impl::RetvalArray(this, core::mem::transmute_copy(&result))
             }
         }
         unsafe extern "system" fn ExplicitLarge<Identity: Interface_Impl>(

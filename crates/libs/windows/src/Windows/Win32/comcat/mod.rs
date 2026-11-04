@@ -83,9 +83,9 @@ pub struct ICatInformation_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait ICatInformation_Impl: windows_core::IUnknownImpl {
     fn EnumCategories(&self, lcid: super::LCID) -> windows_core::Result<IEnumCATEGORYINFO>;
-    fn GetCategoryDesc(&self, rcatid: *const windows_core::GUID, lcid: super::LCID, pszdesc: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn EnumClassesOfCategories(&self, cimplemented: super::ULONG, rgcatidimpl: *const CATID, crequired: super::ULONG, rgcatidreq: *const CATID, ppenumclsid: windows_core::OutRef<IEnumGUID>) -> windows_core::Result<()>;
-    fn IsClassOfCategories(&self, rclsid: *const super::IID, cimplemented: super::ULONG, rgcatidimpl: *const CATID, crequired: super::ULONG, rgcatidreq: *const CATID) -> windows_core::Result<()>;
+    fn GetCategoryDesc(&self, rcatid: *const windows_core::GUID, lcid: super::LCID, pszdesc: *mut windows_core::PWSTR) -> windows_core::HRESULT;
+    fn EnumClassesOfCategories(&self, cimplemented: super::ULONG, rgcatidimpl: *const CATID, crequired: super::ULONG, rgcatidreq: *const CATID, ppenumclsid: windows_core::OutRef<IEnumGUID>) -> windows_core::HRESULT;
+    fn IsClassOfCategories(&self, rclsid: *const super::IID, cimplemented: super::ULONG, rgcatidimpl: *const CATID, crequired: super::ULONG, rgcatidreq: *const CATID) -> windows_core::HRESULT;
     fn EnumImplCategoriesOfClass(&self, rclsid: *const super::IID) -> windows_core::Result<IEnumGUID>;
     fn EnumReqCategoriesOfClass(&self, rclsid: *const super::IID) -> windows_core::Result<IEnumGUID>;
 }
@@ -110,19 +110,19 @@ impl ICatInformation_Vtbl {
         unsafe extern "system" fn GetCategoryDesc<Identity: ICatInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rcatid: *const windows_core::GUID, lcid: super::LCID, pszdesc: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICatInformation_Impl::GetCategoryDesc(this, core::mem::transmute_copy(&rcatid), core::mem::transmute_copy(&lcid), core::mem::transmute_copy(&pszdesc)).into()
+                ICatInformation_Impl::GetCategoryDesc(this, core::mem::transmute_copy(&rcatid), core::mem::transmute_copy(&lcid), core::mem::transmute_copy(&pszdesc))
             }
         }
         unsafe extern "system" fn EnumClassesOfCategories<Identity: ICatInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cimplemented: super::ULONG, rgcatidimpl: *const CATID, crequired: super::ULONG, rgcatidreq: *const CATID, ppenumclsid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICatInformation_Impl::EnumClassesOfCategories(this, core::mem::transmute_copy(&cimplemented), core::mem::transmute_copy(&rgcatidimpl), core::mem::transmute_copy(&crequired), core::mem::transmute_copy(&rgcatidreq), core::mem::transmute_copy(&ppenumclsid)).into()
+                ICatInformation_Impl::EnumClassesOfCategories(this, core::mem::transmute_copy(&cimplemented), core::mem::transmute_copy(&rgcatidimpl), core::mem::transmute_copy(&crequired), core::mem::transmute_copy(&rgcatidreq), core::mem::transmute_copy(&ppenumclsid))
             }
         }
         unsafe extern "system" fn IsClassOfCategories<Identity: ICatInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rclsid: *const super::IID, cimplemented: super::ULONG, rgcatidimpl: *const CATID, crequired: super::ULONG, rgcatidreq: *const CATID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICatInformation_Impl::IsClassOfCategories(this, core::mem::transmute_copy(&rclsid), core::mem::transmute_copy(&cimplemented), core::mem::transmute_copy(&rgcatidimpl), core::mem::transmute_copy(&crequired), core::mem::transmute_copy(&rgcatidreq)).into()
+                ICatInformation_Impl::IsClassOfCategories(this, core::mem::transmute_copy(&rclsid), core::mem::transmute_copy(&cimplemented), core::mem::transmute_copy(&rgcatidimpl), core::mem::transmute_copy(&crequired), core::mem::transmute_copy(&rgcatidreq))
             }
         }
         unsafe extern "system" fn EnumImplCategoriesOfClass<Identity: ICatInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rclsid: *const super::IID, ppenumcatid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -230,12 +230,12 @@ pub struct ICatRegister_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "wtypesbase"))]
 pub trait ICatRegister_Impl: windows_core::IUnknownImpl {
-    fn RegisterCategories(&self, ccategories: super::ULONG, rgcategoryinfo: *const CATEGORYINFO) -> windows_core::Result<()>;
-    fn UnRegisterCategories(&self, ccategories: super::ULONG, rgcatid: *const CATID) -> windows_core::Result<()>;
-    fn RegisterClassImplCategories(&self, rclsid: *const super::IID, ccategories: super::ULONG, rgcatid: *const CATID) -> windows_core::Result<()>;
-    fn UnRegisterClassImplCategories(&self, rclsid: *const super::IID, ccategories: super::ULONG, rgcatid: *const CATID) -> windows_core::Result<()>;
-    fn RegisterClassReqCategories(&self, rclsid: *const super::IID, ccategories: super::ULONG, rgcatid: *const CATID) -> windows_core::Result<()>;
-    fn UnRegisterClassReqCategories(&self, rclsid: *const super::IID, ccategories: super::ULONG, rgcatid: *const CATID) -> windows_core::Result<()>;
+    fn RegisterCategories(&self, ccategories: super::ULONG, rgcategoryinfo: *const CATEGORYINFO) -> windows_core::HRESULT;
+    fn UnRegisterCategories(&self, ccategories: super::ULONG, rgcatid: *const CATID) -> windows_core::HRESULT;
+    fn RegisterClassImplCategories(&self, rclsid: *const super::IID, ccategories: super::ULONG, rgcatid: *const CATID) -> windows_core::HRESULT;
+    fn UnRegisterClassImplCategories(&self, rclsid: *const super::IID, ccategories: super::ULONG, rgcatid: *const CATID) -> windows_core::HRESULT;
+    fn RegisterClassReqCategories(&self, rclsid: *const super::IID, ccategories: super::ULONG, rgcatid: *const CATID) -> windows_core::HRESULT;
+    fn UnRegisterClassReqCategories(&self, rclsid: *const super::IID, ccategories: super::ULONG, rgcatid: *const CATID) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "wtypesbase"))]
 impl ICatRegister_Vtbl {
@@ -243,37 +243,37 @@ impl ICatRegister_Vtbl {
         unsafe extern "system" fn RegisterCategories<Identity: ICatRegister_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ccategories: super::ULONG, rgcategoryinfo: *const CATEGORYINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICatRegister_Impl::RegisterCategories(this, core::mem::transmute_copy(&ccategories), core::mem::transmute_copy(&rgcategoryinfo)).into()
+                ICatRegister_Impl::RegisterCategories(this, core::mem::transmute_copy(&ccategories), core::mem::transmute_copy(&rgcategoryinfo))
             }
         }
         unsafe extern "system" fn UnRegisterCategories<Identity: ICatRegister_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ccategories: super::ULONG, rgcatid: *const CATID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICatRegister_Impl::UnRegisterCategories(this, core::mem::transmute_copy(&ccategories), core::mem::transmute_copy(&rgcatid)).into()
+                ICatRegister_Impl::UnRegisterCategories(this, core::mem::transmute_copy(&ccategories), core::mem::transmute_copy(&rgcatid))
             }
         }
         unsafe extern "system" fn RegisterClassImplCategories<Identity: ICatRegister_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rclsid: *const super::IID, ccategories: super::ULONG, rgcatid: *const CATID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICatRegister_Impl::RegisterClassImplCategories(this, core::mem::transmute_copy(&rclsid), core::mem::transmute_copy(&ccategories), core::mem::transmute_copy(&rgcatid)).into()
+                ICatRegister_Impl::RegisterClassImplCategories(this, core::mem::transmute_copy(&rclsid), core::mem::transmute_copy(&ccategories), core::mem::transmute_copy(&rgcatid))
             }
         }
         unsafe extern "system" fn UnRegisterClassImplCategories<Identity: ICatRegister_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rclsid: *const super::IID, ccategories: super::ULONG, rgcatid: *const CATID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICatRegister_Impl::UnRegisterClassImplCategories(this, core::mem::transmute_copy(&rclsid), core::mem::transmute_copy(&ccategories), core::mem::transmute_copy(&rgcatid)).into()
+                ICatRegister_Impl::UnRegisterClassImplCategories(this, core::mem::transmute_copy(&rclsid), core::mem::transmute_copy(&ccategories), core::mem::transmute_copy(&rgcatid))
             }
         }
         unsafe extern "system" fn RegisterClassReqCategories<Identity: ICatRegister_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rclsid: *const super::IID, ccategories: super::ULONG, rgcatid: *const CATID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICatRegister_Impl::RegisterClassReqCategories(this, core::mem::transmute_copy(&rclsid), core::mem::transmute_copy(&ccategories), core::mem::transmute_copy(&rgcatid)).into()
+                ICatRegister_Impl::RegisterClassReqCategories(this, core::mem::transmute_copy(&rclsid), core::mem::transmute_copy(&ccategories), core::mem::transmute_copy(&rgcatid))
             }
         }
         unsafe extern "system" fn UnRegisterClassReqCategories<Identity: ICatRegister_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rclsid: *const super::IID, ccategories: super::ULONG, rgcatid: *const CATID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICatRegister_Impl::UnRegisterClassReqCategories(this, core::mem::transmute_copy(&rclsid), core::mem::transmute_copy(&ccategories), core::mem::transmute_copy(&rgcatid)).into()
+                ICatRegister_Impl::UnRegisterClassReqCategories(this, core::mem::transmute_copy(&rclsid), core::mem::transmute_copy(&ccategories), core::mem::transmute_copy(&rgcatid))
             }
         }
         Self {
@@ -330,9 +330,9 @@ pub struct IEnumCATEGORYINFO_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
 pub trait IEnumCATEGORYINFO_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: super::ULONG, rgelt: *mut CATEGORYINFO, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
-    fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
+    fn Next(&self, celt: super::ULONG, rgelt: *mut CATEGORYINFO, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT;
+    fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT;
+    fn Reset(&self) -> windows_core::HRESULT;
     fn Clone(&self) -> windows_core::Result<IEnumCATEGORYINFO>;
 }
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
@@ -341,19 +341,19 @@ impl IEnumCATEGORYINFO_Vtbl {
         unsafe extern "system" fn Next<Identity: IEnumCATEGORYINFO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG, rgelt: *mut CATEGORYINFO, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumCATEGORYINFO_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
+                IEnumCATEGORYINFO_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched))
             }
         }
         unsafe extern "system" fn Skip<Identity: IEnumCATEGORYINFO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumCATEGORYINFO_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+                IEnumCATEGORYINFO_Impl::Skip(this, core::mem::transmute_copy(&celt))
             }
         }
         unsafe extern "system" fn Reset<Identity: IEnumCATEGORYINFO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumCATEGORYINFO_Impl::Reset(this).into()
+                IEnumCATEGORYINFO_Impl::Reset(this)
             }
         }
         unsafe extern "system" fn Clone<Identity: IEnumCATEGORYINFO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -423,9 +423,9 @@ pub struct IEnumGUID_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IEnumGUID_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: super::ULONG, rgelt: *mut windows_core::GUID, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
-    fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
+    fn Next(&self, celt: super::ULONG, rgelt: *mut windows_core::GUID, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT;
+    fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT;
+    fn Reset(&self) -> windows_core::HRESULT;
     fn Clone(&self) -> windows_core::Result<IEnumGUID>;
 }
 #[cfg(feature = "shared")]
@@ -434,19 +434,19 @@ impl IEnumGUID_Vtbl {
         unsafe extern "system" fn Next<Identity: IEnumGUID_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG, rgelt: *mut windows_core::GUID, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumGUID_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
+                IEnumGUID_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched))
             }
         }
         unsafe extern "system" fn Skip<Identity: IEnumGUID_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumGUID_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+                IEnumGUID_Impl::Skip(this, core::mem::transmute_copy(&celt))
             }
         }
         unsafe extern "system" fn Reset<Identity: IEnumGUID_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumGUID_Impl::Reset(this).into()
+                IEnumGUID_Impl::Reset(this)
             }
         }
         unsafe extern "system" fn Clone<Identity: IEnumGUID_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {

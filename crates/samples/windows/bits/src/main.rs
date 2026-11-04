@@ -6,9 +6,12 @@ fn main() -> windows::core::Result<()> {
     struct Callback;
 
     impl IBackgroundCopyCallback_Impl for Callback_Impl {
-        fn JobTransferred(&self, job: Ref<IBackgroundCopyJob>) -> Result<()> {
+        fn JobTransferred(&self, job: Ref<IBackgroundCopyJob>) -> HRESULT {
             let job = job.unwrap();
-            unsafe { job.Complete().ok()? };
+            let status = unsafe { job.Complete() };
+            if status.is_err() {
+                return status;
+            }
             println!("done");
             std::process::exit(0);
         }
@@ -17,20 +20,26 @@ fn main() -> windows::core::Result<()> {
             &self,
             job: Ref<IBackgroundCopyJob>,
             error: Ref<IBackgroundCopyError>,
-        ) -> Result<()> {
+        ) -> HRESULT {
             let job = job.unwrap();
             let error = error.unwrap();
             unsafe {
-                job.Cancel().ok()?;
+                let status = job.Cancel();
+                if status.is_err() {
+                    return status;
+                }
                 let mut description = PWSTR::null();
-                error.GetErrorDescription(0, &mut description).ok()?;
+                let status = error.GetErrorDescription(0, &mut description);
+                if status.is_err() {
+                    return status;
+                }
                 println!("{}", description.display());
             }
             std::process::exit(0);
         }
 
-        fn JobModification(&self, _: Ref<IBackgroundCopyJob>, _: u32) -> Result<()> {
-            Ok(())
+        fn JobModification(&self, _: Ref<IBackgroundCopyJob>, _: u32) -> HRESULT {
+            S_OK
         }
     }
 

@@ -82,7 +82,7 @@ pub struct IMonitorGraphicsCaptureItemInterop_Vtbl {
 }
 #[cfg(feature = "windef")]
 pub trait IMonitorGraphicsCaptureItemInterop_Impl: windows_core::IUnknownImpl {
-    fn GetMonitor(&self, monitor: *mut super::HMONITOR) -> windows_core::Result<()>;
+    fn GetMonitor(&self, monitor: *mut super::HMONITOR) -> windows_core::HRESULT;
 }
 #[cfg(feature = "windef")]
 impl IMonitorGraphicsCaptureItemInterop_Vtbl {
@@ -90,7 +90,7 @@ impl IMonitorGraphicsCaptureItemInterop_Vtbl {
         unsafe extern "system" fn GetMonitor<Identity: IMonitorGraphicsCaptureItemInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, monitor: *mut super::HMONITOR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMonitorGraphicsCaptureItemInterop_Impl::GetMonitor(this, core::mem::transmute_copy(&monitor)).into()
+                IMonitorGraphicsCaptureItemInterop_Impl::GetMonitor(this, core::mem::transmute_copy(&monitor))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetMonitor: GetMonitor::<Identity, OFFSET> }
@@ -120,7 +120,7 @@ pub struct IWindowGraphicsCaptureItemInterop_Vtbl {
 }
 #[cfg(feature = "windef")]
 pub trait IWindowGraphicsCaptureItemInterop_Impl: windows_core::IUnknownImpl {
-    fn GetWindow(&self, window: *mut super::HWND) -> windows_core::Result<()>;
+    fn GetWindow(&self, window: *mut super::HWND) -> windows_core::HRESULT;
 }
 #[cfg(feature = "windef")]
 impl IWindowGraphicsCaptureItemInterop_Vtbl {
@@ -128,7 +128,7 @@ impl IWindowGraphicsCaptureItemInterop_Vtbl {
         unsafe extern "system" fn GetWindow<Identity: IWindowGraphicsCaptureItemInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, window: *mut super::HWND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWindowGraphicsCaptureItemInterop_Impl::GetWindow(this, core::mem::transmute_copy(&window)).into()
+                IWindowGraphicsCaptureItemInterop_Impl::GetWindow(this, core::mem::transmute_copy(&window))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetWindow: GetWindow::<Identity, OFFSET> }

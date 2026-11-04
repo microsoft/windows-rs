@@ -444,12 +444,12 @@ pub struct IEnumSpObjectTokens_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IEnumSpObjectTokens_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: super::ULONG, pelt: windows_core::OutRef<ISpObjectToken>, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
-    fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self, ppenum: windows_core::OutRef<IEnumSpObjectTokens>) -> windows_core::Result<()>;
-    fn Item(&self, index: super::ULONG, pptoken: windows_core::OutRef<ISpObjectToken>) -> windows_core::Result<()>;
-    fn GetCount(&self, pcount: *mut super::ULONG) -> windows_core::Result<()>;
+    fn Next(&self, celt: super::ULONG, pelt: windows_core::OutRef<ISpObjectToken>, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT;
+    fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT;
+    fn Reset(&self) -> windows_core::HRESULT;
+    fn Clone(&self, ppenum: windows_core::OutRef<IEnumSpObjectTokens>) -> windows_core::HRESULT;
+    fn Item(&self, index: super::ULONG, pptoken: windows_core::OutRef<ISpObjectToken>) -> windows_core::HRESULT;
+    fn GetCount(&self, pcount: *mut super::ULONG) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IEnumSpObjectTokens_Vtbl {
@@ -457,37 +457,37 @@ impl IEnumSpObjectTokens_Vtbl {
         unsafe extern "system" fn Next<Identity: IEnumSpObjectTokens_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG, pelt: *mut *mut core::ffi::c_void, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumSpObjectTokens_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&pelt), core::mem::transmute_copy(&pceltfetched)).into()
+                IEnumSpObjectTokens_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&pelt), core::mem::transmute_copy(&pceltfetched))
             }
         }
         unsafe extern "system" fn Skip<Identity: IEnumSpObjectTokens_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumSpObjectTokens_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+                IEnumSpObjectTokens_Impl::Skip(this, core::mem::transmute_copy(&celt))
             }
         }
         unsafe extern "system" fn Reset<Identity: IEnumSpObjectTokens_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumSpObjectTokens_Impl::Reset(this).into()
+                IEnumSpObjectTokens_Impl::Reset(this)
             }
         }
         unsafe extern "system" fn Clone<Identity: IEnumSpObjectTokens_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumSpObjectTokens_Impl::Clone(this, core::mem::transmute_copy(&ppenum)).into()
+                IEnumSpObjectTokens_Impl::Clone(this, core::mem::transmute_copy(&ppenum))
             }
         }
         unsafe extern "system" fn Item<Identity: IEnumSpObjectTokens_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::ULONG, pptoken: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumSpObjectTokens_Impl::Item(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&pptoken)).into()
+                IEnumSpObjectTokens_Impl::Item(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&pptoken))
             }
         }
         unsafe extern "system" fn GetCount<Identity: IEnumSpObjectTokens_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcount: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumSpObjectTokens_Impl::GetCount(this, core::mem::transmute_copy(&pcount)).into()
+                IEnumSpObjectTokens_Impl::GetCount(this, core::mem::transmute_copy(&pcount))
             }
         }
         Self {
@@ -616,17 +616,17 @@ pub struct ISpAudio_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 pub trait ISpAudio_Impl: ISpStreamFormat_Impl {
-    fn SetState(&self, newstate: SPAUDIOSTATE, ullreserved: super::ULONGLONG) -> windows_core::Result<()>;
-    fn SetFormat(&self, rguidfmtid: *const windows_core::GUID, pwaveformatex: *const super::WAVEFORMATEX) -> windows_core::Result<()>;
-    fn GetStatus(&self, pstatus: *mut SPAUDIOSTATUS) -> windows_core::Result<()>;
-    fn SetBufferInfo(&self, pbuffinfo: *const SPAUDIOBUFFERINFO) -> windows_core::Result<()>;
-    fn GetBufferInfo(&self, pbuffinfo: *mut SPAUDIOBUFFERINFO) -> windows_core::Result<()>;
-    fn GetDefaultFormat(&self, pformatid: *mut windows_core::GUID, ppcomemwaveformatex: *mut *mut super::WAVEFORMATEX) -> windows_core::Result<()>;
+    fn SetState(&self, newstate: SPAUDIOSTATE, ullreserved: super::ULONGLONG) -> windows_core::HRESULT;
+    fn SetFormat(&self, rguidfmtid: *const windows_core::GUID, pwaveformatex: *const super::WAVEFORMATEX) -> windows_core::HRESULT;
+    fn GetStatus(&self, pstatus: *mut SPAUDIOSTATUS) -> windows_core::HRESULT;
+    fn SetBufferInfo(&self, pbuffinfo: *const SPAUDIOBUFFERINFO) -> windows_core::HRESULT;
+    fn GetBufferInfo(&self, pbuffinfo: *mut SPAUDIOBUFFERINFO) -> windows_core::HRESULT;
+    fn GetDefaultFormat(&self, pformatid: *mut windows_core::GUID, ppcomemwaveformatex: *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT;
     fn EventHandle(&self) -> super::HANDLE;
-    fn GetVolumeLevel(&self, plevel: *mut super::ULONG) -> windows_core::Result<()>;
-    fn SetVolumeLevel(&self, level: super::ULONG) -> windows_core::Result<()>;
-    fn GetBufferNotifySize(&self, pcbsize: *mut super::ULONG) -> windows_core::Result<()>;
-    fn SetBufferNotifySize(&self, cbsize: super::ULONG) -> windows_core::Result<()>;
+    fn GetVolumeLevel(&self, plevel: *mut super::ULONG) -> windows_core::HRESULT;
+    fn SetVolumeLevel(&self, level: super::ULONG) -> windows_core::HRESULT;
+    fn GetBufferNotifySize(&self, pcbsize: *mut super::ULONG) -> windows_core::HRESULT;
+    fn SetBufferNotifySize(&self, cbsize: super::ULONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 impl ISpAudio_Vtbl {
@@ -634,37 +634,37 @@ impl ISpAudio_Vtbl {
         unsafe extern "system" fn SetState<Identity: ISpAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newstate: SPAUDIOSTATE, ullreserved: super::ULONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpAudio_Impl::SetState(this, core::mem::transmute_copy(&newstate), core::mem::transmute_copy(&ullreserved)).into()
+                ISpAudio_Impl::SetState(this, core::mem::transmute_copy(&newstate), core::mem::transmute_copy(&ullreserved))
             }
         }
         unsafe extern "system" fn SetFormat<Identity: ISpAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rguidfmtid: *const windows_core::GUID, pwaveformatex: *const super::WAVEFORMATEX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpAudio_Impl::SetFormat(this, core::mem::transmute_copy(&rguidfmtid), core::mem::transmute_copy(&pwaveformatex)).into()
+                ISpAudio_Impl::SetFormat(this, core::mem::transmute_copy(&rguidfmtid), core::mem::transmute_copy(&pwaveformatex))
             }
         }
         unsafe extern "system" fn GetStatus<Identity: ISpAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstatus: *mut SPAUDIOSTATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpAudio_Impl::GetStatus(this, core::mem::transmute_copy(&pstatus)).into()
+                ISpAudio_Impl::GetStatus(this, core::mem::transmute_copy(&pstatus))
             }
         }
         unsafe extern "system" fn SetBufferInfo<Identity: ISpAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuffinfo: *const SPAUDIOBUFFERINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpAudio_Impl::SetBufferInfo(this, core::mem::transmute_copy(&pbuffinfo)).into()
+                ISpAudio_Impl::SetBufferInfo(this, core::mem::transmute_copy(&pbuffinfo))
             }
         }
         unsafe extern "system" fn GetBufferInfo<Identity: ISpAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuffinfo: *mut SPAUDIOBUFFERINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpAudio_Impl::GetBufferInfo(this, core::mem::transmute_copy(&pbuffinfo)).into()
+                ISpAudio_Impl::GetBufferInfo(this, core::mem::transmute_copy(&pbuffinfo))
             }
         }
         unsafe extern "system" fn GetDefaultFormat<Identity: ISpAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pformatid: *mut windows_core::GUID, ppcomemwaveformatex: *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpAudio_Impl::GetDefaultFormat(this, core::mem::transmute_copy(&pformatid), core::mem::transmute_copy(&ppcomemwaveformatex)).into()
+                ISpAudio_Impl::GetDefaultFormat(this, core::mem::transmute_copy(&pformatid), core::mem::transmute_copy(&ppcomemwaveformatex))
             }
         }
         unsafe extern "system" fn EventHandle<Identity: ISpAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::HANDLE {
@@ -676,25 +676,25 @@ impl ISpAudio_Vtbl {
         unsafe extern "system" fn GetVolumeLevel<Identity: ISpAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plevel: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpAudio_Impl::GetVolumeLevel(this, core::mem::transmute_copy(&plevel)).into()
+                ISpAudio_Impl::GetVolumeLevel(this, core::mem::transmute_copy(&plevel))
             }
         }
         unsafe extern "system" fn SetVolumeLevel<Identity: ISpAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, level: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpAudio_Impl::SetVolumeLevel(this, core::mem::transmute_copy(&level)).into()
+                ISpAudio_Impl::SetVolumeLevel(this, core::mem::transmute_copy(&level))
             }
         }
         unsafe extern "system" fn GetBufferNotifySize<Identity: ISpAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbsize: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpAudio_Impl::GetBufferNotifySize(this, core::mem::transmute_copy(&pcbsize)).into()
+                ISpAudio_Impl::GetBufferNotifySize(this, core::mem::transmute_copy(&pcbsize))
             }
         }
         unsafe extern "system" fn SetBufferNotifySize<Identity: ISpAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbsize: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpAudio_Impl::SetBufferNotifySize(this, core::mem::transmute_copy(&cbsize)).into()
+                ISpAudio_Impl::SetBufferNotifySize(this, core::mem::transmute_copy(&cbsize))
             }
         }
         Self {
@@ -746,7 +746,7 @@ pub struct ISpContainerLexicon_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ISpContainerLexicon_Impl: ISpLexicon_Impl {
-    fn AddLexicon(&self, paddlexicon: windows_core::Ref<ISpLexicon>, dwflags: super::DWORD) -> windows_core::Result<()>;
+    fn AddLexicon(&self, paddlexicon: windows_core::Ref<ISpLexicon>, dwflags: super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ISpContainerLexicon_Vtbl {
@@ -754,7 +754,7 @@ impl ISpContainerLexicon_Vtbl {
         unsafe extern "system" fn AddLexicon<Identity: ISpContainerLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paddlexicon: *mut core::ffi::c_void, dwflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpContainerLexicon_Impl::AddLexicon(this, core::mem::transmute_copy(&paddlexicon), core::mem::transmute_copy(&dwflags)).into()
+                ISpContainerLexicon_Impl::AddLexicon(this, core::mem::transmute_copy(&paddlexicon), core::mem::transmute_copy(&dwflags))
             }
         }
         Self { base__: ISpLexicon_Vtbl::new::<Identity, OFFSET>(), AddLexicon: AddLexicon::<Identity, OFFSET> }
@@ -885,18 +885,18 @@ pub struct ISpDataKey_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ISpDataKey_Impl: windows_core::IUnknownImpl {
-    fn SetData(&self, pszvaluename: &windows_core::PCWSTR, cbdata: super::ULONG, pdata: *const super::BYTE) -> windows_core::Result<()>;
-    fn GetData(&self, pszvaluename: &windows_core::PCWSTR, pcbdata: *const super::ULONG, pdata: *mut super::BYTE) -> windows_core::Result<()>;
-    fn SetStringValue(&self, pszvaluename: &windows_core::PCWSTR, pszvalue: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetStringValue(&self, pszvaluename: &windows_core::PCWSTR, ppszvalue: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn SetDWORD(&self, pszvaluename: &windows_core::PCWSTR, dwvalue: super::DWORD) -> windows_core::Result<()>;
-    fn GetDWORD(&self, pszvaluename: &windows_core::PCWSTR, pdwvalue: *mut super::DWORD) -> windows_core::Result<()>;
+    fn SetData(&self, pszvaluename: &windows_core::PCWSTR, cbdata: super::ULONG, pdata: *const super::BYTE) -> windows_core::HRESULT;
+    fn GetData(&self, pszvaluename: &windows_core::PCWSTR, pcbdata: *const super::ULONG, pdata: *mut super::BYTE) -> windows_core::HRESULT;
+    fn SetStringValue(&self, pszvaluename: &windows_core::PCWSTR, pszvalue: &windows_core::PCWSTR) -> windows_core::HRESULT;
+    fn GetStringValue(&self, pszvaluename: &windows_core::PCWSTR, ppszvalue: *mut windows_core::PWSTR) -> windows_core::HRESULT;
+    fn SetDWORD(&self, pszvaluename: &windows_core::PCWSTR, dwvalue: super::DWORD) -> windows_core::HRESULT;
+    fn GetDWORD(&self, pszvaluename: &windows_core::PCWSTR, pdwvalue: *mut super::DWORD) -> windows_core::HRESULT;
     fn OpenKey(&self, pszsubkeyname: &windows_core::PCWSTR) -> windows_core::Result<ISpDataKey>;
     fn CreateKey(&self, pszsubkey: &windows_core::PCWSTR) -> windows_core::Result<ISpDataKey>;
-    fn DeleteKey(&self, pszsubkey: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn DeleteValue(&self, pszvaluename: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn EnumKeys(&self, index: super::ULONG, ppszsubkeyname: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn EnumValues(&self, index: super::ULONG, ppszvaluename: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn DeleteKey(&self, pszsubkey: &windows_core::PCWSTR) -> windows_core::HRESULT;
+    fn DeleteValue(&self, pszvaluename: &windows_core::PCWSTR) -> windows_core::HRESULT;
+    fn EnumKeys(&self, index: super::ULONG, ppszsubkeyname: *mut windows_core::PWSTR) -> windows_core::HRESULT;
+    fn EnumValues(&self, index: super::ULONG, ppszvaluename: *mut windows_core::PWSTR) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ISpDataKey_Vtbl {
@@ -904,37 +904,37 @@ impl ISpDataKey_Vtbl {
         unsafe extern "system" fn SetData<Identity: ISpDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszvaluename: windows_core::PCWSTR, cbdata: super::ULONG, pdata: *const super::BYTE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpDataKey_Impl::SetData(this, core::mem::transmute(&pszvaluename), core::mem::transmute_copy(&cbdata), core::mem::transmute_copy(&pdata)).into()
+                ISpDataKey_Impl::SetData(this, core::mem::transmute(&pszvaluename), core::mem::transmute_copy(&cbdata), core::mem::transmute_copy(&pdata))
             }
         }
         unsafe extern "system" fn GetData<Identity: ISpDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszvaluename: windows_core::PCWSTR, pcbdata: *const super::ULONG, pdata: *mut super::BYTE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpDataKey_Impl::GetData(this, core::mem::transmute(&pszvaluename), core::mem::transmute_copy(&pcbdata), core::mem::transmute_copy(&pdata)).into()
+                ISpDataKey_Impl::GetData(this, core::mem::transmute(&pszvaluename), core::mem::transmute_copy(&pcbdata), core::mem::transmute_copy(&pdata))
             }
         }
         unsafe extern "system" fn SetStringValue<Identity: ISpDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszvaluename: windows_core::PCWSTR, pszvalue: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpDataKey_Impl::SetStringValue(this, core::mem::transmute(&pszvaluename), core::mem::transmute(&pszvalue)).into()
+                ISpDataKey_Impl::SetStringValue(this, core::mem::transmute(&pszvaluename), core::mem::transmute(&pszvalue))
             }
         }
         unsafe extern "system" fn GetStringValue<Identity: ISpDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszvaluename: windows_core::PCWSTR, ppszvalue: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpDataKey_Impl::GetStringValue(this, core::mem::transmute(&pszvaluename), core::mem::transmute_copy(&ppszvalue)).into()
+                ISpDataKey_Impl::GetStringValue(this, core::mem::transmute(&pszvaluename), core::mem::transmute_copy(&ppszvalue))
             }
         }
         unsafe extern "system" fn SetDWORD<Identity: ISpDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszvaluename: windows_core::PCWSTR, dwvalue: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpDataKey_Impl::SetDWORD(this, core::mem::transmute(&pszvaluename), core::mem::transmute_copy(&dwvalue)).into()
+                ISpDataKey_Impl::SetDWORD(this, core::mem::transmute(&pszvaluename), core::mem::transmute_copy(&dwvalue))
             }
         }
         unsafe extern "system" fn GetDWORD<Identity: ISpDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszvaluename: windows_core::PCWSTR, pdwvalue: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpDataKey_Impl::GetDWORD(this, core::mem::transmute(&pszvaluename), core::mem::transmute_copy(&pdwvalue)).into()
+                ISpDataKey_Impl::GetDWORD(this, core::mem::transmute(&pszvaluename), core::mem::transmute_copy(&pdwvalue))
             }
         }
         unsafe extern "system" fn OpenKey<Identity: ISpDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszsubkeyname: windows_core::PCWSTR, ppsubkey: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -970,25 +970,25 @@ impl ISpDataKey_Vtbl {
         unsafe extern "system" fn DeleteKey<Identity: ISpDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszsubkey: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpDataKey_Impl::DeleteKey(this, core::mem::transmute(&pszsubkey)).into()
+                ISpDataKey_Impl::DeleteKey(this, core::mem::transmute(&pszsubkey))
             }
         }
         unsafe extern "system" fn DeleteValue<Identity: ISpDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszvaluename: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpDataKey_Impl::DeleteValue(this, core::mem::transmute(&pszvaluename)).into()
+                ISpDataKey_Impl::DeleteValue(this, core::mem::transmute(&pszvaluename))
             }
         }
         unsafe extern "system" fn EnumKeys<Identity: ISpDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::ULONG, ppszsubkeyname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpDataKey_Impl::EnumKeys(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&ppszsubkeyname)).into()
+                ISpDataKey_Impl::EnumKeys(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&ppszsubkeyname))
             }
         }
         unsafe extern "system" fn EnumValues<Identity: ISpDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::ULONG, ppszvaluename: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpDataKey_Impl::EnumValues(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&ppszvaluename)).into()
+                ISpDataKey_Impl::EnumValues(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&ppszvaluename))
             }
         }
         Self {
@@ -1040,8 +1040,8 @@ pub struct ISpDisplayAlternates_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait ISpDisplayAlternates_Impl: windows_core::IUnknownImpl {
-    fn GetDisplayAlternates(&self, pphrase: *const SPDISPLAYPHRASE, crequestcount: super::ULONG, ppcomemphrases: *mut *mut SPDISPLAYPHRASE, pcphrasesreturned: *mut super::ULONG) -> windows_core::Result<()>;
-    fn SetFullStopTrailSpace(&self, ultrailspace: super::ULONG) -> windows_core::Result<()>;
+    fn GetDisplayAlternates(&self, pphrase: *const SPDISPLAYPHRASE, crequestcount: super::ULONG, ppcomemphrases: *mut *mut SPDISPLAYPHRASE, pcphrasesreturned: *mut super::ULONG) -> windows_core::HRESULT;
+    fn SetFullStopTrailSpace(&self, ultrailspace: super::ULONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 impl ISpDisplayAlternates_Vtbl {
@@ -1049,13 +1049,13 @@ impl ISpDisplayAlternates_Vtbl {
         unsafe extern "system" fn GetDisplayAlternates<Identity: ISpDisplayAlternates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pphrase: *const SPDISPLAYPHRASE, crequestcount: super::ULONG, ppcomemphrases: *mut *mut SPDISPLAYPHRASE, pcphrasesreturned: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpDisplayAlternates_Impl::GetDisplayAlternates(this, core::mem::transmute_copy(&pphrase), core::mem::transmute_copy(&crequestcount), core::mem::transmute_copy(&ppcomemphrases), core::mem::transmute_copy(&pcphrasesreturned)).into()
+                ISpDisplayAlternates_Impl::GetDisplayAlternates(this, core::mem::transmute_copy(&pphrase), core::mem::transmute_copy(&crequestcount), core::mem::transmute_copy(&ppcomemphrases), core::mem::transmute_copy(&pcphrasesreturned))
             }
         }
         unsafe extern "system" fn SetFullStopTrailSpace<Identity: ISpDisplayAlternates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ultrailspace: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpDisplayAlternates_Impl::SetFullStopTrailSpace(this, core::mem::transmute_copy(&ultrailspace)).into()
+                ISpDisplayAlternates_Impl::SetFullStopTrailSpace(this, core::mem::transmute_copy(&ultrailspace))
             }
         }
         Self {
@@ -1107,8 +1107,8 @@ pub struct ISpEnginePronunciation_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait ISpEnginePronunciation_Impl: windows_core::IUnknownImpl {
-    fn Normalize(&self, pszword: &windows_core::PCWSTR, pszleftcontext: &windows_core::PCWSTR, pszrightcontext: &windows_core::PCWSTR, langid: super::WORD, pnormalizationlist: *mut SPNORMALIZATIONLIST) -> windows_core::Result<()>;
-    fn GetPronunciations(&self, pszword: &windows_core::PCWSTR, pszleftcontext: &windows_core::PCWSTR, pszrightcontext: &windows_core::PCWSTR, langid: super::WORD, penginepronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> windows_core::Result<()>;
+    fn Normalize(&self, pszword: &windows_core::PCWSTR, pszleftcontext: &windows_core::PCWSTR, pszrightcontext: &windows_core::PCWSTR, langid: super::WORD, pnormalizationlist: *mut SPNORMALIZATIONLIST) -> windows_core::HRESULT;
+    fn GetPronunciations(&self, pszword: &windows_core::PCWSTR, pszleftcontext: &windows_core::PCWSTR, pszrightcontext: &windows_core::PCWSTR, langid: super::WORD, penginepronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 impl ISpEnginePronunciation_Vtbl {
@@ -1116,13 +1116,13 @@ impl ISpEnginePronunciation_Vtbl {
         unsafe extern "system" fn Normalize<Identity: ISpEnginePronunciation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszword: windows_core::PCWSTR, pszleftcontext: windows_core::PCWSTR, pszrightcontext: windows_core::PCWSTR, langid: super::WORD, pnormalizationlist: *mut SPNORMALIZATIONLIST) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpEnginePronunciation_Impl::Normalize(this, core::mem::transmute(&pszword), core::mem::transmute(&pszleftcontext), core::mem::transmute(&pszrightcontext), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&pnormalizationlist)).into()
+                ISpEnginePronunciation_Impl::Normalize(this, core::mem::transmute(&pszword), core::mem::transmute(&pszleftcontext), core::mem::transmute(&pszrightcontext), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&pnormalizationlist))
             }
         }
         unsafe extern "system" fn GetPronunciations<Identity: ISpEnginePronunciation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszword: windows_core::PCWSTR, pszleftcontext: windows_core::PCWSTR, pszrightcontext: windows_core::PCWSTR, langid: super::WORD, penginepronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpEnginePronunciation_Impl::GetPronunciations(this, core::mem::transmute(&pszword), core::mem::transmute(&pszleftcontext), core::mem::transmute(&pszrightcontext), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&penginepronunciationlist)).into()
+                ISpEnginePronunciation_Impl::GetPronunciations(this, core::mem::transmute(&pszword), core::mem::transmute(&pszleftcontext), core::mem::transmute(&pszrightcontext), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&penginepronunciationlist))
             }
         }
         Self {
@@ -1164,8 +1164,8 @@ pub struct ISpEventSink_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 pub trait ISpEventSink_Impl: windows_core::IUnknownImpl {
-    fn AddEvents(&self, peventarray: *const SPEVENT, ulcount: super::ULONG) -> windows_core::Result<()>;
-    fn GetEventInterest(&self, pulleventinterest: *mut super::ULONGLONG) -> windows_core::Result<()>;
+    fn AddEvents(&self, peventarray: *const SPEVENT, ulcount: super::ULONG) -> windows_core::HRESULT;
+    fn GetEventInterest(&self, pulleventinterest: *mut super::ULONGLONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 impl ISpEventSink_Vtbl {
@@ -1173,13 +1173,13 @@ impl ISpEventSink_Vtbl {
         unsafe extern "system" fn AddEvents<Identity: ISpEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peventarray: *const SPEVENT, ulcount: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpEventSink_Impl::AddEvents(this, core::mem::transmute_copy(&peventarray), core::mem::transmute_copy(&ulcount)).into()
+                ISpEventSink_Impl::AddEvents(this, core::mem::transmute_copy(&peventarray), core::mem::transmute_copy(&ulcount))
             }
         }
         unsafe extern "system" fn GetEventInterest<Identity: ISpEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulleventinterest: *mut super::ULONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpEventSink_Impl::GetEventInterest(this, core::mem::transmute_copy(&pulleventinterest)).into()
+                ISpEventSink_Impl::GetEventInterest(this, core::mem::transmute_copy(&pulleventinterest))
             }
         }
         Self {
@@ -1235,9 +1235,9 @@ pub struct ISpEventSource_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait ISpEventSource_Impl: ISpNotifySource_Impl {
-    fn SetInterest(&self, ulleventinterest: super::ULONGLONG, ullqueuedinterest: super::ULONGLONG) -> windows_core::Result<()>;
-    fn GetEvents(&self, ulcount: super::ULONG, peventarray: *mut SPEVENT, pulfetched: *mut super::ULONG) -> windows_core::Result<()>;
-    fn GetInfo(&self, pinfo: *mut SPEVENTSOURCEINFO) -> windows_core::Result<()>;
+    fn SetInterest(&self, ulleventinterest: super::ULONGLONG, ullqueuedinterest: super::ULONGLONG) -> windows_core::HRESULT;
+    fn GetEvents(&self, ulcount: super::ULONG, peventarray: *mut SPEVENT, pulfetched: *mut super::ULONG) -> windows_core::HRESULT;
+    fn GetInfo(&self, pinfo: *mut SPEVENTSOURCEINFO) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl ISpEventSource_Vtbl {
@@ -1245,19 +1245,19 @@ impl ISpEventSource_Vtbl {
         unsafe extern "system" fn SetInterest<Identity: ISpEventSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulleventinterest: super::ULONGLONG, ullqueuedinterest: super::ULONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpEventSource_Impl::SetInterest(this, core::mem::transmute_copy(&ulleventinterest), core::mem::transmute_copy(&ullqueuedinterest)).into()
+                ISpEventSource_Impl::SetInterest(this, core::mem::transmute_copy(&ulleventinterest), core::mem::transmute_copy(&ullqueuedinterest))
             }
         }
         unsafe extern "system" fn GetEvents<Identity: ISpEventSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulcount: super::ULONG, peventarray: *mut SPEVENT, pulfetched: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpEventSource_Impl::GetEvents(this, core::mem::transmute_copy(&ulcount), core::mem::transmute_copy(&peventarray), core::mem::transmute_copy(&pulfetched)).into()
+                ISpEventSource_Impl::GetEvents(this, core::mem::transmute_copy(&ulcount), core::mem::transmute_copy(&peventarray), core::mem::transmute_copy(&pulfetched))
             }
         }
         unsafe extern "system" fn GetInfo<Identity: ISpEventSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *mut SPEVENTSOURCEINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpEventSource_Impl::GetInfo(this, core::mem::transmute_copy(&pinfo)).into()
+                ISpEventSource_Impl::GetInfo(this, core::mem::transmute_copy(&pinfo))
             }
         }
         Self {
@@ -1298,7 +1298,7 @@ pub struct ISpEventSource2_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait ISpEventSource2_Impl: ISpEventSource_Impl {
-    fn GetEventsEx(&self, ulcount: super::ULONG, peventarray: *mut SPEVENTEX, pulfetched: *mut super::ULONG) -> windows_core::Result<()>;
+    fn GetEventsEx(&self, ulcount: super::ULONG, peventarray: *mut SPEVENTEX, pulfetched: *mut super::ULONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl ISpEventSource2_Vtbl {
@@ -1306,7 +1306,7 @@ impl ISpEventSource2_Vtbl {
         unsafe extern "system" fn GetEventsEx<Identity: ISpEventSource2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulcount: super::ULONG, peventarray: *mut SPEVENTEX, pulfetched: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpEventSource2_Impl::GetEventsEx(this, core::mem::transmute_copy(&ulcount), core::mem::transmute_copy(&peventarray), core::mem::transmute_copy(&pulfetched)).into()
+                ISpEventSource2_Impl::GetEventsEx(this, core::mem::transmute_copy(&ulcount), core::mem::transmute_copy(&peventarray), core::mem::transmute_copy(&pulfetched))
             }
         }
         Self { base__: ISpEventSource_Vtbl::new::<Identity, OFFSET>(), GetEventsEx: GetEventsEx::<Identity, OFFSET> }
@@ -1391,14 +1391,14 @@ pub struct ISpGrammarBuilder_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpGrammarBuilder_Impl: windows_core::IUnknownImpl {
-    fn ResetGrammar(&self, newlanguage: super::WORD) -> windows_core::Result<()>;
-    fn GetRule(&self, pszrulename: &windows_core::PCWSTR, dwruleid: super::DWORD, dwattributes: super::DWORD, fcreateifnotexist: windows_core::BOOL, phinitialstate: *mut SPSTATEHANDLE) -> windows_core::Result<()>;
-    fn ClearRule(&self, hstate: SPSTATEHANDLE) -> windows_core::Result<()>;
-    fn CreateNewState(&self, hstate: SPSTATEHANDLE, phstate: *mut SPSTATEHANDLE) -> windows_core::Result<()>;
-    fn AddWordTransition(&self, hfromstate: SPSTATEHANDLE, htostate: SPSTATEHANDLE, psz: &windows_core::PCWSTR, pszseparators: &windows_core::PCWSTR, ewordtype: SPGRAMMARWORDTYPE, weight: f32, ppropinfo: *const SPPROPERTYINFO) -> windows_core::Result<()>;
-    fn AddRuleTransition(&self, hfromstate: SPSTATEHANDLE, htostate: SPSTATEHANDLE, hrule: SPSTATEHANDLE, weight: f32, ppropinfo: *const SPPROPERTYINFO) -> windows_core::Result<()>;
-    fn AddResource(&self, hrulestate: SPSTATEHANDLE, pszresourcename: &windows_core::PCWSTR, pszresourcevalue: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn Commit(&self, dwreserved: super::DWORD) -> windows_core::Result<()>;
+    fn ResetGrammar(&self, newlanguage: super::WORD) -> windows_core::HRESULT;
+    fn GetRule(&self, pszrulename: &windows_core::PCWSTR, dwruleid: super::DWORD, dwattributes: super::DWORD, fcreateifnotexist: windows_core::BOOL, phinitialstate: *mut SPSTATEHANDLE) -> windows_core::HRESULT;
+    fn ClearRule(&self, hstate: SPSTATEHANDLE) -> windows_core::HRESULT;
+    fn CreateNewState(&self, hstate: SPSTATEHANDLE, phstate: *mut SPSTATEHANDLE) -> windows_core::HRESULT;
+    fn AddWordTransition(&self, hfromstate: SPSTATEHANDLE, htostate: SPSTATEHANDLE, psz: &windows_core::PCWSTR, pszseparators: &windows_core::PCWSTR, ewordtype: SPGRAMMARWORDTYPE, weight: f32, ppropinfo: *const SPPROPERTYINFO) -> windows_core::HRESULT;
+    fn AddRuleTransition(&self, hfromstate: SPSTATEHANDLE, htostate: SPSTATEHANDLE, hrule: SPSTATEHANDLE, weight: f32, ppropinfo: *const SPPROPERTYINFO) -> windows_core::HRESULT;
+    fn AddResource(&self, hrulestate: SPSTATEHANDLE, pszresourcename: &windows_core::PCWSTR, pszresourcevalue: &windows_core::PCWSTR) -> windows_core::HRESULT;
+    fn Commit(&self, dwreserved: super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpGrammarBuilder_Vtbl {
@@ -1406,49 +1406,49 @@ impl ISpGrammarBuilder_Vtbl {
         unsafe extern "system" fn ResetGrammar<Identity: ISpGrammarBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newlanguage: super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpGrammarBuilder_Impl::ResetGrammar(this, core::mem::transmute_copy(&newlanguage)).into()
+                ISpGrammarBuilder_Impl::ResetGrammar(this, core::mem::transmute_copy(&newlanguage))
             }
         }
         unsafe extern "system" fn GetRule<Identity: ISpGrammarBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszrulename: windows_core::PCWSTR, dwruleid: super::DWORD, dwattributes: super::DWORD, fcreateifnotexist: windows_core::BOOL, phinitialstate: *mut SPSTATEHANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpGrammarBuilder_Impl::GetRule(this, core::mem::transmute(&pszrulename), core::mem::transmute_copy(&dwruleid), core::mem::transmute_copy(&dwattributes), core::mem::transmute_copy(&fcreateifnotexist), core::mem::transmute_copy(&phinitialstate)).into()
+                ISpGrammarBuilder_Impl::GetRule(this, core::mem::transmute(&pszrulename), core::mem::transmute_copy(&dwruleid), core::mem::transmute_copy(&dwattributes), core::mem::transmute_copy(&fcreateifnotexist), core::mem::transmute_copy(&phinitialstate))
             }
         }
         unsafe extern "system" fn ClearRule<Identity: ISpGrammarBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hstate: SPSTATEHANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpGrammarBuilder_Impl::ClearRule(this, core::mem::transmute_copy(&hstate)).into()
+                ISpGrammarBuilder_Impl::ClearRule(this, core::mem::transmute_copy(&hstate))
             }
         }
         unsafe extern "system" fn CreateNewState<Identity: ISpGrammarBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hstate: SPSTATEHANDLE, phstate: *mut SPSTATEHANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpGrammarBuilder_Impl::CreateNewState(this, core::mem::transmute_copy(&hstate), core::mem::transmute_copy(&phstate)).into()
+                ISpGrammarBuilder_Impl::CreateNewState(this, core::mem::transmute_copy(&hstate), core::mem::transmute_copy(&phstate))
             }
         }
         unsafe extern "system" fn AddWordTransition<Identity: ISpGrammarBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hfromstate: SPSTATEHANDLE, htostate: SPSTATEHANDLE, psz: windows_core::PCWSTR, pszseparators: windows_core::PCWSTR, ewordtype: SPGRAMMARWORDTYPE, weight: f32, ppropinfo: *const SPPROPERTYINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpGrammarBuilder_Impl::AddWordTransition(this, core::mem::transmute_copy(&hfromstate), core::mem::transmute_copy(&htostate), core::mem::transmute(&psz), core::mem::transmute(&pszseparators), core::mem::transmute_copy(&ewordtype), core::mem::transmute_copy(&weight), core::mem::transmute_copy(&ppropinfo)).into()
+                ISpGrammarBuilder_Impl::AddWordTransition(this, core::mem::transmute_copy(&hfromstate), core::mem::transmute_copy(&htostate), core::mem::transmute(&psz), core::mem::transmute(&pszseparators), core::mem::transmute_copy(&ewordtype), core::mem::transmute_copy(&weight), core::mem::transmute_copy(&ppropinfo))
             }
         }
         unsafe extern "system" fn AddRuleTransition<Identity: ISpGrammarBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hfromstate: SPSTATEHANDLE, htostate: SPSTATEHANDLE, hrule: SPSTATEHANDLE, weight: f32, ppropinfo: *const SPPROPERTYINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpGrammarBuilder_Impl::AddRuleTransition(this, core::mem::transmute_copy(&hfromstate), core::mem::transmute_copy(&htostate), core::mem::transmute_copy(&hrule), core::mem::transmute_copy(&weight), core::mem::transmute_copy(&ppropinfo)).into()
+                ISpGrammarBuilder_Impl::AddRuleTransition(this, core::mem::transmute_copy(&hfromstate), core::mem::transmute_copy(&htostate), core::mem::transmute_copy(&hrule), core::mem::transmute_copy(&weight), core::mem::transmute_copy(&ppropinfo))
             }
         }
         unsafe extern "system" fn AddResource<Identity: ISpGrammarBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrulestate: SPSTATEHANDLE, pszresourcename: windows_core::PCWSTR, pszresourcevalue: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpGrammarBuilder_Impl::AddResource(this, core::mem::transmute_copy(&hrulestate), core::mem::transmute(&pszresourcename), core::mem::transmute(&pszresourcevalue)).into()
+                ISpGrammarBuilder_Impl::AddResource(this, core::mem::transmute_copy(&hrulestate), core::mem::transmute(&pszresourcename), core::mem::transmute(&pszresourcevalue))
             }
         }
         unsafe extern "system" fn Commit<Identity: ISpGrammarBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwreserved: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpGrammarBuilder_Impl::Commit(this, core::mem::transmute_copy(&dwreserved)).into()
+                ISpGrammarBuilder_Impl::Commit(this, core::mem::transmute_copy(&dwreserved))
             }
         }
         Self {
@@ -1490,21 +1490,21 @@ pub struct ISpGrammarBuilder2_Vtbl {
     pub SetPhoneticAlphabet: unsafe extern "system" fn(*mut core::ffi::c_void, PHONETICALPHABET) -> windows_core::HRESULT,
 }
 pub trait ISpGrammarBuilder2_Impl: windows_core::IUnknownImpl {
-    fn AddTextSubset(&self, hfromstate: SPSTATEHANDLE, htostate: SPSTATEHANDLE, psz: &windows_core::PCWSTR, ematchmode: SPMATCHINGMODE) -> windows_core::Result<()>;
-    fn SetPhoneticAlphabet(&self, phoneticalphabet: PHONETICALPHABET) -> windows_core::Result<()>;
+    fn AddTextSubset(&self, hfromstate: SPSTATEHANDLE, htostate: SPSTATEHANDLE, psz: &windows_core::PCWSTR, ematchmode: SPMATCHINGMODE) -> windows_core::HRESULT;
+    fn SetPhoneticAlphabet(&self, phoneticalphabet: PHONETICALPHABET) -> windows_core::HRESULT;
 }
 impl ISpGrammarBuilder2_Vtbl {
     pub const fn new<Identity: ISpGrammarBuilder2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddTextSubset<Identity: ISpGrammarBuilder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hfromstate: SPSTATEHANDLE, htostate: SPSTATEHANDLE, psz: windows_core::PCWSTR, ematchmode: SPMATCHINGMODE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpGrammarBuilder2_Impl::AddTextSubset(this, core::mem::transmute_copy(&hfromstate), core::mem::transmute_copy(&htostate), core::mem::transmute(&psz), core::mem::transmute_copy(&ematchmode)).into()
+                ISpGrammarBuilder2_Impl::AddTextSubset(this, core::mem::transmute_copy(&hfromstate), core::mem::transmute_copy(&htostate), core::mem::transmute(&psz), core::mem::transmute_copy(&ematchmode))
             }
         }
         unsafe extern "system" fn SetPhoneticAlphabet<Identity: ISpGrammarBuilder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phoneticalphabet: PHONETICALPHABET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpGrammarBuilder2_Impl::SetPhoneticAlphabet(this, core::mem::transmute_copy(&phoneticalphabet)).into()
+                ISpGrammarBuilder2_Impl::SetPhoneticAlphabet(this, core::mem::transmute_copy(&phoneticalphabet))
             }
         }
         Self {
@@ -1586,12 +1586,12 @@ pub struct ISpLexicon_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ISpLexicon_Impl: windows_core::IUnknownImpl {
-    fn GetPronunciations(&self, pszword: &windows_core::PCWSTR, langid: super::WORD, dwflags: super::DWORD, pwordpronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> windows_core::Result<()>;
-    fn AddPronunciation(&self, pszword: &windows_core::PCWSTR, langid: super::WORD, epartofspeech: SPPARTOFSPEECH, pszpronunciation: PCSPPHONEID) -> windows_core::Result<()>;
-    fn RemovePronunciation(&self, pszword: &windows_core::PCWSTR, langid: super::WORD, epartofspeech: SPPARTOFSPEECH, pszpronunciation: PCSPPHONEID) -> windows_core::Result<()>;
-    fn GetGeneration(&self, pdwgeneration: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetGenerationChange(&self, dwflags: super::DWORD, pdwgeneration: *mut super::DWORD, pwordlist: *mut SPWORDLIST) -> windows_core::Result<()>;
-    fn GetWords(&self, dwflags: super::DWORD, pdwgeneration: *mut super::DWORD, pdwcookie: *mut super::DWORD, pwordlist: *mut SPWORDLIST) -> windows_core::Result<()>;
+    fn GetPronunciations(&self, pszword: &windows_core::PCWSTR, langid: super::WORD, dwflags: super::DWORD, pwordpronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> windows_core::HRESULT;
+    fn AddPronunciation(&self, pszword: &windows_core::PCWSTR, langid: super::WORD, epartofspeech: SPPARTOFSPEECH, pszpronunciation: PCSPPHONEID) -> windows_core::HRESULT;
+    fn RemovePronunciation(&self, pszword: &windows_core::PCWSTR, langid: super::WORD, epartofspeech: SPPARTOFSPEECH, pszpronunciation: PCSPPHONEID) -> windows_core::HRESULT;
+    fn GetGeneration(&self, pdwgeneration: *mut super::DWORD) -> windows_core::HRESULT;
+    fn GetGenerationChange(&self, dwflags: super::DWORD, pdwgeneration: *mut super::DWORD, pwordlist: *mut SPWORDLIST) -> windows_core::HRESULT;
+    fn GetWords(&self, dwflags: super::DWORD, pdwgeneration: *mut super::DWORD, pdwcookie: *mut super::DWORD, pwordlist: *mut SPWORDLIST) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ISpLexicon_Vtbl {
@@ -1599,37 +1599,37 @@ impl ISpLexicon_Vtbl {
         unsafe extern "system" fn GetPronunciations<Identity: ISpLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszword: windows_core::PCWSTR, langid: super::WORD, dwflags: super::DWORD, pwordpronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpLexicon_Impl::GetPronunciations(this, core::mem::transmute(&pszword), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pwordpronunciationlist)).into()
+                ISpLexicon_Impl::GetPronunciations(this, core::mem::transmute(&pszword), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pwordpronunciationlist))
             }
         }
         unsafe extern "system" fn AddPronunciation<Identity: ISpLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszword: windows_core::PCWSTR, langid: super::WORD, epartofspeech: SPPARTOFSPEECH, pszpronunciation: PCSPPHONEID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpLexicon_Impl::AddPronunciation(this, core::mem::transmute(&pszword), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&epartofspeech), core::mem::transmute_copy(&pszpronunciation)).into()
+                ISpLexicon_Impl::AddPronunciation(this, core::mem::transmute(&pszword), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&epartofspeech), core::mem::transmute_copy(&pszpronunciation))
             }
         }
         unsafe extern "system" fn RemovePronunciation<Identity: ISpLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszword: windows_core::PCWSTR, langid: super::WORD, epartofspeech: SPPARTOFSPEECH, pszpronunciation: PCSPPHONEID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpLexicon_Impl::RemovePronunciation(this, core::mem::transmute(&pszword), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&epartofspeech), core::mem::transmute_copy(&pszpronunciation)).into()
+                ISpLexicon_Impl::RemovePronunciation(this, core::mem::transmute(&pszword), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&epartofspeech), core::mem::transmute_copy(&pszpronunciation))
             }
         }
         unsafe extern "system" fn GetGeneration<Identity: ISpLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwgeneration: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpLexicon_Impl::GetGeneration(this, core::mem::transmute_copy(&pdwgeneration)).into()
+                ISpLexicon_Impl::GetGeneration(this, core::mem::transmute_copy(&pdwgeneration))
             }
         }
         unsafe extern "system" fn GetGenerationChange<Identity: ISpLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD, pdwgeneration: *mut super::DWORD, pwordlist: *mut SPWORDLIST) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpLexicon_Impl::GetGenerationChange(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pdwgeneration), core::mem::transmute_copy(&pwordlist)).into()
+                ISpLexicon_Impl::GetGenerationChange(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pdwgeneration), core::mem::transmute_copy(&pwordlist))
             }
         }
         unsafe extern "system" fn GetWords<Identity: ISpLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD, pdwgeneration: *mut super::DWORD, pdwcookie: *mut super::DWORD, pwordlist: *mut SPWORDLIST) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpLexicon_Impl::GetWords(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pdwgeneration), core::mem::transmute_copy(&pdwcookie), core::mem::transmute_copy(&pwordlist)).into()
+                ISpLexicon_Impl::GetWords(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pdwgeneration), core::mem::transmute_copy(&pdwcookie), core::mem::transmute_copy(&pwordlist))
             }
         }
         Self {
@@ -1706,11 +1706,11 @@ pub struct ISpMMSysAudio_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 pub trait ISpMMSysAudio_Impl: ISpAudio_Impl {
-    fn GetDeviceId(&self, pudeviceid: *mut super::UINT) -> windows_core::Result<()>;
-    fn SetDeviceId(&self, udeviceid: super::UINT) -> windows_core::Result<()>;
-    fn GetMMHandle(&self, phandle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetLineId(&self, pulineid: *mut super::UINT) -> windows_core::Result<()>;
-    fn SetLineId(&self, ulineid: super::UINT) -> windows_core::Result<()>;
+    fn GetDeviceId(&self, pudeviceid: *mut super::UINT) -> windows_core::HRESULT;
+    fn SetDeviceId(&self, udeviceid: super::UINT) -> windows_core::HRESULT;
+    fn GetMMHandle(&self, phandle: *mut *mut core::ffi::c_void) -> windows_core::HRESULT;
+    fn GetLineId(&self, pulineid: *mut super::UINT) -> windows_core::HRESULT;
+    fn SetLineId(&self, ulineid: super::UINT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 impl ISpMMSysAudio_Vtbl {
@@ -1718,31 +1718,31 @@ impl ISpMMSysAudio_Vtbl {
         unsafe extern "system" fn GetDeviceId<Identity: ISpMMSysAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pudeviceid: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpMMSysAudio_Impl::GetDeviceId(this, core::mem::transmute_copy(&pudeviceid)).into()
+                ISpMMSysAudio_Impl::GetDeviceId(this, core::mem::transmute_copy(&pudeviceid))
             }
         }
         unsafe extern "system" fn SetDeviceId<Identity: ISpMMSysAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, udeviceid: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpMMSysAudio_Impl::SetDeviceId(this, core::mem::transmute_copy(&udeviceid)).into()
+                ISpMMSysAudio_Impl::SetDeviceId(this, core::mem::transmute_copy(&udeviceid))
             }
         }
         unsafe extern "system" fn GetMMHandle<Identity: ISpMMSysAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phandle: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpMMSysAudio_Impl::GetMMHandle(this, core::mem::transmute_copy(&phandle)).into()
+                ISpMMSysAudio_Impl::GetMMHandle(this, core::mem::transmute_copy(&phandle))
             }
         }
         unsafe extern "system" fn GetLineId<Identity: ISpMMSysAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulineid: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpMMSysAudio_Impl::GetLineId(this, core::mem::transmute_copy(&pulineid)).into()
+                ISpMMSysAudio_Impl::GetLineId(this, core::mem::transmute_copy(&pulineid))
             }
         }
         unsafe extern "system" fn SetLineId<Identity: ISpMMSysAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulineid: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpMMSysAudio_Impl::SetLineId(this, core::mem::transmute_copy(&ulineid)).into()
+                ISpMMSysAudio_Impl::SetLineId(this, core::mem::transmute_copy(&ulineid))
             }
         }
         Self {
@@ -1777,7 +1777,7 @@ pub struct ISpNotifyCallback_Vtbl {
 }
 #[cfg(feature = "minwindef")]
 pub trait ISpNotifyCallback_Impl {
-    fn NotifyCallback(&self, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::Result<()>;
+    fn NotifyCallback(&self, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::HRESULT;
 }
 #[cfg(feature = "minwindef")]
 impl ISpNotifyCallback_Vtbl {
@@ -1786,7 +1786,7 @@ impl ISpNotifyCallback_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ISpNotifyCallback_Impl::NotifyCallback(this, core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)).into()
+                ISpNotifyCallback_Impl::NotifyCallback(this, core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam))
             }
         }
         Self { NotifyCallback: NotifyCallback::<Identity> }
@@ -1820,14 +1820,14 @@ pub struct ISpNotifySink_Vtbl {
     pub Notify: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISpNotifySink_Impl: windows_core::IUnknownImpl {
-    fn Notify(&self) -> windows_core::Result<()>;
+    fn Notify(&self) -> windows_core::HRESULT;
 }
 impl ISpNotifySink_Vtbl {
     pub const fn new<Identity: ISpNotifySink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Notify<Identity: ISpNotifySink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpNotifySink_Impl::Notify(this).into()
+                ISpNotifySink_Impl::Notify(this)
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Notify: Notify::<Identity, OFFSET> }
@@ -1902,12 +1902,12 @@ pub struct ISpNotifySource_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait ISpNotifySource_Impl: windows_core::IUnknownImpl {
-    fn SetNotifySink(&self, pnotifysink: windows_core::Ref<ISpNotifySink>) -> windows_core::Result<()>;
-    fn SetNotifyWindowMessage(&self, hwnd: super::HWND, msg: super::UINT, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::Result<()>;
-    fn SetNotifyCallbackFunction(&self, pfncallback: SPNOTIFYCALLBACK, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::Result<()>;
-    fn SetNotifyCallbackInterface(&self, pspcallback: windows_core::Ref<ISpNotifyCallback>, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::Result<()>;
-    fn SetNotifyWin32Event(&self) -> windows_core::Result<()>;
-    fn WaitForNotifyEvent(&self, dwmilliseconds: super::DWORD) -> windows_core::Result<()>;
+    fn SetNotifySink(&self, pnotifysink: windows_core::Ref<ISpNotifySink>) -> windows_core::HRESULT;
+    fn SetNotifyWindowMessage(&self, hwnd: super::HWND, msg: super::UINT, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::HRESULT;
+    fn SetNotifyCallbackFunction(&self, pfncallback: SPNOTIFYCALLBACK, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::HRESULT;
+    fn SetNotifyCallbackInterface(&self, pspcallback: windows_core::Ref<ISpNotifyCallback>, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::HRESULT;
+    fn SetNotifyWin32Event(&self) -> windows_core::HRESULT;
+    fn WaitForNotifyEvent(&self, dwmilliseconds: super::DWORD) -> windows_core::HRESULT;
     fn GetNotifyEventHandle(&self) -> super::HANDLE;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
@@ -1916,37 +1916,37 @@ impl ISpNotifySource_Vtbl {
         unsafe extern "system" fn SetNotifySink<Identity: ISpNotifySource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnotifysink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpNotifySource_Impl::SetNotifySink(this, core::mem::transmute_copy(&pnotifysink)).into()
+                ISpNotifySource_Impl::SetNotifySink(this, core::mem::transmute_copy(&pnotifysink))
             }
         }
         unsafe extern "system" fn SetNotifyWindowMessage<Identity: ISpNotifySource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::HWND, msg: super::UINT, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpNotifySource_Impl::SetNotifyWindowMessage(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&msg), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)).into()
+                ISpNotifySource_Impl::SetNotifyWindowMessage(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&msg), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam))
             }
         }
         unsafe extern "system" fn SetNotifyCallbackFunction<Identity: ISpNotifySource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfncallback: SPNOTIFYCALLBACK, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpNotifySource_Impl::SetNotifyCallbackFunction(this, core::mem::transmute_copy(&pfncallback), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)).into()
+                ISpNotifySource_Impl::SetNotifyCallbackFunction(this, core::mem::transmute_copy(&pfncallback), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam))
             }
         }
         unsafe extern "system" fn SetNotifyCallbackInterface<Identity: ISpNotifySource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pspcallback: *mut core::ffi::c_void, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpNotifySource_Impl::SetNotifyCallbackInterface(this, core::mem::transmute_copy(&pspcallback), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)).into()
+                ISpNotifySource_Impl::SetNotifyCallbackInterface(this, core::mem::transmute_copy(&pspcallback), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam))
             }
         }
         unsafe extern "system" fn SetNotifyWin32Event<Identity: ISpNotifySource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpNotifySource_Impl::SetNotifyWin32Event(this).into()
+                ISpNotifySource_Impl::SetNotifyWin32Event(this)
             }
         }
         unsafe extern "system" fn WaitForNotifyEvent<Identity: ISpNotifySource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmilliseconds: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpNotifySource_Impl::WaitForNotifyEvent(this, core::mem::transmute_copy(&dwmilliseconds)).into()
+                ISpNotifySource_Impl::WaitForNotifyEvent(this, core::mem::transmute_copy(&dwmilliseconds))
             }
         }
         unsafe extern "system" fn GetNotifyEventHandle<Identity: ISpNotifySource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::HANDLE {
@@ -2040,11 +2040,11 @@ pub struct ISpNotifyTranslator_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait ISpNotifyTranslator_Impl: ISpNotifySink_Impl {
-    fn InitWindowMessage(&self, hwnd: super::HWND, msg: super::UINT, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::Result<()>;
-    fn InitCallback(&self, pfncallback: SPNOTIFYCALLBACK, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::Result<()>;
-    fn InitSpNotifyCallback(&self, pspcallback: windows_core::Ref<ISpNotifyCallback>, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::Result<()>;
-    fn InitWin32Event(&self, hevent: super::HANDLE, fclosehandleonrelease: windows_core::BOOL) -> windows_core::Result<()>;
-    fn Wait(&self, dwmilliseconds: super::DWORD) -> windows_core::Result<()>;
+    fn InitWindowMessage(&self, hwnd: super::HWND, msg: super::UINT, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::HRESULT;
+    fn InitCallback(&self, pfncallback: SPNOTIFYCALLBACK, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::HRESULT;
+    fn InitSpNotifyCallback(&self, pspcallback: windows_core::Ref<ISpNotifyCallback>, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::HRESULT;
+    fn InitWin32Event(&self, hevent: super::HANDLE, fclosehandleonrelease: windows_core::BOOL) -> windows_core::HRESULT;
+    fn Wait(&self, dwmilliseconds: super::DWORD) -> windows_core::HRESULT;
     fn GetEventHandle(&self) -> super::HANDLE;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
@@ -2053,31 +2053,31 @@ impl ISpNotifyTranslator_Vtbl {
         unsafe extern "system" fn InitWindowMessage<Identity: ISpNotifyTranslator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::HWND, msg: super::UINT, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpNotifyTranslator_Impl::InitWindowMessage(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&msg), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)).into()
+                ISpNotifyTranslator_Impl::InitWindowMessage(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&msg), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam))
             }
         }
         unsafe extern "system" fn InitCallback<Identity: ISpNotifyTranslator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfncallback: SPNOTIFYCALLBACK, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpNotifyTranslator_Impl::InitCallback(this, core::mem::transmute_copy(&pfncallback), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)).into()
+                ISpNotifyTranslator_Impl::InitCallback(this, core::mem::transmute_copy(&pfncallback), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam))
             }
         }
         unsafe extern "system" fn InitSpNotifyCallback<Identity: ISpNotifyTranslator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pspcallback: *mut core::ffi::c_void, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpNotifyTranslator_Impl::InitSpNotifyCallback(this, core::mem::transmute_copy(&pspcallback), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)).into()
+                ISpNotifyTranslator_Impl::InitSpNotifyCallback(this, core::mem::transmute_copy(&pspcallback), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam))
             }
         }
         unsafe extern "system" fn InitWin32Event<Identity: ISpNotifyTranslator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hevent: super::HANDLE, fclosehandleonrelease: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpNotifyTranslator_Impl::InitWin32Event(this, core::mem::transmute_copy(&hevent), core::mem::transmute_copy(&fclosehandleonrelease)).into()
+                ISpNotifyTranslator_Impl::InitWin32Event(this, core::mem::transmute_copy(&hevent), core::mem::transmute_copy(&fclosehandleonrelease))
             }
         }
         unsafe extern "system" fn Wait<Identity: ISpNotifyTranslator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmilliseconds: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpNotifyTranslator_Impl::Wait(this, core::mem::transmute_copy(&dwmilliseconds)).into()
+                ISpNotifyTranslator_Impl::Wait(this, core::mem::transmute_copy(&dwmilliseconds))
             }
         }
         unsafe extern "system" fn GetEventHandle<Identity: ISpNotifyTranslator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::HANDLE {
@@ -2214,16 +2214,16 @@ pub struct ISpObjectToken_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
 pub trait ISpObjectToken_Impl: ISpDataKey_Impl {
-    fn SetId(&self, pszcategoryid: &windows_core::PCWSTR, psztokenid: &windows_core::PCWSTR, fcreateifnotexist: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetId(&self, ppszcomemtokenid: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn SetId(&self, pszcategoryid: &windows_core::PCWSTR, psztokenid: &windows_core::PCWSTR, fcreateifnotexist: windows_core::BOOL) -> windows_core::HRESULT;
+    fn GetId(&self, ppszcomemtokenid: *mut windows_core::PWSTR) -> windows_core::HRESULT;
     fn GetCategory(&self) -> windows_core::Result<ISpObjectTokenCategory>;
     fn CreateInstance(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, dwclscontext: super::DWORD, riid: *const super::IID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetStorageFileName(&self, clsidcaller: *const super::IID, pszvaluename: &windows_core::PCWSTR, pszfilenamespecifier: &windows_core::PCWSTR, nfolder: super::ULONG, ppszfilepath: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn RemoveStorageFileName(&self, clsidcaller: *const super::IID, pszkeyname: &windows_core::PCWSTR, fdeletefile: windows_core::BOOL) -> windows_core::Result<()>;
-    fn Remove(&self, pclsidcaller: *const super::CLSID) -> windows_core::Result<()>;
-    fn IsUISupported(&self, psztypeofui: &windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG, punkobject: windows_core::Ref<windows_core::IUnknown>, pfsupported: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn DisplayUI(&self, hwndparent: super::HWND, psztitle: &windows_core::PCWSTR, psztypeofui: &windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG, punkobject: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn MatchesAttributes(&self, pszattributes: &windows_core::PCWSTR, pfmatches: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetStorageFileName(&self, clsidcaller: *const super::IID, pszvaluename: &windows_core::PCWSTR, pszfilenamespecifier: &windows_core::PCWSTR, nfolder: super::ULONG, ppszfilepath: *mut windows_core::PWSTR) -> windows_core::HRESULT;
+    fn RemoveStorageFileName(&self, clsidcaller: *const super::IID, pszkeyname: &windows_core::PCWSTR, fdeletefile: windows_core::BOOL) -> windows_core::HRESULT;
+    fn Remove(&self, pclsidcaller: *const super::CLSID) -> windows_core::HRESULT;
+    fn IsUISupported(&self, psztypeofui: &windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG, punkobject: windows_core::Ref<windows_core::IUnknown>, pfsupported: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn DisplayUI(&self, hwndparent: super::HWND, psztitle: &windows_core::PCWSTR, psztypeofui: &windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG, punkobject: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn MatchesAttributes(&self, pszattributes: &windows_core::PCWSTR, pfmatches: *mut windows_core::BOOL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
 impl ISpObjectToken_Vtbl {
@@ -2231,13 +2231,13 @@ impl ISpObjectToken_Vtbl {
         unsafe extern "system" fn SetId<Identity: ISpObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszcategoryid: windows_core::PCWSTR, psztokenid: windows_core::PCWSTR, fcreateifnotexist: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpObjectToken_Impl::SetId(this, core::mem::transmute(&pszcategoryid), core::mem::transmute(&psztokenid), core::mem::transmute_copy(&fcreateifnotexist)).into()
+                ISpObjectToken_Impl::SetId(this, core::mem::transmute(&pszcategoryid), core::mem::transmute(&psztokenid), core::mem::transmute_copy(&fcreateifnotexist))
             }
         }
         unsafe extern "system" fn GetId<Identity: ISpObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszcomemtokenid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpObjectToken_Impl::GetId(this, core::mem::transmute_copy(&ppszcomemtokenid)).into()
+                ISpObjectToken_Impl::GetId(this, core::mem::transmute_copy(&ppszcomemtokenid))
             }
         }
         unsafe extern "system" fn GetCategory<Identity: ISpObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptokencategory: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2264,37 +2264,37 @@ impl ISpObjectToken_Vtbl {
         unsafe extern "system" fn GetStorageFileName<Identity: ISpObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clsidcaller: *const super::IID, pszvaluename: windows_core::PCWSTR, pszfilenamespecifier: windows_core::PCWSTR, nfolder: super::ULONG, ppszfilepath: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpObjectToken_Impl::GetStorageFileName(this, core::mem::transmute_copy(&clsidcaller), core::mem::transmute(&pszvaluename), core::mem::transmute(&pszfilenamespecifier), core::mem::transmute_copy(&nfolder), core::mem::transmute_copy(&ppszfilepath)).into()
+                ISpObjectToken_Impl::GetStorageFileName(this, core::mem::transmute_copy(&clsidcaller), core::mem::transmute(&pszvaluename), core::mem::transmute(&pszfilenamespecifier), core::mem::transmute_copy(&nfolder), core::mem::transmute_copy(&ppszfilepath))
             }
         }
         unsafe extern "system" fn RemoveStorageFileName<Identity: ISpObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clsidcaller: *const super::IID, pszkeyname: windows_core::PCWSTR, fdeletefile: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpObjectToken_Impl::RemoveStorageFileName(this, core::mem::transmute_copy(&clsidcaller), core::mem::transmute(&pszkeyname), core::mem::transmute_copy(&fdeletefile)).into()
+                ISpObjectToken_Impl::RemoveStorageFileName(this, core::mem::transmute_copy(&clsidcaller), core::mem::transmute(&pszkeyname), core::mem::transmute_copy(&fdeletefile))
             }
         }
         unsafe extern "system" fn Remove<Identity: ISpObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclsidcaller: *const super::CLSID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpObjectToken_Impl::Remove(this, core::mem::transmute_copy(&pclsidcaller)).into()
+                ISpObjectToken_Impl::Remove(this, core::mem::transmute_copy(&pclsidcaller))
             }
         }
         unsafe extern "system" fn IsUISupported<Identity: ISpObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psztypeofui: windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG, punkobject: *mut core::ffi::c_void, pfsupported: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpObjectToken_Impl::IsUISupported(this, core::mem::transmute(&psztypeofui), core::mem::transmute_copy(&pvextradata), core::mem::transmute_copy(&cbextradata), core::mem::transmute_copy(&punkobject), core::mem::transmute_copy(&pfsupported)).into()
+                ISpObjectToken_Impl::IsUISupported(this, core::mem::transmute(&psztypeofui), core::mem::transmute_copy(&pvextradata), core::mem::transmute_copy(&cbextradata), core::mem::transmute_copy(&punkobject), core::mem::transmute_copy(&pfsupported))
             }
         }
         unsafe extern "system" fn DisplayUI<Identity: ISpObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::HWND, psztitle: windows_core::PCWSTR, psztypeofui: windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG, punkobject: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpObjectToken_Impl::DisplayUI(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute(&psztitle), core::mem::transmute(&psztypeofui), core::mem::transmute_copy(&pvextradata), core::mem::transmute_copy(&cbextradata), core::mem::transmute_copy(&punkobject)).into()
+                ISpObjectToken_Impl::DisplayUI(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute(&psztitle), core::mem::transmute(&psztypeofui), core::mem::transmute_copy(&pvextradata), core::mem::transmute_copy(&cbextradata), core::mem::transmute_copy(&punkobject))
             }
         }
         unsafe extern "system" fn MatchesAttributes<Identity: ISpObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszattributes: windows_core::PCWSTR, pfmatches: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpObjectToken_Impl::MatchesAttributes(this, core::mem::transmute(&pszattributes), core::mem::transmute_copy(&pfmatches)).into()
+                ISpObjectToken_Impl::MatchesAttributes(this, core::mem::transmute(&pszattributes), core::mem::transmute_copy(&pfmatches))
             }
         }
         Self {
@@ -2371,12 +2371,12 @@ pub struct ISpObjectTokenCategory_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ISpObjectTokenCategory_Impl: ISpDataKey_Impl {
-    fn SetId(&self, pszcategoryid: &windows_core::PCWSTR, fcreateifnotexist: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetId(&self, ppszcomemcategoryid: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn SetId(&self, pszcategoryid: &windows_core::PCWSTR, fcreateifnotexist: windows_core::BOOL) -> windows_core::HRESULT;
+    fn GetId(&self, ppszcomemcategoryid: *mut windows_core::PWSTR) -> windows_core::HRESULT;
     fn GetDataKey(&self, spdkl: SPDATAKEYLOCATION) -> windows_core::Result<ISpDataKey>;
-    fn EnumTokens(&self, pzsreqattribs: &windows_core::PCWSTR, pszoptattribs: &windows_core::PCWSTR, ppenum: windows_core::OutRef<IEnumSpObjectTokens>) -> windows_core::Result<()>;
-    fn SetDefaultTokenId(&self, psztokenid: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetDefaultTokenId(&self, ppszcomemtokenid: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn EnumTokens(&self, pzsreqattribs: &windows_core::PCWSTR, pszoptattribs: &windows_core::PCWSTR, ppenum: windows_core::OutRef<IEnumSpObjectTokens>) -> windows_core::HRESULT;
+    fn SetDefaultTokenId(&self, psztokenid: &windows_core::PCWSTR) -> windows_core::HRESULT;
+    fn GetDefaultTokenId(&self, ppszcomemtokenid: *mut windows_core::PWSTR) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ISpObjectTokenCategory_Vtbl {
@@ -2384,13 +2384,13 @@ impl ISpObjectTokenCategory_Vtbl {
         unsafe extern "system" fn SetId<Identity: ISpObjectTokenCategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszcategoryid: windows_core::PCWSTR, fcreateifnotexist: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpObjectTokenCategory_Impl::SetId(this, core::mem::transmute(&pszcategoryid), core::mem::transmute_copy(&fcreateifnotexist)).into()
+                ISpObjectTokenCategory_Impl::SetId(this, core::mem::transmute(&pszcategoryid), core::mem::transmute_copy(&fcreateifnotexist))
             }
         }
         unsafe extern "system" fn GetId<Identity: ISpObjectTokenCategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszcomemcategoryid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpObjectTokenCategory_Impl::GetId(this, core::mem::transmute_copy(&ppszcomemcategoryid)).into()
+                ISpObjectTokenCategory_Impl::GetId(this, core::mem::transmute_copy(&ppszcomemcategoryid))
             }
         }
         unsafe extern "system" fn GetDataKey<Identity: ISpObjectTokenCategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, spdkl: SPDATAKEYLOCATION, ppdatakey: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2411,19 +2411,19 @@ impl ISpObjectTokenCategory_Vtbl {
         unsafe extern "system" fn EnumTokens<Identity: ISpObjectTokenCategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pzsreqattribs: windows_core::PCWSTR, pszoptattribs: windows_core::PCWSTR, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpObjectTokenCategory_Impl::EnumTokens(this, core::mem::transmute(&pzsreqattribs), core::mem::transmute(&pszoptattribs), core::mem::transmute_copy(&ppenum)).into()
+                ISpObjectTokenCategory_Impl::EnumTokens(this, core::mem::transmute(&pzsreqattribs), core::mem::transmute(&pszoptattribs), core::mem::transmute_copy(&ppenum))
             }
         }
         unsafe extern "system" fn SetDefaultTokenId<Identity: ISpObjectTokenCategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psztokenid: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpObjectTokenCategory_Impl::SetDefaultTokenId(this, core::mem::transmute(&psztokenid)).into()
+                ISpObjectTokenCategory_Impl::SetDefaultTokenId(this, core::mem::transmute(&psztokenid))
             }
         }
         unsafe extern "system" fn GetDefaultTokenId<Identity: ISpObjectTokenCategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszcomemtokenid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpObjectTokenCategory_Impl::GetDefaultTokenId(this, core::mem::transmute_copy(&ppszcomemtokenid)).into()
+                ISpObjectTokenCategory_Impl::GetDefaultTokenId(this, core::mem::transmute_copy(&ppszcomemtokenid))
             }
         }
         Self {
@@ -2468,7 +2468,7 @@ pub struct ISpObjectTokenInit_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
 pub trait ISpObjectTokenInit_Impl: ISpObjectToken_Impl {
-    fn InitFromDataKey(&self, pszcategoryid: &windows_core::PCWSTR, psztokenid: &windows_core::PCWSTR, pdatakey: windows_core::Ref<ISpDataKey>) -> windows_core::Result<()>;
+    fn InitFromDataKey(&self, pszcategoryid: &windows_core::PCWSTR, psztokenid: &windows_core::PCWSTR, pdatakey: windows_core::Ref<ISpDataKey>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
 impl ISpObjectTokenInit_Vtbl {
@@ -2476,7 +2476,7 @@ impl ISpObjectTokenInit_Vtbl {
         unsafe extern "system" fn InitFromDataKey<Identity: ISpObjectTokenInit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszcategoryid: windows_core::PCWSTR, psztokenid: windows_core::PCWSTR, pdatakey: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpObjectTokenInit_Impl::InitFromDataKey(this, core::mem::transmute(&pszcategoryid), core::mem::transmute(&psztokenid), core::mem::transmute_copy(&pdatakey)).into()
+                ISpObjectTokenInit_Impl::InitFromDataKey(this, core::mem::transmute(&pszcategoryid), core::mem::transmute(&psztokenid), core::mem::transmute_copy(&pdatakey))
             }
         }
         Self { base__: ISpObjectToken_Vtbl::new::<Identity, OFFSET>(), InitFromDataKey: InitFromDataKey::<Identity, OFFSET> }
@@ -2511,7 +2511,7 @@ pub struct ISpObjectWithToken_Vtbl {
     pub GetObjectToken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISpObjectWithToken_Impl: windows_core::IUnknownImpl {
-    fn SetObjectToken(&self, ptoken: windows_core::Ref<ISpObjectToken>) -> windows_core::Result<()>;
+    fn SetObjectToken(&self, ptoken: windows_core::Ref<ISpObjectToken>) -> windows_core::HRESULT;
     fn GetObjectToken(&self) -> windows_core::Result<ISpObjectToken>;
 }
 impl ISpObjectWithToken_Vtbl {
@@ -2519,7 +2519,7 @@ impl ISpObjectWithToken_Vtbl {
         unsafe extern "system" fn SetObjectToken<Identity: ISpObjectWithToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptoken: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpObjectWithToken_Impl::SetObjectToken(this, core::mem::transmute_copy(&ptoken)).into()
+                ISpObjectWithToken_Impl::SetObjectToken(this, core::mem::transmute_copy(&ptoken))
             }
         }
         unsafe extern "system" fn GetObjectToken<Identity: ISpObjectWithToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptoken: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2580,8 +2580,8 @@ pub struct ISpPhoneConverter_Vtbl {
 }
 #[cfg(feature = "winnt")]
 pub trait ISpPhoneConverter_Impl: ISpObjectWithToken_Impl {
-    fn PhoneToId(&self, pszphone: &windows_core::PCWSTR, pid: *mut SPPHONEID) -> windows_core::Result<()>;
-    fn IdToPhone(&self, pid: PCSPPHONEID, pszphone: *mut super::WCHAR) -> windows_core::Result<()>;
+    fn PhoneToId(&self, pszphone: &windows_core::PCWSTR, pid: *mut SPPHONEID) -> windows_core::HRESULT;
+    fn IdToPhone(&self, pid: PCSPPHONEID, pszphone: *mut super::WCHAR) -> windows_core::HRESULT;
 }
 #[cfg(feature = "winnt")]
 impl ISpPhoneConverter_Vtbl {
@@ -2589,13 +2589,13 @@ impl ISpPhoneConverter_Vtbl {
         unsafe extern "system" fn PhoneToId<Identity: ISpPhoneConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszphone: windows_core::PCWSTR, pid: *mut SPPHONEID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpPhoneConverter_Impl::PhoneToId(this, core::mem::transmute(&pszphone), core::mem::transmute_copy(&pid)).into()
+                ISpPhoneConverter_Impl::PhoneToId(this, core::mem::transmute(&pszphone), core::mem::transmute_copy(&pid))
             }
         }
         unsafe extern "system" fn IdToPhone<Identity: ISpPhoneConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pid: PCSPPHONEID, pszphone: *mut super::WCHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpPhoneConverter_Impl::IdToPhone(this, core::mem::transmute_copy(&pid), core::mem::transmute_copy(&pszphone)).into()
+                ISpPhoneConverter_Impl::IdToPhone(this, core::mem::transmute_copy(&pid), core::mem::transmute_copy(&pszphone))
             }
         }
         Self { base__: ISpObjectWithToken_Vtbl::new::<Identity, OFFSET>(), PhoneToId: PhoneToId::<Identity, OFFSET>, IdToPhone: IdToPhone::<Identity, OFFSET> }
@@ -2657,11 +2657,11 @@ pub struct ISpPhoneticAlphabetConverter_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ISpPhoneticAlphabetConverter_Impl: windows_core::IUnknownImpl {
-    fn GetLangId(&self, plangid: *mut super::WORD) -> windows_core::Result<()>;
-    fn SetLangId(&self, langid: super::WORD) -> windows_core::Result<()>;
-    fn SAPI2UPS(&self, pszsapiid: *const SPPHONEID, pszupsid: *mut SPPHONEID, cmaxlength: super::DWORD) -> windows_core::Result<()>;
-    fn UPS2SAPI(&self, pszupsid: *const SPPHONEID, pszsapiid: *mut SPPHONEID, cmaxlength: super::DWORD) -> windows_core::Result<()>;
-    fn GetMaxConvertLength(&self, csrclength: super::DWORD, bsapi2ups: windows_core::BOOL, pcmaxdestlength: *mut super::DWORD) -> windows_core::Result<()>;
+    fn GetLangId(&self, plangid: *mut super::WORD) -> windows_core::HRESULT;
+    fn SetLangId(&self, langid: super::WORD) -> windows_core::HRESULT;
+    fn SAPI2UPS(&self, pszsapiid: *const SPPHONEID, pszupsid: *mut SPPHONEID, cmaxlength: super::DWORD) -> windows_core::HRESULT;
+    fn UPS2SAPI(&self, pszupsid: *const SPPHONEID, pszsapiid: *mut SPPHONEID, cmaxlength: super::DWORD) -> windows_core::HRESULT;
+    fn GetMaxConvertLength(&self, csrclength: super::DWORD, bsapi2ups: windows_core::BOOL, pcmaxdestlength: *mut super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ISpPhoneticAlphabetConverter_Vtbl {
@@ -2669,31 +2669,31 @@ impl ISpPhoneticAlphabetConverter_Vtbl {
         unsafe extern "system" fn GetLangId<Identity: ISpPhoneticAlphabetConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plangid: *mut super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpPhoneticAlphabetConverter_Impl::GetLangId(this, core::mem::transmute_copy(&plangid)).into()
+                ISpPhoneticAlphabetConverter_Impl::GetLangId(this, core::mem::transmute_copy(&plangid))
             }
         }
         unsafe extern "system" fn SetLangId<Identity: ISpPhoneticAlphabetConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, langid: super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpPhoneticAlphabetConverter_Impl::SetLangId(this, core::mem::transmute_copy(&langid)).into()
+                ISpPhoneticAlphabetConverter_Impl::SetLangId(this, core::mem::transmute_copy(&langid))
             }
         }
         unsafe extern "system" fn SAPI2UPS<Identity: ISpPhoneticAlphabetConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszsapiid: *const SPPHONEID, pszupsid: *mut SPPHONEID, cmaxlength: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpPhoneticAlphabetConverter_Impl::SAPI2UPS(this, core::mem::transmute_copy(&pszsapiid), core::mem::transmute_copy(&pszupsid), core::mem::transmute_copy(&cmaxlength)).into()
+                ISpPhoneticAlphabetConverter_Impl::SAPI2UPS(this, core::mem::transmute_copy(&pszsapiid), core::mem::transmute_copy(&pszupsid), core::mem::transmute_copy(&cmaxlength))
             }
         }
         unsafe extern "system" fn UPS2SAPI<Identity: ISpPhoneticAlphabetConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszupsid: *const SPPHONEID, pszsapiid: *mut SPPHONEID, cmaxlength: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpPhoneticAlphabetConverter_Impl::UPS2SAPI(this, core::mem::transmute_copy(&pszupsid), core::mem::transmute_copy(&pszsapiid), core::mem::transmute_copy(&cmaxlength)).into()
+                ISpPhoneticAlphabetConverter_Impl::UPS2SAPI(this, core::mem::transmute_copy(&pszupsid), core::mem::transmute_copy(&pszsapiid), core::mem::transmute_copy(&cmaxlength))
             }
         }
         unsafe extern "system" fn GetMaxConvertLength<Identity: ISpPhoneticAlphabetConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, csrclength: super::DWORD, bsapi2ups: windows_core::BOOL, pcmaxdestlength: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpPhoneticAlphabetConverter_Impl::GetMaxConvertLength(this, core::mem::transmute_copy(&csrclength), core::mem::transmute_copy(&bsapi2ups), core::mem::transmute_copy(&pcmaxdestlength)).into()
+                ISpPhoneticAlphabetConverter_Impl::GetMaxConvertLength(this, core::mem::transmute_copy(&csrclength), core::mem::transmute_copy(&bsapi2ups), core::mem::transmute_copy(&pcmaxdestlength))
             }
         }
         Self {
@@ -2729,21 +2729,21 @@ pub struct ISpPhoneticAlphabetSelection_Vtbl {
     pub SetAlphabetToUPS: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait ISpPhoneticAlphabetSelection_Impl: windows_core::IUnknownImpl {
-    fn IsAlphabetUPS(&self, pfisups: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetAlphabetToUPS(&self, fforceups: windows_core::BOOL) -> windows_core::Result<()>;
+    fn IsAlphabetUPS(&self, pfisups: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn SetAlphabetToUPS(&self, fforceups: windows_core::BOOL) -> windows_core::HRESULT;
 }
 impl ISpPhoneticAlphabetSelection_Vtbl {
     pub const fn new<Identity: ISpPhoneticAlphabetSelection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsAlphabetUPS<Identity: ISpPhoneticAlphabetSelection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfisups: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpPhoneticAlphabetSelection_Impl::IsAlphabetUPS(this, core::mem::transmute_copy(&pfisups)).into()
+                ISpPhoneticAlphabetSelection_Impl::IsAlphabetUPS(this, core::mem::transmute_copy(&pfisups))
             }
         }
         unsafe extern "system" fn SetAlphabetToUPS<Identity: ISpPhoneticAlphabetSelection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fforceups: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpPhoneticAlphabetSelection_Impl::SetAlphabetToUPS(this, core::mem::transmute_copy(&fforceups)).into()
+                ISpPhoneticAlphabetSelection_Impl::SetAlphabetToUPS(this, core::mem::transmute_copy(&fforceups))
             }
         }
         Self {
@@ -2800,10 +2800,10 @@ pub struct ISpPhrase_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpPhrase_Impl: windows_core::IUnknownImpl {
-    fn GetPhrase(&self, ppcomemphrase: *mut *mut SPPHRASE) -> windows_core::Result<()>;
-    fn GetSerializedPhrase(&self, ppcomemphrase: *mut *mut SPSERIALIZEDPHRASE) -> windows_core::Result<()>;
-    fn GetText(&self, ulstart: super::ULONG, ulcount: super::ULONG, fusetextreplacements: windows_core::BOOL, ppszcomemtext: *mut windows_core::PWSTR, pbdisplayattributes: *mut super::BYTE) -> windows_core::Result<()>;
-    fn Discard(&self, dwvaluetypes: super::DWORD) -> windows_core::Result<()>;
+    fn GetPhrase(&self, ppcomemphrase: *mut *mut SPPHRASE) -> windows_core::HRESULT;
+    fn GetSerializedPhrase(&self, ppcomemphrase: *mut *mut SPSERIALIZEDPHRASE) -> windows_core::HRESULT;
+    fn GetText(&self, ulstart: super::ULONG, ulcount: super::ULONG, fusetextreplacements: windows_core::BOOL, ppszcomemtext: *mut windows_core::PWSTR, pbdisplayattributes: *mut super::BYTE) -> windows_core::HRESULT;
+    fn Discard(&self, dwvaluetypes: super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpPhrase_Vtbl {
@@ -2811,25 +2811,25 @@ impl ISpPhrase_Vtbl {
         unsafe extern "system" fn GetPhrase<Identity: ISpPhrase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcomemphrase: *mut *mut SPPHRASE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpPhrase_Impl::GetPhrase(this, core::mem::transmute_copy(&ppcomemphrase)).into()
+                ISpPhrase_Impl::GetPhrase(this, core::mem::transmute_copy(&ppcomemphrase))
             }
         }
         unsafe extern "system" fn GetSerializedPhrase<Identity: ISpPhrase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcomemphrase: *mut *mut SPSERIALIZEDPHRASE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpPhrase_Impl::GetSerializedPhrase(this, core::mem::transmute_copy(&ppcomemphrase)).into()
+                ISpPhrase_Impl::GetSerializedPhrase(this, core::mem::transmute_copy(&ppcomemphrase))
             }
         }
         unsafe extern "system" fn GetText<Identity: ISpPhrase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulstart: super::ULONG, ulcount: super::ULONG, fusetextreplacements: windows_core::BOOL, ppszcomemtext: *mut windows_core::PWSTR, pbdisplayattributes: *mut super::BYTE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpPhrase_Impl::GetText(this, core::mem::transmute_copy(&ulstart), core::mem::transmute_copy(&ulcount), core::mem::transmute_copy(&fusetextreplacements), core::mem::transmute_copy(&ppszcomemtext), core::mem::transmute_copy(&pbdisplayattributes)).into()
+                ISpPhrase_Impl::GetText(this, core::mem::transmute_copy(&ulstart), core::mem::transmute_copy(&ulcount), core::mem::transmute_copy(&fusetextreplacements), core::mem::transmute_copy(&ppszcomemtext), core::mem::transmute_copy(&pbdisplayattributes))
             }
         }
         unsafe extern "system" fn Discard<Identity: ISpPhrase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwvaluetypes: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpPhrase_Impl::Discard(this, core::mem::transmute_copy(&dwvaluetypes)).into()
+                ISpPhrase_Impl::Discard(this, core::mem::transmute_copy(&dwvaluetypes))
             }
         }
         Self {
@@ -2886,8 +2886,8 @@ pub struct ISpPhrase2_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpPhrase2_Impl: ISpPhrase_Impl {
-    fn GetXMLResult(&self, ppszcomemxmlresult: *mut windows_core::PWSTR, options: SPXMLRESULTOPTIONS) -> windows_core::Result<()>;
-    fn GetXMLErrorInfo(&self, psemanticerrorinfo: *mut SPSEMANTICERRORINFO) -> windows_core::Result<()>;
+    fn GetXMLResult(&self, ppszcomemxmlresult: *mut windows_core::PWSTR, options: SPXMLRESULTOPTIONS) -> windows_core::HRESULT;
+    fn GetXMLErrorInfo(&self, psemanticerrorinfo: *mut SPSEMANTICERRORINFO) -> windows_core::HRESULT;
     fn GetAudio(&self, ulstartelement: super::ULONG, celements: super::ULONG) -> windows_core::Result<ISpStreamFormat>;
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2896,13 +2896,13 @@ impl ISpPhrase2_Vtbl {
         unsafe extern "system" fn GetXMLResult<Identity: ISpPhrase2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszcomemxmlresult: *mut windows_core::PWSTR, options: SPXMLRESULTOPTIONS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpPhrase2_Impl::GetXMLResult(this, core::mem::transmute_copy(&ppszcomemxmlresult), core::mem::transmute_copy(&options)).into()
+                ISpPhrase2_Impl::GetXMLResult(this, core::mem::transmute_copy(&ppszcomemxmlresult), core::mem::transmute_copy(&options))
             }
         }
         unsafe extern "system" fn GetXMLErrorInfo<Identity: ISpPhrase2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psemanticerrorinfo: *mut SPSEMANTICERRORINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpPhrase2_Impl::GetXMLErrorInfo(this, core::mem::transmute_copy(&psemanticerrorinfo)).into()
+                ISpPhrase2_Impl::GetXMLErrorInfo(this, core::mem::transmute_copy(&psemanticerrorinfo))
             }
         }
         unsafe extern "system" fn GetAudio<Identity: ISpPhrase2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulstartelement: super::ULONG, celements: super::ULONG, ppstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2962,8 +2962,8 @@ pub struct ISpPhraseAlt_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpPhraseAlt_Impl: ISpPhrase_Impl {
-    fn GetAltInfo(&self, ppparent: windows_core::OutRef<ISpPhrase>, pulstartelementinparent: *mut super::ULONG, pcelementsinparent: *mut super::ULONG, pcelementsinalt: *mut super::ULONG) -> windows_core::Result<()>;
-    fn Commit(&self) -> windows_core::Result<()>;
+    fn GetAltInfo(&self, ppparent: windows_core::OutRef<ISpPhrase>, pulstartelementinparent: *mut super::ULONG, pcelementsinparent: *mut super::ULONG, pcelementsinalt: *mut super::ULONG) -> windows_core::HRESULT;
+    fn Commit(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpPhraseAlt_Vtbl {
@@ -2971,13 +2971,13 @@ impl ISpPhraseAlt_Vtbl {
         unsafe extern "system" fn GetAltInfo<Identity: ISpPhraseAlt_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppparent: *mut *mut core::ffi::c_void, pulstartelementinparent: *mut super::ULONG, pcelementsinparent: *mut super::ULONG, pcelementsinalt: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpPhraseAlt_Impl::GetAltInfo(this, core::mem::transmute_copy(&ppparent), core::mem::transmute_copy(&pulstartelementinparent), core::mem::transmute_copy(&pcelementsinparent), core::mem::transmute_copy(&pcelementsinalt)).into()
+                ISpPhraseAlt_Impl::GetAltInfo(this, core::mem::transmute_copy(&ppparent), core::mem::transmute_copy(&pulstartelementinparent), core::mem::transmute_copy(&pcelementsinparent), core::mem::transmute_copy(&pcelementsinalt))
             }
         }
         unsafe extern "system" fn Commit<Identity: ISpPhraseAlt_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpPhraseAlt_Impl::Commit(this).into()
+                ISpPhraseAlt_Impl::Commit(this)
             }
         }
         Self { base__: ISpPhrase_Vtbl::new::<Identity, OFFSET>(), GetAltInfo: GetAltInfo::<Identity, OFFSET>, Commit: Commit::<Identity, OFFSET> }
@@ -3036,10 +3036,10 @@ pub struct ISpProperties_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ISpProperties_Impl: windows_core::IUnknownImpl {
-    fn SetPropertyNum(&self, pname: &windows_core::PCWSTR, lvalue: super::LONG) -> windows_core::Result<()>;
-    fn GetPropertyNum(&self, pname: &windows_core::PCWSTR, plvalue: *mut super::LONG) -> windows_core::Result<()>;
-    fn SetPropertyString(&self, pname: &windows_core::PCWSTR, pvalue: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetPropertyString(&self, pname: &windows_core::PCWSTR, ppcomemvalue: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn SetPropertyNum(&self, pname: &windows_core::PCWSTR, lvalue: super::LONG) -> windows_core::HRESULT;
+    fn GetPropertyNum(&self, pname: &windows_core::PCWSTR, plvalue: *mut super::LONG) -> windows_core::HRESULT;
+    fn SetPropertyString(&self, pname: &windows_core::PCWSTR, pvalue: &windows_core::PCWSTR) -> windows_core::HRESULT;
+    fn GetPropertyString(&self, pname: &windows_core::PCWSTR, ppcomemvalue: *mut windows_core::PWSTR) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ISpProperties_Vtbl {
@@ -3047,25 +3047,25 @@ impl ISpProperties_Vtbl {
         unsafe extern "system" fn SetPropertyNum<Identity: ISpProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pname: windows_core::PCWSTR, lvalue: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpProperties_Impl::SetPropertyNum(this, core::mem::transmute(&pname), core::mem::transmute_copy(&lvalue)).into()
+                ISpProperties_Impl::SetPropertyNum(this, core::mem::transmute(&pname), core::mem::transmute_copy(&lvalue))
             }
         }
         unsafe extern "system" fn GetPropertyNum<Identity: ISpProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pname: windows_core::PCWSTR, plvalue: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpProperties_Impl::GetPropertyNum(this, core::mem::transmute(&pname), core::mem::transmute_copy(&plvalue)).into()
+                ISpProperties_Impl::GetPropertyNum(this, core::mem::transmute(&pname), core::mem::transmute_copy(&plvalue))
             }
         }
         unsafe extern "system" fn SetPropertyString<Identity: ISpProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pname: windows_core::PCWSTR, pvalue: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpProperties_Impl::SetPropertyString(this, core::mem::transmute(&pname), core::mem::transmute(&pvalue)).into()
+                ISpProperties_Impl::SetPropertyString(this, core::mem::transmute(&pname), core::mem::transmute(&pvalue))
             }
         }
         unsafe extern "system" fn GetPropertyString<Identity: ISpProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pname: windows_core::PCWSTR, ppcomemvalue: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpProperties_Impl::GetPropertyString(this, core::mem::transmute(&pname), core::mem::transmute_copy(&ppcomemvalue)).into()
+                ISpProperties_Impl::GetPropertyString(this, core::mem::transmute(&pname), core::mem::transmute_copy(&ppcomemvalue))
             }
         }
         Self {
@@ -3096,14 +3096,14 @@ pub struct ISpRecoCategory_Vtbl {
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SPCATEGORYTYPE) -> windows_core::HRESULT,
 }
 pub trait ISpRecoCategory_Impl: windows_core::IUnknownImpl {
-    fn GetType(&self, pecategorytype: *mut SPCATEGORYTYPE) -> windows_core::Result<()>;
+    fn GetType(&self, pecategorytype: *mut SPCATEGORYTYPE) -> windows_core::HRESULT;
 }
 impl ISpRecoCategory_Vtbl {
     pub const fn new<Identity: ISpRecoCategory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetType<Identity: ISpRecoCategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pecategorytype: *mut SPCATEGORYTYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoCategory_Impl::GetType(this, core::mem::transmute_copy(&pecategorytype)).into()
+                ISpRecoCategory_Impl::GetType(this, core::mem::transmute_copy(&pecategorytype))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetType: GetType::<Identity, OFFSET> }
@@ -3260,24 +3260,24 @@ pub struct ISpRecoContext_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait ISpRecoContext_Impl: ISpEventSource_Impl {
-    fn GetRecognizer(&self, pprecognizer: windows_core::OutRef<ISpRecognizer>) -> windows_core::Result<()>;
-    fn CreateGrammar(&self, ullgrammarid: super::ULONGLONG, ppgrammar: windows_core::OutRef<ISpRecoGrammar>) -> windows_core::Result<()>;
-    fn GetStatus(&self, pstatus: *mut SPRECOCONTEXTSTATUS) -> windows_core::Result<()>;
-    fn GetMaxAlternates(&self, pcalternates: *const super::ULONG) -> windows_core::Result<()>;
-    fn SetMaxAlternates(&self, calternates: super::ULONG) -> windows_core::Result<()>;
-    fn SetAudioOptions(&self, options: SPAUDIOOPTIONS, paudioformatid: *const windows_core::GUID, pwaveformatex: *const super::WAVEFORMATEX) -> windows_core::Result<()>;
-    fn GetAudioOptions(&self, poptions: *const SPAUDIOOPTIONS, paudioformatid: *mut windows_core::GUID, ppcomemwfex: *mut *mut super::WAVEFORMATEX) -> windows_core::Result<()>;
-    fn DeserializeResult(&self, pserializedresult: *const SPSERIALIZEDRESULT, ppresult: windows_core::OutRef<ISpRecoResult>) -> windows_core::Result<()>;
-    fn Bookmark(&self, options: SPBOOKMARKOPTIONS, ullstreamposition: super::ULONGLONG, lparamevent: super::LPARAM) -> windows_core::Result<()>;
-    fn SetAdaptationData(&self, padaptationdata: &windows_core::PCWSTR, cch: super::ULONG) -> windows_core::Result<()>;
-    fn Pause(&self, dwreserved: super::DWORD) -> windows_core::Result<()>;
-    fn Resume(&self, dwreserved: super::DWORD) -> windows_core::Result<()>;
-    fn SetVoice(&self, pvoice: windows_core::Ref<ISpVoice>, fallowformatchanges: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetVoice(&self, ppvoice: windows_core::OutRef<ISpVoice>) -> windows_core::Result<()>;
-    fn SetVoicePurgeEvent(&self, ulleventinterest: super::ULONGLONG) -> windows_core::Result<()>;
-    fn GetVoicePurgeEvent(&self, pulleventinterest: *mut super::ULONGLONG) -> windows_core::Result<()>;
-    fn SetContextState(&self, econtextstate: SPCONTEXTSTATE) -> windows_core::Result<()>;
-    fn GetContextState(&self, pecontextstate: *mut SPCONTEXTSTATE) -> windows_core::Result<()>;
+    fn GetRecognizer(&self, pprecognizer: windows_core::OutRef<ISpRecognizer>) -> windows_core::HRESULT;
+    fn CreateGrammar(&self, ullgrammarid: super::ULONGLONG, ppgrammar: windows_core::OutRef<ISpRecoGrammar>) -> windows_core::HRESULT;
+    fn GetStatus(&self, pstatus: *mut SPRECOCONTEXTSTATUS) -> windows_core::HRESULT;
+    fn GetMaxAlternates(&self, pcalternates: *const super::ULONG) -> windows_core::HRESULT;
+    fn SetMaxAlternates(&self, calternates: super::ULONG) -> windows_core::HRESULT;
+    fn SetAudioOptions(&self, options: SPAUDIOOPTIONS, paudioformatid: *const windows_core::GUID, pwaveformatex: *const super::WAVEFORMATEX) -> windows_core::HRESULT;
+    fn GetAudioOptions(&self, poptions: *const SPAUDIOOPTIONS, paudioformatid: *mut windows_core::GUID, ppcomemwfex: *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT;
+    fn DeserializeResult(&self, pserializedresult: *const SPSERIALIZEDRESULT, ppresult: windows_core::OutRef<ISpRecoResult>) -> windows_core::HRESULT;
+    fn Bookmark(&self, options: SPBOOKMARKOPTIONS, ullstreamposition: super::ULONGLONG, lparamevent: super::LPARAM) -> windows_core::HRESULT;
+    fn SetAdaptationData(&self, padaptationdata: &windows_core::PCWSTR, cch: super::ULONG) -> windows_core::HRESULT;
+    fn Pause(&self, dwreserved: super::DWORD) -> windows_core::HRESULT;
+    fn Resume(&self, dwreserved: super::DWORD) -> windows_core::HRESULT;
+    fn SetVoice(&self, pvoice: windows_core::Ref<ISpVoice>, fallowformatchanges: windows_core::BOOL) -> windows_core::HRESULT;
+    fn GetVoice(&self, ppvoice: windows_core::OutRef<ISpVoice>) -> windows_core::HRESULT;
+    fn SetVoicePurgeEvent(&self, ulleventinterest: super::ULONGLONG) -> windows_core::HRESULT;
+    fn GetVoicePurgeEvent(&self, pulleventinterest: *mut super::ULONGLONG) -> windows_core::HRESULT;
+    fn SetContextState(&self, econtextstate: SPCONTEXTSTATE) -> windows_core::HRESULT;
+    fn GetContextState(&self, pecontextstate: *mut SPCONTEXTSTATE) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "shared", feature = "windef", feature = "winnt"))]
 impl ISpRecoContext_Vtbl {
@@ -3285,109 +3285,109 @@ impl ISpRecoContext_Vtbl {
         unsafe extern "system" fn GetRecognizer<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprecognizer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoContext_Impl::GetRecognizer(this, core::mem::transmute_copy(&pprecognizer)).into()
+                ISpRecoContext_Impl::GetRecognizer(this, core::mem::transmute_copy(&pprecognizer))
             }
         }
         unsafe extern "system" fn CreateGrammar<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ullgrammarid: super::ULONGLONG, ppgrammar: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoContext_Impl::CreateGrammar(this, core::mem::transmute_copy(&ullgrammarid), core::mem::transmute_copy(&ppgrammar)).into()
+                ISpRecoContext_Impl::CreateGrammar(this, core::mem::transmute_copy(&ullgrammarid), core::mem::transmute_copy(&ppgrammar))
             }
         }
         unsafe extern "system" fn GetStatus<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstatus: *mut SPRECOCONTEXTSTATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoContext_Impl::GetStatus(this, core::mem::transmute_copy(&pstatus)).into()
+                ISpRecoContext_Impl::GetStatus(this, core::mem::transmute_copy(&pstatus))
             }
         }
         unsafe extern "system" fn GetMaxAlternates<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcalternates: *const super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoContext_Impl::GetMaxAlternates(this, core::mem::transmute_copy(&pcalternates)).into()
+                ISpRecoContext_Impl::GetMaxAlternates(this, core::mem::transmute_copy(&pcalternates))
             }
         }
         unsafe extern "system" fn SetMaxAlternates<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, calternates: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoContext_Impl::SetMaxAlternates(this, core::mem::transmute_copy(&calternates)).into()
+                ISpRecoContext_Impl::SetMaxAlternates(this, core::mem::transmute_copy(&calternates))
             }
         }
         unsafe extern "system" fn SetAudioOptions<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: SPAUDIOOPTIONS, paudioformatid: *const windows_core::GUID, pwaveformatex: *const super::WAVEFORMATEX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoContext_Impl::SetAudioOptions(this, core::mem::transmute_copy(&options), core::mem::transmute_copy(&paudioformatid), core::mem::transmute_copy(&pwaveformatex)).into()
+                ISpRecoContext_Impl::SetAudioOptions(this, core::mem::transmute_copy(&options), core::mem::transmute_copy(&paudioformatid), core::mem::transmute_copy(&pwaveformatex))
             }
         }
         unsafe extern "system" fn GetAudioOptions<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, poptions: *const SPAUDIOOPTIONS, paudioformatid: *mut windows_core::GUID, ppcomemwfex: *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoContext_Impl::GetAudioOptions(this, core::mem::transmute_copy(&poptions), core::mem::transmute_copy(&paudioformatid), core::mem::transmute_copy(&ppcomemwfex)).into()
+                ISpRecoContext_Impl::GetAudioOptions(this, core::mem::transmute_copy(&poptions), core::mem::transmute_copy(&paudioformatid), core::mem::transmute_copy(&ppcomemwfex))
             }
         }
         unsafe extern "system" fn DeserializeResult<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pserializedresult: *const SPSERIALIZEDRESULT, ppresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoContext_Impl::DeserializeResult(this, core::mem::transmute_copy(&pserializedresult), core::mem::transmute_copy(&ppresult)).into()
+                ISpRecoContext_Impl::DeserializeResult(this, core::mem::transmute_copy(&pserializedresult), core::mem::transmute_copy(&ppresult))
             }
         }
         unsafe extern "system" fn Bookmark<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: SPBOOKMARKOPTIONS, ullstreamposition: super::ULONGLONG, lparamevent: super::LPARAM) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoContext_Impl::Bookmark(this, core::mem::transmute_copy(&options), core::mem::transmute_copy(&ullstreamposition), core::mem::transmute_copy(&lparamevent)).into()
+                ISpRecoContext_Impl::Bookmark(this, core::mem::transmute_copy(&options), core::mem::transmute_copy(&ullstreamposition), core::mem::transmute_copy(&lparamevent))
             }
         }
         unsafe extern "system" fn SetAdaptationData<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, padaptationdata: windows_core::PCWSTR, cch: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoContext_Impl::SetAdaptationData(this, core::mem::transmute(&padaptationdata), core::mem::transmute_copy(&cch)).into()
+                ISpRecoContext_Impl::SetAdaptationData(this, core::mem::transmute(&padaptationdata), core::mem::transmute_copy(&cch))
             }
         }
         unsafe extern "system" fn Pause<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwreserved: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoContext_Impl::Pause(this, core::mem::transmute_copy(&dwreserved)).into()
+                ISpRecoContext_Impl::Pause(this, core::mem::transmute_copy(&dwreserved))
             }
         }
         unsafe extern "system" fn Resume<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwreserved: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoContext_Impl::Resume(this, core::mem::transmute_copy(&dwreserved)).into()
+                ISpRecoContext_Impl::Resume(this, core::mem::transmute_copy(&dwreserved))
             }
         }
         unsafe extern "system" fn SetVoice<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvoice: *mut core::ffi::c_void, fallowformatchanges: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoContext_Impl::SetVoice(this, core::mem::transmute_copy(&pvoice), core::mem::transmute_copy(&fallowformatchanges)).into()
+                ISpRecoContext_Impl::SetVoice(this, core::mem::transmute_copy(&pvoice), core::mem::transmute_copy(&fallowformatchanges))
             }
         }
         unsafe extern "system" fn GetVoice<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvoice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoContext_Impl::GetVoice(this, core::mem::transmute_copy(&ppvoice)).into()
+                ISpRecoContext_Impl::GetVoice(this, core::mem::transmute_copy(&ppvoice))
             }
         }
         unsafe extern "system" fn SetVoicePurgeEvent<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulleventinterest: super::ULONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoContext_Impl::SetVoicePurgeEvent(this, core::mem::transmute_copy(&ulleventinterest)).into()
+                ISpRecoContext_Impl::SetVoicePurgeEvent(this, core::mem::transmute_copy(&ulleventinterest))
             }
         }
         unsafe extern "system" fn GetVoicePurgeEvent<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulleventinterest: *mut super::ULONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoContext_Impl::GetVoicePurgeEvent(this, core::mem::transmute_copy(&pulleventinterest)).into()
+                ISpRecoContext_Impl::GetVoicePurgeEvent(this, core::mem::transmute_copy(&pulleventinterest))
             }
         }
         unsafe extern "system" fn SetContextState<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, econtextstate: SPCONTEXTSTATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoContext_Impl::SetContextState(this, core::mem::transmute_copy(&econtextstate)).into()
+                ISpRecoContext_Impl::SetContextState(this, core::mem::transmute_copy(&econtextstate))
             }
         }
         unsafe extern "system" fn GetContextState<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pecontextstate: *mut SPCONTEXTSTATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoContext_Impl::GetContextState(this, core::mem::transmute_copy(&pecontextstate)).into()
+                ISpRecoContext_Impl::GetContextState(this, core::mem::transmute_copy(&pecontextstate))
             }
         }
         Self {
@@ -3457,9 +3457,9 @@ pub struct ISpRecoContext2_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ISpRecoContext2_Impl: windows_core::IUnknownImpl {
-    fn SetGrammarOptions(&self, egrammaroptions: super::DWORD) -> windows_core::Result<()>;
-    fn GetGrammarOptions(&self, pegrammaroptions: *mut super::DWORD) -> windows_core::Result<()>;
-    fn SetAdaptationData2(&self, padaptationdata: &windows_core::PCWSTR, cch: super::ULONG, ptopicname: &windows_core::PCWSTR, eadaptationsettings: super::DWORD, erelevance: SPADAPTATIONRELEVANCE) -> windows_core::Result<()>;
+    fn SetGrammarOptions(&self, egrammaroptions: super::DWORD) -> windows_core::HRESULT;
+    fn GetGrammarOptions(&self, pegrammaroptions: *mut super::DWORD) -> windows_core::HRESULT;
+    fn SetAdaptationData2(&self, padaptationdata: &windows_core::PCWSTR, cch: super::ULONG, ptopicname: &windows_core::PCWSTR, eadaptationsettings: super::DWORD, erelevance: SPADAPTATIONRELEVANCE) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ISpRecoContext2_Vtbl {
@@ -3467,19 +3467,19 @@ impl ISpRecoContext2_Vtbl {
         unsafe extern "system" fn SetGrammarOptions<Identity: ISpRecoContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, egrammaroptions: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoContext2_Impl::SetGrammarOptions(this, core::mem::transmute_copy(&egrammaroptions)).into()
+                ISpRecoContext2_Impl::SetGrammarOptions(this, core::mem::transmute_copy(&egrammaroptions))
             }
         }
         unsafe extern "system" fn GetGrammarOptions<Identity: ISpRecoContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pegrammaroptions: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoContext2_Impl::GetGrammarOptions(this, core::mem::transmute_copy(&pegrammaroptions)).into()
+                ISpRecoContext2_Impl::GetGrammarOptions(this, core::mem::transmute_copy(&pegrammaroptions))
             }
         }
         unsafe extern "system" fn SetAdaptationData2<Identity: ISpRecoContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, padaptationdata: windows_core::PCWSTR, cch: super::ULONG, ptopicname: windows_core::PCWSTR, eadaptationsettings: super::DWORD, erelevance: SPADAPTATIONRELEVANCE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoContext2_Impl::SetAdaptationData2(this, core::mem::transmute(&padaptationdata), core::mem::transmute_copy(&cch), core::mem::transmute(&ptopicname), core::mem::transmute_copy(&eadaptationsettings), core::mem::transmute_copy(&erelevance)).into()
+                ISpRecoContext2_Impl::SetAdaptationData2(this, core::mem::transmute(&padaptationdata), core::mem::transmute_copy(&cch), core::mem::transmute(&ptopicname), core::mem::transmute_copy(&eadaptationsettings), core::mem::transmute_copy(&erelevance))
             }
         }
         Self {
@@ -3648,24 +3648,24 @@ pub struct ISpRecoGrammar_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpRecoGrammar_Impl: ISpGrammarBuilder_Impl {
-    fn GetGrammarId(&self, pullgrammarid: *mut super::ULONGLONG) -> windows_core::Result<()>;
+    fn GetGrammarId(&self, pullgrammarid: *mut super::ULONGLONG) -> windows_core::HRESULT;
     fn GetRecoContext(&self) -> windows_core::Result<ISpRecoContext>;
-    fn LoadCmdFromFile(&self, pszfilename: &windows_core::PCWSTR, options: SPLOADOPTIONS) -> windows_core::Result<()>;
-    fn LoadCmdFromObject(&self, rcid: *const super::IID, pszgrammarname: &windows_core::PCWSTR, options: SPLOADOPTIONS) -> windows_core::Result<()>;
-    fn LoadCmdFromResource(&self, hmodule: super::HMODULE, pszresourcename: &windows_core::PCWSTR, pszresourcetype: &windows_core::PCWSTR, wlanguage: super::WORD, options: SPLOADOPTIONS) -> windows_core::Result<()>;
-    fn LoadCmdFromMemory(&self, pgrammar: *const SPBINARYGRAMMAR, options: SPLOADOPTIONS) -> windows_core::Result<()>;
-    fn LoadCmdFromProprietaryGrammar(&self, rguidparam: *const windows_core::GUID, pszstringparam: &windows_core::PCWSTR, pvdataprarm: *const core::ffi::c_void, cbdatasize: super::ULONG, options: SPLOADOPTIONS) -> windows_core::Result<()>;
-    fn SetRuleState(&self, pszname: &windows_core::PCWSTR, preserved: *const core::ffi::c_void, newstate: SPRULESTATE) -> windows_core::Result<()>;
-    fn SetRuleIdState(&self, ulruleid: super::ULONG, newstate: SPRULESTATE) -> windows_core::Result<()>;
-    fn LoadDictation(&self, psztopicname: &windows_core::PCWSTR, options: SPLOADOPTIONS) -> windows_core::Result<()>;
-    fn UnloadDictation(&self) -> windows_core::Result<()>;
-    fn SetDictationState(&self, newstate: SPRULESTATE) -> windows_core::Result<()>;
-    fn SetWordSequenceData(&self, ptext: *const super::WCHAR, cchtext: super::ULONG, pinfo: *const SPTEXTSELECTIONINFO) -> windows_core::Result<()>;
-    fn SetTextSelection(&self, pinfo: *const SPTEXTSELECTIONINFO) -> windows_core::Result<()>;
-    fn IsPronounceable(&self, pszword: &windows_core::PCWSTR, pwordpronounceable: *mut SPWORDPRONOUNCEABLE) -> windows_core::Result<()>;
-    fn SetGrammarState(&self, egrammarstate: SPGRAMMARSTATE) -> windows_core::Result<()>;
-    fn SaveCmd(&self, pstream: windows_core::Ref<super::IStream>, ppszcomemerrortext: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn GetGrammarState(&self, pegrammarstate: *mut SPGRAMMARSTATE) -> windows_core::Result<()>;
+    fn LoadCmdFromFile(&self, pszfilename: &windows_core::PCWSTR, options: SPLOADOPTIONS) -> windows_core::HRESULT;
+    fn LoadCmdFromObject(&self, rcid: *const super::IID, pszgrammarname: &windows_core::PCWSTR, options: SPLOADOPTIONS) -> windows_core::HRESULT;
+    fn LoadCmdFromResource(&self, hmodule: super::HMODULE, pszresourcename: &windows_core::PCWSTR, pszresourcetype: &windows_core::PCWSTR, wlanguage: super::WORD, options: SPLOADOPTIONS) -> windows_core::HRESULT;
+    fn LoadCmdFromMemory(&self, pgrammar: *const SPBINARYGRAMMAR, options: SPLOADOPTIONS) -> windows_core::HRESULT;
+    fn LoadCmdFromProprietaryGrammar(&self, rguidparam: *const windows_core::GUID, pszstringparam: &windows_core::PCWSTR, pvdataprarm: *const core::ffi::c_void, cbdatasize: super::ULONG, options: SPLOADOPTIONS) -> windows_core::HRESULT;
+    fn SetRuleState(&self, pszname: &windows_core::PCWSTR, preserved: *const core::ffi::c_void, newstate: SPRULESTATE) -> windows_core::HRESULT;
+    fn SetRuleIdState(&self, ulruleid: super::ULONG, newstate: SPRULESTATE) -> windows_core::HRESULT;
+    fn LoadDictation(&self, psztopicname: &windows_core::PCWSTR, options: SPLOADOPTIONS) -> windows_core::HRESULT;
+    fn UnloadDictation(&self) -> windows_core::HRESULT;
+    fn SetDictationState(&self, newstate: SPRULESTATE) -> windows_core::HRESULT;
+    fn SetWordSequenceData(&self, ptext: *const super::WCHAR, cchtext: super::ULONG, pinfo: *const SPTEXTSELECTIONINFO) -> windows_core::HRESULT;
+    fn SetTextSelection(&self, pinfo: *const SPTEXTSELECTIONINFO) -> windows_core::HRESULT;
+    fn IsPronounceable(&self, pszword: &windows_core::PCWSTR, pwordpronounceable: *mut SPWORDPRONOUNCEABLE) -> windows_core::HRESULT;
+    fn SetGrammarState(&self, egrammarstate: SPGRAMMARSTATE) -> windows_core::HRESULT;
+    fn SaveCmd(&self, pstream: windows_core::Ref<super::IStream>, ppszcomemerrortext: *mut windows_core::PWSTR) -> windows_core::HRESULT;
+    fn GetGrammarState(&self, pegrammarstate: *mut SPGRAMMARSTATE) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpRecoGrammar_Vtbl {
@@ -3673,7 +3673,7 @@ impl ISpRecoGrammar_Vtbl {
         unsafe extern "system" fn GetGrammarId<Identity: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pullgrammarid: *mut super::ULONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoGrammar_Impl::GetGrammarId(this, core::mem::transmute_copy(&pullgrammarid)).into()
+                ISpRecoGrammar_Impl::GetGrammarId(this, core::mem::transmute_copy(&pullgrammarid))
             }
         }
         unsafe extern "system" fn GetRecoContext<Identity: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprecoctxt: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3694,97 +3694,97 @@ impl ISpRecoGrammar_Vtbl {
         unsafe extern "system" fn LoadCmdFromFile<Identity: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszfilename: windows_core::PCWSTR, options: SPLOADOPTIONS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoGrammar_Impl::LoadCmdFromFile(this, core::mem::transmute(&pszfilename), core::mem::transmute_copy(&options)).into()
+                ISpRecoGrammar_Impl::LoadCmdFromFile(this, core::mem::transmute(&pszfilename), core::mem::transmute_copy(&options))
             }
         }
         unsafe extern "system" fn LoadCmdFromObject<Identity: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rcid: *const super::IID, pszgrammarname: windows_core::PCWSTR, options: SPLOADOPTIONS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoGrammar_Impl::LoadCmdFromObject(this, core::mem::transmute_copy(&rcid), core::mem::transmute(&pszgrammarname), core::mem::transmute_copy(&options)).into()
+                ISpRecoGrammar_Impl::LoadCmdFromObject(this, core::mem::transmute_copy(&rcid), core::mem::transmute(&pszgrammarname), core::mem::transmute_copy(&options))
             }
         }
         unsafe extern "system" fn LoadCmdFromResource<Identity: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmodule: super::HMODULE, pszresourcename: windows_core::PCWSTR, pszresourcetype: windows_core::PCWSTR, wlanguage: super::WORD, options: SPLOADOPTIONS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoGrammar_Impl::LoadCmdFromResource(this, core::mem::transmute_copy(&hmodule), core::mem::transmute(&pszresourcename), core::mem::transmute(&pszresourcetype), core::mem::transmute_copy(&wlanguage), core::mem::transmute_copy(&options)).into()
+                ISpRecoGrammar_Impl::LoadCmdFromResource(this, core::mem::transmute_copy(&hmodule), core::mem::transmute(&pszresourcename), core::mem::transmute(&pszresourcetype), core::mem::transmute_copy(&wlanguage), core::mem::transmute_copy(&options))
             }
         }
         unsafe extern "system" fn LoadCmdFromMemory<Identity: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pgrammar: *const SPBINARYGRAMMAR, options: SPLOADOPTIONS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoGrammar_Impl::LoadCmdFromMemory(this, core::mem::transmute_copy(&pgrammar), core::mem::transmute_copy(&options)).into()
+                ISpRecoGrammar_Impl::LoadCmdFromMemory(this, core::mem::transmute_copy(&pgrammar), core::mem::transmute_copy(&options))
             }
         }
         unsafe extern "system" fn LoadCmdFromProprietaryGrammar<Identity: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rguidparam: *const windows_core::GUID, pszstringparam: windows_core::PCWSTR, pvdataprarm: *const core::ffi::c_void, cbdatasize: super::ULONG, options: SPLOADOPTIONS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoGrammar_Impl::LoadCmdFromProprietaryGrammar(this, core::mem::transmute_copy(&rguidparam), core::mem::transmute(&pszstringparam), core::mem::transmute_copy(&pvdataprarm), core::mem::transmute_copy(&cbdatasize), core::mem::transmute_copy(&options)).into()
+                ISpRecoGrammar_Impl::LoadCmdFromProprietaryGrammar(this, core::mem::transmute_copy(&rguidparam), core::mem::transmute(&pszstringparam), core::mem::transmute_copy(&pvdataprarm), core::mem::transmute_copy(&cbdatasize), core::mem::transmute_copy(&options))
             }
         }
         unsafe extern "system" fn SetRuleState<Identity: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR, preserved: *const core::ffi::c_void, newstate: SPRULESTATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoGrammar_Impl::SetRuleState(this, core::mem::transmute(&pszname), core::mem::transmute_copy(&preserved), core::mem::transmute_copy(&newstate)).into()
+                ISpRecoGrammar_Impl::SetRuleState(this, core::mem::transmute(&pszname), core::mem::transmute_copy(&preserved), core::mem::transmute_copy(&newstate))
             }
         }
         unsafe extern "system" fn SetRuleIdState<Identity: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulruleid: super::ULONG, newstate: SPRULESTATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoGrammar_Impl::SetRuleIdState(this, core::mem::transmute_copy(&ulruleid), core::mem::transmute_copy(&newstate)).into()
+                ISpRecoGrammar_Impl::SetRuleIdState(this, core::mem::transmute_copy(&ulruleid), core::mem::transmute_copy(&newstate))
             }
         }
         unsafe extern "system" fn LoadDictation<Identity: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psztopicname: windows_core::PCWSTR, options: SPLOADOPTIONS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoGrammar_Impl::LoadDictation(this, core::mem::transmute(&psztopicname), core::mem::transmute_copy(&options)).into()
+                ISpRecoGrammar_Impl::LoadDictation(this, core::mem::transmute(&psztopicname), core::mem::transmute_copy(&options))
             }
         }
         unsafe extern "system" fn UnloadDictation<Identity: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoGrammar_Impl::UnloadDictation(this).into()
+                ISpRecoGrammar_Impl::UnloadDictation(this)
             }
         }
         unsafe extern "system" fn SetDictationState<Identity: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newstate: SPRULESTATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoGrammar_Impl::SetDictationState(this, core::mem::transmute_copy(&newstate)).into()
+                ISpRecoGrammar_Impl::SetDictationState(this, core::mem::transmute_copy(&newstate))
             }
         }
         unsafe extern "system" fn SetWordSequenceData<Identity: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptext: *const super::WCHAR, cchtext: super::ULONG, pinfo: *const SPTEXTSELECTIONINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoGrammar_Impl::SetWordSequenceData(this, core::mem::transmute_copy(&ptext), core::mem::transmute_copy(&cchtext), core::mem::transmute_copy(&pinfo)).into()
+                ISpRecoGrammar_Impl::SetWordSequenceData(this, core::mem::transmute_copy(&ptext), core::mem::transmute_copy(&cchtext), core::mem::transmute_copy(&pinfo))
             }
         }
         unsafe extern "system" fn SetTextSelection<Identity: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const SPTEXTSELECTIONINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoGrammar_Impl::SetTextSelection(this, core::mem::transmute_copy(&pinfo)).into()
+                ISpRecoGrammar_Impl::SetTextSelection(this, core::mem::transmute_copy(&pinfo))
             }
         }
         unsafe extern "system" fn IsPronounceable<Identity: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszword: windows_core::PCWSTR, pwordpronounceable: *mut SPWORDPRONOUNCEABLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoGrammar_Impl::IsPronounceable(this, core::mem::transmute(&pszword), core::mem::transmute_copy(&pwordpronounceable)).into()
+                ISpRecoGrammar_Impl::IsPronounceable(this, core::mem::transmute(&pszword), core::mem::transmute_copy(&pwordpronounceable))
             }
         }
         unsafe extern "system" fn SetGrammarState<Identity: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, egrammarstate: SPGRAMMARSTATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoGrammar_Impl::SetGrammarState(this, core::mem::transmute_copy(&egrammarstate)).into()
+                ISpRecoGrammar_Impl::SetGrammarState(this, core::mem::transmute_copy(&egrammarstate))
             }
         }
         unsafe extern "system" fn SaveCmd<Identity: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void, ppszcomemerrortext: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoGrammar_Impl::SaveCmd(this, core::mem::transmute_copy(&pstream), core::mem::transmute_copy(&ppszcomemerrortext)).into()
+                ISpRecoGrammar_Impl::SaveCmd(this, core::mem::transmute_copy(&pstream), core::mem::transmute_copy(&ppszcomemerrortext))
             }
         }
         unsafe extern "system" fn GetGrammarState<Identity: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pegrammarstate: *mut SPGRAMMARSTATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoGrammar_Impl::GetGrammarState(this, core::mem::transmute_copy(&pegrammarstate)).into()
+                ISpRecoGrammar_Impl::GetGrammarState(this, core::mem::transmute_copy(&pegrammarstate))
             }
         }
         Self {
@@ -3903,14 +3903,14 @@ pub struct ISpRecoGrammar2_Vtbl {
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "urlmon"))]
 pub trait ISpRecoGrammar2_Impl: windows_core::IUnknownImpl {
-    fn GetRules(&self, ppcomemrules: *mut *mut SPRULE, punumrules: *mut super::UINT) -> windows_core::Result<()>;
-    fn LoadCmdFromFile2(&self, pszfilename: &windows_core::PCWSTR, options: SPLOADOPTIONS, pszsharinguri: &windows_core::PCWSTR, pszbaseuri: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn LoadCmdFromMemory2(&self, pgrammar: *const SPBINARYGRAMMAR, options: SPLOADOPTIONS, pszsharinguri: &windows_core::PCWSTR, pszbaseuri: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetRulePriority(&self, pszrulename: &windows_core::PCWSTR, ulruleid: super::ULONG, nrulepriority: i32) -> windows_core::Result<()>;
-    fn SetRuleWeight(&self, pszrulename: &windows_core::PCWSTR, ulruleid: super::ULONG, flweight: f32) -> windows_core::Result<()>;
-    fn SetDictationWeight(&self, flweight: f32) -> windows_core::Result<()>;
-    fn SetGrammarLoader(&self, ploader: windows_core::Ref<ISpeechResourceLoader>) -> windows_core::Result<()>;
-    fn SetSMLSecurityManager(&self, psmlsecuritymanager: windows_core::Ref<super::IInternetSecurityManager>) -> windows_core::Result<()>;
+    fn GetRules(&self, ppcomemrules: *mut *mut SPRULE, punumrules: *mut super::UINT) -> windows_core::HRESULT;
+    fn LoadCmdFromFile2(&self, pszfilename: &windows_core::PCWSTR, options: SPLOADOPTIONS, pszsharinguri: &windows_core::PCWSTR, pszbaseuri: &windows_core::PCWSTR) -> windows_core::HRESULT;
+    fn LoadCmdFromMemory2(&self, pgrammar: *const SPBINARYGRAMMAR, options: SPLOADOPTIONS, pszsharinguri: &windows_core::PCWSTR, pszbaseuri: &windows_core::PCWSTR) -> windows_core::HRESULT;
+    fn SetRulePriority(&self, pszrulename: &windows_core::PCWSTR, ulruleid: super::ULONG, nrulepriority: i32) -> windows_core::HRESULT;
+    fn SetRuleWeight(&self, pszrulename: &windows_core::PCWSTR, ulruleid: super::ULONG, flweight: f32) -> windows_core::HRESULT;
+    fn SetDictationWeight(&self, flweight: f32) -> windows_core::HRESULT;
+    fn SetGrammarLoader(&self, ploader: windows_core::Ref<ISpeechResourceLoader>) -> windows_core::HRESULT;
+    fn SetSMLSecurityManager(&self, psmlsecuritymanager: windows_core::Ref<super::IInternetSecurityManager>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "urlmon"))]
 impl ISpRecoGrammar2_Vtbl {
@@ -3918,49 +3918,49 @@ impl ISpRecoGrammar2_Vtbl {
         unsafe extern "system" fn GetRules<Identity: ISpRecoGrammar2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcomemrules: *mut *mut SPRULE, punumrules: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoGrammar2_Impl::GetRules(this, core::mem::transmute_copy(&ppcomemrules), core::mem::transmute_copy(&punumrules)).into()
+                ISpRecoGrammar2_Impl::GetRules(this, core::mem::transmute_copy(&ppcomemrules), core::mem::transmute_copy(&punumrules))
             }
         }
         unsafe extern "system" fn LoadCmdFromFile2<Identity: ISpRecoGrammar2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszfilename: windows_core::PCWSTR, options: SPLOADOPTIONS, pszsharinguri: windows_core::PCWSTR, pszbaseuri: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoGrammar2_Impl::LoadCmdFromFile2(this, core::mem::transmute(&pszfilename), core::mem::transmute_copy(&options), core::mem::transmute(&pszsharinguri), core::mem::transmute(&pszbaseuri)).into()
+                ISpRecoGrammar2_Impl::LoadCmdFromFile2(this, core::mem::transmute(&pszfilename), core::mem::transmute_copy(&options), core::mem::transmute(&pszsharinguri), core::mem::transmute(&pszbaseuri))
             }
         }
         unsafe extern "system" fn LoadCmdFromMemory2<Identity: ISpRecoGrammar2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pgrammar: *const SPBINARYGRAMMAR, options: SPLOADOPTIONS, pszsharinguri: windows_core::PCWSTR, pszbaseuri: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoGrammar2_Impl::LoadCmdFromMemory2(this, core::mem::transmute_copy(&pgrammar), core::mem::transmute_copy(&options), core::mem::transmute(&pszsharinguri), core::mem::transmute(&pszbaseuri)).into()
+                ISpRecoGrammar2_Impl::LoadCmdFromMemory2(this, core::mem::transmute_copy(&pgrammar), core::mem::transmute_copy(&options), core::mem::transmute(&pszsharinguri), core::mem::transmute(&pszbaseuri))
             }
         }
         unsafe extern "system" fn SetRulePriority<Identity: ISpRecoGrammar2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszrulename: windows_core::PCWSTR, ulruleid: super::ULONG, nrulepriority: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoGrammar2_Impl::SetRulePriority(this, core::mem::transmute(&pszrulename), core::mem::transmute_copy(&ulruleid), core::mem::transmute_copy(&nrulepriority)).into()
+                ISpRecoGrammar2_Impl::SetRulePriority(this, core::mem::transmute(&pszrulename), core::mem::transmute_copy(&ulruleid), core::mem::transmute_copy(&nrulepriority))
             }
         }
         unsafe extern "system" fn SetRuleWeight<Identity: ISpRecoGrammar2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszrulename: windows_core::PCWSTR, ulruleid: super::ULONG, flweight: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoGrammar2_Impl::SetRuleWeight(this, core::mem::transmute(&pszrulename), core::mem::transmute_copy(&ulruleid), core::mem::transmute_copy(&flweight)).into()
+                ISpRecoGrammar2_Impl::SetRuleWeight(this, core::mem::transmute(&pszrulename), core::mem::transmute_copy(&ulruleid), core::mem::transmute_copy(&flweight))
             }
         }
         unsafe extern "system" fn SetDictationWeight<Identity: ISpRecoGrammar2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flweight: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoGrammar2_Impl::SetDictationWeight(this, core::mem::transmute_copy(&flweight)).into()
+                ISpRecoGrammar2_Impl::SetDictationWeight(this, core::mem::transmute_copy(&flweight))
             }
         }
         unsafe extern "system" fn SetGrammarLoader<Identity: ISpRecoGrammar2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ploader: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoGrammar2_Impl::SetGrammarLoader(this, core::mem::transmute_copy(&ploader)).into()
+                ISpRecoGrammar2_Impl::SetGrammarLoader(this, core::mem::transmute_copy(&ploader))
             }
         }
         unsafe extern "system" fn SetSMLSecurityManager<Identity: ISpRecoGrammar2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psmlsecuritymanager: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoGrammar2_Impl::SetSMLSecurityManager(this, core::mem::transmute_copy(&psmlsecuritymanager)).into()
+                ISpRecoGrammar2_Impl::SetSMLSecurityManager(this, core::mem::transmute_copy(&psmlsecuritymanager))
             }
         }
         Self {
@@ -4050,13 +4050,13 @@ pub struct ISpRecoResult_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpRecoResult_Impl: ISpPhrase_Impl {
-    fn GetResultTimes(&self, ptimes: *mut SPRECORESULTTIMES) -> windows_core::Result<()>;
-    fn GetAlternates(&self, ulstartelement: super::ULONG, celements: super::ULONG, ulrequestcount: super::ULONG, ppphrases: *mut Option<ISpPhraseAlt>, pcphrasesreturned: *mut super::ULONG) -> windows_core::Result<()>;
-    fn GetAudio(&self, ulstartelement: super::ULONG, celements: super::ULONG, ppstream: windows_core::OutRef<ISpStreamFormat>) -> windows_core::Result<()>;
-    fn SpeakAudio(&self, ulstartelement: super::ULONG, celements: super::ULONG, dwflags: super::DWORD, pulstreamnumber: *mut super::ULONG) -> windows_core::Result<()>;
-    fn Serialize(&self, ppcomemserializedresult: *mut *mut SPSERIALIZEDRESULT) -> windows_core::Result<()>;
-    fn ScaleAudio(&self, paudioformatid: *const windows_core::GUID, pwaveformatex: *const super::WAVEFORMATEX) -> windows_core::Result<()>;
-    fn GetRecoContext(&self, pprecocontext: windows_core::OutRef<ISpRecoContext>) -> windows_core::Result<()>;
+    fn GetResultTimes(&self, ptimes: *mut SPRECORESULTTIMES) -> windows_core::HRESULT;
+    fn GetAlternates(&self, ulstartelement: super::ULONG, celements: super::ULONG, ulrequestcount: super::ULONG, ppphrases: *mut Option<ISpPhraseAlt>, pcphrasesreturned: *mut super::ULONG) -> windows_core::HRESULT;
+    fn GetAudio(&self, ulstartelement: super::ULONG, celements: super::ULONG, ppstream: windows_core::OutRef<ISpStreamFormat>) -> windows_core::HRESULT;
+    fn SpeakAudio(&self, ulstartelement: super::ULONG, celements: super::ULONG, dwflags: super::DWORD, pulstreamnumber: *mut super::ULONG) -> windows_core::HRESULT;
+    fn Serialize(&self, ppcomemserializedresult: *mut *mut SPSERIALIZEDRESULT) -> windows_core::HRESULT;
+    fn ScaleAudio(&self, paudioformatid: *const windows_core::GUID, pwaveformatex: *const super::WAVEFORMATEX) -> windows_core::HRESULT;
+    fn GetRecoContext(&self, pprecocontext: windows_core::OutRef<ISpRecoContext>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpRecoResult_Vtbl {
@@ -4064,43 +4064,43 @@ impl ISpRecoResult_Vtbl {
         unsafe extern "system" fn GetResultTimes<Identity: ISpRecoResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptimes: *mut SPRECORESULTTIMES) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoResult_Impl::GetResultTimes(this, core::mem::transmute_copy(&ptimes)).into()
+                ISpRecoResult_Impl::GetResultTimes(this, core::mem::transmute_copy(&ptimes))
             }
         }
         unsafe extern "system" fn GetAlternates<Identity: ISpRecoResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulstartelement: super::ULONG, celements: super::ULONG, ulrequestcount: super::ULONG, ppphrases: *mut *mut core::ffi::c_void, pcphrasesreturned: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoResult_Impl::GetAlternates(this, core::mem::transmute_copy(&ulstartelement), core::mem::transmute_copy(&celements), core::mem::transmute_copy(&ulrequestcount), core::mem::transmute_copy(&ppphrases), core::mem::transmute_copy(&pcphrasesreturned)).into()
+                ISpRecoResult_Impl::GetAlternates(this, core::mem::transmute_copy(&ulstartelement), core::mem::transmute_copy(&celements), core::mem::transmute_copy(&ulrequestcount), core::mem::transmute_copy(&ppphrases), core::mem::transmute_copy(&pcphrasesreturned))
             }
         }
         unsafe extern "system" fn GetAudio<Identity: ISpRecoResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulstartelement: super::ULONG, celements: super::ULONG, ppstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoResult_Impl::GetAudio(this, core::mem::transmute_copy(&ulstartelement), core::mem::transmute_copy(&celements), core::mem::transmute_copy(&ppstream)).into()
+                ISpRecoResult_Impl::GetAudio(this, core::mem::transmute_copy(&ulstartelement), core::mem::transmute_copy(&celements), core::mem::transmute_copy(&ppstream))
             }
         }
         unsafe extern "system" fn SpeakAudio<Identity: ISpRecoResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulstartelement: super::ULONG, celements: super::ULONG, dwflags: super::DWORD, pulstreamnumber: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoResult_Impl::SpeakAudio(this, core::mem::transmute_copy(&ulstartelement), core::mem::transmute_copy(&celements), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pulstreamnumber)).into()
+                ISpRecoResult_Impl::SpeakAudio(this, core::mem::transmute_copy(&ulstartelement), core::mem::transmute_copy(&celements), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pulstreamnumber))
             }
         }
         unsafe extern "system" fn Serialize<Identity: ISpRecoResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcomemserializedresult: *mut *mut SPSERIALIZEDRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoResult_Impl::Serialize(this, core::mem::transmute_copy(&ppcomemserializedresult)).into()
+                ISpRecoResult_Impl::Serialize(this, core::mem::transmute_copy(&ppcomemserializedresult))
             }
         }
         unsafe extern "system" fn ScaleAudio<Identity: ISpRecoResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paudioformatid: *const windows_core::GUID, pwaveformatex: *const super::WAVEFORMATEX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoResult_Impl::ScaleAudio(this, core::mem::transmute_copy(&paudioformatid), core::mem::transmute_copy(&pwaveformatex)).into()
+                ISpRecoResult_Impl::ScaleAudio(this, core::mem::transmute_copy(&paudioformatid), core::mem::transmute_copy(&pwaveformatex))
             }
         }
         unsafe extern "system" fn GetRecoContext<Identity: ISpRecoResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprecocontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoResult_Impl::GetRecoContext(this, core::mem::transmute_copy(&pprecocontext)).into()
+                ISpRecoResult_Impl::GetRecoContext(this, core::mem::transmute_copy(&pprecocontext))
             }
         }
         Self {
@@ -4162,9 +4162,9 @@ pub struct ISpRecoResult2_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpRecoResult2_Impl: ISpRecoResult_Impl {
-    fn CommitAlternate(&self, pphrasealt: windows_core::Ref<ISpPhraseAlt>, ppnewresult: windows_core::OutRef<ISpRecoResult>) -> windows_core::Result<()>;
-    fn CommitText(&self, ulstartelement: super::ULONG, celements: super::ULONG, pszcorrecteddata: &windows_core::PCWSTR, ecommitflags: super::DWORD) -> windows_core::Result<()>;
-    fn SetTextFeedback(&self, pszfeedback: &windows_core::PCWSTR, fsuccessful: windows_core::BOOL) -> windows_core::Result<()>;
+    fn CommitAlternate(&self, pphrasealt: windows_core::Ref<ISpPhraseAlt>, ppnewresult: windows_core::OutRef<ISpRecoResult>) -> windows_core::HRESULT;
+    fn CommitText(&self, ulstartelement: super::ULONG, celements: super::ULONG, pszcorrecteddata: &windows_core::PCWSTR, ecommitflags: super::DWORD) -> windows_core::HRESULT;
+    fn SetTextFeedback(&self, pszfeedback: &windows_core::PCWSTR, fsuccessful: windows_core::BOOL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpRecoResult2_Vtbl {
@@ -4172,19 +4172,19 @@ impl ISpRecoResult2_Vtbl {
         unsafe extern "system" fn CommitAlternate<Identity: ISpRecoResult2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pphrasealt: *mut core::ffi::c_void, ppnewresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoResult2_Impl::CommitAlternate(this, core::mem::transmute_copy(&pphrasealt), core::mem::transmute_copy(&ppnewresult)).into()
+                ISpRecoResult2_Impl::CommitAlternate(this, core::mem::transmute_copy(&pphrasealt), core::mem::transmute_copy(&ppnewresult))
             }
         }
         unsafe extern "system" fn CommitText<Identity: ISpRecoResult2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulstartelement: super::ULONG, celements: super::ULONG, pszcorrecteddata: windows_core::PCWSTR, ecommitflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoResult2_Impl::CommitText(this, core::mem::transmute_copy(&ulstartelement), core::mem::transmute_copy(&celements), core::mem::transmute(&pszcorrecteddata), core::mem::transmute_copy(&ecommitflags)).into()
+                ISpRecoResult2_Impl::CommitText(this, core::mem::transmute_copy(&ulstartelement), core::mem::transmute_copy(&celements), core::mem::transmute(&pszcorrecteddata), core::mem::transmute_copy(&ecommitflags))
             }
         }
         unsafe extern "system" fn SetTextFeedback<Identity: ISpRecoResult2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszfeedback: windows_core::PCWSTR, fsuccessful: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecoResult2_Impl::SetTextFeedback(this, core::mem::transmute(&pszfeedback), core::mem::transmute_copy(&fsuccessful)).into()
+                ISpRecoResult2_Impl::SetTextFeedback(this, core::mem::transmute(&pszfeedback), core::mem::transmute_copy(&fsuccessful))
             }
         }
         Self {
@@ -4332,22 +4332,22 @@ pub struct ISpRecognizer_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "windef"))]
 pub trait ISpRecognizer_Impl: ISpProperties_Impl {
-    fn SetRecognizer(&self, precognizer: windows_core::Ref<ISpObjectToken>) -> windows_core::Result<()>;
-    fn GetRecognizer(&self, pprecognizer: windows_core::OutRef<ISpObjectToken>) -> windows_core::Result<()>;
-    fn SetInput(&self, punkinput: windows_core::Ref<windows_core::IUnknown>, fallowformatchanges: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetRecognizer(&self, precognizer: windows_core::Ref<ISpObjectToken>) -> windows_core::HRESULT;
+    fn GetRecognizer(&self, pprecognizer: windows_core::OutRef<ISpObjectToken>) -> windows_core::HRESULT;
+    fn SetInput(&self, punkinput: windows_core::Ref<windows_core::IUnknown>, fallowformatchanges: windows_core::BOOL) -> windows_core::HRESULT;
     fn GetInputObjectToken(&self) -> windows_core::Result<ISpObjectToken>;
     fn GetInputStream(&self) -> windows_core::Result<ISpStreamFormat>;
     fn CreateRecoContext(&self) -> windows_core::Result<ISpRecoContext>;
     fn GetRecoProfile(&self) -> windows_core::Result<ISpObjectToken>;
-    fn SetRecoProfile(&self, ptoken: windows_core::Ref<ISpObjectToken>) -> windows_core::Result<()>;
-    fn IsSharedInstance(&self) -> windows_core::Result<()>;
-    fn GetRecoState(&self, pstate: *mut SPRECOSTATE) -> windows_core::Result<()>;
-    fn SetRecoState(&self, newstate: SPRECOSTATE) -> windows_core::Result<()>;
-    fn GetStatus(&self, pstatus: *mut SPRECOGNIZERSTATUS) -> windows_core::Result<()>;
-    fn GetFormat(&self, waveformattype: SPSTREAMFORMATTYPE, pformatid: *mut windows_core::GUID, ppcomemwfex: *mut *mut super::WAVEFORMATEX) -> windows_core::Result<()>;
-    fn IsUISupported(&self, psztypeofui: &windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG, pfsupported: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn DisplayUI(&self, hwndparent: super::HWND, psztitle: &windows_core::PCWSTR, psztypeofui: &windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG) -> windows_core::Result<()>;
-    fn EmulateRecognition(&self, pphrase: windows_core::Ref<ISpPhrase>) -> windows_core::Result<()>;
+    fn SetRecoProfile(&self, ptoken: windows_core::Ref<ISpObjectToken>) -> windows_core::HRESULT;
+    fn IsSharedInstance(&self) -> windows_core::HRESULT;
+    fn GetRecoState(&self, pstate: *mut SPRECOSTATE) -> windows_core::HRESULT;
+    fn SetRecoState(&self, newstate: SPRECOSTATE) -> windows_core::HRESULT;
+    fn GetStatus(&self, pstatus: *mut SPRECOGNIZERSTATUS) -> windows_core::HRESULT;
+    fn GetFormat(&self, waveformattype: SPSTREAMFORMATTYPE, pformatid: *mut windows_core::GUID, ppcomemwfex: *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT;
+    fn IsUISupported(&self, psztypeofui: &windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG, pfsupported: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn DisplayUI(&self, hwndparent: super::HWND, psztitle: &windows_core::PCWSTR, psztypeofui: &windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG) -> windows_core::HRESULT;
+    fn EmulateRecognition(&self, pphrase: windows_core::Ref<ISpPhrase>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "windef"))]
 impl ISpRecognizer_Vtbl {
@@ -4355,19 +4355,19 @@ impl ISpRecognizer_Vtbl {
         unsafe extern "system" fn SetRecognizer<Identity: ISpRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, precognizer: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecognizer_Impl::SetRecognizer(this, core::mem::transmute_copy(&precognizer)).into()
+                ISpRecognizer_Impl::SetRecognizer(this, core::mem::transmute_copy(&precognizer))
             }
         }
         unsafe extern "system" fn GetRecognizer<Identity: ISpRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprecognizer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecognizer_Impl::GetRecognizer(this, core::mem::transmute_copy(&pprecognizer)).into()
+                ISpRecognizer_Impl::GetRecognizer(this, core::mem::transmute_copy(&pprecognizer))
             }
         }
         unsafe extern "system" fn SetInput<Identity: ISpRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkinput: *mut core::ffi::c_void, fallowformatchanges: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecognizer_Impl::SetInput(this, core::mem::transmute_copy(&punkinput), core::mem::transmute_copy(&fallowformatchanges)).into()
+                ISpRecognizer_Impl::SetInput(this, core::mem::transmute_copy(&punkinput), core::mem::transmute_copy(&fallowformatchanges))
             }
         }
         unsafe extern "system" fn GetInputObjectToken<Identity: ISpRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptoken: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4433,55 +4433,55 @@ impl ISpRecognizer_Vtbl {
         unsafe extern "system" fn SetRecoProfile<Identity: ISpRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptoken: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecognizer_Impl::SetRecoProfile(this, core::mem::transmute_copy(&ptoken)).into()
+                ISpRecognizer_Impl::SetRecoProfile(this, core::mem::transmute_copy(&ptoken))
             }
         }
         unsafe extern "system" fn IsSharedInstance<Identity: ISpRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecognizer_Impl::IsSharedInstance(this).into()
+                ISpRecognizer_Impl::IsSharedInstance(this)
             }
         }
         unsafe extern "system" fn GetRecoState<Identity: ISpRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstate: *mut SPRECOSTATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecognizer_Impl::GetRecoState(this, core::mem::transmute_copy(&pstate)).into()
+                ISpRecognizer_Impl::GetRecoState(this, core::mem::transmute_copy(&pstate))
             }
         }
         unsafe extern "system" fn SetRecoState<Identity: ISpRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newstate: SPRECOSTATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecognizer_Impl::SetRecoState(this, core::mem::transmute_copy(&newstate)).into()
+                ISpRecognizer_Impl::SetRecoState(this, core::mem::transmute_copy(&newstate))
             }
         }
         unsafe extern "system" fn GetStatus<Identity: ISpRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstatus: *mut SPRECOGNIZERSTATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecognizer_Impl::GetStatus(this, core::mem::transmute_copy(&pstatus)).into()
+                ISpRecognizer_Impl::GetStatus(this, core::mem::transmute_copy(&pstatus))
             }
         }
         unsafe extern "system" fn GetFormat<Identity: ISpRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, waveformattype: SPSTREAMFORMATTYPE, pformatid: *mut windows_core::GUID, ppcomemwfex: *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecognizer_Impl::GetFormat(this, core::mem::transmute_copy(&waveformattype), core::mem::transmute_copy(&pformatid), core::mem::transmute_copy(&ppcomemwfex)).into()
+                ISpRecognizer_Impl::GetFormat(this, core::mem::transmute_copy(&waveformattype), core::mem::transmute_copy(&pformatid), core::mem::transmute_copy(&ppcomemwfex))
             }
         }
         unsafe extern "system" fn IsUISupported<Identity: ISpRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psztypeofui: windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG, pfsupported: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecognizer_Impl::IsUISupported(this, core::mem::transmute(&psztypeofui), core::mem::transmute_copy(&pvextradata), core::mem::transmute_copy(&cbextradata), core::mem::transmute_copy(&pfsupported)).into()
+                ISpRecognizer_Impl::IsUISupported(this, core::mem::transmute(&psztypeofui), core::mem::transmute_copy(&pvextradata), core::mem::transmute_copy(&cbextradata), core::mem::transmute_copy(&pfsupported))
             }
         }
         unsafe extern "system" fn DisplayUI<Identity: ISpRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::HWND, psztitle: windows_core::PCWSTR, psztypeofui: windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecognizer_Impl::DisplayUI(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute(&psztitle), core::mem::transmute(&psztypeofui), core::mem::transmute_copy(&pvextradata), core::mem::transmute_copy(&cbextradata)).into()
+                ISpRecognizer_Impl::DisplayUI(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute(&psztitle), core::mem::transmute(&psztypeofui), core::mem::transmute_copy(&pvextradata), core::mem::transmute_copy(&cbextradata))
             }
         }
         unsafe extern "system" fn EmulateRecognition<Identity: ISpRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pphrase: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecognizer_Impl::EmulateRecognition(this, core::mem::transmute_copy(&pphrase)).into()
+                ISpRecognizer_Impl::EmulateRecognition(this, core::mem::transmute_copy(&pphrase))
             }
         }
         Self {
@@ -4540,9 +4540,9 @@ pub struct ISpRecognizer2_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ISpRecognizer2_Impl: windows_core::IUnknownImpl {
-    fn EmulateRecognitionEx(&self, pphrase: windows_core::Ref<ISpPhrase>, dwcompareflags: super::DWORD) -> windows_core::Result<()>;
-    fn SetTrainingState(&self, fdoingtraining: windows_core::BOOL, fadaptfromtrainingdata: windows_core::BOOL) -> windows_core::Result<()>;
-    fn ResetAcousticModelAdaptation(&self) -> windows_core::Result<()>;
+    fn EmulateRecognitionEx(&self, pphrase: windows_core::Ref<ISpPhrase>, dwcompareflags: super::DWORD) -> windows_core::HRESULT;
+    fn SetTrainingState(&self, fdoingtraining: windows_core::BOOL, fadaptfromtrainingdata: windows_core::BOOL) -> windows_core::HRESULT;
+    fn ResetAcousticModelAdaptation(&self) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ISpRecognizer2_Vtbl {
@@ -4550,19 +4550,19 @@ impl ISpRecognizer2_Vtbl {
         unsafe extern "system" fn EmulateRecognitionEx<Identity: ISpRecognizer2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pphrase: *mut core::ffi::c_void, dwcompareflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecognizer2_Impl::EmulateRecognitionEx(this, core::mem::transmute_copy(&pphrase), core::mem::transmute_copy(&dwcompareflags)).into()
+                ISpRecognizer2_Impl::EmulateRecognitionEx(this, core::mem::transmute_copy(&pphrase), core::mem::transmute_copy(&dwcompareflags))
             }
         }
         unsafe extern "system" fn SetTrainingState<Identity: ISpRecognizer2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fdoingtraining: windows_core::BOOL, fadaptfromtrainingdata: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecognizer2_Impl::SetTrainingState(this, core::mem::transmute_copy(&fdoingtraining), core::mem::transmute_copy(&fadaptfromtrainingdata)).into()
+                ISpRecognizer2_Impl::SetTrainingState(this, core::mem::transmute_copy(&fdoingtraining), core::mem::transmute_copy(&fadaptfromtrainingdata))
             }
         }
         unsafe extern "system" fn ResetAcousticModelAdaptation<Identity: ISpRecognizer2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecognizer2_Impl::ResetAcousticModelAdaptation(this).into()
+                ISpRecognizer2_Impl::ResetAcousticModelAdaptation(this)
             }
         }
         Self {
@@ -4610,7 +4610,7 @@ pub struct ISpRecognizer3_Vtbl {
 }
 pub trait ISpRecognizer3_Impl: windows_core::IUnknownImpl {
     fn GetCategory(&self, categorytype: SPCATEGORYTYPE) -> windows_core::Result<ISpRecoCategory>;
-    fn SetActiveCategory(&self, pcategory: windows_core::Ref<ISpRecoCategory>) -> windows_core::Result<()>;
+    fn SetActiveCategory(&self, pcategory: windows_core::Ref<ISpRecoCategory>) -> windows_core::HRESULT;
     fn GetActiveCategory(&self) -> windows_core::Result<ISpRecoCategory>;
 }
 impl ISpRecognizer3_Vtbl {
@@ -4633,7 +4633,7 @@ impl ISpRecognizer3_Vtbl {
         unsafe extern "system" fn SetActiveCategory<Identity: ISpRecognizer3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcategory: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRecognizer3_Impl::SetActiveCategory(this, core::mem::transmute_copy(&pcategory)).into()
+                ISpRecognizer3_Impl::SetActiveCategory(this, core::mem::transmute_copy(&pcategory))
             }
         }
         unsafe extern "system" fn GetActiveCategory<Identity: ISpRecognizer3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcategory: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4688,7 +4688,7 @@ pub struct ISpRegDataKey_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 pub trait ISpRegDataKey_Impl: ISpDataKey_Impl {
-    fn SetKey(&self, hkey: super::HKEY, freadonly: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetKey(&self, hkey: super::HKEY, freadonly: windows_core::BOOL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 impl ISpRegDataKey_Vtbl {
@@ -4696,7 +4696,7 @@ impl ISpRegDataKey_Vtbl {
         unsafe extern "system" fn SetKey<Identity: ISpRegDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hkey: super::HKEY, freadonly: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpRegDataKey_Impl::SetKey(this, core::mem::transmute_copy(&hkey), core::mem::transmute_copy(&freadonly)).into()
+                ISpRegDataKey_Impl::SetKey(this, core::mem::transmute_copy(&hkey), core::mem::transmute_copy(&freadonly))
             }
         }
         Self { base__: ISpDataKey_Vtbl::new::<Identity, OFFSET>(), SetKey: SetKey::<Identity, OFFSET> }
@@ -4748,7 +4748,7 @@ pub struct ISpResourceManager_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "servprov"))]
 pub trait ISpResourceManager_Impl: super::IServiceProvider_Impl {
-    fn SetObject(&self, guidserviceid: *const windows_core::GUID, punkobject: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetObject(&self, guidserviceid: *const windows_core::GUID, punkobject: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
     fn GetObject(&self, guidserviceid: *const windows_core::GUID, objectclsid: *const super::IID, objectiid: *const super::IID, freleasewhenlastexternalrefreleased: windows_core::BOOL, ppobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "servprov"))]
@@ -4757,7 +4757,7 @@ impl ISpResourceManager_Vtbl {
         unsafe extern "system" fn SetObject<Identity: ISpResourceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidserviceid: *const windows_core::GUID, punkobject: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpResourceManager_Impl::SetObject(this, core::mem::transmute_copy(&guidserviceid), core::mem::transmute_copy(&punkobject)).into()
+                ISpResourceManager_Impl::SetObject(this, core::mem::transmute_copy(&guidserviceid), core::mem::transmute_copy(&punkobject))
             }
         }
         unsafe extern "system" fn GetObject<Identity: ISpResourceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidserviceid: *const windows_core::GUID, objectclsid: *const super::IID, objectiid: *const super::IID, freleasewhenlastexternalrefreleased: windows_core::BOOL, ppobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4805,8 +4805,8 @@ pub struct ISpSerializeState_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ISpSerializeState_Impl: windows_core::IUnknownImpl {
-    fn GetSerializedState(&self, ppbdata: *mut *mut super::BYTE, pulsize: *mut super::ULONG, dwreserved: super::DWORD) -> windows_core::Result<()>;
-    fn SetSerializedState(&self, pbdata: *const super::BYTE, ulsize: super::ULONG, dwreserved: super::DWORD) -> windows_core::Result<()>;
+    fn GetSerializedState(&self, ppbdata: *mut *mut super::BYTE, pulsize: *mut super::ULONG, dwreserved: super::DWORD) -> windows_core::HRESULT;
+    fn SetSerializedState(&self, pbdata: *const super::BYTE, ulsize: super::ULONG, dwreserved: super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ISpSerializeState_Vtbl {
@@ -4814,13 +4814,13 @@ impl ISpSerializeState_Vtbl {
         unsafe extern "system" fn GetSerializedState<Identity: ISpSerializeState_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppbdata: *mut *mut super::BYTE, pulsize: *mut super::ULONG, dwreserved: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpSerializeState_Impl::GetSerializedState(this, core::mem::transmute_copy(&ppbdata), core::mem::transmute_copy(&pulsize), core::mem::transmute_copy(&dwreserved)).into()
+                ISpSerializeState_Impl::GetSerializedState(this, core::mem::transmute_copy(&ppbdata), core::mem::transmute_copy(&pulsize), core::mem::transmute_copy(&dwreserved))
             }
         }
         unsafe extern "system" fn SetSerializedState<Identity: ISpSerializeState_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbdata: *const super::BYTE, ulsize: super::ULONG, dwreserved: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpSerializeState_Impl::SetSerializedState(this, core::mem::transmute_copy(&pbdata), core::mem::transmute_copy(&ulsize), core::mem::transmute_copy(&dwreserved)).into()
+                ISpSerializeState_Impl::SetSerializedState(this, core::mem::transmute_copy(&pbdata), core::mem::transmute_copy(&ulsize), core::mem::transmute_copy(&dwreserved))
             }
         }
         Self {
@@ -4918,14 +4918,14 @@ pub struct ISpShortcut_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ISpShortcut_Impl: windows_core::IUnknownImpl {
-    fn AddShortcut(&self, pszdisplay: &windows_core::PCWSTR, langid: super::WORD, pszspoken: &windows_core::PCWSTR, shtype: SPSHORTCUTTYPE) -> windows_core::Result<()>;
-    fn RemoveShortcut(&self, pszdisplay: &windows_core::PCWSTR, langid: super::WORD, pszspoken: &windows_core::PCWSTR, shtype: SPSHORTCUTTYPE) -> windows_core::Result<()>;
-    fn GetShortcuts(&self, langid: super::WORD, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> windows_core::Result<()>;
-    fn GetGeneration(&self, pdwgeneration: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetWordsFromGenerationChange(&self, pdwgeneration: *mut super::DWORD, pwordlist: *mut SPWORDLIST) -> windows_core::Result<()>;
-    fn GetWords(&self, pdwgeneration: *mut super::DWORD, pdwcookie: *mut super::DWORD, pwordlist: *mut SPWORDLIST) -> windows_core::Result<()>;
-    fn GetShortcutsForGeneration(&self, pdwgeneration: *mut super::DWORD, pdwcookie: *mut super::DWORD, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> windows_core::Result<()>;
-    fn GetGenerationChange(&self, pdwgeneration: *mut super::DWORD, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> windows_core::Result<()>;
+    fn AddShortcut(&self, pszdisplay: &windows_core::PCWSTR, langid: super::WORD, pszspoken: &windows_core::PCWSTR, shtype: SPSHORTCUTTYPE) -> windows_core::HRESULT;
+    fn RemoveShortcut(&self, pszdisplay: &windows_core::PCWSTR, langid: super::WORD, pszspoken: &windows_core::PCWSTR, shtype: SPSHORTCUTTYPE) -> windows_core::HRESULT;
+    fn GetShortcuts(&self, langid: super::WORD, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> windows_core::HRESULT;
+    fn GetGeneration(&self, pdwgeneration: *mut super::DWORD) -> windows_core::HRESULT;
+    fn GetWordsFromGenerationChange(&self, pdwgeneration: *mut super::DWORD, pwordlist: *mut SPWORDLIST) -> windows_core::HRESULT;
+    fn GetWords(&self, pdwgeneration: *mut super::DWORD, pdwcookie: *mut super::DWORD, pwordlist: *mut SPWORDLIST) -> windows_core::HRESULT;
+    fn GetShortcutsForGeneration(&self, pdwgeneration: *mut super::DWORD, pdwcookie: *mut super::DWORD, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> windows_core::HRESULT;
+    fn GetGenerationChange(&self, pdwgeneration: *mut super::DWORD, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ISpShortcut_Vtbl {
@@ -4933,49 +4933,49 @@ impl ISpShortcut_Vtbl {
         unsafe extern "system" fn AddShortcut<Identity: ISpShortcut_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszdisplay: windows_core::PCWSTR, langid: super::WORD, pszspoken: windows_core::PCWSTR, shtype: SPSHORTCUTTYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpShortcut_Impl::AddShortcut(this, core::mem::transmute(&pszdisplay), core::mem::transmute_copy(&langid), core::mem::transmute(&pszspoken), core::mem::transmute_copy(&shtype)).into()
+                ISpShortcut_Impl::AddShortcut(this, core::mem::transmute(&pszdisplay), core::mem::transmute_copy(&langid), core::mem::transmute(&pszspoken), core::mem::transmute_copy(&shtype))
             }
         }
         unsafe extern "system" fn RemoveShortcut<Identity: ISpShortcut_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszdisplay: windows_core::PCWSTR, langid: super::WORD, pszspoken: windows_core::PCWSTR, shtype: SPSHORTCUTTYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpShortcut_Impl::RemoveShortcut(this, core::mem::transmute(&pszdisplay), core::mem::transmute_copy(&langid), core::mem::transmute(&pszspoken), core::mem::transmute_copy(&shtype)).into()
+                ISpShortcut_Impl::RemoveShortcut(this, core::mem::transmute(&pszdisplay), core::mem::transmute_copy(&langid), core::mem::transmute(&pszspoken), core::mem::transmute_copy(&shtype))
             }
         }
         unsafe extern "system" fn GetShortcuts<Identity: ISpShortcut_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, langid: super::WORD, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpShortcut_Impl::GetShortcuts(this, core::mem::transmute_copy(&langid), core::mem::transmute_copy(&pshortcutpairlist)).into()
+                ISpShortcut_Impl::GetShortcuts(this, core::mem::transmute_copy(&langid), core::mem::transmute_copy(&pshortcutpairlist))
             }
         }
         unsafe extern "system" fn GetGeneration<Identity: ISpShortcut_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwgeneration: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpShortcut_Impl::GetGeneration(this, core::mem::transmute_copy(&pdwgeneration)).into()
+                ISpShortcut_Impl::GetGeneration(this, core::mem::transmute_copy(&pdwgeneration))
             }
         }
         unsafe extern "system" fn GetWordsFromGenerationChange<Identity: ISpShortcut_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwgeneration: *mut super::DWORD, pwordlist: *mut SPWORDLIST) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpShortcut_Impl::GetWordsFromGenerationChange(this, core::mem::transmute_copy(&pdwgeneration), core::mem::transmute_copy(&pwordlist)).into()
+                ISpShortcut_Impl::GetWordsFromGenerationChange(this, core::mem::transmute_copy(&pdwgeneration), core::mem::transmute_copy(&pwordlist))
             }
         }
         unsafe extern "system" fn GetWords<Identity: ISpShortcut_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwgeneration: *mut super::DWORD, pdwcookie: *mut super::DWORD, pwordlist: *mut SPWORDLIST) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpShortcut_Impl::GetWords(this, core::mem::transmute_copy(&pdwgeneration), core::mem::transmute_copy(&pdwcookie), core::mem::transmute_copy(&pwordlist)).into()
+                ISpShortcut_Impl::GetWords(this, core::mem::transmute_copy(&pdwgeneration), core::mem::transmute_copy(&pdwcookie), core::mem::transmute_copy(&pwordlist))
             }
         }
         unsafe extern "system" fn GetShortcutsForGeneration<Identity: ISpShortcut_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwgeneration: *mut super::DWORD, pdwcookie: *mut super::DWORD, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpShortcut_Impl::GetShortcutsForGeneration(this, core::mem::transmute_copy(&pdwgeneration), core::mem::transmute_copy(&pdwcookie), core::mem::transmute_copy(&pshortcutpairlist)).into()
+                ISpShortcut_Impl::GetShortcutsForGeneration(this, core::mem::transmute_copy(&pdwgeneration), core::mem::transmute_copy(&pdwcookie), core::mem::transmute_copy(&pshortcutpairlist))
             }
         }
         unsafe extern "system" fn GetGenerationChange<Identity: ISpShortcut_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwgeneration: *mut super::DWORD, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpShortcut_Impl::GetGenerationChange(this, core::mem::transmute_copy(&pdwgeneration), core::mem::transmute_copy(&pshortcutpairlist)).into()
+                ISpShortcut_Impl::GetGenerationChange(this, core::mem::transmute_copy(&pdwgeneration), core::mem::transmute_copy(&pshortcutpairlist))
             }
         }
         Self {
@@ -5051,10 +5051,10 @@ pub struct ISpStream_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 pub trait ISpStream_Impl: ISpStreamFormat_Impl {
-    fn SetBaseStream(&self, pstream: windows_core::Ref<super::IStream>, rguidformat: *const windows_core::GUID, pwaveformatex: *const super::WAVEFORMATEX) -> windows_core::Result<()>;
+    fn SetBaseStream(&self, pstream: windows_core::Ref<super::IStream>, rguidformat: *const windows_core::GUID, pwaveformatex: *const super::WAVEFORMATEX) -> windows_core::HRESULT;
     fn GetBaseStream(&self) -> windows_core::Result<super::IStream>;
-    fn BindToFile(&self, pszfilename: &windows_core::PCWSTR, emode: SPFILEMODE, pformatid: *const windows_core::GUID, pwaveformatex: *const super::WAVEFORMATEX, ulleventinterest: super::ULONGLONG) -> windows_core::Result<()>;
-    fn Close(&self) -> windows_core::Result<()>;
+    fn BindToFile(&self, pszfilename: &windows_core::PCWSTR, emode: SPFILEMODE, pformatid: *const windows_core::GUID, pwaveformatex: *const super::WAVEFORMATEX, ulleventinterest: super::ULONGLONG) -> windows_core::HRESULT;
+    fn Close(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 impl ISpStream_Vtbl {
@@ -5062,7 +5062,7 @@ impl ISpStream_Vtbl {
         unsafe extern "system" fn SetBaseStream<Identity: ISpStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void, rguidformat: *const windows_core::GUID, pwaveformatex: *const super::WAVEFORMATEX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpStream_Impl::SetBaseStream(this, core::mem::transmute_copy(&pstream), core::mem::transmute_copy(&rguidformat), core::mem::transmute_copy(&pwaveformatex)).into()
+                ISpStream_Impl::SetBaseStream(this, core::mem::transmute_copy(&pstream), core::mem::transmute_copy(&rguidformat), core::mem::transmute_copy(&pwaveformatex))
             }
         }
         unsafe extern "system" fn GetBaseStream<Identity: ISpStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5083,13 +5083,13 @@ impl ISpStream_Vtbl {
         unsafe extern "system" fn BindToFile<Identity: ISpStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszfilename: windows_core::PCWSTR, emode: SPFILEMODE, pformatid: *const windows_core::GUID, pwaveformatex: *const super::WAVEFORMATEX, ulleventinterest: super::ULONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpStream_Impl::BindToFile(this, core::mem::transmute(&pszfilename), core::mem::transmute_copy(&emode), core::mem::transmute_copy(&pformatid), core::mem::transmute_copy(&pwaveformatex), core::mem::transmute_copy(&ulleventinterest)).into()
+                ISpStream_Impl::BindToFile(this, core::mem::transmute(&pszfilename), core::mem::transmute_copy(&emode), core::mem::transmute_copy(&pformatid), core::mem::transmute_copy(&pwaveformatex), core::mem::transmute_copy(&ulleventinterest))
             }
         }
         unsafe extern "system" fn Close<Identity: ISpStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpStream_Impl::Close(this).into()
+                ISpStream_Impl::Close(this)
             }
         }
         Self {
@@ -5136,7 +5136,7 @@ pub struct ISpStreamFormat_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 pub trait ISpStreamFormat_Impl: super::IStream_Impl {
-    fn GetFormat(&self, pguidformatid: *const windows_core::GUID, ppcomemwaveformatex: *mut *mut super::WAVEFORMATEX) -> windows_core::Result<()>;
+    fn GetFormat(&self, pguidformatid: *const windows_core::GUID, ppcomemwaveformatex: *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 impl ISpStreamFormat_Vtbl {
@@ -5144,7 +5144,7 @@ impl ISpStreamFormat_Vtbl {
         unsafe extern "system" fn GetFormat<Identity: ISpStreamFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidformatid: *const windows_core::GUID, ppcomemwaveformatex: *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpStreamFormat_Impl::GetFormat(this, core::mem::transmute_copy(&pguidformatid), core::mem::transmute_copy(&ppcomemwaveformatex)).into()
+                ISpStreamFormat_Impl::GetFormat(this, core::mem::transmute_copy(&pguidformatid), core::mem::transmute_copy(&ppcomemwaveformatex))
             }
         }
         Self { base__: super::IStream_Vtbl::new::<Identity, OFFSET>(), GetFormat: GetFormat::<Identity, OFFSET> }
@@ -5219,12 +5219,12 @@ pub struct ISpStreamFormatConverter_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 pub trait ISpStreamFormatConverter_Impl: ISpStreamFormat_Impl {
-    fn SetBaseStream(&self, pstream: windows_core::Ref<ISpStreamFormat>, fsetformattobasestreamformat: windows_core::BOOL, fwritetobasestream: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetBaseStream(&self, pstream: windows_core::Ref<ISpStreamFormat>, fsetformattobasestreamformat: windows_core::BOOL, fwritetobasestream: windows_core::BOOL) -> windows_core::HRESULT;
     fn GetBaseStream(&self) -> windows_core::Result<ISpStreamFormat>;
-    fn SetFormat(&self, rguidformatidofconvertedstream: *const windows_core::GUID, pwaveformatexofconvertedstream: *const super::WAVEFORMATEX) -> windows_core::Result<()>;
-    fn ResetSeekPosition(&self) -> windows_core::Result<()>;
-    fn ScaleConvertedToBaseOffset(&self, ulloffsetconvertedstream: super::ULONGLONG, pulloffsetbasestream: *mut super::ULONGLONG) -> windows_core::Result<()>;
-    fn ScaleBaseToConvertedOffset(&self, ulloffsetbasestream: super::ULONGLONG, pulloffsetconvertedstream: *mut super::ULONGLONG) -> windows_core::Result<()>;
+    fn SetFormat(&self, rguidformatidofconvertedstream: *const windows_core::GUID, pwaveformatexofconvertedstream: *const super::WAVEFORMATEX) -> windows_core::HRESULT;
+    fn ResetSeekPosition(&self) -> windows_core::HRESULT;
+    fn ScaleConvertedToBaseOffset(&self, ulloffsetconvertedstream: super::ULONGLONG, pulloffsetbasestream: *mut super::ULONGLONG) -> windows_core::HRESULT;
+    fn ScaleBaseToConvertedOffset(&self, ulloffsetbasestream: super::ULONGLONG, pulloffsetconvertedstream: *mut super::ULONGLONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 impl ISpStreamFormatConverter_Vtbl {
@@ -5232,7 +5232,7 @@ impl ISpStreamFormatConverter_Vtbl {
         unsafe extern "system" fn SetBaseStream<Identity: ISpStreamFormatConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void, fsetformattobasestreamformat: windows_core::BOOL, fwritetobasestream: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpStreamFormatConverter_Impl::SetBaseStream(this, core::mem::transmute_copy(&pstream), core::mem::transmute_copy(&fsetformattobasestreamformat), core::mem::transmute_copy(&fwritetobasestream)).into()
+                ISpStreamFormatConverter_Impl::SetBaseStream(this, core::mem::transmute_copy(&pstream), core::mem::transmute_copy(&fsetformattobasestreamformat), core::mem::transmute_copy(&fwritetobasestream))
             }
         }
         unsafe extern "system" fn GetBaseStream<Identity: ISpStreamFormatConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5253,25 +5253,25 @@ impl ISpStreamFormatConverter_Vtbl {
         unsafe extern "system" fn SetFormat<Identity: ISpStreamFormatConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rguidformatidofconvertedstream: *const windows_core::GUID, pwaveformatexofconvertedstream: *const super::WAVEFORMATEX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpStreamFormatConverter_Impl::SetFormat(this, core::mem::transmute_copy(&rguidformatidofconvertedstream), core::mem::transmute_copy(&pwaveformatexofconvertedstream)).into()
+                ISpStreamFormatConverter_Impl::SetFormat(this, core::mem::transmute_copy(&rguidformatidofconvertedstream), core::mem::transmute_copy(&pwaveformatexofconvertedstream))
             }
         }
         unsafe extern "system" fn ResetSeekPosition<Identity: ISpStreamFormatConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpStreamFormatConverter_Impl::ResetSeekPosition(this).into()
+                ISpStreamFormatConverter_Impl::ResetSeekPosition(this)
             }
         }
         unsafe extern "system" fn ScaleConvertedToBaseOffset<Identity: ISpStreamFormatConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffsetconvertedstream: super::ULONGLONG, pulloffsetbasestream: *mut super::ULONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpStreamFormatConverter_Impl::ScaleConvertedToBaseOffset(this, core::mem::transmute_copy(&ulloffsetconvertedstream), core::mem::transmute_copy(&pulloffsetbasestream)).into()
+                ISpStreamFormatConverter_Impl::ScaleConvertedToBaseOffset(this, core::mem::transmute_copy(&ulloffsetconvertedstream), core::mem::transmute_copy(&pulloffsetbasestream))
             }
         }
         unsafe extern "system" fn ScaleBaseToConvertedOffset<Identity: ISpStreamFormatConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffsetbasestream: super::ULONGLONG, pulloffsetconvertedstream: *mut super::ULONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpStreamFormatConverter_Impl::ScaleBaseToConvertedOffset(this, core::mem::transmute_copy(&ulloffsetbasestream), core::mem::transmute_copy(&pulloffsetconvertedstream)).into()
+                ISpStreamFormatConverter_Impl::ScaleBaseToConvertedOffset(this, core::mem::transmute_copy(&ulloffsetbasestream), core::mem::transmute_copy(&pulloffsetconvertedstream))
             }
         }
         Self {
@@ -5311,21 +5311,21 @@ pub struct ISpTranscript_Vtbl {
     pub AppendTranscript: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait ISpTranscript_Impl: windows_core::IUnknownImpl {
-    fn GetTranscript(&self, ppsztranscript: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn AppendTranscript(&self, psztranscript: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn GetTranscript(&self, ppsztranscript: *mut windows_core::PWSTR) -> windows_core::HRESULT;
+    fn AppendTranscript(&self, psztranscript: &windows_core::PCWSTR) -> windows_core::HRESULT;
 }
 impl ISpTranscript_Vtbl {
     pub const fn new<Identity: ISpTranscript_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetTranscript<Identity: ISpTranscript_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsztranscript: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpTranscript_Impl::GetTranscript(this, core::mem::transmute_copy(&ppsztranscript)).into()
+                ISpTranscript_Impl::GetTranscript(this, core::mem::transmute_copy(&ppsztranscript))
             }
         }
         unsafe extern "system" fn AppendTranscript<Identity: ISpTranscript_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psztranscript: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpTranscript_Impl::AppendTranscript(this, core::mem::transmute(&psztranscript)).into()
+                ISpTranscript_Impl::AppendTranscript(this, core::mem::transmute(&psztranscript))
             }
         }
         Self {
@@ -5536,31 +5536,31 @@ pub struct ISpVoice_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait ISpVoice_Impl: ISpEventSource_Impl {
-    fn SetOutput(&self, punkoutput: windows_core::Ref<windows_core::IUnknown>, fallowformatchanges: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetOutput(&self, punkoutput: windows_core::Ref<windows_core::IUnknown>, fallowformatchanges: windows_core::BOOL) -> windows_core::HRESULT;
     fn GetOutputObjectToken(&self) -> windows_core::Result<ISpObjectToken>;
-    fn GetOutputStream(&self, ppstream: windows_core::OutRef<ISpStreamFormat>) -> windows_core::Result<()>;
-    fn Pause(&self) -> windows_core::Result<()>;
-    fn Resume(&self) -> windows_core::Result<()>;
-    fn SetVoice(&self, ptoken: windows_core::Ref<ISpObjectToken>) -> windows_core::Result<()>;
+    fn GetOutputStream(&self, ppstream: windows_core::OutRef<ISpStreamFormat>) -> windows_core::HRESULT;
+    fn Pause(&self) -> windows_core::HRESULT;
+    fn Resume(&self) -> windows_core::HRESULT;
+    fn SetVoice(&self, ptoken: windows_core::Ref<ISpObjectToken>) -> windows_core::HRESULT;
     fn GetVoice(&self) -> windows_core::Result<ISpObjectToken>;
-    fn Speak(&self, pwcs: &windows_core::PCWSTR, dwflags: super::DWORD, pulstreamnumber: *mut super::ULONG) -> windows_core::Result<()>;
-    fn SpeakStream(&self, pstream: windows_core::Ref<super::IStream>, dwflags: super::DWORD, pulstreamnumber: *mut super::ULONG) -> windows_core::Result<()>;
-    fn GetStatus(&self, pstatus: *mut SPVOICESTATUS, ppszlastbookmark: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn Skip(&self, pitemtype: &windows_core::PCWSTR, lnumitems: i32, pulnumskipped: *mut super::ULONG) -> windows_core::Result<()>;
-    fn SetPriority(&self, epriority: SPVPRIORITY) -> windows_core::Result<()>;
-    fn GetPriority(&self, pepriority: *mut SPVPRIORITY) -> windows_core::Result<()>;
-    fn SetAlertBoundary(&self, eboundary: SPEVENTENUM) -> windows_core::Result<()>;
-    fn GetAlertBoundary(&self, peboundary: *mut SPEVENTENUM) -> windows_core::Result<()>;
-    fn SetRate(&self, rateadjust: i32) -> windows_core::Result<()>;
-    fn GetRate(&self, prateadjust: *mut i32) -> windows_core::Result<()>;
-    fn SetVolume(&self, usvolume: super::USHORT) -> windows_core::Result<()>;
-    fn GetVolume(&self, pusvolume: *mut super::USHORT) -> windows_core::Result<()>;
-    fn WaitUntilDone(&self, mstimeout: super::ULONG) -> windows_core::Result<()>;
-    fn SetSyncSpeakTimeout(&self, mstimeout: super::ULONG) -> windows_core::Result<()>;
-    fn GetSyncSpeakTimeout(&self, pmstimeout: *mut super::ULONG) -> windows_core::Result<()>;
+    fn Speak(&self, pwcs: &windows_core::PCWSTR, dwflags: super::DWORD, pulstreamnumber: *mut super::ULONG) -> windows_core::HRESULT;
+    fn SpeakStream(&self, pstream: windows_core::Ref<super::IStream>, dwflags: super::DWORD, pulstreamnumber: *mut super::ULONG) -> windows_core::HRESULT;
+    fn GetStatus(&self, pstatus: *mut SPVOICESTATUS, ppszlastbookmark: *mut windows_core::PWSTR) -> windows_core::HRESULT;
+    fn Skip(&self, pitemtype: &windows_core::PCWSTR, lnumitems: i32, pulnumskipped: *mut super::ULONG) -> windows_core::HRESULT;
+    fn SetPriority(&self, epriority: SPVPRIORITY) -> windows_core::HRESULT;
+    fn GetPriority(&self, pepriority: *mut SPVPRIORITY) -> windows_core::HRESULT;
+    fn SetAlertBoundary(&self, eboundary: SPEVENTENUM) -> windows_core::HRESULT;
+    fn GetAlertBoundary(&self, peboundary: *mut SPEVENTENUM) -> windows_core::HRESULT;
+    fn SetRate(&self, rateadjust: i32) -> windows_core::HRESULT;
+    fn GetRate(&self, prateadjust: *mut i32) -> windows_core::HRESULT;
+    fn SetVolume(&self, usvolume: super::USHORT) -> windows_core::HRESULT;
+    fn GetVolume(&self, pusvolume: *mut super::USHORT) -> windows_core::HRESULT;
+    fn WaitUntilDone(&self, mstimeout: super::ULONG) -> windows_core::HRESULT;
+    fn SetSyncSpeakTimeout(&self, mstimeout: super::ULONG) -> windows_core::HRESULT;
+    fn GetSyncSpeakTimeout(&self, pmstimeout: *mut super::ULONG) -> windows_core::HRESULT;
     fn SpeakCompleteEvent(&self) -> super::HANDLE;
-    fn IsUISupported(&self, psztypeofui: &windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG, pfsupported: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn DisplayUI(&self, hwndparent: super::HWND, psztitle: &windows_core::PCWSTR, psztypeofui: &windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG) -> windows_core::Result<()>;
+    fn IsUISupported(&self, psztypeofui: &windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG, pfsupported: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn DisplayUI(&self, hwndparent: super::HWND, psztitle: &windows_core::PCWSTR, psztypeofui: &windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "shared", feature = "windef", feature = "winnt"))]
 impl ISpVoice_Vtbl {
@@ -5568,7 +5568,7 @@ impl ISpVoice_Vtbl {
         unsafe extern "system" fn SetOutput<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkoutput: *mut core::ffi::c_void, fallowformatchanges: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpVoice_Impl::SetOutput(this, core::mem::transmute_copy(&punkoutput), core::mem::transmute_copy(&fallowformatchanges)).into()
+                ISpVoice_Impl::SetOutput(this, core::mem::transmute_copy(&punkoutput), core::mem::transmute_copy(&fallowformatchanges))
             }
         }
         unsafe extern "system" fn GetOutputObjectToken<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppobjecttoken: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5589,25 +5589,25 @@ impl ISpVoice_Vtbl {
         unsafe extern "system" fn GetOutputStream<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpVoice_Impl::GetOutputStream(this, core::mem::transmute_copy(&ppstream)).into()
+                ISpVoice_Impl::GetOutputStream(this, core::mem::transmute_copy(&ppstream))
             }
         }
         unsafe extern "system" fn Pause<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpVoice_Impl::Pause(this).into()
+                ISpVoice_Impl::Pause(this)
             }
         }
         unsafe extern "system" fn Resume<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpVoice_Impl::Resume(this).into()
+                ISpVoice_Impl::Resume(this)
             }
         }
         unsafe extern "system" fn SetVoice<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptoken: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpVoice_Impl::SetVoice(this, core::mem::transmute_copy(&ptoken)).into()
+                ISpVoice_Impl::SetVoice(this, core::mem::transmute_copy(&ptoken))
             }
         }
         unsafe extern "system" fn GetVoice<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptoken: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5628,91 +5628,91 @@ impl ISpVoice_Vtbl {
         unsafe extern "system" fn Speak<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwcs: windows_core::PCWSTR, dwflags: super::DWORD, pulstreamnumber: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpVoice_Impl::Speak(this, core::mem::transmute(&pwcs), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pulstreamnumber)).into()
+                ISpVoice_Impl::Speak(this, core::mem::transmute(&pwcs), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pulstreamnumber))
             }
         }
         unsafe extern "system" fn SpeakStream<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void, dwflags: super::DWORD, pulstreamnumber: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpVoice_Impl::SpeakStream(this, core::mem::transmute_copy(&pstream), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pulstreamnumber)).into()
+                ISpVoice_Impl::SpeakStream(this, core::mem::transmute_copy(&pstream), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pulstreamnumber))
             }
         }
         unsafe extern "system" fn GetStatus<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstatus: *mut SPVOICESTATUS, ppszlastbookmark: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpVoice_Impl::GetStatus(this, core::mem::transmute_copy(&pstatus), core::mem::transmute_copy(&ppszlastbookmark)).into()
+                ISpVoice_Impl::GetStatus(this, core::mem::transmute_copy(&pstatus), core::mem::transmute_copy(&ppszlastbookmark))
             }
         }
         unsafe extern "system" fn Skip<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pitemtype: windows_core::PCWSTR, lnumitems: i32, pulnumskipped: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpVoice_Impl::Skip(this, core::mem::transmute(&pitemtype), core::mem::transmute_copy(&lnumitems), core::mem::transmute_copy(&pulnumskipped)).into()
+                ISpVoice_Impl::Skip(this, core::mem::transmute(&pitemtype), core::mem::transmute_copy(&lnumitems), core::mem::transmute_copy(&pulnumskipped))
             }
         }
         unsafe extern "system" fn SetPriority<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, epriority: SPVPRIORITY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpVoice_Impl::SetPriority(this, core::mem::transmute_copy(&epriority)).into()
+                ISpVoice_Impl::SetPriority(this, core::mem::transmute_copy(&epriority))
             }
         }
         unsafe extern "system" fn GetPriority<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pepriority: *mut SPVPRIORITY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpVoice_Impl::GetPriority(this, core::mem::transmute_copy(&pepriority)).into()
+                ISpVoice_Impl::GetPriority(this, core::mem::transmute_copy(&pepriority))
             }
         }
         unsafe extern "system" fn SetAlertBoundary<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eboundary: SPEVENTENUM) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpVoice_Impl::SetAlertBoundary(this, core::mem::transmute_copy(&eboundary)).into()
+                ISpVoice_Impl::SetAlertBoundary(this, core::mem::transmute_copy(&eboundary))
             }
         }
         unsafe extern "system" fn GetAlertBoundary<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peboundary: *mut SPEVENTENUM) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpVoice_Impl::GetAlertBoundary(this, core::mem::transmute_copy(&peboundary)).into()
+                ISpVoice_Impl::GetAlertBoundary(this, core::mem::transmute_copy(&peboundary))
             }
         }
         unsafe extern "system" fn SetRate<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rateadjust: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpVoice_Impl::SetRate(this, core::mem::transmute_copy(&rateadjust)).into()
+                ISpVoice_Impl::SetRate(this, core::mem::transmute_copy(&rateadjust))
             }
         }
         unsafe extern "system" fn GetRate<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prateadjust: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpVoice_Impl::GetRate(this, core::mem::transmute_copy(&prateadjust)).into()
+                ISpVoice_Impl::GetRate(this, core::mem::transmute_copy(&prateadjust))
             }
         }
         unsafe extern "system" fn SetVolume<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, usvolume: super::USHORT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpVoice_Impl::SetVolume(this, core::mem::transmute_copy(&usvolume)).into()
+                ISpVoice_Impl::SetVolume(this, core::mem::transmute_copy(&usvolume))
             }
         }
         unsafe extern "system" fn GetVolume<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pusvolume: *mut super::USHORT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpVoice_Impl::GetVolume(this, core::mem::transmute_copy(&pusvolume)).into()
+                ISpVoice_Impl::GetVolume(this, core::mem::transmute_copy(&pusvolume))
             }
         }
         unsafe extern "system" fn WaitUntilDone<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mstimeout: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpVoice_Impl::WaitUntilDone(this, core::mem::transmute_copy(&mstimeout)).into()
+                ISpVoice_Impl::WaitUntilDone(this, core::mem::transmute_copy(&mstimeout))
             }
         }
         unsafe extern "system" fn SetSyncSpeakTimeout<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mstimeout: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpVoice_Impl::SetSyncSpeakTimeout(this, core::mem::transmute_copy(&mstimeout)).into()
+                ISpVoice_Impl::SetSyncSpeakTimeout(this, core::mem::transmute_copy(&mstimeout))
             }
         }
         unsafe extern "system" fn GetSyncSpeakTimeout<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmstimeout: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpVoice_Impl::GetSyncSpeakTimeout(this, core::mem::transmute_copy(&pmstimeout)).into()
+                ISpVoice_Impl::GetSyncSpeakTimeout(this, core::mem::transmute_copy(&pmstimeout))
             }
         }
         unsafe extern "system" fn SpeakCompleteEvent<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::HANDLE {
@@ -5724,13 +5724,13 @@ impl ISpVoice_Vtbl {
         unsafe extern "system" fn IsUISupported<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psztypeofui: windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG, pfsupported: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpVoice_Impl::IsUISupported(this, core::mem::transmute(&psztypeofui), core::mem::transmute_copy(&pvextradata), core::mem::transmute_copy(&cbextradata), core::mem::transmute_copy(&pfsupported)).into()
+                ISpVoice_Impl::IsUISupported(this, core::mem::transmute(&psztypeofui), core::mem::transmute_copy(&pvextradata), core::mem::transmute_copy(&cbextradata), core::mem::transmute_copy(&pfsupported))
             }
         }
         unsafe extern "system" fn DisplayUI<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::HWND, psztitle: windows_core::PCWSTR, psztypeofui: windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpVoice_Impl::DisplayUI(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute(&psztitle), core::mem::transmute(&psztypeofui), core::mem::transmute_copy(&pvextradata), core::mem::transmute_copy(&cbextradata)).into()
+                ISpVoice_Impl::DisplayUI(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute(&psztitle), core::mem::transmute(&psztypeofui), core::mem::transmute_copy(&pvextradata), core::mem::transmute_copy(&cbextradata))
             }
         }
         Self {
@@ -5797,8 +5797,8 @@ pub struct ISpXMLRecoResult_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpXMLRecoResult_Impl: ISpRecoResult_Impl {
-    fn GetXMLResult(&self, ppszcomemxmlresult: *mut windows_core::PWSTR, options: SPXMLRESULTOPTIONS) -> windows_core::Result<()>;
-    fn GetXMLErrorInfo(&self, psemanticerrorinfo: *mut SPSEMANTICERRORINFO) -> windows_core::Result<()>;
+    fn GetXMLResult(&self, ppszcomemxmlresult: *mut windows_core::PWSTR, options: SPXMLRESULTOPTIONS) -> windows_core::HRESULT;
+    fn GetXMLErrorInfo(&self, psemanticerrorinfo: *mut SPSEMANTICERRORINFO) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpXMLRecoResult_Vtbl {
@@ -5806,13 +5806,13 @@ impl ISpXMLRecoResult_Vtbl {
         unsafe extern "system" fn GetXMLResult<Identity: ISpXMLRecoResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszcomemxmlresult: *mut windows_core::PWSTR, options: SPXMLRESULTOPTIONS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpXMLRecoResult_Impl::GetXMLResult(this, core::mem::transmute_copy(&ppszcomemxmlresult), core::mem::transmute_copy(&options)).into()
+                ISpXMLRecoResult_Impl::GetXMLResult(this, core::mem::transmute_copy(&ppszcomemxmlresult), core::mem::transmute_copy(&options))
             }
         }
         unsafe extern "system" fn GetXMLErrorInfo<Identity: ISpXMLRecoResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psemanticerrorinfo: *mut SPSEMANTICERRORINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpXMLRecoResult_Impl::GetXMLErrorInfo(this, core::mem::transmute_copy(&psemanticerrorinfo)).into()
+                ISpXMLRecoResult_Impl::GetXMLErrorInfo(this, core::mem::transmute_copy(&psemanticerrorinfo))
             }
         }
         Self {
@@ -5907,11 +5907,11 @@ pub trait ISpeechAudio_Impl: ISpeechBaseStream_Impl {
     fn BufferInfo(&self) -> windows_core::Result<ISpeechAudioBufferInfo>;
     fn DefaultFormat(&self) -> windows_core::Result<ISpeechAudioFormat>;
     fn Volume(&self) -> windows_core::Result<i32>;
-    fn SetVolume(&self, volume: i32) -> windows_core::Result<()>;
+    fn SetVolume(&self, volume: i32) -> windows_core::HRESULT;
     fn BufferNotifySize(&self) -> windows_core::Result<i32>;
-    fn SetBufferNotifySize(&self, buffernotifysize: i32) -> windows_core::Result<()>;
+    fn SetBufferNotifySize(&self, buffernotifysize: i32) -> windows_core::HRESULT;
     fn EventHandle(&self) -> windows_core::Result<i32>;
-    fn SetState(&self, state: SpeechAudioState) -> windows_core::Result<()>;
+    fn SetState(&self, state: SpeechAudioState) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechAudio_Vtbl {
@@ -5979,7 +5979,7 @@ impl ISpeechAudio_Vtbl {
         unsafe extern "system" fn SetVolume<Identity: ISpeechAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, volume: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechAudio_Impl::SetVolume(this, core::mem::transmute_copy(&volume)).into()
+                ISpeechAudio_Impl::SetVolume(this, core::mem::transmute_copy(&volume))
             }
         }
         unsafe extern "system" fn BufferNotifySize<Identity: ISpeechAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffernotifysize: *mut i32) -> windows_core::HRESULT {
@@ -6000,7 +6000,7 @@ impl ISpeechAudio_Vtbl {
         unsafe extern "system" fn SetBufferNotifySize<Identity: ISpeechAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffernotifysize: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechAudio_Impl::SetBufferNotifySize(this, core::mem::transmute_copy(&buffernotifysize)).into()
+                ISpeechAudio_Impl::SetBufferNotifySize(this, core::mem::transmute_copy(&buffernotifysize))
             }
         }
         unsafe extern "system" fn EventHandle<Identity: ISpeechAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventhandle: *mut i32) -> windows_core::HRESULT {
@@ -6021,7 +6021,7 @@ impl ISpeechAudio_Vtbl {
         unsafe extern "system" fn SetState<Identity: ISpeechAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: SpeechAudioState) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechAudio_Impl::SetState(this, core::mem::transmute_copy(&state)).into()
+                ISpeechAudio_Impl::SetState(this, core::mem::transmute_copy(&state))
             }
         }
         Self {
@@ -6099,11 +6099,11 @@ pub struct ISpeechAudioBufferInfo_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechAudioBufferInfo_Impl: super::IDispatch_Impl {
     fn MinNotification(&self) -> windows_core::Result<i32>;
-    fn SetMinNotification(&self, minnotification: i32) -> windows_core::Result<()>;
+    fn SetMinNotification(&self, minnotification: i32) -> windows_core::HRESULT;
     fn BufferSize(&self) -> windows_core::Result<i32>;
-    fn SetBufferSize(&self, buffersize: i32) -> windows_core::Result<()>;
+    fn SetBufferSize(&self, buffersize: i32) -> windows_core::HRESULT;
     fn EventBias(&self) -> windows_core::Result<i32>;
-    fn SetEventBias(&self, eventbias: i32) -> windows_core::Result<()>;
+    fn SetEventBias(&self, eventbias: i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechAudioBufferInfo_Vtbl {
@@ -6126,7 +6126,7 @@ impl ISpeechAudioBufferInfo_Vtbl {
         unsafe extern "system" fn SetMinNotification<Identity: ISpeechAudioBufferInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minnotification: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechAudioBufferInfo_Impl::SetMinNotification(this, core::mem::transmute_copy(&minnotification)).into()
+                ISpeechAudioBufferInfo_Impl::SetMinNotification(this, core::mem::transmute_copy(&minnotification))
             }
         }
         unsafe extern "system" fn BufferSize<Identity: ISpeechAudioBufferInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffersize: *mut i32) -> windows_core::HRESULT {
@@ -6147,7 +6147,7 @@ impl ISpeechAudioBufferInfo_Vtbl {
         unsafe extern "system" fn SetBufferSize<Identity: ISpeechAudioBufferInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffersize: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechAudioBufferInfo_Impl::SetBufferSize(this, core::mem::transmute_copy(&buffersize)).into()
+                ISpeechAudioBufferInfo_Impl::SetBufferSize(this, core::mem::transmute_copy(&buffersize))
             }
         }
         unsafe extern "system" fn EventBias<Identity: ISpeechAudioBufferInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventbias: *mut i32) -> windows_core::HRESULT {
@@ -6168,7 +6168,7 @@ impl ISpeechAudioBufferInfo_Vtbl {
         unsafe extern "system" fn SetEventBias<Identity: ISpeechAudioBufferInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventbias: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechAudioBufferInfo_Impl::SetEventBias(this, core::mem::transmute_copy(&eventbias)).into()
+                ISpeechAudioBufferInfo_Impl::SetEventBias(this, core::mem::transmute_copy(&eventbias))
             }
         }
         Self {
@@ -6246,11 +6246,11 @@ pub struct ISpeechAudioFormat_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechAudioFormat_Impl: super::IDispatch_Impl {
     fn Type(&self) -> windows_core::Result<SpeechAudioFormatType>;
-    fn SetType(&self, audioformat: SpeechAudioFormatType) -> windows_core::Result<()>;
+    fn SetType(&self, audioformat: SpeechAudioFormatType) -> windows_core::HRESULT;
     fn Guid(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetGuid(&self, guid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetGuid(&self, guid: &windows_core::BSTR) -> windows_core::HRESULT;
     fn GetWaveFormatEx(&self) -> windows_core::Result<ISpeechWaveFormatEx>;
-    fn SetWaveFormatEx(&self, speechwaveformatex: windows_core::Ref<ISpeechWaveFormatEx>) -> windows_core::Result<()>;
+    fn SetWaveFormatEx(&self, speechwaveformatex: windows_core::Ref<ISpeechWaveFormatEx>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechAudioFormat_Vtbl {
@@ -6273,7 +6273,7 @@ impl ISpeechAudioFormat_Vtbl {
         unsafe extern "system" fn SetType<Identity: ISpeechAudioFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, audioformat: SpeechAudioFormatType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechAudioFormat_Impl::SetType(this, core::mem::transmute_copy(&audioformat)).into()
+                ISpeechAudioFormat_Impl::SetType(this, core::mem::transmute_copy(&audioformat))
             }
         }
         unsafe extern "system" fn Guid<Identity: ISpeechAudioFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6294,7 +6294,7 @@ impl ISpeechAudioFormat_Vtbl {
         unsafe extern "system" fn SetGuid<Identity: ISpeechAudioFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechAudioFormat_Impl::SetGuid(this, core::mem::transmute(&guid)).into()
+                ISpeechAudioFormat_Impl::SetGuid(this, core::mem::transmute(&guid))
             }
         }
         unsafe extern "system" fn GetWaveFormatEx<Identity: ISpeechAudioFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, speechwaveformatex: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6315,7 +6315,7 @@ impl ISpeechAudioFormat_Vtbl {
         unsafe extern "system" fn SetWaveFormatEx<Identity: ISpeechAudioFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, speechwaveformatex: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechAudioFormat_Impl::SetWaveFormatEx(this, core::mem::transmute_copy(&speechwaveformatex)).into()
+                ISpeechAudioFormat_Impl::SetWaveFormatEx(this, core::mem::transmute_copy(&speechwaveformatex))
             }
         }
         Self {
@@ -6568,7 +6568,7 @@ pub struct ISpeechBaseStream_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechBaseStream_Impl: super::IDispatch_Impl {
     fn Format(&self) -> windows_core::Result<ISpeechAudioFormat>;
-    fn putref_Format(&self, audioformat: windows_core::Ref<ISpeechAudioFormat>) -> windows_core::Result<()>;
+    fn putref_Format(&self, audioformat: windows_core::Ref<ISpeechAudioFormat>) -> windows_core::HRESULT;
     fn Read(&self, buffer: *mut super::VARIANT, numberofbytes: i32) -> windows_core::Result<i32>;
     fn Write(&self, buffer: &super::VARIANT) -> windows_core::Result<i32>;
     fn Seek(&self, position: &super::VARIANT, origin: SpeechStreamSeekPositionType) -> windows_core::Result<super::VARIANT>;
@@ -6594,7 +6594,7 @@ impl ISpeechBaseStream_Vtbl {
         unsafe extern "system" fn putref_Format<Identity: ISpeechBaseStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, audioformat: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechBaseStream_Impl::putref_Format(this, core::mem::transmute_copy(&audioformat)).into()
+                ISpeechBaseStream_Impl::putref_Format(this, core::mem::transmute_copy(&audioformat))
             }
         }
         unsafe extern "system" fn Read<Identity: ISpeechBaseStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: *mut super::VARIANT, numberofbytes: i32, bytesread: *mut i32) -> windows_core::HRESULT {
@@ -6694,7 +6694,7 @@ pub struct ISpeechCustomStream_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechCustomStream_Impl: ISpeechBaseStream_Impl {
     fn BaseStream(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn putref_BaseStream(&self, punkstream: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn putref_BaseStream(&self, punkstream: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechCustomStream_Vtbl {
@@ -6717,7 +6717,7 @@ impl ISpeechCustomStream_Vtbl {
         unsafe extern "system" fn putref_BaseStream<Identity: ISpeechCustomStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechCustomStream_Impl::putref_BaseStream(this, core::mem::transmute_copy(&punkstream)).into()
+                ISpeechCustomStream_Impl::putref_BaseStream(this, core::mem::transmute_copy(&punkstream))
             }
         }
         Self {
@@ -6831,16 +6831,16 @@ pub struct ISpeechDataKey_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechDataKey_Impl: super::IDispatch_Impl {
-    fn SetBinaryValue(&self, valuename: &windows_core::BSTR, value: &super::VARIANT) -> windows_core::Result<()>;
+    fn SetBinaryValue(&self, valuename: &windows_core::BSTR, value: &super::VARIANT) -> windows_core::HRESULT;
     fn GetBinaryValue(&self, valuename: &windows_core::BSTR) -> windows_core::Result<super::VARIANT>;
-    fn SetStringValue(&self, valuename: &windows_core::BSTR, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetStringValue(&self, valuename: &windows_core::BSTR, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn GetStringValue(&self, valuename: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
-    fn SetLongValue(&self, valuename: &windows_core::BSTR, value: i32) -> windows_core::Result<()>;
+    fn SetLongValue(&self, valuename: &windows_core::BSTR, value: i32) -> windows_core::HRESULT;
     fn GetLongValue(&self, valuename: &windows_core::BSTR) -> windows_core::Result<i32>;
     fn OpenKey(&self, subkeyname: &windows_core::BSTR) -> windows_core::Result<ISpeechDataKey>;
     fn CreateKey(&self, subkeyname: &windows_core::BSTR) -> windows_core::Result<ISpeechDataKey>;
-    fn DeleteKey(&self, subkeyname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn DeleteValue(&self, valuename: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn DeleteKey(&self, subkeyname: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn DeleteValue(&self, valuename: &windows_core::BSTR) -> windows_core::HRESULT;
     fn EnumKeys(&self, index: i32) -> windows_core::Result<windows_core::BSTR>;
     fn EnumValues(&self, index: i32) -> windows_core::Result<windows_core::BSTR>;
 }
@@ -6850,7 +6850,7 @@ impl ISpeechDataKey_Vtbl {
         unsafe extern "system" fn SetBinaryValue<Identity: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, valuename: *mut core::ffi::c_void, value: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechDataKey_Impl::SetBinaryValue(this, core::mem::transmute(&valuename), core::mem::transmute(&value)).into()
+                ISpeechDataKey_Impl::SetBinaryValue(this, core::mem::transmute(&valuename), core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn GetBinaryValue<Identity: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, valuename: *mut core::ffi::c_void, value: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -6871,7 +6871,7 @@ impl ISpeechDataKey_Vtbl {
         unsafe extern "system" fn SetStringValue<Identity: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, valuename: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechDataKey_Impl::SetStringValue(this, core::mem::transmute(&valuename), core::mem::transmute(&value)).into()
+                ISpeechDataKey_Impl::SetStringValue(this, core::mem::transmute(&valuename), core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn GetStringValue<Identity: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, valuename: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6892,7 +6892,7 @@ impl ISpeechDataKey_Vtbl {
         unsafe extern "system" fn SetLongValue<Identity: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, valuename: *mut core::ffi::c_void, value: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechDataKey_Impl::SetLongValue(this, core::mem::transmute(&valuename), core::mem::transmute_copy(&value)).into()
+                ISpeechDataKey_Impl::SetLongValue(this, core::mem::transmute(&valuename), core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn GetLongValue<Identity: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, valuename: *mut core::ffi::c_void, value: *mut i32) -> windows_core::HRESULT {
@@ -6943,13 +6943,13 @@ impl ISpeechDataKey_Vtbl {
         unsafe extern "system" fn DeleteKey<Identity: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, subkeyname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechDataKey_Impl::DeleteKey(this, core::mem::transmute(&subkeyname)).into()
+                ISpeechDataKey_Impl::DeleteKey(this, core::mem::transmute(&subkeyname))
             }
         }
         unsafe extern "system" fn DeleteValue<Identity: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, valuename: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechDataKey_Impl::DeleteValue(this, core::mem::transmute(&valuename)).into()
+                ISpeechDataKey_Impl::DeleteValue(this, core::mem::transmute(&valuename))
             }
         }
         unsafe extern "system" fn EnumKeys<Identity: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, subkeyname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7038,8 +7038,8 @@ pub struct ISpeechFileStream_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechFileStream_Impl: ISpeechBaseStream_Impl {
-    fn Open(&self, filename: &windows_core::BSTR, filemode: SpeechStreamFileMode, doevents: super::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn Close(&self) -> windows_core::Result<()>;
+    fn Open(&self, filename: &windows_core::BSTR, filemode: SpeechStreamFileMode, doevents: super::VARIANT_BOOL) -> windows_core::HRESULT;
+    fn Close(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechFileStream_Vtbl {
@@ -7047,13 +7047,13 @@ impl ISpeechFileStream_Vtbl {
         unsafe extern "system" fn Open<Identity: ISpeechFileStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: *mut core::ffi::c_void, filemode: SpeechStreamFileMode, doevents: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechFileStream_Impl::Open(this, core::mem::transmute(&filename), core::mem::transmute_copy(&filemode), core::mem::transmute_copy(&doevents)).into()
+                ISpeechFileStream_Impl::Open(this, core::mem::transmute(&filename), core::mem::transmute_copy(&filemode), core::mem::transmute_copy(&doevents))
             }
         }
         unsafe extern "system" fn Close<Identity: ISpeechFileStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechFileStream_Impl::Close(this).into()
+                ISpeechFileStream_Impl::Close(this)
             }
         }
         Self { base__: ISpeechBaseStream_Vtbl::new::<Identity, OFFSET>(), Open: Open::<Identity, OFFSET>, Close: Close::<Identity, OFFSET> }
@@ -7133,8 +7133,8 @@ pub trait ISpeechGrammarRule_Impl: super::IDispatch_Impl {
     fn InitialState(&self) -> windows_core::Result<ISpeechGrammarRuleState>;
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Id(&self) -> windows_core::Result<i32>;
-    fn Clear(&self) -> windows_core::Result<()>;
-    fn AddResource(&self, resourcename: &windows_core::BSTR, resourcevalue: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Clear(&self) -> windows_core::HRESULT;
+    fn AddResource(&self, resourcename: &windows_core::BSTR, resourcevalue: &windows_core::BSTR) -> windows_core::HRESULT;
     fn AddState(&self) -> windows_core::Result<ISpeechGrammarRuleState>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7203,13 +7203,13 @@ impl ISpeechGrammarRule_Vtbl {
         unsafe extern "system" fn Clear<Identity: ISpeechGrammarRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechGrammarRule_Impl::Clear(this).into()
+                ISpeechGrammarRule_Impl::Clear(this)
             }
         }
         unsafe extern "system" fn AddResource<Identity: ISpeechGrammarRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourcename: *mut core::ffi::c_void, resourcevalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechGrammarRule_Impl::AddResource(this, core::mem::transmute(&resourcename), core::mem::transmute(&resourcevalue)).into()
+                ISpeechGrammarRule_Impl::AddResource(this, core::mem::transmute(&resourcename), core::mem::transmute(&resourcevalue))
             }
         }
         unsafe extern "system" fn AddState<Identity: ISpeechGrammarRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7316,9 +7316,9 @@ pub struct ISpeechGrammarRuleState_Vtbl {
 pub trait ISpeechGrammarRuleState_Impl: super::IDispatch_Impl {
     fn Rule(&self) -> windows_core::Result<ISpeechGrammarRule>;
     fn Transitions(&self) -> windows_core::Result<ISpeechGrammarRuleStateTransitions>;
-    fn AddWordTransition(&self, deststate: windows_core::Ref<ISpeechGrammarRuleState>, words: &windows_core::BSTR, separators: &windows_core::BSTR, r#type: SpeechGrammarWordType, propertyname: &windows_core::BSTR, propertyid: i32, propertyvalue: *const super::VARIANT, weight: f32) -> windows_core::Result<()>;
-    fn AddRuleTransition(&self, destinationstate: windows_core::Ref<ISpeechGrammarRuleState>, rule: windows_core::Ref<ISpeechGrammarRule>, propertyname: &windows_core::BSTR, propertyid: i32, propertyvalue: *const super::VARIANT, weight: f32) -> windows_core::Result<()>;
-    fn AddSpecialTransition(&self, destinationstate: windows_core::Ref<ISpeechGrammarRuleState>, r#type: SpeechSpecialTransitionType, propertyname: &windows_core::BSTR, propertyid: i32, propertyvalue: *const super::VARIANT, weight: f32) -> windows_core::Result<()>;
+    fn AddWordTransition(&self, deststate: windows_core::Ref<ISpeechGrammarRuleState>, words: &windows_core::BSTR, separators: &windows_core::BSTR, r#type: SpeechGrammarWordType, propertyname: &windows_core::BSTR, propertyid: i32, propertyvalue: *const super::VARIANT, weight: f32) -> windows_core::HRESULT;
+    fn AddRuleTransition(&self, destinationstate: windows_core::Ref<ISpeechGrammarRuleState>, rule: windows_core::Ref<ISpeechGrammarRule>, propertyname: &windows_core::BSTR, propertyid: i32, propertyvalue: *const super::VARIANT, weight: f32) -> windows_core::HRESULT;
+    fn AddSpecialTransition(&self, destinationstate: windows_core::Ref<ISpeechGrammarRuleState>, r#type: SpeechSpecialTransitionType, propertyname: &windows_core::BSTR, propertyid: i32, propertyvalue: *const super::VARIANT, weight: f32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechGrammarRuleState_Vtbl {
@@ -7356,19 +7356,19 @@ impl ISpeechGrammarRuleState_Vtbl {
         unsafe extern "system" fn AddWordTransition<Identity: ISpeechGrammarRuleState_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deststate: *mut core::ffi::c_void, words: *mut core::ffi::c_void, separators: *mut core::ffi::c_void, r#type: SpeechGrammarWordType, propertyname: *mut core::ffi::c_void, propertyid: i32, propertyvalue: *const super::VARIANT, weight: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechGrammarRuleState_Impl::AddWordTransition(this, core::mem::transmute_copy(&deststate), core::mem::transmute(&words), core::mem::transmute(&separators), core::mem::transmute_copy(&r#type), core::mem::transmute(&propertyname), core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&propertyvalue), core::mem::transmute_copy(&weight)).into()
+                ISpeechGrammarRuleState_Impl::AddWordTransition(this, core::mem::transmute_copy(&deststate), core::mem::transmute(&words), core::mem::transmute(&separators), core::mem::transmute_copy(&r#type), core::mem::transmute(&propertyname), core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&propertyvalue), core::mem::transmute_copy(&weight))
             }
         }
         unsafe extern "system" fn AddRuleTransition<Identity: ISpeechGrammarRuleState_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationstate: *mut core::ffi::c_void, rule: *mut core::ffi::c_void, propertyname: *mut core::ffi::c_void, propertyid: i32, propertyvalue: *const super::VARIANT, weight: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechGrammarRuleState_Impl::AddRuleTransition(this, core::mem::transmute_copy(&destinationstate), core::mem::transmute_copy(&rule), core::mem::transmute(&propertyname), core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&propertyvalue), core::mem::transmute_copy(&weight)).into()
+                ISpeechGrammarRuleState_Impl::AddRuleTransition(this, core::mem::transmute_copy(&destinationstate), core::mem::transmute_copy(&rule), core::mem::transmute(&propertyname), core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&propertyvalue), core::mem::transmute_copy(&weight))
             }
         }
         unsafe extern "system" fn AddSpecialTransition<Identity: ISpeechGrammarRuleState_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationstate: *mut core::ffi::c_void, r#type: SpeechSpecialTransitionType, propertyname: *mut core::ffi::c_void, propertyid: i32, propertyvalue: *const super::VARIANT, weight: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechGrammarRuleState_Impl::AddSpecialTransition(this, core::mem::transmute_copy(&destinationstate), core::mem::transmute_copy(&r#type), core::mem::transmute(&propertyname), core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&propertyvalue), core::mem::transmute_copy(&weight)).into()
+                ISpeechGrammarRuleState_Impl::AddSpecialTransition(this, core::mem::transmute_copy(&destinationstate), core::mem::transmute_copy(&r#type), core::mem::transmute(&propertyname), core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&propertyvalue), core::mem::transmute_copy(&weight))
             }
         }
         Self {
@@ -7823,7 +7823,7 @@ pub trait ISpeechGrammarRules_Impl: super::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Dynamic(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn Add(&self, rulename: &windows_core::BSTR, attributes: SpeechRuleAttributes, ruleid: i32) -> windows_core::Result<ISpeechGrammarRule>;
-    fn Commit(&self) -> windows_core::Result<()>;
+    fn Commit(&self) -> windows_core::HRESULT;
     fn CommitAndSave(&self, errortext: *mut windows_core::BSTR) -> windows_core::Result<super::VARIANT>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7922,7 +7922,7 @@ impl ISpeechGrammarRules_Vtbl {
         unsafe extern "system" fn Commit<Identity: ISpeechGrammarRules_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechGrammarRules_Impl::Commit(this).into()
+                ISpeechGrammarRules_Impl::Commit(this)
             }
         }
         unsafe extern "system" fn CommitAndSave<Identity: ISpeechGrammarRules_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, errortext: *mut *mut core::ffi::c_void, savestream: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -8034,10 +8034,10 @@ pub struct ISpeechLexicon_Vtbl {
 pub trait ISpeechLexicon_Impl: super::IDispatch_Impl {
     fn GenerationId(&self) -> windows_core::Result<i32>;
     fn GetWords(&self, flags: SpeechLexiconType, generationid: *mut i32) -> windows_core::Result<ISpeechLexiconWords>;
-    fn AddPronunciation(&self, bstrword: &windows_core::BSTR, langid: SpeechLanguageId, partofspeech: SpeechPartOfSpeech, bstrpronunciation: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn AddPronunciationByPhoneIds(&self, bstrword: &windows_core::BSTR, langid: SpeechLanguageId, partofspeech: SpeechPartOfSpeech, phoneids: *const super::VARIANT) -> windows_core::Result<()>;
-    fn RemovePronunciation(&self, bstrword: &windows_core::BSTR, langid: SpeechLanguageId, partofspeech: SpeechPartOfSpeech, bstrpronunciation: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn RemovePronunciationByPhoneIds(&self, bstrword: &windows_core::BSTR, langid: SpeechLanguageId, partofspeech: SpeechPartOfSpeech, phoneids: *const super::VARIANT) -> windows_core::Result<()>;
+    fn AddPronunciation(&self, bstrword: &windows_core::BSTR, langid: SpeechLanguageId, partofspeech: SpeechPartOfSpeech, bstrpronunciation: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn AddPronunciationByPhoneIds(&self, bstrword: &windows_core::BSTR, langid: SpeechLanguageId, partofspeech: SpeechPartOfSpeech, phoneids: *const super::VARIANT) -> windows_core::HRESULT;
+    fn RemovePronunciation(&self, bstrword: &windows_core::BSTR, langid: SpeechLanguageId, partofspeech: SpeechPartOfSpeech, bstrpronunciation: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn RemovePronunciationByPhoneIds(&self, bstrword: &windows_core::BSTR, langid: SpeechLanguageId, partofspeech: SpeechPartOfSpeech, phoneids: *const super::VARIANT) -> windows_core::HRESULT;
     fn GetPronunciations(&self, bstrword: &windows_core::BSTR, langid: SpeechLanguageId, typeflags: SpeechLexiconType) -> windows_core::Result<ISpeechLexiconPronunciations>;
     fn GetGenerationChange(&self, generationid: *mut i32) -> windows_core::Result<ISpeechLexiconWords>;
 }
@@ -8077,25 +8077,25 @@ impl ISpeechLexicon_Vtbl {
         unsafe extern "system" fn AddPronunciation<Identity: ISpeechLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrword: *mut core::ffi::c_void, langid: SpeechLanguageId, partofspeech: SpeechPartOfSpeech, bstrpronunciation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechLexicon_Impl::AddPronunciation(this, core::mem::transmute(&bstrword), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&partofspeech), core::mem::transmute(&bstrpronunciation)).into()
+                ISpeechLexicon_Impl::AddPronunciation(this, core::mem::transmute(&bstrword), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&partofspeech), core::mem::transmute(&bstrpronunciation))
             }
         }
         unsafe extern "system" fn AddPronunciationByPhoneIds<Identity: ISpeechLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrword: *mut core::ffi::c_void, langid: SpeechLanguageId, partofspeech: SpeechPartOfSpeech, phoneids: *const super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechLexicon_Impl::AddPronunciationByPhoneIds(this, core::mem::transmute(&bstrword), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&partofspeech), core::mem::transmute_copy(&phoneids)).into()
+                ISpeechLexicon_Impl::AddPronunciationByPhoneIds(this, core::mem::transmute(&bstrword), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&partofspeech), core::mem::transmute_copy(&phoneids))
             }
         }
         unsafe extern "system" fn RemovePronunciation<Identity: ISpeechLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrword: *mut core::ffi::c_void, langid: SpeechLanguageId, partofspeech: SpeechPartOfSpeech, bstrpronunciation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechLexicon_Impl::RemovePronunciation(this, core::mem::transmute(&bstrword), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&partofspeech), core::mem::transmute(&bstrpronunciation)).into()
+                ISpeechLexicon_Impl::RemovePronunciation(this, core::mem::transmute(&bstrword), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&partofspeech), core::mem::transmute(&bstrpronunciation))
             }
         }
         unsafe extern "system" fn RemovePronunciationByPhoneIds<Identity: ISpeechLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrword: *mut core::ffi::c_void, langid: SpeechLanguageId, partofspeech: SpeechPartOfSpeech, phoneids: *const super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechLexicon_Impl::RemovePronunciationByPhoneIds(this, core::mem::transmute(&bstrword), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&partofspeech), core::mem::transmute_copy(&phoneids)).into()
+                ISpeechLexicon_Impl::RemovePronunciationByPhoneIds(this, core::mem::transmute(&bstrword), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&partofspeech), core::mem::transmute_copy(&phoneids))
             }
         }
         unsafe extern "system" fn GetPronunciations<Identity: ISpeechLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrword: *mut core::ffi::c_void, langid: SpeechLanguageId, typeflags: SpeechLexiconType, pppronunciations: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8706,9 +8706,9 @@ pub struct ISpeechMMSysAudio_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechMMSysAudio_Impl: ISpeechAudio_Impl {
     fn DeviceId(&self) -> windows_core::Result<i32>;
-    fn SetDeviceId(&self, deviceid: i32) -> windows_core::Result<()>;
+    fn SetDeviceId(&self, deviceid: i32) -> windows_core::HRESULT;
     fn LineId(&self) -> windows_core::Result<i32>;
-    fn SetLineId(&self, lineid: i32) -> windows_core::Result<()>;
+    fn SetLineId(&self, lineid: i32) -> windows_core::HRESULT;
     fn MMHandle(&self) -> windows_core::Result<i32>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -8732,7 +8732,7 @@ impl ISpeechMMSysAudio_Vtbl {
         unsafe extern "system" fn SetDeviceId<Identity: ISpeechMMSysAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceid: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechMMSysAudio_Impl::SetDeviceId(this, core::mem::transmute_copy(&deviceid)).into()
+                ISpeechMMSysAudio_Impl::SetDeviceId(this, core::mem::transmute_copy(&deviceid))
             }
         }
         unsafe extern "system" fn LineId<Identity: ISpeechMMSysAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lineid: *mut i32) -> windows_core::HRESULT {
@@ -8753,7 +8753,7 @@ impl ISpeechMMSysAudio_Vtbl {
         unsafe extern "system" fn SetLineId<Identity: ISpeechMMSysAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lineid: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechMMSysAudio_Impl::SetLineId(this, core::mem::transmute_copy(&lineid)).into()
+                ISpeechMMSysAudio_Impl::SetLineId(this, core::mem::transmute_copy(&lineid))
             }
         }
         unsafe extern "system" fn MMHandle<Identity: ISpeechMMSysAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: *mut i32) -> windows_core::HRESULT {
@@ -8827,7 +8827,7 @@ pub struct ISpeechMemoryStream_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechMemoryStream_Impl: ISpeechBaseStream_Impl {
-    fn SetData(&self, data: &super::VARIANT) -> windows_core::Result<()>;
+    fn SetData(&self, data: &super::VARIANT) -> windows_core::HRESULT;
     fn GetData(&self) -> windows_core::Result<super::VARIANT>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -8836,7 +8836,7 @@ impl ISpeechMemoryStream_Vtbl {
         unsafe extern "system" fn SetData<Identity: ISpeechMemoryStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechMemoryStream_Impl::SetData(this, core::mem::transmute(&data)).into()
+                ISpeechMemoryStream_Impl::SetData(this, core::mem::transmute(&data))
             }
         }
         unsafe extern "system" fn GetData<Identity: ISpeechMemoryStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdata: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -8996,14 +8996,14 @@ pub trait ISpeechObjectToken_Impl: super::IDispatch_Impl {
     fn DataKey(&self) -> windows_core::Result<ISpeechDataKey>;
     fn Category(&self) -> windows_core::Result<ISpeechObjectTokenCategory>;
     fn GetDescription(&self, locale: i32) -> windows_core::Result<windows_core::BSTR>;
-    fn SetId(&self, id: &windows_core::BSTR, categoryid: &windows_core::BSTR, createifnotexist: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetId(&self, id: &windows_core::BSTR, categoryid: &windows_core::BSTR, createifnotexist: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn GetAttribute(&self, attributename: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
     fn CreateInstance(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, clscontext: SpeechTokenContext) -> windows_core::Result<windows_core::IUnknown>;
-    fn Remove(&self, objectstorageclsid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Remove(&self, objectstorageclsid: &windows_core::BSTR) -> windows_core::HRESULT;
     fn GetStorageFileName(&self, objectstorageclsid: &windows_core::BSTR, keyname: &windows_core::BSTR, filename: &windows_core::BSTR, folder: SpeechTokenShellFolder) -> windows_core::Result<windows_core::BSTR>;
-    fn RemoveStorageFileName(&self, objectstorageclsid: &windows_core::BSTR, keyname: &windows_core::BSTR, deletefile: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn RemoveStorageFileName(&self, objectstorageclsid: &windows_core::BSTR, keyname: &windows_core::BSTR, deletefile: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn IsUISupported(&self, typeofui: &windows_core::BSTR, extradata: *const super::VARIANT, object: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn DisplayUI(&self, hwnd: i32, title: &windows_core::BSTR, typeofui: &windows_core::BSTR, extradata: *const super::VARIANT, object: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn DisplayUI(&self, hwnd: i32, title: &windows_core::BSTR, typeofui: &windows_core::BSTR, extradata: *const super::VARIANT, object: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
     fn MatchesAttributes(&self, attributes: &windows_core::BSTR) -> windows_core::Result<super::VARIANT_BOOL>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -9072,7 +9072,7 @@ impl ISpeechObjectToken_Vtbl {
         unsafe extern "system" fn SetId<Identity: ISpeechObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut core::ffi::c_void, categoryid: *mut core::ffi::c_void, createifnotexist: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechObjectToken_Impl::SetId(this, core::mem::transmute(&id), core::mem::transmute(&categoryid), core::mem::transmute_copy(&createifnotexist)).into()
+                ISpeechObjectToken_Impl::SetId(this, core::mem::transmute(&id), core::mem::transmute(&categoryid), core::mem::transmute_copy(&createifnotexist))
             }
         }
         unsafe extern "system" fn GetAttribute<Identity: ISpeechObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributename: *mut core::ffi::c_void, attributevalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9108,7 +9108,7 @@ impl ISpeechObjectToken_Vtbl {
         unsafe extern "system" fn Remove<Identity: ISpeechObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectstorageclsid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechObjectToken_Impl::Remove(this, core::mem::transmute(&objectstorageclsid)).into()
+                ISpeechObjectToken_Impl::Remove(this, core::mem::transmute(&objectstorageclsid))
             }
         }
         unsafe extern "system" fn GetStorageFileName<Identity: ISpeechObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectstorageclsid: *mut core::ffi::c_void, keyname: *mut core::ffi::c_void, filename: *mut core::ffi::c_void, folder: SpeechTokenShellFolder, filepath: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9129,7 +9129,7 @@ impl ISpeechObjectToken_Vtbl {
         unsafe extern "system" fn RemoveStorageFileName<Identity: ISpeechObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectstorageclsid: *mut core::ffi::c_void, keyname: *mut core::ffi::c_void, deletefile: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechObjectToken_Impl::RemoveStorageFileName(this, core::mem::transmute(&objectstorageclsid), core::mem::transmute(&keyname), core::mem::transmute_copy(&deletefile)).into()
+                ISpeechObjectToken_Impl::RemoveStorageFileName(this, core::mem::transmute(&objectstorageclsid), core::mem::transmute(&keyname), core::mem::transmute_copy(&deletefile))
             }
         }
         unsafe extern "system" fn IsUISupported<Identity: ISpeechObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, typeofui: *mut core::ffi::c_void, extradata: *const super::VARIANT, object: *mut core::ffi::c_void, supported: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -9150,7 +9150,7 @@ impl ISpeechObjectToken_Vtbl {
         unsafe extern "system" fn DisplayUI<Identity: ISpeechObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: i32, title: *mut core::ffi::c_void, typeofui: *mut core::ffi::c_void, extradata: *const super::VARIANT, object: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechObjectToken_Impl::DisplayUI(this, core::mem::transmute_copy(&hwnd), core::mem::transmute(&title), core::mem::transmute(&typeofui), core::mem::transmute_copy(&extradata), core::mem::transmute_copy(&object)).into()
+                ISpeechObjectToken_Impl::DisplayUI(this, core::mem::transmute_copy(&hwnd), core::mem::transmute(&title), core::mem::transmute(&typeofui), core::mem::transmute_copy(&extradata), core::mem::transmute_copy(&object))
             }
         }
         unsafe extern "system" fn MatchesAttributes<Identity: ISpeechObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributes: *mut core::ffi::c_void, matches: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -9254,9 +9254,9 @@ pub struct ISpeechObjectTokenCategory_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechObjectTokenCategory_Impl: super::IDispatch_Impl {
     fn Id(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetDefault(&self, tokenid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetDefault(&self, tokenid: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Default(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetId(&self, id: &windows_core::BSTR, createifnotexist: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetId(&self, id: &windows_core::BSTR, createifnotexist: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn GetDataKey(&self, location: SpeechDataKeyLocation) -> windows_core::Result<ISpeechDataKey>;
     fn EnumerateTokens(&self, requiredattributes: &windows_core::BSTR, optionalattributes: &windows_core::BSTR) -> windows_core::Result<ISpeechObjectTokens>;
 }
@@ -9281,7 +9281,7 @@ impl ISpeechObjectTokenCategory_Vtbl {
         unsafe extern "system" fn SetDefault<Identity: ISpeechObjectTokenCategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tokenid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechObjectTokenCategory_Impl::SetDefault(this, core::mem::transmute(&tokenid)).into()
+                ISpeechObjectTokenCategory_Impl::SetDefault(this, core::mem::transmute(&tokenid))
             }
         }
         unsafe extern "system" fn Default<Identity: ISpeechObjectTokenCategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tokenid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9302,7 +9302,7 @@ impl ISpeechObjectTokenCategory_Vtbl {
         unsafe extern "system" fn SetId<Identity: ISpeechObjectTokenCategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut core::ffi::c_void, createifnotexist: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechObjectTokenCategory_Impl::SetId(this, core::mem::transmute(&id), core::mem::transmute_copy(&createifnotexist)).into()
+                ISpeechObjectTokenCategory_Impl::SetId(this, core::mem::transmute(&id), core::mem::transmute_copy(&createifnotexist))
             }
         }
         unsafe extern "system" fn GetDataKey<Identity: ISpeechObjectTokenCategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, location: SpeechDataKeyLocation, datakey: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9515,7 +9515,7 @@ pub struct ISpeechPhoneConverter_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechPhoneConverter_Impl: super::IDispatch_Impl {
     fn LanguageId(&self) -> windows_core::Result<SpeechLanguageId>;
-    fn SetLanguageId(&self, languageid: SpeechLanguageId) -> windows_core::Result<()>;
+    fn SetLanguageId(&self, languageid: SpeechLanguageId) -> windows_core::HRESULT;
     fn PhoneToId(&self, phonemes: &windows_core::BSTR) -> windows_core::Result<super::VARIANT>;
     fn IdToPhone(&self, idarray: &super::VARIANT) -> windows_core::Result<windows_core::BSTR>;
 }
@@ -9540,7 +9540,7 @@ impl ISpeechPhoneConverter_Vtbl {
         unsafe extern "system" fn SetLanguageId<Identity: ISpeechPhoneConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, languageid: SpeechLanguageId) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechPhoneConverter_Impl::SetLanguageId(this, core::mem::transmute_copy(&languageid)).into()
+                ISpeechPhoneConverter_Impl::SetLanguageId(this, core::mem::transmute_copy(&languageid))
             }
         }
         unsafe extern "system" fn PhoneToId<Identity: ISpeechPhoneConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phonemes: *mut core::ffi::c_void, idarray: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -9645,7 +9645,7 @@ pub trait ISpeechPhraseAlternate_Impl: super::IDispatch_Impl {
     fn StartElementInResult(&self) -> windows_core::Result<i32>;
     fn NumberOfElementsInResult(&self) -> windows_core::Result<i32>;
     fn PhraseInfo(&self) -> windows_core::Result<ISpeechPhraseInfo>;
-    fn Commit(&self) -> windows_core::Result<()>;
+    fn Commit(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechPhraseAlternate_Vtbl {
@@ -9713,7 +9713,7 @@ impl ISpeechPhraseAlternate_Vtbl {
         unsafe extern "system" fn Commit<Identity: ISpeechPhraseAlternate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechPhraseAlternate_Impl::Commit(this).into()
+                ISpeechPhraseAlternate_Impl::Commit(this)
             }
         }
         Self {
@@ -11938,28 +11938,28 @@ pub trait ISpeechRecoContext_Impl: super::IDispatch_Impl {
     fn Recognizer(&self) -> windows_core::Result<ISpeechRecognizer>;
     fn AudioInputInterferenceStatus(&self) -> windows_core::Result<SpeechInterference>;
     fn RequestedUIType(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn putref_Voice(&self, voice: windows_core::Ref<ISpeechVoice>) -> windows_core::Result<()>;
+    fn putref_Voice(&self, voice: windows_core::Ref<ISpeechVoice>) -> windows_core::HRESULT;
     fn Voice(&self) -> windows_core::Result<ISpeechVoice>;
-    fn SetAllowVoiceFormatMatchingOnNextSet(&self, allow: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetAllowVoiceFormatMatchingOnNextSet(&self, allow: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn AllowVoiceFormatMatchingOnNextSet(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetVoicePurgeEvent(&self, eventinterest: SpeechRecoEvents) -> windows_core::Result<()>;
+    fn SetVoicePurgeEvent(&self, eventinterest: SpeechRecoEvents) -> windows_core::HRESULT;
     fn VoicePurgeEvent(&self) -> windows_core::Result<SpeechRecoEvents>;
-    fn SetEventInterests(&self, eventinterest: SpeechRecoEvents) -> windows_core::Result<()>;
+    fn SetEventInterests(&self, eventinterest: SpeechRecoEvents) -> windows_core::HRESULT;
     fn EventInterests(&self) -> windows_core::Result<SpeechRecoEvents>;
-    fn SetCmdMaxAlternates(&self, maxalternates: i32) -> windows_core::Result<()>;
+    fn SetCmdMaxAlternates(&self, maxalternates: i32) -> windows_core::HRESULT;
     fn CmdMaxAlternates(&self) -> windows_core::Result<i32>;
-    fn SetState(&self, state: SpeechRecoContextState) -> windows_core::Result<()>;
+    fn SetState(&self, state: SpeechRecoContextState) -> windows_core::HRESULT;
     fn State(&self) -> windows_core::Result<SpeechRecoContextState>;
-    fn SetRetainedAudio(&self, option: SpeechRetainedAudioOptions) -> windows_core::Result<()>;
+    fn SetRetainedAudio(&self, option: SpeechRetainedAudioOptions) -> windows_core::HRESULT;
     fn RetainedAudio(&self) -> windows_core::Result<SpeechRetainedAudioOptions>;
-    fn putref_RetainedAudioFormat(&self, format: windows_core::Ref<ISpeechAudioFormat>) -> windows_core::Result<()>;
+    fn putref_RetainedAudioFormat(&self, format: windows_core::Ref<ISpeechAudioFormat>) -> windows_core::HRESULT;
     fn RetainedAudioFormat(&self) -> windows_core::Result<ISpeechAudioFormat>;
-    fn Pause(&self) -> windows_core::Result<()>;
-    fn Resume(&self) -> windows_core::Result<()>;
+    fn Pause(&self) -> windows_core::HRESULT;
+    fn Resume(&self) -> windows_core::HRESULT;
     fn CreateGrammar(&self, grammarid: &super::VARIANT) -> windows_core::Result<ISpeechRecoGrammar>;
     fn CreateResultFromMemory(&self, resultblock: *const super::VARIANT) -> windows_core::Result<ISpeechRecoResult>;
-    fn Bookmark(&self, options: SpeechBookmarkOptions, streampos: &super::VARIANT, bookmarkid: &super::VARIANT) -> windows_core::Result<()>;
-    fn SetAdaptationData(&self, adaptationstring: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Bookmark(&self, options: SpeechBookmarkOptions, streampos: &super::VARIANT, bookmarkid: &super::VARIANT) -> windows_core::HRESULT;
+    fn SetAdaptationData(&self, adaptationstring: &windows_core::BSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechRecoContext_Vtbl {
@@ -12012,7 +12012,7 @@ impl ISpeechRecoContext_Vtbl {
         unsafe extern "system" fn putref_Voice<Identity: ISpeechRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, voice: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecoContext_Impl::putref_Voice(this, core::mem::transmute_copy(&voice)).into()
+                ISpeechRecoContext_Impl::putref_Voice(this, core::mem::transmute_copy(&voice))
             }
         }
         unsafe extern "system" fn Voice<Identity: ISpeechRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, voice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12033,7 +12033,7 @@ impl ISpeechRecoContext_Vtbl {
         unsafe extern "system" fn SetAllowVoiceFormatMatchingOnNextSet<Identity: ISpeechRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecoContext_Impl::SetAllowVoiceFormatMatchingOnNextSet(this, core::mem::transmute_copy(&allow)).into()
+                ISpeechRecoContext_Impl::SetAllowVoiceFormatMatchingOnNextSet(this, core::mem::transmute_copy(&allow))
             }
         }
         unsafe extern "system" fn AllowVoiceFormatMatchingOnNextSet<Identity: ISpeechRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pallow: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -12054,7 +12054,7 @@ impl ISpeechRecoContext_Vtbl {
         unsafe extern "system" fn SetVoicePurgeEvent<Identity: ISpeechRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventinterest: SpeechRecoEvents) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecoContext_Impl::SetVoicePurgeEvent(this, core::mem::transmute_copy(&eventinterest)).into()
+                ISpeechRecoContext_Impl::SetVoicePurgeEvent(this, core::mem::transmute_copy(&eventinterest))
             }
         }
         unsafe extern "system" fn VoicePurgeEvent<Identity: ISpeechRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventinterest: *mut SpeechRecoEvents) -> windows_core::HRESULT {
@@ -12075,7 +12075,7 @@ impl ISpeechRecoContext_Vtbl {
         unsafe extern "system" fn SetEventInterests<Identity: ISpeechRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventinterest: SpeechRecoEvents) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecoContext_Impl::SetEventInterests(this, core::mem::transmute_copy(&eventinterest)).into()
+                ISpeechRecoContext_Impl::SetEventInterests(this, core::mem::transmute_copy(&eventinterest))
             }
         }
         unsafe extern "system" fn EventInterests<Identity: ISpeechRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventinterest: *mut SpeechRecoEvents) -> windows_core::HRESULT {
@@ -12096,7 +12096,7 @@ impl ISpeechRecoContext_Vtbl {
         unsafe extern "system" fn SetCmdMaxAlternates<Identity: ISpeechRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxalternates: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecoContext_Impl::SetCmdMaxAlternates(this, core::mem::transmute_copy(&maxalternates)).into()
+                ISpeechRecoContext_Impl::SetCmdMaxAlternates(this, core::mem::transmute_copy(&maxalternates))
             }
         }
         unsafe extern "system" fn CmdMaxAlternates<Identity: ISpeechRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxalternates: *mut i32) -> windows_core::HRESULT {
@@ -12117,7 +12117,7 @@ impl ISpeechRecoContext_Vtbl {
         unsafe extern "system" fn SetState<Identity: ISpeechRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: SpeechRecoContextState) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecoContext_Impl::SetState(this, core::mem::transmute_copy(&state)).into()
+                ISpeechRecoContext_Impl::SetState(this, core::mem::transmute_copy(&state))
             }
         }
         unsafe extern "system" fn State<Identity: ISpeechRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: *mut SpeechRecoContextState) -> windows_core::HRESULT {
@@ -12138,7 +12138,7 @@ impl ISpeechRecoContext_Vtbl {
         unsafe extern "system" fn SetRetainedAudio<Identity: ISpeechRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, option: SpeechRetainedAudioOptions) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecoContext_Impl::SetRetainedAudio(this, core::mem::transmute_copy(&option)).into()
+                ISpeechRecoContext_Impl::SetRetainedAudio(this, core::mem::transmute_copy(&option))
             }
         }
         unsafe extern "system" fn RetainedAudio<Identity: ISpeechRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, option: *mut SpeechRetainedAudioOptions) -> windows_core::HRESULT {
@@ -12159,7 +12159,7 @@ impl ISpeechRecoContext_Vtbl {
         unsafe extern "system" fn putref_RetainedAudioFormat<Identity: ISpeechRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecoContext_Impl::putref_RetainedAudioFormat(this, core::mem::transmute_copy(&format)).into()
+                ISpeechRecoContext_Impl::putref_RetainedAudioFormat(this, core::mem::transmute_copy(&format))
             }
         }
         unsafe extern "system" fn RetainedAudioFormat<Identity: ISpeechRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12180,13 +12180,13 @@ impl ISpeechRecoContext_Vtbl {
         unsafe extern "system" fn Pause<Identity: ISpeechRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecoContext_Impl::Pause(this).into()
+                ISpeechRecoContext_Impl::Pause(this)
             }
         }
         unsafe extern "system" fn Resume<Identity: ISpeechRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecoContext_Impl::Resume(this).into()
+                ISpeechRecoContext_Impl::Resume(this)
             }
         }
         unsafe extern "system" fn CreateGrammar<Identity: ISpeechRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grammarid: super::VARIANT, grammar: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12222,13 +12222,13 @@ impl ISpeechRecoContext_Vtbl {
         unsafe extern "system" fn Bookmark<Identity: ISpeechRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: SpeechBookmarkOptions, streampos: super::VARIANT, bookmarkid: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecoContext_Impl::Bookmark(this, core::mem::transmute_copy(&options), core::mem::transmute(&streampos), core::mem::transmute(&bookmarkid)).into()
+                ISpeechRecoContext_Impl::Bookmark(this, core::mem::transmute_copy(&options), core::mem::transmute(&streampos), core::mem::transmute(&bookmarkid))
             }
         }
         unsafe extern "system" fn SetAdaptationData<Identity: ISpeechRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adaptationstring: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecoContext_Impl::SetAdaptationData(this, core::mem::transmute(&adaptationstring)).into()
+                ISpeechRecoContext_Impl::SetAdaptationData(this, core::mem::transmute(&adaptationstring))
             }
         }
         Self {
@@ -12403,22 +12403,22 @@ pub struct ISpeechRecoGrammar_Vtbl {
 pub trait ISpeechRecoGrammar_Impl: super::IDispatch_Impl {
     fn Id(&self) -> windows_core::Result<super::VARIANT>;
     fn RecoContext(&self) -> windows_core::Result<ISpeechRecoContext>;
-    fn SetState(&self, state: SpeechGrammarState) -> windows_core::Result<()>;
+    fn SetState(&self, state: SpeechGrammarState) -> windows_core::HRESULT;
     fn State(&self) -> windows_core::Result<SpeechGrammarState>;
     fn Rules(&self) -> windows_core::Result<ISpeechGrammarRules>;
-    fn Reset(&self, newlanguage: SpeechLanguageId) -> windows_core::Result<()>;
-    fn CmdLoadFromFile(&self, filename: &windows_core::BSTR, loadoption: SpeechLoadOption) -> windows_core::Result<()>;
-    fn CmdLoadFromObject(&self, classid: &windows_core::BSTR, grammarname: &windows_core::BSTR, loadoption: SpeechLoadOption) -> windows_core::Result<()>;
-    fn CmdLoadFromResource(&self, hmodule: i32, resourcename: &super::VARIANT, resourcetype: &super::VARIANT, languageid: SpeechLanguageId, loadoption: SpeechLoadOption) -> windows_core::Result<()>;
-    fn CmdLoadFromMemory(&self, grammardata: &super::VARIANT, loadoption: SpeechLoadOption) -> windows_core::Result<()>;
-    fn CmdLoadFromProprietaryGrammar(&self, proprietaryguid: &windows_core::BSTR, proprietarystring: &windows_core::BSTR, proprietarydata: &super::VARIANT, loadoption: SpeechLoadOption) -> windows_core::Result<()>;
-    fn CmdSetRuleState(&self, name: &windows_core::BSTR, state: SpeechRuleState) -> windows_core::Result<()>;
-    fn CmdSetRuleIdState(&self, ruleid: i32, state: SpeechRuleState) -> windows_core::Result<()>;
-    fn DictationLoad(&self, topicname: &windows_core::BSTR, loadoption: SpeechLoadOption) -> windows_core::Result<()>;
-    fn DictationUnload(&self) -> windows_core::Result<()>;
-    fn DictationSetState(&self, state: SpeechRuleState) -> windows_core::Result<()>;
-    fn SetWordSequenceData(&self, text: &windows_core::BSTR, textlength: i32, info: windows_core::Ref<ISpeechTextSelectionInformation>) -> windows_core::Result<()>;
-    fn SetTextSelection(&self, info: windows_core::Ref<ISpeechTextSelectionInformation>) -> windows_core::Result<()>;
+    fn Reset(&self, newlanguage: SpeechLanguageId) -> windows_core::HRESULT;
+    fn CmdLoadFromFile(&self, filename: &windows_core::BSTR, loadoption: SpeechLoadOption) -> windows_core::HRESULT;
+    fn CmdLoadFromObject(&self, classid: &windows_core::BSTR, grammarname: &windows_core::BSTR, loadoption: SpeechLoadOption) -> windows_core::HRESULT;
+    fn CmdLoadFromResource(&self, hmodule: i32, resourcename: &super::VARIANT, resourcetype: &super::VARIANT, languageid: SpeechLanguageId, loadoption: SpeechLoadOption) -> windows_core::HRESULT;
+    fn CmdLoadFromMemory(&self, grammardata: &super::VARIANT, loadoption: SpeechLoadOption) -> windows_core::HRESULT;
+    fn CmdLoadFromProprietaryGrammar(&self, proprietaryguid: &windows_core::BSTR, proprietarystring: &windows_core::BSTR, proprietarydata: &super::VARIANT, loadoption: SpeechLoadOption) -> windows_core::HRESULT;
+    fn CmdSetRuleState(&self, name: &windows_core::BSTR, state: SpeechRuleState) -> windows_core::HRESULT;
+    fn CmdSetRuleIdState(&self, ruleid: i32, state: SpeechRuleState) -> windows_core::HRESULT;
+    fn DictationLoad(&self, topicname: &windows_core::BSTR, loadoption: SpeechLoadOption) -> windows_core::HRESULT;
+    fn DictationUnload(&self) -> windows_core::HRESULT;
+    fn DictationSetState(&self, state: SpeechRuleState) -> windows_core::HRESULT;
+    fn SetWordSequenceData(&self, text: &windows_core::BSTR, textlength: i32, info: windows_core::Ref<ISpeechTextSelectionInformation>) -> windows_core::HRESULT;
+    fn SetTextSelection(&self, info: windows_core::Ref<ISpeechTextSelectionInformation>) -> windows_core::HRESULT;
     fn IsPronounceable(&self, word: &windows_core::BSTR) -> windows_core::Result<SpeechWordPronounceable>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -12457,7 +12457,7 @@ impl ISpeechRecoGrammar_Vtbl {
         unsafe extern "system" fn SetState<Identity: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: SpeechGrammarState) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecoGrammar_Impl::SetState(this, core::mem::transmute_copy(&state)).into()
+                ISpeechRecoGrammar_Impl::SetState(this, core::mem::transmute_copy(&state))
             }
         }
         unsafe extern "system" fn State<Identity: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: *mut SpeechGrammarState) -> windows_core::HRESULT {
@@ -12493,79 +12493,79 @@ impl ISpeechRecoGrammar_Vtbl {
         unsafe extern "system" fn Reset<Identity: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newlanguage: SpeechLanguageId) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecoGrammar_Impl::Reset(this, core::mem::transmute_copy(&newlanguage)).into()
+                ISpeechRecoGrammar_Impl::Reset(this, core::mem::transmute_copy(&newlanguage))
             }
         }
         unsafe extern "system" fn CmdLoadFromFile<Identity: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: *mut core::ffi::c_void, loadoption: SpeechLoadOption) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecoGrammar_Impl::CmdLoadFromFile(this, core::mem::transmute(&filename), core::mem::transmute_copy(&loadoption)).into()
+                ISpeechRecoGrammar_Impl::CmdLoadFromFile(this, core::mem::transmute(&filename), core::mem::transmute_copy(&loadoption))
             }
         }
         unsafe extern "system" fn CmdLoadFromObject<Identity: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, classid: *mut core::ffi::c_void, grammarname: *mut core::ffi::c_void, loadoption: SpeechLoadOption) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecoGrammar_Impl::CmdLoadFromObject(this, core::mem::transmute(&classid), core::mem::transmute(&grammarname), core::mem::transmute_copy(&loadoption)).into()
+                ISpeechRecoGrammar_Impl::CmdLoadFromObject(this, core::mem::transmute(&classid), core::mem::transmute(&grammarname), core::mem::transmute_copy(&loadoption))
             }
         }
         unsafe extern "system" fn CmdLoadFromResource<Identity: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmodule: i32, resourcename: super::VARIANT, resourcetype: super::VARIANT, languageid: SpeechLanguageId, loadoption: SpeechLoadOption) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecoGrammar_Impl::CmdLoadFromResource(this, core::mem::transmute_copy(&hmodule), core::mem::transmute(&resourcename), core::mem::transmute(&resourcetype), core::mem::transmute_copy(&languageid), core::mem::transmute_copy(&loadoption)).into()
+                ISpeechRecoGrammar_Impl::CmdLoadFromResource(this, core::mem::transmute_copy(&hmodule), core::mem::transmute(&resourcename), core::mem::transmute(&resourcetype), core::mem::transmute_copy(&languageid), core::mem::transmute_copy(&loadoption))
             }
         }
         unsafe extern "system" fn CmdLoadFromMemory<Identity: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grammardata: super::VARIANT, loadoption: SpeechLoadOption) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecoGrammar_Impl::CmdLoadFromMemory(this, core::mem::transmute(&grammardata), core::mem::transmute_copy(&loadoption)).into()
+                ISpeechRecoGrammar_Impl::CmdLoadFromMemory(this, core::mem::transmute(&grammardata), core::mem::transmute_copy(&loadoption))
             }
         }
         unsafe extern "system" fn CmdLoadFromProprietaryGrammar<Identity: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, proprietaryguid: *mut core::ffi::c_void, proprietarystring: *mut core::ffi::c_void, proprietarydata: super::VARIANT, loadoption: SpeechLoadOption) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecoGrammar_Impl::CmdLoadFromProprietaryGrammar(this, core::mem::transmute(&proprietaryguid), core::mem::transmute(&proprietarystring), core::mem::transmute(&proprietarydata), core::mem::transmute_copy(&loadoption)).into()
+                ISpeechRecoGrammar_Impl::CmdLoadFromProprietaryGrammar(this, core::mem::transmute(&proprietaryguid), core::mem::transmute(&proprietarystring), core::mem::transmute(&proprietarydata), core::mem::transmute_copy(&loadoption))
             }
         }
         unsafe extern "system" fn CmdSetRuleState<Identity: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, state: SpeechRuleState) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecoGrammar_Impl::CmdSetRuleState(this, core::mem::transmute(&name), core::mem::transmute_copy(&state)).into()
+                ISpeechRecoGrammar_Impl::CmdSetRuleState(this, core::mem::transmute(&name), core::mem::transmute_copy(&state))
             }
         }
         unsafe extern "system" fn CmdSetRuleIdState<Identity: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ruleid: i32, state: SpeechRuleState) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecoGrammar_Impl::CmdSetRuleIdState(this, core::mem::transmute_copy(&ruleid), core::mem::transmute_copy(&state)).into()
+                ISpeechRecoGrammar_Impl::CmdSetRuleIdState(this, core::mem::transmute_copy(&ruleid), core::mem::transmute_copy(&state))
             }
         }
         unsafe extern "system" fn DictationLoad<Identity: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, topicname: *mut core::ffi::c_void, loadoption: SpeechLoadOption) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecoGrammar_Impl::DictationLoad(this, core::mem::transmute(&topicname), core::mem::transmute_copy(&loadoption)).into()
+                ISpeechRecoGrammar_Impl::DictationLoad(this, core::mem::transmute(&topicname), core::mem::transmute_copy(&loadoption))
             }
         }
         unsafe extern "system" fn DictationUnload<Identity: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecoGrammar_Impl::DictationUnload(this).into()
+                ISpeechRecoGrammar_Impl::DictationUnload(this)
             }
         }
         unsafe extern "system" fn DictationSetState<Identity: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: SpeechRuleState) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecoGrammar_Impl::DictationSetState(this, core::mem::transmute_copy(&state)).into()
+                ISpeechRecoGrammar_Impl::DictationSetState(this, core::mem::transmute_copy(&state))
             }
         }
         unsafe extern "system" fn SetWordSequenceData<Identity: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: *mut core::ffi::c_void, textlength: i32, info: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecoGrammar_Impl::SetWordSequenceData(this, core::mem::transmute(&text), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&info)).into()
+                ISpeechRecoGrammar_Impl::SetWordSequenceData(this, core::mem::transmute(&text), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&info))
             }
         }
         unsafe extern "system" fn SetTextSelection<Identity: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, info: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecoGrammar_Impl::SetTextSelection(this, core::mem::transmute_copy(&info)).into()
+                ISpeechRecoGrammar_Impl::SetTextSelection(this, core::mem::transmute_copy(&info))
             }
         }
         unsafe extern "system" fn IsPronounceable<Identity: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, word: *mut core::ffi::c_void, wordpronounceable: *mut SpeechWordPronounceable) -> windows_core::HRESULT {
@@ -12707,14 +12707,14 @@ pub struct ISpeechRecoResult_Vtbl {
 pub trait ISpeechRecoResult_Impl: super::IDispatch_Impl {
     fn RecoContext(&self) -> windows_core::Result<ISpeechRecoContext>;
     fn Times(&self) -> windows_core::Result<ISpeechRecoResultTimes>;
-    fn putref_AudioFormat(&self, format: windows_core::Ref<ISpeechAudioFormat>) -> windows_core::Result<()>;
+    fn putref_AudioFormat(&self, format: windows_core::Ref<ISpeechAudioFormat>) -> windows_core::HRESULT;
     fn AudioFormat(&self) -> windows_core::Result<ISpeechAudioFormat>;
     fn PhraseInfo(&self) -> windows_core::Result<ISpeechPhraseInfo>;
     fn Alternates(&self, requestcount: i32, startelement: i32, elements: i32) -> windows_core::Result<ISpeechPhraseAlternates>;
     fn Audio(&self, startelement: i32, elements: i32) -> windows_core::Result<ISpeechMemoryStream>;
     fn SpeakAudio(&self, startelement: i32, elements: i32, flags: SpeechVoiceSpeakFlags) -> windows_core::Result<i32>;
     fn SaveToMemory(&self) -> windows_core::Result<super::VARIANT>;
-    fn DiscardResultInfo(&self, valuetypes: SpeechDiscardType) -> windows_core::Result<()>;
+    fn DiscardResultInfo(&self, valuetypes: SpeechDiscardType) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechRecoResult_Vtbl {
@@ -12752,7 +12752,7 @@ impl ISpeechRecoResult_Vtbl {
         unsafe extern "system" fn putref_AudioFormat<Identity: ISpeechRecoResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecoResult_Impl::putref_AudioFormat(this, core::mem::transmute_copy(&format)).into()
+                ISpeechRecoResult_Impl::putref_AudioFormat(this, core::mem::transmute_copy(&format))
             }
         }
         unsafe extern "system" fn AudioFormat<Identity: ISpeechRecoResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12848,7 +12848,7 @@ impl ISpeechRecoResult_Vtbl {
         unsafe extern "system" fn DiscardResultInfo<Identity: ISpeechRecoResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, valuetypes: SpeechDiscardType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecoResult_Impl::DiscardResultInfo(this, core::mem::transmute_copy(&valuetypes)).into()
+                ISpeechRecoResult_Impl::DiscardResultInfo(this, core::mem::transmute_copy(&valuetypes))
             }
         }
         Self {
@@ -12901,7 +12901,7 @@ pub struct ISpeechRecoResult2_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechRecoResult2_Impl: ISpeechRecoResult_Impl {
-    fn SetTextFeedback(&self, feedback: &windows_core::BSTR, wassuccessful: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetTextFeedback(&self, feedback: &windows_core::BSTR, wassuccessful: super::VARIANT_BOOL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechRecoResult2_Vtbl {
@@ -12909,7 +12909,7 @@ impl ISpeechRecoResult2_Vtbl {
         unsafe extern "system" fn SetTextFeedback<Identity: ISpeechRecoResult2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, feedback: *mut core::ffi::c_void, wassuccessful: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecoResult2_Impl::SetTextFeedback(this, core::mem::transmute(&feedback), core::mem::transmute_copy(&wassuccessful)).into()
+                ISpeechRecoResult2_Impl::SetTextFeedback(this, core::mem::transmute(&feedback), core::mem::transmute_copy(&wassuccessful))
             }
         }
         Self { base__: ISpeechRecoResult_Vtbl::new::<Identity, OFFSET>(), SetTextFeedback: SetTextFeedback::<Identity, OFFSET> }
@@ -13041,17 +13041,17 @@ pub struct ISpeechRecoResultDispatch_Vtbl {
 pub trait ISpeechRecoResultDispatch_Impl: super::IDispatch_Impl {
     fn RecoContext(&self) -> windows_core::Result<ISpeechRecoContext>;
     fn Times(&self) -> windows_core::Result<ISpeechRecoResultTimes>;
-    fn putref_AudioFormat(&self, format: windows_core::Ref<ISpeechAudioFormat>) -> windows_core::Result<()>;
+    fn putref_AudioFormat(&self, format: windows_core::Ref<ISpeechAudioFormat>) -> windows_core::HRESULT;
     fn AudioFormat(&self) -> windows_core::Result<ISpeechAudioFormat>;
     fn PhraseInfo(&self) -> windows_core::Result<ISpeechPhraseInfo>;
     fn Alternates(&self, requestcount: i32, startelement: i32, elements: i32) -> windows_core::Result<ISpeechPhraseAlternates>;
     fn Audio(&self, startelement: i32, elements: i32) -> windows_core::Result<ISpeechMemoryStream>;
     fn SpeakAudio(&self, startelement: i32, elements: i32, flags: SpeechVoiceSpeakFlags) -> windows_core::Result<i32>;
     fn SaveToMemory(&self) -> windows_core::Result<super::VARIANT>;
-    fn DiscardResultInfo(&self, valuetypes: SpeechDiscardType) -> windows_core::Result<()>;
+    fn DiscardResultInfo(&self, valuetypes: SpeechDiscardType) -> windows_core::HRESULT;
     fn GetXMLResult(&self, options: SPXMLRESULTOPTIONS) -> windows_core::Result<windows_core::BSTR>;
     fn GetXMLErrorInfo(&self, linenumber: *mut i32, scriptline: *mut windows_core::BSTR, source: *mut windows_core::BSTR, description: *mut windows_core::BSTR, resultcode: *mut windows_core::HRESULT) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetTextFeedback(&self, feedback: &windows_core::BSTR, wassuccessful: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetTextFeedback(&self, feedback: &windows_core::BSTR, wassuccessful: super::VARIANT_BOOL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechRecoResultDispatch_Vtbl {
@@ -13089,7 +13089,7 @@ impl ISpeechRecoResultDispatch_Vtbl {
         unsafe extern "system" fn putref_AudioFormat<Identity: ISpeechRecoResultDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecoResultDispatch_Impl::putref_AudioFormat(this, core::mem::transmute_copy(&format)).into()
+                ISpeechRecoResultDispatch_Impl::putref_AudioFormat(this, core::mem::transmute_copy(&format))
             }
         }
         unsafe extern "system" fn AudioFormat<Identity: ISpeechRecoResultDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -13185,7 +13185,7 @@ impl ISpeechRecoResultDispatch_Vtbl {
         unsafe extern "system" fn DiscardResultInfo<Identity: ISpeechRecoResultDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, valuetypes: SpeechDiscardType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecoResultDispatch_Impl::DiscardResultInfo(this, core::mem::transmute_copy(&valuetypes)).into()
+                ISpeechRecoResultDispatch_Impl::DiscardResultInfo(this, core::mem::transmute_copy(&valuetypes))
             }
         }
         unsafe extern "system" fn GetXMLResult<Identity: ISpeechRecoResultDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: SPXMLRESULTOPTIONS, presult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -13221,7 +13221,7 @@ impl ISpeechRecoResultDispatch_Vtbl {
         unsafe extern "system" fn SetTextFeedback<Identity: ISpeechRecoResultDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, feedback: *mut core::ffi::c_void, wassuccessful: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecoResultDispatch_Impl::SetTextFeedback(this, core::mem::transmute(&feedback), core::mem::transmute_copy(&wassuccessful)).into()
+                ISpeechRecoResultDispatch_Impl::SetTextFeedback(this, core::mem::transmute(&feedback), core::mem::transmute_copy(&wassuccessful))
             }
         }
         Self {
@@ -13623,21 +13623,21 @@ pub struct ISpeechRecognizer_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechRecognizer_Impl: super::IDispatch_Impl {
-    fn putref_Recognizer(&self, recognizer: windows_core::Ref<ISpeechObjectToken>) -> windows_core::Result<()>;
+    fn putref_Recognizer(&self, recognizer: windows_core::Ref<ISpeechObjectToken>) -> windows_core::HRESULT;
     fn Recognizer(&self) -> windows_core::Result<ISpeechObjectToken>;
-    fn SetAllowAudioInputFormatChangesOnNextSet(&self, allow: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetAllowAudioInputFormatChangesOnNextSet(&self, allow: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn AllowAudioInputFormatChangesOnNextSet(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn putref_AudioInput(&self, audioinput: windows_core::Ref<ISpeechObjectToken>) -> windows_core::Result<()>;
+    fn putref_AudioInput(&self, audioinput: windows_core::Ref<ISpeechObjectToken>) -> windows_core::HRESULT;
     fn AudioInput(&self) -> windows_core::Result<ISpeechObjectToken>;
-    fn putref_AudioInputStream(&self, audioinputstream: windows_core::Ref<ISpeechBaseStream>) -> windows_core::Result<()>;
+    fn putref_AudioInputStream(&self, audioinputstream: windows_core::Ref<ISpeechBaseStream>) -> windows_core::HRESULT;
     fn AudioInputStream(&self) -> windows_core::Result<ISpeechBaseStream>;
     fn IsShared(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetState(&self, state: SpeechRecognizerState) -> windows_core::Result<()>;
+    fn SetState(&self, state: SpeechRecognizerState) -> windows_core::HRESULT;
     fn State(&self) -> windows_core::Result<SpeechRecognizerState>;
     fn Status(&self) -> windows_core::Result<ISpeechRecognizerStatus>;
-    fn putref_Profile(&self, profile: windows_core::Ref<ISpeechObjectToken>) -> windows_core::Result<()>;
+    fn putref_Profile(&self, profile: windows_core::Ref<ISpeechObjectToken>) -> windows_core::HRESULT;
     fn Profile(&self) -> windows_core::Result<ISpeechObjectToken>;
-    fn EmulateRecognition(&self, textelements: &super::VARIANT, elementdisplayattributes: *const super::VARIANT, languageid: i32) -> windows_core::Result<()>;
+    fn EmulateRecognition(&self, textelements: &super::VARIANT, elementdisplayattributes: *const super::VARIANT, languageid: i32) -> windows_core::HRESULT;
     fn CreateRecoContext(&self) -> windows_core::Result<ISpeechRecoContext>;
     fn GetFormat(&self, r#type: SpeechFormatType) -> windows_core::Result<ISpeechAudioFormat>;
     fn SetPropertyNumber(&self, name: &windows_core::BSTR, value: i32) -> windows_core::Result<super::VARIANT_BOOL>;
@@ -13645,7 +13645,7 @@ pub trait ISpeechRecognizer_Impl: super::IDispatch_Impl {
     fn SetPropertyString(&self, name: &windows_core::BSTR, value: &windows_core::BSTR) -> windows_core::Result<super::VARIANT_BOOL>;
     fn GetPropertyString(&self, name: &windows_core::BSTR, value: *mut windows_core::BSTR) -> windows_core::Result<super::VARIANT_BOOL>;
     fn IsUISupported(&self, typeofui: &windows_core::BSTR, extradata: *const super::VARIANT) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn DisplayUI(&self, hwndparent: i32, title: &windows_core::BSTR, typeofui: &windows_core::BSTR, extradata: *const super::VARIANT) -> windows_core::Result<()>;
+    fn DisplayUI(&self, hwndparent: i32, title: &windows_core::BSTR, typeofui: &windows_core::BSTR, extradata: *const super::VARIANT) -> windows_core::HRESULT;
     fn GetRecognizers(&self, requiredattributes: &windows_core::BSTR, optionalattributes: &windows_core::BSTR) -> windows_core::Result<ISpeechObjectTokens>;
     fn GetAudioInputs(&self, requiredattributes: &windows_core::BSTR, optionalattributes: &windows_core::BSTR) -> windows_core::Result<ISpeechObjectTokens>;
     fn GetProfiles(&self, requiredattributes: &windows_core::BSTR, optionalattributes: &windows_core::BSTR) -> windows_core::Result<ISpeechObjectTokens>;
@@ -13656,7 +13656,7 @@ impl ISpeechRecognizer_Vtbl {
         unsafe extern "system" fn putref_Recognizer<Identity: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recognizer: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecognizer_Impl::putref_Recognizer(this, core::mem::transmute_copy(&recognizer)).into()
+                ISpeechRecognizer_Impl::putref_Recognizer(this, core::mem::transmute_copy(&recognizer))
             }
         }
         unsafe extern "system" fn Recognizer<Identity: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recognizer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -13677,7 +13677,7 @@ impl ISpeechRecognizer_Vtbl {
         unsafe extern "system" fn SetAllowAudioInputFormatChangesOnNextSet<Identity: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecognizer_Impl::SetAllowAudioInputFormatChangesOnNextSet(this, core::mem::transmute_copy(&allow)).into()
+                ISpeechRecognizer_Impl::SetAllowAudioInputFormatChangesOnNextSet(this, core::mem::transmute_copy(&allow))
             }
         }
         unsafe extern "system" fn AllowAudioInputFormatChangesOnNextSet<Identity: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -13698,7 +13698,7 @@ impl ISpeechRecognizer_Vtbl {
         unsafe extern "system" fn putref_AudioInput<Identity: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, audioinput: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecognizer_Impl::putref_AudioInput(this, core::mem::transmute_copy(&audioinput)).into()
+                ISpeechRecognizer_Impl::putref_AudioInput(this, core::mem::transmute_copy(&audioinput))
             }
         }
         unsafe extern "system" fn AudioInput<Identity: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, audioinput: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -13719,7 +13719,7 @@ impl ISpeechRecognizer_Vtbl {
         unsafe extern "system" fn putref_AudioInputStream<Identity: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, audioinputstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecognizer_Impl::putref_AudioInputStream(this, core::mem::transmute_copy(&audioinputstream)).into()
+                ISpeechRecognizer_Impl::putref_AudioInputStream(this, core::mem::transmute_copy(&audioinputstream))
             }
         }
         unsafe extern "system" fn AudioInputStream<Identity: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, audioinputstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -13755,7 +13755,7 @@ impl ISpeechRecognizer_Vtbl {
         unsafe extern "system" fn SetState<Identity: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: SpeechRecognizerState) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecognizer_Impl::SetState(this, core::mem::transmute_copy(&state)).into()
+                ISpeechRecognizer_Impl::SetState(this, core::mem::transmute_copy(&state))
             }
         }
         unsafe extern "system" fn State<Identity: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: *mut SpeechRecognizerState) -> windows_core::HRESULT {
@@ -13791,7 +13791,7 @@ impl ISpeechRecognizer_Vtbl {
         unsafe extern "system" fn putref_Profile<Identity: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profile: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecognizer_Impl::putref_Profile(this, core::mem::transmute_copy(&profile)).into()
+                ISpeechRecognizer_Impl::putref_Profile(this, core::mem::transmute_copy(&profile))
             }
         }
         unsafe extern "system" fn Profile<Identity: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -13812,7 +13812,7 @@ impl ISpeechRecognizer_Vtbl {
         unsafe extern "system" fn EmulateRecognition<Identity: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, textelements: super::VARIANT, elementdisplayattributes: *const super::VARIANT, languageid: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecognizer_Impl::EmulateRecognition(this, core::mem::transmute(&textelements), core::mem::transmute_copy(&elementdisplayattributes), core::mem::transmute_copy(&languageid)).into()
+                ISpeechRecognizer_Impl::EmulateRecognition(this, core::mem::transmute(&textelements), core::mem::transmute_copy(&elementdisplayattributes), core::mem::transmute_copy(&languageid))
             }
         }
         unsafe extern "system" fn CreateRecoContext<Identity: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newcontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -13923,7 +13923,7 @@ impl ISpeechRecognizer_Vtbl {
         unsafe extern "system" fn DisplayUI<Identity: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: i32, title: *mut core::ffi::c_void, typeofui: *mut core::ffi::c_void, extradata: *const super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecognizer_Impl::DisplayUI(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute(&title), core::mem::transmute(&typeofui), core::mem::transmute_copy(&extradata)).into()
+                ISpeechRecognizer_Impl::DisplayUI(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute(&title), core::mem::transmute(&typeofui), core::mem::transmute_copy(&extradata))
             }
         }
         unsafe extern "system" fn GetRecognizers<Identity: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requiredattributes: *mut core::ffi::c_void, optionalattributes: *mut core::ffi::c_void, objecttokens: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -14233,9 +14233,9 @@ pub struct ISpeechResourceLoader_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechResourceLoader_Impl: super::IDispatch_Impl {
-    fn LoadResource(&self, bstrresourceuri: &windows_core::BSTR, falwaysreload: super::VARIANT_BOOL, pstream: windows_core::OutRef<windows_core::IUnknown>, pbstrmimetype: *mut windows_core::BSTR, pfmodified: *mut super::VARIANT_BOOL, pbstrredirecturl: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetLocalCopy(&self, bstrresourceuri: &windows_core::BSTR, pbstrlocalpath: *mut windows_core::BSTR, pbstrmimetype: *mut windows_core::BSTR, pbstrredirecturl: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn ReleaseLocalCopy(&self, pbstrlocalpath: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn LoadResource(&self, bstrresourceuri: &windows_core::BSTR, falwaysreload: super::VARIANT_BOOL, pstream: windows_core::OutRef<windows_core::IUnknown>, pbstrmimetype: *mut windows_core::BSTR, pfmodified: *mut super::VARIANT_BOOL, pbstrredirecturl: *mut windows_core::BSTR) -> windows_core::HRESULT;
+    fn GetLocalCopy(&self, bstrresourceuri: &windows_core::BSTR, pbstrlocalpath: *mut windows_core::BSTR, pbstrmimetype: *mut windows_core::BSTR, pbstrredirecturl: *mut windows_core::BSTR) -> windows_core::HRESULT;
+    fn ReleaseLocalCopy(&self, pbstrlocalpath: &windows_core::BSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechResourceLoader_Vtbl {
@@ -14243,19 +14243,19 @@ impl ISpeechResourceLoader_Vtbl {
         unsafe extern "system" fn LoadResource<Identity: ISpeechResourceLoader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrresourceuri: *mut core::ffi::c_void, falwaysreload: super::VARIANT_BOOL, pstream: *mut *mut core::ffi::c_void, pbstrmimetype: *mut *mut core::ffi::c_void, pfmodified: *mut super::VARIANT_BOOL, pbstrredirecturl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechResourceLoader_Impl::LoadResource(this, core::mem::transmute(&bstrresourceuri), core::mem::transmute_copy(&falwaysreload), core::mem::transmute_copy(&pstream), core::mem::transmute_copy(&pbstrmimetype), core::mem::transmute_copy(&pfmodified), core::mem::transmute_copy(&pbstrredirecturl)).into()
+                ISpeechResourceLoader_Impl::LoadResource(this, core::mem::transmute(&bstrresourceuri), core::mem::transmute_copy(&falwaysreload), core::mem::transmute_copy(&pstream), core::mem::transmute_copy(&pbstrmimetype), core::mem::transmute_copy(&pfmodified), core::mem::transmute_copy(&pbstrredirecturl))
             }
         }
         unsafe extern "system" fn GetLocalCopy<Identity: ISpeechResourceLoader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrresourceuri: *mut core::ffi::c_void, pbstrlocalpath: *mut *mut core::ffi::c_void, pbstrmimetype: *mut *mut core::ffi::c_void, pbstrredirecturl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechResourceLoader_Impl::GetLocalCopy(this, core::mem::transmute(&bstrresourceuri), core::mem::transmute_copy(&pbstrlocalpath), core::mem::transmute_copy(&pbstrmimetype), core::mem::transmute_copy(&pbstrredirecturl)).into()
+                ISpeechResourceLoader_Impl::GetLocalCopy(this, core::mem::transmute(&bstrresourceuri), core::mem::transmute_copy(&pbstrlocalpath), core::mem::transmute_copy(&pbstrmimetype), core::mem::transmute_copy(&pbstrredirecturl))
             }
         }
         unsafe extern "system" fn ReleaseLocalCopy<Identity: ISpeechResourceLoader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrlocalpath: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechResourceLoader_Impl::ReleaseLocalCopy(this, core::mem::transmute(&pbstrlocalpath)).into()
+                ISpeechResourceLoader_Impl::ReleaseLocalCopy(this, core::mem::transmute(&pbstrlocalpath))
             }
         }
         Self {
@@ -14337,13 +14337,13 @@ pub struct ISpeechTextSelectionInformation_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechTextSelectionInformation_Impl: super::IDispatch_Impl {
-    fn SetActiveOffset(&self, activeoffset: i32) -> windows_core::Result<()>;
+    fn SetActiveOffset(&self, activeoffset: i32) -> windows_core::HRESULT;
     fn ActiveOffset(&self) -> windows_core::Result<i32>;
-    fn SetActiveLength(&self, activelength: i32) -> windows_core::Result<()>;
+    fn SetActiveLength(&self, activelength: i32) -> windows_core::HRESULT;
     fn ActiveLength(&self) -> windows_core::Result<i32>;
-    fn SetSelectionOffset(&self, selectionoffset: i32) -> windows_core::Result<()>;
+    fn SetSelectionOffset(&self, selectionoffset: i32) -> windows_core::HRESULT;
     fn SelectionOffset(&self) -> windows_core::Result<i32>;
-    fn SetSelectionLength(&self, selectionlength: i32) -> windows_core::Result<()>;
+    fn SetSelectionLength(&self, selectionlength: i32) -> windows_core::HRESULT;
     fn SelectionLength(&self) -> windows_core::Result<i32>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -14352,7 +14352,7 @@ impl ISpeechTextSelectionInformation_Vtbl {
         unsafe extern "system" fn SetActiveOffset<Identity: ISpeechTextSelectionInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, activeoffset: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechTextSelectionInformation_Impl::SetActiveOffset(this, core::mem::transmute_copy(&activeoffset)).into()
+                ISpeechTextSelectionInformation_Impl::SetActiveOffset(this, core::mem::transmute_copy(&activeoffset))
             }
         }
         unsafe extern "system" fn ActiveOffset<Identity: ISpeechTextSelectionInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, activeoffset: *mut i32) -> windows_core::HRESULT {
@@ -14373,7 +14373,7 @@ impl ISpeechTextSelectionInformation_Vtbl {
         unsafe extern "system" fn SetActiveLength<Identity: ISpeechTextSelectionInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, activelength: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechTextSelectionInformation_Impl::SetActiveLength(this, core::mem::transmute_copy(&activelength)).into()
+                ISpeechTextSelectionInformation_Impl::SetActiveLength(this, core::mem::transmute_copy(&activelength))
             }
         }
         unsafe extern "system" fn ActiveLength<Identity: ISpeechTextSelectionInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, activelength: *mut i32) -> windows_core::HRESULT {
@@ -14394,7 +14394,7 @@ impl ISpeechTextSelectionInformation_Vtbl {
         unsafe extern "system" fn SetSelectionOffset<Identity: ISpeechTextSelectionInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, selectionoffset: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechTextSelectionInformation_Impl::SetSelectionOffset(this, core::mem::transmute_copy(&selectionoffset)).into()
+                ISpeechTextSelectionInformation_Impl::SetSelectionOffset(this, core::mem::transmute_copy(&selectionoffset))
             }
         }
         unsafe extern "system" fn SelectionOffset<Identity: ISpeechTextSelectionInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, selectionoffset: *mut i32) -> windows_core::HRESULT {
@@ -14415,7 +14415,7 @@ impl ISpeechTextSelectionInformation_Vtbl {
         unsafe extern "system" fn SetSelectionLength<Identity: ISpeechTextSelectionInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, selectionlength: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechTextSelectionInformation_Impl::SetSelectionLength(this, core::mem::transmute_copy(&selectionlength)).into()
+                ISpeechTextSelectionInformation_Impl::SetSelectionLength(this, core::mem::transmute_copy(&selectionlength))
             }
         }
         unsafe extern "system" fn SelectionLength<Identity: ISpeechTextSelectionInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, selectionlength: *mut i32) -> windows_core::HRESULT {
@@ -14692,36 +14692,36 @@ pub struct ISpeechVoice_Vtbl {
 pub trait ISpeechVoice_Impl: super::IDispatch_Impl {
     fn Status(&self) -> windows_core::Result<ISpeechVoiceStatus>;
     fn Voice(&self) -> windows_core::Result<ISpeechObjectToken>;
-    fn putref_Voice(&self, voice: windows_core::Ref<ISpeechObjectToken>) -> windows_core::Result<()>;
+    fn putref_Voice(&self, voice: windows_core::Ref<ISpeechObjectToken>) -> windows_core::HRESULT;
     fn AudioOutput(&self) -> windows_core::Result<ISpeechObjectToken>;
-    fn putref_AudioOutput(&self, audiooutput: windows_core::Ref<ISpeechObjectToken>) -> windows_core::Result<()>;
+    fn putref_AudioOutput(&self, audiooutput: windows_core::Ref<ISpeechObjectToken>) -> windows_core::HRESULT;
     fn AudioOutputStream(&self) -> windows_core::Result<ISpeechBaseStream>;
-    fn putref_AudioOutputStream(&self, audiooutputstream: windows_core::Ref<ISpeechBaseStream>) -> windows_core::Result<()>;
+    fn putref_AudioOutputStream(&self, audiooutputstream: windows_core::Ref<ISpeechBaseStream>) -> windows_core::HRESULT;
     fn Rate(&self) -> windows_core::Result<i32>;
-    fn SetRate(&self, rate: i32) -> windows_core::Result<()>;
+    fn SetRate(&self, rate: i32) -> windows_core::HRESULT;
     fn Volume(&self) -> windows_core::Result<i32>;
-    fn SetVolume(&self, volume: i32) -> windows_core::Result<()>;
-    fn SetAllowAudioOutputFormatChangesOnNextSet(&self, allow: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetVolume(&self, volume: i32) -> windows_core::HRESULT;
+    fn SetAllowAudioOutputFormatChangesOnNextSet(&self, allow: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn AllowAudioOutputFormatChangesOnNextSet(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn EventInterests(&self) -> windows_core::Result<SpeechVoiceEvents>;
-    fn SetEventInterests(&self, eventinterestflags: SpeechVoiceEvents) -> windows_core::Result<()>;
-    fn SetPriority(&self, priority: SpeechVoicePriority) -> windows_core::Result<()>;
+    fn SetEventInterests(&self, eventinterestflags: SpeechVoiceEvents) -> windows_core::HRESULT;
+    fn SetPriority(&self, priority: SpeechVoicePriority) -> windows_core::HRESULT;
     fn Priority(&self) -> windows_core::Result<SpeechVoicePriority>;
-    fn SetAlertBoundary(&self, boundary: SpeechVoiceEvents) -> windows_core::Result<()>;
+    fn SetAlertBoundary(&self, boundary: SpeechVoiceEvents) -> windows_core::HRESULT;
     fn AlertBoundary(&self) -> windows_core::Result<SpeechVoiceEvents>;
-    fn SetSynchronousSpeakTimeout(&self, mstimeout: i32) -> windows_core::Result<()>;
+    fn SetSynchronousSpeakTimeout(&self, mstimeout: i32) -> windows_core::HRESULT;
     fn SynchronousSpeakTimeout(&self) -> windows_core::Result<i32>;
     fn Speak(&self, text: &windows_core::BSTR, flags: SpeechVoiceSpeakFlags) -> windows_core::Result<i32>;
     fn SpeakStream(&self, stream: windows_core::Ref<ISpeechBaseStream>, flags: SpeechVoiceSpeakFlags) -> windows_core::Result<i32>;
-    fn Pause(&self) -> windows_core::Result<()>;
-    fn Resume(&self) -> windows_core::Result<()>;
+    fn Pause(&self) -> windows_core::HRESULT;
+    fn Resume(&self) -> windows_core::HRESULT;
     fn Skip(&self, r#type: &windows_core::BSTR, numitems: i32) -> windows_core::Result<i32>;
     fn GetVoices(&self, requiredattributes: &windows_core::BSTR, optionalattributes: &windows_core::BSTR) -> windows_core::Result<ISpeechObjectTokens>;
     fn GetAudioOutputs(&self, requiredattributes: &windows_core::BSTR, optionalattributes: &windows_core::BSTR) -> windows_core::Result<ISpeechObjectTokens>;
     fn WaitUntilDone(&self, mstimeout: i32) -> windows_core::Result<super::VARIANT_BOOL>;
     fn SpeakCompleteEvent(&self) -> windows_core::Result<i32>;
     fn IsUISupported(&self, typeofui: &windows_core::BSTR, extradata: *const super::VARIANT) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn DisplayUI(&self, hwndparent: i32, title: &windows_core::BSTR, typeofui: &windows_core::BSTR, extradata: *const super::VARIANT) -> windows_core::Result<()>;
+    fn DisplayUI(&self, hwndparent: i32, title: &windows_core::BSTR, typeofui: &windows_core::BSTR, extradata: *const super::VARIANT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechVoice_Vtbl {
@@ -14759,7 +14759,7 @@ impl ISpeechVoice_Vtbl {
         unsafe extern "system" fn putref_Voice<Identity: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, voice: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechVoice_Impl::putref_Voice(this, core::mem::transmute_copy(&voice)).into()
+                ISpeechVoice_Impl::putref_Voice(this, core::mem::transmute_copy(&voice))
             }
         }
         unsafe extern "system" fn AudioOutput<Identity: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, audiooutput: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -14780,7 +14780,7 @@ impl ISpeechVoice_Vtbl {
         unsafe extern "system" fn putref_AudioOutput<Identity: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, audiooutput: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechVoice_Impl::putref_AudioOutput(this, core::mem::transmute_copy(&audiooutput)).into()
+                ISpeechVoice_Impl::putref_AudioOutput(this, core::mem::transmute_copy(&audiooutput))
             }
         }
         unsafe extern "system" fn AudioOutputStream<Identity: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, audiooutputstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -14801,7 +14801,7 @@ impl ISpeechVoice_Vtbl {
         unsafe extern "system" fn putref_AudioOutputStream<Identity: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, audiooutputstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechVoice_Impl::putref_AudioOutputStream(this, core::mem::transmute_copy(&audiooutputstream)).into()
+                ISpeechVoice_Impl::putref_AudioOutputStream(this, core::mem::transmute_copy(&audiooutputstream))
             }
         }
         unsafe extern "system" fn Rate<Identity: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rate: *mut i32) -> windows_core::HRESULT {
@@ -14822,7 +14822,7 @@ impl ISpeechVoice_Vtbl {
         unsafe extern "system" fn SetRate<Identity: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rate: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechVoice_Impl::SetRate(this, core::mem::transmute_copy(&rate)).into()
+                ISpeechVoice_Impl::SetRate(this, core::mem::transmute_copy(&rate))
             }
         }
         unsafe extern "system" fn Volume<Identity: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, volume: *mut i32) -> windows_core::HRESULT {
@@ -14843,13 +14843,13 @@ impl ISpeechVoice_Vtbl {
         unsafe extern "system" fn SetVolume<Identity: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, volume: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechVoice_Impl::SetVolume(this, core::mem::transmute_copy(&volume)).into()
+                ISpeechVoice_Impl::SetVolume(this, core::mem::transmute_copy(&volume))
             }
         }
         unsafe extern "system" fn SetAllowAudioOutputFormatChangesOnNextSet<Identity: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechVoice_Impl::SetAllowAudioOutputFormatChangesOnNextSet(this, core::mem::transmute_copy(&allow)).into()
+                ISpeechVoice_Impl::SetAllowAudioOutputFormatChangesOnNextSet(this, core::mem::transmute_copy(&allow))
             }
         }
         unsafe extern "system" fn AllowAudioOutputFormatChangesOnNextSet<Identity: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -14885,13 +14885,13 @@ impl ISpeechVoice_Vtbl {
         unsafe extern "system" fn SetEventInterests<Identity: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventinterestflags: SpeechVoiceEvents) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechVoice_Impl::SetEventInterests(this, core::mem::transmute_copy(&eventinterestflags)).into()
+                ISpeechVoice_Impl::SetEventInterests(this, core::mem::transmute_copy(&eventinterestflags))
             }
         }
         unsafe extern "system" fn SetPriority<Identity: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, priority: SpeechVoicePriority) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechVoice_Impl::SetPriority(this, core::mem::transmute_copy(&priority)).into()
+                ISpeechVoice_Impl::SetPriority(this, core::mem::transmute_copy(&priority))
             }
         }
         unsafe extern "system" fn Priority<Identity: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, priority: *mut SpeechVoicePriority) -> windows_core::HRESULT {
@@ -14912,7 +14912,7 @@ impl ISpeechVoice_Vtbl {
         unsafe extern "system" fn SetAlertBoundary<Identity: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, boundary: SpeechVoiceEvents) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechVoice_Impl::SetAlertBoundary(this, core::mem::transmute_copy(&boundary)).into()
+                ISpeechVoice_Impl::SetAlertBoundary(this, core::mem::transmute_copy(&boundary))
             }
         }
         unsafe extern "system" fn AlertBoundary<Identity: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, boundary: *mut SpeechVoiceEvents) -> windows_core::HRESULT {
@@ -14933,7 +14933,7 @@ impl ISpeechVoice_Vtbl {
         unsafe extern "system" fn SetSynchronousSpeakTimeout<Identity: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mstimeout: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechVoice_Impl::SetSynchronousSpeakTimeout(this, core::mem::transmute_copy(&mstimeout)).into()
+                ISpeechVoice_Impl::SetSynchronousSpeakTimeout(this, core::mem::transmute_copy(&mstimeout))
             }
         }
         unsafe extern "system" fn SynchronousSpeakTimeout<Identity: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mstimeout: *mut i32) -> windows_core::HRESULT {
@@ -14984,13 +14984,13 @@ impl ISpeechVoice_Vtbl {
         unsafe extern "system" fn Pause<Identity: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechVoice_Impl::Pause(this).into()
+                ISpeechVoice_Impl::Pause(this)
             }
         }
         unsafe extern "system" fn Resume<Identity: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechVoice_Impl::Resume(this).into()
+                ISpeechVoice_Impl::Resume(this)
             }
         }
         unsafe extern "system" fn Skip<Identity: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: *mut core::ffi::c_void, numitems: i32, numskipped: *mut i32) -> windows_core::HRESULT {
@@ -15086,7 +15086,7 @@ impl ISpeechVoice_Vtbl {
         unsafe extern "system" fn DisplayUI<Identity: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: i32, title: *mut core::ffi::c_void, typeofui: *mut core::ffi::c_void, extradata: *const super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechVoice_Impl::DisplayUI(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute(&title), core::mem::transmute(&typeofui), core::mem::transmute_copy(&extradata)).into()
+                ISpeechVoice_Impl::DisplayUI(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute(&title), core::mem::transmute(&typeofui), core::mem::transmute_copy(&extradata))
             }
         }
         Self {
@@ -15563,19 +15563,19 @@ pub struct ISpeechWaveFormatEx_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechWaveFormatEx_Impl: super::IDispatch_Impl {
     fn FormatTag(&self) -> windows_core::Result<i16>;
-    fn SetFormatTag(&self, formattag: i16) -> windows_core::Result<()>;
+    fn SetFormatTag(&self, formattag: i16) -> windows_core::HRESULT;
     fn Channels(&self) -> windows_core::Result<i16>;
-    fn SetChannels(&self, channels: i16) -> windows_core::Result<()>;
+    fn SetChannels(&self, channels: i16) -> windows_core::HRESULT;
     fn SamplesPerSec(&self) -> windows_core::Result<i32>;
-    fn SetSamplesPerSec(&self, samplespersec: i32) -> windows_core::Result<()>;
+    fn SetSamplesPerSec(&self, samplespersec: i32) -> windows_core::HRESULT;
     fn AvgBytesPerSec(&self) -> windows_core::Result<i32>;
-    fn SetAvgBytesPerSec(&self, avgbytespersec: i32) -> windows_core::Result<()>;
+    fn SetAvgBytesPerSec(&self, avgbytespersec: i32) -> windows_core::HRESULT;
     fn BlockAlign(&self) -> windows_core::Result<i16>;
-    fn SetBlockAlign(&self, blockalign: i16) -> windows_core::Result<()>;
+    fn SetBlockAlign(&self, blockalign: i16) -> windows_core::HRESULT;
     fn BitsPerSample(&self) -> windows_core::Result<i16>;
-    fn SetBitsPerSample(&self, bitspersample: i16) -> windows_core::Result<()>;
+    fn SetBitsPerSample(&self, bitspersample: i16) -> windows_core::HRESULT;
     fn ExtraData(&self) -> windows_core::Result<super::VARIANT>;
-    fn SetExtraData(&self, extradata: &super::VARIANT) -> windows_core::Result<()>;
+    fn SetExtraData(&self, extradata: &super::VARIANT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechWaveFormatEx_Vtbl {
@@ -15598,7 +15598,7 @@ impl ISpeechWaveFormatEx_Vtbl {
         unsafe extern "system" fn SetFormatTag<Identity: ISpeechWaveFormatEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, formattag: i16) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechWaveFormatEx_Impl::SetFormatTag(this, core::mem::transmute_copy(&formattag)).into()
+                ISpeechWaveFormatEx_Impl::SetFormatTag(this, core::mem::transmute_copy(&formattag))
             }
         }
         unsafe extern "system" fn Channels<Identity: ISpeechWaveFormatEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, channels: *mut i16) -> windows_core::HRESULT {
@@ -15619,7 +15619,7 @@ impl ISpeechWaveFormatEx_Vtbl {
         unsafe extern "system" fn SetChannels<Identity: ISpeechWaveFormatEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, channels: i16) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechWaveFormatEx_Impl::SetChannels(this, core::mem::transmute_copy(&channels)).into()
+                ISpeechWaveFormatEx_Impl::SetChannels(this, core::mem::transmute_copy(&channels))
             }
         }
         unsafe extern "system" fn SamplesPerSec<Identity: ISpeechWaveFormatEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, samplespersec: *mut i32) -> windows_core::HRESULT {
@@ -15640,7 +15640,7 @@ impl ISpeechWaveFormatEx_Vtbl {
         unsafe extern "system" fn SetSamplesPerSec<Identity: ISpeechWaveFormatEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, samplespersec: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechWaveFormatEx_Impl::SetSamplesPerSec(this, core::mem::transmute_copy(&samplespersec)).into()
+                ISpeechWaveFormatEx_Impl::SetSamplesPerSec(this, core::mem::transmute_copy(&samplespersec))
             }
         }
         unsafe extern "system" fn AvgBytesPerSec<Identity: ISpeechWaveFormatEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, avgbytespersec: *mut i32) -> windows_core::HRESULT {
@@ -15661,7 +15661,7 @@ impl ISpeechWaveFormatEx_Vtbl {
         unsafe extern "system" fn SetAvgBytesPerSec<Identity: ISpeechWaveFormatEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, avgbytespersec: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechWaveFormatEx_Impl::SetAvgBytesPerSec(this, core::mem::transmute_copy(&avgbytespersec)).into()
+                ISpeechWaveFormatEx_Impl::SetAvgBytesPerSec(this, core::mem::transmute_copy(&avgbytespersec))
             }
         }
         unsafe extern "system" fn BlockAlign<Identity: ISpeechWaveFormatEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, blockalign: *mut i16) -> windows_core::HRESULT {
@@ -15682,7 +15682,7 @@ impl ISpeechWaveFormatEx_Vtbl {
         unsafe extern "system" fn SetBlockAlign<Identity: ISpeechWaveFormatEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, blockalign: i16) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechWaveFormatEx_Impl::SetBlockAlign(this, core::mem::transmute_copy(&blockalign)).into()
+                ISpeechWaveFormatEx_Impl::SetBlockAlign(this, core::mem::transmute_copy(&blockalign))
             }
         }
         unsafe extern "system" fn BitsPerSample<Identity: ISpeechWaveFormatEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitspersample: *mut i16) -> windows_core::HRESULT {
@@ -15703,7 +15703,7 @@ impl ISpeechWaveFormatEx_Vtbl {
         unsafe extern "system" fn SetBitsPerSample<Identity: ISpeechWaveFormatEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitspersample: i16) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechWaveFormatEx_Impl::SetBitsPerSample(this, core::mem::transmute_copy(&bitspersample)).into()
+                ISpeechWaveFormatEx_Impl::SetBitsPerSample(this, core::mem::transmute_copy(&bitspersample))
             }
         }
         unsafe extern "system" fn ExtraData<Identity: ISpeechWaveFormatEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, extradata: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -15724,7 +15724,7 @@ impl ISpeechWaveFormatEx_Vtbl {
         unsafe extern "system" fn SetExtraData<Identity: ISpeechWaveFormatEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, extradata: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechWaveFormatEx_Impl::SetExtraData(this, core::mem::transmute(&extradata)).into()
+                ISpeechWaveFormatEx_Impl::SetExtraData(this, core::mem::transmute(&extradata))
             }
         }
         Self {
