@@ -537,7 +537,7 @@ impl IInk_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInk as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInk as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1386,7 +1386,7 @@ impl IInkCollector_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkCollector as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkCollector as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "ocidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1585,7 +1585,7 @@ impl IInkCursor_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkCursor as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkCursor as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1693,7 +1693,7 @@ impl IInkCursorButton_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkCursorButton as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkCursorButton as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1805,7 +1805,7 @@ impl IInkCursorButtons_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkCursorButtons as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkCursorButtons as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1913,7 +1913,7 @@ impl IInkCursors_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkCursors as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkCursors as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2068,7 +2068,7 @@ impl IInkCustomStrokes_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkCustomStrokes as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkCustomStrokes as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2710,7 +2710,7 @@ impl IInkDisp_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkDisp as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkDisp as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3142,7 +3142,7 @@ impl IInkDrawingAttributes_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkDrawingAttributes as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkDrawingAttributes as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3338,7 +3338,7 @@ impl IInkExtendedProperties_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkExtendedProperties as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkExtendedProperties as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3442,7 +3442,7 @@ impl IInkExtendedProperty_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkExtendedProperty as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkExtendedProperty as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3538,7 +3538,7 @@ impl IInkGesture_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkGesture as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkGesture as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4776,7 +4776,7 @@ impl IInkOverlay_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkOverlay as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkOverlay as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "ocidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6014,7 +6014,7 @@ impl IInkPicture_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkPicture as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkPicture as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "ocidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6424,7 +6424,7 @@ impl IInkRecognitionAlternate_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkRecognitionAlternate as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkRecognitionAlternate as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6556,7 +6556,7 @@ impl IInkRecognitionAlternates_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkRecognitionAlternates as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkRecognitionAlternates as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6739,7 +6739,7 @@ impl IInkRecognitionResult_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkRecognitionResult as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkRecognitionResult as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6955,7 +6955,7 @@ impl IInkRecognizer_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkRecognizer as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkRecognizer as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7039,7 +7039,7 @@ impl IInkRecognizer2_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), Id: Id::<Identity, OFFSET>, UnicodeRanges: UnicodeRanges::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkRecognizer2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkRecognizer2 as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7528,7 +7528,7 @@ impl IInkRecognizerContext_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkRecognizerContext as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkRecognizerContext as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7608,7 +7608,7 @@ impl IInkRecognizerContext2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkRecognizerContext2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkRecognizerContext2 as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7874,7 +7874,7 @@ impl IInkRecognizerGuide_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkRecognizerGuide as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkRecognizerGuide as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -8006,7 +8006,7 @@ impl IInkRecognizers_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkRecognizers as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkRecognizers as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -8254,7 +8254,7 @@ impl IInkRectangle_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkRectangle as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkRectangle as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -8548,7 +8548,7 @@ impl IInkRenderer_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkRenderer as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkRenderer as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -9350,7 +9350,7 @@ impl IInkStrokeDisp_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkStrokeDisp as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkStrokeDisp as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -9738,7 +9738,7 @@ impl IInkStrokes_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkStrokes as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkStrokes as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -9910,7 +9910,7 @@ impl IInkTablet_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkTablet as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkTablet as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -9967,7 +9967,7 @@ impl IInkTablet2_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), DeviceKind: DeviceKind::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkTablet2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkTablet2 as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -10059,7 +10059,7 @@ impl IInkTablet3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkTablet3 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkTablet3 as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -10219,7 +10219,7 @@ impl IInkTablets_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkTablets as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkTablets as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -10615,7 +10615,7 @@ impl IInkTransform_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkTransform as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkTransform as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "wingdi", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -10690,7 +10690,7 @@ impl IInkWordList_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkWordList as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkWordList as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -10735,7 +10735,7 @@ impl IInkWordList2_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), AddWords: AddWords::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInkWordList2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInkWordList2 as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -10918,7 +10918,7 @@ impl ISketchInk_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISketchInk as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISketchInk as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -11063,7 +11063,7 @@ impl _IInkCollectorEvents_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<_IInkCollectorEvents as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<_IInkCollectorEvents as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -11093,7 +11093,7 @@ impl _IInkEvents_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<_IInkEvents as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<_IInkEvents as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -11123,7 +11123,7 @@ impl _IInkOverlayEvents_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<_IInkOverlayEvents as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<_IInkOverlayEvents as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -11153,7 +11153,7 @@ impl _IInkPictureEvents_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<_IInkPictureEvents as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<_IInkPictureEvents as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -11183,7 +11183,7 @@ impl _IInkRecognitionEvents_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<_IInkRecognitionEvents as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<_IInkRecognitionEvents as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -11213,7 +11213,7 @@ impl _IInkStrokesEvents_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<_IInkStrokesEvents as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<_IInkStrokesEvents as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]

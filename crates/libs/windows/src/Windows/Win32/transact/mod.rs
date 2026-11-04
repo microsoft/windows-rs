@@ -248,7 +248,7 @@ impl ITransaction2_Vtbl {
         Self { base__: ITransactionCloner_Vtbl::new::<Identity, OFFSET>(), GetTransactionInfo2: GetTransactionInfo2::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITransaction2 as windows_core::Interface>::IID || iid == &<ITransaction as windows_core::Interface>::IID || iid == &<ITransactionCloner as windows_core::Interface>::IID
+        iid == &<ITransaction2 as windows_core::Interface>::IID || ITransactionCloner_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "rpc", feature = "shared"))]
@@ -300,7 +300,7 @@ impl ITransactionCloner_Vtbl {
         Self { base__: ITransaction_Vtbl::new::<Identity, OFFSET>(), CloneWithCommitDisabled: CloneWithCommitDisabled::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITransactionCloner as windows_core::Interface>::IID || iid == &<ITransaction as windows_core::Interface>::IID
+        iid == &<ITransactionCloner as windows_core::Interface>::IID || ITransaction_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "rpc", feature = "shared"))]

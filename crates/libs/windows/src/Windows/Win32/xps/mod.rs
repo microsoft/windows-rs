@@ -92,7 +92,7 @@ impl IXpsOMBrush_Vtbl {
         Self { base__: IXpsOMShareable_Vtbl::new::<Identity, OFFSET>(), GetOpacity: GetOpacity::<Identity, OFFSET>, SetOpacity: SetOpacity::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXpsOMBrush as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID
+        iid == &<IXpsOMBrush as windows_core::Interface>::IID || IXpsOMShareable_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "minwindef")]
@@ -363,7 +363,7 @@ impl IXpsOMCanvas_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXpsOMCanvas as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMVisual as windows_core::Interface>::IID
+        iid == &<IXpsOMCanvas as windows_core::Interface>::IID || IXpsOMVisual_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "urlmon"))]
@@ -438,7 +438,7 @@ impl IXpsOMColorProfileResource_Vtbl {
         Self { base__: IXpsOMResource_Vtbl::new::<Identity, OFFSET>(), GetStream: GetStream::<Identity, OFFSET>, SetContent: SetContent::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXpsOMColorProfileResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMResource as windows_core::Interface>::IID
+        iid == &<IXpsOMColorProfileResource as windows_core::Interface>::IID || IXpsOMResource_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
@@ -1181,7 +1181,7 @@ impl IXpsOMCoreProperties_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXpsOMCoreProperties as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID
+        iid == &<IXpsOMCoreProperties as windows_core::Interface>::IID || IXpsOMPart_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwinbase", feature = "msopc", feature = "shared", feature = "urlmon"))]
@@ -1791,7 +1791,7 @@ impl IXpsOMDocument_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXpsOMDocument as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID
+        iid == &<IXpsOMDocument as windows_core::Interface>::IID || IXpsOMPart_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "msopc", feature = "urlmon"))]
@@ -2059,7 +2059,7 @@ impl IXpsOMDocumentSequence_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXpsOMDocumentSequence as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID
+        iid == &<IXpsOMDocumentSequence as windows_core::Interface>::IID || IXpsOMPart_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "msopc", feature = "urlmon"))]
@@ -2162,7 +2162,7 @@ impl IXpsOMDocumentStructureResource_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXpsOMDocumentStructureResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMResource as windows_core::Interface>::IID
+        iid == &<IXpsOMDocumentStructureResource as windows_core::Interface>::IID || IXpsOMResource_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
@@ -2265,7 +2265,7 @@ impl IXpsOMFontResource_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXpsOMFontResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMResource as windows_core::Interface>::IID
+        iid == &<IXpsOMFontResource as windows_core::Interface>::IID || IXpsOMResource_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
@@ -2649,7 +2649,7 @@ impl IXpsOMGeometry_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXpsOMGeometry as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID
+        iid == &<IXpsOMGeometry as windows_core::Interface>::IID || IXpsOMShareable_Vtbl::matches(iid)
     }
 }
 impl windows_core::RuntimeName for IXpsOMGeometry {}
@@ -3715,7 +3715,7 @@ impl IXpsOMGlyphs_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXpsOMGlyphs as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMVisual as windows_core::Interface>::IID
+        iid == &<IXpsOMGlyphs as windows_core::Interface>::IID || IXpsOMVisual_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "urlmon"))]
@@ -4283,7 +4283,7 @@ impl IXpsOMGradientBrush_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXpsOMGradientBrush as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMBrush as windows_core::Interface>::IID
+        iid == &<IXpsOMGradientBrush as windows_core::Interface>::IID || IXpsOMBrush_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "minwindef")]
@@ -4730,7 +4730,7 @@ impl IXpsOMImageBrush_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXpsOMImageBrush as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMBrush as windows_core::Interface>::IID || iid == &<IXpsOMTileBrush as windows_core::Interface>::IID
+        iid == &<IXpsOMImageBrush as windows_core::Interface>::IID || IXpsOMTileBrush_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "minwindef")]
@@ -4833,7 +4833,7 @@ impl IXpsOMImageResource_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXpsOMImageResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMResource as windows_core::Interface>::IID
+        iid == &<IXpsOMImageResource as windows_core::Interface>::IID || IXpsOMResource_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
@@ -5157,7 +5157,7 @@ impl IXpsOMLinearGradientBrush_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXpsOMLinearGradientBrush as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMBrush as windows_core::Interface>::IID || iid == &<IXpsOMGradientBrush as windows_core::Interface>::IID
+        iid == &<IXpsOMLinearGradientBrush as windows_core::Interface>::IID || IXpsOMGradientBrush_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "minwindef")]
@@ -5256,7 +5256,7 @@ impl IXpsOMMatrixTransform_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXpsOMMatrixTransform as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID
+        iid == &<IXpsOMMatrixTransform as windows_core::Interface>::IID || IXpsOMShareable_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "minwindef")]
@@ -7311,7 +7311,7 @@ impl IXpsOMPage_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXpsOMPage as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID
+        iid == &<IXpsOMPage as windows_core::Interface>::IID || IXpsOMPart_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
@@ -8901,7 +8901,7 @@ impl IXpsOMPath_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXpsOMPath as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMVisual as windows_core::Interface>::IID
+        iid == &<IXpsOMPath as windows_core::Interface>::IID || IXpsOMVisual_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "urlmon"))]
@@ -8976,7 +8976,7 @@ impl IXpsOMPrintTicketResource_Vtbl {
         Self { base__: IXpsOMResource_Vtbl::new::<Identity, OFFSET>(), GetStream: GetStream::<Identity, OFFSET>, SetContent: SetContent::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXpsOMPrintTicketResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMResource as windows_core::Interface>::IID
+        iid == &<IXpsOMPrintTicketResource as windows_core::Interface>::IID || IXpsOMResource_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
@@ -9163,7 +9163,7 @@ impl IXpsOMRadialGradientBrush_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXpsOMRadialGradientBrush as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMBrush as windows_core::Interface>::IID || iid == &<IXpsOMGradientBrush as windows_core::Interface>::IID
+        iid == &<IXpsOMRadialGradientBrush as windows_core::Interface>::IID || IXpsOMGradientBrush_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "minwindef")]
@@ -9233,7 +9233,7 @@ impl IXpsOMRemoteDictionaryResource_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXpsOMRemoteDictionaryResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMResource as windows_core::Interface>::IID
+        iid == &<IXpsOMRemoteDictionaryResource as windows_core::Interface>::IID || IXpsOMResource_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "msopc", feature = "urlmon"))]
@@ -9440,7 +9440,7 @@ impl IXpsOMResource_Vtbl {
         Self { base__: IXpsOMPart_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXpsOMResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID
+        iid == &<IXpsOMResource as windows_core::Interface>::IID || IXpsOMPart_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "msopc", feature = "urlmon"))]
@@ -9609,7 +9609,7 @@ impl IXpsOMSignatureBlockResource_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXpsOMSignatureBlockResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMResource as windows_core::Interface>::IID
+        iid == &<IXpsOMSignatureBlockResource as windows_core::Interface>::IID || IXpsOMResource_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
@@ -9892,7 +9892,7 @@ impl IXpsOMSolidColorBrush_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXpsOMSolidColorBrush as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMBrush as windows_core::Interface>::IID
+        iid == &<IXpsOMSolidColorBrush as windows_core::Interface>::IID || IXpsOMBrush_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
@@ -9995,7 +9995,7 @@ impl IXpsOMStoryFragmentsResource_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXpsOMStoryFragmentsResource as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID || iid == &<IXpsOMResource as windows_core::Interface>::IID
+        iid == &<IXpsOMStoryFragmentsResource as windows_core::Interface>::IID || IXpsOMResource_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
@@ -10294,7 +10294,7 @@ impl IXpsOMTileBrush_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXpsOMTileBrush as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMBrush as windows_core::Interface>::IID
+        iid == &<IXpsOMTileBrush as windows_core::Interface>::IID || IXpsOMBrush_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "minwindef")]
@@ -10776,7 +10776,7 @@ impl IXpsOMVisual_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXpsOMVisual as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID
+        iid == &<IXpsOMVisual as windows_core::Interface>::IID || IXpsOMShareable_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "urlmon"))]
@@ -10921,7 +10921,7 @@ impl IXpsOMVisualBrush_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXpsOMVisualBrush as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMBrush as windows_core::Interface>::IID || iid == &<IXpsOMTileBrush as windows_core::Interface>::IID
+        iid == &<IXpsOMVisualBrush as windows_core::Interface>::IID || IXpsOMTileBrush_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "minwindef")]
@@ -11181,7 +11181,7 @@ impl IXpsPrintJobStream_Vtbl {
         Self { base__: super::ISequentialStream_Vtbl::new::<Identity, OFFSET>(), Close: Close::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXpsPrintJobStream as windows_core::Interface>::IID || iid == &<super::ISequentialStream as windows_core::Interface>::IID
+        iid == &<IXpsPrintJobStream as windows_core::Interface>::IID || super::ISequentialStream_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "objidlbase", feature = "shared"))]

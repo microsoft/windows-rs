@@ -1187,7 +1187,7 @@ impl IMFByteStreamCacheControl2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFByteStreamCacheControl2 as windows_core::Interface>::IID || iid == &<IMFByteStreamCacheControl as windows_core::Interface>::IID
+        iid == &<IMFByteStreamCacheControl2 as windows_core::Interface>::IID || IMFByteStreamCacheControl_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -1700,7 +1700,7 @@ impl IMFCameraControlDefaultsCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFCameraControlDefaultsCollection as windows_core::Interface>::IID || iid == &<super::IMFAttributes as windows_core::Interface>::IID
+        iid == &<IMFCameraControlDefaultsCollection as windows_core::Interface>::IID || super::IMFAttributes_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3307,7 +3307,7 @@ impl IMFFinalizableMediaSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFFinalizableMediaSink as windows_core::Interface>::IID || iid == &<IMFMediaSink as windows_core::Interface>::IID
+        iid == &<IMFFinalizableMediaSink as windows_core::Interface>::IID || IMFMediaSink_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
@@ -4150,7 +4150,7 @@ impl IMFMediaSession_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFMediaSession as windows_core::Interface>::IID || iid == &<super::IMFMediaEventGenerator as windows_core::Interface>::IID
+        iid == &<IMFMediaSession as windows_core::Interface>::IID || super::IMFMediaEventGenerator_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4523,7 +4523,7 @@ impl IMFMediaSource_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFMediaSource as windows_core::Interface>::IID || iid == &<super::IMFMediaEventGenerator as windows_core::Interface>::IID
+        iid == &<IMFMediaSource as windows_core::Interface>::IID || super::IMFMediaEventGenerator_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4575,7 +4575,7 @@ impl IMFMediaSource2_Vtbl {
         Self { base__: IMFMediaSourceEx_Vtbl::new::<Identity, OFFSET>(), SetMediaType: SetMediaType::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFMediaSource2 as windows_core::Interface>::IID || iid == &<super::IMFMediaEventGenerator as windows_core::Interface>::IID || iid == &<IMFMediaSource as windows_core::Interface>::IID || iid == &<IMFMediaSourceEx as windows_core::Interface>::IID
+        iid == &<IMFMediaSource2 as windows_core::Interface>::IID || IMFMediaSourceEx_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4678,7 +4678,7 @@ impl IMFMediaSourceEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFMediaSourceEx as windows_core::Interface>::IID || iid == &<super::IMFMediaEventGenerator as windows_core::Interface>::IID || iid == &<IMFMediaSource as windows_core::Interface>::IID
+        iid == &<IMFMediaSourceEx as windows_core::Interface>::IID || IMFMediaSource_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4871,7 +4871,7 @@ impl IMFMediaStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFMediaStream as windows_core::Interface>::IID || iid == &<super::IMFMediaEventGenerator as windows_core::Interface>::IID
+        iid == &<IMFMediaStream as windows_core::Interface>::IID || super::IMFMediaEventGenerator_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4931,7 +4931,7 @@ impl IMFMediaStream2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFMediaStream2 as windows_core::Interface>::IID || iid == &<super::IMFMediaEventGenerator as windows_core::Interface>::IID || iid == &<IMFMediaStream as windows_core::Interface>::IID
+        iid == &<IMFMediaStream2 as windows_core::Interface>::IID || IMFMediaStream_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6060,7 +6060,7 @@ impl IMFOutputPolicy_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFOutputPolicy as windows_core::Interface>::IID || iid == &<super::IMFAttributes as windows_core::Interface>::IID
+        iid == &<IMFOutputPolicy as windows_core::Interface>::IID || super::IMFAttributes_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6136,7 +6136,7 @@ impl IMFOutputSchema_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFOutputSchema as windows_core::Interface>::IID || iid == &<super::IMFAttributes as windows_core::Interface>::IID
+        iid == &<IMFOutputSchema as windows_core::Interface>::IID || super::IMFAttributes_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6619,7 +6619,7 @@ impl IMFPresentationClock_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFPresentationClock as windows_core::Interface>::IID || iid == &<IMFClock as windows_core::Interface>::IID
+        iid == &<IMFPresentationClock as windows_core::Interface>::IID || IMFClock_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -6755,7 +6755,7 @@ impl IMFPresentationDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFPresentationDescriptor as windows_core::Interface>::IID || iid == &<super::IMFAttributes as windows_core::Interface>::IID
+        iid == &<IMFPresentationDescriptor as windows_core::Interface>::IID || super::IMFAttributes_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6807,7 +6807,7 @@ impl IMFPresentationTimeSource_Vtbl {
         Self { base__: IMFClock_Vtbl::new::<Identity, OFFSET>(), GetUnderlyingClock: GetUnderlyingClock::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFPresentationTimeSource as windows_core::Interface>::IID || iid == &<IMFClock as windows_core::Interface>::IID
+        iid == &<IMFPresentationTimeSource as windows_core::Interface>::IID || IMFClock_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -6996,7 +6996,7 @@ impl IMFQualityAdvise2_Vtbl {
         Self { base__: IMFQualityAdvise_Vtbl::new::<Identity, OFFSET>(), NotifyQualityEvent: NotifyQualityEvent::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFQualityAdvise2 as windows_core::Interface>::IID || iid == &<IMFQualityAdvise as windows_core::Interface>::IID
+        iid == &<IMFQualityAdvise2 as windows_core::Interface>::IID || IMFQualityAdvise_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
@@ -7561,7 +7561,7 @@ impl IMFRelativePanelWatcher_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFRelativePanelWatcher as windows_core::Interface>::IID || iid == &<IMFShutdown as windows_core::Interface>::IID
+        iid == &<IMFRelativePanelWatcher as windows_core::Interface>::IID || IMFShutdown_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "mfobjects")]
@@ -8003,7 +8003,7 @@ impl IMFSampleGrabberSinkCallback_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFSampleGrabberSinkCallback as windows_core::Interface>::IID || iid == &<IMFClockStateSink as windows_core::Interface>::IID
+        iid == &<IMFSampleGrabberSinkCallback as windows_core::Interface>::IID || IMFClockStateSink_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -8050,7 +8050,7 @@ impl IMFSampleGrabberSinkCallback2_Vtbl {
         Self { base__: IMFSampleGrabberSinkCallback_Vtbl::new::<Identity, OFFSET>(), OnProcessSampleEx: OnProcessSampleEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFSampleGrabberSinkCallback2 as windows_core::Interface>::IID || iid == &<IMFClockStateSink as windows_core::Interface>::IID || iid == &<IMFSampleGrabberSinkCallback as windows_core::Interface>::IID
+        iid == &<IMFSampleGrabberSinkCallback2 as windows_core::Interface>::IID || IMFSampleGrabberSinkCallback_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
@@ -9482,7 +9482,7 @@ impl IMFSensorStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFSensorStream as windows_core::Interface>::IID || iid == &<super::IMFAttributes as windows_core::Interface>::IID
+        iid == &<IMFSensorStream as windows_core::Interface>::IID || super::IMFAttributes_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -10226,7 +10226,7 @@ impl IMFStreamDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFStreamDescriptor as windows_core::Interface>::IID || iid == &<super::IMFAttributes as windows_core::Interface>::IID
+        iid == &<IMFStreamDescriptor as windows_core::Interface>::IID || super::IMFAttributes_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -10369,7 +10369,7 @@ impl IMFStreamSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFStreamSink as windows_core::Interface>::IID || iid == &<super::IMFMediaEventGenerator as windows_core::Interface>::IID
+        iid == &<IMFStreamSink as windows_core::Interface>::IID || super::IMFMediaEventGenerator_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -10886,7 +10886,7 @@ impl IMFTopology_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFTopology as windows_core::Interface>::IID || iid == &<super::IMFAttributes as windows_core::Interface>::IID
+        iid == &<IMFTopology as windows_core::Interface>::IID || super::IMFAttributes_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -11205,7 +11205,7 @@ impl IMFTopologyNode_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFTopologyNode as windows_core::Interface>::IID || iid == &<super::IMFAttributes as windows_core::Interface>::IID
+        iid == &<IMFTopologyNode as windows_core::Interface>::IID || super::IMFAttributes_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -11675,7 +11675,7 @@ impl IMFVideoCaptureSampleAllocator_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFVideoCaptureSampleAllocator as windows_core::Interface>::IID || iid == &<IMFVideoSampleAllocator as windows_core::Interface>::IID
+        iid == &<IMFVideoCaptureSampleAllocator as windows_core::Interface>::IID || IMFVideoSampleAllocator_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
@@ -11875,7 +11875,7 @@ impl IMFVideoProcessorControl2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFVideoProcessorControl2 as windows_core::Interface>::IID || iid == &<IMFVideoProcessorControl as windows_core::Interface>::IID
+        iid == &<IMFVideoProcessorControl2 as windows_core::Interface>::IID || IMFVideoProcessorControl_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "mfobjects", feature = "shared", feature = "windef"))]
@@ -11973,7 +11973,7 @@ impl IMFVideoProcessorControl3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFVideoProcessorControl3 as windows_core::Interface>::IID || iid == &<IMFVideoProcessorControl as windows_core::Interface>::IID || iid == &<IMFVideoProcessorControl2 as windows_core::Interface>::IID
+        iid == &<IMFVideoProcessorControl3 as windows_core::Interface>::IID || IMFVideoProcessorControl2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "mfobjects", feature = "shared", feature = "windef"))]
@@ -12201,7 +12201,7 @@ impl IMFVideoSampleAllocatorEx_Vtbl {
         Self { base__: IMFVideoSampleAllocator_Vtbl::new::<Identity, OFFSET>(), InitializeSampleAllocatorEx: InitializeSampleAllocatorEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFVideoSampleAllocatorEx as windows_core::Interface>::IID || iid == &<IMFVideoSampleAllocator as windows_core::Interface>::IID
+        iid == &<IMFVideoSampleAllocatorEx as windows_core::Interface>::IID || IMFVideoSampleAllocator_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
@@ -12279,7 +12279,7 @@ impl IMFVideoSampleAllocatorNotifyEx_Vtbl {
         Self { base__: IMFVideoSampleAllocatorNotify_Vtbl::new::<Identity, OFFSET>(), NotifyPrune: NotifyPrune::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFVideoSampleAllocatorNotifyEx as windows_core::Interface>::IID || iid == &<IMFVideoSampleAllocatorNotify as windows_core::Interface>::IID
+        iid == &<IMFVideoSampleAllocatorNotifyEx as windows_core::Interface>::IID || IMFVideoSampleAllocatorNotify_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "mfobjects")]
@@ -12609,7 +12609,7 @@ impl IMFWorkQueueServicesEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFWorkQueueServicesEx as windows_core::Interface>::IID || iid == &<IMFWorkQueueServices as windows_core::Interface>::IID
+        iid == &<IMFWorkQueueServicesEx as windows_core::Interface>::IID || IMFWorkQueueServices_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]

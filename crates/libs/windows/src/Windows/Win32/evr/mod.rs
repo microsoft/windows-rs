@@ -165,7 +165,7 @@ impl IEVRFilterConfigEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IEVRFilterConfigEx as windows_core::Interface>::IID || iid == &<IEVRFilterConfig as windows_core::Interface>::IID
+        iid == &<IEVRFilterConfigEx as windows_core::Interface>::IID || IEVRFilterConfig_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -861,7 +861,7 @@ impl IMFVideoMixerControl2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFVideoMixerControl2 as windows_core::Interface>::IID || iid == &<IMFVideoMixerControl as windows_core::Interface>::IID
+        iid == &<IMFVideoMixerControl2 as windows_core::Interface>::IID || IMFVideoMixerControl_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "mfidl", feature = "shared"))]
@@ -982,7 +982,7 @@ impl IMFVideoPresenter_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFVideoPresenter as windows_core::Interface>::IID || iid == &<super::IMFClockStateSink as windows_core::Interface>::IID
+        iid == &<IMFVideoPresenter as windows_core::Interface>::IID || super::IMFClockStateSink_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "mfidl", feature = "mfobjects", feature = "shared"))]

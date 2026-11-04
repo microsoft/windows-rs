@@ -906,7 +906,7 @@ impl IPortableDeviceContent2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPortableDeviceContent2 as windows_core::Interface>::IID || iid == &<IPortableDeviceContent as windows_core::Interface>::IID
+        iid == &<IPortableDeviceContent2 as windows_core::Interface>::IID || IPortableDeviceContent_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "objidlbase", feature = "portabledevicetypes", feature = "shared"))]
@@ -962,7 +962,7 @@ impl IPortableDeviceDataStream_Vtbl {
         Self { base__: super::IStream_Vtbl::new::<Identity, OFFSET>(), GetObjectID: GetObjectID::<Identity, OFFSET>, Cancel: Cancel::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPortableDeviceDataStream as windows_core::Interface>::IID || iid == &<super::ISequentialStream as windows_core::Interface>::IID || iid == &<super::IStream as windows_core::Interface>::IID
+        iid == &<IPortableDeviceDataStream as windows_core::Interface>::IID || super::IStream_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
@@ -2802,7 +2802,7 @@ impl IPortableDeviceWebControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPortableDeviceWebControl as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IPortableDeviceWebControl as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]

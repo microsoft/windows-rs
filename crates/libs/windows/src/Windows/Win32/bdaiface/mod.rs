@@ -195,7 +195,7 @@ impl IBDA_AutoDemodulateEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBDA_AutoDemodulateEx as windows_core::Interface>::IID || iid == &<IBDA_AutoDemodulate as windows_core::Interface>::IID
+        iid == &<IBDA_AutoDemodulateEx as windows_core::Interface>::IID || IBDA_AutoDemodulate_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -878,7 +878,7 @@ impl IBDA_DiagnosticProperties_Vtbl {
         Self { base__: super::IPropertyBag_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBDA_DiagnosticProperties as windows_core::Interface>::IID || iid == &<super::IPropertyBag as windows_core::Interface>::IID
+        iid == &<IBDA_DiagnosticProperties as windows_core::Interface>::IID || super::IPropertyBag_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1286,7 +1286,7 @@ impl IBDA_DigitalDemodulator2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBDA_DigitalDemodulator2 as windows_core::Interface>::IID || iid == &<IBDA_DigitalDemodulator as windows_core::Interface>::IID
+        iid == &<IBDA_DigitalDemodulator2 as windows_core::Interface>::IID || IBDA_DigitalDemodulator_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "bdatypes", feature = "shared"))]
@@ -1381,7 +1381,7 @@ impl IBDA_DigitalDemodulator3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBDA_DigitalDemodulator3 as windows_core::Interface>::IID || iid == &<IBDA_DigitalDemodulator as windows_core::Interface>::IID || iid == &<IBDA_DigitalDemodulator2 as windows_core::Interface>::IID
+        iid == &<IBDA_DigitalDemodulator3 as windows_core::Interface>::IID || IBDA_DigitalDemodulator2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "bdatypes", feature = "shared"))]
@@ -4179,7 +4179,7 @@ impl IBroadcastEventEx_Vtbl {
         Self { base__: IBroadcastEvent_Vtbl::new::<Identity, OFFSET>(), FireEx: FireEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBroadcastEventEx as windows_core::Interface>::IID || iid == &<IBroadcastEvent as windows_core::Interface>::IID
+        iid == &<IBroadcastEventEx as windows_core::Interface>::IID || IBroadcastEvent_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]

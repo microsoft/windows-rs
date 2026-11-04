@@ -118,7 +118,7 @@ impl IDesktopWindowXamlSourceNative2_Vtbl {
         Self { base__: IDesktopWindowXamlSourceNative_Vtbl::new::<Identity, OFFSET>(), PreTranslateMessage: PreTranslateMessage::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDesktopWindowXamlSourceNative2 as windows_core::Interface>::IID || iid == &<IDesktopWindowXamlSourceNative as windows_core::Interface>::IID
+        iid == &<IDesktopWindowXamlSourceNative2 as windows_core::Interface>::IID || IDesktopWindowXamlSourceNative_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]

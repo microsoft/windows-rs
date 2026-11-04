@@ -152,7 +152,7 @@ impl IDebugExtendedProperty_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugExtendedProperty as windows_core::Interface>::IID || iid == &<IDebugProperty as windows_core::Interface>::IID
+        iid == &<IDebugExtendedProperty as windows_core::Interface>::IID || IDebugProperty_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -332,7 +332,7 @@ impl IDebugPropertyEnumType_Arguments_Vtbl {
         Self { base__: IDebugPropertyEnumType_All_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugPropertyEnumType_Arguments as windows_core::Interface>::IID || iid == &<IDebugPropertyEnumType_All as windows_core::Interface>::IID
+        iid == &<IDebugPropertyEnumType_Arguments as windows_core::Interface>::IID || IDebugPropertyEnumType_All_Vtbl::matches(iid)
     }
 }
 impl windows_core::RuntimeName for IDebugPropertyEnumType_Arguments {}
@@ -355,7 +355,7 @@ impl IDebugPropertyEnumType_Locals_Vtbl {
         Self { base__: IDebugPropertyEnumType_All_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugPropertyEnumType_Locals as windows_core::Interface>::IID || iid == &<IDebugPropertyEnumType_All as windows_core::Interface>::IID
+        iid == &<IDebugPropertyEnumType_Locals as windows_core::Interface>::IID || IDebugPropertyEnumType_All_Vtbl::matches(iid)
     }
 }
 impl windows_core::RuntimeName for IDebugPropertyEnumType_Locals {}
@@ -378,7 +378,7 @@ impl IDebugPropertyEnumType_LocalsPlusArgs_Vtbl {
         Self { base__: IDebugPropertyEnumType_All_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugPropertyEnumType_LocalsPlusArgs as windows_core::Interface>::IID || iid == &<IDebugPropertyEnumType_All as windows_core::Interface>::IID
+        iid == &<IDebugPropertyEnumType_LocalsPlusArgs as windows_core::Interface>::IID || IDebugPropertyEnumType_All_Vtbl::matches(iid)
     }
 }
 impl windows_core::RuntimeName for IDebugPropertyEnumType_LocalsPlusArgs {}
@@ -401,7 +401,7 @@ impl IDebugPropertyEnumType_Registers_Vtbl {
         Self { base__: IDebugPropertyEnumType_All_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugPropertyEnumType_Registers as windows_core::Interface>::IID || iid == &<IDebugPropertyEnumType_All as windows_core::Interface>::IID
+        iid == &<IDebugPropertyEnumType_Registers as windows_core::Interface>::IID || IDebugPropertyEnumType_All_Vtbl::matches(iid)
     }
 }
 impl windows_core::RuntimeName for IDebugPropertyEnumType_Registers {}

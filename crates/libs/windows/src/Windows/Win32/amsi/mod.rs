@@ -331,7 +331,7 @@ impl IAntimalware2_Vtbl {
         Self { base__: IAntimalware_Vtbl::new::<Identity, OFFSET>(), Notify: Notify::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAntimalware2 as windows_core::Interface>::IID || iid == &<IAntimalware as windows_core::Interface>::IID
+        iid == &<IAntimalware2 as windows_core::Interface>::IID || IAntimalware_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -449,7 +449,7 @@ impl IAntimalwareProvider2_Vtbl {
         Self { base__: IAntimalwareProvider_Vtbl::new::<Identity, OFFSET>(), Notify: Notify::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAntimalwareProvider2 as windows_core::Interface>::IID || iid == &<IAntimalwareProvider as windows_core::Interface>::IID
+        iid == &<IAntimalwareProvider2 as windows_core::Interface>::IID || IAntimalwareProvider_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]

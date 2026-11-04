@@ -567,7 +567,7 @@ impl IMLangFontLink_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMLangFontLink as windows_core::Interface>::IID || iid == &<IMLangCodePages as windows_core::Interface>::IID
+        iid == &<IMLangFontLink as windows_core::Interface>::IID || IMLangCodePages_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
@@ -706,7 +706,7 @@ impl IMLangFontLink2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMLangFontLink2 as windows_core::Interface>::IID || iid == &<IMLangCodePages as windows_core::Interface>::IID
+        iid == &<IMLangFontLink2 as windows_core::Interface>::IID || IMLangCodePages_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
@@ -1019,7 +1019,7 @@ impl IMLangStringAStr_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMLangStringAStr as windows_core::Interface>::IID || iid == &<IMLangString as windows_core::Interface>::IID
+        iid == &<IMLangStringAStr as windows_core::Interface>::IID || IMLangString_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
@@ -1343,7 +1343,7 @@ impl IMLangStringWStr_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMLangStringWStr as windows_core::Interface>::IID || iid == &<IMLangString as windows_core::Interface>::IID
+        iid == &<IMLangStringWStr as windows_core::Interface>::IID || IMLangString_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
@@ -2210,7 +2210,7 @@ impl IMultiLanguage3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMultiLanguage3 as windows_core::Interface>::IID || iid == &<IMultiLanguage2 as windows_core::Interface>::IID
+        iid == &<IMultiLanguage3 as windows_core::Interface>::IID || IMultiLanguage2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "objidlbase", feature = "shared", feature = "windef", feature = "winnt"))]

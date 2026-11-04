@@ -221,7 +221,7 @@ impl IPixelFilter_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPixelFilter as windows_core::Interface>::IID || iid == &<IFilter as windows_core::Interface>::IID
+        iid == &<IPixelFilter as windows_core::Interface>::IID || IFilter_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]

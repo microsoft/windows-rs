@@ -3472,7 +3472,7 @@ impl IDirect3D9Ex_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirect3D9Ex as windows_core::Interface>::IID || iid == &<IDirect3D9 as windows_core::Interface>::IID
+        iid == &<IDirect3D9Ex as windows_core::Interface>::IID || IDirect3D9_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
@@ -3732,7 +3732,7 @@ impl IDirect3DBaseTexture9_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirect3DBaseTexture9 as windows_core::Interface>::IID || iid == &<IDirect3DResource9 as windows_core::Interface>::IID
+        iid == &<IDirect3DBaseTexture9 as windows_core::Interface>::IID || IDirect3DResource9_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -4019,7 +4019,7 @@ impl IDirect3DCubeTexture9_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirect3DCubeTexture9 as windows_core::Interface>::IID || iid == &<IDirect3DResource9 as windows_core::Interface>::IID || iid == &<IDirect3DBaseTexture9 as windows_core::Interface>::IID
+        iid == &<IDirect3DCubeTexture9 as windows_core::Interface>::IID || IDirect3DBaseTexture9_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
@@ -6116,7 +6116,7 @@ impl IDirect3DDevice9Ex_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirect3DDevice9Ex as windows_core::Interface>::IID || iid == &<IDirect3DDevice9 as windows_core::Interface>::IID
+        iid == &<IDirect3DDevice9Ex as windows_core::Interface>::IID || IDirect3DDevice9_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "dsound", feature = "dxgi", feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
@@ -6264,7 +6264,7 @@ impl IDirect3DIndexBuffer9_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirect3DIndexBuffer9 as windows_core::Interface>::IID || iid == &<IDirect3DResource9 as windows_core::Interface>::IID
+        iid == &<IDirect3DIndexBuffer9 as windows_core::Interface>::IID || IDirect3DResource9_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -6734,7 +6734,7 @@ impl IDirect3DSurface9_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirect3DSurface9 as windows_core::Interface>::IID || iid == &<IDirect3DResource9 as windows_core::Interface>::IID
+        iid == &<IDirect3DSurface9 as windows_core::Interface>::IID || IDirect3DResource9_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
@@ -6945,7 +6945,7 @@ impl IDirect3DSwapChain9Ex_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirect3DSwapChain9Ex as windows_core::Interface>::IID || iid == &<IDirect3DSwapChain9 as windows_core::Interface>::IID
+        iid == &<IDirect3DSwapChain9Ex as windows_core::Interface>::IID || IDirect3DSwapChain9_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
@@ -7056,7 +7056,7 @@ impl IDirect3DTexture9_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirect3DTexture9 as windows_core::Interface>::IID || iid == &<IDirect3DResource9 as windows_core::Interface>::IID || iid == &<IDirect3DBaseTexture9 as windows_core::Interface>::IID
+        iid == &<IDirect3DTexture9 as windows_core::Interface>::IID || IDirect3DBaseTexture9_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
@@ -7131,7 +7131,7 @@ impl IDirect3DVertexBuffer9_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirect3DVertexBuffer9 as windows_core::Interface>::IID || iid == &<IDirect3DResource9 as windows_core::Interface>::IID
+        iid == &<IDirect3DVertexBuffer9 as windows_core::Interface>::IID || IDirect3DResource9_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -7489,7 +7489,7 @@ impl IDirect3DVolumeTexture9_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirect3DVolumeTexture9 as windows_core::Interface>::IID || iid == &<IDirect3DResource9 as windows_core::Interface>::IID || iid == &<IDirect3DBaseTexture9 as windows_core::Interface>::IID
+        iid == &<IDirect3DVolumeTexture9 as windows_core::Interface>::IID || IDirect3DBaseTexture9_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]

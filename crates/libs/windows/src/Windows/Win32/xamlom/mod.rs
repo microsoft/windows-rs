@@ -415,7 +415,7 @@ impl IVisualTreeService2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVisualTreeService2 as windows_core::Interface>::IID || iid == &<IVisualTreeService as windows_core::Interface>::IID
+        iid == &<IVisualTreeService2 as windows_core::Interface>::IID || IVisualTreeService_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
@@ -500,7 +500,7 @@ impl IVisualTreeService3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVisualTreeService3 as windows_core::Interface>::IID || iid == &<IVisualTreeService as windows_core::Interface>::IID || iid == &<IVisualTreeService2 as windows_core::Interface>::IID
+        iid == &<IVisualTreeService3 as windows_core::Interface>::IID || IVisualTreeService2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
@@ -572,7 +572,7 @@ impl IVisualTreeServiceCallback2_Vtbl {
         Self { base__: IVisualTreeServiceCallback_Vtbl::new::<Identity, OFFSET>(), OnElementStateChanged: OnElementStateChanged::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVisualTreeServiceCallback2 as windows_core::Interface>::IID || iid == &<IVisualTreeServiceCallback as windows_core::Interface>::IID
+        iid == &<IVisualTreeServiceCallback2 as windows_core::Interface>::IID || IVisualTreeServiceCallback_Vtbl::matches(iid)
     }
 }
 impl windows_core::RuntimeName for IVisualTreeServiceCallback2 {}

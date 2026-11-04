@@ -372,7 +372,7 @@ impl IWMAddressAccess2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMAddressAccess2 as windows_core::Interface>::IID || iid == &<IWMAddressAccess as windows_core::Interface>::IID
+        iid == &<IWMAddressAccess2 as windows_core::Interface>::IID || IWMAddressAccess_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -581,7 +581,7 @@ impl IWMBandwidthSharing_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMBandwidthSharing as windows_core::Interface>::IID || iid == &<IWMStreamList as windows_core::Interface>::IID
+        iid == &<IWMBandwidthSharing as windows_core::Interface>::IID || IWMStreamList_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -682,7 +682,7 @@ impl IWMClientConnections2_Vtbl {
         Self { base__: IWMClientConnections_Vtbl::new::<Identity, OFFSET>(), GetClientInfo: GetClientInfo::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMClientConnections2 as windows_core::Interface>::IID || iid == &<IWMClientConnections as windows_core::Interface>::IID
+        iid == &<IWMClientConnections2 as windows_core::Interface>::IID || IWMClientConnections_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -818,7 +818,7 @@ impl IWMCodecInfo2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMCodecInfo2 as windows_core::Interface>::IID || iid == &<IWMCodecInfo as windows_core::Interface>::IID
+        iid == &<IWMCodecInfo2 as windows_core::Interface>::IID || IWMCodecInfo_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -925,7 +925,7 @@ impl IWMCodecInfo3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMCodecInfo3 as windows_core::Interface>::IID || iid == &<IWMCodecInfo as windows_core::Interface>::IID || iid == &<IWMCodecInfo2 as windows_core::Interface>::IID
+        iid == &<IWMCodecInfo3 as windows_core::Interface>::IID || IWMCodecInfo2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -1291,7 +1291,7 @@ impl IWMDRMReader2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMDRMReader2 as windows_core::Interface>::IID || iid == &<IWMDRMReader as windows_core::Interface>::IID
+        iid == &<IWMDRMReader2 as windows_core::Interface>::IID || IWMDRMReader_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -1335,7 +1335,7 @@ impl IWMDRMReader3_Vtbl {
         Self { base__: IWMDRMReader2_Vtbl::new::<Identity, OFFSET>(), GetInclusionList: GetInclusionList::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMDRMReader3 as windows_core::Interface>::IID || iid == &<IWMDRMReader as windows_core::Interface>::IID || iid == &<IWMDRMReader2 as windows_core::Interface>::IID
+        iid == &<IWMDRMReader3 as windows_core::Interface>::IID || IWMDRMReader2_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -1545,7 +1545,7 @@ impl IWMDRMTranscryptor2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMDRMTranscryptor2 as windows_core::Interface>::IID || iid == &<IWMDRMTranscryptor as windows_core::Interface>::IID
+        iid == &<IWMDRMTranscryptor2 as windows_core::Interface>::IID || IWMDRMTranscryptor_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "wmsbuffer"))]
@@ -1681,7 +1681,7 @@ impl IWMDRMWriter2_Vtbl {
         Self { base__: IWMDRMWriter_Vtbl::new::<Identity, OFFSET>(), SetWMDRMNetEncryption: SetWMDRMNetEncryption::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMDRMWriter2 as windows_core::Interface>::IID || iid == &<IWMDRMWriter as windows_core::Interface>::IID
+        iid == &<IWMDRMWriter2 as windows_core::Interface>::IID || IWMDRMWriter_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -1725,7 +1725,7 @@ impl IWMDRMWriter3_Vtbl {
         Self { base__: IWMDRMWriter2_Vtbl::new::<Identity, OFFSET>(), SetProtectStreamSamples: SetProtectStreamSamples::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMDRMWriter3 as windows_core::Interface>::IID || iid == &<IWMDRMWriter as windows_core::Interface>::IID || iid == &<IWMDRMWriter2 as windows_core::Interface>::IID
+        iid == &<IWMDRMWriter3 as windows_core::Interface>::IID || IWMDRMWriter2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -2135,7 +2135,7 @@ impl IWMHeaderInfo2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMHeaderInfo2 as windows_core::Interface>::IID || iid == &<IWMHeaderInfo as windows_core::Interface>::IID
+        iid == &<IWMHeaderInfo2 as windows_core::Interface>::IID || IWMHeaderInfo_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -2288,7 +2288,7 @@ impl IWMHeaderInfo3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMHeaderInfo3 as windows_core::Interface>::IID || iid == &<IWMHeaderInfo as windows_core::Interface>::IID || iid == &<IWMHeaderInfo2 as windows_core::Interface>::IID
+        iid == &<IWMHeaderInfo3 as windows_core::Interface>::IID || IWMHeaderInfo2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -2486,7 +2486,7 @@ impl IWMIndexer2_Vtbl {
         Self { base__: IWMIndexer_Vtbl::new::<Identity, OFFSET>(), Configure: Configure::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMIndexer2 as windows_core::Interface>::IID || iid == &<IWMIndexer as windows_core::Interface>::IID
+        iid == &<IWMIndexer2 as windows_core::Interface>::IID || IWMIndexer_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -2549,7 +2549,7 @@ impl IWMInputMediaProps_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMInputMediaProps as windows_core::Interface>::IID || iid == &<IWMMediaProps as windows_core::Interface>::IID
+        iid == &<IWMInputMediaProps as windows_core::Interface>::IID || IWMMediaProps_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -2972,7 +2972,7 @@ impl IWMMetadataEditor2_Vtbl {
         Self { base__: IWMMetadataEditor_Vtbl::new::<Identity, OFFSET>(), OpenEx: OpenEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMMetadataEditor2 as windows_core::Interface>::IID || iid == &<IWMMetadataEditor as windows_core::Interface>::IID
+        iid == &<IWMMetadataEditor2 as windows_core::Interface>::IID || IWMMetadataEditor_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -3023,7 +3023,7 @@ impl IWMMutualExclusion_Vtbl {
         Self { base__: IWMStreamList_Vtbl::new::<Identity, OFFSET>(), GetType: GetType::<Identity, OFFSET>, SetType: SetType::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMMutualExclusion as windows_core::Interface>::IID || iid == &<IWMStreamList as windows_core::Interface>::IID
+        iid == &<IWMMutualExclusion as windows_core::Interface>::IID || IWMStreamList_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -3212,7 +3212,7 @@ impl IWMMutualExclusion2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMMutualExclusion2 as windows_core::Interface>::IID || iid == &<IWMStreamList as windows_core::Interface>::IID || iid == &<IWMMutualExclusion as windows_core::Interface>::IID
+        iid == &<IWMMutualExclusion2 as windows_core::Interface>::IID || IWMMutualExclusion_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -3275,7 +3275,7 @@ impl IWMOutputMediaProps_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMOutputMediaProps as windows_core::Interface>::IID || iid == &<IWMMediaProps as windows_core::Interface>::IID
+        iid == &<IWMOutputMediaProps as windows_core::Interface>::IID || IWMMediaProps_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -3395,7 +3395,7 @@ impl IWMPacketSize2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMPacketSize2 as windows_core::Interface>::IID || iid == &<IWMPacketSize as windows_core::Interface>::IID
+        iid == &<IWMPacketSize2 as windows_core::Interface>::IID || IWMPacketSize_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -3762,7 +3762,7 @@ impl IWMProfile2_Vtbl {
         Self { base__: IWMProfile_Vtbl::new::<Identity, OFFSET>(), GetProfileID: GetProfileID::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMProfile2 as windows_core::Interface>::IID || iid == &<IWMProfile as windows_core::Interface>::IID
+        iid == &<IWMProfile2 as windows_core::Interface>::IID || IWMProfile_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -3958,7 +3958,7 @@ impl IWMProfile3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMProfile3 as windows_core::Interface>::IID || iid == &<IWMProfile as windows_core::Interface>::IID || iid == &<IWMProfile2 as windows_core::Interface>::IID
+        iid == &<IWMProfile3 as windows_core::Interface>::IID || IWMProfile2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -4129,7 +4129,7 @@ impl IWMProfileManager2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMProfileManager2 as windows_core::Interface>::IID || iid == &<IWMProfileManager as windows_core::Interface>::IID
+        iid == &<IWMProfileManager2 as windows_core::Interface>::IID || IWMProfileManager_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -5179,7 +5179,7 @@ impl IWMReaderAdvanced2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMReaderAdvanced2 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced as windows_core::Interface>::IID
+        iid == &<IWMReaderAdvanced2 as windows_core::Interface>::IID || IWMReaderAdvanced_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "shared", feature = "winnt"))]
@@ -5238,7 +5238,7 @@ impl IWMReaderAdvanced3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMReaderAdvanced3 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced2 as windows_core::Interface>::IID
+        iid == &<IWMReaderAdvanced3 as windows_core::Interface>::IID || IWMReaderAdvanced2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "shared", feature = "winnt"))]
@@ -5394,7 +5394,7 @@ impl IWMReaderAdvanced4_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMReaderAdvanced4 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced2 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced3 as windows_core::Interface>::IID
+        iid == &<IWMReaderAdvanced4 as windows_core::Interface>::IID || IWMReaderAdvanced3_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "shared", feature = "winnt"))]
@@ -5441,7 +5441,7 @@ impl IWMReaderAdvanced5_Vtbl {
         Self { base__: IWMReaderAdvanced4_Vtbl::new::<Identity, OFFSET>(), SetPlayerHook: SetPlayerHook::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMReaderAdvanced5 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced2 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced3 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced4 as windows_core::Interface>::IID
+        iid == &<IWMReaderAdvanced5 as windows_core::Interface>::IID || IWMReaderAdvanced4_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "shared", feature = "winnt"))]
@@ -5485,7 +5485,7 @@ impl IWMReaderAdvanced6_Vtbl {
         Self { base__: IWMReaderAdvanced5_Vtbl::new::<Identity, OFFSET>(), SetProtectStreamSamples: SetProtectStreamSamples::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMReaderAdvanced6 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced2 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced3 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced4 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced5 as windows_core::Interface>::IID
+        iid == &<IWMReaderAdvanced6 as windows_core::Interface>::IID || IWMReaderAdvanced5_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "shared", feature = "winnt"))]
@@ -5589,7 +5589,7 @@ impl IWMReaderCallback_Vtbl {
         Self { base__: IWMStatusCallback_Vtbl::new::<Identity, OFFSET>(), OnSample: OnSample::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMReaderCallback as windows_core::Interface>::IID || iid == &<IWMStatusCallback as windows_core::Interface>::IID
+        iid == &<IWMReaderCallback as windows_core::Interface>::IID || IWMStatusCallback_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "wmsbuffer"))]
@@ -6432,7 +6432,7 @@ impl IWMReaderNetworkConfig2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMReaderNetworkConfig2 as windows_core::Interface>::IID || iid == &<IWMReaderNetworkConfig as windows_core::Interface>::IID
+        iid == &<IWMReaderNetworkConfig2 as windows_core::Interface>::IID || IWMReaderNetworkConfig_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -7296,7 +7296,7 @@ impl IWMStreamConfig2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMStreamConfig2 as windows_core::Interface>::IID || iid == &<IWMStreamConfig as windows_core::Interface>::IID
+        iid == &<IWMStreamConfig2 as windows_core::Interface>::IID || IWMStreamConfig_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -7358,7 +7358,7 @@ impl IWMStreamConfig3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMStreamConfig3 as windows_core::Interface>::IID || iid == &<IWMStreamConfig as windows_core::Interface>::IID || iid == &<IWMStreamConfig2 as windows_core::Interface>::IID
+        iid == &<IWMStreamConfig3 as windows_core::Interface>::IID || IWMStreamConfig2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -7990,7 +7990,7 @@ impl IWMSyncReader2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMSyncReader2 as windows_core::Interface>::IID || iid == &<IWMSyncReader as windows_core::Interface>::IID
+        iid == &<IWMSyncReader2 as windows_core::Interface>::IID || IWMSyncReader_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wmsbuffer"))]
@@ -8085,7 +8085,7 @@ impl IWMVideoMediaProps_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMVideoMediaProps as windows_core::Interface>::IID || iid == &<IWMMediaProps as windows_core::Interface>::IID
+        iid == &<IWMVideoMediaProps as windows_core::Interface>::IID || IWMMediaProps_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -8627,7 +8627,7 @@ impl IWMWriterAdvanced2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMWriterAdvanced2 as windows_core::Interface>::IID || iid == &<IWMWriterAdvanced as windows_core::Interface>::IID
+        iid == &<IWMWriterAdvanced2 as windows_core::Interface>::IID || IWMWriterAdvanced_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "wmsbuffer"))]
@@ -8686,7 +8686,7 @@ impl IWMWriterAdvanced3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMWriterAdvanced3 as windows_core::Interface>::IID || iid == &<IWMWriterAdvanced as windows_core::Interface>::IID || iid == &<IWMWriterAdvanced2 as windows_core::Interface>::IID
+        iid == &<IWMWriterAdvanced3 as windows_core::Interface>::IID || IWMWriterAdvanced2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "wmsbuffer"))]
@@ -8730,7 +8730,7 @@ impl IWMWriterFileSink_Vtbl {
         Self { base__: IWMWriterSink_Vtbl::new::<Identity, OFFSET>(), Open: Open::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMWriterFileSink as windows_core::Interface>::IID || iid == &<IWMWriterSink as windows_core::Interface>::IID
+        iid == &<IWMWriterFileSink as windows_core::Interface>::IID || IWMWriterSink_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "winnt", feature = "wmsbuffer"))]
@@ -8861,7 +8861,7 @@ impl IWMWriterFileSink2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMWriterFileSink2 as windows_core::Interface>::IID || iid == &<IWMWriterSink as windows_core::Interface>::IID || iid == &<IWMWriterFileSink as windows_core::Interface>::IID
+        iid == &<IWMWriterFileSink2 as windows_core::Interface>::IID || IWMWriterFileSink_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "winnt", feature = "wmsbuffer"))]
@@ -9000,7 +9000,7 @@ impl IWMWriterFileSink3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMWriterFileSink3 as windows_core::Interface>::IID || iid == &<IWMWriterSink as windows_core::Interface>::IID || iid == &<IWMWriterFileSink as windows_core::Interface>::IID || iid == &<IWMWriterFileSink2 as windows_core::Interface>::IID
+        iid == &<IWMWriterFileSink3 as windows_core::Interface>::IID || IWMWriterFileSink2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "winnt", feature = "wmsbuffer"))]
@@ -9143,7 +9143,7 @@ impl IWMWriterNetworkSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMWriterNetworkSink as windows_core::Interface>::IID || iid == &<IWMWriterSink as windows_core::Interface>::IID
+        iid == &<IWMWriterNetworkSink as windows_core::Interface>::IID || IWMWriterSink_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "winnt", feature = "wmsbuffer"))]
@@ -9380,7 +9380,7 @@ impl IWMWriterPostViewCallback_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMWriterPostViewCallback as windows_core::Interface>::IID || iid == &<IWMStatusCallback as windows_core::Interface>::IID
+        iid == &<IWMWriterPostViewCallback as windows_core::Interface>::IID || IWMStatusCallback_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "wmsbuffer"))]
@@ -9559,7 +9559,7 @@ impl IWMWriterPushSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMWriterPushSink as windows_core::Interface>::IID || iid == &<IWMWriterSink as windows_core::Interface>::IID
+        iid == &<IWMWriterPushSink as windows_core::Interface>::IID || IWMWriterSink_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "wmsbuffer"))]

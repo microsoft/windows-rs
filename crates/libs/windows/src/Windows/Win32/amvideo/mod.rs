@@ -726,7 +726,7 @@ impl IFullScreenVideoEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFullScreenVideoEx as windows_core::Interface>::IID || iid == &<IFullScreenVideo as windows_core::Interface>::IID
+        iid == &<IFullScreenVideoEx as windows_core::Interface>::IID || IFullScreenVideo_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "windef")]

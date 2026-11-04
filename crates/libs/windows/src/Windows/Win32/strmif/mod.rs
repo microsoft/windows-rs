@@ -3320,7 +3320,7 @@ impl IAMPushSource_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAMPushSource as windows_core::Interface>::IID || iid == &<IAMLatency as windows_core::Interface>::IID
+        iid == &<IAMPushSource as windows_core::Interface>::IID || IAMLatency_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -3883,7 +3883,7 @@ impl IAMTVTuner_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAMTVTuner as windows_core::Interface>::IID || iid == &<IAMTuner as windows_core::Interface>::IID
+        iid == &<IAMTVTuner as windows_core::Interface>::IID || IAMTuner_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "winnt")]
@@ -5198,7 +5198,7 @@ impl IBPCSatelliteTuner_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBPCSatelliteTuner as windows_core::Interface>::IID || iid == &<IAMTuner as windows_core::Interface>::IID
+        iid == &<IBPCSatelliteTuner as windows_core::Interface>::IID || IAMTuner_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "winnt")]
@@ -5305,7 +5305,7 @@ impl IBaseFilter_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBaseFilter as windows_core::Interface>::IID || iid == &<super::IPersist as windows_core::Interface>::IID || iid == &<IMediaFilter as windows_core::Interface>::IID
+        iid == &<IBaseFilter as windows_core::Interface>::IID || IMediaFilter_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "dsound", feature = "guiddef", feature = "objidl", feature = "shared", feature = "winnt"))]
@@ -9628,7 +9628,7 @@ impl IFileSinkFilter2_Vtbl {
         Self { base__: IFileSinkFilter_Vtbl::new::<Identity, OFFSET>(), SetMode: SetMode::<Identity, OFFSET>, GetMode: GetMode::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFileSinkFilter2 as windows_core::Interface>::IID || iid == &<IFileSinkFilter as windows_core::Interface>::IID
+        iid == &<IFileSinkFilter2 as windows_core::Interface>::IID || IFileSinkFilter_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
@@ -10033,7 +10033,7 @@ impl IFilterGraph2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFilterGraph2 as windows_core::Interface>::IID || iid == &<IFilterGraph as windows_core::Interface>::IID || iid == &<IGraphBuilder as windows_core::Interface>::IID
+        iid == &<IFilterGraph2 as windows_core::Interface>::IID || IGraphBuilder_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "objidl", feature = "shared"))]
@@ -10082,7 +10082,7 @@ impl IFilterGraph3_Vtbl {
         Self { base__: IFilterGraph2_Vtbl::new::<Identity, OFFSET>(), SetSyncSourceEx: SetSyncSourceEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFilterGraph3 as windows_core::Interface>::IID || iid == &<IFilterGraph as windows_core::Interface>::IID || iid == &<IGraphBuilder as windows_core::Interface>::IID || iid == &<IFilterGraph2 as windows_core::Interface>::IID
+        iid == &<IFilterGraph3 as windows_core::Interface>::IID || IFilterGraph2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "dsound", feature = "objidl", feature = "shared"))]
@@ -10422,7 +10422,7 @@ impl IFilterMapper3_Vtbl {
         Self { base__: IFilterMapper2_Vtbl::new::<Identity, OFFSET>(), GetICreateDevEnum: GetICreateDevEnum::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFilterMapper3 as windows_core::Interface>::IID || iid == &<IFilterMapper2 as windows_core::Interface>::IID
+        iid == &<IFilterMapper3 as windows_core::Interface>::IID || IFilterMapper2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
@@ -10598,7 +10598,7 @@ impl IGraphBuilder_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IGraphBuilder as windows_core::Interface>::IID || iid == &<IFilterGraph as windows_core::Interface>::IID
+        iid == &<IGraphBuilder as windows_core::Interface>::IID || IFilterGraph_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "objidl", feature = "shared"))]
@@ -11163,7 +11163,7 @@ impl IMediaFilter_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMediaFilter as windows_core::Interface>::IID || iid == &<super::IPersist as windows_core::Interface>::IID
+        iid == &<IMediaFilter as windows_core::Interface>::IID || super::IPersist_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "dsound", feature = "guiddef", feature = "objidl", feature = "shared"))]
@@ -11212,7 +11212,7 @@ impl IMediaPropertyBag_Vtbl {
         Self { base__: super::IPropertyBag_Vtbl::new::<Identity, OFFSET>(), EnumProperty: EnumProperty::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMediaPropertyBag as windows_core::Interface>::IID || iid == &<super::IPropertyBag as windows_core::Interface>::IID
+        iid == &<IMediaPropertyBag as windows_core::Interface>::IID || super::IPropertyBag_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -11520,7 +11520,7 @@ impl IMediaSample2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMediaSample2 as windows_core::Interface>::IID || iid == &<IMediaSample as windows_core::Interface>::IID
+        iid == &<IMediaSample2 as windows_core::Interface>::IID || IMediaSample_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -11994,7 +11994,7 @@ impl IMemAllocatorCallbackTemp_Vtbl {
         Self { base__: IMemAllocator_Vtbl::new::<Identity, OFFSET>(), SetNotify: SetNotify::<Identity, OFFSET>, GetFreeCount: GetFreeCount::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMemAllocatorCallbackTemp as windows_core::Interface>::IID || iid == &<IMemAllocator as windows_core::Interface>::IID
+        iid == &<IMemAllocatorCallbackTemp as windows_core::Interface>::IID || IMemAllocator_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -12524,7 +12524,7 @@ impl IOverlayNotify2_Vtbl {
         Self { base__: IOverlayNotify_Vtbl::new::<Identity, OFFSET>(), OnDisplayChange: OnDisplayChange::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOverlayNotify2 as windows_core::Interface>::IID || iid == &<IOverlayNotify as windows_core::Interface>::IID
+        iid == &<IOverlayNotify2 as windows_core::Interface>::IID || IOverlayNotify_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
@@ -12611,7 +12611,7 @@ impl IPersistMediaPropertyBag_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPersistMediaPropertyBag as windows_core::Interface>::IID || iid == &<super::IPersist as windows_core::Interface>::IID
+        iid == &<IPersistMediaPropertyBag as windows_core::Interface>::IID || super::IPersist_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "oaidl", feature = "objidl"))]
@@ -13054,7 +13054,7 @@ impl IReferenceClock2_Vtbl {
         Self { base__: super::IReferenceClock_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IReferenceClock2 as windows_core::Interface>::IID || iid == &<super::IReferenceClock as windows_core::Interface>::IID
+        iid == &<IReferenceClock2 as windows_core::Interface>::IID || super::IReferenceClock_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "dsound", feature = "minwindef", feature = "shared", feature = "winnt"))]
@@ -14084,7 +14084,7 @@ impl IVMRImagePresenterExclModeConfig_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVMRImagePresenterExclModeConfig as windows_core::Interface>::IID || iid == &<IVMRImagePresenterConfig as windows_core::Interface>::IID
+        iid == &<IVMRImagePresenterExclModeConfig as windows_core::Interface>::IID || IVMRImagePresenterConfig_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "ddraw", feature = "shared"))]
@@ -15154,7 +15154,7 @@ impl IVideoEncoder_Vtbl {
         Self { base__: IEncoderAPI_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVideoEncoder as windows_core::Interface>::IID || iid == &<IEncoderAPI as windows_core::Interface>::IID
+        iid == &<IVideoEncoder as windows_core::Interface>::IID || IEncoderAPI_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]

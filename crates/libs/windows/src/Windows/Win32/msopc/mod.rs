@@ -1701,7 +1701,7 @@ impl IOpcPartUri_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOpcPartUri as windows_core::Interface>::IID || iid == &<super::IUri as windows_core::Interface>::IID || iid == &<IOpcUri as windows_core::Interface>::IID
+        iid == &<IOpcPartUri as windows_core::Interface>::IID || IOpcUri_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "urlmon"))]
@@ -4193,7 +4193,7 @@ impl IOpcUri_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOpcUri as windows_core::Interface>::IID || iid == &<super::IUri as windows_core::Interface>::IID
+        iid == &<IOpcUri as windows_core::Interface>::IID || super::IUri_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "urlmon"))]

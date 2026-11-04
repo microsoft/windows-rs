@@ -570,7 +570,7 @@ impl ISpellChecker2_Vtbl {
         Self { base__: ISpellChecker_Vtbl::new::<Identity, OFFSET>(), Remove: Remove::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpellChecker2 as windows_core::Interface>::IID || iid == &<ISpellChecker as windows_core::Interface>::IID
+        iid == &<ISpellChecker2 as windows_core::Interface>::IID || ISpellChecker_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "objidlbase", feature = "shared"))]

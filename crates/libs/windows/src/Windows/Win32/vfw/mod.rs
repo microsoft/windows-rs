@@ -1595,7 +1595,7 @@ impl IAVIPersistFile_Vtbl {
         Self { base__: super::IPersistFile_Vtbl::new::<Identity, OFFSET>(), Reserved1: Reserved1::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAVIPersistFile as windows_core::Interface>::IID || iid == &<super::IPersist as windows_core::Interface>::IID || iid == &<super::IPersistFile as windows_core::Interface>::IID
+        iid == &<IAVIPersistFile as windows_core::Interface>::IID || super::IPersistFile_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "objidl", feature = "shared", feature = "wtypesbase"))]

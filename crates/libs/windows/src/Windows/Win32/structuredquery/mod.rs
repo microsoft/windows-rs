@@ -387,7 +387,7 @@ impl IConditionFactory2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IConditionFactory2 as windows_core::Interface>::IID || iid == &<IConditionFactory as windows_core::Interface>::IID
+        iid == &<IConditionFactory2 as windows_core::Interface>::IID || IConditionFactory_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "objectarray", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "structuredquerycondition", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1236,7 +1236,7 @@ impl IQuerySolution_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IQuerySolution as windows_core::Interface>::IID || iid == &<IConditionFactory as windows_core::Interface>::IID
+        iid == &<IQuerySolution as windows_core::Interface>::IID || IConditionFactory_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "structuredquerycondition", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]

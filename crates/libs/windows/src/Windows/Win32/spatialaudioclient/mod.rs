@@ -288,7 +288,7 @@ impl ISpatialAudioClient2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpatialAudioClient2 as windows_core::Interface>::IID || iid == &<ISpatialAudioClient as windows_core::Interface>::IID
+        iid == &<ISpatialAudioClient2 as windows_core::Interface>::IID || ISpatialAudioClient_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -343,7 +343,7 @@ impl ISpatialAudioObject_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpatialAudioObject as windows_core::Interface>::IID || iid == &<ISpatialAudioObjectBase as windows_core::Interface>::IID
+        iid == &<ISpatialAudioObject as windows_core::Interface>::IID || ISpatialAudioObjectBase_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -479,7 +479,7 @@ impl ISpatialAudioObjectRenderStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpatialAudioObjectRenderStream as windows_core::Interface>::IID || iid == &<ISpatialAudioObjectRenderStreamBase as windows_core::Interface>::IID
+        iid == &<ISpatialAudioObjectRenderStream as windows_core::Interface>::IID || ISpatialAudioObjectRenderStreamBase_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]

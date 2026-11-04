@@ -1,6 +1,196 @@
 include!(concat!(env!("OUT_DIR"), "/generated_tests.rs"));
 
 #[test]
+fn minimal_interface_implementation_selection() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("minimal_interface_implementations");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let winmd = scratch.join("input.winmd");
+    windows_rdl::reader()
+        .input("input/minimal_interfaces.rdl")
+        .output(&winmd)
+        .write()
+        .unwrap();
+    let output = scratch.join("bindings.rs");
+    for selection in ["none", "selected", "all"] {
+        let mut builder = windows_bindgen::builder();
+        builder
+            .input(&winmd)
+            .filter("Test")
+            .minimal()
+            .dead_code()
+            .flat()
+            .output(&output);
+        match selection {
+            "selected" => {
+                builder
+                    .implement("Test.Native")
+                    .implement("Test.Runtime.RuntimeBase");
+            }
+            "all" => {
+                builder.implement_all();
+            }
+            _ => {}
+        }
+        builder.write();
+        let source = std::fs::read_to_string(&output).unwrap();
+        for name in [
+            "NativeBase",
+            "NativeDerived",
+            "Scoped",
+            "RuntimeBase",
+            "RuntimeDerived",
+        ] {
+            let implemented =
+                selection == "all" || (selection == "selected" && name != "RuntimeDerived");
+            assert_eq!(
+                source.contains(&format!("pub trait {name}_Impl")),
+                implemented,
+                "{selection}: {name}"
+            );
+            assert!(source.contains(&format!("pub struct {name}_Vtbl")));
+        }
+    }
+}
+
+#[test]
+fn interface_helpers_respect_dead_code() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("interface_helpers_dead_code");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let winmd = scratch.join("input.winmd");
+    windows_rdl::reader()
+        .input("input/minimal_interfaces.rdl")
+        .output(&winmd)
+        .write()
+        .unwrap();
+    let core = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\libs\\core");
+    let manifest = scratch.join("Cargo.toml");
+    std::fs::write(
+        &manifest,
+        format!(
+            "[package]\nname = \"interface-helpers-dead-code\"\nversion = \"0.0.0\"\n\
+             edition = \"2024\"\n[workspace]\n[lib]\npath = \"lib.rs\"\n\
+             [dependencies]\nwindows-core = {{ path = '{}', features = ['proc-macros'] }}\n",
+            core.display()
+        ),
+    )
+    .unwrap();
+    std::fs::write(
+        scratch.join("lib.rs"),
+        r#"#![deny(warnings)]
+#![allow(nonstandard_style)]
+mod bindings;
+pub fn native(base: &bindings::NativeBase, derived: &bindings::NativeDerived) -> i32 {
+    unsafe { base.BaseValue().value + derived.DerivedValue() }
+}
+pub fn scoped(value: &bindings::Scoped) -> i32 {
+    unsafe { value.Value() }
+}
+pub fn runtime(
+    base: &bindings::RuntimeBase,
+    derived: &bindings::RuntimeDerived,
+) -> windows_core::Result<i32> {
+    Ok(base.BaseValue()? + derived.DerivedValue()?)
+}
+"#,
+    )
+    .unwrap();
+    let compile = || {
+        std::process::Command::new("cargo")
+            .args(["check", "--quiet", "--offline", "--manifest-path"])
+            .arg(&manifest)
+            .arg("--target-dir")
+            .arg(scratch.join("target"))
+            .output()
+            .unwrap()
+    };
+    for (minimal, dead_code) in [(false, false), (false, true), (true, true)] {
+        let mut builder = windows_bindgen::builder();
+        builder
+            .input(&winmd)
+            .filter("Test")
+            .flat()
+            .output(scratch.join("bindings.rs"));
+        if minimal {
+            builder.minimal();
+        }
+        if dead_code {
+            builder.dead_code();
+        }
+        builder.write();
+        let result = compile();
+        let stderr = String::from_utf8_lossy(&result.stderr);
+        assert_eq!(
+            result.status.success(),
+            minimal || !dead_code,
+            "minimal={minimal}, dead_code={dead_code}: {stderr}"
+        );
+        if !minimal && dead_code {
+            assert!(
+                stderr.contains("associated functions `new` and `matches` are never used"),
+                "{stderr}"
+            );
+        }
+    }
+    std::fs::write(
+        scratch.join("lib.rs"),
+        r#"#![deny(warnings)]
+#![allow(nonstandard_style)]
+mod bindings;
+#[windows_core::implement(bindings::NativeDerived, bindings::RuntimeBase, bindings::RuntimeDerived)]
+struct Object;
+impl bindings::NativeBase_Impl for Object_Impl {
+    fn BaseValue(&self) -> bindings::Payload { bindings::Payload { value: 1 } }
+}
+impl bindings::NativeDerived_Impl for Object_Impl {
+    fn DerivedValue(&self) -> i32 { 2 }
+}
+impl bindings::RuntimeBase_Impl for Object_Impl {
+    fn BaseValue(&self) -> windows_core::Result<i32> { Ok(3) }
+}
+impl bindings::RuntimeDerived_Impl for Object_Impl {
+    fn DerivedValue(&self) -> windows_core::Result<i32> { Ok(4) }
+}
+struct Scoped;
+impl bindings::Scoped_Impl for Scoped {
+    fn Value(&self) -> i32 { 5 }
+}
+pub fn create() -> bindings::NativeDerived { Object.into() }
+pub fn scoped() -> windows_core::ScopedInterface<'static, bindings::Scoped> {
+    bindings::Scoped::new(&Scoped)
+}
+"#,
+    )
+    .unwrap();
+    for all in [false, true] {
+        let mut builder = windows_bindgen::builder();
+        builder
+            .input(&winmd)
+            .filters([
+                "Test.Native.NativeDerived::{}",
+                "Test.Native.Scoped::{}",
+                "Test.Runtime.RuntimeBase::{}",
+                "Test.Runtime.RuntimeDerived::{}",
+            ])
+            .minimal()
+            .dead_code()
+            .flat()
+            .output(scratch.join("bindings.rs"));
+        if all {
+            builder.implement_all();
+        } else {
+            builder.implement("Test");
+        }
+        builder.write();
+        let result = compile();
+        assert!(
+            result.status.success(),
+            "implement_all={all}: {}",
+            String::from_utf8_lossy(&result.stderr)
+        );
+    }
+}
+
+#[test]
 fn associated_enum_method_filtering() {
     let scratch = std::path::Path::new(env!("OUT_DIR")).join("associated_enum_method_filtering");
     std::fs::create_dir_all(&scratch).unwrap();
@@ -10,7 +200,7 @@ fn associated_enum_method_filtering() {
         .output(&winmd)
         .write()
         .unwrap();
-    for style in ["default", "minimal", "sys"] {
+    for style in ["default", "minimal", "minimal_implement_all", "sys"] {
         for root in [
             "Windows.Win32",
             "Windows.Win32.Api.I",
@@ -26,6 +216,9 @@ fn associated_enum_method_filtering() {
                 "minimal" => {
                     builder.minimal();
                 }
+                "minimal_implement_all" => {
+                    builder.minimal().implement_all();
+                }
                 "sys" => {
                     builder.sys();
                 }
@@ -38,7 +231,8 @@ fn associated_enum_method_filtering() {
                 "{style} {root}: {source}"
             );
             assert!(source.contains("pub Plain:"), "{style} {root}: {source}");
-            let annotated = root == "Windows.Win32.Api.I";
+            let annotated = root == "Windows.Win32.Api.I"
+                || (style == "minimal_implement_all" && root.ends_with("::Plain"));
             assert_eq!(
                 source.contains("pub Annotated:"),
                 annotated,

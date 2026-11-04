@@ -297,7 +297,7 @@ impl IMFCaptureEngineOnSampleCallback2_Vtbl {
         Self { base__: IMFCaptureEngineOnSampleCallback_Vtbl::new::<Identity, OFFSET>(), OnSynchronizedEvent: OnSynchronizedEvent::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFCaptureEngineOnSampleCallback2 as windows_core::Interface>::IID || iid == &<IMFCaptureEngineOnSampleCallback as windows_core::Interface>::IID
+        iid == &<IMFCaptureEngineOnSampleCallback2 as windows_core::Interface>::IID || IMFCaptureEngineOnSampleCallback_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "mfobjects")]
@@ -377,7 +377,7 @@ impl IMFCapturePhotoSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFCapturePhotoSink as windows_core::Interface>::IID || iid == &<IMFCaptureSink as windows_core::Interface>::IID
+        iid == &<IMFCapturePhotoSink as windows_core::Interface>::IID || IMFCaptureSink_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "shared"))]
@@ -549,7 +549,7 @@ impl IMFCapturePreviewSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFCapturePreviewSink as windows_core::Interface>::IID || iid == &<IMFCaptureSink as windows_core::Interface>::IID
+        iid == &<IMFCapturePreviewSink as windows_core::Interface>::IID || IMFCaptureSink_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "mfidl", feature = "mfobjects", feature = "shared", feature = "windef", feature = "winnt"))]
@@ -684,7 +684,7 @@ impl IMFCaptureRecordSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFCaptureRecordSink as windows_core::Interface>::IID || iid == &<IMFCaptureSink as windows_core::Interface>::IID
+        iid == &<IMFCaptureRecordSink as windows_core::Interface>::IID || IMFCaptureSink_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "mfidl", feature = "mfobjects", feature = "shared"))]
@@ -833,7 +833,7 @@ impl IMFCaptureSink2_Vtbl {
         Self { base__: IMFCaptureSink_Vtbl::new::<Identity, OFFSET>(), SetOutputMediaType: SetOutputMediaType::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFCaptureSink2 as windows_core::Interface>::IID || iid == &<IMFCaptureSink as windows_core::Interface>::IID
+        iid == &<IMFCaptureSink2 as windows_core::Interface>::IID || IMFCaptureSink_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "shared"))]

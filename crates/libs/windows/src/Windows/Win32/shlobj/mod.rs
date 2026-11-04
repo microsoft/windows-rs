@@ -727,7 +727,7 @@ impl IDeskBarClient_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDeskBarClient as windows_core::Interface>::IID || iid == &<super::IOleWindow as windows_core::Interface>::IID
+        iid == &<IDeskBarClient as windows_core::Interface>::IID || super::IOleWindow_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "oleidl", feature = "shared", feature = "windef"))]
@@ -859,7 +859,7 @@ impl IDockingWindowFrame_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDockingWindowFrame as windows_core::Interface>::IID || iid == &<super::IOleWindow as windows_core::Interface>::IID
+        iid == &<IDockingWindowFrame as windows_core::Interface>::IID || super::IOleWindow_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "oleidl", feature = "shared", feature = "windef"))]

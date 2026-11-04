@@ -1194,7 +1194,7 @@ impl IMFMediaEngineClassFactoryEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFMediaEngineClassFactoryEx as windows_core::Interface>::IID || iid == &<IMFMediaEngineClassFactory as windows_core::Interface>::IID
+        iid == &<IMFMediaEngineClassFactoryEx as windows_core::Interface>::IID || IMFMediaEngineClassFactory_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
@@ -1848,7 +1848,7 @@ impl IMFMediaEngineEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFMediaEngineEx as windows_core::Interface>::IID || iid == &<IMFMediaEngine as windows_core::Interface>::IID
+        iid == &<IMFMediaEngineEx as windows_core::Interface>::IID || IMFMediaEngine_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "mfidl", feature = "mfobjects", feature = "mftransform", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2359,7 +2359,7 @@ impl IMFMediaEngineSrcElementsEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFMediaEngineSrcElementsEx as windows_core::Interface>::IID || iid == &<IMFMediaEngineSrcElements as windows_core::Interface>::IID
+        iid == &<IMFMediaEngineSrcElementsEx as windows_core::Interface>::IID || IMFMediaEngineSrcElements_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -2910,7 +2910,7 @@ impl IMFMediaKeySession2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFMediaKeySession2 as windows_core::Interface>::IID || iid == &<IMFMediaKeySession as windows_core::Interface>::IID
+        iid == &<IMFMediaKeySession2 as windows_core::Interface>::IID || IMFMediaKeySession_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "mfidl", feature = "shared"))]
@@ -3048,7 +3048,7 @@ impl IMFMediaKeySessionNotify2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFMediaKeySessionNotify2 as windows_core::Interface>::IID || iid == &<IMFMediaKeySessionNotify as windows_core::Interface>::IID
+        iid == &<IMFMediaKeySessionNotify2 as windows_core::Interface>::IID || IMFMediaKeySessionNotify_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "mfidl", feature = "shared"))]
@@ -3350,7 +3350,7 @@ impl IMFMediaKeys2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFMediaKeys2 as windows_core::Interface>::IID || iid == &<IMFMediaKeys as windows_core::Interface>::IID
+        iid == &<IMFMediaKeys2 as windows_core::Interface>::IID || IMFMediaKeys_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "mfidl", feature = "shared"))]

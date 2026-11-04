@@ -954,7 +954,7 @@ impl ICreateTypeInfo2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICreateTypeInfo2 as windows_core::Interface>::IID || iid == &<ICreateTypeInfo as windows_core::Interface>::IID
+        iid == &<ICreateTypeInfo2 as windows_core::Interface>::IID || ICreateTypeInfo_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1226,7 +1226,7 @@ impl ICreateTypeLib2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICreateTypeLib2 as windows_core::Interface>::IID || iid == &<ICreateTypeLib as windows_core::Interface>::IID
+        iid == &<ICreateTypeLib2 as windows_core::Interface>::IID || ICreateTypeLib_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2710,7 +2710,7 @@ impl ITypeInfo2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITypeInfo2 as windows_core::Interface>::IID || iid == &<ITypeInfo as windows_core::Interface>::IID
+        iid == &<ITypeInfo2 as windows_core::Interface>::IID || ITypeInfo_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3020,7 +3020,7 @@ impl ITypeLib2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITypeLib2 as windows_core::Interface>::IID || iid == &<ITypeLib as windows_core::Interface>::IID
+        iid == &<ITypeLib2 as windows_core::Interface>::IID || ITypeLib_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]

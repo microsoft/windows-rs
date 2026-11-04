@@ -201,7 +201,7 @@ impl IMF2DBuffer2_Vtbl {
         Self { base__: IMF2DBuffer_Vtbl::new::<Identity, OFFSET>(), Lock2DSize: Lock2DSize::<Identity, OFFSET>, Copy2DTo: Copy2DTo::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMF2DBuffer2 as windows_core::Interface>::IID || iid == &<IMF2DBuffer as windows_core::Interface>::IID
+        iid == &<IMF2DBuffer2 as windows_core::Interface>::IID || IMF2DBuffer_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -276,7 +276,7 @@ impl IMFActivate_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFActivate as windows_core::Interface>::IID || iid == &<IMFAttributes as windows_core::Interface>::IID
+        iid == &<IMFActivate as windows_core::Interface>::IID || IMFAttributes_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -391,7 +391,7 @@ impl IMFAsyncCallbackLogging_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFAsyncCallbackLogging as windows_core::Interface>::IID || iid == &<IMFAsyncCallback as windows_core::Interface>::IID
+        iid == &<IMFAsyncCallbackLogging as windows_core::Interface>::IID || IMFAsyncCallback_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -1010,7 +1010,7 @@ impl IMFAudioMediaType_Vtbl {
         Self { base__: IMFMediaType_Vtbl::new::<Identity, OFFSET>(), GetAudioFormat: GetAudioFormat::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFAudioMediaType as windows_core::Interface>::IID || iid == &<IMFAttributes as windows_core::Interface>::IID || iid == &<IMFMediaType as windows_core::Interface>::IID
+        iid == &<IMFAudioMediaType as windows_core::Interface>::IID || IMFMediaType_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1986,7 +1986,7 @@ impl IMFMediaEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFMediaEvent as windows_core::Interface>::IID || iid == &<IMFAttributes as windows_core::Interface>::IID
+        iid == &<IMFMediaEvent as windows_core::Interface>::IID || IMFAttributes_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2322,7 +2322,7 @@ impl IMFMediaType_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFMediaType as windows_core::Interface>::IID || iid == &<IMFAttributes as windows_core::Interface>::IID
+        iid == &<IMFMediaType as windows_core::Interface>::IID || IMFAttributes_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2776,7 +2776,7 @@ impl IMFPluginControl2_Vtbl {
         Self { base__: IMFPluginControl_Vtbl::new::<Identity, OFFSET>(), SetPolicy: SetPolicy::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFPluginControl2 as windows_core::Interface>::IID || iid == &<IMFPluginControl as windows_core::Interface>::IID
+        iid == &<IMFPluginControl2 as windows_core::Interface>::IID || IMFPluginControl_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
@@ -3055,7 +3055,7 @@ impl IMFSample_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFSample as windows_core::Interface>::IID || iid == &<IMFAttributes as windows_core::Interface>::IID
+        iid == &<IMFSample as windows_core::Interface>::IID || IMFAttributes_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3215,7 +3215,7 @@ impl IMFVideoMediaType_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFVideoMediaType as windows_core::Interface>::IID || iid == &<IMFAttributes as windows_core::Interface>::IID || iid == &<IMFMediaType as windows_core::Interface>::IID
+        iid == &<IMFVideoMediaType as windows_core::Interface>::IID || IMFMediaType_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]

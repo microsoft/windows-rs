@@ -1097,24 +1097,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl windows_core::RuntimeName for ICompositionAnimationBase {
-    const NAME: &'static str = "Windows.UI.Composition.ICompositionAnimationBase";
-}
-pub trait ICompositionAnimationBase_Impl: windows_core::IUnknownImpl {}
-impl ICompositionAnimationBase_Vtbl {
-    pub const fn new<Identity: ICompositionAnimationBase_Impl, const OFFSET: isize>() -> Self {
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<
-                Identity,
-                ICompositionAnimationBase,
-                OFFSET,
-            >(),
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICompositionAnimationBase as windows_core::Interface>::IID
-    }
-}
 #[repr(C)]
 pub struct ICompositionAnimationBase_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1313,7 +1295,6 @@ pub struct ICompositionDrawingSurfaceInterop_Vtbl {
     ResumeDraw: usize,
     SuspendDraw: usize,
 }
-impl windows_core::RuntimeName for ICompositionDrawingSurfaceInterop {}
 windows_core::imp::define_interface!(
     ICompositionEasingFunction,
     ICompositionEasingFunction_Vtbl,
@@ -1439,7 +1420,6 @@ pub struct ICompositionGraphicsDeviceInterop_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-impl windows_core::RuntimeName for ICompositionGraphicsDeviceInterop {}
 windows_core::imp::define_interface!(
     ICompositionNineGridBrush,
     ICompositionNineGridBrush_Vtbl,
@@ -1812,20 +1792,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl windows_core::RuntimeName for ICompositionSurface {
-    const NAME: &'static str = "Windows.UI.Composition.ICompositionSurface";
-}
-pub trait ICompositionSurface_Impl: windows_core::IUnknownImpl {}
-impl ICompositionSurface_Vtbl {
-    pub const fn new<Identity: ICompositionSurface_Impl, const OFFSET: isize>() -> Self {
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, ICompositionSurface, OFFSET>(),
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICompositionSurface as windows_core::Interface>::IID
-    }
-}
 #[repr(C)]
 pub struct ICompositionSurface_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -2300,7 +2266,6 @@ pub struct ICompositorDesktopInterop_Vtbl {
     ) -> windows_core::HRESULT,
     EnsureOnThread: usize,
 }
-impl windows_core::RuntimeName for ICompositorDesktopInterop {}
 windows_core::imp::define_interface!(
     ICompositorInterop,
     ICompositorInterop_Vtbl,
@@ -2337,7 +2302,6 @@ pub struct ICompositorInterop_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-impl windows_core::RuntimeName for ICompositorInterop {}
 windows_core::imp::define_interface!(
     IContainerVisual,
     IContainerVisual_Vtbl,

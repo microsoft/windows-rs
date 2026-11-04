@@ -105,7 +105,7 @@ impl ICertPolicy_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertPolicy as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ICertPolicy as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -166,7 +166,7 @@ impl ICertPolicy2_Vtbl {
         Self { base__: ICertPolicy_Vtbl::new::<Identity, OFFSET>(), GetManageModule: GetManageModule::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertPolicy2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ICertPolicy as windows_core::Interface>::IID
+        iid == &<ICertPolicy2 as windows_core::Interface>::IID || ICertPolicy_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "certmod", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]

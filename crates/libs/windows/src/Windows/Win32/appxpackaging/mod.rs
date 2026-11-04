@@ -541,7 +541,7 @@ impl IAppxBlockMapFile2_Vtbl {
         Self { base__: IAppxBlockMapFile_Vtbl::new::<Identity, OFFSET>(), GetBlockSize: GetBlockSize::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAppxBlockMapFile2 as windows_core::Interface>::IID || iid == &<IAppxBlockMapFile as windows_core::Interface>::IID
+        iid == &<IAppxBlockMapFile2 as windows_core::Interface>::IID || IAppxBlockMapFile_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "objidlbase", feature = "shared"))]
@@ -4061,7 +4061,7 @@ impl IAppxFile2_Vtbl {
         Self { base__: IAppxFile_Vtbl::new::<Identity, OFFSET>(), GetBlockSize: GetBlockSize::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAppxFile2 as windows_core::Interface>::IID || iid == &<IAppxFile as windows_core::Interface>::IID
+        iid == &<IAppxFile2 as windows_core::Interface>::IID || IAppxFile_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "objidlbase", feature = "shared"))]
@@ -5564,7 +5564,7 @@ impl IAppxManifestPackageDependency2_Vtbl {
         Self { base__: IAppxManifestPackageDependency_Vtbl::new::<Identity, OFFSET>(), GetMaxMajorVersionTested: GetMaxMajorVersionTested::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAppxManifestPackageDependency2 as windows_core::Interface>::IID || iid == &<IAppxManifestPackageDependency as windows_core::Interface>::IID
+        iid == &<IAppxManifestPackageDependency2 as windows_core::Interface>::IID || IAppxManifestPackageDependency_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -5823,7 +5823,7 @@ impl IAppxManifestPackageId2_Vtbl {
         Self { base__: IAppxManifestPackageId_Vtbl::new::<Identity, OFFSET>(), GetArchitecture2: GetArchitecture2::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAppxManifestPackageId2 as windows_core::Interface>::IID || iid == &<IAppxManifestPackageId as windows_core::Interface>::IID
+        iid == &<IAppxManifestPackageId2 as windows_core::Interface>::IID || IAppxManifestPackageId_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -6374,7 +6374,7 @@ impl IAppxManifestReader2_Vtbl {
         Self { base__: IAppxManifestReader_Vtbl::new::<Identity, OFFSET>(), GetQualifiedResources: GetQualifiedResources::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAppxManifestReader2 as windows_core::Interface>::IID || iid == &<IAppxManifestReader as windows_core::Interface>::IID
+        iid == &<IAppxManifestReader2 as windows_core::Interface>::IID || IAppxManifestReader_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "objidlbase", feature = "shared"))]
@@ -6453,7 +6453,7 @@ impl IAppxManifestReader3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAppxManifestReader3 as windows_core::Interface>::IID || iid == &<IAppxManifestReader as windows_core::Interface>::IID || iid == &<IAppxManifestReader2 as windows_core::Interface>::IID
+        iid == &<IAppxManifestReader3 as windows_core::Interface>::IID || IAppxManifestReader2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "objidlbase", feature = "shared"))]
@@ -6505,7 +6505,7 @@ impl IAppxManifestReader4_Vtbl {
         Self { base__: IAppxManifestReader3_Vtbl::new::<Identity, OFFSET>(), GetOptionalPackageInfo: GetOptionalPackageInfo::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAppxManifestReader4 as windows_core::Interface>::IID || iid == &<IAppxManifestReader as windows_core::Interface>::IID || iid == &<IAppxManifestReader2 as windows_core::Interface>::IID || iid == &<IAppxManifestReader3 as windows_core::Interface>::IID
+        iid == &<IAppxManifestReader4 as windows_core::Interface>::IID || IAppxManifestReader3_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "objidlbase", feature = "shared"))]

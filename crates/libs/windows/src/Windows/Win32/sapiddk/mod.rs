@@ -239,7 +239,7 @@ impl ISpGramCompBackend_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpGramCompBackend as windows_core::Interface>::IID || iid == &<super::ISpGrammarBuilder as windows_core::Interface>::IID
+        iid == &<ISpGramCompBackend as windows_core::Interface>::IID || super::ISpGrammarBuilder_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "sapi", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -458,7 +458,7 @@ impl ISpObjectTokenEnumBuilder_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpObjectTokenEnumBuilder as windows_core::Interface>::IID || iid == &<super::IEnumSpObjectTokens as windows_core::Interface>::IID
+        iid == &<ISpObjectTokenEnumBuilder as windows_core::Interface>::IID || super::IEnumSpObjectTokens_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "sapi", feature = "shared"))]
@@ -590,7 +590,7 @@ impl ISpPhraseBuilder_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpPhraseBuilder as windows_core::Interface>::IID || iid == &<super::ISpPhrase as windows_core::Interface>::IID
+        iid == &<ISpPhraseBuilder as windows_core::Interface>::IID || super::ISpPhrase_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "sapi", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -751,7 +751,7 @@ impl ISpSRAlternates2_Vtbl {
         Self { base__: ISpSRAlternates_Vtbl::new::<Identity, OFFSET>(), CommitText: CommitText::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpSRAlternates2 as windows_core::Interface>::IID || iid == &<ISpSRAlternates as windows_core::Interface>::IID
+        iid == &<ISpSRAlternates2 as windows_core::Interface>::IID || ISpSRAlternates_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "sapi", feature = "shared"))]
@@ -1420,7 +1420,7 @@ impl ISpSREngine2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpSREngine2 as windows_core::Interface>::IID || iid == &<ISpSREngine as windows_core::Interface>::IID
+        iid == &<ISpSREngine2 as windows_core::Interface>::IID || ISpSREngine_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "mmeapi", feature = "sapi", feature = "shared", feature = "winnt"))]
@@ -1815,7 +1815,7 @@ impl ISpSREngineSite2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpSREngineSite2 as windows_core::Interface>::IID || iid == &<ISpSREngineSite as windows_core::Interface>::IID
+        iid == &<ISpSREngineSite2 as windows_core::Interface>::IID || ISpSREngineSite_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "sapi", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1995,7 +1995,7 @@ impl ISpTTSEngineSite_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpTTSEngineSite as windows_core::Interface>::IID || iid == &<super::ISpEventSink as windows_core::Interface>::IID
+        iid == &<ISpTTSEngineSite as windows_core::Interface>::IID || super::ISpEventSink_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "sapi", feature = "shared"))]
@@ -2366,7 +2366,7 @@ impl ISpThreadControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpThreadControl as windows_core::Interface>::IID || iid == &<super::ISpNotifySink as windows_core::Interface>::IID
+        iid == &<ISpThreadControl as windows_core::Interface>::IID || super::ISpNotifySink_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "sapi", feature = "shared", feature = "windef", feature = "winnt"))]

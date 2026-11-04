@@ -1596,7 +1596,7 @@ impl IBrowserService2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBrowserService2 as windows_core::Interface>::IID || iid == &<IBrowserService as windows_core::Interface>::IID
+        iid == &<IBrowserService2 as windows_core::Interface>::IID || IBrowserService_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "docobj", feature = "exdisp", feature = "guiddef", feature = "hlink", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "oleidl", feature = "shared", feature = "shobjidl_core", feature = "shtypes", feature = "windef", feature = "winnt", feature = "winuser", feature = "wtypes", feature = "wtypesbase"))]
@@ -1662,7 +1662,7 @@ impl IBrowserService3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBrowserService3 as windows_core::Interface>::IID || iid == &<IBrowserService as windows_core::Interface>::IID || iid == &<IBrowserService2 as windows_core::Interface>::IID
+        iid == &<IBrowserService3 as windows_core::Interface>::IID || IBrowserService2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "docobj", feature = "exdisp", feature = "guiddef", feature = "hlink", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "oleidl", feature = "shared", feature = "shobjidl_core", feature = "shtypes", feature = "windef", feature = "winnt", feature = "winuser", feature = "wtypes", feature = "wtypesbase"))]
@@ -1729,7 +1729,7 @@ impl IBrowserService4_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBrowserService4 as windows_core::Interface>::IID || iid == &<IBrowserService as windows_core::Interface>::IID || iid == &<IBrowserService2 as windows_core::Interface>::IID || iid == &<IBrowserService3 as windows_core::Interface>::IID
+        iid == &<IBrowserService4 as windows_core::Interface>::IID || IBrowserService3_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "docobj", feature = "exdisp", feature = "guiddef", feature = "hlink", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "oleidl", feature = "shared", feature = "shobjidl_core", feature = "shtypes", feature = "windef", feature = "winnt", feature = "winuser", feature = "wtypes", feature = "wtypesbase"))]
@@ -1919,7 +1919,7 @@ impl ITrackShellMenu_Vtbl {
         Self { base__: super::IShellMenu_Vtbl::new::<Identity, OFFSET>(), SetObscured: SetObscured::<Identity, OFFSET>, Popup: Popup::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITrackShellMenu as windows_core::Interface>::IID || iid == &<super::IShellMenu as windows_core::Interface>::IID
+        iid == &<ITrackShellMenu as windows_core::Interface>::IID || super::IShellMenu_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]

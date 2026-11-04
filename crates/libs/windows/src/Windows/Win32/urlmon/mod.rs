@@ -1256,7 +1256,7 @@ impl IAuthenticateEx_Vtbl {
         Self { base__: IAuthenticate_Vtbl::new::<Identity, OFFSET>(), AuthenticateEx: AuthenticateEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAuthenticateEx as windows_core::Interface>::IID || iid == &<IAuthenticate as windows_core::Interface>::IID
+        iid == &<IAuthenticateEx as windows_core::Interface>::IID || IAuthenticate_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
@@ -1668,7 +1668,7 @@ impl IBindStatusCallbackEx_Vtbl {
         Self { base__: IBindStatusCallback_Vtbl::new::<Identity, OFFSET>(), GetBindInfoEx: GetBindInfoEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBindStatusCallbackEx as windows_core::Interface>::IID || iid == &<IBindStatusCallback as windows_core::Interface>::IID
+        iid == &<IBindStatusCallbackEx as windows_core::Interface>::IID || IBindStatusCallback_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
@@ -1871,7 +1871,7 @@ impl ICodeInstall_Vtbl {
         Self { base__: IWindowForBindingUI_Vtbl::new::<Identity, OFFSET>(), OnCodeInstallProblem: OnCodeInstallProblem::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICodeInstall as windows_core::Interface>::IID || iid == &<IWindowForBindingUI as windows_core::Interface>::IID
+        iid == &<ICodeInstall as windows_core::Interface>::IID || IWindowForBindingUI_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
@@ -2161,7 +2161,7 @@ impl IHttpNegotiate2_Vtbl {
         Self { base__: IHttpNegotiate_Vtbl::new::<Identity, OFFSET>(), GetRootSecurityId: GetRootSecurityId::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IHttpNegotiate2 as windows_core::Interface>::IID || iid == &<IHttpNegotiate as windows_core::Interface>::IID
+        iid == &<IHttpNegotiate2 as windows_core::Interface>::IID || IHttpNegotiate_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -2205,7 +2205,7 @@ impl IHttpNegotiate3_Vtbl {
         Self { base__: IHttpNegotiate2_Vtbl::new::<Identity, OFFSET>(), GetSerializedClientCertContext: GetSerializedClientCertContext::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IHttpNegotiate3 as windows_core::Interface>::IID || iid == &<IHttpNegotiate as windows_core::Interface>::IID || iid == &<IHttpNegotiate2 as windows_core::Interface>::IID
+        iid == &<IHttpNegotiate3 as windows_core::Interface>::IID || IHttpNegotiate2_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -2249,7 +2249,7 @@ impl IHttpSecurity_Vtbl {
         Self { base__: IWindowForBindingUI_Vtbl::new::<Identity, OFFSET>(), OnSecurityProblem: OnSecurityProblem::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IHttpSecurity as windows_core::Interface>::IID || iid == &<IWindowForBindingUI as windows_core::Interface>::IID
+        iid == &<IHttpSecurity as windows_core::Interface>::IID || IWindowForBindingUI_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
@@ -2367,7 +2367,7 @@ impl IInternetBindInfoEx_Vtbl {
         Self { base__: IInternetBindInfo_Vtbl::new::<Identity, OFFSET>(), GetBindInfoEx: GetBindInfoEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInternetBindInfoEx as windows_core::Interface>::IID || iid == &<IInternetBindInfo as windows_core::Interface>::IID
+        iid == &<IInternetBindInfoEx as windows_core::Interface>::IID || IInternetBindInfo_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
@@ -2588,7 +2588,7 @@ impl IInternetProtocol_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInternetProtocol as windows_core::Interface>::IID || iid == &<IInternetProtocolRoot as windows_core::Interface>::IID
+        iid == &<IInternetProtocol as windows_core::Interface>::IID || IInternetProtocolRoot_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "basetsd", feature = "minwindef", feature = "shared", feature = "winnt"))]
@@ -2637,7 +2637,7 @@ impl IInternetProtocolEx_Vtbl {
         Self { base__: IInternetProtocol_Vtbl::new::<Identity, OFFSET>(), StartEx: StartEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInternetProtocolEx as windows_core::Interface>::IID || iid == &<IInternetProtocolRoot as windows_core::Interface>::IID || iid == &<IInternetProtocol as windows_core::Interface>::IID
+        iid == &<IInternetProtocolEx as windows_core::Interface>::IID || IInternetProtocol_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "basetsd", feature = "minwindef", feature = "shared", feature = "winnt"))]
@@ -3236,7 +3236,7 @@ impl IInternetSecurityManagerEx_Vtbl {
         Self { base__: IInternetSecurityManager_Vtbl::new::<Identity, OFFSET>(), ProcessUrlActionEx: ProcessUrlActionEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInternetSecurityManagerEx as windows_core::Interface>::IID || iid == &<IInternetSecurityManager as windows_core::Interface>::IID
+        iid == &<IInternetSecurityManagerEx as windows_core::Interface>::IID || IInternetSecurityManager_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "objidlbase", feature = "shared"))]
@@ -3343,7 +3343,7 @@ impl IInternetSecurityManagerEx2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInternetSecurityManagerEx2 as windows_core::Interface>::IID || iid == &<IInternetSecurityManager as windows_core::Interface>::IID || iid == &<IInternetSecurityManagerEx as windows_core::Interface>::IID
+        iid == &<IInternetSecurityManagerEx2 as windows_core::Interface>::IID || IInternetSecurityManagerEx_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "objidlbase", feature = "shared"))]
@@ -3884,7 +3884,7 @@ impl IInternetZoneManagerEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInternetZoneManagerEx as windows_core::Interface>::IID || iid == &<IInternetZoneManager as windows_core::Interface>::IID
+        iid == &<IInternetZoneManagerEx as windows_core::Interface>::IID || IInternetZoneManager_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
@@ -3975,7 +3975,7 @@ impl IInternetZoneManagerEx2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInternetZoneManagerEx2 as windows_core::Interface>::IID || iid == &<IInternetZoneManager as windows_core::Interface>::IID || iid == &<IInternetZoneManagerEx as windows_core::Interface>::IID
+        iid == &<IInternetZoneManagerEx2 as windows_core::Interface>::IID || IInternetZoneManagerEx_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
@@ -5248,7 +5248,7 @@ impl IWinInetCacheHints2_Vtbl {
         Self { base__: IWinInetCacheHints_Vtbl::new::<Identity, OFFSET>(), SetCacheExtension2: SetCacheExtension2::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWinInetCacheHints2 as windows_core::Interface>::IID || iid == &<IWinInetCacheHints as windows_core::Interface>::IID
+        iid == &<IWinInetCacheHints2 as windows_core::Interface>::IID || IWinInetCacheHints_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
@@ -5349,7 +5349,7 @@ impl IWinInetHttpInfo_Vtbl {
         Self { base__: IWinInetInfo_Vtbl::new::<Identity, OFFSET>(), QueryInfo: QueryInfo::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWinInetHttpInfo as windows_core::Interface>::IID || iid == &<IWinInetInfo as windows_core::Interface>::IID
+        iid == &<IWinInetHttpInfo as windows_core::Interface>::IID || IWinInetInfo_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
@@ -5684,7 +5684,7 @@ impl IZoneIdentifier2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IZoneIdentifier2 as windows_core::Interface>::IID || iid == &<IZoneIdentifier as windows_core::Interface>::IID
+        iid == &<IZoneIdentifier2 as windows_core::Interface>::IID || IZoneIdentifier_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]

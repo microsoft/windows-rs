@@ -1,0 +1,41 @@
+//! --filter Test --minimal --flat --dead-code
+#[win32]
+mod Test {
+    mod Native {
+        struct Payload {
+            value: i32,
+        }
+        #[guid(auto)]
+        interface NativeBase: Windows::Win32::IUnknown {
+            fn BaseValue(&self) -> Payload;
+        }
+        #[guid(auto)]
+        interface NativeDerived: NativeBase {
+            fn DerivedValue(&self) -> i32;
+        }
+        #[guid(auto)]
+        interface Scoped {
+            fn Value(&self) -> i32;
+        }
+    }
+}
+#[winrt]
+mod Test {
+    mod Runtime {
+        #[guid(auto)]
+        interface RuntimeBase {
+            fn BaseValue(&self) -> i32;
+        }
+        #[guid(auto)]
+        interface RuntimeDerived: RuntimeBase {
+            fn DerivedValue(&self) -> i32;
+        }
+    }
+}
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x00000000_0000_0000_c000_000000000046)]
+        interface IUnknown {}
+    }
+}

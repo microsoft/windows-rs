@@ -1856,7 +1856,7 @@ impl IACList2_Vtbl {
         Self { base__: IACList_Vtbl::new::<Identity, OFFSET>(), SetOptions: SetOptions::<Identity, OFFSET>, GetOptions: GetOptions::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IACList2 as windows_core::Interface>::IID || iid == &<IACList as windows_core::Interface>::IID
+        iid == &<IACList2 as windows_core::Interface>::IID || IACList_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -2297,7 +2297,7 @@ impl IDockingWindowSite_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDockingWindowSite as windows_core::Interface>::IID || iid == &<super::IOleWindow as windows_core::Interface>::IID
+        iid == &<IDockingWindowSite as windows_core::Interface>::IID || super::IOleWindow_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "oleidl", feature = "shared", feature = "windef"))]
@@ -3813,7 +3813,7 @@ impl IURLSearchHook2_Vtbl {
         Self { base__: IURLSearchHook_Vtbl::new::<Identity, OFFSET>(), TranslateWithSearchContext: TranslateWithSearchContext::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IURLSearchHook2 as windows_core::Interface>::IID || iid == &<IURLSearchHook as windows_core::Interface>::IID
+        iid == &<IURLSearchHook2 as windows_core::Interface>::IID || IURLSearchHook_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]

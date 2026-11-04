@@ -713,7 +713,7 @@ impl ISpAudio_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpAudio as windows_core::Interface>::IID || iid == &<super::ISequentialStream as windows_core::Interface>::IID || iid == &<super::IStream as windows_core::Interface>::IID || iid == &<ISpStreamFormat as windows_core::Interface>::IID
+        iid == &<ISpAudio as windows_core::Interface>::IID || ISpStreamFormat_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
@@ -760,7 +760,7 @@ impl ISpContainerLexicon_Vtbl {
         Self { base__: ISpLexicon_Vtbl::new::<Identity, OFFSET>(), AddLexicon: AddLexicon::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpContainerLexicon as windows_core::Interface>::IID || iid == &<ISpLexicon as windows_core::Interface>::IID
+        iid == &<ISpContainerLexicon as windows_core::Interface>::IID || ISpLexicon_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -1268,7 +1268,7 @@ impl ISpEventSource_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpEventSource as windows_core::Interface>::IID || iid == &<ISpNotifySource as windows_core::Interface>::IID
+        iid == &<ISpEventSource as windows_core::Interface>::IID || ISpNotifySource_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
@@ -1312,7 +1312,7 @@ impl ISpEventSource2_Vtbl {
         Self { base__: ISpEventSource_Vtbl::new::<Identity, OFFSET>(), GetEventsEx: GetEventsEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpEventSource2 as windows_core::Interface>::IID || iid == &<ISpNotifySource as windows_core::Interface>::IID || iid == &<ISpEventSource as windows_core::Interface>::IID
+        iid == &<ISpEventSource2 as windows_core::Interface>::IID || ISpEventSource_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
@@ -1755,7 +1755,7 @@ impl ISpMMSysAudio_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpMMSysAudio as windows_core::Interface>::IID || iid == &<super::ISequentialStream as windows_core::Interface>::IID || iid == &<super::IStream as windows_core::Interface>::IID || iid == &<ISpStreamFormat as windows_core::Interface>::IID || iid == &<ISpAudio as windows_core::Interface>::IID
+        iid == &<ISpMMSysAudio as windows_core::Interface>::IID || ISpAudio_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
@@ -2097,7 +2097,7 @@ impl ISpNotifyTranslator_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpNotifyTranslator as windows_core::Interface>::IID || iid == &<ISpNotifySink as windows_core::Interface>::IID
+        iid == &<ISpNotifyTranslator as windows_core::Interface>::IID || ISpNotifySink_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
@@ -2312,7 +2312,7 @@ impl ISpObjectToken_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpObjectToken as windows_core::Interface>::IID || iid == &<ISpDataKey as windows_core::Interface>::IID
+        iid == &<ISpObjectToken as windows_core::Interface>::IID || ISpDataKey_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
@@ -2437,7 +2437,7 @@ impl ISpObjectTokenCategory_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpObjectTokenCategory as windows_core::Interface>::IID || iid == &<ISpDataKey as windows_core::Interface>::IID
+        iid == &<ISpObjectTokenCategory as windows_core::Interface>::IID || ISpDataKey_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -2482,7 +2482,7 @@ impl ISpObjectTokenInit_Vtbl {
         Self { base__: ISpObjectToken_Vtbl::new::<Identity, OFFSET>(), InitFromDataKey: InitFromDataKey::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpObjectTokenInit as windows_core::Interface>::IID || iid == &<ISpDataKey as windows_core::Interface>::IID || iid == &<ISpObjectToken as windows_core::Interface>::IID
+        iid == &<ISpObjectTokenInit as windows_core::Interface>::IID || ISpObjectToken_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
@@ -2601,7 +2601,7 @@ impl ISpPhoneConverter_Vtbl {
         Self { base__: ISpObjectWithToken_Vtbl::new::<Identity, OFFSET>(), PhoneToId: PhoneToId::<Identity, OFFSET>, IdToPhone: IdToPhone::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpPhoneConverter as windows_core::Interface>::IID || iid == &<ISpObjectWithToken as windows_core::Interface>::IID
+        iid == &<ISpPhoneConverter as windows_core::Interface>::IID || ISpObjectWithToken_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "winnt")]
@@ -2928,7 +2928,7 @@ impl ISpPhrase2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpPhrase2 as windows_core::Interface>::IID || iid == &<ISpPhrase as windows_core::Interface>::IID
+        iid == &<ISpPhrase2 as windows_core::Interface>::IID || ISpPhrase_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2983,7 +2983,7 @@ impl ISpPhraseAlt_Vtbl {
         Self { base__: ISpPhrase_Vtbl::new::<Identity, OFFSET>(), GetAltInfo: GetAltInfo::<Identity, OFFSET>, Commit: Commit::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpPhraseAlt as windows_core::Interface>::IID || iid == &<ISpPhrase as windows_core::Interface>::IID
+        iid == &<ISpPhraseAlt as windows_core::Interface>::IID || ISpPhrase_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3413,7 +3413,7 @@ impl ISpRecoContext_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpRecoContext as windows_core::Interface>::IID || iid == &<ISpNotifySource as windows_core::Interface>::IID || iid == &<ISpEventSource as windows_core::Interface>::IID
+        iid == &<ISpRecoContext as windows_core::Interface>::IID || ISpEventSource_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "shared", feature = "windef", feature = "winnt"))]
@@ -3810,7 +3810,7 @@ impl ISpRecoGrammar_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpRecoGrammar as windows_core::Interface>::IID || iid == &<ISpGrammarBuilder as windows_core::Interface>::IID
+        iid == &<ISpRecoGrammar as windows_core::Interface>::IID || ISpGrammarBuilder_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4115,7 +4115,7 @@ impl ISpRecoResult_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpRecoResult as windows_core::Interface>::IID || iid == &<ISpPhrase as windows_core::Interface>::IID
+        iid == &<ISpRecoResult as windows_core::Interface>::IID || ISpPhrase_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4195,7 +4195,7 @@ impl ISpRecoResult2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpRecoResult2 as windows_core::Interface>::IID || iid == &<ISpPhrase as windows_core::Interface>::IID || iid == &<ISpRecoResult as windows_core::Interface>::IID
+        iid == &<ISpRecoResult2 as windows_core::Interface>::IID || ISpRecoResult_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4505,7 +4505,7 @@ impl ISpRecognizer_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpRecognizer as windows_core::Interface>::IID || iid == &<ISpProperties as windows_core::Interface>::IID
+        iid == &<ISpRecognizer as windows_core::Interface>::IID || ISpProperties_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "windef"))]
@@ -4702,7 +4702,7 @@ impl ISpRegDataKey_Vtbl {
         Self { base__: ISpDataKey_Vtbl::new::<Identity, OFFSET>(), SetKey: SetKey::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpRegDataKey as windows_core::Interface>::IID || iid == &<ISpDataKey as windows_core::Interface>::IID
+        iid == &<ISpRegDataKey as windows_core::Interface>::IID || ISpDataKey_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
@@ -4773,7 +4773,7 @@ impl ISpResourceManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpResourceManager as windows_core::Interface>::IID || iid == &<super::IServiceProvider as windows_core::Interface>::IID
+        iid == &<ISpResourceManager as windows_core::Interface>::IID || super::IServiceProvider_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "servprov"))]
@@ -5101,7 +5101,7 @@ impl ISpStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpStream as windows_core::Interface>::IID || iid == &<super::ISequentialStream as windows_core::Interface>::IID || iid == &<super::IStream as windows_core::Interface>::IID || iid == &<ISpStreamFormat as windows_core::Interface>::IID
+        iid == &<ISpStream as windows_core::Interface>::IID || ISpStreamFormat_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
@@ -5150,7 +5150,7 @@ impl ISpStreamFormat_Vtbl {
         Self { base__: super::IStream_Vtbl::new::<Identity, OFFSET>(), GetFormat: GetFormat::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpStreamFormat as windows_core::Interface>::IID || iid == &<super::ISequentialStream as windows_core::Interface>::IID || iid == &<super::IStream as windows_core::Interface>::IID
+        iid == &<ISpStreamFormat as windows_core::Interface>::IID || super::IStream_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
@@ -5285,7 +5285,7 @@ impl ISpStreamFormatConverter_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpStreamFormatConverter as windows_core::Interface>::IID || iid == &<super::ISequentialStream as windows_core::Interface>::IID || iid == &<super::IStream as windows_core::Interface>::IID || iid == &<ISpStreamFormat as windows_core::Interface>::IID
+        iid == &<ISpStreamFormatConverter as windows_core::Interface>::IID || ISpStreamFormat_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
@@ -5763,7 +5763,7 @@ impl ISpVoice_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpVoice as windows_core::Interface>::IID || iid == &<ISpNotifySource as windows_core::Interface>::IID || iid == &<ISpEventSource as windows_core::Interface>::IID
+        iid == &<ISpVoice as windows_core::Interface>::IID || ISpEventSource_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "shared", feature = "windef", feature = "winnt"))]
@@ -5822,7 +5822,7 @@ impl ISpXMLRecoResult_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpXMLRecoResult as windows_core::Interface>::IID || iid == &<ISpPhrase as windows_core::Interface>::IID || iid == &<ISpRecoResult as windows_core::Interface>::IID
+        iid == &<ISpXMLRecoResult as windows_core::Interface>::IID || ISpRecoResult_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6038,7 +6038,7 @@ impl ISpeechAudio_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechAudio as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ISpeechBaseStream as windows_core::Interface>::IID
+        iid == &<ISpeechAudio as windows_core::Interface>::IID || ISpeechBaseStream_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6182,7 +6182,7 @@ impl ISpeechAudioBufferInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechAudioBufferInfo as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechAudioBufferInfo as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6329,7 +6329,7 @@ impl ISpeechAudioFormat_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechAudioFormat as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechAudioFormat as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6493,7 +6493,7 @@ impl ISpeechAudioStatus_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechAudioStatus as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechAudioStatus as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6652,7 +6652,7 @@ impl ISpeechBaseStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechBaseStream as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechBaseStream as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6727,7 +6727,7 @@ impl ISpeechCustomStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechCustomStream as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ISpeechBaseStream as windows_core::Interface>::IID
+        iid == &<ISpeechCustomStream as windows_core::Interface>::IID || ISpeechBaseStream_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6999,7 +6999,7 @@ impl ISpeechDataKey_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechDataKey as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechDataKey as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7059,7 +7059,7 @@ impl ISpeechFileStream_Vtbl {
         Self { base__: ISpeechBaseStream_Vtbl::new::<Identity, OFFSET>(), Open: Open::<Identity, OFFSET>, Close: Close::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechFileStream as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ISpeechBaseStream as windows_core::Interface>::IID
+        iid == &<ISpeechFileStream as windows_core::Interface>::IID || ISpeechBaseStream_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7239,7 +7239,7 @@ impl ISpeechGrammarRule_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechGrammarRule as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechGrammarRule as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7381,7 +7381,7 @@ impl ISpeechGrammarRuleState_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechGrammarRuleState as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechGrammarRuleState as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7617,7 +7617,7 @@ impl ISpeechGrammarRuleStateTransition_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechGrammarRuleStateTransition as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechGrammarRuleStateTransition as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7725,7 +7725,7 @@ impl ISpeechGrammarRuleStateTransitions_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechGrammarRuleStateTransitions as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechGrammarRuleStateTransitions as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7953,7 +7953,7 @@ impl ISpeechGrammarRules_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechGrammarRules as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechGrammarRules as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -8141,7 +8141,7 @@ impl ISpeechLexicon_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechLexicon as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechLexicon as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -8301,7 +8301,7 @@ impl ISpeechLexiconPronunciation_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechLexiconPronunciation as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechLexiconPronunciation as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -8409,7 +8409,7 @@ impl ISpeechLexiconPronunciations_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechLexiconPronunciations as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechLexiconPronunciations as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -8541,7 +8541,7 @@ impl ISpeechLexiconWord_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechLexiconWord as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechLexiconWord as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -8649,7 +8649,7 @@ impl ISpeechLexiconWords_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechLexiconWords as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechLexiconWords as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -8781,7 +8781,7 @@ impl ISpeechMMSysAudio_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechMMSysAudio as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ISpeechBaseStream as windows_core::Interface>::IID || iid == &<ISpeechAudio as windows_core::Interface>::IID
+        iid == &<ISpeechMMSysAudio as windows_core::Interface>::IID || ISpeechAudio_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -8857,7 +8857,7 @@ impl ISpeechMemoryStream_Vtbl {
         Self { base__: ISpeechBaseStream_Vtbl::new::<Identity, OFFSET>(), SetData: SetData::<Identity, OFFSET>, GetData: GetData::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechMemoryStream as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ISpeechBaseStream as windows_core::Interface>::IID
+        iid == &<ISpeechMemoryStream as windows_core::Interface>::IID || ISpeechBaseStream_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -9186,7 +9186,7 @@ impl ISpeechObjectToken_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechObjectToken as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechObjectToken as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -9346,7 +9346,7 @@ impl ISpeechObjectTokenCategory_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechObjectTokenCategory as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechObjectTokenCategory as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -9454,7 +9454,7 @@ impl ISpeechObjectTokens_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechObjectTokens as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechObjectTokens as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -9582,7 +9582,7 @@ impl ISpeechPhoneConverter_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechPhoneConverter as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechPhoneConverter as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -9726,7 +9726,7 @@ impl ISpeechPhraseAlternate_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechPhraseAlternate as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechPhraseAlternate as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -9834,7 +9834,7 @@ impl ISpeechPhraseAlternates_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechPhraseAlternates as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechPhraseAlternates as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -10186,7 +10186,7 @@ impl ISpeechPhraseElement_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechPhraseElement as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechPhraseElement as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -10294,7 +10294,7 @@ impl ISpeechPhraseElements_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechPhraseElements as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechPhraseElements as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -10742,7 +10742,7 @@ impl ISpeechPhraseInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechPhraseInfo as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechPhraseInfo as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -10803,7 +10803,7 @@ impl ISpeechPhraseInfoBuilder_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), RestorePhraseFromMemory: RestorePhraseFromMemory::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechPhraseInfoBuilder as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechPhraseInfoBuilder as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -10911,7 +10911,7 @@ impl ISpeechPhraseProperties_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechPhraseProperties as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechPhraseProperties as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -11167,7 +11167,7 @@ impl ISpeechPhraseProperty_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechPhraseProperty as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechPhraseProperty as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -11299,7 +11299,7 @@ impl ISpeechPhraseReplacement_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechPhraseReplacement as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechPhraseReplacement as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -11407,7 +11407,7 @@ impl ISpeechPhraseReplacements_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechPhraseReplacements as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechPhraseReplacements as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -11635,7 +11635,7 @@ impl ISpeechPhraseRule_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechPhraseRule as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechPhraseRule as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -11743,7 +11743,7 @@ impl ISpeechPhraseRules_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechPhraseRules as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechPhraseRules as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -12261,7 +12261,7 @@ impl ISpeechRecoContext_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechRecoContext as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechRecoContext as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -12607,7 +12607,7 @@ impl ISpeechRecoGrammar_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechRecoGrammar as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechRecoGrammar as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -12866,7 +12866,7 @@ impl ISpeechRecoResult_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechRecoResult as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechRecoResult as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -12915,7 +12915,7 @@ impl ISpeechRecoResult2_Vtbl {
         Self { base__: ISpeechRecoResult_Vtbl::new::<Identity, OFFSET>(), SetTextFeedback: SetTextFeedback::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechRecoResult2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ISpeechRecoResult as windows_core::Interface>::IID
+        iid == &<ISpeechRecoResult2 as windows_core::Interface>::IID || ISpeechRecoResult_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -13242,7 +13242,7 @@ impl ISpeechRecoResultDispatch_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechRecoResultDispatch as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechRecoResultDispatch as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -13386,7 +13386,7 @@ impl ISpeechRecoResultTimes_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechRecoResultTimes as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechRecoResultTimes as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -14002,7 +14002,7 @@ impl ISpeechRecognizer_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechRecognizer as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechRecognizer as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -14190,7 +14190,7 @@ impl ISpeechRecognizerStatus_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechRecognizerStatus as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechRecognizerStatus as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -14266,7 +14266,7 @@ impl ISpeechResourceLoader_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechResourceLoader as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechResourceLoader as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -14446,7 +14446,7 @@ impl ISpeechTextSelectionInformation_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechTextSelectionInformation as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechTextSelectionInformation as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -15126,7 +15126,7 @@ impl ISpeechVoice_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechVoice as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechVoice as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -15450,7 +15450,7 @@ impl ISpeechVoiceStatus_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechVoiceStatus as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechVoiceStatus as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -15746,7 +15746,7 @@ impl ISpeechWaveFormatEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechWaveFormatEx as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISpeechWaveFormatEx as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -15834,7 +15834,7 @@ impl ISpeechXMLRecoResult_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpeechXMLRecoResult as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ISpeechRecoResult as windows_core::Interface>::IID
+        iid == &<ISpeechXMLRecoResult as windows_core::Interface>::IID || ISpeechRecoResult_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -17150,7 +17150,7 @@ impl _ISpeechRecoContextEvents_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<_ISpeechRecoContextEvents as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<_ISpeechRecoContextEvents as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -17180,7 +17180,7 @@ impl _ISpeechVoiceEvents_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<_ISpeechVoiceEvents as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<_ISpeechVoiceEvents as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]

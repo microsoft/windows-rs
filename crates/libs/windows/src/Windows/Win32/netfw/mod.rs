@@ -421,7 +421,7 @@ impl INetFwAuthorizedApplication_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwAuthorizedApplication as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwAuthorizedApplication as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -556,7 +556,7 @@ impl INetFwAuthorizedApplications_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwAuthorizedApplications as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwAuthorizedApplications as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1032,7 +1032,7 @@ impl INetFwIcmpSettings_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwIcmpSettings as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwIcmpSettings as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1164,7 +1164,7 @@ impl INetFwMgr_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwMgr as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwMgr as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1520,7 +1520,7 @@ impl INetFwOpenPort_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwOpenPort as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwOpenPort as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1663,7 +1663,7 @@ impl INetFwOpenPorts_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwOpenPorts as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwOpenPorts as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1751,7 +1751,7 @@ impl INetFwPolicy_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwPolicy as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwPolicy as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2279,7 +2279,7 @@ impl INetFwPolicy2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwPolicy2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwPolicy2 as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2419,7 +2419,7 @@ impl INetFwProduct_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwProduct as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwProduct as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2554,7 +2554,7 @@ impl INetFwProducts_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwProducts as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwProducts as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2914,7 +2914,7 @@ impl INetFwProfile_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwProfile as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwProfile as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3118,7 +3118,7 @@ impl INetFwRemoteAdminSettings_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwRemoteAdminSettings as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwRemoteAdminSettings as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3850,7 +3850,7 @@ impl INetFwRule_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwRule as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwRule as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3922,7 +3922,7 @@ impl INetFwRule2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwRule2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<INetFwRule as windows_core::Interface>::IID
+        iid == &<INetFwRule2 as windows_core::Interface>::IID || INetFwRule_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4174,7 +4174,7 @@ impl INetFwRule3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwRule3 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<INetFwRule as windows_core::Interface>::IID || iid == &<INetFwRule2 as windows_core::Interface>::IID
+        iid == &<INetFwRule3 as windows_core::Interface>::IID || INetFwRule2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4309,7 +4309,7 @@ impl INetFwRules_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwRules as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwRules as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4617,7 +4617,7 @@ impl INetFwService_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwService as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwService as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4721,7 +4721,7 @@ impl INetFwServiceRestriction_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwServiceRestriction as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwServiceRestriction as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4833,7 +4833,7 @@ impl INetFwServices_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwServices as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwServices as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]

@@ -260,7 +260,7 @@ impl IDirectManipulationCompositor2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirectManipulationCompositor2 as windows_core::Interface>::IID || iid == &<IDirectManipulationCompositor as windows_core::Interface>::IID
+        iid == &<IDirectManipulationCompositor2 as windows_core::Interface>::IID || IDirectManipulationCompositor_Vtbl::matches(iid)
     }
 }
 impl windows_core::RuntimeName for IDirectManipulationCompositor2 {}
@@ -876,7 +876,7 @@ impl IDirectManipulationManager2_Vtbl {
         Self { base__: IDirectManipulationManager_Vtbl::new::<Identity, OFFSET>(), CreateBehavior: CreateBehavior::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirectManipulationManager2 as windows_core::Interface>::IID || iid == &<IDirectManipulationManager as windows_core::Interface>::IID
+        iid == &<IDirectManipulationManager2 as windows_core::Interface>::IID || IDirectManipulationManager_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
@@ -924,7 +924,7 @@ impl IDirectManipulationManager3_Vtbl {
         Self { base__: IDirectManipulationManager2_Vtbl::new::<Identity, OFFSET>(), GetService: GetService::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirectManipulationManager3 as windows_core::Interface>::IID || iid == &<IDirectManipulationManager as windows_core::Interface>::IID || iid == &<IDirectManipulationManager2 as windows_core::Interface>::IID
+        iid == &<IDirectManipulationManager3 as windows_core::Interface>::IID || IDirectManipulationManager2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
@@ -1742,7 +1742,7 @@ impl IDirectManipulationViewport2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirectManipulationViewport2 as windows_core::Interface>::IID || iid == &<IDirectManipulationViewport as windows_core::Interface>::IID
+        iid == &<IDirectManipulationViewport2 as windows_core::Interface>::IID || IDirectManipulationViewport_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]

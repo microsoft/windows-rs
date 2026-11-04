@@ -1437,7 +1437,7 @@ impl IDirectSound8_Vtbl {
         Self { base__: IDirectSound_Vtbl::new::<Identity, OFFSET>(), VerifyCertification: VerifyCertification::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirectSound8 as windows_core::Interface>::IID || iid == &<IDirectSound as windows_core::Interface>::IID
+        iid == &<IDirectSound8 as windows_core::Interface>::IID || IDirectSound_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "shared", feature = "unknwnbase", feature = "windef"))]
@@ -1824,7 +1824,7 @@ impl IDirectSoundBuffer8_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirectSoundBuffer8 as windows_core::Interface>::IID || iid == &<IDirectSoundBuffer as windows_core::Interface>::IID
+        iid == &<IDirectSoundBuffer8 as windows_core::Interface>::IID || IDirectSoundBuffer_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "shared"))]
@@ -2131,7 +2131,7 @@ impl IDirectSoundCaptureBuffer8_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirectSoundCaptureBuffer8 as windows_core::Interface>::IID || iid == &<IDirectSoundCaptureBuffer as windows_core::Interface>::IID
+        iid == &<IDirectSoundCaptureBuffer8 as windows_core::Interface>::IID || IDirectSoundCaptureBuffer_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "shared"))]

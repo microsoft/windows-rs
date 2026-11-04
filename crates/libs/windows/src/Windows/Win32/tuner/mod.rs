@@ -208,7 +208,7 @@ impl IATSCChannelTuneRequest_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IATSCChannelTuneRequest as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ITuneRequest as windows_core::Interface>::IID || iid == &<IChannelTuneRequest as windows_core::Interface>::IID
+        iid == &<IATSCChannelTuneRequest as windows_core::Interface>::IID || IChannelTuneRequest_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -276,7 +276,7 @@ impl IATSCComponentType_Vtbl {
         Self { base__: IMPEG2ComponentType_Vtbl::new::<Identity, OFFSET>(), Flags: Flags::<Identity, OFFSET>, SetFlags: SetFlags::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IATSCComponentType as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IComponentType as windows_core::Interface>::IID || iid == &<ILanguageComponentType as windows_core::Interface>::IID || iid == &<IMPEG2ComponentType as windows_core::Interface>::IID
+        iid == &<IATSCComponentType as windows_core::Interface>::IID || IMPEG2ComponentType_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -384,7 +384,7 @@ impl IATSCLocator_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IATSCLocator as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ILocator as windows_core::Interface>::IID || iid == &<IDigitalLocator as windows_core::Interface>::IID
+        iid == &<IATSCLocator as windows_core::Interface>::IID || IDigitalLocator_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -456,7 +456,7 @@ impl IATSCLocator2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IATSCLocator2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ILocator as windows_core::Interface>::IID || iid == &<IDigitalLocator as windows_core::Interface>::IID || iid == &<IATSCLocator as windows_core::Interface>::IID
+        iid == &<IATSCLocator2 as windows_core::Interface>::IID || IATSCLocator_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -636,7 +636,7 @@ impl IATSCTuningSpace_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IATSCTuningSpace as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ITuningSpace as windows_core::Interface>::IID || iid == &<IAnalogTVTuningSpace as windows_core::Interface>::IID
+        iid == &<IATSCTuningSpace as windows_core::Interface>::IID || IAnalogTVTuningSpace_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "comcat", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -716,7 +716,7 @@ impl IAnalogAudioComponentType_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAnalogAudioComponentType as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IComponentType as windows_core::Interface>::IID
+        iid == &<IAnalogAudioComponentType as windows_core::Interface>::IID || IComponentType_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -796,7 +796,7 @@ impl IAnalogLocator_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAnalogLocator as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ILocator as windows_core::Interface>::IID
+        iid == &<IAnalogLocator as windows_core::Interface>::IID || ILocator_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -940,7 +940,7 @@ impl IAnalogRadioTuningSpace_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAnalogRadioTuningSpace as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ITuningSpace as windows_core::Interface>::IID
+        iid == &<IAnalogRadioTuningSpace as windows_core::Interface>::IID || ITuningSpace_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "comcat", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1012,7 +1012,7 @@ impl IAnalogRadioTuningSpace2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAnalogRadioTuningSpace2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ITuningSpace as windows_core::Interface>::IID || iid == &<IAnalogRadioTuningSpace as windows_core::Interface>::IID
+        iid == &<IAnalogRadioTuningSpace2 as windows_core::Interface>::IID || IAnalogRadioTuningSpace_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "comcat", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1200,7 +1200,7 @@ impl IAnalogTVTuningSpace_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAnalogTVTuningSpace as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ITuningSpace as windows_core::Interface>::IID
+        iid == &<IAnalogTVTuningSpace as windows_core::Interface>::IID || ITuningSpace_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "comcat", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1230,7 +1230,7 @@ impl IAuxInTuningSpace_Vtbl {
         Self { base__: ITuningSpace_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAuxInTuningSpace as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ITuningSpace as windows_core::Interface>::IID
+        iid == &<IAuxInTuningSpace as windows_core::Interface>::IID || ITuningSpace_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "comcat", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1302,7 +1302,7 @@ impl IAuxInTuningSpace2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAuxInTuningSpace2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ITuningSpace as windows_core::Interface>::IID || iid == &<IAuxInTuningSpace as windows_core::Interface>::IID
+        iid == &<IAuxInTuningSpace2 as windows_core::Interface>::IID || IAuxInTuningSpace_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "comcat", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1611,7 +1611,7 @@ impl IChannelIDTuneRequest_Vtbl {
         Self { base__: ITuneRequest_Vtbl::new::<Identity, OFFSET>(), ChannelID: ChannelID::<Identity, OFFSET>, SetChannelID: SetChannelID::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IChannelIDTuneRequest as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ITuneRequest as windows_core::Interface>::IID
+        iid == &<IChannelIDTuneRequest as windows_core::Interface>::IID || ITuneRequest_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1679,7 +1679,7 @@ impl IChannelTuneRequest_Vtbl {
         Self { base__: ITuneRequest_Vtbl::new::<Identity, OFFSET>(), Channel: Channel::<Identity, OFFSET>, SetChannel: SetChannel::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IChannelTuneRequest as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ITuneRequest as windows_core::Interface>::IID
+        iid == &<IChannelTuneRequest as windows_core::Interface>::IID || ITuneRequest_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1894,7 +1894,7 @@ impl IComponent_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IComponent as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IComponent as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2270,7 +2270,7 @@ impl IComponentType_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IComponentType as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IComponentType as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2496,7 +2496,7 @@ impl IComponentTypes_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IComponentTypes as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IComponentTypes as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2722,7 +2722,7 @@ impl IComponents_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IComponents as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IComponents as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2929,7 +2929,7 @@ impl IComponentsOld_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IComponentsOld as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IComponentsOld as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2959,7 +2959,7 @@ impl IDVBCLocator_Vtbl {
         Self { base__: IDigitalLocator_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDVBCLocator as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ILocator as windows_core::Interface>::IID || iid == &<IDigitalLocator as windows_core::Interface>::IID
+        iid == &<IDVBCLocator as windows_core::Interface>::IID || IDigitalLocator_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3191,7 +3191,7 @@ impl IDVBSLocator_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDVBSLocator as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ILocator as windows_core::Interface>::IID || iid == &<IDigitalLocator as windows_core::Interface>::IID
+        iid == &<IDVBSLocator as windows_core::Interface>::IID || IDigitalLocator_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3511,7 +3511,7 @@ impl IDVBSLocator2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDVBSLocator2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ILocator as windows_core::Interface>::IID || iid == &<IDigitalLocator as windows_core::Interface>::IID || iid == &<IDVBSLocator as windows_core::Interface>::IID
+        iid == &<IDVBSLocator2 as windows_core::Interface>::IID || IDVBSLocator_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3735,7 +3735,7 @@ impl IDVBSTuningSpace_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDVBSTuningSpace as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ITuningSpace as windows_core::Interface>::IID || iid == &<IDVBTuningSpace as windows_core::Interface>::IID || iid == &<IDVBTuningSpace2 as windows_core::Interface>::IID
+        iid == &<IDVBSTuningSpace as windows_core::Interface>::IID || IDVBTuningSpace2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "bdatypes", feature = "comcat", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4071,7 +4071,7 @@ impl IDVBTLocator_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDVBTLocator as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ILocator as windows_core::Interface>::IID || iid == &<IDigitalLocator as windows_core::Interface>::IID
+        iid == &<IDVBTLocator as windows_core::Interface>::IID || IDigitalLocator_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4143,7 +4143,7 @@ impl IDVBTLocator2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDVBTLocator2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ILocator as windows_core::Interface>::IID || iid == &<IDigitalLocator as windows_core::Interface>::IID || iid == &<IDVBTLocator as windows_core::Interface>::IID
+        iid == &<IDVBTLocator2 as windows_core::Interface>::IID || IDVBTLocator_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4287,7 +4287,7 @@ impl IDVBTuneRequest_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDVBTuneRequest as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ITuneRequest as windows_core::Interface>::IID
+        iid == &<IDVBTuneRequest as windows_core::Interface>::IID || ITuneRequest_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4367,7 +4367,7 @@ impl IDVBTuningSpace_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDVBTuningSpace as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ITuningSpace as windows_core::Interface>::IID
+        iid == &<IDVBTuningSpace as windows_core::Interface>::IID || ITuningSpace_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "bdatypes", feature = "comcat", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4439,7 +4439,7 @@ impl IDVBTuningSpace2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDVBTuningSpace2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ITuningSpace as windows_core::Interface>::IID || iid == &<IDVBTuningSpace as windows_core::Interface>::IID
+        iid == &<IDVBTuningSpace2 as windows_core::Interface>::IID || IDVBTuningSpace_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "bdatypes", feature = "comcat", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4469,7 +4469,7 @@ impl IDigitalCableLocator_Vtbl {
         Self { base__: IATSCLocator2_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDigitalCableLocator as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ILocator as windows_core::Interface>::IID || iid == &<IDigitalLocator as windows_core::Interface>::IID || iid == &<IATSCLocator as windows_core::Interface>::IID || iid == &<IATSCLocator2 as windows_core::Interface>::IID
+        iid == &<IDigitalCableLocator as windows_core::Interface>::IID || IATSCLocator2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4577,7 +4577,7 @@ impl IDigitalCableTuneRequest_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDigitalCableTuneRequest as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ITuneRequest as windows_core::Interface>::IID || iid == &<IChannelTuneRequest as windows_core::Interface>::IID || iid == &<IATSCChannelTuneRequest as windows_core::Interface>::IID
+        iid == &<IDigitalCableTuneRequest as windows_core::Interface>::IID || IATSCChannelTuneRequest_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4757,7 +4757,7 @@ impl IDigitalCableTuningSpace_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDigitalCableTuningSpace as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ITuningSpace as windows_core::Interface>::IID || iid == &<IAnalogTVTuningSpace as windows_core::Interface>::IID || iid == &<IATSCTuningSpace as windows_core::Interface>::IID
+        iid == &<IDigitalCableTuningSpace as windows_core::Interface>::IID || IATSCTuningSpace_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "comcat", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4787,7 +4787,7 @@ impl IDigitalLocator_Vtbl {
         Self { base__: ILocator_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDigitalLocator as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ILocator as windows_core::Interface>::IID
+        iid == &<IDigitalLocator as windows_core::Interface>::IID || ILocator_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4848,7 +4848,7 @@ impl IESCloseMmiEvent_Vtbl {
         Self { base__: super::IESEvent_Vtbl::new::<Identity, OFFSET>(), GetDialogNumber: GetDialogNumber::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IESCloseMmiEvent as windows_core::Interface>::IID || iid == &<super::IESEvent as windows_core::Interface>::IID
+        iid == &<IESCloseMmiEvent as windows_core::Interface>::IID || super::IESEvent_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "bdaiface", feature = "oaidl", feature = "shared", feature = "winnt"))]
@@ -5256,7 +5256,7 @@ impl IESFileExpiryDateEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IESFileExpiryDateEvent as windows_core::Interface>::IID || iid == &<super::IESEvent as windows_core::Interface>::IID
+        iid == &<IESFileExpiryDateEvent as windows_core::Interface>::IID || super::IESEvent_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "bdaiface", feature = "oaidl", feature = "shared", feature = "winnt"))]
@@ -5404,7 +5404,7 @@ impl IESIsdbCasResponseEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IESIsdbCasResponseEvent as windows_core::Interface>::IID || iid == &<super::IESEvent as windows_core::Interface>::IID
+        iid == &<IESIsdbCasResponseEvent as windows_core::Interface>::IID || super::IESEvent_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "bdaiface", feature = "oaidl", feature = "shared", feature = "winnt"))]
@@ -5732,7 +5732,7 @@ impl IESLicenseRenewalResultEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IESLicenseRenewalResultEvent as windows_core::Interface>::IID || iid == &<super::IESEvent as windows_core::Interface>::IID
+        iid == &<IESLicenseRenewalResultEvent as windows_core::Interface>::IID || super::IESEvent_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "bdaiface", feature = "oaidl", feature = "shared", feature = "winnt"))]
@@ -5872,7 +5872,7 @@ impl IESOpenMmiEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IESOpenMmiEvent as windows_core::Interface>::IID || iid == &<super::IESEvent as windows_core::Interface>::IID
+        iid == &<IESOpenMmiEvent as windows_core::Interface>::IID || super::IESEvent_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "bdaiface", feature = "oaidl", feature = "shared", feature = "winnt"))]
@@ -6020,7 +6020,7 @@ impl IESRequestTunerEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IESRequestTunerEvent as windows_core::Interface>::IID || iid == &<super::IESEvent as windows_core::Interface>::IID
+        iid == &<IESRequestTunerEvent as windows_core::Interface>::IID || super::IESEvent_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "bdaiface", feature = "oaidl", feature = "shared", feature = "winnt"))]
@@ -6081,7 +6081,7 @@ impl IESValueUpdatedEvent_Vtbl {
         Self { base__: super::IESEvent_Vtbl::new::<Identity, OFFSET>(), GetValueNames: GetValueNames::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IESValueUpdatedEvent as windows_core::Interface>::IID || iid == &<super::IESEvent as windows_core::Interface>::IID
+        iid == &<IESValueUpdatedEvent as windows_core::Interface>::IID || super::IESEvent_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "bdaiface", feature = "oaidl", feature = "shared", feature = "winnt"))]
@@ -6433,7 +6433,7 @@ impl IISDBSLocator_Vtbl {
         Self { base__: IDVBSLocator_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IISDBSLocator as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ILocator as windows_core::Interface>::IID || iid == &<IDigitalLocator as windows_core::Interface>::IID || iid == &<IDVBSLocator as windows_core::Interface>::IID
+        iid == &<IISDBSLocator as windows_core::Interface>::IID || IDVBSLocator_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6501,7 +6501,7 @@ impl ILanguageComponentType_Vtbl {
         Self { base__: IComponentType_Vtbl::new::<Identity, OFFSET>(), LangID: LangID::<Identity, OFFSET>, SetLangID: SetLangID::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ILanguageComponentType as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IComponentType as windows_core::Interface>::IID
+        iid == &<ILanguageComponentType as windows_core::Interface>::IID || IComponentType_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6853,7 +6853,7 @@ impl ILocator_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ILocator as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ILocator as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6997,7 +6997,7 @@ impl IMPEG2Component_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMPEG2Component as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IComponent as windows_core::Interface>::IID
+        iid == &<IMPEG2Component as windows_core::Interface>::IID || IComponent_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7077,7 +7077,7 @@ impl IMPEG2ComponentType_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMPEG2ComponentType as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IComponentType as windows_core::Interface>::IID || iid == &<ILanguageComponentType as windows_core::Interface>::IID
+        iid == &<IMPEG2ComponentType as windows_core::Interface>::IID || ILanguageComponentType_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7185,7 +7185,7 @@ impl IMPEG2TuneRequest_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMPEG2TuneRequest as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ITuneRequest as windows_core::Interface>::IID
+        iid == &<IMPEG2TuneRequest as windows_core::Interface>::IID || ITuneRequest_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7245,7 +7245,7 @@ impl IMPEG2TuneRequestFactory_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), CreateTuneRequest: CreateTuneRequest::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMPEG2TuneRequestFactory as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IMPEG2TuneRequestFactory as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7342,7 +7342,7 @@ impl IPersistTuneXml_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPersistTuneXml as windows_core::Interface>::IID || iid == &<super::IPersist as windows_core::Interface>::IID
+        iid == &<IPersistTuneXml as windows_core::Interface>::IID || super::IPersist_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7451,7 +7451,7 @@ impl IPersistTuneXmlUtility2_Vtbl {
         Self { base__: IPersistTuneXmlUtility_Vtbl::new::<Identity, OFFSET>(), Serialize: Serialize::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPersistTuneXmlUtility2 as windows_core::Interface>::IID || iid == &<IPersistTuneXmlUtility as windows_core::Interface>::IID
+        iid == &<IPersistTuneXmlUtility2 as windows_core::Interface>::IID || IPersistTuneXmlUtility_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7600,7 +7600,7 @@ impl IScanningTuner_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IScanningTuner as windows_core::Interface>::IID || iid == &<ITuner as windows_core::Interface>::IID
+        iid == &<IScanningTuner as windows_core::Interface>::IID || ITuner_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "oaidl")]
@@ -7751,7 +7751,7 @@ impl IScanningTunerEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IScanningTunerEx as windows_core::Interface>::IID || iid == &<ITuner as windows_core::Interface>::IID || iid == &<IScanningTuner as windows_core::Interface>::IID
+        iid == &<IScanningTunerEx as windows_core::Interface>::IID || IScanningTuner_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "oaidl", feature = "strmif", feature = "wtypes"))]
@@ -7898,7 +7898,7 @@ impl ITuneRequest_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITuneRequest as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ITuneRequest as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -8692,7 +8692,7 @@ impl ITuningSpace_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITuningSpace as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ITuningSpace as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "comcat", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -9033,7 +9033,7 @@ impl ITuningSpaceContainer_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITuningSpaceContainer as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ITuningSpaceContainer as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -9169,7 +9169,7 @@ impl ITuningSpaces_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITuningSpaces as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ITuningSpaces as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]

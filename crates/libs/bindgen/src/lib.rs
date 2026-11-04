@@ -339,7 +339,7 @@ impl Bindgen {
         self
     }
 
-    /// Includes implementation traits for every WinRT interface in scope.
+    /// Includes implementation traits for every native and WinRT interface in scope.
     #[track_caller]
     pub fn implement_all(&mut self) -> &mut Self {
         match &self.implement {
@@ -350,7 +350,7 @@ impl Bindgen {
         self
     }
 
-    /// Includes implementation traits for a WinRT interface or namespace prefix.
+    /// Includes implementation traits for a native or WinRT interface or namespace prefix.
     ///
     /// The name may be a fully-qualified type name (`Namespace.Name`) or a namespace prefix that
     /// matches every type defined under it.
@@ -366,7 +366,7 @@ impl Bindgen {
         self
     }
 
-    /// Includes implementation traits for multiple WinRT interfaces or namespace prefixes.
+    /// Includes implementation traits for multiple native or WinRT interfaces or namespace prefixes.
     pub fn implements<I, S>(&mut self, names: I) -> &mut Self
     where
         I: IntoIterator<Item = S>,
@@ -420,6 +420,8 @@ impl Bindgen {
 
     /// Generate minimal-mode Rust bindings.
     ///
+    /// Implementation traits require [`Bindgen::implement`] or [`Bindgen::implement_all`].
+    ///
     /// Drops per-class wrapper methods, inherited interface forwarders, handle
     /// ergonomics, and free-function wrappers.
     ///
@@ -445,8 +447,9 @@ impl Bindgen {
         self
     }
 
-    /// Emit `pub(crate)` instead of `pub` on generated items to surface unused
-    /// bindings as dead-code warnings.
+    /// Use `pub(crate)` where possible to surface unused bindings as dead-code warnings.
+    ///
+    /// Interface and vtable types remain public for trait implementations.
     pub fn dead_code(&mut self) -> &mut Self {
         self.dead_code = true;
         self

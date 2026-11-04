@@ -92,7 +92,7 @@ impl DFConstraint_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), Name: Name::<Identity, OFFSET>, Value: Value::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<DFConstraint as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<DFConstraint as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -122,7 +122,7 @@ impl DShellFolderViewEvents_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<DShellFolderViewEvents as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<DShellFolderViewEvents as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -379,7 +379,7 @@ impl Folder_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<Folder as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<Folder as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -519,7 +519,7 @@ impl Folder2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<Folder2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<Folder as windows_core::Interface>::IID
+        iid == &<Folder2 as windows_core::Interface>::IID || Folder_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -599,7 +599,7 @@ impl Folder3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<Folder3 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<Folder as windows_core::Interface>::IID || iid == &<Folder2 as windows_core::Interface>::IID
+        iid == &<Folder3 as windows_core::Interface>::IID || Folder2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1039,7 +1039,7 @@ impl FolderItem_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<FolderItem as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<FolderItem as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1119,7 +1119,7 @@ impl FolderItem2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<FolderItem2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<FolderItem as windows_core::Interface>::IID
+        iid == &<FolderItem2 as windows_core::Interface>::IID || FolderItem_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1239,7 +1239,7 @@ impl FolderItemVerb_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<FolderItemVerb as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<FolderItemVerb as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1399,7 +1399,7 @@ impl FolderItemVerbs_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<FolderItemVerbs as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<FolderItemVerbs as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1559,7 +1559,7 @@ impl FolderItems_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<FolderItems as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<FolderItems as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1608,7 +1608,7 @@ impl FolderItems2_Vtbl {
         Self { base__: FolderItems_Vtbl::new::<Identity, OFFSET>(), InvokeVerbEx: InvokeVerbEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<FolderItems2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<FolderItems as windows_core::Interface>::IID
+        iid == &<FolderItems2 as windows_core::Interface>::IID || FolderItems_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1676,7 +1676,7 @@ impl FolderItems3_Vtbl {
         Self { base__: FolderItems2_Vtbl::new::<Identity, OFFSET>(), Filter: Filter::<Identity, OFFSET>, Verbs: Verbs::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<FolderItems3 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<FolderItems as windows_core::Interface>::IID || iid == &<FolderItems2 as windows_core::Interface>::IID
+        iid == &<FolderItems3 as windows_core::Interface>::IID || FolderItems2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1789,7 +1789,7 @@ impl IAutoComplete2_Vtbl {
         Self { base__: IAutoComplete_Vtbl::new::<Identity, OFFSET>(), SetOptions: SetOptions::<Identity, OFFSET>, GetOptions: GetOptions::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAutoComplete2 as windows_core::Interface>::IID || iid == &<IAutoComplete as windows_core::Interface>::IID
+        iid == &<IAutoComplete2 as windows_core::Interface>::IID || IAutoComplete_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
@@ -1972,7 +1972,7 @@ impl IEnumACString_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IEnumACString as windows_core::Interface>::IID || iid == &<super::IEnumString as windows_core::Interface>::IID
+        iid == &<IEnumACString as windows_core::Interface>::IID || super::IEnumString_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "objidlbase", feature = "shared", feature = "wtypesbase"))]
@@ -2116,7 +2116,7 @@ impl IFileSearchBand_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFileSearchBand as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IFileSearchBand as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2164,7 +2164,7 @@ impl IFolderViewOC_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), SetFolderView: SetFolderView::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFolderViewOC as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IFolderViewOC as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2225,7 +2225,7 @@ impl INewWDEvents_Vtbl {
         Self { base__: IWebWizardHost_Vtbl::new::<Identity, OFFSET>(), PassportAuthenticate: PassportAuthenticate::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INewWDEvents as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IWebWizardHost as windows_core::Interface>::IID
+        iid == &<INewWDEvents as windows_core::Interface>::IID || IWebWizardHost_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2613,7 +2613,7 @@ impl IShellDispatch_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellDispatch as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IShellDispatch as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2869,7 +2869,7 @@ impl IShellDispatch2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellDispatch2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IShellDispatch as windows_core::Interface>::IID
+        iid == &<IShellDispatch2 as windows_core::Interface>::IID || IShellDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2918,7 +2918,7 @@ impl IShellDispatch3_Vtbl {
         Self { base__: IShellDispatch2_Vtbl::new::<Identity, OFFSET>(), AddToRecent: AddToRecent::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellDispatch3 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IShellDispatch as windows_core::Interface>::IID || iid == &<IShellDispatch2 as windows_core::Interface>::IID
+        iid == &<IShellDispatch3 as windows_core::Interface>::IID || IShellDispatch2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3034,7 +3034,7 @@ impl IShellDispatch4_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellDispatch4 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IShellDispatch as windows_core::Interface>::IID || iid == &<IShellDispatch2 as windows_core::Interface>::IID || iid == &<IShellDispatch3 as windows_core::Interface>::IID
+        iid == &<IShellDispatch4 as windows_core::Interface>::IID || IShellDispatch3_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3079,7 +3079,7 @@ impl IShellDispatch5_Vtbl {
         Self { base__: IShellDispatch4_Vtbl::new::<Identity, OFFSET>(), WindowSwitcher: WindowSwitcher::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellDispatch5 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IShellDispatch as windows_core::Interface>::IID || iid == &<IShellDispatch2 as windows_core::Interface>::IID || iid == &<IShellDispatch3 as windows_core::Interface>::IID || iid == &<IShellDispatch4 as windows_core::Interface>::IID
+        iid == &<IShellDispatch5 as windows_core::Interface>::IID || IShellDispatch4_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3124,7 +3124,7 @@ impl IShellDispatch6_Vtbl {
         Self { base__: IShellDispatch5_Vtbl::new::<Identity, OFFSET>(), SearchCommand: SearchCommand::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellDispatch6 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IShellDispatch as windows_core::Interface>::IID || iid == &<IShellDispatch2 as windows_core::Interface>::IID || iid == &<IShellDispatch3 as windows_core::Interface>::IID || iid == &<IShellDispatch4 as windows_core::Interface>::IID || iid == &<IShellDispatch5 as windows_core::Interface>::IID
+        iid == &<IShellDispatch6 as windows_core::Interface>::IID || IShellDispatch5_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3375,7 +3375,7 @@ impl IShellFolderViewDual_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellFolderViewDual as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IShellFolderViewDual as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3467,7 +3467,7 @@ impl IShellFolderViewDual2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellFolderViewDual2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IShellFolderViewDual as windows_core::Interface>::IID
+        iid == &<IShellFolderViewDual2 as windows_core::Interface>::IID || IShellFolderViewDual_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3667,7 +3667,7 @@ impl IShellFolderViewDual3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellFolderViewDual3 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IShellFolderViewDual as windows_core::Interface>::IID || iid == &<IShellFolderViewDual2 as windows_core::Interface>::IID
+        iid == &<IShellFolderViewDual3 as windows_core::Interface>::IID || IShellFolderViewDual2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3983,7 +3983,7 @@ impl IShellLinkDual_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellLinkDual as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IShellLinkDual as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4040,7 +4040,7 @@ impl IShellLinkDual2_Vtbl {
         Self { base__: IShellLinkDual_Vtbl::new::<Identity, OFFSET>(), Target: Target::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellLinkDual2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IShellLinkDual as windows_core::Interface>::IID
+        iid == &<IShellLinkDual2 as windows_core::Interface>::IID || IShellLinkDual_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4220,7 +4220,7 @@ impl IWebWizardHost_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWebWizardHost as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IWebWizardHost as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4277,7 +4277,7 @@ impl IWebWizardHost2_Vtbl {
         Self { base__: IWebWizardHost_Vtbl::new::<Identity, OFFSET>(), SignString: SignString::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWebWizardHost2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IWebWizardHost as windows_core::Interface>::IID
+        iid == &<IWebWizardHost2 as windows_core::Interface>::IID || IWebWizardHost_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]

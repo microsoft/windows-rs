@@ -571,7 +571,7 @@ impl IAudioClient2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAudioClient2 as windows_core::Interface>::IID || iid == &<IAudioClient as windows_core::Interface>::IID
+        iid == &<IAudioClient2 as windows_core::Interface>::IID || IAudioClient_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "mmeapi", feature = "shared", feature = "winnt"))]
@@ -650,7 +650,7 @@ impl IAudioClient3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAudioClient3 as windows_core::Interface>::IID || iid == &<IAudioClient as windows_core::Interface>::IID || iid == &<IAudioClient2 as windows_core::Interface>::IID
+        iid == &<IAudioClient3 as windows_core::Interface>::IID || IAudioClient2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "mmeapi", feature = "shared", feature = "winnt"))]

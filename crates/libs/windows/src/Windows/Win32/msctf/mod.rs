@@ -1400,7 +1400,7 @@ impl ITfCandidateListUIElement_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfCandidateListUIElement as windows_core::Interface>::IID || iid == &<ITfUIElement as windows_core::Interface>::IID
+        iid == &<ITfCandidateListUIElement as windows_core::Interface>::IID || ITfUIElement_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -1471,7 +1471,7 @@ impl ITfCandidateListUIElementBehavior_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfCandidateListUIElementBehavior as windows_core::Interface>::IID || iid == &<ITfUIElement as windows_core::Interface>::IID || iid == &<ITfCandidateListUIElement as windows_core::Interface>::IID
+        iid == &<ITfCandidateListUIElementBehavior as windows_core::Interface>::IID || ITfCandidateListUIElement_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -2959,7 +2959,7 @@ impl ITfContextOwnerCompositionServices_Vtbl {
         Self { base__: ITfContextComposition_Vtbl::new::<Identity, OFFSET>(), TerminateComposition: TerminateComposition::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfContextOwnerCompositionServices as windows_core::Interface>::IID || iid == &<ITfContextComposition as windows_core::Interface>::IID
+        iid == &<ITfContextOwnerCompositionServices as windows_core::Interface>::IID || ITfContextComposition_Vtbl::matches(iid)
     }
 }
 impl windows_core::RuntimeName for ITfContextOwnerCompositionServices {}
@@ -4642,7 +4642,7 @@ impl ITfInputProcessorProfilesEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfInputProcessorProfilesEx as windows_core::Interface>::IID || iid == &<ITfInputProcessorProfiles as windows_core::Interface>::IID
+        iid == &<ITfInputProcessorProfilesEx as windows_core::Interface>::IID || ITfInputProcessorProfiles_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "comcat", feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt"))]
@@ -5639,7 +5639,7 @@ impl ITfProperty_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfProperty as windows_core::Interface>::IID || iid == &<ITfReadOnlyProperty as windows_core::Interface>::IID
+        iid == &<ITfProperty as windows_core::Interface>::IID || ITfReadOnlyProperty_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6312,7 +6312,7 @@ impl ITfRangeACP_Vtbl {
         Self { base__: ITfRange_Vtbl::new::<Identity, OFFSET>(), GetExtent: GetExtent::<Identity, OFFSET>, SetExtent: SetExtent::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfRangeACP as windows_core::Interface>::IID || iid == &<ITfRange as windows_core::Interface>::IID
+        iid == &<ITfRangeACP as windows_core::Interface>::IID || ITfRange_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "objidl", feature = "shared", feature = "winnt"))]
@@ -6556,7 +6556,7 @@ impl ITfReadingInformationUIElement_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfReadingInformationUIElement as windows_core::Interface>::IID || iid == &<ITfUIElement as windows_core::Interface>::IID
+        iid == &<ITfReadingInformationUIElement as windows_core::Interface>::IID || ITfUIElement_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -7001,7 +7001,7 @@ impl ITfTextInputProcessorEx_Vtbl {
         Self { base__: ITfTextInputProcessor_Vtbl::new::<Identity, OFFSET>(), ActivateEx: ActivateEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfTextInputProcessorEx as windows_core::Interface>::IID || iid == &<ITfTextInputProcessor as windows_core::Interface>::IID
+        iid == &<ITfTextInputProcessorEx as windows_core::Interface>::IID || ITfTextInputProcessor_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -7778,7 +7778,7 @@ impl ITfThreadMgrEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfThreadMgrEx as windows_core::Interface>::IID || iid == &<ITfThreadMgr as windows_core::Interface>::IID
+        iid == &<ITfThreadMgrEx as windows_core::Interface>::IID || ITfThreadMgr_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
@@ -7816,7 +7816,7 @@ impl ITfToolTipUIElement_Vtbl {
         Self { base__: ITfUIElement_Vtbl::new::<Identity, OFFSET>(), GetString: GetString::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfToolTipUIElement as windows_core::Interface>::IID || iid == &<ITfUIElement as windows_core::Interface>::IID
+        iid == &<ITfToolTipUIElement as windows_core::Interface>::IID || ITfUIElement_Vtbl::matches(iid)
     }
 }
 impl windows_core::RuntimeName for ITfToolTipUIElement {}
@@ -7889,7 +7889,7 @@ impl ITfTransitoryExtensionUIElement_Vtbl {
         Self { base__: ITfUIElement_Vtbl::new::<Identity, OFFSET>(), GetDocumentMgr: GetDocumentMgr::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfTransitoryExtensionUIElement as windows_core::Interface>::IID || iid == &<ITfUIElement as windows_core::Interface>::IID
+        iid == &<ITfTransitoryExtensionUIElement as windows_core::Interface>::IID || ITfUIElement_Vtbl::matches(iid)
     }
 }
 impl windows_core::RuntimeName for ITfTransitoryExtensionUIElement {}

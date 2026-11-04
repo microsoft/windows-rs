@@ -15,7 +15,6 @@ pub struct IDCompositionAnimation_Vtbl {
     AddRepeat: usize,
     End: usize,
 }
-impl windows_core::RuntimeName for IDCompositionAnimation {}
 windows_core::imp::define_interface!(
     IUIAnimationManager2,
     IUIAnimationManager2_Vtbl,
@@ -121,7 +120,6 @@ pub struct IUIAnimationManager2_Vtbl {
     SetDefaultLongestAcceptableDelay: usize,
     Shutdown: usize,
 }
-impl windows_core::RuntimeName for IUIAnimationManager2 {}
 windows_core::imp::define_interface!(
     IUIAnimationStoryboard2,
     IUIAnimationStoryboard2_Vtbl,
@@ -235,7 +233,6 @@ pub struct IUIAnimationStoryboard2_Vtbl {
     GetElapsedTime: usize,
     SetStoryboardEventHandler: usize,
 }
-impl windows_core::RuntimeName for IUIAnimationStoryboard2 {}
 windows_core::imp::define_interface!(
     IUIAnimationTransition2,
     IUIAnimationTransition2_Vtbl,
@@ -253,7 +250,6 @@ pub struct IUIAnimationTransition2_Vtbl {
     IsDurationKnown: usize,
     GetDuration: usize,
 }
-impl windows_core::RuntimeName for IUIAnimationTransition2 {}
 windows_core::imp::define_interface!(
     IUIAnimationTransitionLibrary2,
     IUIAnimationTransitionLibrary2_Vtbl,
@@ -352,7 +348,6 @@ pub struct IUIAnimationTransitionLibrary2_Vtbl {
     CreateCubicBezierLinearTransition: usize,
     CreateCubicBezierLinearVectorTransition: usize,
 }
-impl windows_core::RuntimeName for IUIAnimationTransitionLibrary2 {}
 windows_core::imp::define_interface!(
     IUIAnimationVariable2,
     IUIAnimationVariable2_Vtbl,
@@ -416,7 +411,6 @@ pub struct IUIAnimationVariable2_Vtbl {
     SetVariableIntegerChangeHandler: usize,
     SetVariableCurveChangeHandler: usize,
 }
-impl windows_core::RuntimeName for IUIAnimationVariable2 {}
 pub const UIAnimationManager2: windows_core::GUID =
     windows_core::GUID::from_u128(0xd25d8842_8884_4a4a_b321_091314379bdd);
 pub const UIAnimationTransitionLibrary2: windows_core::GUID =

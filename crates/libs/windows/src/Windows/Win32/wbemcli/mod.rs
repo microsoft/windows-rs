@@ -360,7 +360,7 @@ impl IWbemBackupRestoreEx_Vtbl {
         Self { base__: IWbemBackupRestore_Vtbl::new::<Identity, OFFSET>(), Pause: Pause::<Identity, OFFSET>, Resume: Resume::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWbemBackupRestoreEx as windows_core::Interface>::IID || iid == &<IWbemBackupRestore as windows_core::Interface>::IID
+        iid == &<IWbemBackupRestoreEx as windows_core::Interface>::IID || IWbemBackupRestore_Vtbl::matches(iid)
     }
 }
 impl windows_core::RuntimeName for IWbemBackupRestoreEx {}
@@ -1370,7 +1370,7 @@ impl IWbemObjectAccess_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWbemObjectAccess as windows_core::Interface>::IID || iid == &<IWbemClassObject as windows_core::Interface>::IID
+        iid == &<IWbemObjectAccess as windows_core::Interface>::IID || IWbemClassObject_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1521,7 +1521,7 @@ impl IWbemObjectSinkEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWbemObjectSinkEx as windows_core::Interface>::IID || iid == &<IWbemObjectSink as windows_core::Interface>::IID
+        iid == &<IWbemObjectSinkEx as windows_core::Interface>::IID || IWbemObjectSink_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2348,7 +2348,7 @@ impl IWbemUnsecuredApartment_Vtbl {
         Self { base__: IUnsecuredApartment_Vtbl::new::<Identity, OFFSET>(), CreateSinkStub: CreateSinkStub::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWbemUnsecuredApartment as windows_core::Interface>::IID || iid == &<IUnsecuredApartment as windows_core::Interface>::IID
+        iid == &<IWbemUnsecuredApartment as windows_core::Interface>::IID || IUnsecuredApartment_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]

@@ -687,7 +687,7 @@ impl IDelayedPropertyStoreFactory_Vtbl {
         Self { base__: IPropertyStoreFactory_Vtbl::new::<Identity, OFFSET>(), GetDelayedPropertyStore: GetDelayedPropertyStore::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDelayedPropertyStoreFactory as windows_core::Interface>::IID || iid == &<IPropertyStoreFactory as windows_core::Interface>::IID
+        iid == &<IDelayedPropertyStoreFactory as windows_core::Interface>::IID || IPropertyStoreFactory_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "wtypes"))]
@@ -965,7 +965,7 @@ impl IPropertyChange_Vtbl {
         Self { base__: IObjectWithPropertyKey_Vtbl::new::<Identity, OFFSET>(), ApplyToPropVariant: ApplyToPropVariant::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPropertyChange as windows_core::Interface>::IID || iid == &<IObjectWithPropertyKey as windows_core::Interface>::IID
+        iid == &<IPropertyChange as windows_core::Interface>::IID || IObjectWithPropertyKey_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1472,7 +1472,7 @@ impl IPropertyDescription2_Vtbl {
         Self { base__: IPropertyDescription_Vtbl::new::<Identity, OFFSET>(), GetImageReferenceForValue: GetImageReferenceForValue::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPropertyDescription2 as windows_core::Interface>::IID || iid == &<IPropertyDescription as windows_core::Interface>::IID
+        iid == &<IPropertyDescription2 as windows_core::Interface>::IID || IPropertyDescription_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "shtypes", feature = "structuredquerycondition", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1543,7 +1543,7 @@ impl IPropertyDescriptionAliasInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPropertyDescriptionAliasInfo as windows_core::Interface>::IID || iid == &<IPropertyDescription as windows_core::Interface>::IID
+        iid == &<IPropertyDescriptionAliasInfo as windows_core::Interface>::IID || IPropertyDescription_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "shtypes", feature = "structuredquerycondition", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1649,7 +1649,7 @@ impl IPropertyDescriptionRelatedPropertyInfo_Vtbl {
         Self { base__: IPropertyDescription_Vtbl::new::<Identity, OFFSET>(), GetRelatedProperty: GetRelatedProperty::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPropertyDescriptionRelatedPropertyInfo as windows_core::Interface>::IID || iid == &<IPropertyDescription as windows_core::Interface>::IID
+        iid == &<IPropertyDescriptionRelatedPropertyInfo as windows_core::Interface>::IID || IPropertyDescription_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "shtypes", feature = "structuredquerycondition", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1732,7 +1732,7 @@ impl IPropertyDescriptionSearchInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPropertyDescriptionSearchInfo as windows_core::Interface>::IID || iid == &<IPropertyDescription as windows_core::Interface>::IID
+        iid == &<IPropertyDescriptionSearchInfo as windows_core::Interface>::IID || IPropertyDescription_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "shtypes", feature = "structuredquerycondition", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1869,7 +1869,7 @@ impl IPropertyEnumType2_Vtbl {
         Self { base__: IPropertyEnumType_Vtbl::new::<Identity, OFFSET>(), GetImageReference: GetImageReference::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPropertyEnumType2 as windows_core::Interface>::IID || iid == &<IPropertyEnumType as windows_core::Interface>::IID
+        iid == &<IPropertyEnumType2 as windows_core::Interface>::IID || IPropertyEnumType_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2162,7 +2162,7 @@ impl IPropertyStoreCache_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPropertyStoreCache as windows_core::Interface>::IID || iid == &<IPropertyStore as windows_core::Interface>::IID
+        iid == &<IPropertyStoreCache as windows_core::Interface>::IID || IPropertyStore_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]

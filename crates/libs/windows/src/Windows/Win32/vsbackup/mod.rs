@@ -933,7 +933,7 @@ impl IVssBackupComponentsEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVssBackupComponentsEx as windows_core::Interface>::IID || iid == &<IVssBackupComponents as windows_core::Interface>::IID
+        iid == &<IVssBackupComponentsEx as windows_core::Interface>::IID || IVssBackupComponents_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "vss", feature = "vswriter"))]
@@ -1090,7 +1090,7 @@ impl IVssBackupComponentsEx2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVssBackupComponentsEx2 as windows_core::Interface>::IID || iid == &<IVssBackupComponents as windows_core::Interface>::IID || iid == &<IVssBackupComponentsEx as windows_core::Interface>::IID
+        iid == &<IVssBackupComponentsEx2 as windows_core::Interface>::IID || IVssBackupComponentsEx_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "vss", feature = "vswriter"))]
@@ -1197,7 +1197,7 @@ impl IVssBackupComponentsEx3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVssBackupComponentsEx3 as windows_core::Interface>::IID || iid == &<IVssBackupComponents as windows_core::Interface>::IID || iid == &<IVssBackupComponentsEx as windows_core::Interface>::IID || iid == &<IVssBackupComponentsEx2 as windows_core::Interface>::IID
+        iid == &<IVssBackupComponentsEx3 as windows_core::Interface>::IID || IVssBackupComponentsEx2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "vss", feature = "vswriter"))]
@@ -1241,7 +1241,7 @@ impl IVssBackupComponentsEx4_Vtbl {
         Self { base__: IVssBackupComponentsEx3_Vtbl::new::<Identity, OFFSET>(), GetRootAndLogicalPrefixPaths: GetRootAndLogicalPrefixPaths::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVssBackupComponentsEx4 as windows_core::Interface>::IID || iid == &<IVssBackupComponents as windows_core::Interface>::IID || iid == &<IVssBackupComponentsEx as windows_core::Interface>::IID || iid == &<IVssBackupComponentsEx2 as windows_core::Interface>::IID || iid == &<IVssBackupComponentsEx3 as windows_core::Interface>::IID
+        iid == &<IVssBackupComponentsEx4 as windows_core::Interface>::IID || IVssBackupComponentsEx3_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "vss", feature = "vswriter"))]
@@ -1478,7 +1478,7 @@ impl IVssExamineWriterMetadataEx_Vtbl {
         Self { base__: IVssExamineWriterMetadata_Vtbl::new::<Identity, OFFSET>(), GetIdentityEx: GetIdentityEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVssExamineWriterMetadataEx as windows_core::Interface>::IID || iid == &<IVssExamineWriterMetadata as windows_core::Interface>::IID
+        iid == &<IVssExamineWriterMetadataEx as windows_core::Interface>::IID || IVssExamineWriterMetadata_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "msxml", feature = "oaidl", feature = "shared", feature = "vss", feature = "vswriter"))]
@@ -1557,7 +1557,7 @@ impl IVssExamineWriterMetadataEx2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVssExamineWriterMetadataEx2 as windows_core::Interface>::IID || iid == &<IVssExamineWriterMetadata as windows_core::Interface>::IID || iid == &<IVssExamineWriterMetadataEx as windows_core::Interface>::IID
+        iid == &<IVssExamineWriterMetadataEx2 as windows_core::Interface>::IID || IVssExamineWriterMetadataEx_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "msxml", feature = "oaidl", feature = "shared", feature = "vss", feature = "vswriter"))]

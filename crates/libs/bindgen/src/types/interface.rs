@@ -538,6 +538,7 @@ impl Interface {
             }
 
             if config.should_implement(type_name, !is_exclusive) {
+                let vis = config.item_vis();
                 let impl_name: TokenStream = format!("{}_Impl", trim_tick(self.def.name()))
                     .parse()
                     .unwrap();
@@ -643,7 +644,7 @@ impl Interface {
                 }
                 #cfg
                 impl<#constraints> #vtbl_name {
-                    pub const fn new<Identity: #impl_name <#(#generics,)*>, const OFFSET: isize>() -> Self {
+                    #vis const fn new<Identity: #impl_name <#(#generics,)*>, const OFFSET: isize>() -> Self {
                         #(#impl_methods)*
                         Self {
                             base__: windows_core::IInspectable_Vtbl::new::<Identity, #name, OFFSET>(),
@@ -651,7 +652,7 @@ impl Interface {
                             #named_phantoms
                         }
                     }
-                    pub fn matches(iid: &windows_core::GUID) -> bool {
+                    #vis fn matches(iid: &windows_core::GUID) -> bool {
                         iid == &<#name as windows_core::Interface>::IID
                     }
                 }

@@ -431,7 +431,7 @@ impl IMFSinkWriterCallback2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFSinkWriterCallback2 as windows_core::Interface>::IID || iid == &<IMFSinkWriterCallback as windows_core::Interface>::IID
+        iid == &<IMFSinkWriterCallback2 as windows_core::Interface>::IID || IMFSinkWriterCallback_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
@@ -539,7 +539,7 @@ impl IMFSinkWriterEx_Vtbl {
         Self { base__: IMFSinkWriter_Vtbl::new::<Identity, OFFSET>(), GetTransformForStream: GetTransformForStream::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFSinkWriterEx as windows_core::Interface>::IID || iid == &<IMFSinkWriter as windows_core::Interface>::IID
+        iid == &<IMFSinkWriterEx as windows_core::Interface>::IID || IMFSinkWriter_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "mftransform", feature = "minwindef", feature = "shared"))]
@@ -865,7 +865,7 @@ impl IMFSourceReaderCallback2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFSourceReaderCallback2 as windows_core::Interface>::IID || iid == &<IMFSourceReaderCallback as windows_core::Interface>::IID
+        iid == &<IMFSourceReaderCallback2 as windows_core::Interface>::IID || IMFSourceReaderCallback_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
@@ -966,7 +966,7 @@ impl IMFSourceReaderEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFSourceReaderEx as windows_core::Interface>::IID || iid == &<IMFSourceReader as windows_core::Interface>::IID
+        iid == &<IMFSourceReaderEx as windows_core::Interface>::IID || IMFSourceReader_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "mftransform", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]

@@ -310,7 +310,7 @@ impl IMFVirtualCamera_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFVirtualCamera as windows_core::Interface>::IID || iid == &<super::IMFAttributes as windows_core::Interface>::IID
+        iid == &<IMFVirtualCamera as windows_core::Interface>::IID || super::IMFAttributes_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "devpropdef", feature = "guiddef", feature = "mfidl", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]

@@ -778,7 +778,7 @@ impl IAsyncRpcChannelBuffer_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAsyncRpcChannelBuffer as windows_core::Interface>::IID || iid == &<IRpcChannelBuffer as windows_core::Interface>::IID || iid == &<IRpcChannelBuffer2 as windows_core::Interface>::IID
+        iid == &<IAsyncRpcChannelBuffer as windows_core::Interface>::IID || IRpcChannelBuffer2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
@@ -1941,7 +1941,7 @@ impl IMarshal2_Vtbl {
         Self { base__: IMarshal_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMarshal2 as windows_core::Interface>::IID || iid == &<IMarshal as windows_core::Interface>::IID
+        iid == &<IMarshal2 as windows_core::Interface>::IID || IMarshal_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
@@ -1985,7 +1985,7 @@ impl IMarshalingStream_Vtbl {
         Self { base__: IStream_Vtbl::new::<Identity, OFFSET>(), GetMarshalingContextAttribute: GetMarshalingContextAttribute::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMarshalingStream as windows_core::Interface>::IID || iid == &<ISequentialStream as windows_core::Interface>::IID || iid == &<IStream as windows_core::Interface>::IID
+        iid == &<IMarshalingStream as windows_core::Interface>::IID || IStream_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
@@ -2539,7 +2539,7 @@ impl IRpcChannelBuffer2_Vtbl {
         Self { base__: IRpcChannelBuffer_Vtbl::new::<Identity, OFFSET>(), GetProtocolVersion: GetProtocolVersion::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRpcChannelBuffer2 as windows_core::Interface>::IID || iid == &<IRpcChannelBuffer as windows_core::Interface>::IID
+        iid == &<IRpcChannelBuffer2 as windows_core::Interface>::IID || IRpcChannelBuffer_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
@@ -2685,7 +2685,7 @@ impl IRpcChannelBuffer3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRpcChannelBuffer3 as windows_core::Interface>::IID || iid == &<IRpcChannelBuffer as windows_core::Interface>::IID || iid == &<IRpcChannelBuffer2 as windows_core::Interface>::IID
+        iid == &<IRpcChannelBuffer3 as windows_core::Interface>::IID || IRpcChannelBuffer2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
@@ -3367,7 +3367,7 @@ impl IStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IStream as windows_core::Interface>::IID || iid == &<ISequentialStream as windows_core::Interface>::IID
+        iid == &<IStream as windows_core::Interface>::IID || ISequentialStream_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
@@ -3733,7 +3733,7 @@ impl ISynchronizeEvent_Vtbl {
         Self { base__: ISynchronizeHandle_Vtbl::new::<Identity, OFFSET>(), SetEventHandle: SetEventHandle::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISynchronizeEvent as windows_core::Interface>::IID || iid == &<ISynchronizeHandle as windows_core::Interface>::IID
+        iid == &<ISynchronizeEvent as windows_core::Interface>::IID || ISynchronizeHandle_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "winnt")]
@@ -3811,7 +3811,7 @@ impl ISynchronizeMutex_Vtbl {
         Self { base__: ISynchronize_Vtbl::new::<Identity, OFFSET>(), ReleaseMutex: ReleaseMutex::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISynchronizeMutex as windows_core::Interface>::IID || iid == &<ISynchronize as windows_core::Interface>::IID
+        iid == &<ISynchronizeMutex as windows_core::Interface>::IID || ISynchronize_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]

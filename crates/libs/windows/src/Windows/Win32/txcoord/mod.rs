@@ -273,7 +273,7 @@ impl IDtcNetworkAccessConfig2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDtcNetworkAccessConfig2 as windows_core::Interface>::IID || iid == &<IDtcNetworkAccessConfig as windows_core::Interface>::IID
+        iid == &<IDtcNetworkAccessConfig2 as windows_core::Interface>::IID || IDtcNetworkAccessConfig_Vtbl::matches(iid)
     }
 }
 impl windows_core::RuntimeName for IDtcNetworkAccessConfig2 {}
@@ -325,7 +325,7 @@ impl IDtcNetworkAccessConfig3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDtcNetworkAccessConfig3 as windows_core::Interface>::IID || iid == &<IDtcNetworkAccessConfig as windows_core::Interface>::IID || iid == &<IDtcNetworkAccessConfig2 as windows_core::Interface>::IID
+        iid == &<IDtcNetworkAccessConfig3 as windows_core::Interface>::IID || IDtcNetworkAccessConfig2_Vtbl::matches(iid)
     }
 }
 impl windows_core::RuntimeName for IDtcNetworkAccessConfig3 {}

@@ -322,7 +322,7 @@ impl ISwapChainPanelNative2_Vtbl {
         Self { base__: ISwapChainPanelNative_Vtbl::new::<Identity, OFFSET>(), SetSwapChainHandle: SetSwapChainHandle::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISwapChainPanelNative2 as windows_core::Interface>::IID || iid == &<ISwapChainPanelNative as windows_core::Interface>::IID
+        iid == &<ISwapChainPanelNative2 as windows_core::Interface>::IID || ISwapChainPanelNative_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "dxgi", feature = "winnt"))]
@@ -448,7 +448,7 @@ impl IVirtualSurfaceImageSourceNative_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVirtualSurfaceImageSourceNative as windows_core::Interface>::IID || iid == &<ISurfaceImageSourceNative as windows_core::Interface>::IID
+        iid == &<IVirtualSurfaceImageSourceNative as windows_core::Interface>::IID || ISurfaceImageSourceNative_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "dxgi", feature = "shared", feature = "windef"))]
