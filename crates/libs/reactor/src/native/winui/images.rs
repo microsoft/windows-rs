@@ -11,13 +11,12 @@ pub(super) struct NativeImageSource {
     _failed: windows_core::EventRevoker,
 }
 
-/// SVG bytes waiting for their source to enter the live tree.
+/// Encoded bytes waiting for their source to enter the live tree.
 ///
-/// WinUI rasterizes an `SvgImageSource` at its rendered size only when its stream is set while
-/// the source is live. A stream set earlier rasterizes at the SVG's natural size or the window
-/// size, and then scales.
+/// WinUI can decode at the rendered size only when the stream is set while the source is live.
 struct DeferredLoad {
     bytes: EncodedImage,
+    svg: bool,
     _loaded: Option<windows_core::EventRevoker>,
 }
 
@@ -29,8 +28,8 @@ pub(super) struct ImageSubscription {
 
 /// A control's use of a cached image source.
 ///
-/// WinUI rasterizes an SVG source once for all of its controls, so an SVG source has one user at
-/// a time and becomes available to another control when this use is dropped.
+/// SVG and byte-backed bitmap sources have one user at a time so their initial load has a single
+/// live consumer. They become available to another control when this use is dropped.
 pub(super) struct ImageUse<T = NativeImageSource> {
     image: Rc<T>,
     used: Option<Rc<Cell<bool>>>,
@@ -68,8 +67,8 @@ pub(super) struct Pooled<P> {
 ///
 /// A URI source lives while a control uses it. A source decoded from [`EncodedImage`] bytes lives
 /// while the app holds those bytes, so controls that leave and return render without decoding
-/// again. Clones of an `EncodedImage` share its allocation and therefore its sources. Bitmap
-/// sources are shared by all controls; SVG sources are pooled with one control per source.
+/// again. Clones of an `EncodedImage` share its allocation and therefore its pool. SVG and
+/// byte-backed bitmap sources are pooled with one control per source; bitmap URIs are shared.
 pub(super) struct ImageCache<T = NativeImageSource> {
     uris: HashMap<Rc<str>, Vec<Pooled<Weak<T>>>>,
     pub(super) bytes: HashMap<(usize, usize, bool), (Option<SyncWeak<[u8]>>, Vec<Pooled<Rc<T>>>)>,
@@ -90,7 +89,8 @@ impl<T> ImageCache<T> {
         source: &ImageSourceValue,
         create: impl FnOnce() -> Result<T, E>,
     ) -> Result<ImageUse<T>, E> {
-        let exclusive = is_svg(source);
+        let svg = is_svg(source);
+        let exclusive = svg || matches!(source, ImageSourceValue::Encoded(_));
         match source {
             ImageSourceValue::Uri(uri) => acquire(
                 self.uris.entry(Rc::clone(uri)).or_default(),
@@ -103,7 +103,7 @@ impl<T> ImageCache<T> {
                 let key = (
                     bytes.as_bytes().as_ptr() as usize,
                     bytes.as_bytes().len(),
-                    exclusive,
+                    svg,
                 );
                 let (_, pool) = self
                     .bytes
@@ -217,38 +217,28 @@ impl NativeImageSource {
         let opened = Rc::clone(&state);
         let failed = Rc::clone(&state);
         let svg = is_svg(source);
-        let mut deferred = None;
+        let deferred = match source {
+            ImageSourceValue::Encoded(bytes) | ImageSourceValue::Svg(bytes) => Some(DeferredLoad {
+                bytes: bytes.clone(),
+                svg,
+                _loaded: None,
+            }),
+            ImageSourceValue::Uri(_) => None,
+        };
         let (value, opened, failed) = if svg {
             let image = native::SvgImageSource::new()?;
             let opened = image.Opened(move |_, _| opened.complete(true))?;
             let failed = image.OpenFailed(move |_, _| failed.complete(false))?;
-            match source {
-                ImageSourceValue::Uri(uri) => image.SetUriSource(&native::Uri::CreateUri(uri)?)?,
-                ImageSourceValue::Svg(bytes) => {
-                    deferred = Some(DeferredLoad {
-                        bytes: bytes.clone(),
-                        _loaded: None,
-                    });
-                }
-                ImageSourceValue::Encoded(_) => unreachable!(),
+            if let ImageSourceValue::Uri(uri) = source {
+                image.SetUriSource(&native::Uri::CreateUri(uri)?)?;
             }
             (image.cast()?, opened, failed)
         } else {
             let image = native::BitmapImage::new()?;
             let opened = image.ImageOpened(move |_, _| opened.complete(true))?;
             let failed = image.ImageFailed(move |_, _| failed.complete(false))?;
-            match source {
-                ImageSourceValue::Uri(uri) => image.SetUriSource(&native::Uri::CreateUri(uri)?)?,
-                ImageSourceValue::Encoded(value) => {
-                    let decode_image = image.clone();
-                    load_encoded_image(value, move |stream| {
-                        decode_image
-                            .cast::<native::IBitmapSource>()?
-                            .SetSourceAsync(stream)
-                            .map(drop)
-                    })?;
-                }
-                ImageSourceValue::Svg(_) => unreachable!(),
+            if let ImageSourceValue::Uri(uri) = source {
+                image.SetUriSource(&native::Uri::CreateUri(uri)?)?;
             }
             (image.cast()?, opened, failed)
         };
@@ -314,10 +304,17 @@ impl NativeImageSource {
         let Some(deferred) = self.deferred.take() else {
             return Ok(());
         };
-        let image = self.value.cast::<native::SvgImageSource>()?;
-        load_encoded_image(&deferred.bytes, move |stream| {
-            image.SetSourceAsync(stream).map(drop)
-        })
+        let stream = encoded_stream(&deferred.bytes)?;
+        if deferred.svg {
+            self.value
+                .cast::<native::SvgImageSource>()?
+                .SetSourceAsync(&stream)?;
+        } else {
+            self.value
+                .cast::<native::IBitmapSource>()?
+                .SetSourceAsync(&stream)?;
+        }
+        Ok(())
     }
 }
 
@@ -399,22 +396,21 @@ pub(super) fn icon_source(
     }
 }
 
-fn load_encoded_image(
-    value: &EncodedImage,
-    load: impl FnOnce(&native::InMemoryRandomAccessStream) -> windows_core::Result<()> + Send + 'static,
-) -> Result<(), WinUiError> {
-    let stream = native::InMemoryRandomAccessStream::new()?;
-    let output = stream.GetOutputStreamAt(0)?;
-    let writer = native::DataWriter::CreateDataWriter(&output)?;
-    writer.WriteBytes(value.as_bytes())?;
-    let store = writer.StoreAsync()?;
-    store.when(move |result| {
-        result.unwrap();
-        writer.DetachStream().unwrap();
-        stream.Seek(0).unwrap();
-        load(&stream).unwrap();
-    })?;
-    Ok(())
+fn encoded_stream(value: &EncodedImage) -> Result<native::IRandomAccessStream, WinUiError> {
+    // Populate the stream without yielding: SetSourceAsync must start while the consumer is live.
+    unsafe {
+        let bytes = value.as_bytes();
+        let stream = native::SHCreateMemStream(bytes.as_ptr(), bytes.len() as u32).unwrap();
+        let mut result = std::ptr::null_mut();
+        native::CreateRandomAccessStreamOverStream(
+            stream.as_raw(),
+            native::BSOS_DEFAULT,
+            &native::IRandomAccessStream::IID,
+            &mut result,
+        )
+        .ok()?;
+        Ok(windows_core::imp::Type::from_abi(result)?)
+    }
 }
 
 impl WinUiAdapter {

@@ -55,7 +55,7 @@ fn image_cache_keeps_decoded_bytes_while_the_app_holds_them() {
 }
 
 #[test]
-fn image_cache_gives_each_control_its_own_svg_source() {
+fn image_cache_gives_deferred_sources_one_consumer_at_a_time() {
     let created = Cell::new(0);
     let get = |cache: &mut ImageCache<u32>, source: &ImageSourceValue| {
         cache
@@ -67,19 +67,19 @@ fn image_cache_gives_each_control_its_own_svg_source() {
     };
     let mut cache = ImageCache::default();
 
-    // WinUI rasterizes an SVG source at one size, so controls showing it at once need their own.
-    for svg in [
+    for source in [
         ImageSourceValue::Svg(EncodedImage::new(b"<svg/>".to_vec())),
         ImageSourceValue::Uri(Rc::from("ms-appx:///icon.SVG?v=1")),
+        ImageSourceValue::Encoded(EncodedImage::new(b"png".to_vec())),
     ] {
-        let first = get(&mut cache, &svg);
-        let second = get(&mut cache, &svg);
+        let first = get(&mut cache, &source);
+        let second = get(&mut cache, &source);
         assert_ne!(**first, **second);
 
         // A released source goes to the next control while the other stays in use.
         let value = **first;
         let kept = first.release();
-        let third = get(&mut cache, &svg);
+        let third = get(&mut cache, &source);
         assert_eq!(**third, value);
         drop((kept, second, third));
     }
@@ -87,20 +87,24 @@ fn image_cache_gives_each_control_its_own_svg_source() {
 
 #[test]
 fn image_cache_drops_unused_sources_that_have_not_started_loading() {
-    let mut cache = ImageCache::<u32>::default();
-    let svg = ImageSourceValue::Svg(EncodedImage::new(b"<svg/>".to_vec()));
-    let get = |cache: &mut ImageCache<u32>, value| {
-        cache.get_or_insert(&svg, || Ok::<_, ()>(value)).unwrap()
-    };
+    for source in [
+        ImageSourceValue::Svg(EncodedImage::new(b"<svg/>".to_vec())),
+        ImageSourceValue::Encoded(EncodedImage::new(b"png".to_vec())),
+    ] {
+        let mut cache = ImageCache::<u32>::default();
+        let get = |cache: &mut ImageCache<u32>, value| {
+            cache.get_or_insert(&source, || Ok::<_, ()>(value)).unwrap()
+        };
 
-    // A pending source in use stays, while an unused one goes even though the app holds its bytes.
-    let shown = get(&mut cache, 1);
-    drop(get(&mut cache, 2));
-    cache.prune(|_| true);
-    assert_eq!(**get(&mut cache, 3), 3);
-    drop(shown);
-    cache.prune(|_| true);
-    assert!(cache.bytes.is_empty());
+        // A pending source in use stays; an unused one goes even while the app holds its bytes.
+        let shown = get(&mut cache, 1);
+        drop(get(&mut cache, 2));
+        cache.prune(|_| true);
+        assert_eq!(**get(&mut cache, 3), 3);
+        drop(shown);
+        cache.prune(|_| true);
+        assert!(cache.bytes.is_empty());
+    }
 }
 
 #[test]

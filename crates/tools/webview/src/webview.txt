@@ -94,5 +94,4 @@
     CoTaskMemFree
     E_ABORT
     E_INVALIDARG
-    E_OUTOFMEMORY
     E_PENDING

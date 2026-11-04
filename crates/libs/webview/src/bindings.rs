@@ -28,7 +28,6 @@ pub type COREWEBVIEW2_WEB_RESOURCE_CONTEXT = i32;
 pub type COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS = i32;
 pub const E_ABORT: windows_core::HRESULT = windows_core::HRESULT(0x80004004_u32 as _);
 pub const E_INVALIDARG: windows_core::HRESULT = windows_core::HRESULT(0x80070057_u32 as _);
-pub const E_OUTOFMEMORY: windows_core::HRESULT = windows_core::HRESULT(0x8007000E_u32 as _);
 pub const E_PENDING: windows_core::HRESULT = windows_core::HRESULT(0x8000000A_u32 as _);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

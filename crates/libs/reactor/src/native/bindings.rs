@@ -1,5 +1,6 @@
 windows_core::link!("api-ms-win-appmodel-runtime-l1-1-5.dll" "system" fn AddPackageDependency(packagedependencyid : windows_core::PCWSTR, rank : INT32, options : AddPackageDependencyOptions, packagedependencycontext : *mut PACKAGEDEPENDENCY_CONTEXT, packagefullname : *mut windows_core::PWSTR) -> windows_core::HRESULT);
 windows_core::link!("ole32.dll" "system" fn CoInitializeEx(pvreserved : LPVOID, dwcoinit : DWORD) -> windows_core::HRESULT);
+windows_core::link!("api-ms-win-shcore-stream-winrt-l1-1-0.dll" "system" fn CreateRandomAccessStreamOverStream(stream : *mut core::ffi::c_void, options : BSOS_OPTIONS, riid : *const IID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
 windows_core::link!("kernel32.dll" "system" fn GetCurrentPackageFullName(packagefullnamelength : *mut UINT32, packagefullname : windows_core::PWSTR) -> LONG);
 windows_core::link!("user32.dll" "system" fn GetDpiForWindow(hwnd : HWND) -> UINT);
 windows_core::link!("user32.dll" "system" fn GetKeyboardState(lpkeystate : PBYTE) -> windows_core::BOOL);
@@ -14,6 +15,7 @@ windows_core::link!("user32.dll" "system" fn MonitorFromRect(lprc : LPCRECT, dwf
 windows_core::link!("user32.dll" "system" fn MonitorFromWindow(hwnd : HWND, dwflags : DWORD) -> HMONITOR);
 windows_core::link!("user32.dll" "system" fn PostQuitMessage(nexitcode : i32));
 windows_core::link!("advapi32.dll" "system" fn RegGetValueW(hkey : HKEY, lpsubkey : windows_core::PCWSTR, lpvalue : windows_core::PCWSTR, dwflags : DWORD, pdwtype : LPDWORD, pvdata : PVOID, pcbdata : LPDWORD) -> LSTATUS);
+windows_core::link!("shlwapi.dll" "system" fn SHCreateMemStream(pinit : *const BYTE, cbinit : UINT) -> Option < IStream >);
 windows_core::link!("user32.dll" "system" fn SendMessageW(hwnd : HWND, msg : UINT, wparam : WPARAM, lparam : LPARAM) -> LRESULT);
 windows_core::link!("user32.dll" "system" fn SetForegroundWindow(hwnd : HWND) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn SetLayeredWindowAttributes(hwnd : HWND, crkey : COLORREF, balpha : BYTE, dwflags : DWORD) -> windows_core::BOOL);
@@ -840,6 +842,8 @@ impl windows_core::RuntimeName for AutomationProperties {
 }
 unsafe impl Send for AutomationProperties {}
 unsafe impl Sync for AutomationProperties {}
+pub const BSOS_DEFAULT: BSOS_OPTIONS = 0;
+pub type BSOS_OPTIONS = i32;
 pub type BYTE = u8;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2963,58 +2967,6 @@ impl windows_core::RuntimeName for DataTemplate {
 }
 unsafe impl Send for DataTemplate {}
 unsafe impl Sync for DataTemplate {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct DataWriter(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(
-    DataWriter,
-    windows_core::IUnknown,
-    windows_core::IInspectable,
-    IDataWriter
-);
-impl DataWriter {
-    pub(crate) fn CreateDataWriter<P0>(outputstream: P0) -> windows_core::Result<Self>
-    where
-        P0: windows_core::Param<IOutputStream>,
-    {
-        Self::IDataWriterFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateDataWriter)(
-                windows_core::Interface::as_raw(this),
-                outputstream.param().abi(),
-                &mut result__,
-            )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
-        })
-    }
-    fn IDataWriterFactory<R, F: FnOnce(&IDataWriterFactory) -> windows_core::Result<R>>(
-        callback: F,
-    ) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<DataWriter, IDataWriterFactory> =
-            windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for DataWriter {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_class::<Self, IDataWriter>();
-}
-unsafe impl windows_core::Interface for DataWriter {
-    type Vtable = <IDataWriter as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IDataWriter as windows_core::Interface>::IID;
-}
-impl core::ops::Deref for DataWriter {
-    type Target = IDataWriter;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
-impl windows_core::RuntimeName for DataWriter {
-    const NAME: &'static str = "Windows.Storage.Streams.DataWriter";
-}
-unsafe impl Send for DataWriter {}
-unsafe impl Sync for DataWriter {}
-pub type DataWriterStoreOperation = windows_future::IAsyncOperation<u32>;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DatePicker(windows_core::IUnknown);
@@ -8728,108 +8680,6 @@ pub struct IDataTemplate_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(
-    IDataWriter,
-    IDataWriter_Vtbl,
-    0x64b89265_d341_4922_b38a_dd4af8808c4e
-);
-impl windows_core::RuntimeType for IDataWriter {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-windows_core::imp::interface_hierarchy!(
-    IDataWriter,
-    windows_core::IUnknown,
-    windows_core::IInspectable
-);
-impl IDataWriter {
-    pub(crate) fn WriteBytes(&self, value: &[u8]) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).WriteBytes)(
-                windows_core::Interface::as_raw(self),
-                value.len().try_into().unwrap(),
-                value.as_ptr(),
-            )
-            .ok()
-        }
-    }
-    pub(crate) fn StoreAsync(&self) -> windows_core::Result<DataWriterStoreOperation> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StoreAsync)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
-    }
-    pub(crate) fn DetachStream(&self) -> windows_core::Result<IOutputStream> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DetachStream)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
-    }
-}
-#[repr(C)]
-pub struct IDataWriter_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    UnstoredBufferLength: usize,
-    UnicodeEncoding: usize,
-    SetUnicodeEncoding: usize,
-    ByteOrder: usize,
-    SetByteOrder: usize,
-    WriteByte: usize,
-    pub WriteBytes:
-        unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
-    WriteBuffer: usize,
-    WriteBufferRange: usize,
-    WriteBoolean: usize,
-    WriteGuid: usize,
-    WriteInt16: usize,
-    WriteInt32: usize,
-    WriteInt64: usize,
-    WriteUInt16: usize,
-    WriteUInt32: usize,
-    WriteUInt64: usize,
-    WriteSingle: usize,
-    WriteDouble: usize,
-    WriteDateTime: usize,
-    WriteTimeSpan: usize,
-    WriteString: usize,
-    MeasureString: usize,
-    pub StoreAsync: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-    FlushAsync: usize,
-    DetachBuffer: usize,
-    pub DetachStream: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(
-    IDataWriterFactory,
-    IDataWriterFactory_Vtbl,
-    0x338c67c2_8b84_4c2b_9c50_7b8767847a1f
-);
-impl windows_core::RuntimeType for IDataWriterFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IDataWriterFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateDataWriter: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(
     IDatePicker,
     IDatePicker_Vtbl,
     0xca1dc351_3ae3_5247_8263_16bd516c6e72
@@ -11095,6 +10945,7 @@ pub struct IHyperlinkButtonStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
+pub type IID = windows_core::GUID;
 windows_core::imp::define_interface!(
     IIconElement,
     IIconElement_Vtbl,
@@ -13590,24 +13441,6 @@ pub struct INumberBoxValueChangedEventArgs_Vtbl {
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
-    IOutputStream,
-    IOutputStream_Vtbl,
-    0x905a0fe6_bc53_11df_8c49_001e4fc686da
-);
-impl windows_core::RuntimeType for IOutputStream {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-windows_core::imp::interface_hierarchy!(
-    IOutputStream,
-    windows_core::IUnknown,
-    windows_core::IInspectable
-);
-#[repr(C)]
-pub struct IOutputStream_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
-windows_core::imp::define_interface!(
     IOverlappedPresenter3,
     IOverlappedPresenter3_Vtbl,
     0x55d26138_4c38_57e7_a0c1_d467b774db8c
@@ -14774,41 +14607,9 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl IRandomAccessStream {
-    pub(crate) fn GetOutputStreamAt(&self, position: u64) -> windows_core::Result<IOutputStream> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOutputStreamAt)(
-                windows_core::Interface::as_raw(self),
-                position,
-                &mut result__,
-            )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
-    }
-    pub(crate) fn Seek(&self, position: u64) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).Seek)(
-                windows_core::Interface::as_raw(self),
-                position,
-            )
-            .ok()
-        }
-    }
-}
 #[repr(C)]
 pub struct IRandomAccessStream_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    Size: usize,
-    SetSize: usize,
-    GetInputStreamAt: usize,
-    pub GetOutputStreamAt: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        u64,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-    Position: usize,
-    pub Seek: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IRangeBase,
@@ -16258,6 +16059,18 @@ pub struct ISelectorStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(
+    ISequentialStream,
+    ISequentialStream_Vtbl,
+    0x0c733a30_2a1c_11ce_ade5_00aa0044773d
+);
+windows_core::imp::interface_hierarchy!(ISequentialStream, windows_core::IUnknown);
+#[repr(C)]
+pub struct ISequentialStream_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    Read: usize,
+    Write: usize,
+}
 windows_core::imp::define_interface!(IShape, IShape_Vtbl, 0x9941aad3_6af2_5ba2_9085_8506d5f2485e);
 impl windows_core::RuntimeType for IShape {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -16856,6 +16669,31 @@ pub struct IStorageItem_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IStream,
+    IStream_Vtbl,
+    0x0000000c_0000_0000_c000_000000000046
+);
+impl core::ops::Deref for IStream {
+    type Target = ISequentialStream;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(IStream, windows_core::IUnknown, ISequentialStream);
+#[repr(C)]
+pub struct IStream_Vtbl {
+    pub base__: ISequentialStream_Vtbl,
+    Seek: usize,
+    SetSize: usize,
+    CopyTo: usize,
+    Commit: usize,
+    Revert: usize,
+    LockRegion: usize,
+    UnlockRegion: usize,
+    Stat: usize,
+    Clone: usize,
 }
 windows_core::imp::define_interface!(IStyle, IStyle_Vtbl, 0x65e1d164_572f_5b0e_a80f_9c02441fac49);
 impl windows_core::RuntimeType for IStyle {
@@ -21937,51 +21775,6 @@ impl windows_core::RuntimeName for ImageSource {
 }
 unsafe impl Send for ImageSource {}
 unsafe impl Sync for ImageSource {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct InMemoryRandomAccessStream(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(
-    InMemoryRandomAccessStream,
-    windows_core::IUnknown,
-    windows_core::IInspectable,
-    IRandomAccessStream
-);
-impl InMemoryRandomAccessStream {
-    pub(crate) fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<
-        R,
-        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
-    >(
-        callback: F,
-    ) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<
-            InMemoryRandomAccessStream,
-            windows_core::imp::IGenericFactory,
-        > = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for InMemoryRandomAccessStream {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_class::<Self, IRandomAccessStream>();
-}
-unsafe impl windows_core::Interface for InMemoryRandomAccessStream {
-    type Vtable = <IRandomAccessStream as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IRandomAccessStream as windows_core::Interface>::IID;
-}
-impl core::ops::Deref for InMemoryRandomAccessStream {
-    type Target = IRandomAccessStream;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
-impl windows_core::RuntimeName for InMemoryRandomAccessStream {
-    const NAME: &'static str = "Windows.Storage.Streams.InMemoryRandomAccessStream";
-}
-unsafe impl Send for InMemoryRandomAccessStream {}
-unsafe impl Sync for InMemoryRandomAccessStream {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InfoBadge(windows_core::IUnknown);

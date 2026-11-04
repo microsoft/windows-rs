@@ -307,7 +307,11 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "dialog-theme-late" => {
             App::run_component::<dialog_theme::DialogThemeFixture>((WindowTheme::Light, false))?;
         }
-        "image" => App::run_component::<image::ImageFixture>(())?,
+        "image" => App::run_component::<image::ImageFixture>(false)?,
+        "image-transparent" => {
+            App::run_component::<image::ImageFixture>(true)?;
+        }
+        "image-bitmap" => App::run_component::<image::BitmapFixture>(())?,
         "keyboard" => App::run_component::<keyboard::KeyboardFixture>(())?,
         "list" => App::run_component::<list::ListFixture>(())?,
         "reference" => App::run_component::<reference::ReferenceFixture>(())?,

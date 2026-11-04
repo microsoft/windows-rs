@@ -313,10 +313,7 @@ Windows::ApplicationModel::DataTransfer::IDataPackageView::{Contains, GetStorage
 Windows::Foundation::Numerics::Vector3
 Windows::Foundation::Uri::CreateUri
 Windows::Storage::IStorageItem::{get_Name, get_Path}
-Windows::Storage::Streams::DataWriter::CreateDataWriter
-Windows::Storage::Streams::IDataWriter::{DetachStream, StoreAsync, WriteBytes}
-Windows::Storage::Streams::InMemoryRandomAccessStream::CreateInstance
-Windows::Storage::Streams::IRandomAccessStream::{GetOutputStreamAt, Seek}
+Windows::Storage::Streams::IRandomAccessStream::{}
 Windows::System::{VirtualKey, VirtualKeyModifiers}
 Windows::UI::Text::FontStyle::Italic
 Windows::UI::Xaml::Interop::TypeKind::Metadata
@@ -324,6 +321,9 @@ Windows::Win32::AddPackageDependency
 Windows::Win32::APPMODEL_ERROR_NO_PACKAGE
 Windows::Win32::COINIT_APARTMENTTHREADED
 Windows::Win32::CoInitializeEx
+Windows::Win32::CreateRandomAccessStreamOverStream
+Windows::Win32::BSOS_DEFAULT
+Windows::Win32::SHCreateMemStream
 Windows::Win32::DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2
 Windows::Win32::E_FAIL
 Windows::Win32::ERROR_FILE_NOT_FOUND
