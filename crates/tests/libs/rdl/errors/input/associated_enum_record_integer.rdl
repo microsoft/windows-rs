@@ -1,0 +1,23 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        mod Metadata {
+            attribute AssociatedEnumAttribute {
+                fn(#[in] enumType: Type);
+            }
+        }
+    }
+}
+
+#[win32]
+mod Test {
+    #[repr(u32)]
+    enum E {
+        One = 1,
+    }
+
+    struct S {
+        #[associated_enum(E)]
+        const V: u32 = 1;
+    }
+}

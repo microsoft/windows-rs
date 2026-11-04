@@ -108,6 +108,7 @@ pub(super) fn read(
     let mut capture = Capture {
         declarations: HashMap::new(),
         named_types: HashMap::new(),
+        association_scopes: HashMap::new(),
         pending: Vec::new(),
         records: HashMap::new(),
         aliases: HashMap::new(),
@@ -513,6 +514,7 @@ fn bitwise_enum(cursor: CXCursor) -> Option<Cursor> {
 struct Capture<'a> {
     declarations: HashMap<Cursor, Vec<CXCursor>>,
     named_types: HashMap<String, Vec<Cursor>>,
+    association_scopes: HashMap<Cursor, annotations::AssociationScope>,
     pending: Vec<Cursor>,
     values: HashMap<Cursor, ValueId>,
     probes: HashMap<Cursor, (String, CXCursor)>,

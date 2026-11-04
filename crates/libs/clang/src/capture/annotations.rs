@@ -1,5 +1,43 @@
 use super::*;
 
+#[derive(Default)]
+pub(super) struct AssociationScope {
+    using_directive: bool,
+    using_names: HashSet<String>,
+    class_names: HashSet<String>,
+}
+
+impl AssociationScope {
+    fn new(cursor: CXCursor) -> Self {
+        let mut scope = Self::default();
+        let class = matches!(
+            cursor.kind,
+            CXCursor_StructDecl | CXCursor_ClassDecl | CXCursor_UnionDecl
+        );
+        if class {
+            scope
+                .class_names
+                .insert(text(unsafe { clang_getCursorSpelling(cursor) }));
+        }
+        for child in children(cursor) {
+            if child.kind == CXCursor_UsingDirective {
+                scope.using_directive = true;
+            }
+            if child.kind == CXCursor_UsingDeclaration {
+                scope
+                    .using_names
+                    .insert(text(unsafe { clang_getCursorSpelling(child) }));
+            }
+            if class {
+                scope
+                    .class_names
+                    .insert(text(unsafe { clang_getCursorSpelling(child) }));
+            }
+        }
+        scope
+    }
+}
+
 pub(super) fn read(
     capture: &mut Capture<'_>,
     cursor: CXCursor,
@@ -219,15 +257,15 @@ fn association(
     }
     let mut scopes = Vec::new();
     if !absolute {
+        let first = name.split("::").next().unwrap();
         let mut parent = unsafe { clang_getCursorSemanticParent(owner) };
         while !matches!(parent.kind, CXCursor_InvalidFile | CXCursor_NoDeclFound) {
-            let declarations = children(parent);
-            if declarations.iter().any(|child| {
-                child.kind == CXCursor_UsingDirective
-                    || child.kind == CXCursor_UsingDeclaration
-                        && text(unsafe { clang_getCursorSpelling(*child) })
-                            == name.split("::").next().unwrap()
-            }) {
+            // Reopened namespace declarations must keep separate scope facts.
+            let scope = capture
+                .association_scopes
+                .entry(Cursor(parent))
+                .or_insert_with(|| AssociationScope::new(parent));
+            if scope.using_directive || scope.using_names.contains(first) {
                 return Err(unsupported(
                     cursor,
                     "using-based AssociatedEnum lookup is unsupported; use a globally qualified name",
@@ -236,16 +274,7 @@ fn association(
             if parent.kind == CXCursor_TranslationUnit {
                 break;
             }
-            if matches!(
-                parent.kind,
-                CXCursor_StructDecl | CXCursor_ClassDecl | CXCursor_UnionDecl
-            ) && (text(unsafe { clang_getCursorSpelling(parent) })
-                == name.split("::").next().unwrap()
-                || declarations.iter().any(|child| {
-                    text(unsafe { clang_getCursorSpelling(*child) })
-                        == name.split("::").next().unwrap()
-                }))
-            {
+            if scope.class_names.contains(first) {
                 return Err(unsupported(
                     cursor,
                     "class-scoped AssociatedEnum lookup is unsupported; use a qualified namespace name",

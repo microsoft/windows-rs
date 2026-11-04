@@ -276,6 +276,49 @@ fn enum_name_resolution() {
 }
 
 #[test]
+fn association_scope_isolation() {
+    helpers::ensure_libclang();
+    let roots = [
+        "Reopened::First",
+        "Reopened::Good",
+        "Reopened::BadUsing",
+        "Reopened::Absolute",
+        "Directed::BadDirective",
+        "Directed::AbsoluteDirective",
+        "Shadowed",
+        "Clear",
+    ];
+    for reverse in [false, true] {
+        let mut source = input(include_str!("../input/enum_annotation_scope_rejections.h"));
+        source.roots = roots.map(str::to_string).into();
+        if reverse {
+            source.roots.reverse();
+        }
+        let output = projection::generate_partial(&[source], "Fixture").unwrap();
+        let text: String = output
+            .output
+            .partitions
+            .values()
+            .map(|part| part.rdl.as_str())
+            .collect();
+        for name in ["First", "Good", "Absolute", "AbsoluteDirective"] {
+            assert!(text.contains(&format!("fn {name}(")), "{text}");
+        }
+        assert!(text.contains("struct Clear"), "{text}");
+        for name in ["BadUsing", "BadDirective", "Shadowed"] {
+            assert!(!text.contains(name), "{text}");
+        }
+        for reason in ["using-based", "class-scoped"] {
+            assert!(
+                output.omissions.iter().any(|error| error.contains(reason)),
+                "{:?}",
+                output.omissions
+            );
+        }
+    }
+}
+
+#[test]
 fn external_enum_group_ownership() {
     helpers::ensure_libclang();
     let source = input(
