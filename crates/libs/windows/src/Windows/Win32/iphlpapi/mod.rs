@@ -506,15 +506,15 @@ pub unsafe fn SetIpTTL(nttl: super::UINT) -> super::DWORD {
 }
 #[cfg(all(feature = "in6addr", feature = "minwindef", feature = "shared", feature = "tcpestats", feature = "tcpmib"))]
 #[inline]
-pub unsafe fn SetPerTcp6ConnectionEStats(row: super::PMIB_TCP6ROW, estatstype: super::TCP_ESTATS_TYPE, rw: &[u8], rwversion: super::ULONG, offset: super::ULONG) -> super::ULONG {
+pub unsafe fn SetPerTcp6ConnectionEStats(row: super::PMIB_TCP6ROW, estatstype: super::TCP_ESTATS_TYPE, rw: super::PUCHAR, rwversion: super::ULONG, rwsize: super::ULONG, offset: super::ULONG) -> super::ULONG {
     windows_core::link!("iphlpapi.dll" "system" fn SetPerTcp6ConnectionEStats(row : super::PMIB_TCP6ROW, estatstype : super::TCP_ESTATS_TYPE, rw : super::PUCHAR, rwversion : super::ULONG, rwsize : super::ULONG, offset : super::ULONG) -> super::ULONG);
-    unsafe { SetPerTcp6ConnectionEStats(row, estatstype, core::mem::transmute(rw.as_ptr()), rwversion, rw.len().try_into().unwrap(), offset) }
+    unsafe { SetPerTcp6ConnectionEStats(row, estatstype, rw, rwversion, rwsize, offset) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "tcpestats", feature = "tcpmib"))]
 #[inline]
-pub unsafe fn SetPerTcpConnectionEStats(row: super::PMIB_TCPROW, estatstype: super::TCP_ESTATS_TYPE, rw: &[u8], rwversion: super::ULONG, offset: super::ULONG) -> super::ULONG {
+pub unsafe fn SetPerTcpConnectionEStats(row: super::PMIB_TCPROW, estatstype: super::TCP_ESTATS_TYPE, rw: super::PUCHAR, rwversion: super::ULONG, rwsize: super::ULONG, offset: super::ULONG) -> super::ULONG {
     windows_core::link!("iphlpapi.dll" "system" fn SetPerTcpConnectionEStats(row : super::PMIB_TCPROW, estatstype : super::TCP_ESTATS_TYPE, rw : super::PUCHAR, rwversion : super::ULONG, rwsize : super::ULONG, offset : super::ULONG) -> super::ULONG);
-    unsafe { SetPerTcpConnectionEStats(row, estatstype, core::mem::transmute(rw.as_ptr()), rwversion, rw.len().try_into().unwrap(), offset) }
+    unsafe { SetPerTcpConnectionEStats(row, estatstype, rw, rwversion, rwsize, offset) }
 }
 #[cfg(all(feature = "shared", feature = "tcpmib"))]
 #[inline]

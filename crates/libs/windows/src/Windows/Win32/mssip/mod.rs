@@ -18,9 +18,9 @@ pub unsafe fn CryptSIPGetCaps(psubjinfo: *const SIP_SUBJECTINFO, pcaps: *mut SIP
 }
 #[cfg(all(feature = "minwindef", feature = "mscat", feature = "shared", feature = "wincrypt", feature = "winnt"))]
 #[inline]
-pub unsafe fn CryptSIPGetSealedDigest(psubjectinfo: *const SIP_SUBJECTINFO, psig: Option<&[super::BYTE]>, pbdigest: Option<*mut super::BYTE>, pcbdigest: *mut super::DWORD) -> windows_core::BOOL {
+pub unsafe fn CryptSIPGetSealedDigest(psubjectinfo: *const SIP_SUBJECTINFO, psig: Option<*const super::BYTE>, dwsig: super::DWORD, pbdigest: Option<*mut super::BYTE>, pcbdigest: *mut super::DWORD) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CryptSIPGetSealedDigest(psubjectinfo : *const SIP_SUBJECTINFO, psig : *const super::BYTE, dwsig : super::DWORD, pbdigest : *mut super::BYTE, pcbdigest : *mut super::DWORD) -> windows_core::BOOL);
-    unsafe { CryptSIPGetSealedDigest(psubjectinfo, psig.map_or(core::ptr::null(), |slice| slice.as_ptr()), psig.map_or(0, |slice| slice.len().try_into().unwrap()), pbdigest.unwrap_or(core::mem::zeroed()) as _, pcbdigest as _) }
+    unsafe { CryptSIPGetSealedDigest(psubjectinfo, psig.unwrap_or(core::mem::zeroed()) as _, dwsig, pbdigest.unwrap_or(core::mem::zeroed()) as _, pcbdigest as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "mscat", feature = "shared", feature = "wincrypt", feature = "winnt"))]
 #[inline]

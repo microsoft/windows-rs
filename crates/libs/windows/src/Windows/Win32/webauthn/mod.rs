@@ -20,9 +20,9 @@ pub unsafe fn WebAuthNCancelCurrentOperation(pcancellationid: *const windows_cor
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WebAuthNDeletePlatformCredential(pbcredentialid: &[u8]) -> windows_core::HRESULT {
+pub unsafe fn WebAuthNDeletePlatformCredential(cbcredentialid: super::DWORD, pbcredentialid: *const super::BYTE) -> windows_core::HRESULT {
     windows_core::link!("webauthn.dll" "system" fn WebAuthNDeletePlatformCredential(cbcredentialid : super::DWORD, pbcredentialid : *const super::BYTE) -> windows_core::HRESULT);
-    unsafe { WebAuthNDeletePlatformCredential(pbcredentialid.len().try_into().unwrap(), core::mem::transmute(pbcredentialid.as_ptr())) }
+    unsafe { WebAuthNDeletePlatformCredential(cbcredentialid, pbcredentialid) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]

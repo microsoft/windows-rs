@@ -20,10 +20,10 @@ mod Windows {
         #[library("OLEAUT32.dll")]
         extern fn BSTR_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut BSTR) -> u32;
         #[library("OLEAUT32.dll")]
-        extern fn BSTR_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut BSTR) -> *mut u8;
+        extern fn BSTR_UserUnmarshal(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut BSTR) -> *mut u8;
         #[arch(X64 | Arm64)]
         #[library("OLEAUT32.dll")]
-        extern fn BSTR_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut BSTR) -> *mut u8;
+        extern fn BSTR_UserUnmarshal64(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut BSTR) -> *mut u8;
         type BTH_ADDR = u64;
         type BYTE = u8;
         const CDN_FIRST: u32 = 4294966695;
@@ -45,10 +45,10 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn CLIPFORMAT_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut CLIPFORMAT) -> u32;
         #[library("ole32.dll")]
-        extern fn CLIPFORMAT_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut CLIPFORMAT) -> *mut u8;
+        extern fn CLIPFORMAT_UserUnmarshal(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut CLIPFORMAT) -> *mut u8;
         #[arch(X64 | Arm64)]
         #[library("ole32.dll")]
-        extern fn CLIPFORMAT_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut CLIPFORMAT) -> *mut u8;
+        extern fn CLIPFORMAT_UserUnmarshal64(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut CLIPFORMAT) -> *mut u8;
         #[library("ole32.dll")]
         #[must_use]
         extern fn CLSIDFromProgIDEx(#[in] lpszProgID: LPCOLESTR, #[out] lpclsid: LPCLSID) -> HRESULT;
@@ -56,7 +56,7 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn CoFileTimeNow(#[out] lpFileTime: *mut FILETIME) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn CreateDataAdviseHolder(#[out] #[out_ptr] #[retval] ppDAHolder: *mut LPDATAADVISEHOLDER) -> HRESULT;
+        extern fn CreateDataAdviseHolder(#[out] #[retval] ppDAHolder: *mut LPDATAADVISEHOLDER) -> HRESULT;
         type D2D1_POINT_2L = POINT;
         type D2D1_RECT_L = RECT;
         const DDPF_FOURCC: i32 = 4;
@@ -90,7 +90,7 @@ mod Windows {
         const FR_MATCHDIAC: i32 = 536870912;
         const FR_MATCHKASHIDA: i32 = 1073741824;
         #[library("ole32.dll")]
-        extern fn FreePropVariantArray(#[in] cVariants: ULONG, #[in] #[out] #[writable(entry, cVariants)] rgvars: *mut PROPVARIANT) -> HRESULT;
+        extern fn FreePropVariantArray(#[in] cVariants: ULONG, #[buffer(cVariants)] #[in] #[out] rgvars: *mut PROPVARIANT) -> HRESULT;
         const GUID_DEVINTERFACE_CDCHANGER: GUID = 0x53f56312_b6bf_11d0_94f2_00a0c91efb8b;
         const GUID_DEVINTERFACE_CDROM: GUID = 0x53f56308_b6bf_11d0_94f2_00a0c91efb8b;
         const GUID_DEVINTERFACE_COMPORT: GUID = 0x86e0d1e0_8089_11d0_9ce4_08003e301f73;
@@ -111,7 +111,7 @@ mod Windows {
         const GUID_DEVINTERFACE_WRITEONCEDISK: GUID = 0x53f5630c_b6bf_11d0_94f2_00a0c91efb8b;
         const GUID_DEVINTERFACE_ZNSDISK: GUID = 0xb87941c5_ffdb_43c7_b6b1_20b632f0b109;
         #[library("SHELL32.dll")]
-        extern fn GetFileNameFromBrowse(#[in] #[opt] hwnd: HWND, #[in] #[out] #[writable(entry, cchFilePath)] pszFilePath: PWSTR, cchFilePath: UINT, #[in] #[opt] pszWorkingDir: PCWSTR, #[in] pszDefExt: PCWSTR, #[in] #[opt] pszFilters: PCWSTR, #[in] #[opt] pszTitle: PCWSTR) -> BOOL;
+        extern fn GetFileNameFromBrowse(#[in] #[opt] hwnd: HWND, #[buffer(cchFilePath)] #[in] #[out] pszFilePath: PWSTR, cchFilePath: UINT, #[in] #[opt] pszWorkingDir: PCWSTR, #[in] pszDefExt: PCWSTR, #[in] #[opt] pszFilters: PCWSTR, #[in] #[opt] pszTitle: PCWSTR) -> BOOL;
         #[library("ole32.dll")]
         extern fn HACCEL_UserFree(#[in] param0: *mut u32, #[in] param1: *mut HACCEL);
         #[arch(X64 | Arm64)]
@@ -128,10 +128,10 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn HACCEL_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HACCEL) -> u32;
         #[library("ole32.dll")]
-        extern fn HACCEL_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HACCEL) -> *mut u8;
+        extern fn HACCEL_UserUnmarshal(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut HACCEL) -> *mut u8;
         #[arch(X64 | Arm64)]
         #[library("ole32.dll")]
-        extern fn HACCEL_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HACCEL) -> *mut u8;
+        extern fn HACCEL_UserUnmarshal64(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut HACCEL) -> *mut u8;
         #[library("ole32.dll")]
         extern fn HBITMAP_UserFree(#[in] param0: *mut u32, #[in] param1: *mut HBITMAP);
         #[arch(X64 | Arm64)]
@@ -148,10 +148,10 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn HBITMAP_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HBITMAP) -> u32;
         #[library("ole32.dll")]
-        extern fn HBITMAP_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HBITMAP) -> *mut u8;
+        extern fn HBITMAP_UserUnmarshal(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut HBITMAP) -> *mut u8;
         #[arch(X64 | Arm64)]
         #[library("ole32.dll")]
-        extern fn HBITMAP_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HBITMAP) -> *mut u8;
+        extern fn HBITMAP_UserUnmarshal64(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut HBITMAP) -> *mut u8;
         type HCATADMIN = *mut void;
         #[library("ole32.dll")]
         extern fn HDC_UserFree(#[in] param0: *mut u32, #[in] param1: *mut HDC);
@@ -169,10 +169,10 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn HDC_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HDC) -> u32;
         #[library("ole32.dll")]
-        extern fn HDC_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HDC) -> *mut u8;
+        extern fn HDC_UserUnmarshal(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut HDC) -> *mut u8;
         #[arch(X64 | Arm64)]
         #[library("ole32.dll")]
-        extern fn HDC_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HDC) -> *mut u8;
+        extern fn HDC_UserUnmarshal64(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut HDC) -> *mut u8;
         #[library("ole32.dll")]
         extern fn HGLOBAL_UserFree(#[in] param0: *mut u32, #[in] param1: *mut HGLOBAL);
         #[arch(X64 | Arm64)]
@@ -189,10 +189,10 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn HGLOBAL_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HGLOBAL) -> u32;
         #[library("ole32.dll")]
-        extern fn HGLOBAL_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HGLOBAL) -> *mut u8;
+        extern fn HGLOBAL_UserUnmarshal(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut HGLOBAL) -> *mut u8;
         #[arch(X64 | Arm64)]
         #[library("ole32.dll")]
-        extern fn HGLOBAL_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HGLOBAL) -> *mut u8;
+        extern fn HGLOBAL_UserUnmarshal64(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut HGLOBAL) -> *mut u8;
         #[library("ole32.dll")]
         extern fn HICON_UserFree(#[in] param0: *mut u32, #[in] param1: *mut HICON);
         #[arch(X64 | Arm64)]
@@ -209,10 +209,10 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn HICON_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HICON) -> u32;
         #[library("ole32.dll")]
-        extern fn HICON_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HICON) -> *mut u8;
+        extern fn HICON_UserUnmarshal(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut HICON) -> *mut u8;
         #[arch(X64 | Arm64)]
         #[library("ole32.dll")]
-        extern fn HICON_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HICON) -> *mut u8;
+        extern fn HICON_UserUnmarshal64(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut HICON) -> *mut u8;
         struct HID_XFER_PACKET {
             reportBuffer: PUCHAR,
             reportBufferLen: ULONG,
@@ -235,10 +235,10 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn HMENU_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HMENU) -> u32;
         #[library("ole32.dll")]
-        extern fn HMENU_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HMENU) -> *mut u8;
+        extern fn HMENU_UserUnmarshal(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut HMENU) -> *mut u8;
         #[arch(X64 | Arm64)]
         #[library("ole32.dll")]
-        extern fn HMENU_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HMENU) -> *mut u8;
+        extern fn HMENU_UserUnmarshal64(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut HMENU) -> *mut u8;
         #[library("ole32.dll")]
         extern fn HMONITOR_UserFree(#[in] param0: *mut u32, #[in] param1: *mut HMONITOR);
         #[arch(X64 | Arm64)]
@@ -255,10 +255,10 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn HMONITOR_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HMONITOR) -> u32;
         #[library("ole32.dll")]
-        extern fn HMONITOR_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HMONITOR) -> *mut u8;
+        extern fn HMONITOR_UserUnmarshal(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut HMONITOR) -> *mut u8;
         #[arch(X64 | Arm64)]
         #[library("ole32.dll")]
-        extern fn HMONITOR_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HMONITOR) -> *mut u8;
+        extern fn HMONITOR_UserUnmarshal64(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut HMONITOR) -> *mut u8;
         #[library("ole32.dll")]
         extern fn HPALETTE_UserFree(#[in] param0: *mut u32, #[in] param1: *mut HPALETTE);
         #[library("ole32.dll")]
@@ -266,7 +266,7 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn HPALETTE_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HPALETTE) -> u32;
         #[library("ole32.dll")]
-        extern fn HPALETTE_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HPALETTE) -> *mut u8;
+        extern fn HPALETTE_UserUnmarshal(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut HPALETTE) -> *mut u8;
         type HRESULT = i32;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
         extern fn HSTRING_UserFree(#[in] pFlags: *mut ULONG, #[in] ppidl: *mut HSTRING);
@@ -284,10 +284,10 @@ mod Windows {
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
         extern fn HSTRING_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HSTRING) -> u32;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn HSTRING_UserUnmarshal(#[in] pFlags: *mut ULONG, #[in] #[readable(entry, 0)] pBuffer: *mut UCHAR, #[out] ppidl: *mut HSTRING) -> *mut UCHAR;
+        extern fn HSTRING_UserUnmarshal(#[in] pFlags: *mut ULONG, #[buffer(0)] #[in] pBuffer: *mut UCHAR, #[out] ppidl: *mut HSTRING) -> *mut UCHAR;
         #[arch(X64 | Arm64)]
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn HSTRING_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HSTRING) -> *mut u8;
+        extern fn HSTRING_UserUnmarshal64(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut HSTRING) -> *mut u8;
         type HTHEME = *mut void;
         #[library("ole32.dll")]
         extern fn HWND_UserFree(#[in] param0: *mut u32, #[in] param1: *mut HWND);
@@ -305,10 +305,10 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn HWND_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HWND) -> u32;
         #[library("ole32.dll")]
-        extern fn HWND_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HWND) -> *mut u8;
+        extern fn HWND_UserUnmarshal(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut HWND) -> *mut u8;
         #[arch(X64 | Arm64)]
         #[library("ole32.dll")]
-        extern fn HWND_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HWND) -> *mut u8;
+        extern fn HWND_UserUnmarshal64(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut HWND) -> *mut u8;
         const IID_ICommDlgBrowser: GUID = 0x000214f1_0000_0000_c000_000000000046;
         const IID_ICommDlgBrowser2: GUID = 0x10339516_2894_11d2_9039_00c04f8eeb3e;
         const IID_IContextMenu: GUID = 0x000214e4_0000_0000_c000_000000000046;
@@ -376,10 +376,10 @@ mod Windows {
         #[library("OLEAUT32.dll")]
         extern fn LPSAFEARRAY_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut LPSAFEARRAY) -> u32;
         #[library("OLEAUT32.dll")]
-        extern fn LPSAFEARRAY_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut LPSAFEARRAY) -> *mut u8;
+        extern fn LPSAFEARRAY_UserUnmarshal(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut LPSAFEARRAY) -> *mut u8;
         #[arch(X64 | Arm64)]
         #[library("OLEAUT32.dll")]
-        extern fn LPSAFEARRAY_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut LPSAFEARRAY) -> *mut u8;
+        extern fn LPSAFEARRAY_UserUnmarshal64(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut LPSAFEARRAY) -> *mut u8;
         type LPUINT = *mut u32;
         #[library("clfsw32.dll")]
         extern fn LsnBlockOffset(#[in] plsn: *const CLFS_LSN) -> ULONG;
@@ -470,10 +470,10 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn STGMEDIUM_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut STGMEDIUM) -> u32;
         #[library("ole32.dll")]
-        extern fn STGMEDIUM_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut STGMEDIUM) -> *mut u8;
+        extern fn STGMEDIUM_UserUnmarshal(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut STGMEDIUM) -> *mut u8;
         #[arch(X64 | Arm64)]
         #[library("ole32.dll")]
-        extern fn STGMEDIUM_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut STGMEDIUM) -> *mut u8;
+        extern fn STGMEDIUM_UserUnmarshal64(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut STGMEDIUM) -> *mut u8;
         const S_OK: HRESULT = 0;
         #[library("KERNEL32.dll")]
         extern fn SignalObjectAndWait(#[in] hObjectToSignal: HANDLE, #[in] hObjectToWaitOn: HANDLE, #[in] dwMilliseconds: DWORD, #[in] bAlertable: BOOL) -> DWORD;
@@ -506,10 +506,10 @@ mod Windows {
         #[library("OLEAUT32.dll")]
         extern fn VARIANT_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut VARIANT) -> u32;
         #[library("OLEAUT32.dll")]
-        extern fn VARIANT_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut VARIANT) -> *mut u8;
+        extern fn VARIANT_UserUnmarshal(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut VARIANT) -> *mut u8;
         #[arch(X64 | Arm64)]
         #[library("OLEAUT32.dll")]
-        extern fn VARIANT_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut VARIANT) -> *mut u8;
+        extern fn VARIANT_UserUnmarshal64(#[in] param0: *mut u32, #[buffer(0)] #[in] param1: *mut u8, #[out] param2: *mut VARIANT) -> *mut u8;
         #[library("KERNEL32.dll")]
         extern fn VerSetConditionMask(#[in] ConditionMask: ULONGLONG, #[in] TypeMask: DWORD, #[in] Condition: BYTE) -> ULONGLONG;
         #[packed(1)]

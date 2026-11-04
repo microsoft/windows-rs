@@ -2,9 +2,9 @@
 mod Windows {
     mod Win32 {
         #[library("KERNEL32.dll")]
-        extern fn AddVectoredContinueHandler(#[in] First: ULONG, #[in] Handler: PVECTORED_EXCEPTION_HANDLER) -> #[nullable] PVOID;
+        extern fn AddVectoredContinueHandler(#[in] First: ULONG, #[in] Handler: PVECTORED_EXCEPTION_HANDLER) -> PVOID;
         #[library("KERNEL32.dll")]
-        extern fn AddVectoredExceptionHandler(#[in] First: ULONG, #[in] Handler: PVECTORED_EXCEPTION_HANDLER) -> #[nullable] PVOID;
+        extern fn AddVectoredExceptionHandler(#[in] First: ULONG, #[in] Handler: PVECTORED_EXCEPTION_HANDLER) -> PVOID;
         #[library("KERNEL32.dll")]
         extern fn FatalAppExitA(#[in] uAction: UINT, #[in] lpMessageText: LPCSTR);
         #[library("KERNEL32.dll")]
@@ -19,7 +19,7 @@ mod Windows {
         extern fn LPTOP_LEVEL_EXCEPTION_FILTER(#[in] ExceptionInfo: *mut EXCEPTION_POINTERS) -> LONG;
         extern fn PTOP_LEVEL_EXCEPTION_FILTER(#[in] ExceptionInfo: *mut EXCEPTION_POINTERS) -> LONG;
         #[library("KERNEL32.dll")]
-        extern fn RaiseException(#[in] dwExceptionCode: DWORD, #[in] dwExceptionFlags: DWORD, #[in] nNumberOfArguments: DWORD, #[in] #[opt] #[readable(entry, nNumberOfArguments)] lpArguments: *const ULONG_PTR);
+        extern fn RaiseException(#[in] dwExceptionCode: DWORD, #[in] dwExceptionFlags: DWORD, #[in] nNumberOfArguments: DWORD, #[buffer(nNumberOfArguments)] #[in] #[opt] lpArguments: *const ULONG_PTR);
         #[library("KERNEL32.dll")]
         extern fn RaiseFailFastException(#[in] #[opt] pExceptionRecord: PEXCEPTION_RECORD, #[in] #[opt] pContextRecord: PCONTEXT, #[in] dwFlags: DWORD);
         #[library("KERNEL32.dll")]

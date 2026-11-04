@@ -58,7 +58,10 @@ impl IWTSBitmapRenderService_Vtbl {
                         ppmappedrenderer.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmappedrenderer.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -74,8 +77,8 @@ windows_core::imp::define_interface!(IWTSBitmapRenderer, IWTSBitmapRenderer_Vtbl
 windows_core::imp::interface_hierarchy!(IWTSBitmapRenderer, windows_core::IUnknown);
 impl IWTSBitmapRenderer {
     #[cfg(feature = "shared")]
-    pub unsafe fn Render(&self, imageformat: windows_core::GUID, dwwidth: super::DWORD, dwheight: super::DWORD, cbstride: super::LONG, pimagebuffer: &[super::BYTE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Render)(windows_core::Interface::as_raw(self), imageformat, dwwidth, dwheight, cbstride, pimagebuffer.len().try_into().unwrap(), pimagebuffer.as_ptr()) }
+    pub unsafe fn Render(&self, imageformat: windows_core::GUID, dwwidth: super::DWORD, dwheight: super::DWORD, cbstride: super::LONG, cbimagebuffer: super::DWORD, pimagebuffer: *const super::BYTE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Render)(windows_core::Interface::as_raw(self), imageformat, dwwidth, dwheight, cbstride, cbimagebuffer, pimagebuffer) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetRendererStatistics(&self, pstatistics: *mut BITMAP_RENDERER_STATISTICS) -> windows_core::HRESULT {
@@ -212,7 +215,10 @@ impl IWTSListener_Vtbl {
                         pppropertybag.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pppropertybag.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -256,7 +262,10 @@ impl IWTSListenerCallback_Vtbl {
                         ppcallback.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcallback.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -376,7 +385,10 @@ impl IWTSPluginServiceProvider_Vtbl {
                         ppunkobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunkobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -391,11 +403,11 @@ windows_core::imp::define_interface!(IWTSVirtualChannel, IWTSVirtualChannel_Vtbl
 windows_core::imp::interface_hierarchy!(IWTSVirtualChannel, windows_core::IUnknown);
 impl IWTSVirtualChannel {
     #[cfg(feature = "shared")]
-    pub unsafe fn Write<P2>(&self, pbuffer: &[super::BYTE], preserved: P2) -> windows_core::HRESULT
+    pub unsafe fn Write<P2>(&self, cbsize: super::ULONG, pbuffer: *const super::BYTE, preserved: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), pbuffer.len().try_into().unwrap(), pbuffer.as_ptr(), preserved.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), cbsize, pbuffer, preserved.param().abi()) }
     }
     pub unsafe fn Close(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)) }
@@ -443,8 +455,8 @@ windows_core::imp::define_interface!(IWTSVirtualChannelCallback, IWTSVirtualChan
 windows_core::imp::interface_hierarchy!(IWTSVirtualChannelCallback, windows_core::IUnknown);
 impl IWTSVirtualChannelCallback {
     #[cfg(feature = "shared")]
-    pub unsafe fn OnDataReceived(&self, pbuffer: &[super::BYTE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnDataReceived)(windows_core::Interface::as_raw(self), pbuffer.len().try_into().unwrap(), pbuffer.as_ptr()) }
+    pub unsafe fn OnDataReceived(&self, cbsize: super::ULONG, pbuffer: *const super::BYTE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnDataReceived)(windows_core::Interface::as_raw(self), cbsize, pbuffer) }
     }
     pub unsafe fn OnClose(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnClose)(windows_core::Interface::as_raw(self)) }
@@ -530,7 +542,10 @@ impl IWTSVirtualChannelManager_Vtbl {
                         pplistener.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pplistener.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -658,7 +673,10 @@ impl IWTSWindowInfoService_Vtbl {
                         processid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        processid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -670,7 +688,10 @@ impl IWTSWindowInfoService_Vtbl {
                         sessiontype.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        sessiontype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

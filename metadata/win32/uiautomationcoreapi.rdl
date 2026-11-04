@@ -629,7 +629,7 @@ mod Windows {
         #[library("UIAutomationCore.DLL")]
         extern fn UiaHostProviderFromHwnd(hwnd: HWND, ppProvider: *mut IRawElementProviderSimple) -> HRESULT;
         #[library("UIAutomationCore.DLL")]
-        extern fn UiaIAccessibleFromProvider(#[in] pProvider: IRawElementProviderSimple, #[in] dwFlags: DWORD, #[out] #[out_ptr] ppAccessible: *mut IAccessible, #[out] pvarChild: *mut VARIANT) -> HRESULT;
+        extern fn UiaIAccessibleFromProvider(#[in] pProvider: IRawElementProviderSimple, #[in] dwFlags: DWORD, #[out] ppAccessible: *mut IAccessible, #[out] pvarChild: *mut VARIANT) -> HRESULT;
         #[library("UIAutomationCore.DLL")]
         extern fn UiaLookupId(r#type: AutomationIdentifierType, pGuid: *const GUID) -> i32;
         #[library("UIAutomationCore.DLL")]
@@ -667,7 +667,7 @@ mod Windows {
         #[library("UIAutomationCore.DLL")]
         extern fn UiaProviderForNonClient(hwnd: HWND, idObject: i32, idChild: i32, ppProvider: *mut IRawElementProviderSimple) -> HRESULT;
         #[library("UIAutomationCore.DLL")]
-        extern fn UiaProviderFromIAccessible(#[in] pAccessible: IAccessible, idChild: i32, #[in] dwFlags: DWORD, #[out] #[out_ptr] #[retval] ppProvider: *mut IRawElementProviderSimple) -> HRESULT;
+        extern fn UiaProviderFromIAccessible(#[in] pAccessible: IAccessible, idChild: i32, #[in] dwFlags: DWORD, #[out] #[retval] ppProvider: *mut IRawElementProviderSimple) -> HRESULT;
         #[library("UIAutomationCore.DLL")]
         extern fn UiaRaiseActiveTextPositionChangedEvent(#[in] provider: IRawElementProviderSimple, #[in] #[opt] textRange: ITextRangeProvider) -> HRESULT;
         #[library("UIAutomationCore.DLL")]

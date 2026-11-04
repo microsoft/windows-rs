@@ -1084,14 +1084,6 @@ impl Type {
         }
     }
 
-    pub fn is_byte_size(&self) -> bool {
-        match self {
-            Self::PtrConst(ty, _) | Self::PtrMut(ty, _) => ty.is_byte_size(),
-            Self::I8 | Self::U8 | Self::PSTR | Self::PCSTR => true,
-            _ => false,
-        }
-    }
-
     pub fn underlying_type(&self, reader: &Reader) -> Self {
         match self {
             Self::Struct(ty) => ty.def.underlying_type_ext(reader),

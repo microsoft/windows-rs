@@ -1,6 +1,6 @@
 #[win32]
 mod Fixture {
     #[library("fixture.dll")]
-    extern "C" fn MultiString(#[null_terminated(double_success)] value: *mut WCHAR);
+    extern "C" fn MultiString(#[null_null_terminated] value: *mut WCHAR);
     type WCHAR = u16;
 }

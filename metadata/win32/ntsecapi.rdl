@@ -32,19 +32,19 @@ mod Windows {
         const AUTH_REQ_VALIDATE_CLIENT: i32 = 128;
         #[library("ADVAPI32.dll")]
         #[must_use]
-        extern fn AuditComputeEffectivePolicyBySid(#[in] pSid: PSID, #[in] #[readable(entry, dwPolicyCount)] pSubCategoryGuids: *const GUID, #[in] dwPolicyCount: ULONG, #[incomplete] #[out] #[writable(success, dwPolicyCount, indirect)] ppAuditPolicy: *mut PAUDIT_POLICY_INFORMATION) -> BOOLEAN;
+        extern fn AuditComputeEffectivePolicyBySid(#[in] pSid: PSID, #[buffer(dwPolicyCount)] #[in] pSubCategoryGuids: *const GUID, #[in] dwPolicyCount: ULONG, #[incomplete] #[out] ppAuditPolicy: *mut PAUDIT_POLICY_INFORMATION) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
         #[must_use]
-        extern fn AuditComputeEffectivePolicyByToken(#[in] hTokenHandle: HANDLE, #[in] #[readable(entry, dwPolicyCount)] pSubCategoryGuids: *const GUID, #[in] dwPolicyCount: ULONG, #[incomplete] #[out] #[writable(success, dwPolicyCount, indirect)] ppAuditPolicy: *mut PAUDIT_POLICY_INFORMATION) -> BOOLEAN;
+        extern fn AuditComputeEffectivePolicyByToken(#[in] hTokenHandle: HANDLE, #[buffer(dwPolicyCount)] #[in] pSubCategoryGuids: *const GUID, #[in] dwPolicyCount: ULONG, #[incomplete] #[out] ppAuditPolicy: *mut PAUDIT_POLICY_INFORMATION) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
         #[must_use]
-        extern fn AuditEnumerateCategories(#[incomplete] #[out] #[writable(success, *pdwCountReturned, indirect)] ppAuditCategoriesArray: *mut *mut GUID, #[out] pdwCountReturned: PULONG) -> BOOLEAN;
+        extern fn AuditEnumerateCategories(#[incomplete] #[out] ppAuditCategoriesArray: *mut *mut GUID, #[out] pdwCountReturned: PULONG) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
         #[must_use]
         extern fn AuditEnumeratePerUserPolicy(#[incomplete] #[out] ppAuditSidArray: *mut PPOLICY_AUDIT_SID_ARRAY) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
         #[must_use]
-        extern fn AuditEnumerateSubCategories(#[in] #[opt] pAuditCategoryGuid: *const GUID, #[in] bRetrieveAllSubCategories: BOOLEAN, #[incomplete] #[out] #[writable(success, *pdwCountReturned, indirect)] ppAuditSubCategoriesArray: *mut *mut GUID, #[out] pdwCountReturned: PULONG) -> BOOLEAN;
+        extern fn AuditEnumerateSubCategories(#[in] #[opt] pAuditCategoryGuid: *const GUID, #[in] bRetrieveAllSubCategories: BOOLEAN, #[incomplete] #[out] ppAuditSubCategoriesArray: *mut *mut GUID, #[out] pdwCountReturned: PULONG) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
         extern fn AuditFree(#[in] #[incomplete] Buffer: PVOID);
         #[library("ADVAPI32.dll")]
@@ -53,16 +53,16 @@ mod Windows {
         extern fn AuditLookupCategoryIdFromCategoryGuid(#[in] pAuditCategoryGuid: *const GUID, #[out] pAuditCategoryId: PPOLICY_AUDIT_EVENT_TYPE) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
         #[must_use]
-        extern fn AuditLookupCategoryNameA(#[in] pAuditCategoryGuid: *const GUID, #[incomplete] #[out] #[out_ptr] ppszCategoryName: *mut PSTR) -> BOOLEAN;
+        extern fn AuditLookupCategoryNameA(#[in] pAuditCategoryGuid: *const GUID, #[incomplete] #[out] ppszCategoryName: *mut PSTR) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
         #[must_use]
-        extern fn AuditLookupCategoryNameW(#[in] pAuditCategoryGuid: *const GUID, #[incomplete] #[out] #[out_ptr] ppszCategoryName: *mut PWSTR) -> BOOLEAN;
+        extern fn AuditLookupCategoryNameW(#[in] pAuditCategoryGuid: *const GUID, #[incomplete] #[out] ppszCategoryName: *mut PWSTR) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
         #[must_use]
-        extern fn AuditLookupSubCategoryNameA(#[in] pAuditSubCategoryGuid: *const GUID, #[incomplete] #[out] #[out_ptr] ppszSubCategoryName: *mut PSTR) -> BOOLEAN;
+        extern fn AuditLookupSubCategoryNameA(#[in] pAuditSubCategoryGuid: *const GUID, #[incomplete] #[out] ppszSubCategoryName: *mut PSTR) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
         #[must_use]
-        extern fn AuditLookupSubCategoryNameW(#[in] pAuditSubCategoryGuid: *const GUID, #[incomplete] #[out] #[out_ptr] ppszSubCategoryName: *mut PWSTR) -> BOOLEAN;
+        extern fn AuditLookupSubCategoryNameW(#[in] pAuditSubCategoryGuid: *const GUID, #[incomplete] #[out] ppszSubCategoryName: *mut PWSTR) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
         #[must_use]
         extern fn AuditQueryGlobalSaclA(#[in] ObjectTypeName: PCSTR, #[incomplete] #[out] Acl: *mut PACL) -> BOOLEAN;
@@ -71,23 +71,23 @@ mod Windows {
         extern fn AuditQueryGlobalSaclW(#[in] ObjectTypeName: PCWSTR, #[incomplete] #[out] Acl: *mut PACL) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
         #[must_use]
-        extern fn AuditQueryPerUserPolicy(#[in] pSid: PSID, #[in] #[readable(entry, dwPolicyCount)] pSubCategoryGuids: *const GUID, #[in] dwPolicyCount: ULONG, #[incomplete] #[out] #[writable(success, dwPolicyCount, indirect)] ppAuditPolicy: *mut PAUDIT_POLICY_INFORMATION) -> BOOLEAN;
+        extern fn AuditQueryPerUserPolicy(#[in] pSid: PSID, #[buffer(dwPolicyCount)] #[in] pSubCategoryGuids: *const GUID, #[in] dwPolicyCount: ULONG, #[incomplete] #[out] ppAuditPolicy: *mut PAUDIT_POLICY_INFORMATION) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
         #[must_use]
-        extern fn AuditQuerySecurity(#[in] SecurityInformation: SECURITY_INFORMATION, #[incomplete] #[out] #[out_ptr] ppSecurityDescriptor: *mut PSECURITY_DESCRIPTOR) -> BOOLEAN;
+        extern fn AuditQuerySecurity(#[in] SecurityInformation: SECURITY_INFORMATION, #[incomplete] #[out] ppSecurityDescriptor: *mut PSECURITY_DESCRIPTOR) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
         #[must_use]
-        extern fn AuditQuerySystemPolicy(#[in] #[readable(entry, dwPolicyCount)] pSubCategoryGuids: *const GUID, #[in] dwPolicyCount: ULONG, #[incomplete] #[out] #[writable(success, dwPolicyCount, indirect)] ppAuditPolicy: *mut PAUDIT_POLICY_INFORMATION) -> BOOLEAN;
+        extern fn AuditQuerySystemPolicy(#[buffer(dwPolicyCount)] #[in] pSubCategoryGuids: *const GUID, #[in] dwPolicyCount: ULONG, #[incomplete] #[out] ppAuditPolicy: *mut PAUDIT_POLICY_INFORMATION) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
         extern fn AuditSetGlobalSaclA(#[in] ObjectTypeName: PCSTR, #[in] #[opt] Acl: PACL) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
         extern fn AuditSetGlobalSaclW(#[in] ObjectTypeName: PCWSTR, #[in] #[opt] Acl: PACL) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditSetPerUserPolicy(#[in] pSid: PSID, #[in] #[readable(entry, dwPolicyCount)] pAuditPolicy: *mut AUDIT_POLICY_INFORMATION, #[in] dwPolicyCount: ULONG) -> BOOLEAN;
+        extern fn AuditSetPerUserPolicy(#[in] pSid: PSID, #[buffer(dwPolicyCount)] #[in] pAuditPolicy: *mut AUDIT_POLICY_INFORMATION, #[in] dwPolicyCount: ULONG) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
         extern fn AuditSetSecurity(#[in] SecurityInformation: SECURITY_INFORMATION, #[in] pSecurityDescriptor: PSECURITY_DESCRIPTOR) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditSetSystemPolicy(#[in] #[readable(entry, dwPolicyCount)] pAuditPolicy: *mut AUDIT_POLICY_INFORMATION, #[in] dwPolicyCount: ULONG) -> BOOLEAN;
+        extern fn AuditSetSystemPolicy(#[buffer(dwPolicyCount)] #[in] pAuditPolicy: *mut AUDIT_POLICY_INFORMATION, #[in] dwPolicyCount: ULONG) -> BOOLEAN;
         const Audit_AccountLogon: GUID = 0x69979850_797a_11d9_bed3_505054503030;
         const Audit_AccountLogon_CredentialValidation: GUID = 0x0cce923f_69ae_11d9_bed3_505054503030;
         const Audit_AccountLogon_KerbCredentialValidation: GUID = 0x0cce9242_69ae_11d9_bed3_505054503030;
@@ -164,7 +164,6 @@ mod Windows {
             ChangeId: LSA_UNICODE_STRING,
             Flags: ULONG,
             CAPECount: ULONG,
-            #[writable(CAPECount)]
             CAPEs: *mut PCENTRAL_ACCESS_POLICY_ENTRY,
         }
         struct CENTRAL_ACCESS_POLICY_ENTRY {
@@ -172,13 +171,10 @@ mod Windows {
             Description: LSA_UNICODE_STRING,
             ChangeId: LSA_UNICODE_STRING,
             LengthAppliesTo: ULONG,
-            #[writable(bytes(LengthAppliesTo))]
             AppliesTo: PUCHAR,
             LengthSD: ULONG,
-            #[writable(bytes(LengthSD))]
             SD: PSECURITY_DESCRIPTOR,
             LengthStagedSD: ULONG,
-            #[writable(bytes(LengthStagedSD))]
             StagedSD: PSECURITY_DESCRIPTOR,
             Flags: ULONG,
         }
@@ -1018,9 +1014,9 @@ mod Windows {
             DomainIndex: LONG,
         }
         #[library("ADVAPI32.dll")]
-        extern fn LsaAddAccountRights(#[in] PolicyHandle: LSA_HANDLE, #[in] AccountSid: PSID, #[in] #[readable(entry, CountOfRights)] UserRights: PLSA_UNICODE_STRING, #[in] CountOfRights: ULONG) -> NTSTATUS;
+        extern fn LsaAddAccountRights(#[in] PolicyHandle: LSA_HANDLE, #[in] AccountSid: PSID, #[buffer(CountOfRights)] #[in] UserRights: PLSA_UNICODE_STRING, #[in] CountOfRights: ULONG) -> NTSTATUS;
         #[library("Secur32.dll")]
-        extern fn LsaCallAuthenticationPackage(#[in] LsaHandle: HANDLE, #[in] AuthenticationPackage: ULONG, #[in] #[readable(entry, bytes(SubmitBufferLength))] ProtocolSubmitBuffer: PVOID, #[in] SubmitBufferLength: ULONG, #[nullable] #[opt] #[out] #[writable(success, if_present(*ReturnBufferLength), indirect)] ProtocolReturnBuffer: *mut PVOID, #[opt] #[out] ReturnBufferLength: PULONG, #[opt] #[out] ProtocolStatus: PNTSTATUS) -> NTSTATUS;
+        extern fn LsaCallAuthenticationPackage(#[in] LsaHandle: HANDLE, #[in] AuthenticationPackage: ULONG, #[buffer(bytes(SubmitBufferLength))] #[in] ProtocolSubmitBuffer: PVOID, #[in] SubmitBufferLength: ULONG, #[incomplete] #[opt] #[out] ProtocolReturnBuffer: *mut PVOID, #[opt] #[out] ReturnBufferLength: PULONG, #[opt] #[out] ProtocolStatus: PNTSTATUS) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
         extern fn LsaClose(#[in] ObjectHandle: LSA_HANDLE) -> NTSTATUS;
         #[library("Secur32.dll")]
@@ -1032,7 +1028,7 @@ mod Windows {
         #[library("Secur32.dll")]
         extern fn LsaDeregisterLogonProcess(#[in] LsaHandle: HANDLE) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaEnumerateAccountRights(#[in] PolicyHandle: LSA_HANDLE, #[in] AccountSid: PSID, #[out] #[writable(success, *CountOfRights, indirect)] UserRights: *mut PLSA_UNICODE_STRING, #[out] CountOfRights: PULONG) -> NTSTATUS;
+        extern fn LsaEnumerateAccountRights(#[in] PolicyHandle: LSA_HANDLE, #[in] AccountSid: PSID, #[incomplete] #[out] UserRights: *mut PLSA_UNICODE_STRING, #[out] CountOfRights: PULONG) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
         extern fn LsaEnumerateAccountsWithUserRight(#[in] PolicyHandle: LSA_HANDLE, #[in] #[opt] UserRight: PLSA_UNICODE_STRING, #[out] Buffer: *mut PVOID, #[out] CountReturned: PULONG) -> NTSTATUS;
         #[library("Secur32.dll")]
@@ -1046,11 +1042,11 @@ mod Windows {
         #[library("Secur32.dll")]
         extern fn LsaFreeReturnBuffer(#[in] Buffer: PVOID) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaGetAppliedCAPIDs(#[in] #[opt] SystemName: PLSA_UNICODE_STRING, #[out] #[writable(success, *CAPIDCount, indirect)] CAPIDs: *mut *mut PSID, #[out] CAPIDCount: PULONG) -> NTSTATUS;
+        extern fn LsaGetAppliedCAPIDs(#[in] #[opt] SystemName: PLSA_UNICODE_STRING, #[incomplete] #[out] CAPIDs: *mut *mut PSID, #[out] CAPIDCount: PULONG) -> NTSTATUS;
         #[library("Secur32.dll")]
         extern fn LsaGetLogonSessionData(#[in] LogonId: PLUID, #[out] ppLogonSessionData: *mut PSECURITY_LOGON_SESSION_DATA) -> NTSTATUS;
         #[library("Secur32.dll")]
-        extern fn LsaLogonUser(#[in] LsaHandle: HANDLE, #[in] OriginName: PLSA_STRING, #[in] LogonType: SECURITY_LOGON_TYPE, #[in] AuthenticationPackage: ULONG, #[in] #[readable(entry, bytes(AuthenticationInformationLength))] AuthenticationInformation: PVOID, #[in] AuthenticationInformationLength: ULONG, #[in] #[opt] LocalGroups: PTOKEN_GROUPS, #[in] SourceContext: PTOKEN_SOURCE, #[out] ProfileBuffer: *mut PVOID, #[out] ProfileBufferLength: PULONG, #[in] #[out] LogonId: PLUID, #[out] Token: PHANDLE, #[out] Quotas: PQUOTA_LIMITS, #[out] SubStatus: PNTSTATUS) -> NTSTATUS;
+        extern fn LsaLogonUser(#[in] LsaHandle: HANDLE, #[in] OriginName: PLSA_STRING, #[in] LogonType: SECURITY_LOGON_TYPE, #[in] AuthenticationPackage: ULONG, #[buffer(bytes(AuthenticationInformationLength))] #[in] AuthenticationInformation: PVOID, #[in] AuthenticationInformationLength: ULONG, #[in] #[opt] LocalGroups: PTOKEN_GROUPS, #[in] SourceContext: PTOKEN_SOURCE, #[out] ProfileBuffer: *mut PVOID, #[out] ProfileBufferLength: PULONG, #[in] #[out] LogonId: PLUID, #[out] Token: PHANDLE, #[out] Quotas: PQUOTA_LIMITS, #[out] SubStatus: PNTSTATUS) -> NTSTATUS;
         #[library("Secur32.dll")]
         extern fn LsaLookupAuthenticationPackage(#[in] LsaHandle: HANDLE, #[in] PackageName: PLSA_STRING, #[out] AuthenticationPackage: PULONG) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
@@ -1068,7 +1064,7 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn LsaOpenTrustedDomainByName(#[in] PolicyHandle: LSA_HANDLE, #[in] TrustedDomainName: PLSA_UNICODE_STRING, #[in] DesiredAccess: ACCESS_MASK, #[out] TrustedDomainHandle: PLSA_HANDLE) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaQueryCAPs(#[in] #[opt] #[readable(entry, CAPIDCount)] CAPIDs: *mut PSID, #[in] CAPIDCount: ULONG, #[out] #[writable(success, *CAPCount, indirect)] CAPs: *mut PCENTRAL_ACCESS_POLICY, #[out] CAPCount: PULONG) -> NTSTATUS;
+        extern fn LsaQueryCAPs(#[buffer(CAPIDCount)] #[in] #[opt] CAPIDs: *mut PSID, #[in] CAPIDCount: ULONG, #[incomplete] #[out] CAPs: *mut PCENTRAL_ACCESS_POLICY, #[out] CAPCount: PULONG) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
         extern fn LsaQueryDomainInformationPolicy(#[in] PolicyHandle: LSA_HANDLE, #[in] InformationClass: POLICY_DOMAIN_INFORMATION_CLASS, #[out] Buffer: *mut PVOID) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
@@ -1086,11 +1082,11 @@ mod Windows {
         #[library("Secur32.dll")]
         extern fn LsaRegisterPolicyChangeNotification(#[in] InformationClass: POLICY_NOTIFICATION_INFORMATION_CLASS, #[in] NotificationEventHandle: HANDLE) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaRemoveAccountRights(#[in] PolicyHandle: LSA_HANDLE, #[in] AccountSid: PSID, #[in] AllRights: BOOLEAN, #[in] #[opt] #[readable(entry, CountOfRights)] UserRights: PLSA_UNICODE_STRING, #[in] CountOfRights: ULONG) -> NTSTATUS;
+        extern fn LsaRemoveAccountRights(#[in] PolicyHandle: LSA_HANDLE, #[in] AccountSid: PSID, #[in] AllRights: BOOLEAN, #[buffer(CountOfRights)] #[in] #[opt] UserRights: PLSA_UNICODE_STRING, #[in] CountOfRights: ULONG) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
         extern fn LsaRetrievePrivateData(#[in] PolicyHandle: LSA_HANDLE, #[in] KeyName: PLSA_UNICODE_STRING, #[out] PrivateData: *mut PLSA_UNICODE_STRING) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaSetCAPs(#[in] #[opt] #[readable(entry, CAPDNCount)] CAPDNs: PLSA_UNICODE_STRING, #[in] CAPDNCount: ULONG, #[in] Flags: ULONG) -> NTSTATUS;
+        extern fn LsaSetCAPs(#[buffer(CAPDNCount)] #[in] #[opt] CAPDNs: PLSA_UNICODE_STRING, #[in] CAPDNCount: ULONG, #[in] Flags: ULONG) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
         extern fn LsaSetDomainInformationPolicy(#[in] PolicyHandle: LSA_HANDLE, #[in] InformationClass: POLICY_DOMAIN_INFORMATION_CLASS, #[in] #[opt] Buffer: PVOID) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
@@ -1213,7 +1209,6 @@ mod Windows {
         struct MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL {
             Version: ULONG,
             EncryptedCredsSize: ULONG,
-            #[writable(EncryptedCredsSize)]
             EncryptedCreds: [UCHAR; 1],
         }
         const MSV1_0_LANMAN_SESSION_KEY_LENGTH: i32 = 8;
@@ -1534,7 +1529,6 @@ mod Windows {
             UserPrincipalName: UNICODE_STRING,
             DomainName: UNICODE_STRING,
             CertificateLength: ULONG,
-            #[writable(bytes(CertificateLength))]
             Certificate: PUCHAR,
         }
         struct PKU2U_CERT_BLOB {
@@ -1810,11 +1804,11 @@ mod Windows {
         const RTL_ENCRYPT_OPTION_FOR_SYSTEM: i32 = 4;
         const RTL_ENCRYPT_OPTION_SAME_LOGON: i32 = 2;
         #[library("ADVAPI32.dll", import = "SystemFunction041")]
-        extern fn RtlDecryptMemory(#[in] #[out] #[writable(entry, bytes(MemorySize))] Memory: PVOID, #[in] MemorySize: ULONG, #[in] OptionFlags: ULONG) -> NTSTATUS;
+        extern fn RtlDecryptMemory(#[buffer(bytes(MemorySize))] #[in] #[out] Memory: PVOID, #[in] MemorySize: ULONG, #[in] OptionFlags: ULONG) -> NTSTATUS;
         #[library("ADVAPI32.dll", import = "SystemFunction040")]
-        extern fn RtlEncryptMemory(#[in] #[out] #[writable(entry, bytes(MemorySize))] Memory: PVOID, #[in] MemorySize: ULONG, #[in] OptionFlags: ULONG) -> NTSTATUS;
+        extern fn RtlEncryptMemory(#[buffer(bytes(MemorySize))] #[in] #[out] Memory: PVOID, #[in] MemorySize: ULONG, #[in] OptionFlags: ULONG) -> NTSTATUS;
         #[library("ADVAPI32.dll", import = "SystemFunction036")]
-        extern fn RtlGenRandom(#[out] #[writable(entry, bytes(RandomBufferLength))] RandomBuffer: PVOID, #[in] RandomBufferLength: ULONG) -> BOOLEAN;
+        extern fn RtlGenRandom(#[buffer(bytes(RandomBufferLength))] #[out] RandomBuffer: PVOID, #[in] RandomBufferLength: ULONG) -> BOOLEAN;
         #[encoding("ansi")]
         const SAM_INIT_NOTIFICATION_ROUTINE: String = "InitializeChangeNotify";
         #[encoding("ansi")]
@@ -1974,11 +1968,11 @@ mod Windows {
         #[encoding("ansi")]
         const SE_SERVICE_LOGON_NAME: String = "SeServiceLogonRight";
         #[library("ADVAPI32.dll")]
-        extern fn SystemFunction036(#[out] #[writable(entry, bytes(RandomBufferLength))] RandomBuffer: PVOID, #[in] RandomBufferLength: ULONG) -> BOOLEAN;
+        extern fn SystemFunction036(#[buffer(bytes(RandomBufferLength))] #[out] RandomBuffer: PVOID, #[in] RandomBufferLength: ULONG) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn SystemFunction040(#[in] #[out] #[writable(entry, bytes(MemorySize))] Memory: PVOID, #[in] MemorySize: ULONG, #[in] OptionFlags: ULONG) -> NTSTATUS;
+        extern fn SystemFunction040(#[buffer(bytes(MemorySize))] #[in] #[out] Memory: PVOID, #[in] MemorySize: ULONG, #[in] OptionFlags: ULONG) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn SystemFunction041(#[in] #[out] #[writable(entry, bytes(MemorySize))] Memory: PVOID, #[in] MemorySize: ULONG, #[in] OptionFlags: ULONG) -> NTSTATUS;
+        extern fn SystemFunction041(#[buffer(bytes(MemorySize))] #[in] #[out] Memory: PVOID, #[in] MemorySize: ULONG, #[in] OptionFlags: ULONG) -> NTSTATUS;
         struct TRUSTED_CONTROLLERS_INFO {
             Entries: ULONG,
             Names: PLSA_UNICODE_STRING,

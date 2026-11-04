@@ -157,7 +157,6 @@ mod Windows {
         #[packed(8)]
         struct CRYPT_PROVIDER_SIGSTATE {
             cbStruct: DWORD,
-            #[writable(cSecondarySigs)]
             rhSecondarySigs: *mut HCRYPTMSG,
             hPrimarySig: HCRYPTMSG,
             fFirstAttemptMade: BOOL,
@@ -486,7 +485,6 @@ mod Windows {
             pcwszMemberTag: LPCWSTR,
             pcwszMemberFilePath: LPCWSTR,
             hMemberFile: HANDLE,
-            #[writable(cbCalculatedFileHash)]
             pbCalculatedFileHash: *mut BYTE,
             cbCalculatedFileHash: DWORD,
             pcCatalogContext: PCCTL_CONTEXT,

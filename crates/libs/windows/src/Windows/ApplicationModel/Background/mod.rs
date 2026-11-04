@@ -2391,7 +2391,10 @@ impl IBackgroundTaskInstance_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2404,7 +2407,10 @@ impl IBackgroundTaskInstance_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2416,7 +2422,10 @@ impl IBackgroundTaskInstance_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2435,7 +2444,10 @@ impl IBackgroundTaskInstance_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2447,7 +2459,10 @@ impl IBackgroundTaskInstance_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2465,7 +2480,10 @@ impl IBackgroundTaskInstance_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2478,7 +2496,10 @@ impl IBackgroundTaskInstance_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2605,7 +2626,10 @@ impl IBackgroundTaskInstance2_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2721,7 +2745,10 @@ impl IBackgroundTaskInstance4_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2825,7 +2852,10 @@ impl IBackgroundTaskRegistration_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2838,7 +2868,10 @@ impl IBackgroundTaskRegistration_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2850,7 +2883,10 @@ impl IBackgroundTaskRegistration_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2868,7 +2904,10 @@ impl IBackgroundTaskRegistration_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2991,7 +3030,10 @@ impl IBackgroundTaskRegistration2_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3087,7 +3129,10 @@ impl IBackgroundTaskRegistration3_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

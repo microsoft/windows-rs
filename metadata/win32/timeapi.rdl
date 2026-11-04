@@ -17,9 +17,9 @@ mod Windows {
         #[library("WINMM.dll")]
         extern fn timeEndPeriod(#[in] uPeriod: UINT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn timeGetDevCaps(#[out] #[writable(entry, bytes(cbtc))] ptc: LPTIMECAPS, #[in] cbtc: UINT) -> MMRESULT;
+        extern fn timeGetDevCaps(#[buffer(bytes(cbtc))] #[out] ptc: LPTIMECAPS, #[in] cbtc: UINT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn timeGetSystemTime(#[out] #[writable(entry, bytes(cbmmt))] pmmt: LPMMTIME, #[in] cbmmt: UINT) -> MMRESULT;
+        extern fn timeGetSystemTime(#[buffer(bytes(cbmmt))] #[out] pmmt: LPMMTIME, #[in] cbmmt: UINT) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn timeGetTime() -> DWORD;
     }

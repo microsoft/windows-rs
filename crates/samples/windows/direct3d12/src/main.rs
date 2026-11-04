@@ -201,7 +201,11 @@ fn main() -> windows::core::Result<()> {
                 populate_command_list(resources).unwrap();
 
                 let command_list = Some(resources.command_list.cast().unwrap());
-                unsafe { resources.command_queue.ExecuteCommandLists(&[command_list]) };
+                unsafe {
+                    resources
+                        .command_queue
+                        .ExecuteCommandLists(1, &command_list);
+                };
 
                 unsafe { resources.swap_chain.Present(1, 0) }.ok().unwrap();
 
@@ -284,13 +288,7 @@ fn main() -> windows::core::Result<()> {
         .map(|| signature.unwrap())?;
 
         unsafe {
-            device.CreateRootSignature(
-                0,
-                std::slice::from_raw_parts(
-                    signature.GetBufferPointer() as _,
-                    signature.GetBufferSize(),
-                ),
-            )
+            device.CreateRootSignature(0, signature.GetBufferPointer(), signature.GetBufferSize())
         }
     }
 
@@ -498,8 +496,8 @@ fn main() -> windows::core::Result<()> {
 
         unsafe {
             command_list.SetGraphicsRootSignature(&resources.root_signature);
-            command_list.RSSetViewports(&[resources.viewport]);
-            command_list.RSSetScissorRects(&[resources.scissor_rect]);
+            command_list.RSSetViewports(1, &resources.viewport);
+            command_list.RSSetScissorRects(1, &resources.scissor_rect);
         }
 
         let barrier = transition_barrier(
@@ -507,7 +505,7 @@ fn main() -> windows::core::Result<()> {
             D3D12_RESOURCE_STATE_PRESENT,
             D3D12_RESOURCE_STATE_RENDER_TARGET,
         );
-        unsafe { command_list.ResourceBarrier(&[barrier]) };
+        unsafe { command_list.ResourceBarrier(1, &barrier) };
 
         let rtv_handle = D3D12_CPU_DESCRIPTOR_HANDLE {
             ptr: unsafe { resources.rtv_heap.GetCPUDescriptorHandleForHeapStart() }.ptr
@@ -520,19 +518,23 @@ fn main() -> windows::core::Result<()> {
             command_list.ClearRenderTargetView(
                 rtv_handle,
                 [0.0_f32, 0.2_f32, 0.4_f32, 1.0_f32].as_ptr(),
-                &[],
+                0,
+                core::ptr::null(),
             );
             command_list.IASetPrimitiveTopology(
                 D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST as D3D12_PRIMITIVE_TOPOLOGY,
             );
-            command_list.IASetVertexBuffers(0, Some(&[resources.vbv]));
+            command_list.IASetVertexBuffers(0, 1, Some(&resources.vbv));
             command_list.DrawInstanced(3, 1, 0, 0);
 
-            command_list.ResourceBarrier(&[transition_barrier(
-                &resources.render_targets[resources.frame_index as usize],
-                D3D12_RESOURCE_STATE_RENDER_TARGET,
-                D3D12_RESOURCE_STATE_PRESENT,
-            )]);
+            command_list.ResourceBarrier(
+                1,
+                &transition_barrier(
+                    &resources.render_targets[resources.frame_index as usize],
+                    D3D12_RESOURCE_STATE_RENDER_TARGET,
+                    D3D12_RESOURCE_STATE_PRESENT,
+                ),
+            );
         }
 
         unsafe { command_list.Close() }.ok()

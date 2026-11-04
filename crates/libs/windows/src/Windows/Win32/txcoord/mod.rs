@@ -400,7 +400,10 @@ impl ITipHelper_Vtbl {
                         o_ppitransaction.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        o_ppitransaction.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -412,7 +415,10 @@ impl ITipHelper_Vtbl {
                         o_ppitransaction.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        o_ppitransaction.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -651,10 +657,10 @@ impl ITransactionExportFactory {
         unsafe { (windows_core::Interface::vtable(self).GetRemoteClassId)(windows_core::Interface::as_raw(self), pclsid as _) }
     }
     #[cfg(all(feature = "rpc", feature = "shared"))]
-    pub unsafe fn Create(&self, rgbwhereabouts: &[super::byte]) -> windows_core::Result<ITransactionExport> {
+    pub unsafe fn Create(&self, cbwhereabouts: super::ULONG, rgbwhereabouts: *const super::byte) -> windows_core::Result<ITransactionExport> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), rgbwhereabouts.len().try_into().unwrap(), rgbwhereabouts.as_ptr(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), cbwhereabouts, rgbwhereabouts, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -693,7 +699,10 @@ impl ITransactionExportFactory_Vtbl {
                         ppexport.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppexport.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -713,12 +722,12 @@ windows_core::imp::define_interface!(ITransactionImport, ITransactionImport_Vtbl
 windows_core::imp::interface_hierarchy!(ITransactionImport, windows_core::IUnknown);
 impl ITransactionImport {
     #[cfg(all(feature = "guiddef", feature = "rpc", feature = "shared"))]
-    pub unsafe fn Import<T>(&self, rgbtransactioncookie: &[super::byte]) -> windows_core::Result<T>
+    pub unsafe fn Import<T>(&self, cbtransactioncookie: super::ULONG, rgbtransactioncookie: *const super::byte) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).Import)(windows_core::Interface::as_raw(self), rgbtransactioncookie.len().try_into().unwrap(), rgbtransactioncookie.as_ptr(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).Import)(windows_core::Interface::as_raw(self), cbtransactioncookie, rgbtransactioncookie, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]

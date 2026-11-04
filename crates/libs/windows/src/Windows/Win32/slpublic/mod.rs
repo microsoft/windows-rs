@@ -102,9 +102,9 @@ pub unsafe fn SLGetLicense(hslc: HSLC, plicensefileid: *const SLID, pcblicensefi
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SLGetLicenseFileId(hslc: HSLC, pblicenseblob: &[u8], plicensefileid: *mut SLID) -> windows_core::HRESULT {
+pub unsafe fn SLGetLicenseFileId(hslc: HSLC, cblicenseblob: super::UINT, pblicenseblob: *const super::BYTE, plicensefileid: *mut SLID) -> windows_core::HRESULT {
     windows_core::link!("slc.dll" "system" fn SLGetLicenseFileId(hslc : HSLC, cblicenseblob : super::UINT, pblicenseblob : *const super::BYTE, plicensefileid : *mut SLID) -> windows_core::HRESULT);
-    unsafe { SLGetLicenseFileId(hslc, pblicenseblob.len().try_into().unwrap(), core::mem::transmute(pblicenseblob.as_ptr()), plicensefileid as _) }
+    unsafe { SLGetLicenseFileId(hslc, cblicenseblob, pblicenseblob, plicensefileid as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -126,13 +126,13 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SLGetPKeyId<P1, P2>(hslc: HSLC, pwszpkeyalgorithm: P1, pwszpkeystring: P2, pbpkeyspecificdata: Option<&[u8]>, ppkeyid: *mut SLID) -> windows_core::HRESULT
+pub unsafe fn SLGetPKeyId<P1, P2>(hslc: HSLC, pwszpkeyalgorithm: P1, pwszpkeystring: P2, cbpkeyspecificdata: super::UINT, pbpkeyspecificdata: Option<*const super::BYTE>, ppkeyid: *mut SLID) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("slc.dll" "system" fn SLGetPKeyId(hslc : HSLC, pwszpkeyalgorithm : windows_core::PCWSTR, pwszpkeystring : windows_core::PCWSTR, cbpkeyspecificdata : super::UINT, pbpkeyspecificdata : *const super::BYTE, ppkeyid : *mut SLID) -> windows_core::HRESULT);
-    unsafe { SLGetPKeyId(hslc, pwszpkeyalgorithm.param().abi(), pwszpkeystring.param().abi(), pbpkeyspecificdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbpkeyspecificdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), ppkeyid as _) }
+    unsafe { SLGetPKeyId(hslc, pwszpkeyalgorithm.param().abi(), pwszpkeystring.param().abi(), cbpkeyspecificdata, pbpkeyspecificdata.unwrap_or(core::mem::zeroed()) as _, ppkeyid as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -224,19 +224,19 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SLInstallLicense(hslc: HSLC, pblicenseblob: &[u8], plicensefileid: *mut SLID) -> windows_core::HRESULT {
+pub unsafe fn SLInstallLicense(hslc: HSLC, cblicenseblob: super::UINT, pblicenseblob: *const super::BYTE, plicensefileid: *mut SLID) -> windows_core::HRESULT {
     windows_core::link!("slc.dll" "system" fn SLInstallLicense(hslc : HSLC, cblicenseblob : super::UINT, pblicenseblob : *const super::BYTE, plicensefileid : *mut SLID) -> windows_core::HRESULT);
-    unsafe { SLInstallLicense(hslc, pblicenseblob.len().try_into().unwrap(), core::mem::transmute(pblicenseblob.as_ptr()), plicensefileid as _) }
+    unsafe { SLInstallLicense(hslc, cblicenseblob, pblicenseblob, plicensefileid as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SLInstallProofOfPurchase<P1, P2>(hslc: HSLC, pwszpkeyalgorithm: P1, pwszpkeystring: P2, pbpkeyspecificdata: Option<&[u8]>, ppkeyid: *mut SLID) -> windows_core::HRESULT
+pub unsafe fn SLInstallProofOfPurchase<P1, P2>(hslc: HSLC, pwszpkeyalgorithm: P1, pwszpkeystring: P2, cbpkeyspecificdata: super::UINT, pbpkeyspecificdata: Option<super::PBYTE>, ppkeyid: *mut SLID) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("slc.dll" "system" fn SLInstallProofOfPurchase(hslc : HSLC, pwszpkeyalgorithm : windows_core::PCWSTR, pwszpkeystring : windows_core::PCWSTR, cbpkeyspecificdata : super::UINT, pbpkeyspecificdata : super::PBYTE, ppkeyid : *mut SLID) -> windows_core::HRESULT);
-    unsafe { SLInstallProofOfPurchase(hslc, pwszpkeyalgorithm.param().abi(), pwszpkeystring.param().abi(), pbpkeyspecificdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbpkeyspecificdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), ppkeyid as _) }
+    unsafe { SLInstallProofOfPurchase(hslc, pwszpkeyalgorithm.param().abi(), pwszpkeystring.param().abi(), cbpkeyspecificdata, pbpkeyspecificdata.unwrap_or(core::mem::zeroed()) as _, ppkeyid as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -274,12 +274,12 @@ pub unsafe fn SLSetCurrentProductKey(hslc: HSLC, pproductskuid: *const SLID, ppr
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SLSetGenuineInformation<P1>(pqueryid: *const SLID, pwszvaluename: P1, edatatype: SLDATATYPE, pbvalue: Option<&[u8]>) -> windows_core::HRESULT
+pub unsafe fn SLSetGenuineInformation<P1>(pqueryid: *const SLID, pwszvaluename: P1, edatatype: SLDATATYPE, cbvalue: Option<super::UINT>, pbvalue: Option<*const super::BYTE>) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("slc.dll" "system" fn SLSetGenuineInformation(pqueryid : *const SLID, pwszvaluename : windows_core::PCWSTR, edatatype : SLDATATYPE, cbvalue : super::UINT, pbvalue : *const super::BYTE) -> windows_core::HRESULT);
-    unsafe { SLSetGenuineInformation(pqueryid, pwszvaluename.param().abi(), edatatype, pbvalue.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbvalue.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { SLSetGenuineInformation(pqueryid, pwszvaluename.param().abi(), edatatype, cbvalue.unwrap_or(core::mem::zeroed()) as _, pbvalue.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn SLUninstallLicense(hslc: HSLC, plicensefileid: *const SLID) -> windows_core::HRESULT {

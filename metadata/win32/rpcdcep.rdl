@@ -14,14 +14,14 @@ mod Windows {
         extern fn I_RpcBindingHandleToAsyncHandle(Binding: RPC_BINDING_HANDLE, AsyncHandle: *mut *mut void) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         #[must_use]
-        extern fn I_RpcBindingInqDynamicEndpointA(#[in] Binding: RPC_BINDING_HANDLE, #[nullable] #[out] #[out_ptr] DynamicEndpoint: *mut RPC_CSTR) -> RPC_STATUS;
+        extern fn I_RpcBindingInqDynamicEndpointA(#[in] Binding: RPC_BINDING_HANDLE, #[out] DynamicEndpoint: *mut RPC_CSTR) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         #[must_use]
-        extern fn I_RpcBindingInqDynamicEndpointW(#[in] Binding: RPC_BINDING_HANDLE, #[nullable] #[out] #[out_ptr] DynamicEndpoint: *mut RPC_WSTR) -> RPC_STATUS;
+        extern fn I_RpcBindingInqDynamicEndpointW(#[in] Binding: RPC_BINDING_HANDLE, #[out] DynamicEndpoint: *mut RPC_WSTR) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn I_RpcBindingInqLocalClientPID(Binding: RPC_BINDING_HANDLE, Pid: *mut u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn I_RpcBindingInqMarshalledTargetInfo(#[in] Binding: RPC_BINDING_HANDLE, #[out] MarshalledTargetInfoSize: *mut u32, #[out] #[writable(success, bytes(*MarshalledTargetInfoSize), indirect)] MarshalledTargetInfo: *mut RPC_CSTR) -> RPC_STATUS;
+        extern fn I_RpcBindingInqMarshalledTargetInfo(#[in] Binding: RPC_BINDING_HANDLE, #[out] MarshalledTargetInfoSize: *mut u32, #[incomplete] #[out] MarshalledTargetInfo: *mut RPC_CSTR) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn I_RpcBindingInqSecurityContext(Binding: RPC_BINDING_HANDLE, SecurityContextHandle: *mut *mut void) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
@@ -91,7 +91,7 @@ mod Windows {
         #[library("RPCRT4.dll")]
         extern fn I_RpcNsInterfaceUnexported(EntryNameSyntax: u32, EntryName: *mut u16, RpcInterfaceInformation: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn I_RpcOpenClientProcess(#[in] #[opt] Binding: RPC_BINDING_HANDLE, #[in] DesiredAccess: u32, #[out] #[out_ptr] ClientProcess: *mut *mut void) -> RPC_STATUS;
+        extern fn I_RpcOpenClientProcess(#[in] #[opt] Binding: RPC_BINDING_HANDLE, #[in] DesiredAccess: u32, #[out] ClientProcess: *mut *mut void) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn I_RpcPauseExecution(Milliseconds: u32);
         extern fn I_RpcPerformCalloutFn(Context: *mut void, CallOutState: *mut RDR_CALLOUT_STATE, Stage: RPC_HTTP_REDIRECTOR_STAGE) -> RPC_STATUS;
@@ -307,13 +307,11 @@ mod Windows {
         #[packed(8)]
         struct RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
             BufferSize: u32,
-            #[writable(bytes(BufferSize))]
             Buffer: *mut i8,
         }
         #[arch(X86)]
         struct RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
             BufferSize: u32,
-            #[writable(bytes(BufferSize))]
             Buffer: *mut i8,
         }
         const RPC_C_OPT_PRIVATE_BREAK_ON_SUSPEND: i32 = 3;

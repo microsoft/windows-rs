@@ -166,7 +166,10 @@ impl IWbemEventConsumerProvider_Vtbl {
                         ppconsumer.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppconsumer.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -317,19 +320,19 @@ windows_core::imp::interface_hierarchy!(IWbemEventSink, windows_core::IUnknown, 
 #[cfg(feature = "wbemcli")]
 impl IWbemEventSink {
     #[cfg(feature = "shared")]
-    pub unsafe fn SetSinkSecurity(&self, psd: &[super::BYTE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSinkSecurity)(windows_core::Interface::as_raw(self), psd.len().try_into().unwrap(), psd.as_ptr()) }
+    pub unsafe fn SetSinkSecurity(&self, lsdlength: i32, psd: *const super::BYTE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetSinkSecurity)(windows_core::Interface::as_raw(self), lsdlength, psd) }
     }
     pub unsafe fn IsActive(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).IsActive)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GetRestrictedSink<P2>(&self, awszqueries: &[windows_core::PCWSTR], pcallback: P2) -> windows_core::Result<Self>
+    pub unsafe fn GetRestrictedSink<P2>(&self, lnumqueries: i32, awszqueries: *const windows_core::PCWSTR, pcallback: P2) -> windows_core::Result<Self>
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRestrictedSink)(windows_core::Interface::as_raw(self), awszqueries.len().try_into().unwrap(), awszqueries.as_ptr(), pcallback.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetRestrictedSink)(windows_core::Interface::as_raw(self), lnumqueries, awszqueries, pcallback.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "shared")]
@@ -383,7 +386,10 @@ impl IWbemEventSink_Vtbl {
                         ppsink.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsink.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -455,12 +461,12 @@ impl IWbemHiPerfProvider {
         unsafe { (windows_core::Interface::vtable(self).CreateRefreshableEnum)(windows_core::Interface::as_raw(self), pnamespace.param().abi(), wszclass.param().abi(), prefresher.param().abi(), lflags, pcontext.param().abi(), phiperfenum.param().abi(), plid as _) }
     }
     #[cfg(feature = "wbemcli")]
-    pub unsafe fn GetObjects<P0, P4>(&self, pnamespace: P0, apobj: &mut [Option<super::IWbemObjectAccess>], lflags: i32, pcontext: P4) -> windows_core::HRESULT
+    pub unsafe fn GetObjects<P0, P4>(&self, pnamespace: P0, lnumobjects: i32, apobj: *mut Option<super::IWbemObjectAccess>, lflags: i32, pcontext: P4) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IWbemServices>,
         P4: windows_core::Param<super::IWbemContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetObjects)(windows_core::Interface::as_raw(self), pnamespace.param().abi(), apobj.len().try_into().unwrap(), core::mem::transmute(apobj.as_mut_ptr()), lflags, pcontext.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).GetObjects)(windows_core::Interface::as_raw(self), pnamespace.param().abi(), lnumobjects, core::mem::transmute(apobj), lflags, pcontext.param().abi()) }
     }
 }
 #[repr(C)]
@@ -742,11 +748,11 @@ windows_core::imp::define_interface!(IWbemUnboundObjectSink, IWbemUnboundObjectS
 windows_core::imp::interface_hierarchy!(IWbemUnboundObjectSink, windows_core::IUnknown);
 impl IWbemUnboundObjectSink {
     #[cfg(feature = "wbemcli")]
-    pub unsafe fn IndicateToConsumer<P0>(&self, plogicalconsumer: P0, apobjects: &[Option<super::IWbemClassObject>]) -> windows_core::HRESULT
+    pub unsafe fn IndicateToConsumer<P0>(&self, plogicalconsumer: P0, lnumobjects: i32, apobjects: *const Option<super::IWbemClassObject>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IWbemClassObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).IndicateToConsumer)(windows_core::Interface::as_raw(self), plogicalconsumer.param().abi(), apobjects.len().try_into().unwrap(), core::mem::transmute(apobjects.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).IndicateToConsumer)(windows_core::Interface::as_raw(self), plogicalconsumer.param().abi(), lnumobjects, core::mem::transmute(apobjects)) }
     }
 }
 #[repr(C)]

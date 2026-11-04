@@ -67,7 +67,7 @@ impl ISpatialAudioMetadataClient_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        metadataitems.write(core::mem::zeroed());
+                        metadataitems.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -88,7 +88,7 @@ impl ISpatialAudioMetadataClient_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        metadatawriter.write(core::mem::zeroed());
+                        metadatawriter.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -103,7 +103,7 @@ impl ISpatialAudioMetadataClient_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        metadatacopier.write(core::mem::zeroed());
+                        metadatacopier.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -118,7 +118,7 @@ impl ISpatialAudioMetadataClient_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        metadatareader.write(core::mem::zeroed());
+                        metadatareader.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -319,12 +319,12 @@ windows_core::imp::define_interface!(ISpatialAudioMetadataItemsBuffer, ISpatialA
 windows_core::imp::interface_hierarchy!(ISpatialAudioMetadataItemsBuffer, windows_core::IUnknown);
 impl ISpatialAudioMetadataItemsBuffer {
     #[cfg(feature = "shared")]
-    pub unsafe fn AttachToBuffer(&self, buffer: &mut [u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AttachToBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_mut_ptr()), buffer.len().try_into().unwrap()) }
+    pub unsafe fn AttachToBuffer(&self, buffer: *mut super::BYTE, bufferlength: super::UINT32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AttachToBuffer)(windows_core::Interface::as_raw(self), buffer as _, bufferlength) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn AttachToPopulatedBuffer(&self, buffer: &mut [u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AttachToPopulatedBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_mut_ptr()), buffer.len().try_into().unwrap()) }
+    pub unsafe fn AttachToPopulatedBuffer(&self, buffer: *mut super::BYTE, bufferlength: super::UINT32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AttachToPopulatedBuffer)(windows_core::Interface::as_raw(self), buffer as _, bufferlength) }
     }
     pub unsafe fn DetachBuffer(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DetachBuffer)(windows_core::Interface::as_raw(self)) }
@@ -644,7 +644,7 @@ impl ISpatialAudioObjectForMetadataItems_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        metadataitems.write(core::mem::zeroed());
+                        metadataitems.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -712,7 +712,7 @@ impl ISpatialAudioObjectRenderStreamForMetadata_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        audioobject.write(core::mem::zeroed());
+                        audioobject.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -727,7 +727,7 @@ impl ISpatialAudioObjectRenderStreamForMetadata_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        audioobject.write(core::mem::zeroed());
+                        audioobject.write_bytes(0, 1);
                         err.into()
                     }
                 }

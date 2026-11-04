@@ -38,12 +38,12 @@ windows_core::imp::define_interface!(IDtcLuConfigure, IDtcLuConfigure_Vtbl, 0x41
 windows_core::imp::interface_hierarchy!(IDtcLuConfigure, windows_core::IUnknown);
 impl IDtcLuConfigure {
     #[cfg(all(feature = "rpc", feature = "shared"))]
-    pub unsafe fn Add(&self, puclupair: &[super::byte]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), puclupair.as_ptr(), puclupair.len().try_into().unwrap()) }
+    pub unsafe fn Add(&self, puclupair: *const super::byte, cblupair: super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), puclupair, cblupair) }
     }
     #[cfg(all(feature = "rpc", feature = "shared"))]
-    pub unsafe fn Delete(&self, puclupair: &[super::byte]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), puclupair.as_ptr(), puclupair.len().try_into().unwrap()) }
+    pub unsafe fn Delete(&self, puclupair: *const super::byte, cblupair: super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), puclupair, cblupair) }
     }
 }
 #[repr(C)]
@@ -108,10 +108,10 @@ windows_core::imp::define_interface!(IDtcLuRecoveryFactory, IDtcLuRecoveryFactor
 windows_core::imp::interface_hierarchy!(IDtcLuRecoveryFactory, windows_core::IUnknown);
 impl IDtcLuRecoveryFactory {
     #[cfg(all(feature = "rpc", feature = "shared"))]
-    pub unsafe fn Create(&self, puclupair: &[super::byte]) -> windows_core::Result<IDtcLuRecovery> {
+    pub unsafe fn Create(&self, puclupair: *const super::byte, cblupair: super::DWORD) -> windows_core::Result<IDtcLuRecovery> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), puclupair.as_ptr(), puclupair.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), puclupair, cblupair, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -139,7 +139,10 @@ impl IDtcLuRecoveryFactory_Vtbl {
                         pprecovery.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pprecovery.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -454,7 +457,10 @@ impl IDtcLuRecoveryInitiatedByLu_Vtbl {
                         ppwork.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppwork.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1220,8 +1226,8 @@ windows_core::imp::define_interface!(ILastResourceManager, ILastResourceManager_
 windows_core::imp::interface_hierarchy!(ILastResourceManager, windows_core::IUnknown);
 impl ILastResourceManager {
     #[cfg(all(feature = "rpc", feature = "shared"))]
-    pub unsafe fn TransactionCommitted(&self, pprepinfo: &[super::byte]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).TransactionCommitted)(windows_core::Interface::as_raw(self), pprepinfo.as_ptr(), pprepinfo.len().try_into().unwrap()) }
+    pub unsafe fn TransactionCommitted(&self, pprepinfo: *const super::byte, cbprepinfo: super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).TransactionCommitted)(windows_core::Interface::as_raw(self), pprepinfo, cbprepinfo) }
     }
     pub unsafe fn RecoveryDone(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RecoveryDone)(windows_core::Interface::as_raw(self)) }
@@ -1491,7 +1497,10 @@ impl IResourceManager2_Vtbl {
                         ppenlist.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenlist.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1547,7 +1556,10 @@ impl IResourceManagerFactory_Vtbl {
                         ppresmgr.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppresmgr.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1622,8 +1634,8 @@ windows_core::imp::interface_hierarchy!(IResourceManagerRejoinable, windows_core
 #[cfg(feature = "strmif")]
 impl IResourceManagerRejoinable {
     #[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
-    pub unsafe fn Rejoin(&self, pprepinfo: &[super::byte], ltimeout: super::DWORD, pxactstat: *mut super::XACTSTAT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Rejoin)(windows_core::Interface::as_raw(self), pprepinfo.as_ptr(), pprepinfo.len().try_into().unwrap(), ltimeout, pxactstat as _) }
+    pub unsafe fn Rejoin(&self, pprepinfo: *const super::byte, cbprepinfo: super::ULONG, ltimeout: super::DWORD, pxactstat: *mut super::XACTSTAT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Rejoin)(windows_core::Interface::as_raw(self), pprepinfo, cbprepinfo, ltimeout, pxactstat as _) }
     }
 }
 #[cfg(feature = "strmif")]
@@ -1767,7 +1779,10 @@ impl ITransactionPhase0EnlistmentAsync_Vtbl {
                         ppitransaction.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppitransaction.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1818,7 +1833,10 @@ impl ITransactionPhase0Factory_Vtbl {
                         ppphase0enlistment.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppphase0enlistment.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1879,10 +1897,10 @@ windows_core::imp::define_interface!(ITransactionReceiver, ITransactionReceiver_
 windows_core::imp::interface_hierarchy!(ITransactionReceiver, windows_core::IUnknown);
 impl ITransactionReceiver {
     #[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
-    pub unsafe fn UnmarshalPropagationToken(&self, rgbtoken: &[super::byte]) -> windows_core::Result<super::ITransaction> {
+    pub unsafe fn UnmarshalPropagationToken(&self, cbtoken: super::ULONG, rgbtoken: *const super::byte) -> windows_core::Result<super::ITransaction> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).UnmarshalPropagationToken)(windows_core::Interface::as_raw(self), rgbtoken.len().try_into().unwrap(), rgbtoken.as_ptr(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).UnmarshalPropagationToken)(windows_core::Interface::as_raw(self), cbtoken, rgbtoken, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "shared")]
@@ -1933,7 +1951,10 @@ impl ITransactionReceiver_Vtbl {
                         pptransaction.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptransaction.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1998,7 +2019,10 @@ impl ITransactionReceiverFactory_Vtbl {
                         ppreceiver.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppreceiver.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2028,8 +2052,8 @@ impl ITransactionTransmitter {
         unsafe { (windows_core::Interface::vtable(self).MarshalPropagationToken)(windows_core::Interface::as_raw(self), cbtoken, rgbtoken as _, pcbused as _) }
     }
     #[cfg(all(feature = "rpc", feature = "shared"))]
-    pub unsafe fn UnmarshalReturnToken(&self, rgbreturntoken: &[super::byte]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).UnmarshalReturnToken)(windows_core::Interface::as_raw(self), rgbreturntoken.len().try_into().unwrap(), rgbreturntoken.as_ptr()) }
+    pub unsafe fn UnmarshalReturnToken(&self, cbreturntoken: super::ULONG, rgbreturntoken: *const super::byte) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UnmarshalReturnToken)(windows_core::Interface::as_raw(self), cbreturntoken, rgbreturntoken) }
     }
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
@@ -2142,7 +2166,10 @@ impl ITransactionTransmitterFactory_Vtbl {
                         pptransmitter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptransmitter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2230,7 +2257,10 @@ impl ITransactionVoterFactory2_Vtbl {
                         ppvoterballot.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvoterballot.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2402,7 +2432,10 @@ impl IXATransLookup_Vtbl {
                         pptransaction.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptransaction.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2449,7 +2482,10 @@ impl IXATransLookup2_Vtbl {
                         pptransaction.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptransaction.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

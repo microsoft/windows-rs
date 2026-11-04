@@ -319,7 +319,7 @@ mod Windows {
         #[library("COMCTL32.dll")]
         extern fn DrawInsert(handParent: HWND, hLB: HWND, nItem: i32);
         #[library("COMCTL32.dll")]
-        extern fn DrawShadowText(#[in] hdc: HDC, #[in] #[readable(entry, cch)] pszText: LPCWSTR, #[in] cch: UINT, #[in] prc: *mut RECT, #[in] dwFlags: DWORD, #[in] crText: COLORREF, #[in] crShadow: COLORREF, #[in] ixOffset: i32, #[in] iyOffset: i32) -> i32;
+        extern fn DrawShadowText(#[in] hdc: HDC, #[buffer(cch)] #[in] pszText: LPCWSTR, #[in] cch: UINT, #[in] prc: *mut RECT, #[in] dwFlags: DWORD, #[in] crText: COLORREF, #[in] crShadow: COLORREF, #[in] ixOffset: i32, #[in] iyOffset: i32) -> i32;
         #[library("COMCTL32.dll")]
         extern fn DrawStatusTextA(hDC: HDC, lprc: LPCRECT, pszText: LPCSTR, uFlags: UINT);
         #[library("COMCTL32.dll")]
@@ -409,7 +409,7 @@ mod Windows {
         const GMR_DAYSTATE: i32 = 1;
         const GMR_VISIBLE: i32 = 0;
         #[library("COMCTL32.dll")]
-        extern fn GetEffectiveClientRect(#[in] hWnd: HWND, #[out] lprc: LPRECT, #[in] #[null_terminated(entry)] lpInfo: *const INT);
+        extern fn GetEffectiveClientRect(#[in] hWnd: HWND, #[out] lprc: LPRECT, #[in] #[null_terminated] lpInfo: *const INT);
         #[library("COMCTL32.dll")]
         extern fn GetMUILanguage() -> LANGID;
         #[library("COMCTL32.dll")]
@@ -614,7 +614,7 @@ mod Windows {
         const HICF_TOGGLEDROPDOWN: i32 = 256;
         type HIMAGELIST = *mut _IMAGELIST;
         #[library("COMCTL32.dll")]
-        extern fn HIMAGELIST_QueryInterface(#[in] himl: HIMAGELIST, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+        extern fn HIMAGELIST_QueryInterface(#[in] himl: HIMAGELIST, #[in] riid: &IID, #[out] ppv: *mut *mut void) -> HRESULT;
         const HINST_COMMCTRL: HINSTANCE = -1;
         const HIST_ADDTOFAVORITES: i32 = 3;
         const HIST_BACK: i32 = 0;
@@ -813,7 +813,7 @@ mod Windows {
         #[library("COMCTL32.dll")]
         extern fn ImageList_Read(#[in] pstm: IStream) -> HIMAGELIST;
         #[library("COMCTL32.dll")]
-        extern fn ImageList_ReadEx(#[in] dwFlags: DWORD, #[in] pstm: IStream, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut PVOID) -> HRESULT;
+        extern fn ImageList_ReadEx(#[in] dwFlags: DWORD, #[in] pstm: IStream, #[in] riid: &IID, #[out] ppv: *mut PVOID) -> HRESULT;
         #[library("COMCTL32.dll")]
         extern fn ImageList_Remove(#[in] himl: HIMAGELIST, #[in] i: i32) -> BOOL;
         #[library("COMCTL32.dll")]
@@ -2842,7 +2842,7 @@ mod Windows {
         #[library("COMCTL32.dll")]
         extern fn SetWindowSubclass(#[in] hWnd: HWND, #[in] pfnSubclass: SUBCLASSPROC, #[in] uIdSubclass: UINT_PTR, #[in] dwRefData: DWORD_PTR) -> BOOL;
         #[library("COMCTL32.dll")]
-        extern fn ShowHideMenuCtl(#[in] hWnd: HWND, #[in] uFlags: UINT_PTR, #[in] #[null_terminated(entry)] lpInfo: LPINT) -> BOOL;
+        extern fn ShowHideMenuCtl(#[in] hWnd: HWND, #[in] uFlags: UINT_PTR, #[in] #[null_terminated] lpInfo: LPINT) -> BOOL;
         #[packed(1)]
         struct TASKDIALOGCONFIG {
             cbSize: UINT,

@@ -283,7 +283,10 @@ impl IWebAccountProviderOperation_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -439,7 +442,10 @@ impl IWebAccountProviderTokenObjects_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -498,7 +504,10 @@ impl IWebAccountProviderTokenObjects2_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -574,7 +583,10 @@ impl IWebAccountProviderTokenOperation_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -587,7 +599,10 @@ impl IWebAccountProviderTokenOperation_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -605,7 +620,10 @@ impl IWebAccountProviderTokenOperation_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

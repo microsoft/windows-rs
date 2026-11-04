@@ -1,0 +1,42 @@
+#[win32]
+mod Fixture {
+    #[library("fixture.dll")]
+    extern "C" fn Arithmetic(#[in] #[incomplete] values: *const i32, #[in] count: u32);
+    struct BufferView {
+        count: u32,
+        values: *mut i32,
+    }
+    #[library("fixture.dll")]
+    extern "C" fn Bytes(#[buffer(bytes(count))] #[in] values: *const u8, #[in] count: u32);
+    #[library("fixture.dll")]
+    extern "C" fn Fixed(#[buffer(4)] #[in] values: *const i32);
+    #[guid(0x6b0f3f5b_d5b3_4ba7_8fd7_978325d413cb)]
+    interface IBufferQuery {
+        fn Query(&self, #[in] iid: *const QueryId, #[iid_is] #[out] value: *mut *mut void) -> i32;
+        fn QueryArray(&self, #[in] iid: *const QueryId, #[iid_is] #[incomplete] #[out] values: *mut *mut void) -> i32;
+    }
+    #[library("fixture.dll")]
+    extern "C" fn InOut(#[buffer(count)] #[in] #[out] values: *mut i32, #[in] count: u32);
+    #[library("fixture.dll")]
+    extern "C" fn InOutOptionalWritten(#[buffer(capacity)] #[in] #[out] values: *mut i32, #[in] capacity: u32, #[opt] #[out] written: *mut u32);
+    #[library("fixture.dll")]
+    extern "C" fn InOutWritten(#[buffer(capacity)] #[in] #[out] values: *mut i32, #[in] capacity: u32, #[out] written: *mut u32);
+    #[library("fixture.dll")]
+    extern "C" fn IncomingCount(#[buffer(*count)] #[out] values: *mut i32, #[in] #[out] count: *mut u32);
+    #[library("fixture.dll")]
+    extern "C" fn Input(#[buffer(count)] #[in] values: *const i32, #[in] count: u32);
+    #[library("fixture.dll")]
+    extern "C" fn Optional(#[buffer(count)] #[in] #[opt] values: *const i32, #[in] count: u32);
+    #[library("fixture.dll")]
+    extern "C" fn OptionalCount(#[buffer(capacity)] #[out] values: *mut i32, #[in] capacity: u32, #[opt] #[out] written: *mut u32);
+    #[library("fixture.dll")]
+    extern "C" fn Output(#[buffer(capacity)] #[out] values: *mut i32, #[in] capacity: u32, #[out] written: *mut u32) -> i32;
+    struct QueryId {
+        data1: u32,
+        data2: u16,
+        data3: u16,
+        data4: [u8; 8],
+    }
+    #[library("fixture.dll")]
+    extern "C" fn Returned(#[incomplete] #[out] values: *mut *mut i32, #[out] count: *mut u32);
+}

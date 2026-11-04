@@ -326,7 +326,10 @@ impl IDirectDrawVideo_Vtbl {
                         ppdirectdraw.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdirectdraw.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

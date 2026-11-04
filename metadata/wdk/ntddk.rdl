@@ -103,7 +103,6 @@ mod Windows {
         struct ARBITER_LIST_ENTRY {
             ListEntry: LIST_ENTRY,
             AlternativeCount: ULONG,
-            #[writable(AlternativeCount)]
             Alternatives: PIO_RESOURCE_DESCRIPTOR,
             PhysicalDeviceObject: PDEVICE_OBJECT,
             RequestSource: ARBITER_REQUEST_SOURCE,
@@ -645,7 +644,7 @@ mod Windows {
         const DRVO_LEGACY_RESOURCES: i32 = 64;
         const DRVO_REINIT_REGISTERED: i32 = 8;
         #[library("ntdll.dll")]
-        extern fn DbgPrompt(#[in] #[null_terminated(entry)] Prompt: PCCH, #[out] #[writable(entry, bytes(Length))] Response: PCH, #[in] Length: ULONG) -> ULONG;
+        extern fn DbgPrompt(#[in] #[null_terminated] Prompt: PCCH, #[buffer(bytes(Length))] #[out] Response: PCH, #[in] Length: ULONG) -> ULONG;
         #[packed(1)]
         struct EFI_ACPI_RAS_SIGNAL_TABLE {
             Header: WHEA_ACPI_HEADER,
@@ -3470,7 +3469,7 @@ mod Windows {
         }
         extern fn PCI_PIN_TO_LINE(#[in] Context: PVOID, #[in] PciData: PPCI_COMMON_CONFIG);
         extern fn PCI_PREPARE_MULTISTAGE_RESUME(#[in] Context: PVOID);
-        extern fn PCI_READ_WRITE_CONFIG(#[in] Context: PVOID, #[in] BusOffset: ULONG, #[in] Slot: ULONG, #[in] #[readable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG) -> ULONG;
+        extern fn PCI_READ_WRITE_CONFIG(#[in] Context: PVOID, #[in] BusOffset: ULONG, #[in] Slot: ULONG, #[buffer(bytes(Length))] #[in] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG) -> ULONG;
         const PCI_RECOVERY_SECTION_GUID: GUID = 0xdd060800_f6e1_4204_ac27_c4bca9568402;
         const PCI_RESERVED_VENDOR_ID: i32 = 1;
         extern fn PCI_ROOT_BUS_CAPABILITY(#[in] Context: PVOID, #[out] HardwareCapability: PPCI_ROOT_BUS_HARDWARE_CAPABILITY);
@@ -3649,7 +3648,7 @@ mod Windows {
         extern fn PFN_IN_USE_PAGE_OFFLINE_NOTIFY(#[in] Page: PFN_NUMBER, #[in] Poisoned: BOOLEAN, #[in] #[out] Context: PVOID, #[out] CallbackStatus: PNTSTATUS) -> BOOLEAN;
         extern fn PFN_WHEA_HIGH_IRQL_LOG_SEL_EVENT_HANDLER(#[in] Context: PVOID, #[in] OsSelRecord: PIPMI_OS_SEL_RECORD) -> NTSTATUS;
         #[must_use]
-        extern fn PGET_LOCATION_STRING(#[in] #[opt] #[out] Context: PVOID, #[incomplete] #[out] #[out_ptr] LocationStrings: *mut PZZWSTR) -> NTSTATUS;
+        extern fn PGET_LOCATION_STRING(#[in] #[opt] #[out] Context: PVOID, #[incomplete] #[out] LocationStrings: *mut PZZWSTR) -> NTSTATUS;
         extern fn PHALIOREADWRITEHANDLER(#[in] fRead: BOOLEAN, #[in] dwAddr: ULONG, #[in] dwSize: ULONG, #[in] #[out] pdwData: PULONG) -> NTSTATUS;
         extern fn PHALMCAINTERFACELOCK();
         extern fn PHALMCAINTERFACEREADREGISTER(#[in] BankNumber: UCHAR, #[in] #[out] Exception: PVOID) -> NTSTATUS;
@@ -3923,7 +3922,7 @@ mod Windows {
         type PPCI_OSC_CONTROL_BITS = *mut PCI_OSC_CONTROL_BITS;
         extern fn PPCI_PIN_TO_LINE(#[in] Context: PVOID, #[in] PciData: PPCI_COMMON_CONFIG);
         extern fn PPCI_PREPARE_MULTISTAGE_RESUME(#[in] Context: PVOID);
-        extern fn PPCI_READ_WRITE_CONFIG(#[in] Context: PVOID, #[in] BusOffset: ULONG, #[in] Slot: ULONG, #[in] #[readable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG) -> ULONG;
+        extern fn PPCI_READ_WRITE_CONFIG(#[in] Context: PVOID, #[in] BusOffset: ULONG, #[in] Slot: ULONG, #[buffer(bytes(Length))] #[in] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG) -> ULONG;
         extern fn PPCI_ROOT_BUS_CAPABILITY(#[in] Context: PVOID, #[out] HardwareCapability: PPCI_ROOT_BUS_HARDWARE_CAPABILITY);
         type PPCI_ROOT_BUS_HARDWARE_CAPABILITY = *mut PCI_ROOT_BUS_HARDWARE_CAPABILITY;
         type PPCI_ROOT_BUS_OSC_CONTROL_FIELD = *mut PCI_ROOT_BUS_OSC_CONTROL_FIELD;
@@ -4176,9 +4175,9 @@ mod Windows {
             },
         }
         #[must_use]
-        extern fn PSHED_PI_ATTEMPT_ERROR_RECOVERY(#[in] #[opt] #[out] PluginContext: PVOID, #[in] BufferLength: ULONG, #[in] #[readable(entry, bytes(BufferLength))] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
+        extern fn PSHED_PI_ATTEMPT_ERROR_RECOVERY(#[in] #[opt] #[out] PluginContext: PVOID, #[in] BufferLength: ULONG, #[buffer(bytes(BufferLength))] #[in] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
         extern fn PSHED_PI_CLEAR_ERROR_RECORD(#[in] #[opt] #[out] PluginContext: PVOID, #[in] Flags: ULONG, #[in] ErrorRecordId: ULONGLONG) -> NTSTATUS;
-        extern fn PSHED_PI_CLEAR_ERROR_STATUS(#[in] #[opt] #[out] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] BufferLength: ULONG, #[in] #[readable(entry, bytes(BufferLength))] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
+        extern fn PSHED_PI_CLEAR_ERROR_STATUS(#[in] #[opt] #[out] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] BufferLength: ULONG, #[buffer(bytes(BufferLength))] #[in] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
         extern fn PSHED_PI_DISABLE_ERROR_SOURCE(#[in] #[opt] #[out] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR) -> NTSTATUS;
         extern fn PSHED_PI_ENABLE_ERROR_SOURCE(#[in] #[opt] #[out] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR) -> NTSTATUS;
         #[repr(i32)]
@@ -4191,9 +4190,9 @@ mod Windows {
             PshedPiErrReadingPcieOverridesNoCapOffset = 5,
             PshedPiErrReadingPcieOverridesNotBinary = 6,
         }
-        extern fn PSHED_PI_FINALIZE_ERROR_RECORD(#[in] #[opt] #[out] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] BufferLength: ULONG, #[in] #[out] #[writable(entry, bytes(BufferLength))] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
+        extern fn PSHED_PI_FINALIZE_ERROR_RECORD(#[in] #[opt] #[out] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] BufferLength: ULONG, #[buffer(bytes(BufferLength))] #[in] #[out] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
         #[must_use]
-        extern fn PSHED_PI_GET_ALL_ERROR_SOURCES(#[in] #[opt] #[out] PluginContext: PVOID, #[in] #[out] Count: PULONG, #[in] #[out] #[writable(entry, bytes(*Length))] ErrorSrcs: *mut PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[out] Length: PULONG) -> NTSTATUS;
+        extern fn PSHED_PI_GET_ALL_ERROR_SOURCES(#[in] #[opt] #[out] PluginContext: PVOID, #[in] #[out] Count: PULONG, #[buffer(bytes(*Length))] #[in] #[out] ErrorSrcs: *mut PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[out] Length: PULONG) -> NTSTATUS;
         #[must_use]
         extern fn PSHED_PI_GET_ERROR_SOURCE_INFO(#[in] #[opt] #[out] PluginContext: PVOID, #[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR) -> NTSTATUS;
         #[must_use]
@@ -4201,18 +4200,18 @@ mod Windows {
         #[must_use]
         extern fn PSHED_PI_INJECT_ERROR(#[in] #[opt] #[out] PluginContext: PVOID, #[in] ErrorType: ULONGLONG, #[in] Parameter1: ULONGLONG, #[in] Parameter2: ULONGLONG, #[in] Parameter3: ULONGLONG, #[in] Parameter4: ULONGLONG) -> NTSTATUS;
         #[must_use]
-        extern fn PSHED_PI_READ_ERROR_RECORD(#[in] #[opt] #[out] PluginContext: PVOID, #[in] Flags: ULONG, #[in] ErrorRecordId: ULONGLONG, #[out] NextErrorRecordId: PULONGLONG, #[in] #[out] RecordLength: PULONG, #[out] #[writable(entry, bytes(*RecordLength))] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
-        extern fn PSHED_PI_RETRIEVE_ERROR_INFO(#[in] #[opt] #[out] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] BufferLength: ULONGLONG, #[in] #[out] #[writable(entry, bytes(BufferLength))] Packet: PWHEA_ERROR_PACKET) -> NTSTATUS;
+        extern fn PSHED_PI_READ_ERROR_RECORD(#[in] #[opt] #[out] PluginContext: PVOID, #[in] Flags: ULONG, #[in] ErrorRecordId: ULONGLONG, #[out] NextErrorRecordId: PULONGLONG, #[in] #[out] RecordLength: PULONG, #[buffer(bytes(*RecordLength))] #[out] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
+        extern fn PSHED_PI_RETRIEVE_ERROR_INFO(#[in] #[opt] #[out] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] BufferLength: ULONGLONG, #[buffer(bytes(BufferLength))] #[in] #[out] Packet: PWHEA_ERROR_PACKET) -> NTSTATUS;
         #[must_use]
         extern fn PSHED_PI_SET_ERROR_SOURCE_INFO(#[in] #[opt] #[out] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR) -> NTSTATUS;
         #[must_use]
-        extern fn PSHED_PI_VENDOR_DEFINED(#[in] VendorDefinedAction: PSHED_PI_VENDOR_DEFINED_ACTION, #[in] Offset: UINT32, #[in] InputLength: UINT32, #[in] #[readable(entry, bytes(InputLength))] InputBuffer: PUINT8, #[in] #[out] OutputLength: PUINT32, #[out] #[writable(entry, bytes(*OutputLength))] OutputBuffer: PUINT8) -> NTSTATUS;
+        extern fn PSHED_PI_VENDOR_DEFINED(#[in] VendorDefinedAction: PSHED_PI_VENDOR_DEFINED_ACTION, #[in] Offset: UINT32, #[in] InputLength: UINT32, #[buffer(bytes(InputLength))] #[in] InputBuffer: PUINT8, #[in] #[out] OutputLength: PUINT32, #[buffer(bytes(*OutputLength))] #[out] OutputBuffer: PUINT8) -> NTSTATUS;
         #[repr(i32)]
         enum PSHED_PI_VENDOR_DEFINED_ACTION {
             VendorDefinedRead = 0,
             VendorDefinedWrite = 1,
         }
-        extern fn PSHED_PI_WRITE_ERROR_RECORD(#[in] #[opt] #[out] PluginContext: PVOID, #[in] Flags: ULONG, #[in] RecordLength: ULONG, #[in] #[readable(entry, bytes(RecordLength))] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
+        extern fn PSHED_PI_WRITE_ERROR_RECORD(#[in] #[opt] #[out] PluginContext: PVOID, #[in] Flags: ULONG, #[in] RecordLength: ULONG, #[buffer(bytes(RecordLength))] #[in] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
         #[packed(1)]
         struct PSHED_PLATFORM_DETAILS {
             Version: UINT32,
@@ -4242,8 +4241,8 @@ mod Windows {
         type PTIMER_SET_COALESCABLE_TIMER_INFO = *mut TIMER_SET_COALESCABLE_TIMER_INFO;
         #[arch(X86)]
         const PTI_SHIFT: i32 = 12;
-        extern fn PTRANSLATE_RESOURCE_HANDLER(#[in] #[opt] #[out] Context: PVOID, #[in] Source: PCM_PARTIAL_RESOURCE_DESCRIPTOR, #[in] Direction: RESOURCE_TRANSLATION_DIRECTION, #[in] #[opt] AlternativesCount: ULONG, #[in] #[opt] #[readable(entry, AlternativesCount)] Alternatives: *mut IO_RESOURCE_DESCRIPTOR, #[in] PhysicalDeviceObject: PDEVICE_OBJECT, #[out] Target: PCM_PARTIAL_RESOURCE_DESCRIPTOR) -> NTSTATUS;
-        extern fn PTRANSLATE_RESOURCE_REQUIREMENTS_HANDLER(#[in] #[opt] #[out] Context: PVOID, #[in] Source: PIO_RESOURCE_DESCRIPTOR, #[in] PhysicalDeviceObject: PDEVICE_OBJECT, #[out] TargetCount: PULONG, #[out] #[writable(entry, *TargetCount)] Target: *mut PIO_RESOURCE_DESCRIPTOR) -> NTSTATUS;
+        extern fn PTRANSLATE_RESOURCE_HANDLER(#[in] #[opt] #[out] Context: PVOID, #[in] Source: PCM_PARTIAL_RESOURCE_DESCRIPTOR, #[in] Direction: RESOURCE_TRANSLATION_DIRECTION, #[in] #[opt] AlternativesCount: ULONG, #[buffer(AlternativesCount)] #[in] #[opt] Alternatives: *mut IO_RESOURCE_DESCRIPTOR, #[in] PhysicalDeviceObject: PDEVICE_OBJECT, #[out] Target: PCM_PARTIAL_RESOURCE_DESCRIPTOR) -> NTSTATUS;
+        extern fn PTRANSLATE_RESOURCE_REQUIREMENTS_HANDLER(#[in] #[opt] #[out] Context: PVOID, #[in] Source: PIO_RESOURCE_DESCRIPTOR, #[in] PhysicalDeviceObject: PDEVICE_OBJECT, #[out] TargetCount: PULONG, #[buffer(*TargetCount)] #[out] Target: *mut PIO_RESOURCE_DESCRIPTOR) -> NTSTATUS;
         type PTRANSLATOR_INTERFACE = *mut TRANSLATOR_INTERFACE;
         type PTXN_PARAMETER_BLOCK = *mut TXN_PARAMETER_BLOCK;
         type PVM_COUNTERS = *mut VM_COUNTERS;
@@ -4544,7 +4543,7 @@ mod Windows {
         type PZONE_SEGMENT_HEADER = *mut ZONE_SEGMENT_HEADER;
         extern fn PciLine2Pin(#[in] BusHandler: *mut _BUS_HANDLER, #[in] RootHandler: *mut _BUS_HANDLER, #[in] SlotNumber: PCI_SLOT_NUMBER, #[in] PciNewData: PPCI_COMMON_CONFIG, #[in] PciOldData: PPCI_COMMON_CONFIG);
         extern fn PciPin2Line(#[in] BusHandler: *mut _BUS_HANDLER, #[in] RootHandler: *mut _BUS_HANDLER, #[in] SlotNumber: PCI_SLOT_NUMBER, #[in] PciData: PPCI_COMMON_CONFIG);
-        extern fn PciReadWriteConfig(#[in] BusHandler: *mut _BUS_HANDLER, #[in] Slot: PCI_SLOT_NUMBER, #[in] #[readable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG);
+        extern fn PciReadWriteConfig(#[in] BusHandler: *mut _BUS_HANDLER, #[in] Slot: PCI_SLOT_NUMBER, #[buffer(bytes(Length))] #[in] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG);
         const PshedFADiscovery: i32 = 1;
         const PshedFAErrorInfoRetrieval: i32 = 8;
         const PshedFAErrorInjection: i32 = 32;
@@ -4716,7 +4715,7 @@ mod Windows {
         extern fn RtlGetNtSystemRoot() -> PCWSTR;
         #[library("ntdll.dll")]
         #[must_use]
-        extern fn RtlGetPersistedStateLocation(#[in] SourceID: PCWSTR, #[in] #[opt] CustomValue: PCWSTR, #[in] #[opt] DefaultPath: PCWSTR, #[in] StateLocationType: STATE_LOCATION_TYPE, #[opt] #[out] #[readable(success, bytes(if_present(*BufferLengthOut)))] #[writable(entry, bytes(BufferLengthIn))] TargetPath: PWCHAR, #[in] BufferLengthIn: ULONG, #[opt] #[out] BufferLengthOut: PULONG) -> NTSTATUS;
+        extern fn RtlGetPersistedStateLocation(#[in] SourceID: PCWSTR, #[in] #[opt] CustomValue: PCWSTR, #[in] #[opt] DefaultPath: PCWSTR, #[in] StateLocationType: STATE_LOCATION_TYPE, #[buffer(bytes(BufferLengthIn))] #[opt] #[out] TargetPath: PWCHAR, #[in] BufferLengthIn: ULONG, #[opt] #[out] BufferLengthOut: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn RtlGetSuiteMask() -> ULONG;
         #[library("ntdll.dll")]
@@ -4730,13 +4729,13 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlInitializeGenericTableAvl(#[out] Table: PRTL_AVL_TABLE, #[in] CompareRoutine: PRTL_AVL_COMPARE_ROUTINE, #[in] AllocateRoutine: PRTL_AVL_ALLOCATE_ROUTINE, #[in] FreeRoutine: PRTL_AVL_FREE_ROUTINE, #[in] #[opt] TableContext: PVOID);
         #[library("ntdll.dll")]
-        extern fn RtlInsertElementGenericTable(#[in] Table: PRTL_GENERIC_TABLE, #[in] #[readable(entry, bytes(BufferSize))] Buffer: PVOID, #[in] BufferSize: CLONG, #[opt] #[out] NewElement: PBOOLEAN) -> PVOID;
+        extern fn RtlInsertElementGenericTable(#[in] Table: PRTL_GENERIC_TABLE, #[buffer(bytes(BufferSize))] #[in] Buffer: PVOID, #[in] BufferSize: CLONG, #[opt] #[out] NewElement: PBOOLEAN) -> PVOID;
         #[library("ntdll.dll")]
-        extern fn RtlInsertElementGenericTableAvl(#[in] Table: PRTL_AVL_TABLE, #[in] #[readable(entry, bytes(BufferSize))] Buffer: PVOID, #[in] BufferSize: CLONG, #[opt] #[out] NewElement: PBOOLEAN) -> PVOID;
+        extern fn RtlInsertElementGenericTableAvl(#[in] Table: PRTL_AVL_TABLE, #[buffer(bytes(BufferSize))] #[in] Buffer: PVOID, #[in] BufferSize: CLONG, #[opt] #[out] NewElement: PBOOLEAN) -> PVOID;
         #[library("ntdll.dll")]
-        extern fn RtlInsertElementGenericTableFull(#[in] Table: PRTL_GENERIC_TABLE, #[in] #[readable(entry, bytes(BufferSize))] Buffer: PVOID, #[in] BufferSize: CLONG, #[opt] #[out] NewElement: PBOOLEAN, #[in] NodeOrParent: PVOID, #[in] SearchResult: TABLE_SEARCH_RESULT) -> PVOID;
+        extern fn RtlInsertElementGenericTableFull(#[in] Table: PRTL_GENERIC_TABLE, #[buffer(bytes(BufferSize))] #[in] Buffer: PVOID, #[in] BufferSize: CLONG, #[opt] #[out] NewElement: PBOOLEAN, #[in] NodeOrParent: PVOID, #[in] SearchResult: TABLE_SEARCH_RESULT) -> PVOID;
         #[library("ntdll.dll")]
-        extern fn RtlInsertElementGenericTableFullAvl(#[in] Table: PRTL_AVL_TABLE, #[in] #[readable(entry, bytes(BufferSize))] Buffer: PVOID, #[in] BufferSize: CLONG, #[opt] #[out] NewElement: PBOOLEAN, #[in] NodeOrParent: PVOID, #[in] SearchResult: TABLE_SEARCH_RESULT) -> PVOID;
+        extern fn RtlInsertElementGenericTableFullAvl(#[in] Table: PRTL_AVL_TABLE, #[buffer(bytes(BufferSize))] #[in] Buffer: PVOID, #[in] BufferSize: CLONG, #[opt] #[out] NewElement: PBOOLEAN, #[in] NodeOrParent: PVOID, #[in] SearchResult: TABLE_SEARCH_RESULT) -> PVOID;
         #[library("ntdll.dll")]
         extern fn RtlInsertEntryHashTable(#[in] HashTable: PRTL_DYNAMIC_HASH_TABLE, #[in] #[incomplete] Entry: PRTL_DYNAMIC_HASH_TABLE_ENTRY, #[in] Signature: ULONG_PTR, #[in] #[opt] #[out] Context: PRTL_DYNAMIC_HASH_TABLE_CONTEXT) -> BOOLEAN;
         #[library("ntdll.dll")]
@@ -4786,7 +4785,7 @@ mod Windows {
         #[must_use]
         extern fn RtlPrefixUnicodeString(#[in] String1: PCUNICODE_STRING, #[in] String2: PCUNICODE_STRING, #[in] CaseInSensitive: BOOLEAN) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern fn RtlQueryRegistryValueWithFallback(#[in] #[opt] PrimaryHandle: HANDLE, #[in] #[opt] FallbackHandle: HANDLE, #[in] ValueName: PUNICODE_STRING, #[in] ValueLength: ULONG, #[opt] #[out] ValueType: PULONG, #[out] #[readable(success, bytes(*ResultLength))] #[writable(entry, bytes(ValueLength))] ValueData: PVOID, #[incomplete] ResultLength: PULONG) -> NTSTATUS;
+        extern fn RtlQueryRegistryValueWithFallback(#[in] #[opt] PrimaryHandle: HANDLE, #[in] #[opt] FallbackHandle: HANDLE, #[in] ValueName: PUNICODE_STRING, #[in] ValueLength: ULONG, #[opt] #[out] ValueType: PULONG, #[buffer(bytes(ValueLength))] #[out] ValueData: PVOID, #[incomplete] ResultLength: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         #[must_use]
         extern fn RtlRealPredecessor(#[in] Links: PRTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS;
@@ -4797,11 +4796,11 @@ mod Windows {
         extern fn RtlRemoveEntryHashTable(#[in] HashTable: PRTL_DYNAMIC_HASH_TABLE, #[in] Entry: PRTL_DYNAMIC_HASH_TABLE_ENTRY, #[in] #[opt] #[out] Context: PRTL_DYNAMIC_HASH_TABLE_CONTEXT) -> BOOLEAN;
         #[library("ntdll.dll")]
         #[must_use]
-        extern fn RtlRunOnceBeginInitialize(#[in] #[out] RunOnce: PRTL_RUN_ONCE, #[in] Flags: ULONG, #[nullable] #[opt] #[out] #[out_ptr] Context: *mut PVOID) -> NTSTATUS;
+        extern fn RtlRunOnceBeginInitialize(#[in] #[out] RunOnce: PRTL_RUN_ONCE, #[in] Flags: ULONG, #[opt] #[out] Context: *mut PVOID) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn RtlRunOnceComplete(#[in] #[out] RunOnce: PRTL_RUN_ONCE, #[in] Flags: ULONG, #[in] #[opt] Context: PVOID) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlRunOnceExecuteOnce(#[in] #[out] RunOnce: PRTL_RUN_ONCE, #[in] InitFn: PRTL_RUN_ONCE_INIT_FN, #[in] #[opt] #[out] Parameter: PVOID, #[nullable] #[opt] #[out] #[out_ptr] Context: *mut PVOID) -> NTSTATUS;
+        extern fn RtlRunOnceExecuteOnce(#[in] #[out] RunOnce: PRTL_RUN_ONCE, #[in] InitFn: PRTL_RUN_ONCE_INIT_FN, #[in] #[opt] #[out] Parameter: PVOID, #[opt] #[out] Context: *mut PVOID) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn RtlRunOnceInitialize(#[out] RunOnce: PRTL_RUN_ONCE);
         #[library("ntdll.dll")]
@@ -6033,7 +6032,6 @@ mod Windows {
             CxlDvsecLength: USHORT,
             CxlErrorLogLength: USHORT,
             Reserved2: [UCHAR; 4],
-            #[writable(CxlDvsecLength + CxlErrorLogLength)]
             CxlDvsecAndErrorLog: [UCHAR; 1],
         }
         #[packed(1)]
@@ -6099,13 +6097,9 @@ mod Windows {
         #[packed(1)]
         struct WHEA_DRIVER_BUFFER_SET {
             Version: ULONG,
-            #[readable(DataSize)]
-            #[writable(DataSize)]
             Data: PUCHAR,
             DataSize: ULONG,
             SectionTypeGuid: LPGUID,
-            #[readable(20)]
-            #[writable(20)]
             SectionFriendlyName: PUCHAR,
             Flags: PUCHAR,
         }
@@ -6401,7 +6395,7 @@ mod Windows {
         }
         extern fn WHEA_ERROR_SOURCE_CORRECT(#[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[out] MaximumSectionLength: PULONG) -> NTSTATUS;
         extern fn WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER(#[in] #[out] ErrorSourceDesc: PVOID, #[out] MaximumSectionLength: PULONG) -> NTSTATUS;
-        extern fn WHEA_ERROR_SOURCE_CREATE_RECORD(#[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[out] ErrorPacket: PWHEA_ERROR_PACKET, #[incomplete] #[out] #[writable(entry, bytes(BufferSize))] ErrorRecord: PWHEA_ERROR_RECORD, #[in] BufferSize: ULONG, #[in] #[opt] #[out] Context: PVOID) -> NTSTATUS;
+        extern fn WHEA_ERROR_SOURCE_CREATE_RECORD(#[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[out] ErrorPacket: PWHEA_ERROR_PACKET, #[buffer(bytes(BufferSize))] #[incomplete] #[out] ErrorRecord: PWHEA_ERROR_RECORD, #[in] BufferSize: ULONG, #[in] #[opt] #[out] Context: PVOID) -> NTSTATUS;
         #[packed(1)]
         struct WHEA_ERROR_SOURCE_DESCRIPTOR {
             Length: ULONG,
@@ -8705,13 +8699,13 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn ZwOpenTimer(#[out] TimerHandle: PHANDLE, #[in] DesiredAccess: ACCESS_MASK, #[in] ObjectAttributes: POBJECT_ATTRIBUTES) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn ZwPowerInformation(#[in] InformationLevel: POWER_INFORMATION_LEVEL, #[in] #[opt] #[readable(entry, bytes(InputBufferLength))] InputBuffer: PVOID, #[in] InputBufferLength: ULONG, #[opt] #[out] #[writable(entry, bytes(OutputBufferLength))] OutputBuffer: PVOID, #[in] OutputBufferLength: ULONG) -> NTSTATUS;
+        extern fn ZwPowerInformation(#[in] InformationLevel: POWER_INFORMATION_LEVEL, #[buffer(bytes(InputBufferLength))] #[in] #[opt] InputBuffer: PVOID, #[in] InputBufferLength: ULONG, #[buffer(bytes(OutputBufferLength))] #[opt] #[out] OutputBuffer: PVOID, #[in] OutputBufferLength: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn ZwSetInformationThread(#[in] ThreadHandle: HANDLE, #[in] ThreadInformationClass: THREADINFOCLASS, #[in] #[readable(entry, bytes(ThreadInformationLength))] ThreadInformation: PVOID, #[in] ThreadInformationLength: ULONG) -> NTSTATUS;
+        extern fn ZwSetInformationThread(#[in] ThreadHandle: HANDLE, #[in] ThreadInformationClass: THREADINFOCLASS, #[buffer(bytes(ThreadInformationLength))] #[in] ThreadInformation: PVOID, #[in] ThreadInformationLength: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn ZwSetTimer(#[in] TimerHandle: HANDLE, #[in] DueTime: PLARGE_INTEGER, #[in] #[opt] TimerApcRoutine: PTIMER_APC_ROUTINE, #[in] #[opt] TimerContext: PVOID, #[in] ResumeTimer: BOOLEAN, #[in] #[opt] Period: LONG, #[opt] #[out] PreviousState: PBOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn ZwSetTimerEx(#[in] TimerHandle: HANDLE, #[in] TimerSetInformationClass: TIMER_SET_INFORMATION_CLASS, #[in] #[opt] #[out] #[writable(entry, bytes(TimerSetInformationLength))] TimerSetInformation: PVOID, #[in] TimerSetInformationLength: ULONG) -> NTSTATUS;
+        extern fn ZwSetTimerEx(#[in] TimerHandle: HANDLE, #[in] TimerSetInformationClass: TIMER_SET_INFORMATION_CLASS, #[buffer(bytes(TimerSetInformationLength))] #[in] #[opt] #[out] TimerSetInformation: PVOID, #[in] TimerSetInformationLength: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn ZwTerminateProcess(#[in] #[opt] ProcessHandle: HANDLE, #[in] ExitStatus: NTSTATUS) -> NTSTATUS;
         struct _BUS_HANDLER {}
@@ -8737,7 +8731,7 @@ mod Windows {
         struct _SILO_MONITOR {}
         extern fn _WHEA_ERROR_SOURCE_CORRECT(#[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[out] MaximumSectionLength: PULONG) -> NTSTATUS;
         extern fn _WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER(#[in] #[out] ErrorSourceDesc: PVOID, #[out] MaximumSectionLength: PULONG) -> NTSTATUS;
-        extern fn _WHEA_ERROR_SOURCE_CREATE_RECORD(#[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[out] ErrorPacket: PWHEA_ERROR_PACKET, #[incomplete] #[out] #[writable(entry, bytes(BufferSize))] ErrorRecord: PWHEA_ERROR_RECORD, #[in] BufferSize: ULONG, #[in] #[opt] #[out] Context: PVOID) -> NTSTATUS;
+        extern fn _WHEA_ERROR_SOURCE_CREATE_RECORD(#[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[out] ErrorPacket: PWHEA_ERROR_PACKET, #[buffer(bytes(BufferSize))] #[incomplete] #[out] ErrorRecord: PWHEA_ERROR_RECORD, #[in] BufferSize: ULONG, #[in] #[opt] #[out] Context: PVOID) -> NTSTATUS;
         extern fn _WHEA_ERROR_SOURCE_INITIALIZE(#[in] Phase: ULONG, #[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[opt] #[out] Context: PVOID) -> NTSTATUS;
         extern fn _WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER(#[in] #[opt] #[out] Context: PVOID, #[in] ErrorSourceId: ULONG) -> NTSTATUS;
         extern fn _WHEA_ERROR_SOURCE_RECOVER(#[in] #[out] RecoveryContext: PVOID, #[in] #[out] Severity: PWHEA_ERROR_SEVERITY) -> NTSTATUS;
@@ -8762,7 +8756,7 @@ mod Windows {
         extern fn pHalMirrorPhysicalMemory(#[in] PhysicalAddress: PHYSICAL_ADDRESS, #[in] NumberOfBytes: LARGE_INTEGER) -> NTSTATUS;
         extern fn pHalMirrorVerify(#[in] PhysicalAddress: PHYSICAL_ADDRESS, #[in] NumberOfBytes: LARGE_INTEGER) -> NTSTATUS;
         extern fn pHalQueryBusSlots(#[in] BusHandler: PBUS_HANDLER, #[in] BufferSize: ULONG, #[out] SlotNumbers: PULONG, #[out] ReturnedLength: PULONG) -> NTSTATUS;
-        extern fn pHalQuerySystemInformation(#[in] InformationClass: HAL_QUERY_INFORMATION_CLASS, #[in] BufferSize: ULONG, #[out] #[readable(success, bytes(*ReturnedLength))] #[writable(entry, bytes(BufferSize))] Buffer: PVOID, #[out] ReturnedLength: PULONG) -> NTSTATUS;
+        extern fn pHalQuerySystemInformation(#[in] InformationClass: HAL_QUERY_INFORMATION_CLASS, #[in] BufferSize: ULONG, #[buffer(bytes(BufferSize))] #[out] Buffer: PVOID, #[out] ReturnedLength: PULONG) -> NTSTATUS;
         extern fn pHalResetDisplay() -> BOOLEAN;
         extern fn pHalSetPciErrorHandlerCallback(#[in] Callback: PCI_ERROR_HANDLER_CALLBACK);
         extern fn pHalSetSystemInformation(#[in] InformationClass: HAL_SET_INFORMATION_CLASS, #[in] BufferSize: ULONG, #[in] Buffer: PVOID) -> NTSTATUS;
@@ -8772,11 +8766,11 @@ mod Windows {
         extern fn pKdCheckPowerButton();
         extern fn pKdEnumerateDebuggingDevices(#[in] LoaderBlock: PVOID, #[in] #[out] Device: PDEBUG_DEVICE_DESCRIPTOR, #[in] Callback: PDEBUG_DEVICE_FOUND_FUNCTION) -> NTSTATUS;
         extern fn pKdGetAcpiTablePhase0(#[in] LoaderBlock: *mut _LOADER_PARAMETER_BLOCK, #[in] Signature: ULONG) -> PVOID;
-        extern fn pKdGetPciDataByOffset(#[in] BusNumber: ULONG, #[in] SlotNumber: ULONG, #[out] #[writable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG) -> ULONG;
+        extern fn pKdGetPciDataByOffset(#[in] BusNumber: ULONG, #[in] SlotNumber: ULONG, #[buffer(bytes(Length))] #[out] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG) -> ULONG;
         extern fn pKdMapPhysicalMemory64(#[in] PhysicalAddress: PHYSICAL_ADDRESS, #[in] NumberPages: ULONG, #[in] FlushCurrentTLB: BOOLEAN) -> PVOID;
         extern fn pKdReleaseIntegratedDeviceForDebugging(#[in] #[out] IntegratedDevice: PDEBUG_DEVICE_DESCRIPTOR) -> NTSTATUS;
         extern fn pKdReleasePciDeviceForDebugging(#[in] #[out] PciDevice: PDEBUG_DEVICE_DESCRIPTOR) -> NTSTATUS;
-        extern fn pKdSetPciDataByOffset(#[in] BusNumber: ULONG, #[in] SlotNumber: ULONG, #[in] #[readable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG) -> ULONG;
+        extern fn pKdSetPciDataByOffset(#[in] BusNumber: ULONG, #[in] SlotNumber: ULONG, #[buffer(bytes(Length))] #[in] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG) -> ULONG;
         extern fn pKdSetupIntegratedDeviceForDebugging(#[in] LoaderBlock: PVOID, #[in] #[out] IntegratedDevice: PDEBUG_DEVICE_DESCRIPTOR) -> NTSTATUS;
         extern fn pKdSetupPciDeviceForDebugging(#[in] LoaderBlock: PVOID, #[in] #[out] PciDevice: PDEBUG_DEVICE_DESCRIPTOR) -> NTSTATUS;
         extern fn pKdUnmapVirtualAddress(#[in] VirtualAddress: PVOID, #[in] NumberPages: ULONG, #[in] FlushCurrentTLB: BOOLEAN);

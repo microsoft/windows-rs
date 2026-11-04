@@ -33,20 +33,20 @@ pub unsafe fn NetworkIsolationRegisterForAppContainerChanges(flags: super::DWORD
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn NetworkIsolationSetAppContainerConfig(appcontainersids: &[super::SID_AND_ATTRIBUTES]) -> super::DWORD {
+pub unsafe fn NetworkIsolationSetAppContainerConfig(dwnumpublicappcs: super::DWORD, appcontainersids: super::PSID_AND_ATTRIBUTES) -> super::DWORD {
     windows_core::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationSetAppContainerConfig(dwnumpublicappcs : super::DWORD, appcontainersids : super::PSID_AND_ATTRIBUTES) -> super::DWORD);
-    unsafe { NetworkIsolationSetAppContainerConfig(appcontainersids.len().try_into().unwrap(), core::mem::transmute(appcontainersids.as_ptr())) }
+    unsafe { NetworkIsolationSetAppContainerConfig(dwnumpublicappcs, appcontainersids) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn NetworkIsolationSetupAppContainerBinaries<P1, P2, P3>(applicationcontainersid: super::PSID, packagefullname: P1, packagefolder: P2, displayname: P3, bbinariesfullycomputed: bool, binaries: &[windows_core::PCWSTR]) -> windows_core::HRESULT
+pub unsafe fn NetworkIsolationSetupAppContainerBinaries<P1, P2, P3>(applicationcontainersid: super::PSID, packagefullname: P1, packagefolder: P2, displayname: P3, bbinariesfullycomputed: bool, binaries: *const windows_core::PCWSTR, binariescount: super::DWORD) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationSetupAppContainerBinaries(applicationcontainersid : super::PSID, packagefullname : windows_core::PCWSTR, packagefolder : windows_core::PCWSTR, displayname : windows_core::PCWSTR, bbinariesfullycomputed : windows_core::BOOL, binaries : *const windows_core::PCWSTR, binariescount : super::DWORD) -> windows_core::HRESULT);
-    unsafe { NetworkIsolationSetupAppContainerBinaries(applicationcontainersid, packagefullname.param().abi(), packagefolder.param().abi(), displayname.param().abi(), bbinariesfullycomputed.into(), binaries.as_ptr(), binaries.len().try_into().unwrap()) }
+    unsafe { NetworkIsolationSetupAppContainerBinaries(applicationcontainersid, packagefullname.param().abi(), packagefolder.param().abi(), displayname.param().abi(), bbinariesfullycomputed.into(), binaries, binariescount) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -286,7 +286,10 @@ impl INetFwAuthorizedApplication_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        name.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -304,7 +307,10 @@ impl INetFwAuthorizedApplication_Vtbl {
                         imagefilename.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        imagefilename.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -322,7 +328,10 @@ impl INetFwAuthorizedApplication_Vtbl {
                         ipversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ipversion.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -340,7 +349,10 @@ impl INetFwAuthorizedApplication_Vtbl {
                         scope.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        scope.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -358,7 +370,10 @@ impl INetFwAuthorizedApplication_Vtbl {
                         remoteaddrs.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        remoteaddrs.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -376,7 +391,10 @@ impl INetFwAuthorizedApplication_Vtbl {
                         enabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        enabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -479,7 +497,10 @@ impl INetFwAuthorizedApplications_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -503,7 +524,10 @@ impl INetFwAuthorizedApplications_Vtbl {
                         app.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        app.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -515,7 +539,10 @@ impl INetFwAuthorizedApplications_Vtbl {
                         newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -778,7 +805,10 @@ impl INetFwIcmpSettings_Vtbl {
                         allow.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        allow.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -796,7 +826,10 @@ impl INetFwIcmpSettings_Vtbl {
                         allow.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        allow.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -814,7 +847,10 @@ impl INetFwIcmpSettings_Vtbl {
                         allow.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        allow.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -832,7 +868,10 @@ impl INetFwIcmpSettings_Vtbl {
                         allow.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        allow.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -850,7 +889,10 @@ impl INetFwIcmpSettings_Vtbl {
                         allow.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        allow.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -868,7 +910,10 @@ impl INetFwIcmpSettings_Vtbl {
                         allow.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        allow.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -886,7 +931,10 @@ impl INetFwIcmpSettings_Vtbl {
                         allow.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        allow.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -904,7 +952,10 @@ impl INetFwIcmpSettings_Vtbl {
                         allow.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        allow.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -922,7 +973,10 @@ impl INetFwIcmpSettings_Vtbl {
                         allow.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        allow.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -940,7 +994,10 @@ impl INetFwIcmpSettings_Vtbl {
                         allow.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        allow.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1057,7 +1114,10 @@ impl INetFwMgr_Vtbl {
                         localpolicy.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        localpolicy.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1069,7 +1129,10 @@ impl INetFwMgr_Vtbl {
                         profiletype.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        profiletype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1283,7 +1346,10 @@ impl INetFwOpenPort_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        name.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1301,7 +1367,10 @@ impl INetFwOpenPort_Vtbl {
                         ipversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ipversion.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1319,7 +1388,10 @@ impl INetFwOpenPort_Vtbl {
                         ipprotocol.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ipprotocol.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1337,7 +1409,10 @@ impl INetFwOpenPort_Vtbl {
                         portnumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        portnumber.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1355,7 +1430,10 @@ impl INetFwOpenPort_Vtbl {
                         scope.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        scope.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1373,7 +1451,10 @@ impl INetFwOpenPort_Vtbl {
                         remoteaddrs.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        remoteaddrs.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1391,7 +1472,10 @@ impl INetFwOpenPort_Vtbl {
                         enabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        enabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1409,7 +1493,10 @@ impl INetFwOpenPort_Vtbl {
                         builtin.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        builtin.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1517,7 +1604,10 @@ impl INetFwOpenPorts_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1541,7 +1631,10 @@ impl INetFwOpenPorts_Vtbl {
                         openport.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        openport.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1553,7 +1646,10 @@ impl INetFwOpenPorts_Vtbl {
                         newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1626,7 +1722,10 @@ impl INetFwPolicy_Vtbl {
                         profile.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        profile.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1638,7 +1737,10 @@ impl INetFwPolicy_Vtbl {
                         profile.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        profile.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1909,7 +2011,10 @@ impl INetFwPolicy2_Vtbl {
                         profiletypesbitmask.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        profiletypesbitmask.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1921,7 +2026,10 @@ impl INetFwPolicy2_Vtbl {
                         enabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        enabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1939,7 +2047,10 @@ impl INetFwPolicy2_Vtbl {
                         interfaces.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        interfaces.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1957,7 +2068,10 @@ impl INetFwPolicy2_Vtbl {
                         block.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        block.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1975,7 +2089,10 @@ impl INetFwPolicy2_Vtbl {
                         disabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        disabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1993,7 +2110,10 @@ impl INetFwPolicy2_Vtbl {
                         disabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        disabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2011,7 +2131,10 @@ impl INetFwPolicy2_Vtbl {
                         rules.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rules.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2023,7 +2146,10 @@ impl INetFwPolicy2_Vtbl {
                         servicerestriction.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        servicerestriction.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2041,7 +2167,10 @@ impl INetFwPolicy2_Vtbl {
                         enabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        enabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2059,7 +2188,10 @@ impl INetFwPolicy2_Vtbl {
                         action.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        action.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2077,7 +2209,10 @@ impl INetFwPolicy2_Vtbl {
                         action.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        action.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2095,7 +2230,10 @@ impl INetFwPolicy2_Vtbl {
                         enabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        enabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2107,7 +2245,10 @@ impl INetFwPolicy2_Vtbl {
                         modifystate.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        modifystate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2219,7 +2360,10 @@ impl INetFwProduct_Vtbl {
                         rulecategories.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rulecategories.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2237,7 +2381,10 @@ impl INetFwProduct_Vtbl {
                         displayname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        displayname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2255,7 +2402,10 @@ impl INetFwProduct_Vtbl {
                         path.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        path.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2343,7 +2493,10 @@ impl INetFwProducts_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2355,7 +2508,10 @@ impl INetFwProducts_Vtbl {
                         registration.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        registration.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2367,7 +2523,10 @@ impl INetFwProducts_Vtbl {
                         product.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        product.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2379,7 +2538,10 @@ impl INetFwProducts_Vtbl {
                         newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2567,7 +2729,10 @@ impl INetFwProfile_Vtbl {
                         r#type.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        r#type.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2579,7 +2744,10 @@ impl INetFwProfile_Vtbl {
                         enabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        enabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2597,7 +2765,10 @@ impl INetFwProfile_Vtbl {
                         notallowed.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        notallowed.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2615,7 +2786,10 @@ impl INetFwProfile_Vtbl {
                         disabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        disabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2633,7 +2807,10 @@ impl INetFwProfile_Vtbl {
                         disabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        disabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2651,7 +2828,10 @@ impl INetFwProfile_Vtbl {
                         remoteadminsettings.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        remoteadminsettings.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2663,7 +2843,10 @@ impl INetFwProfile_Vtbl {
                         icmpsettings.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        icmpsettings.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2675,7 +2858,10 @@ impl INetFwProfile_Vtbl {
                         openports.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        openports.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2687,7 +2873,10 @@ impl INetFwProfile_Vtbl {
                         services.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        services.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2699,7 +2888,10 @@ impl INetFwProfile_Vtbl {
                         apps.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        apps.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2837,7 +3029,10 @@ impl INetFwRemoteAdminSettings_Vtbl {
                         ipversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ipversion.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2855,7 +3050,10 @@ impl INetFwRemoteAdminSettings_Vtbl {
                         scope.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        scope.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2873,7 +3071,10 @@ impl INetFwRemoteAdminSettings_Vtbl {
                         remoteaddrs.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        remoteaddrs.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2891,7 +3092,10 @@ impl INetFwRemoteAdminSettings_Vtbl {
                         enabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        enabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3235,7 +3439,10 @@ impl INetFwRule_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        name.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3253,7 +3460,10 @@ impl INetFwRule_Vtbl {
                         desc.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        desc.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3271,7 +3481,10 @@ impl INetFwRule_Vtbl {
                         imagefilename.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        imagefilename.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3289,7 +3502,10 @@ impl INetFwRule_Vtbl {
                         servicename.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        servicename.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3307,7 +3523,10 @@ impl INetFwRule_Vtbl {
                         protocol.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        protocol.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3325,7 +3544,10 @@ impl INetFwRule_Vtbl {
                         portnumbers.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        portnumbers.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3343,7 +3565,10 @@ impl INetFwRule_Vtbl {
                         portnumbers.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        portnumbers.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3361,7 +3586,10 @@ impl INetFwRule_Vtbl {
                         localaddrs.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        localaddrs.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3379,7 +3607,10 @@ impl INetFwRule_Vtbl {
                         remoteaddrs.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        remoteaddrs.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3397,7 +3628,10 @@ impl INetFwRule_Vtbl {
                         icmptypesandcodes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        icmptypesandcodes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3415,7 +3649,10 @@ impl INetFwRule_Vtbl {
                         dir.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        dir.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3433,7 +3670,10 @@ impl INetFwRule_Vtbl {
                         interfaces.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        interfaces.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3451,7 +3691,10 @@ impl INetFwRule_Vtbl {
                         interfacetypes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        interfacetypes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3469,7 +3712,10 @@ impl INetFwRule_Vtbl {
                         enabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        enabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3487,7 +3733,10 @@ impl INetFwRule_Vtbl {
                         context.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        context.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3505,7 +3754,10 @@ impl INetFwRule_Vtbl {
                         profiletypesbitmask.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        profiletypesbitmask.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3523,7 +3775,10 @@ impl INetFwRule_Vtbl {
                         enabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        enabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3541,7 +3796,10 @@ impl INetFwRule_Vtbl {
                         action.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        action.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3644,7 +3902,10 @@ impl INetFwRule2_Vtbl {
                         loptions.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        loptions.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3778,7 +4039,10 @@ impl INetFwRule3_Vtbl {
                         wszpackageid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        wszpackageid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3796,7 +4060,10 @@ impl INetFwRule3_Vtbl {
                         wszuserowner.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        wszuserowner.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3814,7 +4081,10 @@ impl INetFwRule3_Vtbl {
                         wszuserauthlist.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        wszuserauthlist.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3832,7 +4102,10 @@ impl INetFwRule3_Vtbl {
                         wszuserauthlist.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        wszuserauthlist.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3850,7 +4123,10 @@ impl INetFwRule3_Vtbl {
                         wszuserauthlist.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        wszuserauthlist.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3868,7 +4144,10 @@ impl INetFwRule3_Vtbl {
                         loptions.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        loptions.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3971,7 +4250,10 @@ impl INetFwRules_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3995,7 +4277,10 @@ impl INetFwRules_Vtbl {
                         rule.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rule.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4007,7 +4292,10 @@ impl INetFwRules_Vtbl {
                         newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4176,7 +4464,10 @@ impl INetFwService_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        name.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4188,7 +4479,10 @@ impl INetFwService_Vtbl {
                         r#type.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        r#type.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4200,7 +4494,10 @@ impl INetFwService_Vtbl {
                         customized.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        customized.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4212,7 +4509,10 @@ impl INetFwService_Vtbl {
                         ipversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ipversion.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4230,7 +4530,10 @@ impl INetFwService_Vtbl {
                         scope.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        scope.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4248,7 +4551,10 @@ impl INetFwService_Vtbl {
                         remoteaddrs.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        remoteaddrs.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4266,7 +4572,10 @@ impl INetFwService_Vtbl {
                         enabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        enabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4284,7 +4593,10 @@ impl INetFwService_Vtbl {
                         openports.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        openports.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4379,7 +4691,10 @@ impl INetFwServiceRestriction_Vtbl {
                         servicerestricted.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        servicerestricted.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4391,7 +4706,10 @@ impl INetFwServiceRestriction_Vtbl {
                         rules.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rules.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4470,7 +4788,10 @@ impl INetFwServices_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4482,7 +4803,10 @@ impl INetFwServices_Vtbl {
                         service.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        service.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4494,7 +4818,10 @@ impl INetFwServices_Vtbl {
                         newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

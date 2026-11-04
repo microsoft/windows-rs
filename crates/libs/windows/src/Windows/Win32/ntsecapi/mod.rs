@@ -1,16 +1,16 @@
 #[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AuditComputeEffectivePolicyBySid(psid: super::PSID, psubcategoryguids: &[windows_core::GUID], ppauditpolicy: *mut PAUDIT_POLICY_INFORMATION) -> super::BOOLEAN {
+pub unsafe fn AuditComputeEffectivePolicyBySid(psid: super::PSID, psubcategoryguids: *const windows_core::GUID, dwpolicycount: super::ULONG, ppauditpolicy: *mut PAUDIT_POLICY_INFORMATION) -> super::BOOLEAN {
     windows_core::link!("advapi32.dll" "system" fn AuditComputeEffectivePolicyBySid(psid : super::PSID, psubcategoryguids : *const windows_core::GUID, dwpolicycount : super::ULONG, ppauditpolicy : *mut PAUDIT_POLICY_INFORMATION) -> super::BOOLEAN);
-    unsafe { AuditComputeEffectivePolicyBySid(psid, psubcategoryguids.as_ptr(), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy as _) }
+    unsafe { AuditComputeEffectivePolicyBySid(psid, psubcategoryguids, dwpolicycount, ppauditpolicy as _) }
 }
 #[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AuditComputeEffectivePolicyByToken(htokenhandle: super::HANDLE, psubcategoryguids: &[windows_core::GUID], ppauditpolicy: *mut PAUDIT_POLICY_INFORMATION) -> super::BOOLEAN {
+pub unsafe fn AuditComputeEffectivePolicyByToken(htokenhandle: super::HANDLE, psubcategoryguids: *const windows_core::GUID, dwpolicycount: super::ULONG, ppauditpolicy: *mut PAUDIT_POLICY_INFORMATION) -> super::BOOLEAN {
     windows_core::link!("advapi32.dll" "system" fn AuditComputeEffectivePolicyByToken(htokenhandle : super::HANDLE, psubcategoryguids : *const windows_core::GUID, dwpolicycount : super::ULONG, ppauditpolicy : *mut PAUDIT_POLICY_INFORMATION) -> super::BOOLEAN);
-    unsafe { AuditComputeEffectivePolicyByToken(htokenhandle, psubcategoryguids.as_ptr(), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy as _) }
+    unsafe { AuditComputeEffectivePolicyByToken(htokenhandle, psubcategoryguids, dwpolicycount, ppauditpolicy as _) }
 }
 #[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
@@ -102,9 +102,9 @@ where
 #[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AuditQueryPerUserPolicy(psid: super::PSID, psubcategoryguids: &[windows_core::GUID], ppauditpolicy: *mut PAUDIT_POLICY_INFORMATION) -> super::BOOLEAN {
+pub unsafe fn AuditQueryPerUserPolicy(psid: super::PSID, psubcategoryguids: *const windows_core::GUID, dwpolicycount: super::ULONG, ppauditpolicy: *mut PAUDIT_POLICY_INFORMATION) -> super::BOOLEAN {
     windows_core::link!("advapi32.dll" "system" fn AuditQueryPerUserPolicy(psid : super::PSID, psubcategoryguids : *const windows_core::GUID, dwpolicycount : super::ULONG, ppauditpolicy : *mut PAUDIT_POLICY_INFORMATION) -> super::BOOLEAN);
-    unsafe { AuditQueryPerUserPolicy(psid, psubcategoryguids.as_ptr(), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy as _) }
+    unsafe { AuditQueryPerUserPolicy(psid, psubcategoryguids, dwpolicycount, ppauditpolicy as _) }
 }
 #[must_use]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -116,9 +116,9 @@ pub unsafe fn AuditQuerySecurity(securityinformation: super::SECURITY_INFORMATIO
 #[must_use]
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn AuditQuerySystemPolicy(psubcategoryguids: &[windows_core::GUID], ppauditpolicy: *mut PAUDIT_POLICY_INFORMATION) -> super::BOOLEAN {
+pub unsafe fn AuditQuerySystemPolicy(psubcategoryguids: *const windows_core::GUID, dwpolicycount: super::ULONG, ppauditpolicy: *mut PAUDIT_POLICY_INFORMATION) -> super::BOOLEAN {
     windows_core::link!("advapi32.dll" "system" fn AuditQuerySystemPolicy(psubcategoryguids : *const windows_core::GUID, dwpolicycount : super::ULONG, ppauditpolicy : *mut PAUDIT_POLICY_INFORMATION) -> super::BOOLEAN);
-    unsafe { AuditQuerySystemPolicy(psubcategoryguids.as_ptr(), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy as _) }
+    unsafe { AuditQuerySystemPolicy(psubcategoryguids, dwpolicycount, ppauditpolicy as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -140,9 +140,9 @@ where
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AuditSetPerUserPolicy(psid: super::PSID, pauditpolicy: &[AUDIT_POLICY_INFORMATION]) -> super::BOOLEAN {
+pub unsafe fn AuditSetPerUserPolicy(psid: super::PSID, pauditpolicy: *const AUDIT_POLICY_INFORMATION, dwpolicycount: super::ULONG) -> super::BOOLEAN {
     windows_core::link!("advapi32.dll" "system" fn AuditSetPerUserPolicy(psid : super::PSID, pauditpolicy : *const AUDIT_POLICY_INFORMATION, dwpolicycount : super::ULONG) -> super::BOOLEAN);
-    unsafe { AuditSetPerUserPolicy(psid, pauditpolicy.as_ptr(), pauditpolicy.len().try_into().unwrap()) }
+    unsafe { AuditSetPerUserPolicy(psid, pauditpolicy, dwpolicycount) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -152,15 +152,15 @@ pub unsafe fn AuditSetSecurity(securityinformation: super::SECURITY_INFORMATION,
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn AuditSetSystemPolicy(pauditpolicy: &[AUDIT_POLICY_INFORMATION]) -> super::BOOLEAN {
+pub unsafe fn AuditSetSystemPolicy(pauditpolicy: *const AUDIT_POLICY_INFORMATION, dwpolicycount: super::ULONG) -> super::BOOLEAN {
     windows_core::link!("advapi32.dll" "system" fn AuditSetSystemPolicy(pauditpolicy : *const AUDIT_POLICY_INFORMATION, dwpolicycount : super::ULONG) -> super::BOOLEAN);
-    unsafe { AuditSetSystemPolicy(pauditpolicy.as_ptr(), pauditpolicy.len().try_into().unwrap()) }
+    unsafe { AuditSetSystemPolicy(pauditpolicy, dwpolicycount) }
 }
 #[cfg(all(feature = "lsalookup", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn LsaAddAccountRights(policyhandle: LSA_HANDLE, accountsid: super::PSID, userrights: &[super::UNICODE_STRING]) -> windows_core::NTSTATUS {
+pub unsafe fn LsaAddAccountRights(policyhandle: LSA_HANDLE, accountsid: super::PSID, userrights: super::PLSA_UNICODE_STRING, countofrights: super::ULONG) -> windows_core::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaAddAccountRights(policyhandle : LSA_HANDLE, accountsid : super::PSID, userrights : super::PLSA_UNICODE_STRING, countofrights : super::ULONG) -> windows_core::NTSTATUS);
-    unsafe { LsaAddAccountRights(policyhandle, accountsid, core::mem::transmute(userrights.as_ptr()), userrights.len().try_into().unwrap()) }
+    unsafe { LsaAddAccountRights(policyhandle, accountsid, userrights, countofrights) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
@@ -307,9 +307,9 @@ pub unsafe fn LsaOpenTrustedDomainByName(policyhandle: LSA_HANDLE, trusteddomain
 }
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn LsaQueryCAPs(capids: Option<&[super::PSID]>, caps: *mut PCENTRAL_ACCESS_POLICY, capcount: super::PULONG) -> windows_core::NTSTATUS {
+pub unsafe fn LsaQueryCAPs(capids: Option<*const super::PSID>, capidcount: super::ULONG, caps: *mut PCENTRAL_ACCESS_POLICY, capcount: super::PULONG) -> windows_core::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaQueryCAPs(capids : *const super::PSID, capidcount : super::ULONG, caps : *mut PCENTRAL_ACCESS_POLICY, capcount : super::PULONG) -> windows_core::NTSTATUS);
-    unsafe { LsaQueryCAPs(capids.map_or(core::ptr::null(), |slice| slice.as_ptr()), capids.map_or(0, |slice| slice.len().try_into().unwrap()), caps as _, capcount as _) }
+    unsafe { LsaQueryCAPs(capids.unwrap_or(core::mem::zeroed()) as _, capidcount, caps as _, capcount as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -361,9 +361,9 @@ pub unsafe fn LsaRegisterPolicyChangeNotification(informationclass: POLICY_NOTIF
 }
 #[cfg(all(feature = "lsalookup", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn LsaRemoveAccountRights(policyhandle: LSA_HANDLE, accountsid: super::PSID, allrights: super::BOOLEAN, userrights: Option<&[super::UNICODE_STRING]>) -> windows_core::NTSTATUS {
+pub unsafe fn LsaRemoveAccountRights(policyhandle: LSA_HANDLE, accountsid: super::PSID, allrights: super::BOOLEAN, userrights: Option<super::PLSA_UNICODE_STRING>, countofrights: super::ULONG) -> windows_core::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaRemoveAccountRights(policyhandle : LSA_HANDLE, accountsid : super::PSID, allrights : super::BOOLEAN, userrights : super::PLSA_UNICODE_STRING, countofrights : super::ULONG) -> windows_core::NTSTATUS);
-    unsafe { LsaRemoveAccountRights(policyhandle, accountsid, allrights, core::mem::transmute(userrights.map_or(core::ptr::null(), |slice| slice.as_ptr())), userrights.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { LsaRemoveAccountRights(policyhandle, accountsid, allrights, userrights.unwrap_or(core::mem::zeroed()) as _, countofrights) }
 }
 #[cfg(all(feature = "lsalookup", feature = "shared", feature = "winternl"))]
 #[inline]
@@ -373,9 +373,9 @@ pub unsafe fn LsaRetrievePrivateData(policyhandle: LSA_HANDLE, keyname: super::P
 }
 #[cfg(all(feature = "lsalookup", feature = "shared", feature = "winternl"))]
 #[inline]
-pub unsafe fn LsaSetCAPs(capdns: Option<&[super::UNICODE_STRING]>, flags: super::ULONG) -> windows_core::NTSTATUS {
+pub unsafe fn LsaSetCAPs(capdns: Option<super::PLSA_UNICODE_STRING>, capdncount: super::ULONG, flags: super::ULONG) -> windows_core::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaSetCAPs(capdns : super::PLSA_UNICODE_STRING, capdncount : super::ULONG, flags : super::ULONG) -> windows_core::NTSTATUS);
-    unsafe { LsaSetCAPs(core::mem::transmute(capdns.map_or(core::ptr::null(), |slice| slice.as_ptr())), capdns.map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
+    unsafe { LsaSetCAPs(capdns.unwrap_or(core::mem::zeroed()) as _, capdncount, flags) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

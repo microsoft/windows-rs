@@ -9,7 +9,7 @@ mod Windows {
             AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_ENUM_COUNT = 3,
         }
         #[library("MMDevAPI.DLL")]
-        extern fn ActivateAudioInterfaceAsync(#[in] deviceInterfacePath: LPCWSTR, #[in] riid: &IID, #[in] #[opt] activationParams: *mut PROPVARIANT, #[in] completionHandler: IActivateAudioInterfaceCompletionHandler, #[out] #[out_ptr(null_on_failure)] #[retval] activationOperation: *mut IActivateAudioInterfaceAsyncOperation) -> HRESULT;
+        extern fn ActivateAudioInterfaceAsync(#[in] deviceInterfacePath: LPCWSTR, #[in] riid: &IID, #[in] #[opt] activationParams: *mut PROPVARIANT, #[in] completionHandler: IActivateAudioInterfaceCompletionHandler, #[out] #[retval] activationOperation: *mut IActivateAudioInterfaceAsyncOperation) -> HRESULT;
         struct AudioExtensionParams {
             AddPageParam: LPARAM,
             pEndpoint: IMMDevice,
@@ -65,7 +65,7 @@ mod Windows {
         const HDMI: EndpointFormFactor = 9;
         #[guid(0x72a22d78_cde4_431d_b8cc_843a71199b6d)]
         interface IActivateAudioInterfaceAsyncOperation: IUnknown {
-            fn GetActivateResult(&self, #[out] activateResult: *mut HRESULT, #[nullable] #[out] #[out_ptr] activatedInterface: *mut IUnknown) -> HRESULT;
+            fn GetActivateResult(&self, #[out] activateResult: *mut HRESULT, #[out] activatedInterface: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x41d949ab_9862_444a_80f6_c261334da5eb)]
         interface IActivateAudioInterfaceCompletionHandler: IUnknown {
@@ -77,9 +77,9 @@ mod Windows {
         }
         #[guid(0x302ae7f9_d7e0_43e4_971b_1f8293613d2a)]
         interface IAudioSystemEffectsPropertyStore: IUnknown {
-            fn OpenDefaultPropertyStore(&self, #[in] stgmAccess: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] propStore: *mut IPropertyStore) -> HRESULT;
-            fn OpenUserPropertyStore(&self, #[in] stgmAccess: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] propStore: *mut IPropertyStore) -> HRESULT;
-            fn OpenVolatilePropertyStore(&self, #[in] stgmAccess: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] propStore: *mut IPropertyStore) -> HRESULT;
+            fn OpenDefaultPropertyStore(&self, #[in] stgmAccess: DWORD, #[out] #[retval] propStore: *mut IPropertyStore) -> HRESULT;
+            fn OpenUserPropertyStore(&self, #[in] stgmAccess: DWORD, #[out] #[retval] propStore: *mut IPropertyStore) -> HRESULT;
+            fn OpenVolatilePropertyStore(&self, #[in] stgmAccess: DWORD, #[out] #[retval] propStore: *mut IPropertyStore) -> HRESULT;
             fn ResetUserPropertyStore(&self) -> HRESULT;
             fn ResetVolatilePropertyStore(&self) -> HRESULT;
             fn RegisterPropertyChangeNotification(&self, #[in] callback: IAudioSystemEffectsPropertyChangeNotificationClient) -> HRESULT;
@@ -89,7 +89,7 @@ mod Windows {
         interface IMMDevice: IUnknown {
             fn Activate(&self, #[in] iid: &IID, #[in] dwClsCtx: DWORD, #[in] #[opt] pActivationParams: *mut PROPVARIANT, #[iid_is] #[out] ppInterface: *mut *mut void) -> HRESULT;
             fn OpenPropertyStore(&self, #[in] stgmAccess: DWORD, #[out] ppProperties: *mut IPropertyStore) -> HRESULT;
-            fn GetId(&self, #[out] #[out_ptr] ppstrId: *mut LPWSTR) -> HRESULT;
+            fn GetId(&self, #[out] ppstrId: *mut LPWSTR) -> HRESULT;
             fn GetState(&self, #[out] pdwState: *mut DWORD) -> HRESULT;
         }
         #[guid(0x3b0d0ea4_d0a9_4b0e_935b_09516746fac0)]

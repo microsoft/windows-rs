@@ -223,7 +223,10 @@ impl ICertConfig_Vtbl {
                         pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -235,7 +238,10 @@ impl ICertConfig_Vtbl {
                         pindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pindex.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -247,7 +253,10 @@ impl ICertConfig_Vtbl {
                         pstrout.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrout.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -259,7 +268,10 @@ impl ICertConfig_Vtbl {
                         pstrout.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrout.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -368,7 +380,10 @@ impl ICertGetConfig_Vtbl {
                         pstrout.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrout.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -494,7 +509,10 @@ impl ICertRequest_Vtbl {
                         pdisposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdisposition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -506,7 +524,10 @@ impl ICertRequest_Vtbl {
                         pdisposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdisposition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -518,7 +539,10 @@ impl ICertRequest_Vtbl {
                         pstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstatus.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -530,7 +554,10 @@ impl ICertRequest_Vtbl {
                         prequestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        prequestid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -542,7 +569,10 @@ impl ICertRequest_Vtbl {
                         pstrdispositionmessage.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrdispositionmessage.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -554,7 +584,10 @@ impl ICertRequest_Vtbl {
                         pstrcertificate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrcertificate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -566,7 +599,10 @@ impl ICertRequest_Vtbl {
                         pstrcertificate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrcertificate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -693,7 +729,10 @@ impl ICertRequest2_Vtbl {
                         pdisposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdisposition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -705,7 +744,10 @@ impl ICertRequest2_Vtbl {
                         pstrerrormessagetext.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrerrormessagetext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -717,7 +759,10 @@ impl ICertRequest2_Vtbl {
                         pvarpropertyvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarpropertyvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -729,7 +774,10 @@ impl ICertRequest2_Vtbl {
                         ppropflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppropflags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -741,7 +789,10 @@ impl ICertRequest2_Vtbl {
                         pstrdisplayname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrdisplayname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -753,7 +804,10 @@ impl ICertRequest2_Vtbl {
                         pvarpropertyvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarpropertyvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -854,7 +908,10 @@ impl ICertRequest3_Vtbl {
                         pstrrequestid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstrrequestid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -866,7 +923,10 @@ impl ICertRequest3_Vtbl {
                         pdisposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdisposition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -878,7 +938,10 @@ impl ICertRequest3_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

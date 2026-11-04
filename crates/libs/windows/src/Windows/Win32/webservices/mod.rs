@@ -71,9 +71,9 @@ pub unsafe fn WsAsyncExecute(asyncstate: *const WS_ASYNC_STATE, operation: WS_AS
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WsCall(serviceproxy: *const WS_SERVICE_PROXY, operation: *const WS_OPERATION_DESCRIPTION, arguments: Option<*const *const core::ffi::c_void>, heap: *const WS_HEAP, callproperties: Option<&[WS_CALL_PROPERTY]>, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+pub unsafe fn WsCall(serviceproxy: *const WS_SERVICE_PROXY, operation: *const WS_OPERATION_DESCRIPTION, arguments: Option<*const *const core::ffi::c_void>, heap: *const WS_HEAP, callproperties: Option<*const WS_CALL_PROPERTY>, callpropertycount: super::ULONG, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsCall(serviceproxy : *const WS_SERVICE_PROXY, operation : *const WS_OPERATION_DESCRIPTION, arguments : *const *const core::ffi::c_void, heap : *const WS_HEAP, callproperties : *const WS_CALL_PROPERTY, callpropertycount : super::ULONG, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCall(serviceproxy, operation, arguments.unwrap_or(core::mem::zeroed()) as _, heap, callproperties.map_or(core::ptr::null(), |slice| slice.as_ptr()), callproperties.map_or(0, |slice| slice.len().try_into().unwrap()), asynccontext.unwrap_or(core::mem::zeroed()) as _, error.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WsCall(serviceproxy, operation, arguments.unwrap_or(core::mem::zeroed()) as _, heap, callproperties.unwrap_or(core::mem::zeroed()) as _, callpropertycount, asynccontext.unwrap_or(core::mem::zeroed()) as _, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn WsCheckMustUnderstandHeaders(message: *const WS_MESSAGE, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
@@ -118,21 +118,21 @@ pub unsafe fn WsCopyNode(writer: *const WS_XML_WRITER, reader: *const WS_XML_REA
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WsCreateChannel(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, properties: Option<&[WS_CHANNEL_PROPERTY]>, securitydescription: Option<*const WS_SECURITY_DESCRIPTION>, channel: *mut *mut WS_CHANNEL, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+pub unsafe fn WsCreateChannel(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, properties: Option<*const WS_CHANNEL_PROPERTY>, propertycount: super::ULONG, securitydescription: Option<*const WS_SECURITY_DESCRIPTION>, channel: *mut *mut WS_CHANNEL, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsCreateChannel(channeltype : WS_CHANNEL_TYPE, channelbinding : WS_CHANNEL_BINDING, properties : *const WS_CHANNEL_PROPERTY, propertycount : super::ULONG, securitydescription : *const WS_SECURITY_DESCRIPTION, channel : *mut *mut WS_CHANNEL, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCreateChannel(channeltype, channelbinding, properties.map_or(core::ptr::null(), |slice| slice.as_ptr()), properties.map_or(0, |slice| slice.len().try_into().unwrap()), securitydescription.unwrap_or(core::mem::zeroed()) as _, channel as _, error.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WsCreateChannel(channeltype, channelbinding, properties.unwrap_or(core::mem::zeroed()) as _, propertycount, securitydescription.unwrap_or(core::mem::zeroed()) as _, channel as _, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WsCreateChannelForListener(listener: *const WS_LISTENER, properties: Option<&[WS_CHANNEL_PROPERTY]>, channel: *mut *mut WS_CHANNEL, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+pub unsafe fn WsCreateChannelForListener(listener: *const WS_LISTENER, properties: Option<*const WS_CHANNEL_PROPERTY>, propertycount: super::ULONG, channel: *mut *mut WS_CHANNEL, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsCreateChannelForListener(listener : *const WS_LISTENER, properties : *const WS_CHANNEL_PROPERTY, propertycount : super::ULONG, channel : *mut *mut WS_CHANNEL, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCreateChannelForListener(listener, properties.map_or(core::ptr::null(), |slice| slice.as_ptr()), properties.map_or(0, |slice| slice.len().try_into().unwrap()), channel as _, error.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WsCreateChannelForListener(listener, properties.unwrap_or(core::mem::zeroed()) as _, propertycount, channel as _, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WsCreateError(properties: Option<&[WS_ERROR_PROPERTY]>, error: *mut *mut WS_ERROR) -> windows_core::HRESULT {
+pub unsafe fn WsCreateError(properties: Option<*const WS_ERROR_PROPERTY>, propertycount: super::ULONG, error: *mut *mut WS_ERROR) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsCreateError(properties : *const WS_ERROR_PROPERTY, propertycount : super::ULONG, error : *mut *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCreateError(properties.map_or(core::ptr::null(), |slice| slice.as_ptr()), properties.map_or(0, |slice| slice.len().try_into().unwrap()), error as _) }
+    unsafe { WsCreateError(properties.unwrap_or(core::mem::zeroed()) as _, propertycount, error as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -148,75 +148,75 @@ pub unsafe fn WsCreateHeap(maxsize: super::SIZE_T, trimsize: super::SIZE_T, prop
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WsCreateListener(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, properties: Option<&[WS_LISTENER_PROPERTY]>, securitydescription: Option<*const WS_SECURITY_DESCRIPTION>, listener: *mut *mut WS_LISTENER, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+pub unsafe fn WsCreateListener(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, properties: Option<*const WS_LISTENER_PROPERTY>, propertycount: super::ULONG, securitydescription: Option<*const WS_SECURITY_DESCRIPTION>, listener: *mut *mut WS_LISTENER, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsCreateListener(channeltype : WS_CHANNEL_TYPE, channelbinding : WS_CHANNEL_BINDING, properties : *const WS_LISTENER_PROPERTY, propertycount : super::ULONG, securitydescription : *const WS_SECURITY_DESCRIPTION, listener : *mut *mut WS_LISTENER, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCreateListener(channeltype, channelbinding, properties.map_or(core::ptr::null(), |slice| slice.as_ptr()), properties.map_or(0, |slice| slice.len().try_into().unwrap()), securitydescription.unwrap_or(core::mem::zeroed()) as _, listener as _, error.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WsCreateListener(channeltype, channelbinding, properties.unwrap_or(core::mem::zeroed()) as _, propertycount, securitydescription.unwrap_or(core::mem::zeroed()) as _, listener as _, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WsCreateMessage(envelopeversion: WS_ENVELOPE_VERSION, addressingversion: WS_ADDRESSING_VERSION, properties: Option<&[WS_MESSAGE_PROPERTY]>, message: *mut *mut WS_MESSAGE, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+pub unsafe fn WsCreateMessage(envelopeversion: WS_ENVELOPE_VERSION, addressingversion: WS_ADDRESSING_VERSION, properties: Option<*const WS_MESSAGE_PROPERTY>, propertycount: super::ULONG, message: *mut *mut WS_MESSAGE, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsCreateMessage(envelopeversion : WS_ENVELOPE_VERSION, addressingversion : WS_ADDRESSING_VERSION, properties : *const WS_MESSAGE_PROPERTY, propertycount : super::ULONG, message : *mut *mut WS_MESSAGE, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCreateMessage(envelopeversion, addressingversion, properties.map_or(core::ptr::null(), |slice| slice.as_ptr()), properties.map_or(0, |slice| slice.len().try_into().unwrap()), message as _, error.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WsCreateMessage(envelopeversion, addressingversion, properties.unwrap_or(core::mem::zeroed()) as _, propertycount, message as _, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WsCreateMessageForChannel(channel: *const WS_CHANNEL, properties: Option<&[WS_MESSAGE_PROPERTY]>, message: *mut *mut WS_MESSAGE, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+pub unsafe fn WsCreateMessageForChannel(channel: *const WS_CHANNEL, properties: Option<*const WS_MESSAGE_PROPERTY>, propertycount: super::ULONG, message: *mut *mut WS_MESSAGE, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsCreateMessageForChannel(channel : *const WS_CHANNEL, properties : *const WS_MESSAGE_PROPERTY, propertycount : super::ULONG, message : *mut *mut WS_MESSAGE, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCreateMessageForChannel(channel, properties.map_or(core::ptr::null(), |slice| slice.as_ptr()), properties.map_or(0, |slice| slice.len().try_into().unwrap()), message as _, error.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WsCreateMessageForChannel(channel, properties.unwrap_or(core::mem::zeroed()) as _, propertycount, message as _, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WsCreateMetadata(properties: Option<&[WS_METADATA_PROPERTY]>, metadata: *mut *mut WS_METADATA, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+pub unsafe fn WsCreateMetadata(properties: Option<*const WS_METADATA_PROPERTY>, propertycount: super::ULONG, metadata: *mut *mut WS_METADATA, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsCreateMetadata(properties : *const WS_METADATA_PROPERTY, propertycount : super::ULONG, metadata : *mut *mut WS_METADATA, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCreateMetadata(properties.map_or(core::ptr::null(), |slice| slice.as_ptr()), properties.map_or(0, |slice| slice.len().try_into().unwrap()), metadata as _, error.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WsCreateMetadata(properties.unwrap_or(core::mem::zeroed()) as _, propertycount, metadata as _, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WsCreateReader(properties: Option<&[WS_XML_READER_PROPERTY]>, reader: *mut *mut WS_XML_READER, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+pub unsafe fn WsCreateReader(properties: Option<*const WS_XML_READER_PROPERTY>, propertycount: super::ULONG, reader: *mut *mut WS_XML_READER, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsCreateReader(properties : *const WS_XML_READER_PROPERTY, propertycount : super::ULONG, reader : *mut *mut WS_XML_READER, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCreateReader(properties.map_or(core::ptr::null(), |slice| slice.as_ptr()), properties.map_or(0, |slice| slice.len().try_into().unwrap()), reader as _, error.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WsCreateReader(properties.unwrap_or(core::mem::zeroed()) as _, propertycount, reader as _, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WsCreateServiceEndpointFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: Option<&[WS_SERVICE_ENDPOINT_PROPERTY]>, addressurl: Option<*const WS_STRING>, contract: *const WS_SERVICE_CONTRACT, authorizationcallback: WS_SERVICE_SECURITY_CALLBACK, heap: *const WS_HEAP, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: Option<*const core::ffi::c_void>, templatesize: super::ULONG, templatedescription: *const core::ffi::c_void, templatedescriptionsize: super::ULONG, serviceendpoint: *mut *mut WS_SERVICE_ENDPOINT, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+pub unsafe fn WsCreateServiceEndpointFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: Option<*const WS_SERVICE_ENDPOINT_PROPERTY>, propertycount: super::ULONG, addressurl: Option<*const WS_STRING>, contract: *const WS_SERVICE_CONTRACT, authorizationcallback: WS_SERVICE_SECURITY_CALLBACK, heap: *const WS_HEAP, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: Option<*const core::ffi::c_void>, templatesize: super::ULONG, templatedescription: *const core::ffi::c_void, templatedescriptionsize: super::ULONG, serviceendpoint: *mut *mut WS_SERVICE_ENDPOINT, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsCreateServiceEndpointFromTemplate(channeltype : WS_CHANNEL_TYPE, properties : *const WS_SERVICE_ENDPOINT_PROPERTY, propertycount : super::ULONG, addressurl : *const WS_STRING, contract : *const WS_SERVICE_CONTRACT, authorizationcallback : WS_SERVICE_SECURITY_CALLBACK, heap : *const WS_HEAP, templatetype : WS_BINDING_TEMPLATE_TYPE, templatevalue : *const core::ffi::c_void, templatesize : super::ULONG, templatedescription : *const core::ffi::c_void, templatedescriptionsize : super::ULONG, serviceendpoint : *mut *mut WS_SERVICE_ENDPOINT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCreateServiceEndpointFromTemplate(channeltype, properties.map_or(core::ptr::null(), |slice| slice.as_ptr()), properties.map_or(0, |slice| slice.len().try_into().unwrap()), addressurl.unwrap_or(core::mem::zeroed()) as _, contract, authorizationcallback, heap, templatetype, templatevalue.unwrap_or(core::mem::zeroed()) as _, templatesize, templatedescription, templatedescriptionsize, serviceendpoint as _, error.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WsCreateServiceEndpointFromTemplate(channeltype, properties.unwrap_or(core::mem::zeroed()) as _, propertycount, addressurl.unwrap_or(core::mem::zeroed()) as _, contract, authorizationcallback, heap, templatetype, templatevalue.unwrap_or(core::mem::zeroed()) as _, templatesize, templatedescription, templatedescriptionsize, serviceendpoint as _, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WsCreateServiceHost(endpoints: Option<&[*const WS_SERVICE_ENDPOINT]>, serviceproperties: Option<&[WS_SERVICE_PROPERTY]>, servicehost: *mut *mut WS_SERVICE_HOST, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+pub unsafe fn WsCreateServiceHost(endpoints: Option<*const *const WS_SERVICE_ENDPOINT>, endpointcount: super::USHORT, serviceproperties: Option<*const WS_SERVICE_PROPERTY>, servicepropertycount: super::ULONG, servicehost: *mut *mut WS_SERVICE_HOST, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsCreateServiceHost(endpoints : *const *const WS_SERVICE_ENDPOINT, endpointcount : super::USHORT, serviceproperties : *const WS_SERVICE_PROPERTY, servicepropertycount : super::ULONG, servicehost : *mut *mut WS_SERVICE_HOST, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCreateServiceHost(endpoints.map_or(core::ptr::null(), |slice| slice.as_ptr()), endpoints.map_or(0, |slice| slice.len().try_into().unwrap()), serviceproperties.map_or(core::ptr::null(), |slice| slice.as_ptr()), serviceproperties.map_or(0, |slice| slice.len().try_into().unwrap()), servicehost as _, error.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WsCreateServiceHost(endpoints.unwrap_or(core::mem::zeroed()) as _, endpointcount, serviceproperties.unwrap_or(core::mem::zeroed()) as _, servicepropertycount, servicehost as _, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WsCreateServiceProxy(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, securitydescription: Option<*const WS_SECURITY_DESCRIPTION>, properties: Option<&[WS_PROXY_PROPERTY]>, channelproperties: Option<&[WS_CHANNEL_PROPERTY]>, serviceproxy: *mut *mut WS_SERVICE_PROXY, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+pub unsafe fn WsCreateServiceProxy(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, securitydescription: Option<*const WS_SECURITY_DESCRIPTION>, properties: Option<*const WS_PROXY_PROPERTY>, propertycount: super::ULONG, channelproperties: Option<*const WS_CHANNEL_PROPERTY>, channelpropertycount: super::ULONG, serviceproxy: *mut *mut WS_SERVICE_PROXY, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsCreateServiceProxy(channeltype : WS_CHANNEL_TYPE, channelbinding : WS_CHANNEL_BINDING, securitydescription : *const WS_SECURITY_DESCRIPTION, properties : *const WS_PROXY_PROPERTY, propertycount : super::ULONG, channelproperties : *const WS_CHANNEL_PROPERTY, channelpropertycount : super::ULONG, serviceproxy : *mut *mut WS_SERVICE_PROXY, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCreateServiceProxy(channeltype, channelbinding, securitydescription.unwrap_or(core::mem::zeroed()) as _, properties.map_or(core::ptr::null(), |slice| slice.as_ptr()), properties.map_or(0, |slice| slice.len().try_into().unwrap()), channelproperties.map_or(core::ptr::null(), |slice| slice.as_ptr()), channelproperties.map_or(0, |slice| slice.len().try_into().unwrap()), serviceproxy as _, error.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WsCreateServiceProxy(channeltype, channelbinding, securitydescription.unwrap_or(core::mem::zeroed()) as _, properties.unwrap_or(core::mem::zeroed()) as _, propertycount, channelproperties.unwrap_or(core::mem::zeroed()) as _, channelpropertycount, serviceproxy as _, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WsCreateServiceProxyFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: Option<&[WS_PROXY_PROPERTY]>, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: Option<*const core::ffi::c_void>, templatesize: super::ULONG, templatedescription: *const core::ffi::c_void, templatedescriptionsize: super::ULONG, serviceproxy: *mut *mut WS_SERVICE_PROXY, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+pub unsafe fn WsCreateServiceProxyFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: Option<*const WS_PROXY_PROPERTY>, propertycount: super::ULONG, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: Option<*const core::ffi::c_void>, templatesize: super::ULONG, templatedescription: *const core::ffi::c_void, templatedescriptionsize: super::ULONG, serviceproxy: *mut *mut WS_SERVICE_PROXY, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsCreateServiceProxyFromTemplate(channeltype : WS_CHANNEL_TYPE, properties : *const WS_PROXY_PROPERTY, propertycount : super::ULONG, templatetype : WS_BINDING_TEMPLATE_TYPE, templatevalue : *const core::ffi::c_void, templatesize : super::ULONG, templatedescription : *const core::ffi::c_void, templatedescriptionsize : super::ULONG, serviceproxy : *mut *mut WS_SERVICE_PROXY, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCreateServiceProxyFromTemplate(channeltype, properties.map_or(core::ptr::null(), |slice| slice.as_ptr()), properties.map_or(0, |slice| slice.len().try_into().unwrap()), templatetype, templatevalue.unwrap_or(core::mem::zeroed()) as _, templatesize, templatedescription, templatedescriptionsize, serviceproxy as _, error.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WsCreateServiceProxyFromTemplate(channeltype, properties.unwrap_or(core::mem::zeroed()) as _, propertycount, templatetype, templatevalue.unwrap_or(core::mem::zeroed()) as _, templatesize, templatedescription, templatedescriptionsize, serviceproxy as _, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WsCreateWriter(properties: Option<&[WS_XML_WRITER_PROPERTY]>, writer: *mut *mut WS_XML_WRITER, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+pub unsafe fn WsCreateWriter(properties: Option<*const WS_XML_WRITER_PROPERTY>, propertycount: super::ULONG, writer: *mut *mut WS_XML_WRITER, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsCreateWriter(properties : *const WS_XML_WRITER_PROPERTY, propertycount : super::ULONG, writer : *mut *mut WS_XML_WRITER, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCreateWriter(properties.map_or(core::ptr::null(), |slice| slice.as_ptr()), properties.map_or(0, |slice| slice.len().try_into().unwrap()), writer as _, error.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WsCreateWriter(properties.unwrap_or(core::mem::zeroed()) as _, propertycount, writer as _, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WsCreateXmlBuffer(heap: *const WS_HEAP, properties: Option<&[WS_XML_BUFFER_PROPERTY]>, buffer: *mut *mut WS_XML_BUFFER, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+pub unsafe fn WsCreateXmlBuffer(heap: *const WS_HEAP, properties: Option<*const WS_XML_BUFFER_PROPERTY>, propertycount: super::ULONG, buffer: *mut *mut WS_XML_BUFFER, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsCreateXmlBuffer(heap : *const WS_HEAP, properties : *const WS_XML_BUFFER_PROPERTY, propertycount : super::ULONG, buffer : *mut *mut WS_XML_BUFFER, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCreateXmlBuffer(heap, properties.map_or(core::ptr::null(), |slice| slice.as_ptr()), properties.map_or(0, |slice| slice.len().try_into().unwrap()), buffer as _, error.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WsCreateXmlBuffer(heap, properties.unwrap_or(core::mem::zeroed()) as _, propertycount, buffer as _, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WsCreateXmlSecurityToken(tokenxml: Option<*const WS_XML_BUFFER>, tokenkey: Option<*const WS_SECURITY_KEY_HANDLE>, properties: Option<&[WS_XML_SECURITY_TOKEN_PROPERTY]>, token: *mut *mut WS_SECURITY_TOKEN, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+pub unsafe fn WsCreateXmlSecurityToken(tokenxml: Option<*const WS_XML_BUFFER>, tokenkey: Option<*const WS_SECURITY_KEY_HANDLE>, properties: Option<*const WS_XML_SECURITY_TOKEN_PROPERTY>, propertycount: super::ULONG, token: *mut *mut WS_SECURITY_TOKEN, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsCreateXmlSecurityToken(tokenxml : *const WS_XML_BUFFER, tokenkey : *const WS_SECURITY_KEY_HANDLE, properties : *const WS_XML_SECURITY_TOKEN_PROPERTY, propertycount : super::ULONG, token : *mut *mut WS_SECURITY_TOKEN, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCreateXmlSecurityToken(tokenxml.unwrap_or(core::mem::zeroed()) as _, tokenkey.unwrap_or(core::mem::zeroed()) as _, properties.map_or(core::ptr::null(), |slice| slice.as_ptr()), properties.map_or(0, |slice| slice.len().try_into().unwrap()), token as _, error.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WsCreateXmlSecurityToken(tokenxml.unwrap_or(core::mem::zeroed()) as _, tokenkey.unwrap_or(core::mem::zeroed()) as _, properties.unwrap_or(core::mem::zeroed()) as _, propertycount, token as _, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -712,15 +712,15 @@ pub unsafe fn WsReadXmlBuffer(reader: *const WS_XML_READER, heap: *const WS_HEAP
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WsReadXmlBufferFromBytes(reader: *const WS_XML_READER, encoding: Option<*const WS_XML_READER_ENCODING>, properties: Option<&[WS_XML_READER_PROPERTY]>, bytes: *const core::ffi::c_void, bytecount: super::ULONG, heap: *const WS_HEAP, xmlbuffer: *mut *mut WS_XML_BUFFER, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+pub unsafe fn WsReadXmlBufferFromBytes(reader: *const WS_XML_READER, encoding: Option<*const WS_XML_READER_ENCODING>, properties: Option<*const WS_XML_READER_PROPERTY>, propertycount: super::ULONG, bytes: *const core::ffi::c_void, bytecount: super::ULONG, heap: *const WS_HEAP, xmlbuffer: *mut *mut WS_XML_BUFFER, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsReadXmlBufferFromBytes(reader : *const WS_XML_READER, encoding : *const WS_XML_READER_ENCODING, properties : *const WS_XML_READER_PROPERTY, propertycount : super::ULONG, bytes : *const core::ffi::c_void, bytecount : super::ULONG, heap : *const WS_HEAP, xmlbuffer : *mut *mut WS_XML_BUFFER, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsReadXmlBufferFromBytes(reader, encoding.unwrap_or(core::mem::zeroed()) as _, properties.map_or(core::ptr::null(), |slice| slice.as_ptr()), properties.map_or(0, |slice| slice.len().try_into().unwrap()), bytes, bytecount, heap, xmlbuffer as _, error.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WsReadXmlBufferFromBytes(reader, encoding.unwrap_or(core::mem::zeroed()) as _, properties.unwrap_or(core::mem::zeroed()) as _, propertycount, bytes, bytecount, heap, xmlbuffer as _, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WsReceiveMessage(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, messagedescriptions: &[*const WS_MESSAGE_DESCRIPTION], receiveoption: WS_RECEIVE_OPTION, readbodyoption: WS_READ_OPTION, heap: Option<*const WS_HEAP>, value: *mut core::ffi::c_void, valuesize: super::ULONG, index: Option<*mut super::ULONG>, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+pub unsafe fn WsReceiveMessage(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, messagedescriptions: *const *const WS_MESSAGE_DESCRIPTION, messagedescriptioncount: super::ULONG, receiveoption: WS_RECEIVE_OPTION, readbodyoption: WS_READ_OPTION, heap: Option<*const WS_HEAP>, value: *mut core::ffi::c_void, valuesize: super::ULONG, index: Option<*mut super::ULONG>, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsReceiveMessage(channel : *const WS_CHANNEL, message : *const WS_MESSAGE, messagedescriptions : *const *const WS_MESSAGE_DESCRIPTION, messagedescriptioncount : super::ULONG, receiveoption : WS_RECEIVE_OPTION, readbodyoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut core::ffi::c_void, valuesize : super::ULONG, index : *mut super::ULONG, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsReceiveMessage(channel, message, messagedescriptions.as_ptr(), messagedescriptions.len().try_into().unwrap(), receiveoption, readbodyoption, heap.unwrap_or(core::mem::zeroed()) as _, value as _, valuesize, index.unwrap_or(core::mem::zeroed()) as _, asynccontext.unwrap_or(core::mem::zeroed()) as _, error.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WsReceiveMessage(channel, message, messagedescriptions, messagedescriptioncount, receiveoption, readbodyoption, heap.unwrap_or(core::mem::zeroed()) as _, value as _, valuesize, index.unwrap_or(core::mem::zeroed()) as _, asynccontext.unwrap_or(core::mem::zeroed()) as _, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn WsRegisterOperationForCancel(context: *const WS_OPERATION_CONTEXT, cancelcallback: WS_OPERATION_CANCEL_CALLBACK, freestatecallback: WS_OPERATION_FREE_STATE_CALLBACK, userstate: Option<*const core::ffi::c_void>, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
@@ -757,9 +757,9 @@ pub unsafe fn WsRequestReply(channel: *const WS_CHANNEL, requestmessage: *const 
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WsRequestSecurityToken(channel: *const WS_CHANNEL, properties: Option<&[WS_REQUEST_SECURITY_TOKEN_PROPERTY]>, token: *mut *mut WS_SECURITY_TOKEN, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+pub unsafe fn WsRequestSecurityToken(channel: *const WS_CHANNEL, properties: Option<*const WS_REQUEST_SECURITY_TOKEN_PROPERTY>, propertycount: super::ULONG, token: *mut *mut WS_SECURITY_TOKEN, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsRequestSecurityToken(channel : *const WS_CHANNEL, properties : *const WS_REQUEST_SECURITY_TOKEN_PROPERTY, propertycount : super::ULONG, token : *mut *mut WS_SECURITY_TOKEN, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsRequestSecurityToken(channel, properties.map_or(core::ptr::null(), |slice| slice.as_ptr()), properties.map_or(0, |slice| slice.len().try_into().unwrap()), token as _, asynccontext.unwrap_or(core::mem::zeroed()) as _, error.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WsRequestSecurityToken(channel, properties.unwrap_or(core::mem::zeroed()) as _, propertycount, token as _, asynccontext.unwrap_or(core::mem::zeroed()) as _, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn WsResetChannel(channel: *const WS_CHANNEL, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
@@ -855,15 +855,15 @@ pub unsafe fn WsSetHeader(message: *const WS_MESSAGE, headertype: WS_HEADER_TYPE
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WsSetInput(reader: *const WS_XML_READER, encoding: Option<*const WS_XML_READER_ENCODING>, input: Option<*const WS_XML_READER_INPUT>, properties: Option<&[WS_XML_READER_PROPERTY]>, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+pub unsafe fn WsSetInput(reader: *const WS_XML_READER, encoding: Option<*const WS_XML_READER_ENCODING>, input: Option<*const WS_XML_READER_INPUT>, properties: Option<*const WS_XML_READER_PROPERTY>, propertycount: super::ULONG, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsSetInput(reader : *const WS_XML_READER, encoding : *const WS_XML_READER_ENCODING, input : *const WS_XML_READER_INPUT, properties : *const WS_XML_READER_PROPERTY, propertycount : super::ULONG, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsSetInput(reader, encoding.unwrap_or(core::mem::zeroed()) as _, input.unwrap_or(core::mem::zeroed()) as _, properties.map_or(core::ptr::null(), |slice| slice.as_ptr()), properties.map_or(0, |slice| slice.len().try_into().unwrap()), error.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WsSetInput(reader, encoding.unwrap_or(core::mem::zeroed()) as _, input.unwrap_or(core::mem::zeroed()) as _, properties.unwrap_or(core::mem::zeroed()) as _, propertycount, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WsSetInputToBuffer(reader: *const WS_XML_READER, buffer: *const WS_XML_BUFFER, properties: Option<&[WS_XML_READER_PROPERTY]>, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+pub unsafe fn WsSetInputToBuffer(reader: *const WS_XML_READER, buffer: *const WS_XML_BUFFER, properties: Option<*const WS_XML_READER_PROPERTY>, propertycount: super::ULONG, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsSetInputToBuffer(reader : *const WS_XML_READER, buffer : *const WS_XML_BUFFER, properties : *const WS_XML_READER_PROPERTY, propertycount : super::ULONG, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsSetInputToBuffer(reader, buffer, properties.map_or(core::ptr::null(), |slice| slice.as_ptr()), properties.map_or(0, |slice| slice.len().try_into().unwrap()), error.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WsSetInputToBuffer(reader, buffer, properties.unwrap_or(core::mem::zeroed()) as _, propertycount, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -879,15 +879,15 @@ pub unsafe fn WsSetMessageProperty(message: *const WS_MESSAGE, id: WS_MESSAGE_PR
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WsSetOutput(writer: *const WS_XML_WRITER, encoding: Option<*const WS_XML_WRITER_ENCODING>, output: Option<*const WS_XML_WRITER_OUTPUT>, properties: Option<&[WS_XML_WRITER_PROPERTY]>, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+pub unsafe fn WsSetOutput(writer: *const WS_XML_WRITER, encoding: Option<*const WS_XML_WRITER_ENCODING>, output: Option<*const WS_XML_WRITER_OUTPUT>, properties: Option<*const WS_XML_WRITER_PROPERTY>, propertycount: super::ULONG, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsSetOutput(writer : *const WS_XML_WRITER, encoding : *const WS_XML_WRITER_ENCODING, output : *const WS_XML_WRITER_OUTPUT, properties : *const WS_XML_WRITER_PROPERTY, propertycount : super::ULONG, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsSetOutput(writer, encoding.unwrap_or(core::mem::zeroed()) as _, output.unwrap_or(core::mem::zeroed()) as _, properties.map_or(core::ptr::null(), |slice| slice.as_ptr()), properties.map_or(0, |slice| slice.len().try_into().unwrap()), error.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WsSetOutput(writer, encoding.unwrap_or(core::mem::zeroed()) as _, output.unwrap_or(core::mem::zeroed()) as _, properties.unwrap_or(core::mem::zeroed()) as _, propertycount, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WsSetOutputToBuffer(writer: *const WS_XML_WRITER, buffer: *const WS_XML_BUFFER, properties: Option<&[WS_XML_WRITER_PROPERTY]>, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+pub unsafe fn WsSetOutputToBuffer(writer: *const WS_XML_WRITER, buffer: *const WS_XML_BUFFER, properties: Option<*const WS_XML_WRITER_PROPERTY>, propertycount: super::ULONG, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsSetOutputToBuffer(writer : *const WS_XML_WRITER, buffer : *const WS_XML_BUFFER, properties : *const WS_XML_WRITER_PROPERTY, propertycount : super::ULONG, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsSetOutputToBuffer(writer, buffer, properties.map_or(core::ptr::null(), |slice| slice.as_ptr()), properties.map_or(0, |slice| slice.len().try_into().unwrap()), error.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WsSetOutputToBuffer(writer, buffer, properties.unwrap_or(core::mem::zeroed()) as _, propertycount, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn WsSetReaderPosition(reader: *const WS_XML_READER, nodeposition: *const WS_XML_NODE_POSITION, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
@@ -911,27 +911,27 @@ pub unsafe fn WsSkipNode(reader: *const WS_XML_READER, error: Option<*const WS_E
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WsStartReaderCanonicalization(reader: *const WS_XML_READER, writecallback: WS_WRITE_CALLBACK, writecallbackstate: Option<*const core::ffi::c_void>, properties: Option<&[WS_XML_CANONICALIZATION_PROPERTY]>, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+pub unsafe fn WsStartReaderCanonicalization(reader: *const WS_XML_READER, writecallback: WS_WRITE_CALLBACK, writecallbackstate: Option<*const core::ffi::c_void>, properties: Option<*const WS_XML_CANONICALIZATION_PROPERTY>, propertycount: super::ULONG, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsStartReaderCanonicalization(reader : *const WS_XML_READER, writecallback : WS_WRITE_CALLBACK, writecallbackstate : *const core::ffi::c_void, properties : *const WS_XML_CANONICALIZATION_PROPERTY, propertycount : super::ULONG, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsStartReaderCanonicalization(reader, writecallback, writecallbackstate.unwrap_or(core::mem::zeroed()) as _, properties.map_or(core::ptr::null(), |slice| slice.as_ptr()), properties.map_or(0, |slice| slice.len().try_into().unwrap()), error.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WsStartReaderCanonicalization(reader, writecallback, writecallbackstate.unwrap_or(core::mem::zeroed()) as _, properties.unwrap_or(core::mem::zeroed()) as _, propertycount, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WsStartWriterCanonicalization(writer: *const WS_XML_WRITER, writecallback: WS_WRITE_CALLBACK, writecallbackstate: Option<*const core::ffi::c_void>, properties: Option<&[WS_XML_CANONICALIZATION_PROPERTY]>, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+pub unsafe fn WsStartWriterCanonicalization(writer: *const WS_XML_WRITER, writecallback: WS_WRITE_CALLBACK, writecallbackstate: Option<*const core::ffi::c_void>, properties: Option<*const WS_XML_CANONICALIZATION_PROPERTY>, propertycount: super::ULONG, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsStartWriterCanonicalization(writer : *const WS_XML_WRITER, writecallback : WS_WRITE_CALLBACK, writecallbackstate : *const core::ffi::c_void, properties : *const WS_XML_CANONICALIZATION_PROPERTY, propertycount : super::ULONG, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsStartWriterCanonicalization(writer, writecallback, writecallbackstate.unwrap_or(core::mem::zeroed()) as _, properties.map_or(core::ptr::null(), |slice| slice.as_ptr()), properties.map_or(0, |slice| slice.len().try_into().unwrap()), error.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WsStartWriterCanonicalization(writer, writecallback, writecallbackstate.unwrap_or(core::mem::zeroed()) as _, properties.unwrap_or(core::mem::zeroed()) as _, propertycount, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WsTrimXmlWhitespace(chars: &[super::WCHAR], trimmedchars: *mut *mut super::WCHAR, trimmedcount: *mut super::ULONG, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+pub unsafe fn WsTrimXmlWhitespace(chars: *const super::WCHAR, charcount: super::ULONG, trimmedchars: *mut *mut super::WCHAR, trimmedcount: *mut super::ULONG, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsTrimXmlWhitespace(chars : *const super::WCHAR, charcount : super::ULONG, trimmedchars : *mut *mut super::WCHAR, trimmedcount : *mut super::ULONG, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsTrimXmlWhitespace(chars.as_ptr(), chars.len().try_into().unwrap(), trimmedchars as _, trimmedcount as _, error.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WsTrimXmlWhitespace(chars, charcount, trimmedchars as _, trimmedcount as _, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WsVerifyXmlNCName(ncnamechars: &[super::WCHAR], error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+pub unsafe fn WsVerifyXmlNCName(ncnamechars: *const super::WCHAR, ncnamecharcount: super::ULONG, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsVerifyXmlNCName(ncnamechars : *const super::WCHAR, ncnamecharcount : super::ULONG, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsVerifyXmlNCName(ncnamechars.as_ptr(), ncnamechars.len().try_into().unwrap(), error.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WsVerifyXmlNCName(ncnamechars, ncnamecharcount, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -959,15 +959,15 @@ pub unsafe fn WsWriteBytes(writer: *const WS_XML_WRITER, bytes: *const core::ffi
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WsWriteChars(writer: *const WS_XML_WRITER, chars: &[super::WCHAR], error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+pub unsafe fn WsWriteChars(writer: *const WS_XML_WRITER, chars: *const super::WCHAR, charcount: super::ULONG, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsWriteChars(writer : *const WS_XML_WRITER, chars : *const super::WCHAR, charcount : super::ULONG, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsWriteChars(writer, chars.as_ptr(), chars.len().try_into().unwrap(), error.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WsWriteChars(writer, chars, charcount, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WsWriteCharsUtf8(writer: *const WS_XML_WRITER, bytes: &[super::BYTE], error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+pub unsafe fn WsWriteCharsUtf8(writer: *const WS_XML_WRITER, bytes: *const super::BYTE, bytecount: super::ULONG, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsWriteCharsUtf8(writer : *const WS_XML_WRITER, bytes : *const super::BYTE, bytecount : super::ULONG, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsWriteCharsUtf8(writer, bytes.as_ptr(), bytes.len().try_into().unwrap(), error.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WsWriteCharsUtf8(writer, bytes, bytecount, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -1067,9 +1067,9 @@ pub unsafe fn WsWriteXmlBuffer(writer: *const WS_XML_WRITER, xmlbuffer: *const W
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WsWriteXmlBufferToBytes(writer: *const WS_XML_WRITER, xmlbuffer: *const WS_XML_BUFFER, encoding: Option<*const WS_XML_WRITER_ENCODING>, properties: Option<&[WS_XML_WRITER_PROPERTY]>, heap: *const WS_HEAP, bytes: *mut *mut core::ffi::c_void, bytecount: *mut super::ULONG, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+pub unsafe fn WsWriteXmlBufferToBytes(writer: *const WS_XML_WRITER, xmlbuffer: *const WS_XML_BUFFER, encoding: Option<*const WS_XML_WRITER_ENCODING>, properties: Option<*const WS_XML_WRITER_PROPERTY>, propertycount: super::ULONG, heap: *const WS_HEAP, bytes: *mut *mut core::ffi::c_void, bytecount: *mut super::ULONG, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsWriteXmlBufferToBytes(writer : *const WS_XML_WRITER, xmlbuffer : *const WS_XML_BUFFER, encoding : *const WS_XML_WRITER_ENCODING, properties : *const WS_XML_WRITER_PROPERTY, propertycount : super::ULONG, heap : *const WS_HEAP, bytes : *mut *mut core::ffi::c_void, bytecount : *mut super::ULONG, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsWriteXmlBufferToBytes(writer, xmlbuffer, encoding.unwrap_or(core::mem::zeroed()) as _, properties.map_or(core::ptr::null(), |slice| slice.as_ptr()), properties.map_or(0, |slice| slice.len().try_into().unwrap()), heap, bytes as _, bytecount as _, error.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WsWriteXmlBufferToBytes(writer, xmlbuffer, encoding.unwrap_or(core::mem::zeroed()) as _, properties.unwrap_or(core::mem::zeroed()) as _, propertycount, heap, bytes as _, bytecount as _, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]

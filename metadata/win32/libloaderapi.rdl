@@ -39,11 +39,11 @@ mod Windows {
         const FIND_RESOURCE_DIRECTORY_NAMES: i32 = 512;
         const FIND_RESOURCE_DIRECTORY_TYPES: i32 = 256;
         #[library("KERNEL32.dll")]
-        extern fn FindResourceExW(#[in] #[opt] hModule: HMODULE, #[in] lpType: LPCWSTR, #[in] lpName: LPCWSTR, #[in] wLanguage: WORD) -> #[nullable] HRSRC;
+        extern fn FindResourceExW(#[in] #[opt] hModule: HMODULE, #[in] lpType: LPCWSTR, #[in] lpName: LPCWSTR, #[in] wLanguage: WORD) -> HRSRC;
         #[library("KERNEL32.dll")]
-        extern fn FindResourceW(#[in] #[opt] hModule: HMODULE, #[in] lpName: LPCWSTR, #[in] lpType: LPCWSTR) -> #[nullable] HRSRC;
+        extern fn FindResourceW(#[in] #[opt] hModule: HMODULE, #[in] lpName: LPCWSTR, #[in] lpType: LPCWSTR) -> HRSRC;
         #[library("KERNEL32.dll")]
-        extern fn FindStringOrdinal(#[in] dwFindStringOrdinalFlags: DWORD, #[in] #[readable(entry, cchSource)] lpStringSource: LPCWSTR, #[in] cchSource: i32, #[in] #[readable(entry, cchValue)] lpStringValue: LPCWSTR, #[in] cchValue: i32, #[in] bIgnoreCase: BOOL) -> i32;
+        extern fn FindStringOrdinal(#[in] dwFindStringOrdinalFlags: DWORD, #[buffer(cchSource)] #[in] lpStringSource: LPCWSTR, #[in] cchSource: i32, #[buffer(cchValue)] #[in] lpStringValue: LPCWSTR, #[in] cchValue: i32, #[in] bIgnoreCase: BOOL) -> i32;
         #[library("KERNEL32.dll")]
         extern fn FreeLibrary(#[in] hLibModule: HMODULE) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -55,9 +55,9 @@ mod Windows {
         const GET_MODULE_HANDLE_EX_FLAG_PIN: i32 = 1;
         const GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT: i32 = 2;
         #[library("KERNEL32.dll")]
-        extern fn GetModuleFileNameA(#[in] #[opt] hModule: HMODULE, #[incomplete] #[out] #[writable(entry, nSize)] lpFilename: LPSTR, #[in] nSize: DWORD) -> DWORD;
+        extern fn GetModuleFileNameA(#[in] #[opt] hModule: HMODULE, #[buffer(nSize)] #[incomplete] #[out] lpFilename: LPSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetModuleFileNameW(#[in] #[opt] hModule: HMODULE, #[incomplete] #[out] #[writable(entry, nSize)] lpFilename: LPWSTR, #[in] nSize: DWORD) -> DWORD;
+        extern fn GetModuleFileNameW(#[in] #[opt] hModule: HMODULE, #[buffer(nSize)] #[incomplete] #[out] lpFilename: LPWSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn GetModuleHandleA(#[in] #[opt] lpModuleName: LPCSTR) -> HMODULE;
         #[library("KERNEL32.dll")]
@@ -83,27 +83,27 @@ mod Windows {
         const LOAD_LIBRARY_SEARCH_USER_DIRS: i32 = 1024;
         const LOAD_WITH_ALTERED_SEARCH_PATH: i32 = 8;
         #[library("KERNEL32.dll")]
-        extern fn LoadLibraryA(#[in] lpLibFileName: LPCSTR) -> #[nullable] HMODULE;
+        extern fn LoadLibraryA(#[in] lpLibFileName: LPCSTR) -> HMODULE;
         #[library("KERNEL32.dll")]
-        extern fn LoadLibraryExA(#[in] lpLibFileName: LPCSTR, #[reserved] hFile: HANDLE, #[in] dwFlags: DWORD) -> #[nullable] HMODULE;
+        extern fn LoadLibraryExA(#[in] lpLibFileName: LPCSTR, #[reserved] hFile: HANDLE, #[in] dwFlags: DWORD) -> HMODULE;
         #[library("KERNEL32.dll")]
-        extern fn LoadLibraryExW(#[in] lpLibFileName: LPCWSTR, #[reserved] hFile: HANDLE, #[in] dwFlags: DWORD) -> #[nullable] HMODULE;
+        extern fn LoadLibraryExW(#[in] lpLibFileName: LPCWSTR, #[reserved] hFile: HANDLE, #[in] dwFlags: DWORD) -> HMODULE;
         #[library("KERNEL32.dll")]
-        extern fn LoadLibraryW(#[in] lpLibFileName: LPCWSTR) -> #[nullable] HMODULE;
+        extern fn LoadLibraryW(#[in] lpLibFileName: LPCWSTR) -> HMODULE;
         #[library("KERNEL32.dll")]
-        extern fn LoadResource(#[in] #[opt] hModule: HMODULE, #[in] hResInfo: HRSRC) -> #[nullable] HGLOBAL;
+        extern fn LoadResource(#[in] #[opt] hModule: HMODULE, #[in] hResInfo: HRSRC) -> HGLOBAL;
         #[library("USER32.dll")]
-        extern fn LoadStringA(#[in] #[opt] hInstance: HINSTANCE, #[in] uID: UINT, #[incomplete] #[out] #[writable(entry, cchBufferMax)] lpBuffer: LPSTR, #[in] cchBufferMax: i32) -> i32;
+        extern fn LoadStringA(#[in] #[opt] hInstance: HINSTANCE, #[in] uID: UINT, #[buffer(cchBufferMax)] #[incomplete] #[out] lpBuffer: LPSTR, #[in] cchBufferMax: i32) -> i32;
         #[library("USER32.dll")]
-        extern fn LoadStringW(#[in] #[opt] hInstance: HINSTANCE, #[in] uID: UINT, #[incomplete] #[out] #[writable(entry, cchBufferMax)] lpBuffer: LPWSTR, #[in] cchBufferMax: i32) -> i32;
+        extern fn LoadStringW(#[in] #[opt] hInstance: HINSTANCE, #[in] uID: UINT, #[buffer(cchBufferMax)] #[incomplete] #[out] lpBuffer: LPWSTR, #[in] cchBufferMax: i32) -> i32;
         #[library("KERNEL32.dll")]
         extern fn LockResource(#[in] hResData: HGLOBAL) -> LPVOID;
         type PCREDIRECTION_DESCRIPTOR = *const REDIRECTION_DESCRIPTOR;
         type PCREDIRECTION_FUNCTION_DESCRIPTOR = *const REDIRECTION_FUNCTION_DESCRIPTOR;
         type PDLL_DIRECTORY_COOKIE = *mut *mut void;
         type PENUMUILANG = *mut ENUMUILANG;
-        extern fn PGET_MODULE_HANDLE_EXA(#[in] dwFlags: DWORD, #[in] #[opt] lpModuleName: LPCSTR, #[out] #[out_ptr] phModule: *mut HMODULE) -> BOOL;
-        extern fn PGET_MODULE_HANDLE_EXW(#[in] dwFlags: DWORD, #[in] #[opt] lpModuleName: LPCWSTR, #[out] #[out_ptr] phModule: *mut HMODULE) -> BOOL;
+        extern fn PGET_MODULE_HANDLE_EXA(#[in] dwFlags: DWORD, #[in] #[opt] lpModuleName: LPCSTR, #[out] phModule: *mut HMODULE) -> BOOL;
+        extern fn PGET_MODULE_HANDLE_EXW(#[in] dwFlags: DWORD, #[in] #[opt] lpModuleName: LPCWSTR, #[out] phModule: *mut HMODULE) -> BOOL;
         type PREDIRECTION_DESCRIPTOR = *mut REDIRECTION_DESCRIPTOR;
         type PREDIRECTION_FUNCTION_DESCRIPTOR = *mut REDIRECTION_FUNCTION_DESCRIPTOR;
         struct REDIRECTION_DESCRIPTOR {

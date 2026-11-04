@@ -82,14 +82,14 @@ where
 }
 #[cfg(all(feature = "shared", feature = "shtypes"))]
 #[inline]
-pub unsafe fn SHCreateShellItemArray<P1>(pidlparent: Option<super::LPCITEMIDLIST>, psf: P1, ppidl: Option<&[super::LPCITEMIDLIST]>) -> windows_core::Result<IShellItemArray>
+pub unsafe fn SHCreateShellItemArray<P1>(pidlparent: Option<super::LPCITEMIDLIST>, psf: P1, cidl: super::UINT, ppidl: Option<*const super::LPCITEMIDLIST>) -> windows_core::Result<IShellItemArray>
 where
     P1: windows_core::Param<IShellFolder>,
 {
     windows_core::link!("shell32.dll" "system" fn SHCreateShellItemArray(pidlparent : super::LPCITEMIDLIST, psf : *mut core::ffi::c_void, cidl : super::UINT, ppidl : *const super::LPCITEMIDLIST, ppsiitemarray : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SHCreateShellItemArray(pidlparent.unwrap_or(core::mem::zeroed()) as _, psf.param().abi(), ppidl.map_or(0, |slice| slice.len().try_into().unwrap()), ppidl.map_or(core::ptr::null(), |slice| slice.as_ptr()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        SHCreateShellItemArray(pidlparent.unwrap_or(core::mem::zeroed()) as _, psf.param().abi(), cidl, ppidl.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[cfg(all(feature = "guiddef", feature = "objidl"))]
@@ -103,11 +103,11 @@ where
 }
 #[cfg(all(feature = "shared", feature = "shtypes"))]
 #[inline]
-pub unsafe fn SHCreateShellItemArrayFromIDLists(rgpidl: &[super::LPCITEMIDLIST]) -> windows_core::Result<IShellItemArray> {
+pub unsafe fn SHCreateShellItemArrayFromIDLists(cidl: super::UINT, rgpidl: *const super::LPCITEMIDLIST) -> windows_core::Result<IShellItemArray> {
     windows_core::link!("shell32.dll" "system" fn SHCreateShellItemArrayFromIDLists(cidl : super::UINT, rgpidl : *const super::LPCITEMIDLIST, ppsiitemarray : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SHCreateShellItemArrayFromIDLists(rgpidl.len().try_into().unwrap(), rgpidl.as_ptr(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        SHCreateShellItemArrayFromIDLists(cidl, rgpidl, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "guiddef")]
@@ -1977,7 +1977,10 @@ impl IAssocHandler_Vtbl {
                         ppinvoker.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppinvoker.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2711,7 +2714,10 @@ impl ICategoryProvider_Vtbl {
                         penum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        penum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2763,8 +2769,8 @@ impl IColumnManager {
         unsafe { (windows_core::Interface::vtable(self).GetColumns)(windows_core::Interface::as_raw(self), dwflags, rgkeyorder as _, ccolumns) }
     }
     #[cfg(all(feature = "shared", feature = "wtypes"))]
-    pub unsafe fn SetColumns(&self, rgkeyorder: &[super::PROPERTYKEY]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetColumns)(windows_core::Interface::as_raw(self), rgkeyorder.as_ptr(), rgkeyorder.len().try_into().unwrap()) }
+    pub unsafe fn SetColumns(&self, rgkeyorder: *const super::PROPERTYKEY, cvisible: super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetColumns)(windows_core::Interface::as_raw(self), rgkeyorder, cvisible) }
     }
 }
 #[repr(C)]
@@ -3713,7 +3719,10 @@ impl IDataObjectProvider_Vtbl {
                         dataobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        dataobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4218,7 +4227,10 @@ impl IDeskBar_Vtbl {
                         ppunkclient.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunkclient.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4451,7 +4463,10 @@ impl IDesktopWallpaper_Vtbl {
                         items.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        items.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4546,7 +4561,10 @@ impl IDestinationStreamFactory_Vtbl {
                         ppstm.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstm.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4957,7 +4975,10 @@ impl IEnumExplorerCommand_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5047,7 +5068,10 @@ impl IEnumExtraSearch_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5137,7 +5161,10 @@ impl IEnumFullIDList_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5227,7 +5254,10 @@ impl IEnumIDList_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5317,7 +5347,10 @@ impl IEnumObjects_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5407,7 +5440,10 @@ impl IEnumResources_Vtbl {
                         ppenumr.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumr.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5497,7 +5533,10 @@ impl IEnumShellItems_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6176,7 +6215,10 @@ impl IExplorerCommand_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6440,8 +6482,8 @@ impl core::ops::Deref for IFileDialog {
 windows_core::imp::interface_hierarchy!(IFileDialog, windows_core::IUnknown, IModalWindow);
 impl IFileDialog {
     #[cfg(all(feature = "shared", feature = "shtypes"))]
-    pub unsafe fn SetFileTypes(&self, rgfilterspec: &[super::COMDLG_FILTERSPEC]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetFileTypes)(windows_core::Interface::as_raw(self), rgfilterspec.len().try_into().unwrap(), rgfilterspec.as_ptr()) }
+    pub unsafe fn SetFileTypes(&self, cfiletypes: super::UINT, rgfilterspec: *const super::COMDLG_FILTERSPEC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetFileTypes)(windows_core::Interface::as_raw(self), cfiletypes, rgfilterspec) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetFileTypeIndex(&self, ifiletype: super::UINT) -> windows_core::HRESULT {
@@ -6687,7 +6729,10 @@ impl IFileDialog_Vtbl {
                         ppsi.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsi.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6699,7 +6744,10 @@ impl IFileDialog_Vtbl {
                         ppsi.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsi.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6741,7 +6789,10 @@ impl IFileDialog_Vtbl {
                         ppsi.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsi.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7565,7 +7616,10 @@ impl IFileOpenDialog_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7577,7 +7631,10 @@ impl IFileOpenDialog_Vtbl {
                         ppsai.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsai.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8396,7 +8453,10 @@ impl IFileSaveDialog_Vtbl {
                         ppstore.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstore.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8468,7 +8528,10 @@ impl IFileSyncMergeHandler_Vtbl {
                         updatestatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        updatestatus.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9041,8 +9104,8 @@ impl IFolderView2 {
         unsafe { (windows_core::Interface::vtable(self).GetSortColumnCount)(windows_core::Interface::as_raw(self), pccolumns as _) }
     }
     #[cfg(all(feature = "shared", feature = "wtypes"))]
-    pub unsafe fn SetSortColumns(&self, rgsortcolumns: &[SORTCOLUMN]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSortColumns)(windows_core::Interface::as_raw(self), rgsortcolumns.as_ptr(), rgsortcolumns.len().try_into().unwrap()) }
+    pub unsafe fn SetSortColumns(&self, rgsortcolumns: *const SORTCOLUMN, ccolumns: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetSortColumns)(windows_core::Interface::as_raw(self), rgsortcolumns, ccolumns) }
     }
     #[cfg(all(feature = "shared", feature = "wtypes"))]
     pub unsafe fn GetSortColumns(&self, rgsortcolumns: *mut SORTCOLUMN, ccolumns: i32) -> windows_core::HRESULT {
@@ -9303,7 +9366,10 @@ impl IFolderView2_Vtbl {
                         ppsia.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsia.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10670,11 +10736,11 @@ impl IKnownFolderManager {
         }
     }
     #[cfg(all(feature = "shared", feature = "shtypes", feature = "windef"))]
-    pub unsafe fn Redirect<P3>(&self, rfid: *const super::KNOWNFOLDERID, hwnd: Option<super::HWND>, flags: super::KF_REDIRECT_FLAGS, psztargetpath: P3, pexclusion: Option<&[super::KNOWNFOLDERID]>, ppszerror: Option<*mut windows_core::PWSTR>) -> windows_core::HRESULT
+    pub unsafe fn Redirect<P3>(&self, rfid: *const super::KNOWNFOLDERID, hwnd: Option<super::HWND>, flags: super::KF_REDIRECT_FLAGS, psztargetpath: P3, cfolders: super::UINT, pexclusion: Option<*const super::KNOWNFOLDERID>, ppszerror: Option<*mut windows_core::PWSTR>) -> windows_core::HRESULT
     where
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Redirect)(windows_core::Interface::as_raw(self), rfid, hwnd.unwrap_or(core::mem::zeroed()) as _, flags, psztargetpath.param().abi(), pexclusion.map_or(0, |slice| slice.len().try_into().unwrap()), pexclusion.map_or(core::ptr::null(), |slice| slice.as_ptr()), ppszerror.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Redirect)(windows_core::Interface::as_raw(self), rfid, hwnd.unwrap_or(core::mem::zeroed()) as _, flags, psztargetpath.param().abi(), cfolders, pexclusion.unwrap_or(core::mem::zeroed()) as _, ppszerror.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -10758,7 +10824,10 @@ impl IKnownFolderManager_Vtbl {
                         ppkf.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppkf.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10770,7 +10839,10 @@ impl IKnownFolderManager_Vtbl {
                         ppkf.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppkf.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10794,7 +10866,10 @@ impl IKnownFolderManager_Vtbl {
                         ppkf.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppkf.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10806,7 +10881,10 @@ impl IKnownFolderManager_Vtbl {
                         ppkf.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppkf.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11488,7 +11566,10 @@ impl INameSpaceTreeControl_Vtbl {
                         ppsiarootitems.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsiarootitems.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11512,7 +11593,10 @@ impl INameSpaceTreeControl_Vtbl {
                         psiaitems.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        psiaitems.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11548,7 +11632,10 @@ impl INameSpaceTreeControl_Vtbl {
                         ppsinext.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsinext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11560,7 +11647,10 @@ impl INameSpaceTreeControl_Vtbl {
                         ppsiout.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsiout.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11843,8 +11933,8 @@ impl INetworkFolderInternal {
         unsafe { (windows_core::Interface::vtable(self).GetIDList)(windows_core::Interface::as_raw(self), idlist as _) }
     }
     #[cfg(all(feature = "shared", feature = "shtypes"))]
-    pub unsafe fn GetProvider(&self, itemids: Option<&[super::LPCITEMIDLIST]>, providermaxlength: super::UINT, provider: windows_core::PWSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetProvider)(windows_core::Interface::as_raw(self), itemids.map_or(0, |slice| slice.len().try_into().unwrap()), itemids.map_or(core::ptr::null(), |slice| slice.as_ptr()), providermaxlength, provider) }
+    pub unsafe fn GetProvider(&self, itemidcount: super::UINT, itemids: Option<*const super::LPCITEMIDLIST>, providermaxlength: super::UINT, provider: windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetProvider)(windows_core::Interface::as_raw(self), itemidcount, itemids.unwrap_or(core::mem::zeroed()) as _, providermaxlength, provider) }
     }
 }
 #[repr(C)]
@@ -14068,7 +14158,10 @@ impl IRelatedItem_Vtbl {
                         ppsi.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsi.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14270,20 +14363,20 @@ impl ISearchFolderItemFactory {
         unsafe { (windows_core::Interface::vtable(self).SetIconSize)(windows_core::Interface::as_raw(self), iiconsize) }
     }
     #[cfg(all(feature = "shared", feature = "wtypes"))]
-    pub unsafe fn SetVisibleColumns(&self, rgkey: &[super::PROPERTYKEY]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetVisibleColumns)(windows_core::Interface::as_raw(self), rgkey.len().try_into().unwrap(), rgkey.as_ptr()) }
+    pub unsafe fn SetVisibleColumns(&self, cvisiblecolumns: super::UINT, rgkey: *const super::PROPERTYKEY) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetVisibleColumns)(windows_core::Interface::as_raw(self), cvisiblecolumns, rgkey) }
     }
     #[cfg(all(feature = "shared", feature = "wtypes"))]
-    pub unsafe fn SetSortColumns(&self, rgsortcolumns: &[SORTCOLUMN]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSortColumns)(windows_core::Interface::as_raw(self), rgsortcolumns.len().try_into().unwrap(), rgsortcolumns.as_ptr()) }
+    pub unsafe fn SetSortColumns(&self, csortcolumns: super::UINT, rgsortcolumns: *const SORTCOLUMN) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetSortColumns)(windows_core::Interface::as_raw(self), csortcolumns, rgsortcolumns) }
     }
     #[cfg(all(feature = "shared", feature = "wtypes"))]
     pub unsafe fn SetGroupColumn(&self, keygroup: *const super::PROPERTYKEY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetGroupColumn)(windows_core::Interface::as_raw(self), keygroup) }
     }
     #[cfg(all(feature = "shared", feature = "wtypes"))]
-    pub unsafe fn SetStacks(&self, rgstackkeys: &[super::PROPERTYKEY]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetStacks)(windows_core::Interface::as_raw(self), rgstackkeys.len().try_into().unwrap(), rgstackkeys.as_ptr()) }
+    pub unsafe fn SetStacks(&self, cstackkeys: super::UINT, rgstackkeys: *const super::PROPERTYKEY) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetStacks)(windows_core::Interface::as_raw(self), cstackkeys, rgstackkeys) }
     }
     pub unsafe fn SetScope<P0>(&self, psiascope: P0) -> windows_core::HRESULT
     where
@@ -14640,8 +14733,8 @@ impl IShellBrowser {
         unsafe { (windows_core::Interface::vtable(self).OnViewWindowActive)(windows_core::Interface::as_raw(self), pshv.param().abi()) }
     }
     #[cfg(all(feature = "commctrl", feature = "shared"))]
-    pub unsafe fn SetToolbarItems(&self, lpbuttons: Option<&[super::TBBUTTON]>, uflags: super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetToolbarItems)(windows_core::Interface::as_raw(self), core::mem::transmute(lpbuttons.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuttons.map_or(0, |slice| slice.len().try_into().unwrap()), uflags) }
+    pub unsafe fn SetToolbarItems(&self, lpbuttons: Option<LPTBBUTTONSB>, nbuttons: super::UINT, uflags: super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetToolbarItems)(windows_core::Interface::as_raw(self), lpbuttons.unwrap_or(core::mem::zeroed()) as _, nbuttons, uflags) }
     }
 }
 #[cfg(feature = "oleidl")]
@@ -14759,7 +14852,10 @@ impl IShellBrowser_Vtbl {
                         ppstrm.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstrm.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14783,7 +14879,10 @@ impl IShellBrowser_Vtbl {
                         ppshv.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppshv.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14912,16 +15011,16 @@ impl IShellFolder {
         unsafe { (windows_core::Interface::vtable(self).CreateViewObject)(windows_core::Interface::as_raw(self), hwndowner.unwrap_or(core::mem::zeroed()) as _, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(all(feature = "shared", feature = "shtypes"))]
-    pub unsafe fn GetAttributesOf(&self, apidl: Option<&[super::LPCITEMIDLIST]>, rgfinout: *mut SFGAOF) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetAttributesOf)(windows_core::Interface::as_raw(self), apidl.map_or(0, |slice| slice.len().try_into().unwrap()), apidl.map_or(core::ptr::null(), |slice| slice.as_ptr()), rgfinout as _) }
+    pub unsafe fn GetAttributesOf(&self, cidl: super::UINT, apidl: Option<*const super::LPCITEMIDLIST>, rgfinout: *mut SFGAOF) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAttributesOf)(windows_core::Interface::as_raw(self), cidl, apidl.unwrap_or(core::mem::zeroed()) as _, rgfinout as _) }
     }
     #[cfg(all(feature = "guiddef", feature = "shared", feature = "shtypes", feature = "windef"))]
-    pub unsafe fn GetUIObjectOf<T>(&self, hwndowner: Option<super::HWND>, apidl: Option<&[super::LPCITEMIDLIST]>, rgfreserved: Option<*mut super::UINT>) -> windows_core::Result<T>
+    pub unsafe fn GetUIObjectOf<T>(&self, hwndowner: Option<super::HWND>, cidl: super::UINT, apidl: Option<*const super::LPCITEMIDLIST>, rgfreserved: Option<*mut super::UINT>) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetUIObjectOf)(windows_core::Interface::as_raw(self), hwndowner.unwrap_or(core::mem::zeroed()) as _, apidl.map_or(0, |slice| slice.len().try_into().unwrap()), apidl.map_or(core::ptr::null(), |slice| slice.as_ptr()), &T::IID, rgfreserved.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetUIObjectOf)(windows_core::Interface::as_raw(self), hwndowner.unwrap_or(core::mem::zeroed()) as _, cidl, apidl.unwrap_or(core::mem::zeroed()) as _, &T::IID, rgfreserved.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(all(feature = "shared", feature = "shtypes"))]
     pub unsafe fn GetDisplayNameOf(&self, pidl: Option<super::LPCITEMIDLIST>, uflags: SHGDNF, pname: *mut super::STRRET) -> windows_core::HRESULT {
@@ -15010,7 +15109,10 @@ impl IShellFolder_Vtbl {
                         ppenumidlist.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumidlist.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -15175,7 +15277,10 @@ impl IShellFolder2_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -15405,7 +15510,10 @@ impl IShellItem_Vtbl {
                         ppsi.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsi.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -15469,12 +15577,12 @@ impl IShellItem2 {
         unsafe { (windows_core::Interface::vtable(self).GetPropertyStoreWithCreateObject)(windows_core::Interface::as_raw(self), flags, punkcreateobject.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(all(feature = "guiddef", feature = "propsys", feature = "shared", feature = "wtypes"))]
-    pub unsafe fn GetPropertyStoreForKeys<T>(&self, rgkeys: &[super::PROPERTYKEY], flags: super::GETPROPERTYSTOREFLAGS) -> windows_core::Result<T>
+    pub unsafe fn GetPropertyStoreForKeys<T>(&self, rgkeys: *const super::PROPERTYKEY, ckeys: super::UINT, flags: super::GETPROPERTYSTOREFLAGS) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetPropertyStoreForKeys)(windows_core::Interface::as_raw(self), rgkeys.as_ptr(), rgkeys.len().try_into().unwrap(), flags, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetPropertyStoreForKeys)(windows_core::Interface::as_raw(self), rgkeys, ckeys, flags, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(all(feature = "guiddef", feature = "shared", feature = "wtypes"))]
     pub unsafe fn GetPropertyDescriptionList<T>(&self, keytype: *const super::PROPERTYKEY) -> windows_core::Result<T>
@@ -15828,7 +15936,10 @@ impl IShellItemArray_Vtbl {
                         ppsi.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsi.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -15840,7 +15951,10 @@ impl IShellItemArray_Vtbl {
                         ppenumshellitems.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumshellitems.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -16097,7 +16211,10 @@ impl IShellItemResources_Vtbl {
                         ppenumr.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumr.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -16416,7 +16533,10 @@ impl IShellLibrary_Vtbl {
                         ppsisavedto.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsisavedto.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -16428,7 +16548,10 @@ impl IShellLibrary_Vtbl {
                         ppsisavedto.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsisavedto.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -18177,12 +18300,12 @@ impl ITaskbarList3 {
         unsafe { (windows_core::Interface::vtable(self).SetTabActive)(windows_core::Interface::as_raw(self), hwndtab, hwndmdi, dwreserved) }
     }
     #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
-    pub unsafe fn ThumbBarAddButtons(&self, hwnd: super::HWND, pbutton: &[THUMBBUTTON]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ThumbBarAddButtons)(windows_core::Interface::as_raw(self), hwnd, pbutton.len().try_into().unwrap(), core::mem::transmute(pbutton.as_ptr())) }
+    pub unsafe fn ThumbBarAddButtons(&self, hwnd: super::HWND, cbuttons: super::UINT, pbutton: LPTHUMBBUTTON) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ThumbBarAddButtons)(windows_core::Interface::as_raw(self), hwnd, cbuttons, pbutton) }
     }
     #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
-    pub unsafe fn ThumbBarUpdateButtons(&self, hwnd: super::HWND, pbutton: &[THUMBBUTTON]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ThumbBarUpdateButtons)(windows_core::Interface::as_raw(self), hwnd, pbutton.len().try_into().unwrap(), core::mem::transmute(pbutton.as_ptr())) }
+    pub unsafe fn ThumbBarUpdateButtons(&self, hwnd: super::HWND, cbuttons: super::UINT, pbutton: LPTHUMBBUTTON) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ThumbBarUpdateButtons)(windows_core::Interface::as_raw(self), hwnd, cbuttons, pbutton) }
     }
     #[cfg(all(feature = "commctrl", feature = "windef"))]
     pub unsafe fn ThumbBarSetImageList(&self, hwnd: super::HWND, himl: Option<super::HIMAGELIST>) -> windows_core::HRESULT {
@@ -18484,12 +18607,12 @@ impl ITransferAdviseSink {
         unsafe { (windows_core::Interface::vtable(self).ConfirmEncryptionLoss)(windows_core::Interface::as_raw(self), psisource.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn FileFailure<P0, P1>(&self, psi: P0, pszitem: P1, hrerror: windows_core::HRESULT, mut pszrename: Option<&mut [u16]>) -> windows_core::HRESULT
+    pub unsafe fn FileFailure<P0, P1>(&self, psi: P0, pszitem: P1, hrerror: windows_core::HRESULT, pszrename: Option<windows_core::PWSTR>, cchrename: super::ULONG) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IShellItem>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FileFailure)(windows_core::Interface::as_raw(self), psi.param().abi(), pszitem.param().abi(), hrerror, core::mem::transmute(pszrename.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr())), pszrename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+        unsafe { (windows_core::Interface::vtable(self).FileFailure)(windows_core::Interface::as_raw(self), psi.param().abi(), pszitem.param().abi(), hrerror, pszrename.unwrap_or(core::mem::zeroed()) as _, cchrename) }
     }
     pub unsafe fn SubStreamFailure<P0, P1>(&self, psi: P0, pszstreamname: P1, hrerror: windows_core::HRESULT) -> windows_core::HRESULT
     where
@@ -18894,7 +19017,10 @@ impl ITransferSource_Vtbl {
                         ppsinew.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsinew.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -18906,7 +19032,10 @@ impl ITransferSource_Vtbl {
                         ppsinewdest.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsinewdest.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -18924,7 +19053,10 @@ impl ITransferSource_Vtbl {
                         ppsinewdest.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsinewdest.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -18936,7 +19068,10 @@ impl ITransferSource_Vtbl {
                         ppsinewdest.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsinewdest.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -18948,7 +19083,10 @@ impl ITransferSource_Vtbl {
                         ppsinew.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsinew.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

@@ -108,7 +108,7 @@ mod Windows {
         }
         const CABINETSTATE_VERSION: i32 = 2;
         #[library("SHELL32.dll")]
-        extern fn CDefFolderMenu_Create2(#[in] #[opt] pidlFolder: LPCITEMIDLIST, #[in] #[opt] hwnd: HWND, cidl: UINT, #[in] #[opt] #[readable(entry, cidl)] apidl: *mut LPCITEMIDLIST, #[in] #[opt] psf: IShellFolder, #[in] #[opt] pfn: LPFNDFMCALLBACK, nKeys: UINT, #[in] #[opt] #[readable(entry, nKeys)] ahkeys: *const HKEY, #[out] #[out_ptr] #[retval] ppcm: *mut IContextMenu) -> HRESULT;
+        extern fn CDefFolderMenu_Create2(#[in] #[opt] pidlFolder: LPCITEMIDLIST, #[in] #[opt] hwnd: HWND, cidl: UINT, #[buffer(cidl)] #[in] #[opt] apidl: *mut LPCITEMIDLIST, #[in] #[opt] psf: IShellFolder, #[in] #[opt] pfn: LPFNDFMCALLBACK, nKeys: UINT, #[buffer(nKeys)] #[in] #[opt] ahkeys: *const HKEY, #[out] #[retval] ppcm: *mut IContextMenu) -> HRESULT;
         #[encoding("ansi")]
         const CFSTR_AUTOPLAY_SHELLIDLISTS: String = "Autoplay Enumerated IDList Array";
         #[encoding("ansi")]
@@ -181,7 +181,7 @@ mod Windows {
             aoffset: [UINT; 1],
         }
         #[library("SHELL32.dll")]
-        extern fn CIDLData_CreateFromIDArray(#[in] pidlFolder: LPCITEMIDLIST, #[in] cidl: UINT, #[in] #[opt] #[readable(entry, cidl)] apidl: *mut LPCITEMIDLIST, #[out] #[out_ptr] #[retval] ppdtobj: *mut IDataObject) -> HRESULT;
+        extern fn CIDLData_CreateFromIDArray(#[in] pidlFolder: LPCITEMIDLIST, #[in] cidl: UINT, #[buffer(cidl)] #[in] #[opt] apidl: *mut LPCITEMIDLIST, #[out] #[retval] ppdtobj: *mut IDataObject) -> HRESULT;
         const CMDID_INTSHORTCUTCREATE: i32 = 1;
         #[packed(1)]
         struct COMPONENT {
@@ -581,17 +581,17 @@ mod Windows {
         #[guid(0xf490eb00_1240_11d1_9888_006097deacf9)]
         interface IActiveDesktop: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+            fn QueryInterface(&self, #[in] riid: &IID, #[out] ppv: *mut *mut void) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
             fn Release(&self) -> ULONG;
             fn ApplyChanges(&self, dwFlags: DWORD) -> HRESULT;
-            fn GetWallpaper(&self, #[out] #[writable(entry, cchWallpaper)] pwszWallpaper: PWSTR, cchWallpaper: UINT, dwFlags: DWORD) -> HRESULT;
+            fn GetWallpaper(&self, #[buffer(cchWallpaper)] #[out] pwszWallpaper: PWSTR, cchWallpaper: UINT, dwFlags: DWORD) -> HRESULT;
             fn SetWallpaper(&self, #[in] pwszWallpaper: PCWSTR, dwReserved: DWORD) -> HRESULT;
             fn GetWallpaperOptions(&self, #[in] #[out] pwpo: LPWALLPAPEROPT, dwReserved: DWORD) -> HRESULT;
             fn SetWallpaperOptions(&self, #[in] pwpo: LPCWALLPAPEROPT, dwReserved: DWORD) -> HRESULT;
-            fn GetPattern(&self, #[out] #[writable(entry, cchPattern)] pwszPattern: PWSTR, cchPattern: UINT, dwReserved: DWORD) -> HRESULT;
+            fn GetPattern(&self, #[buffer(cchPattern)] #[out] pwszPattern: PWSTR, cchPattern: UINT, dwReserved: DWORD) -> HRESULT;
             fn SetPattern(&self, #[in] pwszPattern: PCWSTR, dwReserved: DWORD) -> HRESULT;
             fn GetDesktopItemOptions(&self, #[in] #[out] pco: LPCOMPONENTSOPT, dwReserved: DWORD) -> HRESULT;
             fn SetDesktopItemOptions(&self, #[in] pco: LPCCOMPONENTSOPT, dwReserved: DWORD) -> HRESULT;
@@ -638,12 +638,12 @@ mod Windows {
         }
         #[guid(0x000214eb_0000_0000_c000_000000000046)]
         interface IExtractIconA: IUnknown {
-            fn GetIconLocation(&self, uFlags: UINT, #[out] #[writable(entry, cchMax)] pszIconFile: PSTR, cchMax: UINT, #[out] piIndex: *mut i32, #[out] pwFlags: *mut UINT) -> HRESULT;
+            fn GetIconLocation(&self, uFlags: UINT, #[buffer(cchMax)] #[out] pszIconFile: PSTR, cchMax: UINT, #[out] piIndex: *mut i32, #[out] pwFlags: *mut UINT) -> HRESULT;
             fn Extract(&self, #[in] pszFile: PCSTR, nIconIndex: UINT, #[opt] #[out] phiconLarge: *mut HICON, #[opt] #[out] phiconSmall: *mut HICON, nIconSize: UINT) -> HRESULT;
         }
         #[guid(0x000214fa_0000_0000_c000_000000000046)]
         interface IExtractIconW: IUnknown {
-            fn GetIconLocation(&self, uFlags: UINT, #[out] #[writable(entry, cchMax)] pszIconFile: PWSTR, cchMax: UINT, #[out] piIndex: *mut i32, #[out] pwFlags: *mut UINT) -> HRESULT;
+            fn GetIconLocation(&self, uFlags: UINT, #[buffer(cchMax)] #[out] pszIconFile: PWSTR, cchMax: UINT, #[out] piIndex: *mut i32, #[out] pwFlags: *mut UINT) -> HRESULT;
             fn Extract(&self, #[in] pszFile: PCWSTR, nIconIndex: UINT, #[opt] #[out] phiconLarge: *mut HICON, #[opt] #[out] phiconSmall: *mut HICON, nIconSize: UINT) -> HRESULT;
         }
         #[library("SHELL32.dll")]
@@ -677,7 +677,7 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn ILIsParent(#[in] pidl1: LPCITEMIDLIST, #[in] pidl2: LPCITEMIDLIST, fImmediate: BOOL) -> BOOL;
         #[library("SHELL32.dll")]
-        extern fn ILLoadFromStreamEx(#[in] pstm: IStream, #[out] #[out_ptr] pidl: *mut LPITEMIDLIST) -> HRESULT;
+        extern fn ILLoadFromStreamEx(#[in] pstm: IStream, #[out] pidl: *mut LPITEMIDLIST) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn ILRemoveLastID(#[in] #[opt] #[out] pidl: LPITEMIDLIST) -> BOOL;
         #[library("SHELL32.dll")]
@@ -708,7 +708,7 @@ mod Windows {
         }
         #[guid(0x00021500_0000_0000_c000_000000000046)]
         interface IQueryInfo: IUnknown {
-            fn GetInfoTip(&self, dwFlags: DWORD, #[out] #[out_ptr] ppwszTip: *mut PWSTR) -> HRESULT;
+            fn GetInfoTip(&self, dwFlags: DWORD, #[out] ppwszTip: *mut PWSTR) -> HRESULT;
             fn GetInfoFlags(&self, #[out] pdwFlags: *mut DWORD) -> HRESULT;
         }
         const ISHCUTCMDID_COMMITHISTORY: i32 = 2;
@@ -722,8 +722,8 @@ mod Windows {
         const IS_VALIDSTATEBITS: u32 = 3221225479;
         #[guid(0x09f656a2_41af_480c_88f7_16cc0d164615)]
         interface ISearchContext: IUnknown {
-            fn GetSearchUrl(&self, #[out] #[out_ptr] pbstrSearchUrl: *mut BSTR) -> HRESULT;
-            fn GetSearchText(&self, #[out] #[out_ptr] pbstrSearchText: *mut BSTR) -> HRESULT;
+            fn GetSearchUrl(&self, #[out] pbstrSearchUrl: *mut BSTR) -> HRESULT;
+            fn GetSearchText(&self, #[out] pbstrSearchText: *mut BSTR) -> HRESULT;
             fn GetSearchStyle(&self, #[out] pdwSearchStyle: *mut DWORD) -> HRESULT;
         }
         #[guid(0xd82be2b1_5764_11d0_a96e_00c04fd705a2)]
@@ -751,7 +751,7 @@ mod Windows {
             fn AutoArrange(&self) -> HRESULT;
             fn GetAutoArrange(&self) -> HRESULT;
             fn AddObject(&self, #[in] pidl: LPITEMIDLIST, #[out] puItem: *mut UINT) -> HRESULT;
-            fn GetObject(&self, #[out] #[out_ptr] ppidl: *mut LPITEMIDLIST, uItem: UINT) -> HRESULT;
+            fn GetObject(&self, #[out] ppidl: *mut LPITEMIDLIST, uItem: UINT) -> HRESULT;
             fn RemoveObject(&self, #[in] #[opt] pidl: LPITEMIDLIST, #[out] puItem: *mut UINT) -> HRESULT;
             fn GetObjectCount(&self, #[out] puCount: *mut UINT) -> HRESULT;
             fn SetObjectCount(&self, uCount: UINT, dwFlags: UINT) -> HRESULT;
@@ -759,7 +759,7 @@ mod Windows {
             fn RefreshObject(&self, #[in] pidl: LPITEMIDLIST, #[out] puItem: *mut UINT) -> HRESULT;
             fn SetRedraw(&self, bRedraw: BOOL) -> HRESULT;
             fn GetSelectedCount(&self, #[out] puSelected: *mut UINT) -> HRESULT;
-            fn GetSelectedObjects(&self, #[out] #[writable(success, *puItems, indirect)] pppidl: *mut *mut LPCITEMIDLIST, #[out] puItems: *mut UINT) -> HRESULT;
+            fn GetSelectedObjects(&self, #[incomplete] #[out] pppidl: *mut *mut LPCITEMIDLIST, #[out] puItems: *mut UINT) -> HRESULT;
             fn IsDropOnSource(&self, #[in] #[opt] pDropTarget: IDropTarget) -> HRESULT;
             fn GetDragPoint(&self, #[out] ppt: *mut POINT) -> HRESULT;
             fn GetDropPoint(&self, #[out] ppt: *mut POINT) -> HRESULT;
@@ -769,7 +769,7 @@ mod Windows {
             fn SetClipboard(&self, bMove: BOOL) -> HRESULT;
             fn SetPoints(&self, #[in] pDataObject: IDataObject) -> HRESULT;
             fn GetItemSpacing(&self, #[out] pSpacing: *mut ITEMSPACING) -> HRESULT;
-            fn SetCallback(&self, #[in] #[opt] pNewCB: IShellFolderViewCB, #[nullable] #[out] #[out_ptr] ppOldCB: *mut IShellFolderViewCB) -> HRESULT;
+            fn SetCallback(&self, #[in] #[opt] pNewCB: IShellFolderViewCB, #[out] ppOldCB: *mut IShellFolderViewCB) -> HRESULT;
             fn Select(&self, dwFlags: UINT) -> HRESULT;
             fn QuerySupport(&self, #[in] #[out] pdwSupport: *mut UINT) -> HRESULT;
             fn SetAutomationObject(&self, #[in] #[opt] pdisp: IDispatch) -> HRESULT;
@@ -800,11 +800,11 @@ mod Windows {
         }
         #[guid(0xac60f6a0_0fd9_11d0_99cb_00c04fd64497)]
         interface IURLSearchHook: IUnknown {
-            fn Translate(&self, #[out] #[writable(entry, cchBufferSize)] pwszSearchURL: PWSTR, cchBufferSize: DWORD) -> HRESULT;
+            fn Translate(&self, #[buffer(cchBufferSize)] #[out] pwszSearchURL: PWSTR, cchBufferSize: DWORD) -> HRESULT;
         }
         #[guid(0x5ee44da4_6d32_46e3_86bc_07540dedd0e0)]
         interface IURLSearchHook2: IURLSearchHook {
-            fn TranslateWithSearchContext(&self, #[out] #[writable(entry, cchBufferSize)] pwszSearchURL: PWSTR, cchBufferSize: DWORD, #[in] #[opt] pSearchContext: ISearchContext) -> HRESULT;
+            fn TranslateWithSearchContext(&self, #[buffer(cchBufferSize)] #[out] pwszSearchURL: PWSTR, cchBufferSize: DWORD, #[in] #[opt] pSearchContext: ISearchContext) -> HRESULT;
         }
         #[library("SHELL32.dll")]
         extern fn IsNetDrive(iDrive: i32) -> i32;
@@ -1026,25 +1026,25 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn PathCleanupSpec(#[in] #[opt] pszDir: PCWSTR, #[in] #[out] pszSpec: PWSTR) -> i32;
         #[library("SHELL32.dll")]
-        extern fn PathGetShortPath(#[in] #[out] #[writable(entry, 260)] pszLongPath: PWSTR);
+        extern fn PathGetShortPath(#[buffer(260)] #[in] #[out] pszLongPath: PWSTR);
         #[library("SHELL32.dll")]
         extern fn PathIsExe(#[in] pszPath: PCWSTR) -> BOOL;
         #[library("SHELL32.dll")]
-        extern fn PathMakeUniqueName(#[out] #[writable(entry, cchMax)] pszUniqueName: PWSTR, cchMax: UINT, #[in] pszTemplate: PCWSTR, #[in] #[opt] pszLongPlate: PCWSTR, #[in] #[opt] pszDir: PCWSTR) -> BOOL;
+        extern fn PathMakeUniqueName(#[buffer(cchMax)] #[out] pszUniqueName: PWSTR, cchMax: UINT, #[in] pszTemplate: PCWSTR, #[in] #[opt] pszLongPlate: PCWSTR, #[in] #[opt] pszDir: PCWSTR) -> BOOL;
         #[library("SHELL32.dll")]
-        extern fn PathResolve(#[in] #[out] #[writable(entry, 260)] pszPath: PWSTR, #[in] #[opt] dirs: PZPCWSTR, fFlags: UINT) -> i32;
+        extern fn PathResolve(#[buffer(260)] #[in] #[out] pszPath: PWSTR, #[in] #[opt] dirs: PZPCWSTR, fFlags: UINT) -> i32;
         #[library("SHELL32.dll")]
-        extern fn PathYetAnotherMakeUniqueName(#[out] #[writable(entry, 260)] pszUniqueName: PWSTR, #[in] pszPath: PCWSTR, #[in] #[opt] pszShort: PCWSTR, #[in] #[opt] pszFileSpec: PCWSTR) -> BOOL;
+        extern fn PathYetAnotherMakeUniqueName(#[buffer(260)] #[out] pszUniqueName: PWSTR, #[in] pszPath: PCWSTR, #[in] #[opt] pszShort: PCWSTR, #[in] #[opt] pszFileSpec: PCWSTR) -> BOOL;
         #[library("SHELL32.dll")]
-        extern fn PickIconDlg(#[in] #[opt] hwnd: HWND, #[in] #[out] #[writable(entry, cchIconPath)] pszIconPath: PWSTR, cchIconPath: UINT, #[in] #[opt] #[out] piIconIndex: *mut i32) -> i32;
+        extern fn PickIconDlg(#[in] #[opt] hwnd: HWND, #[buffer(cchIconPath)] #[in] #[out] pszIconPath: PWSTR, cchIconPath: UINT, #[in] #[opt] #[out] piIconIndex: *mut i32) -> i32;
         #[library("SHELL32.dll")]
         extern fn PifMgr_CloseProperties(#[in] #[opt] hProps: HANDLE, flOpt: UINT) -> HANDLE;
         #[library("SHELL32.dll")]
-        extern fn PifMgr_GetProperties(#[in] #[opt] hProps: HANDLE, #[in] #[opt] pszGroup: PCSTR, #[opt] #[out] #[writable(entry, bytes(cbProps))] lpProps: *mut void, cbProps: i32, flOpt: UINT) -> i32;
+        extern fn PifMgr_GetProperties(#[in] #[opt] hProps: HANDLE, #[in] #[opt] pszGroup: PCSTR, #[buffer(bytes(cbProps))] #[opt] #[out] lpProps: *mut void, cbProps: i32, flOpt: UINT) -> i32;
         #[library("SHELL32.dll")]
         extern fn PifMgr_OpenProperties(#[in] pszApp: PCWSTR, #[in] #[opt] pszPIF: PCWSTR, hInf: UINT, flOpt: UINT) -> HANDLE;
         #[library("SHELL32.dll")]
-        extern fn PifMgr_SetProperties(#[in] #[opt] hProps: HANDLE, #[in] #[opt] pszGroup: PCSTR, #[in] #[readable(entry, bytes(cbProps))] lpProps: *const void, cbProps: i32, flOpt: UINT) -> i32;
+        extern fn PifMgr_SetProperties(#[in] #[opt] hProps: HANDLE, #[in] #[opt] pszGroup: PCSTR, #[buffer(bytes(cbProps))] #[in] lpProps: *const void, cbProps: i32, flOpt: UINT) -> i32;
         #[packed(8)]
         struct QCMINFO {
             hmenu: HMENU,
@@ -1243,7 +1243,7 @@ mod Windows {
             REST_ALLOWCOMMENTTOGGLE = 1090519044,
         }
         #[library("SHELL32.dll")]
-        extern fn ReadCabinetState(#[out] #[writable(entry, bytes(cLength))] pcs: *mut CABINETSTATE, cLength: i32) -> BOOL;
+        extern fn ReadCabinetState(#[buffer(bytes(cLength))] #[out] pcs: *mut CABINETSTATE, cLength: i32) -> BOOL;
         #[library("SHELL32.dll")]
         extern fn RealDriveType(iDrive: i32, fOKToHitNet: BOOL) -> i32;
         #[library("SHELL32.dll")]
@@ -1341,13 +1341,13 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn SHAlloc(cb: SIZE_T) -> *mut void;
         #[library("SHELL32.dll")]
-        extern fn SHBindToFolderIDListParent(#[in] #[opt] psfRoot: IShellFolder, #[in] pidl: LPCITEMIDLIST, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void, #[opt] #[out] #[out_ptr] ppidlLast: *mut LPCITEMIDLIST) -> HRESULT;
+        extern fn SHBindToFolderIDListParent(#[in] #[opt] psfRoot: IShellFolder, #[in] pidl: LPCITEMIDLIST, #[in] riid: &IID, #[out] ppv: *mut *mut void, #[opt] #[out] ppidlLast: *mut LPCITEMIDLIST) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHBindToFolderIDListParentEx(#[in] #[opt] psfRoot: IShellFolder, #[in] pidl: LPCITEMIDLIST, #[in] #[opt] ppbc: IBindCtx, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void, #[opt] #[out] #[out_ptr] ppidlLast: *mut LPCITEMIDLIST) -> HRESULT;
+        extern fn SHBindToFolderIDListParentEx(#[in] #[opt] psfRoot: IShellFolder, #[in] pidl: LPCITEMIDLIST, #[in] #[opt] ppbc: IBindCtx, #[in] riid: &IID, #[out] ppv: *mut *mut void, #[opt] #[out] ppidlLast: *mut LPCITEMIDLIST) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHBindToObject(#[in] #[opt] psf: IShellFolder, #[in] pidl: LPCITEMIDLIST, #[in] #[opt] pbc: IBindCtx, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+        extern fn SHBindToObject(#[in] #[opt] psf: IShellFolder, #[in] pidl: LPCITEMIDLIST, #[in] #[opt] pbc: IBindCtx, #[in] riid: &IID, #[out] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHBindToParent(#[in] pidl: LPCITEMIDLIST, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void, #[opt] #[out] #[out_ptr] ppidlLast: *mut LPCITEMIDLIST) -> HRESULT;
+        extern fn SHBindToParent(#[in] pidl: LPCITEMIDLIST, #[in] riid: &IID, #[out] ppv: *mut *mut void, #[opt] #[out] ppidlLast: *mut LPCITEMIDLIST) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHBrowseForFolderA(#[in] lpbi: LPBROWSEINFOA) -> LPITEMIDLIST;
         #[library("SHELL32.dll")]
@@ -1406,7 +1406,7 @@ mod Windows {
             cbZero: USHORT,
         }
         #[library("SHELL32.dll")]
-        extern fn SHChangeNotification_Lock(#[in] hChange: HANDLE, dwProcId: DWORD, #[opt] #[out] #[writable(success, 2, indirect)] pppidl: *mut *mut LPITEMIDLIST, #[opt] #[out] plEvent: *mut LONG) -> HANDLE;
+        extern fn SHChangeNotification_Lock(#[in] hChange: HANDLE, dwProcId: DWORD, #[incomplete] #[opt] #[out] pppidl: *mut *mut LPITEMIDLIST, #[opt] #[out] plEvent: *mut LONG) -> HANDLE;
         #[library("SHELL32.dll")]
         extern fn SHChangeNotification_Unlock(#[in] hLock: HANDLE) -> BOOL;
         #[library("SHELL32.dll")]
@@ -1433,11 +1433,11 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn SHCloneSpecialIDList(#[reserved] hwnd: HWND, #[in] csidl: i32, #[in] fCreate: BOOL) -> LPITEMIDLIST;
         #[library("SHELL32.dll")]
-        extern fn SHCoCreateInstance(#[in] #[opt] pszCLSID: PCWSTR, #[in] #[opt] pclsid: *const CLSID, #[in] #[opt] pUnkOuter: IUnknown, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+        extern fn SHCoCreateInstance(#[in] #[opt] pszCLSID: PCWSTR, #[in] #[opt] pclsid: *const CLSID, #[in] #[opt] pUnkOuter: IUnknown, #[in] riid: &IID, #[out] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHCreateDataObject(#[in] #[opt] pidlFolder: LPCITEMIDLIST, #[in] cidl: UINT, #[in] #[opt] #[readable(entry, cidl)] apidl: *mut LPCITEMIDLIST, #[in] #[opt] pdtInner: IDataObject, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+        extern fn SHCreateDataObject(#[in] #[opt] pidlFolder: LPCITEMIDLIST, #[in] cidl: UINT, #[buffer(cidl)] #[in] #[opt] apidl: *mut LPCITEMIDLIST, #[in] #[opt] pdtInner: IDataObject, #[in] riid: &IID, #[out] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHCreateDefaultContextMenu(#[in] pdcm: *const DEFCONTEXTMENU, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+        extern fn SHCreateDefaultContextMenu(#[in] pdcm: *const DEFCONTEXTMENU, #[in] riid: &IID, #[out] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHCreateDirectory(#[in] #[opt] hwnd: HWND, #[in] pszPath: PCWSTR) -> i32;
         #[library("SHELL32.dll")]
@@ -1445,15 +1445,15 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn SHCreateDirectoryExW(#[in] #[opt] hwnd: HWND, #[in] pszPath: LPCWSTR, #[in] #[opt] psa: *const SECURITY_ATTRIBUTES) -> i32;
         #[library("SHELL32.dll")]
-        extern fn SHCreateFileExtractIconW(#[in] pszFile: LPCWSTR, #[in] dwFileAttributes: DWORD, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+        extern fn SHCreateFileExtractIconW(#[in] pszFile: LPCWSTR, #[in] dwFileAttributes: DWORD, #[in] riid: &IID, #[out] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHCreateShellFolderView(#[in] pcsfv: *const SFV_CREATE, #[out] #[out_ptr] #[retval] ppsv: *mut IShellView) -> HRESULT;
+        extern fn SHCreateShellFolderView(#[in] pcsfv: *const SFV_CREATE, #[out] #[retval] ppsv: *mut IShellView) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHCreateShellFolderViewEx(#[in] pcsfv: *mut CSFV, #[out] #[out_ptr] #[retval] ppsv: *mut IShellView) -> HRESULT;
+        extern fn SHCreateShellFolderViewEx(#[in] pcsfv: *mut CSFV, #[out] #[retval] ppsv: *mut IShellView) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHCreateShellItem(#[in] #[opt] pidlParent: LPCITEMIDLIST, #[in] #[opt] psfParent: IShellFolder, #[in] pidl: LPCITEMIDLIST, #[out] #[out_ptr] #[retval] ppsi: *mut IShellItem) -> HRESULT;
+        extern fn SHCreateShellItem(#[in] #[opt] pidlParent: LPCITEMIDLIST, #[in] #[opt] psfParent: IShellFolder, #[in] pidl: LPCITEMIDLIST, #[out] #[retval] ppsi: *mut IShellItem) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHCreateStdEnumFmtEtc(#[in] cfmt: UINT, #[in] #[readable(entry, cfmt)] afmt: *const FORMATETC, #[out] #[out_ptr] #[retval] ppenumFormatEtc: *mut IEnumFORMATETC) -> HRESULT;
+        extern fn SHCreateStdEnumFmtEtc(#[in] cfmt: UINT, #[buffer(cfmt)] #[in] afmt: *const FORMATETC, #[out] #[retval] ppenumFormatEtc: *mut IEnumFORMATETC) -> HRESULT;
         #[packed(8)]
         struct SHDESCRIPTIONID {
             dwDescriptionId: DWORD,
@@ -1674,46 +1674,46 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn SHGetAttributesFromDataObject(#[in] #[opt] pdo: IDataObject, dwAttributeMask: DWORD, #[opt] #[out] pdwAttributes: *mut DWORD, #[opt] #[out] pcItems: *mut UINT) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHGetDataFromIDListA(#[in] psf: IShellFolder, #[in] pidl: LPCITEMIDLIST, nFormat: i32, #[out] #[writable(entry, bytes(cb))] pv: *mut void, cb: i32) -> HRESULT;
+        extern fn SHGetDataFromIDListA(#[in] psf: IShellFolder, #[in] pidl: LPCITEMIDLIST, nFormat: i32, #[buffer(bytes(cb))] #[out] pv: *mut void, cb: i32) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHGetDataFromIDListW(#[in] psf: IShellFolder, #[in] pidl: LPCITEMIDLIST, nFormat: i32, #[out] #[writable(entry, bytes(cb))] pv: *mut void, cb: i32) -> HRESULT;
+        extern fn SHGetDataFromIDListW(#[in] psf: IShellFolder, #[in] pidl: LPCITEMIDLIST, nFormat: i32, #[buffer(bytes(cb))] #[out] pv: *mut void, cb: i32) -> HRESULT;
         #[library("SHELL32.dll")]
         #[must_use]
-        extern fn SHGetDesktopFolder(#[out] #[out_ptr] #[retval] ppshf: *mut IShellFolder) -> HRESULT;
+        extern fn SHGetDesktopFolder(#[out] #[retval] ppshf: *mut IShellFolder) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHGetFolderLocation(#[reserved] hwnd: HWND, #[in] csidl: i32, #[in] #[opt] hToken: HANDLE, #[in] dwFlags: DWORD, #[out] #[out_ptr] ppidl: *mut LPITEMIDLIST) -> HRESULT;
+        extern fn SHGetFolderLocation(#[reserved] hwnd: HWND, #[in] csidl: i32, #[in] #[opt] hToken: HANDLE, #[in] dwFlags: DWORD, #[out] ppidl: *mut LPITEMIDLIST) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHGetFolderPathA(#[reserved] hwnd: HWND, #[in] csidl: i32, #[in] #[opt] hToken: HANDLE, #[in] dwFlags: DWORD, #[out] #[writable(entry, 260)] pszPath: LPSTR) -> HRESULT;
+        extern fn SHGetFolderPathA(#[reserved] hwnd: HWND, #[in] csidl: i32, #[in] #[opt] hToken: HANDLE, #[in] dwFlags: DWORD, #[buffer(260)] #[out] pszPath: LPSTR) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHGetFolderPathAndSubDirA(#[reserved] hwnd: HWND, #[in] csidl: i32, #[in] #[opt] hToken: HANDLE, #[in] dwFlags: DWORD, #[in] #[opt] pszSubDir: LPCSTR, #[out] #[writable(entry, 260)] pszPath: LPSTR) -> HRESULT;
+        extern fn SHGetFolderPathAndSubDirA(#[reserved] hwnd: HWND, #[in] csidl: i32, #[in] #[opt] hToken: HANDLE, #[in] dwFlags: DWORD, #[in] #[opt] pszSubDir: LPCSTR, #[buffer(260)] #[out] pszPath: LPSTR) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHGetFolderPathAndSubDirW(#[reserved] hwnd: HWND, #[in] csidl: i32, #[in] #[opt] hToken: HANDLE, #[in] dwFlags: DWORD, #[in] #[opt] pszSubDir: LPCWSTR, #[out] #[writable(entry, 260)] pszPath: LPWSTR) -> HRESULT;
+        extern fn SHGetFolderPathAndSubDirW(#[reserved] hwnd: HWND, #[in] csidl: i32, #[in] #[opt] hToken: HANDLE, #[in] dwFlags: DWORD, #[in] #[opt] pszSubDir: LPCWSTR, #[buffer(260)] #[out] pszPath: LPWSTR) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHGetFolderPathW(#[reserved] hwnd: HWND, #[in] csidl: i32, #[in] #[opt] hToken: HANDLE, #[in] dwFlags: DWORD, #[out] #[writable(entry, 260)] pszPath: LPWSTR) -> HRESULT;
+        extern fn SHGetFolderPathW(#[reserved] hwnd: HWND, #[in] csidl: i32, #[in] #[opt] hToken: HANDLE, #[in] dwFlags: DWORD, #[buffer(260)] #[out] pszPath: LPWSTR) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHGetIconOverlayIndexA(#[in] #[opt] pszIconPath: LPCSTR, iIconIndex: i32) -> i32;
         #[library("SHELL32.dll")]
         extern fn SHGetIconOverlayIndexW(#[in] #[opt] pszIconPath: LPCWSTR, iIconIndex: i32) -> i32;
         #[library("SHELL32.dll")]
         #[must_use]
-        extern fn SHGetInstanceExplorer(#[out] #[out_ptr] #[retval] ppunk: *mut IUnknown) -> HRESULT;
+        extern fn SHGetInstanceExplorer(#[out] #[retval] ppunk: *mut IUnknown) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHGetKnownFolderIDList(#[in] rfid: &KNOWNFOLDERID, #[in] dwFlags: DWORD, #[in] #[opt] hToken: HANDLE, #[out] #[out_ptr] ppidl: *mut LPITEMIDLIST) -> HRESULT;
+        extern fn SHGetKnownFolderIDList(#[in] rfid: &KNOWNFOLDERID, #[in] dwFlags: DWORD, #[in] #[opt] hToken: HANDLE, #[out] ppidl: *mut LPITEMIDLIST) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHGetKnownFolderItem(#[in] rfid: &KNOWNFOLDERID, #[in] flags: KNOWN_FOLDER_FLAG, #[in] #[opt] hToken: HANDLE, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+        extern fn SHGetKnownFolderItem(#[in] rfid: &KNOWNFOLDERID, #[in] flags: KNOWN_FOLDER_FLAG, #[in] #[opt] hToken: HANDLE, #[in] riid: &IID, #[out] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHGetKnownFolderPath(#[in] rfid: &KNOWNFOLDERID, #[in] dwFlags: DWORD, #[in] #[opt] hToken: HANDLE, #[out] #[out_ptr] ppszPath: *mut PWSTR) -> HRESULT;
+        extern fn SHGetKnownFolderPath(#[in] rfid: &KNOWNFOLDERID, #[in] dwFlags: DWORD, #[in] #[opt] hToken: HANDLE, #[out] ppszPath: *mut PWSTR) -> HRESULT;
         #[library("SHELL32.dll")]
         #[must_use]
-        extern fn SHGetMalloc(#[out] #[out_ptr] #[retval] ppMalloc: *mut IMalloc) -> HRESULT;
+        extern fn SHGetMalloc(#[out] #[retval] ppMalloc: *mut IMalloc) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHGetPathFromIDListA(#[in] pidl: LPCITEMIDLIST, #[out] #[writable(entry, 260)] pszPath: LPSTR) -> BOOL;
+        extern fn SHGetPathFromIDListA(#[in] pidl: LPCITEMIDLIST, #[buffer(260)] #[out] pszPath: LPSTR) -> BOOL;
         #[library("SHELL32.dll")]
-        extern fn SHGetPathFromIDListEx(#[in] pidl: LPCITEMIDLIST, #[out] #[writable(entry, cchPath)] pszPath: PWSTR, cchPath: DWORD, uOpts: GPFIDL_FLAGS) -> BOOL;
+        extern fn SHGetPathFromIDListEx(#[in] pidl: LPCITEMIDLIST, #[buffer(cchPath)] #[out] pszPath: PWSTR, cchPath: DWORD, uOpts: GPFIDL_FLAGS) -> BOOL;
         #[library("SHELL32.dll")]
-        extern fn SHGetPathFromIDListW(#[in] pidl: LPCITEMIDLIST, #[out] #[writable(entry, 260)] pszPath: LPWSTR) -> BOOL;
+        extern fn SHGetPathFromIDListW(#[in] pidl: LPCITEMIDLIST, #[buffer(260)] #[out] pszPath: LPWSTR) -> BOOL;
         #[library("SHELL32.dll")]
-        extern fn SHGetRealIDL(#[in] psf: IShellFolder, #[in] pidlSimple: LPCITEMIDLIST, #[out] #[out_ptr] ppidlReal: *mut LPITEMIDLIST) -> HRESULT;
+        extern fn SHGetRealIDL(#[in] psf: IShellFolder, #[in] pidlSimple: LPCITEMIDLIST, #[out] ppidlReal: *mut LPITEMIDLIST) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHGetSetFolderCustomSettings(#[in] #[out] pfcs: LPSHFOLDERCUSTOMSETTINGS, #[in] pszPath: PCWSTR, dwReadWrite: DWORD) -> HRESULT;
         #[library("SHELL32.dll")]
@@ -1722,15 +1722,15 @@ mod Windows {
         extern fn SHGetSettings(#[out] psfs: *mut SHELLFLAGSTATE, dwMask: DWORD);
         #[library("SHELL32.dll")]
         #[must_use]
-        extern fn SHGetSpecialFolderLocation(#[reserved] hwnd: HWND, #[in] csidl: i32, #[out] #[out_ptr] ppidl: *mut LPITEMIDLIST) -> HRESULT;
+        extern fn SHGetSpecialFolderLocation(#[reserved] hwnd: HWND, #[in] csidl: i32, #[out] ppidl: *mut LPITEMIDLIST) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHGetSpecialFolderPathA(#[reserved] hwnd: HWND, #[out] #[writable(entry, 260)] pszPath: LPSTR, #[in] csidl: i32, #[in] fCreate: BOOL) -> BOOL;
+        extern fn SHGetSpecialFolderPathA(#[reserved] hwnd: HWND, #[buffer(260)] #[out] pszPath: LPSTR, #[in] csidl: i32, #[in] fCreate: BOOL) -> BOOL;
         #[library("SHELL32.dll")]
-        extern fn SHGetSpecialFolderPathW(#[reserved] hwnd: HWND, #[out] #[writable(entry, 260)] pszPath: LPWSTR, #[in] csidl: i32, #[in] fCreate: BOOL) -> BOOL;
+        extern fn SHGetSpecialFolderPathW(#[reserved] hwnd: HWND, #[buffer(260)] #[out] pszPath: LPWSTR, #[in] csidl: i32, #[in] fCreate: BOOL) -> BOOL;
         #[library("SHELL32.dll")]
         extern fn SHHandleUpdateImage(#[in] pidlExtra: LPCITEMIDLIST) -> i32;
         #[library("SHELL32.dll")]
-        extern fn SHILCreateFromPath(#[in] pszPath: PCWSTR, #[out] #[out_ptr] ppidl: *mut LPITEMIDLIST, #[in] #[opt] #[out] rgfInOut: *mut DWORD) -> HRESULT;
+        extern fn SHILCreateFromPath(#[in] pszPath: PCWSTR, #[out] ppidl: *mut LPITEMIDLIST, #[in] #[opt] #[out] rgfInOut: *mut DWORD) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHLimitInputEdit(#[in] hwndEdit: HWND, #[in] psf: IShellFolder) -> HRESULT;
         #[library("SHELL32.dll")]
@@ -1744,7 +1744,7 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn SHObjectProperties(#[in] #[opt] hwnd: HWND, #[in] shopObjectType: DWORD, #[in] pszObjectName: PCWSTR, #[in] #[opt] pszPropertyPage: PCWSTR) -> BOOL;
         #[library("SHELL32.dll")]
-        extern fn SHOpenFolderAndSelectItems(#[in] pidlFolder: LPCITEMIDLIST, cidl: UINT, #[in] #[opt] #[readable(entry, cidl)] apidl: *mut LPCITEMIDLIST, dwFlags: DWORD) -> HRESULT;
+        extern fn SHOpenFolderAndSelectItems(#[in] pidlFolder: LPCITEMIDLIST, cidl: UINT, #[buffer(cidl)] #[in] #[opt] apidl: *mut LPCITEMIDLIST, dwFlags: DWORD) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHOpenWithDialog(#[in] #[opt] hwndParent: HWND, #[in] poainfo: *const OPENASINFO) -> HRESULT;
         const SHPPFW_ASKDIRCREATE: i32 = 2;
@@ -1755,17 +1755,17 @@ mod Windows {
         const SHPPFW_NONE: i32 = 0;
         const SHPPFW_NOWRITECHECK: i32 = 8;
         #[library("SHELL32.dll")]
-        extern fn SHParseDisplayName(#[in] pszName: PCWSTR, #[in] #[opt] pbc: IBindCtx, #[out] #[out_ptr] ppidl: *mut LPITEMIDLIST, #[in] sfgaoIn: SFGAOF, #[opt] #[out] psfgaoOut: *mut SFGAOF) -> HRESULT;
+        extern fn SHParseDisplayName(#[in] pszName: PCWSTR, #[in] #[opt] pbc: IBindCtx, #[out] ppidl: *mut LPITEMIDLIST, #[in] sfgaoIn: SFGAOF, #[opt] #[out] psfgaoOut: *mut SFGAOF) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHPathPrepareForWriteA(#[in] #[opt] hwnd: HWND, #[in] #[opt] punkEnableModless: IUnknown, #[in] pszPath: LPCSTR, dwFlags: DWORD) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHPathPrepareForWriteW(#[in] #[opt] hwnd: HWND, #[in] #[opt] punkEnableModless: IUnknown, #[in] pszPath: LPCWSTR, dwFlags: DWORD) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHPropStgCreate(#[in] psstg: IPropertySetStorage, #[in] fmtid: &IID, #[in] #[opt] pclsid: *const CLSID, grfFlags: DWORD, grfMode: DWORD, dwDisposition: DWORD, #[out] #[out_ptr] ppstg: *mut IPropertyStorage, #[opt] #[out] puCodePage: *mut UINT) -> HRESULT;
+        extern fn SHPropStgCreate(#[in] psstg: IPropertySetStorage, #[in] fmtid: &IID, #[in] #[opt] pclsid: *const CLSID, grfFlags: DWORD, grfMode: DWORD, dwDisposition: DWORD, #[out] ppstg: *mut IPropertyStorage, #[opt] #[out] puCodePage: *mut UINT) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHPropStgReadMultiple(#[in] pps: IPropertyStorage, uCodePage: UINT, cpspec: ULONG, #[in] #[readable(entry, cpspec)] rgpspec: *const PROPSPEC, #[out] #[readable(success, cpspec)] #[writable(entry, cpspec)] rgvar: *mut PROPVARIANT) -> HRESULT;
+        extern fn SHPropStgReadMultiple(#[in] pps: IPropertyStorage, uCodePage: UINT, cpspec: ULONG, #[buffer(cpspec)] #[in] rgpspec: *const PROPSPEC, #[buffer(cpspec)] #[out] rgvar: *mut PROPVARIANT) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHPropStgWriteMultiple(#[in] pps: IPropertyStorage, #[in] #[opt] #[out] puCodePage: *mut UINT, cpspec: ULONG, #[in] #[readable(entry, cpspec)] rgpspec: *const PROPSPEC, #[in] #[out] #[writable(entry, cpspec)] rgvar: *mut PROPVARIANT, propidNameFirst: PROPID) -> HRESULT;
+        extern fn SHPropStgWriteMultiple(#[in] pps: IPropertyStorage, #[in] #[opt] #[out] puCodePage: *mut UINT, cpspec: ULONG, #[buffer(cpspec)] #[in] rgpspec: *const PROPSPEC, #[buffer(cpspec)] #[in] #[out] rgvar: *mut PROPVARIANT, propidNameFirst: PROPID) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHReplaceFromPropSheetExtArray(#[in] hpsxa: HPSXA, uPageID: UINT, #[in] lpfnReplaceWith: LPFNADDPROPSHEETPAGE, lParam: LPARAM) -> UINT;
         #[library("SHELL32.dll")]
@@ -1838,7 +1838,7 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn SignalFileOpen(#[in] pidl: LPCITEMIDLIST) -> BOOL;
         #[library("SHELL32.dll")]
-        extern fn StgMakeUniqueName(#[in] pstgParent: IStorage, #[in] pszFileSpec: PCWSTR, #[in] grfMode: DWORD, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+        extern fn StgMakeUniqueName(#[in] pstgParent: IStorage, #[in] pszFileSpec: PCWSTR, #[in] grfMode: DWORD, #[in] riid: &IID, #[out] ppv: *mut *mut void) -> HRESULT;
         const VALIDATEUNC_CONNECT: i32 = 1;
         const VALIDATEUNC_NOUI: i32 = 2;
         const VALIDATEUNC_PERSIST: i32 = 8;

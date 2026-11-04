@@ -804,8 +804,8 @@ mod Windows {
             TemplatePropValidityPeriod = 30,
             TemplatePropRenewalPeriod = 31,
         }
-        extern "C" fn FNIMPORTPFXTOPROVIDER(#[in] hWndParent: HWND, #[in] #[readable(entry, bytes(cbPFX))] pbPFX: *const BYTE, #[in] cbPFX: DWORD, #[in] ImportFlags: ImportPFXFlags, #[in] #[opt] pwszPassword: PCWSTR, #[in] #[opt] pwszProviderName: PCWSTR, #[in] #[opt] pwszReaderName: PCWSTR, #[in] #[opt] pwszContainerNamePrefix: PCWSTR, #[in] #[opt] pwszPin: PCWSTR, #[in] #[opt] pwszFriendlyName: PCWSTR, #[opt] #[out] pcCertOut: *mut DWORD, #[opt] #[out] #[writable(success, if_present(*pcCertOut), indirect)] prgpCertOut: *mut *mut PCCERT_CONTEXT) -> HRESULT;
-        extern "C" fn FNIMPORTPFXTOPROVIDERFREEDATA(#[in] cCert: DWORD, #[in] #[opt] #[readable(entry, cCert)] rgpCert: *mut PCCERT_CONTEXT);
+        extern "C" fn FNIMPORTPFXTOPROVIDER(#[in] hWndParent: HWND, #[buffer(bytes(cbPFX))] #[in] pbPFX: *const BYTE, #[in] cbPFX: DWORD, #[in] ImportFlags: ImportPFXFlags, #[in] #[opt] pwszPassword: PCWSTR, #[in] #[opt] pwszProviderName: PCWSTR, #[in] #[opt] pwszReaderName: PCWSTR, #[in] #[opt] pwszContainerNamePrefix: PCWSTR, #[in] #[opt] pwszPin: PCWSTR, #[in] #[opt] pwszFriendlyName: PCWSTR, #[opt] #[out] pcCertOut: *mut DWORD, #[incomplete] #[opt] #[out] prgpCertOut: *mut *mut PCCERT_CONTEXT) -> HRESULT;
+        extern "C" fn FNIMPORTPFXTOPROVIDERFREEDATA(#[in] cCert: DWORD, #[buffer(cCert)] #[in] #[opt] rgpCert: *mut PCCERT_CONTEXT);
         #[guid(0x728ab313_217d_11da_b2a4_000e7bbb2b09)]
         interface IAlternativeName: IDispatch {
             fn InitializeFromString(&self, #[in] Type: AlternativeNameType, #[in] strValue: BSTR) -> HRESULT;
@@ -814,28 +814,28 @@ mod Windows {
             #[special]
             fn get_Type(&self, #[out] #[retval] pValue: *mut AlternativeNameType) -> HRESULT;
             #[special]
-            fn get_StrValue(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_StrValue(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_ObjectId(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            fn get_ObjectId(&self, #[out] #[retval] ppValue: *mut IObjectId) -> HRESULT;
             #[special]
-            fn get_RawData(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_RawData(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
         }
         #[guid(0x728ab314_217d_11da_b2a4_000e7bbb2b09)]
         interface IAlternativeNames: IDispatch {
             #[special]
-            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[out_ptr] #[retval] pVal: *mut IAlternativeName) -> HRESULT;
+            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[retval] pVal: *mut IAlternativeName) -> HRESULT;
             #[special]
             fn get_Count(&self, #[out] #[retval] pVal: *mut i32) -> HRESULT;
             #[special]
-            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
             fn Add(&self, #[in] #[opt] pVal: IAlternativeName) -> HRESULT;
             fn Remove(&self, #[in] Index: LONG) -> HRESULT;
             fn Clear(&self) -> HRESULT;
         }
         #[guid(0x728ab302_217d_11da_b2a4_000e7bbb2b09)]
         interface IBinaryConverter: IDispatch {
-            fn StringToString(&self, #[in] strEncodedIn: BSTR, #[in] EncodingIn: EncodingType, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pstrEncoded: *mut BSTR) -> HRESULT;
-            fn VariantByteArrayToString(&self, #[in] pvarByteArray: *mut VARIANT, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pstrEncoded: *mut BSTR) -> HRESULT;
+            fn StringToString(&self, #[in] strEncodedIn: BSTR, #[in] EncodingIn: EncodingType, #[in] Encoding: EncodingType, #[out] #[retval] pstrEncoded: *mut BSTR) -> HRESULT;
+            fn VariantByteArrayToString(&self, #[in] pvarByteArray: *mut VARIANT, #[in] Encoding: EncodingType, #[out] #[retval] pstrEncoded: *mut BSTR) -> HRESULT;
             fn StringToVariantByteArray(&self, #[in] strEncoded: BSTR, #[in] Encoding: EncodingType, #[out] #[retval] pvarByteArray: *mut VARIANT) -> HRESULT;
         }
         #[guid(0x8d7928b4_4e17_428d_9a17_728df00d1b2b)]
@@ -846,11 +846,11 @@ mod Windows {
         #[guid(0x728ab32f_217d_11da_b2a4_000e7bbb2b09)]
         interface ICertProperties: IDispatch {
             #[special]
-            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[out_ptr] #[retval] pVal: *mut ICertProperty) -> HRESULT;
+            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[retval] pVal: *mut ICertProperty) -> HRESULT;
             #[special]
             fn get_Count(&self, #[out] #[retval] pVal: *mut i32) -> HRESULT;
             #[special]
-            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
             fn Add(&self, #[in] #[opt] pVal: ICertProperty) -> HRESULT;
             fn Remove(&self, #[in] Index: LONG) -> HRESULT;
             fn Clear(&self) -> HRESULT;
@@ -865,7 +865,7 @@ mod Windows {
             #[special]
             fn put_PropertyId(&self, #[in] Value: CERTENROLL_PROPERTYID) -> HRESULT;
             #[special]
-            fn get_RawData(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_RawData(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             fn RemoveFromCertificate(&self, #[in] MachineContext: VARIANT_BOOL, #[in] Encoding: EncodingType, #[in] strCertificate: BSTR) -> HRESULT;
             fn SetValueOnCertificate(&self, #[in] MachineContext: VARIANT_BOOL, #[in] Encoding: EncodingType, #[in] strCertificate: BSTR) -> HRESULT;
         }
@@ -879,13 +879,13 @@ mod Windows {
         interface ICertPropertyArchivedKeyHash: ICertProperty {
             fn Initialize(&self, #[in] Encoding: EncodingType, #[in] strArchivedKeyHashValue: BSTR) -> HRESULT;
             #[special]
-            fn get_ArchivedKeyHash(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_ArchivedKeyHash(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
         }
         #[guid(0x728ab332_217d_11da_b2a4_000e7bbb2b09)]
         interface ICertPropertyAutoEnroll: ICertProperty {
             fn Initialize(&self, #[in] strTemplateName: BSTR) -> HRESULT;
             #[special]
-            fn get_TemplateName(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_TemplateName(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
         }
         #[guid(0x728ab338_217d_11da_b2a4_000e7bbb2b09)]
         interface ICertPropertyBackedUp: ICertProperty {
@@ -900,7 +900,7 @@ mod Windows {
         interface ICertPropertyDescription: ICertProperty {
             fn Initialize(&self, #[in] strDescription: BSTR) -> HRESULT;
             #[special]
-            fn get_Description(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_Description(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
         }
         #[guid(0x728ab339_217d_11da_b2a4_000e7bbb2b09)]
         interface ICertPropertyEnrollment: ICertProperty {
@@ -908,19 +908,19 @@ mod Windows {
             #[special]
             fn get_RequestId(&self, #[out] #[retval] pValue: *mut LONG) -> HRESULT;
             #[special]
-            fn get_CADnsName(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_CADnsName(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CAName(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_CAName(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_FriendlyName(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_FriendlyName(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
         }
         #[guid(0x728ab34a_217d_11da_b2a4_000e7bbb2b09)]
         interface ICertPropertyEnrollmentPolicyServer: ICertProperty {
             fn Initialize(&self, #[in] PropertyFlags: EnrollmentPolicyServerPropertyFlags, #[in] AuthFlags: X509EnrollmentAuthFlags, #[in] EnrollmentServerAuthFlags: X509EnrollmentAuthFlags, #[in] UrlFlags: PolicyServerUrlFlags, #[in] strRequestId: BSTR, #[in] strUrl: BSTR, #[in] strId: BSTR, #[in] strEnrollmentServerUrl: BSTR) -> HRESULT;
-            fn GetPolicyServerUrl(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
-            fn GetPolicyServerId(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
-            fn GetEnrollmentServerUrl(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
-            fn GetRequestIdString(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn GetPolicyServerUrl(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn GetPolicyServerId(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn GetEnrollmentServerUrl(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn GetRequestIdString(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             fn GetPropertyFlags(&self, #[out] #[retval] pValue: *mut EnrollmentPolicyServerPropertyFlags) -> HRESULT;
             fn GetUrlFlags(&self, #[out] #[retval] pValue: *mut PolicyServerUrlFlags) -> HRESULT;
             fn GetAuthentication(&self, #[out] #[retval] pValue: *mut X509EnrollmentAuthFlags) -> HRESULT;
@@ -930,40 +930,40 @@ mod Windows {
         interface ICertPropertyFriendlyName: ICertProperty {
             fn Initialize(&self, #[in] strFriendlyName: BSTR) -> HRESULT;
             #[special]
-            fn get_FriendlyName(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_FriendlyName(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
         }
         #[guid(0x728ab336_217d_11da_b2a4_000e7bbb2b09)]
         interface ICertPropertyKeyProvInfo: ICertProperty {
             fn Initialize(&self, #[in] #[opt] pValue: IX509PrivateKey) -> HRESULT;
             #[special]
-            fn get_PrivateKey(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IX509PrivateKey) -> HRESULT;
+            fn get_PrivateKey(&self, #[out] #[retval] ppValue: *mut IX509PrivateKey) -> HRESULT;
         }
         #[guid(0x728ab33a_217d_11da_b2a4_000e7bbb2b09)]
         interface ICertPropertyRenewal: ICertProperty {
             fn Initialize(&self, #[in] Encoding: EncodingType, #[in] strRenewalValue: BSTR) -> HRESULT;
             fn InitializeFromCertificateHash(&self, #[in] MachineContext: VARIANT_BOOL, #[in] Encoding: EncodingType, #[in] strCertificate: BSTR) -> HRESULT;
             #[special]
-            fn get_Renewal(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_Renewal(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
         }
         #[guid(0x728ab333_217d_11da_b2a4_000e7bbb2b09)]
         interface ICertPropertyRequestOriginator: ICertProperty {
             fn Initialize(&self, #[in] strRequestOriginator: BSTR) -> HRESULT;
             fn InitializeFromLocalRequestOriginator(&self) -> HRESULT;
             #[special]
-            fn get_RequestOriginator(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_RequestOriginator(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
         }
         #[guid(0x728ab334_217d_11da_b2a4_000e7bbb2b09)]
         interface ICertPropertySHA1Hash: ICertProperty {
             fn Initialize(&self, #[in] Encoding: EncodingType, #[in] strRenewalValue: BSTR) -> HRESULT;
             #[special]
-            fn get_SHA1Hash(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_SHA1Hash(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
         }
         #[guid(0x6f175a7c_4a3a_40ae_9dba_592fd6bbf9b8)]
         interface ICertificateAttestationChallenge: IDispatch {
             fn Initialize(&self, #[in] Encoding: EncodingType, #[in] strPendingFullCmcResponseWithChallenge: BSTR) -> HRESULT;
-            fn DecryptChallenge(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pstrEnvelopedPkcs7ReencryptedToCA: *mut BSTR) -> HRESULT;
+            fn DecryptChallenge(&self, #[in] Encoding: EncodingType, #[out] #[retval] pstrEnvelopedPkcs7ReencryptedToCA: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_RequestID(&self, #[out] #[out_ptr] #[retval] pstrRequestID: *mut BSTR) -> HRESULT;
+            fn get_RequestID(&self, #[out] #[retval] pstrRequestID: *mut BSTR) -> HRESULT;
         }
         #[guid(0x4631334d_e266_47d6_bd79_be53cb2e2753)]
         interface ICertificateAttestationChallenge2: ICertificateAttestationChallenge {
@@ -975,11 +975,11 @@ mod Windows {
         #[guid(0x728ab31f_217d_11da_b2a4_000e7bbb2b09)]
         interface ICertificatePolicies: IDispatch {
             #[special]
-            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[out_ptr] #[retval] pVal: *mut ICertificatePolicy) -> HRESULT;
+            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[retval] pVal: *mut ICertificatePolicy) -> HRESULT;
             #[special]
             fn get_Count(&self, #[out] #[retval] pVal: *mut i32) -> HRESULT;
             #[special]
-            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
             fn Add(&self, #[in] #[opt] pVal: ICertificatePolicy) -> HRESULT;
             fn Remove(&self, #[in] Index: LONG) -> HRESULT;
             fn Clear(&self) -> HRESULT;
@@ -988,24 +988,24 @@ mod Windows {
         interface ICertificatePolicy: IDispatch {
             fn Initialize(&self, #[in] #[opt] pValue: IObjectId) -> HRESULT;
             #[special]
-            fn get_ObjectId(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            fn get_ObjectId(&self, #[out] #[retval] ppValue: *mut IObjectId) -> HRESULT;
             #[special]
-            fn get_PolicyQualifiers(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IPolicyQualifiers) -> HRESULT;
+            fn get_PolicyQualifiers(&self, #[out] #[retval] ppValue: *mut IPolicyQualifiers) -> HRESULT;
         }
         #[guid(0x13b79005_2181_11da_b2a4_000e7bbb2b09)]
         interface ICertificationAuthorities: IDispatch {
             #[special]
-            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[out_ptr] #[retval] pVal: *mut ICertificationAuthority) -> HRESULT;
+            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[retval] pVal: *mut ICertificationAuthority) -> HRESULT;
             #[special]
             fn get_Count(&self, #[out] #[retval] pVal: *mut i32) -> HRESULT;
             #[special]
-            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
             fn Add(&self, #[in] #[opt] pVal: ICertificationAuthority) -> HRESULT;
             fn Remove(&self, #[in] Index: LONG) -> HRESULT;
             fn Clear(&self) -> HRESULT;
             fn ComputeSiteCosts(&self) -> HRESULT;
             #[special]
-            fn get_ItemByName(&self, #[in] strName: BSTR, #[out] #[out_ptr] #[retval] ppValue: *mut ICertificationAuthority) -> HRESULT;
+            fn get_ItemByName(&self, #[in] strName: BSTR, #[out] #[retval] ppValue: *mut ICertificationAuthority) -> HRESULT;
         }
         #[guid(0x835d1f61_1e95_4bc8_b4d3_976c42b968f7)]
         interface ICertificationAuthority: IDispatch {
@@ -1017,18 +1017,18 @@ mod Windows {
             fn InitializeFromObjectId(&self, #[in] #[opt] pObjectId: IObjectId) -> HRESULT;
             fn InitializeFromValues(&self, #[in] #[opt] pAttributes: IX509Attributes) -> HRESULT;
             #[special]
-            fn get_ObjectId(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            fn get_ObjectId(&self, #[out] #[retval] ppValue: *mut IObjectId) -> HRESULT;
             #[special]
-            fn get_Values(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IX509Attributes) -> HRESULT;
+            fn get_Values(&self, #[out] #[retval] ppValue: *mut IX509Attributes) -> HRESULT;
         }
         #[guid(0x728ab32d_217d_11da_b2a4_000e7bbb2b09)]
         interface ICryptAttributes: IDispatch {
             #[special]
-            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[out_ptr] #[retval] pVal: *mut ICryptAttribute) -> HRESULT;
+            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[retval] pVal: *mut ICryptAttribute) -> HRESULT;
             #[special]
             fn get_Count(&self, #[out] #[retval] pVal: *mut i32) -> HRESULT;
             #[special]
-            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
             fn Add(&self, #[in] #[opt] pVal: ICryptAttribute) -> HRESULT;
             fn Remove(&self, #[in] Index: LONG) -> HRESULT;
             fn Clear(&self) -> HRESULT;
@@ -1038,13 +1038,13 @@ mod Windows {
         }
         #[guid(0x728ab305_217d_11da_b2a4_000e7bbb2b09)]
         interface ICspAlgorithm: IDispatch {
-            fn GetAlgorithmOid(&self, #[in] Length: LONG, #[in] AlgFlags: AlgorithmFlags, #[out] #[out_ptr] #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            fn GetAlgorithmOid(&self, #[in] Length: LONG, #[in] AlgFlags: AlgorithmFlags, #[out] #[retval] ppValue: *mut IObjectId) -> HRESULT;
             #[special]
             fn get_DefaultLength(&self, #[out] #[retval] pValue: *mut LONG) -> HRESULT;
             #[special]
             fn get_IncrementLength(&self, #[out] #[retval] pValue: *mut LONG) -> HRESULT;
             #[special]
-            fn get_LongName(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_LongName(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn get_Valid(&self, #[out] #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
             #[special]
@@ -1052,7 +1052,7 @@ mod Windows {
             #[special]
             fn get_MinLength(&self, #[out] #[retval] pValue: *mut LONG) -> HRESULT;
             #[special]
-            fn get_Name(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_Name(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn get_Type(&self, #[out] #[retval] pValue: *mut AlgorithmType) -> HRESULT;
             #[special]
@@ -1061,16 +1061,16 @@ mod Windows {
         #[guid(0x728ab306_217d_11da_b2a4_000e7bbb2b09)]
         interface ICspAlgorithms: IDispatch {
             #[special]
-            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[out_ptr] #[retval] pVal: *mut ICspAlgorithm) -> HRESULT;
+            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[retval] pVal: *mut ICspAlgorithm) -> HRESULT;
             #[special]
             fn get_Count(&self, #[out] #[retval] pVal: *mut i32) -> HRESULT;
             #[special]
-            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
             fn Add(&self, #[in] #[opt] pVal: ICspAlgorithm) -> HRESULT;
             fn Remove(&self, #[in] Index: LONG) -> HRESULT;
             fn Clear(&self) -> HRESULT;
             #[special]
-            fn get_ItemByName(&self, #[in] strName: BSTR, #[out] #[out_ptr] #[retval] ppValue: *mut ICspAlgorithm) -> HRESULT;
+            fn get_ItemByName(&self, #[in] strName: BSTR, #[out] #[retval] ppValue: *mut ICspAlgorithm) -> HRESULT;
             #[special]
             fn get_IndexByObjectId(&self, #[in] #[opt] pObjectId: IObjectId, #[out] #[retval] pIndex: *mut LONG) -> HRESULT;
         }
@@ -1079,7 +1079,7 @@ mod Windows {
             fn InitializeFromName(&self, #[in] strName: BSTR) -> HRESULT;
             fn InitializeFromType(&self, #[in] Type: X509ProviderType, #[in] #[opt] pAlgorithm: IObjectId, #[in] MachineContext: VARIANT_BOOL) -> HRESULT;
             #[special]
-            fn get_CspAlgorithms(&self, #[out] #[out_ptr] #[retval] ppValue: *mut ICspAlgorithms) -> HRESULT;
+            fn get_CspAlgorithms(&self, #[out] #[retval] ppValue: *mut ICspAlgorithms) -> HRESULT;
             #[special]
             fn get_HasHardwareRandomNumberGenerator(&self, #[out] #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
             #[special]
@@ -1093,7 +1093,7 @@ mod Windows {
             #[special]
             fn get_MaxKeyContainerNameLength(&self, #[out] #[retval] pValue: *mut LONG) -> HRESULT;
             #[special]
-            fn get_Name(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_Name(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn get_Type(&self, #[out] #[retval] pValue: *mut X509ProviderType) -> HRESULT;
             #[special]
@@ -1102,29 +1102,29 @@ mod Windows {
             fn get_KeySpec(&self, #[out] #[retval] pValue: *mut X509KeySpec) -> HRESULT;
             #[special]
             fn get_IsSmartCard(&self, #[out] #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
-            fn GetDefaultSecurityDescriptor(&self, #[in] MachineContext: VARIANT_BOOL, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn GetDefaultSecurityDescriptor(&self, #[in] MachineContext: VARIANT_BOOL, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn get_LegacyCsp(&self, #[out] #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
-            fn GetCspStatusFromOperations(&self, #[in] #[opt] pAlgorithm: IObjectId, #[in] Operations: AlgorithmOperationFlags, #[out] #[out_ptr] #[retval] ppValue: *mut ICspStatus) -> HRESULT;
+            fn GetCspStatusFromOperations(&self, #[in] #[opt] pAlgorithm: IObjectId, #[in] Operations: AlgorithmOperationFlags, #[out] #[retval] ppValue: *mut ICspStatus) -> HRESULT;
         }
         #[guid(0x728ab308_217d_11da_b2a4_000e7bbb2b09)]
         interface ICspInformations: IDispatch {
             #[special]
-            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[out_ptr] #[retval] pVal: *mut ICspInformation) -> HRESULT;
+            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[retval] pVal: *mut ICspInformation) -> HRESULT;
             #[special]
             fn get_Count(&self, #[out] #[retval] pVal: *mut i32) -> HRESULT;
             #[special]
-            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
             fn Add(&self, #[in] #[opt] pVal: ICspInformation) -> HRESULT;
             fn Remove(&self, #[in] Index: LONG) -> HRESULT;
             fn Clear(&self) -> HRESULT;
             fn AddAvailableCsps(&self) -> HRESULT;
             #[special]
-            fn get_ItemByName(&self, #[in] strName: BSTR, #[out] #[out_ptr] #[retval] ppCspInformation: *mut ICspInformation) -> HRESULT;
-            fn GetCspStatusFromProviderName(&self, #[in] strProviderName: BSTR, #[in] LegacyKeySpec: X509KeySpec, #[out] #[out_ptr] #[retval] ppValue: *mut ICspStatus) -> HRESULT;
-            fn GetCspStatusesFromOperations(&self, #[in] Operations: AlgorithmOperationFlags, #[in] #[opt] pCspInformation: ICspInformation, #[out] #[out_ptr] #[retval] ppValue: *mut ICspStatuses) -> HRESULT;
-            fn GetEncryptionCspAlgorithms(&self, #[in] #[opt] pCspInformation: ICspInformation, #[out] #[out_ptr] #[retval] ppValue: *mut ICspAlgorithms) -> HRESULT;
-            fn GetHashAlgorithms(&self, #[in] #[opt] pCspInformation: ICspInformation, #[out] #[out_ptr] #[retval] ppValue: *mut IObjectIds) -> HRESULT;
+            fn get_ItemByName(&self, #[in] strName: BSTR, #[out] #[retval] ppCspInformation: *mut ICspInformation) -> HRESULT;
+            fn GetCspStatusFromProviderName(&self, #[in] strProviderName: BSTR, #[in] LegacyKeySpec: X509KeySpec, #[out] #[retval] ppValue: *mut ICspStatus) -> HRESULT;
+            fn GetCspStatusesFromOperations(&self, #[in] Operations: AlgorithmOperationFlags, #[in] #[opt] pCspInformation: ICspInformation, #[out] #[retval] ppValue: *mut ICspStatuses) -> HRESULT;
+            fn GetEncryptionCspAlgorithms(&self, #[in] #[opt] pCspInformation: ICspInformation, #[out] #[retval] ppValue: *mut ICspAlgorithms) -> HRESULT;
+            fn GetHashAlgorithms(&self, #[in] #[opt] pCspInformation: ICspInformation, #[out] #[retval] ppValue: *mut IObjectIds) -> HRESULT;
         }
         #[guid(0x728ab309_217d_11da_b2a4_000e7bbb2b09)]
         interface ICspStatus: IDispatch {
@@ -1134,33 +1134,33 @@ mod Windows {
             #[special]
             fn put_Ordinal(&self, #[in] Value: LONG) -> HRESULT;
             #[special]
-            fn get_CspAlgorithm(&self, #[out] #[out_ptr] #[retval] ppValue: *mut ICspAlgorithm) -> HRESULT;
+            fn get_CspAlgorithm(&self, #[out] #[retval] ppValue: *mut ICspAlgorithm) -> HRESULT;
             #[special]
-            fn get_CspInformation(&self, #[out] #[out_ptr] #[retval] ppValue: *mut ICspInformation) -> HRESULT;
+            fn get_CspInformation(&self, #[out] #[retval] ppValue: *mut ICspInformation) -> HRESULT;
             #[special]
-            fn get_EnrollmentStatus(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IX509EnrollmentStatus) -> HRESULT;
+            fn get_EnrollmentStatus(&self, #[out] #[retval] ppValue: *mut IX509EnrollmentStatus) -> HRESULT;
             #[special]
-            fn get_DisplayName(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_DisplayName(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
         }
         #[guid(0x728ab30a_217d_11da_b2a4_000e7bbb2b09)]
         interface ICspStatuses: IDispatch {
             #[special]
-            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[out_ptr] #[retval] pVal: *mut ICspStatus) -> HRESULT;
+            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[retval] pVal: *mut ICspStatus) -> HRESULT;
             #[special]
             fn get_Count(&self, #[out] #[retval] pVal: *mut i32) -> HRESULT;
             #[special]
-            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
             fn Add(&self, #[in] #[opt] pVal: ICspStatus) -> HRESULT;
             fn Remove(&self, #[in] Index: LONG) -> HRESULT;
             fn Clear(&self) -> HRESULT;
             #[special]
-            fn get_ItemByName(&self, #[in] strCspName: BSTR, #[in] strAlgorithmName: BSTR, #[out] #[out_ptr] #[retval] ppValue: *mut ICspStatus) -> HRESULT;
+            fn get_ItemByName(&self, #[in] strCspName: BSTR, #[in] strAlgorithmName: BSTR, #[out] #[retval] ppValue: *mut ICspStatus) -> HRESULT;
             #[special]
-            fn get_ItemByOrdinal(&self, #[in] Ordinal: LONG, #[out] #[out_ptr] #[retval] ppValue: *mut ICspStatus) -> HRESULT;
+            fn get_ItemByOrdinal(&self, #[in] Ordinal: LONG, #[out] #[retval] ppValue: *mut ICspStatus) -> HRESULT;
             #[special]
-            fn get_ItemByOperations(&self, #[in] strCspName: BSTR, #[in] strAlgorithmName: BSTR, #[in] Operations: AlgorithmOperationFlags, #[out] #[out_ptr] #[retval] ppValue: *mut ICspStatus) -> HRESULT;
+            fn get_ItemByOperations(&self, #[in] strCspName: BSTR, #[in] strAlgorithmName: BSTR, #[in] Operations: AlgorithmOperationFlags, #[out] #[retval] ppValue: *mut ICspStatus) -> HRESULT;
             #[special]
-            fn get_ItemByProvider(&self, #[in] #[opt] pCspStatus: ICspStatus, #[out] #[out_ptr] #[retval] ppValue: *mut ICspStatus) -> HRESULT;
+            fn get_ItemByProvider(&self, #[in] #[opt] pCspStatus: ICspStatus, #[out] #[retval] ppValue: *mut ICspStatus) -> HRESULT;
         }
         #[guid(0x728ab300_217d_11da_b2a4_000e7bbb2b09)]
         interface IObjectId: IDispatch {
@@ -1170,21 +1170,21 @@ mod Windows {
             #[special]
             fn get_Name(&self, #[out] #[retval] pValue: *mut CERTENROLL_OBJECTID) -> HRESULT;
             #[special]
-            fn get_FriendlyName(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_FriendlyName(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_FriendlyName(&self, #[in] Value: BSTR) -> HRESULT;
             #[special]
-            fn get_Value(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
-            fn GetAlgorithmName(&self, #[in] GroupId: ObjectIdGroupId, #[in] KeyFlags: ObjectIdPublicKeyFlags, #[out] #[out_ptr] #[retval] pstrAlgorithmName: *mut BSTR) -> HRESULT;
+            fn get_Value(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn GetAlgorithmName(&self, #[in] GroupId: ObjectIdGroupId, #[in] KeyFlags: ObjectIdPublicKeyFlags, #[out] #[retval] pstrAlgorithmName: *mut BSTR) -> HRESULT;
         }
         #[guid(0x728ab301_217d_11da_b2a4_000e7bbb2b09)]
         interface IObjectIds: IDispatch {
             #[special]
-            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[out_ptr] #[retval] pVal: *mut IObjectId) -> HRESULT;
+            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[retval] pVal: *mut IObjectId) -> HRESULT;
             #[special]
             fn get_Count(&self, #[out] #[retval] pVal: *mut i32) -> HRESULT;
             #[special]
-            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
             fn Add(&self, #[in] #[opt] pVal: IObjectId) -> HRESULT;
             fn Remove(&self, #[in] Index: LONG) -> HRESULT;
             fn Clear(&self) -> HRESULT;
@@ -1194,22 +1194,22 @@ mod Windows {
         interface IPolicyQualifier: IDispatch {
             fn InitializeEncode(&self, #[in] strQualifier: BSTR, #[in] Type: PolicyQualifierType) -> HRESULT;
             #[special]
-            fn get_ObjectId(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            fn get_ObjectId(&self, #[out] #[retval] ppValue: *mut IObjectId) -> HRESULT;
             #[special]
-            fn get_Qualifier(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_Qualifier(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn get_Type(&self, #[out] #[retval] pValue: *mut PolicyQualifierType) -> HRESULT;
             #[special]
-            fn get_RawData(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_RawData(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
         }
         #[guid(0x728ab31d_217d_11da_b2a4_000e7bbb2b09)]
         interface IPolicyQualifiers: IDispatch {
             #[special]
-            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[out_ptr] #[retval] pVal: *mut IPolicyQualifier) -> HRESULT;
+            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[retval] pVal: *mut IPolicyQualifier) -> HRESULT;
             #[special]
             fn get_Count(&self, #[out] #[retval] pVal: *mut i32) -> HRESULT;
             #[special]
-            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
             fn Add(&self, #[in] #[opt] pVal: IPolicyQualifier) -> HRESULT;
             fn Remove(&self, #[in] Index: LONG) -> HRESULT;
             fn Clear(&self) -> HRESULT;
@@ -1218,9 +1218,9 @@ mod Windows {
         interface ISignerCertificate: IDispatch {
             fn Initialize(&self, #[in] MachineContext: VARIANT_BOOL, #[in] VerifyType: X509PrivateKeyVerify, #[in] Encoding: EncodingType, #[in] strCertificate: BSTR) -> HRESULT;
             #[special]
-            fn get_Certificate(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_Certificate(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_PrivateKey(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IX509PrivateKey) -> HRESULT;
+            fn get_PrivateKey(&self, #[out] #[retval] ppValue: *mut IX509PrivateKey) -> HRESULT;
             #[special]
             fn get_Silent(&self, #[out] #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
             #[special]
@@ -1230,22 +1230,22 @@ mod Windows {
             #[special]
             fn put_ParentWindow(&self, #[in] Value: LONG) -> HRESULT;
             #[special]
-            fn get_UIContextMessage(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_UIContextMessage(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_UIContextMessage(&self, #[in] Value: BSTR) -> HRESULT;
             #[special]
             fn put_Pin(&self, #[in] Value: BSTR) -> HRESULT;
             #[special]
-            fn get_SignatureInformation(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IX509SignatureInformation) -> HRESULT;
+            fn get_SignatureInformation(&self, #[out] #[retval] ppValue: *mut IX509SignatureInformation) -> HRESULT;
         }
         #[guid(0x728ab33e_217d_11da_b2a4_000e7bbb2b09)]
         interface ISignerCertificates: IDispatch {
             #[special]
-            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[out_ptr] #[retval] pVal: *mut ISignerCertificate) -> HRESULT;
+            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[retval] pVal: *mut ISignerCertificate) -> HRESULT;
             #[special]
             fn get_Count(&self, #[out] #[retval] pVal: *mut i32) -> HRESULT;
             #[special]
-            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
             fn Add(&self, #[in] #[opt] pVal: ISignerCertificate) -> HRESULT;
             fn Remove(&self, #[in] Index: LONG) -> HRESULT;
             fn Clear(&self) -> HRESULT;
@@ -1254,11 +1254,11 @@ mod Windows {
         #[guid(0x728ab31a_217d_11da_b2a4_000e7bbb2b09)]
         interface ISmimeCapabilities: IDispatch {
             #[special]
-            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[out_ptr] #[retval] pVal: *mut ISmimeCapability) -> HRESULT;
+            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[retval] pVal: *mut ISmimeCapability) -> HRESULT;
             #[special]
             fn get_Count(&self, #[out] #[retval] pVal: *mut i32) -> HRESULT;
             #[special]
-            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
             fn Add(&self, #[in] #[opt] pVal: ISmimeCapability) -> HRESULT;
             fn Remove(&self, #[in] Index: LONG) -> HRESULT;
             fn Clear(&self) -> HRESULT;
@@ -1269,7 +1269,7 @@ mod Windows {
         interface ISmimeCapability: IDispatch {
             fn Initialize(&self, #[in] #[opt] pObjectId: IObjectId, #[in] BitCount: LONG) -> HRESULT;
             #[special]
-            fn get_ObjectId(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            fn get_ObjectId(&self, #[out] #[retval] ppValue: *mut IObjectId) -> HRESULT;
             #[special]
             fn get_BitCount(&self, #[out] #[retval] pValue: *mut LONG) -> HRESULT;
         }
@@ -1278,26 +1278,26 @@ mod Windows {
             fn Decode(&self, #[in] strEncodedName: BSTR, #[in] Encoding: EncodingType, #[in] NameFlags: X500NameFlags) -> HRESULT;
             fn Encode(&self, #[in] strName: BSTR, #[in] NameFlags: X500NameFlags) -> HRESULT;
             #[special]
-            fn get_Name(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_Name(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_EncodedName(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_EncodedName(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
         }
         #[guid(0x728ab322_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509Attribute: IDispatch {
             fn Initialize(&self, #[in] #[opt] pObjectId: IObjectId, #[in] Encoding: EncodingType, #[in] strEncodedData: BSTR) -> HRESULT;
             #[special]
-            fn get_ObjectId(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            fn get_ObjectId(&self, #[out] #[retval] ppValue: *mut IObjectId) -> HRESULT;
             #[special]
-            fn get_RawData(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_RawData(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
         }
         #[guid(0x728ab327_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509AttributeArchiveKey: IX509Attribute {
             fn InitializeEncode(&self, #[in] #[opt] pKey: IX509PrivateKey, #[in] Encoding: EncodingType, #[in] strCAXCert: BSTR, #[in] #[opt] pAlgorithm: IObjectId, #[in] EncryptionStrength: LONG) -> HRESULT;
             fn InitializeDecode(&self, #[in] Encoding: EncodingType, #[in] strEncodedData: BSTR) -> HRESULT;
             #[special]
-            fn get_EncryptedKeyBlob(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_EncryptedKeyBlob(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_EncryptionAlgorithm(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            fn get_EncryptionAlgorithm(&self, #[out] #[retval] ppValue: *mut IObjectId) -> HRESULT;
             #[special]
             fn get_EncryptionStrength(&self, #[out] #[retval] pValue: *mut LONG) -> HRESULT;
         }
@@ -1306,7 +1306,7 @@ mod Windows {
             fn InitializeEncodeFromEncryptedKeyBlob(&self, #[in] Encoding: EncodingType, #[in] strEncryptedKeyBlob: BSTR) -> HRESULT;
             fn InitializeDecode(&self, #[in] Encoding: EncodingType, #[in] strEncodedData: BSTR) -> HRESULT;
             #[special]
-            fn get_EncryptedKeyHashBlob(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_EncryptedKeyHashBlob(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
         }
         #[guid(0x728ab325_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509AttributeClientId: IX509Attribute {
@@ -1315,11 +1315,11 @@ mod Windows {
             #[special]
             fn get_ClientId(&self, #[out] #[retval] pValue: *mut RequestClientInfoClientId) -> HRESULT;
             #[special]
-            fn get_MachineDnsName(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_MachineDnsName(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_UserSamName(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_UserSamName(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_ProcessName(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_ProcessName(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
         }
         #[guid(0x728ab32b_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509AttributeCspProvider: IX509Attribute {
@@ -1328,39 +1328,39 @@ mod Windows {
             #[special]
             fn get_KeySpec(&self, #[out] #[retval] pValue: *mut X509KeySpec) -> HRESULT;
             #[special]
-            fn get_ProviderName(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_ProviderName(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_Signature(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_Signature(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
         }
         #[guid(0x728ab324_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509AttributeExtensions: IX509Attribute {
             fn InitializeEncode(&self, #[in] #[opt] pExtensions: IX509Extensions) -> HRESULT;
             fn InitializeDecode(&self, #[in] Encoding: EncodingType, #[in] strEncodedData: BSTR) -> HRESULT;
             #[special]
-            fn get_X509Extensions(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IX509Extensions) -> HRESULT;
+            fn get_X509Extensions(&self, #[out] #[retval] ppValue: *mut IX509Extensions) -> HRESULT;
         }
         #[guid(0x728ab32a_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509AttributeOSVersion: IX509Attribute {
             fn InitializeEncode(&self, #[in] strOSVersion: BSTR) -> HRESULT;
             fn InitializeDecode(&self, #[in] Encoding: EncodingType, #[in] strEncodedData: BSTR) -> HRESULT;
             #[special]
-            fn get_OSVersion(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_OSVersion(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
         }
         #[guid(0x728ab326_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509AttributeRenewalCertificate: IX509Attribute {
             fn InitializeEncode(&self, #[in] Encoding: EncodingType, #[in] strCert: BSTR) -> HRESULT;
             fn InitializeDecode(&self, #[in] Encoding: EncodingType, #[in] strEncodedData: BSTR) -> HRESULT;
             #[special]
-            fn get_RenewalCertificate(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_RenewalCertificate(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
         }
         #[guid(0x728ab323_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509Attributes: IDispatch {
             #[special]
-            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[out_ptr] #[retval] pVal: *mut IX509Attribute) -> HRESULT;
+            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[retval] pVal: *mut IX509Attribute) -> HRESULT;
             #[special]
             fn get_Count(&self, #[out] #[retval] pVal: *mut i32) -> HRESULT;
             #[special]
-            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
             fn Add(&self, #[in] #[opt] pVal: IX509Attribute) -> HRESULT;
             fn Remove(&self, #[in] Index: LONG) -> HRESULT;
             fn Clear(&self) -> HRESULT;
@@ -1370,7 +1370,7 @@ mod Windows {
             fn Initialize(&self, #[in] Context: X509CertificateEnrollmentContext) -> HRESULT;
             fn Encode(&self) -> HRESULT;
             fn ResetForEncode(&self) -> HRESULT;
-            fn GetInnerRequest(&self, #[in] Level: InnerRequestLevel, #[out] #[out_ptr] #[retval] ppValue: *mut IX509CertificateRequest) -> HRESULT;
+            fn GetInnerRequest(&self, #[in] Level: InnerRequestLevel, #[out] #[retval] ppValue: *mut IX509CertificateRequest) -> HRESULT;
             #[special]
             fn get_Type(&self, #[out] #[retval] pValue: *mut X509RequestType) -> HRESULT;
             #[special]
@@ -1384,7 +1384,7 @@ mod Windows {
             #[special]
             fn put_ParentWindow(&self, #[in] Value: LONG) -> HRESULT;
             #[special]
-            fn get_UIContextMessage(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_UIContextMessage(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_UIContextMessage(&self, #[in] Value: BSTR) -> HRESULT;
             #[special]
@@ -1392,7 +1392,7 @@ mod Windows {
             #[special]
             fn put_SuppressDefaults(&self, #[in] Value: VARIANT_BOOL) -> HRESULT;
             #[special]
-            fn get_RenewalCertificate(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_RenewalCertificate(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_RenewalCertificate(&self, #[in] Encoding: EncodingType, #[in] Value: BSTR) -> HRESULT;
             #[special]
@@ -1400,11 +1400,11 @@ mod Windows {
             #[special]
             fn put_ClientId(&self, #[in] Value: RequestClientInfoClientId) -> HRESULT;
             #[special]
-            fn get_CspInformations(&self, #[out] #[out_ptr] #[retval] ppValue: *mut ICspInformations) -> HRESULT;
+            fn get_CspInformations(&self, #[out] #[retval] ppValue: *mut ICspInformations) -> HRESULT;
             #[special]
             fn put_CspInformations(&self, #[in] #[opt] pValue: ICspInformations) -> HRESULT;
             #[special]
-            fn get_HashAlgorithm(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            fn get_HashAlgorithm(&self, #[out] #[retval] ppValue: *mut IObjectId) -> HRESULT;
             #[special]
             fn put_HashAlgorithm(&self, #[in] #[opt] pValue: IObjectId) -> HRESULT;
             #[special]
@@ -1412,13 +1412,13 @@ mod Windows {
             #[special]
             fn put_AlternateSignatureAlgorithm(&self, #[in] Value: VARIANT_BOOL) -> HRESULT;
             #[special]
-            fn get_RawData(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_RawData(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
         }
         #[guid(0x728ab343_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509CertificateRequestCertificate: IX509CertificateRequestPkcs10 {
             fn CheckPublicKeySignature(&self, #[in] #[opt] pPublicKey: IX509PublicKey) -> HRESULT;
             #[special]
-            fn get_Issuer(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IX500DistinguishedName) -> HRESULT;
+            fn get_Issuer(&self, #[out] #[retval] ppValue: *mut IX500DistinguishedName) -> HRESULT;
             #[special]
             fn put_Issuer(&self, #[in] #[opt] pValue: IX500DistinguishedName) -> HRESULT;
             #[special]
@@ -1430,11 +1430,11 @@ mod Windows {
             #[special]
             fn put_NotAfter(&self, #[in] Value: DATE) -> HRESULT;
             #[special]
-            fn get_SerialNumber(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_SerialNumber(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_SerialNumber(&self, #[in] Encoding: EncodingType, #[in] Value: BSTR) -> HRESULT;
             #[special]
-            fn get_SignerCertificate(&self, #[out] #[out_ptr] #[retval] ppValue: *mut ISignerCertificate) -> HRESULT;
+            fn get_SignerCertificate(&self, #[out] #[retval] ppValue: *mut ISignerCertificate) -> HRESULT;
             #[special]
             fn put_SignerCertificate(&self, #[in] #[opt] pValue: ISignerCertificate) -> HRESULT;
         }
@@ -1443,47 +1443,47 @@ mod Windows {
             fn InitializeFromTemplate(&self, #[in] context: X509CertificateEnrollmentContext, #[in] #[opt] pPolicyServer: IX509EnrollmentPolicyServer, #[in] #[opt] pTemplate: IX509CertificateTemplate) -> HRESULT;
             fn InitializeFromPrivateKeyTemplate(&self, #[in] Context: X509CertificateEnrollmentContext, #[in] #[opt] pPrivateKey: IX509PrivateKey, #[in] #[opt] pPolicyServer: IX509EnrollmentPolicyServer, #[in] #[opt] pTemplate: IX509CertificateTemplate) -> HRESULT;
             #[special]
-            fn get_PolicyServer(&self, #[out] #[out_ptr] #[retval] ppPolicyServer: *mut IX509EnrollmentPolicyServer) -> HRESULT;
+            fn get_PolicyServer(&self, #[out] #[retval] ppPolicyServer: *mut IX509EnrollmentPolicyServer) -> HRESULT;
             #[special]
-            fn get_Template(&self, #[out] #[out_ptr] #[retval] ppTemplate: *mut IX509CertificateTemplate) -> HRESULT;
+            fn get_Template(&self, #[out] #[retval] ppTemplate: *mut IX509CertificateTemplate) -> HRESULT;
         }
         #[guid(0x728ab345_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509CertificateRequestCmc: IX509CertificateRequestPkcs7 {
             fn InitializeFromInnerRequestTemplateName(&self, #[in] #[opt] pInnerRequest: IX509CertificateRequest, #[in] strTemplateName: BSTR) -> HRESULT;
             #[special]
-            fn get_TemplateObjectId(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            fn get_TemplateObjectId(&self, #[out] #[retval] ppValue: *mut IObjectId) -> HRESULT;
             #[special]
             fn get_NullSigned(&self, #[out] #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
             #[special]
-            fn get_CryptAttributes(&self, #[out] #[out_ptr] #[retval] ppValue: *mut ICryptAttributes) -> HRESULT;
+            fn get_CryptAttributes(&self, #[out] #[retval] ppValue: *mut ICryptAttributes) -> HRESULT;
             #[special]
-            fn get_NameValuePairs(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IX509NameValuePairs) -> HRESULT;
+            fn get_NameValuePairs(&self, #[out] #[retval] ppValue: *mut IX509NameValuePairs) -> HRESULT;
             #[special]
-            fn get_X509Extensions(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IX509Extensions) -> HRESULT;
+            fn get_X509Extensions(&self, #[out] #[retval] ppValue: *mut IX509Extensions) -> HRESULT;
             #[special]
-            fn get_CriticalExtensions(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IObjectIds) -> HRESULT;
+            fn get_CriticalExtensions(&self, #[out] #[retval] ppValue: *mut IObjectIds) -> HRESULT;
             #[special]
-            fn get_SuppressOids(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IObjectIds) -> HRESULT;
+            fn get_SuppressOids(&self, #[out] #[retval] ppValue: *mut IObjectIds) -> HRESULT;
             #[special]
             fn get_TransactionId(&self, #[out] #[retval] pValue: *mut LONG) -> HRESULT;
             #[special]
             fn put_TransactionId(&self, #[in] Value: LONG) -> HRESULT;
             #[special]
-            fn get_SenderNonce(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_SenderNonce(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_SenderNonce(&self, #[in] Encoding: EncodingType, #[in] Value: BSTR) -> HRESULT;
             #[special]
-            fn get_SignatureInformation(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IX509SignatureInformation) -> HRESULT;
+            fn get_SignatureInformation(&self, #[out] #[retval] ppValue: *mut IX509SignatureInformation) -> HRESULT;
             #[special]
             fn get_ArchivePrivateKey(&self, #[out] #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
             #[special]
             fn put_ArchivePrivateKey(&self, #[in] Value: VARIANT_BOOL) -> HRESULT;
             #[special]
-            fn get_KeyArchivalCertificate(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_KeyArchivalCertificate(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_KeyArchivalCertificate(&self, #[in] Encoding: EncodingType, #[in] Value: BSTR) -> HRESULT;
             #[special]
-            fn get_EncryptionAlgorithm(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            fn get_EncryptionAlgorithm(&self, #[out] #[retval] ppValue: *mut IObjectId) -> HRESULT;
             #[special]
             fn put_EncryptionAlgorithm(&self, #[in] #[opt] pValue: IObjectId) -> HRESULT;
             #[special]
@@ -1491,18 +1491,18 @@ mod Windows {
             #[special]
             fn put_EncryptionStrength(&self, #[in] Value: LONG) -> HRESULT;
             #[special]
-            fn get_EncryptedKeyHash(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_EncryptedKeyHash(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_SignerCertificates(&self, #[out] #[out_ptr] #[retval] ppValue: *mut ISignerCertificates) -> HRESULT;
+            fn get_SignerCertificates(&self, #[out] #[retval] ppValue: *mut ISignerCertificates) -> HRESULT;
         }
         #[guid(0x728ab35d_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509CertificateRequestCmc2: IX509CertificateRequestCmc {
             fn InitializeFromTemplate(&self, #[in] context: X509CertificateEnrollmentContext, #[in] #[opt] pPolicyServer: IX509EnrollmentPolicyServer, #[in] #[opt] pTemplate: IX509CertificateTemplate) -> HRESULT;
             fn InitializeFromInnerRequestTemplate(&self, #[in] #[opt] pInnerRequest: IX509CertificateRequest, #[in] #[opt] pPolicyServer: IX509EnrollmentPolicyServer, #[in] #[opt] pTemplate: IX509CertificateTemplate) -> HRESULT;
             #[special]
-            fn get_PolicyServer(&self, #[out] #[out_ptr] #[retval] ppPolicyServer: *mut IX509EnrollmentPolicyServer) -> HRESULT;
+            fn get_PolicyServer(&self, #[out] #[retval] ppPolicyServer: *mut IX509EnrollmentPolicyServer) -> HRESULT;
             #[special]
-            fn get_Template(&self, #[out] #[out_ptr] #[retval] ppTemplate: *mut IX509CertificateTemplate) -> HRESULT;
+            fn get_Template(&self, #[out] #[retval] ppTemplate: *mut IX509CertificateTemplate) -> HRESULT;
             fn CheckSignature(&self, #[in] AllowedSignatureTypes: Pkcs10AllowedSignatureTypes) -> HRESULT;
             fn CheckCertificateSignature(&self, #[in] #[opt] pSignerCertificate: ISignerCertificate, #[in] ValidateCertificateChain: VARIANT_BOOL) -> HRESULT;
         }
@@ -1516,46 +1516,46 @@ mod Windows {
             fn CheckSignature(&self, #[in] AllowedSignatureTypes: Pkcs10AllowedSignatureTypes) -> HRESULT;
             fn IsSmartCard(&self, #[out] #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
             #[special]
-            fn get_TemplateObjectId(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            fn get_TemplateObjectId(&self, #[out] #[retval] ppValue: *mut IObjectId) -> HRESULT;
             #[special]
-            fn get_PublicKey(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IX509PublicKey) -> HRESULT;
+            fn get_PublicKey(&self, #[out] #[retval] ppValue: *mut IX509PublicKey) -> HRESULT;
             #[special]
-            fn get_PrivateKey(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IX509PrivateKey) -> HRESULT;
+            fn get_PrivateKey(&self, #[out] #[retval] ppValue: *mut IX509PrivateKey) -> HRESULT;
             #[special]
             fn get_NullSigned(&self, #[out] #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
             #[special]
             fn get_ReuseKey(&self, #[out] #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
             #[special]
-            fn get_OldCertificate(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_OldCertificate(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_Subject(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IX500DistinguishedName) -> HRESULT;
+            fn get_Subject(&self, #[out] #[retval] ppValue: *mut IX500DistinguishedName) -> HRESULT;
             #[special]
             fn put_Subject(&self, #[in] #[opt] pValue: IX500DistinguishedName) -> HRESULT;
             #[special]
-            fn get_CspStatuses(&self, #[out] #[out_ptr] #[retval] ppValue: *mut ICspStatuses) -> HRESULT;
+            fn get_CspStatuses(&self, #[out] #[retval] ppValue: *mut ICspStatuses) -> HRESULT;
             #[special]
             fn get_SmimeCapabilities(&self, #[out] #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
             #[special]
             fn put_SmimeCapabilities(&self, #[in] Value: VARIANT_BOOL) -> HRESULT;
             #[special]
-            fn get_SignatureInformation(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IX509SignatureInformation) -> HRESULT;
+            fn get_SignatureInformation(&self, #[out] #[retval] ppValue: *mut IX509SignatureInformation) -> HRESULT;
             #[special]
-            fn get_KeyContainerNamePrefix(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_KeyContainerNamePrefix(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_KeyContainerNamePrefix(&self, #[in] Value: BSTR) -> HRESULT;
             #[special]
-            fn get_CryptAttributes(&self, #[out] #[out_ptr] #[retval] ppValue: *mut ICryptAttributes) -> HRESULT;
+            fn get_CryptAttributes(&self, #[out] #[retval] ppValue: *mut ICryptAttributes) -> HRESULT;
             #[special]
-            fn get_X509Extensions(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IX509Extensions) -> HRESULT;
+            fn get_X509Extensions(&self, #[out] #[retval] ppValue: *mut IX509Extensions) -> HRESULT;
             #[special]
-            fn get_CriticalExtensions(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IObjectIds) -> HRESULT;
+            fn get_CriticalExtensions(&self, #[out] #[retval] ppValue: *mut IObjectIds) -> HRESULT;
             #[special]
-            fn get_SuppressOids(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IObjectIds) -> HRESULT;
+            fn get_SuppressOids(&self, #[out] #[retval] ppValue: *mut IObjectIds) -> HRESULT;
             #[special]
-            fn get_RawDataToBeSigned(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_RawDataToBeSigned(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_Signature(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
-            fn GetCspStatuses(&self, #[in] KeySpec: X509KeySpec, #[out] #[out_ptr] #[retval] ppCspStatuses: *mut ICspStatuses) -> HRESULT;
+            fn get_Signature(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn GetCspStatuses(&self, #[in] KeySpec: X509KeySpec, #[out] #[retval] ppCspStatuses: *mut ICspStatuses) -> HRESULT;
         }
         #[guid(0x728ab35b_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509CertificateRequestPkcs10V2: IX509CertificateRequestPkcs10 {
@@ -1563,9 +1563,9 @@ mod Windows {
             fn InitializeFromPrivateKeyTemplate(&self, #[in] Context: X509CertificateEnrollmentContext, #[in] #[opt] pPrivateKey: IX509PrivateKey, #[in] #[opt] pPolicyServer: IX509EnrollmentPolicyServer, #[in] #[opt] pTemplate: IX509CertificateTemplate) -> HRESULT;
             fn InitializeFromPublicKeyTemplate(&self, #[in] Context: X509CertificateEnrollmentContext, #[in] #[opt] pPublicKey: IX509PublicKey, #[in] #[opt] pPolicyServer: IX509EnrollmentPolicyServer, #[in] #[opt] pTemplate: IX509CertificateTemplate) -> HRESULT;
             #[special]
-            fn get_PolicyServer(&self, #[out] #[out_ptr] #[retval] ppPolicyServer: *mut IX509EnrollmentPolicyServer) -> HRESULT;
+            fn get_PolicyServer(&self, #[out] #[retval] ppPolicyServer: *mut IX509EnrollmentPolicyServer) -> HRESULT;
             #[special]
-            fn get_Template(&self, #[out] #[out_ptr] #[retval] ppTemplate: *mut IX509CertificateTemplate) -> HRESULT;
+            fn get_Template(&self, #[out] #[retval] ppTemplate: *mut IX509CertificateTemplate) -> HRESULT;
         }
         #[guid(0x54ea9942_3d66_4530_b76e_7c9170d3ec52)]
         interface IX509CertificateRequestPkcs10V3: IX509CertificateRequestPkcs10V2 {
@@ -1574,11 +1574,11 @@ mod Windows {
             #[special]
             fn put_AttestPrivateKey(&self, #[in] Value: VARIANT_BOOL) -> HRESULT;
             #[special]
-            fn get_AttestationEncryptionCertificate(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_AttestationEncryptionCertificate(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_AttestationEncryptionCertificate(&self, #[in] Encoding: EncodingType, #[in] Value: BSTR) -> HRESULT;
             #[special]
-            fn get_EncryptionAlgorithm(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            fn get_EncryptionAlgorithm(&self, #[out] #[retval] ppValue: *mut IObjectId) -> HRESULT;
             #[special]
             fn put_EncryptionAlgorithm(&self, #[in] #[opt] pValue: IObjectId) -> HRESULT;
             #[special]
@@ -1586,11 +1586,11 @@ mod Windows {
             #[special]
             fn put_EncryptionStrength(&self, #[in] Value: LONG) -> HRESULT;
             #[special]
-            fn get_ChallengePassword(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_ChallengePassword(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_ChallengePassword(&self, #[in] Value: BSTR) -> HRESULT;
             #[special]
-            fn get_NameValuePairs(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IX509NameValuePairs) -> HRESULT;
+            fn get_NameValuePairs(&self, #[out] #[retval] ppValue: *mut IX509NameValuePairs) -> HRESULT;
         }
         #[guid(0x728ab363_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509CertificateRequestPkcs10V4: IX509CertificateRequestPkcs10V3 {
@@ -1610,11 +1610,11 @@ mod Windows {
             fn InitializeFromInnerRequest(&self, #[in] #[opt] pInnerRequest: IX509CertificateRequest) -> HRESULT;
             fn InitializeDecode(&self, #[in] strEncodedData: BSTR, #[in] Encoding: EncodingType) -> HRESULT;
             #[special]
-            fn get_RequesterName(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_RequesterName(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_RequesterName(&self, #[in] Value: BSTR) -> HRESULT;
             #[special]
-            fn get_SignerCertificate(&self, #[out] #[out_ptr] #[retval] ppValue: *mut ISignerCertificate) -> HRESULT;
+            fn get_SignerCertificate(&self, #[out] #[retval] ppValue: *mut ISignerCertificate) -> HRESULT;
             #[special]
             fn put_SignerCertificate(&self, #[in] #[opt] pValue: ISignerCertificate) -> HRESULT;
         }
@@ -1622,9 +1622,9 @@ mod Windows {
         interface IX509CertificateRequestPkcs7V2: IX509CertificateRequestPkcs7 {
             fn InitializeFromTemplate(&self, #[in] context: X509CertificateEnrollmentContext, #[in] #[opt] pPolicyServer: IX509EnrollmentPolicyServer, #[in] #[opt] pTemplate: IX509CertificateTemplate) -> HRESULT;
             #[special]
-            fn get_PolicyServer(&self, #[out] #[out_ptr] #[retval] ppPolicyServer: *mut IX509EnrollmentPolicyServer) -> HRESULT;
+            fn get_PolicyServer(&self, #[out] #[retval] ppPolicyServer: *mut IX509EnrollmentPolicyServer) -> HRESULT;
             #[special]
-            fn get_Template(&self, #[out] #[out_ptr] #[retval] ppTemplate: *mut IX509CertificateTemplate) -> HRESULT;
+            fn get_Template(&self, #[out] #[retval] ppTemplate: *mut IX509CertificateTemplate) -> HRESULT;
             fn CheckCertificateSignature(&self, #[in] ValidateCertificateChain: VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0x728ab360_217d_11da_b2a4_000e7bbb2b09)]
@@ -1636,7 +1636,7 @@ mod Windows {
             fn CheckPublicKeySignature(&self, #[in] #[opt] pPublicKey: IX509PublicKey) -> HRESULT;
             fn CheckSignature(&self) -> HRESULT;
             #[special]
-            fn get_Issuer(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IX500DistinguishedName) -> HRESULT;
+            fn get_Issuer(&self, #[out] #[retval] ppValue: *mut IX500DistinguishedName) -> HRESULT;
             #[special]
             fn put_Issuer(&self, #[in] #[opt] pValue: IX500DistinguishedName) -> HRESULT;
             #[special]
@@ -1648,17 +1648,17 @@ mod Windows {
             #[special]
             fn put_NextUpdate(&self, #[in] Value: DATE) -> HRESULT;
             #[special]
-            fn get_X509CRLEntries(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IX509CertificateRevocationListEntries) -> HRESULT;
+            fn get_X509CRLEntries(&self, #[out] #[retval] ppValue: *mut IX509CertificateRevocationListEntries) -> HRESULT;
             #[special]
-            fn get_X509Extensions(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IX509Extensions) -> HRESULT;
+            fn get_X509Extensions(&self, #[out] #[retval] ppValue: *mut IX509Extensions) -> HRESULT;
             #[special]
-            fn get_CriticalExtensions(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IObjectIds) -> HRESULT;
+            fn get_CriticalExtensions(&self, #[out] #[retval] ppValue: *mut IObjectIds) -> HRESULT;
             #[special]
-            fn get_SignerCertificate(&self, #[out] #[out_ptr] #[retval] ppValue: *mut ISignerCertificate) -> HRESULT;
+            fn get_SignerCertificate(&self, #[out] #[retval] ppValue: *mut ISignerCertificate) -> HRESULT;
             #[special]
             fn put_SignerCertificate(&self, #[in] #[opt] pValue: ISignerCertificate) -> HRESULT;
             #[special]
-            fn get_CRLNumber(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_CRLNumber(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_CRLNumber(&self, #[in] Encoding: EncodingType, #[in] Value: BSTR) -> HRESULT;
             #[special]
@@ -1670,7 +1670,7 @@ mod Windows {
             #[special]
             fn get_NullSigned(&self, #[out] #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
             #[special]
-            fn get_HashAlgorithm(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            fn get_HashAlgorithm(&self, #[out] #[retval] ppValue: *mut IObjectId) -> HRESULT;
             #[special]
             fn put_HashAlgorithm(&self, #[in] #[opt] pValue: IObjectId) -> HRESULT;
             #[special]
@@ -1678,22 +1678,22 @@ mod Windows {
             #[special]
             fn put_AlternateSignatureAlgorithm(&self, #[in] Value: VARIANT_BOOL) -> HRESULT;
             #[special]
-            fn get_SignatureInformation(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IX509SignatureInformation) -> HRESULT;
+            fn get_SignatureInformation(&self, #[out] #[retval] ppValue: *mut IX509SignatureInformation) -> HRESULT;
             #[special]
-            fn get_RawData(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_RawData(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_RawDataToBeSigned(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_RawDataToBeSigned(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_Signature(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_Signature(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
         }
         #[guid(0x728ab35f_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509CertificateRevocationListEntries: IDispatch {
             #[special]
-            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[out_ptr] #[retval] pVal: *mut IX509CertificateRevocationListEntry) -> HRESULT;
+            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[retval] pVal: *mut IX509CertificateRevocationListEntry) -> HRESULT;
             #[special]
             fn get_Count(&self, #[out] #[retval] pVal: *mut i32) -> HRESULT;
             #[special]
-            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
             fn Add(&self, #[in] #[opt] pVal: IX509CertificateRevocationListEntry) -> HRESULT;
             fn Remove(&self, #[in] Index: LONG) -> HRESULT;
             fn Clear(&self) -> HRESULT;
@@ -1705,7 +1705,7 @@ mod Windows {
         interface IX509CertificateRevocationListEntry: IDispatch {
             fn Initialize(&self, #[in] Encoding: EncodingType, #[in] SerialNumber: BSTR, #[in] RevocationDate: DATE) -> HRESULT;
             #[special]
-            fn get_SerialNumber(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_SerialNumber(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn get_RevocationDate(&self, #[out] #[retval] pValue: *mut DATE) -> HRESULT;
             #[special]
@@ -1713,9 +1713,9 @@ mod Windows {
             #[special]
             fn put_RevocationReason(&self, #[in] Value: CRLRevocationReason) -> HRESULT;
             #[special]
-            fn get_X509Extensions(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IX509Extensions) -> HRESULT;
+            fn get_X509Extensions(&self, #[out] #[retval] ppValue: *mut IX509Extensions) -> HRESULT;
             #[special]
-            fn get_CriticalExtensions(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IObjectIds) -> HRESULT;
+            fn get_CriticalExtensions(&self, #[out] #[retval] ppValue: *mut IObjectIds) -> HRESULT;
         }
         #[guid(0x54244a13_555a_4e22_896d_1b0e52f76406)]
         interface IX509CertificateTemplate: IDispatch {
@@ -1731,28 +1731,28 @@ mod Windows {
             #[special]
             fn put_Property(&self, #[in] property: EnrollmentTemplateProperty, #[in] value: VARIANT) -> HRESULT;
             #[special]
-            fn get_Template(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IX509CertificateTemplate) -> HRESULT;
+            fn get_Template(&self, #[out] #[retval] ppValue: *mut IX509CertificateTemplate) -> HRESULT;
         }
         #[guid(0x13b79003_2181_11da_b2a4_000e7bbb2b09)]
         interface IX509CertificateTemplates: IDispatch {
             #[special]
-            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[out_ptr] #[retval] pVal: *mut IX509CertificateTemplate) -> HRESULT;
+            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[retval] pVal: *mut IX509CertificateTemplate) -> HRESULT;
             #[special]
             fn get_Count(&self, #[out] #[retval] pVal: *mut i32) -> HRESULT;
             #[special]
-            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
             fn Add(&self, #[in] #[opt] pVal: IX509CertificateTemplate) -> HRESULT;
             fn Remove(&self, #[in] Index: LONG) -> HRESULT;
             fn Clear(&self) -> HRESULT;
             #[special]
-            fn get_ItemByName(&self, #[in] bstrName: BSTR, #[out] #[out_ptr] #[retval] ppValue: *mut IX509CertificateTemplate) -> HRESULT;
+            fn get_ItemByName(&self, #[in] bstrName: BSTR, #[out] #[retval] ppValue: *mut IX509CertificateTemplate) -> HRESULT;
             #[special]
-            fn get_ItemByOid(&self, #[in] #[opt] pOid: IObjectId, #[out] #[out_ptr] #[retval] ppValue: *mut IX509CertificateTemplate) -> HRESULT;
+            fn get_ItemByOid(&self, #[in] #[opt] pOid: IObjectId, #[out] #[retval] ppValue: *mut IX509CertificateTemplate) -> HRESULT;
         }
         #[guid(0xb11cd855_f4c4_4fc6_b710_4422237f09e9)]
         interface IX509EndorsementKey: IDispatch {
             #[special]
-            fn get_ProviderName(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_ProviderName(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_ProviderName(&self, #[in] Value: BSTR) -> HRESULT;
             #[special]
@@ -1761,9 +1761,9 @@ mod Windows {
             fn get_Opened(&self, #[out] #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
             fn AddCertificate(&self, #[in] Encoding: EncodingType, #[in] strCertificate: BSTR) -> HRESULT;
             fn RemoveCertificate(&self, #[in] Encoding: EncodingType, #[in] strCertificate: BSTR) -> HRESULT;
-            fn GetCertificateByIndex(&self, #[in] ManufacturerOnly: VARIANT_BOOL, #[in] dwIndex: LONG, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn GetCertificateByIndex(&self, #[in] ManufacturerOnly: VARIANT_BOOL, #[in] dwIndex: LONG, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             fn GetCertificateCount(&self, #[in] ManufacturerOnly: VARIANT_BOOL, #[out] #[retval] pCount: *mut LONG) -> HRESULT;
-            fn ExportPublicKey(&self, #[out] #[out_ptr] #[retval] ppPublicKey: *mut IX509PublicKey) -> HRESULT;
+            fn ExportPublicKey(&self, #[out] #[retval] ppPublicKey: *mut IX509PublicKey) -> HRESULT;
             fn Open(&self) -> HRESULT;
             fn Close(&self) -> HRESULT;
         }
@@ -1772,12 +1772,12 @@ mod Windows {
             fn Initialize(&self, #[in] Context: X509CertificateEnrollmentContext) -> HRESULT;
             fn InitializeFromTemplateName(&self, #[in] Context: X509CertificateEnrollmentContext, #[in] strTemplateName: BSTR) -> HRESULT;
             fn InitializeFromRequest(&self, #[in] #[opt] pRequest: IX509CertificateRequest) -> HRESULT;
-            fn CreateRequest(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn CreateRequest(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             fn Enroll(&self) -> HRESULT;
             fn InstallResponse(&self, #[in] Restrictions: InstallResponseRestrictionFlags, #[in] strResponse: BSTR, #[in] Encoding: EncodingType, #[in] strPassword: BSTR) -> HRESULT;
-            fn CreatePFX(&self, #[in] strPassword: BSTR, #[in] ExportOptions: PFXExportOptions, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn CreatePFX(&self, #[in] strPassword: BSTR, #[in] ExportOptions: PFXExportOptions, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_Request(&self, #[out] #[out_ptr] #[retval] pValue: *mut IX509CertificateRequest) -> HRESULT;
+            fn get_Request(&self, #[out] #[retval] pValue: *mut IX509CertificateRequest) -> HRESULT;
             #[special]
             fn get_Silent(&self, #[out] #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
             #[special]
@@ -1787,65 +1787,65 @@ mod Windows {
             #[special]
             fn put_ParentWindow(&self, #[in] Value: LONG) -> HRESULT;
             #[special]
-            fn get_NameValuePairs(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IX509NameValuePairs) -> HRESULT;
+            fn get_NameValuePairs(&self, #[out] #[retval] ppValue: *mut IX509NameValuePairs) -> HRESULT;
             #[special]
             fn get_EnrollmentContext(&self, #[out] #[retval] pValue: *mut X509CertificateEnrollmentContext) -> HRESULT;
             #[special]
-            fn get_Status(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IX509EnrollmentStatus) -> HRESULT;
+            fn get_Status(&self, #[out] #[retval] ppValue: *mut IX509EnrollmentStatus) -> HRESULT;
             #[special]
-            fn get_Certificate(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_Certificate(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_Response(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_Response(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CertificateFriendlyName(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_CertificateFriendlyName(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_CertificateFriendlyName(&self, #[in] strValue: BSTR) -> HRESULT;
             #[special]
-            fn get_CertificateDescription(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_CertificateDescription(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_CertificateDescription(&self, #[in] strValue: BSTR) -> HRESULT;
             #[special]
             fn get_RequestId(&self, #[out] #[retval] pValue: *mut LONG) -> HRESULT;
             #[special]
-            fn get_CAConfigString(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_CAConfigString(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
         }
         #[guid(0x728ab350_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509Enrollment2: IX509Enrollment {
             fn InitializeFromTemplate(&self, #[in] context: X509CertificateEnrollmentContext, #[in] #[opt] pPolicyServer: IX509EnrollmentPolicyServer, #[in] #[opt] pTemplate: IX509CertificateTemplate) -> HRESULT;
             fn InstallResponse2(&self, #[in] Restrictions: InstallResponseRestrictionFlags, #[in] strResponse: BSTR, #[in] Encoding: EncodingType, #[in] strPassword: BSTR, #[in] strEnrollmentPolicyServerUrl: BSTR, #[in] strEnrollmentPolicyServerID: BSTR, #[in] EnrollmentPolicyServerFlags: PolicyServerUrlFlags, #[in] authFlags: X509EnrollmentAuthFlags) -> HRESULT;
             #[special]
-            fn get_PolicyServer(&self, #[out] #[out_ptr] #[retval] ppPolicyServer: *mut IX509EnrollmentPolicyServer) -> HRESULT;
+            fn get_PolicyServer(&self, #[out] #[retval] ppPolicyServer: *mut IX509EnrollmentPolicyServer) -> HRESULT;
             #[special]
-            fn get_Template(&self, #[out] #[out_ptr] #[retval] ppTemplate: *mut IX509CertificateTemplate) -> HRESULT;
+            fn get_Template(&self, #[out] #[retval] ppTemplate: *mut IX509CertificateTemplate) -> HRESULT;
             #[special]
-            fn get_RequestIdString(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_RequestIdString(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
         }
         #[guid(0x728ab351_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509EnrollmentHelper: IDispatch {
             fn AddPolicyServer(&self, #[in] strEnrollmentPolicyServerURI: BSTR, #[in] strEnrollmentPolicyID: BSTR, #[in] EnrollmentPolicyServerFlags: PolicyServerUrlFlags, #[in] authFlags: X509EnrollmentAuthFlags, #[in] strCredential: BSTR, #[in] strPassword: BSTR) -> HRESULT;
             fn AddEnrollmentServer(&self, #[in] strEnrollmentServerURI: BSTR, #[in] authFlags: X509EnrollmentAuthFlags, #[in] strCredential: BSTR, #[in] strPassword: BSTR) -> HRESULT;
-            fn Enroll(&self, #[in] strEnrollmentPolicyServerURI: BSTR, #[in] strTemplateName: BSTR, #[in] Encoding: EncodingType, #[in] enrollFlags: WebEnrollmentFlags, #[out] #[out_ptr] #[retval] pstrCertificate: *mut BSTR) -> HRESULT;
+            fn Enroll(&self, #[in] strEnrollmentPolicyServerURI: BSTR, #[in] strTemplateName: BSTR, #[in] Encoding: EncodingType, #[in] enrollFlags: WebEnrollmentFlags, #[out] #[retval] pstrCertificate: *mut BSTR) -> HRESULT;
             fn Initialize(&self, #[in] Context: X509CertificateEnrollmentContext) -> HRESULT;
         }
         #[guid(0x13b79026_2181_11da_b2a4_000e7bbb2b09)]
         interface IX509EnrollmentPolicyServer: IDispatch {
             fn Initialize(&self, #[in] bstrPolicyServerUrl: BSTR, #[in] bstrPolicyServerId: BSTR, #[in] authFlags: X509EnrollmentAuthFlags, #[in] fIsUnTrusted: VARIANT_BOOL, #[in] context: X509CertificateEnrollmentContext) -> HRESULT;
             fn LoadPolicy(&self, #[in] option: X509EnrollmentPolicyLoadOption) -> HRESULT;
-            fn GetTemplates(&self, #[out] #[out_ptr] #[retval] pTemplates: *mut IX509CertificateTemplates) -> HRESULT;
-            fn GetCAsForTemplate(&self, #[in] #[opt] pTemplate: IX509CertificateTemplate, #[out] #[out_ptr] #[retval] ppCAs: *mut ICertificationAuthorities) -> HRESULT;
-            fn GetCAs(&self, #[out] #[out_ptr] #[retval] ppCAs: *mut ICertificationAuthorities) -> HRESULT;
+            fn GetTemplates(&self, #[out] #[retval] pTemplates: *mut IX509CertificateTemplates) -> HRESULT;
+            fn GetCAsForTemplate(&self, #[in] #[opt] pTemplate: IX509CertificateTemplate, #[out] #[retval] ppCAs: *mut ICertificationAuthorities) -> HRESULT;
+            fn GetCAs(&self, #[out] #[retval] ppCAs: *mut ICertificationAuthorities) -> HRESULT;
             fn Validate(&self) -> HRESULT;
-            fn GetCustomOids(&self, #[out] #[out_ptr] #[retval] ppObjectIds: *mut IObjectIds) -> HRESULT;
+            fn GetCustomOids(&self, #[out] #[retval] ppObjectIds: *mut IObjectIds) -> HRESULT;
             fn GetNextUpdateTime(&self, #[out] #[retval] pDate: *mut DATE) -> HRESULT;
             fn GetLastUpdateTime(&self, #[out] #[retval] pDate: *mut DATE) -> HRESULT;
-            fn GetPolicyServerUrl(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
-            fn GetPolicyServerId(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
-            fn GetFriendlyName(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn GetPolicyServerUrl(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn GetPolicyServerId(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn GetFriendlyName(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             fn GetIsDefaultCEP(&self, #[out] #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
             fn GetUseClientId(&self, #[out] #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
             fn GetAllowUnTrustedCA(&self, #[out] #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
-            fn GetCachePath(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
-            fn GetCacheDir(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn GetCachePath(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn GetCacheDir(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             fn GetAuthFlags(&self, #[out] #[retval] pValue: *mut X509EnrollmentAuthFlags) -> HRESULT;
             fn SetCredential(&self, #[in] hWndParent: LONG, #[in] flag: X509EnrollmentAuthFlags, #[in] strCredential: BSTR, #[in] strPassword: BSTR) -> HRESULT;
             fn QueryChanges(&self, #[out] #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
@@ -1860,7 +1860,7 @@ mod Windows {
         interface IX509EnrollmentStatus: IDispatch {
             fn AppendText(&self, #[in] strText: BSTR) -> HRESULT;
             #[special]
-            fn get_Text(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_Text(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_Text(&self, #[in] Value: BSTR) -> HRESULT;
             #[special]
@@ -1880,19 +1880,19 @@ mod Windows {
             #[special]
             fn put_Error(&self, #[in] Value: HRESULT) -> HRESULT;
             #[special]
-            fn get_ErrorText(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_ErrorText(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
         }
         #[guid(0x728ab349_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509EnrollmentWebClassFactory: IDispatch {
-            fn CreateObject(&self, #[in] strProgID: BSTR, #[out] #[out_ptr] #[retval] ppIUnknown: *mut IUnknown) -> HRESULT;
+            fn CreateObject(&self, #[in] strProgID: BSTR, #[out] #[retval] ppIUnknown: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x728ab30d_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509Extension: IDispatch {
             fn Initialize(&self, #[in] #[opt] pObjectId: IObjectId, #[in] Encoding: EncodingType, #[in] strEncodedData: BSTR) -> HRESULT;
             #[special]
-            fn get_ObjectId(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            fn get_ObjectId(&self, #[out] #[retval] ppValue: *mut IObjectId) -> HRESULT;
             #[special]
-            fn get_RawData(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_RawData(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn get_Critical(&self, #[out] #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
             #[special]
@@ -1903,14 +1903,14 @@ mod Windows {
             fn InitializeEncode(&self, #[in] #[opt] pValue: IAlternativeNames) -> HRESULT;
             fn InitializeDecode(&self, #[in] Encoding: EncodingType, #[in] strEncodedData: BSTR) -> HRESULT;
             #[special]
-            fn get_AlternativeNames(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IAlternativeNames) -> HRESULT;
+            fn get_AlternativeNames(&self, #[out] #[retval] ppValue: *mut IAlternativeNames) -> HRESULT;
         }
         #[guid(0x728ab318_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509ExtensionAuthorityKeyIdentifier: IX509Extension {
             fn InitializeEncode(&self, #[in] Encoding: EncodingType, #[in] strKeyIdentifier: BSTR) -> HRESULT;
             fn InitializeDecode(&self, #[in] Encoding: EncodingType, #[in] strEncodedData: BSTR) -> HRESULT;
             #[special]
-            fn get_AuthorityKeyIdentifier(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_AuthorityKeyIdentifier(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
         }
         #[guid(0x728ab316_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509ExtensionBasicConstraints: IX509Extension {
@@ -1926,14 +1926,14 @@ mod Windows {
             fn InitializeEncode(&self, #[in] #[opt] pValue: ICertificatePolicies) -> HRESULT;
             fn InitializeDecode(&self, #[in] Encoding: EncodingType, #[in] strEncodedData: BSTR) -> HRESULT;
             #[special]
-            fn get_Policies(&self, #[out] #[out_ptr] #[retval] ppValue: *mut ICertificatePolicies) -> HRESULT;
+            fn get_Policies(&self, #[out] #[retval] ppValue: *mut ICertificatePolicies) -> HRESULT;
         }
         #[guid(0x728ab310_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509ExtensionEnhancedKeyUsage: IX509Extension {
             fn InitializeEncode(&self, #[in] #[opt] pValue: IObjectIds) -> HRESULT;
             fn InitializeDecode(&self, #[in] Encoding: EncodingType, #[in] strEncodedData: BSTR) -> HRESULT;
             #[special]
-            fn get_EnhancedKeyUsage(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IObjectIds) -> HRESULT;
+            fn get_EnhancedKeyUsage(&self, #[out] #[retval] ppValue: *mut IObjectIds) -> HRESULT;
         }
         #[guid(0x728ab30f_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509ExtensionKeyUsage: IX509Extension {
@@ -1947,28 +1947,28 @@ mod Windows {
             fn InitializeEncode(&self, #[in] #[opt] pValue: ICertificatePolicies) -> HRESULT;
             fn InitializeDecode(&self, #[in] Encoding: EncodingType, #[in] strEncodedData: BSTR) -> HRESULT;
             #[special]
-            fn get_Policies(&self, #[out] #[out_ptr] #[retval] ppValue: *mut ICertificatePolicies) -> HRESULT;
+            fn get_Policies(&self, #[out] #[retval] ppValue: *mut ICertificatePolicies) -> HRESULT;
         }
         #[guid(0x728ab31b_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509ExtensionSmimeCapabilities: IX509Extension {
             fn InitializeEncode(&self, #[in] #[opt] pValue: ISmimeCapabilities) -> HRESULT;
             fn InitializeDecode(&self, #[in] Encoding: EncodingType, #[in] strEncodedData: BSTR) -> HRESULT;
             #[special]
-            fn get_SmimeCapabilities(&self, #[out] #[out_ptr] #[retval] ppValue: *mut ISmimeCapabilities) -> HRESULT;
+            fn get_SmimeCapabilities(&self, #[out] #[retval] ppValue: *mut ISmimeCapabilities) -> HRESULT;
         }
         #[guid(0x728ab317_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509ExtensionSubjectKeyIdentifier: IX509Extension {
             fn InitializeEncode(&self, #[in] Encoding: EncodingType, #[in] strKeyIdentifier: BSTR) -> HRESULT;
             fn InitializeDecode(&self, #[in] Encoding: EncodingType, #[in] strEncodedData: BSTR) -> HRESULT;
             #[special]
-            fn get_SubjectKeyIdentifier(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_SubjectKeyIdentifier(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
         }
         #[guid(0x728ab312_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509ExtensionTemplate: IX509Extension {
             fn InitializeEncode(&self, #[in] #[opt] pTemplateOid: IObjectId, #[in] MajorVersion: LONG, #[in] MinorVersion: LONG) -> HRESULT;
             fn InitializeDecode(&self, #[in] Encoding: EncodingType, #[in] strEncodedData: BSTR) -> HRESULT;
             #[special]
-            fn get_TemplateOid(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            fn get_TemplateOid(&self, #[out] #[retval] ppValue: *mut IObjectId) -> HRESULT;
             #[special]
             fn get_MajorVersion(&self, #[out] #[retval] pValue: *mut LONG) -> HRESULT;
             #[special]
@@ -1979,16 +1979,16 @@ mod Windows {
             fn InitializeEncode(&self, #[in] strTemplateName: BSTR) -> HRESULT;
             fn InitializeDecode(&self, #[in] Encoding: EncodingType, #[in] strEncodedData: BSTR) -> HRESULT;
             #[special]
-            fn get_TemplateName(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_TemplateName(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
         }
         #[guid(0x728ab30e_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509Extensions: IDispatch {
             #[special]
-            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[out_ptr] #[retval] pVal: *mut IX509Extension) -> HRESULT;
+            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[retval] pVal: *mut IX509Extension) -> HRESULT;
             #[special]
             fn get_Count(&self, #[out] #[retval] pVal: *mut i32) -> HRESULT;
             #[special]
-            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
             fn Add(&self, #[in] #[opt] pVal: IX509Extension) -> HRESULT;
             fn Remove(&self, #[in] Index: LONG) -> HRESULT;
             fn Clear(&self) -> HRESULT;
@@ -1998,24 +1998,24 @@ mod Windows {
         }
         #[guid(0x728ab352_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509MachineEnrollmentFactory: IDispatch {
-            fn CreateObject(&self, #[in] strProgID: BSTR, #[out] #[out_ptr] #[retval] ppIHelper: *mut IX509EnrollmentHelper) -> HRESULT;
+            fn CreateObject(&self, #[in] strProgID: BSTR, #[out] #[retval] ppIHelper: *mut IX509EnrollmentHelper) -> HRESULT;
         }
         #[guid(0x728ab33f_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509NameValuePair: IDispatch {
             fn Initialize(&self, #[in] strName: BSTR, #[in] strValue: BSTR) -> HRESULT;
             #[special]
-            fn get_Value(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_Value(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_Name(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_Name(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
         }
         #[guid(0x728ab340_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509NameValuePairs: IDispatch {
             #[special]
-            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[out_ptr] #[retval] pVal: *mut IX509NameValuePair) -> HRESULT;
+            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[retval] pVal: *mut IX509NameValuePair) -> HRESULT;
             #[special]
             fn get_Count(&self, #[out] #[retval] pVal: *mut i32) -> HRESULT;
             #[special]
-            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
             fn Add(&self, #[in] #[opt] pVal: IX509NameValuePair) -> HRESULT;
             fn Remove(&self, #[in] Index: LONG) -> HRESULT;
             fn Clear(&self) -> HRESULT;
@@ -2023,11 +2023,11 @@ mod Windows {
         #[guid(0x884e204b_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509PolicyServerListManager: IDispatch {
             #[special]
-            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[out_ptr] #[retval] pVal: *mut IX509PolicyServerUrl) -> HRESULT;
+            fn get_ItemByIndex(&self, #[in] Index: LONG, #[out] #[retval] pVal: *mut IX509PolicyServerUrl) -> HRESULT;
             #[special]
             fn get_Count(&self, #[out] #[retval] pVal: *mut i32) -> HRESULT;
             #[special]
-            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
             fn Add(&self, #[in] #[opt] pVal: IX509PolicyServerUrl) -> HRESULT;
             fn Remove(&self, #[in] Index: LONG) -> HRESULT;
             fn Clear(&self) -> HRESULT;
@@ -2037,7 +2037,7 @@ mod Windows {
         interface IX509PolicyServerUrl: IDispatch {
             fn Initialize(&self, #[in] context: X509CertificateEnrollmentContext) -> HRESULT;
             #[special]
-            fn get_Url(&self, #[out] #[out_ptr] #[retval] ppValue: *mut BSTR) -> HRESULT;
+            fn get_Url(&self, #[out] #[retval] ppValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_Url(&self, #[in] pValue: BSTR) -> HRESULT;
             #[special]
@@ -2056,7 +2056,7 @@ mod Windows {
             fn get_Cost(&self, #[out] #[retval] pValue: *mut DWORD) -> HRESULT;
             #[special]
             fn put_Cost(&self, #[in] value: DWORD) -> HRESULT;
-            fn GetStringProperty(&self, #[in] propertyId: PolicyServerUrlPropertyID, #[out] #[out_ptr] #[retval] ppValue: *mut BSTR) -> HRESULT;
+            fn GetStringProperty(&self, #[in] propertyId: PolicyServerUrlPropertyID, #[out] #[retval] ppValue: *mut BSTR) -> HRESULT;
             fn SetStringProperty(&self, #[in] propertyId: PolicyServerUrlPropertyID, #[in] pValue: BSTR) -> HRESULT;
             fn UpdateRegistry(&self, #[in] context: X509CertificateEnrollmentContext) -> HRESULT;
             fn RemoveFromRegistry(&self, #[in] context: X509CertificateEnrollmentContext) -> HRESULT;
@@ -2069,30 +2069,30 @@ mod Windows {
             fn Delete(&self) -> HRESULT;
             fn Verify(&self, #[in] VerifyType: X509PrivateKeyVerify) -> HRESULT;
             fn Import(&self, #[in] strExportType: BSTR, #[in] strEncodedKey: BSTR, #[in] Encoding: EncodingType) -> HRESULT;
-            fn Export(&self, #[in] strExportType: BSTR, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pstrEncodedKey: *mut BSTR) -> HRESULT;
-            fn ExportPublicKey(&self, #[out] #[out_ptr] #[retval] ppPublicKey: *mut IX509PublicKey) -> HRESULT;
+            fn Export(&self, #[in] strExportType: BSTR, #[in] Encoding: EncodingType, #[out] #[retval] pstrEncodedKey: *mut BSTR) -> HRESULT;
+            fn ExportPublicKey(&self, #[out] #[retval] ppPublicKey: *mut IX509PublicKey) -> HRESULT;
             #[special]
-            fn get_ContainerName(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_ContainerName(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_ContainerName(&self, #[in] Value: BSTR) -> HRESULT;
             #[special]
-            fn get_ContainerNamePrefix(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_ContainerNamePrefix(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_ContainerNamePrefix(&self, #[in] Value: BSTR) -> HRESULT;
             #[special]
-            fn get_ReaderName(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_ReaderName(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_ReaderName(&self, #[in] Value: BSTR) -> HRESULT;
             #[special]
-            fn get_CspInformations(&self, #[out] #[out_ptr] #[retval] ppValue: *mut ICspInformations) -> HRESULT;
+            fn get_CspInformations(&self, #[out] #[retval] ppValue: *mut ICspInformations) -> HRESULT;
             #[special]
             fn put_CspInformations(&self, #[in] #[opt] pValue: ICspInformations) -> HRESULT;
             #[special]
-            fn get_CspStatus(&self, #[out] #[out_ptr] #[retval] ppValue: *mut ICspStatus) -> HRESULT;
+            fn get_CspStatus(&self, #[out] #[retval] ppValue: *mut ICspStatus) -> HRESULT;
             #[special]
             fn put_CspStatus(&self, #[in] #[opt] pValue: ICspStatus) -> HRESULT;
             #[special]
-            fn get_ProviderName(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_ProviderName(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_ProviderName(&self, #[in] Value: BSTR) -> HRESULT;
             #[special]
@@ -2104,7 +2104,7 @@ mod Windows {
             #[special]
             fn put_LegacyCsp(&self, #[in] Value: VARIANT_BOOL) -> HRESULT;
             #[special]
-            fn get_Algorithm(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            fn get_Algorithm(&self, #[out] #[retval] ppValue: *mut IObjectId) -> HRESULT;
             #[special]
             fn put_Algorithm(&self, #[in] #[opt] pValue: IObjectId) -> HRESULT;
             #[special]
@@ -2132,15 +2132,15 @@ mod Windows {
             #[special]
             fn put_MachineContext(&self, #[in] Value: VARIANT_BOOL) -> HRESULT;
             #[special]
-            fn get_SecurityDescriptor(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_SecurityDescriptor(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_SecurityDescriptor(&self, #[in] Value: BSTR) -> HRESULT;
             #[special]
-            fn get_Certificate(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_Certificate(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_Certificate(&self, #[in] Encoding: EncodingType, #[in] Value: BSTR) -> HRESULT;
             #[special]
-            fn get_UniqueContainerName(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_UniqueContainerName(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn get_Opened(&self, #[out] #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
             #[special]
@@ -2158,17 +2158,17 @@ mod Windows {
             #[special]
             fn put_ParentWindow(&self, #[in] Value: LONG) -> HRESULT;
             #[special]
-            fn get_UIContextMessage(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_UIContextMessage(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_UIContextMessage(&self, #[in] Value: BSTR) -> HRESULT;
             #[special]
             fn put_Pin(&self, #[in] Value: BSTR) -> HRESULT;
             #[special]
-            fn get_FriendlyName(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_FriendlyName(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_FriendlyName(&self, #[in] Value: BSTR) -> HRESULT;
             #[special]
-            fn get_Description(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_Description(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_Description(&self, #[in] Value: BSTR) -> HRESULT;
         }
@@ -2179,15 +2179,15 @@ mod Windows {
             #[special]
             fn put_HardwareKeyUsage(&self, #[in] Value: X509HardwareKeyUsageFlags) -> HRESULT;
             #[special]
-            fn get_AlternateStorageLocation(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_AlternateStorageLocation(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_AlternateStorageLocation(&self, #[in] Value: BSTR) -> HRESULT;
             #[special]
-            fn get_AlgorithmName(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_AlgorithmName(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_AlgorithmName(&self, #[in] Value: BSTR) -> HRESULT;
             #[special]
-            fn get_AlgorithmParameters(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_AlgorithmParameters(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_AlgorithmParameters(&self, #[in] Encoding: EncodingType, #[in] Value: BSTR) -> HRESULT;
             #[special]
@@ -2200,49 +2200,49 @@ mod Windows {
             fn Initialize(&self, #[in] #[opt] pObjectId: IObjectId, #[in] strEncodedKey: BSTR, #[in] strEncodedParameters: BSTR, #[in] Encoding: EncodingType) -> HRESULT;
             fn InitializeFromEncodedPublicKeyInfo(&self, #[in] strEncodedPublicKeyInfo: BSTR, #[in] Encoding: EncodingType) -> HRESULT;
             #[special]
-            fn get_Algorithm(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            fn get_Algorithm(&self, #[out] #[retval] ppValue: *mut IObjectId) -> HRESULT;
             #[special]
             fn get_Length(&self, #[out] #[retval] pValue: *mut LONG) -> HRESULT;
             #[special]
-            fn get_EncodedKey(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_EncodedKey(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_EncodedParameters(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
-            fn ComputeKeyIdentifier(&self, #[in] Algorithm: KeyIdentifierHashAlgorithm, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_EncodedParameters(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn ComputeKeyIdentifier(&self, #[in] Algorithm: KeyIdentifierHashAlgorithm, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
         }
         #[guid(0x728ab361_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509SCEPEnrollment: IDispatch {
             fn Initialize(&self, #[in] #[opt] pRequest: IX509CertificateRequestPkcs10, #[in] strThumbprint: BSTR, #[in] ThumprintEncoding: EncodingType, #[in] strServerCertificates: BSTR, #[in] Encoding: EncodingType) -> HRESULT;
             fn InitializeForPending(&self, #[in] Context: X509CertificateEnrollmentContext) -> HRESULT;
-            fn CreateRequestMessage(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
-            fn CreateRetrievePendingMessage(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
-            fn CreateRetrieveCertificateMessage(&self, #[in] Context: X509CertificateEnrollmentContext, #[in] strIssuer: BSTR, #[in] IssuerEncoding: EncodingType, #[in] strSerialNumber: BSTR, #[in] SerialNumberEncoding: EncodingType, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn CreateRequestMessage(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn CreateRetrievePendingMessage(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn CreateRetrieveCertificateMessage(&self, #[in] Context: X509CertificateEnrollmentContext, #[in] strIssuer: BSTR, #[in] IssuerEncoding: EncodingType, #[in] strSerialNumber: BSTR, #[in] SerialNumberEncoding: EncodingType, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             fn ProcessResponseMessage(&self, #[in] strResponse: BSTR, #[in] Encoding: EncodingType, #[out] #[retval] pDisposition: *mut X509SCEPDisposition) -> HRESULT;
             #[special]
             fn put_ServerCapabilities(&self, #[in] Value: BSTR) -> HRESULT;
             #[special]
             fn get_FailInfo(&self, #[out] #[retval] pValue: *mut X509SCEPFailInfo) -> HRESULT;
             #[special]
-            fn get_SignerCertificate(&self, #[out] #[out_ptr] #[retval] ppValue: *mut ISignerCertificate) -> HRESULT;
+            fn get_SignerCertificate(&self, #[out] #[retval] ppValue: *mut ISignerCertificate) -> HRESULT;
             #[special]
             fn put_SignerCertificate(&self, #[in] #[opt] pValue: ISignerCertificate) -> HRESULT;
             #[special]
-            fn get_OldCertificate(&self, #[out] #[out_ptr] #[retval] ppValue: *mut ISignerCertificate) -> HRESULT;
+            fn get_OldCertificate(&self, #[out] #[retval] ppValue: *mut ISignerCertificate) -> HRESULT;
             #[special]
             fn put_OldCertificate(&self, #[in] #[opt] pValue: ISignerCertificate) -> HRESULT;
             #[special]
-            fn get_TransactionId(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_TransactionId(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_TransactionId(&self, #[in] Encoding: EncodingType, #[in] Value: BSTR) -> HRESULT;
             #[special]
-            fn get_Request(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IX509CertificateRequestPkcs10) -> HRESULT;
+            fn get_Request(&self, #[out] #[retval] ppValue: *mut IX509CertificateRequestPkcs10) -> HRESULT;
             #[special]
-            fn get_CertificateFriendlyName(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_CertificateFriendlyName(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_CertificateFriendlyName(&self, #[in] Value: BSTR) -> HRESULT;
             #[special]
-            fn get_Status(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IX509EnrollmentStatus) -> HRESULT;
+            fn get_Status(&self, #[out] #[retval] ppValue: *mut IX509EnrollmentStatus) -> HRESULT;
             #[special]
-            fn get_Certificate(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_Certificate(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn get_Silent(&self, #[out] #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
             #[special]
@@ -2251,14 +2251,14 @@ mod Windows {
         }
         #[guid(0x728ab364_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509SCEPEnrollment2: IX509SCEPEnrollment {
-            fn CreateChallengeAnswerMessage(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn CreateChallengeAnswerMessage(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             fn ProcessResponseMessage2(&self, #[in] Flags: X509SCEPProcessMessageFlags, #[in] strResponse: BSTR, #[in] Encoding: EncodingType, #[out] #[retval] pDisposition: *mut X509SCEPDisposition) -> HRESULT;
             #[special]
-            fn get_ResultMessageText(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_ResultMessageText(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn get_DelayRetry(&self, #[out] #[retval] pValue: *mut DelayRetryAction) -> HRESULT;
             #[special]
-            fn get_ActivityId(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_ActivityId(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_ActivityId(&self, #[in] Value: BSTR) -> HRESULT;
         }
@@ -2269,22 +2269,22 @@ mod Windows {
             fn Enroll(&self, #[in] ProcessFlags: X509SCEPProcessMessageFlags, #[out] #[retval] pDisposition: *mut X509SCEPDisposition) -> HRESULT;
             fn FetchPending(&self, #[in] ProcessFlags: X509SCEPProcessMessageFlags, #[out] #[retval] pDisposition: *mut X509SCEPDisposition) -> HRESULT;
             #[special]
-            fn get_X509SCEPEnrollment(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IX509SCEPEnrollment) -> HRESULT;
+            fn get_X509SCEPEnrollment(&self, #[out] #[retval] ppValue: *mut IX509SCEPEnrollment) -> HRESULT;
             #[special]
-            fn get_ResultMessageText(&self, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_ResultMessageText(&self, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
         }
         #[guid(0x728ab33c_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509SignatureInformation: IDispatch {
             #[special]
-            fn get_HashAlgorithm(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            fn get_HashAlgorithm(&self, #[out] #[retval] ppValue: *mut IObjectId) -> HRESULT;
             #[special]
             fn put_HashAlgorithm(&self, #[in] #[opt] pValue: IObjectId) -> HRESULT;
             #[special]
-            fn get_PublicKeyAlgorithm(&self, #[out] #[out_ptr] #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            fn get_PublicKeyAlgorithm(&self, #[out] #[retval] ppValue: *mut IObjectId) -> HRESULT;
             #[special]
             fn put_PublicKeyAlgorithm(&self, #[in] #[opt] pValue: IObjectId) -> HRESULT;
             #[special]
-            fn get_Parameters(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pValue: *mut BSTR) -> HRESULT;
+            fn get_Parameters(&self, #[in] Encoding: EncodingType, #[out] #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
             fn put_Parameters(&self, #[in] Encoding: EncodingType, #[in] Value: BSTR) -> HRESULT;
             #[special]
@@ -2297,7 +2297,7 @@ mod Windows {
             fn get_NullSigned(&self, #[out] #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
             #[special]
             fn put_NullSigned(&self, #[in] Value: VARIANT_BOOL) -> HRESULT;
-            fn GetSignatureAlgorithm(&self, #[in] Pkcs7Signature: VARIANT_BOOL, #[in] SignatureKey: VARIANT_BOOL, #[out] #[out_ptr] #[retval] ppValue: *mut IObjectId) -> HRESULT;
+            fn GetSignatureAlgorithm(&self, #[in] Pkcs7Signature: VARIANT_BOOL, #[in] SignatureKey: VARIANT_BOOL, #[out] #[retval] ppValue: *mut IObjectId) -> HRESULT;
             fn SetDefaultValues(&self) -> HRESULT;
         }
         #[repr(i32)]

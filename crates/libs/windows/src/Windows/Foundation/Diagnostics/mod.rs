@@ -354,7 +354,10 @@ impl IErrorReportingSettings_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -459,7 +462,10 @@ impl IFileLoggingSession_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -490,7 +496,10 @@ impl IFileLoggingSession_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -502,7 +511,10 @@ impl IFileLoggingSession_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -687,7 +699,10 @@ impl ILoggingChannel_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -699,7 +714,10 @@ impl ILoggingChannel_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -711,7 +729,10 @@ impl ILoggingChannel_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -747,7 +768,10 @@ impl ILoggingChannel_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1074,7 +1098,10 @@ impl ILoggingSession_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1087,7 +1114,10 @@ impl ILoggingSession_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1254,7 +1284,10 @@ impl ILoggingTarget_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1266,7 +1299,10 @@ impl ILoggingTarget_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1278,7 +1314,10 @@ impl ILoggingTarget_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1315,7 +1354,10 @@ impl ILoggingTarget_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1328,7 +1370,10 @@ impl ILoggingTarget_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1341,7 +1386,10 @@ impl ILoggingTarget_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1354,7 +1402,10 @@ impl ILoggingTarget_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

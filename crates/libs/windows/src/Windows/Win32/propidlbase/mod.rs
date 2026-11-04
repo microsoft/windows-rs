@@ -224,7 +224,10 @@ impl IEnumSTATPROPSETSTG_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -314,7 +317,10 @@ impl IEnumSTATPROPSTG_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -396,7 +402,10 @@ impl IPropertySetStorage_Vtbl {
                         ppprstg.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppprstg.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -408,7 +417,10 @@ impl IPropertySetStorage_Vtbl {
                         ppprstg.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppprstg.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -426,7 +438,10 @@ impl IPropertySetStorage_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -456,8 +471,8 @@ impl IPropertyStorage {
         unsafe { (windows_core::Interface::vtable(self).WriteMultiple)(windows_core::Interface::as_raw(self), cpspec, rgpspec, rgpropvar, propidnamefirst) }
     }
     #[cfg(all(feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn DeleteMultiple(&self, rgpspec: &[PROPSPEC]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).DeleteMultiple)(windows_core::Interface::as_raw(self), rgpspec.len().try_into().unwrap(), rgpspec.as_ptr()) }
+    pub unsafe fn DeleteMultiple(&self, cpspec: super::ULONG, rgpspec: *const PROPSPEC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteMultiple)(windows_core::Interface::as_raw(self), cpspec, rgpspec) }
     }
     #[cfg(all(feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ReadPropertyNames(&self, cpropid: super::ULONG, rgpropid: *const super::PROPID, rglpwstrname: *mut super::LPOLESTR) -> windows_core::HRESULT {
@@ -468,8 +483,8 @@ impl IPropertyStorage {
         unsafe { (windows_core::Interface::vtable(self).WritePropertyNames)(windows_core::Interface::as_raw(self), cpropid, rgpropid, rglpwstrname) }
     }
     #[cfg(all(feature = "shared", feature = "wtypes"))]
-    pub unsafe fn DeletePropertyNames(&self, rgpropid: &[super::PROPID]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).DeletePropertyNames)(windows_core::Interface::as_raw(self), rgpropid.len().try_into().unwrap(), rgpropid.as_ptr()) }
+    pub unsafe fn DeletePropertyNames(&self, cpropid: super::ULONG, rgpropid: *const super::PROPID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeletePropertyNames)(windows_core::Interface::as_raw(self), cpropid, rgpropid) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Commit(&self, grfcommitflags: super::DWORD) -> windows_core::HRESULT {
@@ -618,7 +633,10 @@ impl IPropertyStorage_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

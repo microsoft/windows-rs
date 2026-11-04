@@ -440,8 +440,7 @@ impl Projector<'_, '_> {
         let ValueKind::Function { parameters, .. } = &observation.kind else {
             return Err(Error("expected a callable observation".into()));
         };
-        let attributes =
-            annotations::write_callable(snapshot, function.result, &observation.attributes)?;
+        let attributes = annotations::write_callable(&observation.attributes)?;
         let mut parameters = self.parameter_list(
             snapshot_id,
             function,
@@ -464,14 +463,13 @@ impl Projector<'_, '_> {
         } else {
             self.comparison_type(result)?
         };
-        let result_attributes = attributes.result;
         let result = if result == MetadataType::Void {
             TokenStream::new()
         } else {
             let result = write_type(self.namespace, &result);
-            quote! { -> #result_attributes #result }
+            quote! { -> #result }
         };
-        Ok((parameters, result, attributes.declaration))
+        Ok((parameters, result, attributes))
     }
 
     pub(super) fn parameters(
@@ -523,6 +521,15 @@ impl Projector<'_, '_> {
                 let ty = if named { ty } else { self.comparison_type(ty)? };
                 let snapshot = self.resolution.snapshots[snapshot_id];
                 let buffer_ty = self.parameter_ty(snapshot_id, canonical, canonical)?;
+                let size = annotations::buffer(
+                    snapshot,
+                    function,
+                    parameters,
+                    index,
+                    (&ty, &buffer_ty),
+                    &extent_names,
+                )
+                .map_err(|error| Error(format!("parameter `{name}`: {error}")))?;
                 let attributes = annotations::parameter(
                     snapshot,
                     function,
@@ -530,17 +537,9 @@ impl Projector<'_, '_> {
                     parameters,
                     &buffer_ty,
                     nonnegative_success,
+                    size.incomplete,
                 )?;
-                let size = annotations::buffer(
-                    snapshot,
-                    function,
-                    parameters,
-                    index,
-                    &ty,
-                    &buffer_ty,
-                    &extent_names,
-                )
-                .map_err(|error| Error(format!("parameter `{name}`: {error}")))?;
+                let size = size.attributes;
                 let ty = write_type(self.namespace, &ty);
                 Ok(quote! { #attributes #size #name: #ty })
             })

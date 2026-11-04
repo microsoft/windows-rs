@@ -1015,12 +1015,10 @@ mod Windows {
         struct CERT_OR_CRL_BLOB {
             dwChoice: DWORD,
             cbEncoded: DWORD,
-            #[writable(bytes(cbEncoded))]
             pbEncoded: *mut BYTE,
         }
         struct CERT_OR_CRL_BUNDLE {
             cItem: DWORD,
-            #[writable(cItem)]
             rgItem: PCERT_OR_CRL_BLOB,
         }
         struct CERT_OTHER_LOGOTYPE_INFO {
@@ -1359,7 +1357,6 @@ mod Windows {
         struct CERT_SELECT_CRITERIA {
             dwType: DWORD,
             cPara: DWORD,
-            #[writable(cPara)]
             ppPara: *mut *mut void,
         }
         const CERT_SELECT_DISALLOW_SELFSIGNED: i32 = 4;
@@ -3272,7 +3269,6 @@ mod Windows {
         }
         struct CRYPT_TIMESTAMP_CONTEXT {
             cbEncoded: DWORD,
-            #[writable(bytes(cbEncoded))]
             pbEncoded: *mut BYTE,
             pTimeStamp: PCRYPT_TIMESTAMP_INFO,
         }
@@ -3288,7 +3284,6 @@ mod Windows {
             Nonce: CRYPT_DER_BLOB,
             Tsa: CRYPT_DER_BLOB,
             cExtension: DWORD,
-            #[writable(cExtension)]
             rgExtension: PCERT_EXTENSION,
         }
         struct CRYPT_TIMESTAMP_PARA {
@@ -3296,7 +3291,6 @@ mod Windows {
             fRequestCerts: BOOL,
             Nonce: CRYPT_INTEGER_BLOB,
             cExtension: DWORD,
-            #[writable(cExtension)]
             rgExtension: PCERT_EXTENSION,
         }
         struct CRYPT_TIMESTAMP_REQUEST {
@@ -3307,13 +3301,11 @@ mod Windows {
             Nonce: CRYPT_INTEGER_BLOB,
             fCertReq: BOOL,
             cExtension: DWORD,
-            #[writable(cExtension)]
             rgExtension: PCERT_EXTENSION,
         }
         struct CRYPT_TIMESTAMP_RESPONSE {
             dwStatus: DWORD,
             cFreeText: DWORD,
-            #[writable(cFreeText)]
             rgFreeText: *mut LPWSTR,
             FailureInfo: CRYPT_BIT_BLOB,
             ContentInfo: CRYPT_DER_BLOB,
@@ -3482,27 +3474,27 @@ mod Windows {
         }
         const CUR_BLOB_VERSION: i32 = 2;
         #[library("CRYPT32.dll")]
-        extern fn CertAddCRLContextToStore(#[in] #[opt] hCertStore: HCERTSTORE, #[in] pCrlContext: PCCRL_CONTEXT, #[in] dwAddDisposition: DWORD, #[opt] #[out] #[out_ptr] ppStoreContext: *mut PCCRL_CONTEXT) -> BOOL;
+        extern fn CertAddCRLContextToStore(#[in] #[opt] hCertStore: HCERTSTORE, #[in] pCrlContext: PCCRL_CONTEXT, #[in] dwAddDisposition: DWORD, #[opt] #[out] ppStoreContext: *mut PCCRL_CONTEXT) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CertAddCRLLinkToStore(#[in] hCertStore: HCERTSTORE, #[in] pCrlContext: PCCRL_CONTEXT, #[in] dwAddDisposition: DWORD, #[opt] #[out] #[out_ptr] ppStoreContext: *mut PCCRL_CONTEXT) -> BOOL;
+        extern fn CertAddCRLLinkToStore(#[in] hCertStore: HCERTSTORE, #[in] pCrlContext: PCCRL_CONTEXT, #[in] dwAddDisposition: DWORD, #[opt] #[out] ppStoreContext: *mut PCCRL_CONTEXT) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CertAddCTLContextToStore(#[in] #[opt] hCertStore: HCERTSTORE, #[in] pCtlContext: PCCTL_CONTEXT, #[in] dwAddDisposition: DWORD, #[opt] #[out] #[out_ptr] ppStoreContext: *mut PCCTL_CONTEXT) -> BOOL;
+        extern fn CertAddCTLContextToStore(#[in] #[opt] hCertStore: HCERTSTORE, #[in] pCtlContext: PCCTL_CONTEXT, #[in] dwAddDisposition: DWORD, #[opt] #[out] ppStoreContext: *mut PCCTL_CONTEXT) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CertAddCTLLinkToStore(#[in] hCertStore: HCERTSTORE, #[in] pCtlContext: PCCTL_CONTEXT, #[in] dwAddDisposition: DWORD, #[opt] #[out] #[out_ptr] ppStoreContext: *mut PCCTL_CONTEXT) -> BOOL;
+        extern fn CertAddCTLLinkToStore(#[in] hCertStore: HCERTSTORE, #[in] pCtlContext: PCCTL_CONTEXT, #[in] dwAddDisposition: DWORD, #[opt] #[out] ppStoreContext: *mut PCCTL_CONTEXT) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CertAddCertificateContextToStore(#[in] #[opt] hCertStore: HCERTSTORE, #[in] pCertContext: PCCERT_CONTEXT, #[in] dwAddDisposition: DWORD, #[opt] #[out] #[out_ptr] ppStoreContext: *mut PCCERT_CONTEXT) -> BOOL;
+        extern fn CertAddCertificateContextToStore(#[in] #[opt] hCertStore: HCERTSTORE, #[in] pCertContext: PCCERT_CONTEXT, #[in] dwAddDisposition: DWORD, #[opt] #[out] ppStoreContext: *mut PCCERT_CONTEXT) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CertAddCertificateLinkToStore(#[in] hCertStore: HCERTSTORE, #[in] pCertContext: PCCERT_CONTEXT, #[in] dwAddDisposition: DWORD, #[opt] #[out] #[out_ptr] ppStoreContext: *mut PCCERT_CONTEXT) -> BOOL;
+        extern fn CertAddCertificateLinkToStore(#[in] hCertStore: HCERTSTORE, #[in] pCertContext: PCCERT_CONTEXT, #[in] dwAddDisposition: DWORD, #[opt] #[out] ppStoreContext: *mut PCCERT_CONTEXT) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CertAddEncodedCRLToStore(#[in] #[opt] hCertStore: HCERTSTORE, #[in] dwCertEncodingType: DWORD, #[in] #[readable(entry, bytes(cbCrlEncoded))] pbCrlEncoded: *const BYTE, #[in] cbCrlEncoded: DWORD, #[in] dwAddDisposition: DWORD, #[opt] #[out] #[out_ptr] ppCrlContext: *mut PCCRL_CONTEXT) -> BOOL;
+        extern fn CertAddEncodedCRLToStore(#[in] #[opt] hCertStore: HCERTSTORE, #[in] dwCertEncodingType: DWORD, #[buffer(bytes(cbCrlEncoded))] #[in] pbCrlEncoded: *const BYTE, #[in] cbCrlEncoded: DWORD, #[in] dwAddDisposition: DWORD, #[opt] #[out] ppCrlContext: *mut PCCRL_CONTEXT) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CertAddEncodedCTLToStore(#[in] #[opt] hCertStore: HCERTSTORE, #[in] dwMsgAndCertEncodingType: DWORD, #[in] #[readable(entry, bytes(cbCtlEncoded))] pbCtlEncoded: *const BYTE, #[in] cbCtlEncoded: DWORD, #[in] dwAddDisposition: DWORD, #[opt] #[out] #[out_ptr] ppCtlContext: *mut PCCTL_CONTEXT) -> BOOL;
+        extern fn CertAddEncodedCTLToStore(#[in] #[opt] hCertStore: HCERTSTORE, #[in] dwMsgAndCertEncodingType: DWORD, #[buffer(bytes(cbCtlEncoded))] #[in] pbCtlEncoded: *const BYTE, #[in] cbCtlEncoded: DWORD, #[in] dwAddDisposition: DWORD, #[opt] #[out] ppCtlContext: *mut PCCTL_CONTEXT) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CertAddEncodedCertificateToStore(#[in] #[opt] hCertStore: HCERTSTORE, #[in] dwCertEncodingType: DWORD, #[in] #[readable(entry, bytes(cbCertEncoded))] pbCertEncoded: *const BYTE, #[in] cbCertEncoded: DWORD, #[in] dwAddDisposition: DWORD, #[opt] #[out] #[out_ptr] ppCertContext: *mut PCCERT_CONTEXT) -> BOOL;
+        extern fn CertAddEncodedCertificateToStore(#[in] #[opt] hCertStore: HCERTSTORE, #[in] dwCertEncodingType: DWORD, #[buffer(bytes(cbCertEncoded))] #[in] pbCertEncoded: *const BYTE, #[in] cbCertEncoded: DWORD, #[in] dwAddDisposition: DWORD, #[opt] #[out] ppCertContext: *mut PCCERT_CONTEXT) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CertAddEncodedCertificateToSystemStoreA(#[in] szCertStoreName: LPCSTR, #[in] #[readable(entry, bytes(cbCertEncoded))] pbCertEncoded: *const BYTE, #[in] cbCertEncoded: DWORD) -> BOOL;
+        extern fn CertAddEncodedCertificateToSystemStoreA(#[in] szCertStoreName: LPCSTR, #[buffer(bytes(cbCertEncoded))] #[in] pbCertEncoded: *const BYTE, #[in] cbCertEncoded: DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CertAddEncodedCertificateToSystemStoreW(#[in] szCertStoreName: LPCWSTR, #[in] #[readable(entry, bytes(cbCertEncoded))] pbCertEncoded: *const BYTE, #[in] cbCertEncoded: DWORD) -> BOOL;
+        extern fn CertAddEncodedCertificateToSystemStoreW(#[in] szCertStoreName: LPCWSTR, #[buffer(bytes(cbCertEncoded))] #[in] pbCertEncoded: *const BYTE, #[in] cbCertEncoded: DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CertAddEnhancedKeyUsageIdentifier(#[in] pCertContext: PCCERT_CONTEXT, #[in] pszUsageIdentifier: LPCSTR) -> BOOL;
         #[library("CRYPT32.dll")]
@@ -3510,7 +3502,7 @@ mod Windows {
         #[library("CRYPT32.dll")]
         extern fn CertAddRefServerOcspResponseContext(#[in] #[opt] pServerOcspResponseContext: PCCERT_SERVER_OCSP_RESPONSE_CONTEXT);
         #[library("CRYPT32.dll")]
-        extern fn CertAddSerializedElementToStore(#[in] #[opt] hCertStore: HCERTSTORE, #[in] #[readable(entry, bytes(cbElement))] pbElement: *const BYTE, #[in] cbElement: DWORD, #[in] dwAddDisposition: DWORD, #[in] dwFlags: DWORD, #[in] dwContextTypeFlags: DWORD, #[opt] #[out] pdwContextType: *mut DWORD, #[opt] #[out] #[out_ptr] ppvContext: *mut *const void) -> BOOL;
+        extern fn CertAddSerializedElementToStore(#[in] #[opt] hCertStore: HCERTSTORE, #[buffer(bytes(cbElement))] #[in] pbElement: *const BYTE, #[in] cbElement: DWORD, #[in] dwAddDisposition: DWORD, #[in] dwFlags: DWORD, #[in] dwContextTypeFlags: DWORD, #[opt] #[out] pdwContextType: *mut DWORD, #[opt] #[out] ppvContext: *mut *const void) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CertAddStoreToCollection(#[in] hCollectionStore: HCERTSTORE, #[in] #[opt] hSiblingStore: HCERTSTORE, #[in] dwUpdateFlags: DWORD, #[in] dwPriority: DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
@@ -3530,17 +3522,17 @@ mod Windows {
         #[library("CRYPT32.dll")]
         extern fn CertControlStore(#[in] hCertStore: HCERTSTORE, #[in] dwFlags: DWORD, #[in] dwCtrlType: DWORD, #[in] #[opt] pvCtrlPara: *const void) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CertCreateCRLContext(#[in] dwCertEncodingType: DWORD, #[in] #[readable(entry, bytes(cbCrlEncoded))] pbCrlEncoded: *const BYTE, #[in] cbCrlEncoded: DWORD) -> PCCRL_CONTEXT;
+        extern fn CertCreateCRLContext(#[in] dwCertEncodingType: DWORD, #[buffer(bytes(cbCrlEncoded))] #[in] pbCrlEncoded: *const BYTE, #[in] cbCrlEncoded: DWORD) -> PCCRL_CONTEXT;
         #[library("CRYPT32.dll")]
-        extern fn CertCreateCTLContext(#[in] dwMsgAndCertEncodingType: DWORD, #[in] #[readable(entry, bytes(cbCtlEncoded))] pbCtlEncoded: *const BYTE, #[in] cbCtlEncoded: DWORD) -> PCCTL_CONTEXT;
+        extern fn CertCreateCTLContext(#[in] dwMsgAndCertEncodingType: DWORD, #[buffer(bytes(cbCtlEncoded))] #[in] pbCtlEncoded: *const BYTE, #[in] cbCtlEncoded: DWORD) -> PCCTL_CONTEXT;
         #[library("CRYPT32.dll")]
-        extern fn CertCreateCTLEntryFromCertificateContextProperties(#[in] pCertContext: PCCERT_CONTEXT, #[in] cOptAttr: DWORD, #[in] #[opt] #[readable(entry, cOptAttr)] rgOptAttr: PCRYPT_ATTRIBUTE, #[in] dwFlags: DWORD, #[reserved] pvReserved: *mut void, #[opt] #[out] #[readable(success, bytes(*pcbCtlEntry))] #[writable(entry, bytes(*pcbCtlEntry))] pCtlEntry: PCTL_ENTRY, #[in] #[out] pcbCtlEntry: *mut DWORD) -> BOOL;
+        extern fn CertCreateCTLEntryFromCertificateContextProperties(#[in] pCertContext: PCCERT_CONTEXT, #[in] cOptAttr: DWORD, #[buffer(cOptAttr)] #[in] #[opt] rgOptAttr: PCRYPT_ATTRIBUTE, #[in] dwFlags: DWORD, #[reserved] pvReserved: *mut void, #[buffer(bytes(*pcbCtlEntry))] #[opt] #[out] pCtlEntry: PCTL_ENTRY, #[in] #[out] pcbCtlEntry: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CertCreateCertificateChainEngine(#[in] pConfig: PCERT_CHAIN_ENGINE_CONFIG, #[out] phChainEngine: *mut HCERTCHAINENGINE) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CertCreateCertificateContext(#[in] dwCertEncodingType: DWORD, #[in] #[readable(entry, bytes(cbCertEncoded))] pbCertEncoded: *const BYTE, #[in] cbCertEncoded: DWORD) -> PCCERT_CONTEXT;
+        extern fn CertCreateCertificateContext(#[in] dwCertEncodingType: DWORD, #[buffer(bytes(cbCertEncoded))] #[in] pbCertEncoded: *const BYTE, #[in] cbCertEncoded: DWORD) -> PCCERT_CONTEXT;
         #[library("CRYPT32.dll")]
-        extern fn CertCreateContext(#[in] dwContextType: DWORD, #[in] dwEncodingType: DWORD, #[in] #[readable(entry, bytes(cbEncoded))] pbEncoded: *const BYTE, #[in] cbEncoded: DWORD, #[in] dwFlags: DWORD, #[in] #[opt] pCreatePara: PCERT_CREATE_CONTEXT_PARA) -> *const void;
+        extern fn CertCreateContext(#[in] dwContextType: DWORD, #[in] dwEncodingType: DWORD, #[buffer(bytes(cbEncoded))] #[in] pbEncoded: *const BYTE, #[in] cbEncoded: DWORD, #[in] dwFlags: DWORD, #[in] #[opt] pCreatePara: PCERT_CREATE_CONTEXT_PARA) -> *const void;
         #[library("CRYPT32.dll")]
         extern fn CertCreateSelfSignCertificate(#[in] #[opt] hCryptProvOrNCryptKey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, #[in] pSubjectIssuerBlob: PCERT_NAME_BLOB, #[in] dwFlags: DWORD, #[in] #[opt] pKeyProvInfo: PCRYPT_KEY_PROV_INFO, #[in] #[opt] pSignatureAlgorithm: PCRYPT_ALGORITHM_IDENTIFIER, #[in] #[opt] pStartTime: PSYSTEMTIME, #[in] #[opt] pEndTime: PSYSTEMTIME, #[in] #[opt] pExtensions: PCERT_EXTENSIONS) -> PCCERT_CONTEXT;
         #[library("CRYPT32.dll")]
@@ -3580,19 +3572,19 @@ mod Windows {
         #[library("CRYPT32.dll")]
         extern fn CertEnumSystemStoreLocation(#[in] dwFlags: DWORD, #[in] #[opt] #[out] pvArg: *mut void, pfnEnum: PFN_CERT_ENUM_SYSTEM_STORE_LOCATION) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CertFindAttribute(#[in] pszObjId: LPCSTR, #[in] cAttr: DWORD, #[in] #[readable(entry, cAttr)] rgAttr: *mut CRYPT_ATTRIBUTE) -> PCRYPT_ATTRIBUTE;
+        extern fn CertFindAttribute(#[in] pszObjId: LPCSTR, #[in] cAttr: DWORD, #[buffer(cAttr)] #[in] rgAttr: *mut CRYPT_ATTRIBUTE) -> PCRYPT_ATTRIBUTE;
         #[library("CRYPT32.dll")]
         extern fn CertFindCRLInStore(#[in] hCertStore: HCERTSTORE, #[in] dwCertEncodingType: DWORD, #[in] dwFindFlags: DWORD, #[in] dwFindType: DWORD, #[in] #[opt] pvFindPara: *const void, #[in] #[opt] pPrevCrlContext: PCCRL_CONTEXT) -> PCCRL_CONTEXT;
         #[library("CRYPT32.dll")]
         extern fn CertFindCTLInStore(#[in] hCertStore: HCERTSTORE, #[in] dwMsgAndCertEncodingType: DWORD, #[in] dwFindFlags: DWORD, #[in] dwFindType: DWORD, #[in] #[opt] pvFindPara: *const void, #[in] #[opt] pPrevCtlContext: PCCTL_CONTEXT) -> PCCTL_CONTEXT;
         #[library("CRYPT32.dll")]
-        extern fn CertFindCertificateInCRL(#[in] pCert: PCCERT_CONTEXT, #[in] pCrlContext: PCCRL_CONTEXT, #[in] dwFlags: DWORD, #[reserved] pvReserved: *mut void, #[nullable] #[out] #[out_ptr] ppCrlEntry: *mut PCRL_ENTRY) -> BOOL;
+        extern fn CertFindCertificateInCRL(#[in] pCert: PCCERT_CONTEXT, #[in] pCrlContext: PCCRL_CONTEXT, #[in] dwFlags: DWORD, #[reserved] pvReserved: *mut void, #[out] ppCrlEntry: *mut PCRL_ENTRY) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CertFindCertificateInStore(#[in] hCertStore: HCERTSTORE, #[in] dwCertEncodingType: DWORD, #[in] dwFindFlags: DWORD, #[in] dwFindType: DWORD, #[in] #[opt] pvFindPara: *const void, #[in] #[opt] pPrevCertContext: PCCERT_CONTEXT) -> PCCERT_CONTEXT;
         #[library("CRYPT32.dll")]
         extern fn CertFindChainInStore(#[in] hCertStore: HCERTSTORE, #[in] dwCertEncodingType: DWORD, #[in] dwFindFlags: DWORD, #[in] dwFindType: DWORD, #[in] #[opt] pvFindPara: *const void, #[in] #[opt] pPrevChainContext: PCCERT_CHAIN_CONTEXT) -> PCCERT_CHAIN_CONTEXT;
         #[library("CRYPT32.dll")]
-        extern fn CertFindExtension(#[in] pszObjId: LPCSTR, #[in] cExtensions: DWORD, #[in] #[readable(entry, cExtensions)] rgExtensions: *mut CERT_EXTENSION) -> PCERT_EXTENSION;
+        extern fn CertFindExtension(#[in] pszObjId: LPCSTR, #[in] cExtensions: DWORD, #[buffer(cExtensions)] #[in] rgExtensions: *mut CERT_EXTENSION) -> PCERT_EXTENSION;
         #[library("CRYPT32.dll")]
         extern fn CertFindRDNAttr(#[in] pszObjId: LPCSTR, #[in] pName: PCERT_NAME_INFO) -> PCERT_RDN_ATTR;
         #[library("CRYPT32.dll")]
@@ -3614,35 +3606,35 @@ mod Windows {
         #[library("CRYPT32.dll")]
         extern fn CertFreeServerOcspResponseContext(#[in] #[opt] pServerOcspResponseContext: PCCERT_SERVER_OCSP_RESPONSE_CONTEXT);
         #[library("CRYPT32.dll")]
-        extern fn CertGetCRLContextProperty(#[in] pCrlContext: PCCRL_CONTEXT, #[in] dwPropId: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbData))] #[writable(entry, bytes(*pcbData))] pvData: *mut void, #[in] #[out] pcbData: *mut DWORD) -> BOOL;
+        extern fn CertGetCRLContextProperty(#[in] pCrlContext: PCCRL_CONTEXT, #[in] dwPropId: DWORD, #[buffer(bytes(*pcbData))] #[opt] #[out] pvData: *mut void, #[in] #[out] pcbData: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CertGetCRLFromStore(#[in] hCertStore: HCERTSTORE, #[in] #[opt] pIssuerContext: PCCERT_CONTEXT, #[in] #[opt] pPrevCrlContext: PCCRL_CONTEXT, #[in] #[out] pdwFlags: *mut DWORD) -> PCCRL_CONTEXT;
         #[library("CRYPT32.dll")]
-        extern fn CertGetCTLContextProperty(#[in] pCtlContext: PCCTL_CONTEXT, #[in] dwPropId: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbData))] #[writable(entry, bytes(*pcbData))] pvData: *mut void, #[in] #[out] pcbData: *mut DWORD) -> BOOL;
+        extern fn CertGetCTLContextProperty(#[in] pCtlContext: PCCTL_CONTEXT, #[in] dwPropId: DWORD, #[buffer(bytes(*pcbData))] #[opt] #[out] pvData: *mut void, #[in] #[out] pcbData: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CertGetCertificateChain(#[in] #[opt] hChainEngine: HCERTCHAINENGINE, #[in] pCertContext: PCCERT_CONTEXT, #[in] #[opt] pTime: LPFILETIME, #[in] #[opt] hAdditionalStore: HCERTSTORE, #[in] pChainPara: PCERT_CHAIN_PARA, #[in] dwFlags: DWORD, #[reserved] pvReserved: LPVOID, #[out] ppChainContext: *mut PCCERT_CHAIN_CONTEXT) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CertGetCertificateContextProperty(#[in] pCertContext: PCCERT_CONTEXT, #[in] dwPropId: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbData))] #[writable(entry, bytes(*pcbData))] pvData: *mut void, #[in] #[out] pcbData: *mut DWORD) -> BOOL;
+        extern fn CertGetCertificateContextProperty(#[in] pCertContext: PCCERT_CONTEXT, #[in] dwPropId: DWORD, #[buffer(bytes(*pcbData))] #[opt] #[out] pvData: *mut void, #[in] #[out] pcbData: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CertGetEnhancedKeyUsage(#[in] pCertContext: PCCERT_CONTEXT, #[in] dwFlags: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbUsage))] #[writable(entry, bytes(*pcbUsage))] pUsage: PCERT_ENHKEY_USAGE, #[in] #[out] pcbUsage: *mut DWORD) -> BOOL;
+        extern fn CertGetEnhancedKeyUsage(#[in] pCertContext: PCCERT_CONTEXT, #[in] dwFlags: DWORD, #[buffer(bytes(*pcbUsage))] #[opt] #[out] pUsage: PCERT_ENHKEY_USAGE, #[in] #[out] pcbUsage: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CertGetIntendedKeyUsage(#[in] dwCertEncodingType: DWORD, #[in] pCertInfo: PCERT_INFO, #[out] #[readable(success, bytes(cbKeyUsage))] #[writable(entry, bytes(cbKeyUsage))] pbKeyUsage: *mut BYTE, #[in] cbKeyUsage: DWORD) -> BOOL;
+        extern fn CertGetIntendedKeyUsage(#[in] dwCertEncodingType: DWORD, #[in] pCertInfo: PCERT_INFO, #[buffer(bytes(cbKeyUsage))] #[out] pbKeyUsage: *mut BYTE, #[in] cbKeyUsage: DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CertGetIssuerCertificateFromStore(#[in] hCertStore: HCERTSTORE, #[in] pSubjectContext: PCCERT_CONTEXT, #[in] #[opt] pPrevIssuerContext: PCCERT_CONTEXT, #[in] #[out] pdwFlags: *mut DWORD) -> PCCERT_CONTEXT;
         #[library("CRYPT32.dll")]
-        extern fn CertGetNameStringA(#[in] pCertContext: PCCERT_CONTEXT, #[in] dwType: DWORD, #[in] dwFlags: DWORD, #[in] #[opt] pvTypePara: *mut void, #[incomplete] #[opt] #[out] #[writable(entry, cchNameString)] pszNameString: LPSTR, #[in] cchNameString: DWORD) -> DWORD;
+        extern fn CertGetNameStringA(#[in] pCertContext: PCCERT_CONTEXT, #[in] dwType: DWORD, #[in] dwFlags: DWORD, #[in] #[opt] pvTypePara: *mut void, #[buffer(cchNameString)] #[incomplete] #[opt] #[out] pszNameString: LPSTR, #[in] cchNameString: DWORD) -> DWORD;
         #[library("CRYPT32.dll")]
-        extern fn CertGetNameStringW(#[in] pCertContext: PCCERT_CONTEXT, #[in] dwType: DWORD, #[in] dwFlags: DWORD, #[in] #[opt] pvTypePara: *mut void, #[incomplete] #[opt] #[out] #[writable(entry, cchNameString)] pszNameString: LPWSTR, #[in] cchNameString: DWORD) -> DWORD;
+        extern fn CertGetNameStringW(#[in] pCertContext: PCCERT_CONTEXT, #[in] dwType: DWORD, #[in] dwFlags: DWORD, #[in] #[opt] pvTypePara: *mut void, #[buffer(cchNameString)] #[incomplete] #[opt] #[out] pszNameString: LPWSTR, #[in] cchNameString: DWORD) -> DWORD;
         #[library("CRYPT32.dll")]
         extern fn CertGetPublicKeyLength(#[in] dwCertEncodingType: DWORD, #[in] pPublicKey: PCERT_PUBLIC_KEY_INFO) -> DWORD;
         #[library("CRYPT32.dll")]
         extern fn CertGetServerOcspResponseContext(#[in] hServerOcspResponse: HCERT_SERVER_OCSP_RESPONSE, #[in] dwFlags: DWORD, #[reserved] pvReserved: LPVOID) -> PCCERT_SERVER_OCSP_RESPONSE_CONTEXT;
         #[library("CRYPT32.dll")]
-        extern fn CertGetStoreProperty(#[in] hCertStore: HCERTSTORE, #[in] dwPropId: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbData))] #[writable(entry, bytes(*pcbData))] pvData: *mut void, #[in] #[out] pcbData: *mut DWORD) -> BOOL;
+        extern fn CertGetStoreProperty(#[in] hCertStore: HCERTSTORE, #[in] dwPropId: DWORD, #[buffer(bytes(*pcbData))] #[opt] #[out] pvData: *mut void, #[in] #[out] pcbData: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CertGetSubjectCertificateFromStore(#[in] hCertStore: HCERTSTORE, #[in] dwCertEncodingType: DWORD, #[in] pCertId: PCERT_INFO) -> PCCERT_CONTEXT;
         #[library("CRYPT32.dll")]
-        extern fn CertGetValidUsages(#[in] cCerts: DWORD, #[in] #[readable(entry, cCerts)] rghCerts: *mut PCCERT_CONTEXT, #[out] cNumOIDs: *mut i32, #[opt] #[out] #[readable(success, bytes(*pcbOIDs))] #[writable(entry, bytes(*pcbOIDs))] rghOIDs: *mut LPSTR, #[in] #[out] pcbOIDs: *mut DWORD) -> BOOL;
+        extern fn CertGetValidUsages(#[in] cCerts: DWORD, #[buffer(cCerts)] #[in] rghCerts: *mut PCCERT_CONTEXT, #[out] cNumOIDs: *mut i32, #[buffer(bytes(*pcbOIDs))] #[opt] #[out] rghOIDs: *mut LPSTR, #[in] #[out] pcbOIDs: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CertIsRDNAttrsInCertificateName(#[in] dwCertEncodingType: DWORD, #[in] dwFlags: DWORD, #[in] pCertName: PCERT_NAME_BLOB, #[in] pRDN: PCERT_RDN) -> BOOL;
         #[library("CRYPT32.dll")]
@@ -3664,9 +3656,9 @@ mod Windows {
             KeyTypeSelfSigned = 8,
         }
         #[library("CRYPT32.dll")]
-        extern fn CertNameToStrA(#[in] dwCertEncodingType: DWORD, #[in] pName: PCERT_NAME_BLOB, #[in] dwStrType: DWORD, #[incomplete] #[opt] #[out] #[writable(entry, csz)] psz: LPSTR, #[in] csz: DWORD) -> DWORD;
+        extern fn CertNameToStrA(#[in] dwCertEncodingType: DWORD, #[in] pName: PCERT_NAME_BLOB, #[in] dwStrType: DWORD, #[buffer(csz)] #[incomplete] #[opt] #[out] psz: LPSTR, #[in] csz: DWORD) -> DWORD;
         #[library("CRYPT32.dll")]
-        extern fn CertNameToStrW(#[in] dwCertEncodingType: DWORD, #[in] pName: PCERT_NAME_BLOB, #[in] dwStrType: DWORD, #[incomplete] #[opt] #[out] #[writable(entry, csz)] psz: LPWSTR, #[in] csz: DWORD) -> DWORD;
+        extern fn CertNameToStrW(#[in] dwCertEncodingType: DWORD, #[in] pName: PCERT_NAME_BLOB, #[in] dwStrType: DWORD, #[buffer(csz)] #[incomplete] #[opt] #[out] psz: LPWSTR, #[in] csz: DWORD) -> DWORD;
         #[library("CRYPT32.dll")]
         extern fn CertOIDToAlgId(#[in] pszObjId: LPCSTR) -> DWORD;
         #[library("CRYPT32.dll")]
@@ -3679,9 +3671,9 @@ mod Windows {
         #[library("CRYPT32.dll")]
         extern fn CertOpenSystemStoreW(#[in] #[opt] hProv: HCRYPTPROV_LEGACY, #[in] szSubsystemProtocol: LPCWSTR) -> HCERTSTORE;
         #[library("CRYPT32.dll")]
-        extern fn CertRDNValueToStrA(#[in] dwValueType: DWORD, #[in] pValue: PCERT_RDN_VALUE_BLOB, #[incomplete] #[opt] #[out] #[writable(entry, csz)] psz: LPSTR, #[in] csz: DWORD) -> DWORD;
+        extern fn CertRDNValueToStrA(#[in] dwValueType: DWORD, #[in] pValue: PCERT_RDN_VALUE_BLOB, #[buffer(csz)] #[incomplete] #[opt] #[out] psz: LPSTR, #[in] csz: DWORD) -> DWORD;
         #[library("CRYPT32.dll")]
-        extern fn CertRDNValueToStrW(#[in] dwValueType: DWORD, #[in] pValue: PCERT_RDN_VALUE_BLOB, #[incomplete] #[opt] #[out] #[writable(entry, csz)] psz: LPWSTR, #[in] csz: DWORD) -> DWORD;
+        extern fn CertRDNValueToStrW(#[in] dwValueType: DWORD, #[in] pValue: PCERT_RDN_VALUE_BLOB, #[buffer(csz)] #[incomplete] #[opt] #[out] psz: LPWSTR, #[in] csz: DWORD) -> DWORD;
         #[library("CRYPT32.dll")]
         extern fn CertRegisterPhysicalStore(#[in] pvSystemStore: *const void, #[in] dwFlags: DWORD, #[in] pwszStoreName: LPCWSTR, #[in] pStoreInfo: PCERT_PHYSICAL_STORE_INFO, #[reserved] pvReserved: *mut void) -> BOOL;
         #[library("CRYPT32.dll")]
@@ -3693,17 +3685,17 @@ mod Windows {
         #[library("CRYPT32.dll")]
         extern fn CertResyncCertificateChainEngine(#[in] #[opt] hChainEngine: HCERTCHAINENGINE) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CertRetrieveLogoOrBiometricInfo(#[in] pCertContext: PCCERT_CONTEXT, #[in] lpszLogoOrBiometricType: LPCSTR, #[in] dwRetrievalFlags: DWORD, #[in] dwTimeout: DWORD, #[in] dwFlags: DWORD, #[reserved] pvReserved: *mut void, #[out] #[writable(success, bytes(*pcbData), indirect)] ppbData: *mut *mut BYTE, #[out] pcbData: *mut DWORD, #[nullable] #[opt] #[out] #[out_ptr] ppwszMimeType: *mut LPWSTR) -> BOOL;
+        extern fn CertRetrieveLogoOrBiometricInfo(#[in] pCertContext: PCCERT_CONTEXT, #[in] lpszLogoOrBiometricType: LPCSTR, #[in] dwRetrievalFlags: DWORD, #[in] dwTimeout: DWORD, #[in] dwFlags: DWORD, #[reserved] pvReserved: *mut void, #[incomplete] #[out] ppbData: *mut *mut BYTE, #[out] pcbData: *mut DWORD, #[opt] #[out] ppwszMimeType: *mut LPWSTR) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CertSaveStore(#[in] hCertStore: HCERTSTORE, #[in] dwEncodingType: DWORD, #[in] dwSaveAs: DWORD, #[in] dwSaveTo: DWORD, #[in] #[out] pvSaveToPara: *mut void, #[in] dwFlags: DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CertSelectCertificateChains(#[in] #[opt] pSelectionContext: LPCGUID, #[in] dwFlags: DWORD, #[in] #[opt] pChainParameters: PCCERT_SELECT_CHAIN_PARA, #[in] cCriteria: DWORD, #[in] #[opt] #[readable(entry, cCriteria)] rgpCriteria: PCCERT_SELECT_CRITERIA, #[in] hStore: HCERTSTORE, #[out] pcSelection: PDWORD, #[out] #[writable(success, *pcSelection, indirect)] pprgpSelection: *mut *mut PCCERT_CHAIN_CONTEXT) -> BOOL;
+        extern fn CertSelectCertificateChains(#[in] #[opt] pSelectionContext: LPCGUID, #[in] dwFlags: DWORD, #[in] #[opt] pChainParameters: PCCERT_SELECT_CHAIN_PARA, #[in] cCriteria: DWORD, #[buffer(cCriteria)] #[in] #[opt] rgpCriteria: PCCERT_SELECT_CRITERIA, #[in] hStore: HCERTSTORE, #[out] pcSelection: PDWORD, #[incomplete] #[out] pprgpSelection: *mut *mut PCCERT_CHAIN_CONTEXT) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CertSerializeCRLStoreElement(#[in] pCrlContext: PCCRL_CONTEXT, #[in] dwFlags: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbElement))] #[writable(entry, bytes(*pcbElement))] pbElement: *mut BYTE, #[in] #[out] pcbElement: *mut DWORD) -> BOOL;
+        extern fn CertSerializeCRLStoreElement(#[in] pCrlContext: PCCRL_CONTEXT, #[in] dwFlags: DWORD, #[buffer(bytes(*pcbElement))] #[opt] #[out] pbElement: *mut BYTE, #[in] #[out] pcbElement: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CertSerializeCTLStoreElement(#[in] pCtlContext: PCCTL_CONTEXT, #[in] dwFlags: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbElement))] #[writable(entry, bytes(*pcbElement))] pbElement: *mut BYTE, #[in] #[out] pcbElement: *mut DWORD) -> BOOL;
+        extern fn CertSerializeCTLStoreElement(#[in] pCtlContext: PCCTL_CONTEXT, #[in] dwFlags: DWORD, #[buffer(bytes(*pcbElement))] #[opt] #[out] pbElement: *mut BYTE, #[in] #[out] pcbElement: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CertSerializeCertificateStoreElement(#[in] pCertContext: PCCERT_CONTEXT, #[in] dwFlags: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbElement))] #[writable(entry, bytes(*pcbElement))] pbElement: *mut BYTE, #[in] #[out] pcbElement: *mut DWORD) -> BOOL;
+        extern fn CertSerializeCertificateStoreElement(#[in] pCertContext: PCCERT_CONTEXT, #[in] dwFlags: DWORD, #[buffer(bytes(*pcbElement))] #[opt] #[out] pbElement: *mut BYTE, #[in] #[out] pcbElement: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CertSetCRLContextProperty(#[in] pCrlContext: PCCRL_CONTEXT, #[in] dwPropId: DWORD, #[in] dwFlags: DWORD, #[in] #[opt] pvData: *const void) -> BOOL;
         #[library("CRYPT32.dll")]
@@ -3717,15 +3709,15 @@ mod Windows {
         #[library("CRYPT32.dll")]
         extern fn CertSetStoreProperty(#[in] hCertStore: HCERTSTORE, #[in] dwPropId: DWORD, #[in] dwFlags: DWORD, #[in] #[opt] pvData: *const void) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CertStrToNameA(#[in] dwCertEncodingType: DWORD, #[in] pszX500: LPCSTR, #[in] dwStrType: DWORD, #[reserved] pvReserved: *mut void, #[opt] #[out] #[readable(success, bytes(*pcbEncoded))] #[writable(entry, bytes(*pcbEncoded))] pbEncoded: *mut BYTE, #[in] #[out] pcbEncoded: *mut DWORD, #[nullable] #[opt] #[out] #[out_ptr] ppszError: *mut LPCSTR) -> BOOL;
+        extern fn CertStrToNameA(#[in] dwCertEncodingType: DWORD, #[in] pszX500: LPCSTR, #[in] dwStrType: DWORD, #[reserved] pvReserved: *mut void, #[buffer(bytes(*pcbEncoded))] #[opt] #[out] pbEncoded: *mut BYTE, #[in] #[out] pcbEncoded: *mut DWORD, #[opt] #[out] ppszError: *mut LPCSTR) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CertStrToNameW(#[in] dwCertEncodingType: DWORD, #[in] pszX500: LPCWSTR, #[in] dwStrType: DWORD, #[reserved] pvReserved: *mut void, #[opt] #[out] #[readable(success, bytes(*pcbEncoded))] #[writable(entry, bytes(*pcbEncoded))] pbEncoded: *mut BYTE, #[in] #[out] pcbEncoded: *mut DWORD, #[nullable] #[opt] #[out] #[out_ptr] ppszError: *mut LPCWSTR) -> BOOL;
+        extern fn CertStrToNameW(#[in] dwCertEncodingType: DWORD, #[in] pszX500: LPCWSTR, #[in] dwStrType: DWORD, #[reserved] pvReserved: *mut void, #[buffer(bytes(*pcbEncoded))] #[opt] #[out] pbEncoded: *mut BYTE, #[in] #[out] pcbEncoded: *mut DWORD, #[opt] #[out] ppszError: *mut LPCWSTR) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CertUnregisterPhysicalStore(#[in] pvSystemStore: *const void, #[in] dwFlags: DWORD, #[in] pwszStoreName: LPCWSTR) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CertUnregisterSystemStore(#[in] pvSystemStore: *const void, #[in] dwFlags: DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CertVerifyCRLRevocation(#[in] dwCertEncodingType: DWORD, #[in] pCertId: PCERT_INFO, #[in] cCrlInfo: DWORD, #[in] #[readable(entry, cCrlInfo)] rgpCrlInfo: *mut PCRL_INFO) -> BOOL;
+        extern fn CertVerifyCRLRevocation(#[in] dwCertEncodingType: DWORD, #[in] pCertId: PCERT_INFO, #[in] cCrlInfo: DWORD, #[buffer(cCrlInfo)] #[in] rgpCrlInfo: *mut PCRL_INFO) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CertVerifyCRLTimeValidity(#[in] #[opt] pTimeToVerify: LPFILETIME, #[in] pCrlInfo: PCRL_INFO) -> LONG;
         #[library("CRYPT32.dll")]
@@ -3733,7 +3725,7 @@ mod Windows {
         #[library("CRYPT32.dll")]
         extern fn CertVerifyCertificateChainPolicy(#[in] pszPolicyOID: LPCSTR, #[in] pChainContext: PCCERT_CHAIN_CONTEXT, #[in] pPolicyPara: PCERT_CHAIN_POLICY_PARA, #[in] #[out] pPolicyStatus: PCERT_CHAIN_POLICY_STATUS) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CertVerifyRevocation(#[in] dwEncodingType: DWORD, #[in] dwRevType: DWORD, #[in] cContext: DWORD, #[in] #[readable(entry, cContext)] rgpvContext: *mut PVOID, #[in] dwFlags: DWORD, #[in] #[opt] pRevPara: PCERT_REVOCATION_PARA, #[in] #[out] pRevStatus: PCERT_REVOCATION_STATUS) -> BOOL;
+        extern fn CertVerifyRevocation(#[in] dwEncodingType: DWORD, #[in] dwRevType: DWORD, #[in] cContext: DWORD, #[buffer(cContext)] #[in] rgpvContext: *mut PVOID, #[in] dwFlags: DWORD, #[in] #[opt] pRevPara: PCERT_REVOCATION_PARA, #[in] #[out] pRevStatus: PCERT_REVOCATION_STATUS) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CertVerifySubjectCertificateContext(#[in] pSubject: PCCERT_CONTEXT, #[in] #[opt] pIssuer: PCCERT_CONTEXT, #[in] #[out] pdwFlags: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
@@ -3747,9 +3739,9 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn CryptAcquireContextW(#[out] phProv: *mut HCRYPTPROV, #[in] #[opt] szContainer: LPCWSTR, #[in] #[opt] szProvider: LPCWSTR, #[in] dwProvType: DWORD, #[in] dwFlags: DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptBinaryToStringA(#[in] #[readable(entry, bytes(cbBinary))] pbBinary: *const BYTE, #[in] cbBinary: DWORD, #[in] dwFlags: DWORD, #[opt] #[out] #[readable(success, *pcchString)] #[writable(entry, *pcchString)] pszString: LPSTR, #[in] #[out] pcchString: *mut DWORD) -> BOOL;
+        extern fn CryptBinaryToStringA(#[buffer(bytes(cbBinary))] #[in] pbBinary: *const BYTE, #[in] cbBinary: DWORD, #[in] dwFlags: DWORD, #[buffer(*pcchString)] #[opt] #[out] pszString: LPSTR, #[in] #[out] pcchString: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptBinaryToStringW(#[in] #[readable(entry, bytes(cbBinary))] pbBinary: *const BYTE, #[in] cbBinary: DWORD, #[in] dwFlags: DWORD, #[opt] #[out] #[readable(success, *pcchString)] #[writable(entry, *pcchString)] pszString: LPWSTR, #[in] #[out] pcchString: *mut DWORD) -> BOOL;
+        extern fn CryptBinaryToStringW(#[buffer(bytes(cbBinary))] #[in] pbBinary: *const BYTE, #[in] cbBinary: DWORD, #[in] dwFlags: DWORD, #[buffer(*pcchString)] #[opt] #[out] pszString: LPWSTR, #[in] #[out] pcchString: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CryptCloseAsyncHandle(#[in] #[opt] hAsync: HCRYPTASYNC) -> BOOL;
         #[library("ADVAPI32.dll")]
@@ -3759,19 +3751,19 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn CryptCreateHash(#[in] hProv: HCRYPTPROV, #[in] Algid: ALG_ID, #[in] hKey: HCRYPTKEY, #[in] dwFlags: DWORD, #[out] phHash: *mut HCRYPTHASH) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptCreateKeyIdentifierFromCSP(#[in] dwCertEncodingType: DWORD, #[in] #[opt] pszPubKeyOID: LPCSTR, #[in] #[readable(entry, bytes(cbPubKeyStruc))] pPubKeyStruc: *const PUBLICKEYSTRUC, #[in] cbPubKeyStruc: DWORD, #[in] dwFlags: DWORD, #[reserved] pvReserved: *mut void, #[opt] #[out] #[readable(success, bytes(*pcbHash))] #[writable(entry, bytes(*pcbHash))] pbHash: *mut BYTE, #[in] #[out] pcbHash: *mut DWORD) -> BOOL;
+        extern fn CryptCreateKeyIdentifierFromCSP(#[in] dwCertEncodingType: DWORD, #[in] #[opt] pszPubKeyOID: LPCSTR, #[buffer(bytes(cbPubKeyStruc))] #[in] pPubKeyStruc: *const PUBLICKEYSTRUC, #[in] cbPubKeyStruc: DWORD, #[in] dwFlags: DWORD, #[reserved] pvReserved: *mut void, #[buffer(bytes(*pcbHash))] #[opt] #[out] pbHash: *mut BYTE, #[in] #[out] pcbHash: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptDecodeMessage(#[in] dwMsgTypeFlags: DWORD, #[in] #[opt] pDecryptPara: PCRYPT_DECRYPT_MESSAGE_PARA, #[in] #[opt] pVerifyPara: PCRYPT_VERIFY_MESSAGE_PARA, #[in] dwSignerIndex: DWORD, #[in] #[readable(entry, bytes(cbEncodedBlob))] pbEncodedBlob: *const BYTE, #[in] cbEncodedBlob: DWORD, #[in] dwPrevInnerContentType: DWORD, #[opt] #[out] pdwMsgType: *mut DWORD, #[opt] #[out] pdwInnerContentType: *mut DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*pcbDecoded)))] #[writable(entry, bytes(if_present(*pcbDecoded)))] pbDecoded: *mut BYTE, #[in] #[opt] #[out] pcbDecoded: *mut DWORD, #[nullable] #[opt] #[out] #[out_ptr] ppXchgCert: *mut PCCERT_CONTEXT, #[nullable] #[opt] #[out] #[out_ptr] ppSignerCert: *mut PCCERT_CONTEXT) -> BOOL;
+        extern fn CryptDecodeMessage(#[in] dwMsgTypeFlags: DWORD, #[in] #[opt] pDecryptPara: PCRYPT_DECRYPT_MESSAGE_PARA, #[in] #[opt] pVerifyPara: PCRYPT_VERIFY_MESSAGE_PARA, #[in] dwSignerIndex: DWORD, #[buffer(bytes(cbEncodedBlob))] #[in] pbEncodedBlob: *const BYTE, #[in] cbEncodedBlob: DWORD, #[in] dwPrevInnerContentType: DWORD, #[opt] #[out] pdwMsgType: *mut DWORD, #[opt] #[out] pdwInnerContentType: *mut DWORD, #[incomplete] #[opt] #[out] pbDecoded: *mut BYTE, #[in] #[opt] #[out] pcbDecoded: *mut DWORD, #[opt] #[out] ppXchgCert: *mut PCCERT_CONTEXT, #[opt] #[out] ppSignerCert: *mut PCCERT_CONTEXT) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptDecodeObject(#[in] dwCertEncodingType: DWORD, #[in] lpszStructType: LPCSTR, #[in] #[readable(entry, bytes(cbEncoded))] pbEncoded: *const BYTE, #[in] cbEncoded: DWORD, #[in] dwFlags: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbStructInfo))] #[writable(entry, bytes(*pcbStructInfo))] pvStructInfo: *mut void, #[in] #[out] pcbStructInfo: *mut DWORD) -> BOOL;
+        extern fn CryptDecodeObject(#[in] dwCertEncodingType: DWORD, #[in] lpszStructType: LPCSTR, #[buffer(bytes(cbEncoded))] #[in] pbEncoded: *const BYTE, #[in] cbEncoded: DWORD, #[in] dwFlags: DWORD, #[buffer(bytes(*pcbStructInfo))] #[opt] #[out] pvStructInfo: *mut void, #[in] #[out] pcbStructInfo: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptDecodeObjectEx(#[in] dwCertEncodingType: DWORD, #[in] lpszStructType: LPCSTR, #[in] #[readable(entry, bytes(cbEncoded))] pbEncoded: *const BYTE, #[in] cbEncoded: DWORD, #[in] dwFlags: DWORD, #[in] #[opt] pDecodePara: PCRYPT_DECODE_PARA, #[opt] #[out] pvStructInfo: *mut void, #[in] #[out] pcbStructInfo: *mut DWORD) -> BOOL;
+        extern fn CryptDecodeObjectEx(#[in] dwCertEncodingType: DWORD, #[in] lpszStructType: LPCSTR, #[buffer(bytes(cbEncoded))] #[in] pbEncoded: *const BYTE, #[in] cbEncoded: DWORD, #[in] dwFlags: DWORD, #[in] #[opt] pDecodePara: PCRYPT_DECODE_PARA, #[opt] #[out] pvStructInfo: *mut void, #[in] #[out] pcbStructInfo: *mut DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CryptDecrypt(#[in] hKey: HCRYPTKEY, #[in] hHash: HCRYPTHASH, #[in] Final: BOOL, #[in] dwFlags: DWORD, #[in] #[out] #[readable(entry, bytes(*pdwDataLen))] #[readable(success, bytes(*pdwDataLen))] #[writable(entry, bytes(*pdwDataLen))] pbData: *mut BYTE, #[in] #[out] pdwDataLen: *mut DWORD) -> BOOL;
+        extern fn CryptDecrypt(#[in] hKey: HCRYPTKEY, #[in] hHash: HCRYPTHASH, #[in] Final: BOOL, #[in] dwFlags: DWORD, #[buffer(bytes(*pdwDataLen))] #[in] #[out] pbData: *mut BYTE, #[in] #[out] pdwDataLen: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptDecryptAndVerifyMessageSignature(#[in] pDecryptPara: PCRYPT_DECRYPT_MESSAGE_PARA, #[in] pVerifyPara: PCRYPT_VERIFY_MESSAGE_PARA, #[in] dwSignerIndex: DWORD, #[in] #[readable(entry, bytes(cbEncryptedBlob))] pbEncryptedBlob: *const BYTE, #[in] cbEncryptedBlob: DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*pcbDecrypted)))] #[writable(entry, bytes(if_present(*pcbDecrypted)))] pbDecrypted: *mut BYTE, #[in] #[opt] #[out] pcbDecrypted: *mut DWORD, #[nullable] #[opt] #[out] #[out_ptr] ppXchgCert: *mut PCCERT_CONTEXT, #[nullable] #[opt] #[out] #[out_ptr] ppSignerCert: *mut PCCERT_CONTEXT) -> BOOL;
+        extern fn CryptDecryptAndVerifyMessageSignature(#[in] pDecryptPara: PCRYPT_DECRYPT_MESSAGE_PARA, #[in] pVerifyPara: PCRYPT_VERIFY_MESSAGE_PARA, #[in] dwSignerIndex: DWORD, #[buffer(bytes(cbEncryptedBlob))] #[in] pbEncryptedBlob: *const BYTE, #[in] cbEncryptedBlob: DWORD, #[incomplete] #[opt] #[out] pbDecrypted: *mut BYTE, #[in] #[opt] #[out] pcbDecrypted: *mut DWORD, #[opt] #[out] ppXchgCert: *mut PCCERT_CONTEXT, #[opt] #[out] ppSignerCert: *mut PCCERT_CONTEXT) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptDecryptMessage(#[in] pDecryptPara: PCRYPT_DECRYPT_MESSAGE_PARA, #[in] #[readable(entry, bytes(cbEncryptedBlob))] pbEncryptedBlob: *const BYTE, #[in] cbEncryptedBlob: DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*pcbDecrypted)))] #[writable(entry, bytes(if_present(*pcbDecrypted)))] pbDecrypted: *mut BYTE, #[in] #[opt] #[out] pcbDecrypted: *mut DWORD, #[nullable] #[opt] #[out] #[out_ptr] ppXchgCert: *mut PCCERT_CONTEXT) -> BOOL;
+        extern fn CryptDecryptMessage(#[in] pDecryptPara: PCRYPT_DECRYPT_MESSAGE_PARA, #[buffer(bytes(cbEncryptedBlob))] #[in] pbEncryptedBlob: *const BYTE, #[in] cbEncryptedBlob: DWORD, #[incomplete] #[opt] #[out] pbDecrypted: *mut BYTE, #[in] #[opt] #[out] pcbDecrypted: *mut DWORD, #[opt] #[out] ppXchgCert: *mut PCCERT_CONTEXT) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn CryptDeriveKey(#[in] hProv: HCRYPTPROV, #[in] Algid: ALG_ID, #[in] hBaseData: HCRYPTHASH, #[in] dwFlags: DWORD, #[out] phKey: *mut HCRYPTKEY) -> BOOL;
         #[library("ADVAPI32.dll")]
@@ -3783,13 +3775,13 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn CryptDuplicateKey(#[in] hKey: HCRYPTKEY, #[reserved] pdwReserved: *mut DWORD, #[in] dwFlags: DWORD, #[out] phKey: *mut HCRYPTKEY) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptEncodeObject(#[in] dwCertEncodingType: DWORD, #[in] lpszStructType: LPCSTR, #[in] pvStructInfo: *const void, #[opt] #[out] #[readable(success, bytes(*pcbEncoded))] #[writable(entry, bytes(*pcbEncoded))] pbEncoded: *mut BYTE, #[in] #[out] pcbEncoded: *mut DWORD) -> BOOL;
+        extern fn CryptEncodeObject(#[in] dwCertEncodingType: DWORD, #[in] lpszStructType: LPCSTR, #[in] pvStructInfo: *const void, #[buffer(bytes(*pcbEncoded))] #[opt] #[out] pbEncoded: *mut BYTE, #[in] #[out] pcbEncoded: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CryptEncodeObjectEx(#[in] dwCertEncodingType: DWORD, #[in] lpszStructType: LPCSTR, #[in] pvStructInfo: *const void, #[in] dwFlags: DWORD, #[in] #[opt] pEncodePara: PCRYPT_ENCODE_PARA, #[opt] #[out] pvEncoded: *mut void, #[in] #[out] pcbEncoded: *mut DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CryptEncrypt(#[in] hKey: HCRYPTKEY, #[in] hHash: HCRYPTHASH, #[in] Final: BOOL, #[in] dwFlags: DWORD, #[in] #[opt] #[out] #[readable(entry, bytes(dwBufLen))] #[readable(success, bytes(*pdwDataLen))] #[writable(entry, bytes(dwBufLen))] pbData: *mut BYTE, #[in] #[out] pdwDataLen: *mut DWORD, #[in] dwBufLen: DWORD) -> BOOL;
+        extern fn CryptEncrypt(#[in] hKey: HCRYPTKEY, #[in] hHash: HCRYPTHASH, #[in] Final: BOOL, #[in] dwFlags: DWORD, #[buffer(bytes(dwBufLen))] #[in] #[opt] #[out] pbData: *mut BYTE, #[in] #[out] pdwDataLen: *mut DWORD, #[in] dwBufLen: DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptEncryptMessage(#[in] pEncryptPara: PCRYPT_ENCRYPT_MESSAGE_PARA, #[in] cRecipientCert: DWORD, #[in] #[readable(entry, cRecipientCert)] rgpRecipientCert: *mut PCCERT_CONTEXT, #[in] #[opt] #[readable(entry, bytes(cbToBeEncrypted))] pbToBeEncrypted: *const BYTE, #[in] cbToBeEncrypted: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbEncryptedBlob))] #[writable(entry, bytes(*pcbEncryptedBlob))] pbEncryptedBlob: *mut BYTE, #[in] #[out] pcbEncryptedBlob: *mut DWORD) -> BOOL;
+        extern fn CryptEncryptMessage(#[in] pEncryptPara: PCRYPT_ENCRYPT_MESSAGE_PARA, #[in] cRecipientCert: DWORD, #[buffer(cRecipientCert)] #[in] rgpRecipientCert: *mut PCCERT_CONTEXT, #[buffer(bytes(cbToBeEncrypted))] #[in] #[opt] pbToBeEncrypted: *const BYTE, #[in] cbToBeEncrypted: DWORD, #[buffer(bytes(*pcbEncryptedBlob))] #[opt] #[out] pbEncryptedBlob: *mut BYTE, #[in] #[out] pcbEncryptedBlob: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CryptEnumKeyIdentifierProperties(#[in] #[opt] pKeyIdentifier: *const CRYPT_HASH_BLOB, #[in] dwPropId: DWORD, #[in] dwFlags: DWORD, #[in] #[opt] pwszComputerName: LPCWSTR, #[reserved] pvReserved: *mut void, #[in] #[opt] #[out] pvArg: *mut void, pfnEnum: PFN_CRYPT_ENUM_KEYID_PROP) -> BOOL;
         #[library("CRYPT32.dll")]
@@ -3797,23 +3789,23 @@ mod Windows {
         #[library("CRYPT32.dll")]
         extern fn CryptEnumOIDInfo(#[in] dwGroupId: DWORD, #[in] dwFlags: DWORD, #[in] #[opt] #[out] pvArg: *mut void, pfnEnumOIDInfo: PFN_CRYPT_ENUM_OID_INFO) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CryptEnumProviderTypesA(#[in] dwIndex: DWORD, #[reserved] pdwReserved: *mut DWORD, #[in] dwFlags: DWORD, #[out] pdwProvType: *mut DWORD, #[opt] #[out] #[readable(success, bytes(*pcbTypeName))] #[writable(entry, bytes(*pcbTypeName))] szTypeName: LPSTR, #[in] #[out] pcbTypeName: *mut DWORD) -> BOOL;
+        extern fn CryptEnumProviderTypesA(#[in] dwIndex: DWORD, #[reserved] pdwReserved: *mut DWORD, #[in] dwFlags: DWORD, #[out] pdwProvType: *mut DWORD, #[buffer(bytes(*pcbTypeName))] #[opt] #[out] szTypeName: LPSTR, #[in] #[out] pcbTypeName: *mut DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CryptEnumProviderTypesW(#[in] dwIndex: DWORD, #[reserved] pdwReserved: *mut DWORD, #[in] dwFlags: DWORD, #[out] pdwProvType: *mut DWORD, #[opt] #[out] #[readable(success, bytes(*pcbTypeName))] #[writable(entry, bytes(*pcbTypeName))] szTypeName: LPWSTR, #[in] #[out] pcbTypeName: *mut DWORD) -> BOOL;
+        extern fn CryptEnumProviderTypesW(#[in] dwIndex: DWORD, #[reserved] pdwReserved: *mut DWORD, #[in] dwFlags: DWORD, #[out] pdwProvType: *mut DWORD, #[buffer(bytes(*pcbTypeName))] #[opt] #[out] szTypeName: LPWSTR, #[in] #[out] pcbTypeName: *mut DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CryptEnumProvidersA(#[in] dwIndex: DWORD, #[reserved] pdwReserved: *mut DWORD, #[in] dwFlags: DWORD, #[out] pdwProvType: *mut DWORD, #[opt] #[out] #[readable(success, bytes(*pcbProvName))] #[writable(entry, bytes(*pcbProvName))] szProvName: LPSTR, #[in] #[out] pcbProvName: *mut DWORD) -> BOOL;
+        extern fn CryptEnumProvidersA(#[in] dwIndex: DWORD, #[reserved] pdwReserved: *mut DWORD, #[in] dwFlags: DWORD, #[out] pdwProvType: *mut DWORD, #[buffer(bytes(*pcbProvName))] #[opt] #[out] szProvName: LPSTR, #[in] #[out] pcbProvName: *mut DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CryptEnumProvidersW(#[in] dwIndex: DWORD, #[reserved] pdwReserved: *mut DWORD, #[in] dwFlags: DWORD, #[out] pdwProvType: *mut DWORD, #[opt] #[out] #[readable(success, bytes(*pcbProvName))] #[writable(entry, bytes(*pcbProvName))] szProvName: LPWSTR, #[in] #[out] pcbProvName: *mut DWORD) -> BOOL;
+        extern fn CryptEnumProvidersW(#[in] dwIndex: DWORD, #[reserved] pdwReserved: *mut DWORD, #[in] dwFlags: DWORD, #[out] pdwProvType: *mut DWORD, #[buffer(bytes(*pcbProvName))] #[opt] #[out] szProvName: LPWSTR, #[in] #[out] pcbProvName: *mut DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CryptExportKey(#[in] hKey: HCRYPTKEY, #[in] hExpKey: HCRYPTKEY, #[in] dwBlobType: DWORD, #[in] dwFlags: DWORD, #[opt] #[out] #[readable(success, bytes(*pdwDataLen))] #[writable(entry, bytes(*pdwDataLen))] pbData: *mut BYTE, #[in] #[out] pdwDataLen: *mut DWORD) -> BOOL;
+        extern fn CryptExportKey(#[in] hKey: HCRYPTKEY, #[in] hExpKey: HCRYPTKEY, #[in] dwBlobType: DWORD, #[in] dwFlags: DWORD, #[buffer(bytes(*pdwDataLen))] #[opt] #[out] pbData: *mut BYTE, #[in] #[out] pdwDataLen: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptExportPKCS8(#[in] hCryptProv: HCRYPTPROV, #[in] dwKeySpec: DWORD, #[in] pszPrivateKeyObjId: LPSTR, #[in] dwFlags: DWORD, #[in] #[opt] pvAuxInfo: *mut void, #[opt] #[out] #[writable(entry, bytes(*pcbPrivateKeyBlob))] pbPrivateKeyBlob: *mut BYTE, #[in] #[out] pcbPrivateKeyBlob: *mut DWORD) -> BOOL;
+        extern fn CryptExportPKCS8(#[in] hCryptProv: HCRYPTPROV, #[in] dwKeySpec: DWORD, #[in] pszPrivateKeyObjId: LPSTR, #[in] dwFlags: DWORD, #[in] #[opt] pvAuxInfo: *mut void, #[buffer(bytes(*pcbPrivateKeyBlob))] #[opt] #[out] pbPrivateKeyBlob: *mut BYTE, #[in] #[out] pcbPrivateKeyBlob: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptExportPublicKeyInfo(#[in] hCryptProvOrNCryptKey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, #[in] #[opt] dwKeySpec: DWORD, #[in] dwCertEncodingType: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbInfo))] #[writable(entry, bytes(*pcbInfo))] pInfo: PCERT_PUBLIC_KEY_INFO, #[in] #[out] pcbInfo: *mut DWORD) -> BOOL;
+        extern fn CryptExportPublicKeyInfo(#[in] hCryptProvOrNCryptKey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, #[in] #[opt] dwKeySpec: DWORD, #[in] dwCertEncodingType: DWORD, #[buffer(bytes(*pcbInfo))] #[opt] #[out] pInfo: PCERT_PUBLIC_KEY_INFO, #[in] #[out] pcbInfo: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptExportPublicKeyInfoEx(#[in] hCryptProvOrNCryptKey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, #[in] #[opt] dwKeySpec: DWORD, #[in] dwCertEncodingType: DWORD, #[in] #[opt] pszPublicKeyObjId: LPSTR, #[in] dwFlags: DWORD, #[in] #[opt] pvAuxInfo: *mut void, #[opt] #[out] #[readable(success, bytes(*pcbInfo))] #[writable(entry, bytes(*pcbInfo))] pInfo: PCERT_PUBLIC_KEY_INFO, #[in] #[out] pcbInfo: *mut DWORD) -> BOOL;
+        extern fn CryptExportPublicKeyInfoEx(#[in] hCryptProvOrNCryptKey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, #[in] #[opt] dwKeySpec: DWORD, #[in] dwCertEncodingType: DWORD, #[in] #[opt] pszPublicKeyObjId: LPSTR, #[in] dwFlags: DWORD, #[in] #[opt] pvAuxInfo: *mut void, #[buffer(bytes(*pcbInfo))] #[opt] #[out] pInfo: PCERT_PUBLIC_KEY_INFO, #[in] #[out] pcbInfo: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptExportPublicKeyInfoFromBCryptKeyHandle(#[in] hBCryptKey: BCRYPT_KEY_HANDLE, #[in] dwCertEncodingType: DWORD, #[in] #[opt] pszPublicKeyObjId: LPSTR, #[in] dwFlags: DWORD, #[in] #[opt] pvAuxInfo: *mut void, #[opt] #[out] #[readable(success, bytes(*pcbInfo))] #[writable(entry, bytes(*pcbInfo))] pInfo: PCERT_PUBLIC_KEY_INFO, #[in] #[out] pcbInfo: *mut DWORD) -> BOOL;
+        extern fn CryptExportPublicKeyInfoFromBCryptKeyHandle(#[in] hBCryptKey: BCRYPT_KEY_HANDLE, #[in] dwCertEncodingType: DWORD, #[in] #[opt] pszPublicKeyObjId: LPSTR, #[in] dwFlags: DWORD, #[in] #[opt] pvAuxInfo: *mut void, #[buffer(bytes(*pcbInfo))] #[opt] #[out] pInfo: PCERT_PUBLIC_KEY_INFO, #[in] #[out] pcbInfo: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CryptFindCertificateKeyProvInfo(#[in] pCert: PCCERT_CONTEXT, #[in] dwFlags: DWORD, #[reserved] pvReserved: *mut void) -> BOOL;
         #[library("CRYPT32.dll")]
@@ -3821,59 +3813,59 @@ mod Windows {
         #[library("CRYPT32.dll")]
         extern fn CryptFindOIDInfo(#[in] dwKeyType: DWORD, #[in] pvKey: *mut void, #[in] dwGroupId: DWORD) -> PCCRYPT_OID_INFO;
         #[library("CRYPT32.dll")]
-        extern fn CryptFormatObject(#[in] dwCertEncodingType: DWORD, #[in] dwFormatType: DWORD, #[in] dwFormatStrType: DWORD, #[in] #[opt] pFormatStruct: *mut void, #[in] #[opt] lpszStructType: LPCSTR, #[in] #[readable(entry, bytes(cbEncoded))] pbEncoded: *const BYTE, #[in] cbEncoded: DWORD, #[incomplete] pbFormat: *mut void, #[in] #[out] pcbFormat: *mut DWORD) -> BOOL;
+        extern fn CryptFormatObject(#[in] dwCertEncodingType: DWORD, #[in] dwFormatType: DWORD, #[in] dwFormatStrType: DWORD, #[in] #[opt] pFormatStruct: *mut void, #[in] #[opt] lpszStructType: LPCSTR, #[buffer(bytes(cbEncoded))] #[in] pbEncoded: *const BYTE, #[in] cbEncoded: DWORD, #[incomplete] pbFormat: *mut void, #[in] #[out] pcbFormat: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CryptFreeOIDFunctionAddress(#[in] hFuncAddr: HCRYPTOIDFUNCADDR, #[in] dwFlags: DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn CryptGenKey(#[in] hProv: HCRYPTPROV, #[in] Algid: ALG_ID, #[in] dwFlags: DWORD, #[out] phKey: *mut HCRYPTKEY) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CryptGenRandom(#[in] hProv: HCRYPTPROV, #[in] dwLen: DWORD, #[in] #[out] #[writable(entry, bytes(dwLen))] pbBuffer: *mut BYTE) -> BOOL;
+        extern fn CryptGenRandom(#[in] hProv: HCRYPTPROV, #[in] dwLen: DWORD, #[buffer(bytes(dwLen))] #[in] #[out] pbBuffer: *mut BYTE) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptGetAsyncParam(#[in] hAsync: HCRYPTASYNC, #[in] pszParamOid: LPSTR, #[nullable] #[opt] #[out] #[out_ptr] ppvParam: *mut LPVOID, #[nullable] #[opt] #[out] #[out_ptr] ppfnFree: *mut PFN_CRYPT_ASYNC_PARAM_FREE_FUNC) -> BOOL;
+        extern fn CryptGetAsyncParam(#[in] hAsync: HCRYPTASYNC, #[in] pszParamOid: LPSTR, #[opt] #[out] ppvParam: *mut LPVOID, #[opt] #[out] ppfnFree: *mut PFN_CRYPT_ASYNC_PARAM_FREE_FUNC) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptGetDefaultOIDDllList(#[in] hFuncSet: HCRYPTOIDFUNCSET, #[in] dwEncodingType: DWORD, #[null_terminated(double_success)] #[opt] #[out] #[readable(success, *pcchDllList)] #[writable(entry, *pcchDllList)] pwszDllList: *mut WCHAR, #[in] #[out] pcchDllList: *mut DWORD) -> BOOL;
+        extern fn CryptGetDefaultOIDDllList(#[in] hFuncSet: HCRYPTOIDFUNCSET, #[in] dwEncodingType: DWORD, #[buffer(*pcchDllList)] #[null_null_terminated] #[opt] #[out] pwszDllList: *mut WCHAR, #[in] #[out] pcchDllList: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptGetDefaultOIDFunctionAddress(#[in] hFuncSet: HCRYPTOIDFUNCSET, #[in] dwEncodingType: DWORD, #[in] #[opt] pwszDll: LPCWSTR, #[in] dwFlags: DWORD, #[out] #[out_ptr] ppvFuncAddr: *mut *mut void, #[in] #[out] phFuncAddr: *mut HCRYPTOIDFUNCADDR) -> BOOL;
+        extern fn CryptGetDefaultOIDFunctionAddress(#[in] hFuncSet: HCRYPTOIDFUNCSET, #[in] dwEncodingType: DWORD, #[in] #[opt] pwszDll: LPCWSTR, #[in] dwFlags: DWORD, #[out] ppvFuncAddr: *mut *mut void, #[in] #[out] phFuncAddr: *mut HCRYPTOIDFUNCADDR) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CryptGetDefaultProviderA(#[in] dwProvType: DWORD, #[reserved] pdwReserved: *mut DWORD, #[in] dwFlags: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbProvName))] #[writable(entry, bytes(*pcbProvName))] pszProvName: LPSTR, #[in] #[out] pcbProvName: *mut DWORD) -> BOOL;
+        extern fn CryptGetDefaultProviderA(#[in] dwProvType: DWORD, #[reserved] pdwReserved: *mut DWORD, #[in] dwFlags: DWORD, #[buffer(bytes(*pcbProvName))] #[opt] #[out] pszProvName: LPSTR, #[in] #[out] pcbProvName: *mut DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CryptGetDefaultProviderW(#[in] dwProvType: DWORD, #[reserved] pdwReserved: *mut DWORD, #[in] dwFlags: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbProvName))] #[writable(entry, bytes(*pcbProvName))] pszProvName: LPWSTR, #[in] #[out] pcbProvName: *mut DWORD) -> BOOL;
+        extern fn CryptGetDefaultProviderW(#[in] dwProvType: DWORD, #[reserved] pdwReserved: *mut DWORD, #[in] dwFlags: DWORD, #[buffer(bytes(*pcbProvName))] #[opt] #[out] pszProvName: LPWSTR, #[in] #[out] pcbProvName: *mut DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CryptGetHashParam(#[in] hHash: HCRYPTHASH, #[in] dwParam: DWORD, #[opt] #[out] #[readable(success, bytes(*pdwDataLen))] #[writable(entry, bytes(*pdwDataLen))] pbData: *mut BYTE, #[in] #[out] pdwDataLen: *mut DWORD, #[in] dwFlags: DWORD) -> BOOL;
+        extern fn CryptGetHashParam(#[in] hHash: HCRYPTHASH, #[in] dwParam: DWORD, #[buffer(bytes(*pdwDataLen))] #[opt] #[out] pbData: *mut BYTE, #[in] #[out] pdwDataLen: *mut DWORD, #[in] dwFlags: DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptGetKeyIdentifierProperty(#[in] pKeyIdentifier: *const CRYPT_HASH_BLOB, #[in] dwPropId: DWORD, #[in] dwFlags: DWORD, #[in] #[opt] pwszComputerName: LPCWSTR, #[reserved] pvReserved: *mut void, #[opt] #[out] #[readable(success, bytes(*pcbData))] #[writable(entry, bytes(*pcbData))] pvData: *mut void, #[in] #[out] pcbData: *mut DWORD) -> BOOL;
+        extern fn CryptGetKeyIdentifierProperty(#[in] pKeyIdentifier: *const CRYPT_HASH_BLOB, #[in] dwPropId: DWORD, #[in] dwFlags: DWORD, #[in] #[opt] pwszComputerName: LPCWSTR, #[reserved] pvReserved: *mut void, #[buffer(bytes(*pcbData))] #[opt] #[out] pvData: *mut void, #[in] #[out] pcbData: *mut DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CryptGetKeyParam(#[in] hKey: HCRYPTKEY, #[in] dwParam: DWORD, #[opt] #[out] #[readable(success, bytes(*pdwDataLen))] #[writable(entry, bytes(*pdwDataLen))] pbData: *mut BYTE, #[in] #[out] pdwDataLen: *mut DWORD, #[in] dwFlags: DWORD) -> BOOL;
+        extern fn CryptGetKeyParam(#[in] hKey: HCRYPTKEY, #[in] dwParam: DWORD, #[buffer(bytes(*pdwDataLen))] #[opt] #[out] pbData: *mut BYTE, #[in] #[out] pdwDataLen: *mut DWORD, #[in] dwFlags: DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptGetMessageCertificates(#[in] dwMsgAndCertEncodingType: DWORD, #[in] #[opt] hCryptProv: HCRYPTPROV_LEGACY, #[in] dwFlags: DWORD, #[in] #[readable(entry, bytes(cbSignedBlob))] pbSignedBlob: *const BYTE, #[in] cbSignedBlob: DWORD) -> HCERTSTORE;
+        extern fn CryptGetMessageCertificates(#[in] dwMsgAndCertEncodingType: DWORD, #[in] #[opt] hCryptProv: HCRYPTPROV_LEGACY, #[in] dwFlags: DWORD, #[buffer(bytes(cbSignedBlob))] #[in] pbSignedBlob: *const BYTE, #[in] cbSignedBlob: DWORD) -> HCERTSTORE;
         #[library("CRYPT32.dll")]
-        extern fn CryptGetMessageSignerCount(#[in] dwMsgEncodingType: DWORD, #[in] #[readable(entry, bytes(cbSignedBlob))] pbSignedBlob: *const BYTE, #[in] cbSignedBlob: DWORD) -> LONG;
+        extern fn CryptGetMessageSignerCount(#[in] dwMsgEncodingType: DWORD, #[buffer(bytes(cbSignedBlob))] #[in] pbSignedBlob: *const BYTE, #[in] cbSignedBlob: DWORD) -> LONG;
         #[library("CRYPT32.dll")]
-        extern fn CryptGetOIDFunctionAddress(#[in] hFuncSet: HCRYPTOIDFUNCSET, #[in] dwEncodingType: DWORD, #[in] pszOID: LPCSTR, #[in] dwFlags: DWORD, #[out] #[out_ptr] ppvFuncAddr: *mut *mut void, #[out] phFuncAddr: *mut HCRYPTOIDFUNCADDR) -> BOOL;
+        extern fn CryptGetOIDFunctionAddress(#[in] hFuncSet: HCRYPTOIDFUNCSET, #[in] dwEncodingType: DWORD, #[in] pszOID: LPCSTR, #[in] dwFlags: DWORD, #[out] ppvFuncAddr: *mut *mut void, #[out] phFuncAddr: *mut HCRYPTOIDFUNCADDR) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptGetOIDFunctionValue(#[in] dwEncodingType: DWORD, #[in] pszFuncName: LPCSTR, #[in] pszOID: LPCSTR, #[in] #[opt] pwszValueName: LPCWSTR, #[opt] #[out] pdwValueType: *mut DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*pcbValueData)))] #[writable(entry, bytes(if_present(*pcbValueData)))] pbValueData: *mut BYTE, #[in] #[opt] #[out] pcbValueData: *mut DWORD) -> BOOL;
+        extern fn CryptGetOIDFunctionValue(#[in] dwEncodingType: DWORD, #[in] pszFuncName: LPCSTR, #[in] pszOID: LPCSTR, #[in] #[opt] pwszValueName: LPCWSTR, #[opt] #[out] pdwValueType: *mut DWORD, #[incomplete] #[opt] #[out] pbValueData: *mut BYTE, #[in] #[opt] #[out] pcbValueData: *mut DWORD) -> BOOL;
         #[library("CRYPTNET.dll")]
-        extern fn CryptGetObjectUrl(#[in] pszUrlOid: LPCSTR, #[in] pvPara: LPVOID, #[in] dwFlags: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbUrlArray))] #[writable(entry, bytes(*pcbUrlArray))] pUrlArray: PCRYPT_URL_ARRAY, #[in] #[out] pcbUrlArray: *mut DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*pcbUrlInfo)))] #[writable(entry, bytes(if_present(*pcbUrlInfo)))] pUrlInfo: PCRYPT_URL_INFO, #[in] #[opt] #[out] pcbUrlInfo: *mut DWORD, #[reserved] pvReserved: LPVOID) -> BOOL;
+        extern fn CryptGetObjectUrl(#[in] pszUrlOid: LPCSTR, #[in] pvPara: LPVOID, #[in] dwFlags: DWORD, #[buffer(bytes(*pcbUrlArray))] #[opt] #[out] pUrlArray: PCRYPT_URL_ARRAY, #[in] #[out] pcbUrlArray: *mut DWORD, #[incomplete] #[opt] #[out] pUrlInfo: PCRYPT_URL_INFO, #[in] #[opt] #[out] pcbUrlInfo: *mut DWORD, #[reserved] pvReserved: LPVOID) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CryptGetProvParam(#[in] hProv: HCRYPTPROV, #[in] dwParam: DWORD, #[opt] #[out] #[readable(success, bytes(*pdwDataLen))] #[writable(entry, bytes(*pdwDataLen))] pbData: *mut BYTE, #[in] #[out] pdwDataLen: *mut DWORD, #[in] dwFlags: DWORD) -> BOOL;
+        extern fn CryptGetProvParam(#[in] hProv: HCRYPTPROV, #[in] dwParam: DWORD, #[buffer(bytes(*pdwDataLen))] #[opt] #[out] pbData: *mut BYTE, #[in] #[out] pdwDataLen: *mut DWORD, #[in] dwFlags: DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn CryptGetUserKey(#[in] hProv: HCRYPTPROV, #[in] dwKeySpec: DWORD, #[out] phUserKey: *mut HCRYPTKEY) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptHashCertificate(#[in] #[opt] hCryptProv: HCRYPTPROV_LEGACY, #[in] Algid: ALG_ID, #[in] dwFlags: DWORD, #[in] #[readable(entry, bytes(cbEncoded))] pbEncoded: *const BYTE, #[in] cbEncoded: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbComputedHash))] #[writable(entry, bytes(*pcbComputedHash))] pbComputedHash: *mut BYTE, #[in] #[out] pcbComputedHash: *mut DWORD) -> BOOL;
+        extern fn CryptHashCertificate(#[in] #[opt] hCryptProv: HCRYPTPROV_LEGACY, #[in] Algid: ALG_ID, #[in] dwFlags: DWORD, #[buffer(bytes(cbEncoded))] #[in] pbEncoded: *const BYTE, #[in] cbEncoded: DWORD, #[buffer(bytes(*pcbComputedHash))] #[opt] #[out] pbComputedHash: *mut BYTE, #[in] #[out] pcbComputedHash: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptHashCertificate2(#[in] pwszCNGHashAlgid: LPCWSTR, #[in] dwFlags: DWORD, #[reserved] pvReserved: *mut void, #[in] #[opt] #[readable(entry, bytes(cbEncoded))] pbEncoded: *const BYTE, #[in] cbEncoded: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbComputedHash))] #[writable(entry, bytes(*pcbComputedHash))] pbComputedHash: *mut BYTE, #[in] #[out] pcbComputedHash: *mut DWORD) -> BOOL;
+        extern fn CryptHashCertificate2(#[in] pwszCNGHashAlgid: LPCWSTR, #[in] dwFlags: DWORD, #[reserved] pvReserved: *mut void, #[buffer(bytes(cbEncoded))] #[in] #[opt] pbEncoded: *const BYTE, #[in] cbEncoded: DWORD, #[buffer(bytes(*pcbComputedHash))] #[opt] #[out] pbComputedHash: *mut BYTE, #[in] #[out] pcbComputedHash: *mut DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CryptHashData(#[in] hHash: HCRYPTHASH, #[in] #[readable(entry, bytes(dwDataLen))] pbData: *const BYTE, #[in] dwDataLen: DWORD, #[in] dwFlags: DWORD) -> BOOL;
+        extern fn CryptHashData(#[in] hHash: HCRYPTHASH, #[buffer(bytes(dwDataLen))] #[in] pbData: *const BYTE, #[in] dwDataLen: DWORD, #[in] dwFlags: DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptHashMessage(#[in] pHashPara: PCRYPT_HASH_MESSAGE_PARA, #[in] fDetachedHash: BOOL, #[in] cToBeHashed: DWORD, #[in] #[readable(entry, cToBeHashed)] rgpbToBeHashed: *mut *const BYTE, #[in] #[readable(entry, cToBeHashed)] rgcbToBeHashed: *mut DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*pcbHashedBlob)))] #[writable(entry, bytes(if_present(*pcbHashedBlob)))] pbHashedBlob: *mut BYTE, #[in] #[opt] #[out] pcbHashedBlob: *mut DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*pcbComputedHash)))] #[writable(entry, bytes(if_present(*pcbComputedHash)))] pbComputedHash: *mut BYTE, #[in] #[opt] #[out] pcbComputedHash: *mut DWORD) -> BOOL;
+        extern fn CryptHashMessage(#[in] pHashPara: PCRYPT_HASH_MESSAGE_PARA, #[in] fDetachedHash: BOOL, #[in] cToBeHashed: DWORD, #[buffer(cToBeHashed)] #[in] rgpbToBeHashed: *mut *const BYTE, #[buffer(cToBeHashed)] #[in] rgcbToBeHashed: *mut DWORD, #[incomplete] #[opt] #[out] pbHashedBlob: *mut BYTE, #[in] #[opt] #[out] pcbHashedBlob: *mut DWORD, #[incomplete] #[opt] #[out] pbComputedHash: *mut BYTE, #[in] #[opt] #[out] pcbComputedHash: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptHashPublicKeyInfo(#[in] #[opt] hCryptProv: HCRYPTPROV_LEGACY, #[in] Algid: ALG_ID, #[in] dwFlags: DWORD, #[in] dwCertEncodingType: DWORD, #[in] pInfo: PCERT_PUBLIC_KEY_INFO, #[opt] #[out] #[readable(success, bytes(*pcbComputedHash))] #[writable(entry, bytes(*pcbComputedHash))] pbComputedHash: *mut BYTE, #[in] #[out] pcbComputedHash: *mut DWORD) -> BOOL;
+        extern fn CryptHashPublicKeyInfo(#[in] #[opt] hCryptProv: HCRYPTPROV_LEGACY, #[in] Algid: ALG_ID, #[in] dwFlags: DWORD, #[in] dwCertEncodingType: DWORD, #[in] pInfo: PCERT_PUBLIC_KEY_INFO, #[buffer(bytes(*pcbComputedHash))] #[opt] #[out] pbComputedHash: *mut BYTE, #[in] #[out] pcbComputedHash: *mut DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn CryptHashSessionKey(#[in] hHash: HCRYPTHASH, #[in] hKey: HCRYPTKEY, #[in] dwFlags: DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptHashToBeSigned(#[in] #[opt] hCryptProv: HCRYPTPROV_LEGACY, #[in] dwCertEncodingType: DWORD, #[in] #[readable(entry, bytes(cbEncoded))] pbEncoded: *const BYTE, #[in] cbEncoded: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbComputedHash))] #[writable(entry, bytes(*pcbComputedHash))] pbComputedHash: *mut BYTE, #[in] #[out] pcbComputedHash: *mut DWORD) -> BOOL;
+        extern fn CryptHashToBeSigned(#[in] #[opt] hCryptProv: HCRYPTPROV_LEGACY, #[in] dwCertEncodingType: DWORD, #[buffer(bytes(cbEncoded))] #[in] pbEncoded: *const BYTE, #[in] cbEncoded: DWORD, #[buffer(bytes(*pcbComputedHash))] #[opt] #[out] pbComputedHash: *mut BYTE, #[in] #[out] pcbComputedHash: *mut DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CryptImportKey(#[in] hProv: HCRYPTPROV, #[in] #[readable(entry, bytes(dwDataLen))] pbData: *const BYTE, #[in] dwDataLen: DWORD, #[in] hPubKey: HCRYPTKEY, #[in] dwFlags: DWORD, #[out] phKey: *mut HCRYPTKEY) -> BOOL;
+        extern fn CryptImportKey(#[in] hProv: HCRYPTPROV, #[buffer(bytes(dwDataLen))] #[in] pbData: *const BYTE, #[in] dwDataLen: DWORD, #[in] hPubKey: HCRYPTKEY, #[in] dwFlags: DWORD, #[out] phKey: *mut HCRYPTKEY) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CryptImportPKCS8(#[in] sPrivateKeyAndParams: CRYPT_PKCS8_IMPORT_PARAMS, #[in] dwFlags: DWORD, #[opt] #[out] phCryptProv: *mut HCRYPTPROV, #[in] #[opt] pvAuxInfo: *mut void) -> BOOL;
         #[library("CRYPT32.dll")]
@@ -3889,7 +3881,7 @@ mod Windows {
         #[library("CRYPT32.dll")]
         extern fn CryptInstallDefaultContext(#[in] hCryptProv: HCRYPTPROV, #[in] dwDefaultType: DWORD, #[in] #[opt] pvDefaultPara: *const void, #[in] dwFlags: DWORD, #[reserved] pvReserved: *mut void, #[out] phDefaultContext: *mut HCRYPTDEFAULTCONTEXT) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptInstallOIDFunctionAddress(#[in] #[opt] hModule: HMODULE, #[in] dwEncodingType: DWORD, #[in] pszFuncName: LPCSTR, #[in] cFuncEntry: DWORD, #[in] #[readable(entry, cFuncEntry)] rgFuncEntry: *const CRYPT_OID_FUNC_ENTRY, #[in] dwFlags: DWORD) -> BOOL;
+        extern fn CryptInstallOIDFunctionAddress(#[in] #[opt] hModule: HMODULE, #[in] dwEncodingType: DWORD, #[in] pszFuncName: LPCSTR, #[in] cFuncEntry: DWORD, #[buffer(cFuncEntry)] #[in] rgFuncEntry: *const CRYPT_OID_FUNC_ENTRY, #[in] dwFlags: DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CryptMemAlloc(#[in] cbSize: ULONG) -> LPVOID;
         #[library("CRYPT32.dll")]
@@ -3903,31 +3895,31 @@ mod Windows {
         #[library("CRYPT32.dll")]
         extern fn CryptMsgControl(#[in] hCryptMsg: HCRYPTMSG, #[in] dwFlags: DWORD, #[in] dwCtrlType: DWORD, #[in] #[opt] pvCtrlPara: *const void) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptMsgCountersign(#[in] hCryptMsg: HCRYPTMSG, #[in] dwIndex: DWORD, #[in] cCountersigners: DWORD, #[in] #[readable(entry, cCountersigners)] rgCountersigners: PCMSG_SIGNER_ENCODE_INFO) -> BOOL;
+        extern fn CryptMsgCountersign(#[in] hCryptMsg: HCRYPTMSG, #[in] dwIndex: DWORD, #[in] cCountersigners: DWORD, #[buffer(cCountersigners)] #[in] rgCountersigners: PCMSG_SIGNER_ENCODE_INFO) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptMsgCountersignEncoded(#[in] dwEncodingType: DWORD, #[in] #[readable(entry, bytes(cbSignerInfo))] pbSignerInfo: PBYTE, #[in] cbSignerInfo: DWORD, #[in] cCountersigners: DWORD, #[in] #[readable(entry, cCountersigners)] rgCountersigners: PCMSG_SIGNER_ENCODE_INFO, #[opt] #[out] #[readable(success, bytes(*pcbCountersignature))] #[writable(entry, bytes(*pcbCountersignature))] pbCountersignature: PBYTE, #[in] #[out] pcbCountersignature: PDWORD) -> BOOL;
+        extern fn CryptMsgCountersignEncoded(#[in] dwEncodingType: DWORD, #[buffer(bytes(cbSignerInfo))] #[in] pbSignerInfo: PBYTE, #[in] cbSignerInfo: DWORD, #[in] cCountersigners: DWORD, #[buffer(cCountersigners)] #[in] rgCountersigners: PCMSG_SIGNER_ENCODE_INFO, #[buffer(bytes(*pcbCountersignature))] #[opt] #[out] pbCountersignature: PBYTE, #[in] #[out] pcbCountersignature: PDWORD) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CryptMsgDuplicate(#[in] #[opt] hCryptMsg: HCRYPTMSG) -> HCRYPTMSG;
         #[library("CRYPT32.dll")]
-        extern fn CryptMsgEncodeAndSignCTL(#[in] dwMsgEncodingType: DWORD, #[in] pCtlInfo: PCTL_INFO, #[in] pSignInfo: PCMSG_SIGNED_ENCODE_INFO, #[in] dwFlags: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbEncoded))] #[writable(entry, bytes(*pcbEncoded))] pbEncoded: *mut BYTE, #[in] #[out] pcbEncoded: *mut DWORD) -> BOOL;
+        extern fn CryptMsgEncodeAndSignCTL(#[in] dwMsgEncodingType: DWORD, #[in] pCtlInfo: PCTL_INFO, #[in] pSignInfo: PCMSG_SIGNED_ENCODE_INFO, #[in] dwFlags: DWORD, #[buffer(bytes(*pcbEncoded))] #[opt] #[out] pbEncoded: *mut BYTE, #[in] #[out] pcbEncoded: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptMsgGetAndVerifySigner(#[in] hCryptMsg: HCRYPTMSG, #[in] cSignerStore: DWORD, #[in] #[opt] #[readable(entry, cSignerStore)] rghSignerStore: *mut HCERTSTORE, #[in] dwFlags: DWORD, #[opt] #[out] #[out_ptr] ppSigner: *mut PCCERT_CONTEXT, #[in] #[opt] #[out] pdwSignerIndex: *mut DWORD) -> BOOL;
+        extern fn CryptMsgGetAndVerifySigner(#[in] hCryptMsg: HCRYPTMSG, #[in] cSignerStore: DWORD, #[buffer(cSignerStore)] #[in] #[opt] rghSignerStore: *mut HCERTSTORE, #[in] dwFlags: DWORD, #[opt] #[out] ppSigner: *mut PCCERT_CONTEXT, #[in] #[opt] #[out] pdwSignerIndex: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptMsgGetParam(#[in] hCryptMsg: HCRYPTMSG, #[in] dwParamType: DWORD, #[in] dwIndex: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbData))] #[writable(entry, bytes(*pcbData))] pvData: *mut void, #[in] #[out] pcbData: *mut DWORD) -> BOOL;
+        extern fn CryptMsgGetParam(#[in] hCryptMsg: HCRYPTMSG, #[in] dwParamType: DWORD, #[in] dwIndex: DWORD, #[buffer(bytes(*pcbData))] #[opt] #[out] pvData: *mut void, #[in] #[out] pcbData: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CryptMsgOpenToDecode(#[in] dwMsgEncodingType: DWORD, #[in] dwFlags: DWORD, #[in] dwMsgType: DWORD, #[in] #[opt] hCryptProv: HCRYPTPROV_LEGACY, #[reserved] pRecipientInfo: PCERT_INFO, #[in] #[opt] pStreamInfo: PCMSG_STREAM_INFO) -> HCRYPTMSG;
         #[library("CRYPT32.dll")]
         extern fn CryptMsgOpenToEncode(#[in] dwMsgEncodingType: DWORD, #[in] dwFlags: DWORD, #[in] dwMsgType: DWORD, #[in] pvMsgEncodeInfo: *const void, #[in] #[opt] pszInnerContentObjID: LPSTR, #[in] #[opt] pStreamInfo: PCMSG_STREAM_INFO) -> HCRYPTMSG;
         #[library("CRYPT32.dll")]
-        extern fn CryptMsgSignCTL(#[in] dwMsgEncodingType: DWORD, #[in] #[readable(entry, bytes(cbCtlContent))] pbCtlContent: *mut BYTE, #[in] cbCtlContent: DWORD, #[in] pSignInfo: PCMSG_SIGNED_ENCODE_INFO, #[in] dwFlags: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbEncoded))] #[writable(entry, bytes(*pcbEncoded))] pbEncoded: *mut BYTE, #[in] #[out] pcbEncoded: *mut DWORD) -> BOOL;
+        extern fn CryptMsgSignCTL(#[in] dwMsgEncodingType: DWORD, #[buffer(bytes(cbCtlContent))] #[in] pbCtlContent: *mut BYTE, #[in] cbCtlContent: DWORD, #[in] pSignInfo: PCMSG_SIGNED_ENCODE_INFO, #[in] dwFlags: DWORD, #[buffer(bytes(*pcbEncoded))] #[opt] #[out] pbEncoded: *mut BYTE, #[in] #[out] pcbEncoded: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptMsgUpdate(#[in] hCryptMsg: HCRYPTMSG, #[in] #[opt] #[readable(entry, bytes(cbData))] pbData: *const BYTE, #[in] cbData: DWORD, #[in] fFinal: BOOL) -> BOOL;
+        extern fn CryptMsgUpdate(#[in] hCryptMsg: HCRYPTMSG, #[buffer(bytes(cbData))] #[in] #[opt] pbData: *const BYTE, #[in] cbData: DWORD, #[in] fFinal: BOOL) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptMsgVerifyCountersignatureEncoded(#[in] #[opt] hCryptProv: HCRYPTPROV_LEGACY, #[in] dwEncodingType: DWORD, #[in] #[readable(entry, bytes(cbSignerInfo))] pbSignerInfo: PBYTE, #[in] cbSignerInfo: DWORD, #[in] #[readable(entry, bytes(cbSignerInfoCountersignature))] pbSignerInfoCountersignature: PBYTE, #[in] cbSignerInfoCountersignature: DWORD, #[in] pciCountersigner: PCERT_INFO) -> BOOL;
+        extern fn CryptMsgVerifyCountersignatureEncoded(#[in] #[opt] hCryptProv: HCRYPTPROV_LEGACY, #[in] dwEncodingType: DWORD, #[buffer(bytes(cbSignerInfo))] #[in] pbSignerInfo: PBYTE, #[in] cbSignerInfo: DWORD, #[buffer(bytes(cbSignerInfoCountersignature))] #[in] pbSignerInfoCountersignature: PBYTE, #[in] cbSignerInfoCountersignature: DWORD, #[in] pciCountersigner: PCERT_INFO) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptMsgVerifyCountersignatureEncodedEx(#[in] #[opt] hCryptProv: HCRYPTPROV_LEGACY, #[in] dwEncodingType: DWORD, #[in] #[readable(entry, bytes(cbSignerInfo))] pbSignerInfo: PBYTE, #[in] cbSignerInfo: DWORD, #[in] #[readable(entry, bytes(cbSignerInfoCountersignature))] pbSignerInfoCountersignature: PBYTE, #[in] cbSignerInfoCountersignature: DWORD, #[in] dwSignerType: DWORD, #[in] pvSigner: *mut void, #[in] dwFlags: DWORD, #[in] #[opt] #[out] pvExtra: *mut void) -> BOOL;
+        extern fn CryptMsgVerifyCountersignatureEncodedEx(#[in] #[opt] hCryptProv: HCRYPTPROV_LEGACY, #[in] dwEncodingType: DWORD, #[buffer(bytes(cbSignerInfo))] #[in] pbSignerInfo: PBYTE, #[in] cbSignerInfo: DWORD, #[buffer(bytes(cbSignerInfoCountersignature))] #[in] pbSignerInfoCountersignature: PBYTE, #[in] cbSignerInfoCountersignature: DWORD, #[in] dwSignerType: DWORD, #[in] pvSigner: *mut void, #[in] dwFlags: DWORD, #[in] #[opt] #[out] pvExtra: *mut void) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptQueryObject(#[in] dwObjectType: DWORD, #[in] pvObject: *const void, #[in] dwExpectedContentTypeFlags: DWORD, #[in] dwExpectedFormatTypeFlags: DWORD, #[in] dwFlags: DWORD, #[opt] #[out] pdwMsgAndCertEncodingType: *mut DWORD, #[opt] #[out] pdwContentType: *mut DWORD, #[opt] #[out] pdwFormatType: *mut DWORD, #[opt] #[out] phCertStore: *mut HCERTSTORE, #[opt] #[out] phMsg: *mut HCRYPTMSG, #[nullable] #[opt] #[out] #[out_ptr] ppvContext: *mut *const void) -> BOOL;
+        extern fn CryptQueryObject(#[in] dwObjectType: DWORD, #[in] pvObject: *const void, #[in] dwExpectedContentTypeFlags: DWORD, #[in] dwExpectedFormatTypeFlags: DWORD, #[in] dwFlags: DWORD, #[opt] #[out] pdwMsgAndCertEncodingType: *mut DWORD, #[opt] #[out] pdwContentType: *mut DWORD, #[opt] #[out] pdwFormatType: *mut DWORD, #[opt] #[out] phCertStore: *mut HCERTSTORE, #[opt] #[out] phMsg: *mut HCRYPTMSG, #[opt] #[out] ppvContext: *mut *const void) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CryptRegisterDefaultOIDFunction(#[in] dwEncodingType: DWORD, #[in] pszFuncName: LPCSTR, #[in] dwIndex: DWORD, #[in] pwszDll: LPCWSTR) -> BOOL;
         #[library("CRYPT32.dll")]
@@ -3937,11 +3929,11 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn CryptReleaseContext(#[in] hProv: HCRYPTPROV, #[in] dwFlags: DWORD) -> BOOL;
         #[library("CRYPTNET.dll")]
-        extern fn CryptRetrieveObjectByUrlA(#[in] pszUrl: LPCSTR, #[in] #[opt] pszObjectOid: LPCSTR, #[in] dwRetrievalFlags: DWORD, #[in] dwTimeout: DWORD, #[out] #[out_ptr] ppvObject: *mut LPVOID, #[in] #[opt] hAsyncRetrieve: HCRYPTASYNC, #[in] #[opt] pCredentials: PCRYPT_CREDENTIALS, #[in] #[opt] pvVerify: LPVOID, #[in] #[opt] #[out] pAuxInfo: PCRYPT_RETRIEVE_AUX_INFO) -> BOOL;
+        extern fn CryptRetrieveObjectByUrlA(#[in] pszUrl: LPCSTR, #[in] #[opt] pszObjectOid: LPCSTR, #[in] dwRetrievalFlags: DWORD, #[in] dwTimeout: DWORD, #[out] ppvObject: *mut LPVOID, #[in] #[opt] hAsyncRetrieve: HCRYPTASYNC, #[in] #[opt] pCredentials: PCRYPT_CREDENTIALS, #[in] #[opt] pvVerify: LPVOID, #[in] #[opt] #[out] pAuxInfo: PCRYPT_RETRIEVE_AUX_INFO) -> BOOL;
         #[library("CRYPTNET.dll")]
-        extern fn CryptRetrieveObjectByUrlW(#[in] pszUrl: LPCWSTR, #[in] #[opt] pszObjectOid: LPCSTR, #[in] dwRetrievalFlags: DWORD, #[in] dwTimeout: DWORD, #[out] #[out_ptr] ppvObject: *mut LPVOID, #[in] #[opt] hAsyncRetrieve: HCRYPTASYNC, #[in] #[opt] pCredentials: PCRYPT_CREDENTIALS, #[in] #[opt] pvVerify: LPVOID, #[in] #[opt] #[out] pAuxInfo: PCRYPT_RETRIEVE_AUX_INFO) -> BOOL;
+        extern fn CryptRetrieveObjectByUrlW(#[in] pszUrl: LPCWSTR, #[in] #[opt] pszObjectOid: LPCSTR, #[in] dwRetrievalFlags: DWORD, #[in] dwTimeout: DWORD, #[out] ppvObject: *mut LPVOID, #[in] #[opt] hAsyncRetrieve: HCRYPTASYNC, #[in] #[opt] pCredentials: PCRYPT_CREDENTIALS, #[in] #[opt] pvVerify: LPVOID, #[in] #[opt] #[out] pAuxInfo: PCRYPT_RETRIEVE_AUX_INFO) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptRetrieveTimeStamp(#[in] wszUrl: LPCWSTR, dwRetrievalFlags: DWORD, dwTimeout: DWORD, #[in] pszHashId: LPCSTR, #[in] #[opt] pPara: *const CRYPT_TIMESTAMP_PARA, #[in] #[readable(entry, bytes(cbData))] pbData: *const BYTE, cbData: DWORD, #[out] #[out_ptr] ppTsContext: *mut PCRYPT_TIMESTAMP_CONTEXT, #[nullable] #[out] #[out_ptr] ppTsSigner: *mut PCCERT_CONTEXT, #[opt] #[out] phStore: *mut HCERTSTORE) -> BOOL;
+        extern fn CryptRetrieveTimeStamp(#[in] wszUrl: LPCWSTR, dwRetrievalFlags: DWORD, dwTimeout: DWORD, #[in] pszHashId: LPCSTR, #[in] #[opt] pPara: *const CRYPT_TIMESTAMP_PARA, #[buffer(bytes(cbData))] #[in] pbData: *const BYTE, cbData: DWORD, #[out] ppTsContext: *mut PCRYPT_TIMESTAMP_CONTEXT, #[out] ppTsSigner: *mut PCCERT_CONTEXT, #[opt] #[out] phStore: *mut HCERTSTORE) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CryptSetAsyncParam(#[in] hAsync: HCRYPTASYNC, #[in] pszParamOid: LPSTR, #[in] #[opt] pvParam: LPVOID, pfnFree: PFN_CRYPT_ASYNC_PARAM_FREE_FUNC) -> BOOL;
         #[library("ADVAPI32.dll")]
@@ -3951,7 +3943,7 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn CryptSetKeyParam(#[in] hKey: HCRYPTKEY, #[in] dwParam: DWORD, #[in] pbData: *const BYTE, #[in] dwFlags: DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptSetOIDFunctionValue(#[in] dwEncodingType: DWORD, #[in] pszFuncName: LPCSTR, #[in] pszOID: LPCSTR, #[in] #[opt] pwszValueName: LPCWSTR, #[in] dwValueType: DWORD, #[in] #[opt] #[readable(entry, bytes(cbValueData))] pbValueData: *const BYTE, #[in] cbValueData: DWORD) -> BOOL;
+        extern fn CryptSetOIDFunctionValue(#[in] dwEncodingType: DWORD, #[in] pszFuncName: LPCSTR, #[in] pszOID: LPCSTR, #[in] #[opt] pwszValueName: LPCWSTR, #[in] dwValueType: DWORD, #[buffer(bytes(cbValueData))] #[in] #[opt] pbValueData: *const BYTE, #[in] cbValueData: DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn CryptSetProvParam(#[in] hProv: HCRYPTPROV, #[in] dwParam: DWORD, #[in] pbData: *const BYTE, #[in] dwFlags: DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
@@ -3963,23 +3955,23 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn CryptSetProviderW(#[in] pszProvName: LPCWSTR, #[in] dwProvType: DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptSignAndEncodeCertificate(#[in] #[opt] hCryptProvOrNCryptKey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, #[in] #[opt] dwKeySpec: DWORD, #[in] dwCertEncodingType: DWORD, #[in] lpszStructType: LPCSTR, #[in] pvStructInfo: *const void, #[in] pSignatureAlgorithm: PCRYPT_ALGORITHM_IDENTIFIER, #[in] #[opt] pvHashAuxInfo: *const void, #[opt] #[out] #[readable(success, bytes(*pcbEncoded))] #[writable(entry, bytes(*pcbEncoded))] pbEncoded: *mut BYTE, #[in] #[out] pcbEncoded: *mut DWORD) -> BOOL;
+        extern fn CryptSignAndEncodeCertificate(#[in] #[opt] hCryptProvOrNCryptKey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, #[in] #[opt] dwKeySpec: DWORD, #[in] dwCertEncodingType: DWORD, #[in] lpszStructType: LPCSTR, #[in] pvStructInfo: *const void, #[in] pSignatureAlgorithm: PCRYPT_ALGORITHM_IDENTIFIER, #[in] #[opt] pvHashAuxInfo: *const void, #[buffer(bytes(*pcbEncoded))] #[opt] #[out] pbEncoded: *mut BYTE, #[in] #[out] pcbEncoded: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptSignAndEncryptMessage(#[in] pSignPara: PCRYPT_SIGN_MESSAGE_PARA, #[in] pEncryptPara: PCRYPT_ENCRYPT_MESSAGE_PARA, #[in] cRecipientCert: DWORD, #[in] #[readable(entry, cRecipientCert)] rgpRecipientCert: *mut PCCERT_CONTEXT, #[in] #[readable(entry, bytes(cbToBeSignedAndEncrypted))] pbToBeSignedAndEncrypted: *const BYTE, #[in] cbToBeSignedAndEncrypted: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbSignedAndEncryptedBlob))] #[writable(entry, bytes(*pcbSignedAndEncryptedBlob))] pbSignedAndEncryptedBlob: *mut BYTE, #[in] #[out] pcbSignedAndEncryptedBlob: *mut DWORD) -> BOOL;
+        extern fn CryptSignAndEncryptMessage(#[in] pSignPara: PCRYPT_SIGN_MESSAGE_PARA, #[in] pEncryptPara: PCRYPT_ENCRYPT_MESSAGE_PARA, #[in] cRecipientCert: DWORD, #[buffer(cRecipientCert)] #[in] rgpRecipientCert: *mut PCCERT_CONTEXT, #[buffer(bytes(cbToBeSignedAndEncrypted))] #[in] pbToBeSignedAndEncrypted: *const BYTE, #[in] cbToBeSignedAndEncrypted: DWORD, #[buffer(bytes(*pcbSignedAndEncryptedBlob))] #[opt] #[out] pbSignedAndEncryptedBlob: *mut BYTE, #[in] #[out] pcbSignedAndEncryptedBlob: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptSignCertificate(#[in] #[opt] hCryptProvOrNCryptKey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, #[in] #[opt] dwKeySpec: DWORD, #[in] dwCertEncodingType: DWORD, #[in] #[readable(entry, bytes(cbEncodedToBeSigned))] pbEncodedToBeSigned: *const BYTE, #[in] cbEncodedToBeSigned: DWORD, #[in] pSignatureAlgorithm: PCRYPT_ALGORITHM_IDENTIFIER, #[in] #[opt] pvHashAuxInfo: *const void, #[opt] #[out] #[readable(success, bytes(*pcbSignature))] #[writable(entry, bytes(*pcbSignature))] pbSignature: *mut BYTE, #[in] #[out] pcbSignature: *mut DWORD) -> BOOL;
+        extern fn CryptSignCertificate(#[in] #[opt] hCryptProvOrNCryptKey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, #[in] #[opt] dwKeySpec: DWORD, #[in] dwCertEncodingType: DWORD, #[buffer(bytes(cbEncodedToBeSigned))] #[in] pbEncodedToBeSigned: *const BYTE, #[in] cbEncodedToBeSigned: DWORD, #[in] pSignatureAlgorithm: PCRYPT_ALGORITHM_IDENTIFIER, #[in] #[opt] pvHashAuxInfo: *const void, #[buffer(bytes(*pcbSignature))] #[opt] #[out] pbSignature: *mut BYTE, #[in] #[out] pcbSignature: *mut DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CryptSignHashA(#[in] hHash: HCRYPTHASH, #[in] dwKeySpec: DWORD, #[in] #[opt] szDescription: LPCSTR, #[in] dwFlags: DWORD, #[opt] #[out] #[readable(success, bytes(*pdwSigLen))] #[writable(entry, bytes(*pdwSigLen))] pbSignature: *mut BYTE, #[in] #[out] pdwSigLen: *mut DWORD) -> BOOL;
+        extern fn CryptSignHashA(#[in] hHash: HCRYPTHASH, #[in] dwKeySpec: DWORD, #[in] #[opt] szDescription: LPCSTR, #[in] dwFlags: DWORD, #[buffer(bytes(*pdwSigLen))] #[opt] #[out] pbSignature: *mut BYTE, #[in] #[out] pdwSigLen: *mut DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CryptSignHashW(#[in] hHash: HCRYPTHASH, #[in] dwKeySpec: DWORD, #[in] #[opt] szDescription: LPCWSTR, #[in] dwFlags: DWORD, #[opt] #[out] #[readable(success, bytes(*pdwSigLen))] #[writable(entry, bytes(*pdwSigLen))] pbSignature: *mut BYTE, #[in] #[out] pdwSigLen: *mut DWORD) -> BOOL;
+        extern fn CryptSignHashW(#[in] hHash: HCRYPTHASH, #[in] dwKeySpec: DWORD, #[in] #[opt] szDescription: LPCWSTR, #[in] dwFlags: DWORD, #[buffer(bytes(*pdwSigLen))] #[opt] #[out] pbSignature: *mut BYTE, #[in] #[out] pdwSigLen: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptSignMessage(#[in] pSignPara: PCRYPT_SIGN_MESSAGE_PARA, #[in] fDetachedSignature: BOOL, #[in] cToBeSigned: DWORD, #[in] #[opt] #[readable(entry, cToBeSigned)] rgpbToBeSigned: *mut *const BYTE, #[in] #[readable(entry, cToBeSigned)] rgcbToBeSigned: *mut DWORD, #[opt] #[out] #[readable(success, bytes(*pcbSignedBlob))] #[writable(entry, bytes(*pcbSignedBlob))] pbSignedBlob: *mut BYTE, #[in] #[out] pcbSignedBlob: *mut DWORD) -> BOOL;
+        extern fn CryptSignMessage(#[in] pSignPara: PCRYPT_SIGN_MESSAGE_PARA, #[in] fDetachedSignature: BOOL, #[in] cToBeSigned: DWORD, #[buffer(cToBeSigned)] #[in] #[opt] rgpbToBeSigned: *mut *const BYTE, #[buffer(cToBeSigned)] #[in] rgcbToBeSigned: *mut DWORD, #[buffer(bytes(*pcbSignedBlob))] #[opt] #[out] pbSignedBlob: *mut BYTE, #[in] #[out] pcbSignedBlob: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptSignMessageWithKey(#[in] pSignPara: PCRYPT_KEY_SIGN_MESSAGE_PARA, #[in] #[readable(entry, bytes(cbToBeSigned))] pbToBeSigned: *const BYTE, #[in] cbToBeSigned: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbSignedBlob))] #[writable(entry, bytes(*pcbSignedBlob))] pbSignedBlob: *mut BYTE, #[in] #[out] pcbSignedBlob: *mut DWORD) -> BOOL;
+        extern fn CryptSignMessageWithKey(#[in] pSignPara: PCRYPT_KEY_SIGN_MESSAGE_PARA, #[buffer(bytes(cbToBeSigned))] #[in] pbToBeSigned: *const BYTE, #[in] cbToBeSigned: DWORD, #[buffer(bytes(*pcbSignedBlob))] #[opt] #[out] pbSignedBlob: *mut BYTE, #[in] #[out] pcbSignedBlob: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptStringToBinaryA(#[incomplete] pszString: LPCSTR, #[in] cchString: DWORD, #[in] dwFlags: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbBinary))] #[writable(entry, bytes(*pcbBinary))] pbBinary: *mut BYTE, #[in] #[out] pcbBinary: *mut DWORD, #[opt] #[out] pdwSkip: *mut DWORD, #[opt] #[out] pdwFlags: *mut DWORD) -> BOOL;
+        extern fn CryptStringToBinaryA(#[incomplete] pszString: LPCSTR, #[in] cchString: DWORD, #[in] dwFlags: DWORD, #[buffer(bytes(*pcbBinary))] #[opt] #[out] pbBinary: *mut BYTE, #[in] #[out] pcbBinary: *mut DWORD, #[opt] #[out] pdwSkip: *mut DWORD, #[opt] #[out] pdwFlags: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptStringToBinaryW(#[incomplete] pszString: LPCWSTR, #[in] cchString: DWORD, #[in] dwFlags: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbBinary))] #[writable(entry, bytes(*pcbBinary))] pbBinary: *mut BYTE, #[in] #[out] pcbBinary: *mut DWORD, #[opt] #[out] pdwSkip: *mut DWORD, #[opt] #[out] pdwFlags: *mut DWORD) -> BOOL;
+        extern fn CryptStringToBinaryW(#[incomplete] pszString: LPCWSTR, #[in] cchString: DWORD, #[in] dwFlags: DWORD, #[buffer(bytes(*pcbBinary))] #[opt] #[out] pbBinary: *mut BYTE, #[in] #[out] pcbBinary: *mut DWORD, #[opt] #[out] pdwSkip: *mut DWORD, #[opt] #[out] pdwFlags: *mut DWORD) -> BOOL;
         #[library("CRYPTNET.dll")]
         extern fn CryptUninstallCancelRetrieval(#[in] dwFlags: DWORD, #[reserved] pvReserved: *mut void) -> BOOL;
         #[library("CRYPT32.dll")]
@@ -3992,26 +3984,26 @@ mod Windows {
         extern fn CryptUnregisterOIDInfo(#[in] pInfo: PCCRYPT_OID_INFO) -> BOOL;
         #[library("CRYPT32.dll")]
         #[must_use]
-        extern fn CryptVerifyCertificateSignature(#[in] #[opt] hCryptProv: HCRYPTPROV_LEGACY, #[in] dwCertEncodingType: DWORD, #[in] #[readable(entry, bytes(cbEncoded))] pbEncoded: *const BYTE, #[in] cbEncoded: DWORD, #[in] pPublicKey: PCERT_PUBLIC_KEY_INFO) -> BOOL;
+        extern fn CryptVerifyCertificateSignature(#[in] #[opt] hCryptProv: HCRYPTPROV_LEGACY, #[in] dwCertEncodingType: DWORD, #[buffer(bytes(cbEncoded))] #[in] pbEncoded: *const BYTE, #[in] cbEncoded: DWORD, #[in] pPublicKey: PCERT_PUBLIC_KEY_INFO) -> BOOL;
         #[library("CRYPT32.dll")]
         #[must_use]
         extern fn CryptVerifyCertificateSignatureEx(#[in] #[opt] hCryptProv: HCRYPTPROV_LEGACY, #[in] dwCertEncodingType: DWORD, #[in] dwSubjectType: DWORD, #[in] pvSubject: *mut void, #[in] dwIssuerType: DWORD, #[in] #[opt] pvIssuer: *mut void, #[in] dwFlags: DWORD, #[in] #[opt] #[out] pvExtra: *mut void) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptVerifyDetachedMessageHash(#[in] pHashPara: PCRYPT_HASH_MESSAGE_PARA, #[in] #[readable(entry, bytes(cbDetachedHashBlob))] pbDetachedHashBlob: *mut BYTE, #[in] cbDetachedHashBlob: DWORD, #[in] cToBeHashed: DWORD, #[in] #[readable(entry, cToBeHashed)] rgpbToBeHashed: *mut *const BYTE, #[in] #[readable(entry, cToBeHashed)] rgcbToBeHashed: *mut DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*pcbComputedHash)))] #[writable(entry, bytes(if_present(*pcbComputedHash)))] pbComputedHash: *mut BYTE, #[in] #[opt] #[out] pcbComputedHash: *mut DWORD) -> BOOL;
+        extern fn CryptVerifyDetachedMessageHash(#[in] pHashPara: PCRYPT_HASH_MESSAGE_PARA, #[buffer(bytes(cbDetachedHashBlob))] #[in] pbDetachedHashBlob: *mut BYTE, #[in] cbDetachedHashBlob: DWORD, #[in] cToBeHashed: DWORD, #[buffer(cToBeHashed)] #[in] rgpbToBeHashed: *mut *const BYTE, #[buffer(cToBeHashed)] #[in] rgcbToBeHashed: *mut DWORD, #[incomplete] #[opt] #[out] pbComputedHash: *mut BYTE, #[in] #[opt] #[out] pcbComputedHash: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptVerifyDetachedMessageSignature(#[in] pVerifyPara: PCRYPT_VERIFY_MESSAGE_PARA, #[in] dwSignerIndex: DWORD, #[in] #[readable(entry, bytes(cbDetachedSignBlob))] pbDetachedSignBlob: *const BYTE, #[in] cbDetachedSignBlob: DWORD, #[in] cToBeSigned: DWORD, #[in] #[readable(entry, cToBeSigned)] rgpbToBeSigned: *mut *const BYTE, #[in] #[readable(entry, cToBeSigned)] rgcbToBeSigned: *mut DWORD, #[nullable] #[opt] #[out] #[out_ptr] ppSignerCert: *mut PCCERT_CONTEXT) -> BOOL;
+        extern fn CryptVerifyDetachedMessageSignature(#[in] pVerifyPara: PCRYPT_VERIFY_MESSAGE_PARA, #[in] dwSignerIndex: DWORD, #[buffer(bytes(cbDetachedSignBlob))] #[in] pbDetachedSignBlob: *const BYTE, #[in] cbDetachedSignBlob: DWORD, #[in] cToBeSigned: DWORD, #[buffer(cToBeSigned)] #[in] rgpbToBeSigned: *mut *const BYTE, #[buffer(cToBeSigned)] #[in] rgcbToBeSigned: *mut DWORD, #[opt] #[out] ppSignerCert: *mut PCCERT_CONTEXT) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptVerifyMessageHash(#[in] pHashPara: PCRYPT_HASH_MESSAGE_PARA, #[in] #[readable(entry, bytes(cbHashedBlob))] pbHashedBlob: *mut BYTE, #[in] cbHashedBlob: DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*pcbToBeHashed)))] #[writable(entry, bytes(if_present(*pcbToBeHashed)))] pbToBeHashed: *mut BYTE, #[in] #[opt] #[out] pcbToBeHashed: *mut DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*pcbComputedHash)))] #[writable(entry, bytes(if_present(*pcbComputedHash)))] pbComputedHash: *mut BYTE, #[in] #[opt] #[out] pcbComputedHash: *mut DWORD) -> BOOL;
+        extern fn CryptVerifyMessageHash(#[in] pHashPara: PCRYPT_HASH_MESSAGE_PARA, #[buffer(bytes(cbHashedBlob))] #[in] pbHashedBlob: *mut BYTE, #[in] cbHashedBlob: DWORD, #[incomplete] #[opt] #[out] pbToBeHashed: *mut BYTE, #[in] #[opt] #[out] pcbToBeHashed: *mut DWORD, #[incomplete] #[opt] #[out] pbComputedHash: *mut BYTE, #[in] #[opt] #[out] pcbComputedHash: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptVerifyMessageSignature(#[in] pVerifyPara: PCRYPT_VERIFY_MESSAGE_PARA, #[in] dwSignerIndex: DWORD, #[in] #[readable(entry, bytes(cbSignedBlob))] pbSignedBlob: *const BYTE, #[in] cbSignedBlob: DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*pcbDecoded)))] #[writable(entry, bytes(if_present(*pcbDecoded)))] pbDecoded: *mut BYTE, #[in] #[opt] #[out] pcbDecoded: *mut DWORD, #[nullable] #[opt] #[out] #[out_ptr] ppSignerCert: *mut PCCERT_CONTEXT) -> BOOL;
+        extern fn CryptVerifyMessageSignature(#[in] pVerifyPara: PCRYPT_VERIFY_MESSAGE_PARA, #[in] dwSignerIndex: DWORD, #[buffer(bytes(cbSignedBlob))] #[in] pbSignedBlob: *const BYTE, #[in] cbSignedBlob: DWORD, #[incomplete] #[opt] #[out] pbDecoded: *mut BYTE, #[in] #[opt] #[out] pcbDecoded: *mut DWORD, #[opt] #[out] ppSignerCert: *mut PCCERT_CONTEXT) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptVerifyMessageSignatureWithKey(#[in] pVerifyPara: PCRYPT_KEY_VERIFY_MESSAGE_PARA, #[in] #[opt] pPublicKeyInfo: PCERT_PUBLIC_KEY_INFO, #[in] #[readable(entry, bytes(cbSignedBlob))] pbSignedBlob: *const BYTE, #[in] cbSignedBlob: DWORD, #[opt] #[out] #[readable(success, bytes(if_present(*pcbDecoded)))] #[writable(entry, bytes(if_present(*pcbDecoded)))] pbDecoded: *mut BYTE, #[in] #[opt] #[out] pcbDecoded: *mut DWORD) -> BOOL;
+        extern fn CryptVerifyMessageSignatureWithKey(#[in] pVerifyPara: PCRYPT_KEY_VERIFY_MESSAGE_PARA, #[in] #[opt] pPublicKeyInfo: PCERT_PUBLIC_KEY_INFO, #[buffer(bytes(cbSignedBlob))] #[in] pbSignedBlob: *const BYTE, #[in] cbSignedBlob: DWORD, #[incomplete] #[opt] #[out] pbDecoded: *mut BYTE, #[in] #[opt] #[out] pcbDecoded: *mut DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CryptVerifySignatureA(#[in] hHash: HCRYPTHASH, #[in] #[readable(entry, bytes(dwSigLen))] pbSignature: *const BYTE, #[in] dwSigLen: DWORD, #[in] hPubKey: HCRYPTKEY, #[in] #[opt] szDescription: LPCSTR, #[in] dwFlags: DWORD) -> BOOL;
+        extern fn CryptVerifySignatureA(#[in] hHash: HCRYPTHASH, #[buffer(bytes(dwSigLen))] #[in] pbSignature: *const BYTE, #[in] dwSigLen: DWORD, #[in] hPubKey: HCRYPTKEY, #[in] #[opt] szDescription: LPCSTR, #[in] dwFlags: DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CryptVerifySignatureW(#[in] hHash: HCRYPTHASH, #[in] #[readable(entry, bytes(dwSigLen))] pbSignature: *const BYTE, #[in] dwSigLen: DWORD, #[in] hPubKey: HCRYPTKEY, #[in] #[opt] szDescription: LPCWSTR, #[in] dwFlags: DWORD) -> BOOL;
+        extern fn CryptVerifySignatureW(#[in] hHash: HCRYPTHASH, #[buffer(bytes(dwSigLen))] #[in] pbSignature: *const BYTE, #[in] dwSigLen: DWORD, #[in] hPubKey: HCRYPTKEY, #[in] #[opt] szDescription: LPCWSTR, #[in] dwFlags: DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptVerifyTimeStampSignature(#[in] #[readable(entry, bytes(cbTSContentInfo))] pbTSContentInfo: *const BYTE, cbTSContentInfo: DWORD, #[in] #[opt] #[readable(entry, bytes(cbData))] pbData: *const BYTE, cbData: DWORD, #[in] #[opt] hAdditionalStore: HCERTSTORE, #[out] #[out_ptr] ppTsContext: *mut PCRYPT_TIMESTAMP_CONTEXT, #[nullable] #[out] #[out_ptr] ppTsSigner: *mut PCCERT_CONTEXT, #[opt] #[out] phStore: *mut HCERTSTORE) -> BOOL;
+        extern fn CryptVerifyTimeStampSignature(#[buffer(bytes(cbTSContentInfo))] #[in] pbTSContentInfo: *const BYTE, cbTSContentInfo: DWORD, #[buffer(bytes(cbData))] #[in] #[opt] pbData: *const BYTE, cbData: DWORD, #[in] #[opt] hAdditionalStore: HCERTSTORE, #[out] ppTsContext: *mut PCRYPT_TIMESTAMP_CONTEXT, #[out] ppTsSigner: *mut PCCERT_CONTEXT, #[opt] #[out] phStore: *mut HCERTSTORE) -> BOOL;
         type DATA_BLOB = _CRYPTOAPI_BLOB;
         type DHPRIVKEY_VER3 = _PRIVKEYVER3;
         type DHPUBKEY = _PUBKEY;
@@ -4039,7 +4031,7 @@ mod Windows {
         #[encoding("ansi")]
         const EXPO_OFFLOAD_REG_VALUE: String = "ExpoOffload";
         #[library("WINTRUST.dll")]
-        extern fn FindCertsByIssuer(#[opt] #[out] #[readable(success, bytes(*pcbCertChains))] #[writable(entry, bytes(*pcbCertChains))] pCertChains: PCERT_CHAIN, #[in] #[out] pcbCertChains: *mut DWORD, #[out] pcCertChains: *mut DWORD, #[in] #[opt] #[readable(entry, bytes(cbEncodedIssuerName))] pbEncodedIssuerName: *mut BYTE, #[in] cbEncodedIssuerName: DWORD, #[in] #[opt] pwszPurpose: LPCWSTR, #[in] dwKeySpec: DWORD) -> HRESULT;
+        extern fn FindCertsByIssuer(#[buffer(bytes(*pcbCertChains))] #[opt] #[out] pCertChains: PCERT_CHAIN, #[in] #[out] pcbCertChains: *mut DWORD, #[out] pcCertChains: *mut DWORD, #[buffer(bytes(cbEncodedIssuerName))] #[in] #[opt] pbEncodedIssuerName: *mut BYTE, #[in] cbEncodedIssuerName: DWORD, #[in] #[opt] pwszPurpose: LPCWSTR, #[in] dwKeySpec: DWORD) -> HRESULT;
         const HCCE_CURRENT_USER: HCERTCHAINENGINE = 0;
         const HCCE_LOCAL_MACHINE: HCERTCHAINENGINE = 1;
         const HCCE_SERIAL_LOCAL_MACHINE: HCERTCHAINENGINE = 2;
@@ -4497,7 +4489,7 @@ mod Windows {
         type PCRYPT_DATA_BLOB = *mut _CRYPTOAPI_BLOB;
         type PCRYPT_DECODE_PARA = *mut CRYPT_DECODE_PARA;
         type PCRYPT_DECRYPT_MESSAGE_PARA = *mut CRYPT_DECRYPT_MESSAGE_PARA;
-        extern fn PCRYPT_DECRYPT_PRIVATE_KEY_FUNC(#[in] Algorithm: CRYPT_ALGORITHM_IDENTIFIER, #[in] EncryptedPrivateKey: CRYPT_DATA_BLOB, #[opt] #[out] #[writable(entry, bytes(*pcbClearTextKey))] pbClearTextKey: *mut BYTE, #[in] #[out] pcbClearTextKey: *mut DWORD, #[in] pVoidDecryptFunc: LPVOID) -> BOOL;
+        extern fn PCRYPT_DECRYPT_PRIVATE_KEY_FUNC(#[in] Algorithm: CRYPT_ALGORITHM_IDENTIFIER, #[in] EncryptedPrivateKey: CRYPT_DATA_BLOB, #[buffer(bytes(*pcbClearTextKey))] #[opt] #[out] pbClearTextKey: *mut BYTE, #[in] #[out] pcbClearTextKey: *mut DWORD, #[in] pVoidDecryptFunc: LPVOID) -> BOOL;
         type PCRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA = *mut CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA;
         type PCRYPT_DER_BLOB = *mut _CRYPTOAPI_BLOB;
         type PCRYPT_DES_KEY_STATE = *mut CRYPT_DES_KEY_STATE;
@@ -4507,7 +4499,7 @@ mod Windows {
         type PCRYPT_ENCODE_PARA = *mut CRYPT_ENCODE_PARA;
         type PCRYPT_ENCRYPTED_PRIVATE_KEY_INFO = *mut CRYPT_ENCRYPTED_PRIVATE_KEY_INFO;
         type PCRYPT_ENCRYPT_MESSAGE_PARA = *mut CRYPT_ENCRYPT_MESSAGE_PARA;
-        extern fn PCRYPT_ENCRYPT_PRIVATE_KEY_FUNC(#[out] pAlgorithm: *mut CRYPT_ALGORITHM_IDENTIFIER, #[in] pClearTextPrivateKey: *mut CRYPT_DATA_BLOB, #[opt] #[out] #[writable(entry, bytes(*pcbEncryptedKey))] pbEncryptedKey: *mut BYTE, #[in] #[out] pcbEncryptedKey: *mut DWORD, #[in] pVoidEncryptFunc: LPVOID) -> BOOL;
+        extern fn PCRYPT_ENCRYPT_PRIVATE_KEY_FUNC(#[out] pAlgorithm: *mut CRYPT_ALGORITHM_IDENTIFIER, #[in] pClearTextPrivateKey: *mut CRYPT_DATA_BLOB, #[buffer(bytes(*pcbEncryptedKey))] #[opt] #[out] pbEncryptedKey: *mut BYTE, #[in] #[out] pcbEncryptedKey: *mut DWORD, #[in] pVoidEncryptFunc: LPVOID) -> BOOL;
         type PCRYPT_ENROLLMENT_NAME_VALUE_PAIR = *mut CRYPT_ENROLLMENT_NAME_VALUE_PAIR;
         type PCRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO = *mut CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO;
         type PCRYPT_HASH_BLOB = *mut _CRYPTOAPI_BLOB;
@@ -4585,18 +4577,18 @@ mod Windows {
         extern fn PFN_CERT_STORE_PROV_DELETE_CERT(#[in] #[out] hStoreProv: HCERTSTOREPROV, #[in] pCertContext: PCCERT_CONTEXT, #[in] dwFlags: DWORD) -> BOOL;
         extern fn PFN_CERT_STORE_PROV_DELETE_CRL(#[in] #[out] hStoreProv: HCERTSTOREPROV, #[in] pCrlContext: PCCRL_CONTEXT, #[in] dwFlags: DWORD) -> BOOL;
         extern fn PFN_CERT_STORE_PROV_DELETE_CTL(#[in] #[out] hStoreProv: HCERTSTOREPROV, #[in] pCtlContext: PCCTL_CONTEXT, #[in] dwFlags: DWORD) -> BOOL;
-        extern fn PFN_CERT_STORE_PROV_FIND_CERT(#[in] #[out] hStoreProv: HCERTSTOREPROV, #[in] pFindInfo: PCCERT_STORE_PROV_FIND_INFO, #[in] pPrevCertContext: PCCERT_CONTEXT, #[in] dwFlags: DWORD, #[in] #[out] ppvStoreProvFindInfo: *mut *mut void, #[out] #[out_ptr] ppProvCertContext: *mut PCCERT_CONTEXT) -> BOOL;
-        extern fn PFN_CERT_STORE_PROV_FIND_CRL(#[in] #[out] hStoreProv: HCERTSTOREPROV, #[in] pFindInfo: PCCERT_STORE_PROV_FIND_INFO, #[in] pPrevCrlContext: PCCRL_CONTEXT, #[in] dwFlags: DWORD, #[in] #[out] ppvStoreProvFindInfo: *mut *mut void, #[out] #[out_ptr] ppProvCrlContext: *mut PCCRL_CONTEXT) -> BOOL;
-        extern fn PFN_CERT_STORE_PROV_FIND_CTL(#[in] hStoreProv: HCERTSTOREPROV, #[in] pFindInfo: PCCERT_STORE_PROV_FIND_INFO, #[in] pPrevCtlContext: PCCTL_CONTEXT, #[in] dwFlags: DWORD, #[in] #[out] ppvStoreProvFindInfo: *mut *mut void, #[out] #[out_ptr] ppProvCtlContext: *mut PCCTL_CONTEXT) -> BOOL;
+        extern fn PFN_CERT_STORE_PROV_FIND_CERT(#[in] #[out] hStoreProv: HCERTSTOREPROV, #[in] pFindInfo: PCCERT_STORE_PROV_FIND_INFO, #[in] pPrevCertContext: PCCERT_CONTEXT, #[in] dwFlags: DWORD, #[in] #[out] ppvStoreProvFindInfo: *mut *mut void, #[out] ppProvCertContext: *mut PCCERT_CONTEXT) -> BOOL;
+        extern fn PFN_CERT_STORE_PROV_FIND_CRL(#[in] #[out] hStoreProv: HCERTSTOREPROV, #[in] pFindInfo: PCCERT_STORE_PROV_FIND_INFO, #[in] pPrevCrlContext: PCCRL_CONTEXT, #[in] dwFlags: DWORD, #[in] #[out] ppvStoreProvFindInfo: *mut *mut void, #[out] ppProvCrlContext: *mut PCCRL_CONTEXT) -> BOOL;
+        extern fn PFN_CERT_STORE_PROV_FIND_CTL(#[in] hStoreProv: HCERTSTOREPROV, #[in] pFindInfo: PCCERT_STORE_PROV_FIND_INFO, #[in] pPrevCtlContext: PCCTL_CONTEXT, #[in] dwFlags: DWORD, #[in] #[out] ppvStoreProvFindInfo: *mut *mut void, #[out] ppProvCtlContext: *mut PCCTL_CONTEXT) -> BOOL;
         extern fn PFN_CERT_STORE_PROV_FREE_FIND_CERT(#[in] #[out] hStoreProv: HCERTSTOREPROV, #[in] pCertContext: PCCERT_CONTEXT, #[in] pvStoreProvFindInfo: *mut void, #[in] dwFlags: DWORD) -> BOOL;
         extern fn PFN_CERT_STORE_PROV_FREE_FIND_CRL(#[in] #[out] hStoreProv: HCERTSTOREPROV, #[in] pCrlContext: PCCRL_CONTEXT, #[in] pvStoreProvFindInfo: *mut void, #[in] dwFlags: DWORD) -> BOOL;
         extern fn PFN_CERT_STORE_PROV_FREE_FIND_CTL(#[in] #[out] hStoreProv: HCERTSTOREPROV, #[in] pCtlContext: PCCTL_CONTEXT, #[in] pvStoreProvFindInfo: *mut void, #[in] dwFlags: DWORD) -> BOOL;
-        extern fn PFN_CERT_STORE_PROV_GET_CERT_PROPERTY(#[in] #[out] hStoreProv: HCERTSTOREPROV, #[in] pCertContext: PCCERT_CONTEXT, #[in] dwPropId: DWORD, #[in] dwFlags: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbData))] #[writable(entry, bytes(*pcbData))] pvData: *mut void, #[in] #[out] pcbData: *mut DWORD) -> BOOL;
-        extern fn PFN_CERT_STORE_PROV_GET_CRL_PROPERTY(#[in] #[out] hStoreProv: HCERTSTOREPROV, #[in] pCrlContext: PCCRL_CONTEXT, #[in] dwPropId: DWORD, #[in] dwFlags: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbData))] #[writable(entry, bytes(*pcbData))] pvData: *mut void, #[in] #[out] pcbData: *mut DWORD) -> BOOL;
-        extern fn PFN_CERT_STORE_PROV_GET_CTL_PROPERTY(#[in] #[out] hStoreProv: HCERTSTOREPROV, #[in] pCtlContext: PCCTL_CONTEXT, #[in] dwPropId: DWORD, #[in] dwFlags: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbData))] #[writable(entry, bytes(*pcbData))] pvData: *mut void, #[in] #[out] pcbData: *mut DWORD) -> BOOL;
-        extern fn PFN_CERT_STORE_PROV_READ_CERT(#[in] #[out] hStoreProv: HCERTSTOREPROV, #[in] pStoreCertContext: PCCERT_CONTEXT, #[in] dwFlags: DWORD, #[out] #[out_ptr] ppProvCertContext: *mut PCCERT_CONTEXT) -> BOOL;
-        extern fn PFN_CERT_STORE_PROV_READ_CRL(#[in] #[out] hStoreProv: HCERTSTOREPROV, #[in] pStoreCrlContext: PCCRL_CONTEXT, #[in] dwFlags: DWORD, #[out] #[out_ptr] ppProvCrlContext: *mut PCCRL_CONTEXT) -> BOOL;
-        extern fn PFN_CERT_STORE_PROV_READ_CTL(#[in] #[out] hStoreProv: HCERTSTOREPROV, #[in] pStoreCtlContext: PCCTL_CONTEXT, #[in] dwFlags: DWORD, #[out] #[out_ptr] ppProvCtlContext: *mut PCCTL_CONTEXT) -> BOOL;
+        extern fn PFN_CERT_STORE_PROV_GET_CERT_PROPERTY(#[in] #[out] hStoreProv: HCERTSTOREPROV, #[in] pCertContext: PCCERT_CONTEXT, #[in] dwPropId: DWORD, #[in] dwFlags: DWORD, #[buffer(bytes(*pcbData))] #[opt] #[out] pvData: *mut void, #[in] #[out] pcbData: *mut DWORD) -> BOOL;
+        extern fn PFN_CERT_STORE_PROV_GET_CRL_PROPERTY(#[in] #[out] hStoreProv: HCERTSTOREPROV, #[in] pCrlContext: PCCRL_CONTEXT, #[in] dwPropId: DWORD, #[in] dwFlags: DWORD, #[buffer(bytes(*pcbData))] #[opt] #[out] pvData: *mut void, #[in] #[out] pcbData: *mut DWORD) -> BOOL;
+        extern fn PFN_CERT_STORE_PROV_GET_CTL_PROPERTY(#[in] #[out] hStoreProv: HCERTSTOREPROV, #[in] pCtlContext: PCCTL_CONTEXT, #[in] dwPropId: DWORD, #[in] dwFlags: DWORD, #[buffer(bytes(*pcbData))] #[opt] #[out] pvData: *mut void, #[in] #[out] pcbData: *mut DWORD) -> BOOL;
+        extern fn PFN_CERT_STORE_PROV_READ_CERT(#[in] #[out] hStoreProv: HCERTSTOREPROV, #[in] pStoreCertContext: PCCERT_CONTEXT, #[in] dwFlags: DWORD, #[out] ppProvCertContext: *mut PCCERT_CONTEXT) -> BOOL;
+        extern fn PFN_CERT_STORE_PROV_READ_CRL(#[in] #[out] hStoreProv: HCERTSTOREPROV, #[in] pStoreCrlContext: PCCRL_CONTEXT, #[in] dwFlags: DWORD, #[out] ppProvCrlContext: *mut PCCRL_CONTEXT) -> BOOL;
+        extern fn PFN_CERT_STORE_PROV_READ_CTL(#[in] #[out] hStoreProv: HCERTSTOREPROV, #[in] pStoreCtlContext: PCCTL_CONTEXT, #[in] dwFlags: DWORD, #[out] ppProvCtlContext: *mut PCCTL_CONTEXT) -> BOOL;
         extern fn PFN_CERT_STORE_PROV_SET_CERT_PROPERTY(#[in] #[out] hStoreProv: HCERTSTOREPROV, #[in] pCertContext: PCCERT_CONTEXT, #[in] dwPropId: DWORD, #[in] dwFlags: DWORD, #[in] #[opt] pvData: *const void) -> BOOL;
         extern fn PFN_CERT_STORE_PROV_SET_CRL_PROPERTY(#[in] #[out] hStoreProv: HCERTSTOREPROV, #[in] pCrlContext: PCCRL_CONTEXT, #[in] dwPropId: DWORD, #[in] dwFlags: DWORD, #[in] #[opt] pvData: *const void) -> BOOL;
         extern fn PFN_CERT_STORE_PROV_SET_CTL_PROPERTY(#[in] #[out] hStoreProv: HCERTSTOREPROV, #[in] pCtlContext: PCCTL_CONTEXT, #[in] dwPropId: DWORD, #[in] dwFlags: DWORD, #[in] #[opt] pvData: *const void) -> BOOL;
@@ -4607,40 +4599,40 @@ mod Windows {
         extern fn PFN_CMSG_CNG_IMPORT_CONTENT_ENCRYPT_KEY(#[in] #[out] pCNGContentDecryptInfo: PCMSG_CNG_CONTENT_DECRYPT_INFO, #[in] dwFlags: DWORD, #[reserved] pvReserved: *mut void) -> BOOL;
         extern fn PFN_CMSG_CNG_IMPORT_KEY_AGREE(#[in] #[out] pCNGContentDecryptInfo: PCMSG_CNG_CONTENT_DECRYPT_INFO, #[in] pKeyAgreeDecryptPara: PCMSG_CTRL_KEY_AGREE_DECRYPT_PARA, #[in] dwFlags: DWORD, #[reserved] pvReserved: *mut void) -> BOOL;
         extern fn PFN_CMSG_CNG_IMPORT_KEY_TRANS(#[in] #[out] pCNGContentDecryptInfo: PCMSG_CNG_CONTENT_DECRYPT_INFO, #[in] pKeyTransDecryptPara: PCMSG_CTRL_KEY_TRANS_DECRYPT_PARA, #[in] dwFlags: DWORD, #[reserved] pvReserved: *mut void) -> BOOL;
-        extern fn PFN_CMSG_EXPORT_ENCRYPT_KEY(#[in] hCryptProv: HCRYPTPROV, #[in] hEncryptKey: HCRYPTKEY, #[in] pPublicKeyInfo: PCERT_PUBLIC_KEY_INFO, #[opt] #[out] #[readable(success, bytes(*pcbData))] #[writable(entry, bytes(*pcbData))] pbData: PBYTE, #[in] #[out] pcbData: PDWORD) -> BOOL;
+        extern fn PFN_CMSG_EXPORT_ENCRYPT_KEY(#[in] hCryptProv: HCRYPTPROV, #[in] hEncryptKey: HCRYPTKEY, #[in] pPublicKeyInfo: PCERT_PUBLIC_KEY_INFO, #[buffer(bytes(*pcbData))] #[opt] #[out] pbData: PBYTE, #[in] #[out] pcbData: PDWORD) -> BOOL;
         extern fn PFN_CMSG_EXPORT_KEY_AGREE(#[in] pContentEncryptInfo: PCMSG_CONTENT_ENCRYPT_INFO, #[in] pKeyAgreeEncodeInfo: PCMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO, #[in] #[out] pKeyAgreeEncryptInfo: PCMSG_KEY_AGREE_ENCRYPT_INFO, #[in] dwFlags: DWORD, #[reserved] pvReserved: *mut void) -> BOOL;
         extern fn PFN_CMSG_EXPORT_KEY_TRANS(#[in] pContentEncryptInfo: PCMSG_CONTENT_ENCRYPT_INFO, #[in] pKeyTransEncodeInfo: PCMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO, #[in] #[out] pKeyTransEncryptInfo: PCMSG_KEY_TRANS_ENCRYPT_INFO, #[in] dwFlags: DWORD, #[reserved] pvReserved: *mut void) -> BOOL;
         extern fn PFN_CMSG_EXPORT_MAIL_LIST(#[in] pContentEncryptInfo: PCMSG_CONTENT_ENCRYPT_INFO, #[in] pMailListEncodeInfo: PCMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO, #[in] #[out] pMailListEncryptInfo: PCMSG_MAIL_LIST_ENCRYPT_INFO, #[in] dwFlags: DWORD, #[reserved] pvReserved: *mut void) -> BOOL;
         extern fn PFN_CMSG_FREE(#[in] #[out] pv: *mut void);
         extern fn PFN_CMSG_GEN_CONTENT_ENCRYPT_KEY(#[in] #[out] pContentEncryptInfo: PCMSG_CONTENT_ENCRYPT_INFO, #[in] dwFlags: DWORD, #[reserved] pvReserved: *mut void) -> BOOL;
-        extern fn PFN_CMSG_GEN_ENCRYPT_KEY(#[in] #[out] phCryptProv: *mut HCRYPTPROV, #[in] paiEncrypt: PCRYPT_ALGORITHM_IDENTIFIER, #[in] #[opt] pvEncryptAuxInfo: PVOID, #[in] pPublicKeyInfo: PCERT_PUBLIC_KEY_INFO, pfnAlloc: PFN_CMSG_ALLOC, #[out] phEncryptKey: *mut HCRYPTKEY, #[out] #[writable(success, bytes(*pcbEncryptParameters), indirect)] ppbEncryptParameters: *mut PBYTE, #[out] pcbEncryptParameters: PDWORD) -> BOOL;
-        extern fn PFN_CMSG_IMPORT_ENCRYPT_KEY(#[in] hCryptProv: HCRYPTPROV, #[in] dwKeySpec: DWORD, #[in] paiEncrypt: PCRYPT_ALGORITHM_IDENTIFIER, #[in] paiPubKey: PCRYPT_ALGORITHM_IDENTIFIER, #[in] #[readable(entry, bytes(cbEncodedKey))] pbEncodedKey: PBYTE, #[in] cbEncodedKey: DWORD, #[out] phEncryptKey: *mut HCRYPTKEY) -> BOOL;
+        extern fn PFN_CMSG_GEN_ENCRYPT_KEY(#[in] #[out] phCryptProv: *mut HCRYPTPROV, #[in] paiEncrypt: PCRYPT_ALGORITHM_IDENTIFIER, #[in] #[opt] pvEncryptAuxInfo: PVOID, #[in] pPublicKeyInfo: PCERT_PUBLIC_KEY_INFO, pfnAlloc: PFN_CMSG_ALLOC, #[out] phEncryptKey: *mut HCRYPTKEY, #[incomplete] #[out] ppbEncryptParameters: *mut PBYTE, #[out] pcbEncryptParameters: PDWORD) -> BOOL;
+        extern fn PFN_CMSG_IMPORT_ENCRYPT_KEY(#[in] hCryptProv: HCRYPTPROV, #[in] dwKeySpec: DWORD, #[in] paiEncrypt: PCRYPT_ALGORITHM_IDENTIFIER, #[in] paiPubKey: PCRYPT_ALGORITHM_IDENTIFIER, #[buffer(bytes(cbEncodedKey))] #[in] pbEncodedKey: PBYTE, #[in] cbEncodedKey: DWORD, #[out] phEncryptKey: *mut HCRYPTKEY) -> BOOL;
         extern fn PFN_CMSG_IMPORT_KEY_AGREE(#[in] pContentEncryptionAlgorithm: PCRYPT_ALGORITHM_IDENTIFIER, #[in] pKeyAgreeDecryptPara: PCMSG_CTRL_KEY_AGREE_DECRYPT_PARA, #[in] dwFlags: DWORD, #[reserved] pvReserved: *mut void, #[out] phContentEncryptKey: *mut HCRYPTKEY) -> BOOL;
         extern fn PFN_CMSG_IMPORT_KEY_TRANS(#[in] pContentEncryptionAlgorithm: PCRYPT_ALGORITHM_IDENTIFIER, #[in] pKeyTransDecryptPara: PCMSG_CTRL_KEY_TRANS_DECRYPT_PARA, #[in] dwFlags: DWORD, #[reserved] pvReserved: *mut void, #[out] phContentEncryptKey: *mut HCRYPTKEY) -> BOOL;
         extern fn PFN_CMSG_IMPORT_MAIL_LIST(#[in] pContentEncryptionAlgorithm: PCRYPT_ALGORITHM_IDENTIFIER, #[in] pMailListDecryptPara: PCMSG_CTRL_MAIL_LIST_DECRYPT_PARA, #[in] dwFlags: DWORD, #[reserved] pvReserved: *mut void, #[out] phContentEncryptKey: *mut HCRYPTKEY) -> BOOL;
-        extern fn PFN_CMSG_STREAM_OUTPUT(#[in] #[opt] pvArg: *const void, #[in] #[opt] #[readable(entry, bytes(cbData))] pbData: *mut BYTE, #[in] cbData: DWORD, #[in] fFinal: BOOL) -> BOOL;
+        extern fn PFN_CMSG_STREAM_OUTPUT(#[in] #[opt] pvArg: *const void, #[buffer(bytes(cbData))] #[in] #[opt] pbData: *mut BYTE, #[in] cbData: DWORD, #[in] fFinal: BOOL) -> BOOL;
         extern fn PFN_CRYPT_ALLOC(#[in] cbSize: size_t) -> LPVOID;
         extern fn PFN_CRYPT_ASYNC_PARAM_FREE_FUNC(#[in] pszParamOid: LPSTR, #[in] pvParam: LPVOID);
         extern fn PFN_CRYPT_ASYNC_RETRIEVAL_COMPLETION_FUNC(#[in] #[opt] #[out] pvCompletion: LPVOID, #[in] dwCompletionCode: DWORD, #[in] pszUrl: LPCSTR, #[in] #[opt] pszObjectOid: LPSTR, #[in] pvObject: LPVOID);
         extern fn PFN_CRYPT_CANCEL_RETRIEVAL(#[in] dwFlags: DWORD, #[in] #[opt] #[out] pvArg: *mut void) -> BOOL;
-        extern fn PFN_CRYPT_ENUM_KEYID_PROP(#[in] pKeyIdentifier: *const CRYPT_HASH_BLOB, #[in] dwFlags: DWORD, #[reserved] pvReserved: *mut void, #[in] #[opt] #[out] pvArg: *mut void, #[in] cProp: DWORD, #[in] #[readable(entry, cProp)] rgdwPropId: *mut DWORD, #[in] #[readable(entry, cProp)] rgpvData: *mut *mut void, #[in] #[readable(entry, cProp)] rgcbData: *mut DWORD) -> BOOL;
-        extern fn PFN_CRYPT_ENUM_OID_FUNC(#[in] dwEncodingType: DWORD, #[in] pszFuncName: LPCSTR, #[in] pszOID: LPCSTR, #[in] cValue: DWORD, #[in] #[readable(entry, cValue)] rgdwValueType: *const DWORD, #[in] #[readable(entry, cValue)] rgpwszValueName: *const LPCWSTR, #[in] #[readable(entry, cValue)] rgpbValueData: *const *const BYTE, #[in] #[readable(entry, cValue)] rgcbValueData: *const DWORD, #[in] #[opt] #[out] pvArg: *mut void) -> BOOL;
+        extern fn PFN_CRYPT_ENUM_KEYID_PROP(#[in] pKeyIdentifier: *const CRYPT_HASH_BLOB, #[in] dwFlags: DWORD, #[reserved] pvReserved: *mut void, #[in] #[opt] #[out] pvArg: *mut void, #[in] cProp: DWORD, #[buffer(cProp)] #[in] rgdwPropId: *mut DWORD, #[buffer(cProp)] #[in] rgpvData: *mut *mut void, #[buffer(cProp)] #[in] rgcbData: *mut DWORD) -> BOOL;
+        extern fn PFN_CRYPT_ENUM_OID_FUNC(#[in] dwEncodingType: DWORD, #[in] pszFuncName: LPCSTR, #[in] pszOID: LPCSTR, #[in] cValue: DWORD, #[buffer(cValue)] #[in] rgdwValueType: *const DWORD, #[buffer(cValue)] #[in] rgpwszValueName: *const LPCWSTR, #[buffer(cValue)] #[in] rgpbValueData: *const *const BYTE, #[buffer(cValue)] #[in] rgcbValueData: *const DWORD, #[in] #[opt] #[out] pvArg: *mut void) -> BOOL;
         extern fn PFN_CRYPT_ENUM_OID_INFO(#[in] pInfo: PCCRYPT_OID_INFO, #[in] #[opt] #[out] pvArg: *mut void) -> BOOL;
-        extern fn PFN_CRYPT_EXPORT_PUBLIC_KEY_INFO_EX2_FUNC(#[in] hNCryptKey: NCRYPT_KEY_HANDLE, #[in] dwCertEncodingType: DWORD, #[in] pszPublicKeyObjId: LPSTR, #[in] dwFlags: DWORD, #[in] #[opt] pvAuxInfo: *mut void, #[opt] #[out] #[readable(success, bytes(*pcbInfo))] #[writable(entry, bytes(*pcbInfo))] pInfo: PCERT_PUBLIC_KEY_INFO, #[in] #[out] pcbInfo: *mut DWORD) -> BOOL;
-        extern fn PFN_CRYPT_EXPORT_PUBLIC_KEY_INFO_FROM_BCRYPT_HANDLE_FUNC(#[in] hBCryptKey: BCRYPT_KEY_HANDLE, #[in] dwCertEncodingType: DWORD, #[in] pszPublicKeyObjId: LPSTR, #[in] dwFlags: DWORD, #[in] #[opt] pvAuxInfo: *mut void, #[opt] #[out] #[readable(success, bytes(*pcbInfo))] #[writable(entry, bytes(*pcbInfo))] pInfo: PCERT_PUBLIC_KEY_INFO, #[in] #[out] pcbInfo: *mut DWORD) -> BOOL;
-        extern fn PFN_CRYPT_EXTRACT_ENCODED_SIGNATURE_PARAMETERS_FUNC(#[in] dwCertEncodingType: DWORD, #[in] pSignatureAlgorithm: PCRYPT_ALGORITHM_IDENTIFIER, #[nullable] #[out] #[out_ptr] ppvDecodedSignPara: *mut *mut void, #[out] #[out_ptr] ppwszCNGHashAlgid: *mut LPWSTR) -> BOOL;
+        extern fn PFN_CRYPT_EXPORT_PUBLIC_KEY_INFO_EX2_FUNC(#[in] hNCryptKey: NCRYPT_KEY_HANDLE, #[in] dwCertEncodingType: DWORD, #[in] pszPublicKeyObjId: LPSTR, #[in] dwFlags: DWORD, #[in] #[opt] pvAuxInfo: *mut void, #[buffer(bytes(*pcbInfo))] #[opt] #[out] pInfo: PCERT_PUBLIC_KEY_INFO, #[in] #[out] pcbInfo: *mut DWORD) -> BOOL;
+        extern fn PFN_CRYPT_EXPORT_PUBLIC_KEY_INFO_FROM_BCRYPT_HANDLE_FUNC(#[in] hBCryptKey: BCRYPT_KEY_HANDLE, #[in] dwCertEncodingType: DWORD, #[in] pszPublicKeyObjId: LPSTR, #[in] dwFlags: DWORD, #[in] #[opt] pvAuxInfo: *mut void, #[buffer(bytes(*pcbInfo))] #[opt] #[out] pInfo: PCERT_PUBLIC_KEY_INFO, #[in] #[out] pcbInfo: *mut DWORD) -> BOOL;
+        extern fn PFN_CRYPT_EXTRACT_ENCODED_SIGNATURE_PARAMETERS_FUNC(#[in] dwCertEncodingType: DWORD, #[in] pSignatureAlgorithm: PCRYPT_ALGORITHM_IDENTIFIER, #[out] ppvDecodedSignPara: *mut *mut void, #[out] ppwszCNGHashAlgid: *mut LPWSTR) -> BOOL;
         extern fn PFN_CRYPT_FREE(#[in] pv: LPVOID);
         extern fn PFN_CRYPT_GET_SIGNER_CERTIFICATE(#[in] #[opt] #[out] pvGetArg: *mut void, #[in] dwCertEncodingType: DWORD, #[in] pSignerId: PCERT_INFO, #[in] hMsgCertStore: HCERTSTORE) -> PCCERT_CONTEXT;
-        extern fn PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FLUSH(#[in] pContext: LPVOID, #[in] #[readable(entry, dwIdentifierOrNameListCount)] rgIdentifierOrNameList: *mut PCERT_NAME_BLOB, #[in] dwIdentifierOrNameListCount: DWORD) -> BOOL;
+        extern fn PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FLUSH(#[in] pContext: LPVOID, #[buffer(dwIdentifierOrNameListCount)] #[in] rgIdentifierOrNameList: *mut PCERT_NAME_BLOB, #[in] dwIdentifierOrNameListCount: DWORD) -> BOOL;
         extern fn PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE(#[in] #[opt] pPluginContext: LPVOID, #[in] pbData: PBYTE);
         extern fn PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE_IDENTIFIER(#[in] #[opt] pPluginContext: LPVOID, #[in] pIdentifier: PCRYPT_DATA_BLOB);
         extern fn PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE_PASSWORD(#[in] #[opt] pPluginContext: LPVOID, #[in] pwszPassword: PCWSTR);
-        extern fn PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_GET(#[in] #[opt] pPluginContext: LPVOID, #[in] #[opt] pIdentifier: PCRYPT_DATA_BLOB, #[in] dwNameType: DWORD, #[in] pNameBlob: PCERT_NAME_BLOB, #[out] #[writable(success, bytes(*pcbContent), indirect)] ppbContent: *mut PBYTE, #[out] pcbContent: *mut DWORD, #[nullable] #[out] #[out_ptr] ppwszPassword: *mut PCWSTR, #[nullable] #[out] #[out_ptr] ppIdentifier: *mut PCRYPT_DATA_BLOB) -> BOOL;
-        extern fn PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_INITIALIZE(#[in] pfnFlush: PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FLUSH, #[in] pContext: LPVOID, #[out] pdwExpectedObjectCount: *mut DWORD, #[out] #[out_ptr] ppFuncTable: *mut PCRYPT_OBJECT_LOCATOR_PROVIDER_TABLE, #[nullable] #[out] #[out_ptr] ppPluginContext: *mut *mut void) -> BOOL;
+        extern fn PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_GET(#[in] #[opt] pPluginContext: LPVOID, #[in] #[opt] pIdentifier: PCRYPT_DATA_BLOB, #[in] dwNameType: DWORD, #[in] pNameBlob: PCERT_NAME_BLOB, #[incomplete] #[out] ppbContent: *mut PBYTE, #[out] pcbContent: *mut DWORD, #[out] ppwszPassword: *mut PCWSTR, #[out] ppIdentifier: *mut PCRYPT_DATA_BLOB) -> BOOL;
+        extern fn PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_INITIALIZE(#[in] pfnFlush: PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FLUSH, #[in] pContext: LPVOID, #[out] pdwExpectedObjectCount: *mut DWORD, #[out] ppFuncTable: *mut PCRYPT_OBJECT_LOCATOR_PROVIDER_TABLE, #[out] ppPluginContext: *mut *mut void) -> BOOL;
         extern fn PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_RELEASE(#[in] dwReason: DWORD, #[in] #[opt] pPluginContext: LPVOID);
-        extern fn PFN_CRYPT_SIGN_AND_ENCODE_HASH_FUNC(#[in] hKey: NCRYPT_KEY_HANDLE, #[in] dwCertEncodingType: DWORD, #[in] pSignatureAlgorithm: PCRYPT_ALGORITHM_IDENTIFIER, #[in] #[opt] pvDecodedSignPara: *mut void, #[in] pwszCNGPubKeyAlgid: LPCWSTR, #[in] pwszCNGHashAlgid: LPCWSTR, #[in] #[readable(entry, bytes(cbComputedHash))] pbComputedHash: *mut BYTE, #[in] cbComputedHash: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbSignature))] #[writable(entry, bytes(*pcbSignature))] pbSignature: *mut BYTE, #[in] #[out] pcbSignature: *mut DWORD) -> BOOL;
-        extern fn PFN_CRYPT_VERIFY_ENCODED_SIGNATURE_FUNC(#[in] dwCertEncodingType: DWORD, #[in] pPubKeyInfo: PCERT_PUBLIC_KEY_INFO, #[in] pSignatureAlgorithm: PCRYPT_ALGORITHM_IDENTIFIER, #[in] #[opt] pvDecodedSignPara: *mut void, #[in] pwszCNGPubKeyAlgid: LPCWSTR, #[in] pwszCNGHashAlgid: LPCWSTR, #[in] #[readable(entry, bytes(cbComputedHash))] pbComputedHash: *mut BYTE, #[in] cbComputedHash: DWORD, #[in] #[readable(entry, bytes(cbSignature))] pbSignature: *mut BYTE, #[in] cbSignature: DWORD) -> BOOL;
-        extern fn PFN_EXPORT_PRIV_KEY_FUNC(#[in] hCryptProv: HCRYPTPROV, #[in] dwKeySpec: DWORD, #[in] pszPrivateKeyObjId: LPSTR, #[in] dwFlags: DWORD, #[in] #[opt] pvAuxInfo: *mut void, #[opt] #[out] #[writable(entry, bytes(*pcbPrivateKeyInfo))] pPrivateKeyInfo: *mut CRYPT_PRIVATE_KEY_INFO, #[in] #[out] pcbPrivateKeyInfo: *mut DWORD) -> BOOL;
+        extern fn PFN_CRYPT_SIGN_AND_ENCODE_HASH_FUNC(#[in] hKey: NCRYPT_KEY_HANDLE, #[in] dwCertEncodingType: DWORD, #[in] pSignatureAlgorithm: PCRYPT_ALGORITHM_IDENTIFIER, #[in] #[opt] pvDecodedSignPara: *mut void, #[in] pwszCNGPubKeyAlgid: LPCWSTR, #[in] pwszCNGHashAlgid: LPCWSTR, #[buffer(bytes(cbComputedHash))] #[in] pbComputedHash: *mut BYTE, #[in] cbComputedHash: DWORD, #[buffer(bytes(*pcbSignature))] #[opt] #[out] pbSignature: *mut BYTE, #[in] #[out] pcbSignature: *mut DWORD) -> BOOL;
+        extern fn PFN_CRYPT_VERIFY_ENCODED_SIGNATURE_FUNC(#[in] dwCertEncodingType: DWORD, #[in] pPubKeyInfo: PCERT_PUBLIC_KEY_INFO, #[in] pSignatureAlgorithm: PCRYPT_ALGORITHM_IDENTIFIER, #[in] #[opt] pvDecodedSignPara: *mut void, #[in] pwszCNGPubKeyAlgid: LPCWSTR, #[in] pwszCNGHashAlgid: LPCWSTR, #[buffer(bytes(cbComputedHash))] #[in] pbComputedHash: *mut BYTE, #[in] cbComputedHash: DWORD, #[buffer(bytes(cbSignature))] #[in] pbSignature: *mut BYTE, #[in] cbSignature: DWORD) -> BOOL;
+        extern fn PFN_EXPORT_PRIV_KEY_FUNC(#[in] hCryptProv: HCRYPTPROV, #[in] dwKeySpec: DWORD, #[in] pszPrivateKeyObjId: LPSTR, #[in] dwFlags: DWORD, #[in] #[opt] pvAuxInfo: *mut void, #[buffer(bytes(*pcbPrivateKeyInfo))] #[opt] #[out] pPrivateKeyInfo: *mut CRYPT_PRIVATE_KEY_INFO, #[in] #[out] pcbPrivateKeyInfo: *mut DWORD) -> BOOL;
         extern fn PFN_FREE_ENCODED_OBJECT_FUNC(#[in] #[opt] pszObjectOid: LPCSTR, #[in] #[out] pObject: PCRYPT_BLOB_ARRAY, #[in] #[opt] #[out] pvFreeContext: LPVOID);
         extern fn PFN_IMPORT_PRIV_KEY_FUNC(#[in] hCryptProv: HCRYPTPROV, #[in] pPrivateKeyInfo: *mut CRYPT_PRIVATE_KEY_INFO, #[in] dwFlags: DWORD, #[in] #[opt] pvAuxInfo: *mut void) -> BOOL;
         extern fn PFN_IMPORT_PUBLIC_KEY_INFO_EX2_FUNC(#[in] dwCertEncodingType: DWORD, #[in] pInfo: PCERT_PUBLIC_KEY_INFO, #[in] dwFlags: DWORD, #[in] #[opt] pvAuxInfo: *mut void, #[out] phKey: *mut BCRYPT_KEY_HANDLE) -> BOOL;
@@ -5067,7 +5059,6 @@ mod Windows {
         }
         struct _CRYPTOAPI_BLOB {
             cbData: DWORD,
-            #[writable(bytes(cbData))]
             pbData: *mut BYTE,
         }
         struct _CRYPT_PKCS8_IMPORT_PARAMS {

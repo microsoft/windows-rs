@@ -186,8 +186,8 @@ windows_core::imp::define_interface!(IAccPropServer, IAccPropServer_Vtbl, 0x76c0
 windows_core::imp::interface_hierarchy!(IAccPropServer, windows_core::IUnknown);
 impl IAccPropServer {
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetPropValue(&self, pidstring: &[super::BYTE], idprop: MSAAPROPID, pvarvalue: *mut super::VARIANT, pfhasprop: *mut windows_core::BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPropValue)(windows_core::Interface::as_raw(self), pidstring.as_ptr(), pidstring.len().try_into().unwrap(), idprop, pvarvalue, pfhasprop as _) }
+    pub unsafe fn GetPropValue(&self, pidstring: *const super::BYTE, dwidstringlen: super::DWORD, idprop: MSAAPROPID, pvarvalue: *mut super::VARIANT, pfhasprop: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPropValue)(windows_core::Interface::as_raw(self), pidstring, dwidstringlen, idprop, pvarvalue, pfhasprop as _) }
     }
 }
 #[repr(C)]
@@ -224,19 +224,19 @@ windows_core::imp::define_interface!(IAccPropServices, IAccPropServices_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IAccPropServices, windows_core::IUnknown);
 impl IAccPropServices {
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn SetPropValue(&self, pidstring: &[super::BYTE], idprop: MSAAPROPID, var: &super::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetPropValue)(windows_core::Interface::as_raw(self), pidstring.as_ptr(), pidstring.len().try_into().unwrap(), idprop, core::mem::transmute_copy(var)) }
+    pub unsafe fn SetPropValue(&self, pidstring: *const super::BYTE, dwidstringlen: super::DWORD, idprop: MSAAPROPID, var: &super::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetPropValue)(windows_core::Interface::as_raw(self), pidstring, dwidstringlen, idprop, core::mem::transmute_copy(var)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetPropServer<P4>(&self, pidstring: &[super::BYTE], paprops: &[MSAAPROPID], pserver: P4, annoscope: AnnoScope) -> windows_core::HRESULT
+    pub unsafe fn SetPropServer<P4>(&self, pidstring: *const super::BYTE, dwidstringlen: super::DWORD, paprops: *const MSAAPROPID, cprops: i32, pserver: P4, annoscope: AnnoScope) -> windows_core::HRESULT
     where
         P4: windows_core::Param<IAccPropServer>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetPropServer)(windows_core::Interface::as_raw(self), pidstring.as_ptr(), pidstring.len().try_into().unwrap(), paprops.as_ptr(), paprops.len().try_into().unwrap(), pserver.param().abi(), annoscope) }
+        unsafe { (windows_core::Interface::vtable(self).SetPropServer)(windows_core::Interface::as_raw(self), pidstring, dwidstringlen, paprops, cprops, pserver.param().abi(), annoscope) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn ClearProps(&self, pidstring: &[super::BYTE], paprops: &[MSAAPROPID]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ClearProps)(windows_core::Interface::as_raw(self), pidstring.as_ptr(), pidstring.len().try_into().unwrap(), paprops.as_ptr(), paprops.len().try_into().unwrap()) }
+    pub unsafe fn ClearProps(&self, pidstring: *const super::BYTE, dwidstringlen: super::DWORD, paprops: *const MSAAPROPID, cprops: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ClearProps)(windows_core::Interface::as_raw(self), pidstring, dwidstringlen, paprops, cprops) }
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetHwndProp(&self, hwnd: super::HWND, idobject: super::DWORD, idchild: super::DWORD, idprop: MSAAPROPID, var: &super::VARIANT) -> windows_core::HRESULT {
@@ -250,23 +250,23 @@ impl IAccPropServices {
         unsafe { (windows_core::Interface::vtable(self).SetHwndPropStr)(windows_core::Interface::as_raw(self), hwnd, idobject, idchild, idprop, str.param().abi()) }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
-    pub unsafe fn SetHwndPropServer<P5>(&self, hwnd: super::HWND, idobject: super::DWORD, idchild: super::DWORD, paprops: &[MSAAPROPID], pserver: P5, annoscope: AnnoScope) -> windows_core::HRESULT
+    pub unsafe fn SetHwndPropServer<P5>(&self, hwnd: super::HWND, idobject: super::DWORD, idchild: super::DWORD, paprops: *const MSAAPROPID, cprops: i32, pserver: P5, annoscope: AnnoScope) -> windows_core::HRESULT
     where
         P5: windows_core::Param<IAccPropServer>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetHwndPropServer)(windows_core::Interface::as_raw(self), hwnd, idobject, idchild, paprops.as_ptr(), paprops.len().try_into().unwrap(), pserver.param().abi(), annoscope) }
+        unsafe { (windows_core::Interface::vtable(self).SetHwndPropServer)(windows_core::Interface::as_raw(self), hwnd, idobject, idchild, paprops, cprops, pserver.param().abi(), annoscope) }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
-    pub unsafe fn ClearHwndProps(&self, hwnd: super::HWND, idobject: super::DWORD, idchild: super::DWORD, paprops: &[MSAAPROPID]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ClearHwndProps)(windows_core::Interface::as_raw(self), hwnd, idobject, idchild, paprops.as_ptr(), paprops.len().try_into().unwrap()) }
+    pub unsafe fn ClearHwndProps(&self, hwnd: super::HWND, idobject: super::DWORD, idchild: super::DWORD, paprops: *const MSAAPROPID, cprops: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ClearHwndProps)(windows_core::Interface::as_raw(self), hwnd, idobject, idchild, paprops, cprops) }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn ComposeHwndIdentityString(&self, hwnd: super::HWND, idobject: super::DWORD, idchild: super::DWORD, ppidstring: *mut *mut super::BYTE, pdwidstringlen: *mut super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ComposeHwndIdentityString)(windows_core::Interface::as_raw(self), hwnd, idobject, idchild, ppidstring as _, pdwidstringlen as _) }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
-    pub unsafe fn DecomposeHwndIdentityString(&self, pidstring: &[super::BYTE], phwnd: *mut super::HWND, pidobject: *mut super::DWORD, pidchild: *mut super::DWORD) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).DecomposeHwndIdentityString)(windows_core::Interface::as_raw(self), pidstring.as_ptr(), pidstring.len().try_into().unwrap(), phwnd as _, pidobject as _, pidchild as _) }
+    pub unsafe fn DecomposeHwndIdentityString(&self, pidstring: *const super::BYTE, dwidstringlen: super::DWORD, phwnd: *mut super::HWND, pidobject: *mut super::DWORD, pidchild: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DecomposeHwndIdentityString)(windows_core::Interface::as_raw(self), pidstring, dwidstringlen, phwnd as _, pidobject as _, pidchild as _) }
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetHmenuProp(&self, hmenu: super::HMENU, idchild: super::DWORD, idprop: MSAAPROPID, var: &super::VARIANT) -> windows_core::HRESULT {
@@ -280,23 +280,23 @@ impl IAccPropServices {
         unsafe { (windows_core::Interface::vtable(self).SetHmenuPropStr)(windows_core::Interface::as_raw(self), hmenu, idchild, idprop, str.param().abi()) }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
-    pub unsafe fn SetHmenuPropServer<P4>(&self, hmenu: super::HMENU, idchild: super::DWORD, paprops: &[MSAAPROPID], pserver: P4, annoscope: AnnoScope) -> windows_core::HRESULT
+    pub unsafe fn SetHmenuPropServer<P4>(&self, hmenu: super::HMENU, idchild: super::DWORD, paprops: *const MSAAPROPID, cprops: i32, pserver: P4, annoscope: AnnoScope) -> windows_core::HRESULT
     where
         P4: windows_core::Param<IAccPropServer>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetHmenuPropServer)(windows_core::Interface::as_raw(self), hmenu, idchild, paprops.as_ptr(), paprops.len().try_into().unwrap(), pserver.param().abi(), annoscope) }
+        unsafe { (windows_core::Interface::vtable(self).SetHmenuPropServer)(windows_core::Interface::as_raw(self), hmenu, idchild, paprops, cprops, pserver.param().abi(), annoscope) }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
-    pub unsafe fn ClearHmenuProps(&self, hmenu: super::HMENU, idchild: super::DWORD, paprops: &[MSAAPROPID]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ClearHmenuProps)(windows_core::Interface::as_raw(self), hmenu, idchild, paprops.as_ptr(), paprops.len().try_into().unwrap()) }
+    pub unsafe fn ClearHmenuProps(&self, hmenu: super::HMENU, idchild: super::DWORD, paprops: *const MSAAPROPID, cprops: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ClearHmenuProps)(windows_core::Interface::as_raw(self), hmenu, idchild, paprops, cprops) }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn ComposeHmenuIdentityString(&self, hmenu: super::HMENU, idchild: super::DWORD, ppidstring: *mut *mut super::BYTE, pdwidstringlen: *mut super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ComposeHmenuIdentityString)(windows_core::Interface::as_raw(self), hmenu, idchild, ppidstring as _, pdwidstringlen as _) }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
-    pub unsafe fn DecomposeHmenuIdentityString(&self, pidstring: &[super::BYTE], phmenu: *mut super::HMENU, pidchild: *mut super::DWORD) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).DecomposeHmenuIdentityString)(windows_core::Interface::as_raw(self), pidstring.as_ptr(), pidstring.len().try_into().unwrap(), phmenu as _, pidchild as _) }
+    pub unsafe fn DecomposeHmenuIdentityString(&self, pidstring: *const super::BYTE, dwidstringlen: super::DWORD, phmenu: *mut super::HMENU, pidchild: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DecomposeHmenuIdentityString)(windows_core::Interface::as_raw(self), pidstring, dwidstringlen, phmenu as _, pidchild as _) }
     }
 }
 #[repr(C)]
@@ -763,7 +763,10 @@ impl IAccessible_Vtbl {
                         ppdispparent.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdispparent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -775,7 +778,10 @@ impl IAccessible_Vtbl {
                         pcountchildren.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcountchildren.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -787,7 +793,10 @@ impl IAccessible_Vtbl {
                         ppdispchild.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdispchild.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -799,7 +808,10 @@ impl IAccessible_Vtbl {
                         pszname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pszname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -811,7 +823,10 @@ impl IAccessible_Vtbl {
                         pszvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pszvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -823,7 +838,10 @@ impl IAccessible_Vtbl {
                         pszdescription.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pszdescription.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -835,7 +853,10 @@ impl IAccessible_Vtbl {
                         pvarrole.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarrole.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -847,7 +868,10 @@ impl IAccessible_Vtbl {
                         pvarstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarstate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -859,7 +883,10 @@ impl IAccessible_Vtbl {
                         pszhelp.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pszhelp.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -871,7 +898,10 @@ impl IAccessible_Vtbl {
                         pidtopic.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pidtopic.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -883,7 +913,10 @@ impl IAccessible_Vtbl {
                         pszkeyboardshortcut.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pszkeyboardshortcut.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -895,7 +928,10 @@ impl IAccessible_Vtbl {
                         pvarchild.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarchild.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -907,7 +943,10 @@ impl IAccessible_Vtbl {
                         pvarchildren.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarchildren.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -919,7 +958,10 @@ impl IAccessible_Vtbl {
                         pszdefaultaction.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pszdefaultaction.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -943,7 +985,10 @@ impl IAccessible_Vtbl {
                         pvarendupat.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarendupat.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -955,7 +1000,10 @@ impl IAccessible_Vtbl {
                         pvarchild.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarchild.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1043,7 +1091,10 @@ impl IAccessibleHandler_Vtbl {
                         piaccessible.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        piaccessible.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1136,7 +1187,10 @@ impl IAccessibleWindowlessSite_Vtbl {
                         ppparent.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppparent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

@@ -2,11 +2,11 @@
 mod Windows {
     mod Win32 {
         #[library("VERSION.dll")]
-        extern fn GetFileVersionInfoA(#[in] lptstrFilename: LPCSTR, #[reserved] dwHandle: DWORD, #[in] dwLen: DWORD, #[out] #[writable(entry, bytes(dwLen))] lpData: LPVOID) -> BOOL;
+        extern fn GetFileVersionInfoA(#[in] lptstrFilename: LPCSTR, #[reserved] dwHandle: DWORD, #[in] dwLen: DWORD, #[buffer(bytes(dwLen))] #[out] lpData: LPVOID) -> BOOL;
         #[library("VERSION.dll")]
-        extern fn GetFileVersionInfoExA(#[in] dwFlags: DWORD, #[in] lpwstrFilename: LPCSTR, #[reserved] dwHandle: DWORD, #[in] dwLen: DWORD, #[out] #[writable(entry, bytes(dwLen))] lpData: LPVOID) -> BOOL;
+        extern fn GetFileVersionInfoExA(#[in] dwFlags: DWORD, #[in] lpwstrFilename: LPCSTR, #[reserved] dwHandle: DWORD, #[in] dwLen: DWORD, #[buffer(bytes(dwLen))] #[out] lpData: LPVOID) -> BOOL;
         #[library("VERSION.dll")]
-        extern fn GetFileVersionInfoExW(#[in] dwFlags: DWORD, #[in] lpwstrFilename: LPCWSTR, #[reserved] dwHandle: DWORD, #[in] dwLen: DWORD, #[out] #[writable(entry, bytes(dwLen))] lpData: LPVOID) -> BOOL;
+        extern fn GetFileVersionInfoExW(#[in] dwFlags: DWORD, #[in] lpwstrFilename: LPCWSTR, #[reserved] dwHandle: DWORD, #[in] dwLen: DWORD, #[buffer(bytes(dwLen))] #[out] lpData: LPVOID) -> BOOL;
         #[library("VERSION.dll")]
         extern fn GetFileVersionInfoSizeA(#[in] lptstrFilename: LPCSTR, #[opt] #[out] lpdwHandle: LPDWORD) -> DWORD;
         #[library("VERSION.dll")]
@@ -16,19 +16,19 @@ mod Windows {
         #[library("VERSION.dll")]
         extern fn GetFileVersionInfoSizeW(#[in] lptstrFilename: LPCWSTR, #[opt] #[out] lpdwHandle: LPDWORD) -> DWORD;
         #[library("VERSION.dll")]
-        extern fn GetFileVersionInfoW(#[in] lptstrFilename: LPCWSTR, #[reserved] dwHandle: DWORD, #[in] dwLen: DWORD, #[out] #[writable(entry, bytes(dwLen))] lpData: LPVOID) -> BOOL;
+        extern fn GetFileVersionInfoW(#[in] lptstrFilename: LPCWSTR, #[reserved] dwHandle: DWORD, #[in] dwLen: DWORD, #[buffer(bytes(dwLen))] #[out] lpData: LPVOID) -> BOOL;
         #[library("VERSION.dll")]
-        extern fn VerFindFileA(#[in] uFlags: DWORD, #[in] szFileName: LPCSTR, #[in] #[opt] szWinDir: LPCSTR, #[in] szAppDir: LPCSTR, #[out] #[writable(entry, *puCurDirLen)] szCurDir: LPSTR, #[in] #[out] puCurDirLen: PUINT, #[out] #[writable(entry, *puDestDirLen)] szDestDir: LPSTR, #[in] #[out] puDestDirLen: PUINT) -> DWORD;
+        extern fn VerFindFileA(#[in] uFlags: DWORD, #[in] szFileName: LPCSTR, #[in] #[opt] szWinDir: LPCSTR, #[in] szAppDir: LPCSTR, #[buffer(*puCurDirLen)] #[out] szCurDir: LPSTR, #[in] #[out] puCurDirLen: PUINT, #[buffer(*puDestDirLen)] #[out] szDestDir: LPSTR, #[in] #[out] puDestDirLen: PUINT) -> DWORD;
         #[library("VERSION.dll")]
-        extern fn VerFindFileW(#[in] uFlags: DWORD, #[in] szFileName: LPCWSTR, #[in] #[opt] szWinDir: LPCWSTR, #[in] szAppDir: LPCWSTR, #[out] #[writable(entry, *puCurDirLen)] szCurDir: LPWSTR, #[in] #[out] puCurDirLen: PUINT, #[out] #[writable(entry, *puDestDirLen)] szDestDir: LPWSTR, #[in] #[out] puDestDirLen: PUINT) -> DWORD;
+        extern fn VerFindFileW(#[in] uFlags: DWORD, #[in] szFileName: LPCWSTR, #[in] #[opt] szWinDir: LPCWSTR, #[in] szAppDir: LPCWSTR, #[buffer(*puCurDirLen)] #[out] szCurDir: LPWSTR, #[in] #[out] puCurDirLen: PUINT, #[buffer(*puDestDirLen)] #[out] szDestDir: LPWSTR, #[in] #[out] puDestDirLen: PUINT) -> DWORD;
         #[library("VERSION.dll")]
-        extern fn VerInstallFileA(#[in] uFlags: DWORD, #[in] szSrcFileName: LPCSTR, #[in] szDestFileName: LPCSTR, #[in] szSrcDir: LPCSTR, #[in] szDestDir: LPCSTR, #[in] szCurDir: LPCSTR, #[out] #[writable(entry, *puTmpFileLen)] szTmpFile: LPSTR, #[in] #[out] puTmpFileLen: PUINT) -> DWORD;
+        extern fn VerInstallFileA(#[in] uFlags: DWORD, #[in] szSrcFileName: LPCSTR, #[in] szDestFileName: LPCSTR, #[in] szSrcDir: LPCSTR, #[in] szDestDir: LPCSTR, #[in] szCurDir: LPCSTR, #[buffer(*puTmpFileLen)] #[out] szTmpFile: LPSTR, #[in] #[out] puTmpFileLen: PUINT) -> DWORD;
         #[library("VERSION.dll")]
-        extern fn VerInstallFileW(#[in] uFlags: DWORD, #[in] szSrcFileName: LPCWSTR, #[in] szDestFileName: LPCWSTR, #[in] szSrcDir: LPCWSTR, #[in] szDestDir: LPCWSTR, #[in] szCurDir: LPCWSTR, #[out] #[writable(entry, *puTmpFileLen)] szTmpFile: LPWSTR, #[in] #[out] puTmpFileLen: PUINT) -> DWORD;
+        extern fn VerInstallFileW(#[in] uFlags: DWORD, #[in] szSrcFileName: LPCWSTR, #[in] szDestFileName: LPCWSTR, #[in] szSrcDir: LPCWSTR, #[in] szDestDir: LPCWSTR, #[in] szCurDir: LPCWSTR, #[buffer(*puTmpFileLen)] #[out] szTmpFile: LPWSTR, #[in] #[out] puTmpFileLen: PUINT) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn VerLanguageNameA(#[in] wLang: DWORD, #[out] #[writable(entry, cchLang)] szLang: LPSTR, #[in] cchLang: DWORD) -> DWORD;
+        extern fn VerLanguageNameA(#[in] wLang: DWORD, #[buffer(cchLang)] #[out] szLang: LPSTR, #[in] cchLang: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn VerLanguageNameW(#[in] wLang: DWORD, #[out] #[writable(entry, cchLang)] szLang: LPWSTR, #[in] cchLang: DWORD) -> DWORD;
+        extern fn VerLanguageNameW(#[in] wLang: DWORD, #[buffer(cchLang)] #[out] szLang: LPWSTR, #[in] cchLang: DWORD) -> DWORD;
         #[library("VERSION.dll")]
         extern fn VerQueryValueA(#[in] pBlock: LPCVOID, #[in] lpSubBlock: LPCSTR, #[incomplete] #[out] lplpBuffer: *mut LPVOID, #[out] puLen: PUINT) -> BOOL;
         #[library("VERSION.dll")]

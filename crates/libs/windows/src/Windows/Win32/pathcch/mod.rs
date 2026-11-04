@@ -19,42 +19,42 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PathCchAddBackslash(pszpath: &mut [u16]) -> windows_core::HRESULT {
+pub unsafe fn PathCchAddBackslash(pszpath: windows_core::PWSTR, cchpath: super::size_t) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchAddBackslash(pszpath : windows_core::PWSTR, cchpath : super::size_t) -> windows_core::HRESULT);
-    unsafe { PathCchAddBackslash(core::mem::transmute(pszpath.as_mut_ptr()), pszpath.len().try_into().unwrap()) }
+    unsafe { PathCchAddBackslash(pszpath, cchpath) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PathCchAddBackslashEx(pszpath: &mut [u16], ppszend: Option<*mut windows_core::PWSTR>, pcchremaining: Option<*mut super::size_t>) -> windows_core::HRESULT {
+pub unsafe fn PathCchAddBackslashEx(pszpath: windows_core::PWSTR, cchpath: super::size_t, ppszend: Option<*mut windows_core::PWSTR>, pcchremaining: Option<*mut super::size_t>) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchAddBackslashEx(pszpath : windows_core::PWSTR, cchpath : super::size_t, ppszend : *mut windows_core::PWSTR, pcchremaining : *mut super::size_t) -> windows_core::HRESULT);
-    unsafe { PathCchAddBackslashEx(core::mem::transmute(pszpath.as_mut_ptr()), pszpath.len().try_into().unwrap(), ppszend.unwrap_or(core::mem::zeroed()) as _, pcchremaining.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { PathCchAddBackslashEx(pszpath, cchpath, ppszend.unwrap_or(core::mem::zeroed()) as _, pcchremaining.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PathCchAddExtension<P2>(pszpath: &mut [u16], pszext: P2) -> windows_core::HRESULT
+pub unsafe fn PathCchAddExtension<P2>(pszpath: windows_core::PWSTR, cchpath: super::size_t, pszext: P2) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchAddExtension(pszpath : windows_core::PWSTR, cchpath : super::size_t, pszext : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { PathCchAddExtension(core::mem::transmute(pszpath.as_mut_ptr()), pszpath.len().try_into().unwrap(), pszext.param().abi()) }
+    unsafe { PathCchAddExtension(pszpath, cchpath, pszext.param().abi()) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PathCchAppend<P2>(pszpath: &mut [u16], pszmore: P2) -> windows_core::HRESULT
+pub unsafe fn PathCchAppend<P2>(pszpath: windows_core::PWSTR, cchpath: super::size_t, pszmore: P2) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchAppend(pszpath : windows_core::PWSTR, cchpath : super::size_t, pszmore : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { PathCchAppend(core::mem::transmute(pszpath.as_mut_ptr()), pszpath.len().try_into().unwrap(), pszmore.param().abi()) }
+    unsafe { PathCchAppend(pszpath, cchpath, pszmore.param().abi()) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PathCchAppendEx<P2>(pszpath: &mut [u16], pszmore: P2, dwflags: super::ULONG) -> windows_core::HRESULT
+pub unsafe fn PathCchAppendEx<P2>(pszpath: windows_core::PWSTR, cchpath: super::size_t, pszmore: P2, dwflags: super::ULONG) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchAppendEx(pszpath : windows_core::PWSTR, cchpath : super::size_t, pszmore : windows_core::PCWSTR, dwflags : super::ULONG) -> windows_core::HRESULT);
-    unsafe { PathCchAppendEx(core::mem::transmute(pszpath.as_mut_ptr()), pszpath.len().try_into().unwrap(), pszmore.param().abi(), dwflags) }
+    unsafe { PathCchAppendEx(pszpath, cchpath, pszmore.param().abi(), dwflags) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -110,9 +110,9 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PathCchRemoveBackslash(pszpath: &mut [u16]) -> windows_core::HRESULT {
+pub unsafe fn PathCchRemoveBackslash(pszpath: windows_core::PWSTR, cchpath: super::size_t) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchRemoveBackslash(pszpath : windows_core::PWSTR, cchpath : super::size_t) -> windows_core::HRESULT);
-    unsafe { PathCchRemoveBackslash(core::mem::transmute(pszpath.as_mut_ptr()), pszpath.len().try_into().unwrap()) }
+    unsafe { PathCchRemoveBackslash(pszpath, cchpath) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -134,12 +134,12 @@ pub unsafe fn PathCchRemoveFileSpec(pszpath: windows_core::PWSTR, cchpath: super
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PathCchRenameExtension<P2>(pszpath: &mut [u16], pszext: P2) -> windows_core::HRESULT
+pub unsafe fn PathCchRenameExtension<P2>(pszpath: windows_core::PWSTR, cchpath: super::size_t, pszext: P2) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchRenameExtension(pszpath : windows_core::PWSTR, cchpath : super::size_t, pszext : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { PathCchRenameExtension(core::mem::transmute(pszpath.as_mut_ptr()), pszpath.len().try_into().unwrap(), pszext.param().abi()) }
+    unsafe { PathCchRenameExtension(pszpath, cchpath, pszext.param().abi()) }
 }
 #[inline]
 pub unsafe fn PathCchSkipRoot<P0>(pszpath: P0, ppszrootend: *mut windows_core::PCWSTR) -> windows_core::HRESULT
@@ -151,9 +151,9 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PathCchStripPrefix(pszpath: &mut [u16]) -> windows_core::HRESULT {
+pub unsafe fn PathCchStripPrefix(pszpath: windows_core::PWSTR, cchpath: super::size_t) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchStripPrefix(pszpath : windows_core::PWSTR, cchpath : super::size_t) -> windows_core::HRESULT);
-    unsafe { PathCchStripPrefix(core::mem::transmute(pszpath.as_mut_ptr()), pszpath.len().try_into().unwrap()) }
+    unsafe { PathCchStripPrefix(pszpath, cchpath) }
 }
 #[cfg(feature = "shared")]
 #[inline]

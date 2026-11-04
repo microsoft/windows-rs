@@ -96,14 +96,14 @@ mod Windows {
         }
         #[guid(0xf8b80ada_2c44_48d0_89be_5ff23c9cd875)]
         interface IAccessibleEx: IUnknown {
-            fn GetObjectForChild(&self, #[in] idChild: i32, #[out] #[out_ptr] #[retval] pRetVal: *mut IAccessibleEx) -> HRESULT;
-            fn GetIAccessiblePair(&self, #[out] #[out_ptr] ppAcc: *mut IAccessible, #[out] pidChild: *mut i32) -> HRESULT;
-            fn GetRuntimeId(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
-            fn ConvertReturnedElement(&self, #[in] #[opt] pIn: IRawElementProviderSimple, #[out] #[out_ptr] #[retval] ppRetValOut: *mut IAccessibleEx) -> HRESULT;
+            fn GetObjectForChild(&self, #[in] idChild: i32, #[out] #[retval] pRetVal: *mut IAccessibleEx) -> HRESULT;
+            fn GetIAccessiblePair(&self, #[out] ppAcc: *mut IAccessible, #[out] pidChild: *mut i32) -> HRESULT;
+            fn GetRuntimeId(&self, #[out] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn ConvertReturnedElement(&self, #[in] #[opt] pIn: IRawElementProviderSimple, #[out] #[retval] ppRetValOut: *mut IAccessibleEx) -> HRESULT;
         }
         #[guid(0x33ac331b_943e_4020_b295_db37784974a3)]
         interface IAccessibleHostingElementProviders: IUnknown {
-            fn GetEmbeddedFragmentRoots(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetEmbeddedFragmentRoots(&self, #[out] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
             fn GetObjectIdForProvider(&self, #[in] #[opt] pProvider: IRawElementProviderSimple, #[out] pidObject: *mut i32) -> HRESULT;
         }
         #[guid(0xf95c7e80_bd63_4601_9782_445ebff011fc)]
@@ -111,17 +111,17 @@ mod Windows {
             #[special]
             fn get_AnnotationTypeId(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_AnnotationTypeName(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_AnnotationTypeName(&self, #[out] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_Author(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_Author(&self, #[out] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_DateTime(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_DateTime(&self, #[out] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_Target(&self, #[out] #[out_ptr] #[retval] retVal: *mut IRawElementProviderSimple) -> HRESULT;
+            fn get_Target(&self, #[out] #[retval] retVal: *mut IRawElementProviderSimple) -> HRESULT;
         }
         #[guid(0x2062a28a_8c07_4b94_8e12_7037c622aeb8)]
         interface ICustomNavigationProvider: IUnknown {
-            fn Navigate(&self, #[in] direction: NavigateDirection, #[out] #[out_ptr] #[retval] pRetVal: *mut IRawElementProviderSimple) -> HRESULT;
+            fn Navigate(&self, #[in] direction: NavigateDirection, #[out] #[retval] pRetVal: *mut IRawElementProviderSimple) -> HRESULT;
         }
         #[guid(0x159bc72c_4ad3_485e_9637_d7052edf0146)]
         interface IDockProvider: IUnknown {
@@ -134,17 +134,17 @@ mod Windows {
             #[special]
             fn get_IsGrabbed(&self, #[out] #[retval] pRetVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_DropEffect(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut BSTR) -> HRESULT;
+            fn get_DropEffect(&self, #[out] #[retval] pRetVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_DropEffects(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
-            fn GetGrabbedItems(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_DropEffects(&self, #[out] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetGrabbedItems(&self, #[out] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0xbae82bfd_358a_481c_85a0_d8b4d90a5d61)]
         interface IDropTargetProvider: IUnknown {
             #[special]
-            fn get_DropTargetEffect(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut BSTR) -> HRESULT;
+            fn get_DropTargetEffect(&self, #[out] #[retval] pRetVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_DropTargetEffects(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_DropTargetEffects(&self, #[out] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0xd847d3a5_cab0_4a98_8c32_ecb45c59ad24)]
         interface IExpandCollapseProvider: IUnknown {
@@ -164,11 +164,11 @@ mod Windows {
             #[special]
             fn get_ColumnSpan(&self, #[out] #[retval] pRetVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_ContainingGrid(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut IRawElementProviderSimple) -> HRESULT;
+            fn get_ContainingGrid(&self, #[out] #[retval] pRetVal: *mut IRawElementProviderSimple) -> HRESULT;
         }
         #[guid(0xb17d6187_0907_464b_a168_0ef17a1572b1)]
         interface IGridProvider: IUnknown {
-            fn GetItem(&self, #[in] row: i32, #[in] column: i32, #[out] #[out_ptr] #[retval] pRetVal: *mut IRawElementProviderSimple) -> HRESULT;
+            fn GetItem(&self, #[in] row: i32, #[in] column: i32, #[out] #[retval] pRetVal: *mut IRawElementProviderSimple) -> HRESULT;
             #[special]
             fn get_RowCount(&self, #[out] #[retval] pRetVal: *mut i32) -> HRESULT;
             #[special]
@@ -180,45 +180,45 @@ mod Windows {
         }
         #[guid(0xe747770b_39ce_4382_ab30_d8fb3f336f24)]
         interface IItemContainerProvider: IUnknown {
-            fn FindItemByProperty(&self, #[in] #[opt] pStartAfter: IRawElementProviderSimple, #[in] propertyId: PROPERTYID, #[in] value: VARIANT, #[out] #[out_ptr] #[retval] pFound: *mut IRawElementProviderSimple) -> HRESULT;
+            fn FindItemByProperty(&self, #[in] #[opt] pStartAfter: IRawElementProviderSimple, #[in] propertyId: PROPERTYID, #[in] value: VARIANT, #[out] #[retval] pFound: *mut IRawElementProviderSimple) -> HRESULT;
         }
         #[guid(0xe44c3566_915d_4070_99c6_047bff5a08f5)]
         interface ILegacyIAccessibleProvider: IUnknown {
             fn Select(&self, flagsSelect: i32) -> HRESULT;
             fn DoDefaultAction(&self) -> HRESULT;
             fn SetValue(&self, #[in] szValue: LPCWSTR) -> HRESULT;
-            fn GetIAccessible(&self, #[out] #[out_ptr] #[retval] ppAccessible: *mut IAccessible) -> HRESULT;
+            fn GetIAccessible(&self, #[out] #[retval] ppAccessible: *mut IAccessible) -> HRESULT;
             #[special]
             fn get_ChildId(&self, #[out] #[retval] pRetVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_Name(&self, #[out] #[out_ptr] #[retval] pszName: *mut BSTR) -> HRESULT;
+            fn get_Name(&self, #[out] #[retval] pszName: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_Value(&self, #[out] #[out_ptr] #[retval] pszValue: *mut BSTR) -> HRESULT;
+            fn get_Value(&self, #[out] #[retval] pszValue: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_Description(&self, #[out] #[out_ptr] #[retval] pszDescription: *mut BSTR) -> HRESULT;
+            fn get_Description(&self, #[out] #[retval] pszDescription: *mut BSTR) -> HRESULT;
             #[special]
             fn get_Role(&self, #[out] #[retval] pdwRole: *mut DWORD) -> HRESULT;
             #[special]
             fn get_State(&self, #[out] #[retval] pdwState: *mut DWORD) -> HRESULT;
             #[special]
-            fn get_Help(&self, #[out] #[out_ptr] #[retval] pszHelp: *mut BSTR) -> HRESULT;
+            fn get_Help(&self, #[out] #[retval] pszHelp: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_KeyboardShortcut(&self, #[out] #[out_ptr] #[retval] pszKeyboardShortcut: *mut BSTR) -> HRESULT;
-            fn GetSelection(&self, #[out] #[out_ptr] #[retval] pvarSelectedChildren: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_KeyboardShortcut(&self, #[out] #[retval] pszKeyboardShortcut: *mut BSTR) -> HRESULT;
+            fn GetSelection(&self, #[out] #[retval] pvarSelectedChildren: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
-            fn get_DefaultAction(&self, #[out] #[out_ptr] #[retval] pszDefaultAction: *mut BSTR) -> HRESULT;
+            fn get_DefaultAction(&self, #[out] #[retval] pszDefaultAction: *mut BSTR) -> HRESULT;
         }
         #[guid(0x6278cab1_b556_4a1a_b4e0_418acc523201)]
         interface IMultipleViewProvider: IUnknown {
-            fn GetViewName(&self, #[in] viewId: i32, #[out] #[out_ptr] #[retval] pRetVal: *mut BSTR) -> HRESULT;
+            fn GetViewName(&self, #[in] viewId: i32, #[out] #[retval] pRetVal: *mut BSTR) -> HRESULT;
             fn SetCurrentView(&self, #[in] viewId: i32) -> HRESULT;
             #[special]
             fn get_CurrentView(&self, #[out] #[retval] pRetVal: *mut i32) -> HRESULT;
-            fn GetSupportedViews(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetSupportedViews(&self, #[out] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x3ad86ebd_f5ef_483d_bb18_b1042a475d64)]
         interface IObjectModelProvider: IUnknown {
-            fn GetUnderlyingObjectModel(&self, #[out] #[out_ptr] #[retval] ppUnknown: *mut IUnknown) -> HRESULT;
+            fn GetUnderlyingObjectModel(&self, #[out] #[retval] ppUnknown: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x89592ad4_f4e0_43d5_a3b6_bad7e111b435)]
         interface IProxyProviderWinEventHandler: IUnknown {
@@ -253,35 +253,35 @@ mod Windows {
         }
         #[guid(0xf7063da8_8359_439c_9297_bbc5299a7d87)]
         interface IRawElementProviderFragment: IUnknown {
-            fn Navigate(&self, #[in] direction: NavigateDirection, #[out] #[out_ptr] #[retval] pRetVal: *mut IRawElementProviderFragment) -> HRESULT;
-            fn GetRuntimeId(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn Navigate(&self, #[in] direction: NavigateDirection, #[out] #[retval] pRetVal: *mut IRawElementProviderFragment) -> HRESULT;
+            fn GetRuntimeId(&self, #[out] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
             fn get_BoundingRectangle(&self, #[out] #[retval] pRetVal: *mut UiaRect) -> HRESULT;
-            fn GetEmbeddedFragmentRoots(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetEmbeddedFragmentRoots(&self, #[out] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
             fn SetFocus(&self) -> HRESULT;
             #[special]
-            fn get_FragmentRoot(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut IRawElementProviderFragmentRoot) -> HRESULT;
+            fn get_FragmentRoot(&self, #[out] #[retval] pRetVal: *mut IRawElementProviderFragmentRoot) -> HRESULT;
         }
         #[guid(0x620ce2a5_ab8f_40a9_86cb_de3c75599b58)]
         interface IRawElementProviderFragmentRoot: IUnknown {
-            fn ElementProviderFromPoint(&self, #[in] x: f64, #[in] y: f64, #[out] #[out_ptr] #[retval] pRetVal: *mut IRawElementProviderFragment) -> HRESULT;
-            fn GetFocus(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut IRawElementProviderFragment) -> HRESULT;
+            fn ElementProviderFromPoint(&self, #[in] x: f64, #[in] y: f64, #[out] #[retval] pRetVal: *mut IRawElementProviderFragment) -> HRESULT;
+            fn GetFocus(&self, #[out] #[retval] pRetVal: *mut IRawElementProviderFragment) -> HRESULT;
         }
         #[guid(0x24be0b07_d37d_487a_98cf_a13ed465e9b3)]
         interface IRawElementProviderHostingAccessibles: IUnknown {
-            fn GetEmbeddedAccessibles(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetEmbeddedAccessibles(&self, #[out] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x1d5df27c_8947_4425_b8d9_79787bb460b8)]
         interface IRawElementProviderHwndOverride: IUnknown {
-            fn GetOverrideProviderForHwnd(&self, #[in] hwnd: HWND, #[out] #[out_ptr] #[retval] pRetVal: *mut IRawElementProviderSimple) -> HRESULT;
+            fn GetOverrideProviderForHwnd(&self, #[in] hwnd: HWND, #[out] #[retval] pRetVal: *mut IRawElementProviderSimple) -> HRESULT;
         }
         #[guid(0xd6dd68d1_86fd_4332_8666_9abedea2d24c)]
         interface IRawElementProviderSimple: IUnknown {
             #[special]
             fn get_ProviderOptions(&self, #[out] #[retval] pRetVal: *mut ProviderOptions) -> HRESULT;
-            fn GetPatternProvider(&self, #[in] patternId: PATTERNID, #[out] #[out_ptr] #[retval] pRetVal: *mut IUnknown) -> HRESULT;
+            fn GetPatternProvider(&self, #[in] patternId: PATTERNID, #[out] #[retval] pRetVal: *mut IUnknown) -> HRESULT;
             fn GetPropertyValue(&self, #[in] propertyId: PROPERTYID, #[out] #[retval] pRetVal: *mut VARIANT) -> HRESULT;
             #[special]
-            fn get_HostRawElementProvider(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut IRawElementProviderSimple) -> HRESULT;
+            fn get_HostRawElementProvider(&self, #[out] #[retval] pRetVal: *mut IRawElementProviderSimple) -> HRESULT;
         }
         #[guid(0xa0a839a9_8da1_4a82_806a_8e0d44e79f56)]
         interface IRawElementProviderSimple2: IRawElementProviderSimple {
@@ -293,8 +293,8 @@ mod Windows {
         }
         #[guid(0x0a2a93cc_bfad_42ac_9b2e_0991fb0d3ea0)]
         interface IRawElementProviderWindowlessSite: IUnknown {
-            fn GetAdjacentFragment(&self, #[in] direction: NavigateDirection, #[out] #[out_ptr] #[retval] ppParent: *mut IRawElementProviderFragment) -> HRESULT;
-            fn GetRuntimeIdPrefix(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetAdjacentFragment(&self, #[in] direction: NavigateDirection, #[out] #[retval] ppParent: *mut IRawElementProviderFragment) -> HRESULT;
+            fn GetRuntimeIdPrefix(&self, #[out] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x2360c714_4bf1_4b26_ba65_9b21316127eb)]
         interface IScrollItemProvider: IUnknown {
@@ -325,11 +325,11 @@ mod Windows {
             #[special]
             fn get_IsSelected(&self, #[out] #[retval] pRetVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_SelectionContainer(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut IRawElementProviderSimple) -> HRESULT;
+            fn get_SelectionContainer(&self, #[out] #[retval] pRetVal: *mut IRawElementProviderSimple) -> HRESULT;
         }
         #[guid(0xfb8b03af_3bdf_48d4_bd36_1a65793be168)]
         interface ISelectionProvider: IUnknown {
-            fn GetSelection(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetSelection(&self, #[out] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
             fn get_CanSelectMultiple(&self, #[out] #[retval] pRetVal: *mut BOOL) -> HRESULT;
             #[special]
@@ -338,41 +338,41 @@ mod Windows {
         #[guid(0x14f68475_ee1c_44f6_a869_d239381f0fe7)]
         interface ISelectionProvider2: ISelectionProvider {
             #[special]
-            fn get_FirstSelectedItem(&self, #[out] #[out_ptr] #[retval] retVal: *mut IRawElementProviderSimple) -> HRESULT;
+            fn get_FirstSelectedItem(&self, #[out] #[retval] retVal: *mut IRawElementProviderSimple) -> HRESULT;
             #[special]
-            fn get_LastSelectedItem(&self, #[out] #[out_ptr] #[retval] retVal: *mut IRawElementProviderSimple) -> HRESULT;
+            fn get_LastSelectedItem(&self, #[out] #[retval] retVal: *mut IRawElementProviderSimple) -> HRESULT;
             #[special]
-            fn get_CurrentSelectedItem(&self, #[out] #[out_ptr] #[retval] retVal: *mut IRawElementProviderSimple) -> HRESULT;
+            fn get_CurrentSelectedItem(&self, #[out] #[retval] retVal: *mut IRawElementProviderSimple) -> HRESULT;
             #[special]
             fn get_ItemCount(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
         }
         #[guid(0xeaed4660_7b3d_4879_a2e6_365ce603f3d0)]
         interface ISpreadsheetItemProvider: IUnknown {
             #[special]
-            fn get_Formula(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut BSTR) -> HRESULT;
-            fn GetAnnotationObjects(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
-            fn GetAnnotationTypes(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_Formula(&self, #[out] #[retval] pRetVal: *mut BSTR) -> HRESULT;
+            fn GetAnnotationObjects(&self, #[out] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetAnnotationTypes(&self, #[out] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x6f6b5d35_5525_4f80_b758_85473832ffc7)]
         interface ISpreadsheetProvider: IUnknown {
-            fn GetItemByName(&self, #[in] name: LPCWSTR, #[out] #[out_ptr] #[retval] pRetVal: *mut IRawElementProviderSimple) -> HRESULT;
+            fn GetItemByName(&self, #[in] name: LPCWSTR, #[out] #[retval] pRetVal: *mut IRawElementProviderSimple) -> HRESULT;
         }
         #[guid(0x19b6b649_f5d7_4a6d_bdcb_129252be588a)]
         interface IStylesProvider: IUnknown {
             #[special]
             fn get_StyleId(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_StyleName(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_StyleName(&self, #[out] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
             fn get_FillColor(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_FillPatternStyle(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_FillPatternStyle(&self, #[out] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_Shape(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_Shape(&self, #[out] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
             fn get_FillPatternColor(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_ExtendedProperties(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_ExtendedProperties(&self, #[out] #[retval] retVal: *mut BSTR) -> HRESULT;
         }
         #[guid(0x29db1a06_02ce_4cf7_9b42_565d4fab20ee)]
         interface ISynchronizedInputProvider: IUnknown {
@@ -381,56 +381,56 @@ mod Windows {
         }
         #[guid(0xb9734fa6_771f_4d78_9c90_2517999349cd)]
         interface ITableItemProvider: IUnknown {
-            fn GetRowHeaderItems(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
-            fn GetColumnHeaderItems(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetRowHeaderItems(&self, #[out] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetColumnHeaderItems(&self, #[out] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x9c860395_97b3_490a_b52a_858cc22af166)]
         interface ITableProvider: IUnknown {
-            fn GetRowHeaders(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
-            fn GetColumnHeaders(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetRowHeaders(&self, #[out] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetColumnHeaders(&self, #[out] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
             fn get_RowOrColumnMajor(&self, #[out] #[retval] pRetVal: *mut RowOrColumnMajor) -> HRESULT;
         }
         #[guid(0x4c2de2b9_c88f_4f88_a111_f1d336b7d1a9)]
         interface ITextChildProvider: IUnknown {
             #[special]
-            fn get_TextContainer(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut IRawElementProviderSimple) -> HRESULT;
+            fn get_TextContainer(&self, #[out] #[retval] pRetVal: *mut IRawElementProviderSimple) -> HRESULT;
             #[special]
-            fn get_TextRange(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
+            fn get_TextRange(&self, #[out] #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
         }
         #[guid(0xea3605b4_3a05_400e_b5f9_4e91b40f6176)]
         interface ITextEditProvider: ITextProvider {
-            fn GetActiveComposition(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
-            fn GetConversionTarget(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
+            fn GetActiveComposition(&self, #[out] #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
+            fn GetConversionTarget(&self, #[out] #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
         }
         #[guid(0x3589c92c_63f3_4367_99bb_ada653b77cf2)]
         interface ITextProvider: IUnknown {
-            fn GetSelection(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
-            fn GetVisibleRanges(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
-            fn RangeFromChild(&self, #[in] #[opt] childElement: IRawElementProviderSimple, #[out] #[out_ptr] #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
-            fn RangeFromPoint(&self, #[in] point: UiaPoint, #[out] #[out_ptr] #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
+            fn GetSelection(&self, #[out] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetVisibleRanges(&self, #[out] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn RangeFromChild(&self, #[in] #[opt] childElement: IRawElementProviderSimple, #[out] #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
+            fn RangeFromPoint(&self, #[in] point: UiaPoint, #[out] #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
             #[special]
-            fn get_DocumentRange(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
+            fn get_DocumentRange(&self, #[out] #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
             #[special]
             fn get_SupportedTextSelection(&self, #[out] #[retval] pRetVal: *mut SupportedTextSelection) -> HRESULT;
         }
         #[guid(0x0dc5e6ed_3e16_4bf1_8f9a_a979878bc195)]
         interface ITextProvider2: ITextProvider {
-            fn RangeFromAnnotation(&self, #[in] #[opt] annotationElement: IRawElementProviderSimple, #[out] #[out_ptr] #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
-            fn GetCaretRange(&self, #[out] isActive: *mut BOOL, #[out] #[out_ptr] #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
+            fn RangeFromAnnotation(&self, #[in] #[opt] annotationElement: IRawElementProviderSimple, #[out] #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
+            fn GetCaretRange(&self, #[out] isActive: *mut BOOL, #[out] #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
         }
         #[guid(0x5347ad7b_c355_46f8_aff5_909033582f63)]
         interface ITextRangeProvider: IUnknown {
-            fn Clone(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
+            fn Clone(&self, #[out] #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
             fn Compare(&self, #[in] #[opt] range: ITextRangeProvider, #[out] #[retval] pRetVal: *mut BOOL) -> HRESULT;
             fn CompareEndpoints(&self, #[in] endpoint: TextPatternRangeEndpoint, #[in] #[opt] targetRange: ITextRangeProvider, #[in] targetEndpoint: TextPatternRangeEndpoint, #[out] #[retval] pRetVal: *mut i32) -> HRESULT;
             fn ExpandToEnclosingUnit(&self, #[in] unit: TextUnit) -> HRESULT;
-            fn FindAttribute(&self, #[in] attributeId: TEXTATTRIBUTEID, #[in] val: VARIANT, #[in] backward: BOOL, #[out] #[out_ptr] #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
-            fn FindText(&self, #[in] text: BSTR, #[in] backward: BOOL, #[in] ignoreCase: BOOL, #[out] #[out_ptr] #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
+            fn FindAttribute(&self, #[in] attributeId: TEXTATTRIBUTEID, #[in] val: VARIANT, #[in] backward: BOOL, #[out] #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
+            fn FindText(&self, #[in] text: BSTR, #[in] backward: BOOL, #[in] ignoreCase: BOOL, #[out] #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
             fn GetAttributeValue(&self, #[in] attributeId: TEXTATTRIBUTEID, #[out] #[retval] pRetVal: *mut VARIANT) -> HRESULT;
-            fn GetBoundingRectangles(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
-            fn GetEnclosingElement(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut IRawElementProviderSimple) -> HRESULT;
-            fn GetText(&self, #[in] maxLength: i32, #[out] #[out_ptr] #[retval] pRetVal: *mut BSTR) -> HRESULT;
+            fn GetBoundingRectangles(&self, #[out] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetEnclosingElement(&self, #[out] #[retval] pRetVal: *mut IRawElementProviderSimple) -> HRESULT;
+            fn GetText(&self, #[in] maxLength: i32, #[out] #[retval] pRetVal: *mut BSTR) -> HRESULT;
             fn Move(&self, #[in] unit: TextUnit, #[in] count: i32, #[out] #[retval] pRetVal: *mut i32) -> HRESULT;
             fn MoveEndpointByUnit(&self, #[in] endpoint: TextPatternRangeEndpoint, #[in] unit: TextUnit, #[in] count: i32, #[out] #[retval] pRetVal: *mut i32) -> HRESULT;
             fn MoveEndpointByRange(&self, #[in] endpoint: TextPatternRangeEndpoint, #[in] #[opt] targetRange: ITextRangeProvider, #[in] targetEndpoint: TextPatternRangeEndpoint) -> HRESULT;
@@ -438,7 +438,7 @@ mod Windows {
             fn AddToSelection(&self) -> HRESULT;
             fn RemoveFromSelection(&self) -> HRESULT;
             fn ScrollIntoView(&self, #[in] alignToTop: BOOL) -> HRESULT;
-            fn GetChildren(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetChildren(&self, #[out] #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x9bbce42c_1921_4f18_89ca_dba1910a0386)]
         interface ITextRangeProvider2: ITextRangeProvider {
@@ -485,17 +485,17 @@ mod Windows {
             #[special]
             fn get_ProcessId(&self, #[out] #[retval] processId: *mut DWORD) -> HRESULT;
             #[special]
-            fn get_ProcessName(&self, #[out] #[out_ptr] #[retval] processName: *mut BSTR) -> HRESULT;
+            fn get_ProcessName(&self, #[out] #[retval] processName: *mut BSTR) -> HRESULT;
         }
         #[guid(0xf4b8a2e1_9c3d_4a7e_8f6b_2d5e4c1a9b8f)]
         interface IUIAutomationClientInfoSource: IUnknown {
             fn RegisterClientConnectionCallback(&self, #[in] #[opt] callback: IUIAutomationClientConnectionCallback, #[out] handle: *mut u64) -> HRESULT;
             fn UnregisterClientConnectionCallback(&self, #[in] handle: u64) -> HRESULT;
-            fn GetConnectedClients(&self, #[out] #[out_ptr] #[retval] clients: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetConnectedClients(&self, #[out] #[retval] clients: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0xd97022f3_a947_465e_8b2a_ac4315fa54e8)]
         interface IUIAutomationPatternHandler: IUnknown {
-            fn CreateClientWrapper(&self, #[in] #[opt] pPatternInstance: IUIAutomationPatternInstance, #[out] #[out_ptr] #[retval] pClientWrapper: *mut IUnknown) -> HRESULT;
+            fn CreateClientWrapper(&self, #[in] #[opt] pPatternInstance: IUIAutomationPatternInstance, #[out] #[retval] pClientWrapper: *mut IUnknown) -> HRESULT;
             fn Dispatch(&self, #[in] pTarget: IUnknown, #[in] index: UINT, #[in] pParams: *const UIAutomationParameter, #[in] cParams: UINT) -> HRESULT;
         }
         #[guid(0xc03a7fe4_9431_409f_bed8_ae7c2299bc8d)]
@@ -507,13 +507,13 @@ mod Windows {
         interface IUIAutomationRegistrar: IUnknown {
             fn RegisterProperty(&self, #[in] property: *const UIAutomationPropertyInfo, #[out] propertyId: *mut PROPERTYID) -> HRESULT;
             fn RegisterEvent(&self, #[in] event: *const UIAutomationEventInfo, #[out] eventId: *mut EVENTID) -> HRESULT;
-            fn RegisterPattern(&self, #[in] pattern: *const UIAutomationPatternInfo, #[out] pPatternId: *mut PATTERNID, #[out] pPatternAvailablePropertyId: *mut PROPERTYID, #[in] propertyIdCount: UINT, #[out] #[readable(success, propertyIdCount)] #[writable(entry, propertyIdCount)] #[writable(success, propertyIdCount)] pPropertyIds: *mut PROPERTYID, #[in] eventIdCount: UINT, #[out] #[readable(success, eventIdCount)] #[writable(entry, eventIdCount)] #[writable(success, eventIdCount)] pEventIds: *mut EVENTID) -> HRESULT;
+            fn RegisterPattern(&self, #[in] pattern: *const UIAutomationPatternInfo, #[out] pPatternId: *mut PATTERNID, #[out] pPatternAvailablePropertyId: *mut PROPERTYID, #[in] propertyIdCount: UINT, #[buffer(propertyIdCount)] #[out] pPropertyIds: *mut PROPERTYID, #[in] eventIdCount: UINT, #[buffer(eventIdCount)] #[out] pEventIds: *mut EVENTID) -> HRESULT;
         }
         #[guid(0xc7935180_6fb3_4201_b174_7df73adbf64a)]
         interface IValueProvider: IUnknown {
             fn SetValue(&self, #[in] val: LPCWSTR) -> HRESULT;
             #[special]
-            fn get_Value(&self, #[out] #[out_ptr] #[retval] pRetVal: *mut BSTR) -> HRESULT;
+            fn get_Value(&self, #[out] #[retval] pRetVal: *mut BSTR) -> HRESULT;
             #[special]
             fn get_IsReadOnly(&self, #[out] #[retval] pRetVal: *mut BOOL) -> HRESULT;
         }

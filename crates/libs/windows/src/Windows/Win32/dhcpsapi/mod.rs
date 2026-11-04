@@ -615,12 +615,12 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DhcpHlprAddV4PolicyCondition<P5>(policy: LPDHCP_POLICY, parentexpr: super::DWORD, r#type: DHCP_POL_ATTR_TYPE, optionid: super::DWORD, suboptionid: super::DWORD, vendorname: P5, operator: DHCP_POL_COMPARATOR, value: &[u8], conditionindex: *mut super::DWORD) -> super::DWORD
+pub unsafe fn DhcpHlprAddV4PolicyCondition<P5>(policy: LPDHCP_POLICY, parentexpr: super::DWORD, r#type: DHCP_POL_ATTR_TYPE, optionid: super::DWORD, suboptionid: super::DWORD, vendorname: P5, operator: DHCP_POL_COMPARATOR, value: super::LPBYTE, valuelength: super::DWORD, conditionindex: *mut super::DWORD) -> super::DWORD
 where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpHlprAddV4PolicyCondition(policy : LPDHCP_POLICY, parentexpr : super::DWORD, r#type : DHCP_POL_ATTR_TYPE, optionid : super::DWORD, suboptionid : super::DWORD, vendorname : windows_core::PCWSTR, operator : DHCP_POL_COMPARATOR, value : super::LPBYTE, valuelength : super::DWORD, conditionindex : *mut super::DWORD) -> super::DWORD);
-    unsafe { DhcpHlprAddV4PolicyCondition(policy as _, parentexpr, r#type, optionid, suboptionid, vendorname.param().abi(), operator, core::mem::transmute(value.as_ptr()), value.len().try_into().unwrap(), conditionindex as _) }
+    unsafe { DhcpHlprAddV4PolicyCondition(policy as _, parentexpr, r#type, optionid, suboptionid, vendorname.param().abi(), operator, value, valuelength, conditionindex as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]

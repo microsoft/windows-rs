@@ -17,7 +17,7 @@ mod Windows {
         #[library("WINUSB.DLL")]
         extern fn WinUsb_AbortPipe(#[in] InterfaceHandle: WINUSB_INTERFACE_HANDLE, #[in] PipeID: UCHAR) -> BOOL;
         #[library("WINUSB.DLL")]
-        extern fn WinUsb_ControlTransfer(#[in] InterfaceHandle: WINUSB_INTERFACE_HANDLE, #[in] SetupPacket: WINUSB_SETUP_PACKET, #[opt] #[out] #[readable(success, bytes(if_present(*LengthTransferred)))] #[writable(entry, bytes(BufferLength))] Buffer: PUCHAR, #[in] BufferLength: ULONG, #[opt] #[out] LengthTransferred: PULONG, #[in] #[opt] Overlapped: LPOVERLAPPED) -> BOOL;
+        extern fn WinUsb_ControlTransfer(#[in] InterfaceHandle: WINUSB_INTERFACE_HANDLE, #[in] SetupPacket: WINUSB_SETUP_PACKET, #[buffer(bytes(BufferLength))] #[opt] #[out] Buffer: PUCHAR, #[in] BufferLength: ULONG, #[opt] #[out] LengthTransferred: PULONG, #[in] #[opt] Overlapped: LPOVERLAPPED) -> BOOL;
         #[library("WINUSB.DLL")]
         extern fn WinUsb_FlushPipe(#[in] InterfaceHandle: WINUSB_INTERFACE_HANDLE, #[in] PipeID: UCHAR) -> BOOL;
         #[library("WINUSB.DLL")]
@@ -33,21 +33,21 @@ mod Windows {
         #[library("WINUSB.DLL")]
         extern fn WinUsb_GetCurrentFrameNumberAndQpc(#[in] InterfaceHandle: WINUSB_INTERFACE_HANDLE, #[in] FrameQpcInfo: PUSB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION) -> BOOL;
         #[library("WINUSB.DLL")]
-        extern fn WinUsb_GetDescriptor(#[in] InterfaceHandle: WINUSB_INTERFACE_HANDLE, #[in] DescriptorType: UCHAR, #[in] Index: UCHAR, #[in] LanguageID: USHORT, #[opt] #[out] #[readable(success, bytes(*LengthTransferred))] #[writable(entry, bytes(BufferLength))] Buffer: PUCHAR, #[in] BufferLength: ULONG, #[out] LengthTransferred: PULONG) -> BOOL;
+        extern fn WinUsb_GetDescriptor(#[in] InterfaceHandle: WINUSB_INTERFACE_HANDLE, #[in] DescriptorType: UCHAR, #[in] Index: UCHAR, #[in] LanguageID: USHORT, #[buffer(bytes(BufferLength))] #[opt] #[out] Buffer: PUCHAR, #[in] BufferLength: ULONG, #[out] LengthTransferred: PULONG) -> BOOL;
         #[library("WINUSB.DLL")]
         extern fn WinUsb_GetOverlappedResult(#[in] InterfaceHandle: WINUSB_INTERFACE_HANDLE, #[in] lpOverlapped: LPOVERLAPPED, #[out] lpNumberOfBytesTransferred: LPDWORD, #[in] bWait: BOOL) -> BOOL;
         #[library("WINUSB.DLL")]
-        extern fn WinUsb_GetPipePolicy(#[in] InterfaceHandle: WINUSB_INTERFACE_HANDLE, #[in] PipeID: UCHAR, #[in] PolicyType: ULONG, #[in] #[out] ValueLength: PULONG, #[out] #[writable(entry, bytes(*ValueLength))] Value: PVOID) -> BOOL;
+        extern fn WinUsb_GetPipePolicy(#[in] InterfaceHandle: WINUSB_INTERFACE_HANDLE, #[in] PipeID: UCHAR, #[in] PolicyType: ULONG, #[in] #[out] ValueLength: PULONG, #[buffer(bytes(*ValueLength))] #[out] Value: PVOID) -> BOOL;
         #[library("WINUSB.DLL")]
-        extern fn WinUsb_GetPowerPolicy(#[in] InterfaceHandle: WINUSB_INTERFACE_HANDLE, #[in] PolicyType: ULONG, #[in] #[out] ValueLength: PULONG, #[out] #[writable(entry, bytes(*ValueLength))] Value: PVOID) -> BOOL;
+        extern fn WinUsb_GetPowerPolicy(#[in] InterfaceHandle: WINUSB_INTERFACE_HANDLE, #[in] PolicyType: ULONG, #[in] #[out] ValueLength: PULONG, #[buffer(bytes(*ValueLength))] #[out] Value: PVOID) -> BOOL;
         #[library("WINUSB.DLL")]
         extern fn WinUsb_Initialize(#[in] DeviceHandle: HANDLE, #[out] InterfaceHandle: PWINUSB_INTERFACE_HANDLE) -> BOOL;
         #[library("WINUSB.DLL")]
         extern fn WinUsb_ParseConfigurationDescriptor(#[in] ConfigurationDescriptor: PUSB_CONFIGURATION_DESCRIPTOR, #[in] StartPosition: PVOID, #[in] InterfaceNumber: LONG, #[in] AlternateSetting: LONG, #[in] InterfaceClass: LONG, #[in] InterfaceSubClass: LONG, #[in] InterfaceProtocol: LONG) -> PUSB_INTERFACE_DESCRIPTOR;
         #[library("WINUSB.DLL")]
-        extern fn WinUsb_ParseDescriptors(#[in] #[readable(entry, bytes(TotalLength))] DescriptorBuffer: PVOID, #[in] TotalLength: ULONG, #[in] StartPosition: PVOID, #[in] DescriptorType: LONG) -> PUSB_COMMON_DESCRIPTOR;
+        extern fn WinUsb_ParseDescriptors(#[buffer(bytes(TotalLength))] #[in] DescriptorBuffer: PVOID, #[in] TotalLength: ULONG, #[in] StartPosition: PVOID, #[in] DescriptorType: LONG) -> PUSB_COMMON_DESCRIPTOR;
         #[library("WINUSB.DLL")]
-        extern fn WinUsb_QueryDeviceInformation(#[in] InterfaceHandle: WINUSB_INTERFACE_HANDLE, #[in] InformationType: ULONG, #[in] #[out] BufferLength: PULONG, #[out] #[writable(entry, bytes(*BufferLength))] Buffer: PVOID) -> BOOL;
+        extern fn WinUsb_QueryDeviceInformation(#[in] InterfaceHandle: WINUSB_INTERFACE_HANDLE, #[in] InformationType: ULONG, #[in] #[out] BufferLength: PULONG, #[buffer(bytes(*BufferLength))] #[out] Buffer: PVOID) -> BOOL;
         #[library("WINUSB.DLL")]
         extern fn WinUsb_QueryInterfaceSettings(#[in] InterfaceHandle: WINUSB_INTERFACE_HANDLE, #[in] AlternateInterfaceNumber: UCHAR, #[out] UsbAltInterfaceDescriptor: PUSB_INTERFACE_DESCRIPTOR) -> BOOL;
         #[library("WINUSB.DLL")]
@@ -55,21 +55,21 @@ mod Windows {
         #[library("WINUSB.DLL")]
         extern fn WinUsb_QueryPipeEx(#[in] InterfaceHandle: WINUSB_INTERFACE_HANDLE, #[in] AlternateSettingNumber: UCHAR, #[in] PipeIndex: UCHAR, #[out] PipeInformationEx: PWINUSB_PIPE_INFORMATION_EX) -> BOOL;
         #[library("WINUSB.DLL")]
-        extern fn WinUsb_ReadIsochPipe(#[in] BufferHandle: WINUSB_ISOCH_BUFFER_HANDLE, #[in] Offset: ULONG, #[in] Length: ULONG, #[in] #[out] FrameNumber: PULONG, #[in] NumberOfPackets: ULONG, #[out] #[writable(entry, NumberOfPackets)] IsoPacketDescriptors: PUSBD_ISO_PACKET_DESCRIPTOR, #[in] #[opt] Overlapped: LPOVERLAPPED) -> BOOL;
+        extern fn WinUsb_ReadIsochPipe(#[in] BufferHandle: WINUSB_ISOCH_BUFFER_HANDLE, #[in] Offset: ULONG, #[in] Length: ULONG, #[in] #[out] FrameNumber: PULONG, #[in] NumberOfPackets: ULONG, #[buffer(NumberOfPackets)] #[out] IsoPacketDescriptors: PUSBD_ISO_PACKET_DESCRIPTOR, #[in] #[opt] Overlapped: LPOVERLAPPED) -> BOOL;
         #[library("WINUSB.DLL")]
-        extern fn WinUsb_ReadIsochPipeAsap(#[in] BufferHandle: WINUSB_ISOCH_BUFFER_HANDLE, #[in] Offset: ULONG, #[in] Length: ULONG, #[in] ContinueStream: BOOL, #[in] NumberOfPackets: ULONG, #[out] #[writable(entry, NumberOfPackets)] IsoPacketDescriptors: PUSBD_ISO_PACKET_DESCRIPTOR, #[in] #[opt] Overlapped: LPOVERLAPPED) -> BOOL;
+        extern fn WinUsb_ReadIsochPipeAsap(#[in] BufferHandle: WINUSB_ISOCH_BUFFER_HANDLE, #[in] Offset: ULONG, #[in] Length: ULONG, #[in] ContinueStream: BOOL, #[in] NumberOfPackets: ULONG, #[buffer(NumberOfPackets)] #[out] IsoPacketDescriptors: PUSBD_ISO_PACKET_DESCRIPTOR, #[in] #[opt] Overlapped: LPOVERLAPPED) -> BOOL;
         #[library("WINUSB.DLL")]
-        extern fn WinUsb_ReadPipe(#[in] InterfaceHandle: WINUSB_INTERFACE_HANDLE, #[in] PipeID: UCHAR, #[opt] #[out] #[readable(success, bytes(if_present(*LengthTransferred)))] #[writable(entry, bytes(BufferLength))] Buffer: PUCHAR, #[in] BufferLength: ULONG, #[opt] #[out] LengthTransferred: PULONG, #[in] #[opt] Overlapped: LPOVERLAPPED) -> BOOL;
+        extern fn WinUsb_ReadPipe(#[in] InterfaceHandle: WINUSB_INTERFACE_HANDLE, #[in] PipeID: UCHAR, #[buffer(bytes(BufferLength))] #[opt] #[out] Buffer: PUCHAR, #[in] BufferLength: ULONG, #[opt] #[out] LengthTransferred: PULONG, #[in] #[opt] Overlapped: LPOVERLAPPED) -> BOOL;
         #[library("WINUSB.DLL")]
-        extern fn WinUsb_RegisterIsochBuffer(#[in] InterfaceHandle: WINUSB_INTERFACE_HANDLE, #[in] PipeID: UCHAR, #[in] #[out] #[writable(entry, bytes(BufferLength))] Buffer: PUCHAR, #[in] BufferLength: ULONG, #[out] IsochBufferHandle: PWINUSB_ISOCH_BUFFER_HANDLE) -> BOOL;
+        extern fn WinUsb_RegisterIsochBuffer(#[in] InterfaceHandle: WINUSB_INTERFACE_HANDLE, #[in] PipeID: UCHAR, #[buffer(bytes(BufferLength))] #[in] #[out] Buffer: PUCHAR, #[in] BufferLength: ULONG, #[out] IsochBufferHandle: PWINUSB_ISOCH_BUFFER_HANDLE) -> BOOL;
         #[library("WINUSB.DLL")]
         extern fn WinUsb_ResetPipe(#[in] InterfaceHandle: WINUSB_INTERFACE_HANDLE, #[in] PipeID: UCHAR) -> BOOL;
         #[library("WINUSB.DLL")]
         extern fn WinUsb_SetCurrentAlternateSetting(#[in] InterfaceHandle: WINUSB_INTERFACE_HANDLE, #[in] SettingNumber: UCHAR) -> BOOL;
         #[library("WINUSB.DLL")]
-        extern fn WinUsb_SetPipePolicy(#[in] InterfaceHandle: WINUSB_INTERFACE_HANDLE, #[in] PipeID: UCHAR, #[in] PolicyType: ULONG, #[in] ValueLength: ULONG, #[in] #[readable(entry, bytes(ValueLength))] Value: PVOID) -> BOOL;
+        extern fn WinUsb_SetPipePolicy(#[in] InterfaceHandle: WINUSB_INTERFACE_HANDLE, #[in] PipeID: UCHAR, #[in] PolicyType: ULONG, #[in] ValueLength: ULONG, #[buffer(bytes(ValueLength))] #[in] Value: PVOID) -> BOOL;
         #[library("WINUSB.DLL")]
-        extern fn WinUsb_SetPowerPolicy(#[in] InterfaceHandle: WINUSB_INTERFACE_HANDLE, #[in] PolicyType: ULONG, #[in] ValueLength: ULONG, #[in] #[readable(entry, bytes(ValueLength))] Value: PVOID) -> BOOL;
+        extern fn WinUsb_SetPowerPolicy(#[in] InterfaceHandle: WINUSB_INTERFACE_HANDLE, #[in] PolicyType: ULONG, #[in] ValueLength: ULONG, #[buffer(bytes(ValueLength))] #[in] Value: PVOID) -> BOOL;
         #[library("WINUSB.DLL")]
         extern fn WinUsb_StartTrackingForTimeSync(#[in] InterfaceHandle: WINUSB_INTERFACE_HANDLE, #[in] StartTrackingInfo: PUSB_START_TRACKING_FOR_TIME_SYNC_INFORMATION) -> BOOL;
         #[library("WINUSB.DLL")]
@@ -81,6 +81,6 @@ mod Windows {
         #[library("WINUSB.DLL")]
         extern fn WinUsb_WriteIsochPipeAsap(#[in] BufferHandle: WINUSB_ISOCH_BUFFER_HANDLE, #[in] Offset: ULONG, #[in] Length: ULONG, #[in] ContinueStream: BOOL, #[in] #[opt] Overlapped: LPOVERLAPPED) -> BOOL;
         #[library("WINUSB.DLL")]
-        extern fn WinUsb_WritePipe(#[in] InterfaceHandle: WINUSB_INTERFACE_HANDLE, #[in] PipeID: UCHAR, #[in] #[readable(entry, bytes(BufferLength))] Buffer: PUCHAR, #[in] BufferLength: ULONG, #[opt] #[out] LengthTransferred: PULONG, #[in] #[opt] Overlapped: LPOVERLAPPED) -> BOOL;
+        extern fn WinUsb_WritePipe(#[in] InterfaceHandle: WINUSB_INTERFACE_HANDLE, #[in] PipeID: UCHAR, #[buffer(bytes(BufferLength))] #[in] Buffer: PUCHAR, #[in] BufferLength: ULONG, #[opt] #[out] LengthTransferred: PULONG, #[in] #[opt] Overlapped: LPOVERLAPPED) -> BOOL;
     }
 }

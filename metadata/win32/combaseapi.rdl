@@ -63,22 +63,22 @@ mod Windows {
         extern fn CoCancelCall(#[in] dwThreadId: DWORD, #[in] ulTimeout: ULONG) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoCopyProxy(#[in] pProxy: IUnknown, #[out] #[out_ptr] #[retval] ppCopy: *mut IUnknown) -> HRESULT;
+        extern fn CoCopyProxy(#[in] pProxy: IUnknown, #[out] #[retval] ppCopy: *mut IUnknown) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoCreateFreeThreadedMarshaler(#[in] #[opt] punkOuter: LPUNKNOWN, #[out] #[out_ptr] #[retval] ppunkMarshal: *mut LPUNKNOWN) -> HRESULT;
+        extern fn CoCreateFreeThreadedMarshaler(#[in] #[opt] punkOuter: LPUNKNOWN, #[out] #[retval] ppunkMarshal: *mut LPUNKNOWN) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
         extern fn CoCreateGuid(#[out] pguid: *mut GUID) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoCreateInstance(#[in] rclsid: &IID, #[in] #[opt] pUnkOuter: LPUNKNOWN, #[in] dwClsContext: DWORD, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] #[readable(success, unknown(), indirect)] ppv: *mut LPVOID) -> HRESULT;
+        extern fn CoCreateInstance(#[in] rclsid: &IID, #[in] #[opt] pUnkOuter: LPUNKNOWN, #[in] dwClsContext: DWORD, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut LPVOID) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoCreateInstanceEx(#[in] Clsid: &IID, #[in] #[opt] punkOuter: IUnknown, #[in] dwClsCtx: DWORD, #[in] #[opt] pServerInfo: *mut COSERVERINFO, #[in] dwCount: DWORD, #[in] #[out] #[writable(entry, dwCount)] pResults: *mut MULTI_QI) -> HRESULT;
+        extern fn CoCreateInstanceEx(#[in] Clsid: &IID, #[in] #[opt] punkOuter: IUnknown, #[in] dwClsCtx: DWORD, #[in] #[opt] pServerInfo: *mut COSERVERINFO, #[in] dwCount: DWORD, #[buffer(dwCount)] #[in] #[out] pResults: *mut MULTI_QI) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoCreateInstanceFromApp(#[in] Clsid: &IID, #[in] #[opt] punkOuter: IUnknown, #[in] dwClsCtx: DWORD, #[in] #[opt] reserved: PVOID, #[in] dwCount: DWORD, #[in] #[out] #[writable(entry, dwCount)] pResults: *mut MULTI_QI) -> HRESULT;
+        extern fn CoCreateInstanceFromApp(#[in] Clsid: &IID, #[in] #[opt] punkOuter: IUnknown, #[in] dwClsCtx: DWORD, #[in] #[opt] reserved: PVOID, #[in] dwCount: DWORD, #[buffer(dwCount)] #[in] #[out] pResults: *mut MULTI_QI) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
         extern fn CoDecodeProxy(#[in] dwClientPid: DWORD, #[in] ui64ProxyAddress: UINT64, #[out] pServerInformation: PServerInformation) -> HRESULT;
@@ -105,15 +105,15 @@ mod Windows {
         extern fn CoGetApartmentType(#[out] pAptType: *mut APTTYPE, #[out] pAptQualifier: *mut APTTYPEQUALIFIER) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoGetCallContext(#[in] riid: &IID, #[out] #[out_ptr] ppInterface: *mut *mut void) -> HRESULT;
+        extern fn CoGetCallContext(#[in] riid: &IID, #[out] ppInterface: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
         extern fn CoGetCallerTID(#[out] lpdwTID: LPDWORD) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoGetCancelObject(#[in] dwThreadId: DWORD, #[in] iid: &IID, #[out] #[out_ptr] ppUnk: *mut *mut void) -> HRESULT;
+        extern fn CoGetCancelObject(#[in] dwThreadId: DWORD, #[in] iid: &IID, #[out] ppUnk: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoGetClassObject(#[in] rclsid: &IID, #[in] dwClsContext: DWORD, #[in] #[opt] pvReserved: LPVOID, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut LPVOID) -> HRESULT;
+        extern fn CoGetClassObject(#[in] rclsid: &IID, #[in] dwClsContext: DWORD, #[in] #[opt] pvReserved: LPVOID, #[in] riid: &IID, #[out] ppv: *mut LPVOID) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
         extern fn CoGetContextToken(#[out] pToken: *mut ULONG_PTR) -> HRESULT;
@@ -123,28 +123,28 @@ mod Windows {
         extern fn CoGetCurrentProcess() -> DWORD;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoGetDefaultContext(#[in] aptType: APTTYPE, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+        extern fn CoGetDefaultContext(#[in] aptType: APTTYPE, #[in] riid: &IID, #[out] ppv: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoGetInterfaceAndReleaseStream(#[in] pStm: LPSTREAM, #[in] iid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppv: *mut LPVOID) -> HRESULT;
+        extern fn CoGetInterfaceAndReleaseStream(#[in] pStm: LPSTREAM, #[in] iid: &IID, #[iid_is] #[out] ppv: *mut LPVOID) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoGetMalloc(#[in] dwMemContext: DWORD, #[out] #[out_ptr] #[retval] ppMalloc: *mut LPMALLOC) -> HRESULT;
+        extern fn CoGetMalloc(#[in] dwMemContext: DWORD, #[out] #[retval] ppMalloc: *mut LPMALLOC) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
         extern fn CoGetMarshalSizeMax(#[out] pulSize: *mut ULONG, #[in] riid: &IID, #[in] pUnk: LPUNKNOWN, #[in] dwDestContext: DWORD, #[in] #[opt] pvDestContext: LPVOID, #[in] mshlflags: DWORD) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoGetObjectContext(#[in] riid: &IID, #[out] #[out_ptr] ppv: *mut LPVOID) -> HRESULT;
+        extern fn CoGetObjectContext(#[in] riid: &IID, #[out] ppv: *mut LPVOID) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
         extern fn CoGetPSClsid(#[in] riid: &IID, #[out] pClsid: *mut CLSID) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoGetStandardMarshal(#[in] riid: &IID, #[in] #[opt] pUnk: LPUNKNOWN, #[in] dwDestContext: DWORD, #[in] #[opt] pvDestContext: LPVOID, #[in] mshlflags: DWORD, #[out] #[out_ptr] #[retval] ppMarshal: *mut LPMARSHAL) -> HRESULT;
+        extern fn CoGetStandardMarshal(#[in] riid: &IID, #[in] #[opt] pUnk: LPUNKNOWN, #[in] dwDestContext: DWORD, #[in] #[opt] pvDestContext: LPVOID, #[in] mshlflags: DWORD, #[out] #[retval] ppMarshal: *mut LPMARSHAL) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoGetStdMarshalEx(#[in] pUnkOuter: LPUNKNOWN, #[in] smexflags: DWORD, #[out] #[out_ptr] #[retval] ppUnkInner: *mut LPUNKNOWN) -> HRESULT;
+        extern fn CoGetStdMarshalEx(#[in] pUnkOuter: LPUNKNOWN, #[in] smexflags: DWORD, #[out] #[retval] ppUnkInner: *mut LPUNKNOWN) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
         extern fn CoGetTreatAsClass(#[in] clsidOld: &IID, #[out] pClsidNew: LPCLSID) -> HRESULT;
@@ -159,7 +159,7 @@ mod Windows {
         extern fn CoInitializeEx(#[in] #[opt] pvReserved: LPVOID, #[in] dwCoInit: DWORD) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoInitializeSecurity(#[in] #[opt] pSecDesc: PSECURITY_DESCRIPTOR, #[in] cAuthSvc: LONG, #[in] #[opt] #[readable(entry, cAuthSvc)] asAuthSvc: *mut SOLE_AUTHENTICATION_SERVICE, #[in] #[opt] pReserved1: *mut void, #[in] dwAuthnLevel: DWORD, #[in] dwImpLevel: DWORD, #[in] #[opt] pAuthList: *mut void, #[in] dwCapabilities: DWORD, #[in] #[opt] pReserved3: *mut void) -> HRESULT;
+        extern fn CoInitializeSecurity(#[in] #[opt] pSecDesc: PSECURITY_DESCRIPTOR, #[in] cAuthSvc: LONG, #[buffer(cAuthSvc)] #[in] #[opt] asAuthSvc: *mut SOLE_AUTHENTICATION_SERVICE, #[in] #[opt] pReserved1: *mut void, #[in] dwAuthnLevel: DWORD, #[in] dwImpLevel: DWORD, #[in] #[opt] pAuthList: *mut void, #[in] dwCapabilities: DWORD, #[in] #[opt] pReserved3: *mut void) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
         extern fn CoInvalidateRemoteMachineBindings(#[in] pszMachineName: LPOLESTR) -> HRESULT;
@@ -172,19 +172,19 @@ mod Windows {
         extern fn CoMarshalHresult(#[in] pstm: LPSTREAM, #[in] hresult: HRESULT) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoMarshalInterThreadInterfaceInStream(#[in] riid: &IID, #[in] pUnk: LPUNKNOWN, #[out] #[out_ptr] #[retval] ppStm: *mut LPSTREAM) -> HRESULT;
+        extern fn CoMarshalInterThreadInterfaceInStream(#[in] riid: &IID, #[in] pUnk: LPUNKNOWN, #[out] #[retval] ppStm: *mut LPSTREAM) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
         extern fn CoMarshalInterface(#[in] pStm: LPSTREAM, #[in] riid: &IID, #[in] pUnk: LPUNKNOWN, #[in] dwDestContext: DWORD, #[in] #[opt] pvDestContext: LPVOID, #[in] mshlflags: DWORD) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoQueryAuthenticationServices(#[out] pcAuthSvc: *mut DWORD, #[out] #[writable(success, *pcAuthSvc, indirect)] asAuthSvc: *mut *mut SOLE_AUTHENTICATION_SERVICE) -> HRESULT;
+        extern fn CoQueryAuthenticationServices(#[out] pcAuthSvc: *mut DWORD, #[incomplete] #[out] asAuthSvc: *mut *mut SOLE_AUTHENTICATION_SERVICE) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoQueryClientBlanket(#[opt] #[out] pAuthnSvc: *mut DWORD, #[opt] #[out] pAuthzSvc: *mut DWORD, #[opt] #[out] #[out_ptr] pServerPrincName: *mut LPOLESTR, #[opt] #[out] pAuthnLevel: *mut DWORD, #[opt] #[out] pImpLevel: *mut DWORD, #[incomplete] #[opt] #[out] pPrivs: *mut RPC_AUTHZ_HANDLE, #[in] #[opt] #[out] pCapabilities: *mut DWORD) -> HRESULT;
+        extern fn CoQueryClientBlanket(#[opt] #[out] pAuthnSvc: *mut DWORD, #[opt] #[out] pAuthzSvc: *mut DWORD, #[opt] #[out] pServerPrincName: *mut LPOLESTR, #[opt] #[out] pAuthnLevel: *mut DWORD, #[opt] #[out] pImpLevel: *mut DWORD, #[incomplete] #[opt] #[out] pPrivs: *mut RPC_AUTHZ_HANDLE, #[in] #[opt] #[out] pCapabilities: *mut DWORD) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoQueryProxyBlanket(#[in] pProxy: IUnknown, #[opt] #[out] pwAuthnSvc: *mut DWORD, #[opt] #[out] pAuthzSvc: *mut DWORD, #[opt] #[out] #[out_ptr] pServerPrincName: *mut LPOLESTR, #[opt] #[out] pAuthnLevel: *mut DWORD, #[opt] #[out] pImpLevel: *mut DWORD, #[opt] #[out] pAuthInfo: *mut RPC_AUTH_IDENTITY_HANDLE, #[opt] #[out] pCapabilites: *mut DWORD) -> HRESULT;
+        extern fn CoQueryProxyBlanket(#[in] pProxy: IUnknown, #[opt] #[out] pwAuthnSvc: *mut DWORD, #[opt] #[out] pAuthzSvc: *mut DWORD, #[opt] #[out] pServerPrincName: *mut LPOLESTR, #[opt] #[out] pAuthnLevel: *mut DWORD, #[opt] #[out] pImpLevel: *mut DWORD, #[opt] #[out] pAuthInfo: *mut RPC_AUTH_IDENTITY_HANDLE, #[opt] #[out] pCapabilites: *mut DWORD) -> HRESULT;
         #[library("ole32.dll")]
         extern fn CoRegisterActivationFilter(#[in] pActivationFilter: IActivationFilter) -> HRESULT;
         #[library("ole32.dll")]
@@ -226,7 +226,7 @@ mod Windows {
         extern fn CoSuspendClassObjects() -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoSwitchCallContext(#[in] #[opt] pNewObject: IUnknown, #[out] #[out_ptr] #[retval] ppOldObject: *mut IUnknown) -> HRESULT;
+        extern fn CoSwitchCallContext(#[in] #[opt] pNewObject: IUnknown, #[out] #[retval] ppOldObject: *mut IUnknown) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
         extern fn CoTaskMemAlloc(#[in] cb: SIZE_T) -> LPVOID;
@@ -243,15 +243,15 @@ mod Windows {
         extern fn CoUnmarshalHresult(#[in] pstm: LPSTREAM, #[out] phresult: *mut HRESULT) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoUnmarshalInterface(#[in] pStm: LPSTREAM, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppv: *mut LPVOID) -> HRESULT;
+        extern fn CoUnmarshalInterface(#[in] pStm: LPSTREAM, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut LPVOID) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CoWaitForMultipleHandles(#[in] dwFlags: DWORD, #[in] dwTimeout: DWORD, #[in] cHandles: ULONG, #[in] #[readable(entry, cHandles)] pHandles: LPHANDLE, #[out] lpdwindex: LPDWORD) -> HRESULT;
+        extern fn CoWaitForMultipleHandles(#[in] dwFlags: DWORD, #[in] dwTimeout: DWORD, #[in] cHandles: ULONG, #[buffer(cHandles)] #[in] pHandles: LPHANDLE, #[out] lpdwindex: LPDWORD) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn CoWaitForMultipleObjects(#[in] dwFlags: DWORD, #[in] dwTimeout: DWORD, #[in] cHandles: ULONG, #[in] #[readable(entry, cHandles)] pHandles: *const HANDLE, #[out] lpdwindex: LPDWORD) -> HRESULT;
+        extern fn CoWaitForMultipleObjects(#[in] dwFlags: DWORD, #[in] dwTimeout: DWORD, #[in] cHandles: ULONG, #[buffer(cHandles)] #[in] pHandles: *const HANDLE, #[out] lpdwindex: LPDWORD) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn CreateStreamOnHGlobal(hGlobal: HGLOBAL, #[in] fDeleteOnRelease: BOOL, #[out] #[out_ptr] #[retval] ppstm: *mut LPSTREAM) -> HRESULT;
+        extern fn CreateStreamOnHGlobal(hGlobal: HGLOBAL, #[in] fDeleteOnRelease: BOOL, #[out] #[retval] ppstm: *mut LPSTREAM) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
         extern fn GetHGlobalFromStream(#[in] pstm: LPSTREAM, #[out] phglobal: *mut HGLOBAL) -> HRESULT;
@@ -263,7 +263,7 @@ mod Windows {
         type PServerInformation = *mut ServerInformation;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn ProgIDFromCLSID(#[in] clsid: &IID, #[out] #[out_ptr] lplpszProgID: *mut LPOLESTR) -> HRESULT;
+        extern fn ProgIDFromCLSID(#[in] clsid: &IID, #[out] lplpszProgID: *mut LPOLESTR) -> HRESULT;
         #[flags]
         #[repr(i32)]
         enum REGCLS {
@@ -276,7 +276,7 @@ mod Windows {
         }
         #[library("ole32.dll")]
         #[must_use]
-        extern fn RoGetAgileReference(#[in] options: AgileReferenceOptions, #[in] riid: &IID, #[in] pUnk: IUnknown, #[out] #[out_ptr(null_on_failure)] #[retval] ppAgileReference: *mut IAgileReference) -> HRESULT;
+        extern fn RoGetAgileReference(#[in] options: AgileReferenceOptions, #[in] riid: &IID, #[in] pUnk: IUnknown, #[out] #[retval] ppAgileReference: *mut IAgileReference) -> HRESULT;
         #[repr(i32)]
         enum STDMSHLFLAGS {
             SMEXF_SERVER = 1,
@@ -290,13 +290,13 @@ mod Windows {
         }
         #[library("ole32.dll")]
         #[must_use]
-        extern fn StringFromCLSID(#[in] rclsid: &IID, #[out] #[out_ptr] lplpsz: *mut LPOLESTR) -> HRESULT;
+        extern fn StringFromCLSID(#[in] rclsid: &IID, #[out] lplpsz: *mut LPOLESTR) -> HRESULT;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn StringFromGUID2(#[in] rguid: &GUID, #[incomplete] #[out] #[writable(entry, cchMax)] lpsz: LPOLESTR, #[in] cchMax: i32) -> i32;
+        extern fn StringFromGUID2(#[in] rguid: &GUID, #[buffer(cchMax)] #[incomplete] #[out] lpsz: LPOLESTR, #[in] cchMax: i32) -> i32;
         #[library("ole32.dll")]
         #[must_use]
-        extern fn StringFromIID(#[in] rclsid: &IID, #[out] #[out_ptr] lplpsz: *mut LPOLESTR) -> HRESULT;
+        extern fn StringFromIID(#[in] rclsid: &IID, #[out] lplpsz: *mut LPOLESTR) -> HRESULT;
         #[arch(X64 | Arm64)]
         #[encoding("ansi")]
         const _CRT_INTERNAL_COMBASE_SYMBOL_PREFIX: String = "";

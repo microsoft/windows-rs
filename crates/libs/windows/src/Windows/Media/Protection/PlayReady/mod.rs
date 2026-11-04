@@ -77,7 +77,10 @@ impl INDClosedCaptionDataReceivedEventArgs_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -89,7 +92,10 @@ impl INDClosedCaptionDataReceivedEventArgs_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -103,7 +109,11 @@ impl INDClosedCaptionDataReceivedEventArgs_Vtbl {
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        result_size__.write(0);
+                        err.into()
+                    }
                 }
             }
         }
@@ -165,7 +175,11 @@ impl INDCustomData_Vtbl {
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        result_size__.write(0);
+                        err.into()
+                    }
                 }
             }
         }
@@ -179,7 +193,11 @@ impl INDCustomData_Vtbl {
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        result_size__.write(0);
+                        err.into()
+                    }
                 }
             }
         }
@@ -315,7 +333,10 @@ impl INDDownloadEngine_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -327,7 +348,10 @@ impl INDDownloadEngine_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -339,7 +363,10 @@ impl INDDownloadEngine_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -352,7 +379,10 @@ impl INDDownloadEngine_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -521,7 +551,10 @@ impl INDLicenseFetchCompletedEventArgs_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -591,7 +624,10 @@ impl INDLicenseFetchDescriptor_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -605,7 +641,11 @@ impl INDLicenseFetchDescriptor_Vtbl {
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        result_size__.write(0);
+                        err.into()
+                    }
                 }
             }
         }
@@ -618,7 +658,10 @@ impl INDLicenseFetchDescriptor_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -691,7 +734,10 @@ impl INDLicenseFetchResult_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -762,7 +808,10 @@ impl INDMessenger_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -775,7 +824,10 @@ impl INDMessenger_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -788,7 +840,10 @@ impl INDMessenger_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -801,7 +856,10 @@ impl INDMessenger_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -856,7 +914,10 @@ impl INDProximityDetectionCompletedEventArgs_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -924,7 +985,10 @@ impl INDRegistrationCompletedEventArgs_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -937,7 +1001,10 @@ impl INDRegistrationCompletedEventArgs_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -949,7 +1016,10 @@ impl INDRegistrationCompletedEventArgs_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1012,7 +1082,11 @@ impl INDSendResult_Vtbl {
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        result_size__.write(0);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1063,7 +1137,10 @@ impl INDStartResult_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1120,7 +1197,10 @@ impl INDStorageFileHelper_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1201,7 +1281,10 @@ impl INDStreamParser_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1226,7 +1309,10 @@ impl INDStreamParser_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1471,7 +1557,10 @@ impl INDTransmitterProperties_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1483,7 +1572,10 @@ impl INDTransmitterProperties_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1497,7 +1589,11 @@ impl INDTransmitterProperties_Vtbl {
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        result_size__.write(0);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1509,7 +1605,10 @@ impl INDTransmitterProperties_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1521,7 +1620,10 @@ impl INDTransmitterProperties_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1533,7 +1635,10 @@ impl INDTransmitterProperties_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1547,7 +1652,11 @@ impl INDTransmitterProperties_Vtbl {
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        result_size__.write(0);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1561,7 +1670,11 @@ impl INDTransmitterProperties_Vtbl {
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        result_size__.write(0);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1574,7 +1687,10 @@ impl INDTransmitterProperties_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1587,7 +1703,10 @@ impl INDTransmitterProperties_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1600,7 +1719,10 @@ impl INDTransmitterProperties_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1764,7 +1886,10 @@ impl IPlayReadyDomain_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1776,7 +1901,10 @@ impl IPlayReadyDomain_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1788,7 +1916,10 @@ impl IPlayReadyDomain_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1801,7 +1932,10 @@ impl IPlayReadyDomain_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1814,7 +1948,10 @@ impl IPlayReadyDomain_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1978,7 +2115,10 @@ impl IPlayReadyLicense_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1990,7 +2130,10 @@ impl IPlayReadyLicense_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2003,7 +2146,10 @@ impl IPlayReadyLicense_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2015,7 +2161,10 @@ impl IPlayReadyLicense_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2027,7 +2176,10 @@ impl IPlayReadyLicense_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2039,7 +2191,10 @@ impl IPlayReadyLicense_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2051,7 +2206,10 @@ impl IPlayReadyLicense_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2220,7 +2378,10 @@ impl IPlayReadyLicenseAcquisitionServiceRequest_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2238,7 +2399,10 @@ impl IPlayReadyLicenseAcquisitionServiceRequest_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2351,7 +2515,10 @@ impl IPlayReadyLicenseSession_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2427,7 +2594,10 @@ impl IPlayReadyLicenseSession2_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2626,7 +2796,10 @@ impl IPlayReadySecureStopServiceRequest_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2638,7 +2811,10 @@ impl IPlayReadySecureStopServiceRequest_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2650,7 +2826,10 @@ impl IPlayReadySecureStopServiceRequest_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2662,7 +2841,10 @@ impl IPlayReadySecureStopServiceRequest_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2676,7 +2858,11 @@ impl IPlayReadySecureStopServiceRequest_Vtbl {
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        result_size__.write(0);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2814,7 +3000,10 @@ impl IPlayReadyServiceRequest_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2833,7 +3022,10 @@ impl IPlayReadyServiceRequest_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2846,7 +3038,10 @@ impl IPlayReadyServiceRequest_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2865,7 +3060,10 @@ impl IPlayReadyServiceRequest_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2878,7 +3076,10 @@ impl IPlayReadyServiceRequest_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2891,7 +3092,10 @@ impl IPlayReadyServiceRequest_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2903,7 +3107,10 @@ impl IPlayReadyServiceRequest_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

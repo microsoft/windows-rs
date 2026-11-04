@@ -31,7 +31,7 @@ mod Windows {
         }
         #[guid(0xfa993889_4383_415a_a930_dd472a8cf6f7)]
         interface IMFTopologyServiceLookup: IUnknown {
-            fn LookupService(&self, #[in] Type: MF_SERVICE_LOOKUP_TYPE, #[in] dwIndex: DWORD, #[in] guidService: &GUID, #[in] riid: &IID, #[iid_is] #[out] #[readable(success, *pnObjects)] #[writable(entry, 1)] ppvObjects: *mut LPVOID, #[in] #[out] pnObjects: *mut DWORD) -> HRESULT;
+            fn LookupService(&self, #[in] Type: MF_SERVICE_LOOKUP_TYPE, #[in] dwIndex: DWORD, #[in] guidService: &GUID, #[in] riid: &IID, #[buffer(1)] #[iid_is] #[out] ppvObjects: *mut LPVOID, #[in] #[out] pnObjects: *mut DWORD) -> HRESULT;
         }
         #[guid(0xfa99388a_4383_415a_a930_dd472a8cf6f7)]
         interface IMFTopologyServiceLookupClient: IUnknown {
@@ -51,9 +51,9 @@ mod Windows {
             fn SetAspectRatioMode(&self, #[in] dwAspectRatioMode: DWORD) -> HRESULT;
             fn GetAspectRatioMode(&self, #[out] pdwAspectRatioMode: *mut DWORD) -> HRESULT;
             fn SetVideoWindow(&self, #[in] hwndVideo: HWND) -> HRESULT;
-            fn GetVideoWindow(&self, #[out] #[out_ptr] phwndVideo: *mut HWND) -> HRESULT;
+            fn GetVideoWindow(&self, #[out] phwndVideo: *mut HWND) -> HRESULT;
             fn RepaintVideo(&self) -> HRESULT;
-            fn GetCurrentImage(&self, #[in] #[out] pBih: *mut BITMAPINFOHEADER, #[nullable] #[out] #[readable(success, *pcbDib, indirect)] #[writable(success, *pcbDib, indirect)] pDib: *mut *mut BYTE, #[out] pcbDib: *mut DWORD, #[in] #[opt] #[out] pTimeStamp: *mut LONGLONG) -> HRESULT;
+            fn GetCurrentImage(&self, #[in] #[out] pBih: *mut BITMAPINFOHEADER, #[incomplete] #[out] pDib: *mut *mut BYTE, #[out] pcbDib: *mut DWORD, #[in] #[opt] #[out] pTimeStamp: *mut LONGLONG) -> HRESULT;
             fn SetBorderColor(&self, #[in] Clr: COLORREF) -> HRESULT;
             fn GetBorderColor(&self, #[out] pClr: *mut COLORREF) -> HRESULT;
             fn SetRenderingPrefs(&self, #[in] dwRenderFlags: DWORD) -> HRESULT;
@@ -80,22 +80,22 @@ mod Windows {
         #[guid(0x29aff080_182a_4a5d_af3b_448f3a6346cb)]
         interface IMFVideoPresenter: IMFClockStateSink {
             fn ProcessMessage(&self, eMessage: MFVP_MESSAGE_TYPE, ulParam: ULONG_PTR) -> HRESULT;
-            fn GetCurrentMediaType(&self, #[out] #[out_ptr] #[retval] ppMediaType: *mut IMFVideoMediaType) -> HRESULT;
+            fn GetCurrentMediaType(&self, #[out] #[retval] ppMediaType: *mut IMFVideoMediaType) -> HRESULT;
         }
         #[guid(0xdfdfd197_a9ca_43d8_b341_6af3503792cd)]
         interface IMFVideoRenderer: IUnknown {
             fn InitializeRenderer(&self, #[in] #[opt] pVideoMixer: IMFTransform, #[in] #[opt] pVideoPresenter: IMFVideoPresenter) -> HRESULT;
         }
         #[library("EVR.dll")]
-        extern fn MFCreateVideoMixer(#[in] #[opt] pOwner: IUnknown, riidDevice: &IID, riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+        extern fn MFCreateVideoMixer(#[in] #[opt] pOwner: IUnknown, riidDevice: &IID, riid: &IID, #[out] ppv: *mut *mut void) -> HRESULT;
         #[library("EVR.dll")]
-        extern fn MFCreateVideoMixerAndPresenter(#[in] #[opt] pMixerOwner: IUnknown, #[in] #[opt] pPresenterOwner: IUnknown, riidMixer: &IID, #[out] #[out_ptr] ppvVideoMixer: *mut *mut void, riidPresenter: &IID, #[out] #[out_ptr] ppvVideoPresenter: *mut *mut void) -> HRESULT;
+        extern fn MFCreateVideoMixerAndPresenter(#[in] #[opt] pMixerOwner: IUnknown, #[in] #[opt] pPresenterOwner: IUnknown, riidMixer: &IID, #[out] ppvVideoMixer: *mut *mut void, riidPresenter: &IID, #[out] ppvVideoPresenter: *mut *mut void) -> HRESULT;
         #[library("EVR.dll")]
-        extern fn MFCreateVideoPresenter(#[in] #[opt] pOwner: IUnknown, riidDevice: &IID, riid: &IID, #[nullable] #[out] #[out_ptr] ppVideoPresenter: *mut *mut void) -> HRESULT;
+        extern fn MFCreateVideoPresenter(#[in] #[opt] pOwner: IUnknown, riidDevice: &IID, riid: &IID, #[out] ppVideoPresenter: *mut *mut void) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateVideoRenderer(riidRenderer: &IID, #[nullable] #[out] #[out_ptr] ppVideoRenderer: *mut *mut void) -> HRESULT;
+        extern fn MFCreateVideoRenderer(riidRenderer: &IID, #[out] ppVideoRenderer: *mut *mut void) -> HRESULT;
         #[library("EVR.dll")]
-        extern fn MFCreateVideoSampleAllocator(#[in] riid: &IID, #[out] #[out_ptr] ppSampleAllocator: *mut *mut void) -> HRESULT;
+        extern fn MFCreateVideoSampleAllocator(#[in] riid: &IID, #[out] ppSampleAllocator: *mut *mut void) -> HRESULT;
         #[library("EVR.dll")]
         extern fn MFCreateVideoSampleFromSurface(#[in] pUnkSurface: IUnknown, #[out] ppSample: *mut IMFSample) -> HRESULT;
         const MFEVRDLL: i32 = 0;

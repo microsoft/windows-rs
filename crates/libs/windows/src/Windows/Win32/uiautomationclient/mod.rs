@@ -226,10 +226,10 @@ impl IUIAutomation {
             (windows_core::Interface::vtable(self).CreateAndConditionFromArray)(windows_core::Interface::as_raw(self), conditions.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateAndConditionFromNativeArray(&self, conditions: &[Option<IUIAutomationCondition>]) -> windows_core::Result<IUIAutomationCondition> {
+    pub unsafe fn CreateAndConditionFromNativeArray(&self, conditions: *const Option<IUIAutomationCondition>, conditioncount: i32) -> windows_core::Result<IUIAutomationCondition> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateAndConditionFromNativeArray)(windows_core::Interface::as_raw(self), core::mem::transmute(conditions.as_ptr()), conditions.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateAndConditionFromNativeArray)(windows_core::Interface::as_raw(self), core::mem::transmute(conditions), conditioncount, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateOrCondition<P0, P1>(&self, condition1: P0, condition2: P1) -> windows_core::Result<IUIAutomationCondition>
@@ -249,10 +249,10 @@ impl IUIAutomation {
             (windows_core::Interface::vtable(self).CreateOrConditionFromArray)(windows_core::Interface::as_raw(self), conditions.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateOrConditionFromNativeArray(&self, conditions: &[Option<IUIAutomationCondition>]) -> windows_core::Result<IUIAutomationCondition> {
+    pub unsafe fn CreateOrConditionFromNativeArray(&self, conditions: *const Option<IUIAutomationCondition>, conditioncount: i32) -> windows_core::Result<IUIAutomationCondition> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateOrConditionFromNativeArray)(windows_core::Interface::as_raw(self), core::mem::transmute(conditions.as_ptr()), conditions.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateOrConditionFromNativeArray)(windows_core::Interface::as_raw(self), core::mem::transmute(conditions), conditioncount, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateNotCondition<P0>(&self, condition: P0) -> windows_core::Result<IUIAutomationCondition>
@@ -282,13 +282,13 @@ impl IUIAutomation {
         unsafe { (windows_core::Interface::vtable(self).RemoveAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, element.param().abi(), handler.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn AddPropertyChangedEventHandlerNativeArray<P0, P2, P3>(&self, element: P0, scope: TreeScope, cacherequest: P2, handler: P3, propertyarray: &[super::PROPERTYID]) -> windows_core::HRESULT
+    pub unsafe fn AddPropertyChangedEventHandlerNativeArray<P0, P2, P3>(&self, element: P0, scope: TreeScope, cacherequest: P2, handler: P3, propertyarray: *const super::PROPERTYID, propertycount: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P2: windows_core::Param<IUIAutomationCacheRequest>,
         P3: windows_core::Param<IUIAutomationPropertyChangedEventHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPropertyChangedEventHandlerNativeArray)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi(), propertyarray.as_ptr(), propertyarray.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).AddPropertyChangedEventHandlerNativeArray)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi(), propertyarray, propertycount) }
     }
     #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
     pub unsafe fn AddPropertyChangedEventHandler<P0, P2, P3>(&self, element: P0, scope: TreeScope, cacherequest: P2, handler: P3, propertyarray: *const super::SAFEARRAY) -> windows_core::HRESULT
@@ -338,10 +338,10 @@ impl IUIAutomation {
         unsafe { (windows_core::Interface::vtable(self).RemoveAllEventHandlers)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
-    pub unsafe fn IntNativeArrayToSafeArray(&self, array: &[i32]) -> windows_core::Result<*mut super::SAFEARRAY> {
+    pub unsafe fn IntNativeArrayToSafeArray(&self, array: *const i32, arraycount: i32) -> windows_core::Result<*mut super::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IntNativeArrayToSafeArray)(windows_core::Interface::as_raw(self), array.as_ptr(), array.len().try_into().unwrap(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).IntNativeArrayToSafeArray)(windows_core::Interface::as_raw(self), array, arraycount, &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
@@ -654,7 +654,10 @@ impl IUIAutomation_Vtbl {
                         aresame.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        aresame.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -666,7 +669,10 @@ impl IUIAutomation_Vtbl {
                         aresame.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        aresame.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -678,7 +684,10 @@ impl IUIAutomation_Vtbl {
                         root.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        root.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -690,7 +699,10 @@ impl IUIAutomation_Vtbl {
                         element.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        element.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -702,7 +714,10 @@ impl IUIAutomation_Vtbl {
                         element.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        element.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -714,7 +729,10 @@ impl IUIAutomation_Vtbl {
                         element.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        element.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -726,7 +744,10 @@ impl IUIAutomation_Vtbl {
                         root.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        root.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -738,7 +759,10 @@ impl IUIAutomation_Vtbl {
                         element.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        element.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -750,7 +774,10 @@ impl IUIAutomation_Vtbl {
                         element.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        element.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -762,7 +789,10 @@ impl IUIAutomation_Vtbl {
                         element.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        element.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -774,7 +804,10 @@ impl IUIAutomation_Vtbl {
                         walker.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        walker.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -786,7 +819,10 @@ impl IUIAutomation_Vtbl {
                         walker.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        walker.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -798,7 +834,10 @@ impl IUIAutomation_Vtbl {
                         walker.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        walker.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -810,7 +849,10 @@ impl IUIAutomation_Vtbl {
                         walker.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        walker.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -822,7 +864,10 @@ impl IUIAutomation_Vtbl {
                         condition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        condition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -834,7 +879,10 @@ impl IUIAutomation_Vtbl {
                         condition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        condition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -846,7 +894,10 @@ impl IUIAutomation_Vtbl {
                         condition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        condition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -858,7 +909,10 @@ impl IUIAutomation_Vtbl {
                         cacherequest.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        cacherequest.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -870,7 +924,10 @@ impl IUIAutomation_Vtbl {
                         newcondition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newcondition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -882,7 +939,10 @@ impl IUIAutomation_Vtbl {
                         newcondition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newcondition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -894,7 +954,10 @@ impl IUIAutomation_Vtbl {
                         newcondition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newcondition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -906,7 +969,10 @@ impl IUIAutomation_Vtbl {
                         newcondition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newcondition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -918,7 +984,10 @@ impl IUIAutomation_Vtbl {
                         newcondition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newcondition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -930,7 +999,10 @@ impl IUIAutomation_Vtbl {
                         newcondition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newcondition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -942,7 +1014,10 @@ impl IUIAutomation_Vtbl {
                         newcondition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newcondition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -954,7 +1029,10 @@ impl IUIAutomation_Vtbl {
                         newcondition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newcondition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -966,7 +1044,10 @@ impl IUIAutomation_Vtbl {
                         newcondition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newcondition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -978,7 +1059,10 @@ impl IUIAutomation_Vtbl {
                         newcondition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newcondition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -990,7 +1074,10 @@ impl IUIAutomation_Vtbl {
                         newcondition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newcondition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1062,7 +1149,10 @@ impl IUIAutomation_Vtbl {
                         safearray.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        safearray.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1074,7 +1164,10 @@ impl IUIAutomation_Vtbl {
                         arraycount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        arraycount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1086,7 +1179,10 @@ impl IUIAutomation_Vtbl {
                         var.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        var.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1098,7 +1194,10 @@ impl IUIAutomation_Vtbl {
                         rc.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rc.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1110,7 +1209,10 @@ impl IUIAutomation_Vtbl {
                         rectarraycount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rectarraycount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1122,7 +1224,10 @@ impl IUIAutomation_Vtbl {
                         factoryentry.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        factoryentry.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1134,7 +1239,10 @@ impl IUIAutomation_Vtbl {
                         factorymapping.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        factorymapping.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1146,7 +1254,10 @@ impl IUIAutomation_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        name.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1158,7 +1269,10 @@ impl IUIAutomation_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        name.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1182,7 +1296,10 @@ impl IUIAutomation_Vtbl {
                         isnotsupported.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        isnotsupported.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1194,7 +1311,10 @@ impl IUIAutomation_Vtbl {
                         notsupportedvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        notsupportedvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1206,7 +1326,10 @@ impl IUIAutomation_Vtbl {
                         mixedattributevalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mixedattributevalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1218,7 +1341,10 @@ impl IUIAutomation_Vtbl {
                         element.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        element.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1230,7 +1356,10 @@ impl IUIAutomation_Vtbl {
                         element.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        element.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1383,7 +1512,10 @@ impl IUIAutomation2_Vtbl {
                         autosetfocus.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        autosetfocus.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1401,7 +1533,10 @@ impl IUIAutomation2_Vtbl {
                         timeout.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        timeout.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1419,7 +1554,10 @@ impl IUIAutomation2_Vtbl {
                         timeout.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        timeout.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1522,13 +1660,13 @@ impl core::ops::Deref for IUIAutomation4 {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomation4, windows_core::IUnknown, IUIAutomation, IUIAutomation2, IUIAutomation3);
 impl IUIAutomation4 {
-    pub unsafe fn AddChangesEventHandler<P0, P4, P5>(&self, element: P0, scope: TreeScope, changetypes: &[i32], pcacherequest: P4, handler: P5) -> windows_core::HRESULT
+    pub unsafe fn AddChangesEventHandler<P0, P4, P5>(&self, element: P0, scope: TreeScope, changetypes: *const i32, changescount: i32, pcacherequest: P4, handler: P5) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P4: windows_core::Param<IUIAutomationCacheRequest>,
         P5: windows_core::Param<IUIAutomationChangesEventHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddChangesEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, changetypes.as_ptr(), changetypes.len().try_into().unwrap(), pcacherequest.param().abi(), handler.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).AddChangesEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, changetypes, changescount, pcacherequest.param().abi(), handler.param().abi()) }
     }
     pub unsafe fn RemoveChangesEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::HRESULT
     where
@@ -1741,7 +1879,10 @@ impl IUIAutomation6_Vtbl {
                         handlergroup.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        handlergroup.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1765,7 +1906,10 @@ impl IUIAutomation6_Vtbl {
                         connectionrecoverybehavioroptions.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        connectionrecoverybehavioroptions.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1783,7 +1927,10 @@ impl IUIAutomation6_Vtbl {
                         coalesceeventsoptions.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        coalesceeventsoptions.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1916,7 +2063,10 @@ impl IUIAutomationAndCondition_Vtbl {
                         childcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        childcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1934,7 +2084,10 @@ impl IUIAutomationAndCondition_Vtbl {
                         childarray.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        childarray.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2052,7 +2205,10 @@ impl IUIAutomationAnnotationPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2064,7 +2220,10 @@ impl IUIAutomationAnnotationPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2076,7 +2235,10 @@ impl IUIAutomationAnnotationPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2088,7 +2250,10 @@ impl IUIAutomationAnnotationPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2100,7 +2265,10 @@ impl IUIAutomationAnnotationPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2112,7 +2280,10 @@ impl IUIAutomationAnnotationPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2124,7 +2295,10 @@ impl IUIAutomationAnnotationPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2136,7 +2310,10 @@ impl IUIAutomationAnnotationPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2148,7 +2325,10 @@ impl IUIAutomationAnnotationPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2160,7 +2340,10 @@ impl IUIAutomationAnnotationPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2218,7 +2401,10 @@ impl IUIAutomationBoolCondition_Vtbl {
                         boolval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        boolval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2332,7 +2518,10 @@ impl IUIAutomationCacheRequest_Vtbl {
                         clonedrequest.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        clonedrequest.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2344,7 +2533,10 @@ impl IUIAutomationCacheRequest_Vtbl {
                         scope.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        scope.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2362,7 +2554,10 @@ impl IUIAutomationCacheRequest_Vtbl {
                         filter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        filter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2380,7 +2575,10 @@ impl IUIAutomationCacheRequest_Vtbl {
                         mode.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2413,11 +2611,11 @@ windows_core::imp::define_interface!(IUIAutomationChangesEventHandler, IUIAutoma
 windows_core::imp::interface_hierarchy!(IUIAutomationChangesEventHandler, windows_core::IUnknown);
 impl IUIAutomationChangesEventHandler {
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "uiautomationcore", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn HandleChangesEvent<P0>(&self, sender: P0, uiachanges: &[super::UiaChangeInfo]) -> windows_core::HRESULT
+    pub unsafe fn HandleChangesEvent<P0>(&self, sender: P0, uiachanges: *const super::UiaChangeInfo, changescount: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IUIAutomationElement>,
     {
-        unsafe { (windows_core::Interface::vtable(self).HandleChangesEvent)(windows_core::Interface::as_raw(self), sender.param().abi(), uiachanges.as_ptr(), uiachanges.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).HandleChangesEvent)(windows_core::Interface::as_raw(self), sender.param().abi(), uiachanges, changescount) }
     }
 }
 #[repr(C)]
@@ -2502,7 +2700,10 @@ impl IUIAutomationCustomNavigationPattern_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2576,7 +2777,10 @@ impl IUIAutomationDockPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2588,7 +2792,10 @@ impl IUIAutomationDockPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2700,7 +2907,10 @@ impl IUIAutomationDragPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2712,7 +2922,10 @@ impl IUIAutomationDragPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2724,7 +2937,10 @@ impl IUIAutomationDragPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2736,7 +2952,10 @@ impl IUIAutomationDragPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2748,7 +2967,10 @@ impl IUIAutomationDragPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2760,7 +2982,10 @@ impl IUIAutomationDragPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2772,7 +2997,10 @@ impl IUIAutomationDragPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2784,7 +3012,10 @@ impl IUIAutomationDragPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2869,7 +3100,10 @@ impl IUIAutomationDropTargetPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2881,7 +3115,10 @@ impl IUIAutomationDropTargetPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2893,7 +3130,10 @@ impl IUIAutomationDropTargetPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2905,7 +3145,10 @@ impl IUIAutomationDropTargetPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3688,7 +3931,10 @@ impl IUIAutomationElement_Vtbl {
                         runtimeid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        runtimeid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3700,7 +3946,10 @@ impl IUIAutomationElement_Vtbl {
                         found.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        found.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3712,7 +3961,10 @@ impl IUIAutomationElement_Vtbl {
                         found.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        found.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3724,7 +3976,10 @@ impl IUIAutomationElement_Vtbl {
                         found.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        found.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3736,7 +3991,10 @@ impl IUIAutomationElement_Vtbl {
                         found.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        found.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3748,7 +4006,10 @@ impl IUIAutomationElement_Vtbl {
                         updatedelement.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        updatedelement.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3760,7 +4021,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3772,7 +4036,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3784,7 +4051,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3796,7 +4066,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3820,7 +4093,10 @@ impl IUIAutomationElement_Vtbl {
                         patternobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        patternobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3832,7 +4108,10 @@ impl IUIAutomationElement_Vtbl {
                         patternobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        patternobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3844,7 +4123,10 @@ impl IUIAutomationElement_Vtbl {
                         parent.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        parent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3856,7 +4138,10 @@ impl IUIAutomationElement_Vtbl {
                         children.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        children.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3868,7 +4153,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3880,7 +4168,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3892,7 +4183,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3904,7 +4198,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3916,7 +4213,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3928,7 +4228,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3940,7 +4243,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3952,7 +4258,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3964,7 +4273,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3976,7 +4288,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3988,7 +4303,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4000,7 +4318,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4012,7 +4333,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4024,7 +4348,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4036,7 +4363,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4048,7 +4378,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4060,7 +4393,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4072,7 +4408,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4084,7 +4423,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4096,7 +4438,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4108,7 +4453,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4120,7 +4468,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4132,7 +4483,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4144,7 +4498,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4156,7 +4513,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4168,7 +4528,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4180,7 +4543,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4192,7 +4558,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4204,7 +4573,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4216,7 +4588,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4228,7 +4603,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4240,7 +4618,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4252,7 +4633,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4264,7 +4648,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4276,7 +4663,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4288,7 +4678,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4300,7 +4693,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4312,7 +4708,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4324,7 +4723,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4336,7 +4738,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4348,7 +4753,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4360,7 +4768,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4372,7 +4783,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4384,7 +4798,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4396,7 +4813,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4408,7 +4828,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4420,7 +4843,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4432,7 +4858,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4444,7 +4873,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4456,7 +4888,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4468,7 +4903,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4480,7 +4918,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4492,7 +4933,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4504,7 +4948,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4516,7 +4963,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4528,7 +4978,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4540,7 +4993,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4552,7 +5008,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4564,7 +5023,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4576,7 +5038,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4588,7 +5053,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4600,7 +5068,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4612,7 +5083,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4624,7 +5098,10 @@ impl IUIAutomationElement_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4636,7 +5113,10 @@ impl IUIAutomationElement_Vtbl {
                         gotclickable.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        gotclickable.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4817,7 +5297,10 @@ impl IUIAutomationElement2_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4829,7 +5312,10 @@ impl IUIAutomationElement2_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4841,7 +5327,10 @@ impl IUIAutomationElement2_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4853,7 +5342,10 @@ impl IUIAutomationElement2_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4865,7 +5357,10 @@ impl IUIAutomationElement2_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4877,7 +5372,10 @@ impl IUIAutomationElement2_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4953,7 +5451,10 @@ impl IUIAutomationElement3_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4965,7 +5466,10 @@ impl IUIAutomationElement3_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5099,7 +5603,10 @@ impl IUIAutomationElement4_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5111,7 +5618,10 @@ impl IUIAutomationElement4_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5123,7 +5633,10 @@ impl IUIAutomationElement4_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5135,7 +5648,10 @@ impl IUIAutomationElement4_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5147,7 +5663,10 @@ impl IUIAutomationElement4_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5159,7 +5678,10 @@ impl IUIAutomationElement4_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5171,7 +5693,10 @@ impl IUIAutomationElement4_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5183,7 +5708,10 @@ impl IUIAutomationElement4_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5195,7 +5723,10 @@ impl IUIAutomationElement4_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5207,7 +5738,10 @@ impl IUIAutomationElement4_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5300,7 +5834,10 @@ impl IUIAutomationElement5_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5312,7 +5849,10 @@ impl IUIAutomationElement5_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5324,7 +5864,10 @@ impl IUIAutomationElement5_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5336,7 +5879,10 @@ impl IUIAutomationElement5_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5399,7 +5945,10 @@ impl IUIAutomationElement6_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5411,7 +5960,10 @@ impl IUIAutomationElement6_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5518,7 +6070,10 @@ impl IUIAutomationElement7_Vtbl {
                         found.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        found.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5530,7 +6085,10 @@ impl IUIAutomationElement7_Vtbl {
                         found.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        found.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5542,7 +6100,10 @@ impl IUIAutomationElement7_Vtbl {
                         found.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        found.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5554,7 +6115,10 @@ impl IUIAutomationElement7_Vtbl {
                         found.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        found.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5566,7 +6130,10 @@ impl IUIAutomationElement7_Vtbl {
                         returnval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        returnval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5638,7 +6205,10 @@ impl IUIAutomationElement8_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5650,7 +6220,10 @@ impl IUIAutomationElement8_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5711,7 +6284,10 @@ impl IUIAutomationElement9_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5723,7 +6299,10 @@ impl IUIAutomationElement9_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5776,7 +6355,10 @@ impl IUIAutomationElementArray_Vtbl {
                         length.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        length.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5788,7 +6370,10 @@ impl IUIAutomationElementArray_Vtbl {
                         element.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        element.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5858,12 +6443,12 @@ impl IUIAutomationEventHandlerGroup {
     {
         unsafe { (windows_core::Interface::vtable(self).AddAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, scope, cacherequest.param().abi(), handler.param().abi()) }
     }
-    pub unsafe fn AddChangesEventHandler<P3, P4>(&self, scope: TreeScope, changetypes: &[i32], cacherequest: P3, handler: P4) -> windows_core::HRESULT
+    pub unsafe fn AddChangesEventHandler<P3, P4>(&self, scope: TreeScope, changetypes: *const i32, changescount: i32, cacherequest: P3, handler: P4) -> windows_core::HRESULT
     where
         P3: windows_core::Param<IUIAutomationCacheRequest>,
         P4: windows_core::Param<IUIAutomationChangesEventHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddChangesEventHandler)(windows_core::Interface::as_raw(self), scope, changetypes.as_ptr(), changetypes.len().try_into().unwrap(), cacherequest.param().abi(), handler.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).AddChangesEventHandler)(windows_core::Interface::as_raw(self), scope, changetypes, changescount, cacherequest.param().abi(), handler.param().abi()) }
     }
     pub unsafe fn AddNotificationEventHandler<P1, P2>(&self, scope: TreeScope, cacherequest: P1, handler: P2) -> windows_core::HRESULT
     where
@@ -5873,12 +6458,12 @@ impl IUIAutomationEventHandlerGroup {
         unsafe { (windows_core::Interface::vtable(self).AddNotificationEventHandler)(windows_core::Interface::as_raw(self), scope, cacherequest.param().abi(), handler.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn AddPropertyChangedEventHandler<P1, P2>(&self, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: &[super::PROPERTYID]) -> windows_core::HRESULT
+    pub unsafe fn AddPropertyChangedEventHandler<P1, P2>(&self, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: *const super::PROPERTYID, propertycount: i32) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IUIAutomationCacheRequest>,
         P2: windows_core::Param<IUIAutomationPropertyChangedEventHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPropertyChangedEventHandler)(windows_core::Interface::as_raw(self), scope, cacherequest.param().abi(), handler.param().abi(), propertyarray.as_ptr(), propertyarray.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).AddPropertyChangedEventHandler)(windows_core::Interface::as_raw(self), scope, cacherequest.param().abi(), handler.param().abi(), propertyarray, propertycount) }
     }
     pub unsafe fn AddStructureChangedEventHandler<P1, P2>(&self, scope: TreeScope, cacherequest: P1, handler: P2) -> windows_core::HRESULT
     where
@@ -6058,7 +6643,10 @@ impl IUIAutomationExpandCollapsePattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6070,7 +6658,10 @@ impl IUIAutomationExpandCollapsePattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6223,7 +6814,10 @@ impl IUIAutomationGridItemPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6235,7 +6829,10 @@ impl IUIAutomationGridItemPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6247,7 +6844,10 @@ impl IUIAutomationGridItemPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6259,7 +6859,10 @@ impl IUIAutomationGridItemPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6271,7 +6874,10 @@ impl IUIAutomationGridItemPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6283,7 +6889,10 @@ impl IUIAutomationGridItemPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6295,7 +6904,10 @@ impl IUIAutomationGridItemPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6307,7 +6919,10 @@ impl IUIAutomationGridItemPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6319,7 +6934,10 @@ impl IUIAutomationGridItemPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6331,7 +6949,10 @@ impl IUIAutomationGridItemPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6415,7 +7036,10 @@ impl IUIAutomationGridPattern_Vtbl {
                         element.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        element.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6427,7 +7051,10 @@ impl IUIAutomationGridPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6439,7 +7066,10 @@ impl IUIAutomationGridPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6451,7 +7081,10 @@ impl IUIAutomationGridPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6463,7 +7096,10 @@ impl IUIAutomationGridPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6550,7 +7186,10 @@ impl IUIAutomationItemContainerPattern_Vtbl {
                         pfound.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfound.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6809,7 +7448,10 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6821,7 +7463,10 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
                         pszname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pszname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6833,7 +7478,10 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
                         pszvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pszvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6845,7 +7493,10 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
                         pszdescription.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pszdescription.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6857,7 +7508,10 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
                         pdwrole.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdwrole.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6869,7 +7523,10 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
                         pdwstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdwstate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6881,7 +7538,10 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
                         pszhelp.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pszhelp.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6893,7 +7553,10 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
                         pszkeyboardshortcut.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pszkeyboardshortcut.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6905,7 +7568,10 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
                         pvarselectedchildren.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarselectedchildren.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6917,7 +7583,10 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
                         pszdefaultaction.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pszdefaultaction.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6929,7 +7598,10 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6941,7 +7613,10 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
                         pszname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pszname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6953,7 +7628,10 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
                         pszvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pszvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6965,7 +7643,10 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
                         pszdescription.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pszdescription.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6977,7 +7658,10 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
                         pdwrole.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdwrole.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6989,7 +7673,10 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
                         pdwstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdwstate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7001,7 +7688,10 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
                         pszhelp.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pszhelp.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7013,7 +7703,10 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
                         pszkeyboardshortcut.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pszkeyboardshortcut.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7025,7 +7718,10 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
                         pvarselectedchildren.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarselectedchildren.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7037,7 +7733,10 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
                         pszdefaultaction.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pszdefaultaction.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7049,7 +7748,10 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
                         ppaccessible.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppaccessible.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7163,7 +7865,10 @@ impl IUIAutomationMultipleViewPattern_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        name.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7181,7 +7886,10 @@ impl IUIAutomationMultipleViewPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7193,7 +7901,10 @@ impl IUIAutomationMultipleViewPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7205,7 +7916,10 @@ impl IUIAutomationMultipleViewPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7217,7 +7931,10 @@ impl IUIAutomationMultipleViewPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7272,7 +7989,10 @@ impl IUIAutomationNotCondition_Vtbl {
                         condition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        condition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7353,7 +8073,10 @@ impl IUIAutomationObjectModelPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7418,7 +8141,10 @@ impl IUIAutomationOrCondition_Vtbl {
                         childcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        childcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7436,7 +8162,10 @@ impl IUIAutomationOrCondition_Vtbl {
                         childarray.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        childarray.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7555,7 +8284,10 @@ impl IUIAutomationPropertyCondition_Vtbl {
                         propertyid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        propertyid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7567,7 +8299,10 @@ impl IUIAutomationPropertyCondition_Vtbl {
                         propertyvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        propertyvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7579,7 +8314,10 @@ impl IUIAutomationPropertyCondition_Vtbl {
                         flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7639,7 +8377,10 @@ impl IUIAutomationProxyFactory_Vtbl {
                         provider.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        provider.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7651,7 +8392,10 @@ impl IUIAutomationProxyFactory_Vtbl {
                         factoryid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        factoryid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7790,7 +8534,10 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
                         factory.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        factory.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7802,7 +8549,10 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
                         classname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        classname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7814,7 +8564,10 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
                         imagename.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        imagename.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7826,7 +8579,10 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
                         allowsubstringmatch.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        allowsubstringmatch.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7838,7 +8594,10 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
                         cancheckbaseclass.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        cancheckbaseclass.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7850,7 +8609,10 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
                         adviseevents.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        adviseevents.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7898,7 +8660,10 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
                         winevents.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        winevents.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8033,7 +8798,10 @@ impl IUIAutomationProxyFactoryMapping_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8045,7 +8813,10 @@ impl IUIAutomationProxyFactoryMapping_Vtbl {
                         table.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        table.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8057,7 +8828,10 @@ impl IUIAutomationProxyFactoryMapping_Vtbl {
                         entry.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        entry.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8244,7 +9018,10 @@ impl IUIAutomationRangeValuePattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8256,7 +9033,10 @@ impl IUIAutomationRangeValuePattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8268,7 +9048,10 @@ impl IUIAutomationRangeValuePattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8280,7 +9063,10 @@ impl IUIAutomationRangeValuePattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8292,7 +9078,10 @@ impl IUIAutomationRangeValuePattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8304,7 +9093,10 @@ impl IUIAutomationRangeValuePattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8316,7 +9108,10 @@ impl IUIAutomationRangeValuePattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8328,7 +9123,10 @@ impl IUIAutomationRangeValuePattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8340,7 +9138,10 @@ impl IUIAutomationRangeValuePattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8352,7 +9153,10 @@ impl IUIAutomationRangeValuePattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8364,7 +9168,10 @@ impl IUIAutomationRangeValuePattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8376,7 +9183,10 @@ impl IUIAutomationRangeValuePattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8578,7 +9388,10 @@ impl IUIAutomationScrollPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8590,7 +9403,10 @@ impl IUIAutomationScrollPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8602,7 +9418,10 @@ impl IUIAutomationScrollPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8614,7 +9433,10 @@ impl IUIAutomationScrollPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8626,7 +9448,10 @@ impl IUIAutomationScrollPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8638,7 +9463,10 @@ impl IUIAutomationScrollPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8650,7 +9478,10 @@ impl IUIAutomationScrollPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8662,7 +9493,10 @@ impl IUIAutomationScrollPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8674,7 +9508,10 @@ impl IUIAutomationScrollPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8686,7 +9523,10 @@ impl IUIAutomationScrollPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8698,7 +9538,10 @@ impl IUIAutomationScrollPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8710,7 +9553,10 @@ impl IUIAutomationScrollPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8824,7 +9670,10 @@ impl IUIAutomationSelectionItemPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8836,7 +9685,10 @@ impl IUIAutomationSelectionItemPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8848,7 +9700,10 @@ impl IUIAutomationSelectionItemPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8860,7 +9715,10 @@ impl IUIAutomationSelectionItemPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8949,7 +9807,10 @@ impl IUIAutomationSelectionPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8961,7 +9822,10 @@ impl IUIAutomationSelectionPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8973,7 +9837,10 @@ impl IUIAutomationSelectionPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8985,7 +9852,10 @@ impl IUIAutomationSelectionPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8997,7 +9867,10 @@ impl IUIAutomationSelectionPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9009,7 +9882,10 @@ impl IUIAutomationSelectionPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9119,7 +9995,10 @@ impl IUIAutomationSelectionPattern2_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9131,7 +10010,10 @@ impl IUIAutomationSelectionPattern2_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9143,7 +10025,10 @@ impl IUIAutomationSelectionPattern2_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9155,7 +10040,10 @@ impl IUIAutomationSelectionPattern2_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9167,7 +10055,10 @@ impl IUIAutomationSelectionPattern2_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9179,7 +10070,10 @@ impl IUIAutomationSelectionPattern2_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9191,7 +10085,10 @@ impl IUIAutomationSelectionPattern2_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9203,7 +10100,10 @@ impl IUIAutomationSelectionPattern2_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9303,7 +10203,10 @@ impl IUIAutomationSpreadsheetItemPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9315,7 +10218,10 @@ impl IUIAutomationSpreadsheetItemPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9327,7 +10233,10 @@ impl IUIAutomationSpreadsheetItemPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9339,7 +10248,10 @@ impl IUIAutomationSpreadsheetItemPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9351,7 +10263,10 @@ impl IUIAutomationSpreadsheetItemPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9363,7 +10278,10 @@ impl IUIAutomationSpreadsheetItemPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9412,7 +10330,10 @@ impl IUIAutomationSpreadsheetPattern_Vtbl {
                         element.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        element.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9607,7 +10528,10 @@ impl IUIAutomationStylesPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9619,7 +10543,10 @@ impl IUIAutomationStylesPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9631,7 +10558,10 @@ impl IUIAutomationStylesPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9643,7 +10573,10 @@ impl IUIAutomationStylesPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9655,7 +10588,10 @@ impl IUIAutomationStylesPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9667,7 +10603,10 @@ impl IUIAutomationStylesPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9679,7 +10618,10 @@ impl IUIAutomationStylesPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9697,7 +10639,10 @@ impl IUIAutomationStylesPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9709,7 +10654,10 @@ impl IUIAutomationStylesPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9721,7 +10669,10 @@ impl IUIAutomationStylesPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9733,7 +10684,10 @@ impl IUIAutomationStylesPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9745,7 +10699,10 @@ impl IUIAutomationStylesPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9757,7 +10714,10 @@ impl IUIAutomationStylesPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9769,7 +10729,10 @@ impl IUIAutomationStylesPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9910,7 +10873,10 @@ impl IUIAutomationTableItemPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9922,7 +10888,10 @@ impl IUIAutomationTableItemPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9934,7 +10903,10 @@ impl IUIAutomationTableItemPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9946,7 +10918,10 @@ impl IUIAutomationTableItemPattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10042,7 +11017,10 @@ impl IUIAutomationTablePattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10054,7 +11032,10 @@ impl IUIAutomationTablePattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10066,7 +11047,10 @@ impl IUIAutomationTablePattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10078,7 +11062,10 @@ impl IUIAutomationTablePattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10090,7 +11077,10 @@ impl IUIAutomationTablePattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10102,7 +11092,10 @@ impl IUIAutomationTablePattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10159,7 +11152,10 @@ impl IUIAutomationTextChildPattern_Vtbl {
                         container.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        container.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10171,7 +11167,10 @@ impl IUIAutomationTextChildPattern_Vtbl {
                         range.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        range.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10231,7 +11230,10 @@ impl IUIAutomationTextEditPattern_Vtbl {
                         range.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        range.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10243,7 +11245,10 @@ impl IUIAutomationTextEditPattern_Vtbl {
                         range.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        range.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10385,7 +11390,10 @@ impl IUIAutomationTextPattern_Vtbl {
                         range.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        range.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10397,7 +11405,10 @@ impl IUIAutomationTextPattern_Vtbl {
                         range.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        range.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10409,7 +11420,10 @@ impl IUIAutomationTextPattern_Vtbl {
                         ranges.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ranges.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10421,7 +11435,10 @@ impl IUIAutomationTextPattern_Vtbl {
                         ranges.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ranges.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10433,7 +11450,10 @@ impl IUIAutomationTextPattern_Vtbl {
                         range.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        range.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10445,7 +11465,10 @@ impl IUIAutomationTextPattern_Vtbl {
                         supportedtextselection.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        supportedtextselection.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10513,7 +11536,10 @@ impl IUIAutomationTextPattern2_Vtbl {
                         range.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        range.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10525,7 +11551,10 @@ impl IUIAutomationTextPattern2_Vtbl {
                         range.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        range.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10731,7 +11760,10 @@ impl IUIAutomationTextRange_Vtbl {
                         clonedrange.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        clonedrange.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10743,7 +11775,10 @@ impl IUIAutomationTextRange_Vtbl {
                         aresame.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        aresame.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10755,7 +11790,10 @@ impl IUIAutomationTextRange_Vtbl {
                         compvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        compvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10773,7 +11811,10 @@ impl IUIAutomationTextRange_Vtbl {
                         found.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        found.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10785,7 +11826,10 @@ impl IUIAutomationTextRange_Vtbl {
                         found.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        found.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10797,7 +11841,10 @@ impl IUIAutomationTextRange_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10809,7 +11856,10 @@ impl IUIAutomationTextRange_Vtbl {
                         boundingrects.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        boundingrects.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10821,7 +11871,10 @@ impl IUIAutomationTextRange_Vtbl {
                         enclosingelement.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        enclosingelement.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10833,7 +11886,10 @@ impl IUIAutomationTextRange_Vtbl {
                         text.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        text.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10845,7 +11901,10 @@ impl IUIAutomationTextRange_Vtbl {
                         moved.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        moved.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10857,7 +11916,10 @@ impl IUIAutomationTextRange_Vtbl {
                         moved.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        moved.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10899,7 +11961,10 @@ impl IUIAutomationTextRange_Vtbl {
                         children.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        children.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10999,10 +12064,10 @@ impl IUIAutomationTextRange3 {
         }
     }
     #[cfg(all(feature = "oaidl", feature = "shared", feature = "uiautomationcore", feature = "winnt"))]
-    pub unsafe fn GetAttributeValues(&self, attributeids: &[super::TEXTATTRIBUTEID]) -> windows_core::Result<*mut super::SAFEARRAY> {
+    pub unsafe fn GetAttributeValues(&self, attributeids: *const super::TEXTATTRIBUTEID, attributeidcount: i32) -> windows_core::Result<*mut super::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAttributeValues)(windows_core::Interface::as_raw(self), attributeids.as_ptr(), attributeids.len().try_into().unwrap(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetAttributeValues)(windows_core::Interface::as_raw(self), attributeids, attributeidcount, &mut result__).map(|| result__)
         }
     }
 }
@@ -11034,7 +12099,10 @@ impl IUIAutomationTextRange3_Vtbl {
                         enclosingelement.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        enclosingelement.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11046,7 +12114,10 @@ impl IUIAutomationTextRange3_Vtbl {
                         children.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        children.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11058,7 +12129,10 @@ impl IUIAutomationTextRange3_Vtbl {
                         attributevalues.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        attributevalues.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11112,7 +12186,10 @@ impl IUIAutomationTextRangeArray_Vtbl {
                         length.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        length.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11124,7 +12201,10 @@ impl IUIAutomationTextRangeArray_Vtbl {
                         element.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        element.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11193,7 +12273,10 @@ impl IUIAutomationTogglePattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11205,7 +12288,10 @@ impl IUIAutomationTogglePattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11324,7 +12410,10 @@ impl IUIAutomationTransformPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11336,7 +12425,10 @@ impl IUIAutomationTransformPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11348,7 +12440,10 @@ impl IUIAutomationTransformPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11360,7 +12455,10 @@ impl IUIAutomationTransformPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11372,7 +12470,10 @@ impl IUIAutomationTransformPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11384,7 +12485,10 @@ impl IUIAutomationTransformPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11525,7 +12629,10 @@ impl IUIAutomationTransformPattern2_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11537,7 +12644,10 @@ impl IUIAutomationTransformPattern2_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11549,7 +12659,10 @@ impl IUIAutomationTransformPattern2_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11561,7 +12674,10 @@ impl IUIAutomationTransformPattern2_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11573,7 +12689,10 @@ impl IUIAutomationTransformPattern2_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11585,7 +12704,10 @@ impl IUIAutomationTransformPattern2_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11597,7 +12719,10 @@ impl IUIAutomationTransformPattern2_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11609,7 +12734,10 @@ impl IUIAutomationTransformPattern2_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11800,7 +12928,10 @@ impl IUIAutomationTreeWalker_Vtbl {
                         parent.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        parent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11812,7 +12943,10 @@ impl IUIAutomationTreeWalker_Vtbl {
                         first.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        first.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11824,7 +12958,10 @@ impl IUIAutomationTreeWalker_Vtbl {
                         last.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        last.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11836,7 +12973,10 @@ impl IUIAutomationTreeWalker_Vtbl {
                         next.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        next.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11848,7 +12988,10 @@ impl IUIAutomationTreeWalker_Vtbl {
                         previous.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        previous.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11860,7 +13003,10 @@ impl IUIAutomationTreeWalker_Vtbl {
                         normalized.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        normalized.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11872,7 +13018,10 @@ impl IUIAutomationTreeWalker_Vtbl {
                         parent.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        parent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11884,7 +13033,10 @@ impl IUIAutomationTreeWalker_Vtbl {
                         first.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        first.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11896,7 +13048,10 @@ impl IUIAutomationTreeWalker_Vtbl {
                         last.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        last.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11908,7 +13063,10 @@ impl IUIAutomationTreeWalker_Vtbl {
                         next.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        next.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11920,7 +13078,10 @@ impl IUIAutomationTreeWalker_Vtbl {
                         previous.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        previous.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11932,7 +13093,10 @@ impl IUIAutomationTreeWalker_Vtbl {
                         normalized.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        normalized.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11944,7 +13108,10 @@ impl IUIAutomationTreeWalker_Vtbl {
                         condition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        condition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12034,7 +13201,10 @@ impl IUIAutomationValuePattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12046,7 +13216,10 @@ impl IUIAutomationValuePattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12058,7 +13231,10 @@ impl IUIAutomationValuePattern_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12070,7 +13246,10 @@ impl IUIAutomationValuePattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12282,7 +13461,10 @@ impl IUIAutomationWindowPattern_Vtbl {
                         success.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        success.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12300,7 +13482,10 @@ impl IUIAutomationWindowPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12312,7 +13497,10 @@ impl IUIAutomationWindowPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12324,7 +13512,10 @@ impl IUIAutomationWindowPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12336,7 +13527,10 @@ impl IUIAutomationWindowPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12348,7 +13542,10 @@ impl IUIAutomationWindowPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12360,7 +13557,10 @@ impl IUIAutomationWindowPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12372,7 +13572,10 @@ impl IUIAutomationWindowPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12384,7 +13587,10 @@ impl IUIAutomationWindowPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12396,7 +13602,10 @@ impl IUIAutomationWindowPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12408,7 +13617,10 @@ impl IUIAutomationWindowPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12420,7 +13632,10 @@ impl IUIAutomationWindowPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12432,7 +13647,10 @@ impl IUIAutomationWindowPattern_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

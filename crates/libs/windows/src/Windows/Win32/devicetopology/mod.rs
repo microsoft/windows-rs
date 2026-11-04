@@ -133,7 +133,10 @@ impl IAudioChannelConfig_Vtbl {
                         pdwconfig.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdwconfig.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -899,7 +902,10 @@ impl IDeviceTopology_Vtbl {
                         ppsubunit.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsubunit.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -911,7 +917,10 @@ impl IDeviceTopology_Vtbl {
                         pppart.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pppart.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -929,7 +938,10 @@ impl IDeviceTopology_Vtbl {
                         ppparts.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppparts.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1603,8 +1615,8 @@ impl IPerChannelDbLevel {
         unsafe { (windows_core::Interface::vtable(self).SetLevelUniform)(windows_core::Interface::as_raw(self), fleveldb, pguideventcontext.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(all(feature = "guiddef", feature = "shared"))]
-    pub unsafe fn SetLevelAllChannels(&self, alevelsdb: &[f32], pguideventcontext: Option<super::LPCGUID>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetLevelAllChannels)(windows_core::Interface::as_raw(self), alevelsdb.as_ptr(), alevelsdb.len().try_into().unwrap(), pguideventcontext.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn SetLevelAllChannels(&self, alevelsdb: *const f32, cchannels: super::ULONG, pguideventcontext: Option<super::LPCGUID>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetLevelAllChannels)(windows_core::Interface::as_raw(self), alevelsdb, cchannels, pguideventcontext.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]

@@ -516,12 +516,12 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn MFGetMFTMerit<P0>(pmft: P0, verifier: &[u8], merit: *mut super::DWORD) -> windows_core::HRESULT
+pub unsafe fn MFGetMFTMerit<P0>(pmft: P0, cbverifier: super::UINT32, verifier: *const super::BYTE, merit: *mut super::DWORD) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFGetMFTMerit(pmft : *mut core::ffi::c_void, cbverifier : super::UINT32, verifier : *const super::BYTE, merit : *mut super::DWORD) -> windows_core::HRESULT);
-    unsafe { MFGetMFTMerit(pmft.param().abi(), verifier.len().try_into().unwrap(), core::mem::transmute(verifier.as_ptr()), merit as _) }
+    unsafe { MFGetMFTMerit(pmft.param().abi(), cbverifier, verifier, merit as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -593,12 +593,12 @@ where
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 #[inline]
-pub unsafe fn MFInitAttributesFromBlob<P0>(pattributes: P0, pbuf: &[u8]) -> windows_core::HRESULT
+pub unsafe fn MFInitAttributesFromBlob<P0>(pattributes: P0, pbuf: *const super::UINT8, cbbufsize: super::UINT) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IMFAttributes>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFInitAttributesFromBlob(pattributes : *mut core::ffi::c_void, pbuf : *const super::UINT8, cbbufsize : super::UINT) -> windows_core::HRESULT);
-    unsafe { MFInitAttributesFromBlob(pattributes.param().abi(), core::mem::transmute(pbuf.as_ptr()), pbuf.len().try_into().unwrap()) }
+    unsafe { MFInitAttributesFromBlob(pattributes.param().abi(), pbuf, cbbufsize) }
 }
 #[cfg(all(feature = "mfobjects", feature = "shared", feature = "strmif"))]
 #[inline]
@@ -885,32 +885,32 @@ pub unsafe fn MFTGetInfo(clsidmft: super::CLSID, pszname: Option<*mut windows_co
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "shared"))]
 #[inline]
-pub unsafe fn MFTRegister<P2, P8>(clsidmft: super::CLSID, guidcategory: windows_core::GUID, pszname: P2, flags: super::UINT32, pinputtypes: Option<&[super::MFT_REGISTER_TYPE_INFO]>, poutputtypes: Option<&[super::MFT_REGISTER_TYPE_INFO]>, pattributes: P8) -> windows_core::HRESULT
+pub unsafe fn MFTRegister<P2, P8>(clsidmft: super::CLSID, guidcategory: windows_core::GUID, pszname: P2, flags: super::UINT32, cinputtypes: super::UINT32, pinputtypes: Option<*const super::MFT_REGISTER_TYPE_INFO>, coutputtypes: super::UINT32, poutputtypes: Option<*const super::MFT_REGISTER_TYPE_INFO>, pattributes: P8) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P8: windows_core::Param<super::IMFAttributes>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFTRegister(clsidmft : super::CLSID, guidcategory : windows_core::GUID, pszname : windows_core::PCWSTR, flags : super::UINT32, cinputtypes : super::UINT32, pinputtypes : *const super::MFT_REGISTER_TYPE_INFO, coutputtypes : super::UINT32, poutputtypes : *const super::MFT_REGISTER_TYPE_INFO, pattributes : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFTRegister(clsidmft, guidcategory, pszname.param().abi(), flags, pinputtypes.map_or(0, |slice| slice.len().try_into().unwrap()), pinputtypes.map_or(core::ptr::null(), |slice| slice.as_ptr()), poutputtypes.map_or(0, |slice| slice.len().try_into().unwrap()), poutputtypes.map_or(core::ptr::null(), |slice| slice.as_ptr()), pattributes.param().abi()) }
+    unsafe { MFTRegister(clsidmft, guidcategory, pszname.param().abi(), flags, cinputtypes, pinputtypes.unwrap_or(core::mem::zeroed()) as _, coutputtypes, poutputtypes.unwrap_or(core::mem::zeroed()) as _, pattributes.param().abi()) }
 }
 #[cfg(all(feature = "mfobjects", feature = "shared", feature = "unknwnbase"))]
 #[inline]
-pub unsafe fn MFTRegisterLocal<P0, P2>(pclassfactory: P0, guidcategory: *const windows_core::GUID, pszname: P2, flags: super::UINT32, pinputtypes: Option<&[super::MFT_REGISTER_TYPE_INFO]>, poutputtypes: Option<&[super::MFT_REGISTER_TYPE_INFO]>) -> windows_core::HRESULT
+pub unsafe fn MFTRegisterLocal<P0, P2>(pclassfactory: P0, guidcategory: *const windows_core::GUID, pszname: P2, flags: super::UINT32, cinputtypes: super::UINT32, pinputtypes: Option<*const super::MFT_REGISTER_TYPE_INFO>, coutputtypes: super::UINT32, poutputtypes: Option<*const super::MFT_REGISTER_TYPE_INFO>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IClassFactory>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFTRegisterLocal(pclassfactory : *mut core::ffi::c_void, guidcategory : *const windows_core::GUID, pszname : windows_core::PCWSTR, flags : super::UINT32, cinputtypes : super::UINT32, pinputtypes : *const super::MFT_REGISTER_TYPE_INFO, coutputtypes : super::UINT32, poutputtypes : *const super::MFT_REGISTER_TYPE_INFO) -> windows_core::HRESULT);
-    unsafe { MFTRegisterLocal(pclassfactory.param().abi(), guidcategory, pszname.param().abi(), flags, pinputtypes.map_or(0, |slice| slice.len().try_into().unwrap()), pinputtypes.map_or(core::ptr::null(), |slice| slice.as_ptr()), poutputtypes.map_or(0, |slice| slice.len().try_into().unwrap()), poutputtypes.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
+    unsafe { MFTRegisterLocal(pclassfactory.param().abi(), guidcategory, pszname.param().abi(), flags, cinputtypes, pinputtypes.unwrap_or(core::mem::zeroed()) as _, coutputtypes, poutputtypes.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "shared"))]
 #[inline]
-pub unsafe fn MFTRegisterLocalByCLSID<P2>(clisdmft: *const super::IID, guidcategory: *const windows_core::GUID, pszname: P2, flags: super::UINT32, pinputtypes: Option<&[super::MFT_REGISTER_TYPE_INFO]>, poutputtypes: Option<&[super::MFT_REGISTER_TYPE_INFO]>) -> windows_core::HRESULT
+pub unsafe fn MFTRegisterLocalByCLSID<P2>(clisdmft: *const super::IID, guidcategory: *const windows_core::GUID, pszname: P2, flags: super::UINT32, cinputtypes: super::UINT32, pinputtypes: Option<*const super::MFT_REGISTER_TYPE_INFO>, coutputtypes: super::UINT32, poutputtypes: Option<*const super::MFT_REGISTER_TYPE_INFO>) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFTRegisterLocalByCLSID(clisdmft : *const super::IID, guidcategory : *const windows_core::GUID, pszname : windows_core::PCWSTR, flags : super::UINT32, cinputtypes : super::UINT32, pinputtypes : *const super::MFT_REGISTER_TYPE_INFO, coutputtypes : super::UINT32, poutputtypes : *const super::MFT_REGISTER_TYPE_INFO) -> windows_core::HRESULT);
-    unsafe { MFTRegisterLocalByCLSID(clisdmft, guidcategory, pszname.param().abi(), flags, pinputtypes.map_or(0, |slice| slice.len().try_into().unwrap()), pinputtypes.map_or(core::ptr::null(), |slice| slice.as_ptr()), poutputtypes.map_or(0, |slice| slice.len().try_into().unwrap()), poutputtypes.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
+    unsafe { MFTRegisterLocalByCLSID(clisdmft, guidcategory, pszname.param().abi(), flags, cinputtypes, pinputtypes.unwrap_or(core::mem::zeroed()) as _, coutputtypes, poutputtypes.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "guiddef")]
 #[inline]
@@ -965,9 +965,9 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn MFValidateMediaTypeSize(formattype: windows_core::GUID, pblock: Option<&[u8]>) -> windows_core::HRESULT {
+pub unsafe fn MFValidateMediaTypeSize(formattype: windows_core::GUID, pblock: Option<*const super::UINT8>, cbsize: super::UINT32) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFValidateMediaTypeSize(formattype : windows_core::GUID, pblock : *const super::UINT8, cbsize : super::UINT32) -> windows_core::HRESULT);
-    unsafe { MFValidateMediaTypeSize(formattype, core::mem::transmute(pblock.map_or(core::ptr::null(), |slice| slice.as_ptr())), pblock.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { MFValidateMediaTypeSize(formattype, pblock.unwrap_or(core::mem::zeroed()) as _, cbsize) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]

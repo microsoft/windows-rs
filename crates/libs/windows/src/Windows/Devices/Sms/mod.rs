@@ -116,7 +116,10 @@ impl ISmsBinaryMessage_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -136,7 +139,11 @@ impl ISmsBinaryMessage_Vtbl {
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        result_size__.write(0);
+                        err.into()
+                    }
                 }
             }
         }
@@ -291,7 +298,10 @@ impl ISmsDevice_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -303,7 +313,10 @@ impl ISmsDevice_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -316,7 +329,10 @@ impl ISmsDevice_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -328,7 +344,10 @@ impl ISmsDevice_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -341,7 +360,10 @@ impl ISmsDevice_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -353,7 +375,10 @@ impl ISmsDevice_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -365,7 +390,10 @@ impl ISmsDevice_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -383,7 +411,10 @@ impl ISmsDevice_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -595,7 +626,10 @@ impl ISmsMessage_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -607,7 +641,10 @@ impl ISmsMessage_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -686,7 +723,10 @@ impl ISmsMessageBase_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -699,7 +739,10 @@ impl ISmsMessageBase_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -711,7 +754,10 @@ impl ISmsMessageBase_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -723,7 +769,10 @@ impl ISmsMessageBase_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -736,7 +785,10 @@ impl ISmsMessageBase_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -995,7 +1047,10 @@ impl ISmsTextMessage_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1007,7 +1062,10 @@ impl ISmsTextMessage_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1019,7 +1077,10 @@ impl ISmsTextMessage_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1031,7 +1092,10 @@ impl ISmsTextMessage_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1044,7 +1108,10 @@ impl ISmsTextMessage_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1063,7 +1130,10 @@ impl ISmsTextMessage_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1082,7 +1152,10 @@ impl ISmsTextMessage_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1100,7 +1173,10 @@ impl ISmsTextMessage_Vtbl {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1119,7 +1195,10 @@ impl ISmsTextMessage_Vtbl {
                         core::mem::forget(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

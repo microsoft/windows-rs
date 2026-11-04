@@ -93,12 +93,12 @@ pub unsafe fn WlanEnumInterfaces(hclienthandle: super::HANDLE, preserved: Option
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WlanExtractPsdIEDataList<P3>(hclienthandle: super::HANDLE, prawiedata: &[u8], strformat: P3, preserved: Option<super::PVOID>, pppsdiedatalist: *mut PWLAN_RAW_DATA_LIST) -> super::DWORD
+pub unsafe fn WlanExtractPsdIEDataList<P3>(hclienthandle: super::HANDLE, dwiedatasize: super::DWORD, prawiedata: super::PBYTE, strformat: P3, preserved: Option<super::PVOID>, pppsdiedatalist: *mut PWLAN_RAW_DATA_LIST) -> super::DWORD
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wlanapi.dll" "system" fn WlanExtractPsdIEDataList(hclienthandle : super::HANDLE, dwiedatasize : super::DWORD, prawiedata : super::PBYTE, strformat : windows_core::PCWSTR, preserved : super::PVOID, pppsdiedatalist : *mut PWLAN_RAW_DATA_LIST) -> super::DWORD);
-    unsafe { WlanExtractPsdIEDataList(hclienthandle, prawiedata.len().try_into().unwrap(), core::mem::transmute(prawiedata.as_ptr()), strformat.param().abi(), preserved.unwrap_or(core::mem::zeroed()) as _, pppsdiedatalist as _) }
+    unsafe { WlanExtractPsdIEDataList(hclienthandle, dwiedatasize, prawiedata, strformat.param().abi(), preserved.unwrap_or(core::mem::zeroed()) as _, pppsdiedatalist as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -222,9 +222,9 @@ pub unsafe fn WlanHostedNetworkSetProperty(hclienthandle: super::HANDLE, opcode:
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WlanHostedNetworkSetSecondaryKey(hclienthandle: super::HANDLE, puckeydata: &[u8], bispassphrase: bool, bpersistent: bool, pfailreason: Option<PWLAN_HOSTED_NETWORK_REASON>, pvreserved: Option<super::PVOID>) -> super::DWORD {
+pub unsafe fn WlanHostedNetworkSetSecondaryKey(hclienthandle: super::HANDLE, dwkeylength: super::DWORD, puckeydata: super::PUCHAR, bispassphrase: bool, bpersistent: bool, pfailreason: Option<PWLAN_HOSTED_NETWORK_REASON>, pvreserved: Option<super::PVOID>) -> super::DWORD {
     windows_core::link!("wlanapi.dll" "system" fn WlanHostedNetworkSetSecondaryKey(hclienthandle : super::HANDLE, dwkeylength : super::DWORD, puckeydata : super::PUCHAR, bispassphrase : windows_core::BOOL, bpersistent : windows_core::BOOL, pfailreason : PWLAN_HOSTED_NETWORK_REASON, pvreserved : super::PVOID) -> super::DWORD);
-    unsafe { WlanHostedNetworkSetSecondaryKey(hclienthandle, puckeydata.len().try_into().unwrap(), core::mem::transmute(puckeydata.as_ptr()), bispassphrase.into(), bpersistent.into(), pfailreason.unwrap_or(core::mem::zeroed()) as _, pvreserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WlanHostedNetworkSetSecondaryKey(hclienthandle, dwkeylength, puckeydata, bispassphrase.into(), bpersistent.into(), pfailreason.unwrap_or(core::mem::zeroed()) as _, pvreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -264,9 +264,9 @@ pub unsafe fn WlanQueryInterface(hclienthandle: super::HANDLE, pinterfaceguid: *
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WlanReasonCodeToString(dwreasoncode: super::DWORD, pstringbuffer: &[u16], preserved: Option<super::PVOID>) -> super::DWORD {
+pub unsafe fn WlanReasonCodeToString(dwreasoncode: super::DWORD, dwbuffersize: super::DWORD, pstringbuffer: super::PWCHAR, preserved: Option<super::PVOID>) -> super::DWORD {
     windows_core::link!("wlanapi.dll" "system" fn WlanReasonCodeToString(dwreasoncode : super::DWORD, dwbuffersize : super::DWORD, pstringbuffer : super::PWCHAR, preserved : super::PVOID) -> super::DWORD);
-    unsafe { WlanReasonCodeToString(dwreasoncode, pstringbuffer.len().try_into().unwrap(), core::mem::transmute(pstringbuffer.as_ptr()), preserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WlanReasonCodeToString(dwreasoncode, dwbuffersize, pstringbuffer, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -342,21 +342,21 @@ where
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WlanSetProfileCustomUserData<P2>(hclienthandle: super::HANDLE, pinterfaceguid: *const windows_core::GUID, strprofilename: P2, pdata: &[u8], preserved: Option<super::PVOID>) -> super::DWORD
+pub unsafe fn WlanSetProfileCustomUserData<P2>(hclienthandle: super::HANDLE, pinterfaceguid: *const windows_core::GUID, strprofilename: P2, dwdatasize: super::DWORD, pdata: super::PBYTE, preserved: Option<super::PVOID>) -> super::DWORD
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wlanapi.dll" "system" fn WlanSetProfileCustomUserData(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_core::GUID, strprofilename : windows_core::PCWSTR, dwdatasize : super::DWORD, pdata : super::PBYTE, preserved : super::PVOID) -> super::DWORD);
-    unsafe { WlanSetProfileCustomUserData(hclienthandle, pinterfaceguid, strprofilename.param().abi(), pdata.len().try_into().unwrap(), core::mem::transmute(pdata.as_ptr()), preserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WlanSetProfileCustomUserData(hclienthandle, pinterfaceguid, strprofilename.param().abi(), dwdatasize, pdata, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "eaptypes", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WlanSetProfileEapUserData<P2>(hclienthandle: super::HANDLE, pinterfaceguid: *const windows_core::GUID, strprofilename: P2, eaptype: super::EAP_METHOD_TYPE, dwflags: super::DWORD, pbeapuserdata: Option<&[u8]>, preserved: Option<super::PVOID>) -> super::DWORD
+pub unsafe fn WlanSetProfileEapUserData<P2>(hclienthandle: super::HANDLE, pinterfaceguid: *const windows_core::GUID, strprofilename: P2, eaptype: super::EAP_METHOD_TYPE, dwflags: super::DWORD, dweapuserdatasize: super::DWORD, pbeapuserdata: Option<super::LPBYTE>, preserved: Option<super::PVOID>) -> super::DWORD
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wlanapi.dll" "system" fn WlanSetProfileEapUserData(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_core::GUID, strprofilename : windows_core::PCWSTR, eaptype : super::EAP_METHOD_TYPE, dwflags : super::DWORD, dweapuserdatasize : super::DWORD, pbeapuserdata : super::LPBYTE, preserved : super::PVOID) -> super::DWORD);
-    unsafe { WlanSetProfileEapUserData(hclienthandle, pinterfaceguid, strprofilename.param().abi(), eaptype, dwflags, pbeapuserdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbeapuserdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), preserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WlanSetProfileEapUserData(hclienthandle, pinterfaceguid, strprofilename.param().abi(), eaptype, dwflags, dweapuserdatasize, pbeapuserdata.unwrap_or(core::mem::zeroed()) as _, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -370,9 +370,9 @@ where
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WlanSetProfileList(hclienthandle: super::HANDLE, pinterfaceguid: *const windows_core::GUID, strprofilenames: &[windows_core::PCWSTR], preserved: Option<super::PVOID>) -> super::DWORD {
+pub unsafe fn WlanSetProfileList(hclienthandle: super::HANDLE, pinterfaceguid: *const windows_core::GUID, dwitems: super::DWORD, strprofilenames: *const windows_core::PCWSTR, preserved: Option<super::PVOID>) -> super::DWORD {
     windows_core::link!("wlanapi.dll" "system" fn WlanSetProfileList(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_core::GUID, dwitems : super::DWORD, strprofilenames : *const windows_core::PCWSTR, preserved : super::PVOID) -> super::DWORD);
-    unsafe { WlanSetProfileList(hclienthandle, pinterfaceguid, strprofilenames.len().try_into().unwrap(), strprofilenames.as_ptr(), preserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WlanSetProfileList(hclienthandle, pinterfaceguid, dwitems, strprofilenames, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]

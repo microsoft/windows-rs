@@ -39,24 +39,24 @@ impl Provider {
 }
 
 impl Results_Impl for Provider_Impl {
-    fn Nullable(&self) -> windows_core::Result<Option<ObjectAlias>> {
-        self.value()
+    fn Object(&self) -> windows_core::Result<ObjectAlias> {
+        self.value()?.ok_or_else(windows_core::Error::empty)
     }
 
-    fn Reserved(&self, reserved: usize) -> windows_core::Result<Option<Tracked>> {
+    fn Reserved(&self, reserved: usize) -> windows_core::Result<Tracked> {
         assert_eq!(reserved, 0);
-        self.value()
+        self.Object()
     }
 
     fn Required(&self) -> windows_core::Result<Tracked> {
         self.value()?.ok_or_else(|| E_FAIL.into())
     }
 
-    fn UnspecifiedFailure(&self) -> windows_core::Result<Tracked> {
-        self.Required()
+    fn Number(&self) -> windows_core::Result<u32> {
+        Err(E_FAIL.into())
     }
 
-    fn NullableVoid(&self, value: OutRef<Tracked>) {
+    fn ObjectVoid(&self, value: OutRef<Tracked>) {
         value.write(self.value().unwrap()).unwrap();
     }
 
@@ -125,33 +125,33 @@ fn provider(mode: &Rc<Cell<Mode>>, drops: &Rc<Cell<u32>>) -> Results {
 }
 
 #[test]
-fn nullable_results_transfer_owned_references() {
+fn results_transfer_owned_references() {
     let mode = Rc::new(Cell::new(Mode::Value));
     let drops = Rc::new(Cell::new(0));
     let result = provider(&mode, &drops);
     unsafe {
-        drop(result.Nullable().unwrap().unwrap());
+        drop(result.Object().unwrap());
         assert_eq!(drops.get(), 1);
         drop(result.Required().unwrap());
         assert_eq!(drops.get(), 2);
-        drop(result.NullableVoid().unwrap());
+        drop(result.ObjectVoid().unwrap());
         assert_eq!(drops.get(), 3);
-        drop(result.Query::<Tracked>().unwrap().unwrap());
+        drop(result.Query::<Tracked>().unwrap());
         assert_eq!(drops.get(), 4);
         let mut optional = None;
         result.OptionalStorage::<Tracked>(&mut optional).unwrap();
         drop(optional.unwrap());
         assert_eq!(drops.get(), 5);
-        drop(result.Reserved(None).unwrap().unwrap());
+        drop(result.Reserved(None).unwrap());
         assert_eq!(drops.get(), 6);
         drop(result.TypedefSlot().unwrap());
         assert_eq!(drops.get(), 7);
 
         mode.set(Mode::Null);
-        assert!(result.Nullable().unwrap().is_none());
-        assert!(result.Reserved(None).unwrap().is_none());
-        assert!(result.NullableVoid().is_none());
-        assert!(result.Query::<Tracked>().unwrap().is_none());
+        assert_eq!(result.Object().unwrap_err().code(), HRESULT(0));
+        assert_eq!(result.Reserved(None).unwrap_err().code(), HRESULT(0));
+        assert_eq!(result.ObjectVoid().unwrap_err().code(), HRESULT(0));
+        assert_eq!(result.Query::<Tracked>().unwrap_err().code(), HRESULT(0));
         let mut optional = None;
         result.OptionalStorage::<Tracked>(&mut optional).unwrap();
         assert!(optional.is_none());
@@ -162,33 +162,28 @@ fn nullable_results_transfer_owned_references() {
         assert_eq!(drops.get(), 7);
 
         mode.set(Mode::Failure);
-        assert_eq!(result.Nullable().unwrap_err().code(), E_FAIL);
+        assert_eq!(result.Object().unwrap_err().code(), E_FAIL);
         assert_eq!(result.Query::<Tracked>().unwrap_err().code(), E_FAIL);
     }
 }
 
 #[test]
-fn producer_failure_initializes_only_promised_outputs() {
+fn producer_failure_clears_result_slots_without_metadata() {
     let result = provider(&Rc::new(Cell::new(Mode::Failure)), &Rc::new(Cell::new(0)));
     let vtable = result.vtable();
-    for (method, clears) in [
-        (vtable.Nullable, true),
-        (vtable.Required, true),
-        (vtable.UnspecifiedFailure, false),
-    ] {
+    for method in [vtable.Object, vtable.Required] {
         let sentinel = core::ptr::without_provenance_mut(1);
         let mut value = sentinel;
         let hr = unsafe { method(result.as_raw(), &mut value) };
         assert_eq!(hr, E_FAIL);
-        assert_eq!(
-            value,
-            if clears {
-                core::ptr::null_mut()
-            } else {
-                sentinel
-            }
-        );
+        assert!(value.is_null());
     }
+    let mut number = 99;
+    assert_eq!(
+        unsafe { (vtable.Number)(result.as_raw(), &mut number) },
+        E_FAIL
+    );
+    assert_eq!(number, 0);
     let mut data = core::ptr::without_provenance_mut(1);
     assert_eq!(unsafe { (vtable.Data)(result.as_raw(), &mut data) }, E_FAIL);
     assert!(data.is_null());
@@ -200,6 +195,64 @@ fn producer_failure_initializes_only_promised_outputs() {
         E_FAIL
     );
     assert!(value.is_null());
+}
+
+#[test]
+fn winrt_failure_clears_results_but_preserves_partial_outputs() {
+    use super::interface_void::{Interface, Interface_Impl};
+
+    #[implement(Interface)]
+    struct Failure;
+
+    impl Interface_Impl for Failure_Impl {
+        fn Execute(&self) -> windows_core::Result<()> {
+            Err(E_FAIL.into())
+        }
+
+        fn Method(&self) -> windows_core::Result<i32> {
+            Err(E_FAIL.into())
+        }
+
+        fn Text(&self) -> windows_core::Result<windows_core::HSTRING> {
+            Err(E_FAIL.into())
+        }
+
+        fn Values(&self) -> windows_core::Result<windows_core::Array<u8>> {
+            Err(E_FAIL.into())
+        }
+
+        fn Partial(&self, value: &mut u32) -> windows_core::Result<u32> {
+            *value = 17;
+            Err(E_FAIL.into())
+        }
+    }
+
+    let object: Interface = Failure.into();
+    let vtable = object.vtable();
+    let mut scalar = -1;
+    let mut text = core::ptr::without_provenance_mut(1);
+    let mut values = core::ptr::without_provenance_mut(1);
+    let mut count = 99;
+    let mut partial = 0;
+    let mut result = 99;
+    unsafe {
+        assert_eq!((vtable.Method)(object.as_raw(), &mut scalar), E_FAIL);
+        assert_eq!((vtable.Text)(object.as_raw(), &mut text), E_FAIL);
+        assert_eq!(
+            (vtable.Values)(object.as_raw(), &mut count, &mut values),
+            E_FAIL
+        );
+        assert_eq!(
+            (vtable.Partial)(object.as_raw(), &mut partial, &mut result),
+            E_FAIL
+        );
+    }
+    assert_eq!(scalar, 0);
+    assert!(text.is_null());
+    assert!(values.is_null());
+    assert_eq!(count, 0);
+    assert_eq!(partial, 17);
+    assert_eq!(result, 0);
 }
 
 #[test]
@@ -218,7 +271,7 @@ fn inout_query_keeps_incoming_storage() {
 }
 
 #[test]
-fn nullable_success_status_does_not_become_an_error() {
+fn null_interface_results_use_empty_errors() {
     unsafe extern "system" fn absent(
         _: *mut core::ffi::c_void,
         value: *mut *mut core::ffi::c_void,
@@ -227,13 +280,13 @@ fn nullable_success_status_does_not_become_an_error() {
         HRESULT(1)
     }
     let mut vtable = Results_Vtbl::new::<Provider_Impl, 0>();
-    vtable.Nullable = absent;
+    vtable.Object = absent;
     vtable.Required = absent;
     // Only the replaced slots are called; generated identity callbacks do not use this object.
     let object = &vtable as *const _;
     let result = std::mem::ManuallyDrop::new(unsafe {
         Results::from_raw((&object as *const *const Results_Vtbl).cast_mut().cast())
     });
-    assert!(unsafe { result.Nullable() }.unwrap().is_none());
-    assert!(unsafe { result.Required() }.is_err());
+    assert_eq!(unsafe { result.Object() }.unwrap_err().code(), HRESULT(0));
+    assert_eq!(unsafe { result.Required() }.unwrap_err().code(), HRESULT(0));
 }

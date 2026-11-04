@@ -813,7 +813,10 @@ impl IDirectSound_Vtbl {
                         ppdsbufferduplicate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdsbufferduplicate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2888,7 +2891,10 @@ impl IDirectSoundFullDuplex_Vtbl {
                         lplpdirectsoundbuffer8.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        lplpdirectsoundbuffer8.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2904,8 +2910,8 @@ windows_core::imp::define_interface!(IDirectSoundNotify, IDirectSoundNotify_Vtbl
 windows_core::imp::interface_hierarchy!(IDirectSoundNotify, windows_core::IUnknown);
 impl IDirectSoundNotify {
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn SetNotificationPositions(&self, pcpositionnotifies: &[DSBPOSITIONNOTIFY]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetNotificationPositions)(windows_core::Interface::as_raw(self), pcpositionnotifies.len().try_into().unwrap(), core::mem::transmute(pcpositionnotifies.as_ptr())) }
+    pub unsafe fn SetNotificationPositions(&self, dwpositionnotifies: super::DWORD, pcpositionnotifies: LPCDSBPOSITIONNOTIFY) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetNotificationPositions)(windows_core::Interface::as_raw(self), dwpositionnotifies, pcpositionnotifies) }
     }
 }
 #[repr(C)]

@@ -29,18 +29,18 @@ pub unsafe fn WICCreateBitmapFromSectionEx(width: super::UINT, height: super::UI
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WICMapGuidToShortName(guid: *const windows_core::GUID, mut wzname: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
+pub unsafe fn WICMapGuidToShortName(guid: *const windows_core::GUID, cchname: super::UINT, wzname: Option<*mut super::WCHAR>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
     windows_core::link!("windowscodecs.dll" "system" fn WICMapGuidToShortName(guid : *const windows_core::GUID, cchname : super::UINT, wzname : *mut super::WCHAR, pcchactual : *mut super::UINT) -> windows_core::HRESULT);
-    unsafe { WICMapGuidToShortName(guid, wzname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzname.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcchactual as _) }
+    unsafe { WICMapGuidToShortName(guid, cchname, wzname.unwrap_or(core::mem::zeroed()) as _, pcchactual as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WICMapSchemaToName<P1>(guidmetadataformat: *const windows_core::GUID, pwzschema: P1, mut wzname: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT
+pub unsafe fn WICMapSchemaToName<P1>(guidmetadataformat: *const windows_core::GUID, pwzschema: P1, cchname: super::UINT, wzname: Option<*mut super::WCHAR>, pcchactual: *mut super::UINT) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("windowscodecs.dll" "system" fn WICMapSchemaToName(guidmetadataformat : *const windows_core::GUID, pwzschema : windows_core::PCWSTR, cchname : super::UINT, wzname : *mut super::WCHAR, pcchactual : *mut super::UINT) -> windows_core::HRESULT);
-    unsafe { WICMapSchemaToName(guidmetadataformat, pwzschema.param().abi(), wzname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzname.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcchactual as _) }
+    unsafe { WICMapSchemaToName(guidmetadataformat, pwzschema.param().abi(), cchname, wzname.unwrap_or(core::mem::zeroed()) as _, pcchactual as _) }
 }
 #[inline]
 pub unsafe fn WICMapShortNameToGuid<P0>(wzname: P0, pguid: *mut windows_core::GUID) -> windows_core::HRESULT
@@ -254,7 +254,10 @@ impl IWICBitmap_Vtbl {
                         ppilock.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppilock.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -343,28 +346,28 @@ impl IWICBitmapCodecInfo {
         unsafe { (windows_core::Interface::vtable(self).GetContainerFormat)(windows_core::Interface::as_raw(self), pguidcontainerformat as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetPixelFormats(&self, mut pguidpixelformats: Option<&mut [windows_core::GUID]>, pcactual: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPixelFormats)(windows_core::Interface::as_raw(self), pguidpixelformats.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pguidpixelformats.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcactual as _) }
+    pub unsafe fn GetPixelFormats(&self, cformats: super::UINT, pguidpixelformats: Option<*mut windows_core::GUID>, pcactual: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPixelFormats)(windows_core::Interface::as_raw(self), cformats, pguidpixelformats.unwrap_or(core::mem::zeroed()) as _, pcactual as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn GetColorManagementVersion(&self, mut wzcolormanagementversion: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetColorManagementVersion)(windows_core::Interface::as_raw(self), wzcolormanagementversion.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzcolormanagementversion.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcchactual as _) }
+    pub unsafe fn GetColorManagementVersion(&self, cchcolormanagementversion: super::UINT, wzcolormanagementversion: Option<*mut super::WCHAR>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetColorManagementVersion)(windows_core::Interface::as_raw(self), cchcolormanagementversion, wzcolormanagementversion.unwrap_or(core::mem::zeroed()) as _, pcchactual as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn GetDeviceManufacturer(&self, mut wzdevicemanufacturer: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDeviceManufacturer)(windows_core::Interface::as_raw(self), wzdevicemanufacturer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzdevicemanufacturer.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcchactual as _) }
+    pub unsafe fn GetDeviceManufacturer(&self, cchdevicemanufacturer: super::UINT, wzdevicemanufacturer: Option<*mut super::WCHAR>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDeviceManufacturer)(windows_core::Interface::as_raw(self), cchdevicemanufacturer, wzdevicemanufacturer.unwrap_or(core::mem::zeroed()) as _, pcchactual as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn GetDeviceModels(&self, mut wzdevicemodels: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDeviceModels)(windows_core::Interface::as_raw(self), wzdevicemodels.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzdevicemodels.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcchactual as _) }
+    pub unsafe fn GetDeviceModels(&self, cchdevicemodels: super::UINT, wzdevicemodels: Option<*mut super::WCHAR>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDeviceModels)(windows_core::Interface::as_raw(self), cchdevicemodels, wzdevicemodels.unwrap_or(core::mem::zeroed()) as _, pcchactual as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn GetMimeTypes(&self, mut wzmimetypes: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetMimeTypes)(windows_core::Interface::as_raw(self), wzmimetypes.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzmimetypes.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcchactual as _) }
+    pub unsafe fn GetMimeTypes(&self, cchmimetypes: super::UINT, wzmimetypes: Option<*mut super::WCHAR>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMimeTypes)(windows_core::Interface::as_raw(self), cchmimetypes, wzmimetypes.unwrap_or(core::mem::zeroed()) as _, pcchactual as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn GetFileExtensions(&self, mut wzfileextensions: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFileExtensions)(windows_core::Interface::as_raw(self), wzfileextensions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzfileextensions.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcchactual as _) }
+    pub unsafe fn GetFileExtensions(&self, cchfileextensions: super::UINT, wzfileextensions: Option<*mut super::WCHAR>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFileExtensions)(windows_core::Interface::as_raw(self), cchfileextensions, wzfileextensions.unwrap_or(core::mem::zeroed()) as _, pcchactual as _) }
     }
     pub unsafe fn DoesSupportAnimation(&self, pfsupportanimation: *mut windows_core::BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DoesSupportAnimation)(windows_core::Interface::as_raw(self), pfsupportanimation as _) }
@@ -615,8 +618,8 @@ impl IWICBitmapDecoder {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetColorContexts(&self, mut ppicolorcontexts: Option<&mut [Option<IWICColorContext>]>, pcactualcount: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetColorContexts)(windows_core::Interface::as_raw(self), ppicolorcontexts.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppicolorcontexts.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr())), pcactualcount as _) }
+    pub unsafe fn GetColorContexts(&self, ccount: super::UINT, ppicolorcontexts: Option<*mut Option<IWICColorContext>>, pcactualcount: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetColorContexts)(windows_core::Interface::as_raw(self), ccount, ppicolorcontexts.unwrap_or(core::mem::zeroed()) as _, pcactualcount as _) }
     }
     pub unsafe fn GetThumbnail(&self) -> windows_core::Result<IWICBitmapSource> {
         unsafe {
@@ -710,7 +713,10 @@ impl IWICBitmapDecoder_Vtbl {
                         ppidecoderinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppidecoderinfo.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -728,7 +734,10 @@ impl IWICBitmapDecoder_Vtbl {
                         ppimetadataqueryreader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppimetadataqueryreader.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -740,7 +749,10 @@ impl IWICBitmapDecoder_Vtbl {
                         ppibitmapsource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppibitmapsource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -758,7 +770,10 @@ impl IWICBitmapDecoder_Vtbl {
                         ppithumbnail.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppithumbnail.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -776,7 +791,10 @@ impl IWICBitmapDecoder_Vtbl {
                         ppibitmapframe.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppibitmapframe.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -871,7 +889,10 @@ impl IWICBitmapDecoderInfo_Vtbl {
                         ppibitmapdecoder.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppibitmapdecoder.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -908,8 +929,8 @@ impl IWICBitmapEncoder {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetColorContexts(&self, ppicolorcontext: &[Option<IWICColorContext>]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetColorContexts)(windows_core::Interface::as_raw(self), ppicolorcontext.len().try_into().unwrap(), core::mem::transmute(ppicolorcontext.as_ptr())) }
+    pub unsafe fn SetColorContexts(&self, ccount: super::UINT, ppicolorcontext: *const Option<IWICColorContext>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetColorContexts)(windows_core::Interface::as_raw(self), ccount, core::mem::transmute(ppicolorcontext)) }
     }
     pub unsafe fn SetPalette<P0>(&self, pipalette: P0) -> windows_core::HRESULT
     where
@@ -1003,7 +1024,10 @@ impl IWICBitmapEncoder_Vtbl {
                         ppiencoderinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiencoderinfo.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1051,7 +1075,10 @@ impl IWICBitmapEncoder_Vtbl {
                         ppimetadataquerywriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppimetadataquerywriter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1112,7 +1139,10 @@ impl IWICBitmapEncoderInfo_Vtbl {
                         ppibitmapencoder.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppibitmapencoder.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1217,7 +1247,10 @@ impl IWICBitmapFrameChainReader_Vtbl {
                         ppibitmapframe.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppibitmapframe.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1302,8 +1335,8 @@ impl IWICBitmapFrameDecode {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetColorContexts(&self, mut ppicolorcontexts: Option<&mut [Option<IWICColorContext>]>, pcactualcount: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetColorContexts)(windows_core::Interface::as_raw(self), ppicolorcontexts.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppicolorcontexts.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr())), pcactualcount as _) }
+    pub unsafe fn GetColorContexts(&self, ccount: super::UINT, ppicolorcontexts: Option<*mut Option<IWICColorContext>>, pcactualcount: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetColorContexts)(windows_core::Interface::as_raw(self), ccount, ppicolorcontexts.unwrap_or(core::mem::zeroed()) as _, pcactualcount as _) }
     }
     pub unsafe fn GetThumbnail(&self) -> windows_core::Result<IWICBitmapSource> {
         unsafe {
@@ -1340,7 +1373,10 @@ impl IWICBitmapFrameDecode_Vtbl {
                         ppimetadataqueryreader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppimetadataqueryreader.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1358,7 +1394,10 @@ impl IWICBitmapFrameDecode_Vtbl {
                         ppithumbnail.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppithumbnail.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1396,8 +1435,8 @@ impl IWICBitmapFrameEncode {
         unsafe { (windows_core::Interface::vtable(self).SetPixelFormat)(windows_core::Interface::as_raw(self), ppixelformat as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetColorContexts(&self, ppicolorcontext: &[Option<IWICColorContext>]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetColorContexts)(windows_core::Interface::as_raw(self), ppicolorcontext.len().try_into().unwrap(), core::mem::transmute(ppicolorcontext.as_ptr())) }
+    pub unsafe fn SetColorContexts(&self, ccount: super::UINT, ppicolorcontext: *const Option<IWICColorContext>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetColorContexts)(windows_core::Interface::as_raw(self), ccount, core::mem::transmute(ppicolorcontext)) }
     }
     pub unsafe fn SetPalette<P0>(&self, pipalette: P0) -> windows_core::HRESULT
     where
@@ -1412,8 +1451,8 @@ impl IWICBitmapFrameEncode {
         unsafe { (windows_core::Interface::vtable(self).SetThumbnail)(windows_core::Interface::as_raw(self), pithumbnail.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn WritePixels(&self, linecount: super::UINT, cbstride: super::UINT, pbpixels: &[super::BYTE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).WritePixels)(windows_core::Interface::as_raw(self), linecount, cbstride, pbpixels.len().try_into().unwrap(), pbpixels.as_ptr()) }
+    pub unsafe fn WritePixels(&self, linecount: super::UINT, cbstride: super::UINT, cbbuffersize: super::UINT, pbpixels: *const super::BYTE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).WritePixels)(windows_core::Interface::as_raw(self), linecount, cbstride, cbbuffersize, pbpixels) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn WriteSource<P0>(&self, pibitmapsource: P0, prc: Option<*const WICRect>) -> windows_core::HRESULT
@@ -1548,7 +1587,10 @@ impl IWICBitmapFrameEncode_Vtbl {
                         ppimetadataquerywriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppimetadataquerywriter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1892,8 +1934,8 @@ impl core::ops::Deref for IWICBitmapSourceTransform2 {
 windows_core::imp::interface_hierarchy!(IWICBitmapSourceTransform2, windows_core::IUnknown, IWICBitmapSourceTransform);
 impl IWICBitmapSourceTransform2 {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetColorContextsForPixelFormat(&self, ppixelformat: Option<*const WICPixelFormatGUID>, ppicolorcontexts: Option<&[Option<IWICColorContext>]>, pcactualcount: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetColorContextsForPixelFormat)(windows_core::Interface::as_raw(self), ppixelformat.unwrap_or(core::mem::zeroed()) as _, ppicolorcontexts.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppicolorcontexts.map_or(core::ptr::null(), |slice| slice.as_ptr())), pcactualcount as _) }
+    pub unsafe fn GetColorContextsForPixelFormat(&self, ppixelformat: Option<*const WICPixelFormatGUID>, ccount: super::UINT, ppicolorcontexts: Option<*const Option<IWICColorContext>>, pcactualcount: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetColorContextsForPixelFormat)(windows_core::Interface::as_raw(self), ppixelformat.unwrap_or(core::mem::zeroed()) as _, ccount, ppicolorcontexts.unwrap_or(core::mem::zeroed()) as _, pcactualcount as _) }
     }
 }
 #[repr(C)]
@@ -2004,8 +2046,8 @@ impl IWICColorContext {
         unsafe { (windows_core::Interface::vtable(self).InitializeFromFilename)(windows_core::Interface::as_raw(self), wzfilename.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn InitializeFromMemory(&self, pbbuffer: &[super::BYTE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).InitializeFromMemory)(windows_core::Interface::as_raw(self), pbbuffer.as_ptr(), pbbuffer.len().try_into().unwrap()) }
+    pub unsafe fn InitializeFromMemory(&self, pbbuffer: *const super::BYTE, cbbuffersize: super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).InitializeFromMemory)(windows_core::Interface::as_raw(self), pbbuffer, cbbuffersize) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn InitializeFromExifColorSpace(&self, value: super::UINT) -> windows_core::HRESULT {
@@ -2015,8 +2057,8 @@ impl IWICColorContext {
         unsafe { (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self), ptype as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetProfileBytes(&self, mut pbbuffer: Option<&mut [super::BYTE]>, pcbactual: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetProfileBytes)(windows_core::Interface::as_raw(self), pbbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pbbuffer.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcbactual as _) }
+    pub unsafe fn GetProfileBytes(&self, cbbuffer: super::UINT, pbbuffer: Option<*mut super::BYTE>, pcbactual: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetProfileBytes)(windows_core::Interface::as_raw(self), cbbuffer, pbbuffer.unwrap_or(core::mem::zeroed()) as _, pcbactual as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetExifColorSpace(&self, pvalue: *mut super::UINT) -> windows_core::HRESULT {
@@ -2170,23 +2212,23 @@ impl IWICComponentInfo {
         unsafe { (windows_core::Interface::vtable(self).GetSigningStatus)(windows_core::Interface::as_raw(self), pstatus as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn GetAuthor(&self, mut wzauthor: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetAuthor)(windows_core::Interface::as_raw(self), wzauthor.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzauthor.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcchactual as _) }
+    pub unsafe fn GetAuthor(&self, cchauthor: super::UINT, wzauthor: Option<*mut super::WCHAR>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAuthor)(windows_core::Interface::as_raw(self), cchauthor, wzauthor.unwrap_or(core::mem::zeroed()) as _, pcchactual as _) }
     }
     pub unsafe fn GetVendorGUID(&self, pguidvendor: *mut windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetVendorGUID)(windows_core::Interface::as_raw(self), pguidvendor as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn GetVersion(&self, mut wzversion: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetVersion)(windows_core::Interface::as_raw(self), wzversion.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzversion.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcchactual as _) }
+    pub unsafe fn GetVersion(&self, cchversion: super::UINT, wzversion: Option<*mut super::WCHAR>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetVersion)(windows_core::Interface::as_raw(self), cchversion, wzversion.unwrap_or(core::mem::zeroed()) as _, pcchactual as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn GetSpecVersion(&self, mut wzspecversion: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSpecVersion)(windows_core::Interface::as_raw(self), wzspecversion.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzspecversion.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcchactual as _) }
+    pub unsafe fn GetSpecVersion(&self, cchspecversion: super::UINT, wzspecversion: Option<*mut super::WCHAR>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSpecVersion)(windows_core::Interface::as_raw(self), cchspecversion, wzspecversion.unwrap_or(core::mem::zeroed()) as _, pcchactual as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn GetFriendlyName(&self, mut wzfriendlyname: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFriendlyName)(windows_core::Interface::as_raw(self), wzfriendlyname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzfriendlyname.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcchactual as _) }
+    pub unsafe fn GetFriendlyName(&self, cchfriendlyname: super::UINT, wzfriendlyname: Option<*mut super::WCHAR>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFriendlyName)(windows_core::Interface::as_raw(self), cchfriendlyname, wzfriendlyname.unwrap_or(core::mem::zeroed()) as _, pcchactual as _) }
     }
 }
 #[repr(C)]
@@ -2389,7 +2431,7 @@ impl IWICD3DTextureSource_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppid3dtextureoptions.write(core::mem::zeroed());
+                        ppid3dtextureoptions.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2459,7 +2501,10 @@ impl IWICDdsDecoder_Vtbl {
                         ppibitmapframe.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppibitmapframe.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2867,7 +2912,10 @@ impl IWICDevelopRaw_Vtbl {
                         ppcurrentparameterset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcurrentparameterset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3186,7 +3234,10 @@ impl IWICDisplayAdaptationControl_Vtbl {
                         pfluminanceinnits.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfluminanceinnits.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3277,7 +3328,10 @@ impl IWICDisplayAdaptationControl2_Vtbl {
                         pfwhitelevelinnits.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfwhitelevelinnits.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3295,7 +3349,10 @@ impl IWICDisplayAdaptationControl2_Vtbl {
                         mode.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3392,7 +3449,10 @@ impl IWICEnumMetadataItem_Vtbl {
                         ppienummetadataitem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppienummetadataitem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3450,7 +3510,10 @@ impl IWICFastMetadataEncoder_Vtbl {
                         ppimetadataquerywriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppimetadataquerywriter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3530,8 +3593,8 @@ impl core::ops::Deref for IWICFormatConverterInfo {
 windows_core::imp::interface_hierarchy!(IWICFormatConverterInfo, windows_core::IUnknown, IWICComponentInfo);
 impl IWICFormatConverterInfo {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetPixelFormats(&self, mut ppixelformatguids: Option<&mut [WICPixelFormatGUID]>, pcactual: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPixelFormats)(windows_core::Interface::as_raw(self), ppixelformatguids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ppixelformatguids.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcactual as _) }
+    pub unsafe fn GetPixelFormats(&self, cformats: super::UINT, ppixelformatguids: Option<*mut WICPixelFormatGUID>, pcactual: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPixelFormats)(windows_core::Interface::as_raw(self), cformats, ppixelformatguids.unwrap_or(core::mem::zeroed()) as _, pcactual as _) }
     }
     pub unsafe fn CreateInstance(&self) -> windows_core::Result<IWICFormatConverter> {
         unsafe {
@@ -3572,7 +3635,10 @@ impl IWICFormatConverterInfo_Vtbl {
                         ppiconverter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiconverter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3798,10 +3864,10 @@ impl IWICImagingFactory {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateBitmapFromMemory(&self, uiwidth: super::UINT, uiheight: super::UINT, pixelformat: *const windows_core::GUID, cbstride: super::UINT, pbbuffer: &[super::BYTE]) -> windows_core::Result<IWICBitmap> {
+    pub unsafe fn CreateBitmapFromMemory(&self, uiwidth: super::UINT, uiheight: super::UINT, pixelformat: *const windows_core::GUID, cbstride: super::UINT, cbbuffersize: super::UINT, pbbuffer: *const super::BYTE) -> windows_core::Result<IWICBitmap> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateBitmapFromMemory)(windows_core::Interface::as_raw(self), uiwidth, uiheight, pixelformat, cbstride, pbbuffer.len().try_into().unwrap(), pbbuffer.as_ptr(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateBitmapFromMemory)(windows_core::Interface::as_raw(self), uiwidth, uiheight, pixelformat, cbstride, cbbuffersize, pbbuffer, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "windef")]
@@ -3961,7 +4027,10 @@ impl IWICImagingFactory_Vtbl {
                         ppidecoder.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppidecoder.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3973,7 +4042,10 @@ impl IWICImagingFactory_Vtbl {
                         ppidecoder.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppidecoder.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3985,7 +4057,10 @@ impl IWICImagingFactory_Vtbl {
                         ppidecoder.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppidecoder.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3997,7 +4072,10 @@ impl IWICImagingFactory_Vtbl {
                         ppiinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiinfo.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4009,7 +4087,10 @@ impl IWICImagingFactory_Vtbl {
                         ppidecoder.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppidecoder.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4021,7 +4102,10 @@ impl IWICImagingFactory_Vtbl {
                         ppiencoder.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiencoder.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4033,7 +4117,10 @@ impl IWICImagingFactory_Vtbl {
                         ppipalette.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppipalette.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4045,7 +4132,10 @@ impl IWICImagingFactory_Vtbl {
                         ppiformatconverter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiformatconverter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4057,7 +4147,10 @@ impl IWICImagingFactory_Vtbl {
                         ppibitmapscaler.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppibitmapscaler.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4069,7 +4162,10 @@ impl IWICImagingFactory_Vtbl {
                         ppibitmapclipper.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppibitmapclipper.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4081,7 +4177,10 @@ impl IWICImagingFactory_Vtbl {
                         ppibitmapfliprotator.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppibitmapfliprotator.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4093,7 +4192,10 @@ impl IWICImagingFactory_Vtbl {
                         ppiwicstream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiwicstream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4105,7 +4207,10 @@ impl IWICImagingFactory_Vtbl {
                         ppiwiccolorcontext.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiwiccolorcontext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4117,7 +4222,10 @@ impl IWICImagingFactory_Vtbl {
                         ppiwiccolortransform.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiwiccolortransform.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4129,7 +4237,10 @@ impl IWICImagingFactory_Vtbl {
                         ppibitmap.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppibitmap.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4141,7 +4252,10 @@ impl IWICImagingFactory_Vtbl {
                         ppibitmap.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppibitmap.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4153,7 +4267,10 @@ impl IWICImagingFactory_Vtbl {
                         ppibitmap.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppibitmap.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4165,7 +4282,10 @@ impl IWICImagingFactory_Vtbl {
                         ppibitmap.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppibitmap.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4177,7 +4297,10 @@ impl IWICImagingFactory_Vtbl {
                         ppibitmap.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppibitmap.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4189,7 +4312,10 @@ impl IWICImagingFactory_Vtbl {
                         ppibitmap.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppibitmap.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4201,7 +4327,10 @@ impl IWICImagingFactory_Vtbl {
                         ppienumunknown.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppienumunknown.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4213,7 +4342,10 @@ impl IWICImagingFactory_Vtbl {
                         ppifastencoder.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppifastencoder.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4225,7 +4357,10 @@ impl IWICImagingFactory_Vtbl {
                         ppifastencoder.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppifastencoder.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4237,7 +4372,10 @@ impl IWICImagingFactory_Vtbl {
                         ppiquerywriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiquerywriter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4249,7 +4387,10 @@ impl IWICImagingFactory_Vtbl {
                         ppiquerywriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiquerywriter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4372,7 +4513,10 @@ impl IWICImagingFactory3_Vtbl {
                         pptonemapper.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptonemapper.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4577,8 +4721,8 @@ impl IWICJpegFrameEncode {
         unsafe { (windows_core::Interface::vtable(self).GetQuantizationTable)(windows_core::Interface::as_raw(self), scanindex, tableindex, pquantizationtable as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn WriteScan(&self, pbscandata: &[super::BYTE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).WriteScan)(windows_core::Interface::as_raw(self), pbscandata.len().try_into().unwrap(), pbscandata.as_ptr()) }
+    pub unsafe fn WriteScan(&self, cbscandata: super::UINT, pbscandata: *const super::BYTE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).WriteScan)(windows_core::Interface::as_raw(self), cbscandata, pbscandata) }
     }
 }
 #[repr(C)]
@@ -4657,8 +4801,8 @@ impl IWICMetadataQueryReader {
         unsafe { (windows_core::Interface::vtable(self).GetContainerFormat)(windows_core::Interface::as_raw(self), pguidcontainerformat as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn GetLocation(&self, mut wznamespace: Option<&mut [super::WCHAR]>, pcchactuallength: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLocation)(windows_core::Interface::as_raw(self), wznamespace.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wznamespace.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcchactuallength as _) }
+    pub unsafe fn GetLocation(&self, cchmaxlength: super::UINT, wznamespace: Option<*mut super::WCHAR>, pcchactuallength: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetLocation)(windows_core::Interface::as_raw(self), cchmaxlength, wznamespace.unwrap_or(core::mem::zeroed()) as _, pcchactuallength as _) }
     }
     #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetMetadataByName<P0>(&self, wzname: P0, pvarvalue: Option<*mut super::PROPVARIANT>) -> windows_core::HRESULT
@@ -4729,7 +4873,10 @@ impl IWICMetadataQueryReader_Vtbl {
                         ppienumstring.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppienumstring.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4819,8 +4966,8 @@ impl IWICPalette {
         unsafe { (windows_core::Interface::vtable(self).InitializePredefined)(windows_core::Interface::as_raw(self), epalettetype, faddtransparentcolor.into()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn InitializeCustom(&self, pcolors: &[WICColor]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).InitializeCustom)(windows_core::Interface::as_raw(self), pcolors.as_ptr(), pcolors.len().try_into().unwrap()) }
+    pub unsafe fn InitializeCustom(&self, pcolors: *const WICColor, ccount: super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).InitializeCustom)(windows_core::Interface::as_raw(self), pcolors, ccount) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn InitializeFromBitmap<P0>(&self, pisurface: P0, ccount: super::UINT, faddtransparentcolor: bool) -> windows_core::HRESULT
@@ -5006,8 +5153,8 @@ impl IWICPixelFormatInfo {
         unsafe { (windows_core::Interface::vtable(self).GetChannelCount)(windows_core::Interface::as_raw(self), puichannelcount as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetChannelMask(&self, uichannelindex: super::UINT, mut pbmaskbuffer: Option<&mut [super::BYTE]>, pcbactual: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetChannelMask)(windows_core::Interface::as_raw(self), uichannelindex, pbmaskbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pbmaskbuffer.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcbactual as _) }
+    pub unsafe fn GetChannelMask(&self, uichannelindex: super::UINT, cbmaskbuffer: super::UINT, pbmaskbuffer: Option<*mut super::BYTE>, pcbactual: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetChannelMask)(windows_core::Interface::as_raw(self), uichannelindex, cbmaskbuffer, pbmaskbuffer.unwrap_or(core::mem::zeroed()) as _, pcbactual as _) }
     }
 }
 #[repr(C)]
@@ -5054,7 +5201,10 @@ impl IWICPixelFormatInfo_Vtbl {
                         ppicolorcontext.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppicolorcontext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5150,12 +5300,12 @@ windows_core::imp::define_interface!(IWICPlanarBitmapFrameEncode, IWICPlanarBitm
 windows_core::imp::interface_hierarchy!(IWICPlanarBitmapFrameEncode, windows_core::IUnknown);
 impl IWICPlanarBitmapFrameEncode {
     #[cfg(feature = "shared")]
-    pub unsafe fn WritePixels(&self, linecount: super::UINT, pplanes: &[WICBitmapPlane]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).WritePixels)(windows_core::Interface::as_raw(self), linecount, pplanes.as_ptr(), pplanes.len().try_into().unwrap()) }
+    pub unsafe fn WritePixels(&self, linecount: super::UINT, pplanes: *const WICBitmapPlane, cplanes: super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).WritePixels)(windows_core::Interface::as_raw(self), linecount, pplanes, cplanes) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn WriteSource(&self, ppplanes: &[Option<IWICBitmapSource>], prcsource: Option<*const WICRect>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).WriteSource)(windows_core::Interface::as_raw(self), core::mem::transmute(ppplanes.as_ptr()), ppplanes.len().try_into().unwrap(), prcsource.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn WriteSource(&self, ppplanes: *const Option<IWICBitmapSource>, cplanes: super::UINT, prcsource: Option<*const WICRect>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).WriteSource)(windows_core::Interface::as_raw(self), core::mem::transmute(ppplanes), cplanes, prcsource.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -5211,8 +5361,8 @@ impl IWICPlanarBitmapSourceTransform {
         unsafe { (windows_core::Interface::vtable(self).DoesSupportTransform)(windows_core::Interface::as_raw(self), puiwidth as _, puiheight as _, dsttransform, dstplanaroptions, pguiddstformats, pplanedescriptions as _, cplanes, pfissupported as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CopyPixels(&self, prcsource: Option<*const WICRect>, uiwidth: super::UINT, uiheight: super::UINT, dsttransform: WICBitmapTransformOptions, dstplanaroptions: WICPlanarOptions, pdstplanes: &[WICBitmapPlane]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CopyPixels)(windows_core::Interface::as_raw(self), prcsource.unwrap_or(core::mem::zeroed()) as _, uiwidth, uiheight, dsttransform, dstplanaroptions, pdstplanes.as_ptr(), pdstplanes.len().try_into().unwrap()) }
+    pub unsafe fn CopyPixels(&self, prcsource: Option<*const WICRect>, uiwidth: super::UINT, uiheight: super::UINT, dsttransform: WICBitmapTransformOptions, dstplanaroptions: WICPlanarOptions, pdstplanes: *const WICBitmapPlane, cplanes: super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CopyPixels)(windows_core::Interface::as_raw(self), prcsource.unwrap_or(core::mem::zeroed()) as _, uiwidth, uiheight, dsttransform, dstplanaroptions, pdstplanes, cplanes) }
     }
 }
 #[repr(C)]
@@ -5270,15 +5420,15 @@ impl core::ops::Deref for IWICPlanarFormatConverter {
 windows_core::imp::interface_hierarchy!(IWICPlanarFormatConverter, windows_core::IUnknown, IWICBitmapSource);
 impl IWICPlanarFormatConverter {
     #[cfg(feature = "shared")]
-    pub unsafe fn Initialize<P4>(&self, ppplanes: &[Option<IWICBitmapSource>], dstformat: *const windows_core::GUID, dither: WICBitmapDitherType, pipalette: P4, alphathresholdpercent: f64, palettetranslate: WICBitmapPaletteType) -> windows_core::HRESULT
+    pub unsafe fn Initialize<P4>(&self, ppplanes: *const Option<IWICBitmapSource>, cplanes: super::UINT, dstformat: *const windows_core::GUID, dither: WICBitmapDitherType, pipalette: P4, alphathresholdpercent: f64, palettetranslate: WICBitmapPaletteType) -> windows_core::HRESULT
     where
         P4: windows_core::Param<IWICPalette>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute(ppplanes.as_ptr()), ppplanes.len().try_into().unwrap(), dstformat, dither, pipalette.param().abi(), alphathresholdpercent, palettetranslate) }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute(ppplanes), cplanes, dstformat, dither, pipalette.param().abi(), alphathresholdpercent, palettetranslate) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CanConvert(&self, psrcpixelformats: &[WICPixelFormatGUID], dstpixelformat: *const windows_core::GUID, pfcanconvert: *mut windows_core::BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CanConvert)(windows_core::Interface::as_raw(self), psrcpixelformats.as_ptr(), psrcpixelformats.len().try_into().unwrap(), dstpixelformat, pfcanconvert as _) }
+    pub unsafe fn CanConvert(&self, psrcpixelformats: *const WICPixelFormatGUID, csrcplanes: super::UINT, dstpixelformat: *const windows_core::GUID, pfcanconvert: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CanConvert)(windows_core::Interface::as_raw(self), psrcpixelformats, csrcplanes, dstpixelformat, pfcanconvert as _) }
     }
 }
 #[repr(C)]
@@ -5416,7 +5566,10 @@ impl IWICProgressiveLevelControl_Vtbl {
                         pclevels.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pclevels.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5428,7 +5581,10 @@ impl IWICProgressiveLevelControl_Vtbl {
                         pnlevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pnlevel.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5478,8 +5634,8 @@ impl IWICStream {
         unsafe { (windows_core::Interface::vtable(self).InitializeFromFilename)(windows_core::Interface::as_raw(self), wzfilename.param().abi(), dwdesiredaccess) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn InitializeFromMemory(&self, pbbuffer: &[u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).InitializeFromMemory)(windows_core::Interface::as_raw(self), core::mem::transmute(pbbuffer.as_ptr()), pbbuffer.len().try_into().unwrap()) }
+    pub unsafe fn InitializeFromMemory(&self, pbbuffer: WICInProcPointer, cbbuffersize: super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).InitializeFromMemory)(windows_core::Interface::as_raw(self), pbbuffer, cbbuffersize) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn InitializeFromIStreamRegion<P0>(&self, pistream: P0, uloffset: super::ULARGE_INTEGER, ulmaxsize: super::ULARGE_INTEGER) -> windows_core::HRESULT

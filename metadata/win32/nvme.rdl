@@ -2412,7 +2412,6 @@ mod Windows {
         struct NVME_EXTENDED_ATTR {
             EXATTYPE: USHORT,
             EXATLEN: USHORT,
-            #[writable(EXATLEN)]
             EXATVAL: [UCHAR; 0],
         }
         #[repr(i32)]

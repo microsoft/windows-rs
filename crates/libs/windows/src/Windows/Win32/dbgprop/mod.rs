@@ -138,7 +138,10 @@ impl IDebugExtendedProperty_Vtbl {
                         ppeepi.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppeepi.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -242,7 +245,10 @@ impl IDebugProperty_Vtbl {
                         ppepi.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppepi.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -254,7 +260,10 @@ impl IDebugProperty_Vtbl {
                         ppdebugprop.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdebugprop.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -477,7 +486,10 @@ impl IEnumDebugExtendedPropertyInfo_Vtbl {
                         pedpe.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pedpe.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -583,7 +595,10 @@ impl IEnumDebugPropertyInfo_Vtbl {
                         ppepi.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppepi.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

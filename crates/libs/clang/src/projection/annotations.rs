@@ -25,34 +25,11 @@ pub(super) fn write(attributes: &[Attribute]) -> Result<TokenStream, Error> {
     write_owned(attributes, None)
 }
 
-pub(super) struct CallableAttributes {
-    pub declaration: TokenStream,
-    pub result: TokenStream,
-}
-
-pub(super) fn write_callable(
-    snapshot: &Snapshot,
-    result_type: TypeId,
-    attributes: &[Attribute],
-) -> Result<CallableAttributes, Error> {
+pub(super) fn write_callable(attributes: &[Attribute]) -> Result<TokenStream, Error> {
     let must_use = resolve::sal(attributes).iter().any(result_check);
     let native = write(attributes)?;
     let result = must_use.then(|| quote! { #[must_use] });
-    let nullable =
-        nullable_result(snapshot, result_type, [attributes]).then(|| quote! { #[nullable] });
-    Ok(CallableAttributes {
-        declaration: quote! { #native #result },
-        result: quote! { #nullable },
-    })
-}
-
-fn returned_nullable(value: &sal::Annotation<'_>) -> bool {
-    value.unscoped().is_some_and(|value| {
-        value.version == "2"
-            && value.name == "_Ret_maybenull_"
-            && value.arguments.is_empty()
-            && value.expanded.is_empty()
-    })
+    Ok(quote! { #native #result })
 }
 
 fn data_pointer(snapshot: &Snapshot, mut ty: TypeId) -> bool {
@@ -75,24 +52,6 @@ fn typed_out_pointer(snapshot: &Snapshot, ty: TypeId) -> bool {
         snapshot.types[target.0].kind,
         TypeKind::Void | TypeKind::Function(_)
     )
-}
-
-fn nullable_result<'a>(
-    snapshot: &Snapshot,
-    result: TypeId,
-    owners: impl IntoIterator<Item = &'a [Attribute]>,
-) -> bool {
-    if !data_pointer(snapshot, result) {
-        return false;
-    }
-    let mut nullable = false;
-    for value in owners.into_iter().flat_map(resolve::sal) {
-        if value.value.name == "_Ret_notnull_" {
-            return false;
-        }
-        nullable |= returned_nullable(&value);
-    }
-    nullable
 }
 
 /// Whether the callable's success condition is `return >= 0`: its own `_Success_` when present,
@@ -254,7 +213,7 @@ pub(super) fn field(
             .chain(&contract.readable)
             .any(|count| {
                 !matches!(count, sal::Expression::Parameter(_))
-                    && (!buffer || field_count(count, fields, snapshot).is_none())
+                    && (!buffer || !field_count_supported(count, fields, snapshot))
             })
     }) {
         normalized = resolve::sal(&field.attributes)
@@ -262,23 +221,7 @@ pub(super) fn field(
             .map(sal::FieldAnnotation::Evidence)
             .collect();
     }
-    let nullable = data_pointer(snapshot, field.canonical)
-        && normalized.iter().all(|value| match value {
-            sal::FieldAnnotation::Contract(_) => false,
-            sal::FieldAnnotation::Evidence(value) => value.value.name != "_Notnull_",
-        })
-        && normalized.iter().any(
-            |value| matches!(value, sal::FieldAnnotation::Evidence(value) if field_nullable(value)),
-        );
     let mut result = write(&field.attributes)?;
-    // Inline array storage cannot be null, so `_opt_` only applies to pointer fields.
-    let optional = data_pointer(snapshot, field.canonical)
-        && normalized.iter().any(
-            |value| matches!(value, sal::FieldAnnotation::Contract(contract) if contract.optional),
-        );
-    if nullable || optional {
-        result.extend(quote! { #[nullable] });
-    }
     if let Some(alignment) = field_alignment(&field.attributes)? {
         let alignment = proc_macro2::Literal::u16_unsuffixed(alignment);
         result.extend(quote! { #[align(#alignment)] });
@@ -311,40 +254,27 @@ pub(super) fn field(
                 )));
             }
         }
-        for (access, count) in
-            std::iter::once((windows_metadata::BufferAccess::Write, &contract.capacity)).chain(
-                contract
-                    .readable
-                    .as_ref()
-                    .map(|count| (windows_metadata::BufferAccess::Read, count)),
-            )
-        {
-            let extent = windows_metadata::BufferExtent::new(
-                access,
-                windows_metadata::BufferPhase::Value,
-                extent_units(contract.units),
-                field_count(count, fields, snapshot)
-                    .ok_or_else(|| Error("unsupported field buffer count".into()))?,
-            );
-            result.extend(windows_rdl::write_buffer_extent(&extent, &[]).unwrap());
+        for count in std::iter::once(&contract.capacity).chain(&contract.readable) {
+            if !field_count_supported(count, fields, snapshot) {
+                return Err(Error("unsupported field buffer count".into()));
+            }
         }
     }
     Ok(result)
 }
 
-fn field_count(
-    count: &sal::Expression,
-    fields: &[Field],
-    snapshot: &Snapshot,
-) -> Option<windows_metadata::BufferCount> {
-    use windows_metadata::BufferCount;
-    Some(match count {
-        sal::Expression::Constant(value) => BufferCount::Constant((*value).try_into().ok()?),
-        sal::Expression::Parameter(index) => BufferCount::Field(fields.get(*index)?.name.clone()),
-        _ => BufferCount::Expression(integer_expression::field_expression(
-            count, fields, snapshot,
-        )?),
-    })
+fn field_count_supported(count: &sal::Expression, fields: &[Field], snapshot: &Snapshot) -> bool {
+    match count {
+        sal::Expression::Constant(value) => *value >= 0,
+        sal::Expression::Parameter(index) => fields.get(*index).is_some(),
+        _ => count.references().into_iter().all(|(index, dereference)| {
+            fields.get(index).is_some_and(|field| {
+                !dereference
+                    && field.bit_width.is_none()
+                    && integer_expression::integer(snapshot, field.canonical)
+            })
+        }),
+    }
 }
 
 pub(super) fn field_alignment(attributes: &[Attribute]) -> Result<Option<u16>, Error> {
@@ -409,9 +339,8 @@ pub(super) fn write_callback(
     resolution: &Resolution<'_>,
     snapshot: &Snapshot,
     mut written: TypeId,
-    result_type: TypeId,
     attributes: &[Attribute],
-) -> Result<CallableAttributes, Error> {
+) -> Result<TokenStream, Error> {
     let mut owners = vec![(attributes, None)];
     loop {
         match snapshot.types[written.0].kind {
@@ -436,22 +365,13 @@ pub(super) fn write_callback(
         }
     }
     let mut must_use = false;
-    let nullable = nullable_result(
-        snapshot,
-        result_type,
-        owners.iter().map(|(attributes, _)| *attributes),
-    );
     let mut attributes = TokenStream::new();
     for (owner, typedef) in owners {
         must_use |= resolve::sal(owner).iter().any(result_check);
         attributes.extend(write_owned(owner, typedef)?);
     }
     let result = must_use.then(|| quote! { #[must_use] });
-    let nullable = nullable.then(|| quote! { #[nullable] });
-    Ok(CallableAttributes {
-        declaration: quote! { #attributes #result },
-        result: quote! { #nullable },
-    })
+    Ok(quote! { #attributes #result })
 }
 
 fn write_owned(attributes: &[Attribute], typedef: Option<&str>) -> Result<TokenStream, Error> {
@@ -537,6 +457,7 @@ pub(super) fn parameter(
     parameters: &[Parameter],
     canonical: &MetadataType,
     nonnegative_success: bool,
+    incomplete_buffer: bool,
 ) -> Result<TokenStream, Error> {
     let attributes = &parameter.attributes;
     if !only_contracts(attributes) {
@@ -577,7 +498,7 @@ pub(super) fn parameter(
                     || !count_expressions_supported(snapshot, function, contract)
         )
     });
-    let incomplete = preserve
+    let incomplete = incomplete_buffer || preserve
         || normalized.iter().any(|value| {
             matches!(value, sal::ParameterAnnotation::Evidence(value)
                 if !integer_expression::range(value) && pointee_readable(value, parameter, parameters).is_none())
@@ -594,19 +515,16 @@ pub(super) fn parameter(
     let reserved = normalized
         .contains(&sal::ParameterAnnotation::Reserved)
         .then(|| quote! { #[reserved] });
-    let returned = normalized.iter().filter_map(|value| {
-        let sal::ParameterAnnotation::Contract(contract) = value else {
-            return None;
-        };
-        Some(windows_rdl::emit::write_returned_pointer(
-            contract.returned_pointer?.null_on_failure,
-        ))
-    });
     // A required non-null returned pointer (`_COM_Outptr_`, or `_Outptr_` to an interface) on the
     // trailing output of a `return >= 0` callable meets the MIDL `[retval]` contract: the callee
     // writes a non-null object on every success, and callers read it only on success.
     let retval = (midl.retval || com_result).then(|| quote! { #[retval] });
-    Ok(quote! { #native #incomplete #direction #optional #reserved #retval #(#returned)* })
+    Ok(quote! { #native #incomplete #direction #optional #reserved #retval })
+}
+
+pub(super) struct BufferAttributes {
+    pub attributes: TokenStream,
+    pub incomplete: bool,
 }
 
 pub(super) fn buffer(
@@ -614,73 +532,41 @@ pub(super) fn buffer(
     function: &Function,
     parameters: &[Parameter],
     index: usize,
-    ty: &MetadataType,
-    canonical_ty: &MetadataType,
+    types: (&MetadataType, &MetadataType),
     names: &[&str],
-) -> Result<TokenStream, Error> {
+) -> Result<BufferAttributes, Error> {
+    let (ty, canonical_ty) = types;
     let mut size = None;
     let mut attributes = TokenStream::new();
+    let mut indirect_readable = false;
+    let mut has_buffer_contract = false;
+    let mut incomplete = false;
+    let mut returned_pointer = false;
     for value in resolve::sal(&parameters[index].attributes) {
-        if let Some(units) = pointee_readable(&value, &parameters[index], parameters) {
+        if pointee_readable(&value, &parameters[index], parameters).is_some() {
             returned_storage(snapshot, function, index, canonical_ty)?;
-            let mut extent = windows_metadata::BufferExtent::new(
-                windows_metadata::BufferAccess::Read,
-                windows_metadata::BufferPhase::Success,
-                units,
-                windows_metadata::BufferCount::Unknown,
-            );
-            extent.indirect = true;
-            attributes.extend(write_extent(&extent, names)?);
+            indirect_readable = true;
         }
     }
-    let mut nullable = false;
     for value in sal::parameters(&parameters[index].attributes, parameters) {
         let sal::ParameterAnnotation::Contract(contract) = value else {
             continue;
         };
-        let may_be_null = contract
-            .returned_pointer
-            .is_some_and(|pointer| pointer.may_be_null);
-        nullable |= may_be_null;
+        returned_pointer |= contract.returned_pointer.is_some();
         if !count_expressions_supported(snapshot, function, &contract) {
             continue;
         }
-        nullable |= contract.returned_nullable_on_entry;
         if let Some(buffer) = &contract.returned_buffer {
-            nullable |= buffer.nullable;
-            attributes.extend(returned_buffer(
-                snapshot,
-                function,
-                parameters,
-                index,
-                buffer,
-                canonical_ty,
-                names,
-            )?);
+            validate_returned_buffer(snapshot, function, parameters, index, buffer, canonical_ty)?;
+            has_buffer_contract = true;
         }
         if contract.terminated
             && (contract.returned_pointer.is_some() || contract.returned_buffer.is_some())
         {
             returned_storage(snapshot, function, index, canonical_ty)?;
-            if contract.returned_string_on_entry {
-                let mut extent = windows_metadata::BufferExtent::new(
-                    windows_metadata::BufferAccess::Read,
-                    windows_metadata::BufferPhase::Entry,
-                    windows_metadata::BufferUnits::Elements,
-                    windows_metadata::BufferCount::Constant(1),
-                );
-                extent.indirect = true;
-                attributes.extend(write_extent(&extent, names)?);
-            }
-            attributes.extend(windows_rdl::emit::write_null_terminated(
-                contract.returned_string_on_entry.then_some(false),
-                Some(false),
-                true,
-            ));
+            // A marker on this parameter would describe the outer buffer, not the returned string.
+            incomplete = true;
         }
-    }
-    if nullable {
-        attributes.extend(quote! { #[nullable] });
     }
     let midl = resolve::midl_parameter(&parameters[index]);
     let (input, output, _) =
@@ -704,7 +590,6 @@ pub(super) fn buffer(
             ));
         }
     }
-    let mut post_writable = false;
     let mut entry_readable = false;
     let mut entry_writable = false;
     let mut initialized = None;
@@ -723,9 +608,6 @@ pub(super) fn buffer(
         {
             continue;
         }
-        post_writable |= contract
-            .as_ref()
-            .is_some_and(|contract| contract.post_writable);
         let input_partial = value.value.version == "1.2"
             && matches!(
                 value.value.name.as_str(),
@@ -838,112 +720,54 @@ pub(super) fn buffer(
     if com_out {
         attributes.extend(quote! { #[iid_is] });
     }
-    if let Some(capacity) = size {
-        for (access, phase, enabled) in [
-            (
-                windows_metadata::BufferAccess::Read,
-                windows_metadata::BufferPhase::Entry,
-                entry_readable,
-            ),
-            (
-                windows_metadata::BufferAccess::Write,
-                windows_metadata::BufferPhase::Entry,
-                entry_writable,
-            ),
-            (
-                windows_metadata::BufferAccess::Write,
-                windows_metadata::BufferPhase::Success,
-                post_writable,
-            ),
-        ] {
-            if enabled {
-                let mut extent = buffer_extent(&capacity, access, phase)?;
-                count_optional(snapshot, function, parameters, &mut extent)?;
-                attributes.extend(write_extent(&extent, names)?);
-            }
+    if on_entry || on_success {
+        if on_entry && on_success && double_entry != double_success {
+            incomplete = true;
+        } else {
+            attributes.extend(windows_rdl::emit::write_null_terminated(
+                double_entry || double_success,
+            ));
         }
     }
-    if on_entry || on_success {
-        attributes.extend(windows_rdl::emit::write_null_terminated(
-            on_entry.then_some(double_entry),
-            on_success.then_some(double_success),
-            false,
-        ));
-    }
-    if let Some(length) = initialized {
-        let mut extent = buffer_extent(
-            &length.count,
-            windows_metadata::BufferAccess::Read,
-            windows_metadata::BufferPhase::Success,
-        )?;
-        extent.count_on_entry = length.on_entry;
-        extent.null_fallback = length
-            .null_fallback
-            .map(|index| {
-                u16::try_from(index)
-                    .map_err(|_| Error("SAL count parameter index exceeds metadata range".into()))
-            })
-            .transpose()?;
-        count_optional(snapshot, function, parameters, &mut extent)?;
-        attributes.extend(write_extent(&extent, names)?);
-    }
-    Ok(attributes)
-}
-
-fn field_nullable(value: &sal::Annotation<'_>) -> bool {
-    value.unscoped().is_some_and(|value| {
-        value.version == "2"
-            && value.name == "_Maybenull_"
-            && value.arguments.is_empty()
-            && value.expanded.is_empty()
-    })
-}
-
-fn count_optional(
-    snapshot: &Snapshot,
-    function: &Function,
-    parameters: &[Parameter],
-    extent: &mut windows_metadata::BufferExtent,
-) -> Result<(), Error> {
-    if extent.null_fallback.is_some() {
-        return Ok(());
-    }
-    fn expression(
-        value: &mut windows_metadata::IntegerExpression,
-        snapshot: &Snapshot,
-        function: &Function,
-        parameters: &[Parameter],
-    ) -> Result<(), Error> {
-        use windows_metadata::{IntegerExpression as E, IntegerReference as R};
-        match value {
-            E::Reference(R::Dereference(index)) => {
-                if parameter_direction(
-                    snapshot,
-                    function,
-                    &parameters[*index as usize],
-                    parameters,
-                )?
-                .2
-                {
-                    *value = E::Reference(R::OptionalDereference(*index));
+    has_buffer_contract |=
+        size.is_some() || initialized.is_some() || indirect_readable && !returned_pointer;
+    let mut published = false;
+    if let Some(capacity) = size.filter(|_| entry_readable || entry_writable) {
+        use windows_metadata::{BufferInfo, BufferSize};
+        let count = match capacity.source {
+            sal::CountSource::Constant(value) => Some(BufferSize::Constant(value)),
+            sal::CountSource::Expression(_) => None,
+            _ => {
+                let (index, dereference) = capacity.parameter().unwrap();
+                let position = u16::try_from(index).map_err(|_| {
+                    Error("SAL count parameter index exceeds metadata range".into())
+                })?;
+                if dereference {
+                    (!parameter_direction(snapshot, function, &parameters[index], parameters)?.2)
+                        .then_some(BufferSize::Dereference(position))
+                } else {
+                    Some(BufferSize::Parameter(position))
                 }
             }
-            E::Add(left, right) | E::Subtract(left, right) | E::Multiply(left, right) => {
-                expression(left, snapshot, function, parameters)?;
-                expression(right, snapshot, function, parameters)?;
-            }
-            _ => {}
+        };
+        if let Some(count) = count {
+            let info = BufferInfo {
+                count,
+                bytes: capacity.units == sal::Units::Bytes,
+            };
+            attributes.extend(
+                windows_rdl::write_buffer_info(&info, names)
+                    .ok_or_else(|| Error("invalid buffer count".into()))?,
+            );
+            published = true;
         }
-        Ok(())
     }
-    if let windows_metadata::BufferCount::Expression(value) = &mut extent.count {
-        expression(value, snapshot, function, parameters)?;
-    }
-    if let windows_metadata::BufferCount::Dereference(index) = extent.count {
-        extent.count_optional =
-            parameter_direction(snapshot, function, &parameters[index as usize], parameters)?.2;
-    }
-    Ok(())
+    // Omitted buffers must not become scalar results or COM-query outputs.
+    incomplete |= has_buffer_contract && !published;
+    Ok(BufferAttributes {
+        attributes,
+        incomplete,
+    })
 }
 
 fn count_expression_supported(
@@ -988,9 +812,9 @@ fn pointee_readable(
     annotation: &sal::Annotation<'_>,
     parameter: &Parameter,
     parameters: &[Parameter],
-) -> Option<windows_metadata::BufferUnits> {
+) -> Option<sal::Units> {
     use proc_macro2::{Delimiter, TokenTree};
-    use windows_metadata::BufferUnits;
+    use sal::Units;
 
     fn call(tokens: TokenStream, name: &str) -> Option<TokenStream> {
         let mut tokens = tokens.into_iter();
@@ -1027,8 +851,8 @@ fn pointee_readable(
     }
     let postcondition: TokenStream = tokens[comma + 1..].iter().cloned().collect();
     for (name, units) in [
-        ("_Post_readable_size_", BufferUnits::Elements),
-        ("_Post_readable_byte_size_", BufferUnits::Bytes),
+        ("_Post_readable_size_", Units::Elements),
+        ("_Post_readable_byte_size_", Units::Bytes),
     ] {
         if let Some(count) = call(postcondition.clone(), name)
             && call(count, "_Inexpressible_").is_some_and(|reason| !reason.is_empty())
@@ -1061,22 +885,16 @@ fn returned_storage(
     Ok(())
 }
 
-fn returned_buffer(
+fn validate_returned_buffer(
     snapshot: &Snapshot,
     function: &Function,
     parameters: &[Parameter],
     index: usize,
     buffer: &sal::ReturnedBuffer,
     ty: &MetadataType,
-    names: &[&str],
-) -> Result<TokenStream, Error> {
+) -> Result<(), Error> {
     returned_storage(snapshot, function, index, ty)?;
-    let mut result = TokenStream::new();
-    for (access, count) in [
-        (windows_metadata::BufferAccess::Write, &buffer.writable),
-        (windows_metadata::BufferAccess::Read, &buffer.readable),
-    ] {
-        let Some(count) = count else { continue };
+    for count in buffer.writable.iter().chain(&buffer.readable) {
         validate_count(
             snapshot,
             function,
@@ -1084,19 +902,8 @@ fn returned_buffer(
             count,
             "SAL returned-buffer count",
         )?;
-        let mut extent = buffer_extent(count, access, windows_metadata::BufferPhase::Success)?;
-        extent.indirect = true;
-        count_optional(snapshot, function, parameters, &mut extent)?;
-        result.extend(write_extent(&extent, names)?);
     }
-    Ok(result)
-}
-
-fn extent_units(units: sal::Units) -> windows_metadata::BufferUnits {
-    match units {
-        sal::Units::Elements => windows_metadata::BufferUnits::Elements,
-        sal::Units::Bytes => windows_metadata::BufferUnits::Bytes,
-    }
+    Ok(())
 }
 
 fn validate_count(
@@ -1124,42 +931,4 @@ fn validate_count(
         }
     }
     Ok(())
-}
-
-fn buffer_extent(
-    count: &sal::Count,
-    access: windows_metadata::BufferAccess,
-    phase: windows_metadata::BufferPhase,
-) -> Result<windows_metadata::BufferExtent, Error> {
-    let source = if let sal::CountSource::Expression(value) = &count.source {
-        windows_metadata::BufferCount::Expression(
-            integer_expression::project(value)
-                .ok_or_else(|| Error("invalid SAL integer expression".into()))?,
-        )
-    } else if let sal::CountSource::Constant(value) = count.source {
-        windows_metadata::BufferCount::Constant(value)
-    } else {
-        let (index, dereference) = count.parameter().unwrap();
-        let index = u16::try_from(index)
-            .map_err(|_| Error("SAL count parameter index exceeds metadata range".into()))?;
-        if dereference {
-            windows_metadata::BufferCount::Dereference(index)
-        } else {
-            windows_metadata::BufferCount::Parameter(index)
-        }
-    };
-    Ok(windows_metadata::BufferExtent::new(
-        access,
-        phase,
-        extent_units(count.units),
-        source,
-    ))
-}
-
-fn write_extent(
-    extent: &windows_metadata::BufferExtent,
-    names: &[&str],
-) -> Result<TokenStream, Error> {
-    windows_rdl::write_buffer_extent(extent, names)
-        .ok_or_else(|| Error("invalid SAL buffer extent".into()))
 }

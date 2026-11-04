@@ -128,7 +128,10 @@ impl IEnumOleDocumentViews_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -156,8 +159,8 @@ windows_core::imp::define_interface!(IOleCommandTarget, IOleCommandTarget_Vtbl, 
 windows_core::imp::interface_hierarchy!(IOleCommandTarget, windows_core::IUnknown);
 impl IOleCommandTarget {
     #[cfg(feature = "shared")]
-    pub unsafe fn QueryStatus(&self, pguidcmdgroup: Option<*const windows_core::GUID>, prgcmds: &mut [OLECMD], pcmdtext: Option<*mut OLECMDTEXT>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryStatus)(windows_core::Interface::as_raw(self), pguidcmdgroup.unwrap_or(core::mem::zeroed()) as _, prgcmds.len().try_into().unwrap(), prgcmds.as_mut_ptr(), pcmdtext.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn QueryStatus(&self, pguidcmdgroup: Option<*const windows_core::GUID>, ccmds: super::ULONG, prgcmds: *mut OLECMD, pcmdtext: Option<*mut OLECMDTEXT>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).QueryStatus)(windows_core::Interface::as_raw(self), pguidcmdgroup.unwrap_or(core::mem::zeroed()) as _, ccmds, prgcmds as _, pcmdtext.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Exec(&self, pguidcmdgroup: Option<*const windows_core::GUID>, ncmdid: super::DWORD, ncmdexecopt: super::DWORD, pvain: Option<*const super::VARIANT>, pvaout: Option<*mut super::VARIANT>) -> windows_core::HRESULT {
@@ -261,7 +264,10 @@ impl IOleDocument_Vtbl {
                         ppview.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppview.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -279,7 +285,10 @@ impl IOleDocument_Vtbl {
                         ppview.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppview.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -481,7 +490,10 @@ impl IOleDocumentView_Vtbl {
                         ppipsite.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppipsite.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -493,7 +505,10 @@ impl IOleDocumentView_Vtbl {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -559,7 +574,10 @@ impl IOleDocumentView_Vtbl {
                         ppviewnew.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppviewnew.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

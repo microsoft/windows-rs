@@ -137,11 +137,11 @@ mod Windows {
         #[library("WTSAPI32.dll")]
         extern fn WTSCloudAuthClose(#[in] cloudAuthHandle: WTS_CLOUD_AUTH_HANDLE);
         #[library("WTSAPI32.dll")]
-        extern fn WTSCloudAuthConvertAssertionToSerializedUserCredential(#[in] cloudAuthHandle: WTS_CLOUD_AUTH_HANDLE, #[in] #[readable(entry, bytes(assertionLength))] assertion: PCSTR, #[in] assertionLength: ULONG, #[in] #[null_terminated(entry)] resourceId: PCWSTR, #[out] userCredential: *mut *mut WTS_SERIALIZED_USER_CREDENTIAL) -> BOOL;
+        extern fn WTSCloudAuthConvertAssertionToSerializedUserCredential(#[in] cloudAuthHandle: WTS_CLOUD_AUTH_HANDLE, #[buffer(bytes(assertionLength))] #[in] assertion: PCSTR, #[in] assertionLength: ULONG, #[in] #[null_terminated] resourceId: PCWSTR, #[out] userCredential: *mut *mut WTS_SERIALIZED_USER_CREDENTIAL) -> BOOL;
         #[library("WTSAPI32.dll")]
         extern fn WTSCloudAuthDuplicateSerializedUserCredential(#[in] userCredential: *const WTS_SERIALIZED_USER_CREDENTIAL, #[out] duplicatedUserCredential: *mut *mut WTS_SERIALIZED_USER_CREDENTIAL) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSCloudAuthGetServerNonce(#[in] cloudAuthHandle: WTS_CLOUD_AUTH_HANDLE, #[null_terminated(success, indirect)] #[out] #[out_ptr] serverNonce: *mut PWSTR) -> BOOL;
+        extern fn WTSCloudAuthGetServerNonce(#[in] cloudAuthHandle: WTS_CLOUD_AUTH_HANDLE, #[incomplete] #[out] serverNonce: *mut PWSTR) -> BOOL;
         #[library("WTSAPI32.dll")]
         extern fn WTSCloudAuthNetworkLogonWithSerializedCredential(#[in] cloudAuthHandle: WTS_CLOUD_AUTH_HANDLE, #[in] userCredential: *mut WTS_SERIALIZED_USER_CREDENTIAL, #[out] token: *mut HANDLE) -> BOOL;
         #[library("WTSAPI32.dll")]
@@ -159,9 +159,9 @@ mod Windows {
         #[library("WTSAPI32.dll")]
         extern fn WTSEnableChildSessions(bEnable: BOOL) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSEnumerateListenersA(#[in] hServer: HANDLE, #[in] pReserved: PVOID, #[in] Reserved: DWORD, #[opt] #[out] #[writable(entry, *pCount)] pListeners: PWTSLISTENERNAMEA, #[in] #[out] pCount: *mut DWORD) -> BOOL;
+        extern fn WTSEnumerateListenersA(#[in] hServer: HANDLE, #[in] pReserved: PVOID, #[in] Reserved: DWORD, #[buffer(*pCount)] #[opt] #[out] pListeners: PWTSLISTENERNAMEA, #[in] #[out] pCount: *mut DWORD) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSEnumerateListenersW(#[in] hServer: HANDLE, #[in] pReserved: PVOID, #[in] Reserved: DWORD, #[opt] #[out] #[writable(entry, *pCount)] pListeners: PWTSLISTENERNAMEW, #[in] #[out] pCount: *mut DWORD) -> BOOL;
+        extern fn WTSEnumerateListenersW(#[in] hServer: HANDLE, #[in] pReserved: PVOID, #[in] Reserved: DWORD, #[buffer(*pCount)] #[opt] #[out] pListeners: PWTSLISTENERNAMEW, #[in] #[out] pCount: *mut DWORD) -> BOOL;
         #[library("WTSAPI32.dll")]
         extern fn WTSEnumerateProcessesA(hServer: HANDLE, Reserved: DWORD, Version: DWORD, ppProcessInfo: *mut PWTS_PROCESS_INFOA, pCount: *mut DWORD) -> BOOL;
         #[library("WTSAPI32.dll")]
@@ -171,17 +171,17 @@ mod Windows {
         #[library("WTSAPI32.dll")]
         extern fn WTSEnumerateProcessesW(hServer: HANDLE, Reserved: DWORD, Version: DWORD, ppProcessInfo: *mut PWTS_PROCESS_INFOW, pCount: *mut DWORD) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSEnumerateServersA(#[in] pDomainName: LPSTR, Reserved: DWORD, Version: DWORD, #[out] #[writable(success, *pCount, indirect)] ppServerInfo: *mut PWTS_SERVER_INFOA, #[out] pCount: *mut DWORD) -> BOOL;
+        extern fn WTSEnumerateServersA(#[in] pDomainName: LPSTR, Reserved: DWORD, Version: DWORD, #[incomplete] #[out] ppServerInfo: *mut PWTS_SERVER_INFOA, #[out] pCount: *mut DWORD) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSEnumerateServersW(#[in] pDomainName: LPWSTR, Reserved: DWORD, Version: DWORD, #[out] #[writable(success, *pCount, indirect)] ppServerInfo: *mut PWTS_SERVER_INFOW, #[out] pCount: *mut DWORD) -> BOOL;
+        extern fn WTSEnumerateServersW(#[in] pDomainName: LPWSTR, Reserved: DWORD, Version: DWORD, #[incomplete] #[out] ppServerInfo: *mut PWTS_SERVER_INFOW, #[out] pCount: *mut DWORD) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSEnumerateSessionsA(hServer: HANDLE, Reserved: DWORD, Version: DWORD, #[out] #[writable(success, *pCount, indirect)] ppSessionInfo: *mut PWTS_SESSION_INFOA, #[out] pCount: *mut DWORD) -> BOOL;
+        extern fn WTSEnumerateSessionsA(hServer: HANDLE, Reserved: DWORD, Version: DWORD, #[incomplete] #[out] ppSessionInfo: *mut PWTS_SESSION_INFOA, #[out] pCount: *mut DWORD) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSEnumerateSessionsExA(#[in] hServer: HANDLE, #[in] #[out] pLevel: *mut DWORD, #[in] Filter: DWORD, #[out] #[writable(success, *pCount, indirect)] ppSessionInfo: *mut PWTS_SESSION_INFO_1A, #[out] pCount: *mut DWORD) -> BOOL;
+        extern fn WTSEnumerateSessionsExA(#[in] hServer: HANDLE, #[in] #[out] pLevel: *mut DWORD, #[in] Filter: DWORD, #[incomplete] #[out] ppSessionInfo: *mut PWTS_SESSION_INFO_1A, #[out] pCount: *mut DWORD) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSEnumerateSessionsExW(#[in] hServer: HANDLE, #[in] #[out] pLevel: *mut DWORD, #[in] Filter: DWORD, #[out] #[writable(success, *pCount, indirect)] ppSessionInfo: *mut PWTS_SESSION_INFO_1W, #[out] pCount: *mut DWORD) -> BOOL;
+        extern fn WTSEnumerateSessionsExW(#[in] hServer: HANDLE, #[in] #[out] pLevel: *mut DWORD, #[in] Filter: DWORD, #[incomplete] #[out] ppSessionInfo: *mut PWTS_SESSION_INFO_1W, #[out] pCount: *mut DWORD) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSEnumerateSessionsW(hServer: HANDLE, Reserved: DWORD, Version: DWORD, #[out] #[writable(success, *pCount, indirect)] ppSessionInfo: *mut PWTS_SESSION_INFOW, #[out] pCount: *mut DWORD) -> BOOL;
+        extern fn WTSEnumerateSessionsW(hServer: HANDLE, Reserved: DWORD, Version: DWORD, #[incomplete] #[out] ppSessionInfo: *mut PWTS_SESSION_INFOW, #[out] pCount: *mut DWORD) -> BOOL;
         #[library("WTSAPI32.dll")]
         extern fn WTSFreeMemory(pMemory: PVOID);
         #[library("WTSAPI32.dll")]
@@ -367,13 +367,13 @@ mod Windows {
         #[library("WTSAPI32.dll")]
         extern fn WTSQueryListenerConfigW(#[in] hServer: HANDLE, #[in] pReserved: PVOID, #[in] Reserved: DWORD, #[in] pListenerName: LPWSTR, #[out] pBuffer: PWTSLISTENERCONFIGW) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSQuerySessionInformationA(hServer: HANDLE, SessionId: DWORD, WTSInfoClass: WTS_INFO_CLASS, #[out] #[writable(success, bytes(*pBytesReturned), indirect)] ppBuffer: *mut LPSTR, #[out] pBytesReturned: *mut DWORD) -> BOOL;
+        extern fn WTSQuerySessionInformationA(hServer: HANDLE, SessionId: DWORD, WTSInfoClass: WTS_INFO_CLASS, #[incomplete] #[out] ppBuffer: *mut LPSTR, #[out] pBytesReturned: *mut DWORD) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSQuerySessionInformationW(hServer: HANDLE, SessionId: DWORD, WTSInfoClass: WTS_INFO_CLASS, #[out] #[writable(success, bytes(*pBytesReturned), indirect)] ppBuffer: *mut LPWSTR, #[out] pBytesReturned: *mut DWORD) -> BOOL;
+        extern fn WTSQuerySessionInformationW(hServer: HANDLE, SessionId: DWORD, WTSInfoClass: WTS_INFO_CLASS, #[incomplete] #[out] ppBuffer: *mut LPWSTR, #[out] pBytesReturned: *mut DWORD) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSQueryUserConfigA(#[in] pServerName: LPSTR, #[in] pUserName: LPSTR, WTSConfigClass: WTS_CONFIG_CLASS, #[out] #[writable(success, bytes(*pBytesReturned), indirect)] ppBuffer: *mut LPSTR, #[out] pBytesReturned: *mut DWORD) -> BOOL;
+        extern fn WTSQueryUserConfigA(#[in] pServerName: LPSTR, #[in] pUserName: LPSTR, WTSConfigClass: WTS_CONFIG_CLASS, #[incomplete] #[out] ppBuffer: *mut LPSTR, #[out] pBytesReturned: *mut DWORD) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSQueryUserConfigW(#[in] pServerName: LPWSTR, #[in] pUserName: LPWSTR, WTSConfigClass: WTS_CONFIG_CLASS, #[out] #[writable(success, bytes(*pBytesReturned), indirect)] ppBuffer: *mut LPWSTR, #[out] pBytesReturned: *mut DWORD) -> BOOL;
+        extern fn WTSQueryUserConfigW(#[in] pServerName: LPWSTR, #[in] pUserName: LPWSTR, WTSConfigClass: WTS_CONFIG_CLASS, #[incomplete] #[out] ppBuffer: *mut LPWSTR, #[out] pBytesReturned: *mut DWORD) -> BOOL;
         #[library("WTSAPI32.dll")]
         extern fn WTSQueryUserToken(SessionId: ULONG, phToken: PHANDLE) -> BOOL;
         #[library("WTSAPI32.dll")]
@@ -381,17 +381,17 @@ mod Windows {
         #[library("WTSAPI32.dll")]
         extern fn WTSRegisterSessionNotificationEx(hServer: HANDLE, hWnd: HWND, dwFlags: DWORD) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSSendMessageA(hServer: HANDLE, SessionId: DWORD, #[in] #[readable(entry, bytes(TitleLength))] pTitle: LPSTR, TitleLength: DWORD, #[in] #[readable(entry, bytes(MessageLength))] pMessage: LPSTR, MessageLength: DWORD, Style: DWORD, Timeout: DWORD, #[out] pResponse: *mut DWORD, bWait: BOOL) -> BOOL;
+        extern fn WTSSendMessageA(hServer: HANDLE, SessionId: DWORD, #[buffer(bytes(TitleLength))] #[in] pTitle: LPSTR, TitleLength: DWORD, #[buffer(bytes(MessageLength))] #[in] pMessage: LPSTR, MessageLength: DWORD, Style: DWORD, Timeout: DWORD, #[out] pResponse: *mut DWORD, bWait: BOOL) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSSendMessageW(hServer: HANDLE, SessionId: DWORD, #[in] #[readable(entry, bytes(TitleLength))] pTitle: LPWSTR, TitleLength: DWORD, #[in] #[readable(entry, bytes(MessageLength))] pMessage: LPWSTR, MessageLength: DWORD, Style: DWORD, Timeout: DWORD, #[out] pResponse: *mut DWORD, bWait: BOOL) -> BOOL;
+        extern fn WTSSendMessageW(hServer: HANDLE, SessionId: DWORD, #[buffer(bytes(TitleLength))] #[in] pTitle: LPWSTR, TitleLength: DWORD, #[buffer(bytes(MessageLength))] #[in] pMessage: LPWSTR, MessageLength: DWORD, Style: DWORD, Timeout: DWORD, #[out] pResponse: *mut DWORD, bWait: BOOL) -> BOOL;
         #[library("WTSAPI32.dll")]
         extern fn WTSSetListenerSecurityA(#[in] hServer: HANDLE, #[in] pReserved: PVOID, #[in] Reserved: DWORD, #[in] pListenerName: LPSTR, #[in] SecurityInformation: SECURITY_INFORMATION, #[in] pSecurityDescriptor: PSECURITY_DESCRIPTOR) -> BOOL;
         #[library("WTSAPI32.dll")]
         extern fn WTSSetListenerSecurityW(#[in] hServer: HANDLE, #[in] pReserved: PVOID, #[in] Reserved: DWORD, #[in] pListenerName: LPWSTR, #[in] SecurityInformation: SECURITY_INFORMATION, #[in] pSecurityDescriptor: PSECURITY_DESCRIPTOR) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSSetUserConfigA(#[in] pServerName: LPSTR, #[in] pUserName: LPSTR, WTSConfigClass: WTS_CONFIG_CLASS, #[in] #[readable(entry, bytes(DataLength))] pBuffer: LPSTR, DataLength: DWORD) -> BOOL;
+        extern fn WTSSetUserConfigA(#[in] pServerName: LPSTR, #[in] pUserName: LPSTR, WTSConfigClass: WTS_CONFIG_CLASS, #[buffer(bytes(DataLength))] #[in] pBuffer: LPSTR, DataLength: DWORD) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSSetUserConfigW(#[in] pServerName: LPWSTR, #[in] pUserName: LPWSTR, WTSConfigClass: WTS_CONFIG_CLASS, #[in] #[readable(entry, bytes(DataLength))] pBuffer: LPWSTR, DataLength: DWORD) -> BOOL;
+        extern fn WTSSetUserConfigW(#[in] pServerName: LPWSTR, #[in] pUserName: LPWSTR, WTSConfigClass: WTS_CONFIG_CLASS, #[buffer(bytes(DataLength))] #[in] pBuffer: LPWSTR, DataLength: DWORD) -> BOOL;
         #[library("WTSAPI32.dll")]
         extern fn WTSShutdownSystem(hServer: HANDLE, ShutdownFlag: DWORD) -> BOOL;
         #[library("WTSAPI32.dll")]
@@ -459,9 +459,9 @@ mod Windows {
         #[library("WTSAPI32.dll")]
         extern fn WTSVirtualChannelQuery(hChannelHandle: HANDLE, param1: WTS_VIRTUAL_CLASS, ppBuffer: *mut PVOID, pBytesReturned: *mut DWORD) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSVirtualChannelRead(hChannelHandle: HANDLE, TimeOut: ULONG, #[out] #[readable(success, bytes(*pBytesRead))] #[writable(entry, bytes(BufferSize))] Buffer: PCHAR, BufferSize: ULONG, #[out] pBytesRead: PULONG) -> BOOL;
+        extern fn WTSVirtualChannelRead(hChannelHandle: HANDLE, TimeOut: ULONG, #[buffer(bytes(BufferSize))] #[out] Buffer: PCHAR, BufferSize: ULONG, #[out] pBytesRead: PULONG) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSVirtualChannelWrite(hChannelHandle: HANDLE, #[in] #[readable(entry, bytes(Length))] Buffer: PCHAR, Length: ULONG, #[out] pBytesWritten: PULONG) -> BOOL;
+        extern fn WTSVirtualChannelWrite(hChannelHandle: HANDLE, #[buffer(bytes(Length))] #[in] Buffer: PCHAR, Length: ULONG, #[out] pBytesWritten: PULONG) -> BOOL;
         #[library("WTSAPI32.dll")]
         extern fn WTSWaitSystemEvent(hServer: HANDLE, EventMask: DWORD, pEventFlags: *mut DWORD) -> BOOL;
         const WTS_ANY_SESSION: DWORD = 4294967294;

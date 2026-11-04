@@ -18,9 +18,9 @@ pub unsafe fn NtDeviceIoControlFile(filehandle: super::HANDLE, event: super::HAN
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn NtNotifyChangeMultipleKeys(masterkeyhandle: super::HANDLE, subordinateobjects: Option<&[OBJECT_ATTRIBUTES]>, event: Option<super::HANDLE>, apcroutine: PIO_APC_ROUTINE, apccontext: Option<super::PVOID>, iostatusblock: PIO_STATUS_BLOCK, completionfilter: super::ULONG, watchtree: super::BOOLEAN, buffer: Option<super::PVOID>, buffersize: super::ULONG, asynchronous: super::BOOLEAN) -> windows_core::NTSTATUS {
+pub unsafe fn NtNotifyChangeMultipleKeys(masterkeyhandle: super::HANDLE, count: Option<super::ULONG>, subordinateobjects: Option<*const OBJECT_ATTRIBUTES>, event: Option<super::HANDLE>, apcroutine: PIO_APC_ROUTINE, apccontext: Option<super::PVOID>, iostatusblock: PIO_STATUS_BLOCK, completionfilter: super::ULONG, watchtree: super::BOOLEAN, buffer: Option<super::PVOID>, buffersize: super::ULONG, asynchronous: super::BOOLEAN) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn NtNotifyChangeMultipleKeys(masterkeyhandle : super::HANDLE, count : super::ULONG, subordinateobjects : *const OBJECT_ATTRIBUTES, event : super::HANDLE, apcroutine : PIO_APC_ROUTINE, apccontext : super::PVOID, iostatusblock : PIO_STATUS_BLOCK, completionfilter : super::ULONG, watchtree : super::BOOLEAN, buffer : super::PVOID, buffersize : super::ULONG, asynchronous : super::BOOLEAN) -> windows_core::NTSTATUS);
-    unsafe { NtNotifyChangeMultipleKeys(masterkeyhandle, subordinateobjects.map_or(0, |slice| slice.len().try_into().unwrap()), subordinateobjects.map_or(core::ptr::null(), |slice| slice.as_ptr()), event.unwrap_or(core::mem::zeroed()) as _, apcroutine, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, completionfilter, watchtree, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, asynchronous) }
+    unsafe { NtNotifyChangeMultipleKeys(masterkeyhandle, count.unwrap_or(core::mem::zeroed()) as _, subordinateobjects.unwrap_or(core::mem::zeroed()) as _, event.unwrap_or(core::mem::zeroed()) as _, apcroutine, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, completionfilter, watchtree, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, asynchronous) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -42,9 +42,9 @@ pub unsafe fn NtQueryInformationThread(threadhandle: super::HANDLE, threadinform
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn NtQueryMultipleValueKey(keyhandle: super::HANDLE, valueentries: &mut [KEY_VALUE_ENTRY], valuebuffer: super::PVOID, bufferlength: super::PULONG, requiredbufferlength: Option<super::PULONG>) -> windows_core::NTSTATUS {
+pub unsafe fn NtQueryMultipleValueKey(keyhandle: super::HANDLE, valueentries: PKEY_VALUE_ENTRY, entrycount: super::ULONG, valuebuffer: super::PVOID, bufferlength: super::PULONG, requiredbufferlength: Option<super::PULONG>) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn NtQueryMultipleValueKey(keyhandle : super::HANDLE, valueentries : PKEY_VALUE_ENTRY, entrycount : super::ULONG, valuebuffer : super::PVOID, bufferlength : super::PULONG, requiredbufferlength : super::PULONG) -> windows_core::NTSTATUS);
-    unsafe { NtQueryMultipleValueKey(keyhandle, core::mem::transmute(valueentries.as_mut_ptr()), valueentries.len().try_into().unwrap(), valuebuffer as _, bufferlength as _, requiredbufferlength.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { NtQueryMultipleValueKey(keyhandle, valueentries as _, entrycount, valuebuffer as _, bufferlength as _, requiredbufferlength.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]

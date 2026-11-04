@@ -357,15 +357,15 @@ pub unsafe fn TryEnterCriticalSection(lpcriticalsection: super::LPCRITICAL_SECTI
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WaitForMultipleObjects(lphandles: &[super::HANDLE], bwaitall: bool, dwmilliseconds: super::DWORD) -> super::DWORD {
+pub unsafe fn WaitForMultipleObjects(ncount: super::DWORD, lphandles: *const super::HANDLE, bwaitall: bool, dwmilliseconds: super::DWORD) -> super::DWORD {
     windows_core::link!("kernel32.dll" "system" fn WaitForMultipleObjects(ncount : super::DWORD, lphandles : *const super::HANDLE, bwaitall : windows_core::BOOL, dwmilliseconds : super::DWORD) -> super::DWORD);
-    unsafe { WaitForMultipleObjects(lphandles.len().try_into().unwrap(), lphandles.as_ptr(), bwaitall.into(), dwmilliseconds) }
+    unsafe { WaitForMultipleObjects(ncount, lphandles, bwaitall.into(), dwmilliseconds) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WaitForMultipleObjectsEx(lphandles: &[super::HANDLE], bwaitall: bool, dwmilliseconds: super::DWORD, balertable: bool) -> super::DWORD {
+pub unsafe fn WaitForMultipleObjectsEx(ncount: super::DWORD, lphandles: *const super::HANDLE, bwaitall: bool, dwmilliseconds: super::DWORD, balertable: bool) -> super::DWORD {
     windows_core::link!("kernel32.dll" "system" fn WaitForMultipleObjectsEx(ncount : super::DWORD, lphandles : *const super::HANDLE, bwaitall : windows_core::BOOL, dwmilliseconds : super::DWORD, balertable : windows_core::BOOL) -> super::DWORD);
-    unsafe { WaitForMultipleObjectsEx(lphandles.len().try_into().unwrap(), lphandles.as_ptr(), bwaitall.into(), dwmilliseconds, balertable.into()) }
+    unsafe { WaitForMultipleObjectsEx(ncount, lphandles, bwaitall.into(), dwmilliseconds, balertable.into()) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]

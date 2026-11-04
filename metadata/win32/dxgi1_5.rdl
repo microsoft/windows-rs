@@ -40,20 +40,20 @@ mod Windows {
         }
         #[guid(0x95b4f95f_d8da_4ca4_9ee6_3b76d5968a10)]
         interface IDXGIDevice4: IDXGIDevice3 {
-            fn OfferResources1(&self, #[in] NumResources: UINT, #[in] #[readable(entry, NumResources)] ppResources: *const IDXGIResource, #[in] Priority: DXGI_OFFER_RESOURCE_PRIORITY, #[in] Flags: UINT) -> HRESULT;
-            fn ReclaimResources1(&self, #[in] NumResources: UINT, #[in] #[readable(entry, NumResources)] ppResources: *const IDXGIResource, #[out] #[readable(success, NumResources)] #[writable(entry, NumResources)] pResults: *mut DXGI_RECLAIM_RESOURCE_RESULTS) -> HRESULT;
+            fn OfferResources1(&self, #[in] NumResources: UINT, #[buffer(NumResources)] #[in] ppResources: *const IDXGIResource, #[in] Priority: DXGI_OFFER_RESOURCE_PRIORITY, #[in] Flags: UINT) -> HRESULT;
+            fn ReclaimResources1(&self, #[in] NumResources: UINT, #[buffer(NumResources)] #[in] ppResources: *const IDXGIResource, #[buffer(NumResources)] #[out] pResults: *mut DXGI_RECLAIM_RESOURCE_RESULTS) -> HRESULT;
         }
         #[guid(0x7632e1f5_ee65_4dca_87fd_84cd75f8838d)]
         interface IDXGIFactory5: IDXGIFactory4 {
-            fn CheckFeatureSupport(&self, Feature: DXGI_FEATURE, #[in] #[out] #[writable(entry, bytes(FeatureSupportDataSize))] pFeatureSupportData: *mut void, FeatureSupportDataSize: UINT) -> HRESULT;
+            fn CheckFeatureSupport(&self, Feature: DXGI_FEATURE, #[buffer(bytes(FeatureSupportDataSize))] #[in] #[out] pFeatureSupportData: *mut void, FeatureSupportDataSize: UINT) -> HRESULT;
         }
         #[guid(0x80a07424_ab52_42eb_833c_0c42fd282d98)]
         interface IDXGIOutput5: IDXGIOutput4 {
-            fn DuplicateOutput1(&self, #[in] pDevice: IUnknown, #[in] Flags: UINT, #[in] SupportedFormatsCount: UINT, #[in] #[readable(entry, SupportedFormatsCount)] pSupportedFormats: *const DXGI_FORMAT, #[out] #[out_ptr(null_on_failure)] #[retval] ppOutputDuplication: *mut IDXGIOutputDuplication) -> HRESULT;
+            fn DuplicateOutput1(&self, #[in] pDevice: IUnknown, #[in] Flags: UINT, #[in] SupportedFormatsCount: UINT, #[buffer(SupportedFormatsCount)] #[in] pSupportedFormats: *const DXGI_FORMAT, #[out] #[retval] ppOutputDuplication: *mut IDXGIOutputDuplication) -> HRESULT;
         }
         #[guid(0x3d585d5a_bd4a_489e_b1f4_3dbcb6452ffb)]
         interface IDXGISwapChain4: IDXGISwapChain3 {
-            fn SetHDRMetaData(&self, #[in] Type: DXGI_HDR_METADATA_TYPE, #[in] Size: UINT, #[in] #[opt] #[readable(entry, Size)] pMetaData: *mut void) -> HRESULT;
+            fn SetHDRMetaData(&self, #[in] Type: DXGI_HDR_METADATA_TYPE, #[in] Size: UINT, #[buffer(Size)] #[in] #[opt] pMetaData: *mut void) -> HRESULT;
         }
         const IID_IDXGIDevice4: GUID = 0x95b4f95f_d8da_4ca4_9ee6_3b76d5968a10;
         const IID_IDXGIFactory5: GUID = 0x7632e1f5_ee65_4dca_87fd_84cd75f8838d;

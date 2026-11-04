@@ -7,13 +7,13 @@ mod Windows {
             fn GetID(&self, #[out] pu32ID: *mut UINT32) -> HRESULT;
             fn SetType(&self, #[in] r#type: AudioObjectType) -> HRESULT;
             fn GetType(&self, #[out] pType: *mut AudioObjectType) -> HRESULT;
-            fn GetMetadataItems(&self, #[out] #[out_ptr(null_on_failure)] #[retval] ppMetadataItems: *mut ISpatialAudioMetadataItems) -> HRESULT;
+            fn GetMetadataItems(&self, #[out] #[retval] ppMetadataItems: *mut ISpatialAudioMetadataItems) -> HRESULT;
         }
         #[guid(0xabf28a9b_3393_4290_ba79_5ffc46d986b2)]
         interface IMFSpatialAudioSample: IMFSample {
             fn GetObjectCount(&self, #[out] pdwObjectCount: *mut DWORD) -> HRESULT;
             fn AddSpatialAudioObject(&self, #[in] pAudioObjBuffer: IMFSpatialAudioObjectBuffer) -> HRESULT;
-            fn GetSpatialAudioObjectByIndex(&self, #[in] dwIndex: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] ppAudioObjBuffer: *mut IMFSpatialAudioObjectBuffer) -> HRESULT;
+            fn GetSpatialAudioObjectByIndex(&self, #[in] dwIndex: DWORD, #[out] #[retval] ppAudioObjBuffer: *mut IMFSpatialAudioObjectBuffer) -> HRESULT;
         }
     }
 }

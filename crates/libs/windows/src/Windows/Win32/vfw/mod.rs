@@ -159,9 +159,9 @@ where
     unsafe { AVIMakeCompressedStream(core::mem::transmute(ppscompressed), ppssource.param().abi(), lpoptions, pclsidhandler.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn AVIMakeFileFromStreams(ppfile: *mut Option<PAVIFILE>, papstreams: &[Option<PAVISTREAM>]) -> windows_core::HRESULT {
+pub unsafe fn AVIMakeFileFromStreams(ppfile: *mut Option<PAVIFILE>, nstreams: i32, papstreams: *const Option<PAVISTREAM>) -> windows_core::HRESULT {
     windows_core::link!("avifil32.dll" "system" fn AVIMakeFileFromStreams(ppfile : *mut *mut core::ffi::c_void, nstreams : i32, papstreams : *const *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { AVIMakeFileFromStreams(core::mem::transmute(ppfile), papstreams.len().try_into().unwrap(), core::mem::transmute(papstreams.as_ptr())) }
+    unsafe { AVIMakeFileFromStreams(core::mem::transmute(ppfile), nstreams, core::mem::transmute(papstreams)) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -188,9 +188,9 @@ pub unsafe fn AVISaveOptions(hwnd: super::HWND, uiflags: super::UINT, nstreams: 
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn AVISaveOptionsFree(plpoptions: &[LPAVICOMPRESSOPTIONS]) -> windows_core::HRESULT {
+pub unsafe fn AVISaveOptionsFree(nstreams: i32, plpoptions: *const LPAVICOMPRESSOPTIONS) -> windows_core::HRESULT {
     windows_core::link!("avifil32.dll" "system" fn AVISaveOptionsFree(nstreams : i32, plpoptions : *const LPAVICOMPRESSOPTIONS) -> windows_core::HRESULT);
-    unsafe { AVISaveOptionsFree(plpoptions.len().try_into().unwrap(), plpoptions.as_ptr()) }
+    unsafe { AVISaveOptionsFree(nstreams, plpoptions) }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -456,9 +456,9 @@ pub unsafe fn DrawDibBegin(hdd: HDRAWDIB, hdc: Option<super::HDC>, dxdst: i32, d
 }
 #[cfg(all(feature = "shared", feature = "wingdi"))]
 #[inline]
-pub unsafe fn DrawDibChangePalette(hdd: HDRAWDIB, istart: i32, lppe: &[super::PALETTEENTRY]) -> windows_core::BOOL {
+pub unsafe fn DrawDibChangePalette(hdd: HDRAWDIB, istart: i32, ilen: i32, lppe: super::LPPALETTEENTRY) -> windows_core::BOOL {
     windows_core::link!("msvfw32.dll" "system" fn DrawDibChangePalette(hdd : HDRAWDIB, istart : i32, ilen : i32, lppe : super::LPPALETTEENTRY) -> windows_core::BOOL);
-    unsafe { DrawDibChangePalette(hdd, istart, lppe.len().try_into().unwrap(), core::mem::transmute(lppe.as_ptr())) }
+    unsafe { DrawDibChangePalette(hdd, istart, ilen, lppe) }
 }
 #[inline]
 pub unsafe fn DrawDibClose(hdd: HDRAWDIB) -> windows_core::BOOL {
@@ -1358,7 +1358,10 @@ impl IAVIEditStream_Vtbl {
                         ppresult.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppresult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1370,7 +1373,10 @@ impl IAVIEditStream_Vtbl {
                         ppresult.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppresult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1388,7 +1394,10 @@ impl IAVIEditStream_Vtbl {
                         ppresult.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppresult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

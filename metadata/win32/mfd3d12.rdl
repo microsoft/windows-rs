@@ -14,7 +14,7 @@ mod Windows {
             fn EnqueueResourceRelease(&self, #[in] pConsumerCommandQueue: ID3D12CommandQueue) -> HRESULT;
         }
         #[library("MFPlat.DLL")]
-        extern fn MFCreateD3D12SynchronizationObject(#[in] pDevice: ID3D12Device, #[in] riid: &IID, #[out] #[out_ptr] ppvSyncObject: *mut *mut void) -> HRESULT;
+        extern fn MFCreateD3D12SynchronizationObject(#[in] pDevice: ID3D12Device, #[in] riid: &IID, #[out] ppvSyncObject: *mut *mut void) -> HRESULT;
         const MF_D3D12_SYNCHRONIZATION_OBJECT: GUID = 0x2a7c8d6a_85a6_494d_a046_06ea1a138f4b;
         const MF_MT_D3D12_CPU_READBACK: GUID = 0x28ee9fe3_d481_46a6_b98a_7f69d5280e82;
         const MF_MT_D3D12_RESOURCE_DIMENSION: GUID = 0x5f772624_16ca_4b89_9651_5ddf769f8ab8;

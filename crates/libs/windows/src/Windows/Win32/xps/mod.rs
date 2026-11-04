@@ -1,6 +1,6 @@
 #[cfg(all(feature = "objidlbase", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn StartXpsPrintJob<P0, P1, P2>(printername: P0, jobname: P1, outputfilename: P2, progressevent: super::HANDLE, completionevent: super::HANDLE, printablepageson: &[super::UINT8], xpsprintjob: *mut Option<IXpsPrintJob>, documentstream: *mut Option<IXpsPrintJobStream>) -> windows_core::Result<IXpsPrintJobStream>
+pub unsafe fn StartXpsPrintJob<P0, P1, P2>(printername: P0, jobname: P1, outputfilename: P2, progressevent: super::HANDLE, completionevent: super::HANDLE, printablepageson: *const super::UINT8, printablepagesoncount: super::UINT32, xpsprintjob: *mut Option<IXpsPrintJob>, documentstream: *mut Option<IXpsPrintJobStream>) -> windows_core::Result<IXpsPrintJobStream>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -9,7 +9,7 @@ where
     windows_core::link!("xpsprint.dll" "system" fn StartXpsPrintJob(printername : windows_core::PCWSTR, jobname : windows_core::PCWSTR, outputfilename : windows_core::PCWSTR, progressevent : super::HANDLE, completionevent : super::HANDLE, printablepageson : *const super::UINT8, printablepagesoncount : super::UINT32, xpsprintjob : *mut *mut core::ffi::c_void, documentstream : *mut *mut core::ffi::c_void, printticketstream : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        StartXpsPrintJob(printername.param().abi(), jobname.param().abi(), outputfilename.param().abi(), progressevent, completionevent, printablepageson.as_ptr(), printablepageson.len().try_into().unwrap(), core::mem::transmute(xpsprintjob), core::mem::transmute(documentstream), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        StartXpsPrintJob(printername.param().abi(), jobname.param().abi(), outputfilename.param().abi(), progressevent, completionevent, printablepageson, printablepagesoncount, core::mem::transmute(xpsprintjob), core::mem::transmute(documentstream), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "winnt")]
@@ -76,7 +76,10 @@ impl IXpsOMBrush_Vtbl {
                         opacity.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        opacity.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -218,7 +221,10 @@ impl IXpsOMCanvas_Vtbl {
                         visuals.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        visuals.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -230,7 +236,10 @@ impl IXpsOMCanvas_Vtbl {
                         usealiasededgemode.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        usealiasededgemode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -272,7 +281,10 @@ impl IXpsOMCanvas_Vtbl {
                         resourcedictionary.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        resourcedictionary.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -284,7 +296,10 @@ impl IXpsOMCanvas_Vtbl {
                         resourcedictionary.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        resourcedictionary.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -302,7 +317,10 @@ impl IXpsOMCanvas_Vtbl {
                         remotedictionaryresource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        remotedictionaryresource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -320,7 +338,10 @@ impl IXpsOMCanvas_Vtbl {
                         canvas.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        canvas.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -401,7 +422,10 @@ impl IXpsOMColorProfileResource_Vtbl {
                         stream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        stream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -522,7 +546,10 @@ impl IXpsOMColorProfileResourceCollection_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -534,7 +561,10 @@ impl IXpsOMColorProfileResourceCollection_Vtbl {
                         object.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        object.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -570,7 +600,10 @@ impl IXpsOMColorProfileResourceCollection_Vtbl {
                         part.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        part.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -868,7 +901,10 @@ impl IXpsOMCoreProperties_Vtbl {
                         package.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        package.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -916,7 +952,10 @@ impl IXpsOMCoreProperties_Vtbl {
                         created.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        created.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1006,7 +1045,10 @@ impl IXpsOMCoreProperties_Vtbl {
                         lastprinted.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        lastprinted.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1024,7 +1066,10 @@ impl IXpsOMCoreProperties_Vtbl {
                         modified.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        modified.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1090,7 +1135,10 @@ impl IXpsOMCoreProperties_Vtbl {
                         coreproperties.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        coreproperties.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1221,7 +1269,10 @@ impl IXpsOMDashCollection_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1233,7 +1284,10 @@ impl IXpsOMDashCollection_Vtbl {
                         dash.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        dash.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1411,7 +1465,10 @@ impl IXpsOMDictionary_Vtbl {
                         owner.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        owner.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1423,7 +1480,10 @@ impl IXpsOMDictionary_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1435,7 +1495,10 @@ impl IXpsOMDictionary_Vtbl {
                         entry.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        entry.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1447,7 +1510,10 @@ impl IXpsOMDictionary_Vtbl {
                         entry.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        entry.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1459,7 +1525,10 @@ impl IXpsOMDictionary_Vtbl {
                         index.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        index.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1495,7 +1564,10 @@ impl IXpsOMDictionary_Vtbl {
                         dictionary.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        dictionary.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1612,7 +1684,10 @@ impl IXpsOMDocument_Vtbl {
                         documentsequence.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        documentsequence.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1624,7 +1699,10 @@ impl IXpsOMDocument_Vtbl {
                         pagereferences.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pagereferences.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1636,7 +1714,10 @@ impl IXpsOMDocument_Vtbl {
                         printticketresource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        printticketresource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1654,7 +1735,10 @@ impl IXpsOMDocument_Vtbl {
                         documentstructureresource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        documentstructureresource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1672,7 +1756,10 @@ impl IXpsOMDocument_Vtbl {
                         signatureblockresources.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        signatureblockresources.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1684,7 +1771,10 @@ impl IXpsOMDocument_Vtbl {
                         document.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        document.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1794,7 +1884,10 @@ impl IXpsOMDocumentCollection_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1806,7 +1899,10 @@ impl IXpsOMDocumentCollection_Vtbl {
                         document.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        document.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1911,7 +2007,10 @@ impl IXpsOMDocumentSequence_Vtbl {
                         package.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        package.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1923,7 +2022,10 @@ impl IXpsOMDocumentSequence_Vtbl {
                         documents.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        documents.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1935,7 +2037,10 @@ impl IXpsOMDocumentSequence_Vtbl {
                         printticketresource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        printticketresource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2021,7 +2126,10 @@ impl IXpsOMDocumentStructureResource_Vtbl {
                         owner.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        owner.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2033,7 +2141,10 @@ impl IXpsOMDocumentStructureResource_Vtbl {
                         stream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        stream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2118,7 +2229,10 @@ impl IXpsOMFontResource_Vtbl {
                         readerstream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        readerstream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2136,7 +2250,10 @@ impl IXpsOMFontResource_Vtbl {
                         embeddingoption.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        embeddingoption.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2256,7 +2373,10 @@ impl IXpsOMFontResourceCollection_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2268,7 +2388,10 @@ impl IXpsOMFontResourceCollection_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2304,7 +2427,10 @@ impl IXpsOMFontResourceCollection_Vtbl {
                         part.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        part.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2418,7 +2544,10 @@ impl IXpsOMGeometry_Vtbl {
                         figures.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        figures.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2430,7 +2559,10 @@ impl IXpsOMGeometry_Vtbl {
                         fillrule.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        fillrule.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2448,7 +2580,10 @@ impl IXpsOMGeometry_Vtbl {
                         transform.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        transform.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2460,7 +2595,10 @@ impl IXpsOMGeometry_Vtbl {
                         transform.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        transform.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2490,7 +2628,10 @@ impl IXpsOMGeometry_Vtbl {
                         geometry.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        geometry.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2666,7 +2807,10 @@ impl IXpsOMGeometryFigure_Vtbl {
                         owner.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        owner.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2702,7 +2846,10 @@ impl IXpsOMGeometryFigure_Vtbl {
                         startpoint.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        startpoint.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2720,7 +2867,10 @@ impl IXpsOMGeometryFigure_Vtbl {
                         isclosed.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        isclosed.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2738,7 +2888,10 @@ impl IXpsOMGeometryFigure_Vtbl {
                         isfilled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        isfilled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2756,7 +2909,10 @@ impl IXpsOMGeometryFigure_Vtbl {
                         segmentcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        segmentcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2768,7 +2924,10 @@ impl IXpsOMGeometryFigure_Vtbl {
                         segmentdatacount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        segmentdatacount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2780,7 +2939,10 @@ impl IXpsOMGeometryFigure_Vtbl {
                         segmentstrokepattern.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        segmentstrokepattern.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2792,7 +2954,10 @@ impl IXpsOMGeometryFigure_Vtbl {
                         geometryfigure.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        geometryfigure.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2909,7 +3074,10 @@ impl IXpsOMGeometryFigureCollection_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2921,7 +3089,10 @@ impl IXpsOMGeometryFigureCollection_Vtbl {
                         geometryfigure.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        geometryfigure.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3238,7 +3409,10 @@ impl IXpsOMGlyphs_Vtbl {
                         indexcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        indexcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3256,7 +3430,10 @@ impl IXpsOMGlyphs_Vtbl {
                         glyphmappingcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        glyphmappingcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3274,7 +3451,10 @@ impl IXpsOMGlyphs_Vtbl {
                         prohibitedcaretstopcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        prohibitedcaretstopcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3292,7 +3472,10 @@ impl IXpsOMGlyphs_Vtbl {
                         bidilevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bidilevel.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3304,7 +3487,10 @@ impl IXpsOMGlyphs_Vtbl {
                         issideways.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        issideways.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3322,7 +3508,10 @@ impl IXpsOMGlyphs_Vtbl {
                         stylesimulations.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        stylesimulations.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3340,7 +3529,10 @@ impl IXpsOMGlyphs_Vtbl {
                         origin.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        origin.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3358,7 +3550,10 @@ impl IXpsOMGlyphs_Vtbl {
                         fontrenderingemsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        fontrenderingemsize.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3376,7 +3571,10 @@ impl IXpsOMGlyphs_Vtbl {
                         fontresource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        fontresource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3394,7 +3592,10 @@ impl IXpsOMGlyphs_Vtbl {
                         fontfaceindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        fontfaceindex.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3412,7 +3613,10 @@ impl IXpsOMGlyphs_Vtbl {
                         fillbrush.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        fillbrush.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3424,7 +3628,10 @@ impl IXpsOMGlyphs_Vtbl {
                         fillbrush.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        fillbrush.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3454,7 +3661,10 @@ impl IXpsOMGlyphs_Vtbl {
                         editor.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        editor.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3466,7 +3676,10 @@ impl IXpsOMGlyphs_Vtbl {
                         glyphs.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        glyphs.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3703,7 +3916,10 @@ impl IXpsOMGlyphsEditor_Vtbl {
                         indexcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        indexcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3727,7 +3943,10 @@ impl IXpsOMGlyphsEditor_Vtbl {
                         glyphmappingcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        glyphmappingcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3751,7 +3970,10 @@ impl IXpsOMGlyphsEditor_Vtbl {
                         prohibitedcaretstopcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        prohibitedcaretstopcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3775,7 +3997,10 @@ impl IXpsOMGlyphsEditor_Vtbl {
                         bidilevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bidilevel.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3793,7 +4018,10 @@ impl IXpsOMGlyphsEditor_Vtbl {
                         issideways.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        issideways.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3943,7 +4171,10 @@ impl IXpsOMGradientBrush_Vtbl {
                         gradientstops.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        gradientstops.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3955,7 +4186,10 @@ impl IXpsOMGradientBrush_Vtbl {
                         transform.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        transform.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3967,7 +4201,10 @@ impl IXpsOMGradientBrush_Vtbl {
                         transform.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        transform.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3997,7 +4234,10 @@ impl IXpsOMGradientBrush_Vtbl {
                         spreadmethod.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        spreadmethod.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4015,7 +4255,10 @@ impl IXpsOMGradientBrush_Vtbl {
                         colorinterpolationmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        colorinterpolationmode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4129,7 +4372,10 @@ impl IXpsOMGradientStop_Vtbl {
                         owner.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        owner.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4141,7 +4387,10 @@ impl IXpsOMGradientStop_Vtbl {
                         offset.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        offset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4159,7 +4408,10 @@ impl IXpsOMGradientStop_Vtbl {
                         colorprofile.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        colorprofile.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4177,7 +4429,10 @@ impl IXpsOMGradientStop_Vtbl {
                         gradientstop.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        gradientstop.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4285,7 +4540,10 @@ impl IXpsOMGradientStopCollection_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4297,7 +4555,10 @@ impl IXpsOMGradientStopCollection_Vtbl {
                         stop.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        stop.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4410,7 +4671,10 @@ impl IXpsOMImageBrush_Vtbl {
                         imageresource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        imageresource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4428,7 +4692,10 @@ impl IXpsOMImageBrush_Vtbl {
                         colorprofileresource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        colorprofileresource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4446,7 +4713,10 @@ impl IXpsOMImageBrush_Vtbl {
                         imagebrush.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        imagebrush.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4527,7 +4797,10 @@ impl IXpsOMImageResource_Vtbl {
                         readerstream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        readerstream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4545,7 +4818,10 @@ impl IXpsOMImageResource_Vtbl {
                         imagetype.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        imagetype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4665,7 +4941,10 @@ impl IXpsOMImageResourceCollection_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4677,7 +4956,10 @@ impl IXpsOMImageResourceCollection_Vtbl {
                         object.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        object.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4713,7 +4995,10 @@ impl IXpsOMImageResourceCollection_Vtbl {
                         part.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        part.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4813,7 +5098,10 @@ impl IXpsOMLinearGradientBrush_Vtbl {
                         startpoint.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        startpoint.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4831,7 +5119,10 @@ impl IXpsOMLinearGradientBrush_Vtbl {
                         endpoint.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        endpoint.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4849,7 +5140,10 @@ impl IXpsOMLinearGradientBrush_Vtbl {
                         lineargradientbrush.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        lineargradientbrush.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4926,7 +5220,10 @@ impl IXpsOMMatrixTransform_Vtbl {
                         matrix.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        matrix.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4944,7 +5241,10 @@ impl IXpsOMMatrixTransform_Vtbl {
                         matrixtransform.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        matrixtransform.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5005,7 +5305,10 @@ impl IXpsOMNameCollection_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5557,7 +5860,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         package.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        package.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5569,7 +5875,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         package.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        package.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5581,7 +5890,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         package.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        package.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5593,7 +5905,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         storyfragmentsresource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        storyfragmentsresource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5605,7 +5920,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         documentstructureresource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        documentstructureresource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5617,7 +5935,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         signatureblockresource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        signatureblockresource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5629,7 +5950,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         remotedictionaryresource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        remotedictionaryresource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5641,7 +5965,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         dictionaryresource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        dictionaryresource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5653,7 +5980,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         partresources.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        partresources.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5665,7 +5995,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         documentsequence.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        documentsequence.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5677,7 +6010,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         document.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        document.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5689,7 +6025,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         pagereference.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pagereference.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5701,7 +6040,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         page.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        page.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5713,7 +6055,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         page.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        page.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5725,7 +6070,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         canvas.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        canvas.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5737,7 +6085,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         glyphs.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        glyphs.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5749,7 +6100,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         path.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        path.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5761,7 +6115,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         geometry.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        geometry.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5773,7 +6130,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         figure.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        figure.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5785,7 +6145,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         transform.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        transform.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5797,7 +6160,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         solidcolorbrush.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        solidcolorbrush.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5809,7 +6175,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         colorprofileresource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        colorprofileresource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5821,7 +6190,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         imagebrush.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        imagebrush.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5833,7 +6205,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         visualbrush.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        visualbrush.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5845,7 +6220,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         imageresource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        imageresource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5857,7 +6235,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         printticketresource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        printticketresource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5869,7 +6250,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         fontresource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        fontresource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5881,7 +6265,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         gradientstop.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        gradientstop.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5893,7 +6280,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         lineargradientbrush.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        lineargradientbrush.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5905,7 +6295,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         radialgradientbrush.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        radialgradientbrush.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5917,7 +6310,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         coreproperties.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        coreproperties.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5929,7 +6325,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         dictionary.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        dictionary.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5941,7 +6340,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         parturicollection.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        parturicollection.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5953,7 +6355,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         packagewriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        packagewriter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5965,7 +6370,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         packagewriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        packagewriter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5977,7 +6385,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         parturi.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        parturi.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5989,7 +6400,10 @@ impl IXpsOMObjectFactory_Vtbl {
                         stream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        stream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6159,7 +6573,10 @@ impl IXpsOMPackage_Vtbl {
                         documentsequence.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        documentsequence.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6177,7 +6594,10 @@ impl IXpsOMPackage_Vtbl {
                         coreproperties.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        coreproperties.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6195,7 +6615,10 @@ impl IXpsOMPackage_Vtbl {
                         discardcontrolparturi.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        discardcontrolparturi.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6213,7 +6636,10 @@ impl IXpsOMPackage_Vtbl {
                         imageresource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        imageresource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6295,7 +6721,10 @@ impl IXpsOMPackageTarget_Vtbl {
                         packagewriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        packagewriter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6407,7 +6836,10 @@ impl IXpsOMPackageWriter_Vtbl {
                         isclosed.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        isclosed.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6638,7 +7070,10 @@ impl IXpsOMPage_Vtbl {
                         pagereference.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pagereference.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6650,7 +7085,10 @@ impl IXpsOMPage_Vtbl {
                         visuals.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        visuals.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6662,7 +7100,10 @@ impl IXpsOMPage_Vtbl {
                         pagedimensions.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pagedimensions.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6680,7 +7121,10 @@ impl IXpsOMPage_Vtbl {
                         contentbox.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        contentbox.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6698,7 +7142,10 @@ impl IXpsOMPage_Vtbl {
                         bleedbox.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bleedbox.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6740,7 +7187,10 @@ impl IXpsOMPage_Vtbl {
                         ishyperlinktarget.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ishyperlinktarget.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6758,7 +7208,10 @@ impl IXpsOMPage_Vtbl {
                         resourcedictionary.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        resourcedictionary.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6770,7 +7223,10 @@ impl IXpsOMPage_Vtbl {
                         resourcedictionary.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        resourcedictionary.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6788,7 +7244,10 @@ impl IXpsOMPage_Vtbl {
                         remotedictionaryresource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        remotedictionaryresource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6818,7 +7277,10 @@ impl IXpsOMPage_Vtbl {
                         page.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        page.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7015,7 +7477,10 @@ impl IXpsOMPageReference_Vtbl {
                         document.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        document.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7027,7 +7492,10 @@ impl IXpsOMPageReference_Vtbl {
                         page.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        page.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7051,7 +7519,10 @@ impl IXpsOMPageReference_Vtbl {
                         ispageloaded.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ispageloaded.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7063,7 +7534,10 @@ impl IXpsOMPageReference_Vtbl {
                         pagedimensions.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pagedimensions.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7081,7 +7555,10 @@ impl IXpsOMPageReference_Vtbl {
                         storyfragmentsresource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        storyfragmentsresource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7099,7 +7576,10 @@ impl IXpsOMPageReference_Vtbl {
                         printticketresource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        printticketresource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7117,7 +7597,10 @@ impl IXpsOMPageReference_Vtbl {
                         imageresource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        imageresource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7135,7 +7618,10 @@ impl IXpsOMPageReference_Vtbl {
                         linktargets.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        linktargets.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7147,7 +7633,10 @@ impl IXpsOMPageReference_Vtbl {
                         partresources.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        partresources.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7159,7 +7648,10 @@ impl IXpsOMPageReference_Vtbl {
                         restrictedfonts.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        restrictedfonts.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7171,7 +7663,10 @@ impl IXpsOMPageReference_Vtbl {
                         pagereference.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pagereference.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7290,7 +7785,10 @@ impl IXpsOMPageReferenceCollection_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7302,7 +7800,10 @@ impl IXpsOMPageReferenceCollection_Vtbl {
                         pagereference.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pagereference.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7393,7 +7894,10 @@ impl IXpsOMPart_Vtbl {
                         parturi.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        parturi.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7468,7 +7972,10 @@ impl IXpsOMPartResources_Vtbl {
                         fontresources.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        fontresources.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7480,7 +7987,10 @@ impl IXpsOMPartResources_Vtbl {
                         imageresources.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        imageresources.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7492,7 +8002,10 @@ impl IXpsOMPartResources_Vtbl {
                         colorprofileresources.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        colorprofileresources.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7504,7 +8017,10 @@ impl IXpsOMPartResources_Vtbl {
                         dictionaryresources.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        dictionaryresources.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7613,7 +8129,10 @@ impl IXpsOMPartUriCollection_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7625,7 +8144,10 @@ impl IXpsOMPartUriCollection_Vtbl {
                         parturi.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        parturi.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7979,7 +8501,10 @@ impl IXpsOMPath_Vtbl {
                         geometry.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        geometry.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7991,7 +8516,10 @@ impl IXpsOMPath_Vtbl {
                         geometry.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        geometry.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8045,7 +8573,10 @@ impl IXpsOMPath_Vtbl {
                         snapstopixels.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        snapstopixels.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8063,7 +8594,10 @@ impl IXpsOMPath_Vtbl {
                         brush.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        brush.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8075,7 +8609,10 @@ impl IXpsOMPath_Vtbl {
                         brush.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        brush.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8105,7 +8642,10 @@ impl IXpsOMPath_Vtbl {
                         strokedashes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strokedashes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8117,7 +8657,10 @@ impl IXpsOMPath_Vtbl {
                         strokedashcap.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strokedashcap.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8135,7 +8678,10 @@ impl IXpsOMPath_Vtbl {
                         strokedashoffset.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strokedashoffset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8153,7 +8699,10 @@ impl IXpsOMPath_Vtbl {
                         strokestartlinecap.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strokestartlinecap.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8171,7 +8720,10 @@ impl IXpsOMPath_Vtbl {
                         strokeendlinecap.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strokeendlinecap.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8189,7 +8741,10 @@ impl IXpsOMPath_Vtbl {
                         strokelinejoin.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strokelinejoin.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8207,7 +8762,10 @@ impl IXpsOMPath_Vtbl {
                         strokemiterlimit.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strokemiterlimit.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8225,7 +8783,10 @@ impl IXpsOMPath_Vtbl {
                         strokethickness.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strokethickness.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8243,7 +8804,10 @@ impl IXpsOMPath_Vtbl {
                         brush.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        brush.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8255,7 +8819,10 @@ impl IXpsOMPath_Vtbl {
                         brush.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        brush.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8285,7 +8852,10 @@ impl IXpsOMPath_Vtbl {
                         path.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        path.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8390,7 +8960,10 @@ impl IXpsOMPrintTicketResource_Vtbl {
                         stream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        stream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8508,7 +9081,10 @@ impl IXpsOMRadialGradientBrush_Vtbl {
                         center.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        center.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8526,7 +9102,10 @@ impl IXpsOMRadialGradientBrush_Vtbl {
                         radiisizes.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        radiisizes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8544,7 +9123,10 @@ impl IXpsOMRadialGradientBrush_Vtbl {
                         origin.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        origin.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8562,7 +9144,10 @@ impl IXpsOMRadialGradientBrush_Vtbl {
                         radialgradientbrush.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        radialgradientbrush.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8628,7 +9213,10 @@ impl IXpsOMRemoteDictionaryResource_Vtbl {
                         dictionary.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        dictionary.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8753,7 +9341,10 @@ impl IXpsOMRemoteDictionaryResourceCollection_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8765,7 +9356,10 @@ impl IXpsOMRemoteDictionaryResourceCollection_Vtbl {
                         object.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        object.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8801,7 +9395,10 @@ impl IXpsOMRemoteDictionaryResourceCollection_Vtbl {
                         remotedictionaryresource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        remotedictionaryresource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8885,7 +9482,10 @@ impl IXpsOMShareable_Vtbl {
                         owner.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        owner.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8897,7 +9497,10 @@ impl IXpsOMShareable_Vtbl {
                         r#type.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        r#type.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8970,7 +9573,10 @@ impl IXpsOMSignatureBlockResource_Vtbl {
                         owner.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        owner.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8982,7 +9588,10 @@ impl IXpsOMSignatureBlockResource_Vtbl {
                         stream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        stream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9108,7 +9717,10 @@ impl IXpsOMSignatureBlockResourceCollection_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9120,7 +9732,10 @@ impl IXpsOMSignatureBlockResourceCollection_Vtbl {
                         signatureblockresource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        signatureblockresource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9156,7 +9771,10 @@ impl IXpsOMSignatureBlockResourceCollection_Vtbl {
                         signatureblockresource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        signatureblockresource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9238,7 +9856,10 @@ impl IXpsOMSolidColorBrush_Vtbl {
                         colorprofile.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        colorprofile.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9256,7 +9877,10 @@ impl IXpsOMSolidColorBrush_Vtbl {
                         solidcolorbrush.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        solidcolorbrush.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9335,7 +9959,10 @@ impl IXpsOMStoryFragmentsResource_Vtbl {
                         owner.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        owner.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9347,7 +9974,10 @@ impl IXpsOMStoryFragmentsResource_Vtbl {
                         stream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        stream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9409,7 +10039,10 @@ impl IXpsOMThumbnailGenerator_Vtbl {
                         imageresource.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        imageresource.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9542,7 +10175,10 @@ impl IXpsOMTileBrush_Vtbl {
                         transform.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        transform.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9554,7 +10190,10 @@ impl IXpsOMTileBrush_Vtbl {
                         transform.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        transform.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9584,7 +10223,10 @@ impl IXpsOMTileBrush_Vtbl {
                         viewbox.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        viewbox.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9602,7 +10244,10 @@ impl IXpsOMTileBrush_Vtbl {
                         viewport.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        viewport.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9620,7 +10265,10 @@ impl IXpsOMTileBrush_Vtbl {
                         tilemode.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        tilemode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9875,7 +10523,10 @@ impl IXpsOMVisual_Vtbl {
                         matrixtransform.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        matrixtransform.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9887,7 +10538,10 @@ impl IXpsOMVisual_Vtbl {
                         matrixtransform.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        matrixtransform.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9917,7 +10571,10 @@ impl IXpsOMVisual_Vtbl {
                         clipgeometry.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        clipgeometry.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9929,7 +10586,10 @@ impl IXpsOMVisual_Vtbl {
                         clipgeometry.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        clipgeometry.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9959,7 +10619,10 @@ impl IXpsOMVisual_Vtbl {
                         opacity.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        opacity.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9977,7 +10640,10 @@ impl IXpsOMVisual_Vtbl {
                         opacitymaskbrush.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        opacitymaskbrush.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9989,7 +10655,10 @@ impl IXpsOMVisual_Vtbl {
                         opacitymaskbrush.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        opacitymaskbrush.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10031,7 +10700,10 @@ impl IXpsOMVisual_Vtbl {
                         ishyperlink.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ishyperlink.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10049,7 +10721,10 @@ impl IXpsOMVisual_Vtbl {
                         hyperlinkuri.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hyperlinkuri.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10180,7 +10855,10 @@ impl IXpsOMVisualBrush_Vtbl {
                         visual.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        visual.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10192,7 +10870,10 @@ impl IXpsOMVisualBrush_Vtbl {
                         visual.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        visual.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10222,7 +10903,10 @@ impl IXpsOMVisualBrush_Vtbl {
                         visualbrush.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        visualbrush.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10330,7 +11014,10 @@ impl IXpsOMVisualCollection_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10342,7 +11029,10 @@ impl IXpsOMVisualCollection_Vtbl {
                         object.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        object.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10432,7 +11122,10 @@ impl IXpsPrintJob_Vtbl {
                         jobstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        jobstatus.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

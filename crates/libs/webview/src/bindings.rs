@@ -3413,7 +3413,10 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3449,7 +3452,10 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3485,7 +3491,10 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3523,7 +3532,10 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
                         allow.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        allow.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3608,7 +3620,10 @@ impl ICoreWebView2EnvironmentOptions6_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3680,7 +3695,10 @@ impl ICoreWebView2EnvironmentOptions8_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

@@ -290,7 +290,10 @@ impl ITransactionCloner_Vtbl {
                         ppitransaction.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppitransaction.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -349,7 +352,10 @@ impl ITransactionDispenser_Vtbl {
                         ppoptions.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppoptions.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -361,7 +367,10 @@ impl ITransactionDispenser_Vtbl {
                         pptransaction.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptransaction.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

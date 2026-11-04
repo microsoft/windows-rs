@@ -172,9 +172,9 @@ pub unsafe fn CoInternetSetFeatureEnabled(featureentry: INTERNETFEATURELIST, dwf
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CompareSecurityIds(pbsecurityid1: &[super::BYTE], pbsecurityid2: &[super::BYTE], dwreserved: super::DWORD) -> windows_core::HRESULT {
+pub unsafe fn CompareSecurityIds(pbsecurityid1: *const super::BYTE, dwlen1: super::DWORD, pbsecurityid2: *const super::BYTE, dwlen2: super::DWORD, dwreserved: super::DWORD) -> windows_core::HRESULT {
     windows_core::link!("urlmon.dll" "system" fn CompareSecurityIds(pbsecurityid1 : *const super::BYTE, dwlen1 : super::DWORD, pbsecurityid2 : *const super::BYTE, dwlen2 : super::DWORD, dwreserved : super::DWORD) -> windows_core::HRESULT);
-    unsafe { CompareSecurityIds(pbsecurityid1.as_ptr(), pbsecurityid1.len().try_into().unwrap(), pbsecurityid2.as_ptr(), pbsecurityid2.len().try_into().unwrap(), dwreserved) }
+    unsafe { CompareSecurityIds(pbsecurityid1, dwlen1, pbsecurityid2, dwlen2, dwreserved) }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef"))]
 #[inline]
@@ -220,11 +220,11 @@ where
 }
 #[cfg(all(feature = "objidl", feature = "shared", feature = "wtypes"))]
 #[inline]
-pub unsafe fn CreateFormatEnumerator(rgfmtetc: &[super::FORMATETC]) -> windows_core::Result<super::IEnumFORMATETC> {
+pub unsafe fn CreateFormatEnumerator(cfmtetc: super::UINT, rgfmtetc: *const super::FORMATETC) -> windows_core::Result<super::IEnumFORMATETC> {
     windows_core::link!("urlmon.dll" "system" fn CreateFormatEnumerator(cfmtetc : super::UINT, rgfmtetc : *const super::FORMATETC, ppenumfmtetc : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateFormatEnumerator(rgfmtetc.len().try_into().unwrap(), rgfmtetc.as_ptr(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        CreateFormatEnumerator(cfmtetc, rgfmtetc, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "shared")]
@@ -1880,12 +1880,12 @@ windows_core::imp::define_interface!(IDataFilter, IDataFilter_Vtbl, 0x69d14c80_c
 windows_core::imp::interface_hierarchy!(IDataFilter, windows_core::IUnknown);
 impl IDataFilter {
     #[cfg(feature = "shared")]
-    pub unsafe fn DoEncode(&self, dwflags: super::DWORD, pbinbuffer: &[super::BYTE], loutbuffersize: super::LONG, pboutbuffer: *mut super::BYTE, linbytesavailable: super::LONG, plinbytesread: *mut super::LONG, ploutbyteswritten: *mut super::LONG, dwreserved: super::DWORD) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).DoEncode)(windows_core::Interface::as_raw(self), dwflags, pbinbuffer.len().try_into().unwrap(), pbinbuffer.as_ptr(), loutbuffersize, pboutbuffer as _, linbytesavailable, plinbytesread as _, ploutbyteswritten as _, dwreserved) }
+    pub unsafe fn DoEncode(&self, dwflags: super::DWORD, linbuffersize: super::LONG, pbinbuffer: *const super::BYTE, loutbuffersize: super::LONG, pboutbuffer: *mut super::BYTE, linbytesavailable: super::LONG, plinbytesread: *mut super::LONG, ploutbyteswritten: *mut super::LONG, dwreserved: super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DoEncode)(windows_core::Interface::as_raw(self), dwflags, linbuffersize, pbinbuffer, loutbuffersize, pboutbuffer as _, linbytesavailable, plinbytesread as _, ploutbyteswritten as _, dwreserved) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn DoDecode(&self, dwflags: super::DWORD, pbinbuffer: &[super::BYTE], loutbuffersize: super::LONG, pboutbuffer: *mut super::BYTE, linbytesavailable: super::LONG, plinbytesread: *mut super::LONG, ploutbyteswritten: *mut super::LONG, dwreserved: super::DWORD) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).DoDecode)(windows_core::Interface::as_raw(self), dwflags, pbinbuffer.len().try_into().unwrap(), pbinbuffer.as_ptr(), loutbuffersize, pboutbuffer as _, linbytesavailable, plinbytesread as _, ploutbyteswritten as _, dwreserved) }
+    pub unsafe fn DoDecode(&self, dwflags: super::DWORD, linbuffersize: super::LONG, pbinbuffer: *const super::BYTE, loutbuffersize: super::LONG, pboutbuffer: *mut super::BYTE, linbytesavailable: super::LONG, plinbytesread: *mut super::LONG, ploutbyteswritten: *mut super::LONG, dwreserved: super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DoDecode)(windows_core::Interface::as_raw(self), dwflags, linbuffersize, pbinbuffer, loutbuffersize, pboutbuffer as _, linbytesavailable, plinbytesread as _, ploutbyteswritten as _, dwreserved) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetEncodingLevel(&self, dwenclevel: super::DWORD) -> windows_core::HRESULT {
@@ -2380,12 +2380,12 @@ impl IInternetHostSecurityManager {
         unsafe { (windows_core::Interface::vtable(self).GetSecurityId)(windows_core::Interface::as_raw(self), pbsecurityid as _, pcbsecurityid as _, dwreserved) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn ProcessUrlAction(&self, dwaction: super::DWORD, ppolicy: *mut super::BYTE, cbpolicy: super::DWORD, pcontext: Option<&[super::BYTE]>, dwflags: super::DWORD, dwreserved: super::DWORD) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ProcessUrlAction)(windows_core::Interface::as_raw(self), dwaction, ppolicy as _, cbpolicy, pcontext.map_or(core::ptr::null(), |slice| slice.as_ptr()), pcontext.map_or(0, |slice| slice.len().try_into().unwrap()), dwflags, dwreserved) }
+    pub unsafe fn ProcessUrlAction(&self, dwaction: super::DWORD, ppolicy: *mut super::BYTE, cbpolicy: super::DWORD, pcontext: Option<*const super::BYTE>, cbcontext: super::DWORD, dwflags: super::DWORD, dwreserved: super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ProcessUrlAction)(windows_core::Interface::as_raw(self), dwaction, ppolicy as _, cbpolicy, pcontext.unwrap_or(core::mem::zeroed()) as _, cbcontext, dwflags, dwreserved) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn QueryCustomPolicy(&self, guidkey: *const windows_core::GUID, pppolicy: *mut *mut super::BYTE, pcbpolicy: *mut super::DWORD, pcontext: &[super::BYTE], dwreserved: super::DWORD) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryCustomPolicy)(windows_core::Interface::as_raw(self), guidkey, pppolicy as _, pcbpolicy as _, pcontext.as_ptr(), pcontext.len().try_into().unwrap(), dwreserved) }
+    pub unsafe fn QueryCustomPolicy(&self, guidkey: *const windows_core::GUID, pppolicy: *mut *mut super::BYTE, pcbpolicy: *mut super::DWORD, pcontext: *const super::BYTE, cbcontext: super::DWORD, dwreserved: super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).QueryCustomPolicy)(windows_core::Interface::as_raw(self), guidkey, pppolicy as _, pcbpolicy as _, pcontext, cbcontext, dwreserved) }
     }
 }
 #[repr(C)]
@@ -3133,7 +3133,10 @@ impl IInternetSecurityManager_Vtbl {
                         ppsite.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsite.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3614,16 +3617,16 @@ impl IInternetZoneManager {
         unsafe { (windows_core::Interface::vtable(self).GetZoneCustomPolicy)(windows_core::Interface::as_raw(self), dwzone, guidkey, pppolicy as _, pcbpolicy as _, urlzonereg) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetZoneCustomPolicy(&self, dwzone: super::DWORD, guidkey: *const windows_core::GUID, ppolicy: &[super::BYTE], urlzonereg: URLZONEREG) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetZoneCustomPolicy)(windows_core::Interface::as_raw(self), dwzone, guidkey, ppolicy.as_ptr(), ppolicy.len().try_into().unwrap(), urlzonereg) }
+    pub unsafe fn SetZoneCustomPolicy(&self, dwzone: super::DWORD, guidkey: *const windows_core::GUID, ppolicy: *const super::BYTE, cbpolicy: super::DWORD, urlzonereg: URLZONEREG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetZoneCustomPolicy)(windows_core::Interface::as_raw(self), dwzone, guidkey, ppolicy, cbpolicy, urlzonereg) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetZoneActionPolicy(&self, dwzone: super::DWORD, dwaction: super::DWORD, ppolicy: *mut super::BYTE, cbpolicy: super::DWORD, urlzonereg: URLZONEREG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetZoneActionPolicy)(windows_core::Interface::as_raw(self), dwzone, dwaction, ppolicy as _, cbpolicy, urlzonereg) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetZoneActionPolicy(&self, dwzone: super::DWORD, dwaction: super::DWORD, ppolicy: &[super::BYTE], urlzonereg: URLZONEREG) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetZoneActionPolicy)(windows_core::Interface::as_raw(self), dwzone, dwaction, ppolicy.as_ptr(), ppolicy.len().try_into().unwrap(), urlzonereg) }
+    pub unsafe fn SetZoneActionPolicy(&self, dwzone: super::DWORD, dwaction: super::DWORD, ppolicy: *const super::BYTE, cbpolicy: super::DWORD, urlzonereg: URLZONEREG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetZoneActionPolicy)(windows_core::Interface::as_raw(self), dwzone, dwaction, ppolicy, cbpolicy, urlzonereg) }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn PromptAction<P2, P3>(&self, dwaction: super::DWORD, hwndparent: super::HWND, pwszurl: P2, pwsztext: P3, dwpromptflags: super::DWORD) -> windows_core::HRESULT
@@ -3837,8 +3840,8 @@ impl IInternetZoneManagerEx {
         unsafe { (windows_core::Interface::vtable(self).GetZoneActionPolicyEx)(windows_core::Interface::as_raw(self), dwzone, dwaction, ppolicy as _, cbpolicy, urlzonereg, dwflags) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetZoneActionPolicyEx(&self, dwzone: super::DWORD, dwaction: super::DWORD, ppolicy: &[super::BYTE], urlzonereg: URLZONEREG, dwflags: super::DWORD) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetZoneActionPolicyEx)(windows_core::Interface::as_raw(self), dwzone, dwaction, ppolicy.as_ptr(), ppolicy.len().try_into().unwrap(), urlzonereg, dwflags) }
+    pub unsafe fn SetZoneActionPolicyEx(&self, dwzone: super::DWORD, dwaction: super::DWORD, ppolicy: *const super::BYTE, cbpolicy: super::DWORD, urlzonereg: URLZONEREG, dwflags: super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetZoneActionPolicyEx)(windows_core::Interface::as_raw(self), dwzone, dwaction, ppolicy, cbpolicy, urlzonereg, dwflags) }
     }
 }
 #[repr(C)]
@@ -4182,7 +4185,10 @@ impl IPersistMoniker_Vtbl {
                         ppimkname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppimkname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4881,7 +4887,10 @@ impl IUriBuilder_Vtbl {
                         ppiuri.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiuri.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4893,7 +4902,10 @@ impl IUriBuilder_Vtbl {
                         ppiuri.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiuri.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4905,7 +4917,10 @@ impl IUriBuilder_Vtbl {
                         ppiuri.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiuri.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

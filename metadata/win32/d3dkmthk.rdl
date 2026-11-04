@@ -503,7 +503,7 @@ mod Windows {
         extern fn D3DKMTSetVidPnSourceOwner2(#[in] param0: *const D3DKMT_SETVIDPNSOURCEOWNER2) -> NTSTATUS;
         #[library("GDI32.dll")]
         #[must_use]
-        extern fn D3DKMTShareObjects(cObjects: UINT, #[in] #[readable(entry, cObjects)] hObjects: *const D3DKMT_HANDLE, #[in] pObjectAttributes: POBJECT_ATTRIBUTES, #[in] dwDesiredAccess: DWORD, #[out] phSharedNtHandle: *mut HANDLE) -> NTSTATUS;
+        extern fn D3DKMTShareObjects(cObjects: UINT, #[buffer(cObjects)] #[in] hObjects: *const D3DKMT_HANDLE, #[in] pObjectAttributes: POBJECT_ATTRIBUTES, #[in] dwDesiredAccess: DWORD, #[out] phSharedNtHandle: *mut HANDLE) -> NTSTATUS;
         #[library("GDI32.dll")]
         #[must_use]
         extern fn D3DKMTSharedPrimaryLockNotification(#[in] param0: *const D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION) -> NTSTATUS;
@@ -878,10 +878,8 @@ mod Windows {
             hAdapter: D3DKMT_HANDLE,
             hDevice: D3DKMT_HANDLE,
             PlaneCount: UINT,
-            #[writable(PlaneCount)]
             ppOverlayPlanes: *mut *mut D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3,
             PostCompositionCount: UINT,
-            #[writable(PostCompositionCount)]
             ppPostComposition: *mut *mut D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE,
             Supported: BOOL,
             ReturnInfo: D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO,
@@ -999,7 +997,6 @@ mod Windows {
             hDevice: D3DKMT_HANDLE,
             hResource: D3DKMT_HANDLE,
             hGlobalShare: D3DKMT_HANDLE,
-            #[writable(bytes(PrivateRuntimeDataSize))]
             pPrivateRuntimeData: *const void,
             PrivateRuntimeDataSize: UINT,
             Anonymous: union {
@@ -1110,7 +1107,6 @@ mod Windows {
             EngineAffinity: UINT,
             Flags: D3DDDI_CREATEHWCONTEXTFLAGS,
             PrivateDriverDataSize: UINT,
-            #[writable(bytes(PrivateDriverDataSize))]
             pPrivateDriverData: *mut void,
             hHwContext: D3DKMT_HANDLE,
         }
@@ -1118,7 +1114,6 @@ mod Windows {
             hHwContext: D3DKMT_HANDLE,
             Flags: D3DDDI_CREATEHWQUEUEFLAGS,
             PrivateDriverDataSize: UINT,
-            #[writable(bytes(PrivateDriverDataSize))]
             pPrivateDriverData: *mut void,
             hHwQueue: D3DKMT_HANDLE,
             hHwQueueProgressFence: D3DKMT_HANDLE,
@@ -1198,10 +1193,8 @@ mod Windows {
         struct D3DKMT_CREATEPROTECTEDSESSION {
             hDevice: D3DKMT_HANDLE,
             hSyncObject: D3DKMT_HANDLE,
-            #[writable(bytes(PrivateDriverDataSize))]
             pPrivateDriverData: *const void,
             PrivateDriverDataSize: UINT,
-            #[writable(bytes(PrivateRuntimeDataSize))]
             pPrivateRuntimeData: *const void,
             PrivateRuntimeDataSize: UINT,
             hHandle: D3DKMT_HANDLE,
@@ -1245,7 +1238,6 @@ mod Windows {
             hRingBufferControl: D3DKMT_HANDLE,
             Flags: D3DKMT_CREATE_DOORBELL_FLAGS,
             PrivateDriverDataSize: UINT,
-            #[writable(PrivateDriverDataSize)]
             PrivateDriverData: *mut void,
             DoorbellCPUVirtualAddress: *mut void,
             DoorbellSecondaryCPUVirtualAddress: *mut void,
@@ -1899,7 +1891,6 @@ mod Windows {
             hAdapter: D3DKMT_HANDLE,
             ProvidedSize: UINT,
             WrittenSize: UINT,
-            #[writable(bytes(ProvidedSize))]
             pTokens: *mut D3DKMT_PRESENTHISTORYTOKEN,
             NumTokens: UINT,
         }
@@ -2081,8 +2072,6 @@ mod Windows {
             hDevice: D3DKMT_HANDLE,
             Flags: D3DKMT_MAPPROCESSDEBUGBLOB_FLAGS,
             BufferSize: SIZE_T,
-            #[nullable]
-            #[writable(bytes(BufferSize))]
             pBuffer: PVOID,
         }
         struct D3DKMT_MAPPROCESSDEBUGBLOB_FLAGS {
@@ -2208,10 +2197,8 @@ mod Windows {
             FlipInterval: D3DDDI_FLIPINTERVAL_TYPE,
             MaxImmediateFlipLine: UINT,
             AllocationCount: UINT,
-            #[writable(AllocationCount)]
             pAllocationList: *mut D3DKMT_HANDLE,
             DriverPrivateDataSize: UINT,
-            #[writable(bytes(DriverPrivateDataSize))]
             pDriverPrivateData: *mut void,
             pPlaneAttributes: *const D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3,
             hFlipToFence: D3DKMT_HANDLE,
@@ -2262,7 +2249,6 @@ mod Windows {
             Rotation: D3DDDI_ROTATION,
             Blend: D3DKMT_MULTIPLANE_OVERLAY_BLEND,
             DirtyRectCount: UINT,
-            #[writable(DirtyRectCount)]
             pDirtyRects: *mut RECT,
             ColorSpace: D3DDDI_COLOR_SPACE_TYPE,
             StretchQuality: DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY,
@@ -2473,13 +2459,10 @@ mod Windows {
                 pOpenAllocationInfo: *mut D3DDDI_OPENALLOCATIONINFO,
                 pOpenAllocationInfo2: *mut D3DDDI_OPENALLOCATIONINFO2,
             },
-            #[writable(bytes(PrivateRuntimeDataSize))]
             pPrivateRuntimeData: *mut void,
             PrivateRuntimeDataSize: UINT,
-            #[writable(bytes(ResourcePrivateDriverDataSize))]
             pResourcePrivateDriverData: *mut void,
             ResourcePrivateDriverDataSize: UINT,
-            #[writable(bytes(TotalPrivateDriverDataBufferSize))]
             pTotalPrivateDriverDataBuffer: *mut void,
             TotalPrivateDriverDataBufferSize: UINT,
             hResource: D3DKMT_HANDLE,
@@ -2488,16 +2471,12 @@ mod Windows {
             hDevice: D3DKMT_HANDLE,
             hNtHandle: HANDLE,
             NumAllocations: UINT,
-            #[writable(NumAllocations)]
             pOpenAllocationInfo2: *mut D3DDDI_OPENALLOCATIONINFO2,
             PrivateRuntimeDataSize: UINT,
-            #[writable(bytes(PrivateRuntimeDataSize))]
             pPrivateRuntimeData: *mut void,
             ResourcePrivateDriverDataSize: UINT,
-            #[writable(bytes(ResourcePrivateDriverDataSize))]
             pResourcePrivateDriverData: *mut void,
             TotalPrivateDriverDataBufferSize: UINT,
-            #[writable(bytes(TotalPrivateDriverDataBufferSize))]
             pTotalPrivateDriverDataBuffer: *mut void,
             hResource: D3DKMT_HANDLE,
             hKeyedMutex: D3DKMT_HANDLE,
@@ -2597,7 +2576,6 @@ mod Windows {
             hSource: D3DKMT_HANDLE,
             VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
             BroadcastHwQueueCount: ULONG,
-            #[writable(BroadcastHwQueueCount)]
             hHwQueues: *mut D3DKMT_HANDLE,
             PresentRegions: D3DKMT_PRESENT_RGNS,
             Flags: D3DKMT_OUTPUTDUPLPRESENTFLAGS,
@@ -2622,8 +2600,6 @@ mod Windows {
             hAdapter: D3DKMT_HANDLE,
             VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
             BufferSizeSupplied: UINT,
-            #[readable(bytes(BufferSizeRequired))]
-            #[writable(bytes(BufferSizeSupplied))]
             pShapeBuffer: PVOID,
             BufferSizeRequired: UINT,
             ShapeInfo: D3DKMT_OUTDUPL_POINTER_SHAPE_INFO,
@@ -2636,8 +2612,6 @@ mod Windows {
             VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
             Type: D3DKMT_OUTPUTDUPL_METADATATYPE,
             BufferSizeSupplied: UINT,
-            #[readable(bytes(BufferSizeRequired))]
-            #[writable(bytes(BufferSizeSupplied))]
             pBuffer: PVOID,
             BufferSizeRequired: UINT,
         }
@@ -2683,7 +2657,6 @@ mod Windows {
         struct D3DKMT_PINDIRECTFLIPRESOURCES {
             hDevice: D3DKMT_HANDLE,
             ResourceCount: UINT,
-            #[writable(ResourceCount)]
             pResourceList: *mut D3DKMT_HANDLE,
         }
         struct D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS {
@@ -2751,13 +2724,9 @@ mod Windows {
                 hIndirectContext: D3DKMT_HANDLE,
             },
             Duration: UINT,
-            #[writable(BroadcastContextCount)]
             BroadcastSrcAllocation: *mut D3DKMT_HANDLE,
-            #[nullable]
-            #[writable(BroadcastContextCount)]
             BroadcastDstAllocation: *mut D3DKMT_HANDLE,
             PrivateDriverDataSize: UINT,
-            #[writable(bytes(PrivateDriverDataSize))]
             pPrivateDriverData: PVOID,
             bOptimizeForComposition: BOOLEAN,
         }
@@ -2866,19 +2835,16 @@ mod Windows {
         struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY3 {
             hAdapter: D3DKMT_HANDLE,
             ContextCount: UINT,
-            #[writable(ContextCount)]
             pContextList: *mut D3DKMT_HANDLE,
             VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
             PresentCount: UINT,
             Flags: D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS,
             PresentPlaneCount: UINT,
-            #[writable(PresentPlaneCount)]
             ppPresentPlanes: *mut *mut D3DKMT_MULTIPLANE_OVERLAY3,
             pPostComposition: *mut D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION,
             Duration: UINT,
             HDRMetaDataType: D3DDDI_HDR_METADATA_TYPE,
             HDRMetaDataSize: UINT,
-            #[writable(bytes(HDRMetaDataSize))]
             pHDRMetaData: *const void,
             BoostRefreshRateMultiplier: UINT,
         }
@@ -2912,7 +2878,6 @@ mod Windows {
             Flags: D3DKMT_PRESENT_REDIRECTED_FLAGS,
             hSource: D3DKMT_HANDLE,
             PrivateDriverDataSize: UINT,
-            #[writable(bytes(PrivateDriverDataSize))]
             pPrivateDriverData: PVOID,
         }
         struct D3DKMT_PRESENT_REDIRECTED_FLAGS {
@@ -2927,10 +2892,8 @@ mod Windows {
         }
         struct D3DKMT_PRESENT_RGNS {
             DirtyRectCount: UINT,
-            #[writable(DirtyRectCount)]
             pDirtyRects: *const RECT,
             MoveRectCount: UINT,
-            #[writable(MoveRectCount)]
             pMoveRects: *const D3DKMT_MOVE_RECT,
         }
         struct D3DKMT_PRESENT_STATS {
@@ -3022,7 +2985,6 @@ mod Windows {
             FeatureId: DXGK_FEATURE_ID,
             Result: DXGK_ISFEATUREENABLED_RESULT,
             InterfaceTableSize: UINT,
-            #[writable(InterfaceTableSize)]
             InterfaceTable: *const FARPROC,
         }
         struct D3DKMT_QUERYFSEBLOCK {
@@ -3048,10 +3010,8 @@ mod Windows {
         }
         struct D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE {
             hNtHandle: HANDLE,
-            #[writable(bytes(PrivateDriverDataSize))]
             pPrivateDriverData: *const void,
             PrivateDriverDataSize: UINT,
-            #[writable(bytes(PrivateRuntimeDataSize))]
             pPrivateRuntimeData: *const void,
             PrivateRuntimeDataSize: UINT,
         }
@@ -3889,16 +3849,13 @@ mod Windows {
         struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU {
             hDevice: D3DKMT_HANDLE,
             ObjectCount: UINT,
-            #[writable(ObjectCount)]
             ObjectHandleArray: *const D3DKMT_HANDLE,
-            #[writable(ObjectCount)]
             FenceValueArray: *const UINT64,
             Flags: D3DDDICB_SIGNALFLAGS,
         }
         struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU {
             hContext: D3DKMT_HANDLE,
             ObjectCount: UINT,
-            #[writable(ObjectCount)]
             ObjectHandleArray: *const D3DKMT_HANDLE,
             Anonymous: union {
                 MonitoredFenceValueArray: *const UINT64,
@@ -3907,11 +3864,9 @@ mod Windows {
         }
         struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2 {
             ObjectCount: UINT,
-            #[writable(ObjectCount)]
             ObjectHandleArray: *const D3DKMT_HANDLE,
             Flags: D3DDDICB_SIGNALFLAGS,
             BroadcastContextCount: ULONG,
-            #[writable(BroadcastContextCount)]
             BroadcastContextArray: *const D3DKMT_HANDLE,
             Anonymous: union {
                 FenceValue: UINT64,
@@ -3961,10 +3916,8 @@ mod Windows {
             CommandBuffer: D3DGPU_VIRTUAL_ADDRESS,
             CommandLength: UINT,
             PrivateDriverDataSize: UINT,
-            #[writable(bytes(PrivateDriverDataSize))]
             pPrivateDriverData: *mut void,
             NumPrimaries: UINT,
-            #[writable(NumPrimaries)]
             WrittenPrimaries: *const D3DKMT_HANDLE,
         }
         struct D3DKMT_SUBMITPRESENTBLTTOHWQUEUE {
@@ -3979,20 +3932,15 @@ mod Windows {
         struct D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE {
             Flags: D3DDDICB_SIGNALFLAGS,
             BroadcastHwQueueCount: ULONG,
-            #[writable(BroadcastHwQueueCount)]
             BroadcastHwQueueArray: *const D3DKMT_HANDLE,
             ObjectCount: UINT,
-            #[writable(ObjectCount)]
             ObjectHandleArray: *const D3DKMT_HANDLE,
-            #[writable(ObjectCount)]
             FenceValueArray: *const UINT64,
         }
         struct D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE {
             hHwQueue: D3DKMT_HANDLE,
             ObjectCount: UINT,
-            #[writable(ObjectCount)]
             ObjectHandleArray: *const D3DKMT_HANDLE,
-            #[writable(ObjectCount)]
             FenceValueArray: *const UINT64,
         }
         struct D3DKMT_SURFACECOMPLETE_PRESENTHISTORYTOKEN {
@@ -4072,7 +4020,6 @@ mod Windows {
         struct D3DKMT_UNPINDIRECTFLIPRESOURCES {
             hDevice: D3DKMT_HANDLE,
             ResourceCount: UINT,
-            #[writable(ResourceCount)]
             pResourceList: *mut D3DKMT_HANDLE,
         }
         struct D3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION {
@@ -4377,9 +4324,7 @@ mod Windows {
         struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU {
             hDevice: D3DKMT_HANDLE,
             ObjectCount: UINT,
-            #[writable(ObjectCount)]
             ObjectHandleArray: *const D3DKMT_HANDLE,
-            #[writable(ObjectCount)]
             FenceValueArray: *const UINT64,
             hAsyncEvent: HANDLE,
             Flags: D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS,
@@ -4387,7 +4332,6 @@ mod Windows {
         struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU {
             hContext: D3DKMT_HANDLE,
             ObjectCount: UINT,
-            #[writable(ObjectCount)]
             ObjectHandleArray: *const D3DKMT_HANDLE,
             Anonymous: union {
                 MonitoredFenceValueArray: *const UINT64,
@@ -4947,7 +4891,7 @@ mod Windows {
         #[must_use]
         extern fn PFND3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION(#[in] param0: *const D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION) -> NTSTATUS;
         #[must_use]
-        extern fn PFND3DKMT_SHAREOBJECTS(cObjects: UINT, #[in] #[readable(entry, cObjects)] hObjects: *const D3DKMT_HANDLE, #[in] pObjectAttributes: POBJECT_ATTRIBUTES, #[in] dwDesiredAccess: DWORD, #[out] phSharedNtHandle: *mut HANDLE) -> NTSTATUS;
+        extern fn PFND3DKMT_SHAREOBJECTS(cObjects: UINT, #[buffer(cObjects)] #[in] hObjects: *const D3DKMT_HANDLE, #[in] pObjectAttributes: POBJECT_ATTRIBUTES, #[in] dwDesiredAccess: DWORD, #[out] phSharedNtHandle: *mut HANDLE) -> NTSTATUS;
         #[must_use]
         extern fn PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECT(#[in] param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT) -> NTSTATUS;
         #[must_use]

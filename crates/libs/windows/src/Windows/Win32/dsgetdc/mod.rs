@@ -1,38 +1,38 @@
 #[cfg(all(feature = "shared", feature = "ws2"))]
 #[inline]
-pub unsafe fn DsAddressToSiteNamesA<P0>(computername: P0, socketaddresses: &[super::SOCKET_ADDRESS], sitenames: *mut *mut windows_core::PSTR) -> super::DWORD
+pub unsafe fn DsAddressToSiteNamesA<P0>(computername: P0, entrycount: super::DWORD, socketaddresses: super::PSOCKET_ADDRESS, sitenames: *mut *mut windows_core::PSTR) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn DsAddressToSiteNamesA(computername : windows_core::PCSTR, entrycount : super::DWORD, socketaddresses : super::PSOCKET_ADDRESS, sitenames : *mut *mut windows_core::PSTR) -> super::DWORD);
-    unsafe { DsAddressToSiteNamesA(computername.param().abi(), socketaddresses.len().try_into().unwrap(), core::mem::transmute(socketaddresses.as_ptr()), sitenames as _) }
+    unsafe { DsAddressToSiteNamesA(computername.param().abi(), entrycount, socketaddresses, sitenames as _) }
 }
 #[cfg(all(feature = "shared", feature = "ws2"))]
 #[inline]
-pub unsafe fn DsAddressToSiteNamesExA<P0>(computername: P0, socketaddresses: &[super::SOCKET_ADDRESS], sitenames: *mut *mut windows_core::PSTR, subnetnames: *mut *mut windows_core::PSTR) -> super::DWORD
+pub unsafe fn DsAddressToSiteNamesExA<P0>(computername: P0, entrycount: super::DWORD, socketaddresses: super::PSOCKET_ADDRESS, sitenames: *mut *mut windows_core::PSTR, subnetnames: *mut *mut windows_core::PSTR) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn DsAddressToSiteNamesExA(computername : windows_core::PCSTR, entrycount : super::DWORD, socketaddresses : super::PSOCKET_ADDRESS, sitenames : *mut *mut windows_core::PSTR, subnetnames : *mut *mut windows_core::PSTR) -> super::DWORD);
-    unsafe { DsAddressToSiteNamesExA(computername.param().abi(), socketaddresses.len().try_into().unwrap(), core::mem::transmute(socketaddresses.as_ptr()), sitenames as _, subnetnames as _) }
+    unsafe { DsAddressToSiteNamesExA(computername.param().abi(), entrycount, socketaddresses, sitenames as _, subnetnames as _) }
 }
 #[cfg(all(feature = "shared", feature = "ws2"))]
 #[inline]
-pub unsafe fn DsAddressToSiteNamesExW<P0>(computername: P0, socketaddresses: &[super::SOCKET_ADDRESS], sitenames: *mut *mut windows_core::PWSTR, subnetnames: *mut *mut windows_core::PWSTR) -> super::DWORD
+pub unsafe fn DsAddressToSiteNamesExW<P0>(computername: P0, entrycount: super::DWORD, socketaddresses: super::PSOCKET_ADDRESS, sitenames: *mut *mut windows_core::PWSTR, subnetnames: *mut *mut windows_core::PWSTR) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn DsAddressToSiteNamesExW(computername : windows_core::PCWSTR, entrycount : super::DWORD, socketaddresses : super::PSOCKET_ADDRESS, sitenames : *mut *mut windows_core::PWSTR, subnetnames : *mut *mut windows_core::PWSTR) -> super::DWORD);
-    unsafe { DsAddressToSiteNamesExW(computername.param().abi(), socketaddresses.len().try_into().unwrap(), core::mem::transmute(socketaddresses.as_ptr()), sitenames as _, subnetnames as _) }
+    unsafe { DsAddressToSiteNamesExW(computername.param().abi(), entrycount, socketaddresses, sitenames as _, subnetnames as _) }
 }
 #[cfg(all(feature = "shared", feature = "ws2"))]
 #[inline]
-pub unsafe fn DsAddressToSiteNamesW<P0>(computername: P0, socketaddresses: &[super::SOCKET_ADDRESS], sitenames: *mut *mut windows_core::PWSTR) -> super::DWORD
+pub unsafe fn DsAddressToSiteNamesW<P0>(computername: P0, entrycount: super::DWORD, socketaddresses: super::PSOCKET_ADDRESS, sitenames: *mut *mut windows_core::PWSTR) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn DsAddressToSiteNamesW(computername : windows_core::PCWSTR, entrycount : super::DWORD, socketaddresses : super::PSOCKET_ADDRESS, sitenames : *mut *mut windows_core::PWSTR) -> super::DWORD);
-    unsafe { DsAddressToSiteNamesW(computername.param().abi(), socketaddresses.len().try_into().unwrap(), core::mem::transmute(socketaddresses.as_ptr()), sitenames as _) }
+    unsafe { DsAddressToSiteNamesW(computername.param().abi(), entrycount, socketaddresses, sitenames as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]

@@ -362,7 +362,10 @@ impl ContextInfo_Vtbl {
                         pbisintx.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbisintx.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -374,7 +377,10 @@ impl ContextInfo_Vtbl {
                         pptx.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptx.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -386,7 +392,10 @@ impl ContextInfo_Vtbl {
                         pbstrtxid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrtxid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -398,7 +407,10 @@ impl ContextInfo_Vtbl {
                         pbstractivityid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstractivityid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -410,7 +422,10 @@ impl ContextInfo_Vtbl {
                         pbstrctxid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrctxid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -487,7 +502,10 @@ impl ContextInfo2_Vtbl {
                         __midl__contextinfo20000.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        __midl__contextinfo20000.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -499,7 +517,10 @@ impl ContextInfo2_Vtbl {
                         __midl__contextinfo20001.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        __midl__contextinfo20001.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -511,7 +532,10 @@ impl ContextInfo2_Vtbl {
                         __midl__contextinfo20002.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        __midl__contextinfo20002.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -673,7 +697,10 @@ impl IAssemblyLocator_Vtbl {
                         pmodules.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pmodules.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -732,8 +759,8 @@ impl ICOMLBArguments {
         unsafe { (windows_core::Interface::vtable(self).GetMachineName)(windows_core::Interface::as_raw(self), cchsvr, szservername as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn SetMachineName(&self, szservername: &[super::WCHAR]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetMachineName)(windows_core::Interface::as_raw(self), szservername.len().try_into().unwrap(), szservername.as_ptr()) }
+    pub unsafe fn SetMachineName(&self, cchsvr: super::ULONG, szservername: *const super::WCHAR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetMachineName)(windows_core::Interface::as_raw(self), cchsvr, szservername) }
     }
 }
 #[repr(C)]
@@ -1172,8 +1199,8 @@ impl IComCRMEvents {
         unsafe { (windows_core::Interface::vtable(self).OnCRMCheckpoint)(windows_core::Interface::as_raw(self), pinfo, guidapp) }
     }
     #[cfg(all(feature = "shared", feature = "winnt", feature = "wtypesbase"))]
-    pub unsafe fn OnCRMBegin(&self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: windows_core::GUID, guidactivity: windows_core::GUID, guidtx: windows_core::GUID, szprogidcompensator: &[super::WCHAR; 64], szdescription: &[super::WCHAR; 64]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnCRMBegin)(windows_core::Interface::as_raw(self), pinfo, guidclerkclsid, guidactivity, guidtx, szprogidcompensator.as_ptr(), szdescription.as_ptr()) }
+    pub unsafe fn OnCRMBegin(&self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: windows_core::GUID, guidactivity: windows_core::GUID, guidtx: windows_core::GUID, szprogidcompensator: *const super::WCHAR, szdescription: *const super::WCHAR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnCRMBegin)(windows_core::Interface::as_raw(self), pinfo, guidclerkclsid, guidactivity, guidtx, szprogidcompensator, szdescription) }
     }
     #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub unsafe fn OnCRMPrepare(&self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: windows_core::GUID) -> windows_core::HRESULT {
@@ -2435,12 +2462,12 @@ windows_core::imp::define_interface!(IComQCEvents, IComQCEvents_Vtbl, 0x683130b2
 windows_core::imp::interface_hierarchy!(IComQCEvents, windows_core::IUnknown);
 impl IComQCEvents {
     #[cfg(all(feature = "shared", feature = "winnt", feature = "wtypesbase"))]
-    pub unsafe fn OnQCRecord(&self, pinfo: *const COMSVCSEVENTINFO, objid: super::ULONG64, szqueue: &[super::WCHAR; 60], guidmsgid: *const windows_core::GUID, guidworkflowid: *const windows_core::GUID, msmqhr: windows_core::HRESULT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnQCRecord)(windows_core::Interface::as_raw(self), pinfo, objid, szqueue.as_ptr(), guidmsgid, guidworkflowid, msmqhr) }
+    pub unsafe fn OnQCRecord(&self, pinfo: *const COMSVCSEVENTINFO, objid: super::ULONG64, szqueue: *const super::WCHAR, guidmsgid: *const windows_core::GUID, guidworkflowid: *const windows_core::GUID, msmqhr: windows_core::HRESULT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnQCRecord)(windows_core::Interface::as_raw(self), pinfo, objid, szqueue, guidmsgid, guidworkflowid, msmqhr) }
     }
     #[cfg(all(feature = "shared", feature = "winnt", feature = "wtypesbase"))]
-    pub unsafe fn OnQCQueueOpen(&self, pinfo: *const COMSVCSEVENTINFO, szqueue: &[super::WCHAR; 60], queueid: super::ULONG64, hr: windows_core::HRESULT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnQCQueueOpen)(windows_core::Interface::as_raw(self), pinfo, szqueue.as_ptr(), queueid, hr) }
+    pub unsafe fn OnQCQueueOpen(&self, pinfo: *const COMSVCSEVENTINFO, szqueue: *const super::WCHAR, queueid: super::ULONG64, hr: windows_core::HRESULT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnQCQueueOpen)(windows_core::Interface::as_raw(self), pinfo, szqueue, queueid, hr) }
     }
     #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub unsafe fn OnQCReceive(&self, pinfo: *const COMSVCSEVENTINFO, queueid: super::ULONG64, guidmsgid: *const windows_core::GUID, guidworkflowid: *const windows_core::GUID, hr: windows_core::HRESULT) -> windows_core::HRESULT {
@@ -2677,12 +2704,12 @@ windows_core::imp::define_interface!(IComSecurityEvents, IComSecurityEvents_Vtbl
 windows_core::imp::interface_hierarchy!(IComSecurityEvents, windows_core::IUnknown);
 impl IComSecurityEvents {
     #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-    pub unsafe fn OnAuthenticate(&self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const windows_core::GUID, objectid: super::ULONG64, guidiid: *const windows_core::GUID, imeth: super::ULONG, psidoriginaluser: &[super::BYTE], psidcurrentuser: &[super::BYTE], bcurrentuserinpersonatinginproc: bool) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnAuthenticate)(windows_core::Interface::as_raw(self), pinfo, guidactivity, objectid, guidiid, imeth, psidoriginaluser.len().try_into().unwrap(), psidoriginaluser.as_ptr(), psidcurrentuser.len().try_into().unwrap(), psidcurrentuser.as_ptr(), bcurrentuserinpersonatinginproc.into()) }
+    pub unsafe fn OnAuthenticate(&self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const windows_core::GUID, objectid: super::ULONG64, guidiid: *const windows_core::GUID, imeth: super::ULONG, cbbyteorig: super::ULONG, psidoriginaluser: *const super::BYTE, cbbytecur: super::ULONG, psidcurrentuser: *const super::BYTE, bcurrentuserinpersonatinginproc: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnAuthenticate)(windows_core::Interface::as_raw(self), pinfo, guidactivity, objectid, guidiid, imeth, cbbyteorig, psidoriginaluser, cbbytecur, psidcurrentuser, bcurrentuserinpersonatinginproc.into()) }
     }
     #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-    pub unsafe fn OnAuthenticateFail(&self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const windows_core::GUID, objectid: super::ULONG64, guidiid: *const windows_core::GUID, imeth: super::ULONG, psidoriginaluser: &[super::BYTE], psidcurrentuser: &[super::BYTE], bcurrentuserinpersonatinginproc: bool) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnAuthenticateFail)(windows_core::Interface::as_raw(self), pinfo, guidactivity, objectid, guidiid, imeth, psidoriginaluser.len().try_into().unwrap(), psidoriginaluser.as_ptr(), psidcurrentuser.len().try_into().unwrap(), psidcurrentuser.as_ptr(), bcurrentuserinpersonatinginproc.into()) }
+    pub unsafe fn OnAuthenticateFail(&self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const windows_core::GUID, objectid: super::ULONG64, guidiid: *const windows_core::GUID, imeth: super::ULONG, cbbyteorig: super::ULONG, psidoriginaluser: *const super::BYTE, cbbytecur: super::ULONG, psidcurrentuser: *const super::BYTE, bcurrentuserinpersonatinginproc: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnAuthenticateFail)(windows_core::Interface::as_raw(self), pinfo, guidactivity, objectid, guidiid, imeth, cbbyteorig, psidoriginaluser, cbbytecur, psidcurrentuser, bcurrentuserinpersonatinginproc.into()) }
     }
 }
 #[repr(C)]
@@ -3774,7 +3801,10 @@ impl IContextProperties_Vtbl {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3786,7 +3816,10 @@ impl IContextProperties_Vtbl {
                         pproperty.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pproperty.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3798,7 +3831,10 @@ impl IContextProperties_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4196,7 +4232,10 @@ impl ICrmCompensator_Vtbl {
                         pfforget.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfforget.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4208,7 +4247,10 @@ impl ICrmCompensator_Vtbl {
                         pfoktoprepare.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfoktoprepare.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4226,7 +4268,10 @@ impl ICrmCompensator_Vtbl {
                         pfforget.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfforget.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4250,7 +4295,10 @@ impl ICrmCompensator_Vtbl {
                         pfforget.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfforget.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4404,7 +4452,10 @@ impl ICrmCompensatorVariants_Vtbl {
                         pbforget.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbforget.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4416,7 +4467,10 @@ impl ICrmCompensatorVariants_Vtbl {
                         pboktoprepare.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pboktoprepare.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4434,7 +4488,10 @@ impl ICrmCompensatorVariants_Vtbl {
                         pbforget.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbforget.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4458,7 +4515,10 @@ impl ICrmCompensatorVariants_Vtbl {
                         pbforget.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbforget.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4604,8 +4664,8 @@ impl ICrmLogControl {
         unsafe { (windows_core::Interface::vtable(self).ForceTransactionToAbort)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-    pub unsafe fn WriteLogRecord(&self, rgblob: &[super::BLOB]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).WriteLogRecord)(windows_core::Interface::as_raw(self), rgblob.as_ptr(), rgblob.len().try_into().unwrap()) }
+    pub unsafe fn WriteLogRecord(&self, rgblob: *const super::BLOB, cblob: super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).WriteLogRecord)(windows_core::Interface::as_raw(self), rgblob, cblob) }
     }
 }
 #[repr(C)]
@@ -4650,7 +4710,10 @@ impl ICrmLogControl_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4754,7 +4817,10 @@ impl ICrmMonitor_Vtbl {
                         pclerks.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pclerks.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4766,7 +4832,10 @@ impl ICrmMonitor_Vtbl {
                         pitem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pitem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4896,7 +4965,10 @@ impl ICrmMonitorClerks_Vtbl {
                         pitem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pitem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4908,7 +4980,10 @@ impl ICrmMonitorClerks_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4920,7 +4995,10 @@ impl ICrmMonitorClerks_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4932,7 +5010,10 @@ impl ICrmMonitorClerks_Vtbl {
                         pitem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pitem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4944,7 +5025,10 @@ impl ICrmMonitorClerks_Vtbl {
                         pitem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pitem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4956,7 +5040,10 @@ impl ICrmMonitorClerks_Vtbl {
                         pitem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pitem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4968,7 +5055,10 @@ impl ICrmMonitorClerks_Vtbl {
                         pitem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pitem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5061,7 +5151,10 @@ impl ICrmMonitorLogRecords_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5073,7 +5166,10 @@ impl ICrmMonitorLogRecords_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5085,7 +5181,10 @@ impl ICrmMonitorLogRecords_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5103,7 +5202,10 @@ impl ICrmMonitorLogRecords_Vtbl {
                         plogrecord.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plogrecord.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5319,7 +5421,10 @@ impl IEnumNames_Vtbl {
                         pceltfetched.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pceltfetched.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5343,7 +5448,10 @@ impl IEnumNames_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5559,7 +5667,10 @@ impl IGetAppTrackerData_Vtbl {
                         toplevelcollection.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        toplevelcollection.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5637,7 +5748,10 @@ impl IGetContextProperties_Vtbl {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5649,7 +5763,10 @@ impl IGetContextProperties_Vtbl {
                         pproperty.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pproperty.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5661,7 +5778,10 @@ impl IGetContextProperties_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5720,7 +5840,10 @@ impl IGetSecurityCallContext_Vtbl {
                         ppobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6078,7 +6201,10 @@ impl IMTSLocator_Vtbl {
                         punk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        punk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6358,7 +6484,10 @@ impl IMessageMover_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6376,7 +6505,10 @@ impl IMessageMover_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6394,7 +6526,10 @@ impl IMessageMover_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6412,7 +6547,10 @@ impl IMessageMover_Vtbl {
                         plmessagesmoved.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plmessagesmoved.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6511,7 +6649,10 @@ impl IMtsEventInfo_Vtbl {
                         punk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        punk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6523,7 +6664,10 @@ impl IMtsEventInfo_Vtbl {
                         sdisplayname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        sdisplayname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6535,7 +6679,10 @@ impl IMtsEventInfo_Vtbl {
                         sguideventid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        sguideventid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6547,7 +6694,10 @@ impl IMtsEventInfo_Vtbl {
                         lcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        lcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6559,7 +6709,10 @@ impl IMtsEventInfo_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6657,7 +6810,10 @@ impl IMtsEvents_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6669,7 +6825,10 @@ impl IMtsEvents_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6687,7 +6846,10 @@ impl IMtsEvents_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6699,7 +6861,10 @@ impl IMtsEvents_Vtbl {
                         id.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        id.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6773,7 +6938,10 @@ impl IMtsGrp_Vtbl {
                         pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6785,7 +6953,10 @@ impl IMtsGrp_Vtbl {
                         ppunkdispatcher.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunkdispatcher.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7015,7 +7186,10 @@ impl IObjectConstructString_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7143,7 +7317,10 @@ impl IObjectContext_Vtbl {
                         pfisinrole.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfisinrole.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7371,7 +7548,10 @@ impl IObjectContextTip_Vtbl {
                         ptipurl.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ptipurl.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7676,7 +7856,10 @@ impl ISecurityCallContext_Vtbl {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7688,7 +7871,10 @@ impl ISecurityCallContext_Vtbl {
                         pitem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pitem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7700,7 +7886,10 @@ impl ISecurityCallContext_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7712,7 +7901,10 @@ impl ISecurityCallContext_Vtbl {
                         pfinrole.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfinrole.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7724,7 +7916,10 @@ impl ISecurityCallContext_Vtbl {
                         pfisenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfisenabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7736,7 +7931,10 @@ impl ISecurityCallContext_Vtbl {
                         pfinrole.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfinrole.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7814,7 +8012,10 @@ impl ISecurityCallersColl_Vtbl {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7826,7 +8027,10 @@ impl ISecurityCallersColl_Vtbl {
                         pobj.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pobj.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7838,7 +8042,10 @@ impl ISecurityCallersColl_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7917,7 +8124,10 @@ impl ISecurityIdentityColl_Vtbl {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7929,7 +8139,10 @@ impl ISecurityIdentityColl_Vtbl {
                         pitem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pitem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7941,7 +8154,10 @@ impl ISecurityIdentityColl_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8612,7 +8828,10 @@ impl IServicePoolConfig_Vtbl {
                         pdwmaxpool.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdwmaxpool.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8630,7 +8849,10 @@ impl IServicePoolConfig_Vtbl {
                         pdwminpool.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdwminpool.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8648,7 +8870,10 @@ impl IServicePoolConfig_Vtbl {
                         pdwcreationtimeout.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdwcreationtimeout.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8666,7 +8891,10 @@ impl IServicePoolConfig_Vtbl {
                         pftxaffinity.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pftxaffinity.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8684,7 +8912,10 @@ impl IServicePoolConfig_Vtbl {
                         pfactory.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfactory.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9128,7 +9359,10 @@ impl ISharedProperty_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9220,7 +9454,10 @@ impl ISharedPropertyGroup_Vtbl {
                         ppprop.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppprop.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9232,7 +9469,10 @@ impl ISharedPropertyGroup_Vtbl {
                         ppproperty.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppproperty.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9244,7 +9484,10 @@ impl ISharedPropertyGroup_Vtbl {
                         ppprop.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppprop.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9256,7 +9499,10 @@ impl ISharedPropertyGroup_Vtbl {
                         ppproperty.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppproperty.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9336,7 +9582,10 @@ impl ISharedPropertyGroupManager_Vtbl {
                         ppgroup.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppgroup.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9348,7 +9597,10 @@ impl ISharedPropertyGroupManager_Vtbl {
                         ppgroup.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppgroup.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9360,7 +9612,10 @@ impl ISharedPropertyGroupManager_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9628,7 +9883,10 @@ impl ITransactionContext_Vtbl {
                         pobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10101,7 +10359,10 @@ impl ITransactionProxy_Vtbl {
                         __midl__itransactionproxy0000.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        __midl__itransactionproxy0000.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10113,7 +10374,10 @@ impl ITransactionProxy_Vtbl {
                         pbstridentifier.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstridentifier.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10427,7 +10691,10 @@ impl ObjectContext_Vtbl {
                         pobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10463,7 +10730,10 @@ impl ObjectContext_Vtbl {
                         pbisintx.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbisintx.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10475,7 +10745,10 @@ impl ObjectContext_Vtbl {
                         pbisenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbisenabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10487,7 +10760,10 @@ impl ObjectContext_Vtbl {
                         pbinrole.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbinrole.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10499,7 +10775,10 @@ impl ObjectContext_Vtbl {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10511,7 +10790,10 @@ impl ObjectContext_Vtbl {
                         pitem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pitem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10523,7 +10805,10 @@ impl ObjectContext_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10535,7 +10820,10 @@ impl ObjectContext_Vtbl {
                         ppsecurityproperty.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsecurityproperty.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10547,7 +10835,10 @@ impl ObjectContext_Vtbl {
                         ppcontextinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcontextinfo.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10631,7 +10922,10 @@ impl ObjectControl_Vtbl {
                         pbpoolable.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbpoolable.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10734,7 +11028,10 @@ impl SecurityProperty_Vtbl {
                         bstrusername.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bstrusername.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10746,7 +11043,10 @@ impl SecurityProperty_Vtbl {
                         bstrusername.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bstrusername.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10758,7 +11058,10 @@ impl SecurityProperty_Vtbl {
                         bstrusername.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bstrusername.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10770,7 +11073,10 @@ impl SecurityProperty_Vtbl {
                         bstrusername.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bstrusername.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

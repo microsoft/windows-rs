@@ -112,7 +112,10 @@ impl ICondition_Vtbl {
                         pnodetype.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pnodetype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -136,7 +139,10 @@ impl ICondition_Vtbl {
                         ppszvaluetypename.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppszvaluetypename.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -148,7 +154,10 @@ impl ICondition_Vtbl {
                         ppsznormalization.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsznormalization.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -166,7 +175,10 @@ impl ICondition_Vtbl {
                         ppc.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppc.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

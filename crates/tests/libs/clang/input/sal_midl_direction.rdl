@@ -3,10 +3,10 @@ mod Fixture {
     struct Column {
         status: u32,
     }
-    extern "C" fn ColumnUpdates(count: u32, #[in] #[out] #[readable(entry, count)] columns: *mut Column);
-    extern "C" fn ComConditional(enabled: i32, #[iid_is] #[in] #[incomplete] #[out] #[out_ptr(null_on_failure)] value: *mut *mut void);
+    extern "C" fn ColumnUpdates(count: u32, #[buffer(count)] #[in] #[out] columns: *mut Column);
+    extern "C" fn ComConditional(enabled: i32, #[iid_is] #[in] #[incomplete] #[out] value: *mut *mut void);
     extern "C" fn ComInOut(#[iid_is] #[in] #[incomplete] #[out] value: *mut *mut void);
-    extern "C" fn ComOut(#[iid_is] #[out] #[out_ptr(null_on_failure)] value: *mut *mut void);
+    extern "C" fn ComOut(#[iid_is] #[out] value: *mut *mut void);
     extern "C" fn CommentBoth(#[in] #[out] value: *mut *mut void);
     extern "C" fn Conditional(enabled: i32, #[in] #[incomplete] #[out] value: *mut *mut void);
     extern "C" fn Opposite(#[in] #[out] value: *mut i32);

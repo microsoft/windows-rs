@@ -75,7 +75,10 @@ impl IEnumPortableDeviceObjectIDs_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -209,7 +212,10 @@ impl IPortableDevice_Vtbl {
                         ppresults.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppresults.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -221,7 +227,10 @@ impl IPortableDevice_Vtbl {
                         ppcontent.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcontent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -233,7 +242,10 @@ impl IPortableDevice_Vtbl {
                         ppcapabilities.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcapabilities.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -434,7 +446,10 @@ impl IPortableDeviceCapabilities_Vtbl {
                         ppcommands.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcommands.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -446,7 +461,10 @@ impl IPortableDeviceCapabilities_Vtbl {
                         ppoptions.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppoptions.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -458,7 +476,10 @@ impl IPortableDeviceCapabilities_Vtbl {
                         ppcategories.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcategories.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -470,7 +491,10 @@ impl IPortableDeviceCapabilities_Vtbl {
                         ppobjectids.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppobjectids.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -482,7 +506,10 @@ impl IPortableDeviceCapabilities_Vtbl {
                         ppcontenttypes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcontenttypes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -494,7 +521,10 @@ impl IPortableDeviceCapabilities_Vtbl {
                         ppformats.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppformats.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -506,7 +536,10 @@ impl IPortableDeviceCapabilities_Vtbl {
                         ppkeys.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppkeys.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -518,7 +551,10 @@ impl IPortableDeviceCapabilities_Vtbl {
                         ppattributes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppattributes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -536,7 +572,10 @@ impl IPortableDeviceCapabilities_Vtbl {
                         ppevents.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppevents.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -548,7 +587,10 @@ impl IPortableDeviceCapabilities_Vtbl {
                         ppoptions.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppoptions.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -710,7 +752,10 @@ impl IPortableDeviceContent_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -722,7 +767,10 @@ impl IPortableDeviceContent_Vtbl {
                         ppproperties.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppproperties.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -734,7 +782,10 @@ impl IPortableDeviceContent_Vtbl {
                         ppresources.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppresources.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -764,7 +815,10 @@ impl IPortableDeviceContent_Vtbl {
                         ppobjectids.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppobjectids.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1244,7 +1298,10 @@ impl IPortableDeviceProperties_Vtbl {
                         ppkeys.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppkeys.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1256,7 +1313,10 @@ impl IPortableDeviceProperties_Vtbl {
                         ppattributes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppattributes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1268,7 +1328,10 @@ impl IPortableDeviceProperties_Vtbl {
                         ppvalues.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalues.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1280,7 +1343,10 @@ impl IPortableDeviceProperties_Vtbl {
                         ppresults.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppresults.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1589,7 +1655,10 @@ impl IPortableDeviceResources_Vtbl {
                         ppkeys.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppkeys.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1601,7 +1670,10 @@ impl IPortableDeviceResources_Vtbl {
                         ppresourceattributes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppresourceattributes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1613,7 +1685,10 @@ impl IPortableDeviceResources_Vtbl {
                         ppstream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1773,7 +1848,10 @@ impl IPortableDeviceService_Vtbl {
                         ppcapabilities.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcapabilities.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1785,7 +1863,10 @@ impl IPortableDeviceService_Vtbl {
                         ppcontent.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcontent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1797,7 +1878,10 @@ impl IPortableDeviceService_Vtbl {
                         ppmethods.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmethods.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1845,7 +1929,10 @@ impl IPortableDeviceService_Vtbl {
                         ppresults.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppresults.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2136,7 +2223,10 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
                         ppmethods.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmethods.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2148,7 +2238,10 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
                         ppmethods.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmethods.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2160,7 +2253,10 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
                         ppattributes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppattributes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2172,7 +2268,10 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
                         ppattributes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppattributes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2184,7 +2283,10 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
                         ppformats.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppformats.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2196,7 +2298,10 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
                         ppattributes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppattributes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2208,7 +2313,10 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
                         ppkeys.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppkeys.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2220,7 +2328,10 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
                         ppattributes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppattributes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2232,7 +2343,10 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
                         ppevents.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppevents.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2244,7 +2358,10 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
                         ppattributes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppattributes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2256,7 +2373,10 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
                         ppattributes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppattributes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2268,7 +2388,10 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
                         ppservices.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppservices.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2280,7 +2403,10 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
                         pprenderingprofiles.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pprenderingprofiles.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2292,7 +2418,10 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
                         ppcommands.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcommands.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2304,7 +2433,10 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
                         ppoptions.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppoptions.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2651,7 +2783,7 @@ impl IPortableDeviceWebControl_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppdevice.write(core::mem::zeroed());
+                        ppdevice.write_bytes(0, 1);
                         err.into()
                     }
                 }

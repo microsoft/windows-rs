@@ -182,7 +182,7 @@ impl ISpatialAudioClient_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        enumerator.write(core::mem::zeroed());
+                        enumerator.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -467,7 +467,7 @@ impl ISpatialAudioObjectRenderStream_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        audioobject.write(core::mem::zeroed());
+                        audioobject.write_bytes(0, 1);
                         err.into()
                     }
                 }

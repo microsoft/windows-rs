@@ -962,7 +962,7 @@ impl IDXGIAdapter_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppoutput.write(core::mem::zeroed());
+                        ppoutput.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1593,7 +1593,7 @@ impl IDXGIDevice_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        padapter.write(core::mem::zeroed());
+                        padapter.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1625,7 +1625,10 @@ impl IDXGIDevice_Vtbl {
                         ppriority.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppriority.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1717,8 +1720,8 @@ impl core::ops::Deref for IDXGIDevice2 {
 windows_core::imp::interface_hierarchy!(IDXGIDevice2, windows_core::IUnknown, IDXGIObject, IDXGIDevice, IDXGIDevice1);
 impl IDXGIDevice2 {
     #[cfg(feature = "shared")]
-    pub unsafe fn OfferResources(&self, ppresources: &[Option<IDXGIResource>], priority: DXGI_OFFER_RESOURCE_PRIORITY) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OfferResources)(windows_core::Interface::as_raw(self), ppresources.len().try_into().unwrap(), core::mem::transmute(ppresources.as_ptr()), priority) }
+    pub unsafe fn OfferResources(&self, numresources: super::UINT, ppresources: *const Option<IDXGIResource>, priority: DXGI_OFFER_RESOURCE_PRIORITY) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OfferResources)(windows_core::Interface::as_raw(self), numresources, core::mem::transmute(ppresources), priority) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn ReclaimResources(&self, numresources: super::UINT, ppresources: *const Option<IDXGIResource>, pdiscarded: Option<*mut windows_core::BOOL>) -> windows_core::HRESULT {
@@ -1838,8 +1841,8 @@ impl core::ops::Deref for IDXGIDevice4 {
 windows_core::imp::interface_hierarchy!(IDXGIDevice4, windows_core::IUnknown, IDXGIObject, IDXGIDevice, IDXGIDevice1, IDXGIDevice2, IDXGIDevice3);
 impl IDXGIDevice4 {
     #[cfg(feature = "shared")]
-    pub unsafe fn OfferResources1(&self, ppresources: &[Option<IDXGIResource>], priority: DXGI_OFFER_RESOURCE_PRIORITY, flags: super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OfferResources1)(windows_core::Interface::as_raw(self), ppresources.len().try_into().unwrap(), core::mem::transmute(ppresources.as_ptr()), priority, flags) }
+    pub unsafe fn OfferResources1(&self, numresources: super::UINT, ppresources: *const Option<IDXGIResource>, priority: DXGI_OFFER_RESOURCE_PRIORITY, flags: super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OfferResources1)(windows_core::Interface::as_raw(self), numresources, core::mem::transmute(ppresources), priority, flags) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn ReclaimResources1(&self, numresources: super::UINT, ppresources: *const Option<IDXGIResource>, presults: *mut DXGI_RECLAIM_RESOURCE_RESULTS) -> windows_core::HRESULT {
@@ -2074,7 +2077,7 @@ impl IDXGIFactory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppadapter.write(core::mem::zeroed());
+                        ppadapter.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2101,7 +2104,7 @@ impl IDXGIFactory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppswapchain.write(core::mem::zeroed());
+                        ppswapchain.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2116,7 +2119,7 @@ impl IDXGIFactory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppadapter.write(core::mem::zeroed());
+                        ppadapter.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2184,7 +2187,7 @@ impl IDXGIFactory1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppadapter.write(core::mem::zeroed());
+                        ppadapter.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2361,7 +2364,7 @@ impl IDXGIFactory2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppswapchain.write(core::mem::zeroed());
+                        ppswapchain.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2376,7 +2379,7 @@ impl IDXGIFactory2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppswapchain.write(core::mem::zeroed());
+                        ppswapchain.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2433,7 +2436,7 @@ impl IDXGIFactory2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppswapchain.write(core::mem::zeroed());
+                        ppswapchain.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2787,7 +2790,7 @@ impl IDXGIFactoryMedia_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppswapchain.write(core::mem::zeroed());
+                        ppswapchain.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2802,7 +2805,7 @@ impl IDXGIFactoryMedia_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppswapchain.write(core::mem::zeroed());
+                        ppswapchain.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3823,7 +3826,7 @@ impl IDXGIOutput1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppoutputduplication.write(core::mem::zeroed());
+                        ppoutputduplication.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3987,13 +3990,13 @@ impl core::ops::Deref for IDXGIOutput5 {
 windows_core::imp::interface_hierarchy!(IDXGIOutput5, windows_core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1, IDXGIOutput2, IDXGIOutput3, IDXGIOutput4);
 impl IDXGIOutput5 {
     #[cfg(feature = "shared")]
-    pub unsafe fn DuplicateOutput1<P0>(&self, pdevice: P0, flags: super::UINT, psupportedformats: &[DXGI_FORMAT]) -> windows_core::Result<IDXGIOutputDuplication>
+    pub unsafe fn DuplicateOutput1<P0>(&self, pdevice: P0, flags: super::UINT, supportedformatscount: super::UINT, psupportedformats: *const DXGI_FORMAT) -> windows_core::Result<IDXGIOutputDuplication>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DuplicateOutput1)(windows_core::Interface::as_raw(self), pdevice.param().abi(), flags, psupportedformats.len().try_into().unwrap(), psupportedformats.as_ptr(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DuplicateOutput1)(windows_core::Interface::as_raw(self), pdevice.param().abi(), flags, supportedformatscount, psupportedformats, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -4022,7 +4025,7 @@ impl IDXGIOutput5_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppoutputduplication.write(core::mem::zeroed());
+                        ppoutputduplication.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4204,7 +4207,7 @@ impl IDXGIOutputDuplication_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppdesktopresource.write(core::mem::zeroed());
+                        ppdesktopresource.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4346,7 +4349,10 @@ impl IDXGIResource_Vtbl {
                         pevictionpriority.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pevictionpriority.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4418,7 +4424,7 @@ impl IDXGIResource1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppsurface.write(core::mem::zeroed());
+                        ppsurface.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4784,7 +4790,7 @@ impl IDXGISwapChain_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppoutput.write(core::mem::zeroed());
+                        ppoutput.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5253,8 +5259,8 @@ impl core::ops::Deref for IDXGISwapChain4 {
 windows_core::imp::interface_hierarchy!(IDXGISwapChain4, windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISwapChain, IDXGISwapChain1, IDXGISwapChain2, IDXGISwapChain3);
 impl IDXGISwapChain4 {
     #[cfg(feature = "shared")]
-    pub unsafe fn SetHDRMetaData(&self, r#type: DXGI_HDR_METADATA_TYPE, pmetadata: Option<&[u8]>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetHDRMetaData)(windows_core::Interface::as_raw(self), r#type, pmetadata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pmetadata.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    pub unsafe fn SetHDRMetaData(&self, r#type: DXGI_HDR_METADATA_TYPE, size: super::UINT, pmetadata: Option<*const core::ffi::c_void>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetHDRMetaData)(windows_core::Interface::as_raw(self), r#type, size, pmetadata.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]

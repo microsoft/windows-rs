@@ -609,12 +609,12 @@ impl core::ops::Deref for IBackgroundCopyCallback3 {
 windows_core::imp::interface_hierarchy!(IBackgroundCopyCallback3, windows_core::IUnknown, IBackgroundCopyCallback, IBackgroundCopyCallback2);
 impl IBackgroundCopyCallback3 {
     #[cfg(feature = "shared")]
-    pub unsafe fn FileRangesTransferred<P0, P1>(&self, job: P0, file: P1, ranges: &[BG_FILE_RANGE]) -> windows_core::HRESULT
+    pub unsafe fn FileRangesTransferred<P0, P1>(&self, job: P0, file: P1, rangecount: super::DWORD, ranges: *const BG_FILE_RANGE) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IBackgroundCopyJob>,
         P1: windows_core::Param<IBackgroundCopyFile>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FileRangesTransferred)(windows_core::Interface::as_raw(self), job.param().abi(), file.param().abi(), ranges.len().try_into().unwrap(), ranges.as_ptr()) }
+        unsafe { (windows_core::Interface::vtable(self).FileRangesTransferred)(windows_core::Interface::as_raw(self), job.param().abi(), file.param().abi(), rangecount, ranges) }
     }
 }
 #[repr(C)]
@@ -712,7 +712,10 @@ impl IBackgroundCopyError_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1068,8 +1071,8 @@ impl IBackgroundCopyFile6 {
         unsafe { (windows_core::Interface::vtable(self).UpdateDownloadPosition)(windows_core::Interface::as_raw(self), offset) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn RequestFileRanges(&self, ranges: &[BG_FILE_RANGE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RequestFileRanges)(windows_core::Interface::as_raw(self), ranges.len().try_into().unwrap(), ranges.as_ptr()) }
+    pub unsafe fn RequestFileRanges(&self, rangecount: super::DWORD, ranges: *const BG_FILE_RANGE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RequestFileRanges)(windows_core::Interface::as_raw(self), rangecount, ranges) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetFilledFileRanges(&self, rangecount: *mut super::DWORD, ranges: *mut *mut BG_FILE_RANGE) -> windows_core::HRESULT {
@@ -1137,8 +1140,8 @@ windows_core::imp::define_interface!(IBackgroundCopyJob, IBackgroundCopyJob_Vtbl
 windows_core::imp::interface_hierarchy!(IBackgroundCopyJob, windows_core::IUnknown);
 impl IBackgroundCopyJob {
     #[cfg(feature = "shared")]
-    pub unsafe fn AddFileSet(&self, pfileset: &[BG_FILE_INFO]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddFileSet)(windows_core::Interface::as_raw(self), pfileset.len().try_into().unwrap(), pfileset.as_ptr()) }
+    pub unsafe fn AddFileSet(&self, cfilecount: super::ULONG, pfileset: *const BG_FILE_INFO) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddFileSet)(windows_core::Interface::as_raw(self), cfilecount, pfileset) }
     }
     pub unsafe fn AddFile<P0, P1>(&self, remoteurl: P0, localname: P1) -> windows_core::HRESULT
     where
@@ -1394,7 +1397,10 @@ impl IBackgroundCopyJob_Vtbl {
                         penum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        penum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1460,7 +1466,10 @@ impl IBackgroundCopyJob_Vtbl {
                         pperror.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pperror.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1532,7 +1541,10 @@ impl IBackgroundCopyJob_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1785,12 +1797,12 @@ impl IBackgroundCopyJob3 {
         unsafe { (windows_core::Interface::vtable(self).ReplaceRemotePrefix)(windows_core::Interface::as_raw(self), oldprefix.param().abi(), newprefix.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn AddFileWithRanges<P0, P1>(&self, remoteurl: P0, localname: P1, ranges: &[BG_FILE_RANGE]) -> windows_core::HRESULT
+    pub unsafe fn AddFileWithRanges<P0, P1>(&self, remoteurl: P0, localname: P1, rangecount: super::DWORD, ranges: *const BG_FILE_RANGE) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddFileWithRanges)(windows_core::Interface::as_raw(self), remoteurl.param().abi(), localname.param().abi(), ranges.len().try_into().unwrap(), ranges.as_ptr()) }
+        unsafe { (windows_core::Interface::vtable(self).AddFileWithRanges)(windows_core::Interface::as_raw(self), remoteurl.param().abi(), localname.param().abi(), rangecount, ranges) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetFileACLFlags(&self, flags: super::DWORD) -> windows_core::HRESULT {
@@ -2057,11 +2069,11 @@ windows_core::imp::define_interface!(IBackgroundCopyJobHttpOptions, IBackgroundC
 windows_core::imp::interface_hierarchy!(IBackgroundCopyJobHttpOptions, windows_core::IUnknown);
 impl IBackgroundCopyJobHttpOptions {
     #[cfg(feature = "rpc")]
-    pub unsafe fn SetClientCertificateByID<P1>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: P1, pcerthashblob: &[super::byte; 20]) -> windows_core::HRESULT
+    pub unsafe fn SetClientCertificateByID<P1>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: P1, pcerthashblob: *const super::byte) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetClientCertificateByID)(windows_core::Interface::as_raw(self), storelocation, storename.param().abi(), pcerthashblob.as_ptr()) }
+        unsafe { (windows_core::Interface::vtable(self).SetClientCertificateByID)(windows_core::Interface::as_raw(self), storelocation, storename.param().abi(), pcerthashblob) }
     }
     pub unsafe fn SetClientCertificateByName<P1, P2>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: P1, subjectname: P2) -> windows_core::HRESULT
     where
@@ -2379,7 +2391,10 @@ impl IBackgroundCopyManager_Vtbl {
                         ppjob.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppjob.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2391,7 +2406,10 @@ impl IBackgroundCopyManager_Vtbl {
                         ppjob.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppjob.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2403,7 +2421,10 @@ impl IBackgroundCopyManager_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2431,12 +2452,12 @@ windows_core::imp::define_interface!(IBackgroundCopyServerCertificateValidationC
 windows_core::imp::interface_hierarchy!(IBackgroundCopyServerCertificateValidationCallback, windows_core::IUnknown);
 impl IBackgroundCopyServerCertificateValidationCallback {
     #[cfg(feature = "shared")]
-    pub unsafe fn ValidateServerCertificate<P0, P1>(&self, job: P0, file: P1, certdata: &[super::BYTE], certencodingtype: super::DWORD, certstoredata: &[super::BYTE]) -> windows_core::HRESULT
+    pub unsafe fn ValidateServerCertificate<P0, P1>(&self, job: P0, file: P1, certlength: super::DWORD, certdata: *const super::BYTE, certencodingtype: super::DWORD, certstorelength: super::DWORD, certstoredata: *const super::BYTE) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IBackgroundCopyJob>,
         P1: windows_core::Param<IBackgroundCopyFile>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ValidateServerCertificate)(windows_core::Interface::as_raw(self), job.param().abi(), file.param().abi(), certdata.len().try_into().unwrap(), certdata.as_ptr(), certencodingtype, certstoredata.len().try_into().unwrap(), certstoredata.as_ptr()) }
+        unsafe { (windows_core::Interface::vtable(self).ValidateServerCertificate)(windows_core::Interface::as_raw(self), job.param().abi(), file.param().abi(), certlength, certdata, certencodingtype, certstorelength, certstoredata) }
     }
 }
 #[repr(C)]
@@ -2692,7 +2713,10 @@ impl IBitsPeerCacheAdministration_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2704,7 +2728,10 @@ impl IBitsPeerCacheAdministration_Vtbl {
                         pprecord.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pprecord.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2734,7 +2761,10 @@ impl IBitsPeerCacheAdministration_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3073,7 +3103,10 @@ impl IEnumBackgroundCopyFiles_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3179,7 +3212,10 @@ impl IEnumBackgroundCopyJobs_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3285,7 +3321,10 @@ impl IEnumBitsPeerCacheRecords_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3391,7 +3430,10 @@ impl IEnumBitsPeers_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

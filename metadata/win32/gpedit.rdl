@@ -20,10 +20,8 @@ mod Windows {
             hwndOwner: HWND,
             lpTitle: LPOLESTR,
             lpInitialOU: LPOLESTR,
-            #[writable(dwDSPathSize)]
             lpDSPath: LPOLESTR,
             dwDSPathSize: DWORD,
-            #[writable(bytes(dwNameSize))]
             lpName: LPOLESTR,
             dwNameSize: DWORD,
             gpoType: GROUP_POLICY_OBJECT_TYPE,
@@ -67,11 +65,11 @@ mod Windows {
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
             fn Release(&self) -> ULONG;
-            fn GetName(&self, #[out] #[writable(entry, cchMaxLength)] pszName: LPOLESTR, cchMaxLength: i32) -> HRESULT;
-            fn GetDisplayName(&self, #[out] #[writable(entry, cchMaxLength)] pszName: LPOLESTR, cchMaxLength: i32) -> HRESULT;
+            fn GetName(&self, #[buffer(cchMaxLength)] #[out] pszName: LPOLESTR, cchMaxLength: i32) -> HRESULT;
+            fn GetDisplayName(&self, #[buffer(cchMaxLength)] #[out] pszName: LPOLESTR, cchMaxLength: i32) -> HRESULT;
             fn GetRegistryKey(&self, dwSection: DWORD, hKey: *mut HKEY) -> HRESULT;
-            fn GetDSPath(&self, dwSection: DWORD, #[out] #[writable(entry, cchMaxPath)] pszPath: LPOLESTR, cchMaxPath: i32) -> HRESULT;
-            fn GetFileSysPath(&self, dwSection: DWORD, #[out] #[writable(entry, cchMaxPath)] pszPath: LPOLESTR, cchMaxPath: i32) -> HRESULT;
+            fn GetDSPath(&self, dwSection: DWORD, #[buffer(cchMaxPath)] #[out] pszPath: LPOLESTR, cchMaxPath: i32) -> HRESULT;
+            fn GetFileSysPath(&self, dwSection: DWORD, #[buffer(cchMaxPath)] #[out] pszPath: LPOLESTR, cchMaxPath: i32) -> HRESULT;
             fn GetOptions(&self, dwOptions: *mut DWORD) -> HRESULT;
             fn GetType(&self, gpoType: *mut GROUP_POLICY_OBJECT_TYPE) -> HRESULT;
             fn GetHint(&self, gpHint: *mut GROUP_POLICY_HINT_TYPE) -> HRESULT;
@@ -91,17 +89,17 @@ mod Windows {
             fn OpenRemoteMachineGPO(&self, #[in] pszComputerName: LPOLESTR, dwFlags: DWORD) -> HRESULT;
             fn Save(&self, bMachine: BOOL, bAdd: BOOL, pGuidExtension: *mut GUID, pGuid: *mut GUID) -> HRESULT;
             fn Delete(&self) -> HRESULT;
-            fn GetName(&self, #[out] #[writable(entry, cchMaxLength)] pszName: LPOLESTR, cchMaxLength: i32) -> HRESULT;
-            fn GetDisplayName(&self, #[out] #[writable(entry, cchMaxLength)] pszName: LPOLESTR, cchMaxLength: i32) -> HRESULT;
+            fn GetName(&self, #[buffer(cchMaxLength)] #[out] pszName: LPOLESTR, cchMaxLength: i32) -> HRESULT;
+            fn GetDisplayName(&self, #[buffer(cchMaxLength)] #[out] pszName: LPOLESTR, cchMaxLength: i32) -> HRESULT;
             fn SetDisplayName(&self, #[in] pszName: LPOLESTR) -> HRESULT;
-            fn GetPath(&self, #[out] #[writable(entry, cchMaxLength)] pszPath: LPOLESTR, cchMaxLength: i32) -> HRESULT;
-            fn GetDSPath(&self, dwSection: DWORD, #[out] #[writable(entry, cchMaxPath)] pszPath: LPOLESTR, cchMaxPath: i32) -> HRESULT;
-            fn GetFileSysPath(&self, dwSection: DWORD, #[out] #[writable(entry, cchMaxPath)] pszPath: LPOLESTR, cchMaxPath: i32) -> HRESULT;
+            fn GetPath(&self, #[buffer(cchMaxLength)] #[out] pszPath: LPOLESTR, cchMaxLength: i32) -> HRESULT;
+            fn GetDSPath(&self, dwSection: DWORD, #[buffer(cchMaxPath)] #[out] pszPath: LPOLESTR, cchMaxPath: i32) -> HRESULT;
+            fn GetFileSysPath(&self, dwSection: DWORD, #[buffer(cchMaxPath)] #[out] pszPath: LPOLESTR, cchMaxPath: i32) -> HRESULT;
             fn GetRegistryKey(&self, dwSection: DWORD, hKey: *mut HKEY) -> HRESULT;
             fn GetOptions(&self, dwOptions: *mut DWORD) -> HRESULT;
             fn SetOptions(&self, dwOptions: DWORD, dwMask: DWORD) -> HRESULT;
             fn GetType(&self, gpoType: *mut GROUP_POLICY_OBJECT_TYPE) -> HRESULT;
-            fn GetMachineName(&self, #[out] #[writable(entry, cchMaxLength)] pszName: LPOLESTR, cchMaxLength: i32) -> HRESULT;
+            fn GetMachineName(&self, #[buffer(cchMaxLength)] #[out] pszName: LPOLESTR, cchMaxLength: i32) -> HRESULT;
             fn GetPropertySheetPages(&self, hPages: *mut *mut HPROPSHEETPAGE, uPageCount: *mut UINT) -> HRESULT;
         }
         const IID_IGPEInformation: GUID = 0x8fc0b735_a0e1_11d1_a7d3_0000f87571e3;
@@ -115,9 +113,9 @@ mod Windows {
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
             fn Release(&self) -> ULONG;
-            fn GetNamespace(&self, dwSection: DWORD, #[out] #[writable(entry, cchMaxLength)] pszName: LPOLESTR, cchMaxLength: i32) -> HRESULT;
+            fn GetNamespace(&self, dwSection: DWORD, #[buffer(cchMaxLength)] #[out] pszName: LPOLESTR, cchMaxLength: i32) -> HRESULT;
             fn GetFlags(&self, pdwFlags: *mut DWORD) -> HRESULT;
-            fn GetEventLogEntryText(&self, #[in] pszEventSource: LPOLESTR, #[in] pszEventLogName: LPOLESTR, #[in] pszEventTime: LPOLESTR, dwEventID: DWORD, #[out] #[out_ptr] ppszText: *mut LPOLESTR) -> HRESULT;
+            fn GetEventLogEntryText(&self, #[in] pszEventSource: LPOLESTR, #[in] pszEventLogName: LPOLESTR, #[in] pszEventTime: LPOLESTR, dwEventID: DWORD, #[out] ppszText: *mut LPOLESTR) -> HRESULT;
         }
         #[library("GPEDIT.DLL")]
         extern fn ImportRSoPData(#[in] lpNameSpace: LPOLESTR, #[in] lpFileName: LPOLESTR) -> HRESULT;

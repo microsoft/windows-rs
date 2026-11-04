@@ -60,7 +60,7 @@ impl MethodParam<'_> {
         self.has_attribute("RetValAttribute")
     }
 
-    /// Returns the entry count or byte-size relationship encoded by `BufferExtentAttribute`.
+    /// Returns the entry count or byte-size relationship encoded by `BufferAttribute`.
     ///
     /// This only decodes the attribute. Consumers remain responsible for validating signed values,
     /// parameter positions, element sizes, and whether a public slice or span is appropriate.
@@ -69,27 +69,21 @@ impl MethodParam<'_> {
 
         for attribute in self.attributes() {
             if attribute.namespace() == "Windows.Win32.Metadata"
-                && attribute.name() == "BufferExtentAttribute"
+                && attribute.name() == "BufferAttribute"
             {
-                let extent = BufferExtent::from_values(&attribute.value())?;
-                if extent.phase != BufferPhase::Entry || extent.indirect {
-                    continue;
-                }
-                let relationship = match (extent.units, extent.count) {
-                    (BufferUnits::Elements, BufferCount::Parameter(index)) => {
+                let info = BufferInfo::from_values(&attribute.value())?;
+                let relationship = match (info.bytes, info.count) {
+                    (false, BufferSize::Constant(value)) => {
+                        BufferRelationship::ElementsConst(value.try_into().ok()?)
+                    }
+                    (false, BufferSize::Parameter(index)) => {
                         BufferRelationship::ElementsParam(index.try_into().ok()?)
                     }
-                    (BufferUnits::Bytes, BufferCount::Parameter(index)) => {
+                    (true, BufferSize::Parameter(index)) => {
                         BufferRelationship::BytesParam(index.try_into().ok()?)
-                    }
-                    (BufferUnits::Elements, BufferCount::Constant(value)) => {
-                        BufferRelationship::ElementsConst(value.try_into().ok()?)
                     }
                     _ => return None,
                 };
-                if extent.offset != 0 || extent.null_fallback.is_some() || extent.count_on_entry {
-                    return None;
-                }
                 if result.is_some_and(|previous| previous != relationship) {
                     return None;
                 }

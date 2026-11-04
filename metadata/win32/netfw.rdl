@@ -78,11 +78,11 @@ mod Windows {
         #[guid(0xb5e64ffa_c2c5_444e_a301_fb5e00018050)]
         interface INetFwAuthorizedApplication: IDispatch {
             #[special]
-            fn get_Name(&self, #[out] #[out_ptr] #[retval] name: *mut BSTR) -> HRESULT;
+            fn get_Name(&self, #[out] #[retval] name: *mut BSTR) -> HRESULT;
             #[special]
             fn put_Name(&self, #[in] name: BSTR) -> HRESULT;
             #[special]
-            fn get_ProcessImageFileName(&self, #[out] #[out_ptr] #[retval] imageFileName: *mut BSTR) -> HRESULT;
+            fn get_ProcessImageFileName(&self, #[out] #[retval] imageFileName: *mut BSTR) -> HRESULT;
             #[special]
             fn put_ProcessImageFileName(&self, #[in] imageFileName: BSTR) -> HRESULT;
             #[special]
@@ -94,7 +94,7 @@ mod Windows {
             #[special]
             fn put_Scope(&self, #[in] scope: NET_FW_SCOPE) -> HRESULT;
             #[special]
-            fn get_RemoteAddresses(&self, #[out] #[out_ptr] #[retval] remoteAddrs: *mut BSTR) -> HRESULT;
+            fn get_RemoteAddresses(&self, #[out] #[retval] remoteAddrs: *mut BSTR) -> HRESULT;
             #[special]
             fn put_RemoteAddresses(&self, #[in] remoteAddrs: BSTR) -> HRESULT;
             #[special]
@@ -108,9 +108,9 @@ mod Windows {
             fn get_Count(&self, #[out] #[retval] count: *mut i32) -> HRESULT;
             fn Add(&self, #[in] #[opt] app: INetFwAuthorizedApplication) -> HRESULT;
             fn Remove(&self, #[in] imageFileName: BSTR) -> HRESULT;
-            fn Item(&self, #[in] imageFileName: BSTR, #[out] #[out_ptr] #[retval] app: *mut INetFwAuthorizedApplication) -> HRESULT;
+            fn Item(&self, #[in] imageFileName: BSTR, #[out] #[retval] app: *mut INetFwAuthorizedApplication) -> HRESULT;
             #[special]
-            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] newEnum: *mut IUnknown) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] newEnum: *mut IUnknown) -> HRESULT;
         }
         #[guid(0xa6207b2e_7cdd_426a_951e_5e1cbc5afead)]
         interface INetFwIcmpSettings: IDispatch {
@@ -158,7 +158,7 @@ mod Windows {
         #[guid(0xf7898af5_cac4_4632_a2ec_da06e5111af2)]
         interface INetFwMgr: IDispatch {
             #[special]
-            fn get_LocalPolicy(&self, #[out] #[out_ptr] #[retval] localPolicy: *mut INetFwPolicy) -> HRESULT;
+            fn get_LocalPolicy(&self, #[out] #[retval] localPolicy: *mut INetFwPolicy) -> HRESULT;
             #[special]
             fn get_CurrentProfileType(&self, #[out] #[retval] profileType: *mut NET_FW_PROFILE_TYPE) -> HRESULT;
             fn RestoreDefaults(&self) -> HRESULT;
@@ -168,7 +168,7 @@ mod Windows {
         #[guid(0xe0483ba0_47ff_4d9c_a6d6_7741d0b195f7)]
         interface INetFwOpenPort: IDispatch {
             #[special]
-            fn get_Name(&self, #[out] #[out_ptr] #[retval] name: *mut BSTR) -> HRESULT;
+            fn get_Name(&self, #[out] #[retval] name: *mut BSTR) -> HRESULT;
             #[special]
             fn put_Name(&self, #[in] name: BSTR) -> HRESULT;
             #[special]
@@ -188,7 +188,7 @@ mod Windows {
             #[special]
             fn put_Scope(&self, #[in] scope: NET_FW_SCOPE) -> HRESULT;
             #[special]
-            fn get_RemoteAddresses(&self, #[out] #[out_ptr] #[retval] remoteAddrs: *mut BSTR) -> HRESULT;
+            fn get_RemoteAddresses(&self, #[out] #[retval] remoteAddrs: *mut BSTR) -> HRESULT;
             #[special]
             fn put_RemoteAddresses(&self, #[in] remoteAddrs: BSTR) -> HRESULT;
             #[special]
@@ -204,15 +204,15 @@ mod Windows {
             fn get_Count(&self, #[out] #[retval] count: *mut i32) -> HRESULT;
             fn Add(&self, #[in] #[opt] port: INetFwOpenPort) -> HRESULT;
             fn Remove(&self, #[in] portNumber: LONG, #[in] ipProtocol: NET_FW_IP_PROTOCOL) -> HRESULT;
-            fn Item(&self, #[in] portNumber: LONG, #[in] ipProtocol: NET_FW_IP_PROTOCOL, #[out] #[out_ptr] #[retval] openPort: *mut INetFwOpenPort) -> HRESULT;
+            fn Item(&self, #[in] portNumber: LONG, #[in] ipProtocol: NET_FW_IP_PROTOCOL, #[out] #[retval] openPort: *mut INetFwOpenPort) -> HRESULT;
             #[special]
-            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] newEnum: *mut IUnknown) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] newEnum: *mut IUnknown) -> HRESULT;
         }
         #[guid(0xd46d2478_9ac9_4008_9dc7_5563ce5536cc)]
         interface INetFwPolicy: IDispatch {
             #[special]
-            fn get_CurrentProfile(&self, #[out] #[out_ptr] #[retval] profile: *mut INetFwProfile) -> HRESULT;
-            fn GetProfileByType(&self, #[in] profileType: NET_FW_PROFILE_TYPE, #[out] #[out_ptr] #[retval] profile: *mut INetFwProfile) -> HRESULT;
+            fn get_CurrentProfile(&self, #[out] #[retval] profile: *mut INetFwProfile) -> HRESULT;
+            fn GetProfileByType(&self, #[in] profileType: NET_FW_PROFILE_TYPE, #[out] #[retval] profile: *mut INetFwProfile) -> HRESULT;
         }
         #[guid(0x98325047_c671_4174_8d81_defcd3f03186)]
         interface INetFwPolicy2: IDispatch {
@@ -301,15 +301,15 @@ mod Windows {
             #[special]
             fn put_UnicastResponsesToMulticastBroadcastDisabled(&self, #[in] disabled: VARIANT_BOOL) -> HRESULT;
             #[special]
-            fn get_RemoteAdminSettings(&self, #[out] #[out_ptr] #[retval] remoteAdminSettings: *mut INetFwRemoteAdminSettings) -> HRESULT;
+            fn get_RemoteAdminSettings(&self, #[out] #[retval] remoteAdminSettings: *mut INetFwRemoteAdminSettings) -> HRESULT;
             #[special]
-            fn get_IcmpSettings(&self, #[out] #[out_ptr] #[retval] icmpSettings: *mut INetFwIcmpSettings) -> HRESULT;
+            fn get_IcmpSettings(&self, #[out] #[retval] icmpSettings: *mut INetFwIcmpSettings) -> HRESULT;
             #[special]
-            fn get_GloballyOpenPorts(&self, #[out] #[out_ptr] #[retval] openPorts: *mut INetFwOpenPorts) -> HRESULT;
+            fn get_GloballyOpenPorts(&self, #[out] #[retval] openPorts: *mut INetFwOpenPorts) -> HRESULT;
             #[special]
-            fn get_Services(&self, #[out] #[out_ptr] #[retval] services: *mut INetFwServices) -> HRESULT;
+            fn get_Services(&self, #[out] #[retval] services: *mut INetFwServices) -> HRESULT;
             #[special]
-            fn get_AuthorizedApplications(&self, #[out] #[out_ptr] #[retval] apps: *mut INetFwAuthorizedApplications) -> HRESULT;
+            fn get_AuthorizedApplications(&self, #[out] #[retval] apps: *mut INetFwAuthorizedApplications) -> HRESULT;
         }
         #[guid(0xd4becddf_6f73_4a83_b832_9c66874cd20e)]
         interface INetFwRemoteAdminSettings: IDispatch {
@@ -322,7 +322,7 @@ mod Windows {
             #[special]
             fn put_Scope(&self, #[in] scope: NET_FW_SCOPE) -> HRESULT;
             #[special]
-            fn get_RemoteAddresses(&self, #[out] #[out_ptr] #[retval] remoteAddrs: *mut BSTR) -> HRESULT;
+            fn get_RemoteAddresses(&self, #[out] #[retval] remoteAddrs: *mut BSTR) -> HRESULT;
             #[special]
             fn put_RemoteAddresses(&self, #[in] remoteAddrs: BSTR) -> HRESULT;
             #[special]
@@ -452,7 +452,7 @@ mod Windows {
         #[guid(0x79fd57c8_908e_4a36_9888_d5b3f0a444cf)]
         interface INetFwService: IDispatch {
             #[special]
-            fn get_Name(&self, #[out] #[out_ptr] #[retval] name: *mut BSTR) -> HRESULT;
+            fn get_Name(&self, #[out] #[retval] name: *mut BSTR) -> HRESULT;
             #[special]
             fn get_Type(&self, #[out] #[retval] r#type: *mut NET_FW_SERVICE_TYPE) -> HRESULT;
             #[special]
@@ -466,7 +466,7 @@ mod Windows {
             #[special]
             fn put_Scope(&self, #[in] scope: NET_FW_SCOPE) -> HRESULT;
             #[special]
-            fn get_RemoteAddresses(&self, #[out] #[out_ptr] #[retval] remoteAddrs: *mut BSTR) -> HRESULT;
+            fn get_RemoteAddresses(&self, #[out] #[retval] remoteAddrs: *mut BSTR) -> HRESULT;
             #[special]
             fn put_RemoteAddresses(&self, #[in] remoteAddrs: BSTR) -> HRESULT;
             #[special]
@@ -474,7 +474,7 @@ mod Windows {
             #[special]
             fn put_Enabled(&self, #[in] enabled: VARIANT_BOOL) -> HRESULT;
             #[special]
-            fn get_GloballyOpenPorts(&self, #[out] #[out_ptr] #[retval] openPorts: *mut INetFwOpenPorts) -> HRESULT;
+            fn get_GloballyOpenPorts(&self, #[out] #[retval] openPorts: *mut INetFwOpenPorts) -> HRESULT;
         }
         #[guid(0x8267bbe3_f890_491c_b7b6_2db1ef0e5d2b)]
         interface INetFwServiceRestriction: IDispatch {
@@ -487,9 +487,9 @@ mod Windows {
         interface INetFwServices: IDispatch {
             #[special]
             fn get_Count(&self, #[out] #[retval] count: *mut i32) -> HRESULT;
-            fn Item(&self, #[in] svcType: NET_FW_SERVICE_TYPE, #[out] #[out_ptr] #[retval] service: *mut INetFwService) -> HRESULT;
+            fn Item(&self, #[in] svcType: NET_FW_SERVICE_TYPE, #[out] #[retval] service: *mut INetFwService) -> HRESULT;
             #[special]
-            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] newEnum: *mut IUnknown) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] newEnum: *mut IUnknown) -> HRESULT;
         }
         #[repr(i32)]
         enum NETISO_ERROR_TYPE {
@@ -516,17 +516,17 @@ mod Windows {
         #[library("api-ms-win-net-isolation-l1-1-0.dll")]
         extern fn NetworkIsolationDiagnoseConnectFailureAndGetInfo(#[in] wszServerName: LPCWSTR, #[out] netIsoError: *mut NETISO_ERROR_TYPE) -> DWORD;
         #[library("api-ms-win-net-isolation-l1-1-0.dll")]
-        extern fn NetworkIsolationEnumAppContainers(#[in] Flags: DWORD, #[out] pdwNumPublicAppCs: *mut DWORD, #[out] #[writable(success, *pdwNumPublicAppCs, indirect)] ppPublicAppCs: *mut PINET_FIREWALL_APP_CONTAINER) -> DWORD;
+        extern fn NetworkIsolationEnumAppContainers(#[in] Flags: DWORD, #[out] pdwNumPublicAppCs: *mut DWORD, #[incomplete] #[out] ppPublicAppCs: *mut PINET_FIREWALL_APP_CONTAINER) -> DWORD;
         #[library("api-ms-win-net-isolation-l1-1-0.dll")]
         extern fn NetworkIsolationFreeAppContainers(#[in] pPublicAppCs: PINET_FIREWALL_APP_CONTAINER) -> DWORD;
         #[library("api-ms-win-net-isolation-l1-1-0.dll")]
-        extern fn NetworkIsolationGetAppContainerConfig(#[out] pdwNumPublicAppCs: *mut DWORD, #[out] #[writable(success, *pdwNumPublicAppCs, indirect)] appContainerSids: *mut PSID_AND_ATTRIBUTES) -> DWORD;
+        extern fn NetworkIsolationGetAppContainerConfig(#[out] pdwNumPublicAppCs: *mut DWORD, #[incomplete] #[out] appContainerSids: *mut PSID_AND_ATTRIBUTES) -> DWORD;
         #[library("api-ms-win-net-isolation-l1-1-0.dll")]
         extern fn NetworkIsolationRegisterForAppContainerChanges(#[in] flags: DWORD, #[in] callback: PAC_CHANGES_CALLBACK_FN, #[in] #[opt] context: PVOID, #[out] registrationObject: *mut HANDLE) -> DWORD;
         #[library("api-ms-win-net-isolation-l1-1-0.dll")]
-        extern fn NetworkIsolationSetAppContainerConfig(#[in] dwNumPublicAppCs: DWORD, #[in] #[readable(entry, dwNumPublicAppCs)] appContainerSids: PSID_AND_ATTRIBUTES) -> DWORD;
+        extern fn NetworkIsolationSetAppContainerConfig(#[in] dwNumPublicAppCs: DWORD, #[buffer(dwNumPublicAppCs)] #[in] appContainerSids: PSID_AND_ATTRIBUTES) -> DWORD;
         #[library("api-ms-win-net-isolation-l1-1-0.dll")]
-        extern fn NetworkIsolationSetupAppContainerBinaries(#[in] applicationContainerSid: PSID, #[in] packageFullName: LPCWSTR, #[in] packageFolder: LPCWSTR, #[in] displayName: LPCWSTR, #[in] bBinariesFullyComputed: BOOL, #[in] #[readable(entry, binariesCount)] binaries: *mut LPCWSTR, #[in] binariesCount: DWORD) -> HRESULT;
+        extern fn NetworkIsolationSetupAppContainerBinaries(#[in] applicationContainerSid: PSID, #[in] packageFullName: LPCWSTR, #[in] packageFolder: LPCWSTR, #[in] displayName: LPCWSTR, #[in] bBinariesFullyComputed: BOOL, #[buffer(binariesCount)] #[in] binaries: *mut LPCWSTR, #[in] binariesCount: DWORD) -> HRESULT;
         #[library("api-ms-win-net-isolation-l1-1-0.dll")]
         extern fn NetworkIsolationUnregisterForAppContainerChanges(#[in] registrationObject: HANDLE) -> DWORD;
         extern fn PAC_CHANGES_CALLBACK_FN(#[in] #[opt] context: *mut void, #[in] pChange: *const INET_FIREWALL_AC_CHANGE);
@@ -542,6 +542,6 @@ mod Windows {
         type PINET_FIREWALL_AC_CAPABILITIES = *mut INET_FIREWALL_AC_CAPABILITIES;
         type PINET_FIREWALL_AC_CHANGE = *mut INET_FIREWALL_AC_CHANGE;
         type PINET_FIREWALL_APP_CONTAINER = *mut INET_FIREWALL_APP_CONTAINER;
-        extern fn PNETISO_EDP_ID_CALLBACK_FN(#[in] #[opt] #[out] context: *mut void, #[in] #[null_terminated(entry)] #[opt] wszEnterpriseId: LPCWSTR, #[in] dwErr: DWORD);
+        extern fn PNETISO_EDP_ID_CALLBACK_FN(#[in] #[opt] #[out] context: *mut void, #[in] #[null_terminated] #[opt] wszEnterpriseId: LPCWSTR, #[in] dwErr: DWORD);
     }
 }

@@ -999,7 +999,7 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn GetPrinterDriverPackagePathA<P0, P1, P2, P3>(pszserver: P0, pszenvironment: P1, pszlanguage: P2, pszpackageid: P3, mut pszdriverpackagecab: Option<&mut [u8]>, pcchrequiredsize: super::LPDWORD) -> windows_core::HRESULT
+pub unsafe fn GetPrinterDriverPackagePathA<P0, P1, P2, P3>(pszserver: P0, pszenvironment: P1, pszlanguage: P2, pszpackageid: P3, pszdriverpackagecab: Option<windows_core::PSTR>, cchdriverpackagecab: Option<super::DWORD>, pcchrequiredsize: super::LPDWORD) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
@@ -1007,11 +1007,11 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("winspool.drv" "system" fn GetPrinterDriverPackagePathA(pszserver : windows_core::PCSTR, pszenvironment : windows_core::PCSTR, pszlanguage : windows_core::PCSTR, pszpackageid : windows_core::PCSTR, pszdriverpackagecab : windows_core::PSTR, cchdriverpackagecab : super::DWORD, pcchrequiredsize : super::LPDWORD) -> windows_core::HRESULT);
-    unsafe { GetPrinterDriverPackagePathA(pszserver.param().abi(), pszenvironment.param().abi(), pszlanguage.param().abi(), pszpackageid.param().abi(), core::mem::transmute(pszdriverpackagecab.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr())), pszdriverpackagecab.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcchrequiredsize as _) }
+    unsafe { GetPrinterDriverPackagePathA(pszserver.param().abi(), pszenvironment.param().abi(), pszlanguage.param().abi(), pszpackageid.param().abi(), pszdriverpackagecab.unwrap_or(core::mem::zeroed()) as _, cchdriverpackagecab.unwrap_or(core::mem::zeroed()) as _, pcchrequiredsize as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn GetPrinterDriverPackagePathW<P0, P1, P2, P3>(pszserver: P0, pszenvironment: P1, pszlanguage: P2, pszpackageid: P3, mut pszdriverpackagecab: Option<&mut [u16]>, pcchrequiredsize: super::LPDWORD) -> windows_core::HRESULT
+pub unsafe fn GetPrinterDriverPackagePathW<P0, P1, P2, P3>(pszserver: P0, pszenvironment: P1, pszlanguage: P2, pszpackageid: P3, pszdriverpackagecab: Option<windows_core::PWSTR>, cchdriverpackagecab: Option<super::DWORD>, pcchrequiredsize: super::LPDWORD) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -1019,7 +1019,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("winspool.drv" "system" fn GetPrinterDriverPackagePathW(pszserver : windows_core::PCWSTR, pszenvironment : windows_core::PCWSTR, pszlanguage : windows_core::PCWSTR, pszpackageid : windows_core::PCWSTR, pszdriverpackagecab : windows_core::PWSTR, cchdriverpackagecab : super::DWORD, pcchrequiredsize : super::LPDWORD) -> windows_core::HRESULT);
-    unsafe { GetPrinterDriverPackagePathW(pszserver.param().abi(), pszenvironment.param().abi(), pszlanguage.param().abi(), pszpackageid.param().abi(), core::mem::transmute(pszdriverpackagecab.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr())), pszdriverpackagecab.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcchrequiredsize as _) }
+    unsafe { GetPrinterDriverPackagePathW(pszserver.param().abi(), pszenvironment.param().abi(), pszlanguage.param().abi(), pszpackageid.param().abi(), pszdriverpackagecab.unwrap_or(core::mem::zeroed()) as _, cchdriverpackagecab.unwrap_or(core::mem::zeroed()) as _, pcchrequiredsize as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
@@ -1250,41 +1250,41 @@ pub unsafe fn SetPrinterA(hprinter: super::HANDLE, level: super::DWORD, pprinter
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetPrinterDataA<P1>(hprinter: super::HANDLE, pvaluename: P1, r#type: super::DWORD, pdata: &[u8]) -> super::DWORD
+pub unsafe fn SetPrinterDataA<P1>(hprinter: super::HANDLE, pvaluename: P1, r#type: super::DWORD, pdata: super::LPBYTE, cbdata: super::DWORD) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("winspool.drv" "system" fn SetPrinterDataA(hprinter : super::HANDLE, pvaluename : windows_core::PCSTR, r#type : super::DWORD, pdata : super::LPBYTE, cbdata : super::DWORD) -> super::DWORD);
-    unsafe { SetPrinterDataA(hprinter, pvaluename.param().abi(), r#type, core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap()) }
+    unsafe { SetPrinterDataA(hprinter, pvaluename.param().abi(), r#type, pdata, cbdata) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetPrinterDataExA<P1, P2>(hprinter: super::HANDLE, pkeyname: P1, pvaluename: P2, r#type: super::DWORD, pdata: &[u8]) -> super::DWORD
+pub unsafe fn SetPrinterDataExA<P1, P2>(hprinter: super::HANDLE, pkeyname: P1, pvaluename: P2, r#type: super::DWORD, pdata: super::LPBYTE, cbdata: super::DWORD) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("winspool.drv" "system" fn SetPrinterDataExA(hprinter : super::HANDLE, pkeyname : windows_core::PCSTR, pvaluename : windows_core::PCSTR, r#type : super::DWORD, pdata : super::LPBYTE, cbdata : super::DWORD) -> super::DWORD);
-    unsafe { SetPrinterDataExA(hprinter, pkeyname.param().abi(), pvaluename.param().abi(), r#type, core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap()) }
+    unsafe { SetPrinterDataExA(hprinter, pkeyname.param().abi(), pvaluename.param().abi(), r#type, pdata, cbdata) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetPrinterDataExW<P1, P2>(hprinter: super::HANDLE, pkeyname: P1, pvaluename: P2, r#type: super::DWORD, pdata: &[u8]) -> super::DWORD
+pub unsafe fn SetPrinterDataExW<P1, P2>(hprinter: super::HANDLE, pkeyname: P1, pvaluename: P2, r#type: super::DWORD, pdata: super::LPBYTE, cbdata: super::DWORD) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("winspool.drv" "system" fn SetPrinterDataExW(hprinter : super::HANDLE, pkeyname : windows_core::PCWSTR, pvaluename : windows_core::PCWSTR, r#type : super::DWORD, pdata : super::LPBYTE, cbdata : super::DWORD) -> super::DWORD);
-    unsafe { SetPrinterDataExW(hprinter, pkeyname.param().abi(), pvaluename.param().abi(), r#type, core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap()) }
+    unsafe { SetPrinterDataExW(hprinter, pkeyname.param().abi(), pvaluename.param().abi(), r#type, pdata, cbdata) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetPrinterDataW<P1>(hprinter: super::HANDLE, pvaluename: P1, r#type: super::DWORD, pdata: &[u8]) -> super::DWORD
+pub unsafe fn SetPrinterDataW<P1>(hprinter: super::HANDLE, pvaluename: P1, r#type: super::DWORD, pdata: super::LPBYTE, cbdata: super::DWORD) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("winspool.drv" "system" fn SetPrinterDataW(hprinter : super::HANDLE, pvaluename : windows_core::PCWSTR, r#type : super::DWORD, pdata : super::LPBYTE, cbdata : super::DWORD) -> super::DWORD);
-    unsafe { SetPrinterDataW(hprinter, pvaluename.param().abi(), r#type, core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap()) }
+    unsafe { SetPrinterDataW(hprinter, pvaluename.param().abi(), r#type, pdata, cbdata) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -1346,21 +1346,21 @@ pub unsafe fn WritePrinter(hprinter: super::HANDLE, pbuf: super::LPVOID, cbbuf: 
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn XcvData<P1>(hxcv: super::HANDLE, pszdataname: P1, pinputdata: Option<&[u8]>, poutputdata: Option<super::PBYTE>, cboutputdata: super::DWORD, pcboutputneeded: super::PDWORD, pdwstatus: Option<super::PDWORD>) -> windows_core::BOOL
+pub unsafe fn XcvData<P1>(hxcv: super::HANDLE, pszdataname: P1, pinputdata: Option<super::PBYTE>, cbinputdata: super::DWORD, poutputdata: Option<super::PBYTE>, cboutputdata: super::DWORD, pcboutputneeded: super::PDWORD, pdwstatus: Option<super::PDWORD>) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("winspool.drv" "system" "XcvDataW" fn XcvData(hxcv : super::HANDLE, pszdataname : windows_core::PCWSTR, pinputdata : super::PBYTE, cbinputdata : super::DWORD, poutputdata : super::PBYTE, cboutputdata : super::DWORD, pcboutputneeded : super::PDWORD, pdwstatus : super::PDWORD) -> windows_core::BOOL);
-    unsafe { XcvData(hxcv, pszdataname.param().abi(), core::mem::transmute(pinputdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), pinputdata.map_or(0, |slice| slice.len().try_into().unwrap()), poutputdata.unwrap_or(core::mem::zeroed()) as _, cboutputdata, pcboutputneeded as _, pdwstatus.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { XcvData(hxcv, pszdataname.param().abi(), pinputdata.unwrap_or(core::mem::zeroed()) as _, cbinputdata, poutputdata.unwrap_or(core::mem::zeroed()) as _, cboutputdata, pcboutputneeded as _, pdwstatus.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn XcvDataW<P1>(hxcv: super::HANDLE, pszdataname: P1, pinputdata: Option<&[u8]>, poutputdata: Option<super::PBYTE>, cboutputdata: super::DWORD, pcboutputneeded: super::PDWORD, pdwstatus: Option<super::PDWORD>) -> windows_core::BOOL
+pub unsafe fn XcvDataW<P1>(hxcv: super::HANDLE, pszdataname: P1, pinputdata: Option<super::PBYTE>, cbinputdata: super::DWORD, poutputdata: Option<super::PBYTE>, cboutputdata: super::DWORD, pcboutputneeded: super::PDWORD, pdwstatus: Option<super::PDWORD>) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("winspool.drv" "system" fn XcvDataW(hxcv : super::HANDLE, pszdataname : windows_core::PCWSTR, pinputdata : super::PBYTE, cbinputdata : super::DWORD, poutputdata : super::PBYTE, cboutputdata : super::DWORD, pcboutputneeded : super::PDWORD, pdwstatus : super::PDWORD) -> windows_core::BOOL);
-    unsafe { XcvDataW(hxcv, pszdataname.param().abi(), core::mem::transmute(pinputdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), pinputdata.map_or(0, |slice| slice.len().try_into().unwrap()), poutputdata.unwrap_or(core::mem::zeroed()) as _, cboutputdata, pcboutputneeded as _, pdwstatus.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { XcvDataW(hxcv, pszdataname.param().abi(), pinputdata.unwrap_or(core::mem::zeroed()) as _, cbinputdata, poutputdata.unwrap_or(core::mem::zeroed()) as _, cboutputdata, pcboutputneeded as _, pdwstatus.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 pub type ADDJOB_INFO_1 = ADDJOB_INFO_1A;

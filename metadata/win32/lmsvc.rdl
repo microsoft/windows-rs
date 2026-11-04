@@ -11,13 +11,13 @@ mod Windows {
         type LPSERVICE_INFO_1 = *mut SERVICE_INFO_1;
         type LPSERVICE_INFO_2 = *mut SERVICE_INFO_2;
         #[library("NETAPI32.dll")]
-        extern fn NetServiceControl(#[in] #[opt] servername: LPCWSTR, #[in] service: LPCWSTR, #[in] opcode: DWORD, #[in] arg: DWORD, #[out] #[out_ptr] bufptr: *mut LPBYTE) -> DWORD;
+        extern fn NetServiceControl(#[in] #[opt] servername: LPCWSTR, #[in] service: LPCWSTR, #[in] opcode: DWORD, #[in] arg: DWORD, #[out] bufptr: *mut LPBYTE) -> DWORD;
         #[library("NETAPI32.dll")]
         extern fn NetServiceEnum(#[in] #[opt] servername: LPCWSTR, #[in] level: DWORD, #[incomplete] #[out] bufptr: *mut LPBYTE, #[in] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[opt] #[out] resume_handle: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetServiceGetInfo(#[in] #[opt] servername: LPCWSTR, #[in] service: LPCWSTR, #[in] level: DWORD, #[out] #[out_ptr] bufptr: *mut LPBYTE) -> DWORD;
+        extern fn NetServiceGetInfo(#[in] #[opt] servername: LPCWSTR, #[in] service: LPCWSTR, #[in] level: DWORD, #[out] bufptr: *mut LPBYTE) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetServiceInstall(#[in] #[opt] servername: LPCWSTR, #[in] service: LPCWSTR, #[in] argc: DWORD, #[in] #[readable(entry, argc)] argv: *mut LPCWSTR, #[out] #[out_ptr] bufptr: *mut LPBYTE) -> DWORD;
+        extern fn NetServiceInstall(#[in] #[opt] servername: LPCWSTR, #[in] service: LPCWSTR, #[in] argc: DWORD, #[buffer(argc)] #[in] argv: *mut LPCWSTR, #[out] bufptr: *mut LPBYTE) -> DWORD;
         type PSERVICE_INFO_0 = *mut SERVICE_INFO_0;
         type PSERVICE_INFO_1 = *mut SERVICE_INFO_1;
         type PSERVICE_INFO_2 = *mut SERVICE_INFO_2;

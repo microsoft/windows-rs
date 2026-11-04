@@ -401,11 +401,11 @@ mod Windows {
         #[library("NETAPI32.dll")]
         extern fn NetAddServiceAccount(#[in] #[opt] ServerName: LPWSTR, #[in] AccountName: LPWSTR, #[in] Password: LPWSTR, #[in] Flags: DWORD) -> NTSTATUS;
         #[library("NETAPI32.dll")]
-        extern fn NetEnumerateServiceAccounts(#[in] #[opt] ServerName: LPWSTR, #[in] Flags: DWORD, #[out] AccountsCount: *mut DWORD, #[out] #[writable(success, *AccountsCount, indirect)] Accounts: *mut PZPWSTR) -> NTSTATUS;
+        extern fn NetEnumerateServiceAccounts(#[in] #[opt] ServerName: LPWSTR, #[in] Flags: DWORD, #[out] AccountsCount: *mut DWORD, #[incomplete] #[out] Accounts: *mut PZPWSTR) -> NTSTATUS;
         #[library("NETAPI32.dll")]
-        extern fn NetGetAnyDCName(#[in] #[opt] ServerName: LPCWSTR, #[in] #[opt] DomainName: LPCWSTR, #[incomplete] #[out] #[out_ptr(null_on_failure)] Buffer: *mut LPBYTE) -> DWORD;
+        extern fn NetGetAnyDCName(#[in] #[opt] ServerName: LPCWSTR, #[in] #[opt] DomainName: LPCWSTR, #[incomplete] #[out] Buffer: *mut LPBYTE) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetGetDCName(#[in] #[opt] ServerName: LPCWSTR, #[in] #[opt] DomainName: LPCWSTR, #[incomplete] #[out] #[out_ptr(null_on_failure)] Buffer: *mut LPBYTE) -> DWORD;
+        extern fn NetGetDCName(#[in] #[opt] ServerName: LPCWSTR, #[in] #[opt] DomainName: LPCWSTR, #[incomplete] #[out] Buffer: *mut LPBYTE) -> DWORD;
         #[library("NETAPI32.dll")]
         extern fn NetGetDisplayInformationIndex(ServerName: LPCWSTR, Level: DWORD, Prefix: LPCWSTR, Index: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
@@ -455,7 +455,7 @@ mod Windows {
         #[library("NETAPI32.dll")]
         extern fn NetQueryDisplayInformation(ServerName: LPCWSTR, Level: DWORD, Index: DWORD, EntriesRequested: DWORD, PreferredMaximumLength: DWORD, ReturnedEntryCount: LPDWORD, SortedBuffer: *mut PVOID) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetQueryServiceAccount(#[in] #[opt] ServerName: LPWSTR, #[in] AccountName: LPWSTR, #[in] InfoLevel: DWORD, #[out] #[out_ptr] Buffer: *mut PBYTE) -> NTSTATUS;
+        extern fn NetQueryServiceAccount(#[in] #[opt] ServerName: LPWSTR, #[in] AccountName: LPWSTR, #[in] InfoLevel: DWORD, #[out] Buffer: *mut PBYTE) -> NTSTATUS;
         #[library("NETAPI32.dll")]
         extern fn NetRemoveServiceAccount(#[in] #[opt] ServerName: LPWSTR, #[in] AccountName: LPWSTR, #[in] Flags: DWORD) -> NTSTATUS;
         #[library("NETAPI32.dll")]

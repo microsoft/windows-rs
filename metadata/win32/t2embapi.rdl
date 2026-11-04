@@ -73,7 +73,7 @@ mod Windows {
         const LICENSE_PREVIEWPRINT: i32 = 4;
         extern "C" fn READEMBEDPROC(param0: *mut void, param1: *mut void, param2: u32) -> u32;
         #[library("t2embed.dll")]
-        extern fn TTCharToUnicode(#[in] hDC: HDC, #[in] #[readable(entry, ulCharCodeSize)] pucCharCodes: *mut UCHAR, #[in] ulCharCodeSize: ULONG, #[out] #[writable(entry, ulShortCodeSize)] pusShortCodes: *mut USHORT, #[in] ulShortCodeSize: ULONG, #[in] ulFlags: ULONG) -> LONG;
+        extern fn TTCharToUnicode(#[in] hDC: HDC, #[buffer(ulCharCodeSize)] #[in] pucCharCodes: *mut UCHAR, #[in] ulCharCodeSize: ULONG, #[buffer(ulShortCodeSize)] #[out] pusShortCodes: *mut USHORT, #[in] ulShortCodeSize: ULONG, #[in] ulFlags: ULONG) -> LONG;
         const TTDELETE_DONTREMOVEFONT: i32 = 1;
         #[library("t2embed.dll")]
         extern fn TTDeleteEmbeddedFont(#[in] hFontReference: HANDLE, #[in] ulFlags: ULONG, #[out] pulStatus: *mut ULONG) -> LONG;
@@ -93,11 +93,11 @@ mod Windows {
         const TTEMBED_WEBOBJECT: i32 = 128;
         const TTEMBED_XORENCRYPTDATA: i32 = 268435456;
         #[library("t2embed.dll")]
-        extern fn TTEmbedFont(#[in] hDC: HDC, #[in] ulFlags: ULONG, #[in] ulCharSet: ULONG, #[out] pulPrivStatus: *mut ULONG, #[out] pulStatus: *mut ULONG, lpfnWriteToStream: WRITEEMBEDPROC, #[in] lpvWriteStream: LPVOID, #[in] #[readable(entry, usCharCodeCount)] pusCharCodeSet: *mut USHORT, #[in] usCharCodeCount: USHORT, #[in] usLanguage: USHORT, #[in] #[opt] pTTEmbedInfo: *mut TTEMBEDINFO) -> LONG;
+        extern fn TTEmbedFont(#[in] hDC: HDC, #[in] ulFlags: ULONG, #[in] ulCharSet: ULONG, #[out] pulPrivStatus: *mut ULONG, #[out] pulStatus: *mut ULONG, lpfnWriteToStream: WRITEEMBEDPROC, #[in] lpvWriteStream: LPVOID, #[buffer(usCharCodeCount)] #[in] pusCharCodeSet: *mut USHORT, #[in] usCharCodeCount: USHORT, #[in] usLanguage: USHORT, #[in] #[opt] pTTEmbedInfo: *mut TTEMBEDINFO) -> LONG;
         #[library("t2embed.dll")]
-        extern fn TTEmbedFontEx(#[in] hDC: HDC, #[in] ulFlags: ULONG, #[in] ulCharSet: ULONG, #[out] pulPrivStatus: *mut ULONG, #[out] pulStatus: *mut ULONG, lpfnWriteToStream: WRITEEMBEDPROC, #[in] lpvWriteStream: LPVOID, #[in] #[readable(entry, usCharCodeCount)] pulCharCodeSet: *mut ULONG, #[in] usCharCodeCount: USHORT, #[in] usLanguage: USHORT, #[in] #[opt] pTTEmbedInfo: *mut TTEMBEDINFO) -> LONG;
+        extern fn TTEmbedFontEx(#[in] hDC: HDC, #[in] ulFlags: ULONG, #[in] ulCharSet: ULONG, #[out] pulPrivStatus: *mut ULONG, #[out] pulStatus: *mut ULONG, lpfnWriteToStream: WRITEEMBEDPROC, #[in] lpvWriteStream: LPVOID, #[buffer(usCharCodeCount)] #[in] pulCharCodeSet: *mut ULONG, #[in] usCharCodeCount: USHORT, #[in] usLanguage: USHORT, #[in] #[opt] pTTEmbedInfo: *mut TTEMBEDINFO) -> LONG;
         #[library("t2embed.dll")]
-        extern fn TTEmbedFontFromFileA(#[in] hDC: HDC, #[in] szFontFileName: LPCSTR, #[in] usTTCIndex: USHORT, #[in] ulFlags: ULONG, #[in] ulCharSet: ULONG, #[out] pulPrivStatus: *mut ULONG, #[out] pulStatus: *mut ULONG, lpfnWriteToStream: WRITEEMBEDPROC, #[in] lpvWriteStream: LPVOID, #[in] #[readable(entry, usCharCodeCount)] pusCharCodeSet: *mut USHORT, #[in] usCharCodeCount: USHORT, #[in] usLanguage: USHORT, #[in] #[opt] pTTEmbedInfo: *mut TTEMBEDINFO) -> LONG;
+        extern fn TTEmbedFontFromFileA(#[in] hDC: HDC, #[in] szFontFileName: LPCSTR, #[in] usTTCIndex: USHORT, #[in] ulFlags: ULONG, #[in] ulCharSet: ULONG, #[out] pulPrivStatus: *mut ULONG, #[out] pulStatus: *mut ULONG, lpfnWriteToStream: WRITEEMBEDPROC, #[in] lpvWriteStream: LPVOID, #[buffer(usCharCodeCount)] #[in] pusCharCodeSet: *mut USHORT, #[in] usCharCodeCount: USHORT, #[in] usLanguage: USHORT, #[in] #[opt] pTTEmbedInfo: *mut TTEMBEDINFO) -> LONG;
         #[library("t2embed.dll")]
         extern fn TTEnableEmbeddingForFacename(#[in] lpszFacename: LPCSTR, #[in] bEnable: BOOL) -> LONG;
         #[library("t2embed.dll")]
@@ -105,7 +105,7 @@ mod Windows {
         #[library("t2embed.dll")]
         extern fn TTGetEmbeddingType(#[in] hDC: HDC, #[out] pulEmbedType: *mut ULONG) -> LONG;
         #[library("t2embed.dll")]
-        extern fn TTGetNewFontName(#[in] phFontReference: *mut HANDLE, #[out] #[writable(entry, cchMaxWinName)] wzWinFamilyName: LPWSTR, #[in] cchMaxWinName: LONG, #[out] #[writable(entry, cchMaxMacName)] szMacFamilyName: LPSTR, #[in] cchMaxMacName: LONG) -> LONG;
+        extern fn TTGetNewFontName(#[in] phFontReference: *mut HANDLE, #[buffer(cchMaxWinName)] #[out] wzWinFamilyName: LPWSTR, #[in] cchMaxWinName: LONG, #[buffer(cchMaxMacName)] #[out] szMacFamilyName: LPSTR, #[in] cchMaxMacName: LONG) -> LONG;
         #[library("t2embed.dll")]
         extern fn TTIsEmbeddingEnabled(#[in] hDC: HDC, #[out] pbEnabled: *mut BOOL) -> LONG;
         #[library("t2embed.dll")]

@@ -42,7 +42,7 @@ fn clone() {
     assert!(a.is_empty());
     assert_eq!(a.len(), 0);
 
-    let a: BSTR = unsafe { SysAllocStringLen(None) };
+    let a: BSTR = unsafe { SysAllocStringLen(None, 0) };
     assert!(a.is_empty());
     assert_eq!(a.len(), 0);
 

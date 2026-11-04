@@ -2,9 +2,9 @@
 mod Windows {
     mod Win32 {
         #[library("query.dll")]
-        extern fn BindIFilterFromStorage(#[in] pStg: IStorage, #[in] pUnkOuter: IUnknown, #[out] #[out_ptr] ppIUnk: *mut *mut void) -> HRESULT;
+        extern fn BindIFilterFromStorage(#[in] pStg: IStorage, #[in] pUnkOuter: IUnknown, #[out] ppIUnk: *mut *mut void) -> HRESULT;
         #[library("query.dll")]
-        extern fn BindIFilterFromStream(#[in] pStm: IStream, #[in] pUnkOuter: IUnknown, #[out] #[out_ptr] ppIUnk: *mut *mut void) -> HRESULT;
+        extern fn BindIFilterFromStream(#[in] pStm: IStream, #[in] pUnkOuter: IUnknown, #[out] ppIUnk: *mut *mut void) -> HRESULT;
         #[encoding("utf-16")]
         const CIADMIN: String = "::_nodocstore_::";
         const CICAT_ALL_OPENED: i32 = 32;
@@ -92,9 +92,9 @@ mod Windows {
         const LIFF_IMPLEMENT_TEXT_FILTER_FALLBACK_POLICY: i32 = 2;
         const LIFF_LOAD_DEFINED_FILTER: i32 = 1;
         #[library("query.dll")]
-        extern fn LoadIFilter(pwcsPath: PCWSTR, #[in] pUnkOuter: IUnknown, #[out] #[out_ptr] ppIUnk: *mut *mut void) -> HRESULT;
+        extern fn LoadIFilter(pwcsPath: PCWSTR, #[in] pUnkOuter: IUnknown, #[out] ppIUnk: *mut *mut void) -> HRESULT;
         #[library("query.dll")]
-        extern fn LoadIFilterEx(pwcsPath: PCWSTR, dwFlags: DWORD, riid: &IID, #[out] #[out_ptr] ppIUnk: *mut *mut void) -> HRESULT;
+        extern fn LoadIFilterEx(pwcsPath: PCWSTR, dwFlags: DWORD, riid: &IID, #[out] ppIUnk: *mut *mut void) -> HRESULT;
         const MSIDXSPROP_COMMAND_LOCALE_STRING: i32 = 3;
         const MSIDXSPROP_MAX_RANK: i32 = 6;
         const MSIDXSPROP_PARSE_TREE: i32 = 5;

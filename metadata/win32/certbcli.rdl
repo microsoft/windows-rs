@@ -33,17 +33,17 @@ mod Windows {
         #[library("certadm.dll")]
         extern fn CertSrvBackupFree(pv: *mut void);
         #[library("certadm.dll", import = "CertSrvBackupGetBackupLogsW")]
-        extern fn CertSrvBackupGetBackupLogs(#[in] hbc: HCSBC, #[out] #[out_ptr] ppwszzBackupLogFiles: *mut PWSTR, #[out] pcbSize: *mut DWORD) -> HRESULT;
+        extern fn CertSrvBackupGetBackupLogs(#[in] hbc: HCSBC, #[out] ppwszzBackupLogFiles: *mut PWSTR, #[out] pcbSize: *mut DWORD) -> HRESULT;
         #[library("certadm.dll")]
-        extern fn CertSrvBackupGetBackupLogsW(#[in] hbc: HCSBC, #[out] #[out_ptr] ppwszzBackupLogFiles: *mut PWSTR, #[out] pcbSize: *mut DWORD) -> HRESULT;
+        extern fn CertSrvBackupGetBackupLogsW(#[in] hbc: HCSBC, #[out] ppwszzBackupLogFiles: *mut PWSTR, #[out] pcbSize: *mut DWORD) -> HRESULT;
         #[library("certadm.dll", import = "CertSrvBackupGetDatabaseNamesW")]
-        extern fn CertSrvBackupGetDatabaseNames(#[in] hbc: HCSBC, #[out] #[out_ptr] ppwszzAttachmentInformation: *mut PWSTR, #[out] pcbSize: *mut DWORD) -> HRESULT;
+        extern fn CertSrvBackupGetDatabaseNames(#[in] hbc: HCSBC, #[out] ppwszzAttachmentInformation: *mut PWSTR, #[out] pcbSize: *mut DWORD) -> HRESULT;
         #[library("certadm.dll")]
-        extern fn CertSrvBackupGetDatabaseNamesW(#[in] hbc: HCSBC, #[out] #[out_ptr] ppwszzAttachmentInformation: *mut PWSTR, #[out] pcbSize: *mut DWORD) -> HRESULT;
+        extern fn CertSrvBackupGetDatabaseNamesW(#[in] hbc: HCSBC, #[out] ppwszzAttachmentInformation: *mut PWSTR, #[out] pcbSize: *mut DWORD) -> HRESULT;
         #[library("certadm.dll", import = "CertSrvBackupGetDynamicFileListW")]
-        extern fn CertSrvBackupGetDynamicFileList(#[in] hbc: HCSBC, #[out] #[out_ptr] ppwszzFileList: *mut PWSTR, #[out] pcbSize: *mut DWORD) -> HRESULT;
+        extern fn CertSrvBackupGetDynamicFileList(#[in] hbc: HCSBC, #[out] ppwszzFileList: *mut PWSTR, #[out] pcbSize: *mut DWORD) -> HRESULT;
         #[library("certadm.dll")]
-        extern fn CertSrvBackupGetDynamicFileListW(#[in] hbc: HCSBC, #[out] #[out_ptr] ppwszzFileList: *mut PWSTR, #[out] pcbSize: *mut DWORD) -> HRESULT;
+        extern fn CertSrvBackupGetDynamicFileListW(#[in] hbc: HCSBC, #[out] ppwszzFileList: *mut PWSTR, #[out] pcbSize: *mut DWORD) -> HRESULT;
         #[library("certadm.dll", import = "CertSrvBackupOpenFileW")]
         extern fn CertSrvBackupOpenFile(hbc: HCSBC, pwszAttachmentName: *const WCHAR, cbReadHintSize: DWORD, pliFileSize: *mut LARGE_INTEGER) -> HRESULT;
         #[library("certadm.dll")]
@@ -63,9 +63,9 @@ mod Windows {
         #[library("certadm.dll")]
         extern fn CertSrvRestoreEnd(hbc: HCSBC) -> HRESULT;
         #[library("certadm.dll", import = "CertSrvRestoreGetDatabaseLocationsW")]
-        extern fn CertSrvRestoreGetDatabaseLocations(#[in] hbc: HCSBC, #[out] #[out_ptr] ppwszzDatabaseLocationList: *mut PWSTR, #[out] pcbSize: *mut DWORD) -> HRESULT;
+        extern fn CertSrvRestoreGetDatabaseLocations(#[in] hbc: HCSBC, #[out] ppwszzDatabaseLocationList: *mut PWSTR, #[out] pcbSize: *mut DWORD) -> HRESULT;
         #[library("certadm.dll")]
-        extern fn CertSrvRestoreGetDatabaseLocationsW(#[in] hbc: HCSBC, #[out] #[out_ptr] ppwszzDatabaseLocationList: *mut PWSTR, #[out] pcbSize: *mut DWORD) -> HRESULT;
+        extern fn CertSrvRestoreGetDatabaseLocationsW(#[in] hbc: HCSBC, #[out] ppwszzDatabaseLocationList: *mut PWSTR, #[out] pcbSize: *mut DWORD) -> HRESULT;
         #[library("certadm.dll", import = "CertSrvRestorePrepareW")]
         extern fn CertSrvRestorePrepare(pwszServerName: *const WCHAR, dwRestoreFlags: ULONG, phbc: *mut HCSBC) -> HRESULT;
         #[library("certadm.dll")]

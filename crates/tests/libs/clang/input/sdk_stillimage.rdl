@@ -48,7 +48,7 @@ mod Fixture {
 mod Fixture {
     interface IStiDevice: IUnknown {
         #[override_slot(0)]
-        fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
+        fn QueryInterface(&self, #[in] riid: &IID, #[out] ppvObj: *mut LPVOID) -> HRESULT;
         #[override_slot(1)]
         fn AddRef(&self) -> ULONG;
         #[override_slot(2)]
@@ -58,14 +58,14 @@ mod Fixture {
         fn GetStatus(&self, #[in] #[out] pDevStatus: PSTI_DEVICE_STATUS) -> HRESULT;
         fn DeviceReset(&self) -> HRESULT;
         fn Diagnostic(&self, #[in] #[out] pBuffer: LPSTI_DIAG) -> HRESULT;
-        fn Escape(&self, EscapeFunction: STI_RAW_CONTROL_CODE, #[in] #[readable(entry, bytes(cbInDataSize))] lpInData: LPVOID, cbInDataSize: DWORD, #[in] #[out] #[readable(entry, bytes(dwOutDataSize))] #[readable(success, bytes(*pdwActualData))] #[writable(entry, bytes(dwOutDataSize))] pOutData: LPVOID, dwOutDataSize: DWORD, #[out] pdwActualData: LPDWORD) -> HRESULT;
+        fn Escape(&self, EscapeFunction: STI_RAW_CONTROL_CODE, #[buffer(bytes(cbInDataSize))] #[in] lpInData: LPVOID, cbInDataSize: DWORD, #[buffer(bytes(dwOutDataSize))] #[in] #[out] pOutData: LPVOID, dwOutDataSize: DWORD, #[out] pdwActualData: LPDWORD) -> HRESULT;
         fn GetLastError(&self, #[out] pdwLastDeviceError: LPDWORD) -> HRESULT;
         fn LockDevice(&self, dwTimeOut: DWORD) -> HRESULT;
         fn UnLockDevice(&self) -> HRESULT;
-        fn RawReadData(&self, #[in] #[out] #[writable(entry, bytes(*lpdwNumberOfBytes))] lpBuffer: LPVOID, #[in] #[out] lpdwNumberOfBytes: LPDWORD, #[in] #[opt] lpOverlapped: LPOVERLAPPED) -> HRESULT;
-        fn RawWriteData(&self, #[in] #[readable(entry, bytes(nNumberOfBytes))] lpBuffer: LPVOID, nNumberOfBytes: DWORD, #[in] #[opt] lpOverlapped: LPOVERLAPPED) -> HRESULT;
-        fn RawReadCommand(&self, #[in] #[out] #[writable(entry, bytes(*lpdwNumberOfBytes))] lpBuffer: LPVOID, #[in] #[out] lpdwNumberOfBytes: LPDWORD, #[in] #[opt] lpOverlapped: LPOVERLAPPED) -> HRESULT;
-        fn RawWriteCommand(&self, #[in] #[readable(entry, bytes(nNumberOfBytes))] lpBuffer: LPVOID, nNumberOfBytes: DWORD, #[in] #[opt] lpOverlapped: LPOVERLAPPED) -> HRESULT;
+        fn RawReadData(&self, #[buffer(bytes(*lpdwNumberOfBytes))] #[in] #[out] lpBuffer: LPVOID, #[in] #[out] lpdwNumberOfBytes: LPDWORD, #[in] #[opt] lpOverlapped: LPOVERLAPPED) -> HRESULT;
+        fn RawWriteData(&self, #[buffer(bytes(nNumberOfBytes))] #[in] lpBuffer: LPVOID, nNumberOfBytes: DWORD, #[in] #[opt] lpOverlapped: LPOVERLAPPED) -> HRESULT;
+        fn RawReadCommand(&self, #[buffer(bytes(*lpdwNumberOfBytes))] #[in] #[out] lpBuffer: LPVOID, #[in] #[out] lpdwNumberOfBytes: LPDWORD, #[in] #[opt] lpOverlapped: LPOVERLAPPED) -> HRESULT;
+        fn RawWriteCommand(&self, #[buffer(bytes(nNumberOfBytes))] #[in] lpBuffer: LPVOID, nNumberOfBytes: DWORD, #[in] #[opt] lpOverlapped: LPOVERLAPPED) -> HRESULT;
         fn Subscribe(&self, #[in] #[out] lpSubsribe: LPSTISUBSCRIBE) -> HRESULT;
         fn GetLastNotificationData(&self, #[out] lpNotify: LPSTINOTIFY) -> HRESULT;
         fn UnSubscribe(&self) -> HRESULT;
@@ -73,7 +73,7 @@ mod Fixture {
     }
     interface IStillImageW: IUnknown {
         #[override_slot(0)]
-        fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
+        fn QueryInterface(&self, #[in] riid: &IID, #[out] ppvObj: *mut LPVOID) -> HRESULT;
         #[override_slot(1)]
         fn AddRef(&self) -> ULONG;
         #[override_slot(2)]
@@ -82,9 +82,9 @@ mod Fixture {
         fn GetDeviceList(&self, dwType: DWORD, dwFlags: DWORD, #[out] pdwItemsReturned: *mut DWORD, #[out] ppBuffer: *mut LPVOID) -> HRESULT;
         fn GetDeviceInfo(&self, #[in] pwszDeviceName: LPWSTR, #[out] ppBuffer: *mut LPVOID) -> HRESULT;
         fn CreateDevice(&self, #[in] pwszDeviceName: LPWSTR, dwMode: DWORD, #[out] pDevice: *mut PSTIDEVICE, #[in] #[opt] punkOuter: LPUNKNOWN) -> HRESULT;
-        fn GetDeviceValue(&self, #[in] pwszDeviceName: LPWSTR, #[in] pValueName: LPWSTR, #[out] pType: LPDWORD, #[out] #[writable(entry, bytes(*cbData))] pData: LPBYTE, #[in] #[out] cbData: LPDWORD) -> HRESULT;
-        fn SetDeviceValue(&self, #[in] pwszDeviceName: LPWSTR, #[in] pValueName: LPWSTR, Type: DWORD, #[in] #[readable(entry, bytes(cbData))] pData: LPBYTE, cbData: DWORD) -> HRESULT;
-        fn GetSTILaunchInformation(&self, #[out] #[writable(entry, 128)] pwszDeviceName: LPWSTR, #[opt] #[out] pdwEventCode: *mut DWORD, #[out] #[writable(entry, 128)] pwszEventName: LPWSTR) -> HRESULT;
+        fn GetDeviceValue(&self, #[in] pwszDeviceName: LPWSTR, #[in] pValueName: LPWSTR, #[out] pType: LPDWORD, #[buffer(bytes(*cbData))] #[out] pData: LPBYTE, #[in] #[out] cbData: LPDWORD) -> HRESULT;
+        fn SetDeviceValue(&self, #[in] pwszDeviceName: LPWSTR, #[in] pValueName: LPWSTR, Type: DWORD, #[buffer(bytes(cbData))] #[in] pData: LPBYTE, cbData: DWORD) -> HRESULT;
+        fn GetSTILaunchInformation(&self, #[buffer(128)] #[out] pwszDeviceName: LPWSTR, #[opt] #[out] pdwEventCode: *mut DWORD, #[buffer(128)] #[out] pwszEventName: LPWSTR) -> HRESULT;
         fn RegisterLaunchApplication(&self, #[in] pwszAppName: LPWSTR, #[in] pwszCommandLine: LPWSTR) -> HRESULT;
         fn UnregisterLaunchApplication(&self, #[in] pwszAppName: LPWSTR) -> HRESULT;
         fn EnableHwNotifications(&self, #[in] pwszDeviceName: LPCWSTR, bNewState: BOOL) -> HRESULT;
@@ -173,7 +173,7 @@ mod Fixture {
 mod Fixture {
     #[guid(0x00000000_0000_0000_c000_000000000046)]
     interface IUnknown {
-        fn QueryInterface(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppvObject: *mut *mut void) -> HRESULT;
+        fn QueryInterface(&self, #[in] riid: &IID, #[iid_is] #[out] ppvObject: *mut *mut void) -> HRESULT;
         fn AddRef(&self) -> ULONG;
         fn Release(&self) -> ULONG;
     }

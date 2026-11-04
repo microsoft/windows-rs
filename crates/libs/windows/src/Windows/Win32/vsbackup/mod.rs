@@ -1175,7 +1175,10 @@ impl IVssBackupComponentsEx3_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

@@ -309,8 +309,8 @@ impl IDirectManipulationContent {
         unsafe { (windows_core::Interface::vtable(self).GetContentTransform)(windows_core::Interface::as_raw(self), matrix as _, pointcount) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SyncContentTransform(&self, matrix: &[f32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SyncContentTransform)(windows_core::Interface::as_raw(self), matrix.as_ptr(), matrix.len().try_into().unwrap()) }
+    pub unsafe fn SyncContentTransform(&self, matrix: *const f32, pointcount: super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SyncContentTransform)(windows_core::Interface::as_raw(self), matrix, pointcount) }
     }
 }
 #[repr(C)]
@@ -546,7 +546,10 @@ impl IDirectManipulationDragDropBehavior_Vtbl {
                         status.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        status.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -788,7 +791,10 @@ impl IDirectManipulationManager_Vtbl {
                         handled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        handled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -945,8 +951,8 @@ impl IDirectManipulationPrimaryContent {
         unsafe { (windows_core::Interface::vtable(self).SetSnapInterval)(windows_core::Interface::as_raw(self), motion, interval, offset) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetSnapPoints(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, points: Option<&[f32]>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSnapPoints)(windows_core::Interface::as_raw(self), motion, points.map_or(core::ptr::null(), |slice| slice.as_ptr()), points.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    pub unsafe fn SetSnapPoints(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, points: Option<*const f32>, pointcount: super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetSnapPoints)(windows_core::Interface::as_raw(self), motion, points.unwrap_or(core::mem::zeroed()) as _, pointcount) }
     }
     pub unsafe fn SetSnapType(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, r#type: DIRECTMANIPULATION_SNAPPOINT_TYPE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSnapType)(windows_core::Interface::as_raw(self), motion, r#type) }
@@ -1246,12 +1252,12 @@ impl IDirectManipulationViewport {
         unsafe { (windows_core::Interface::vtable(self).ZoomToRect)(windows_core::Interface::as_raw(self), left, top, right, bottom, animate.into()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetViewportTransform(&self, matrix: &[f32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetViewportTransform)(windows_core::Interface::as_raw(self), matrix.as_ptr(), matrix.len().try_into().unwrap()) }
+    pub unsafe fn SetViewportTransform(&self, matrix: *const f32, pointcount: super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetViewportTransform)(windows_core::Interface::as_raw(self), matrix, pointcount) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SyncDisplayTransform(&self, matrix: &[f32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SyncDisplayTransform)(windows_core::Interface::as_raw(self), matrix.as_ptr(), matrix.len().try_into().unwrap()) }
+    pub unsafe fn SyncDisplayTransform(&self, matrix: *const f32, pointcount: super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SyncDisplayTransform)(windows_core::Interface::as_raw(self), matrix, pointcount) }
     }
     #[cfg(feature = "guiddef")]
     pub unsafe fn GetPrimaryContent<T>(&self) -> windows_core::Result<T>
@@ -1456,7 +1462,10 @@ impl IDirectManipulationViewport_Vtbl {
                         status.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        status.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1480,7 +1489,10 @@ impl IDirectManipulationViewport_Vtbl {
                         viewport.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        viewport.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1570,7 +1582,10 @@ impl IDirectManipulationViewport_Vtbl {
                         cookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        cookie.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1700,7 +1715,10 @@ impl IDirectManipulationViewport2_Vtbl {
                         cookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        cookie.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

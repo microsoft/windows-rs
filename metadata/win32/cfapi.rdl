@@ -68,12 +68,10 @@ mod Windows {
             VolumeDosName: PCWSTR,
             VolumeSerialNumber: DWORD,
             SyncRootFileId: LARGE_INTEGER,
-            #[writable(bytes(SyncRootIdentityLength))]
             SyncRootIdentity: LPCVOID,
             SyncRootIdentityLength: DWORD,
             FileId: LARGE_INTEGER,
             FileSize: LARGE_INTEGER,
-            #[writable(bytes(FileIdentityLength))]
             FileIdentity: LPCVOID,
             FileIdentityLength: DWORD,
             NormalizedPath: PCWSTR,
@@ -360,7 +358,6 @@ mod Windows {
                 RestartHydration: struct {
                     Flags: CF_OPERATION_RESTART_HYDRATION_FLAGS,
                     FsMetadata: *const CF_FS_METADATA,
-                    #[writable(bytes(FileIdentityLength))]
                     FileIdentity: LPCVOID,
                     FileIdentityLength: DWORD,
                 },
@@ -375,7 +372,6 @@ mod Windows {
                 AckDehydrate: struct {
                     Flags: CF_OPERATION_ACK_DEHYDRATE_FLAGS,
                     CompletionStatus: NTSTATUS,
-                    #[writable(bytes(FileIdentityLength))]
                     FileIdentity: LPCVOID,
                     FileIdentityLength: DWORD,
                 },
@@ -590,10 +586,8 @@ mod Windows {
             StructSize: ULONG,
             ProviderName: LPCWSTR,
             ProviderVersion: LPCWSTR,
-            #[writable(bytes(SyncRootIdentityLength))]
             SyncRootIdentity: LPCVOID,
             SyncRootIdentityLength: DWORD,
-            #[writable(bytes(FileIdentityLength))]
             FileIdentity: LPCVOID,
             FileIdentityLength: DWORD,
             ProviderId: GUID,
@@ -654,9 +648,9 @@ mod Windows {
         #[library("cldapi.dll")]
         extern fn CfConnectSyncRoot(#[in] SyncRootPath: LPCWSTR, #[in] CallbackTable: *const CF_CALLBACK_REGISTRATION, #[in] #[opt] CallbackContext: LPCVOID, #[in] ConnectFlags: CF_CONNECT_FLAGS, #[out] ConnectionKey: *mut CF_CONNECTION_KEY) -> HRESULT;
         #[library("cldapi.dll")]
-        extern fn CfConvertToPlaceholder(#[in] FileHandle: HANDLE, #[in] #[opt] #[readable(entry, bytes(FileIdentityLength))] FileIdentity: LPCVOID, #[in] FileIdentityLength: DWORD, #[in] ConvertFlags: CF_CONVERT_FLAGS, #[opt] #[out] ConvertUsn: *mut USN, #[in] #[opt] #[out] Overlapped: LPOVERLAPPED) -> HRESULT;
+        extern fn CfConvertToPlaceholder(#[in] FileHandle: HANDLE, #[buffer(bytes(FileIdentityLength))] #[in] #[opt] FileIdentity: LPCVOID, #[in] FileIdentityLength: DWORD, #[in] ConvertFlags: CF_CONVERT_FLAGS, #[opt] #[out] ConvertUsn: *mut USN, #[in] #[opt] #[out] Overlapped: LPOVERLAPPED) -> HRESULT;
         #[library("cldapi.dll")]
-        extern fn CfCreatePlaceholders(#[in] BaseDirectoryPath: LPCWSTR, #[in] #[out] #[writable(entry, PlaceholderCount)] PlaceholderArray: *mut CF_PLACEHOLDER_CREATE_INFO, #[in] PlaceholderCount: DWORD, #[in] CreateFlags: CF_CREATE_FLAGS, #[opt] #[out] EntriesProcessed: PDWORD) -> HRESULT;
+        extern fn CfCreatePlaceholders(#[in] BaseDirectoryPath: LPCWSTR, #[buffer(PlaceholderCount)] #[in] #[out] PlaceholderArray: *mut CF_PLACEHOLDER_CREATE_INFO, #[in] PlaceholderCount: DWORD, #[in] CreateFlags: CF_CREATE_FLAGS, #[opt] #[out] EntriesProcessed: PDWORD) -> HRESULT;
         #[library("cldapi.dll")]
         extern fn CfDehydratePlaceholder(#[in] FileHandle: HANDLE, #[in] StartingOffset: LARGE_INTEGER, #[in] Length: LARGE_INTEGER, #[in] DehydrateFlags: CF_DEHYDRATE_FLAGS, #[in] #[opt] #[out] Overlapped: LPOVERLAPPED) -> HRESULT;
         #[library("cldapi.dll")]
@@ -670,7 +664,7 @@ mod Windows {
         #[library("cldapi.dll")]
         extern fn CfGetPlaceholderRangeInfo(#[in] FileHandle: HANDLE, #[in] InfoClass: CF_PLACEHOLDER_RANGE_INFO_CLASS, #[in] StartingOffset: LARGE_INTEGER, #[in] Length: LARGE_INTEGER, #[incomplete] InfoBuffer: PVOID, #[in] InfoBufferLength: DWORD, #[opt] #[out] ReturnedLength: PDWORD) -> HRESULT;
         #[library("cldapi.dll")]
-        extern fn CfGetPlaceholderRangeInfoForHydration(#[in] ConnectionKey: CF_CONNECTION_KEY, #[in] TransferKey: CF_TRANSFER_KEY, #[in] FileId: LARGE_INTEGER, #[in] InfoClass: CF_PLACEHOLDER_RANGE_INFO_CLASS, #[in] StartingOffset: LARGE_INTEGER, #[in] RangeLength: LARGE_INTEGER, #[out] #[readable(success, bytes(if_present(*InfoBufferWritten)))] #[writable(entry, bytes(InfoBufferSize))] InfoBuffer: PVOID, #[in] InfoBufferSize: DWORD, #[opt] #[out] InfoBufferWritten: PDWORD) -> HRESULT;
+        extern fn CfGetPlaceholderRangeInfoForHydration(#[in] ConnectionKey: CF_CONNECTION_KEY, #[in] TransferKey: CF_TRANSFER_KEY, #[in] FileId: LARGE_INTEGER, #[in] InfoClass: CF_PLACEHOLDER_RANGE_INFO_CLASS, #[in] StartingOffset: LARGE_INTEGER, #[in] RangeLength: LARGE_INTEGER, #[buffer(bytes(InfoBufferSize))] #[out] InfoBuffer: PVOID, #[in] InfoBufferSize: DWORD, #[opt] #[out] InfoBufferWritten: PDWORD) -> HRESULT;
         #[library("cldapi.dll")]
         extern fn CfGetPlaceholderStateFromAttributeTag(#[in] FileAttributes: DWORD, #[in] ReparseTag: DWORD) -> CF_PLACEHOLDER_STATE;
         #[library("cldapi.dll")]
@@ -718,7 +712,7 @@ mod Windows {
         #[library("cldapi.dll")]
         extern fn CfUnregisterSyncRoot(#[in] SyncRootPath: LPCWSTR) -> HRESULT;
         #[library("cldapi.dll")]
-        extern fn CfUpdatePlaceholder(#[in] FileHandle: HANDLE, #[in] #[opt] FsMetadata: *const CF_FS_METADATA, #[in] #[opt] #[readable(entry, bytes(FileIdentityLength))] FileIdentity: LPCVOID, #[in] FileIdentityLength: DWORD, #[in] #[opt] #[readable(entry, DehydrateRangeCount)] DehydrateRangeArray: *const CF_FILE_RANGE, #[in] DehydrateRangeCount: DWORD, #[in] UpdateFlags: CF_UPDATE_FLAGS, #[in] #[opt] #[out] UpdateUsn: *mut USN, #[in] #[opt] #[out] Overlapped: LPOVERLAPPED) -> HRESULT;
+        extern fn CfUpdatePlaceholder(#[in] FileHandle: HANDLE, #[in] #[opt] FsMetadata: *const CF_FS_METADATA, #[buffer(bytes(FileIdentityLength))] #[in] #[opt] FileIdentity: LPCVOID, #[in] FileIdentityLength: DWORD, #[buffer(DehydrateRangeCount)] #[in] #[opt] DehydrateRangeArray: *const CF_FILE_RANGE, #[in] DehydrateRangeCount: DWORD, #[in] UpdateFlags: CF_UPDATE_FLAGS, #[in] #[opt] #[out] UpdateUsn: *mut USN, #[in] #[opt] #[out] Overlapped: LPOVERLAPPED) -> HRESULT;
         #[library("cldapi.dll")]
         extern fn CfUpdateSyncProviderStatus(#[in] ConnectionKey: CF_CONNECTION_KEY, #[in] ProviderStatus: CF_SYNC_PROVIDER_STATUS) -> HRESULT;
         type PCF_CONNECTION_KEY = *mut CF_CONNECTION_KEY;

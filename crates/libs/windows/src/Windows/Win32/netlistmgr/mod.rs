@@ -71,7 +71,10 @@ impl IEnumNetworkConnections_Vtbl {
                         ppenumvar.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumvar.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -101,7 +104,10 @@ impl IEnumNetworkConnections_Vtbl {
                         ppenumnetwork.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumnetwork.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -193,7 +199,10 @@ impl IEnumNetworks_Vtbl {
                         ppenumvar.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumvar.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -223,7 +232,10 @@ impl IEnumNetworks_Vtbl {
                         ppenumnetwork.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumnetwork.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -398,7 +410,10 @@ impl INetwork_Vtbl {
                         pgdguidnetworkid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pgdguidnetworkid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -410,7 +425,10 @@ impl INetwork_Vtbl {
                         pnetworktype.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pnetworktype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -422,7 +440,10 @@ impl INetwork_Vtbl {
                         ppenumnetworkconnection.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumnetworkconnection.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -440,7 +461,10 @@ impl INetwork_Vtbl {
                         pbisconnected.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbisconnected.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -452,7 +476,10 @@ impl INetwork_Vtbl {
                         pbisconnected.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbisconnected.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -464,7 +491,10 @@ impl INetwork_Vtbl {
                         pconnectivity.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pconnectivity.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -476,7 +506,10 @@ impl INetwork_Vtbl {
                         pcategory.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcategory.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -551,7 +584,10 @@ impl INetwork2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -661,7 +697,10 @@ impl INetworkConnection_Vtbl {
                         ppnetwork.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppnetwork.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -673,7 +712,10 @@ impl INetworkConnection_Vtbl {
                         pbisconnected.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbisconnected.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -685,7 +727,10 @@ impl INetworkConnection_Vtbl {
                         pbisconnected.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbisconnected.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -697,7 +742,10 @@ impl INetworkConnection_Vtbl {
                         pconnectivity.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pconnectivity.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -709,7 +757,10 @@ impl INetworkConnection_Vtbl {
                         pgdconnectionid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pgdconnectionid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -721,7 +772,10 @@ impl INetworkConnection_Vtbl {
                         pgdadapterid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pgdadapterid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -733,7 +787,10 @@ impl INetworkConnection_Vtbl {
                         pdomaintype.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdomaintype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -796,7 +853,10 @@ impl INetworkConnection2_Vtbl {
                         pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -976,8 +1036,8 @@ impl INetworkCostManager {
         unsafe { (windows_core::Interface::vtable(self).GetDataPlanStatus)(windows_core::Interface::as_raw(self), pdataplanstatus as _, pdestipaddr.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(all(feature = "shared", feature = "wtypes"))]
-    pub unsafe fn SetDestinationAddresses(&self, pdestipaddrlist: Option<&[NLM_SOCKADDR]>, bappend: super::VARIANT_BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetDestinationAddresses)(windows_core::Interface::as_raw(self), pdestipaddrlist.map_or(0, |slice| slice.len().try_into().unwrap()), pdestipaddrlist.map_or(core::ptr::null(), |slice| slice.as_ptr()), bappend) }
+    pub unsafe fn SetDestinationAddresses(&self, length: super::UINT32, pdestipaddrlist: Option<*const NLM_SOCKADDR>, bappend: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDestinationAddresses)(windows_core::Interface::as_raw(self), length, pdestipaddrlist.unwrap_or(core::mem::zeroed()) as _, bappend) }
     }
 }
 #[repr(C)]
@@ -1276,7 +1336,10 @@ impl INetworkListManager_Vtbl {
                         ppenumnetwork.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumnetwork.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1288,7 +1351,10 @@ impl INetworkListManager_Vtbl {
                         ppnetwork.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppnetwork.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1300,7 +1366,10 @@ impl INetworkListManager_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1312,7 +1381,10 @@ impl INetworkListManager_Vtbl {
                         ppnetworkconnection.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppnetworkconnection.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1324,7 +1396,10 @@ impl INetworkListManager_Vtbl {
                         pbisconnected.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbisconnected.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1336,7 +1411,10 @@ impl INetworkListManager_Vtbl {
                         pbisconnected.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbisconnected.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1348,7 +1426,10 @@ impl INetworkListManager_Vtbl {
                         pconnectivity.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pconnectivity.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

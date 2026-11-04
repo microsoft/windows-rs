@@ -18,7 +18,7 @@ mod Windows {
             fn Next(&self, #[in] cViews: ULONG, #[out] rgpView: *mut IOleDocumentView, #[out] pcFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] cViews: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumOleDocumentViews) -> HRESULT;
+            fn Clone(&self, #[out] #[retval] ppEnum: *mut IEnumOleDocumentViews) -> HRESULT;
         }
         #[repr(i32)]
         enum IGNOREMIME {
@@ -30,14 +30,14 @@ mod Windows {
         const INSTALL_SCOPE_USER: i32 = 2;
         #[guid(0xb722bccb_4e68_101b_a2bc_00aa00404770)]
         interface IOleCommandTarget: IUnknown {
-            fn QueryStatus(&self, #[in] #[opt] pguidCmdGroup: *const GUID, #[in] cCmds: ULONG, #[in] #[out] #[readable(entry, cCmds)] #[readable(success, cCmds)] #[writable(entry, cCmds)] prgCmds: *mut OLECMD, #[in] #[opt] #[out] pCmdText: *mut OLECMDTEXT) -> HRESULT;
+            fn QueryStatus(&self, #[in] #[opt] pguidCmdGroup: *const GUID, #[in] cCmds: ULONG, #[buffer(cCmds)] #[in] #[out] prgCmds: *mut OLECMD, #[in] #[opt] #[out] pCmdText: *mut OLECMDTEXT) -> HRESULT;
             fn Exec(&self, #[in] #[opt] pguidCmdGroup: *const GUID, #[in] nCmdID: DWORD, #[in] nCmdexecopt: DWORD, #[in] #[opt] pvaIn: *mut VARIANT, #[in] #[opt] #[out] pvaOut: *mut VARIANT) -> HRESULT;
         }
         #[guid(0xb722bcc5_4e68_101b_a2bc_00aa00404770)]
         interface IOleDocument: IUnknown {
-            fn CreateView(&self, #[in] #[opt] pIPSite: IOleInPlaceSite, #[in] #[opt] pstm: IStream, #[in] dwReserved: DWORD, #[out] #[out_ptr] #[retval] ppView: *mut IOleDocumentView) -> HRESULT;
+            fn CreateView(&self, #[in] #[opt] pIPSite: IOleInPlaceSite, #[in] #[opt] pstm: IStream, #[in] dwReserved: DWORD, #[out] #[retval] ppView: *mut IOleDocumentView) -> HRESULT;
             fn GetDocMiscStatus(&self, #[out] pdwStatus: *mut DWORD) -> HRESULT;
-            fn EnumViews(&self, #[out] #[out_ptr] ppEnum: *mut IEnumOleDocumentViews, #[out] #[out_ptr] #[retval] ppView: *mut IOleDocumentView) -> HRESULT;
+            fn EnumViews(&self, #[out] ppEnum: *mut IEnumOleDocumentViews, #[out] #[retval] ppView: *mut IOleDocumentView) -> HRESULT;
         }
         #[guid(0xb722bcc7_4e68_101b_a2bc_00aa00404770)]
         interface IOleDocumentSite: IUnknown {
@@ -46,8 +46,8 @@ mod Windows {
         #[guid(0xb722bcc6_4e68_101b_a2bc_00aa00404770)]
         interface IOleDocumentView: IUnknown {
             fn SetInPlaceSite(&self, #[in] #[opt] pIPSite: IOleInPlaceSite) -> HRESULT;
-            fn GetInPlaceSite(&self, #[out] #[out_ptr] #[retval] ppIPSite: *mut IOleInPlaceSite) -> HRESULT;
-            fn GetDocument(&self, #[out] #[out_ptr] #[retval] ppunk: *mut IUnknown) -> HRESULT;
+            fn GetInPlaceSite(&self, #[out] #[retval] ppIPSite: *mut IOleInPlaceSite) -> HRESULT;
+            fn GetDocument(&self, #[out] #[retval] ppunk: *mut IUnknown) -> HRESULT;
             fn SetRect(&self, #[in] prcView: LPRECT) -> HRESULT;
             fn GetRect(&self, #[out] prcView: LPRECT) -> HRESULT;
             fn SetRectComplex(&self, #[in] #[opt] prcView: LPRECT, #[in] #[opt] prcHScroll: LPRECT, #[in] #[opt] prcVScroll: LPRECT, #[in] #[opt] prcSizeBox: LPRECT) -> HRESULT;
@@ -57,7 +57,7 @@ mod Windows {
             fn CloseView(&self, #[in] dwReserved: DWORD) -> HRESULT;
             fn SaveViewState(&self, #[in] #[opt] pstm: LPSTREAM) -> HRESULT;
             fn ApplyViewState(&self, #[in] #[opt] pstm: LPSTREAM) -> HRESULT;
-            fn Clone(&self, #[in] #[opt] pIPSiteNew: IOleInPlaceSite, #[out] #[out_ptr] #[retval] ppViewNew: *mut IOleDocumentView) -> HRESULT;
+            fn Clone(&self, #[in] #[opt] pIPSiteNew: IOleInPlaceSite, #[out] #[retval] ppViewNew: *mut IOleDocumentView) -> HRESULT;
         }
         #[guid(0xb722bcc9_4e68_101b_a2bc_00aa00404770)]
         interface IPrint: IUnknown {
@@ -71,9 +71,9 @@ mod Windows {
         }
         #[guid(0x73c105ee_9dff_4a07_b83c_7eff290c266e)]
         interface IProtectedModeMenuServices: IUnknown {
-            fn CreateMenu(&self, #[out] #[out_ptr] phMenu: *mut HMENU) -> HRESULT;
-            fn LoadMenu(&self, #[in] #[null_terminated(entry)] pszModuleName: LPCWSTR, #[in] #[null_terminated(entry)] pszMenuName: LPCWSTR, #[out] #[out_ptr] phMenu: *mut HMENU) -> HRESULT;
-            fn LoadMenuID(&self, #[in] #[null_terminated(entry)] pszModuleName: LPCWSTR, #[in] wResourceID: WORD, #[out] #[out_ptr] phMenu: *mut HMENU) -> HRESULT;
+            fn CreateMenu(&self, #[out] phMenu: *mut HMENU) -> HRESULT;
+            fn LoadMenu(&self, #[in] #[null_terminated] pszModuleName: LPCWSTR, #[in] #[null_terminated] pszMenuName: LPCWSTR, #[out] phMenu: *mut HMENU) -> HRESULT;
+            fn LoadMenuID(&self, #[in] #[null_terminated] pszModuleName: LPCWSTR, #[in] wResourceID: WORD, #[out] phMenu: *mut HMENU) -> HRESULT;
         }
         #[guid(0x41b68150_904c_4e17_a0ba_a438182e359d)]
         interface IZoomEvents: IUnknown {

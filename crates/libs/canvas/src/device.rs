@@ -138,7 +138,7 @@ impl GpuDevice {
         let props = builder.to_abi();
         unsafe {
             self.d2d_factory
-                .CreateStrokeStyle(&props, None)
+                .CreateStrokeStyle(&props, None, 0)
                 .map(StrokeStyle)
         }
     }

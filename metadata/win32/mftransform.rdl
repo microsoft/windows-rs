@@ -11,12 +11,12 @@ mod Windows {
         #[guid(0xd818fbd8_fc46_42f2_87ac_1ea2d1f9bf32)]
         interface IMFDeviceTransform: IUnknown {
             fn InitializeTransform(&self, #[in] pAttributes: IMFAttributes) -> HRESULT;
-            fn GetInputAvailableType(&self, #[in] dwInputStreamID: DWORD, #[in] dwTypeIndex: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] pMediaType: *mut IMFMediaType) -> HRESULT;
-            fn GetInputCurrentType(&self, #[in] dwInputStreamID: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] pMediaType: *mut IMFMediaType) -> HRESULT;
-            fn GetInputStreamAttributes(&self, #[in] dwInputStreamID: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] ppAttributes: *mut IMFAttributes) -> HRESULT;
-            fn GetOutputAvailableType(&self, #[in] dwOutputStreamID: DWORD, #[in] dwTypeIndex: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] pMediaType: *mut IMFMediaType) -> HRESULT;
-            fn GetOutputCurrentType(&self, #[in] dwOutputStreamID: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] pMediaType: *mut IMFMediaType) -> HRESULT;
-            fn GetOutputStreamAttributes(&self, #[in] dwOutputStreamID: DWORD, #[out] #[out_ptr(null_on_failure)] #[retval] ppAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetInputAvailableType(&self, #[in] dwInputStreamID: DWORD, #[in] dwTypeIndex: DWORD, #[out] #[retval] pMediaType: *mut IMFMediaType) -> HRESULT;
+            fn GetInputCurrentType(&self, #[in] dwInputStreamID: DWORD, #[out] #[retval] pMediaType: *mut IMFMediaType) -> HRESULT;
+            fn GetInputStreamAttributes(&self, #[in] dwInputStreamID: DWORD, #[out] #[retval] ppAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetOutputAvailableType(&self, #[in] dwOutputStreamID: DWORD, #[in] dwTypeIndex: DWORD, #[out] #[retval] pMediaType: *mut IMFMediaType) -> HRESULT;
+            fn GetOutputCurrentType(&self, #[in] dwOutputStreamID: DWORD, #[out] #[retval] pMediaType: *mut IMFMediaType) -> HRESULT;
+            fn GetOutputStreamAttributes(&self, #[in] dwOutputStreamID: DWORD, #[out] #[retval] ppAttributes: *mut IMFAttributes) -> HRESULT;
             fn GetStreamCount(&self, #[out] pcInputStreams: *mut DWORD, #[out] pcOutputStreams: *mut DWORD) -> HRESULT;
             fn GetStreamIDs(&self, #[in] dwInputIDArraySize: DWORD, #[out] pdwInputStreamIds: *mut DWORD, #[in] dwOutputIDArraySize: DWORD, #[out] pdwOutputStreamIds: *mut DWORD) -> HRESULT;
             fn ProcessEvent(&self, #[in] dwInputStreamID: DWORD, #[in] pEvent: IMFMediaEvent) -> HRESULT;
@@ -27,13 +27,13 @@ mod Windows {
             fn GetInputStreamState(&self, #[in] dwStreamID: DWORD, #[out] value: *mut DeviceStreamState) -> HRESULT;
             fn SetOutputStreamState(&self, #[in] dwStreamID: DWORD, #[in] pMediaType: IMFMediaType, #[in] value: DeviceStreamState, #[in] dwFlags: DWORD) -> HRESULT;
             fn GetOutputStreamState(&self, #[in] dwStreamID: DWORD, #[out] value: *mut DeviceStreamState) -> HRESULT;
-            fn GetInputStreamPreferredState(&self, #[in] dwStreamID: DWORD, #[out] value: *mut DeviceStreamState, #[out] #[out_ptr(null_on_failure)] #[retval] ppMediaType: *mut IMFMediaType) -> HRESULT;
+            fn GetInputStreamPreferredState(&self, #[in] dwStreamID: DWORD, #[out] value: *mut DeviceStreamState, #[out] #[retval] ppMediaType: *mut IMFMediaType) -> HRESULT;
             fn FlushInputStream(&self, #[in] dwStreamIndex: DWORD, #[in] dwFlags: DWORD) -> HRESULT;
             fn FlushOutputStream(&self, #[in] dwStreamIndex: DWORD, #[in] dwFlags: DWORD) -> HRESULT;
         }
         #[guid(0xf5980fed_b521_488f_909f_1a5fcecedb14)]
         interface IMFDeviceTransform2: IMFDeviceTransform {
-            fn GetTransformAttributes(&self, #[out] #[out_ptr(null_on_failure)] #[retval] ppAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetTransformAttributes(&self, #[out] #[retval] ppAttributes: *mut IMFAttributes) -> HRESULT;
         }
         #[guid(0x6d5cb646_29ec_41fb_8179_8c4c6d750811)]
         interface IMFDeviceTransformCallback: IUnknown {
@@ -43,20 +43,20 @@ mod Windows {
         interface IMFTransform: IUnknown {
             fn GetStreamLimits(&self, #[out] pdwInputMinimum: *mut DWORD, #[out] pdwInputMaximum: *mut DWORD, #[out] pdwOutputMinimum: *mut DWORD, #[out] pdwOutputMaximum: *mut DWORD) -> HRESULT;
             fn GetStreamCount(&self, #[out] pcInputStreams: *mut DWORD, #[out] pcOutputStreams: *mut DWORD) -> HRESULT;
-            fn GetStreamIDs(&self, dwInputIDArraySize: DWORD, #[out] #[readable(success, dwInputIDArraySize)] #[writable(entry, dwInputIDArraySize)] #[writable(success, dwInputIDArraySize)] pdwInputIDs: *mut DWORD, dwOutputIDArraySize: DWORD, #[out] #[readable(success, dwOutputIDArraySize)] #[writable(entry, dwOutputIDArraySize)] #[writable(success, dwOutputIDArraySize)] pdwOutputIDs: *mut DWORD) -> HRESULT;
+            fn GetStreamIDs(&self, dwInputIDArraySize: DWORD, #[buffer(dwInputIDArraySize)] #[out] pdwInputIDs: *mut DWORD, dwOutputIDArraySize: DWORD, #[buffer(dwOutputIDArraySize)] #[out] pdwOutputIDs: *mut DWORD) -> HRESULT;
             fn GetInputStreamInfo(&self, dwInputStreamID: DWORD, #[out] pStreamInfo: *mut MFT_INPUT_STREAM_INFO) -> HRESULT;
             fn GetOutputStreamInfo(&self, dwOutputStreamID: DWORD, #[out] pStreamInfo: *mut MFT_OUTPUT_STREAM_INFO) -> HRESULT;
-            fn GetAttributes(&self, #[out] #[out_ptr] #[retval] pAttributes: *mut IMFAttributes) -> HRESULT;
-            fn GetInputStreamAttributes(&self, dwInputStreamID: DWORD, #[out] #[out_ptr] #[retval] pAttributes: *mut IMFAttributes) -> HRESULT;
-            fn GetOutputStreamAttributes(&self, dwOutputStreamID: DWORD, #[out] #[out_ptr] #[retval] pAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetAttributes(&self, #[out] #[retval] pAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetInputStreamAttributes(&self, dwInputStreamID: DWORD, #[out] #[retval] pAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetOutputStreamAttributes(&self, dwOutputStreamID: DWORD, #[out] #[retval] pAttributes: *mut IMFAttributes) -> HRESULT;
             fn DeleteInputStream(&self, dwStreamID: DWORD) -> HRESULT;
             fn AddInputStreams(&self, cStreams: DWORD, #[in] adwStreamIDs: *mut DWORD) -> HRESULT;
-            fn GetInputAvailableType(&self, dwInputStreamID: DWORD, dwTypeIndex: DWORD, #[out] #[out_ptr] #[retval] ppType: *mut IMFMediaType) -> HRESULT;
-            fn GetOutputAvailableType(&self, dwOutputStreamID: DWORD, dwTypeIndex: DWORD, #[out] #[out_ptr] #[retval] ppType: *mut IMFMediaType) -> HRESULT;
+            fn GetInputAvailableType(&self, dwInputStreamID: DWORD, dwTypeIndex: DWORD, #[out] #[retval] ppType: *mut IMFMediaType) -> HRESULT;
+            fn GetOutputAvailableType(&self, dwOutputStreamID: DWORD, dwTypeIndex: DWORD, #[out] #[retval] ppType: *mut IMFMediaType) -> HRESULT;
             fn SetInputType(&self, dwInputStreamID: DWORD, #[in] #[opt] pType: IMFMediaType, dwFlags: DWORD) -> HRESULT;
             fn SetOutputType(&self, dwOutputStreamID: DWORD, #[in] #[opt] pType: IMFMediaType, dwFlags: DWORD) -> HRESULT;
-            fn GetInputCurrentType(&self, dwInputStreamID: DWORD, #[out] #[out_ptr] #[retval] ppType: *mut IMFMediaType) -> HRESULT;
-            fn GetOutputCurrentType(&self, dwOutputStreamID: DWORD, #[out] #[out_ptr] #[retval] ppType: *mut IMFMediaType) -> HRESULT;
+            fn GetInputCurrentType(&self, dwInputStreamID: DWORD, #[out] #[retval] ppType: *mut IMFMediaType) -> HRESULT;
+            fn GetOutputCurrentType(&self, dwOutputStreamID: DWORD, #[out] #[retval] ppType: *mut IMFMediaType) -> HRESULT;
             fn GetInputStatus(&self, dwInputStreamID: DWORD, #[out] pdwFlags: *mut DWORD) -> HRESULT;
             fn GetOutputStatus(&self, #[out] pdwFlags: *mut DWORD) -> HRESULT;
             fn SetOutputBounds(&self, hnsLowerBound: LONGLONG, hnsUpperBound: LONGLONG) -> HRESULT;

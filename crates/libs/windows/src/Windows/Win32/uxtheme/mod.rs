@@ -94,15 +94,15 @@ pub unsafe fn DrawThemeParentBackgroundEx(hwnd: super::HWND, hdc: super::HDC, dw
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn DrawThemeText(htheme: super::HTHEME, hdc: super::HDC, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: super::DWORD, dwtextflags2: super::DWORD, prect: super::LPCRECT) -> windows_core::HRESULT {
+pub unsafe fn DrawThemeText(htheme: super::HTHEME, hdc: super::HDC, ipartid: i32, istateid: i32, psztext: windows_core::PCWSTR, cchtext: i32, dwtextflags: super::DWORD, dwtextflags2: super::DWORD, prect: super::LPCRECT) -> windows_core::HRESULT {
     windows_core::link!("uxtheme.dll" "system" fn DrawThemeText(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, psztext : windows_core::PCWSTR, cchtext : i32, dwtextflags : super::DWORD, dwtextflags2 : super::DWORD, prect : super::LPCRECT) -> windows_core::HRESULT);
-    unsafe { DrawThemeText(htheme, hdc, ipartid, istateid, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), dwtextflags, dwtextflags2, prect) }
+    unsafe { DrawThemeText(htheme, hdc, ipartid, istateid, psztext, cchtext, dwtextflags, dwtextflags2, prect) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn DrawThemeTextEx(htheme: super::HTHEME, hdc: super::HDC, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: super::DWORD, prect: super::LPRECT, poptions: Option<*const DTTOPTS>) -> windows_core::HRESULT {
+pub unsafe fn DrawThemeTextEx(htheme: super::HTHEME, hdc: super::HDC, ipartid: i32, istateid: i32, psztext: windows_core::PCWSTR, cchtext: i32, dwtextflags: super::DWORD, prect: super::LPRECT, poptions: Option<*const DTTOPTS>) -> windows_core::HRESULT {
     windows_core::link!("uxtheme.dll" "system" fn DrawThemeTextEx(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, psztext : windows_core::PCWSTR, cchtext : i32, dwtextflags : super::DWORD, prect : super::LPRECT, poptions : *const DTTOPTS) -> windows_core::HRESULT);
-    unsafe { DrawThemeTextEx(htheme, hdc, ipartid, istateid, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), dwtextflags, prect as _, poptions.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { DrawThemeTextEx(htheme, hdc, ipartid, istateid, psztext, cchtext, dwtextflags, prect as _, poptions.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
@@ -345,9 +345,9 @@ pub unsafe fn GetThemeSysString(htheme: super::HTHEME, istringid: i32, pszstring
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn GetThemeTextExtent(htheme: super::HTHEME, hdc: super::HDC, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: super::DWORD, pboundingrect: Option<super::LPCRECT>, pextentrect: super::LPRECT) -> windows_core::HRESULT {
+pub unsafe fn GetThemeTextExtent(htheme: super::HTHEME, hdc: super::HDC, ipartid: i32, istateid: i32, psztext: windows_core::PCWSTR, cchcharcount: i32, dwtextflags: super::DWORD, pboundingrect: Option<super::LPCRECT>, pextentrect: super::LPRECT) -> windows_core::HRESULT {
     windows_core::link!("uxtheme.dll" "system" fn GetThemeTextExtent(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, psztext : windows_core::PCWSTR, cchcharcount : i32, dwtextflags : super::DWORD, pboundingrect : super::LPCRECT, pextentrect : super::LPRECT) -> windows_core::HRESULT);
-    unsafe { GetThemeTextExtent(htheme, hdc, ipartid, istateid, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), dwtextflags, pboundingrect.unwrap_or(core::mem::zeroed()) as _, pextentrect as _) }
+    unsafe { GetThemeTextExtent(htheme, hdc, ipartid, istateid, psztext, cchcharcount, dwtextflags, pboundingrect.unwrap_or(core::mem::zeroed()) as _, pextentrect as _) }
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
 #[inline]

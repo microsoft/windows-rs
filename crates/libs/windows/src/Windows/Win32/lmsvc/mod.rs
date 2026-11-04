@@ -29,13 +29,13 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn NetServiceInstall<P0, P1>(servername: P0, service: P1, argv: &[windows_core::PCWSTR], bufptr: *mut super::LPBYTE) -> super::DWORD
+pub unsafe fn NetServiceInstall<P0, P1>(servername: P0, service: P1, argc: super::DWORD, argv: *const windows_core::PCWSTR, bufptr: *mut super::LPBYTE) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn NetServiceInstall(servername : windows_core::PCWSTR, service : windows_core::PCWSTR, argc : super::DWORD, argv : *const windows_core::PCWSTR, bufptr : *mut super::LPBYTE) -> super::DWORD);
-    unsafe { NetServiceInstall(servername.param().abi(), service.param().abi(), argv.len().try_into().unwrap(), argv.as_ptr(), bufptr as _) }
+    unsafe { NetServiceInstall(servername.param().abi(), service.param().abi(), argc, argv, bufptr as _) }
 }
 pub const LM20_SERVICE_ACTIVE: i32 = 0;
 pub const LM20_SERVICE_CONTINUE_PENDING: i32 = 4;

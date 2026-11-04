@@ -52,7 +52,10 @@ impl IEnumITfCompositionView_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -142,7 +145,10 @@ impl IEnumTfContextViews_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -232,7 +238,10 @@ impl IEnumTfContexts_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -322,7 +331,10 @@ impl IEnumTfDisplayAttributeInfo_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -412,7 +424,10 @@ impl IEnumTfDocumentMgrs_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -502,7 +517,10 @@ impl IEnumTfFunctionProviders_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -592,7 +610,10 @@ impl IEnumTfInputProcessorProfiles_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -682,7 +703,10 @@ impl IEnumTfLanguageProfiles_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -772,7 +796,10 @@ impl IEnumTfProperties_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -862,7 +889,10 @@ impl IEnumTfPropertyValue_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -952,7 +982,10 @@ impl IEnumTfRanges_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1158,7 +1191,10 @@ impl ITextStoreACPServices_Vtbl {
                         pprange.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pprange.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1923,7 +1959,10 @@ impl ITfCompartmentMgr_Vtbl {
                         ppcomp.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcomp.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1941,7 +1980,10 @@ impl ITfCompartmentMgr_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2008,7 +2050,10 @@ impl ITfComposition_Vtbl {
                         pprange.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pprange.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2123,7 +2168,10 @@ impl ITfCompositionView_Vtbl {
                         pprange.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pprange.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2203,8 +2251,8 @@ impl ITfContext {
         unsafe { (windows_core::Interface::vtable(self).GetSelection)(windows_core::Interface::as_raw(self), ec, ulindex, ulcount, pselection, pcfetched as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetSelection(&self, ec: TfEditCookie, pselection: &[TF_SELECTION]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSelection)(windows_core::Interface::as_raw(self), ec, pselection.len().try_into().unwrap(), pselection.as_ptr()) }
+    pub unsafe fn SetSelection(&self, ec: TfEditCookie, ulcount: super::ULONG, pselection: *const TF_SELECTION) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetSelection)(windows_core::Interface::as_raw(self), ec, ulcount, pselection) }
     }
     pub unsafe fn GetStart(&self, ec: TfEditCookie) -> windows_core::Result<ITfRange> {
         unsafe {
@@ -2247,10 +2295,10 @@ impl ITfContext {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn TrackProperties(&self, prgprop: &[*const windows_core::GUID], prgappprop: &[*const windows_core::GUID]) -> windows_core::Result<ITfReadOnlyProperty> {
+    pub unsafe fn TrackProperties(&self, prgprop: *const *const windows_core::GUID, cprop: super::ULONG, prgappprop: *const *const windows_core::GUID, cappprop: super::ULONG) -> windows_core::Result<ITfReadOnlyProperty> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TrackProperties)(windows_core::Interface::as_raw(self), prgprop.as_ptr(), prgprop.len().try_into().unwrap(), prgappprop.as_ptr(), prgappprop.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).TrackProperties)(windows_core::Interface::as_raw(self), prgprop, cprop, prgappprop, cappprop, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn EnumProperties(&self) -> windows_core::Result<IEnumTfProperties> {
@@ -2363,7 +2411,10 @@ impl ITfContext_Vtbl {
                         ppstart.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstart.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2375,7 +2426,10 @@ impl ITfContext_Vtbl {
                         ppend.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppend.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2387,7 +2441,10 @@ impl ITfContext_Vtbl {
                         ppview.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppview.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2399,7 +2456,10 @@ impl ITfContext_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2417,7 +2477,10 @@ impl ITfContext_Vtbl {
                         ppprop.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppprop.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2429,7 +2492,10 @@ impl ITfContext_Vtbl {
                         ppprop.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppprop.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2441,7 +2507,10 @@ impl ITfContext_Vtbl {
                         ppproperty.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppproperty.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2453,7 +2522,10 @@ impl ITfContext_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2465,7 +2537,10 @@ impl ITfContext_Vtbl {
                         ppdm.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdm.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2477,7 +2552,10 @@ impl ITfContext_Vtbl {
                         ppbackup.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppbackup.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2570,7 +2648,10 @@ impl ITfContextComposition_Vtbl {
                         ppcomposition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcomposition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2582,7 +2663,10 @@ impl ITfContextComposition_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2594,7 +2678,10 @@ impl ITfContextComposition_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2606,7 +2693,10 @@ impl ITfContextComposition_Vtbl {
                         ppcomposition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcomposition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3067,7 +3157,10 @@ impl ITfContextOwnerServices_Vtbl {
                         pprange.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pprange.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3153,7 +3246,10 @@ impl ITfContextView_Vtbl {
                         pprange.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pprange.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3243,7 +3339,10 @@ impl ITfCreatePropertyStore_Vtbl {
                         ppstore.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstore.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3485,7 +3584,10 @@ impl ITfDisplayAttributeProvider_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3497,7 +3599,10 @@ impl ITfDisplayAttributeProvider_Vtbl {
                         ppinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppinfo.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3606,7 +3711,10 @@ impl ITfDocumentMgr_Vtbl {
                         ppic.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppic.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3618,7 +3726,10 @@ impl ITfDocumentMgr_Vtbl {
                         ppic.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppic.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3630,7 +3741,10 @@ impl ITfDocumentMgr_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3657,10 +3771,10 @@ impl ITfEditRecord {
         unsafe { (windows_core::Interface::vtable(self).GetSelectionStatus)(windows_core::Interface::as_raw(self), pfchanged as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetTextAndPropertyUpdates(&self, dwflags: super::DWORD, prgproperties: &[*const windows_core::GUID]) -> windows_core::Result<IEnumTfRanges> {
+    pub unsafe fn GetTextAndPropertyUpdates(&self, dwflags: super::DWORD, prgproperties: *const *const windows_core::GUID, cproperties: super::ULONG) -> windows_core::Result<IEnumTfRanges> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetTextAndPropertyUpdates)(windows_core::Interface::as_raw(self), dwflags, prgproperties.as_ptr(), prgproperties.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetTextAndPropertyUpdates)(windows_core::Interface::as_raw(self), dwflags, prgproperties, cproperties, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -3696,7 +3810,10 @@ impl ITfEditRecord_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3956,8 +4073,8 @@ impl ITfInputProcessorProfileMgr {
         unsafe { (windows_core::Interface::vtable(self).ReleaseInputProcessor)(windows_core::Interface::as_raw(self), rclsid, dwflags) }
     }
     #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt"))]
-    pub unsafe fn RegisterProfile(&self, rclsid: *const super::IID, langid: super::LANGID, guidprofile: *const windows_core::GUID, pchdesc: &[super::WCHAR], pchiconfile: &[super::WCHAR], uiconindex: super::ULONG, hklsubstitute: super::HKL, dwpreferredlayout: super::DWORD, benabledbydefault: bool, dwflags: super::DWORD) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RegisterProfile)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, pchdesc.as_ptr(), pchdesc.len().try_into().unwrap(), pchiconfile.as_ptr(), pchiconfile.len().try_into().unwrap(), uiconindex, hklsubstitute, dwpreferredlayout, benabledbydefault.into(), dwflags) }
+    pub unsafe fn RegisterProfile(&self, rclsid: *const super::IID, langid: super::LANGID, guidprofile: *const windows_core::GUID, pchdesc: *const super::WCHAR, cchdesc: super::ULONG, pchiconfile: *const super::WCHAR, cchfile: super::ULONG, uiconindex: super::ULONG, hklsubstitute: super::HKL, dwpreferredlayout: super::DWORD, benabledbydefault: bool, dwflags: super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RegisterProfile)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, pchdesc, cchdesc, pchiconfile, cchfile, uiconindex, hklsubstitute, dwpreferredlayout, benabledbydefault.into(), dwflags) }
     }
     #[cfg(all(feature = "guiddef", feature = "shared"))]
     pub unsafe fn UnregisterProfile(&self, rclsid: *const super::IID, langid: super::LANGID, guidprofile: *const windows_core::GUID, dwflags: super::DWORD) -> windows_core::HRESULT {
@@ -4045,7 +4162,10 @@ impl ITfInputProcessorProfileMgr_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4156,8 +4276,8 @@ impl ITfInputProcessorProfiles {
         unsafe { (windows_core::Interface::vtable(self).Unregister)(windows_core::Interface::as_raw(self), rclsid) }
     }
     #[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
-    pub unsafe fn AddLanguageProfile(&self, rclsid: *const super::IID, langid: super::LANGID, guidprofile: *const windows_core::GUID, pchdesc: &[super::WCHAR], pchiconfile: &[super::WCHAR], uiconindex: super::ULONG) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddLanguageProfile)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, pchdesc.as_ptr(), pchdesc.len().try_into().unwrap(), pchiconfile.as_ptr(), pchiconfile.len().try_into().unwrap(), uiconindex) }
+    pub unsafe fn AddLanguageProfile(&self, rclsid: *const super::IID, langid: super::LANGID, guidprofile: *const windows_core::GUID, pchdesc: *const super::WCHAR, cchdesc: super::ULONG, pchiconfile: *const super::WCHAR, cchfile: super::ULONG, uiconindex: super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddLanguageProfile)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, pchdesc, cchdesc, pchiconfile, cchfile, uiconindex) }
     }
     #[cfg(all(feature = "guiddef", feature = "shared"))]
     pub unsafe fn RemoveLanguageProfile(&self, rclsid: *const super::IID, langid: super::LANGID, guidprofile: *const windows_core::GUID) -> windows_core::HRESULT {
@@ -4359,7 +4479,10 @@ impl ITfInputProcessorProfiles_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4419,7 +4542,10 @@ impl ITfInputProcessorProfiles_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4485,8 +4611,8 @@ impl core::ops::Deref for ITfInputProcessorProfilesEx {
 windows_core::imp::interface_hierarchy!(ITfInputProcessorProfilesEx, windows_core::IUnknown, ITfInputProcessorProfiles);
 impl ITfInputProcessorProfilesEx {
     #[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
-    pub unsafe fn SetLanguageProfileDisplayName(&self, rclsid: *const super::IID, langid: super::LANGID, guidprofile: *const windows_core::GUID, pchfile: &[super::WCHAR], uresid: super::ULONG) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetLanguageProfileDisplayName)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, pchfile.as_ptr(), pchfile.len().try_into().unwrap(), uresid) }
+    pub unsafe fn SetLanguageProfileDisplayName(&self, rclsid: *const super::IID, langid: super::LANGID, guidprofile: *const windows_core::GUID, pchfile: *const super::WCHAR, cchfile: super::ULONG, uresid: super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetLanguageProfileDisplayName)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, pchfile, cchfile, uresid) }
     }
 }
 #[repr(C)]
@@ -4526,10 +4652,10 @@ windows_core::imp::define_interface!(ITfInsertAtSelection, ITfInsertAtSelection_
 windows_core::imp::interface_hierarchy!(ITfInsertAtSelection, windows_core::IUnknown);
 impl ITfInsertAtSelection {
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn InsertTextAtSelection(&self, ec: TfEditCookie, dwflags: super::DWORD, pchtext: &[super::WCHAR]) -> windows_core::Result<ITfRange> {
+    pub unsafe fn InsertTextAtSelection(&self, ec: TfEditCookie, dwflags: super::DWORD, pchtext: *const super::WCHAR, cch: super::LONG) -> windows_core::Result<ITfRange> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InsertTextAtSelection)(windows_core::Interface::as_raw(self), ec, dwflags, pchtext.as_ptr(), pchtext.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).InsertTextAtSelection)(windows_core::Interface::as_raw(self), ec, dwflags, pchtext, cch, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "objidl", feature = "shared"))]
@@ -4572,7 +4698,10 @@ impl ITfInsertAtSelection_Vtbl {
                         pprange.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pprange.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4584,7 +4713,10 @@ impl ITfInsertAtSelection_Vtbl {
                         pprange.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pprange.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5364,7 +5496,10 @@ impl ITfPersistentPropertyLoaderACP_Vtbl {
                         ppstream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5647,7 +5782,10 @@ impl ITfPropertyStore_Vtbl {
                         pppropstore.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pppropstore.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5659,7 +5797,10 @@ impl ITfPropertyStore_Vtbl {
                         ppropstore.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppropstore.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5947,7 +6088,10 @@ impl ITfRange_Vtbl {
                         ppdataobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdataobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6061,7 +6205,10 @@ impl ITfRange_Vtbl {
                         ppclone.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppclone.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6073,7 +6220,10 @@ impl ITfRange_Vtbl {
                         ppcontext.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcontext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6276,7 +6426,10 @@ impl ITfReadOnlyProperty_Vtbl {
                         ppcontext.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcontext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6441,7 +6594,10 @@ impl ITfReverseConversion_Vtbl {
                         pplist.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pplist.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6544,7 +6700,10 @@ impl ITfReverseConversionMgr_Vtbl {
                         ppreverseconversion.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppreverseconversion.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7054,7 +7213,10 @@ impl ITfThreadMgr_Vtbl {
                         ppdim.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdim.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7066,7 +7228,10 @@ impl ITfThreadMgr_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7078,7 +7243,10 @@ impl ITfThreadMgr_Vtbl {
                         ppdimfocus.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdimfocus.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7096,7 +7264,10 @@ impl ITfThreadMgr_Vtbl {
                         ppdimprev.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdimprev.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7114,7 +7285,10 @@ impl ITfThreadMgr_Vtbl {
                         ppfuncprov.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppfuncprov.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7126,7 +7300,10 @@ impl ITfThreadMgr_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7138,7 +7315,10 @@ impl ITfThreadMgr_Vtbl {
                         ppcompmgr.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcompmgr.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7301,7 +7481,10 @@ impl ITfThreadMgr2_Vtbl {
                         ppdim.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdim.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7313,7 +7496,10 @@ impl ITfThreadMgr2_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7325,7 +7511,10 @@ impl ITfThreadMgr2_Vtbl {
                         ppdimfocus.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdimfocus.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7349,7 +7538,10 @@ impl ITfThreadMgr2_Vtbl {
                         ppfuncprov.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppfuncprov.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7361,7 +7553,10 @@ impl ITfThreadMgr2_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7373,7 +7568,10 @@ impl ITfThreadMgr2_Vtbl {
                         ppcompmgr.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcompmgr.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

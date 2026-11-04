@@ -199,7 +199,10 @@ impl IEnumVdsObject_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -350,7 +353,10 @@ impl IVdsAdvancedDisk_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -392,7 +398,10 @@ impl IVdsAdvancedDisk_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -404,7 +413,10 @@ impl IVdsAdvancedDisk_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -523,8 +535,8 @@ windows_core::imp::define_interface!(IVdsAdviseSink, IVdsAdviseSink_Vtbl, 0x8326
 windows_core::imp::interface_hierarchy!(IVdsAdviseSink, windows_core::IUnknown);
 impl IVdsAdviseSink {
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn OnNotify(&self, pnotificationarray: &[VDS_NOTIFICATION]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnNotify)(windows_core::Interface::as_raw(self), pnotificationarray.len().try_into().unwrap(), pnotificationarray.as_ptr()) }
+    pub unsafe fn OnNotify(&self, lnumberofnotifications: super::LONG, pnotificationarray: *const VDS_NOTIFICATION) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnNotify)(windows_core::Interface::as_raw(self), lnumberofnotifications, pnotificationarray) }
     }
 }
 #[repr(C)]
@@ -709,7 +721,10 @@ impl IVdsController_Vtbl {
                         ppsubsystem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsubsystem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -745,7 +760,10 @@ impl IVdsController_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -802,7 +820,10 @@ impl IVdsControllerControllerPort_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -871,7 +892,10 @@ impl IVdsControllerPort_Vtbl {
                         ppcontroller.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcontroller.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -883,7 +907,10 @@ impl IVdsControllerPort_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -948,7 +975,10 @@ impl IVdsCreatePartitionEx_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1047,7 +1077,10 @@ impl IVdsDisk_Vtbl {
                         pppack.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pppack.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1312,7 +1345,10 @@ impl IVdsDiskPartitionMF_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1369,7 +1405,10 @@ impl IVdsDiskPartitionMF2_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1459,7 +1498,10 @@ impl IVdsDrive_Vtbl {
                         ppsubsystem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsubsystem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1633,7 +1675,10 @@ impl IVdsHwProvider_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1720,7 +1765,10 @@ impl IVdsHwProviderStoragePools_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1732,7 +1780,10 @@ impl IVdsHwProviderStoragePools_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1879,7 +1930,10 @@ impl IVdsIscsiInitiatorAdapter_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1891,7 +1945,10 @@ impl IVdsIscsiInitiatorAdapter_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1903,7 +1960,10 @@ impl IVdsIscsiInitiatorAdapter_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1994,7 +2054,10 @@ impl IVdsIscsiInitiatorPortal_Vtbl {
                         ppinitiatoradapter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppinitiatoradapter.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2117,7 +2180,10 @@ impl IVdsIscsiPortal_Vtbl {
                         ppsubsystem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsubsystem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2129,7 +2195,10 @@ impl IVdsIscsiPortal_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2246,7 +2315,10 @@ impl IVdsIscsiPortalGroup_Vtbl {
                         pptarget.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptarget.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2258,7 +2330,10 @@ impl IVdsIscsiPortalGroup_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2270,7 +2345,10 @@ impl IVdsIscsiPortalGroup_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2282,7 +2360,10 @@ impl IVdsIscsiPortalGroup_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2294,7 +2375,10 @@ impl IVdsIscsiPortalGroup_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2466,7 +2550,10 @@ impl IVdsIscsiTarget_Vtbl {
                         ppsubsystem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsubsystem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2478,7 +2565,10 @@ impl IVdsIscsiTarget_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2490,7 +2580,10 @@ impl IVdsIscsiTarget_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2502,7 +2595,10 @@ impl IVdsIscsiTarget_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2514,7 +2610,10 @@ impl IVdsIscsiTarget_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2735,7 +2834,10 @@ impl IVdsLun_Vtbl {
                         ppsubsystem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsubsystem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2753,7 +2855,10 @@ impl IVdsLun_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2765,7 +2870,10 @@ impl IVdsLun_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2777,7 +2885,10 @@ impl IVdsLun_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2789,7 +2900,10 @@ impl IVdsLun_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2801,7 +2915,10 @@ impl IVdsLun_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2813,7 +2930,10 @@ impl IVdsLun_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2825,7 +2945,10 @@ impl IVdsLun_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3001,7 +3124,10 @@ impl IVdsLunControllerPorts_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3063,7 +3189,10 @@ impl IVdsLunIscsi_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3313,7 +3442,10 @@ impl IVdsLunPlex_Vtbl {
                         pplun.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pplun.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3507,7 +3639,10 @@ impl IVdsOpenVDisk_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3531,7 +3666,10 @@ impl IVdsOpenVDisk_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3543,7 +3681,10 @@ impl IVdsOpenVDisk_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3555,7 +3696,10 @@ impl IVdsOpenVDisk_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3601,10 +3745,10 @@ impl IVdsPack {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateVolume(&self, r#type: VDS_VOLUME_TYPE, pinputdiskarray: &[VDS_INPUT_DISK], ulstripesize: super::ULONG) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn CreateVolume(&self, r#type: VDS_VOLUME_TYPE, pinputdiskarray: *const VDS_INPUT_DISK, lnumberofdisks: super::LONG, ulstripesize: super::ULONG) -> windows_core::Result<IVdsAsync> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateVolume)(windows_core::Interface::as_raw(self), r#type, pinputdiskarray.as_ptr(), pinputdiskarray.len().try_into().unwrap(), ulstripesize, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateVolume)(windows_core::Interface::as_raw(self), r#type, pinputdiskarray, lnumberofdisks, ulstripesize, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn AddDisk(&self, diskid: VDS_OBJECT_ID, partitionstyle: VDS_PARTITION_STYLE, bashotspare: bool) -> windows_core::HRESULT {
@@ -3684,7 +3828,10 @@ impl IVdsPack_Vtbl {
                         ppprovider.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppprovider.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3696,7 +3843,10 @@ impl IVdsPack_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3708,7 +3858,10 @@ impl IVdsPack_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3720,7 +3873,10 @@ impl IVdsPack_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3744,7 +3900,10 @@ impl IVdsPack_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3762,7 +3921,10 @@ impl IVdsPack_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3790,10 +3952,10 @@ windows_core::imp::define_interface!(IVdsPack2, IVdsPack2_Vtbl, 0x13b50bff_290a_
 windows_core::imp::interface_hierarchy!(IVdsPack2, windows_core::IUnknown);
 impl IVdsPack2 {
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateVolume2(&self, r#type: VDS_VOLUME_TYPE, pinputdiskarray: &[VDS_INPUT_DISK], ulstripesize: super::ULONG, ulalign: super::ULONG) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn CreateVolume2(&self, r#type: VDS_VOLUME_TYPE, pinputdiskarray: *const VDS_INPUT_DISK, lnumberofdisks: super::LONG, ulstripesize: super::ULONG, ulalign: super::ULONG) -> windows_core::Result<IVdsAsync> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateVolume2)(windows_core::Interface::as_raw(self), r#type, pinputdiskarray.as_ptr(), pinputdiskarray.len().try_into().unwrap(), ulstripesize, ulalign, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateVolume2)(windows_core::Interface::as_raw(self), r#type, pinputdiskarray, lnumberofdisks, ulstripesize, ulalign, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -3821,7 +3983,10 @@ impl IVdsPack2_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4124,7 +4289,10 @@ impl IVdsService_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4136,7 +4304,10 @@ impl IVdsService_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4148,7 +4319,10 @@ impl IVdsService_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4160,7 +4334,10 @@ impl IVdsService_Vtbl {
                         ppobjectunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppobjectunk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4280,7 +4457,10 @@ impl IVdsServiceHba_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4412,7 +4592,10 @@ impl IVdsServiceIscsi_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4495,7 +4678,10 @@ impl IVdsServiceLoader_Vtbl {
                         ppservice.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppservice.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4584,7 +4770,10 @@ impl IVdsServiceSw_Vtbl {
                         ppdiskunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdiskunk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4726,7 +4915,10 @@ impl IVdsStoragePool_Vtbl {
                         ppprovider.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppprovider.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4756,7 +4948,10 @@ impl IVdsStoragePool_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4768,7 +4963,10 @@ impl IVdsStoragePool_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4830,8 +5028,8 @@ impl IVdsSubSystem {
         unsafe { (windows_core::Interface::vtable(self).Reenumerate)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetControllerStatus(&self, ponlinecontrolleridarray: &[VDS_OBJECT_ID], pofflinecontrolleridarray: &[VDS_OBJECT_ID]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetControllerStatus)(windows_core::Interface::as_raw(self), ponlinecontrolleridarray.as_ptr(), ponlinecontrolleridarray.len().try_into().unwrap(), pofflinecontrolleridarray.as_ptr(), pofflinecontrolleridarray.len().try_into().unwrap()) }
+    pub unsafe fn SetControllerStatus(&self, ponlinecontrolleridarray: *const VDS_OBJECT_ID, lnumberofonlinecontrollers: super::LONG, pofflinecontrolleridarray: *const VDS_OBJECT_ID, lnumberofofflinecontrollers: super::LONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetControllerStatus)(windows_core::Interface::as_raw(self), ponlinecontrolleridarray, lnumberofonlinecontrollers, pofflinecontrolleridarray, lnumberofofflinecontrollers) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn CreateLun<P4>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: super::ULONGLONG, pdriveidarray: Option<*const VDS_OBJECT_ID>, lnumberofdrives: super::LONG, pwszunmaskinglist: P4, phints: Option<*const VDS_HINTS>) -> windows_core::Result<IVdsAsync>
@@ -4918,7 +5116,10 @@ impl IVdsSubSystem_Vtbl {
                         ppprovider.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppprovider.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4930,7 +5131,10 @@ impl IVdsSubSystem_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4942,7 +5146,10 @@ impl IVdsSubSystem_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4954,7 +5161,10 @@ impl IVdsSubSystem_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4966,7 +5176,10 @@ impl IVdsSubSystem_Vtbl {
                         ppdrive.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdrive.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4990,7 +5203,10 @@ impl IVdsSubSystem_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5108,7 +5324,10 @@ impl IVdsSubSystem2_Vtbl {
                         ppdrive.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdrive.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5120,7 +5339,10 @@ impl IVdsSubSystem2_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5291,7 +5513,10 @@ impl IVdsSubSystemIscsi_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5303,7 +5528,10 @@ impl IVdsSubSystemIscsi_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5315,7 +5543,10 @@ impl IVdsSubSystemIscsi_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5410,7 +5641,10 @@ impl IVdsSwProvider_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5422,7 +5656,10 @@ impl IVdsSwProvider_Vtbl {
                         pppack.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pppack.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5494,7 +5731,10 @@ impl IVdsVDisk_Vtbl {
                         ppopenvdisk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppopenvdisk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5512,7 +5752,10 @@ impl IVdsVDisk_Vtbl {
                         ppvolume.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvolume.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5614,7 +5857,10 @@ impl IVdsVdProvider_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5638,7 +5884,10 @@ impl IVdsVdProvider_Vtbl {
                         ppdisk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdisk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5650,7 +5899,10 @@ impl IVdsVdProvider_Vtbl {
                         ppvdisk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvdisk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5794,7 +6046,10 @@ impl IVdsVolume_Vtbl {
                         pppack.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pppack.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5806,7 +6061,10 @@ impl IVdsVolume_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5818,7 +6076,10 @@ impl IVdsVolume_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5830,7 +6091,10 @@ impl IVdsVolume_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5842,7 +6106,10 @@ impl IVdsVolume_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5854,7 +6121,10 @@ impl IVdsVolume_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5866,7 +6136,10 @@ impl IVdsVolume_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5964,8 +6237,8 @@ impl IVdsVolumeMF {
             (windows_core::Interface::vtable(self).Format)(windows_core::Interface::as_raw(self), r#type, pwszlabel.param().abi(), dwunitallocationsize, bforce.into(), bquickformat.into(), benablecompression.into(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn AddAccessPath(&self, pwszpath: &[u16; 260]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddAccessPath)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszpath.as_ptr())) }
+    pub unsafe fn AddAccessPath(&self, pwszpath: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddAccessPath)(windows_core::Interface::as_raw(self), pwszpath) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn QueryAccessPaths(&self, pwszpatharray: *mut *mut windows_core::PWSTR, plnumberofaccesspaths: *mut super::LONG) -> windows_core::HRESULT {
@@ -5975,8 +6248,8 @@ impl IVdsVolumeMF {
     pub unsafe fn QueryReparsePoints(&self, ppreparsepointprops: *mut *mut VDS_REPARSE_POINT_PROP, plnumberofreparsepointprops: *mut super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).QueryReparsePoints)(windows_core::Interface::as_raw(self), ppreparsepointprops as _, plnumberofreparsepointprops as _) }
     }
-    pub unsafe fn DeleteAccessPath(&self, pwszpath: &[u16; 260], bforce: bool) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).DeleteAccessPath)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszpath.as_ptr()), bforce.into()) }
+    pub unsafe fn DeleteAccessPath(&self, pwszpath: windows_core::PCWSTR, bforce: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteAccessPath)(windows_core::Interface::as_raw(self), pwszpath, bforce.into()) }
     }
     pub unsafe fn Mount(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Mount)(windows_core::Interface::as_raw(self)) }
@@ -6056,7 +6329,10 @@ impl IVdsVolumeMF_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6193,7 +6469,10 @@ impl IVdsVolumeMF2_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6269,7 +6548,10 @@ impl IVdsVolumeMF3_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6341,10 +6623,10 @@ impl IVdsVolumePlex {
         unsafe { (windows_core::Interface::vtable(self).QueryExtents)(windows_core::Interface::as_raw(self), ppextentarray as _, plnumberofextents as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn Repair(&self, pinputdiskarray: &[VDS_INPUT_DISK]) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn Repair(&self, pinputdiskarray: *const VDS_INPUT_DISK, lnumberofdisks: super::LONG) -> windows_core::Result<IVdsAsync> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Repair)(windows_core::Interface::as_raw(self), pinputdiskarray.as_ptr(), pinputdiskarray.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Repair)(windows_core::Interface::as_raw(self), pinputdiskarray, lnumberofdisks, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -6390,7 +6672,10 @@ impl IVdsVolumePlex_Vtbl {
                         ppvolume.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvolume.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6408,7 +6693,10 @@ impl IVdsVolumePlex_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6476,7 +6764,10 @@ impl IVdsVolumeShrink_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppasync.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

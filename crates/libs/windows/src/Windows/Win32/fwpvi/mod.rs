@@ -108,9 +108,9 @@ pub unsafe fn FwpmConnectionGetSecurityInfo(enginehandle: super::HANDLE, securit
 }
 #[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn FwpmConnectionPolicyAdd(enginehandle: super::HANDLE, connectionpolicy: *const super::FWPM_PROVIDER_CONTEXT3, ipversion: super::FWP_IP_VERSION, weight: super::UINT64, filterconditions: &[super::FWPM_FILTER_CONDITION0], sd: Option<super::PSECURITY_DESCRIPTOR>) -> super::DWORD {
+pub unsafe fn FwpmConnectionPolicyAdd(enginehandle: super::HANDLE, connectionpolicy: *const super::FWPM_PROVIDER_CONTEXT3, ipversion: super::FWP_IP_VERSION, weight: super::UINT64, numfilterconditions: super::UINT32, filterconditions: *const super::FWPM_FILTER_CONDITION0, sd: Option<super::PSECURITY_DESCRIPTOR>) -> super::DWORD {
     windows_core::link!("fwpuclnt.dll" "system" "FwpmConnectionPolicyAdd0" fn FwpmConnectionPolicyAdd(enginehandle : super::HANDLE, connectionpolicy : *const super::FWPM_PROVIDER_CONTEXT3, ipversion : super::FWP_IP_VERSION, weight : super::UINT64, numfilterconditions : super::UINT32, filterconditions : *const super::FWPM_FILTER_CONDITION0, sd : super::PSECURITY_DESCRIPTOR) -> super::DWORD);
-    unsafe { FwpmConnectionPolicyAdd(enginehandle, connectionpolicy, ipversion, weight, filterconditions.len().try_into().unwrap(), filterconditions.as_ptr(), sd.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { FwpmConnectionPolicyAdd(enginehandle, connectionpolicy, ipversion, weight, numfilterconditions, filterconditions, sd.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -272,9 +272,9 @@ where
 }
 #[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn FwpmIPsecTunnelAdd(enginehandle: super::HANDLE, flags: super::UINT32, mainmodepolicy: Option<*const super::FWPM_PROVIDER_CONTEXT3>, tunnelpolicy: *const super::FWPM_PROVIDER_CONTEXT3, filterconditions: &[super::FWPM_FILTER_CONDITION0], keymodkey: Option<*const windows_core::GUID>, sd: Option<super::PSECURITY_DESCRIPTOR>) -> super::DWORD {
+pub unsafe fn FwpmIPsecTunnelAdd(enginehandle: super::HANDLE, flags: super::UINT32, mainmodepolicy: Option<*const super::FWPM_PROVIDER_CONTEXT3>, tunnelpolicy: *const super::FWPM_PROVIDER_CONTEXT3, numfilterconditions: super::UINT32, filterconditions: *const super::FWPM_FILTER_CONDITION0, keymodkey: Option<*const windows_core::GUID>, sd: Option<super::PSECURITY_DESCRIPTOR>) -> super::DWORD {
     windows_core::link!("fwpuclnt.dll" "system" "FwpmIPsecTunnelAdd3" fn FwpmIPsecTunnelAdd(enginehandle : super::HANDLE, flags : super::UINT32, mainmodepolicy : *const super::FWPM_PROVIDER_CONTEXT3, tunnelpolicy : *const super::FWPM_PROVIDER_CONTEXT3, numfilterconditions : super::UINT32, filterconditions : *const super::FWPM_FILTER_CONDITION0, keymodkey : *const windows_core::GUID, sd : super::PSECURITY_DESCRIPTOR) -> super::DWORD);
-    unsafe { FwpmIPsecTunnelAdd(enginehandle, flags, mainmodepolicy.unwrap_or(core::mem::zeroed()) as _, tunnelpolicy, filterconditions.len().try_into().unwrap(), filterconditions.as_ptr(), keymodkey.unwrap_or(core::mem::zeroed()) as _, sd.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { FwpmIPsecTunnelAdd(enginehandle, flags, mainmodepolicy.unwrap_or(core::mem::zeroed()) as _, tunnelpolicy, numfilterconditions, filterconditions, keymodkey.unwrap_or(core::mem::zeroed()) as _, sd.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]

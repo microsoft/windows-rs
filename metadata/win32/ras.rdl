@@ -390,9 +390,9 @@ mod Windows {
         #[library("RASAPI32.dll")]
         extern fn RasEditPhonebookEntryW(#[in] param0: HWND, #[in] #[opt] param1: LPCWSTR, #[in] param2: LPCWSTR) -> DWORD;
         #[library("RASAPI32.dll")]
-        extern fn RasEnumAutodialAddressesA(#[in] #[opt] #[out] #[writable(entry, bytes(*lpdwcbRasAutodialAddresses))] lppRasAutodialAddresses: *mut LPSTR, #[in] #[out] lpdwcbRasAutodialAddresses: LPDWORD, #[out] lpdwcRasAutodialAddresses: LPDWORD) -> DWORD;
+        extern fn RasEnumAutodialAddressesA(#[buffer(bytes(*lpdwcbRasAutodialAddresses))] #[in] #[opt] #[out] lppRasAutodialAddresses: *mut LPSTR, #[in] #[out] lpdwcbRasAutodialAddresses: LPDWORD, #[out] lpdwcRasAutodialAddresses: LPDWORD) -> DWORD;
         #[library("RASAPI32.dll")]
-        extern fn RasEnumAutodialAddressesW(#[in] #[opt] #[out] #[writable(entry, bytes(*lpdwcbRasAutodialAddresses))] lppRasAutodialAddresses: *mut LPWSTR, #[in] #[out] lpdwcbRasAutodialAddresses: LPDWORD, #[out] lpdwcRasAutodialAddresses: LPDWORD) -> DWORD;
+        extern fn RasEnumAutodialAddressesW(#[buffer(bytes(*lpdwcbRasAutodialAddresses))] #[in] #[opt] #[out] lppRasAutodialAddresses: *mut LPWSTR, #[in] #[out] lpdwcbRasAutodialAddresses: LPDWORD, #[out] lpdwcRasAutodialAddresses: LPDWORD) -> DWORD;
         #[library("RASAPI32.dll")]
         extern fn RasEnumConnectionsA(#[in] #[opt] #[out] param0: *mut tagRASCONNA, #[in] #[out] param1: LPDWORD, #[out] param2: LPDWORD) -> DWORD;
         #[library("RASAPI32.dll")]
@@ -436,9 +436,9 @@ mod Windows {
         #[library("RASAPI32.dll")]
         extern fn RasGetCredentialsW(#[in] #[opt] param0: LPCWSTR, #[in] param1: LPCWSTR, #[in] #[out] param2: *mut tagRASCREDENTIALSW) -> DWORD;
         #[library("RASAPI32.dll")]
-        extern fn RasGetCustomAuthDataA(#[in] #[opt] pszPhonebook: LPCSTR, #[in] pszEntry: LPCSTR, #[opt] #[out] #[writable(entry, bytes(*pdwSizeofCustomAuthData))] pbCustomAuthData: *mut BYTE, #[in] #[out] pdwSizeofCustomAuthData: *mut DWORD) -> DWORD;
+        extern fn RasGetCustomAuthDataA(#[in] #[opt] pszPhonebook: LPCSTR, #[in] pszEntry: LPCSTR, #[buffer(bytes(*pdwSizeofCustomAuthData))] #[opt] #[out] pbCustomAuthData: *mut BYTE, #[in] #[out] pdwSizeofCustomAuthData: *mut DWORD) -> DWORD;
         #[library("RASAPI32.dll")]
-        extern fn RasGetCustomAuthDataW(#[in] #[opt] pszPhonebook: LPCWSTR, #[in] pszEntry: LPCWSTR, #[opt] #[out] #[writable(entry, bytes(*pdwSizeofCustomAuthData))] pbCustomAuthData: *mut BYTE, #[in] #[out] pdwSizeofCustomAuthData: *mut DWORD) -> DWORD;
+        extern fn RasGetCustomAuthDataW(#[in] #[opt] pszPhonebook: LPCWSTR, #[in] pszEntry: LPCWSTR, #[buffer(bytes(*pdwSizeofCustomAuthData))] #[opt] #[out] pbCustomAuthData: *mut BYTE, #[in] #[out] pdwSizeofCustomAuthData: *mut DWORD) -> DWORD;
         #[library("RASAPI32.dll")]
         extern fn RasGetEapUserDataA(#[in] #[opt] hToken: HANDLE, #[in] #[opt] pszPhonebook: LPCSTR, #[in] pszEntry: LPCSTR, #[opt] #[out] pbEapData: *mut BYTE, #[in] #[out] pdwSizeofEapData: *mut DWORD) -> DWORD;
         #[library("RASAPI32.dll")]
@@ -456,9 +456,9 @@ mod Windows {
         #[library("RASAPI32.dll")]
         extern fn RasGetEntryPropertiesW(#[in] #[opt] param0: LPCWSTR, #[in] param1: LPCWSTR, #[in] #[opt] #[out] param2: *mut tagRASENTRYW, #[in] #[out] param3: LPDWORD, #[opt] #[out] param4: LPBYTE, #[in] #[opt] #[out] param5: LPDWORD) -> DWORD;
         #[library("RASAPI32.dll")]
-        extern fn RasGetErrorStringA(#[in] ResourceId: UINT, #[out] #[writable(entry, InBufSize)] lpszString: LPSTR, #[in] InBufSize: DWORD) -> DWORD;
+        extern fn RasGetErrorStringA(#[in] ResourceId: UINT, #[buffer(InBufSize)] #[out] lpszString: LPSTR, #[in] InBufSize: DWORD) -> DWORD;
         #[library("RASAPI32.dll")]
-        extern fn RasGetErrorStringW(#[in] ResourceId: UINT, #[out] #[writable(entry, InBufSize)] lpszString: LPWSTR, #[in] InBufSize: DWORD) -> DWORD;
+        extern fn RasGetErrorStringW(#[in] ResourceId: UINT, #[buffer(InBufSize)] #[out] lpszString: LPWSTR, #[in] InBufSize: DWORD) -> DWORD;
         #[library("RASAPI32.dll")]
         extern fn RasGetLinkStatistics(#[in] hRasConn: HRASCONN, #[in] dwSubEntry: DWORD, #[in] #[out] lpStatistics: *mut RAS_STATS) -> DWORD;
         #[library("RASAPI32.dll")]
@@ -504,9 +504,9 @@ mod Windows {
         #[library("RASAPI32.dll")]
         extern fn RasSetCredentialsW(#[in] #[opt] param0: LPCWSTR, #[in] param1: LPCWSTR, #[in] param2: *mut tagRASCREDENTIALSW, #[in] param3: BOOL) -> DWORD;
         #[library("RASAPI32.dll")]
-        extern fn RasSetCustomAuthDataA(#[in] #[opt] pszPhonebook: LPCSTR, #[in] pszEntry: LPCSTR, #[in] #[readable(entry, bytes(dwSizeofCustomAuthData))] pbCustomAuthData: *mut BYTE, #[in] dwSizeofCustomAuthData: DWORD) -> DWORD;
+        extern fn RasSetCustomAuthDataA(#[in] #[opt] pszPhonebook: LPCSTR, #[in] pszEntry: LPCSTR, #[buffer(bytes(dwSizeofCustomAuthData))] #[in] pbCustomAuthData: *mut BYTE, #[in] dwSizeofCustomAuthData: DWORD) -> DWORD;
         #[library("RASAPI32.dll")]
-        extern fn RasSetCustomAuthDataW(#[in] #[opt] pszPhonebook: LPCWSTR, #[in] pszEntry: LPCWSTR, #[in] #[readable(entry, bytes(dwSizeofCustomAuthData))] pbCustomAuthData: *mut BYTE, #[in] dwSizeofCustomAuthData: DWORD) -> DWORD;
+        extern fn RasSetCustomAuthDataW(#[in] #[opt] pszPhonebook: LPCWSTR, #[in] pszEntry: LPCWSTR, #[buffer(bytes(dwSizeofCustomAuthData))] #[in] pbCustomAuthData: *mut BYTE, #[in] dwSizeofCustomAuthData: DWORD) -> DWORD;
         #[library("RASAPI32.dll")]
         extern fn RasSetEapUserDataA(#[in] #[opt] hToken: HANDLE, #[in] #[opt] pszPhonebook: LPCSTR, #[in] pszEntry: LPCSTR, #[in] pbEapData: *mut BYTE, #[in] dwSizeofEapData: DWORD) -> DWORD;
         #[library("RASAPI32.dll")]

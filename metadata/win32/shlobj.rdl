@@ -58,7 +58,7 @@ mod Windows {
         #[guid(0xb22754e2_4574_11d1_9888_006097deacf9)]
         interface IADesktopP2: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+            fn QueryInterface(&self, #[in] riid: &IID, #[out] ppv: *mut *mut void) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -71,7 +71,7 @@ mod Windows {
         #[guid(0x52502ee0_ec80_11d0_89ab_00c04fc2972d)]
         interface IActiveDesktopP: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+            fn QueryInterface(&self, #[in] riid: &IID, #[out] ppv: *mut *mut void) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -79,7 +79,7 @@ mod Windows {
             fn SetSafeMode(&self, dwFlags: DWORD) -> HRESULT;
             fn EnsureUpdateHTML(&self) -> HRESULT;
             fn SetScheme(&self, #[in] pwszSchemeName: PCWSTR, dwFlags: DWORD) -> HRESULT;
-            fn GetScheme(&self, #[out] #[writable(entry, *pdwcchBuffer)] pwszSchemeName: PWSTR, #[in] #[out] pdwcchBuffer: *mut DWORD, dwFlags: DWORD) -> HRESULT;
+            fn GetScheme(&self, #[buffer(*pdwcchBuffer)] #[out] pwszSchemeName: PWSTR, #[in] #[out] pdwcchBuffer: *mut DWORD, dwFlags: DWORD) -> HRESULT;
         }
         #[guid(0x596a9a94_013e_11d1_8d34_00a0c90f2719)]
         interface IBanneredBar: IUnknown {
@@ -91,7 +91,7 @@ mod Windows {
         #[guid(0xe8025004_1c42_11d2_be2c_00a0c9a83da1)]
         interface IColumnProvider: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+            fn QueryInterface(&self, #[in] riid: &IID, #[out] ppv: *mut *mut void) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -110,7 +110,7 @@ mod Windows {
         }
         #[guid(0x91956d21_9276_11d1_921a_006097df5bd4)]
         interface ICurrentWorkingDirectory: IUnknown {
-            fn GetDirectory(&self, #[out] #[writable(entry, cchSize)] pwzPath: PWSTR, cchSize: DWORD) -> HRESULT;
+            fn GetDirectory(&self, #[buffer(cchSize)] #[out] pwzPath: PWSTR, cchSize: DWORD) -> HRESULT;
             fn SetDirectory(&self, #[in] pwzPath: PCWSTR) -> HRESULT;
         }
         const IDC_OFFLINE_HAND: i32 = 103;
@@ -131,7 +131,7 @@ mod Windows {
         interface IDockingWindowFrame: IOleWindow {
             fn AddToolbar(&self, #[in] punkSrc: IUnknown, #[in] pwszItem: PCWSTR, dwAddFlags: DWORD) -> HRESULT;
             fn RemoveToolbar(&self, #[in] punkSrc: IUnknown, dwRemoveFlags: DWORD) -> HRESULT;
-            fn FindToolbar(&self, #[in] pwszItem: PCWSTR, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+            fn FindToolbar(&self, #[in] pwszItem: PCWSTR, #[in] riid: &IID, #[out] ppv: *mut *mut void) -> HRESULT;
         }
         struct IEnumPrivacyRecords {}
         #[guid(0x4622ad16_ff23_11d0_8d34_00a0c90f2719)]
@@ -141,32 +141,32 @@ mod Windows {
         #[guid(0x000214e1_0000_0000_c000_000000000046)]
         interface INewShortcutHookA: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+            fn QueryInterface(&self, #[in] riid: &IID, #[out] ppv: *mut *mut void) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
             fn Release(&self) -> ULONG;
             fn SetReferent(&self, #[in] pcszReferent: PCSTR, #[in] #[opt] hwnd: HWND) -> HRESULT;
-            fn GetReferent(&self, #[out] #[writable(entry, cchReferent)] pszReferent: PSTR, cchReferent: i32) -> HRESULT;
+            fn GetReferent(&self, #[buffer(cchReferent)] #[out] pszReferent: PSTR, cchReferent: i32) -> HRESULT;
             fn SetFolder(&self, #[in] pcszFolder: PCSTR) -> HRESULT;
-            fn GetFolder(&self, #[out] #[writable(entry, cchFolder)] pszFolder: PSTR, cchFolder: i32) -> HRESULT;
-            fn GetName(&self, #[out] #[writable(entry, cchName)] pszName: PSTR, cchName: i32) -> HRESULT;
-            fn GetExtension(&self, #[out] #[writable(entry, cchExtension)] pszExtension: PSTR, cchExtension: i32) -> HRESULT;
+            fn GetFolder(&self, #[buffer(cchFolder)] #[out] pszFolder: PSTR, cchFolder: i32) -> HRESULT;
+            fn GetName(&self, #[buffer(cchName)] #[out] pszName: PSTR, cchName: i32) -> HRESULT;
+            fn GetExtension(&self, #[buffer(cchExtension)] #[out] pszExtension: PSTR, cchExtension: i32) -> HRESULT;
         }
         #[guid(0x000214f7_0000_0000_c000_000000000046)]
         interface INewShortcutHookW: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+            fn QueryInterface(&self, #[in] riid: &IID, #[out] ppv: *mut *mut void) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
             fn Release(&self) -> ULONG;
             fn SetReferent(&self, #[in] pcszReferent: PCWSTR, #[in] #[opt] hwnd: HWND) -> HRESULT;
-            fn GetReferent(&self, #[out] #[writable(entry, cchReferent)] pszReferent: PWSTR, cchReferent: i32) -> HRESULT;
+            fn GetReferent(&self, #[buffer(cchReferent)] #[out] pszReferent: PWSTR, cchReferent: i32) -> HRESULT;
             fn SetFolder(&self, #[in] pcszFolder: PCWSTR) -> HRESULT;
-            fn GetFolder(&self, #[out] #[writable(entry, cchFolder)] pszFolder: PWSTR, cchFolder: i32) -> HRESULT;
-            fn GetName(&self, #[out] #[writable(entry, cchName)] pszName: PWSTR, cchName: i32) -> HRESULT;
-            fn GetExtension(&self, #[out] #[writable(entry, cchExtension)] pszExtension: PWSTR, cchExtension: i32) -> HRESULT;
+            fn GetFolder(&self, #[buffer(cchFolder)] #[out] pszFolder: PWSTR, cchFolder: i32) -> HRESULT;
+            fn GetName(&self, #[buffer(cchName)] #[out] pszName: PWSTR, cchName: i32) -> HRESULT;
+            fn GetExtension(&self, #[buffer(cchExtension)] #[out] pszExtension: PWSTR, cchExtension: i32) -> HRESULT;
         }
         const ISFBVIEWMODE_LARGEICONS: i32 = 2;
         const ISFBVIEWMODE_SMALLICONS: i32 = 1;
@@ -290,11 +290,11 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn SHCreatePropSheetExtArray(#[in] hKey: HKEY, #[in] #[opt] pszSubKey: PCWSTR, max_iface: UINT) -> HPSXA;
         #[library("SHELL32.dll")]
-        extern fn SHCreateQueryCancelAutoPlayMoniker(#[out] #[out_ptr] #[retval] ppmoniker: *mut IMoniker) -> HRESULT;
+        extern fn SHCreateQueryCancelAutoPlayMoniker(#[out] #[retval] ppmoniker: *mut IMoniker) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHMultiFileProperties(#[in] pdtobj: IDataObject, dwFlags: DWORD) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHOpenPropSheetW(#[in] #[opt] pszCaption: LPCWSTR, #[in] #[opt] #[readable(entry, ckeys)] ahkeys: *mut HKEY, ckeys: UINT, #[in] #[opt] pclsidDefault: *const CLSID, #[in] pdtobj: IDataObject, #[in] #[opt] psb: IShellBrowser, #[in] #[opt] pStartPage: LPCWSTR) -> BOOL;
+        extern fn SHOpenPropSheetW(#[in] #[opt] pszCaption: LPCWSTR, #[buffer(ckeys)] #[in] #[opt] ahkeys: *mut HKEY, ckeys: UINT, #[in] #[opt] pclsidDefault: *const CLSID, #[in] pdtobj: IDataObject, #[in] #[opt] psb: IShellBrowser, #[in] #[opt] pStartPage: LPCWSTR) -> BOOL;
         const SSM_CLEAR: i32 = 0;
         const SSM_REFRESH: i32 = 2;
         const SSM_SET: i32 = 1;

@@ -133,7 +133,10 @@ impl IAccessibleEx_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -151,7 +154,10 @@ impl IAccessibleEx_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -163,7 +169,10 @@ impl IAccessibleEx_Vtbl {
                         ppretvalout.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppretvalout.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -224,7 +233,10 @@ impl IAccessibleHostingElementProviders_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -307,7 +319,10 @@ impl IAnnotationProvider_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -319,7 +334,10 @@ impl IAnnotationProvider_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -331,7 +349,10 @@ impl IAnnotationProvider_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -343,7 +364,10 @@ impl IAnnotationProvider_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -355,7 +379,10 @@ impl IAnnotationProvider_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -402,7 +429,10 @@ impl ICustomNavigationProvider_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -453,7 +483,10 @@ impl IDockProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -531,7 +564,10 @@ impl IDragProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -543,7 +579,10 @@ impl IDragProvider_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -555,7 +594,10 @@ impl IDragProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -567,7 +609,10 @@ impl IDragProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -628,7 +673,10 @@ impl IDropTargetProvider_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -640,7 +688,10 @@ impl IDropTargetProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -707,7 +758,10 @@ impl IExpandCollapseProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -784,7 +838,10 @@ impl IGridItemProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -796,7 +853,10 @@ impl IGridItemProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -808,7 +868,10 @@ impl IGridItemProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -820,7 +883,10 @@ impl IGridItemProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -832,7 +898,10 @@ impl IGridItemProvider_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -895,7 +964,10 @@ impl IGridProvider_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -907,7 +979,10 @@ impl IGridProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -919,7 +994,10 @@ impl IGridProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1004,7 +1082,10 @@ impl IItemContainerProvider_Vtbl {
                         pfound.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfound.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1179,7 +1260,10 @@ impl ILegacyIAccessibleProvider_Vtbl {
                         ppaccessible.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppaccessible.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1191,7 +1275,10 @@ impl ILegacyIAccessibleProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1203,7 +1290,10 @@ impl ILegacyIAccessibleProvider_Vtbl {
                         pszname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pszname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1215,7 +1305,10 @@ impl ILegacyIAccessibleProvider_Vtbl {
                         pszvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pszvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1227,7 +1320,10 @@ impl ILegacyIAccessibleProvider_Vtbl {
                         pszdescription.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pszdescription.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1239,7 +1335,10 @@ impl ILegacyIAccessibleProvider_Vtbl {
                         pdwrole.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdwrole.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1251,7 +1350,10 @@ impl ILegacyIAccessibleProvider_Vtbl {
                         pdwstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdwstate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1263,7 +1365,10 @@ impl ILegacyIAccessibleProvider_Vtbl {
                         pszhelp.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pszhelp.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1275,7 +1380,10 @@ impl ILegacyIAccessibleProvider_Vtbl {
                         pszkeyboardshortcut.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pszkeyboardshortcut.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1287,7 +1395,10 @@ impl ILegacyIAccessibleProvider_Vtbl {
                         pvarselectedchildren.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarselectedchildren.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1299,7 +1410,10 @@ impl ILegacyIAccessibleProvider_Vtbl {
                         pszdefaultaction.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pszdefaultaction.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1383,7 +1497,10 @@ impl IMultipleViewProvider_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1401,7 +1518,10 @@ impl IMultipleViewProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1413,7 +1533,10 @@ impl IMultipleViewProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1460,7 +1583,10 @@ impl IObjectModelProvider_Vtbl {
                         ppunknown.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunknown.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1670,7 +1796,10 @@ impl IRangeValueProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1682,7 +1811,10 @@ impl IRangeValueProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1694,7 +1826,10 @@ impl IRangeValueProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1706,7 +1841,10 @@ impl IRangeValueProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1718,7 +1856,10 @@ impl IRangeValueProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1730,7 +1871,10 @@ impl IRangeValueProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1883,7 +2027,10 @@ impl IRawElementProviderFragment_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1895,7 +2042,10 @@ impl IRawElementProviderFragment_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1907,7 +2057,10 @@ impl IRawElementProviderFragment_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1919,7 +2072,10 @@ impl IRawElementProviderFragment_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1937,7 +2093,10 @@ impl IRawElementProviderFragment_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1994,7 +2153,10 @@ impl IRawElementProviderFragmentRoot_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2006,7 +2168,10 @@ impl IRawElementProviderFragmentRoot_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2056,7 +2221,10 @@ impl IRawElementProviderHostingAccessibles_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2103,7 +2271,10 @@ impl IRawElementProviderHwndOverride_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2174,7 +2345,10 @@ impl IRawElementProviderSimple_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2186,7 +2360,10 @@ impl IRawElementProviderSimple_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2198,7 +2375,10 @@ impl IRawElementProviderSimple_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2210,7 +2390,10 @@ impl IRawElementProviderSimple_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2309,7 +2492,10 @@ impl IRawElementProviderSimple3_Vtbl {
                         returnval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        returnval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2364,7 +2550,10 @@ impl IRawElementProviderWindowlessSite_Vtbl {
                         ppparent.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppparent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2376,7 +2565,10 @@ impl IRawElementProviderWindowlessSite_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2514,7 +2706,10 @@ impl IScrollProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2526,7 +2721,10 @@ impl IScrollProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2538,7 +2736,10 @@ impl IScrollProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2550,7 +2751,10 @@ impl IScrollProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2562,7 +2766,10 @@ impl IScrollProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2574,7 +2781,10 @@ impl IScrollProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2665,7 +2875,10 @@ impl ISelectionItemProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2677,7 +2890,10 @@ impl ISelectionItemProvider_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2746,7 +2962,10 @@ impl ISelectionProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2758,7 +2977,10 @@ impl ISelectionProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2770,7 +2992,10 @@ impl ISelectionProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2848,7 +3073,10 @@ impl ISelectionProvider2_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2860,7 +3088,10 @@ impl ISelectionProvider2_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2872,7 +3103,10 @@ impl ISelectionProvider2_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2884,7 +3118,10 @@ impl ISelectionProvider2_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2957,7 +3194,10 @@ impl ISpreadsheetItemProvider_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2969,7 +3209,10 @@ impl ISpreadsheetItemProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2981,7 +3224,10 @@ impl ISpreadsheetItemProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3030,7 +3276,10 @@ impl ISpreadsheetProvider_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3118,7 +3367,10 @@ impl IStylesProvider_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3130,7 +3382,10 @@ impl IStylesProvider_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3142,7 +3397,10 @@ impl IStylesProvider_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3154,7 +3412,10 @@ impl IStylesProvider_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3166,7 +3427,10 @@ impl IStylesProvider_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3178,7 +3442,10 @@ impl IStylesProvider_Vtbl {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3190,7 +3457,10 @@ impl IStylesProvider_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3303,7 +3573,10 @@ impl ITableItemProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3315,7 +3588,10 @@ impl ITableItemProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3386,7 +3662,10 @@ impl ITableProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3398,7 +3677,10 @@ impl ITableProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3410,7 +3692,10 @@ impl ITableProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3464,7 +3749,10 @@ impl ITextChildProvider_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3476,7 +3764,10 @@ impl ITextChildProvider_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3536,7 +3827,10 @@ impl ITextEditProvider_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3548,7 +3842,10 @@ impl ITextEditProvider_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3646,7 +3943,10 @@ impl ITextProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3658,7 +3958,10 @@ impl ITextProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3670,7 +3973,10 @@ impl ITextProvider_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3682,7 +3988,10 @@ impl ITextProvider_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3694,7 +4003,10 @@ impl ITextProvider_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3706,7 +4018,10 @@ impl ITextProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3774,7 +4089,10 @@ impl ITextProvider2_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3786,7 +4104,10 @@ impl ITextProvider2_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3976,7 +4297,10 @@ impl ITextRangeProvider_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3988,7 +4312,10 @@ impl ITextRangeProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4000,7 +4327,10 @@ impl ITextRangeProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4018,7 +4348,10 @@ impl ITextRangeProvider_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4030,7 +4363,10 @@ impl ITextRangeProvider_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4042,7 +4378,10 @@ impl ITextRangeProvider_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4054,7 +4393,10 @@ impl ITextRangeProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4066,7 +4408,10 @@ impl ITextRangeProvider_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4078,7 +4423,10 @@ impl ITextRangeProvider_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4090,7 +4438,10 @@ impl ITextRangeProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4102,7 +4453,10 @@ impl ITextRangeProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4144,7 +4498,10 @@ impl ITextRangeProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4256,7 +4613,10 @@ impl IToggleProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4345,7 +4705,10 @@ impl ITransformProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4357,7 +4720,10 @@ impl ITransformProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4369,7 +4735,10 @@ impl ITransformProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4463,7 +4832,10 @@ impl ITransformProvider2_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4475,7 +4847,10 @@ impl ITransformProvider2_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4487,7 +4862,10 @@ impl ITransformProvider2_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4499,7 +4877,10 @@ impl ITransformProvider2_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4619,7 +5000,10 @@ impl IUIAutomationClientInfo_Vtbl {
                         processid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        processid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4631,7 +5015,10 @@ impl IUIAutomationClientInfo_Vtbl {
                         processname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        processname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4707,7 +5094,10 @@ impl IUIAutomationClientInfoSource_Vtbl {
                         clients.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        clients.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4770,7 +5160,10 @@ impl IUIAutomationPatternHandler_Vtbl {
                         pclientwrapper.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pclientwrapper.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4969,7 +5362,10 @@ impl IValueProvider_Vtbl {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4981,7 +5377,10 @@ impl IValueProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5127,7 +5526,10 @@ impl IWindowProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5139,7 +5541,10 @@ impl IWindowProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5151,7 +5556,10 @@ impl IWindowProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5163,7 +5571,10 @@ impl IWindowProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5175,7 +5586,10 @@ impl IWindowProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5187,7 +5601,10 @@ impl IWindowProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5199,7 +5616,10 @@ impl IWindowProvider_Vtbl {
                         pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pretval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

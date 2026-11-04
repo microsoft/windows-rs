@@ -255,7 +255,7 @@ impl IMFDeviceTransform_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        pmediatype.write(core::mem::zeroed());
+                        pmediatype.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -270,7 +270,7 @@ impl IMFDeviceTransform_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        pmediatype.write(core::mem::zeroed());
+                        pmediatype.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -285,7 +285,7 @@ impl IMFDeviceTransform_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppattributes.write(core::mem::zeroed());
+                        ppattributes.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -300,7 +300,7 @@ impl IMFDeviceTransform_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        pmediatype.write(core::mem::zeroed());
+                        pmediatype.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -315,7 +315,7 @@ impl IMFDeviceTransform_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        pmediatype.write(core::mem::zeroed());
+                        pmediatype.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -330,7 +330,7 @@ impl IMFDeviceTransform_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppattributes.write(core::mem::zeroed());
+                        ppattributes.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -405,7 +405,7 @@ impl IMFDeviceTransform_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppmediatype.write(core::mem::zeroed());
+                        ppmediatype.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -495,7 +495,7 @@ impl IMFDeviceTransform2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppattributes.write(core::mem::zeroed());
+                        ppattributes.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -843,7 +843,10 @@ impl IMFTransform_Vtbl {
                         pattributes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pattributes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -855,7 +858,10 @@ impl IMFTransform_Vtbl {
                         pattributes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pattributes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -867,7 +873,10 @@ impl IMFTransform_Vtbl {
                         pattributes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pattributes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -891,7 +900,10 @@ impl IMFTransform_Vtbl {
                         pptype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -903,7 +915,10 @@ impl IMFTransform_Vtbl {
                         pptype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -927,7 +942,10 @@ impl IMFTransform_Vtbl {
                         pptype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -939,7 +957,10 @@ impl IMFTransform_Vtbl {
                         pptype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

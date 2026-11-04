@@ -14,9 +14,9 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn BuildImpersonateTrusteeW(#[in] #[out] pTrustee: PTRUSTEE_W, #[in] #[opt] pImpersonateTrustee: PTRUSTEE_W);
         #[library("ADVAPI32.dll")]
-        extern fn BuildSecurityDescriptorA(#[in] #[opt] pOwner: PTRUSTEE_A, #[in] #[opt] pGroup: PTRUSTEE_A, #[in] cCountOfAccessEntries: ULONG, #[in] #[opt] #[readable(entry, cCountOfAccessEntries)] pListOfAccessEntries: PEXPLICIT_ACCESS_A, #[in] cCountOfAuditEntries: ULONG, #[in] #[opt] #[readable(entry, cCountOfAuditEntries)] pListOfAuditEntries: PEXPLICIT_ACCESS_A, #[in] #[opt] pOldSD: PSECURITY_DESCRIPTOR, #[out] pSizeNewSD: PULONG, #[out] #[writable(success, bytes(*pSizeNewSD), indirect)] pNewSD: *mut PSECURITY_DESCRIPTOR) -> DWORD;
+        extern fn BuildSecurityDescriptorA(#[in] #[opt] pOwner: PTRUSTEE_A, #[in] #[opt] pGroup: PTRUSTEE_A, #[in] cCountOfAccessEntries: ULONG, #[buffer(cCountOfAccessEntries)] #[in] #[opt] pListOfAccessEntries: PEXPLICIT_ACCESS_A, #[in] cCountOfAuditEntries: ULONG, #[buffer(cCountOfAuditEntries)] #[in] #[opt] pListOfAuditEntries: PEXPLICIT_ACCESS_A, #[in] #[opt] pOldSD: PSECURITY_DESCRIPTOR, #[out] pSizeNewSD: PULONG, #[incomplete] #[out] pNewSD: *mut PSECURITY_DESCRIPTOR) -> DWORD;
         #[library("ADVAPI32.dll")]
-        extern fn BuildSecurityDescriptorW(#[in] #[opt] pOwner: PTRUSTEE_W, #[in] #[opt] pGroup: PTRUSTEE_W, #[in] cCountOfAccessEntries: ULONG, #[in] #[opt] #[readable(entry, cCountOfAccessEntries)] pListOfAccessEntries: PEXPLICIT_ACCESS_W, #[in] cCountOfAuditEntries: ULONG, #[in] #[opt] #[readable(entry, cCountOfAuditEntries)] pListOfAuditEntries: PEXPLICIT_ACCESS_W, #[in] #[opt] pOldSD: PSECURITY_DESCRIPTOR, #[out] pSizeNewSD: PULONG, #[out] #[writable(success, bytes(*pSizeNewSD), indirect)] pNewSD: *mut PSECURITY_DESCRIPTOR) -> DWORD;
+        extern fn BuildSecurityDescriptorW(#[in] #[opt] pOwner: PTRUSTEE_W, #[in] #[opt] pGroup: PTRUSTEE_W, #[in] cCountOfAccessEntries: ULONG, #[buffer(cCountOfAccessEntries)] #[in] #[opt] pListOfAccessEntries: PEXPLICIT_ACCESS_W, #[in] cCountOfAuditEntries: ULONG, #[buffer(cCountOfAuditEntries)] #[in] #[opt] pListOfAuditEntries: PEXPLICIT_ACCESS_W, #[in] #[opt] pOldSD: PSECURITY_DESCRIPTOR, #[out] pSizeNewSD: PULONG, #[incomplete] #[out] pNewSD: *mut PSECURITY_DESCRIPTOR) -> DWORD;
         #[library("ADVAPI32.dll")]
         extern fn BuildTrusteeWithNameA(#[in] #[out] pTrustee: PTRUSTEE_A, #[in] #[opt] pName: LPSTR);
         #[library("ADVAPI32.dll")]
@@ -35,7 +35,7 @@ mod Windows {
         extern fn BuildTrusteeWithSidW(#[in] #[out] pTrustee: PTRUSTEE_W, #[in] #[opt] pSid: PSID);
         extern fn FN_PROGRESS(#[in] pObjectName: LPWSTR, #[in] Status: DWORD, #[in] #[out] pInvokeSetting: PPROG_INVOKE_SETTING, #[in] Args: PVOID, #[in] SecuritySet: BOOL);
         #[library("ADVAPI32.dll")]
-        extern fn FreeInheritedFromArray(#[in] #[readable(entry, AceCnt)] pInheritArray: PINHERITED_FROMW, #[in] AceCnt: USHORT, #[in] #[opt] pfnArray: PFN_OBJECT_MGR_FUNCTS) -> DWORD;
+        extern fn FreeInheritedFromArray(#[buffer(AceCnt)] #[in] pInheritArray: PINHERITED_FROMW, #[in] AceCnt: USHORT, #[in] #[opt] pfnArray: PFN_OBJECT_MGR_FUNCTS) -> DWORD;
         #[library("ADVAPI32.dll")]
         extern fn GetAuditedPermissionsFromAclA(#[in] pacl: PACL, #[in] pTrustee: PTRUSTEE_A, #[out] pSuccessfulAuditedRights: PACCESS_MASK, #[out] pFailedAuditRights: PACCESS_MASK) -> DWORD;
         #[library("ADVAPI32.dll")]
@@ -45,13 +45,13 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn GetEffectiveRightsFromAclW(#[in] pacl: PACL, #[in] pTrustee: PTRUSTEE_W, #[out] pAccessRights: PACCESS_MASK) -> DWORD;
         #[library("ADVAPI32.dll")]
-        extern fn GetExplicitEntriesFromAclA(#[in] pacl: PACL, #[out] pcCountOfExplicitEntries: PULONG, #[out] #[writable(success, *pcCountOfExplicitEntries, indirect)] pListOfExplicitEntries: *mut PEXPLICIT_ACCESS_A) -> DWORD;
+        extern fn GetExplicitEntriesFromAclA(#[in] pacl: PACL, #[out] pcCountOfExplicitEntries: PULONG, #[incomplete] #[out] pListOfExplicitEntries: *mut PEXPLICIT_ACCESS_A) -> DWORD;
         #[library("ADVAPI32.dll")]
-        extern fn GetExplicitEntriesFromAclW(#[in] pacl: PACL, #[out] pcCountOfExplicitEntries: PULONG, #[out] #[writable(success, *pcCountOfExplicitEntries, indirect)] pListOfExplicitEntries: *mut PEXPLICIT_ACCESS_W) -> DWORD;
+        extern fn GetExplicitEntriesFromAclW(#[in] pacl: PACL, #[out] pcCountOfExplicitEntries: PULONG, #[incomplete] #[out] pListOfExplicitEntries: *mut PEXPLICIT_ACCESS_W) -> DWORD;
         #[library("ADVAPI32.dll")]
-        extern fn GetInheritanceSourceA(#[in] pObjectName: LPSTR, #[in] ObjectType: SE_OBJECT_TYPE, #[in] SecurityInfo: SECURITY_INFORMATION, #[in] Container: BOOL, #[in] #[opt] #[readable(entry, GuidCount)] pObjectClassGuids: *mut *mut GUID, #[in] GuidCount: DWORD, #[in] pAcl: PACL, #[in] #[opt] pfnArray: PFN_OBJECT_MGR_FUNCTS, #[in] pGenericMapping: PGENERIC_MAPPING, #[out] pInheritArray: PINHERITED_FROMA) -> DWORD;
+        extern fn GetInheritanceSourceA(#[in] pObjectName: LPSTR, #[in] ObjectType: SE_OBJECT_TYPE, #[in] SecurityInfo: SECURITY_INFORMATION, #[in] Container: BOOL, #[buffer(GuidCount)] #[in] #[opt] pObjectClassGuids: *mut *mut GUID, #[in] GuidCount: DWORD, #[in] pAcl: PACL, #[in] #[opt] pfnArray: PFN_OBJECT_MGR_FUNCTS, #[in] pGenericMapping: PGENERIC_MAPPING, #[out] pInheritArray: PINHERITED_FROMA) -> DWORD;
         #[library("ADVAPI32.dll")]
-        extern fn GetInheritanceSourceW(#[in] pObjectName: LPWSTR, #[in] ObjectType: SE_OBJECT_TYPE, #[in] SecurityInfo: SECURITY_INFORMATION, #[in] Container: BOOL, #[in] #[opt] #[readable(entry, GuidCount)] pObjectClassGuids: *mut *mut GUID, #[in] GuidCount: DWORD, #[in] pAcl: PACL, #[in] #[opt] pfnArray: PFN_OBJECT_MGR_FUNCTS, #[in] pGenericMapping: PGENERIC_MAPPING, #[out] pInheritArray: PINHERITED_FROMW) -> DWORD;
+        extern fn GetInheritanceSourceW(#[in] pObjectName: LPWSTR, #[in] ObjectType: SE_OBJECT_TYPE, #[in] SecurityInfo: SECURITY_INFORMATION, #[in] Container: BOOL, #[buffer(GuidCount)] #[in] #[opt] pObjectClassGuids: *mut *mut GUID, #[in] GuidCount: DWORD, #[in] pAcl: PACL, #[in] #[opt] pfnArray: PFN_OBJECT_MGR_FUNCTS, #[in] pGenericMapping: PGENERIC_MAPPING, #[out] pInheritArray: PINHERITED_FROMW) -> DWORD;
         #[library("ADVAPI32.dll")]
         extern fn GetMultipleTrusteeA(#[in] #[opt] pTrustee: PTRUSTEE_A) -> PTRUSTEE_A;
         #[library("ADVAPI32.dll")]
@@ -79,13 +79,13 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn GetTrusteeTypeW(#[in] #[opt] pTrustee: PTRUSTEE_W) -> TRUSTEE_TYPE;
         #[library("ADVAPI32.dll")]
-        extern fn LookupSecurityDescriptorPartsA(#[opt] #[out] ppOwner: *mut PTRUSTEE_A, #[opt] #[out] ppGroup: *mut PTRUSTEE_A, #[opt] #[out] pcCountOfAccessEntries: PULONG, #[nullable] #[out] #[writable(success, if_present(*pcCountOfAccessEntries), indirect)] ppListOfAccessEntries: *mut PEXPLICIT_ACCESS_A, #[opt] #[out] pcCountOfAuditEntries: PULONG, #[nullable] #[out] #[writable(success, if_present(*pcCountOfAuditEntries), indirect)] ppListOfAuditEntries: *mut PEXPLICIT_ACCESS_A, #[in] pSD: PSECURITY_DESCRIPTOR) -> DWORD;
+        extern fn LookupSecurityDescriptorPartsA(#[opt] #[out] ppOwner: *mut PTRUSTEE_A, #[opt] #[out] ppGroup: *mut PTRUSTEE_A, #[opt] #[out] pcCountOfAccessEntries: PULONG, #[incomplete] #[out] ppListOfAccessEntries: *mut PEXPLICIT_ACCESS_A, #[opt] #[out] pcCountOfAuditEntries: PULONG, #[incomplete] #[out] ppListOfAuditEntries: *mut PEXPLICIT_ACCESS_A, #[in] pSD: PSECURITY_DESCRIPTOR) -> DWORD;
         #[library("ADVAPI32.dll")]
-        extern fn LookupSecurityDescriptorPartsW(#[opt] #[out] ppOwner: *mut PTRUSTEE_W, #[opt] #[out] ppGroup: *mut PTRUSTEE_W, #[opt] #[out] pcCountOfAccessEntries: PULONG, #[nullable] #[out] #[writable(success, if_present(*pcCountOfAccessEntries), indirect)] ppListOfAccessEntries: *mut PEXPLICIT_ACCESS_W, #[opt] #[out] pcCountOfAuditEntries: PULONG, #[nullable] #[out] #[writable(success, if_present(*pcCountOfAuditEntries), indirect)] ppListOfAuditEntries: *mut PEXPLICIT_ACCESS_W, #[in] pSD: PSECURITY_DESCRIPTOR) -> DWORD;
+        extern fn LookupSecurityDescriptorPartsW(#[opt] #[out] ppOwner: *mut PTRUSTEE_W, #[opt] #[out] ppGroup: *mut PTRUSTEE_W, #[opt] #[out] pcCountOfAccessEntries: PULONG, #[incomplete] #[out] ppListOfAccessEntries: *mut PEXPLICIT_ACCESS_W, #[opt] #[out] pcCountOfAuditEntries: PULONG, #[incomplete] #[out] ppListOfAuditEntries: *mut PEXPLICIT_ACCESS_W, #[in] pSD: PSECURITY_DESCRIPTOR) -> DWORD;
         #[library("ADVAPI32.dll")]
-        extern fn SetEntriesInAclA(#[in] cCountOfExplicitEntries: ULONG, #[in] #[opt] #[readable(entry, cCountOfExplicitEntries)] pListOfExplicitEntries: PEXPLICIT_ACCESS_A, #[in] #[opt] OldAcl: PACL, #[out] NewAcl: *mut PACL) -> DWORD;
+        extern fn SetEntriesInAclA(#[in] cCountOfExplicitEntries: ULONG, #[buffer(cCountOfExplicitEntries)] #[in] #[opt] pListOfExplicitEntries: PEXPLICIT_ACCESS_A, #[in] #[opt] OldAcl: PACL, #[out] NewAcl: *mut PACL) -> DWORD;
         #[library("ADVAPI32.dll")]
-        extern fn SetEntriesInAclW(#[in] cCountOfExplicitEntries: ULONG, #[in] #[opt] #[readable(entry, cCountOfExplicitEntries)] pListOfExplicitEntries: PEXPLICIT_ACCESS_W, #[in] #[opt] OldAcl: PACL, #[out] NewAcl: *mut PACL) -> DWORD;
+        extern fn SetEntriesInAclW(#[in] cCountOfExplicitEntries: ULONG, #[buffer(cCountOfExplicitEntries)] #[in] #[opt] pListOfExplicitEntries: PEXPLICIT_ACCESS_W, #[in] #[opt] OldAcl: PACL, #[out] NewAcl: *mut PACL) -> DWORD;
         #[library("ADVAPI32.dll")]
         extern fn SetNamedSecurityInfoA(#[in] pObjectName: LPSTR, #[in] ObjectType: SE_OBJECT_TYPE, #[in] SecurityInfo: SECURITY_INFORMATION, #[in] #[opt] psidOwner: PSID, #[in] #[opt] psidGroup: PSID, #[in] #[opt] pDacl: PACL, #[in] #[opt] pSacl: PACL) -> DWORD;
         #[library("ADVAPI32.dll")]

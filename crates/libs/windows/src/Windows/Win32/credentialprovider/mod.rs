@@ -270,7 +270,7 @@ impl ICredentialProvider_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppcpc.write(core::mem::zeroed());
+                        ppcpc.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1227,7 +1227,7 @@ impl ICredentialProviderUserArray_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        user.write(core::mem::zeroed());
+                        user.write_bytes(0, 1);
                         err.into()
                     }
                 }

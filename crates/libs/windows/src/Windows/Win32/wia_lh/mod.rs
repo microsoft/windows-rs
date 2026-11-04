@@ -79,7 +79,10 @@ impl IEnumWIA_DEV_CAPS_Vtbl {
                         ppienum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppienum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -185,7 +188,10 @@ impl IEnumWIA_DEV_INFO_Vtbl {
                         ppienum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppienum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -291,7 +297,10 @@ impl IEnumWIA_FORMAT_INFO_Vtbl {
                         ppienum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppienum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -397,7 +406,10 @@ impl IEnumWiaItem_Vtbl {
                         ppienum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppienum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -503,7 +515,10 @@ impl IEnumWiaItem2_Vtbl {
                         ppienum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppienum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -717,7 +732,10 @@ impl IWiaDataTransfer_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -857,7 +875,10 @@ impl IWiaDevMgr_Vtbl {
                         ppienum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppienum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -875,7 +896,10 @@ impl IWiaDevMgr_Vtbl {
                         ppitemroot.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppitemroot.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -887,7 +911,10 @@ impl IWiaDevMgr_Vtbl {
                         pbstrdeviceid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrdeviceid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1047,7 +1074,10 @@ impl IWiaDevMgr2_Vtbl {
                         ppienum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppienum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1065,7 +1095,10 @@ impl IWiaDevMgr2_Vtbl {
                         ppitemroot.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppitemroot.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1077,7 +1110,10 @@ impl IWiaDevMgr2_Vtbl {
                         pbstrdeviceid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrdeviceid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1388,8 +1424,8 @@ impl IWiaItem {
         unsafe { (windows_core::Interface::vtable(self).DumpTreeItemData)(windows_core::Interface::as_raw(self), core::mem::transmute(bstrdata)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn Diagnostic(&self, pbuffer: &[super::BYTE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Diagnostic)(windows_core::Interface::as_raw(self), pbuffer.len().try_into().unwrap(), pbuffer.as_ptr()) }
+    pub unsafe fn Diagnostic(&self, ulsize: super::ULONG, pbuffer: *const super::BYTE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Diagnostic)(windows_core::Interface::as_raw(self), ulsize, pbuffer) }
     }
 }
 #[repr(C)]
@@ -1483,7 +1519,10 @@ impl IWiaItem_Vtbl {
                         ppienumwiaitem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppienumwiaitem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1501,7 +1540,10 @@ impl IWiaItem_Vtbl {
                         ppiwiaitem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiwiaitem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1513,7 +1555,10 @@ impl IWiaItem_Vtbl {
                         ppienum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppienum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1525,7 +1570,10 @@ impl IWiaItem_Vtbl {
                         ppiwiaitem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiwiaitem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1549,7 +1597,10 @@ impl IWiaItem_Vtbl {
                         ppiwiaitem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiwiaitem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1561,7 +1612,10 @@ impl IWiaItem_Vtbl {
                         ppienumwia_dev_caps.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppienumwia_dev_caps.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1699,8 +1753,8 @@ impl IWiaItem2 {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn Diagnostic(&self, pbuffer: &[super::BYTE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Diagnostic)(windows_core::Interface::as_raw(self), pbuffer.len().try_into().unwrap(), pbuffer.as_ptr()) }
+    pub unsafe fn Diagnostic(&self, ulsize: super::ULONG, pbuffer: *const super::BYTE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Diagnostic)(windows_core::Interface::as_raw(self), ulsize, pbuffer) }
     }
 }
 #[repr(C)]
@@ -1790,7 +1844,10 @@ impl IWiaItem2_Vtbl {
                         ppiwiaitem2.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiwiaitem2.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1808,7 +1865,10 @@ impl IWiaItem2_Vtbl {
                         ppienumwiaitem2.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppienumwiaitem2.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1820,7 +1880,10 @@ impl IWiaItem2_Vtbl {
                         ppiwiaitem2.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiwiaitem2.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1856,7 +1919,10 @@ impl IWiaItem2_Vtbl {
                         ppienumwia_dev_caps.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppienumwia_dev_caps.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1880,7 +1946,10 @@ impl IWiaItem2_Vtbl {
                         ppiwiaitem2.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiwiaitem2.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1892,7 +1961,10 @@ impl IWiaItem2_Vtbl {
                         ppiwiaitem2.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiwiaitem2.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1910,7 +1982,10 @@ impl IWiaItem2_Vtbl {
                         ppienum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppienum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1953,8 +2028,8 @@ impl IWiaItemExtras {
         unsafe { (windows_core::Interface::vtable(self).GetExtendedErrorInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(bstrerrortext)) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn Escape(&self, dwescapecode: super::DWORD, lpindata: &[super::BYTE], poutdata: *mut super::BYTE, dwoutdatasize: super::DWORD, pdwactualdatasize: *mut super::DWORD) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Escape)(windows_core::Interface::as_raw(self), dwescapecode, lpindata.as_ptr(), lpindata.len().try_into().unwrap(), poutdata as _, dwoutdatasize, pdwactualdatasize as _) }
+    pub unsafe fn Escape(&self, dwescapecode: super::DWORD, lpindata: *const super::BYTE, cbindatasize: super::DWORD, poutdata: *mut super::BYTE, dwoutdatasize: super::DWORD, pdwactualdatasize: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Escape)(windows_core::Interface::as_raw(self), dwescapecode, lpindata, cbindatasize, poutdata as _, dwoutdatasize, pdwactualdatasize as _) }
     }
     pub unsafe fn CancelPendingIO(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CancelPendingIO)(windows_core::Interface::as_raw(self)) }
@@ -2317,8 +2392,8 @@ impl IWiaPropertyStorage {
         unsafe { (windows_core::Interface::vtable(self).WriteMultiple)(windows_core::Interface::as_raw(self), cpspec, rgpspec, rgpropvar, propidnamefirst) }
     }
     #[cfg(all(feature = "propidlbase", feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn DeleteMultiple(&self, rgpspec: &[super::PROPSPEC]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).DeleteMultiple)(windows_core::Interface::as_raw(self), rgpspec.len().try_into().unwrap(), rgpspec.as_ptr()) }
+    pub unsafe fn DeleteMultiple(&self, cpspec: super::ULONG, rgpspec: *const super::PROPSPEC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteMultiple)(windows_core::Interface::as_raw(self), cpspec, rgpspec) }
     }
     #[cfg(all(feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ReadPropertyNames(&self, cpropid: super::ULONG, rgpropid: *const super::PROPID, rglpwstrname: *mut super::LPOLESTR) -> windows_core::HRESULT {
@@ -2329,8 +2404,8 @@ impl IWiaPropertyStorage {
         unsafe { (windows_core::Interface::vtable(self).WritePropertyNames)(windows_core::Interface::as_raw(self), cpropid, rgpropid, rglpwstrname) }
     }
     #[cfg(all(feature = "shared", feature = "wtypes"))]
-    pub unsafe fn DeletePropertyNames(&self, rgpropid: &[super::PROPID]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).DeletePropertyNames)(windows_core::Interface::as_raw(self), rgpropid.len().try_into().unwrap(), rgpropid.as_ptr()) }
+    pub unsafe fn DeletePropertyNames(&self, cpropid: super::ULONG, rgpropid: *const super::PROPID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeletePropertyNames)(windows_core::Interface::as_raw(self), cpropid, rgpropid) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Commit(&self, grfcommitflags: super::DWORD) -> windows_core::HRESULT {
@@ -2525,7 +2600,10 @@ impl IWiaPropertyStorage_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2567,7 +2645,10 @@ impl IWiaPropertyStorage_Vtbl {
                         ppistream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppistream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2724,7 +2805,10 @@ impl IWiaTransfer_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

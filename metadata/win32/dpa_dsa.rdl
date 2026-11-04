@@ -46,7 +46,7 @@ mod Windows {
         #[library("COMCTL32.dll")]
         extern fn DPA_InsertPtr(#[in] #[out] hdpa: HDPA, #[in] i: i32, #[in] #[opt] p: *mut void) -> i32;
         #[library("COMCTL32.dll")]
-        extern fn DPA_LoadStream(#[out] #[out_ptr] phdpa: *mut HDPA, #[in] pfn: PFNDPASTREAM, #[in] pstream: IStream, #[in] #[opt] pvInstData: *mut void) -> HRESULT;
+        extern fn DPA_LoadStream(#[out] phdpa: *mut HDPA, #[in] pfn: PFNDPASTREAM, #[in] pstream: IStream, #[in] #[opt] pvInstData: *mut void) -> HRESULT;
         #[library("COMCTL32.dll")]
         extern fn DPA_Merge(#[in] #[out] hdpaDest: HDPA, #[in] hdpaSrc: HDPA, #[in] dwFlags: DWORD, #[in] pfnCompare: PFNDACOMPARE, #[in] pfnMerge: PFNDPAMERGE, #[in] lParam: LPARAM) -> BOOL;
         #[library("COMCTL32.dll")]

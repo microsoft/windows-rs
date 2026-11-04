@@ -945,7 +945,10 @@ impl ISpDataKey_Vtbl {
                         ppsubkey.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsubkey.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -957,7 +960,10 @@ impl ISpDataKey_Vtbl {
                         ppsubkey.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsubkey.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2242,7 +2248,10 @@ impl ISpObjectToken_Vtbl {
                         pptokencategory.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptokencategory.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2392,7 +2401,10 @@ impl ISpObjectTokenCategory_Vtbl {
                         ppdatakey.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdatakey.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2518,7 +2530,10 @@ impl ISpObjectWithToken_Vtbl {
                         pptoken.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptoken.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2898,7 +2913,10 @@ impl ISpPhrase2_Vtbl {
                         ppstream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3551,8 +3569,8 @@ impl ISpRecoGrammar {
         unsafe { (windows_core::Interface::vtable(self).SetDictationState)(windows_core::Interface::as_raw(self), newstate) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn SetWordSequenceData(&self, ptext: Option<&[super::WCHAR]>, pinfo: *const SPTEXTSELECTIONINFO) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetWordSequenceData)(windows_core::Interface::as_raw(self), ptext.map_or(core::ptr::null(), |slice| slice.as_ptr()), ptext.map_or(0, |slice| slice.len().try_into().unwrap()), pinfo) }
+    pub unsafe fn SetWordSequenceData(&self, ptext: Option<*const super::WCHAR>, cchtext: super::ULONG, pinfo: *const SPTEXTSELECTIONINFO) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetWordSequenceData)(windows_core::Interface::as_raw(self), ptext.unwrap_or(core::mem::zeroed()) as _, cchtext, pinfo) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetTextSelection(&self, pinfo: *const SPTEXTSELECTIONINFO) -> windows_core::HRESULT {
@@ -3666,7 +3684,10 @@ impl ISpRecoGrammar_Vtbl {
                         pprecoctxt.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pprecoctxt.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4357,7 +4378,10 @@ impl ISpRecognizer_Vtbl {
                         pptoken.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptoken.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4369,7 +4393,10 @@ impl ISpRecognizer_Vtbl {
                         ppstream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4381,7 +4408,10 @@ impl ISpRecognizer_Vtbl {
                         ppnewctxt.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppnewctxt.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4393,7 +4423,10 @@ impl ISpRecognizer_Vtbl {
                         pptoken.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptoken.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4590,7 +4623,10 @@ impl ISpRecognizer3_Vtbl {
                         ppcategory.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcategory.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4608,7 +4644,10 @@ impl ISpRecognizer3_Vtbl {
                         ppcategory.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcategory.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5034,7 +5073,10 @@ impl ISpStream_Vtbl {
                         ppstream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5201,7 +5243,10 @@ impl ISpStreamFormatConverter_Vtbl {
                         ppstream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5534,7 +5579,10 @@ impl ISpVoice_Vtbl {
                         ppobjecttoken.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppobjecttoken.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5570,7 +5618,10 @@ impl ISpVoice_Vtbl {
                         pptoken.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptoken.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5873,7 +5924,10 @@ impl ISpeechAudio_Vtbl {
                         status.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        status.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5885,7 +5939,10 @@ impl ISpeechAudio_Vtbl {
                         bufferinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bufferinfo.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5897,7 +5954,10 @@ impl ISpeechAudio_Vtbl {
                         streamformat.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        streamformat.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5909,7 +5969,10 @@ impl ISpeechAudio_Vtbl {
                         volume.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        volume.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5927,7 +5990,10 @@ impl ISpeechAudio_Vtbl {
                         buffernotifysize.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        buffernotifysize.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5945,7 +6011,10 @@ impl ISpeechAudio_Vtbl {
                         eventhandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        eventhandle.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6047,7 +6116,10 @@ impl ISpeechAudioBufferInfo_Vtbl {
                         minnotification.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        minnotification.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6065,7 +6137,10 @@ impl ISpeechAudioBufferInfo_Vtbl {
                         buffersize.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        buffersize.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6083,7 +6158,10 @@ impl ISpeechAudioBufferInfo_Vtbl {
                         eventbias.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        eventbias.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6185,7 +6263,10 @@ impl ISpeechAudioFormat_Vtbl {
                         audioformat.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        audioformat.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6203,7 +6284,10 @@ impl ISpeechAudioFormat_Vtbl {
                         guid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        guid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6221,7 +6305,10 @@ impl ISpeechAudioFormat_Vtbl {
                         speechwaveformatex.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        speechwaveformatex.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6329,7 +6416,10 @@ impl ISpeechAudioStatus_Vtbl {
                         freebufferspace.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        freebufferspace.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6341,7 +6431,10 @@ impl ISpeechAudioStatus_Vtbl {
                         nonblockingio.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        nonblockingio.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6353,7 +6446,10 @@ impl ISpeechAudioStatus_Vtbl {
                         state.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        state.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6365,7 +6461,10 @@ impl ISpeechAudioStatus_Vtbl {
                         currentseekposition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        currentseekposition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6377,7 +6476,10 @@ impl ISpeechAudioStatus_Vtbl {
                         currentdeviceposition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        currentdeviceposition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6482,7 +6584,10 @@ impl ISpeechBaseStream_Vtbl {
                         audioformat.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        audioformat.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6500,7 +6605,10 @@ impl ISpeechBaseStream_Vtbl {
                         bytesread.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bytesread.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6512,7 +6620,10 @@ impl ISpeechBaseStream_Vtbl {
                         byteswritten.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        byteswritten.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6524,7 +6635,10 @@ impl ISpeechBaseStream_Vtbl {
                         newposition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newposition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6593,7 +6707,10 @@ impl ISpeechCustomStream_Vtbl {
                         ppunkstream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunkstream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6744,7 +6861,10 @@ impl ISpeechDataKey_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6762,7 +6882,10 @@ impl ISpeechDataKey_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6780,7 +6903,10 @@ impl ISpeechDataKey_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6792,7 +6918,10 @@ impl ISpeechDataKey_Vtbl {
                         subkey.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        subkey.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6804,7 +6933,10 @@ impl ISpeechDataKey_Vtbl {
                         subkey.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        subkey.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6828,7 +6960,10 @@ impl ISpeechDataKey_Vtbl {
                         subkeyname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        subkeyname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6840,7 +6975,10 @@ impl ISpeechDataKey_Vtbl {
                         valuename.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        valuename.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7010,7 +7148,10 @@ impl ISpeechGrammarRule_Vtbl {
                         attributes.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        attributes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7022,7 +7163,10 @@ impl ISpeechGrammarRule_Vtbl {
                         state.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        state.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7034,7 +7178,10 @@ impl ISpeechGrammarRule_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        name.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7046,7 +7193,10 @@ impl ISpeechGrammarRule_Vtbl {
                         id.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        id.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7070,7 +7220,10 @@ impl ISpeechGrammarRule_Vtbl {
                         state.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        state.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7178,7 +7331,10 @@ impl ISpeechGrammarRuleState_Vtbl {
                         rule.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rule.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7190,7 +7346,10 @@ impl ISpeechGrammarRuleState_Vtbl {
                         transitions.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        transitions.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7333,7 +7492,10 @@ impl ISpeechGrammarRuleStateTransition_Vtbl {
                         r#type.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        r#type.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7345,7 +7507,10 @@ impl ISpeechGrammarRuleStateTransition_Vtbl {
                         text.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        text.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7357,7 +7522,10 @@ impl ISpeechGrammarRuleStateTransition_Vtbl {
                         rule.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rule.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7369,7 +7537,10 @@ impl ISpeechGrammarRuleStateTransition_Vtbl {
                         weight.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        weight.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7381,7 +7552,10 @@ impl ISpeechGrammarRuleStateTransition_Vtbl {
                         propertyname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        propertyname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7393,7 +7567,10 @@ impl ISpeechGrammarRuleStateTransition_Vtbl {
                         propertyid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        propertyid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7405,7 +7582,10 @@ impl ISpeechGrammarRuleStateTransition_Vtbl {
                         propertyvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        propertyvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7417,7 +7597,10 @@ impl ISpeechGrammarRuleStateTransition_Vtbl {
                         nextstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        nextstate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7497,7 +7680,10 @@ impl ISpeechGrammarRuleStateTransitions_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7509,7 +7695,10 @@ impl ISpeechGrammarRuleStateTransitions_Vtbl {
                         transition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        transition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7521,7 +7710,10 @@ impl ISpeechGrammarRuleStateTransitions_Vtbl {
                         enumvariant.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        enumvariant.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7645,7 +7837,10 @@ impl ISpeechGrammarRules_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7657,7 +7852,10 @@ impl ISpeechGrammarRules_Vtbl {
                         rule.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rule.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7669,7 +7867,10 @@ impl ISpeechGrammarRules_Vtbl {
                         rule.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rule.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7681,7 +7882,10 @@ impl ISpeechGrammarRules_Vtbl {
                         enumvariant.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        enumvariant.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7693,7 +7897,10 @@ impl ISpeechGrammarRules_Vtbl {
                         dynamic.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        dynamic.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7705,7 +7912,10 @@ impl ISpeechGrammarRules_Vtbl {
                         rule.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rule.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7723,7 +7933,10 @@ impl ISpeechGrammarRules_Vtbl {
                         savestream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        savestream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7839,7 +8052,10 @@ impl ISpeechLexicon_Vtbl {
                         generationid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        generationid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7851,7 +8067,10 @@ impl ISpeechLexicon_Vtbl {
                         words.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        words.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7887,7 +8106,10 @@ impl ISpeechLexicon_Vtbl {
                         pppronunciations.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pppronunciations.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7899,7 +8121,10 @@ impl ISpeechLexicon_Vtbl {
                         ppwords.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppwords.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7999,7 +8224,10 @@ impl ISpeechLexiconPronunciation_Vtbl {
                         lexicontype.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        lexicontype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8011,7 +8239,10 @@ impl ISpeechLexiconPronunciation_Vtbl {
                         langid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        langid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8023,7 +8254,10 @@ impl ISpeechLexiconPronunciation_Vtbl {
                         partofspeech.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        partofspeech.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8035,7 +8269,10 @@ impl ISpeechLexiconPronunciation_Vtbl {
                         phoneids.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        phoneids.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8047,7 +8284,10 @@ impl ISpeechLexiconPronunciation_Vtbl {
                         symbolic.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        symbolic.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8124,7 +8364,10 @@ impl ISpeechLexiconPronunciations_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8136,7 +8379,10 @@ impl ISpeechLexiconPronunciations_Vtbl {
                         pronunciation.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pronunciation.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8148,7 +8394,10 @@ impl ISpeechLexiconPronunciations_Vtbl {
                         enumvariant.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        enumvariant.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8231,7 +8480,10 @@ impl ISpeechLexiconWord_Vtbl {
                         langid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        langid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8243,7 +8495,10 @@ impl ISpeechLexiconWord_Vtbl {
                         wordtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        wordtype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8255,7 +8510,10 @@ impl ISpeechLexiconWord_Vtbl {
                         word.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        word.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8267,7 +8525,10 @@ impl ISpeechLexiconWord_Vtbl {
                         pronunciations.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pronunciations.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8343,7 +8604,10 @@ impl ISpeechLexiconWords_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8355,7 +8619,10 @@ impl ISpeechLexiconWords_Vtbl {
                         word.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        word.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8367,7 +8634,10 @@ impl ISpeechLexiconWords_Vtbl {
                         enumvariant.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        enumvariant.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8452,7 +8722,10 @@ impl ISpeechMMSysAudio_Vtbl {
                         deviceid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        deviceid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8470,7 +8743,10 @@ impl ISpeechMMSysAudio_Vtbl {
                         lineid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        lineid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8488,7 +8764,10 @@ impl ISpeechMMSysAudio_Vtbl {
                         handle.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        handle.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8568,7 +8847,10 @@ impl ISpeechMemoryStream_Vtbl {
                         pdata.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdata.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8735,7 +9017,10 @@ impl ISpeechObjectToken_Vtbl {
                         objectid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objectid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8747,7 +9032,10 @@ impl ISpeechObjectToken_Vtbl {
                         datakey.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        datakey.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8759,7 +9047,10 @@ impl ISpeechObjectToken_Vtbl {
                         category.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        category.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8771,7 +9062,10 @@ impl ISpeechObjectToken_Vtbl {
                         description.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        description.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8789,7 +9083,10 @@ impl ISpeechObjectToken_Vtbl {
                         attributevalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        attributevalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8801,7 +9098,10 @@ impl ISpeechObjectToken_Vtbl {
                         object.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        object.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8819,7 +9119,10 @@ impl ISpeechObjectToken_Vtbl {
                         filepath.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        filepath.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8837,7 +9140,10 @@ impl ISpeechObjectToken_Vtbl {
                         supported.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        supported.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8855,7 +9161,10 @@ impl ISpeechObjectToken_Vtbl {
                         matches.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        matches.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8962,7 +9271,10 @@ impl ISpeechObjectTokenCategory_Vtbl {
                         id.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        id.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8980,7 +9292,10 @@ impl ISpeechObjectTokenCategory_Vtbl {
                         tokenid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        tokenid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8998,7 +9313,10 @@ impl ISpeechObjectTokenCategory_Vtbl {
                         datakey.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        datakey.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9010,7 +9328,10 @@ impl ISpeechObjectTokenCategory_Vtbl {
                         tokens.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        tokens.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9088,7 +9409,10 @@ impl ISpeechObjectTokens_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9100,7 +9424,10 @@ impl ISpeechObjectTokens_Vtbl {
                         token.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        token.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9112,7 +9439,10 @@ impl ISpeechObjectTokens_Vtbl {
                         ppenumvariant.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumvariant.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9200,7 +9530,10 @@ impl ISpeechPhoneConverter_Vtbl {
                         languageid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        languageid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9218,7 +9551,10 @@ impl ISpeechPhoneConverter_Vtbl {
                         idarray.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        idarray.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9230,7 +9566,10 @@ impl ISpeechPhoneConverter_Vtbl {
                         phonemes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        phonemes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9319,7 +9658,10 @@ impl ISpeechPhraseAlternate_Vtbl {
                         recoresult.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        recoresult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9331,7 +9673,10 @@ impl ISpeechPhraseAlternate_Vtbl {
                         startelement.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        startelement.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9343,7 +9688,10 @@ impl ISpeechPhraseAlternate_Vtbl {
                         numberofelements.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        numberofelements.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9355,7 +9703,10 @@ impl ISpeechPhraseAlternate_Vtbl {
                         phraseinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        phraseinfo.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9438,7 +9789,10 @@ impl ISpeechPhraseAlternates_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9450,7 +9804,10 @@ impl ISpeechPhraseAlternates_Vtbl {
                         phrasealternate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        phrasealternate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9462,7 +9819,10 @@ impl ISpeechPhraseAlternates_Vtbl {
                         enumvariant.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        enumvariant.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9621,7 +9981,10 @@ impl ISpeechPhraseElement_Vtbl {
                         audiotimeoffset.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        audiotimeoffset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9633,7 +9996,10 @@ impl ISpeechPhraseElement_Vtbl {
                         audiosizetime.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        audiosizetime.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9645,7 +10011,10 @@ impl ISpeechPhraseElement_Vtbl {
                         audiostreamoffset.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        audiostreamoffset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9657,7 +10026,10 @@ impl ISpeechPhraseElement_Vtbl {
                         audiosizebytes.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        audiosizebytes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9669,7 +10041,10 @@ impl ISpeechPhraseElement_Vtbl {
                         retainedstreamoffset.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retainedstreamoffset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9681,7 +10056,10 @@ impl ISpeechPhraseElement_Vtbl {
                         retainedsizebytes.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retainedsizebytes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9693,7 +10071,10 @@ impl ISpeechPhraseElement_Vtbl {
                         displaytext.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        displaytext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9705,7 +10086,10 @@ impl ISpeechPhraseElement_Vtbl {
                         lexicalform.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        lexicalform.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9717,7 +10101,10 @@ impl ISpeechPhraseElement_Vtbl {
                         pronunciation.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pronunciation.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9729,7 +10116,10 @@ impl ISpeechPhraseElement_Vtbl {
                         displayattributes.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        displayattributes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9741,7 +10131,10 @@ impl ISpeechPhraseElement_Vtbl {
                         requiredconfidence.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        requiredconfidence.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9753,7 +10146,10 @@ impl ISpeechPhraseElement_Vtbl {
                         actualconfidence.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        actualconfidence.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9765,7 +10161,10 @@ impl ISpeechPhraseElement_Vtbl {
                         engineconfidence.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        engineconfidence.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9850,7 +10249,10 @@ impl ISpeechPhraseElements_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9862,7 +10264,10 @@ impl ISpeechPhraseElements_Vtbl {
                         element.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        element.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9874,7 +10279,10 @@ impl ISpeechPhraseElements_Vtbl {
                         enumvariant.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        enumvariant.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10081,7 +10489,10 @@ impl ISpeechPhraseInfo_Vtbl {
                         languageid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        languageid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10093,7 +10504,10 @@ impl ISpeechPhraseInfo_Vtbl {
                         grammarid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        grammarid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10105,7 +10519,10 @@ impl ISpeechPhraseInfo_Vtbl {
                         starttime.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        starttime.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10117,7 +10534,10 @@ impl ISpeechPhraseInfo_Vtbl {
                         audiostreamposition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        audiostreamposition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10129,7 +10549,10 @@ impl ISpeechPhraseInfo_Vtbl {
                         paudiosizebytes.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        paudiosizebytes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10141,7 +10564,10 @@ impl ISpeechPhraseInfo_Vtbl {
                         retainedsizebytes.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        retainedsizebytes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10153,7 +10579,10 @@ impl ISpeechPhraseInfo_Vtbl {
                         audiosizetime.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        audiosizetime.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10165,7 +10594,10 @@ impl ISpeechPhraseInfo_Vtbl {
                         rule.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rule.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10177,7 +10609,10 @@ impl ISpeechPhraseInfo_Vtbl {
                         properties.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        properties.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10189,7 +10624,10 @@ impl ISpeechPhraseInfo_Vtbl {
                         elements.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        elements.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10201,7 +10639,10 @@ impl ISpeechPhraseInfo_Vtbl {
                         replacements.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        replacements.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10213,7 +10654,10 @@ impl ISpeechPhraseInfo_Vtbl {
                         engineidguid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        engineidguid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10225,7 +10669,10 @@ impl ISpeechPhraseInfo_Vtbl {
                         privatedata.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        privatedata.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10237,7 +10684,10 @@ impl ISpeechPhraseInfo_Vtbl {
                         phraseblock.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        phraseblock.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10249,7 +10699,10 @@ impl ISpeechPhraseInfo_Vtbl {
                         text.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        text.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10261,7 +10714,10 @@ impl ISpeechPhraseInfo_Vtbl {
                         displayattributes.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        displayattributes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10337,7 +10793,10 @@ impl ISpeechPhraseInfoBuilder_Vtbl {
                         phraseinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        phraseinfo.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10407,7 +10866,10 @@ impl ISpeechPhraseProperties_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10419,7 +10881,10 @@ impl ISpeechPhraseProperties_Vtbl {
                         property.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        property.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10431,7 +10896,10 @@ impl ISpeechPhraseProperties_Vtbl {
                         enumvariant.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        enumvariant.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10558,7 +11026,10 @@ impl ISpeechPhraseProperty_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        name.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10570,7 +11041,10 @@ impl ISpeechPhraseProperty_Vtbl {
                         id.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        id.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10582,7 +11056,10 @@ impl ISpeechPhraseProperty_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10594,7 +11071,10 @@ impl ISpeechPhraseProperty_Vtbl {
                         firstelement.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        firstelement.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10606,7 +11086,10 @@ impl ISpeechPhraseProperty_Vtbl {
                         numberofelements.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        numberofelements.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10618,7 +11101,10 @@ impl ISpeechPhraseProperty_Vtbl {
                         confidence.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        confidence.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10630,7 +11116,10 @@ impl ISpeechPhraseProperty_Vtbl {
                         confidence.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        confidence.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10642,7 +11131,10 @@ impl ISpeechPhraseProperty_Vtbl {
                         parentproperty.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        parentproperty.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10654,7 +11146,10 @@ impl ISpeechPhraseProperty_Vtbl {
                         children.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        children.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10743,7 +11238,10 @@ impl ISpeechPhraseReplacement_Vtbl {
                         displayattributes.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        displayattributes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10755,7 +11253,10 @@ impl ISpeechPhraseReplacement_Vtbl {
                         text.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        text.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10767,7 +11268,10 @@ impl ISpeechPhraseReplacement_Vtbl {
                         firstelement.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        firstelement.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10779,7 +11283,10 @@ impl ISpeechPhraseReplacement_Vtbl {
                         numberofelements.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        numberofelements.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10855,7 +11362,10 @@ impl ISpeechPhraseReplacements_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10867,7 +11377,10 @@ impl ISpeechPhraseReplacements_Vtbl {
                         reps.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        reps.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10879,7 +11392,10 @@ impl ISpeechPhraseReplacements_Vtbl {
                         enumvariant.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        enumvariant.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -10994,7 +11510,10 @@ impl ISpeechPhraseRule_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        name.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11006,7 +11525,10 @@ impl ISpeechPhraseRule_Vtbl {
                         id.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        id.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11018,7 +11540,10 @@ impl ISpeechPhraseRule_Vtbl {
                         firstelement.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        firstelement.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11030,7 +11555,10 @@ impl ISpeechPhraseRule_Vtbl {
                         numberofelements.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        numberofelements.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11042,7 +11570,10 @@ impl ISpeechPhraseRule_Vtbl {
                         parent.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        parent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11054,7 +11585,10 @@ impl ISpeechPhraseRule_Vtbl {
                         children.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        children.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11066,7 +11600,10 @@ impl ISpeechPhraseRule_Vtbl {
                         actualconfidence.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        actualconfidence.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11078,7 +11615,10 @@ impl ISpeechPhraseRule_Vtbl {
                         engineconfidence.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        engineconfidence.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11158,7 +11698,10 @@ impl ISpeechPhraseRules_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11170,7 +11713,10 @@ impl ISpeechPhraseRules_Vtbl {
                         rule.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rule.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11182,7 +11728,10 @@ impl ISpeechPhraseRules_Vtbl {
                         enumvariant.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        enumvariant.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11423,7 +11972,10 @@ impl ISpeechRecoContext_Vtbl {
                         recognizer.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        recognizer.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11435,7 +11987,10 @@ impl ISpeechRecoContext_Vtbl {
                         interference.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        interference.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11447,7 +12002,10 @@ impl ISpeechRecoContext_Vtbl {
                         uitype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        uitype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11465,7 +12023,10 @@ impl ISpeechRecoContext_Vtbl {
                         voice.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        voice.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11483,7 +12044,10 @@ impl ISpeechRecoContext_Vtbl {
                         pallow.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pallow.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11501,7 +12065,10 @@ impl ISpeechRecoContext_Vtbl {
                         eventinterest.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        eventinterest.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11519,7 +12086,10 @@ impl ISpeechRecoContext_Vtbl {
                         eventinterest.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        eventinterest.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11537,7 +12107,10 @@ impl ISpeechRecoContext_Vtbl {
                         maxalternates.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        maxalternates.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11555,7 +12128,10 @@ impl ISpeechRecoContext_Vtbl {
                         state.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        state.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11573,7 +12149,10 @@ impl ISpeechRecoContext_Vtbl {
                         option.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        option.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11591,7 +12170,10 @@ impl ISpeechRecoContext_Vtbl {
                         format.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        format.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11615,7 +12197,10 @@ impl ISpeechRecoContext_Vtbl {
                         grammar.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        grammar.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11627,7 +12212,10 @@ impl ISpeechRecoContext_Vtbl {
                         result.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        result.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11844,7 +12432,10 @@ impl ISpeechRecoGrammar_Vtbl {
                         id.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        id.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11856,7 +12447,10 @@ impl ISpeechRecoGrammar_Vtbl {
                         recocontext.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        recocontext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11874,7 +12468,10 @@ impl ISpeechRecoGrammar_Vtbl {
                         state.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        state.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11886,7 +12483,10 @@ impl ISpeechRecoGrammar_Vtbl {
                         rules.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rules.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -11976,7 +12576,10 @@ impl ISpeechRecoGrammar_Vtbl {
                         wordpronounceable.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        wordpronounceable.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12124,7 +12727,10 @@ impl ISpeechRecoResult_Vtbl {
                         recocontext.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        recocontext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12136,7 +12742,10 @@ impl ISpeechRecoResult_Vtbl {
                         times.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        times.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12154,7 +12763,10 @@ impl ISpeechRecoResult_Vtbl {
                         format.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        format.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12166,7 +12778,10 @@ impl ISpeechRecoResult_Vtbl {
                         phraseinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        phraseinfo.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12178,7 +12793,10 @@ impl ISpeechRecoResult_Vtbl {
                         alternates.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        alternates.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12190,7 +12808,10 @@ impl ISpeechRecoResult_Vtbl {
                         stream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        stream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12202,7 +12823,10 @@ impl ISpeechRecoResult_Vtbl {
                         streamnumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        streamnumber.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12214,7 +12838,10 @@ impl ISpeechRecoResult_Vtbl {
                         resultblock.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        resultblock.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12437,7 +13064,10 @@ impl ISpeechRecoResultDispatch_Vtbl {
                         recocontext.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        recocontext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12449,7 +13079,10 @@ impl ISpeechRecoResultDispatch_Vtbl {
                         times.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        times.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12467,7 +13100,10 @@ impl ISpeechRecoResultDispatch_Vtbl {
                         format.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        format.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12479,7 +13115,10 @@ impl ISpeechRecoResultDispatch_Vtbl {
                         phraseinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        phraseinfo.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12491,7 +13130,10 @@ impl ISpeechRecoResultDispatch_Vtbl {
                         alternates.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        alternates.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12503,7 +13145,10 @@ impl ISpeechRecoResultDispatch_Vtbl {
                         stream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        stream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12515,7 +13160,10 @@ impl ISpeechRecoResultDispatch_Vtbl {
                         streamnumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        streamnumber.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12527,7 +13175,10 @@ impl ISpeechRecoResultDispatch_Vtbl {
                         resultblock.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        resultblock.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12545,7 +13196,10 @@ impl ISpeechRecoResultDispatch_Vtbl {
                         presult.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        presult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12557,7 +13211,10 @@ impl ISpeechRecoResultDispatch_Vtbl {
                         iserror.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        iserror.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12668,7 +13325,10 @@ impl ISpeechRecoResultTimes_Vtbl {
                         time.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        time.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12680,7 +13340,10 @@ impl ISpeechRecoResultTimes_Vtbl {
                         length.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        length.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12692,7 +13355,10 @@ impl ISpeechRecoResultTimes_Vtbl {
                         tickcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        tickcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12704,7 +13370,10 @@ impl ISpeechRecoResultTimes_Vtbl {
                         offsetfromstart.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        offsetfromstart.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -12998,7 +13667,10 @@ impl ISpeechRecognizer_Vtbl {
                         recognizer.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        recognizer.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13016,7 +13688,10 @@ impl ISpeechRecognizer_Vtbl {
                         allow.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        allow.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13034,7 +13709,10 @@ impl ISpeechRecognizer_Vtbl {
                         audioinput.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        audioinput.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13052,7 +13730,10 @@ impl ISpeechRecognizer_Vtbl {
                         audioinputstream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        audioinputstream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13064,7 +13745,10 @@ impl ISpeechRecognizer_Vtbl {
                         shared.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        shared.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13082,7 +13766,10 @@ impl ISpeechRecognizer_Vtbl {
                         state.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        state.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13094,7 +13781,10 @@ impl ISpeechRecognizer_Vtbl {
                         status.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        status.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13112,7 +13802,10 @@ impl ISpeechRecognizer_Vtbl {
                         profile.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        profile.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13130,7 +13823,10 @@ impl ISpeechRecognizer_Vtbl {
                         newcontext.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        newcontext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13142,7 +13838,10 @@ impl ISpeechRecognizer_Vtbl {
                         format.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        format.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13154,7 +13853,10 @@ impl ISpeechRecognizer_Vtbl {
                         supported.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        supported.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13166,7 +13868,10 @@ impl ISpeechRecognizer_Vtbl {
                         supported.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        supported.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13178,7 +13883,10 @@ impl ISpeechRecognizer_Vtbl {
                         supported.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        supported.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13190,7 +13898,10 @@ impl ISpeechRecognizer_Vtbl {
                         supported.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        supported.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13202,7 +13913,10 @@ impl ISpeechRecognizer_Vtbl {
                         supported.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        supported.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13220,7 +13934,10 @@ impl ISpeechRecognizer_Vtbl {
                         objecttokens.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objecttokens.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13232,7 +13949,10 @@ impl ISpeechRecognizer_Vtbl {
                         objecttokens.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objecttokens.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13244,7 +13964,10 @@ impl ISpeechRecognizer_Vtbl {
                         objecttokens.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objecttokens.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13374,7 +14097,10 @@ impl ISpeechRecognizerStatus_Vtbl {
                         audiostatus.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        audiostatus.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13386,7 +14112,10 @@ impl ISpeechRecognizerStatus_Vtbl {
                         pcurrentstreampos.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcurrentstreampos.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13398,7 +14127,10 @@ impl ISpeechRecognizerStatus_Vtbl {
                         streamnumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        streamnumber.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13410,7 +14142,10 @@ impl ISpeechRecognizerStatus_Vtbl {
                         numberofactiverules.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        numberofactiverules.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13422,7 +14157,10 @@ impl ISpeechRecognizerStatus_Vtbl {
                         clsidengine.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        clsidengine.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13434,7 +14172,10 @@ impl ISpeechRecognizerStatus_Vtbl {
                         supportedlanguages.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        supportedlanguages.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13622,7 +14363,10 @@ impl ISpeechTextSelectionInformation_Vtbl {
                         activeoffset.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        activeoffset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13640,7 +14384,10 @@ impl ISpeechTextSelectionInformation_Vtbl {
                         activelength.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        activelength.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13658,7 +14405,10 @@ impl ISpeechTextSelectionInformation_Vtbl {
                         selectionoffset.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        selectionoffset.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13676,7 +14426,10 @@ impl ISpeechTextSelectionInformation_Vtbl {
                         selectionlength.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        selectionlength.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13981,7 +14734,10 @@ impl ISpeechVoice_Vtbl {
                         status.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        status.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -13993,7 +14749,10 @@ impl ISpeechVoice_Vtbl {
                         voice.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        voice.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14011,7 +14770,10 @@ impl ISpeechVoice_Vtbl {
                         audiooutput.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        audiooutput.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14029,7 +14791,10 @@ impl ISpeechVoice_Vtbl {
                         audiooutputstream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        audiooutputstream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14047,7 +14812,10 @@ impl ISpeechVoice_Vtbl {
                         rate.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        rate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14065,7 +14833,10 @@ impl ISpeechVoice_Vtbl {
                         volume.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        volume.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14089,7 +14860,10 @@ impl ISpeechVoice_Vtbl {
                         allow.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        allow.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14101,7 +14875,10 @@ impl ISpeechVoice_Vtbl {
                         eventinterestflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        eventinterestflags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14125,7 +14902,10 @@ impl ISpeechVoice_Vtbl {
                         priority.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        priority.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14143,7 +14923,10 @@ impl ISpeechVoice_Vtbl {
                         boundary.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        boundary.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14161,7 +14944,10 @@ impl ISpeechVoice_Vtbl {
                         mstimeout.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        mstimeout.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14173,7 +14959,10 @@ impl ISpeechVoice_Vtbl {
                         streamnumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        streamnumber.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14185,7 +14974,10 @@ impl ISpeechVoice_Vtbl {
                         streamnumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        streamnumber.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14209,7 +15001,10 @@ impl ISpeechVoice_Vtbl {
                         numskipped.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        numskipped.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14221,7 +15016,10 @@ impl ISpeechVoice_Vtbl {
                         objecttokens.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objecttokens.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14233,7 +15031,10 @@ impl ISpeechVoice_Vtbl {
                         objecttokens.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        objecttokens.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14245,7 +15046,10 @@ impl ISpeechVoice_Vtbl {
                         done.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        done.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14257,7 +15061,10 @@ impl ISpeechVoice_Vtbl {
                         handle.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        handle.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14269,7 +15076,10 @@ impl ISpeechVoice_Vtbl {
                         supported.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        supported.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14451,7 +15261,10 @@ impl ISpeechVoiceStatus_Vtbl {
                         streamnumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        streamnumber.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14463,7 +15276,10 @@ impl ISpeechVoiceStatus_Vtbl {
                         streamnumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        streamnumber.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14475,7 +15291,10 @@ impl ISpeechVoiceStatus_Vtbl {
                         hresult.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        hresult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14487,7 +15306,10 @@ impl ISpeechVoiceStatus_Vtbl {
                         state.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        state.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14499,7 +15321,10 @@ impl ISpeechVoiceStatus_Vtbl {
                         position.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        position.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14511,7 +15336,10 @@ impl ISpeechVoiceStatus_Vtbl {
                         length.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        length.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14523,7 +15351,10 @@ impl ISpeechVoiceStatus_Vtbl {
                         position.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        position.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14535,7 +15366,10 @@ impl ISpeechVoiceStatus_Vtbl {
                         length.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        length.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14547,7 +15381,10 @@ impl ISpeechVoiceStatus_Vtbl {
                         bookmark.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bookmark.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14559,7 +15396,10 @@ impl ISpeechVoiceStatus_Vtbl {
                         bookmarkid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bookmarkid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14571,7 +15411,10 @@ impl ISpeechVoiceStatus_Vtbl {
                         phoneid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        phoneid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14583,7 +15426,10 @@ impl ISpeechVoiceStatus_Vtbl {
                         visemeid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        visemeid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14742,7 +15588,10 @@ impl ISpeechWaveFormatEx_Vtbl {
                         formattag.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        formattag.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14760,7 +15609,10 @@ impl ISpeechWaveFormatEx_Vtbl {
                         channels.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        channels.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14778,7 +15630,10 @@ impl ISpeechWaveFormatEx_Vtbl {
                         samplespersec.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        samplespersec.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14796,7 +15651,10 @@ impl ISpeechWaveFormatEx_Vtbl {
                         avgbytespersec.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        avgbytespersec.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14814,7 +15672,10 @@ impl ISpeechWaveFormatEx_Vtbl {
                         blockalign.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        blockalign.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14832,7 +15693,10 @@ impl ISpeechWaveFormatEx_Vtbl {
                         bitspersample.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bitspersample.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14850,7 +15714,10 @@ impl ISpeechWaveFormatEx_Vtbl {
                         extradata.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        extradata.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14938,7 +15805,10 @@ impl ISpeechXMLRecoResult_Vtbl {
                         presult.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        presult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -14950,7 +15820,10 @@ impl ISpeechXMLRecoResult_Vtbl {
                         iserror.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        iserror.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

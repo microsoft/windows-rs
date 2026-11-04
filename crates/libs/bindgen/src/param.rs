@@ -89,10 +89,6 @@ impl Param {
         self.def.is_some_and(|def| def.is_retval_attribute())
     }
 
-    pub fn buffer_relationship(&self) -> Option<BufferRelationship> {
-        self.def?.buffer_relationship()
-    }
-
     pub fn has_buffer_attributes(&self) -> bool {
         self.buffer_attributes().next().is_some()
     }
@@ -100,31 +96,9 @@ impl Param {
     fn buffer_attributes(
         &self,
     ) -> impl Iterator<Item = windows_metadata::reader::Attribute<'static>> + '_ {
-        self.attributes()
-            .filter(|attribute| attribute.name() == "BufferExtentAttribute")
-    }
-
-    pub fn has_query_buffer_attributes(&self) -> bool {
-        use windows_metadata::{BufferAccess, BufferCount, BufferExtent, BufferPhase};
-
-        let returned_pointer = self.attributes().any(|attribute| {
+        self.attributes().filter(|attribute| {
             attribute.namespace() == "Windows.Win32.Metadata"
-                && attribute.name() == "ReturnedPointerAttribute"
-        });
-        self.buffer_attributes().any(|attribute| {
-            if attribute.namespace() != "Windows.Win32.Metadata"
-                || attribute.name() != "BufferExtentAttribute"
-                || !returned_pointer
-            {
-                return true;
-            }
-            let Some(extent) = BufferExtent::from_values(&attribute.value()) else {
-                return true;
-            };
-            !(extent.access == BufferAccess::Read
-                && extent.phase == BufferPhase::Success
-                && extent.indirect
-                && extent.count == BufferCount::Unknown)
+                && attribute.name() == "BufferAttribute"
         })
     }
 
@@ -133,71 +107,6 @@ impl Param {
             attribute.namespace() == "Windows.Win32.Metadata"
                 && attribute.name() == "IncompleteAttribute"
         })
-    }
-
-    fn returned_pointer_flag(&self, name: &str) -> bool {
-        self.attributes().any(|attribute| {
-            attribute.namespace() == "Windows.Win32.Metadata"
-                && attribute.name() == "ReturnedPointerAttribute"
-                && attribute
-                    .value()
-                    .iter()
-                    .any(|(key, value)| key == name && *value == Value::Bool(true))
-        })
-    }
-
-    /// Whether `NullableAttribute` permits a null returned pointer.
-    pub fn result_may_be_null(&self) -> bool {
-        self.attributes().any(|attribute| {
-            attribute.namespace() == "Windows.Win32.Metadata"
-                && attribute.name() == "NullableAttribute"
-        })
-    }
-
-    pub fn result_null_on_failure(&self) -> bool {
-        self.returned_pointer_flag("NullOnFailure")
-    }
-
-    pub fn write_result_type(&self, config: &Config) -> TokenStream {
-        let ty = self.projection_pointee(config.reader);
-        let name = ty.write_name(config);
-        if self.result_may_be_null() && ty.is_interface_with_reader(config.reader) {
-            quote! { Option<#name> }
-        } else {
-            name
-        }
-    }
-
-    pub fn write_interface_result(&self) -> TokenStream {
-        if self.result_may_be_null() {
-            quote! {
-                if result__.is_null() {
-                    None
-                } else {
-                    Some(windows_core::Interface::from_raw(result__))
-                }
-            }
-        } else {
-            quote! { windows_core::imp::Type::from_abi(result__) }
-        }
-    }
-
-    pub fn write_query_result_map(&self) -> TokenStream {
-        let value = self.write_interface_result();
-        if self.result_may_be_null() {
-            quote! { map(|| #value) }
-        } else {
-            quote! { and_then(|| #value) }
-        }
-    }
-
-    pub fn write_result_map(&self, reader: &Reader) -> TokenStream {
-        let ty = self.projection_pointee(reader).projection_type(reader);
-        if ty.is_interface_with_reader(reader) {
-            self.write_query_result_map()
-        } else {
-            ty.write_result_map(reader)
-        }
     }
 
     /// Only an explicit `[retval]` annotation projects the trailing parameter as the result.

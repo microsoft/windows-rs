@@ -5,8 +5,7 @@ use windows_core::Interface;
 
 unsafe fn write_values<T: Copy>(values: *mut T, count: u32, value: T) -> u32 {
     if values.is_null() {
-        assert_eq!(count, 0);
-        0
+        count
     } else {
         for index in 0..count as usize {
             unsafe { values.add(index).write(value) };
@@ -33,8 +32,7 @@ unsafe extern "system" fn fixed(_: *mut c_void, values: *mut u32) -> u32 {
 
 unsafe extern "system" fn input(_: *mut c_void, values: *const u32, count: u32) -> u32 {
     if values.is_null() {
-        assert_eq!(count, 0);
-        0
+        count
     } else {
         for index in 0..count as usize {
             assert_eq!(unsafe { *values.add(index) }, 42);
@@ -62,19 +60,21 @@ fn buffers() -> Buffers {
 #[test]
 fn optional_elements() {
     let buffers = buffers();
-    let methods: [unsafe fn(&Buffers, Option<&mut [u32]>) -> u32; 3] = [
+    let methods: [unsafe fn(&Buffers, Option<*mut u32>, u32) -> u32; 3] = [
         Buffers::ElementsAfter,
-        Buffers::ElementsBefore,
+        |buffers, values, count| unsafe { buffers.ElementsBefore(count, values) },
         Buffers::Modern,
     ];
     for method in methods {
         let mut values = [0; 4];
         unsafe {
-            assert_eq!(method(&buffers, Some(&mut values)), 1);
-            assert_eq!(method(&buffers, None), 0);
-            assert_eq!(method(&buffers, Some(&mut [])), 1);
+            assert_eq!(method(&buffers, Some(values.as_mut_ptr()), 2), 1);
+            assert_eq!(method(&buffers, None, 0), 0);
+            assert_eq!(method(&buffers, None, 17), 17);
+            assert_eq!(method(&buffers, Some(core::ptr::null_mut()), 17), 17);
+            assert_eq!(method(&buffers, Some([].as_mut_ptr()), 0), 1);
         }
-        assert_eq!(values, [42; 4]);
+        assert_eq!(values, [42, 42, 0, 0]);
     }
 }
 
@@ -83,9 +83,10 @@ fn optional_bytes() {
     let buffers = buffers();
     let mut values = [0; 4];
     unsafe {
-        assert_eq!(buffers.Bytes(Some(&mut values)), 1);
-        assert_eq!(buffers.Bytes(None), 0);
-        assert_eq!(buffers.Bytes(Some(&mut [])), 1);
+        assert_eq!(buffers.Bytes(Some(values.as_mut_ptr()), 4), 1);
+        assert_eq!(buffers.Bytes(None, 0), 0);
+        assert_eq!(buffers.Bytes(None, 17), 17);
+        assert_eq!(buffers.Bytes(Some([].as_mut_ptr()), 0), 1);
     }
     assert_eq!(values, [42; 4]);
 }
@@ -95,7 +96,7 @@ fn optional_fixed() {
     let buffers = buffers();
     let mut values = [0; 4];
     unsafe {
-        assert_eq!(buffers.Fixed(Some(&mut values)), 1);
+        assert_eq!(buffers.Fixed(Some(values.as_mut_ptr())), 1);
         assert_eq!(buffers.Fixed(None), 0);
     }
     assert_eq!(values, [42; 4]);
@@ -106,14 +107,18 @@ fn buffer_controls() {
     let buffers = buffers();
     let mut values = [0; 4];
     unsafe {
-        assert_eq!(buffers.Required(&mut values), 1);
+        assert_eq!(buffers.Required(values.as_mut_ptr(), 4), 1);
         assert_eq!(values, [42; 4]);
-        assert_eq!(buffers.Input(Some(&values)), 1);
-        assert_eq!(buffers.Input(None), 0);
-        assert_eq!(buffers.Input(Some(&[])), 1);
+        assert_eq!(buffers.Required(core::ptr::null_mut(), 0), 0);
+        assert_eq!(buffers.Required([].as_mut_ptr(), 0), 1);
+        assert_eq!(buffers.Input(Some(values.as_ptr()), 4), 1);
+        assert_eq!(buffers.Input(None, 0), 0);
+        assert_eq!(buffers.Input(None, 17), 17);
+        assert_eq!(buffers.Input(Some([].as_ptr()), 0), 1);
         values.fill(0);
         assert_eq!(buffers.Output(Some(values.as_mut_ptr()), 4), 1);
         assert_eq!(buffers.Output(None, 0), 0);
+        assert_eq!(buffers.Output(None, 17), 17);
     }
     assert_eq!(values, [42; 4]);
 }

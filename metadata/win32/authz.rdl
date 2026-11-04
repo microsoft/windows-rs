@@ -8,12 +8,8 @@ mod Windows {
         }
         struct AUTHZ_ACCESS_REPLY {
             ResultListLength: DWORD,
-            #[writable(ResultListLength)]
             GrantedAccessMask: PACCESS_MASK,
-            #[nullable]
-            #[writable(ResultListLength)]
             SaclEvaluationResults: PDWORD,
-            #[writable(ResultListLength)]
             Error: PDWORD,
         }
         struct AUTHZ_ACCESS_REQUEST {
@@ -187,7 +183,7 @@ mod Windows {
         const AUTHZ_VALID_RM_INIT_FLAGS: i32 = 7;
         const AUTHZ_WPD_CATEGORY_FLAG: i32 = 16;
         #[library("AUTHZ.dll")]
-        extern fn AuthzAccessCheck(#[in] Flags: DWORD, #[in] hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[in] pRequest: PAUTHZ_ACCESS_REQUEST, #[in] #[opt] hAuditEvent: AUTHZ_AUDIT_EVENT_HANDLE, #[in] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[opt] #[readable(entry, OptionalSecurityDescriptorCount)] OptionalSecurityDescriptorArray: *mut PSECURITY_DESCRIPTOR, #[in] OptionalSecurityDescriptorCount: DWORD, #[in] #[out] pReply: PAUTHZ_ACCESS_REPLY, #[opt] #[out] phAccessCheckResults: PAUTHZ_ACCESS_CHECK_RESULTS_HANDLE) -> BOOL;
+        extern fn AuthzAccessCheck(#[in] Flags: DWORD, #[in] hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[in] pRequest: PAUTHZ_ACCESS_REQUEST, #[in] #[opt] hAuditEvent: AUTHZ_AUDIT_EVENT_HANDLE, #[in] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[buffer(OptionalSecurityDescriptorCount)] #[in] #[opt] OptionalSecurityDescriptorArray: *mut PSECURITY_DESCRIPTOR, #[in] OptionalSecurityDescriptorCount: DWORD, #[in] #[out] pReply: PAUTHZ_ACCESS_REPLY, #[opt] #[out] phAccessCheckResults: PAUTHZ_ACCESS_CHECK_RESULTS_HANDLE) -> BOOL;
         #[library("AUTHZ.dll")]
         extern fn AuthzAddSidsToContext(#[in] hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[in] #[opt] Sids: PSID_AND_ATTRIBUTES, #[in] SidCount: DWORD, #[in] #[opt] RestrictedSids: PSID_AND_ATTRIBUTES, #[in] RestrictedSidCount: DWORD, #[out] phNewAuthzClientContext: PAUTHZ_CLIENT_CONTEXT_HANDLE) -> BOOL;
         #[library("AUTHZ.dll")]
@@ -235,7 +231,7 @@ mod Windows {
         #[library("AUTHZ.dll")]
         extern fn AuthzModifySids(#[in] hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[in] SidClass: AUTHZ_CONTEXT_INFORMATION_CLASS, #[in] #[incomplete] pSidOperations: PAUTHZ_SID_OPERATION, #[in] #[opt] pSids: PTOKEN_GROUPS) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzOpenObjectAudit(#[in] Flags: DWORD, #[in] hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[in] pRequest: PAUTHZ_ACCESS_REQUEST, #[in] hAuditEvent: AUTHZ_AUDIT_EVENT_HANDLE, #[in] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[opt] #[readable(entry, OptionalSecurityDescriptorCount)] OptionalSecurityDescriptorArray: *mut PSECURITY_DESCRIPTOR, #[in] OptionalSecurityDescriptorCount: DWORD, #[in] pReply: PAUTHZ_ACCESS_REPLY) -> BOOL;
+        extern fn AuthzOpenObjectAudit(#[in] Flags: DWORD, #[in] hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[in] pRequest: PAUTHZ_ACCESS_REQUEST, #[in] hAuditEvent: AUTHZ_AUDIT_EVENT_HANDLE, #[in] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[buffer(OptionalSecurityDescriptorCount)] #[in] #[opt] OptionalSecurityDescriptorArray: *mut PSECURITY_DESCRIPTOR, #[in] OptionalSecurityDescriptorCount: DWORD, #[in] pReply: PAUTHZ_ACCESS_REPLY) -> BOOL;
         #[library("AUTHZ.dll")]
         extern fn AuthzRegisterCapChangeNotification(#[out] phCapChangeSubscription: PAUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE, #[in] pfnCapChangeCallback: LPTHREAD_START_ROUTINE, #[in] #[opt] pCallbackContext: PVOID) -> BOOL;
         #[library("AUTHZ.dll")]
@@ -245,7 +241,7 @@ mod Windows {
         #[library("AUTHZ.dll")]
         extern fn AuthzReportSecurityEventFromParams(#[in] dwFlags: DWORD, #[in] #[out] hEventProvider: AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE, #[in] dwAuditId: DWORD, #[in] #[opt] pUserSid: PSID, #[in] pParams: PAUDIT_PARAMS) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzSetAppContainerInformation(#[in] hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[in] pAppContainerSid: PSID, #[in] CapabilityCount: DWORD, #[in] #[opt] #[readable(entry, CapabilityCount)] pCapabilitySids: PSID_AND_ATTRIBUTES) -> BOOL;
+        extern fn AuthzSetAppContainerInformation(#[in] hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[in] pAppContainerSid: PSID, #[in] CapabilityCount: DWORD, #[buffer(CapabilityCount)] #[in] #[opt] pCapabilitySids: PSID_AND_ATTRIBUTES) -> BOOL;
         #[library("AUTHZ.dll")]
         extern fn AuthzUninstallSecurityEventSource(#[in] dwFlags: DWORD, #[in] szEventSourceName: PCWSTR) -> BOOL;
         #[library("AUTHZ.dll")]

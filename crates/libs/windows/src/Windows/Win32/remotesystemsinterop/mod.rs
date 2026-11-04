@@ -40,7 +40,10 @@ impl ICorrelationVectorInformation_Vtbl {
                         cv.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        cv.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -52,7 +55,10 @@ impl ICorrelationVectorInformation_Vtbl {
                         cv.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        cv.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

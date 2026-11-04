@@ -443,8 +443,8 @@ impl IMediaObject {
         unsafe { (windows_core::Interface::vtable(self).ProcessInput)(windows_core::Interface::as_raw(self), dwinputstreamindex, pbuffer.param().abi(), dwflags, rttimestamp, rttimelength) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn ProcessOutput(&self, dwflags: super::DWORD, poutputbuffers: &mut [DMO_OUTPUT_DATA_BUFFER], pdwstatus: *mut super::DWORD) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ProcessOutput)(windows_core::Interface::as_raw(self), dwflags, poutputbuffers.len().try_into().unwrap(), poutputbuffers.as_mut_ptr(), pdwstatus as _) }
+    pub unsafe fn ProcessOutput(&self, dwflags: super::DWORD, coutputbuffercount: super::DWORD, poutputbuffers: *mut DMO_OUTPUT_DATA_BUFFER, pdwstatus: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ProcessOutput)(windows_core::Interface::as_raw(self), dwflags, coutputbuffercount, poutputbuffers, pdwstatus as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Lock(&self, block: super::LONG) -> windows_core::HRESULT {
@@ -719,8 +719,8 @@ windows_core::imp::define_interface!(IMediaObjectInPlace, IMediaObjectInPlace_Vt
 windows_core::imp::interface_hierarchy!(IMediaObjectInPlace, windows_core::IUnknown);
 impl IMediaObjectInPlace {
     #[cfg(feature = "shared")]
-    pub unsafe fn Process(&self, pdata: &mut [u8], reftimestart: super::REFERENCE_TIME, dwflags: super::DWORD) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Process)(windows_core::Interface::as_raw(self), pdata.len().try_into().unwrap(), core::mem::transmute(pdata.as_mut_ptr()), reftimestart, dwflags) }
+    pub unsafe fn Process(&self, ulsize: super::ULONG, pdata: *mut super::BYTE, reftimestart: super::REFERENCE_TIME, dwflags: super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Process)(windows_core::Interface::as_raw(self), ulsize, pdata as _, reftimestart, dwflags) }
     }
     pub unsafe fn Clone(&self, ppmediaobject: *mut Option<Self>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppmediaobject)) }

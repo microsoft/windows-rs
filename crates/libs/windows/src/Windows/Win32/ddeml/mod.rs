@@ -12,9 +12,9 @@ pub unsafe fn DdeAccessData(hdata: HDDEDATA, pcbdatasize: Option<super::LPDWORD>
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DdeAddData(hdata: HDDEDATA, psrc: &[u8], cboff: super::DWORD) -> HDDEDATA {
+pub unsafe fn DdeAddData(hdata: HDDEDATA, psrc: super::LPBYTE, cb: super::DWORD, cboff: super::DWORD) -> HDDEDATA {
     windows_core::link!("user32.dll" "system" fn DdeAddData(hdata : HDDEDATA, psrc : super::LPBYTE, cb : super::DWORD, cboff : super::DWORD) -> HDDEDATA);
-    unsafe { DdeAddData(hdata, core::mem::transmute(psrc.as_ptr()), psrc.len().try_into().unwrap(), cboff) }
+    unsafe { DdeAddData(hdata, psrc, cb, cboff) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -41,9 +41,9 @@ pub unsafe fn DdeConnectList(idinst: super::DWORD, hszservice: HSZ, hsztopic: HS
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DdeCreateDataHandle(idinst: super::DWORD, psrc: Option<&[u8]>, cboff: super::DWORD, hszitem: Option<HSZ>, wfmt: super::UINT, afcmd: super::UINT) -> HDDEDATA {
+pub unsafe fn DdeCreateDataHandle(idinst: super::DWORD, psrc: Option<super::LPBYTE>, cb: super::DWORD, cboff: super::DWORD, hszitem: Option<HSZ>, wfmt: super::UINT, afcmd: super::UINT) -> HDDEDATA {
     windows_core::link!("user32.dll" "system" fn DdeCreateDataHandle(idinst : super::DWORD, psrc : super::LPBYTE, cb : super::DWORD, cboff : super::DWORD, hszitem : HSZ, wfmt : super::UINT, afcmd : super::UINT) -> HDDEDATA);
-    unsafe { DdeCreateDataHandle(idinst, core::mem::transmute(psrc.map_or(core::ptr::null(), |slice| slice.as_ptr())), psrc.map_or(0, |slice| slice.len().try_into().unwrap()), cboff, hszitem.unwrap_or(core::mem::zeroed()) as _, wfmt, afcmd) }
+    unsafe { DdeCreateDataHandle(idinst, psrc.unwrap_or(core::mem::zeroed()) as _, cb, cboff, hszitem.unwrap_or(core::mem::zeroed()) as _, wfmt, afcmd) }
 }
 #[cfg(feature = "shared")]
 #[inline]

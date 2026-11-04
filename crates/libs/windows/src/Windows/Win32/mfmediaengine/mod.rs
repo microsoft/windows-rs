@@ -477,7 +477,10 @@ impl IMFMediaEngine_Vtbl {
                         pperror.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pperror.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -531,7 +534,10 @@ impl IMFMediaEngine_Vtbl {
                         ppbuffered.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppbuffered.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -621,7 +627,10 @@ impl IMFMediaEngine_Vtbl {
                         ppplayed.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppplayed.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -633,7 +642,10 @@ impl IMFMediaEngine_Vtbl {
                         ppseekable.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppseekable.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -900,7 +912,10 @@ impl IMFMediaEngineClassFactory_Vtbl {
                         ppplayer.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppplayer.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -912,7 +927,10 @@ impl IMFMediaEngineClassFactory_Vtbl {
                         pptimerange.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pptimerange.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -924,7 +942,10 @@ impl IMFMediaEngineClassFactory_Vtbl {
                         pperror.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pperror.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -971,7 +992,7 @@ impl IMFMediaEngineClassFactory2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppkeys.write(core::mem::zeroed());
+                        ppkeys.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -988,10 +1009,10 @@ windows_core::imp::define_interface!(IMFMediaEngineClassFactory3, IMFMediaEngine
 windows_core::imp::interface_hierarchy!(IMFMediaEngineClassFactory3, windows_core::IUnknown);
 impl IMFMediaEngineClassFactory3 {
     #[cfg(all(feature = "propsys", feature = "shared"))]
-    pub unsafe fn CreateMediaKeySystemAccess(&self, keysystem: &windows_core::BSTR, ppsupportedconfigurationsarray: &[Option<super::IPropertyStore>]) -> windows_core::Result<IMFMediaKeySystemAccess> {
+    pub unsafe fn CreateMediaKeySystemAccess(&self, keysystem: &windows_core::BSTR, ppsupportedconfigurationsarray: *const Option<super::IPropertyStore>, usize: super::UINT) -> windows_core::Result<IMFMediaKeySystemAccess> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateMediaKeySystemAccess)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(keysystem), core::mem::transmute(ppsupportedconfigurationsarray.as_ptr()), ppsupportedconfigurationsarray.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateMediaKeySystemAccess)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(keysystem), core::mem::transmute(ppsupportedconfigurationsarray), usize, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1020,7 +1041,7 @@ impl IMFMediaEngineClassFactory3_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppkeyaccess.write(core::mem::zeroed());
+                        ppkeyaccess.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1138,7 +1159,7 @@ impl IMFMediaEngineClassFactoryEx_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppmse.write(core::mem::zeroed());
+                        ppmse.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1153,7 +1174,7 @@ impl IMFMediaEngineClassFactoryEx_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppkeys.write(core::mem::zeroed());
+                        ppkeys.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -1231,9 +1252,9 @@ windows_core::imp::define_interface!(IMFMediaEngineEMENotify, IMFMediaEngineEMEN
 windows_core::imp::interface_hierarchy!(IMFMediaEngineEMENotify, windows_core::IUnknown);
 impl IMFMediaEngineEMENotify {
     #[cfg(feature = "shared")]
-    pub unsafe fn Encrypted(&self, pbinitdata: Option<&[u8]>, bstrinitdatatype: &windows_core::BSTR) {
+    pub unsafe fn Encrypted(&self, pbinitdata: Option<*const super::BYTE>, cb: super::DWORD, bstrinitdatatype: &windows_core::BSTR) {
         unsafe {
-            (windows_core::Interface::vtable(self).Encrypted)(windows_core::Interface::as_raw(self), core::mem::transmute(pbinitdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), pbinitdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute_copy(bstrinitdatatype));
+            (windows_core::Interface::vtable(self).Encrypted)(windows_core::Interface::as_raw(self), pbinitdata.unwrap_or(core::mem::zeroed()) as _, cb, core::mem::transmute_copy(bstrinitdatatype));
         }
     }
     pub unsafe fn WaitingForKey(&self) {
@@ -1915,7 +1936,10 @@ impl IMFMediaEngineExtension_Vtbl {
                         ppobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1937,9 +1961,9 @@ windows_core::imp::define_interface!(IMFMediaEngineNeedKeyNotify, IMFMediaEngine
 windows_core::imp::interface_hierarchy!(IMFMediaEngineNeedKeyNotify, windows_core::IUnknown);
 impl IMFMediaEngineNeedKeyNotify {
     #[cfg(feature = "shared")]
-    pub unsafe fn NeedKey(&self, initdata: Option<&[u8]>) {
+    pub unsafe fn NeedKey(&self, initdata: Option<*const super::BYTE>, cb: super::DWORD) {
         unsafe {
-            (windows_core::Interface::vtable(self).NeedKey)(windows_core::Interface::as_raw(self), core::mem::transmute(initdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), initdata.map_or(0, |slice| slice.len().try_into().unwrap()));
+            (windows_core::Interface::vtable(self).NeedKey)(windows_core::Interface::as_raw(self), initdata.unwrap_or(core::mem::zeroed()) as _, cb);
         }
     }
 }
@@ -2074,8 +2098,8 @@ impl IMFMediaEngineProtectedContent {
         unsafe { (windows_core::Interface::vtable(self).SetContentProtectionManager)(windows_core::Interface::as_raw(self), pcpm.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetApplicationCertificate(&self, pbblob: &[u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetApplicationCertificate)(windows_core::Interface::as_raw(self), core::mem::transmute(pbblob.as_ptr()), pbblob.len().try_into().unwrap()) }
+    pub unsafe fn SetApplicationCertificate(&self, pbblob: *const super::BYTE, cbblob: super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetApplicationCertificate)(windows_core::Interface::as_raw(self), pbblob, cbblob) }
     }
 }
 #[repr(C)]
@@ -2401,7 +2425,7 @@ impl IMFMediaEngineSupportsSourceTransfer_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppmse.write(core::mem::zeroed());
+                        ppmse.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2561,7 +2585,7 @@ impl IMFMediaEngineWebSupport_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppsourceprovider.write(core::mem::zeroed());
+                        ppsourceprovider.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2683,8 +2707,8 @@ impl IMFMediaKeySession {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn Update(&self, key: &[u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Update)(windows_core::Interface::as_raw(self), core::mem::transmute(key.as_ptr()), key.len().try_into().unwrap()) }
+    pub unsafe fn Update(&self, key: *const super::BYTE, cb: super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Update)(windows_core::Interface::as_raw(self), key, cb) }
     }
     pub unsafe fn Close(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)) }
@@ -2732,7 +2756,7 @@ impl IMFMediaKeySession_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        keysystem.write(core::mem::zeroed());
+                        keysystem.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2747,7 +2771,7 @@ impl IMFMediaKeySession_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        sessionid.write(core::mem::zeroed());
+                        sessionid.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2797,8 +2821,8 @@ impl IMFMediaKeySession2 {
         unsafe { (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrsessionid), pfloaded as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GenerateRequest(&self, initdatatype: &windows_core::BSTR, pbinitdata: &[u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GenerateRequest)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(initdatatype), core::mem::transmute(pbinitdata.as_ptr()), pbinitdata.len().try_into().unwrap()) }
+    pub unsafe fn GenerateRequest(&self, initdatatype: &windows_core::BSTR, pbinitdata: *const super::BYTE, cb: super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GenerateRequest)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(initdatatype), pbinitdata, cb) }
     }
     pub unsafe fn get_Expiration(&self, dblexpiration: *mut f64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).get_Expiration)(windows_core::Interface::as_raw(self), dblexpiration as _) }
@@ -2895,9 +2919,9 @@ windows_core::imp::define_interface!(IMFMediaKeySessionNotify, IMFMediaKeySessio
 windows_core::imp::interface_hierarchy!(IMFMediaKeySessionNotify, windows_core::IUnknown);
 impl IMFMediaKeySessionNotify {
     #[cfg(feature = "shared")]
-    pub unsafe fn KeyMessage(&self, destinationurl: &windows_core::BSTR, message: &[u8]) {
+    pub unsafe fn KeyMessage(&self, destinationurl: &windows_core::BSTR, message: *const super::BYTE, cb: super::DWORD) {
         unsafe {
-            (windows_core::Interface::vtable(self).KeyMessage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(destinationurl), core::mem::transmute(message.as_ptr()), message.len().try_into().unwrap());
+            (windows_core::Interface::vtable(self).KeyMessage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(destinationurl), message, cb);
         }
     }
     pub unsafe fn KeyAdded(&self) {
@@ -2976,9 +3000,9 @@ impl core::ops::Deref for IMFMediaKeySessionNotify2 {
 windows_core::imp::interface_hierarchy!(IMFMediaKeySessionNotify2, windows_core::IUnknown, IMFMediaKeySessionNotify);
 impl IMFMediaKeySessionNotify2 {
     #[cfg(all(feature = "mfidl", feature = "shared"))]
-    pub unsafe fn KeyMessage2(&self, emessagetype: super::MF_MEDIAKEYSESSION_MESSAGETYPE, destinationurl: &windows_core::BSTR, pbmessage: &[u8]) {
+    pub unsafe fn KeyMessage2(&self, emessagetype: super::MF_MEDIAKEYSESSION_MESSAGETYPE, destinationurl: &windows_core::BSTR, pbmessage: *const super::BYTE, cbmessage: super::DWORD) {
         unsafe {
-            (windows_core::Interface::vtable(self).KeyMessage2)(windows_core::Interface::as_raw(self), emessagetype, core::mem::transmute_copy(destinationurl), core::mem::transmute(pbmessage.as_ptr()), pbmessage.len().try_into().unwrap());
+            (windows_core::Interface::vtable(self).KeyMessage2)(windows_core::Interface::as_raw(self), emessagetype, core::mem::transmute_copy(destinationurl), pbmessage, cbmessage);
         }
     }
     pub unsafe fn KeyStatusChange(&self) {
@@ -3085,7 +3109,7 @@ impl IMFMediaKeySystemAccess_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppkeys.write(core::mem::zeroed());
+                        ppkeys.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3100,7 +3124,7 @@ impl IMFMediaKeySystemAccess_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppsupportedconfiguration.write(core::mem::zeroed());
+                        ppsupportedconfiguration.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3129,13 +3153,13 @@ windows_core::imp::define_interface!(IMFMediaKeys, IMFMediaKeys_Vtbl, 0x5cb31c05
 windows_core::imp::interface_hierarchy!(IMFMediaKeys, windows_core::IUnknown);
 impl IMFMediaKeys {
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateSession<P5>(&self, mimetype: &windows_core::BSTR, initdata: Option<&[u8]>, customdata: Option<&[u8]>, notify: P5) -> windows_core::Result<IMFMediaKeySession>
+    pub unsafe fn CreateSession<P5>(&self, mimetype: &windows_core::BSTR, initdata: Option<*const super::BYTE>, cb: Option<super::DWORD>, customdata: Option<*const super::BYTE>, cbcustomdata: super::DWORD, notify: P5) -> windows_core::Result<IMFMediaKeySession>
     where
         P5: windows_core::Param<IMFMediaKeySessionNotify>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSession)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(mimetype), core::mem::transmute(initdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), initdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(customdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), customdata.map_or(0, |slice| slice.len().try_into().unwrap()), notify.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateSession)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(mimetype), initdata.unwrap_or(core::mem::zeroed()) as _, cb.unwrap_or(core::mem::zeroed()) as _, customdata.unwrap_or(core::mem::zeroed()) as _, cbcustomdata, notify.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn get_KeySystem(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -3185,7 +3209,7 @@ impl IMFMediaKeys_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppsession.write(core::mem::zeroed());
+                        ppsession.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3200,7 +3224,7 @@ impl IMFMediaKeys_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        keysystem.write(core::mem::zeroed());
+                        keysystem.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3221,7 +3245,7 @@ impl IMFMediaKeys_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        notify.write(core::mem::zeroed());
+                        notify.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3261,8 +3285,8 @@ impl IMFMediaKeys2 {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetServerCertificate(&self, pbservercertificate: Option<&[u8]>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetServerCertificate)(windows_core::Interface::as_raw(self), core::mem::transmute(pbservercertificate.map_or(core::ptr::null(), |slice| slice.as_ptr())), pbservercertificate.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    pub unsafe fn SetServerCertificate(&self, pbservercertificate: Option<*const super::BYTE>, cb: super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetServerCertificate)(windows_core::Interface::as_raw(self), pbservercertificate.unwrap_or(core::mem::zeroed()) as _, cb) }
     }
     pub unsafe fn GetDOMException(&self, systemcode: windows_core::HRESULT, code: *mut windows_core::HRESULT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDOMException)(windows_core::Interface::as_raw(self), systemcode, code as _) }
@@ -3300,7 +3324,7 @@ impl IMFMediaKeys2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppsession.write(core::mem::zeroed());
+                        ppsession.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3447,7 +3471,10 @@ impl IMFMediaSourceExtension_Vtbl {
                         ppsourcebuffer.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsourcebuffer.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3745,8 +3772,8 @@ impl IMFSourceBuffer {
         unsafe { (windows_core::Interface::vtable(self).SetAppendWindowEnd)(windows_core::Interface::as_raw(self), time) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn Append(&self, pdata: &[u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Append)(windows_core::Interface::as_raw(self), core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap()) }
+    pub unsafe fn Append(&self, pdata: *const super::BYTE, len: super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Append)(windows_core::Interface::as_raw(self), pdata, len) }
     }
     #[cfg(all(feature = "mfobjects", feature = "shared"))]
     pub unsafe fn AppendByteStream<P0>(&self, pstream: P0, pmaxlen: Option<*const super::DWORDLONG>) -> windows_core::HRESULT
@@ -3817,7 +3844,10 @@ impl IMFSourceBuffer_Vtbl {
                         ppbuffered.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppbuffered.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4263,7 +4293,7 @@ impl IMFTimedText_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        track.write(core::mem::zeroed());
+                        track.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4296,7 +4326,7 @@ impl IMFTimedText_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        tracks.write(core::mem::zeroed());
+                        tracks.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4311,7 +4341,7 @@ impl IMFTimedText_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        activetracks.write(core::mem::zeroed());
+                        activetracks.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4326,7 +4356,7 @@ impl IMFTimedText_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        texttracks.write(core::mem::zeroed());
+                        texttracks.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4341,7 +4371,7 @@ impl IMFTimedText_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        metadatatracks.write(core::mem::zeroed());
+                        metadatatracks.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4644,7 +4674,7 @@ impl IMFTimedTextCue_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        line.write(core::mem::zeroed());
+                        line.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4708,8 +4738,8 @@ impl IMFTimedTextCueList {
         unsafe { (windows_core::Interface::vtable(self).AddTextCue)(windows_core::Interface::as_raw(self), start, duration, text.param().abi(), cue.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn AddDataCue(&self, start: f64, duration: f64, data: &[u8], cue: Option<*mut Option<IMFTimedTextCue>>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddDataCue)(windows_core::Interface::as_raw(self), start, duration, core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap(), cue.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn AddDataCue(&self, start: f64, duration: f64, data: *const super::BYTE, datasize: super::DWORD, cue: Option<*mut Option<IMFTimedTextCue>>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddDataCue)(windows_core::Interface::as_raw(self), start, duration, data, datasize, cue.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn RemoveCue<P0>(&self, cue: P0) -> windows_core::HRESULT
     where
@@ -4770,7 +4800,7 @@ impl IMFTimedTextCueList_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        cue.write(core::mem::zeroed());
+                        cue.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4785,7 +4815,7 @@ impl IMFTimedTextCueList_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        cue.write(core::mem::zeroed());
+                        cue.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4800,7 +4830,7 @@ impl IMFTimedTextCueList_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        cue.write(core::mem::zeroed());
+                        cue.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5741,7 +5771,7 @@ impl IMFTimedTextTrack_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        cues.write(core::mem::zeroed());
+                        cues.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5833,7 +5863,7 @@ impl IMFTimedTextTrackList_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        track.write(core::mem::zeroed());
+                        track.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5848,7 +5878,7 @@ impl IMFTimedTextTrackList_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        track.write(core::mem::zeroed());
+                        track.write_bytes(0, 1);
                         err.into()
                     }
                 }

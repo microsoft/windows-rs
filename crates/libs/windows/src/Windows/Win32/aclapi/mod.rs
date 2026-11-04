@@ -48,39 +48,15 @@ pub unsafe fn BuildImpersonateTrusteeW(ptrustee: super::PTRUSTEE_W, pimpersonate
 }
 #[cfg(all(feature = "accctrl", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn BuildSecurityDescriptorA(powner: Option<super::PTRUSTEE_A>, pgroup: Option<super::PTRUSTEE_A>, plistofaccessentries: Option<&[super::_EXPLICIT_ACCESS_A]>, plistofauditentries: Option<&[super::_EXPLICIT_ACCESS_A]>, poldsd: Option<super::PSECURITY_DESCRIPTOR>, psizenewsd: super::PULONG, pnewsd: *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD {
+pub unsafe fn BuildSecurityDescriptorA(powner: Option<super::PTRUSTEE_A>, pgroup: Option<super::PTRUSTEE_A>, ccountofaccessentries: super::ULONG, plistofaccessentries: Option<super::PEXPLICIT_ACCESS_A>, ccountofauditentries: super::ULONG, plistofauditentries: Option<super::PEXPLICIT_ACCESS_A>, poldsd: Option<super::PSECURITY_DESCRIPTOR>, psizenewsd: super::PULONG, pnewsd: *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD {
     windows_core::link!("advapi32.dll" "system" fn BuildSecurityDescriptorA(powner : super::PTRUSTEE_A, pgroup : super::PTRUSTEE_A, ccountofaccessentries : super::ULONG, plistofaccessentries : super::PEXPLICIT_ACCESS_A, ccountofauditentries : super::ULONG, plistofauditentries : super::PEXPLICIT_ACCESS_A, poldsd : super::PSECURITY_DESCRIPTOR, psizenewsd : super::PULONG, pnewsd : *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD);
-    unsafe {
-        BuildSecurityDescriptorA(
-            powner.unwrap_or(core::mem::zeroed()) as _,
-            pgroup.unwrap_or(core::mem::zeroed()) as _,
-            plistofaccessentries.map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(plistofaccessentries.map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            plistofauditentries.map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(plistofauditentries.map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            poldsd.unwrap_or(core::mem::zeroed()) as _,
-            psizenewsd as _,
-            pnewsd as _,
-        )
-    }
+    unsafe { BuildSecurityDescriptorA(powner.unwrap_or(core::mem::zeroed()) as _, pgroup.unwrap_or(core::mem::zeroed()) as _, ccountofaccessentries, plistofaccessentries.unwrap_or(core::mem::zeroed()) as _, ccountofauditentries, plistofauditentries.unwrap_or(core::mem::zeroed()) as _, poldsd.unwrap_or(core::mem::zeroed()) as _, psizenewsd as _, pnewsd as _) }
 }
 #[cfg(all(feature = "accctrl", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn BuildSecurityDescriptorW(powner: Option<super::PTRUSTEE_W>, pgroup: Option<super::PTRUSTEE_W>, plistofaccessentries: Option<&[super::_EXPLICIT_ACCESS_W]>, plistofauditentries: Option<&[super::_EXPLICIT_ACCESS_W]>, poldsd: Option<super::PSECURITY_DESCRIPTOR>, psizenewsd: super::PULONG, pnewsd: *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD {
+pub unsafe fn BuildSecurityDescriptorW(powner: Option<super::PTRUSTEE_W>, pgroup: Option<super::PTRUSTEE_W>, ccountofaccessentries: super::ULONG, plistofaccessentries: Option<super::PEXPLICIT_ACCESS_W>, ccountofauditentries: super::ULONG, plistofauditentries: Option<super::PEXPLICIT_ACCESS_W>, poldsd: Option<super::PSECURITY_DESCRIPTOR>, psizenewsd: super::PULONG, pnewsd: *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD {
     windows_core::link!("advapi32.dll" "system" fn BuildSecurityDescriptorW(powner : super::PTRUSTEE_W, pgroup : super::PTRUSTEE_W, ccountofaccessentries : super::ULONG, plistofaccessentries : super::PEXPLICIT_ACCESS_W, ccountofauditentries : super::ULONG, plistofauditentries : super::PEXPLICIT_ACCESS_W, poldsd : super::PSECURITY_DESCRIPTOR, psizenewsd : super::PULONG, pnewsd : *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD);
-    unsafe {
-        BuildSecurityDescriptorW(
-            powner.unwrap_or(core::mem::zeroed()) as _,
-            pgroup.unwrap_or(core::mem::zeroed()) as _,
-            plistofaccessentries.map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(plistofaccessentries.map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            plistofauditentries.map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(plistofauditentries.map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            poldsd.unwrap_or(core::mem::zeroed()) as _,
-            psizenewsd as _,
-            pnewsd as _,
-        )
-    }
+    unsafe { BuildSecurityDescriptorW(powner.unwrap_or(core::mem::zeroed()) as _, pgroup.unwrap_or(core::mem::zeroed()) as _, ccountofaccessentries, plistofaccessentries.unwrap_or(core::mem::zeroed()) as _, ccountofauditentries, plistofauditentries.unwrap_or(core::mem::zeroed()) as _, poldsd.unwrap_or(core::mem::zeroed()) as _, psizenewsd as _, pnewsd as _) }
 }
 #[cfg(all(feature = "accctrl", feature = "winnt"))]
 #[inline]
@@ -148,9 +124,9 @@ pub unsafe fn BuildTrusteeWithSidW(ptrustee: super::PTRUSTEE_W, psid: Option<sup
 }
 #[cfg(all(feature = "accctrl", feature = "shared"))]
 #[inline]
-pub unsafe fn FreeInheritedFromArray(pinheritarray: &[super::INHERITED_FROMW], pfnarray: Option<super::PFN_OBJECT_MGR_FUNCTS>) -> super::DWORD {
+pub unsafe fn FreeInheritedFromArray(pinheritarray: super::PINHERITED_FROMW, acecnt: super::USHORT, pfnarray: Option<super::PFN_OBJECT_MGR_FUNCTS>) -> super::DWORD {
     windows_core::link!("advapi32.dll" "system" fn FreeInheritedFromArray(pinheritarray : super::PINHERITED_FROMW, acecnt : super::USHORT, pfnarray : super::PFN_OBJECT_MGR_FUNCTS) -> super::DWORD);
-    unsafe { FreeInheritedFromArray(core::mem::transmute(pinheritarray.as_ptr()), pinheritarray.len().try_into().unwrap(), pfnarray.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { FreeInheritedFromArray(pinheritarray, acecnt, pfnarray.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt"))]
 #[inline]
@@ -190,21 +166,21 @@ pub unsafe fn GetExplicitEntriesFromAclW(pacl: super::PACL, pccountofexplicitent
 }
 #[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetInheritanceSourceA<P0>(pobjectname: P0, objecttype: super::SE_OBJECT_TYPE, securityinfo: super::SECURITY_INFORMATION, container: bool, pobjectclassguids: Option<&[*const windows_core::GUID]>, pacl: super::PACL, pfnarray: Option<super::PFN_OBJECT_MGR_FUNCTS>, pgenericmapping: super::PGENERIC_MAPPING, pinheritarray: super::PINHERITED_FROMA) -> super::DWORD
+pub unsafe fn GetInheritanceSourceA<P0>(pobjectname: P0, objecttype: super::SE_OBJECT_TYPE, securityinfo: super::SECURITY_INFORMATION, container: bool, pobjectclassguids: Option<*const *const windows_core::GUID>, guidcount: super::DWORD, pacl: super::PACL, pfnarray: Option<super::PFN_OBJECT_MGR_FUNCTS>, pgenericmapping: super::PGENERIC_MAPPING, pinheritarray: super::PINHERITED_FROMA) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn GetInheritanceSourceA(pobjectname : windows_core::PCSTR, objecttype : super::SE_OBJECT_TYPE, securityinfo : super::SECURITY_INFORMATION, container : windows_core::BOOL, pobjectclassguids : *const *const windows_core::GUID, guidcount : super::DWORD, pacl : super::PACL, pfnarray : super::PFN_OBJECT_MGR_FUNCTS, pgenericmapping : super::PGENERIC_MAPPING, pinheritarray : super::PINHERITED_FROMA) -> super::DWORD);
-    unsafe { GetInheritanceSourceA(pobjectname.param().abi(), objecttype, securityinfo, container.into(), pobjectclassguids.map_or(core::ptr::null(), |slice| slice.as_ptr()), pobjectclassguids.map_or(0, |slice| slice.len().try_into().unwrap()), pacl, pfnarray.unwrap_or(core::mem::zeroed()) as _, pgenericmapping, pinheritarray as _) }
+    unsafe { GetInheritanceSourceA(pobjectname.param().abi(), objecttype, securityinfo, container.into(), pobjectclassguids.unwrap_or(core::mem::zeroed()) as _, guidcount, pacl, pfnarray.unwrap_or(core::mem::zeroed()) as _, pgenericmapping, pinheritarray as _) }
 }
 #[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetInheritanceSourceW<P0>(pobjectname: P0, objecttype: super::SE_OBJECT_TYPE, securityinfo: super::SECURITY_INFORMATION, container: bool, pobjectclassguids: Option<&[*const windows_core::GUID]>, pacl: super::PACL, pfnarray: Option<super::PFN_OBJECT_MGR_FUNCTS>, pgenericmapping: super::PGENERIC_MAPPING, pinheritarray: super::PINHERITED_FROMW) -> super::DWORD
+pub unsafe fn GetInheritanceSourceW<P0>(pobjectname: P0, objecttype: super::SE_OBJECT_TYPE, securityinfo: super::SECURITY_INFORMATION, container: bool, pobjectclassguids: Option<*const *const windows_core::GUID>, guidcount: super::DWORD, pacl: super::PACL, pfnarray: Option<super::PFN_OBJECT_MGR_FUNCTS>, pgenericmapping: super::PGENERIC_MAPPING, pinheritarray: super::PINHERITED_FROMW) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn GetInheritanceSourceW(pobjectname : windows_core::PCWSTR, objecttype : super::SE_OBJECT_TYPE, securityinfo : super::SECURITY_INFORMATION, container : windows_core::BOOL, pobjectclassguids : *const *const windows_core::GUID, guidcount : super::DWORD, pacl : super::PACL, pfnarray : super::PFN_OBJECT_MGR_FUNCTS, pgenericmapping : super::PGENERIC_MAPPING, pinheritarray : super::PINHERITED_FROMW) -> super::DWORD);
-    unsafe { GetInheritanceSourceW(pobjectname.param().abi(), objecttype, securityinfo, container.into(), pobjectclassguids.map_or(core::ptr::null(), |slice| slice.as_ptr()), pobjectclassguids.map_or(0, |slice| slice.len().try_into().unwrap()), pacl, pfnarray.unwrap_or(core::mem::zeroed()) as _, pgenericmapping, pinheritarray as _) }
+    unsafe { GetInheritanceSourceW(pobjectname.param().abi(), objecttype, securityinfo, container.into(), pobjectclassguids.unwrap_or(core::mem::zeroed()) as _, guidcount, pacl, pfnarray.unwrap_or(core::mem::zeroed()) as _, pgenericmapping, pinheritarray as _) }
 }
 #[cfg(all(feature = "accctrl", feature = "winnt"))]
 #[inline]
@@ -304,15 +280,15 @@ pub unsafe fn LookupSecurityDescriptorPartsW(ppowner: Option<*mut super::PTRUSTE
 }
 #[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetEntriesInAclA(plistofexplicitentries: Option<&[super::_EXPLICIT_ACCESS_A]>, oldacl: Option<super::PACL>, newacl: *mut super::PACL) -> super::DWORD {
+pub unsafe fn SetEntriesInAclA(ccountofexplicitentries: super::ULONG, plistofexplicitentries: Option<super::PEXPLICIT_ACCESS_A>, oldacl: Option<super::PACL>, newacl: *mut super::PACL) -> super::DWORD {
     windows_core::link!("advapi32.dll" "system" fn SetEntriesInAclA(ccountofexplicitentries : super::ULONG, plistofexplicitentries : super::PEXPLICIT_ACCESS_A, oldacl : super::PACL, newacl : *mut super::PACL) -> super::DWORD);
-    unsafe { SetEntriesInAclA(plistofexplicitentries.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(plistofexplicitentries.map_or(core::ptr::null(), |slice| slice.as_ptr())), oldacl.unwrap_or(core::mem::zeroed()) as _, newacl as _) }
+    unsafe { SetEntriesInAclA(ccountofexplicitentries, plistofexplicitentries.unwrap_or(core::mem::zeroed()) as _, oldacl.unwrap_or(core::mem::zeroed()) as _, newacl as _) }
 }
 #[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetEntriesInAclW(plistofexplicitentries: Option<&[super::_EXPLICIT_ACCESS_W]>, oldacl: Option<super::PACL>, newacl: *mut super::PACL) -> super::DWORD {
+pub unsafe fn SetEntriesInAclW(ccountofexplicitentries: super::ULONG, plistofexplicitentries: Option<super::PEXPLICIT_ACCESS_W>, oldacl: Option<super::PACL>, newacl: *mut super::PACL) -> super::DWORD {
     windows_core::link!("advapi32.dll" "system" fn SetEntriesInAclW(ccountofexplicitentries : super::ULONG, plistofexplicitentries : super::PEXPLICIT_ACCESS_W, oldacl : super::PACL, newacl : *mut super::PACL) -> super::DWORD);
-    unsafe { SetEntriesInAclW(plistofexplicitentries.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(plistofexplicitentries.map_or(core::ptr::null(), |slice| slice.as_ptr())), oldacl.unwrap_or(core::mem::zeroed()) as _, newacl as _) }
+    unsafe { SetEntriesInAclW(ccountofexplicitentries, plistofexplicitentries.unwrap_or(core::mem::zeroed()) as _, oldacl.unwrap_or(core::mem::zeroed()) as _, newacl as _) }
 }
 #[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt"))]
 #[inline]

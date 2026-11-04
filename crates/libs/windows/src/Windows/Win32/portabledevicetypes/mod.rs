@@ -349,8 +349,8 @@ impl IPortableDeviceValues {
         unsafe { (windows_core::Interface::vtable(self).GetGuidValue)(windows_core::Interface::as_raw(self), key, pvalue as _) }
     }
     #[cfg(all(feature = "shared", feature = "wtypes"))]
-    pub unsafe fn SetBufferValue(&self, key: *const super::PROPERTYKEY, pvalue: &[super::BYTE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetBufferValue)(windows_core::Interface::as_raw(self), key, pvalue.as_ptr(), pvalue.len().try_into().unwrap()) }
+    pub unsafe fn SetBufferValue(&self, key: *const super::PROPERTYKEY, pvalue: *const super::BYTE, cbvalue: super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetBufferValue)(windows_core::Interface::as_raw(self), key, pvalue, cbvalue) }
     }
     #[cfg(all(feature = "shared", feature = "wtypes"))]
     pub unsafe fn GetBufferValue(&self, key: *const super::PROPERTYKEY, ppvalue: *mut *mut super::BYTE, pcbvalue: *mut super::DWORD) -> windows_core::HRESULT {
@@ -788,7 +788,10 @@ impl IPortableDeviceValues_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -830,7 +833,10 @@ impl IPortableDeviceValues_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -848,7 +854,10 @@ impl IPortableDeviceValues_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -866,7 +875,10 @@ impl IPortableDeviceValues_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -884,7 +896,10 @@ impl IPortableDeviceValues_Vtbl {
                         ppvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1034,7 +1049,10 @@ impl IPortableDeviceValuesCollection_Vtbl {
                         ppvalues.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalues.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1075,10 +1093,10 @@ windows_core::imp::define_interface!(IWpdSerializer, IWpdSerializer_Vtbl, 0xb32f
 windows_core::imp::interface_hierarchy!(IWpdSerializer, windows_core::IUnknown);
 impl IWpdSerializer {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetIPortableDeviceValuesFromBuffer(&self, pbuffer: &[super::BYTE]) -> windows_core::Result<IPortableDeviceValues> {
+    pub unsafe fn GetIPortableDeviceValuesFromBuffer(&self, pbuffer: *const super::BYTE, dwinputbufferlength: super::DWORD) -> windows_core::Result<IPortableDeviceValues> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetIPortableDeviceValuesFromBuffer)(windows_core::Interface::as_raw(self), pbuffer.as_ptr(), pbuffer.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetIPortableDeviceValuesFromBuffer)(windows_core::Interface::as_raw(self), pbuffer, dwinputbufferlength, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "shared")]
@@ -1142,7 +1160,10 @@ impl IWpdSerializer_Vtbl {
                         ppparams.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppparams.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

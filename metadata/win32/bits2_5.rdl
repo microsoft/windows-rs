@@ -25,12 +25,12 @@ mod Windows {
         const BackgroundCopyManager2_5: GUID = 0x03ca98d6_ff5d_49b8_abc6_03dd84127020;
         #[guid(0xf1bd1079_9f01_4bdc_8036_f09b70095066)]
         interface IBackgroundCopyJobHttpOptions: IUnknown {
-            fn SetClientCertificateByID(&self, #[in] StoreLocation: BG_CERT_STORE_LOCATION, #[in] StoreName: LPCWSTR, #[in] #[readable(entry, 20)] pCertHashBlob: *mut byte) -> HRESULT;
+            fn SetClientCertificateByID(&self, #[in] StoreLocation: BG_CERT_STORE_LOCATION, #[in] StoreName: LPCWSTR, #[buffer(20)] #[in] pCertHashBlob: *mut byte) -> HRESULT;
             fn SetClientCertificateByName(&self, #[in] StoreLocation: BG_CERT_STORE_LOCATION, #[in] StoreName: LPCWSTR, #[in] SubjectName: LPCWSTR) -> HRESULT;
             fn RemoveClientCertificate(&self) -> HRESULT;
-            fn GetClientCertificate(&self, #[out] pStoreLocation: *mut BG_CERT_STORE_LOCATION, #[out] #[out_ptr] pStoreName: *mut LPWSTR, #[nullable] #[out] #[readable(success, 20, indirect)] #[writable(success, 20, indirect)] ppCertHashBlob: *mut *mut byte, #[out] #[out_ptr] pSubjectName: *mut LPWSTR) -> HRESULT;
+            fn GetClientCertificate(&self, #[out] pStoreLocation: *mut BG_CERT_STORE_LOCATION, #[out] pStoreName: *mut LPWSTR, #[incomplete] #[out] ppCertHashBlob: *mut *mut byte, #[out] pSubjectName: *mut LPWSTR) -> HRESULT;
             fn SetCustomHeaders(&self, #[in] #[opt] RequestHeaders: LPCWSTR) -> HRESULT;
-            fn GetCustomHeaders(&self, #[out] #[out_ptr] pRequestHeaders: *mut LPWSTR) -> HRESULT;
+            fn GetCustomHeaders(&self, #[out] pRequestHeaders: *mut LPWSTR) -> HRESULT;
             fn SetSecurityFlags(&self, #[in] Flags: ULONG) -> HRESULT;
             fn GetSecurityFlags(&self, #[out] pFlags: *mut ULONG) -> HRESULT;
         }

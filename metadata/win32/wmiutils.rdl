@@ -4,24 +4,24 @@ mod Windows {
         #[guid(0x3bc15af2_736c_477e_9e51_238af8667dcc)]
         interface IWbemPath: IUnknown {
             fn SetText(&self, #[in] uMode: ULONG, #[in] pszPath: LPCWSTR) -> HRESULT;
-            fn GetText(&self, #[in] lFlags: i32, #[in] #[out] puBuffLength: *mut ULONG, #[in] #[out] #[writable(entry, *puBuffLength)] pszText: LPWSTR) -> HRESULT;
+            fn GetText(&self, #[in] lFlags: i32, #[in] #[out] puBuffLength: *mut ULONG, #[buffer(*puBuffLength)] #[in] #[out] pszText: LPWSTR) -> HRESULT;
             fn GetInfo(&self, #[in] uRequestedInfo: ULONG, #[out] puResponse: *mut ULONGLONG) -> HRESULT;
             fn SetServer(&self, #[in] Name: LPCWSTR) -> HRESULT;
-            fn GetServer(&self, #[in] #[out] puNameBufLength: *mut ULONG, #[in] #[out] #[writable(entry, *puNameBufLength)] pName: LPWSTR) -> HRESULT;
+            fn GetServer(&self, #[in] #[out] puNameBufLength: *mut ULONG, #[buffer(*puNameBufLength)] #[in] #[out] pName: LPWSTR) -> HRESULT;
             fn GetNamespaceCount(&self, #[out] puCount: *mut ULONG) -> HRESULT;
             fn SetNamespaceAt(&self, #[in] uIndex: ULONG, #[in] pszName: LPCWSTR) -> HRESULT;
-            fn GetNamespaceAt(&self, #[in] uIndex: ULONG, #[in] #[out] puNameBufLength: *mut ULONG, #[in] #[out] #[writable(entry, *puNameBufLength)] pName: LPWSTR) -> HRESULT;
+            fn GetNamespaceAt(&self, #[in] uIndex: ULONG, #[in] #[out] puNameBufLength: *mut ULONG, #[buffer(*puNameBufLength)] #[in] #[out] pName: LPWSTR) -> HRESULT;
             fn RemoveNamespaceAt(&self, #[in] uIndex: ULONG) -> HRESULT;
             fn RemoveAllNamespaces(&self) -> HRESULT;
             fn GetScopeCount(&self, #[out] puCount: *mut ULONG) -> HRESULT;
             fn SetScope(&self, #[in] uIndex: ULONG, #[in] pszClass: LPWSTR) -> HRESULT;
             fn SetScopeFromText(&self, #[in] uIndex: ULONG, #[in] pszText: LPWSTR) -> HRESULT;
-            fn GetScope(&self, #[in] uIndex: ULONG, #[in] #[out] puClassNameBufSize: *mut ULONG, #[in] #[out] #[writable(entry, *puClassNameBufSize)] pszClass: LPWSTR, #[out] pKeyList: *mut IWbemPathKeyList) -> HRESULT;
-            fn GetScopeAsText(&self, #[in] uIndex: ULONG, #[in] #[out] puTextBufSize: *mut ULONG, #[in] #[out] #[writable(entry, *puTextBufSize)] pszText: LPWSTR) -> HRESULT;
+            fn GetScope(&self, #[in] uIndex: ULONG, #[in] #[out] puClassNameBufSize: *mut ULONG, #[buffer(*puClassNameBufSize)] #[in] #[out] pszClass: LPWSTR, #[out] pKeyList: *mut IWbemPathKeyList) -> HRESULT;
+            fn GetScopeAsText(&self, #[in] uIndex: ULONG, #[in] #[out] puTextBufSize: *mut ULONG, #[buffer(*puTextBufSize)] #[in] #[out] pszText: LPWSTR) -> HRESULT;
             fn RemoveScope(&self, #[in] uIndex: ULONG) -> HRESULT;
             fn RemoveAllScopes(&self) -> HRESULT;
             fn SetClassName(&self, #[in] Name: LPCWSTR) -> HRESULT;
-            fn GetClassName(&self, #[in] #[out] puBuffLength: *mut ULONG, #[in] #[opt] #[out] #[writable(entry, *puBuffLength)] pszName: LPWSTR) -> HRESULT;
+            fn GetClassName(&self, #[in] #[out] puBuffLength: *mut ULONG, #[buffer(*puBuffLength)] #[in] #[opt] #[out] pszName: LPWSTR) -> HRESULT;
             fn GetKeyList(&self, #[out] pOut: *mut IWbemPathKeyList) -> HRESULT;
             fn CreateClassPart(&self, #[in] lFlags: i32, #[in] Name: LPCWSTR) -> HRESULT;
             fn DeleteClassPart(&self, #[in] lFlags: i32) -> HRESULT;
@@ -35,13 +35,13 @@ mod Windows {
             fn GetCount(&self, #[out] puKeyCount: *mut ULONG) -> HRESULT;
             fn SetKey(&self, #[in] wszName: LPCWSTR, #[in] uFlags: ULONG, #[in] uCimType: ULONG, #[in] pKeyVal: LPVOID) -> HRESULT;
             fn SetKey2(&self, #[in] wszName: LPCWSTR, #[in] uFlags: ULONG, #[in] uCimType: ULONG, #[in] pKeyVal: *mut VARIANT) -> HRESULT;
-            fn GetKey(&self, #[in] uKeyIx: ULONG, #[in] uFlags: ULONG, #[in] #[out] puNameBufSize: *mut ULONG, #[in] #[opt] #[out] #[writable(entry, *puNameBufSize)] pszKeyName: LPWSTR, #[in] #[out] puKeyValBufSize: *mut ULONG, #[in] #[out] pKeyVal: LPVOID, #[out] puApparentCimType: *mut ULONG) -> HRESULT;
-            fn GetKey2(&self, #[in] uKeyIx: ULONG, #[in] uFlags: ULONG, #[in] #[out] puNameBufSize: *mut ULONG, #[in] #[opt] #[out] #[writable(entry, *puNameBufSize)] pszKeyName: LPWSTR, #[in] #[out] pKeyValue: *mut VARIANT, #[out] puApparentCimType: *mut ULONG) -> HRESULT;
+            fn GetKey(&self, #[in] uKeyIx: ULONG, #[in] uFlags: ULONG, #[in] #[out] puNameBufSize: *mut ULONG, #[buffer(*puNameBufSize)] #[in] #[opt] #[out] pszKeyName: LPWSTR, #[in] #[out] puKeyValBufSize: *mut ULONG, #[in] #[out] pKeyVal: LPVOID, #[out] puApparentCimType: *mut ULONG) -> HRESULT;
+            fn GetKey2(&self, #[in] uKeyIx: ULONG, #[in] uFlags: ULONG, #[in] #[out] puNameBufSize: *mut ULONG, #[buffer(*puNameBufSize)] #[in] #[opt] #[out] pszKeyName: LPWSTR, #[in] #[out] pKeyValue: *mut VARIANT, #[out] puApparentCimType: *mut ULONG) -> HRESULT;
             fn RemoveKey(&self, #[in] wszName: LPCWSTR, #[in] uFlags: ULONG) -> HRESULT;
             fn RemoveAllKeys(&self, #[in] uFlags: ULONG) -> HRESULT;
             fn MakeSingleton(&self, #[in] bSet: boolean) -> HRESULT;
             fn GetInfo(&self, #[in] uRequestedInfo: ULONG, #[out] puResponse: *mut ULONGLONG) -> HRESULT;
-            fn GetText(&self, #[in] lFlags: i32, #[in] #[out] puBuffLength: *mut ULONG, #[in] #[out] #[writable(entry, *puBuffLength)] pszText: LPWSTR) -> HRESULT;
+            fn GetText(&self, #[in] lFlags: i32, #[in] #[out] puBuffLength: *mut ULONG, #[buffer(*puBuffLength)] #[in] #[out] pszText: LPWSTR) -> HRESULT;
         }
         #[guid(0x81166f58_dd98_11d3_a120_00105a1f515a)]
         interface IWbemQuery: IUnknown {

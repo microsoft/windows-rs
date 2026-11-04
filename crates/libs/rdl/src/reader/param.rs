@@ -89,43 +89,38 @@ impl Encoder<'_> {
         })
     }
 
-    pub fn encode_return_attrs(
-        &mut self,
-        return_attrs: &[syn::Attribute],
-        result: &metadata::Type,
-    ) -> Result<(), Error> {
+    pub fn encode_return_attrs(&mut self, return_attrs: &[syn::Attribute]) -> Result<(), Error> {
         if !return_attrs.is_empty() {
             let param_id = self
                 .output
                 .Param("", 0, metadata::ParamAttributes::default());
             for attr in return_attrs {
-                if attr.path().is_ident("nullable") {
-                    self.emit_value_nullable(
-                        metadata::writer::HasAttribute::Param(param_id),
-                        attr,
-                        result,
-                        false,
-                    )?;
-                } else if attr.path().is_ident("null_terminated") {
-                    return self.err(attr, "termination phases require a parameter owner");
+                if attr.path().is_ident("null_terminated")
+                    || attr.path().is_ident("null_null_terminated")
+                {
+                    return self.err(attr, "termination requires a parameter owner");
                 }
             }
             self.encode_attrs(
                 metadata::writer::HasAttribute::Param(param_id),
                 return_attrs,
-                &["nullable"],
+                &[],
             )?;
         }
         Ok(())
     }
 
-    pub fn encode_params(
-        &mut self,
-        params: &[Param],
-        result: &metadata::Type,
-    ) -> Result<(), Error> {
+    pub fn encode_params(&mut self, params: &[Param]) -> Result<(), Error> {
         let names: Vec<_> = params.iter().map(|param| param.name.as_str()).collect();
         let types: Vec<_> = params.iter().map(|param| param.ty.clone()).collect();
+        let optional: Vec<_> = params
+            .iter()
+            .map(|param| {
+                param
+                    .attributes
+                    .contains(metadata::ParamAttributes::Optional)
+            })
+            .collect();
         for (sequence, param) in params.iter().enumerate() {
             let param_id = self.output.Param(
                 &param.name,
@@ -155,12 +150,11 @@ impl Encoder<'_> {
                 false,
                 attribute_ref::ExtentTypes {
                     counts: &types,
+                    optional: &optional,
                     subject: &param.ty,
-                    result: Some(result),
                 },
             )?;
-            let mut skip: Vec<&str> =
-                vec!["r#in", "out", "opt", "readable", "writable", "nullable"];
+            let mut skip: Vec<&str> = vec!["r#in", "out", "opt", "buffer"];
             skip.extend(PSEUDO_ATTRS.iter().map(|p| p.short));
             self.encode_attrs(
                 metadata::writer::HasAttribute::Param(param_id),

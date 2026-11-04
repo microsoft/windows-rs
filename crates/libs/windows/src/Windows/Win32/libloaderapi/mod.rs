@@ -102,9 +102,9 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn FindStringOrdinal(dwfindstringordinalflags: super::DWORD, lpstringsource: &[u16], lpstringvalue: &[u16], bignorecase: bool) -> i32 {
+pub unsafe fn FindStringOrdinal(dwfindstringordinalflags: super::DWORD, lpstringsource: windows_core::PCWSTR, cchsource: i32, lpstringvalue: windows_core::PCWSTR, cchvalue: i32, bignorecase: bool) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn FindStringOrdinal(dwfindstringordinalflags : super::DWORD, lpstringsource : windows_core::PCWSTR, cchsource : i32, lpstringvalue : windows_core::PCWSTR, cchvalue : i32, bignorecase : windows_core::BOOL) -> i32);
-    unsafe { FindStringOrdinal(dwfindstringordinalflags, core::mem::transmute(lpstringsource.as_ptr()), lpstringsource.len().try_into().unwrap(), core::mem::transmute(lpstringvalue.as_ptr()), lpstringvalue.len().try_into().unwrap(), bignorecase.into()) }
+    unsafe { FindStringOrdinal(dwfindstringordinalflags, lpstringsource, cchsource, lpstringvalue, cchvalue, bignorecase.into()) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]

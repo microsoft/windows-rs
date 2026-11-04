@@ -108,7 +108,7 @@ mod Windows {
         }
         #[guid(0x28724c91_df35_4856_9f76_d6a26413f3df)]
         interface IAudioAmbisonicsControl: IUnknown {
-            fn SetData(&self, #[in] #[readable(entry, cbAmbisonicsParams)] pAmbisonicsParams: *const AMBISONICS_PARAMS, #[in] cbAmbisonicsParams: UINT32) -> HRESULT;
+            fn SetData(&self, #[buffer(cbAmbisonicsParams)] #[in] pAmbisonicsParams: *const AMBISONICS_PARAMS, #[in] cbAmbisonicsParams: UINT32) -> HRESULT;
             fn SetHeadTracking(&self, #[in] bEnableHeadTracking: BOOL) -> HRESULT;
             fn GetHeadTracking(&self, #[out] pbEnableHeadTracking: *mut BOOL) -> HRESULT;
             fn SetRotation(&self, #[in] X: f32, #[in] Y: f32, #[in] Z: f32, #[in] W: f32) -> HRESULT;
@@ -172,7 +172,7 @@ mod Windows {
         interface IAudioEffectsManager: IUnknown {
             fn RegisterAudioEffectsChangedNotificationCallback(&self, #[in] client: IAudioEffectsChangedNotificationClient) -> HRESULT;
             fn UnregisterAudioEffectsChangedNotificationCallback(&self, #[in] client: IAudioEffectsChangedNotificationClient) -> HRESULT;
-            fn GetAudioEffects(&self, #[nullable] #[out] #[writable(success, *numEffects, indirect)] effects: *mut *mut AUDIO_EFFECT, #[out] numEffects: *mut UINT32) -> HRESULT;
+            fn GetAudioEffects(&self, #[incomplete] #[out] effects: *mut *mut AUDIO_EFFECT, #[out] numEffects: *mut UINT32) -> HRESULT;
             fn SetAudioEffectState(&self, #[in] effectId: GUID, #[in] state: AUDIO_EFFECT_STATE) -> HRESULT;
         }
         #[guid(0xf294acfc_3146_4483_a7bf_addca7c260e2)]
@@ -185,8 +185,8 @@ mod Windows {
             fn GetChannelCount(&self, #[out] pdwCount: *mut UINT32) -> HRESULT;
             fn SetChannelVolume(&self, #[in] dwIndex: UINT32, #[in] fLevel: f32) -> HRESULT;
             fn GetChannelVolume(&self, #[in] dwIndex: UINT32, #[out] pfLevel: *mut f32) -> HRESULT;
-            fn SetAllVolumes(&self, #[in] dwCount: UINT32, #[in] #[readable(entry, dwCount)] pfVolumes: *const f32) -> HRESULT;
-            fn GetAllVolumes(&self, #[in] dwCount: UINT32, #[out] #[writable(entry, dwCount)] pfVolumes: *mut f32) -> HRESULT;
+            fn SetAllVolumes(&self, #[in] dwCount: UINT32, #[buffer(dwCount)] #[in] pfVolumes: *const f32) -> HRESULT;
+            fn GetAllVolumes(&self, #[in] dwCount: UINT32, #[buffer(dwCount)] #[out] pfVolumes: *mut f32) -> HRESULT;
         }
         #[guid(0xa7a7ef10_1f49_45e0_ad35_612057cc8f74)]
         interface IAudioViewManagerService: IUnknown {
@@ -197,8 +197,8 @@ mod Windows {
             fn GetChannelCount(&self, #[out] pdwCount: *mut UINT32) -> HRESULT;
             fn SetChannelVolume(&self, #[in] dwIndex: UINT32, #[in] fLevel: f32, #[in] EventContext: LPCGUID) -> HRESULT;
             fn GetChannelVolume(&self, #[in] dwIndex: UINT32, #[out] pfLevel: *mut f32) -> HRESULT;
-            fn SetAllVolumes(&self, #[in] dwCount: UINT32, #[in] #[readable(entry, dwCount)] pfVolumes: *const f32, #[in] EventContext: LPCGUID) -> HRESULT;
-            fn GetAllVolumes(&self, #[in] dwCount: UINT32, #[out] #[writable(entry, dwCount)] pfVolumes: *mut f32) -> HRESULT;
+            fn SetAllVolumes(&self, #[in] dwCount: UINT32, #[buffer(dwCount)] #[in] pfVolumes: *const f32, #[in] EventContext: LPCGUID) -> HRESULT;
+            fn GetAllVolumes(&self, #[in] dwCount: UINT32, #[buffer(dwCount)] #[out] pfVolumes: *mut f32) -> HRESULT;
         }
         #[guid(0x87ce5498_68d6_44e5_9215_6da47ef883d8)]
         interface ISimpleAudioVolume: IUnknown {

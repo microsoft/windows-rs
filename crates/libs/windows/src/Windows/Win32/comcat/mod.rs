@@ -100,7 +100,10 @@ impl ICatInformation_Vtbl {
                         ppenumcategoryinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumcategoryinfo.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -130,7 +133,10 @@ impl ICatInformation_Vtbl {
                         ppenumcatid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumcatid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -142,7 +148,10 @@ impl ICatInformation_Vtbl {
                         ppenumcatid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenumcatid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -166,28 +175,28 @@ windows_core::imp::define_interface!(ICatRegister, ICatRegister_Vtbl, 0x0002e012
 windows_core::imp::interface_hierarchy!(ICatRegister, windows_core::IUnknown);
 impl ICatRegister {
     #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-    pub unsafe fn RegisterCategories(&self, rgcategoryinfo: &[CATEGORYINFO]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RegisterCategories)(windows_core::Interface::as_raw(self), rgcategoryinfo.len().try_into().unwrap(), rgcategoryinfo.as_ptr()) }
+    pub unsafe fn RegisterCategories(&self, ccategories: super::ULONG, rgcategoryinfo: *const CATEGORYINFO) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RegisterCategories)(windows_core::Interface::as_raw(self), ccategories, rgcategoryinfo) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn UnRegisterCategories(&self, rgcatid: &[CATID]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).UnRegisterCategories)(windows_core::Interface::as_raw(self), rgcatid.len().try_into().unwrap(), rgcatid.as_ptr()) }
+    pub unsafe fn UnRegisterCategories(&self, ccategories: super::ULONG, rgcatid: *const CATID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UnRegisterCategories)(windows_core::Interface::as_raw(self), ccategories, rgcatid) }
     }
     #[cfg(all(feature = "guiddef", feature = "shared"))]
-    pub unsafe fn RegisterClassImplCategories(&self, rclsid: *const super::IID, rgcatid: &[CATID]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RegisterClassImplCategories)(windows_core::Interface::as_raw(self), rclsid, rgcatid.len().try_into().unwrap(), rgcatid.as_ptr()) }
+    pub unsafe fn RegisterClassImplCategories(&self, rclsid: *const super::IID, ccategories: super::ULONG, rgcatid: *const CATID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RegisterClassImplCategories)(windows_core::Interface::as_raw(self), rclsid, ccategories, rgcatid) }
     }
     #[cfg(all(feature = "guiddef", feature = "shared"))]
-    pub unsafe fn UnRegisterClassImplCategories(&self, rclsid: *const super::IID, rgcatid: &[CATID]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).UnRegisterClassImplCategories)(windows_core::Interface::as_raw(self), rclsid, rgcatid.len().try_into().unwrap(), rgcatid.as_ptr()) }
+    pub unsafe fn UnRegisterClassImplCategories(&self, rclsid: *const super::IID, ccategories: super::ULONG, rgcatid: *const CATID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UnRegisterClassImplCategories)(windows_core::Interface::as_raw(self), rclsid, ccategories, rgcatid) }
     }
     #[cfg(all(feature = "guiddef", feature = "shared"))]
-    pub unsafe fn RegisterClassReqCategories(&self, rclsid: *const super::IID, rgcatid: &[CATID]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RegisterClassReqCategories)(windows_core::Interface::as_raw(self), rclsid, rgcatid.len().try_into().unwrap(), rgcatid.as_ptr()) }
+    pub unsafe fn RegisterClassReqCategories(&self, rclsid: *const super::IID, ccategories: super::ULONG, rgcatid: *const CATID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RegisterClassReqCategories)(windows_core::Interface::as_raw(self), rclsid, ccategories, rgcatid) }
     }
     #[cfg(all(feature = "guiddef", feature = "shared"))]
-    pub unsafe fn UnRegisterClassReqCategories(&self, rclsid: *const super::IID, rgcatid: &[CATID]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).UnRegisterClassReqCategories)(windows_core::Interface::as_raw(self), rclsid, rgcatid.len().try_into().unwrap(), rgcatid.as_ptr()) }
+    pub unsafe fn UnRegisterClassReqCategories(&self, rclsid: *const super::IID, ccategories: super::ULONG, rgcatid: *const CATID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UnRegisterClassReqCategories)(windows_core::Interface::as_raw(self), rclsid, ccategories, rgcatid) }
     }
 }
 #[repr(C)]
@@ -355,7 +364,10 @@ impl IEnumCATEGORYINFO_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -445,7 +457,10 @@ impl IEnumGUID_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

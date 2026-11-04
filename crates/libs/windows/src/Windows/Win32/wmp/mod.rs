@@ -54,7 +54,10 @@ impl IWMPCdrom_Vtbl {
                         pbstrdrive.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrdrive.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -66,7 +69,10 @@ impl IWMPCdrom_Vtbl {
                         ppplaylist.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppplaylist.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -218,7 +224,10 @@ impl IWMPCdromBurn_Vtbl {
                         pisavailable.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pisavailable.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -230,7 +239,10 @@ impl IWMPCdromBurn_Vtbl {
                         pbstrval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -242,7 +254,10 @@ impl IWMPCdromBurn_Vtbl {
                         pbstrlabel.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrlabel.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -260,7 +275,10 @@ impl IWMPCdromBurn_Vtbl {
                         pwmpbf.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pwmpbf.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -278,7 +296,10 @@ impl IWMPCdromBurn_Vtbl {
                         ppplaylist.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppplaylist.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -302,7 +323,10 @@ impl IWMPCdromBurn_Vtbl {
                         pwmpbs.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pwmpbs.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -314,7 +338,10 @@ impl IWMPCdromBurn_Vtbl {
                         plprogress.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plprogress.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -418,7 +445,10 @@ impl IWMPCdromCollection_Vtbl {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -430,7 +460,10 @@ impl IWMPCdromCollection_Vtbl {
                         ppitem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppitem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -442,7 +475,10 @@ impl IWMPCdromCollection_Vtbl {
                         ppcdrom.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcdrom.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -506,7 +542,10 @@ impl IWMPCdromRip_Vtbl {
                         pwmprs.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pwmprs.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -518,7 +557,10 @@ impl IWMPCdromRip_Vtbl {
                         plprogress.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plprogress.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -633,7 +675,10 @@ impl IWMPClosedCaption_Vtbl {
                         pbstrsamistyle.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrsamistyle.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -651,7 +696,10 @@ impl IWMPClosedCaption_Vtbl {
                         pbstrsamilang.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrsamilang.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -669,7 +717,10 @@ impl IWMPClosedCaption_Vtbl {
                         pbstrsamifilename.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrsamifilename.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -687,7 +738,10 @@ impl IWMPClosedCaption_Vtbl {
                         pbstrcaptioningid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrcaptioningid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -789,7 +843,10 @@ impl IWMPClosedCaption2_Vtbl {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -801,7 +858,10 @@ impl IWMPClosedCaption2_Vtbl {
                         pbstrname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -813,7 +873,10 @@ impl IWMPClosedCaption2_Vtbl {
                         pllangid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pllangid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -825,7 +888,10 @@ impl IWMPClosedCaption2_Vtbl {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -837,7 +903,10 @@ impl IWMPClosedCaption2_Vtbl {
                         pbstrname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -995,7 +1064,10 @@ impl IWMPControls_Vtbl {
                         pisavailable.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pisavailable.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1037,7 +1109,10 @@ impl IWMPControls_Vtbl {
                         pdcurrentposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdcurrentposition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1055,7 +1130,10 @@ impl IWMPControls_Vtbl {
                         pbstrcurrentposition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrcurrentposition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1079,7 +1157,10 @@ impl IWMPControls_Vtbl {
                         ppiwmpmedia.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiwmpmedia.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1097,7 +1178,10 @@ impl IWMPControls_Vtbl {
                         plmarker.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plmarker.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1289,7 +1373,10 @@ impl IWMPControls3_Vtbl {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1301,7 +1388,10 @@ impl IWMPControls3_Vtbl {
                         pllangid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pllangid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1313,7 +1403,10 @@ impl IWMPControls3_Vtbl {
                         pbstrlangdesc.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrlangdesc.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1325,7 +1418,10 @@ impl IWMPControls3_Vtbl {
                         pllangid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pllangid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1343,7 +1439,10 @@ impl IWMPControls3_Vtbl {
                         plindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plindex.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1361,7 +1460,10 @@ impl IWMPControls3_Vtbl {
                         pbstrlangname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrlangname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1373,7 +1475,10 @@ impl IWMPControls3_Vtbl {
                         bstrtimecode.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bstrtimecode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1606,7 +1711,10 @@ impl IWMPCore_Vtbl {
                         pbstrurl.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrurl.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1624,7 +1732,10 @@ impl IWMPCore_Vtbl {
                         pwmpos.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pwmpos.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1636,7 +1747,10 @@ impl IWMPCore_Vtbl {
                         pwmpps.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pwmpps.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1648,7 +1762,10 @@ impl IWMPCore_Vtbl {
                         ppcontrol.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcontrol.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1660,7 +1777,10 @@ impl IWMPCore_Vtbl {
                         ppsettings.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsettings.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1672,7 +1792,10 @@ impl IWMPCore_Vtbl {
                         ppmedia.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmedia.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1690,7 +1813,10 @@ impl IWMPCore_Vtbl {
                         ppmediacollection.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmediacollection.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1702,7 +1828,10 @@ impl IWMPCore_Vtbl {
                         ppplaylistcollection.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppplaylistcollection.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1714,7 +1843,10 @@ impl IWMPCore_Vtbl {
                         pbstrversioninfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrversioninfo.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1732,7 +1864,10 @@ impl IWMPCore_Vtbl {
                         ppqni.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppqni.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1744,7 +1879,10 @@ impl IWMPCore_Vtbl {
                         pppl.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pppl.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1762,7 +1900,10 @@ impl IWMPCore_Vtbl {
                         ppcdromcollection.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppcdromcollection.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1774,7 +1915,10 @@ impl IWMPCore_Vtbl {
                         ppclosedcaption.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppclosedcaption.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1786,7 +1930,10 @@ impl IWMPCore_Vtbl {
                         pfonline.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfonline.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1798,7 +1945,10 @@ impl IWMPCore_Vtbl {
                         pperror.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pperror.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1810,7 +1960,10 @@ impl IWMPCore_Vtbl {
                         pbstrstatus.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrstatus.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1887,7 +2040,10 @@ impl IWMPCore2_Vtbl {
                         ppdvd.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdvd.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1949,7 +2105,10 @@ impl IWMPCore3_Vtbl {
                         ppplaylist.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppplaylist.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1961,7 +2120,10 @@ impl IWMPCore3_Vtbl {
                         ppmedia.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmedia.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2047,7 +2209,10 @@ impl IWMPDVD_Vtbl {
                         pisavailable.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pisavailable.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2059,7 +2224,10 @@ impl IWMPDVD_Vtbl {
                         strdomain.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        strdomain.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2169,7 +2337,10 @@ impl IWMPError_Vtbl {
                         plnumerrors.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plnumerrors.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2181,7 +2352,10 @@ impl IWMPError_Vtbl {
                         pperroritem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pperroritem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2283,7 +2457,10 @@ impl IWMPErrorItem_Vtbl {
                         phr.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        phr.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2295,7 +2472,10 @@ impl IWMPErrorItem_Vtbl {
                         pbstrdescription.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrdescription.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2307,7 +2487,10 @@ impl IWMPErrorItem_Vtbl {
                         pvarcontext.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarcontext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2319,7 +2502,10 @@ impl IWMPErrorItem_Vtbl {
                         plremedy.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plremedy.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2331,7 +2517,10 @@ impl IWMPErrorItem_Vtbl {
                         pbstrcustomurl.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrcustomurl.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2392,7 +2581,10 @@ impl IWMPErrorItem2_Vtbl {
                         plcondition.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcondition.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3623,7 +3815,10 @@ impl IWMPFolderMonitorServices_Vtbl {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3635,7 +3830,10 @@ impl IWMPFolderMonitorServices_Vtbl {
                         pbstrfolder.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrfolder.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3659,7 +3857,10 @@ impl IWMPFolderMonitorServices_Vtbl {
                         pwmpfss.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pwmpfss.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3671,7 +3872,10 @@ impl IWMPFolderMonitorServices_Vtbl {
                         pbstrfolder.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrfolder.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3683,7 +3887,10 @@ impl IWMPFolderMonitorServices_Vtbl {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3695,7 +3902,10 @@ impl IWMPFolderMonitorServices_Vtbl {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3707,7 +3917,10 @@ impl IWMPFolderMonitorServices_Vtbl {
                         plprogress.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plprogress.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3809,7 +4022,10 @@ impl IWMPLibrary_Vtbl {
                         pbstrname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3821,7 +4037,10 @@ impl IWMPLibrary_Vtbl {
                         pwmplt.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pwmplt.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3833,7 +4052,10 @@ impl IWMPLibrary_Vtbl {
                         ppiwmpmediacollection.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiwmpmediacollection.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3845,7 +4067,10 @@ impl IWMPLibrary_Vtbl {
                         pvbool.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvbool.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3900,7 +4125,10 @@ impl IWMPLibrary2_Vtbl {
                         pbstrval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3949,7 +4177,10 @@ impl IWMPLibraryServices_Vtbl {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3961,7 +4192,10 @@ impl IWMPLibraryServices_Vtbl {
                         ppiwmplibrary.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiwmplibrary.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4028,7 +4262,10 @@ impl IWMPLibrarySharingServices_Vtbl {
                         pvbshared.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvbshared.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4040,7 +4277,10 @@ impl IWMPLibrarySharingServices_Vtbl {
                         pvbenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvbenabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4253,7 +4493,10 @@ impl IWMPMedia_Vtbl {
                         pvbool.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvbool.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4265,7 +4508,10 @@ impl IWMPMedia_Vtbl {
                         pbstrsourceurl.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrsourceurl.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4277,7 +4523,10 @@ impl IWMPMedia_Vtbl {
                         pbstrname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4295,7 +4544,10 @@ impl IWMPMedia_Vtbl {
                         pwidth.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pwidth.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4307,7 +4559,10 @@ impl IWMPMedia_Vtbl {
                         pheight.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pheight.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4319,7 +4574,10 @@ impl IWMPMedia_Vtbl {
                         pmarkercount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pmarkercount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4331,7 +4589,10 @@ impl IWMPMedia_Vtbl {
                         pmarkertime.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pmarkertime.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4343,7 +4604,10 @@ impl IWMPMedia_Vtbl {
                         pbstrmarkername.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrmarkername.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4355,7 +4619,10 @@ impl IWMPMedia_Vtbl {
                         pduration.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pduration.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4367,7 +4634,10 @@ impl IWMPMedia_Vtbl {
                         pbstrduration.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrduration.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4379,7 +4649,10 @@ impl IWMPMedia_Vtbl {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4391,7 +4664,10 @@ impl IWMPMedia_Vtbl {
                         pbstritemname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstritemname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4403,7 +4679,10 @@ impl IWMPMedia_Vtbl {
                         pbstrval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4421,7 +4700,10 @@ impl IWMPMedia_Vtbl {
                         pbstrval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4433,7 +4715,10 @@ impl IWMPMedia_Vtbl {
                         pvarfismemberof.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarfismemberof.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4445,7 +4730,10 @@ impl IWMPMedia_Vtbl {
                         pvarfisreadonly.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarfisreadonly.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4519,7 +4807,10 @@ impl IWMPMedia2_Vtbl {
                         ppiwmperroritem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiwmperroritem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4585,7 +4876,10 @@ impl IWMPMedia3_Vtbl {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4597,7 +4891,10 @@ impl IWMPMedia3_Vtbl {
                         pvarvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4758,7 +5055,10 @@ impl IWMPMediaCollection_Vtbl {
                         ppitem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppitem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4770,7 +5070,10 @@ impl IWMPMediaCollection_Vtbl {
                         ppmediaitems.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmediaitems.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4782,7 +5085,10 @@ impl IWMPMediaCollection_Vtbl {
                         ppmediaitems.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmediaitems.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4794,7 +5100,10 @@ impl IWMPMediaCollection_Vtbl {
                         ppmediaitems.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmediaitems.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4806,7 +5115,10 @@ impl IWMPMediaCollection_Vtbl {
                         ppmediaitems.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmediaitems.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4818,7 +5130,10 @@ impl IWMPMediaCollection_Vtbl {
                         ppmediaitems.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmediaitems.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4830,7 +5145,10 @@ impl IWMPMediaCollection_Vtbl {
                         ppmediaitems.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmediaitems.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4848,7 +5166,10 @@ impl IWMPMediaCollection_Vtbl {
                         ppstringcollection.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstringcollection.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4860,7 +5181,10 @@ impl IWMPMediaCollection_Vtbl {
                         platom.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        platom.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4878,7 +5202,10 @@ impl IWMPMediaCollection_Vtbl {
                         pvarfisdeleted.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarfisdeleted.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4984,7 +5311,10 @@ impl IWMPMediaCollection2_Vtbl {
                         ppquery.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppquery.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4996,7 +5326,10 @@ impl IWMPMediaCollection2_Vtbl {
                         ppplaylist.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppplaylist.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5008,7 +5341,10 @@ impl IWMPMediaCollection2_Vtbl {
                         ppstringcollection.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstringcollection.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5020,7 +5356,10 @@ impl IWMPMediaCollection2_Vtbl {
                         ppmediaitems.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmediaitems.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5104,7 +5443,10 @@ impl IWMPMetadataPicture_Vtbl {
                         pbstrmimetype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrmimetype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5116,7 +5458,10 @@ impl IWMPMetadataPicture_Vtbl {
                         pbstrpicturetype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrpicturetype.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5128,7 +5473,10 @@ impl IWMPMetadataPicture_Vtbl {
                         pbstrdescription.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrdescription.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5140,7 +5488,10 @@ impl IWMPMetadataPicture_Vtbl {
                         pbstrurl.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrurl.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5208,7 +5559,10 @@ impl IWMPMetadataText_Vtbl {
                         pbstrdescription.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrdescription.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5220,7 +5574,10 @@ impl IWMPMetadataText_Vtbl {
                         pbstrtext.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrtext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5477,7 +5834,10 @@ impl IWMPNetwork_Vtbl {
                         plbandwidth.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plbandwidth.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5489,7 +5849,10 @@ impl IWMPNetwork_Vtbl {
                         plrecoveredpackets.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plrecoveredpackets.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5501,7 +5864,10 @@ impl IWMPNetwork_Vtbl {
                         pbstrsourceprotocol.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrsourceprotocol.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5513,7 +5879,10 @@ impl IWMPNetwork_Vtbl {
                         plreceivedpackets.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plreceivedpackets.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5525,7 +5894,10 @@ impl IWMPNetwork_Vtbl {
                         pllostpackets.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pllostpackets.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5537,7 +5909,10 @@ impl IWMPNetwork_Vtbl {
                         plreceptionquality.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plreceptionquality.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5549,7 +5924,10 @@ impl IWMPNetwork_Vtbl {
                         plbufferingcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plbufferingcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5561,7 +5939,10 @@ impl IWMPNetwork_Vtbl {
                         plbufferingprogress.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plbufferingprogress.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5573,7 +5954,10 @@ impl IWMPNetwork_Vtbl {
                         plbufferingtime.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plbufferingtime.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5591,7 +5975,10 @@ impl IWMPNetwork_Vtbl {
                         plframerate.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plframerate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5603,7 +5990,10 @@ impl IWMPNetwork_Vtbl {
                         plbitrate.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plbitrate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5615,7 +6005,10 @@ impl IWMPNetwork_Vtbl {
                         plbitrate.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plbitrate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5627,7 +6020,10 @@ impl IWMPNetwork_Vtbl {
                         plproxysetting.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plproxysetting.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5645,7 +6041,10 @@ impl IWMPNetwork_Vtbl {
                         pbstrproxyname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrproxyname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5663,7 +6062,10 @@ impl IWMPNetwork_Vtbl {
                         lproxyport.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        lproxyport.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5681,7 +6083,10 @@ impl IWMPNetwork_Vtbl {
                         pbstrexceptionlist.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrexceptionlist.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5699,7 +6104,10 @@ impl IWMPNetwork_Vtbl {
                         pfbypassforlocal.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfbypassforlocal.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5717,7 +6125,10 @@ impl IWMPNetwork_Vtbl {
                         lmaxbandwidth.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        lmaxbandwidth.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5735,7 +6146,10 @@ impl IWMPNetwork_Vtbl {
                         pldownloadprogress.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pldownloadprogress.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5747,7 +6161,10 @@ impl IWMPNetwork_Vtbl {
                         plframerate.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plframerate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5759,7 +6176,10 @@ impl IWMPNetwork_Vtbl {
                         plframes.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plframes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5911,7 +6331,10 @@ impl IWMPPlayer_Vtbl {
                         pbenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbenabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5929,7 +6352,10 @@ impl IWMPPlayer_Vtbl {
                         pbfullscreen.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbfullscreen.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5947,7 +6373,10 @@ impl IWMPPlayer_Vtbl {
                         pbenablecontextmenu.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbenablecontextmenu.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5971,7 +6400,10 @@ impl IWMPPlayer_Vtbl {
                         pbstrmode.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrmode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6145,7 +6577,10 @@ impl IWMPPlayer2_Vtbl {
                         pbenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbenabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6163,7 +6598,10 @@ impl IWMPPlayer2_Vtbl {
                         pbfullscreen.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbfullscreen.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6181,7 +6619,10 @@ impl IWMPPlayer2_Vtbl {
                         pbenablecontextmenu.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbenablecontextmenu.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6205,7 +6646,10 @@ impl IWMPPlayer2_Vtbl {
                         pbstrmode.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrmode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6217,7 +6661,10 @@ impl IWMPPlayer2_Vtbl {
                         pbenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbenabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6235,7 +6682,10 @@ impl IWMPPlayer2_Vtbl {
                         pbenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbenabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6419,7 +6869,10 @@ impl IWMPPlayer3_Vtbl {
                         pbenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbenabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6437,7 +6890,10 @@ impl IWMPPlayer3_Vtbl {
                         pbfullscreen.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbfullscreen.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6455,7 +6911,10 @@ impl IWMPPlayer3_Vtbl {
                         pbenablecontextmenu.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbenablecontextmenu.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6479,7 +6938,10 @@ impl IWMPPlayer3_Vtbl {
                         pbstrmode.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrmode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6491,7 +6953,10 @@ impl IWMPPlayer3_Vtbl {
                         pbenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbenabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6509,7 +6974,10 @@ impl IWMPPlayer3_Vtbl {
                         pbenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbenabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6718,7 +7186,10 @@ impl IWMPPlayer4_Vtbl {
                         pbenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbenabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6736,7 +7207,10 @@ impl IWMPPlayer4_Vtbl {
                         pbfullscreen.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbfullscreen.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6754,7 +7228,10 @@ impl IWMPPlayer4_Vtbl {
                         pbenablecontextmenu.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbenablecontextmenu.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6778,7 +7255,10 @@ impl IWMPPlayer4_Vtbl {
                         pbstrmode.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrmode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6790,7 +7270,10 @@ impl IWMPPlayer4_Vtbl {
                         pbenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbenabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6808,7 +7291,10 @@ impl IWMPPlayer4_Vtbl {
                         pbenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbenabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6826,7 +7312,10 @@ impl IWMPPlayer4_Vtbl {
                         pvarfisremote.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarfisremote.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6838,7 +7327,10 @@ impl IWMPPlayer4_Vtbl {
                         ppiwmpplayerapplication.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiwmpplayerapplication.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6953,7 +7445,10 @@ impl IWMPPlayerApplication_Vtbl {
                         pbplayerdocked.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbplayerdocked.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6965,7 +7460,10 @@ impl IWMPPlayerApplication_Vtbl {
                         pbhasdisplay.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbhasdisplay.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7219,7 +7717,10 @@ impl IWMPPlaylist_Vtbl {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7231,7 +7732,10 @@ impl IWMPPlaylist_Vtbl {
                         pbstrname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7249,7 +7753,10 @@ impl IWMPPlaylist_Vtbl {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7261,7 +7768,10 @@ impl IWMPPlaylist_Vtbl {
                         pbstrattributename.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrattributename.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7273,7 +7783,10 @@ impl IWMPPlaylist_Vtbl {
                         ppiwmpmedia.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppiwmpmedia.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7285,7 +7798,10 @@ impl IWMPPlaylist_Vtbl {
                         pbstrval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7303,7 +7819,10 @@ impl IWMPPlaylist_Vtbl {
                         pvbool.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvbool.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7411,7 +7930,10 @@ impl IWMPPlaylistArray_Vtbl {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7423,7 +7945,10 @@ impl IWMPPlaylistArray_Vtbl {
                         ppitem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppitem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7539,7 +8064,10 @@ impl IWMPPlaylistCollection_Vtbl {
                         ppitem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppitem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7551,7 +8079,10 @@ impl IWMPPlaylistCollection_Vtbl {
                         ppplaylistarray.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppplaylistarray.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7563,7 +8094,10 @@ impl IWMPPlaylistCollection_Vtbl {
                         ppplaylistarray.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppplaylistarray.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7587,7 +8121,10 @@ impl IWMPPlaylistCollection_Vtbl {
                         pvarfisdeleted.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarfisdeleted.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7599,7 +8136,10 @@ impl IWMPPlaylistCollection_Vtbl {
                         ppimporteditem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppimporteditem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7986,7 +8526,10 @@ impl IWMPSettings_Vtbl {
                         pisavailable.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pisavailable.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -7998,7 +8541,10 @@ impl IWMPSettings_Vtbl {
                         pfautostart.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfautostart.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8016,7 +8562,10 @@ impl IWMPSettings_Vtbl {
                         pbstrbaseurl.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrbaseurl.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8034,7 +8583,10 @@ impl IWMPSettings_Vtbl {
                         pbstrdefaultframe.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrdefaultframe.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8052,7 +8604,10 @@ impl IWMPSettings_Vtbl {
                         pfinvokeurls.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfinvokeurls.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8070,7 +8625,10 @@ impl IWMPSettings_Vtbl {
                         pfmute.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfmute.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8088,7 +8646,10 @@ impl IWMPSettings_Vtbl {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8106,7 +8667,10 @@ impl IWMPSettings_Vtbl {
                         pdrate.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdrate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8124,7 +8688,10 @@ impl IWMPSettings_Vtbl {
                         plbalance.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plbalance.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8142,7 +8709,10 @@ impl IWMPSettings_Vtbl {
                         plvolume.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plvolume.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8160,7 +8730,10 @@ impl IWMPSettings_Vtbl {
                         pvarfmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarfmode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8178,7 +8751,10 @@ impl IWMPSettings_Vtbl {
                         pfenableerrordialogs.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfenableerrordialogs.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8283,7 +8859,10 @@ impl IWMPSettings2_Vtbl {
                         pllangid.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pllangid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8295,7 +8874,10 @@ impl IWMPSettings2_Vtbl {
                         pbstrrights.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrrights.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8307,7 +8889,10 @@ impl IWMPSettings2_Vtbl {
                         pvbaccepted.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvbaccepted.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8405,7 +8990,10 @@ impl IWMPStringCollection_Vtbl {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8417,7 +9005,10 @@ impl IWMPStringCollection_Vtbl {
                         pbstrstring.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrstring.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8506,7 +9097,10 @@ impl IWMPStringCollection2_Vtbl {
                         pvbool.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvbool.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8518,7 +9112,10 @@ impl IWMPStringCollection2_Vtbl {
                         pbstrvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8530,7 +9127,10 @@ impl IWMPStringCollection2_Vtbl {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8542,7 +9142,10 @@ impl IWMPStringCollection2_Vtbl {
                         pvarvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8708,7 +9311,10 @@ impl IWMPSyncDevice_Vtbl {
                         pbstrname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8726,7 +9332,10 @@ impl IWMPSyncDevice_Vtbl {
                         pbstrname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8738,7 +9347,10 @@ impl IWMPSyncDevice_Vtbl {
                         pbstrdeviceid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrdeviceid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8750,7 +9362,10 @@ impl IWMPSyncDevice_Vtbl {
                         plindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plindex.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8762,7 +9377,10 @@ impl IWMPSyncDevice_Vtbl {
                         pvbconnected.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvbconnected.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8774,7 +9392,10 @@ impl IWMPSyncDevice_Vtbl {
                         pwmpds.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pwmpds.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8786,7 +9407,10 @@ impl IWMPSyncDevice_Vtbl {
                         pwmpss.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pwmpss.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8798,7 +9422,10 @@ impl IWMPSyncDevice_Vtbl {
                         plprogress.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plprogress.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8810,7 +9437,10 @@ impl IWMPSyncDevice_Vtbl {
                         pbstrval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrval.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -8852,7 +9482,10 @@ impl IWMPSyncDevice_Vtbl {
                         pvbool.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvbool.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9022,7 +9655,10 @@ impl IWMPSyncServices_Vtbl {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcount.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -9034,7 +9670,10 @@ impl IWMPSyncServices_Vtbl {
                         ppdevice.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdevice.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

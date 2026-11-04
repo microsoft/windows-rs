@@ -1368,36 +1368,36 @@ pub unsafe fn SetupDiSetClassInstallParamsW(deviceinfoset: HDEVINFO, deviceinfod
 }
 #[cfg(all(feature = "devpropdef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiSetClassPropertyExW<P6>(classguid: *const windows_core::GUID, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<&[u8]>, flags: super::DWORD, machinename: P6, reserved: Option<super::PVOID>) -> windows_core::BOOL
+pub unsafe fn SetupDiSetClassPropertyExW<P6>(classguid: *const windows_core::GUID, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<super::PBYTE>, propertybuffersize: super::DWORD, flags: super::DWORD, machinename: P6, reserved: Option<super::PVOID>) -> windows_core::BOOL
 where
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupDiSetClassPropertyExW(classguid : *const windows_core::GUID, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::DWORD, flags : super::DWORD, machinename : windows_core::PCWSTR, reserved : super::PVOID) -> windows_core::BOOL);
-    unsafe { SetupDiSetClassPropertyExW(classguid, propertykey, propertytype, core::mem::transmute(propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap()), flags, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiSetClassPropertyExW(classguid, propertykey, propertytype, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize, flags, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "devpropdef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiSetClassPropertyW(classguid: *const windows_core::GUID, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<&[u8]>, flags: super::DWORD) -> windows_core::BOOL {
+pub unsafe fn SetupDiSetClassPropertyW(classguid: *const windows_core::GUID, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<super::PBYTE>, propertybuffersize: super::DWORD, flags: super::DWORD) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiSetClassPropertyW(classguid : *const windows_core::GUID, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::DWORD, flags : super::DWORD) -> windows_core::BOOL);
-    unsafe { SetupDiSetClassPropertyW(classguid, propertykey, propertytype, core::mem::transmute(propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
+    unsafe { SetupDiSetClassPropertyW(classguid, propertykey, propertytype, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize, flags) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiSetClassRegistryPropertyA<P4>(classguid: *const windows_core::GUID, property: super::DWORD, propertybuffer: Option<&[u8]>, machinename: P4, reserved: Option<super::PVOID>) -> windows_core::BOOL
+pub unsafe fn SetupDiSetClassRegistryPropertyA<P4>(classguid: *const windows_core::GUID, property: super::DWORD, propertybuffer: Option<*const super::BYTE>, propertybuffersize: super::DWORD, machinename: P4, reserved: Option<super::PVOID>) -> windows_core::BOOL
 where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupDiSetClassRegistryPropertyA(classguid : *const windows_core::GUID, property : super::DWORD, propertybuffer : *const super::BYTE, propertybuffersize : super::DWORD, machinename : windows_core::PCSTR, reserved : super::PVOID) -> windows_core::BOOL);
-    unsafe { SetupDiSetClassRegistryPropertyA(classguid, property, core::mem::transmute(propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap()), machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiSetClassRegistryPropertyA(classguid, property, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiSetClassRegistryPropertyW<P4>(classguid: *const windows_core::GUID, property: super::DWORD, propertybuffer: Option<&[u8]>, machinename: P4, reserved: Option<super::PVOID>) -> windows_core::BOOL
+pub unsafe fn SetupDiSetClassRegistryPropertyW<P4>(classguid: *const windows_core::GUID, property: super::DWORD, propertybuffer: Option<*const super::BYTE>, propertybuffersize: super::DWORD, machinename: P4, reserved: Option<super::PVOID>) -> windows_core::BOOL
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupDiSetClassRegistryPropertyW(classguid : *const windows_core::GUID, property : super::DWORD, propertybuffer : *const super::BYTE, propertybuffersize : super::DWORD, machinename : windows_core::PCWSTR, reserved : super::PVOID) -> windows_core::BOOL);
-    unsafe { SetupDiSetClassRegistryPropertyW(classguid, property, core::mem::transmute(propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap()), machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiSetClassRegistryPropertyW(classguid, property, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
@@ -1419,27 +1419,27 @@ pub unsafe fn SetupDiSetDeviceInterfaceDefault(deviceinfoset: HDEVINFO, devicein
 }
 #[cfg(all(feature = "devpropdef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiSetDeviceInterfacePropertyW(deviceinfoset: HDEVINFO, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<&[u8]>, flags: super::DWORD) -> windows_core::BOOL {
+pub unsafe fn SetupDiSetDeviceInterfacePropertyW(deviceinfoset: HDEVINFO, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<super::PBYTE>, propertybuffersize: super::DWORD, flags: super::DWORD) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiSetDeviceInterfacePropertyW(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::DWORD, flags : super::DWORD) -> windows_core::BOOL);
-    unsafe { SetupDiSetDeviceInterfacePropertyW(deviceinfoset, deviceinterfacedata, propertykey, propertytype, core::mem::transmute(propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
+    unsafe { SetupDiSetDeviceInterfacePropertyW(deviceinfoset, deviceinterfacedata, propertykey, propertytype, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize, flags) }
 }
 #[cfg(all(feature = "devpropdef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiSetDevicePropertyW(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<&[u8]>, flags: super::DWORD) -> windows_core::BOOL {
+pub unsafe fn SetupDiSetDevicePropertyW(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<super::PBYTE>, propertybuffersize: super::DWORD, flags: super::DWORD) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiSetDevicePropertyW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::DWORD, flags : super::DWORD) -> windows_core::BOOL);
-    unsafe { SetupDiSetDevicePropertyW(deviceinfoset, deviceinfodata, propertykey, propertytype, core::mem::transmute(propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
+    unsafe { SetupDiSetDevicePropertyW(deviceinfoset, deviceinfodata, propertykey, propertytype, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize, flags) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupDiSetDeviceRegistryPropertyA(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, property: super::DWORD, propertybuffer: Option<&[u8]>) -> windows_core::BOOL {
+pub unsafe fn SetupDiSetDeviceRegistryPropertyA(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, property: super::DWORD, propertybuffer: Option<*const super::BYTE>, propertybuffersize: super::DWORD) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiSetDeviceRegistryPropertyA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, property : super::DWORD, propertybuffer : *const super::BYTE, propertybuffersize : super::DWORD) -> windows_core::BOOL);
-    unsafe { SetupDiSetDeviceRegistryPropertyA(deviceinfoset, deviceinfodata as _, property, core::mem::transmute(propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { SetupDiSetDeviceRegistryPropertyA(deviceinfoset, deviceinfodata as _, property, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupDiSetDeviceRegistryPropertyW(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, property: super::DWORD, propertybuffer: Option<&[u8]>) -> windows_core::BOOL {
+pub unsafe fn SetupDiSetDeviceRegistryPropertyW(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, property: super::DWORD, propertybuffer: Option<*const super::BYTE>, propertybuffersize: super::DWORD) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiSetDeviceRegistryPropertyW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, property : super::DWORD, propertybuffer : *const super::BYTE, propertybuffersize : super::DWORD) -> windows_core::BOOL);
-    unsafe { SetupDiSetDeviceRegistryPropertyW(deviceinfoset, deviceinfodata as _, property, core::mem::transmute(propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { SetupDiSetDeviceRegistryPropertyW(deviceinfoset, deviceinfodata as _, property, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -1592,21 +1592,21 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupGetFileCompressionInfoExA<P0>(sourcefilename: P0, actualsourcefilenamebuffer: Option<&[u8]>, requiredbufferlen: Option<super::PDWORD>, sourcefilesize: super::PDWORD, targetfilesize: super::PDWORD, compressiontype: super::PUINT) -> windows_core::BOOL
+pub unsafe fn SetupGetFileCompressionInfoExA<P0>(sourcefilename: P0, actualsourcefilenamebuffer: Option<windows_core::PCSTR>, actualsourcefilenamebufferlen: super::DWORD, requiredbufferlen: Option<super::PDWORD>, sourcefilesize: super::PDWORD, targetfilesize: super::PDWORD, compressiontype: super::PUINT) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupGetFileCompressionInfoExA(sourcefilename : windows_core::PCSTR, actualsourcefilenamebuffer : windows_core::PCSTR, actualsourcefilenamebufferlen : super::DWORD, requiredbufferlen : super::PDWORD, sourcefilesize : super::PDWORD, targetfilesize : super::PDWORD, compressiontype : super::PUINT) -> windows_core::BOOL);
-    unsafe { SetupGetFileCompressionInfoExA(sourcefilename.param().abi(), core::mem::transmute(actualsourcefilenamebuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), actualsourcefilenamebuffer.map_or(0, |slice| slice.len().try_into().unwrap()), requiredbufferlen.unwrap_or(core::mem::zeroed()) as _, sourcefilesize as _, targetfilesize as _, compressiontype as _) }
+    unsafe { SetupGetFileCompressionInfoExA(sourcefilename.param().abi(), actualsourcefilenamebuffer.unwrap_or(core::mem::zeroed()) as _, actualsourcefilenamebufferlen, requiredbufferlen.unwrap_or(core::mem::zeroed()) as _, sourcefilesize as _, targetfilesize as _, compressiontype as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupGetFileCompressionInfoExW<P0>(sourcefilename: P0, actualsourcefilenamebuffer: Option<&[u16]>, requiredbufferlen: Option<super::PDWORD>, sourcefilesize: super::PDWORD, targetfilesize: super::PDWORD, compressiontype: super::PUINT) -> windows_core::BOOL
+pub unsafe fn SetupGetFileCompressionInfoExW<P0>(sourcefilename: P0, actualsourcefilenamebuffer: Option<windows_core::PCWSTR>, actualsourcefilenamebufferlen: super::DWORD, requiredbufferlen: Option<super::PDWORD>, sourcefilesize: super::PDWORD, targetfilesize: super::PDWORD, compressiontype: super::PUINT) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupGetFileCompressionInfoExW(sourcefilename : windows_core::PCWSTR, actualsourcefilenamebuffer : windows_core::PCWSTR, actualsourcefilenamebufferlen : super::DWORD, requiredbufferlen : super::PDWORD, sourcefilesize : super::PDWORD, targetfilesize : super::PDWORD, compressiontype : super::PUINT) -> windows_core::BOOL);
-    unsafe { SetupGetFileCompressionInfoExW(sourcefilename.param().abi(), core::mem::transmute(actualsourcefilenamebuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), actualsourcefilenamebuffer.map_or(0, |slice| slice.len().try_into().unwrap()), requiredbufferlen.unwrap_or(core::mem::zeroed()) as _, sourcefilesize as _, targetfilesize as _, compressiontype as _) }
+    unsafe { SetupGetFileCompressionInfoExW(sourcefilename.param().abi(), actualsourcefilenamebuffer.unwrap_or(core::mem::zeroed()) as _, actualsourcefilenamebufferlen, requiredbufferlen.unwrap_or(core::mem::zeroed()) as _, sourcefilesize as _, targetfilesize as _, compressiontype as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -2646,15 +2646,15 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupSetSourceListA(flags: super::DWORD, sourcelist: &[windows_core::PCSTR]) -> windows_core::BOOL {
+pub unsafe fn SetupSetSourceListA(flags: super::DWORD, sourcelist: *const windows_core::PCSTR, sourcecount: super::UINT) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupSetSourceListA(flags : super::DWORD, sourcelist : *const windows_core::PCSTR, sourcecount : super::UINT) -> windows_core::BOOL);
-    unsafe { SetupSetSourceListA(flags, sourcelist.as_ptr(), sourcelist.len().try_into().unwrap()) }
+    unsafe { SetupSetSourceListA(flags, sourcelist, sourcecount) }
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupSetSourceListW(flags: super::DWORD, sourcelist: &[windows_core::PCWSTR]) -> windows_core::BOOL {
+pub unsafe fn SetupSetSourceListW(flags: super::DWORD, sourcelist: *const windows_core::PCWSTR, sourcecount: super::UINT) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupSetSourceListW(flags : super::DWORD, sourcelist : *const windows_core::PCWSTR, sourcecount : super::UINT) -> windows_core::BOOL);
-    unsafe { SetupSetSourceListW(flags, sourcelist.as_ptr(), sourcelist.len().try_into().unwrap()) }
+    unsafe { SetupSetSourceListW(flags, sourcelist, sourcecount) }
 }
 #[cfg(feature = "spapidef")]
 #[inline]

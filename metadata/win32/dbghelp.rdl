@@ -81,9 +81,9 @@ mod Windows {
         const EVENT_SRCSPEW_START: i32 = 100;
         const EXT_OUTPUT_VER: i32 = 1;
         #[library("dbghelp.dll")]
-        extern fn EnumDirTree(#[in] #[opt] hProcess: HANDLE, #[in] RootPath: PCSTR, #[in] InputPathName: PCSTR, #[opt] #[out] #[writable(entry, 261)] OutputPathBuffer: PSTR, #[in] #[opt] cb: PENUMDIRTREE_CALLBACK, #[in] #[opt] data: PVOID) -> BOOL;
+        extern fn EnumDirTree(#[in] #[opt] hProcess: HANDLE, #[in] RootPath: PCSTR, #[in] InputPathName: PCSTR, #[buffer(261)] #[opt] #[out] OutputPathBuffer: PSTR, #[in] #[opt] cb: PENUMDIRTREE_CALLBACK, #[in] #[opt] data: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn EnumDirTreeW(#[in] #[opt] hProcess: HANDLE, #[in] RootPath: PCWSTR, #[in] InputPathName: PCWSTR, #[opt] #[out] #[writable(entry, 261)] OutputPathBuffer: PWSTR, #[in] #[opt] cb: PENUMDIRTREE_CALLBACKW, #[in] #[opt] data: PVOID) -> BOOL;
+        extern fn EnumDirTreeW(#[in] #[opt] hProcess: HANDLE, #[in] RootPath: PCWSTR, #[in] InputPathName: PCWSTR, #[buffer(261)] #[opt] #[out] OutputPathBuffer: PWSTR, #[in] #[opt] cb: PENUMDIRTREE_CALLBACKW, #[in] #[opt] data: PVOID) -> BOOL;
         #[arch(X64 | Arm64)]
         #[library("dbghelp.dll", import = "EnumerateLoadedModules64")]
         extern fn EnumerateLoadedModules(#[in] hProcess: HANDLE, #[in] EnumLoadedModulesCallback: PENUMLOADED_MODULES_CALLBACK64, #[in] #[opt] UserContext: PVOID) -> BOOL;
@@ -102,23 +102,23 @@ mod Windows {
         const FLAG_ENGOPT_DISALLOW_NETWORK_PATHS: i32 = 8;
         const FLAG_OVERRIDE_ARM_MACHINE_TYPE: i32 = 16;
         #[library("dbghelp.dll")]
-        extern fn FindDebugInfoFile(#[in] FileName: PCSTR, #[in] SymbolPath: PCSTR, #[out] #[writable(entry, 261)] DebugFilePath: PSTR) -> HANDLE;
+        extern fn FindDebugInfoFile(#[in] FileName: PCSTR, #[in] SymbolPath: PCSTR, #[buffer(261)] #[out] DebugFilePath: PSTR) -> HANDLE;
         #[library("dbghelp.dll")]
-        extern fn FindDebugInfoFileEx(#[in] FileName: PCSTR, #[in] SymbolPath: PCSTR, #[out] #[writable(entry, 261)] DebugFilePath: PSTR, #[in] #[opt] Callback: PFIND_DEBUG_FILE_CALLBACK, #[in] #[opt] CallerData: PVOID) -> HANDLE;
+        extern fn FindDebugInfoFileEx(#[in] FileName: PCSTR, #[in] SymbolPath: PCSTR, #[buffer(261)] #[out] DebugFilePath: PSTR, #[in] #[opt] Callback: PFIND_DEBUG_FILE_CALLBACK, #[in] #[opt] CallerData: PVOID) -> HANDLE;
         #[library("dbghelp.dll")]
-        extern fn FindDebugInfoFileExW(#[in] FileName: PCWSTR, #[in] SymbolPath: PCWSTR, #[out] #[writable(entry, 261)] DebugFilePath: PWSTR, #[in] #[opt] Callback: PFIND_DEBUG_FILE_CALLBACKW, #[in] #[opt] CallerData: PVOID) -> HANDLE;
+        extern fn FindDebugInfoFileExW(#[in] FileName: PCWSTR, #[in] SymbolPath: PCWSTR, #[buffer(261)] #[out] DebugFilePath: PWSTR, #[in] #[opt] Callback: PFIND_DEBUG_FILE_CALLBACKW, #[in] #[opt] CallerData: PVOID) -> HANDLE;
         #[library("dbghelp.dll")]
-        extern fn FindExecutableImage(#[in] FileName: PCSTR, #[in] SymbolPath: PCSTR, #[out] #[writable(entry, 261)] ImageFilePath: PSTR) -> HANDLE;
+        extern fn FindExecutableImage(#[in] FileName: PCSTR, #[in] SymbolPath: PCSTR, #[buffer(261)] #[out] ImageFilePath: PSTR) -> HANDLE;
         #[library("dbghelp.dll")]
-        extern fn FindExecutableImageEx(#[in] FileName: PCSTR, #[in] SymbolPath: PCSTR, #[out] #[writable(entry, 261)] ImageFilePath: PSTR, #[in] #[opt] Callback: PFIND_EXE_FILE_CALLBACK, #[in] #[opt] CallerData: PVOID) -> HANDLE;
+        extern fn FindExecutableImageEx(#[in] FileName: PCSTR, #[in] SymbolPath: PCSTR, #[buffer(261)] #[out] ImageFilePath: PSTR, #[in] #[opt] Callback: PFIND_EXE_FILE_CALLBACK, #[in] #[opt] CallerData: PVOID) -> HANDLE;
         #[library("dbghelp.dll")]
-        extern fn FindExecutableImageExW(#[in] FileName: PCWSTR, #[in] SymbolPath: PCWSTR, #[out] #[writable(entry, 261)] ImageFilePath: PWSTR, #[in] #[opt] Callback: PFIND_EXE_FILE_CALLBACKW, #[in] CallerData: PVOID) -> HANDLE;
+        extern fn FindExecutableImageExW(#[in] FileName: PCWSTR, #[in] SymbolPath: PCWSTR, #[buffer(261)] #[out] ImageFilePath: PWSTR, #[in] #[opt] Callback: PFIND_EXE_FILE_CALLBACKW, #[in] CallerData: PVOID) -> HANDLE;
         #[deprecated]
         #[library("dbghelp.dll")]
-        extern fn FindFileInPath(#[in] hprocess: HANDLE, #[in] SearchPath: PCSTR, #[in] FileName: PCSTR, #[in] id: PVOID, #[in] two: DWORD, #[in] three: DWORD, #[in] flags: DWORD, #[out] #[writable(entry, 261)] FilePath: PSTR) -> BOOL;
+        extern fn FindFileInPath(#[in] hprocess: HANDLE, #[in] SearchPath: PCSTR, #[in] FileName: PCSTR, #[in] id: PVOID, #[in] two: DWORD, #[in] three: DWORD, #[in] flags: DWORD, #[buffer(261)] #[out] FilePath: PSTR) -> BOOL;
         #[deprecated]
         #[library("dbghelp.dll")]
-        extern fn FindFileInSearchPath(#[in] hprocess: HANDLE, #[in] SearchPath: PCSTR, #[in] FileName: PCSTR, #[in] one: DWORD, #[in] two: DWORD, #[in] three: DWORD, #[out] #[writable(entry, 261)] FilePath: PSTR) -> BOOL;
+        extern fn FindFileInSearchPath(#[in] hprocess: HANDLE, #[in] SearchPath: PCSTR, #[in] FileName: PCSTR, #[in] one: DWORD, #[in] two: DWORD, #[in] three: DWORD, #[buffer(261)] #[out] FilePath: PSTR) -> BOOL;
         #[library("dbghelp.dll")]
         extern fn GetSymLoadError() -> DWORD;
         #[library("dbghelp.dll")]
@@ -769,8 +769,8 @@ mod Windows {
         type PMODULE_TYPE_INFO = *mut MODULE_TYPE_INFO;
         type POMAP = *mut OMAP;
         #[arch(X86)]
-        extern fn PREAD_PROCESS_MEMORY_ROUTINE(#[in] hProcess: HANDLE, #[in] lpBaseAddress: DWORD, #[out] #[writable(entry, bytes(nSize))] lpBuffer: PVOID, #[in] nSize: DWORD, #[out] lpNumberOfBytesRead: PDWORD) -> BOOL;
-        extern fn PREAD_PROCESS_MEMORY_ROUTINE64(#[in] hProcess: HANDLE, #[in] qwBaseAddress: DWORD64, #[out] #[writable(entry, bytes(nSize))] lpBuffer: PVOID, #[in] nSize: DWORD, #[out] lpNumberOfBytesRead: LPDWORD) -> BOOL;
+        extern fn PREAD_PROCESS_MEMORY_ROUTINE(#[in] hProcess: HANDLE, #[in] lpBaseAddress: DWORD, #[buffer(bytes(nSize))] #[out] lpBuffer: PVOID, #[in] nSize: DWORD, #[out] lpNumberOfBytesRead: PDWORD) -> BOOL;
+        extern fn PREAD_PROCESS_MEMORY_ROUTINE64(#[in] hProcess: HANDLE, #[in] qwBaseAddress: DWORD64, #[buffer(bytes(nSize))] #[out] lpBuffer: PVOID, #[in] nSize: DWORD, #[out] lpNumberOfBytesRead: LPDWORD) -> BOOL;
         type PSOURCEFILE = *mut SOURCEFILE;
         type PSOURCEFILEW = *mut SOURCEFILEW;
         type PSRCCODEINFO = *mut SRCCODEINFO;
@@ -842,17 +842,17 @@ mod Windows {
         extern fn PTRANSLATE_ADDRESS_ROUTINE(#[in] hProcess: HANDLE, #[in] hThread: HANDLE, #[out] lpaddr: LPADDRESS) -> DWORD;
         extern fn PTRANSLATE_ADDRESS_ROUTINE64(#[in] hProcess: HANDLE, #[in] hThread: HANDLE, #[in] lpaddr: LPADDRESS64) -> DWORD64;
         #[library("dbghelp.dll")]
-        extern fn RangeMapAddPeImageSections(#[in] RmapHandle: PVOID, #[in] #[opt] ImageName: PCWSTR, #[in] #[readable(entry, bytes(MappingBytes))] MappedImage: PVOID, #[in] MappingBytes: DWORD, #[in] ImageBase: DWORD64, #[in] UserTag: DWORD64, #[in] MappingFlags: DWORD) -> BOOL;
+        extern fn RangeMapAddPeImageSections(#[in] RmapHandle: PVOID, #[in] #[opt] ImageName: PCWSTR, #[buffer(bytes(MappingBytes))] #[in] MappedImage: PVOID, #[in] MappingBytes: DWORD, #[in] ImageBase: DWORD64, #[in] UserTag: DWORD64, #[in] MappingFlags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
         extern fn RangeMapCreate() -> PVOID;
         #[library("dbghelp.dll")]
         extern fn RangeMapFree(#[in] #[opt] RmapHandle: PVOID);
         #[library("dbghelp.dll")]
-        extern fn RangeMapRead(#[in] RmapHandle: PVOID, #[in] Offset: DWORD64, #[out] #[readable(success, bytes(if_present(*DoneBytes)))] #[writable(entry, bytes(RequestBytes))] Buffer: PVOID, #[in] RequestBytes: DWORD, #[in] Flags: DWORD, #[opt] #[out] DoneBytes: PDWORD) -> BOOL;
+        extern fn RangeMapRead(#[in] RmapHandle: PVOID, #[in] Offset: DWORD64, #[buffer(bytes(RequestBytes))] #[out] Buffer: PVOID, #[in] RequestBytes: DWORD, #[in] Flags: DWORD, #[opt] #[out] DoneBytes: PDWORD) -> BOOL;
         #[library("dbghelp.dll")]
         extern fn RangeMapRemove(#[in] RmapHandle: PVOID, #[in] UserTag: DWORD64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn RangeMapWrite(#[in] RmapHandle: PVOID, #[in] Offset: DWORD64, #[in] #[readable(entry, bytes(RequestBytes))] Buffer: PVOID, #[in] RequestBytes: DWORD, #[in] Flags: DWORD, #[opt] #[out] DoneBytes: PDWORD) -> BOOL;
+        extern fn RangeMapWrite(#[in] RmapHandle: PVOID, #[in] Offset: DWORD64, #[buffer(bytes(RequestBytes))] #[in] Buffer: PVOID, #[in] RequestBytes: DWORD, #[in] Flags: DWORD, #[opt] #[out] DoneBytes: PDWORD) -> BOOL;
         #[library("dbghelp.dll")]
         extern fn RemoveInvalidModuleList(#[in] hProcess: HANDLE);
         #[library("dbghelp.dll")]
@@ -1185,9 +1185,9 @@ mod Windows {
             NumSymTypes = 9,
         }
         #[library("dbghelp.dll")]
-        extern fn SearchTreeForFile(#[in] RootPath: PCSTR, #[in] InputPathName: PCSTR, #[out] #[writable(entry, 261)] OutputPathBuffer: PSTR) -> BOOL;
+        extern fn SearchTreeForFile(#[in] RootPath: PCSTR, #[in] InputPathName: PCSTR, #[buffer(261)] #[out] OutputPathBuffer: PSTR) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SearchTreeForFileW(#[in] RootPath: PCWSTR, #[in] InputPathName: PCWSTR, #[out] #[writable(entry, 261)] OutputPathBuffer: PWSTR) -> BOOL;
+        extern fn SearchTreeForFileW(#[in] RootPath: PCWSTR, #[in] InputPathName: PCWSTR, #[buffer(261)] #[out] OutputPathBuffer: PWSTR) -> BOOL;
         #[library("dbghelp.dll")]
         extern fn SetCheckUserInterruptShared(#[in] lpStartAddress: LPCALL_BACK_USER_INTERRUPT_ROUTINE);
         #[library("dbghelp.dll")]
@@ -1205,11 +1205,11 @@ mod Windows {
         #[library("dbghelp.dll")]
         extern fn StackWalkEx(#[in] MachineType: DWORD, #[in] hProcess: HANDLE, #[in] hThread: HANDLE, #[in] #[out] StackFrame: LPSTACKFRAME_EX, #[in] #[out] ContextRecord: PVOID, #[in] #[opt] ReadMemoryRoutine: PREAD_PROCESS_MEMORY_ROUTINE64, #[in] #[opt] FunctionTableAccessRoutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, #[in] #[opt] GetModuleBaseRoutine: PGET_MODULE_BASE_ROUTINE64, #[in] #[opt] TranslateAddress: PTRANSLATE_ADDRESS_ROUTINE64, #[in] Flags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymAddSourceStream(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] #[opt] StreamFile: PCSTR, #[in] #[opt] #[readable(entry, bytes(Size))] Buffer: PBYTE, #[in] Size: size_t) -> BOOL;
+        extern fn SymAddSourceStream(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] #[opt] StreamFile: PCSTR, #[buffer(bytes(Size))] #[in] #[opt] Buffer: PBYTE, #[in] Size: size_t) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymAddSourceStreamA(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] #[opt] StreamFile: PCSTR, #[in] #[opt] #[readable(entry, bytes(Size))] Buffer: PBYTE, #[in] Size: size_t) -> BOOL;
+        extern fn SymAddSourceStreamA(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] #[opt] StreamFile: PCSTR, #[buffer(bytes(Size))] #[in] #[opt] Buffer: PBYTE, #[in] Size: size_t) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymAddSourceStreamW(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] #[opt] FileSpec: PCWSTR, #[in] #[opt] #[readable(entry, bytes(Size))] Buffer: PBYTE, #[in] Size: size_t) -> BOOL;
+        extern fn SymAddSourceStreamW(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] #[opt] FileSpec: PCWSTR, #[buffer(bytes(Size))] #[in] #[opt] Buffer: PBYTE, #[in] Size: size_t) -> BOOL;
         #[library("dbghelp.dll")]
         extern fn SymAddSymbol(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] Name: PCSTR, #[in] Address: DWORD64, #[in] Size: DWORD, #[in] Flags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
@@ -1296,17 +1296,17 @@ mod Windows {
         #[library("dbghelp.dll")]
         extern fn SymEnumerateSymbolsW64(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] EnumSymbolsCallback: PSYM_ENUMSYMBOLS_CALLBACK64W, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymFindDebugInfoFile(#[in] hProcess: HANDLE, #[in] FileName: PCSTR, #[out] #[writable(entry, 261)] DebugFilePath: PSTR, #[in] #[opt] Callback: PFIND_DEBUG_FILE_CALLBACK, #[in] #[opt] CallerData: PVOID) -> HANDLE;
+        extern fn SymFindDebugInfoFile(#[in] hProcess: HANDLE, #[in] FileName: PCSTR, #[buffer(261)] #[out] DebugFilePath: PSTR, #[in] #[opt] Callback: PFIND_DEBUG_FILE_CALLBACK, #[in] #[opt] CallerData: PVOID) -> HANDLE;
         #[library("dbghelp.dll")]
-        extern fn SymFindDebugInfoFileW(#[in] hProcess: HANDLE, #[in] FileName: PCWSTR, #[out] #[writable(entry, 261)] DebugFilePath: PWSTR, #[in] #[opt] Callback: PFIND_DEBUG_FILE_CALLBACKW, #[in] #[opt] CallerData: PVOID) -> HANDLE;
+        extern fn SymFindDebugInfoFileW(#[in] hProcess: HANDLE, #[in] FileName: PCWSTR, #[buffer(261)] #[out] DebugFilePath: PWSTR, #[in] #[opt] Callback: PFIND_DEBUG_FILE_CALLBACKW, #[in] #[opt] CallerData: PVOID) -> HANDLE;
         #[library("dbghelp.dll")]
-        extern fn SymFindExecutableImage(#[in] hProcess: HANDLE, #[in] FileName: PCSTR, #[out] #[writable(entry, 261)] ImageFilePath: PSTR, #[in] Callback: PFIND_EXE_FILE_CALLBACK, #[in] CallerData: PVOID) -> HANDLE;
+        extern fn SymFindExecutableImage(#[in] hProcess: HANDLE, #[in] FileName: PCSTR, #[buffer(261)] #[out] ImageFilePath: PSTR, #[in] Callback: PFIND_EXE_FILE_CALLBACK, #[in] CallerData: PVOID) -> HANDLE;
         #[library("dbghelp.dll")]
-        extern fn SymFindExecutableImageW(#[in] hProcess: HANDLE, #[in] FileName: PCWSTR, #[out] #[writable(entry, 261)] ImageFilePath: PWSTR, #[in] Callback: PFIND_EXE_FILE_CALLBACKW, #[in] CallerData: PVOID) -> HANDLE;
+        extern fn SymFindExecutableImageW(#[in] hProcess: HANDLE, #[in] FileName: PCWSTR, #[buffer(261)] #[out] ImageFilePath: PWSTR, #[in] Callback: PFIND_EXE_FILE_CALLBACKW, #[in] CallerData: PVOID) -> HANDLE;
         #[library("dbghelp.dll")]
-        extern fn SymFindFileInPath(#[in] hprocess: HANDLE, #[in] #[opt] SearchPath: PCSTR, #[in] FileName: PCSTR, #[in] #[opt] id: PVOID, #[in] two: DWORD, #[in] three: DWORD, #[in] flags: DWORD, #[out] #[writable(entry, 261)] FoundFile: PSTR, #[in] #[opt] callback: PFINDFILEINPATHCALLBACK, #[in] #[opt] context: PVOID) -> BOOL;
+        extern fn SymFindFileInPath(#[in] hprocess: HANDLE, #[in] #[opt] SearchPath: PCSTR, #[in] FileName: PCSTR, #[in] #[opt] id: PVOID, #[in] two: DWORD, #[in] three: DWORD, #[in] flags: DWORD, #[buffer(261)] #[out] FoundFile: PSTR, #[in] #[opt] callback: PFINDFILEINPATHCALLBACK, #[in] #[opt] context: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymFindFileInPathW(#[in] hprocess: HANDLE, #[in] #[opt] SearchPath: PCWSTR, #[in] FileName: PCWSTR, #[in] #[opt] id: PVOID, #[in] two: DWORD, #[in] three: DWORD, #[in] flags: DWORD, #[out] #[writable(entry, 261)] FoundFile: PWSTR, #[in] #[opt] callback: PFINDFILEINPATHCALLBACKW, #[in] #[opt] context: PVOID) -> BOOL;
+        extern fn SymFindFileInPathW(#[in] hprocess: HANDLE, #[in] #[opt] SearchPath: PCWSTR, #[in] FileName: PCWSTR, #[in] #[opt] id: PVOID, #[in] two: DWORD, #[in] three: DWORD, #[in] flags: DWORD, #[buffer(261)] #[out] FoundFile: PWSTR, #[in] #[opt] callback: PFINDFILEINPATHCALLBACKW, #[in] #[opt] context: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
         extern fn SymFromAddr(#[in] hProcess: HANDLE, #[in] Address: DWORD64, #[opt] #[out] Displacement: PDWORD64, #[in] #[out] Symbol: PSYMBOL_INFO) -> BOOL;
         #[library("dbghelp.dll")]
@@ -1340,11 +1340,11 @@ mod Windows {
         #[library("dbghelp.dll")]
         extern fn SymGetExtendedOption(#[in] option: IMAGEHLP_EXTENDED_OPTIONS) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetFileLineOffsets64(#[in] hProcess: HANDLE, #[in] #[opt] ModuleName: PCSTR, #[in] FileName: PCSTR, #[out] #[writable(entry, BufferLines)] Buffer: PDWORD64, #[in] BufferLines: ULONG) -> ULONG;
+        extern fn SymGetFileLineOffsets64(#[in] hProcess: HANDLE, #[in] #[opt] ModuleName: PCSTR, #[in] FileName: PCSTR, #[buffer(BufferLines)] #[out] Buffer: PDWORD64, #[in] BufferLines: ULONG) -> ULONG;
         #[library("dbghelp.dll")]
-        extern fn SymGetHomeDirectory(#[in] r#type: DWORD, #[out] #[writable(entry, size)] dir: PSTR, #[in] size: size_t) -> PCHAR;
+        extern fn SymGetHomeDirectory(#[in] r#type: DWORD, #[buffer(size)] #[out] dir: PSTR, #[in] size: size_t) -> PCHAR;
         #[library("dbghelp.dll")]
-        extern fn SymGetHomeDirectoryW(#[in] r#type: DWORD, #[out] #[writable(entry, size)] dir: PWSTR, #[in] size: size_t) -> PWSTR;
+        extern fn SymGetHomeDirectoryW(#[in] r#type: DWORD, #[buffer(size)] #[out] dir: PWSTR, #[in] size: size_t) -> PWSTR;
         #[arch(X64 | Arm64)]
         #[library("dbghelp.dll", import = "SymGetLineFromAddr64")]
         extern fn SymGetLineFromAddr(#[in] hProcess: HANDLE, #[in] qwAddr: DWORD64, #[out] pdwDisplacement: PDWORD, #[out] Line64: PIMAGEHLP_LINE64) -> BOOL;
@@ -1427,37 +1427,37 @@ mod Windows {
         #[library("dbghelp.dll")]
         extern fn SymGetScopeW(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] Index: DWORD, #[in] #[out] Symbol: PSYMBOL_INFOW) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSearchPath(#[in] hProcess: HANDLE, #[out] #[writable(entry, SearchPathLength)] SearchPath: PSTR, #[in] SearchPathLength: DWORD) -> BOOL;
+        extern fn SymGetSearchPath(#[in] hProcess: HANDLE, #[buffer(SearchPathLength)] #[out] SearchPath: PSTR, #[in] SearchPathLength: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSearchPathW(#[in] hProcess: HANDLE, #[out] #[writable(entry, SearchPathLength)] SearchPath: PWSTR, #[in] SearchPathLength: DWORD) -> BOOL;
+        extern fn SymGetSearchPathW(#[in] hProcess: HANDLE, #[buffer(SearchPathLength)] #[out] SearchPath: PWSTR, #[in] SearchPathLength: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFile(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] #[opt] Params: PCSTR, #[in] FileSpec: PCSTR, #[out] #[writable(entry, Size)] FilePath: PSTR, #[in] Size: DWORD) -> BOOL;
+        extern fn SymGetSourceFile(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] #[opt] Params: PCSTR, #[in] FileSpec: PCSTR, #[buffer(Size)] #[out] FilePath: PSTR, #[in] Size: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileChecksum(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] FileSpec: PCSTR, #[out] pCheckSumType: *mut DWORD, #[out] #[writable(entry, checksumSize)] pChecksum: *mut BYTE, #[in] checksumSize: DWORD, #[out] pActualBytesWritten: *mut DWORD) -> BOOL;
+        extern fn SymGetSourceFileChecksum(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] FileSpec: PCSTR, #[out] pCheckSumType: *mut DWORD, #[buffer(checksumSize)] #[out] pChecksum: *mut BYTE, #[in] checksumSize: DWORD, #[out] pActualBytesWritten: *mut DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileChecksumW(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] FileSpec: PCWSTR, #[out] pCheckSumType: *mut DWORD, #[out] #[writable(entry, checksumSize)] pChecksum: *mut BYTE, #[in] checksumSize: DWORD, #[out] pActualBytesWritten: *mut DWORD) -> BOOL;
+        extern fn SymGetSourceFileChecksumW(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] FileSpec: PCWSTR, #[out] pCheckSumType: *mut DWORD, #[buffer(checksumSize)] #[out] pChecksum: *mut BYTE, #[in] checksumSize: DWORD, #[out] pActualBytesWritten: *mut DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileFromToken(#[in] hProcess: HANDLE, #[in] Token: PVOID, #[in] #[opt] Params: PCSTR, #[out] #[writable(entry, Size)] FilePath: PSTR, #[in] Size: DWORD) -> BOOL;
+        extern fn SymGetSourceFileFromToken(#[in] hProcess: HANDLE, #[in] Token: PVOID, #[in] #[opt] Params: PCSTR, #[buffer(Size)] #[out] FilePath: PSTR, #[in] Size: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileFromTokenByTokenName(#[in] hProcess: HANDLE, #[in] Token: PVOID, #[in] #[opt] TokenName: PCSTR, #[in] #[opt] Params: PCSTR, #[out] #[writable(entry, Size)] FilePath: PSTR, #[in] Size: DWORD) -> BOOL;
+        extern fn SymGetSourceFileFromTokenByTokenName(#[in] hProcess: HANDLE, #[in] Token: PVOID, #[in] #[opt] TokenName: PCSTR, #[in] #[opt] Params: PCSTR, #[buffer(Size)] #[out] FilePath: PSTR, #[in] Size: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileFromTokenByTokenNameW(#[in] hProcess: HANDLE, #[in] Token: PVOID, #[in] #[opt] TokenName: PCWSTR, #[in] #[opt] Params: PCWSTR, #[out] #[writable(entry, Size)] FilePath: PWSTR, #[in] Size: DWORD) -> BOOL;
+        extern fn SymGetSourceFileFromTokenByTokenNameW(#[in] hProcess: HANDLE, #[in] Token: PVOID, #[in] #[opt] TokenName: PCWSTR, #[in] #[opt] Params: PCWSTR, #[buffer(Size)] #[out] FilePath: PWSTR, #[in] Size: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileFromTokenW(#[in] hProcess: HANDLE, #[in] Token: PVOID, #[in] #[opt] Params: PCWSTR, #[out] #[writable(entry, Size)] FilePath: PWSTR, #[in] Size: DWORD) -> BOOL;
+        extern fn SymGetSourceFileFromTokenW(#[in] hProcess: HANDLE, #[in] Token: PVOID, #[in] #[opt] Params: PCWSTR, #[buffer(Size)] #[out] FilePath: PWSTR, #[in] Size: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileToken(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] FileSpec: PCSTR, #[out] #[out_ptr] Token: *mut PVOID, #[out] Size: *mut DWORD) -> BOOL;
+        extern fn SymGetSourceFileToken(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] FileSpec: PCSTR, #[out] Token: *mut PVOID, #[out] Size: *mut DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileTokenByTokenName(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] FileSpec: PCSTR, #[in] TokenName: PCSTR, #[in] #[opt] TokenParameters: PCSTR, #[out] #[out_ptr] Token: *mut PVOID, #[out] Size: *mut DWORD) -> BOOL;
+        extern fn SymGetSourceFileTokenByTokenName(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] FileSpec: PCSTR, #[in] TokenName: PCSTR, #[in] #[opt] TokenParameters: PCSTR, #[out] Token: *mut PVOID, #[out] Size: *mut DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileTokenByTokenNameW(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] FileSpec: PCWSTR, #[in] TokenName: PCWSTR, #[in] #[opt] TokenParameters: PCWSTR, #[out] #[out_ptr] Token: *mut PVOID, #[out] Size: *mut DWORD) -> BOOL;
+        extern fn SymGetSourceFileTokenByTokenNameW(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] FileSpec: PCWSTR, #[in] TokenName: PCWSTR, #[in] #[opt] TokenParameters: PCWSTR, #[out] Token: *mut PVOID, #[out] Size: *mut DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileTokenW(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] FileSpec: PCWSTR, #[out] #[out_ptr] Token: *mut PVOID, #[out] Size: *mut DWORD) -> BOOL;
+        extern fn SymGetSourceFileTokenW(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] FileSpec: PCWSTR, #[out] Token: *mut PVOID, #[out] Size: *mut DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileW(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] #[opt] Params: PCWSTR, #[in] FileSpec: PCWSTR, #[out] #[writable(entry, Size)] FilePath: PWSTR, #[in] Size: DWORD) -> BOOL;
+        extern fn SymGetSourceFileW(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] #[opt] Params: PCWSTR, #[in] FileSpec: PCWSTR, #[buffer(Size)] #[out] FilePath: PWSTR, #[in] Size: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceVarFromToken(#[in] hProcess: HANDLE, #[in] Token: PVOID, #[in] #[opt] Params: PCSTR, #[in] VarName: PCSTR, #[out] #[writable(entry, Size)] Value: PSTR, #[in] Size: DWORD) -> BOOL;
+        extern fn SymGetSourceVarFromToken(#[in] hProcess: HANDLE, #[in] Token: PVOID, #[in] #[opt] Params: PCSTR, #[in] VarName: PCSTR, #[buffer(Size)] #[out] Value: PSTR, #[in] Size: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceVarFromTokenW(#[in] hProcess: HANDLE, #[in] Token: PVOID, #[in] #[opt] Params: PCWSTR, #[in] VarName: PCWSTR, #[out] #[writable(entry, Size)] Value: PWSTR, #[in] Size: DWORD) -> BOOL;
+        extern fn SymGetSourceVarFromTokenW(#[in] hProcess: HANDLE, #[in] Token: PVOID, #[in] #[opt] Params: PCWSTR, #[in] VarName: PCWSTR, #[buffer(Size)] #[out] Value: PWSTR, #[in] Size: DWORD) -> BOOL;
         #[arch(X64 | Arm64)]
         #[library("dbghelp.dll", import = "SymGetSymFromAddr64")]
         extern fn SymGetSymFromAddr(#[in] hProcess: HANDLE, #[in] qwAddr: DWORD64, #[opt] #[out] pdwDisplacement: PDWORD64, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL64) -> BOOL;
@@ -1491,9 +1491,9 @@ mod Windows {
         #[library("dbghelp.dll")]
         extern fn SymGetSymPrev64(#[in] hProcess: HANDLE, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSymbolFile(#[in] #[opt] hProcess: HANDLE, #[in] #[opt] SymPath: PCSTR, #[in] ImageFile: PCSTR, #[in] Type: DWORD, #[out] #[writable(entry, cSymbolFile)] SymbolFile: PSTR, #[in] cSymbolFile: size_t, #[out] #[writable(entry, cDbgFile)] DbgFile: PSTR, #[in] cDbgFile: size_t) -> BOOL;
+        extern fn SymGetSymbolFile(#[in] #[opt] hProcess: HANDLE, #[in] #[opt] SymPath: PCSTR, #[in] ImageFile: PCSTR, #[in] Type: DWORD, #[buffer(cSymbolFile)] #[out] SymbolFile: PSTR, #[in] cSymbolFile: size_t, #[buffer(cDbgFile)] #[out] DbgFile: PSTR, #[in] cDbgFile: size_t) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSymbolFileW(#[in] #[opt] hProcess: HANDLE, #[in] #[opt] SymPath: PCWSTR, #[in] ImageFile: PCWSTR, #[in] Type: DWORD, #[out] #[writable(entry, cSymbolFile)] SymbolFile: PWSTR, #[in] cSymbolFile: size_t, #[out] #[writable(entry, cDbgFile)] DbgFile: PWSTR, #[in] cDbgFile: size_t) -> BOOL;
+        extern fn SymGetSymbolFileW(#[in] #[opt] hProcess: HANDLE, #[in] #[opt] SymPath: PCWSTR, #[in] ImageFile: PCWSTR, #[in] Type: DWORD, #[buffer(cSymbolFile)] #[out] SymbolFile: PWSTR, #[in] cSymbolFile: size_t, #[buffer(cDbgFile)] #[out] DbgFile: PWSTR, #[in] cDbgFile: size_t) -> BOOL;
         #[library("dbghelp.dll")]
         extern fn SymGetTypeFromName(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] Name: PCSTR, #[in] #[out] Symbol: PSYMBOL_INFO) -> BOOL;
         #[library("dbghelp.dll")]
@@ -1503,7 +1503,7 @@ mod Windows {
         #[library("dbghelp.dll")]
         extern fn SymGetTypeInfoEx(#[in] hProcess: HANDLE, #[in] ModBase: DWORD64, #[in] #[out] Params: PIMAGEHLP_GET_TYPE_INFO_PARAMS) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetUnwindInfo(#[in] hProcess: HANDLE, #[in] Address: DWORD64, #[opt] #[out] #[writable(entry, bytes(*Size))] Buffer: PVOID, #[in] #[out] Size: PULONG) -> BOOL;
+        extern fn SymGetUnwindInfo(#[in] hProcess: HANDLE, #[in] Address: DWORD64, #[buffer(bytes(*Size))] #[opt] #[out] Buffer: PVOID, #[in] #[out] Size: PULONG) -> BOOL;
         #[library("dbghelp.dll")]
         extern fn SymInitialize(#[in] hProcess: HANDLE, #[in] #[opt] UserSearchPath: PCSTR, #[in] fInvadeProcess: BOOL) -> BOOL;
         #[library("dbghelp.dll")]
@@ -1521,9 +1521,9 @@ mod Windows {
         #[library("dbghelp.dll")]
         extern fn SymLoadModuleExW(#[in] hProcess: HANDLE, #[in] #[opt] hFile: HANDLE, #[in] #[opt] ImageName: PCWSTR, #[in] #[opt] ModuleName: PCWSTR, #[in] BaseOfDll: DWORD64, #[in] DllSize: DWORD, #[in] #[opt] Data: PMODLOAD_DATA, #[in] #[opt] Flags: DWORD) -> DWORD64;
         #[library("dbghelp.dll")]
-        extern fn SymMatchFileName(#[in] FileName: PCSTR, #[in] Match: PCSTR, #[opt] #[out] #[out_ptr] FileNameStop: *mut PSTR, #[opt] #[out] #[out_ptr] MatchStop: *mut PSTR) -> BOOL;
+        extern fn SymMatchFileName(#[in] FileName: PCSTR, #[in] Match: PCSTR, #[opt] #[out] FileNameStop: *mut PSTR, #[opt] #[out] MatchStop: *mut PSTR) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymMatchFileNameW(#[in] FileName: PCWSTR, #[in] Match: PCWSTR, #[opt] #[out] #[out_ptr] FileNameStop: *mut PWSTR, #[opt] #[out] #[out_ptr] MatchStop: *mut PWSTR) -> BOOL;
+        extern fn SymMatchFileNameW(#[in] FileName: PCWSTR, #[in] Match: PCWSTR, #[opt] #[out] FileNameStop: *mut PWSTR, #[opt] #[out] MatchStop: *mut PWSTR) -> BOOL;
         #[library("dbghelp.dll")]
         extern fn SymMatchString(#[in] string: PCSTR, #[in] expression: PCSTR, #[in] fCase: BOOL) -> BOOL;
         #[library("dbghelp.dll")]
@@ -1595,9 +1595,9 @@ mod Windows {
         #[library("dbghelp.dll")]
         extern fn SymSrvGetFileIndexInfoW(#[in] File: PCWSTR, #[out] Info: PSYMSRV_INDEX_INFOW, #[in] Flags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSrvGetFileIndexString(#[in] hProcess: HANDLE, #[in] #[opt] SrvPath: PCSTR, #[in] File: PCSTR, #[out] #[writable(entry, Size)] Index: PSTR, #[in] Size: size_t, #[in] Flags: DWORD) -> BOOL;
+        extern fn SymSrvGetFileIndexString(#[in] hProcess: HANDLE, #[in] #[opt] SrvPath: PCSTR, #[in] File: PCSTR, #[buffer(Size)] #[out] Index: PSTR, #[in] Size: size_t, #[in] Flags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSrvGetFileIndexStringW(#[in] hProcess: HANDLE, #[in] #[opt] SrvPath: PCWSTR, #[in] File: PCWSTR, #[out] #[writable(entry, Size)] Index: PWSTR, #[in] Size: size_t, #[in] Flags: DWORD) -> BOOL;
+        extern fn SymSrvGetFileIndexStringW(#[in] hProcess: HANDLE, #[in] #[opt] SrvPath: PCWSTR, #[in] File: PCWSTR, #[buffer(Size)] #[out] Index: PWSTR, #[in] Size: size_t, #[in] Flags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
         extern fn SymSrvGetFileIndexes(#[in] File: PCSTR, #[out] Id: *mut GUID, #[out] Val1: PDWORD, #[opt] #[out] Val2: PDWORD, #[in] Flags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
@@ -1620,12 +1620,12 @@ mod Windows {
         extern fn SymSrvStoreSupplementW(#[in] hProcess: HANDLE, #[in] #[opt] SymPath: PCWSTR, #[in] Node: PCWSTR, #[in] File: PCWSTR, #[in] Flags: DWORD) -> PCWSTR;
         #[arch(X64 | Arm64)]
         #[library("dbghelp.dll", import = "SymUnDName64")]
-        extern fn SymUnDName(#[in] sym: PIMAGEHLP_SYMBOL64, #[out] #[writable(entry, UnDecNameLength)] UnDecName: PSTR, #[in] UnDecNameLength: DWORD) -> BOOL;
+        extern fn SymUnDName(#[in] sym: PIMAGEHLP_SYMBOL64, #[buffer(UnDecNameLength)] #[out] UnDecName: PSTR, #[in] UnDecNameLength: DWORD) -> BOOL;
         #[arch(X86)]
         #[library("dbghelp.dll")]
-        extern fn SymUnDName(#[in] sym: PIMAGEHLP_SYMBOL, #[out] #[writable(entry, UnDecNameLength)] UnDecName: PSTR, #[in] UnDecNameLength: DWORD) -> BOOL;
+        extern fn SymUnDName(#[in] sym: PIMAGEHLP_SYMBOL, #[buffer(UnDecNameLength)] #[out] UnDecName: PSTR, #[in] UnDecNameLength: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymUnDName64(#[in] sym: PIMAGEHLP_SYMBOL64, #[out] #[writable(entry, UnDecNameLength)] UnDecName: PSTR, #[in] UnDecNameLength: DWORD) -> BOOL;
+        extern fn SymUnDName64(#[in] sym: PIMAGEHLP_SYMBOL64, #[buffer(UnDecNameLength)] #[out] UnDecName: PSTR, #[in] UnDecNameLength: DWORD) -> BOOL;
         #[arch(X64 | Arm64)]
         #[library("dbghelp.dll", import = "SymUnloadModule64")]
         extern fn SymUnloadModule(#[in] hProcess: HANDLE, #[in] BaseOfDll: DWORD64) -> BOOL;
@@ -1666,9 +1666,9 @@ mod Windows {
         const UNDNAME_NO_THISTYPE: i32 = 96;
         const UNDNAME_NO_THROW_SIGNATURES: i32 = 256;
         #[library("dbghelp.dll")]
-        extern fn UnDecorateSymbolName(#[in] name: PCSTR, #[out] #[writable(entry, maxStringLength)] outputString: PSTR, #[in] maxStringLength: DWORD, #[in] flags: DWORD) -> DWORD;
+        extern fn UnDecorateSymbolName(#[in] name: PCSTR, #[buffer(maxStringLength)] #[out] outputString: PSTR, #[in] maxStringLength: DWORD, #[in] flags: DWORD) -> DWORD;
         #[library("dbghelp.dll")]
-        extern fn UnDecorateSymbolNameW(#[in] name: PCWSTR, #[out] #[writable(entry, maxStringLength)] outputString: PWSTR, #[in] maxStringLength: DWORD, #[in] flags: DWORD) -> DWORD;
+        extern fn UnDecorateSymbolNameW(#[in] name: PCWSTR, #[buffer(maxStringLength)] #[out] outputString: PWSTR, #[in] maxStringLength: DWORD, #[in] flags: DWORD) -> DWORD;
         #[arch(X86)]
         #[library("dbghelp.dll")]
         extern fn UnmapDebugInformation(#[incomplete] #[out] DebugInfo: PIMAGE_DEBUG_INFORMATION) -> BOOL;

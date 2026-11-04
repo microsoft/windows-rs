@@ -540,7 +540,10 @@ impl IBlockRange_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -552,7 +555,10 @@ impl IBlockRange_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -610,7 +616,10 @@ impl IBlockRangeList_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -662,7 +671,10 @@ impl IBurnVerification_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -777,7 +789,10 @@ impl IDiscFormat2_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -789,7 +804,10 @@ impl IDiscFormat2_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -801,7 +819,10 @@ impl IDiscFormat2_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -813,7 +834,10 @@ impl IDiscFormat2_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -825,7 +849,10 @@ impl IDiscFormat2_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1212,7 +1239,10 @@ impl IDiscFormat2Data_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1230,7 +1260,10 @@ impl IDiscFormat2Data_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1248,7 +1281,10 @@ impl IDiscFormat2Data_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1260,7 +1296,10 @@ impl IDiscFormat2Data_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1272,7 +1311,10 @@ impl IDiscFormat2Data_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1284,7 +1326,10 @@ impl IDiscFormat2Data_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1296,7 +1341,10 @@ impl IDiscFormat2Data_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1308,7 +1356,10 @@ impl IDiscFormat2Data_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1320,7 +1371,10 @@ impl IDiscFormat2Data_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1332,7 +1386,10 @@ impl IDiscFormat2Data_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1350,7 +1407,10 @@ impl IDiscFormat2Data_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1368,7 +1428,10 @@ impl IDiscFormat2Data_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1380,7 +1443,10 @@ impl IDiscFormat2Data_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1398,7 +1464,10 @@ impl IDiscFormat2Data_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1410,7 +1479,10 @@ impl IDiscFormat2Data_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1422,7 +1494,10 @@ impl IDiscFormat2Data_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1434,7 +1509,10 @@ impl IDiscFormat2Data_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1446,7 +1524,10 @@ impl IDiscFormat2Data_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1458,7 +1539,10 @@ impl IDiscFormat2Data_Vtbl {
                         supportedspeeds.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        supportedspeeds.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1470,7 +1554,10 @@ impl IDiscFormat2Data_Vtbl {
                         supportedspeeddescriptors.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        supportedspeeddescriptors.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1488,7 +1575,10 @@ impl IDiscFormat2Data_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1500,7 +1590,10 @@ impl IDiscFormat2Data_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1642,7 +1735,10 @@ impl IDiscFormat2DataEventArgs_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1654,7 +1750,10 @@ impl IDiscFormat2DataEventArgs_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1666,7 +1765,10 @@ impl IDiscFormat2DataEventArgs_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1678,7 +1780,10 @@ impl IDiscFormat2DataEventArgs_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1799,7 +1904,10 @@ impl IDiscFormat2Erase_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1817,7 +1925,10 @@ impl IDiscFormat2Erase_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1829,7 +1940,10 @@ impl IDiscFormat2Erase_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1847,7 +1961,10 @@ impl IDiscFormat2Erase_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2178,7 +2295,10 @@ impl IDiscFormat2RawCD_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2196,7 +2316,10 @@ impl IDiscFormat2RawCD_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2208,7 +2331,10 @@ impl IDiscFormat2RawCD_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2220,7 +2346,10 @@ impl IDiscFormat2RawCD_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2232,7 +2361,10 @@ impl IDiscFormat2RawCD_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2244,7 +2376,10 @@ impl IDiscFormat2RawCD_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2262,7 +2397,10 @@ impl IDiscFormat2RawCD_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2280,7 +2418,10 @@ impl IDiscFormat2RawCD_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2292,7 +2433,10 @@ impl IDiscFormat2RawCD_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2304,7 +2448,10 @@ impl IDiscFormat2RawCD_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2316,7 +2463,10 @@ impl IDiscFormat2RawCD_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2328,7 +2478,10 @@ impl IDiscFormat2RawCD_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2340,7 +2493,10 @@ impl IDiscFormat2RawCD_Vtbl {
                         supportedspeeds.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        supportedspeeds.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2352,7 +2508,10 @@ impl IDiscFormat2RawCD_Vtbl {
                         supportedspeeddescriptors.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        supportedspeeddescriptors.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2456,7 +2615,10 @@ impl IDiscFormat2RawCDEventArgs_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2468,7 +2630,10 @@ impl IDiscFormat2RawCDEventArgs_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2480,7 +2645,10 @@ impl IDiscFormat2RawCDEventArgs_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2814,7 +2982,10 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2832,7 +3003,10 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2844,7 +3018,10 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2856,7 +3033,10 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2868,7 +3048,10 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2880,7 +3063,10 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2898,7 +3084,10 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2910,7 +3099,10 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2922,7 +3114,10 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2940,7 +3135,10 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2952,7 +3150,10 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2964,7 +3165,10 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2976,7 +3180,10 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2988,7 +3195,10 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3000,7 +3210,10 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                         supportedspeeds.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        supportedspeeds.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3012,7 +3225,10 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                         supportedspeeddescriptors.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        supportedspeeddescriptors.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3129,7 +3345,10 @@ impl IDiscFormat2TrackAtOnceEventArgs_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3141,7 +3360,10 @@ impl IDiscFormat2TrackAtOnceEventArgs_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3153,7 +3375,10 @@ impl IDiscFormat2TrackAtOnceEventArgs_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3165,7 +3390,10 @@ impl IDiscFormat2TrackAtOnceEventArgs_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3261,7 +3489,10 @@ impl IDiscMaster2_Vtbl {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3273,7 +3504,10 @@ impl IDiscMaster2_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3285,7 +3519,10 @@ impl IDiscMaster2_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3297,7 +3534,10 @@ impl IDiscMaster2_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3574,7 +3814,10 @@ impl IDiscRecorder2_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3586,7 +3829,10 @@ impl IDiscRecorder2_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3598,7 +3844,10 @@ impl IDiscRecorder2_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3610,7 +3859,10 @@ impl IDiscRecorder2_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3622,7 +3874,10 @@ impl IDiscRecorder2_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3634,7 +3889,10 @@ impl IDiscRecorder2_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3646,7 +3904,10 @@ impl IDiscRecorder2_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3658,7 +3919,10 @@ impl IDiscRecorder2_Vtbl {
                         legacydevicenumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        legacydevicenumber.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3670,7 +3934,10 @@ impl IDiscRecorder2_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3682,7 +3949,10 @@ impl IDiscRecorder2_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3694,7 +3964,10 @@ impl IDiscRecorder2_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3706,7 +3979,10 @@ impl IDiscRecorder2_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3718,7 +3994,10 @@ impl IDiscRecorder2_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3730,7 +4009,10 @@ impl IDiscRecorder2_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3769,24 +4051,24 @@ windows_core::imp::define_interface!(IDiscRecorder2Ex, IDiscRecorder2Ex_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IDiscRecorder2Ex, windows_core::IUnknown);
 impl IDiscRecorder2Ex {
     #[cfg(feature = "shared")]
-    pub unsafe fn SendCommandNoData(&self, cdb: &[super::BYTE], sensebuffer: *mut super::BYTE, timeout: super::ULONG) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SendCommandNoData)(windows_core::Interface::as_raw(self), cdb.as_ptr(), cdb.len().try_into().unwrap(), sensebuffer as _, timeout) }
+    pub unsafe fn SendCommandNoData(&self, cdb: *const super::BYTE, cdbsize: super::ULONG, sensebuffer: *mut super::BYTE, timeout: super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SendCommandNoData)(windows_core::Interface::as_raw(self), cdb, cdbsize, sensebuffer as _, timeout) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SendCommandSendDataToDevice(&self, cdb: &[super::BYTE], sensebuffer: *mut super::BYTE, timeout: super::ULONG, buffer: &[super::BYTE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SendCommandSendDataToDevice)(windows_core::Interface::as_raw(self), cdb.as_ptr(), cdb.len().try_into().unwrap(), sensebuffer as _, timeout, buffer.as_ptr(), buffer.len().try_into().unwrap()) }
+    pub unsafe fn SendCommandSendDataToDevice(&self, cdb: *const super::BYTE, cdbsize: super::ULONG, sensebuffer: *mut super::BYTE, timeout: super::ULONG, buffer: *const super::BYTE, buffersize: ULONG_IMAPI2_NONZERO) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SendCommandSendDataToDevice)(windows_core::Interface::as_raw(self), cdb, cdbsize, sensebuffer as _, timeout, buffer, buffersize) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SendCommandGetDataFromDevice(&self, cdb: &[super::BYTE], sensebuffer: *mut super::BYTE, timeout: super::ULONG, buffer: *mut super::BYTE, buffersize: ULONG_IMAPI2_NONZERO, bufferfetched: *mut ULONG_IMAPI2_NOT_NEGATIVE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SendCommandGetDataFromDevice)(windows_core::Interface::as_raw(self), cdb.as_ptr(), cdb.len().try_into().unwrap(), sensebuffer as _, timeout, buffer as _, buffersize, bufferfetched as _) }
+    pub unsafe fn SendCommandGetDataFromDevice(&self, cdb: *const super::BYTE, cdbsize: super::ULONG, sensebuffer: *mut super::BYTE, timeout: super::ULONG, buffer: *mut super::BYTE, buffersize: ULONG_IMAPI2_NONZERO, bufferfetched: *mut ULONG_IMAPI2_NOT_NEGATIVE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SendCommandGetDataFromDevice)(windows_core::Interface::as_raw(self), cdb, cdbsize, sensebuffer as _, timeout, buffer as _, buffersize, bufferfetched as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn ReadDvdStructure(&self, format: super::ULONG, address: super::ULONG, layer: super::ULONG, agid: super::ULONG, data: *mut *mut super::BYTE, count: *mut ULONG_IMAPI2_DVD_STRUCTURE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReadDvdStructure)(windows_core::Interface::as_raw(self), format, address, layer, agid, data as _, count as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SendDvdStructure(&self, format: super::ULONG, data: &[super::BYTE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SendDvdStructure)(windows_core::Interface::as_raw(self), format, data.as_ptr(), data.len().try_into().unwrap()) }
+    pub unsafe fn SendDvdStructure(&self, format: super::ULONG, data: *const super::BYTE, count: ULONG_IMAPI2_DVD_STRUCTURE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SendDvdStructure)(windows_core::Interface::as_raw(self), format, data, count) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetAdapterDescriptor(&self, data: *mut *mut super::BYTE, bytesize: *mut ULONG_IMAPI2_ADAPTER_DESCRIPTOR) -> windows_core::HRESULT {
@@ -3813,8 +4095,8 @@ impl IDiscRecorder2Ex {
         unsafe { (windows_core::Interface::vtable(self).GetModePage)(windows_core::Interface::as_raw(self), requestedmodepage, requesttype, modepagedata as _, bytesize as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetModePage(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, data: &[super::BYTE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetModePage)(windows_core::Interface::as_raw(self), requesttype, data.as_ptr(), data.len().try_into().unwrap()) }
+    pub unsafe fn SetModePage(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, data: *const super::BYTE, bytesize: ULONG_IMAPI2_MODE_PAGE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetModePage)(windows_core::Interface::as_raw(self), requesttype, data, bytesize) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetSupportedFeaturePages(&self, currentfeatureonly: super::BOOLEAN, featuredata: *mut *mut IMAPI_FEATURE_PAGE_TYPE, bytesize: *mut ULONG_IMAPI2_ALL_FEATURE_PAGES) -> windows_core::HRESULT {
@@ -4045,7 +4327,10 @@ impl IDiscRecorder2Ex_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4057,7 +4342,10 @@ impl IDiscRecorder2Ex_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4069,7 +4357,10 @@ impl IDiscRecorder2Ex_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4373,7 +4664,10 @@ impl IMultisession_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4391,7 +4685,10 @@ impl IMultisession_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4403,7 +4700,10 @@ impl IMultisession_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4491,7 +4791,10 @@ impl IMultisessionRandomWrite_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4503,7 +4806,10 @@ impl IMultisessionRandomWrite_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4515,7 +4821,10 @@ impl IMultisessionRandomWrite_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4626,7 +4935,10 @@ impl IMultisessionSequential_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4638,7 +4950,10 @@ impl IMultisessionSequential_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4650,7 +4965,10 @@ impl IMultisessionSequential_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4662,7 +4980,10 @@ impl IMultisessionSequential_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4674,7 +4995,10 @@ impl IMultisessionSequential_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4739,7 +5063,10 @@ impl IMultisessionSequential2_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4985,7 +5312,10 @@ impl IRawCDImageCreator_Vtbl {
                         resultstream.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        resultstream.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4997,7 +5327,10 @@ impl IRawCDImageCreator_Vtbl {
                         trackindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        trackindex.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5027,7 +5360,10 @@ impl IRawCDImageCreator_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5039,7 +5375,10 @@ impl IRawCDImageCreator_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5057,7 +5396,10 @@ impl IRawCDImageCreator_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5075,7 +5417,10 @@ impl IRawCDImageCreator_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5093,7 +5438,10 @@ impl IRawCDImageCreator_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5111,7 +5459,10 @@ impl IRawCDImageCreator_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5123,7 +5474,10 @@ impl IRawCDImageCreator_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5135,7 +5489,10 @@ impl IRawCDImageCreator_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5147,7 +5504,10 @@ impl IRawCDImageCreator_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5159,7 +5519,10 @@ impl IRawCDImageCreator_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5347,7 +5710,10 @@ impl IRawCDImageTrackInfo_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5359,7 +5725,10 @@ impl IRawCDImageTrackInfo_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5371,7 +5740,10 @@ impl IRawCDImageTrackInfo_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5383,7 +5755,10 @@ impl IRawCDImageTrackInfo_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5395,7 +5770,10 @@ impl IRawCDImageTrackInfo_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5413,7 +5791,10 @@ impl IRawCDImageTrackInfo_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5431,7 +5812,10 @@ impl IRawCDImageTrackInfo_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5449,7 +5833,10 @@ impl IRawCDImageTrackInfo_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5509,8 +5896,8 @@ impl IStreamConcatenate {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), stream1.param().abi(), stream2.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn Initialize2(&self, streams: &[Option<super::IStream>]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Initialize2)(windows_core::Interface::as_raw(self), core::mem::transmute(streams.as_ptr()), streams.len().try_into().unwrap()) }
+    pub unsafe fn Initialize2(&self, streams: *const Option<super::IStream>, streamcount: super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Initialize2)(windows_core::Interface::as_raw(self), core::mem::transmute(streams), streamcount) }
     }
     pub unsafe fn Append<P0>(&self, stream: P0) -> windows_core::HRESULT
     where
@@ -5519,8 +5906,8 @@ impl IStreamConcatenate {
         unsafe { (windows_core::Interface::vtable(self).Append)(windows_core::Interface::as_raw(self), stream.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn Append2(&self, streams: &[Option<super::IStream>]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Append2)(windows_core::Interface::as_raw(self), core::mem::transmute(streams.as_ptr()), streams.len().try_into().unwrap()) }
+    pub unsafe fn Append2(&self, streams: *const Option<super::IStream>, streamcount: super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Append2)(windows_core::Interface::as_raw(self), core::mem::transmute(streams), streamcount) }
     }
 }
 #[cfg(feature = "objidlbase")]
@@ -5658,8 +6045,8 @@ impl IStreamPseudoRandomBased {
         unsafe { (windows_core::Interface::vtable(self).get_Seed)(windows_core::Interface::as_raw(self), value as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn put_ExtendedSeed(&self, values: &[super::ULONG]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).put_ExtendedSeed)(windows_core::Interface::as_raw(self), values.as_ptr(), values.len().try_into().unwrap()) }
+    pub unsafe fn put_ExtendedSeed(&self, values: *const super::ULONG, ecount: super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_ExtendedSeed)(windows_core::Interface::as_raw(self), values, ecount) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn get_ExtendedSeed(&self, values: *mut *mut super::ULONG, ecount: *mut super::ULONG) -> windows_core::HRESULT {
@@ -5917,7 +6304,10 @@ impl IWriteEngine2_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5935,7 +6325,10 @@ impl IWriteEngine2_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5953,7 +6346,10 @@ impl IWriteEngine2_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5971,7 +6367,10 @@ impl IWriteEngine2_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -5989,7 +6388,10 @@ impl IWriteEngine2_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6001,7 +6403,10 @@ impl IWriteEngine2_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6146,7 +6551,10 @@ impl IWriteEngine2EventArgs_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6158,7 +6566,10 @@ impl IWriteEngine2EventArgs_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6170,7 +6581,10 @@ impl IWriteEngine2EventArgs_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6182,7 +6596,10 @@ impl IWriteEngine2EventArgs_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6194,7 +6611,10 @@ impl IWriteEngine2EventArgs_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6206,7 +6626,10 @@ impl IWriteEngine2EventArgs_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6218,7 +6641,10 @@ impl IWriteEngine2EventArgs_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6305,7 +6731,10 @@ impl IWriteSpeedDescriptor_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6317,7 +6746,10 @@ impl IWriteSpeedDescriptor_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -6329,7 +6761,10 @@ impl IWriteSpeedDescriptor_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

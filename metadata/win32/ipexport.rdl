@@ -17,7 +17,6 @@ mod Windows {
             RoundTripTime: ULONG,
             DataSize: USHORT,
             Reserved: USHORT,
-            #[writable(bytes(DataSize))]
             Data: PVOID,
             Options: IP_OPTION_INFORMATION,
         }
@@ -86,7 +85,6 @@ mod Windows {
             Tos: UCHAR,
             Flags: UCHAR,
             OptionsSize: UCHAR,
-            #[writable(bytes(OptionsSize))]
             OptionsData: PUCHAR,
         }
         const IP_OPTION_TOO_BIG: i32 = 11017;

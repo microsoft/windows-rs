@@ -616,90 +616,26 @@ These distinctions survive RDL/WinMD round trips, including chains inside refere
 arrays. Mixed chains require a metadata reader that understands per-level pointer modifiers;
 homogeneous chains retain their existing encoding.
 
-On parameters, `#[readable(phase, count)]` and `#[writable(phase, count)]` describe accessible
-buffer extents. On struct fields, use `#[readable(count)]` and `#[writable(count)]` without a call
-phase: the relationship describes a valid struct instance. Counts bind to names in the owning
-signature or record. These contracts do not specify exact allocation sizes, ownership, parameter
-direction, optionality, termination, or a success condition.
+On parameters, `#[buffer(count)]` describes the buffer extent supplied at the start of the call.
+Counts bind to names in the owning signature. The contract does not specify exact allocation sizes,
+ownership, direction, optionality, termination, initialized output length, or a success condition.
 
 | Spelling | Contract |
 | --- | --- |
-| `#[readable(entry, count)]` | `count` elements can be read when the call begins. |
-| `#[writable(entry, bytes(*size))]` | The entry value of `*size` gives writable byte capacity. |
-| `#[readable(success, bytes(*size))]` | The successful-exit value of `*size` gives readable bytes. |
-| `#[readable(success, on_entry(*size))]` | Successful readable elements use the entry value of `*size`. |
-| `#[readable(success, or(*written, capacity))]` | Use `*written` when non-null, otherwise `capacity`. |
-| `#[readable(success, if_present(*written))]` | A null count pointer leaves the extent unknown, not zero. |
-| `#[readable(success, unknown(), indirect)]` | The returned pointee has a readable extent whose size is not expressible. |
-| `#[readable(success, return + 1)]` | Successful readable elements include one after the result. |
-| `#[writable(success, bytes(*size), indirect)]` | The extent describes `*buffer`, not pointer storage. |
-| `#[readable(length)]` | A struct's buffer field contains the number of readable elements given by its sibling field. |
+| `#[buffer(count)]` | The incoming value of `count` gives the extent in elements. |
+| `#[buffer(16)]` | The caller supplies an extent of 16 elements. |
+| `#[buffer(bytes(*size))]` | The incoming value of `*size` gives the extent in bytes. |
 
-Unwrapped counts are elements; `bytes(...)` changes the unit. A count can be a nonnegative integer
-literal, an integer parameter, one dereference of an integer-pointer parameter, `return`, or an
-integer sibling field for a struct-field contract.
-`on_entry(...)` selects entry evaluation for successful parameter-count contracts.
-`or(*count + 1, fallback)` uses the expression when the count pointer is non-null, otherwise the
-by-value integer fallback. The expression must contain exactly one dereferenced count reference.
-Field paths are not accepted.
-`if_present(*count)` permits unavailable count storage without inventing a fallback. It requires
-one dereferenced integer parameter and cannot combine with `or`. `on_entry(if_present(*count))`
-uses the incoming count when supplied.
+Counts are an unsuffixed nonnegative integer literal, an integer parameter, or one dereference of
+a non-optional integer-pointer parameter. `bytes(...)` changes the unit from elements to bytes.
+Arithmetic, return counts, field counts, phase arguments and fallback expressions are not accepted.
+The owner must have pointer or array storage, and each parameter can have at most one `buffer`.
 
-`unknown()` supplies no numeric count. It does not mean zero, one element, or a count that can
-be evaluated later. It cannot combine with arithmetic, `on_entry`, `if_present`, `or`, or legacy
-offsets. `bytes(unknown())` retains byte units. A parameter named `unknown` remains a normal count
-reference without the parentheses.
-
-Counts also support typed integer addition, subtraction, and multiplication, such as
-`(capacity - start) * 2`. References retain their owning types; arithmetic uses C integer promotions
-and usual conversions. Unsigned arithmetic wraps at its resulting width; signed overflow does not
-produce a valid count. `if_present(*written) - start` leaves the count unavailable when `written`
-is null. `on_entry(...)` applies to the whole expression.
-
-`count + 1`, `(count + 1)` and `count + 1i32` use the same typed arithmetic and render as `count + 1`.
-`if_present(*count + 1)` renders as `if_present(*count) + 1`; a missing count leaves the whole
-expression unavailable. Expressions use the versioned `CountExpression` payload.
-Legacy nonzero `Offset` payloads and unknown expression versions retain full attribute spelling,
-without being reinterpreted as typed arithmetic. No short syntax emits `Offset`.
-
-`success` follows the callable's success condition. Field contracts have no call phase.
-For buffer extents, `indirect` requires pointer-to-pointer storage and selects the initialized pointer
-at the specified phase. `entry` describes the incoming pointer; `success` describes the returned
-pointer. When argument storage is supplied, the pointer must be initialized at that phase even
-when an `if_present` count is unavailable.
-An indirect extent promises a non-null pointer at its phase unless `nullable` is present.
-An extent of zero does not promise one accessible element. No `out_ptr` attribute is needed to
-describe a returned buffer.
-
-`nullable` permits the API to give the caller a null pointer. It takes no arguments:
-
-| Owner | Permits null for |
-| --- | --- |
-| `#[out] #[nullable] value: *mut *mut T` | The pointer stored through the parameter, at any phase it describes |
-| `-> #[nullable] T` | The returned value, independently of the success condition |
-| `#[nullable]` on a field | The field when the containing value is valid |
-
-A parameter needs `out` and pointer-to-pointer storage. `opt` separately permits the caller to pass
-a null argument. `nullable` does not imply ownership or initialized storage. Without it, a pointer
-is unspecified unless an extent or `out_ptr` promises non-null. All forms encode the parameterless
-`NullableAttribute`.
-
-The extent forms encode `BufferExtentAttribute`. Unknown properties, unsupported owners and
-unrenderable counts retain full attribute spelling. Short forms currently apply to parameters and
-record fields, not return rows or containing records. Existing metadata consumers must interpret
-the new attribute before relying on these contracts.
-
-`#[out_ptr]` describes storage for a returned pointer. When storage is supplied, success initializes
-it to a non-null pointer to one readable element. It does not specify an allocator, transfer
-ownership, or turn the parameter into a COM return value.
-
-`#[out_ptr(null_on_failure)]` adds that failure sets the returned pointer to null. These forms
-encode the `NullOnFailure` property of `ReturnedPointerAttribute`. Unknown and duplicate flags
-are errors. Full attributes with missing or additional properties retain their explicit spelling
-rather than silently acquiring defaults. `#[nullable]` separately permits a null returned pointer,
-and outer `#[opt]` permits omitting the output storage itself; `#[out]` is still needed to
-establish output direction.
+The short form encodes `BufferAttribute`: exactly one of `CountConst` (`u64`) or `CountParamIndex`
+(`u16`), with `Dereference` for a pointer count and `Bytes` for byte units. Indices are zero-based
+signature positions. Absent Boolean properties mean false. Unknown properties, repeated contracts,
+unsupported owners and unrenderable counts retain full attribute spelling rather than acquiring
+different semantics. The short form does not apply to fields, return rows or containing records.
 
 `#[must_use]` marks a callable result that callers should use rather than accidentally discard.
 It applies to imports, interface methods and named callbacks and encodes the parameterless
@@ -724,28 +660,22 @@ record alignment uses the same spelling.
 
 #### Null termination
 
-`#[null_terminated(...)]` specifies trailing zero elements in parameter storage, independently of
-encoding, capacity, initialized length and optionality. Choose one or both phases:
+The argument-free markers describe termination of a parameter's direct buffer:
 
-| Flag | Contract |
+| Attribute | Representation |
 | --- | --- |
-| `entry` | Single-zero termination on entry. |
-| `double_entry` | Double-zero termination on entry. |
-| `success` | Single-zero termination on successful completion. |
-| `double_success` | Double-zero termination on successful completion. |
-| `indirect` | Select the pointer stored in the parameter at each specified phase. |
+| `#[null_terminated]` | A buffer terminated by one zero element. |
+| `#[null_null_terminated]` | A buffer terminated by two consecutive zero elements, typically a packed string list. |
 
-For example, `#[null_terminated(entry, double_success)]` preserves different termination at the
-two phases. Success follows the callable's contract; this does not imply termination after failure.
-`#[null_terminated(success, indirect)]` describes a returned string when non-null. Nullability,
-optional output storage and readable/writable extents remain separate contracts.
+They map to the argument-free `NullTerminatedAttribute` and `NullNullTerminatedAttribute`. Use only one
+marker. Neither specifies encoding, capacity, initialized length, optionality or success conditions.
+They do not describe a pointer stored through the parameter.
+
 The selected storage must be a pointer, reference or array after resolving aliases. Scalars and
 callback values are not buffer storage. Fields, return rows and declarations have no short-form
 termination contract; their explicit full attributes remain readable and retain full spelling.
-An empty list, repeated phase or unknown flag is an error. Direction is not inferred from these
-flags. The short form preserves the phase properties and true double-termination/indirection
-properties of `NullTerminatedAttribute`. The writer also retains full spelling for unsupported
-storage and other payload shapes, including explicitly false double-termination properties.
+Arguments and repeated or combined markers are errors. Direction is not inferred. The writer retains
+full spelling for unsupported storage, repeated attributes and attributes with payloads.
 
 ### Array types
 

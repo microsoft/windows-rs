@@ -8,7 +8,7 @@ fn keyboard_state() {
         let mut state: [u8; 256] = std::mem::zeroed();
         GetKeyboardState(state.as_mut_ptr()).unwrap();
         assert!(state != zeroed);
-        SetKeyboardState(&state).unwrap();
+        SetKeyboardState(state.as_mut_ptr()).unwrap();
     }
 }
 
@@ -28,8 +28,10 @@ fn temp_file_wide() {
         let mut buffer: [u16; 260] = std::mem::zeroed();
         let a = GetTempFileNameW(w!("."), w!("test"), 0x7b, PWSTR(buffer.as_mut_ptr()));
         assert_eq!(a, 0x7b);
-        let buffer = std::slice::from_raw_parts(buffer.as_ptr() as *const OLECHAR, 12);
-        assert_eq!(SysAllocStringLen(Some(buffer)), ".\\tes7B.tmp\0");
+        assert_eq!(
+            SysAllocStringLen(Some(buffer.as_ptr()), 12),
+            ".\\tes7B.tmp\0"
+        );
     }
 }
 

@@ -27,7 +27,10 @@ impl ILanguageExceptionErrorInfo_Vtbl {
                         languageexception.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        languageexception.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -89,7 +92,10 @@ impl ILanguageExceptionErrorInfo2_Vtbl {
                         previouslanguageexceptionerrorinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        previouslanguageexceptionerrorinfo.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -107,7 +113,10 @@ impl ILanguageExceptionErrorInfo2_Vtbl {
                         propagatedlanguageexceptionerrorinfohead.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        propagatedlanguageexceptionerrorinfohead.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -190,7 +199,10 @@ impl ILanguageExceptionTransform_Vtbl {
                         restrictederrorinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        restrictederrorinfo.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

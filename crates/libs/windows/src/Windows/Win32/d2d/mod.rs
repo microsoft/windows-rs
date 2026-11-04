@@ -2045,7 +2045,7 @@ impl ID2D1BitmapRenderTarget_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        bitmap.write(core::mem::zeroed());
+                        bitmap.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3154,7 +3154,7 @@ impl ID2D1Device_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        devicecontext.write(core::mem::zeroed());
+                        devicecontext.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3169,7 +3169,7 @@ impl ID2D1Device_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        printcontrol.write(core::mem::zeroed());
+                        printcontrol.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3270,7 +3270,7 @@ impl ID2D1Device1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        devicecontext1.write(core::mem::zeroed());
+                        devicecontext1.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3349,7 +3349,7 @@ impl ID2D1Device2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        devicecontext2.write(core::mem::zeroed());
+                        devicecontext2.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3370,7 +3370,7 @@ impl ID2D1Device2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        dxgidevice.write(core::mem::zeroed());
+                        dxgidevice.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3427,7 +3427,7 @@ impl ID2D1Device3_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        devicecontext3.write(core::mem::zeroed());
+                        devicecontext3.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3499,7 +3499,7 @@ impl ID2D1Device4_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        devicecontext4.write(core::mem::zeroed());
+                        devicecontext4.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3568,7 +3568,7 @@ impl ID2D1Device5_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        devicecontext5.write(core::mem::zeroed());
+                        devicecontext5.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3620,7 +3620,7 @@ impl ID2D1Device6_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        devicecontext6.write(core::mem::zeroed());
+                        devicecontext6.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3672,7 +3672,7 @@ impl ID2D1Device7_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        devicecontext.write(core::mem::zeroed());
+                        devicecontext.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -3713,10 +3713,10 @@ impl ID2D1DeviceContext {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateColorContext(&self, space: D2D1_COLOR_SPACE, profile: Option<&[super::BYTE]>) -> windows_core::Result<ID2D1ColorContext> {
+    pub unsafe fn CreateColorContext(&self, space: D2D1_COLOR_SPACE, profile: Option<*const super::BYTE>, profilesize: super::UINT32) -> windows_core::Result<ID2D1ColorContext> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateColorContext)(windows_core::Interface::as_raw(self), space, profile.map_or(core::ptr::null(), |slice| slice.as_ptr()), profile.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateColorContext)(windows_core::Interface::as_raw(self), space, profile.unwrap_or(core::mem::zeroed()) as _, profilesize, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateColorContextFromFilename<P0>(&self, filename: P0) -> windows_core::Result<ID2D1ColorContext>
@@ -3756,10 +3756,10 @@ impl ID2D1DeviceContext {
         }
     }
     #[cfg(all(feature = "dxgi", feature = "minwindef", feature = "shared"))]
-    pub unsafe fn CreateGradientStopCollection(&self, straightalphagradientstops: &[D2D1_GRADIENT_STOP], preinterpolationspace: D2D1_COLOR_SPACE, postinterpolationspace: D2D1_COLOR_SPACE, bufferprecision: D2D1_BUFFER_PRECISION, extendmode: D2D1_EXTEND_MODE, colorinterpolationmode: D2D1_COLOR_INTERPOLATION_MODE) -> windows_core::Result<ID2D1GradientStopCollection1> {
+    pub unsafe fn CreateGradientStopCollection(&self, straightalphagradientstops: *const D2D1_GRADIENT_STOP, straightalphagradientstopscount: super::UINT32, preinterpolationspace: D2D1_COLOR_SPACE, postinterpolationspace: D2D1_COLOR_SPACE, bufferprecision: D2D1_BUFFER_PRECISION, extendmode: D2D1_EXTEND_MODE, colorinterpolationmode: D2D1_COLOR_INTERPOLATION_MODE) -> windows_core::Result<ID2D1GradientStopCollection1> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateGradientStopCollection)(windows_core::Interface::as_raw(self), straightalphagradientstops.as_ptr(), straightalphagradientstops.len().try_into().unwrap(), preinterpolationspace, postinterpolationspace, bufferprecision, extendmode, colorinterpolationmode, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateGradientStopCollection)(windows_core::Interface::as_raw(self), straightalphagradientstops, straightalphagradientstopscount, preinterpolationspace, postinterpolationspace, bufferprecision, extendmode, colorinterpolationmode, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "dcommon", feature = "minwindef"))]
@@ -4104,7 +4104,7 @@ impl ID2D1DeviceContext_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        bitmap.write(core::mem::zeroed());
+                        bitmap.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4119,7 +4119,7 @@ impl ID2D1DeviceContext_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        bitmap.write(core::mem::zeroed());
+                        bitmap.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4134,7 +4134,7 @@ impl ID2D1DeviceContext_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        colorcontext.write(core::mem::zeroed());
+                        colorcontext.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4149,7 +4149,7 @@ impl ID2D1DeviceContext_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        colorcontext.write(core::mem::zeroed());
+                        colorcontext.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4164,7 +4164,7 @@ impl ID2D1DeviceContext_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        colorcontext.write(core::mem::zeroed());
+                        colorcontext.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4179,7 +4179,7 @@ impl ID2D1DeviceContext_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        bitmap.write(core::mem::zeroed());
+                        bitmap.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4194,7 +4194,7 @@ impl ID2D1DeviceContext_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        effect.write(core::mem::zeroed());
+                        effect.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4209,7 +4209,7 @@ impl ID2D1DeviceContext_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        gradientstopcollection1.write(core::mem::zeroed());
+                        gradientstopcollection1.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4224,7 +4224,7 @@ impl ID2D1DeviceContext_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        imagebrush.write(core::mem::zeroed());
+                        imagebrush.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4239,7 +4239,7 @@ impl ID2D1DeviceContext_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        bitmapbrush.write(core::mem::zeroed());
+                        bitmapbrush.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4254,7 +4254,7 @@ impl ID2D1DeviceContext_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        commandlist.write(core::mem::zeroed());
+                        commandlist.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4521,7 +4521,7 @@ impl ID2D1DeviceContext1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        geometryrealization.write(core::mem::zeroed());
+                        geometryrealization.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4536,7 +4536,7 @@ impl ID2D1DeviceContext1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        geometryrealization.write(core::mem::zeroed());
+                        geometryrealization.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4584,10 +4584,10 @@ impl ID2D1DeviceContext2 {
         }
     }
     #[cfg(all(feature = "dxgi", feature = "shared"))]
-    pub unsafe fn CreateGradientMesh(&self, patches: &[D2D1_GRADIENT_MESH_PATCH]) -> windows_core::Result<ID2D1GradientMesh> {
+    pub unsafe fn CreateGradientMesh(&self, patches: *const D2D1_GRADIENT_MESH_PATCH, patchescount: super::UINT32) -> windows_core::Result<ID2D1GradientMesh> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateGradientMesh)(windows_core::Interface::as_raw(self), patches.as_ptr(), patches.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateGradientMesh)(windows_core::Interface::as_raw(self), patches, patchescount, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "dcommon", feature = "wincodec"))]
@@ -4601,17 +4601,17 @@ impl ID2D1DeviceContext2 {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateLookupTable3D(&self, precision: D2D1_BUFFER_PRECISION, extents: &[super::UINT32; 3], data: &[super::BYTE], strides: &[super::UINT32; 2]) -> windows_core::Result<ID2D1LookupTable3D> {
+    pub unsafe fn CreateLookupTable3D(&self, precision: D2D1_BUFFER_PRECISION, extents: *const super::UINT32, data: *const super::BYTE, datacount: super::UINT32, strides: *const super::UINT32) -> windows_core::Result<ID2D1LookupTable3D> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateLookupTable3D)(windows_core::Interface::as_raw(self), precision, extents.as_ptr(), data.as_ptr(), data.len().try_into().unwrap(), strides.as_ptr(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateLookupTable3D)(windows_core::Interface::as_raw(self), precision, extents, data, datacount, strides, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "dxgi", feature = "shared"))]
-    pub unsafe fn CreateImageSourceFromDxgi(&self, surfaces: &[Option<super::IDXGISurface>], colorspace: super::DXGI_COLOR_SPACE_TYPE, options: D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS) -> windows_core::Result<ID2D1ImageSource> {
+    pub unsafe fn CreateImageSourceFromDxgi(&self, surfaces: *const Option<super::IDXGISurface>, surfacecount: super::UINT32, colorspace: super::DXGI_COLOR_SPACE_TYPE, options: D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS) -> windows_core::Result<ID2D1ImageSource> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateImageSourceFromDxgi)(windows_core::Interface::as_raw(self), core::mem::transmute(surfaces.as_ptr()), surfaces.len().try_into().unwrap(), colorspace, options, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateImageSourceFromDxgi)(windows_core::Interface::as_raw(self), core::mem::transmute(surfaces), surfacecount, colorspace, options, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "dcommon", feature = "minwindef"))]
@@ -4725,7 +4725,7 @@ impl ID2D1DeviceContext2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ink.write(core::mem::zeroed());
+                        ink.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4740,7 +4740,7 @@ impl ID2D1DeviceContext2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        inkstyle.write(core::mem::zeroed());
+                        inkstyle.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4755,7 +4755,7 @@ impl ID2D1DeviceContext2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        gradientmesh.write(core::mem::zeroed());
+                        gradientmesh.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4770,7 +4770,7 @@ impl ID2D1DeviceContext2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        imagesource.write(core::mem::zeroed());
+                        imagesource.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4785,7 +4785,7 @@ impl ID2D1DeviceContext2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        lookuptable.write(core::mem::zeroed());
+                        lookuptable.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4800,7 +4800,7 @@ impl ID2D1DeviceContext2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        imagesource.write(core::mem::zeroed());
+                        imagesource.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4839,7 +4839,7 @@ impl ID2D1DeviceContext2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        transformedimagesource.write(core::mem::zeroed());
+                        transformedimagesource.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4919,7 +4919,7 @@ impl ID2D1DeviceContext3_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        spritebatch.write(core::mem::zeroed());
+                        spritebatch.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -4959,14 +4959,14 @@ impl ID2D1DeviceContext4 {
         }
     }
     #[cfg(all(feature = "dcommon", feature = "dwrite", feature = "minwindef", feature = "shared", feature = "winnt"))]
-    pub unsafe fn DrawText<P2, P4, P5>(&self, string: &[super::WCHAR], textformat: P2, layoutrect: *const super::D2D1_RECT_F, defaultfillbrush: P4, svgglyphstyle: P5, colorpaletteindex: super::UINT32, options: D2D1_DRAW_TEXT_OPTIONS, measuringmode: super::DWRITE_MEASURING_MODE)
+    pub unsafe fn DrawText<P2, P4, P5>(&self, string: *const super::WCHAR, stringlength: super::UINT32, textformat: P2, layoutrect: *const super::D2D1_RECT_F, defaultfillbrush: P4, svgglyphstyle: P5, colorpaletteindex: super::UINT32, options: D2D1_DRAW_TEXT_OPTIONS, measuringmode: super::DWRITE_MEASURING_MODE)
     where
         P2: windows_core::Param<super::IDWriteTextFormat>,
         P4: windows_core::Param<ID2D1Brush>,
         P5: windows_core::Param<ID2D1SvgGlyphStyle>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).DrawText)(windows_core::Interface::as_raw(self), string.as_ptr(), string.len().try_into().unwrap(), textformat.param().abi(), layoutrect, defaultfillbrush.param().abi(), svgglyphstyle.param().abi(), colorpaletteindex, options, measuringmode);
+            (windows_core::Interface::vtable(self).DrawText)(windows_core::Interface::as_raw(self), string, stringlength, textformat.param().abi(), layoutrect, defaultfillbrush.param().abi(), svgglyphstyle.param().abi(), colorpaletteindex, options, measuringmode);
         }
     }
     #[cfg(all(feature = "dwrite", feature = "shared"))]
@@ -5071,7 +5071,7 @@ impl ID2D1DeviceContext4_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        svgglyphstyle.write(core::mem::zeroed());
+                        svgglyphstyle.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5110,7 +5110,7 @@ impl ID2D1DeviceContext4_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        glyphimage.write(core::mem::zeroed());
+                        glyphimage.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5125,7 +5125,7 @@ impl ID2D1DeviceContext4_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        glyphimage.write(core::mem::zeroed());
+                        glyphimage.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5223,7 +5223,7 @@ impl ID2D1DeviceContext5_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        svgdocument.write(core::mem::zeroed());
+                        svgdocument.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5244,7 +5244,7 @@ impl ID2D1DeviceContext5_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        colorcontext.write(core::mem::zeroed());
+                        colorcontext.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5259,7 +5259,7 @@ impl ID2D1DeviceContext5_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        colorcontext.write(core::mem::zeroed());
+                        colorcontext.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5771,10 +5771,10 @@ impl ID2D1Factory {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreateGeometryGroup(&self, fillmode: D2D1_FILL_MODE, geometries: &[Option<ID2D1Geometry>]) -> windows_core::Result<ID2D1GeometryGroup> {
+    pub unsafe fn CreateGeometryGroup(&self, fillmode: D2D1_FILL_MODE, geometries: *const Option<ID2D1Geometry>, geometriescount: super::UINT32) -> windows_core::Result<ID2D1GeometryGroup> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateGeometryGroup)(windows_core::Interface::as_raw(self), fillmode, core::mem::transmute(geometries.as_ptr()), geometries.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateGeometryGroup)(windows_core::Interface::as_raw(self), fillmode, core::mem::transmute(geometries), geometriescount, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateTransformedGeometry<P0>(&self, sourcegeometry: P0, transform: *const windows_numerics::Matrix3x2) -> windows_core::Result<ID2D1TransformedGeometry>
@@ -5793,10 +5793,10 @@ impl ID2D1Factory {
         }
     }
     #[cfg(all(feature = "minwindef", feature = "shared"))]
-    pub unsafe fn CreateStrokeStyle(&self, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES, dashes: Option<&[super::FLOAT]>) -> windows_core::Result<ID2D1StrokeStyle> {
+    pub unsafe fn CreateStrokeStyle(&self, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES, dashes: Option<*const super::FLOAT>, dashescount: super::UINT32) -> windows_core::Result<ID2D1StrokeStyle> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateStrokeStyle)(windows_core::Interface::as_raw(self), strokestyleproperties, dashes.map_or(core::ptr::null(), |slice| slice.as_ptr()), dashes.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateStrokeStyle)(windows_core::Interface::as_raw(self), strokestyleproperties, dashes.unwrap_or(core::mem::zeroed()) as _, dashescount, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "dwrite")]
@@ -5937,7 +5937,7 @@ impl ID2D1Factory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        rectanglegeometry.write(core::mem::zeroed());
+                        rectanglegeometry.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5952,7 +5952,7 @@ impl ID2D1Factory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        roundedrectanglegeometry.write(core::mem::zeroed());
+                        roundedrectanglegeometry.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5967,7 +5967,7 @@ impl ID2D1Factory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ellipsegeometry.write(core::mem::zeroed());
+                        ellipsegeometry.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5982,7 +5982,7 @@ impl ID2D1Factory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        geometrygroup.write(core::mem::zeroed());
+                        geometrygroup.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -5997,7 +5997,7 @@ impl ID2D1Factory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        transformedgeometry.write(core::mem::zeroed());
+                        transformedgeometry.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6012,7 +6012,7 @@ impl ID2D1Factory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        pathgeometry.write(core::mem::zeroed());
+                        pathgeometry.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6027,7 +6027,7 @@ impl ID2D1Factory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        strokestyle.write(core::mem::zeroed());
+                        strokestyle.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6042,7 +6042,7 @@ impl ID2D1Factory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        drawingstateblock.write(core::mem::zeroed());
+                        drawingstateblock.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6057,7 +6057,7 @@ impl ID2D1Factory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        rendertarget.write(core::mem::zeroed());
+                        rendertarget.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6072,7 +6072,7 @@ impl ID2D1Factory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        hwndrendertarget.write(core::mem::zeroed());
+                        hwndrendertarget.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6087,7 +6087,7 @@ impl ID2D1Factory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        rendertarget.write(core::mem::zeroed());
+                        rendertarget.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6102,7 +6102,7 @@ impl ID2D1Factory_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        dcrendertarget.write(core::mem::zeroed());
+                        dcrendertarget.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6152,10 +6152,10 @@ impl ID2D1Factory1 {
         }
     }
     #[cfg(all(feature = "minwindef", feature = "shared"))]
-    pub unsafe fn CreateStrokeStyle(&self, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES1, dashes: Option<&[super::FLOAT]>) -> windows_core::Result<ID2D1StrokeStyle1> {
+    pub unsafe fn CreateStrokeStyle(&self, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES1, dashes: Option<*const super::FLOAT>, dashescount: super::UINT32) -> windows_core::Result<ID2D1StrokeStyle1> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateStrokeStyle)(windows_core::Interface::as_raw(self), strokestyleproperties, dashes.map_or(core::ptr::null(), |slice| slice.as_ptr()), dashes.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateStrokeStyle)(windows_core::Interface::as_raw(self), strokestyleproperties, dashes.unwrap_or(core::mem::zeroed()) as _, dashescount, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreatePathGeometry(&self) -> windows_core::Result<ID2D1PathGeometry1> {
@@ -6185,18 +6185,18 @@ impl ID2D1Factory1 {
         }
     }
     #[cfg(all(feature = "guiddef", feature = "objidlbase", feature = "shared"))]
-    pub unsafe fn RegisterEffectFromStream<P1>(&self, classid: *const super::IID, propertyxml: P1, bindings: Option<&[D2D1_PROPERTY_BINDING]>, effectfactory: PD2D1_EFFECT_FACTORY) -> windows_core::HRESULT
+    pub unsafe fn RegisterEffectFromStream<P1>(&self, classid: *const super::IID, propertyxml: P1, bindings: Option<*const D2D1_PROPERTY_BINDING>, bindingscount: super::UINT32, effectfactory: PD2D1_EFFECT_FACTORY) -> windows_core::HRESULT
     where
         P1: windows_core::Param<super::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RegisterEffectFromStream)(windows_core::Interface::as_raw(self), classid, propertyxml.param().abi(), bindings.map_or(core::ptr::null(), |slice| slice.as_ptr()), bindings.map_or(0, |slice| slice.len().try_into().unwrap()), effectfactory) }
+        unsafe { (windows_core::Interface::vtable(self).RegisterEffectFromStream)(windows_core::Interface::as_raw(self), classid, propertyxml.param().abi(), bindings.unwrap_or(core::mem::zeroed()) as _, bindingscount, effectfactory) }
     }
     #[cfg(all(feature = "guiddef", feature = "shared"))]
-    pub unsafe fn RegisterEffectFromString<P1>(&self, classid: *const super::IID, propertyxml: P1, bindings: Option<&[D2D1_PROPERTY_BINDING]>, effectfactory: PD2D1_EFFECT_FACTORY) -> windows_core::HRESULT
+    pub unsafe fn RegisterEffectFromString<P1>(&self, classid: *const super::IID, propertyxml: P1, bindings: Option<*const D2D1_PROPERTY_BINDING>, bindingscount: super::UINT32, effectfactory: PD2D1_EFFECT_FACTORY) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RegisterEffectFromString)(windows_core::Interface::as_raw(self), classid, propertyxml.param().abi(), bindings.map_or(core::ptr::null(), |slice| slice.as_ptr()), bindings.map_or(0, |slice| slice.len().try_into().unwrap()), effectfactory) }
+        unsafe { (windows_core::Interface::vtable(self).RegisterEffectFromString)(windows_core::Interface::as_raw(self), classid, propertyxml.param().abi(), bindings.unwrap_or(core::mem::zeroed()) as _, bindingscount, effectfactory) }
     }
     #[cfg(feature = "guiddef")]
     pub unsafe fn UnregisterEffect(&self, classid: *const super::IID) -> windows_core::HRESULT {
@@ -6281,7 +6281,7 @@ impl ID2D1Factory1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        d2ddevice.write(core::mem::zeroed());
+                        d2ddevice.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6296,7 +6296,7 @@ impl ID2D1Factory1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        strokestyle.write(core::mem::zeroed());
+                        strokestyle.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6311,7 +6311,7 @@ impl ID2D1Factory1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        pathgeometry.write(core::mem::zeroed());
+                        pathgeometry.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6326,7 +6326,7 @@ impl ID2D1Factory1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        drawingstateblock.write(core::mem::zeroed());
+                        drawingstateblock.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6341,7 +6341,7 @@ impl ID2D1Factory1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        metafile.write(core::mem::zeroed());
+                        metafile.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6380,7 +6380,7 @@ impl ID2D1Factory1_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        properties.write(core::mem::zeroed());
+                        properties.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6451,7 +6451,7 @@ impl ID2D1Factory2_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        d2ddevice1.write(core::mem::zeroed());
+                        d2ddevice1.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6510,7 +6510,7 @@ impl ID2D1Factory3_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        d2ddevice2.write(core::mem::zeroed());
+                        d2ddevice2.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6569,7 +6569,7 @@ impl ID2D1Factory4_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        d2ddevice3.write(core::mem::zeroed());
+                        d2ddevice3.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6628,7 +6628,7 @@ impl ID2D1Factory5_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        d2ddevice4.write(core::mem::zeroed());
+                        d2ddevice4.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6687,7 +6687,7 @@ impl ID2D1Factory6_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        d2ddevice5.write(core::mem::zeroed());
+                        d2ddevice5.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6746,7 +6746,7 @@ impl ID2D1Factory7_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        d2ddevice6.write(core::mem::zeroed());
+                        d2ddevice6.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -6805,7 +6805,7 @@ impl ID2D1Factory8_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        d2ddevice6.write(core::mem::zeroed());
+                        d2ddevice6.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -7465,9 +7465,9 @@ impl ID2D1GeometrySink {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn AddQuadraticBeziers(&self, beziers: &[D2D1_QUADRATIC_BEZIER_SEGMENT]) {
+    pub unsafe fn AddQuadraticBeziers(&self, beziers: *const D2D1_QUADRATIC_BEZIER_SEGMENT, bezierscount: super::UINT32) {
         unsafe {
-            (windows_core::Interface::vtable(self).AddQuadraticBeziers)(windows_core::Interface::as_raw(self), beziers.as_ptr(), beziers.len().try_into().unwrap());
+            (windows_core::Interface::vtable(self).AddQuadraticBeziers)(windows_core::Interface::as_raw(self), beziers, bezierscount);
         }
     }
     #[cfg(all(feature = "dcommon", feature = "minwindef"))]
@@ -8229,16 +8229,16 @@ impl ID2D1Ink {
         }
     }
     #[cfg(all(feature = "minwindef", feature = "shared"))]
-    pub unsafe fn AddSegments(&self, segments: &[D2D1_INK_BEZIER_SEGMENT]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddSegments)(windows_core::Interface::as_raw(self), segments.as_ptr(), segments.len().try_into().unwrap()) }
+    pub unsafe fn AddSegments(&self, segments: *const D2D1_INK_BEZIER_SEGMENT, segmentscount: super::UINT32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddSegments)(windows_core::Interface::as_raw(self), segments, segmentscount) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn RemoveSegmentsAtEnd(&self, segmentscount: super::UINT32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveSegmentsAtEnd)(windows_core::Interface::as_raw(self), segmentscount) }
     }
     #[cfg(all(feature = "minwindef", feature = "shared"))]
-    pub unsafe fn SetSegments(&self, startsegment: super::UINT32, segments: &[D2D1_INK_BEZIER_SEGMENT]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSegments)(windows_core::Interface::as_raw(self), startsegment, segments.as_ptr(), segments.len().try_into().unwrap()) }
+    pub unsafe fn SetSegments(&self, startsegment: super::UINT32, segments: *const D2D1_INK_BEZIER_SEGMENT, segmentscount: super::UINT32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetSegments)(windows_core::Interface::as_raw(self), startsegment, segments, segmentscount) }
     }
     #[cfg(feature = "minwindef")]
     pub unsafe fn SetSegmentAtEnd(&self, segment: *const D2D1_INK_BEZIER_SEGMENT) -> windows_core::HRESULT {
@@ -8695,7 +8695,7 @@ impl ID2D1Mesh_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        tessellationsink.write(core::mem::zeroed());
+                        tessellationsink.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -8834,7 +8834,7 @@ impl ID2D1PathGeometry_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        geometrysink.write(core::mem::zeroed());
+                        geometrysink.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -8996,15 +8996,15 @@ impl ID2D1Properties {
         unsafe { (windows_core::Interface::vtable(self).GetPropertyIndex)(windows_core::Interface::as_raw(self), name.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetValueByName<P0>(&self, name: P0, r#type: D2D1_PROPERTY_TYPE, data: &[super::BYTE]) -> windows_core::HRESULT
+    pub unsafe fn SetValueByName<P0>(&self, name: P0, r#type: D2D1_PROPERTY_TYPE, data: *const super::BYTE, datasize: super::UINT32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetValueByName)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, data.as_ptr(), data.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).SetValueByName)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, data, datasize) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetValue(&self, index: super::UINT32, r#type: D2D1_PROPERTY_TYPE, data: &[super::BYTE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), index, r#type, data.as_ptr(), data.len().try_into().unwrap()) }
+    pub unsafe fn SetValue(&self, index: super::UINT32, r#type: D2D1_PROPERTY_TYPE, data: *const super::BYTE, datasize: super::UINT32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), index, r#type, data, datasize) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetValueByName<P0>(&self, name: P0, r#type: D2D1_PROPERTY_TYPE, data: *mut super::BYTE, datasize: super::UINT32) -> windows_core::HRESULT
@@ -9441,10 +9441,10 @@ impl ID2D1RenderTarget {
         }
     }
     #[cfg(all(feature = "dxgi", feature = "minwindef", feature = "shared"))]
-    pub unsafe fn CreateGradientStopCollection(&self, gradientstops: &[D2D1_GRADIENT_STOP], colorinterpolationgamma: D2D1_GAMMA, extendmode: D2D1_EXTEND_MODE) -> windows_core::Result<ID2D1GradientStopCollection> {
+    pub unsafe fn CreateGradientStopCollection(&self, gradientstops: *const D2D1_GRADIENT_STOP, gradientstopscount: super::UINT32, colorinterpolationgamma: D2D1_GAMMA, extendmode: D2D1_EXTEND_MODE) -> windows_core::Result<ID2D1GradientStopCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateGradientStopCollection)(windows_core::Interface::as_raw(self), gradientstops.as_ptr(), gradientstops.len().try_into().unwrap(), colorinterpolationgamma, extendmode, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateGradientStopCollection)(windows_core::Interface::as_raw(self), gradientstops, gradientstopscount, colorinterpolationgamma, extendmode, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "minwindef")]
@@ -9604,13 +9604,13 @@ impl ID2D1RenderTarget {
         }
     }
     #[cfg(all(feature = "dcommon", feature = "dwrite", feature = "minwindef", feature = "shared", feature = "winnt"))]
-    pub unsafe fn DrawText<P2, P4>(&self, string: &[super::WCHAR], textformat: P2, layoutrect: *const super::D2D1_RECT_F, defaultfillbrush: P4, options: D2D1_DRAW_TEXT_OPTIONS, measuringmode: super::DWRITE_MEASURING_MODE)
+    pub unsafe fn DrawText<P2, P4>(&self, string: *const super::WCHAR, stringlength: super::UINT32, textformat: P2, layoutrect: *const super::D2D1_RECT_F, defaultfillbrush: P4, options: D2D1_DRAW_TEXT_OPTIONS, measuringmode: super::DWRITE_MEASURING_MODE)
     where
         P2: windows_core::Param<super::IDWriteTextFormat>,
         P4: windows_core::Param<ID2D1Brush>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).DrawText)(windows_core::Interface::as_raw(self), string.as_ptr(), string.len().try_into().unwrap(), textformat.param().abi(), layoutrect, defaultfillbrush.param().abi(), options, measuringmode);
+            (windows_core::Interface::vtable(self).DrawText)(windows_core::Interface::as_raw(self), string, stringlength, textformat.param().abi(), layoutrect, defaultfillbrush.param().abi(), options, measuringmode);
         }
     }
     #[cfg(feature = "dwrite")]
@@ -10017,7 +10017,7 @@ impl ID2D1RenderTarget_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        bitmap.write(core::mem::zeroed());
+                        bitmap.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -10032,7 +10032,7 @@ impl ID2D1RenderTarget_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        bitmap.write(core::mem::zeroed());
+                        bitmap.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -10047,7 +10047,7 @@ impl ID2D1RenderTarget_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        bitmap.write(core::mem::zeroed());
+                        bitmap.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -10062,7 +10062,7 @@ impl ID2D1RenderTarget_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        bitmapbrush.write(core::mem::zeroed());
+                        bitmapbrush.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -10077,7 +10077,7 @@ impl ID2D1RenderTarget_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        solidcolorbrush.write(core::mem::zeroed());
+                        solidcolorbrush.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -10092,7 +10092,7 @@ impl ID2D1RenderTarget_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        gradientstopcollection.write(core::mem::zeroed());
+                        gradientstopcollection.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -10107,7 +10107,7 @@ impl ID2D1RenderTarget_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        lineargradientbrush.write(core::mem::zeroed());
+                        lineargradientbrush.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -10122,7 +10122,7 @@ impl ID2D1RenderTarget_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        radialgradientbrush.write(core::mem::zeroed());
+                        radialgradientbrush.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -10137,7 +10137,7 @@ impl ID2D1RenderTarget_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        bitmaprendertarget.write(core::mem::zeroed());
+                        bitmaprendertarget.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -10152,7 +10152,7 @@ impl ID2D1RenderTarget_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        layer.write(core::mem::zeroed());
+                        layer.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -10167,7 +10167,7 @@ impl ID2D1RenderTarget_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        mesh.write(core::mem::zeroed());
+                        mesh.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -10586,15 +10586,15 @@ impl ID2D1SimplifiedGeometrySink {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn AddLines(&self, points: &[windows_numerics::Vector2]) {
+    pub unsafe fn AddLines(&self, points: *const windows_numerics::Vector2, pointscount: super::UINT32) {
         unsafe {
-            (windows_core::Interface::vtable(self).AddLines)(windows_core::Interface::as_raw(self), points.as_ptr(), points.len().try_into().unwrap());
+            (windows_core::Interface::vtable(self).AddLines)(windows_core::Interface::as_raw(self), points, pointscount);
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn AddBeziers(&self, beziers: &[D2D1_BEZIER_SEGMENT]) {
+    pub unsafe fn AddBeziers(&self, beziers: *const D2D1_BEZIER_SEGMENT, bezierscount: super::UINT32) {
         unsafe {
-            (windows_core::Interface::vtable(self).AddBeziers)(windows_core::Interface::as_raw(self), beziers.as_ptr(), beziers.len().try_into().unwrap());
+            (windows_core::Interface::vtable(self).AddBeziers)(windows_core::Interface::as_raw(self), beziers, bezierscount);
         }
     }
     pub unsafe fn EndFigure(&self, figureend: D2D1_FIGURE_END) {
@@ -11116,7 +11116,7 @@ impl ID2D1SvgAttribute_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        attribute.write(core::mem::zeroed());
+                        attribute.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -11196,24 +11196,24 @@ impl ID2D1SvgDocument {
         }
     }
     #[cfg(all(feature = "minwindef", feature = "shared"))]
-    pub unsafe fn CreateStrokeDashArray(&self, dashes: Option<&[D2D1_SVG_LENGTH]>) -> windows_core::Result<ID2D1SvgStrokeDashArray> {
+    pub unsafe fn CreateStrokeDashArray(&self, dashes: Option<*const D2D1_SVG_LENGTH>, dashescount: super::UINT32) -> windows_core::Result<ID2D1SvgStrokeDashArray> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateStrokeDashArray)(windows_core::Interface::as_raw(self), dashes.map_or(core::ptr::null(), |slice| slice.as_ptr()), dashes.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateStrokeDashArray)(windows_core::Interface::as_raw(self), dashes.unwrap_or(core::mem::zeroed()) as _, dashescount, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CreatePointCollection(&self, points: Option<&[windows_numerics::Vector2]>) -> windows_core::Result<ID2D1SvgPointCollection> {
+    pub unsafe fn CreatePointCollection(&self, points: Option<*const windows_numerics::Vector2>, pointscount: super::UINT32) -> windows_core::Result<ID2D1SvgPointCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreatePointCollection)(windows_core::Interface::as_raw(self), points.map_or(core::ptr::null(), |slice| slice.as_ptr()), points.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreatePointCollection)(windows_core::Interface::as_raw(self), points.unwrap_or(core::mem::zeroed()) as _, pointscount, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "minwindef", feature = "shared"))]
-    pub unsafe fn CreatePathData(&self, segmentdata: Option<&[super::FLOAT]>, commands: Option<&[D2D1_SVG_PATH_COMMAND]>) -> windows_core::Result<ID2D1SvgPathData> {
+    pub unsafe fn CreatePathData(&self, segmentdata: Option<*const super::FLOAT>, segmentdatacount: super::UINT32, commands: Option<*const D2D1_SVG_PATH_COMMAND>, commandscount: super::UINT32) -> windows_core::Result<ID2D1SvgPathData> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreatePathData)(windows_core::Interface::as_raw(self), segmentdata.map_or(core::ptr::null(), |slice| slice.as_ptr()), segmentdata.map_or(0, |slice| slice.len().try_into().unwrap()), commands.map_or(core::ptr::null(), |slice| slice.as_ptr()), commands.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreatePathData)(windows_core::Interface::as_raw(self), segmentdata.unwrap_or(core::mem::zeroed()) as _, segmentdatacount, commands.unwrap_or(core::mem::zeroed()) as _, commandscount, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -11319,7 +11319,7 @@ impl ID2D1SvgDocument_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        subtree.write(core::mem::zeroed());
+                        subtree.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -11334,7 +11334,7 @@ impl ID2D1SvgDocument_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        paint.write(core::mem::zeroed());
+                        paint.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -11349,7 +11349,7 @@ impl ID2D1SvgDocument_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        strokedasharray.write(core::mem::zeroed());
+                        strokedasharray.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -11364,7 +11364,7 @@ impl ID2D1SvgDocument_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        pointcollection.write(core::mem::zeroed());
+                        pointcollection.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -11379,7 +11379,7 @@ impl ID2D1SvgDocument_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        pathdata.write(core::mem::zeroed());
+                        pathdata.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -11521,8 +11521,8 @@ impl ID2D1SvgElement {
         unsafe { (windows_core::Interface::vtable(self).RemoveAttribute)(windows_core::Interface::as_raw(self), name.param().abi()) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn SetTextValue(&self, name: &[super::WCHAR]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetTextValue)(windows_core::Interface::as_raw(self), name.as_ptr(), name.len().try_into().unwrap()) }
+    pub unsafe fn SetTextValue(&self, name: *const super::WCHAR, namecount: super::UINT32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetTextValue)(windows_core::Interface::as_raw(self), name, namecount) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetTextValue(&self, name: windows_core::PWSTR, namecount: super::UINT32) -> windows_core::HRESULT {
@@ -11554,13 +11554,13 @@ impl ID2D1SvgElement {
         unsafe { (windows_core::Interface::vtable(self).SetAttributeValue3)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, value.param().abi()) }
     }
     #[cfg(feature = "guiddef")]
-    pub unsafe fn GetAttributeValue<P0, T>(&self, name: P0) -> windows_core::Result<Option<T>>
+    pub unsafe fn GetAttributeValue<P0, T>(&self, name: P0) -> windows_core::Result<T>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetAttributeValue)(windows_core::Interface::as_raw(self), name.param().abi(), &T::IID, &mut result__).map(|| if result__.is_null() { None } else { Some(windows_core::Interface::from_raw(result__)) }) }
+        unsafe { (windows_core::Interface::vtable(self).GetAttributeValue)(windows_core::Interface::as_raw(self), name.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetAttributeValue2<P0>(&self, name: P0, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, value: *mut core::ffi::c_void, valuesizeinbytes: super::UINT32) -> windows_core::HRESULT
@@ -11787,7 +11787,7 @@ impl ID2D1SvgElement_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        newchild.write(core::mem::zeroed());
+                        newchild.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -11944,11 +11944,11 @@ impl ID2D1SvgGlyphStyle {
         }
     }
     #[cfg(all(feature = "minwindef", feature = "shared"))]
-    pub unsafe fn SetStroke<P0>(&self, brush: P0, strokewidth: super::FLOAT, dashes: Option<&[super::FLOAT]>, dashoffset: super::FLOAT) -> windows_core::HRESULT
+    pub unsafe fn SetStroke<P0>(&self, brush: P0, strokewidth: super::FLOAT, dashes: Option<*const super::FLOAT>, dashescount: super::UINT32, dashoffset: super::FLOAT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ID2D1Brush>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetStroke)(windows_core::Interface::as_raw(self), brush.param().abi(), strokewidth, dashes.map_or(core::ptr::null(), |slice| slice.as_ptr()), dashes.map_or(0, |slice| slice.len().try_into().unwrap()), dashoffset) }
+        unsafe { (windows_core::Interface::vtable(self).SetStroke)(windows_core::Interface::as_raw(self), brush.param().abi(), strokewidth, dashes.unwrap_or(core::mem::zeroed()) as _, dashescount, dashoffset) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetStrokeDashesCount(&self) -> super::UINT32 {
@@ -12186,8 +12186,8 @@ impl ID2D1SvgPathData {
         unsafe { (windows_core::Interface::vtable(self).RemoveSegmentDataAtEnd)(windows_core::Interface::as_raw(self), datacount) }
     }
     #[cfg(all(feature = "minwindef", feature = "shared"))]
-    pub unsafe fn UpdateSegmentData(&self, data: &[super::FLOAT], startindex: super::UINT32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).UpdateSegmentData)(windows_core::Interface::as_raw(self), data.as_ptr(), data.len().try_into().unwrap(), startindex) }
+    pub unsafe fn UpdateSegmentData(&self, data: *const super::FLOAT, datacount: super::UINT32, startindex: super::UINT32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UpdateSegmentData)(windows_core::Interface::as_raw(self), data, datacount, startindex) }
     }
     #[cfg(all(feature = "minwindef", feature = "shared"))]
     pub unsafe fn GetSegmentData(&self, data: *mut super::FLOAT, datacount: super::UINT32, startindex: super::UINT32) -> windows_core::HRESULT {
@@ -12202,8 +12202,8 @@ impl ID2D1SvgPathData {
         unsafe { (windows_core::Interface::vtable(self).RemoveCommandsAtEnd)(windows_core::Interface::as_raw(self), commandscount) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn UpdateCommands(&self, commands: &[D2D1_SVG_PATH_COMMAND], startindex: super::UINT32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).UpdateCommands)(windows_core::Interface::as_raw(self), commands.as_ptr(), commands.len().try_into().unwrap(), startindex) }
+    pub unsafe fn UpdateCommands(&self, commands: *const D2D1_SVG_PATH_COMMAND, commandscount: super::UINT32, startindex: super::UINT32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UpdateCommands)(windows_core::Interface::as_raw(self), commands, commandscount, startindex) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetCommands(&self, commands: *mut D2D1_SVG_PATH_COMMAND, commandscount: super::UINT32, startindex: super::UINT32) -> windows_core::HRESULT {
@@ -12330,7 +12330,7 @@ impl ID2D1SvgPathData_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        pathgeometry.write(core::mem::zeroed());
+                        pathgeometry.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -12369,8 +12369,8 @@ impl ID2D1SvgPointCollection {
         unsafe { (windows_core::Interface::vtable(self).RemovePointsAtEnd)(windows_core::Interface::as_raw(self), pointscount) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn UpdatePoints(&self, points: &[windows_numerics::Vector2], startindex: super::UINT32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).UpdatePoints)(windows_core::Interface::as_raw(self), points.as_ptr(), points.len().try_into().unwrap(), startindex) }
+    pub unsafe fn UpdatePoints(&self, points: *const windows_numerics::Vector2, pointscount: super::UINT32, startindex: super::UINT32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UpdatePoints)(windows_core::Interface::as_raw(self), points, pointscount, startindex) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetPoints(&self, points: *mut windows_numerics::Vector2, pointscount: super::UINT32, startindex: super::UINT32) -> windows_core::HRESULT {
@@ -12464,12 +12464,12 @@ impl ID2D1SvgStrokeDashArray {
         unsafe { (windows_core::Interface::vtable(self).RemoveDashesAtEnd)(windows_core::Interface::as_raw(self), dashescount) }
     }
     #[cfg(all(feature = "minwindef", feature = "shared"))]
-    pub unsafe fn UpdateDashes(&self, dashes: &[D2D1_SVG_LENGTH], startindex: super::UINT32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).UpdateDashes)(windows_core::Interface::as_raw(self), dashes.as_ptr(), dashes.len().try_into().unwrap(), startindex) }
+    pub unsafe fn UpdateDashes(&self, dashes: *const D2D1_SVG_LENGTH, dashescount: super::UINT32, startindex: super::UINT32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UpdateDashes)(windows_core::Interface::as_raw(self), dashes, dashescount, startindex) }
     }
     #[cfg(all(feature = "minwindef", feature = "shared"))]
-    pub unsafe fn UpdateDashes2(&self, dashes: &[super::FLOAT], startindex: super::UINT32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).UpdateDashes2)(windows_core::Interface::as_raw(self), dashes.as_ptr(), dashes.len().try_into().unwrap(), startindex) }
+    pub unsafe fn UpdateDashes2(&self, dashes: *const super::FLOAT, dashescount: super::UINT32, startindex: super::UINT32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UpdateDashes2)(windows_core::Interface::as_raw(self), dashes, dashescount, startindex) }
     }
     #[cfg(all(feature = "minwindef", feature = "shared"))]
     pub unsafe fn GetDashes(&self, dashes: *mut D2D1_SVG_LENGTH, dashescount: super::UINT32, startindex: super::UINT32) -> windows_core::HRESULT {
@@ -12581,9 +12581,9 @@ windows_core::imp::define_interface!(ID2D1TessellationSink, ID2D1TessellationSin
 windows_core::imp::interface_hierarchy!(ID2D1TessellationSink, windows_core::IUnknown);
 impl ID2D1TessellationSink {
     #[cfg(feature = "shared")]
-    pub unsafe fn AddTriangles(&self, triangles: &[D2D1_TRIANGLE]) {
+    pub unsafe fn AddTriangles(&self, triangles: *const D2D1_TRIANGLE, trianglescount: super::UINT32) {
         unsafe {
-            (windows_core::Interface::vtable(self).AddTriangles)(windows_core::Interface::as_raw(self), triangles.as_ptr(), triangles.len().try_into().unwrap());
+            (windows_core::Interface::vtable(self).AddTriangles)(windows_core::Interface::as_raw(self), triangles, trianglescount);
         }
     }
     pub unsafe fn Close(&self) -> windows_core::HRESULT {

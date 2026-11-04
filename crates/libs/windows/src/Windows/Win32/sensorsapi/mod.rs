@@ -119,8 +119,8 @@ impl ISensor {
         unsafe { (windows_core::Interface::vtable(self).GetEventInterest)(windows_core::Interface::as_raw(self), ppvalues as _, pcount as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetEventInterest(&self, pvalues: Option<&[windows_core::GUID]>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetEventInterest)(windows_core::Interface::as_raw(self), pvalues.map_or(core::ptr::null(), |slice| slice.as_ptr()), pvalues.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    pub unsafe fn SetEventInterest(&self, pvalues: Option<*const windows_core::GUID>, count: super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetEventInterest)(windows_core::Interface::as_raw(self), pvalues.unwrap_or(core::mem::zeroed()) as _, count) }
     }
     pub unsafe fn SetEventSink<P0>(&self, pevents: P0) -> windows_core::HRESULT
     where
@@ -232,7 +232,10 @@ impl ISensor_Vtbl {
                         ppproperties.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppproperties.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -244,7 +247,10 @@ impl ISensor_Vtbl {
                         ppdatafields.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdatafields.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -256,7 +262,10 @@ impl ISensor_Vtbl {
                         ppresults.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppresults.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -280,7 +289,10 @@ impl ISensor_Vtbl {
                         ppdatareport.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdatareport.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -403,7 +415,10 @@ impl ISensorCollection_Vtbl {
                         ppsensor.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsensor.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -521,7 +536,10 @@ impl ISensorDataReport_Vtbl {
                         ppvalues.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppvalues.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -693,7 +711,10 @@ impl ISensorManager_Vtbl {
                         ppsensorsfound.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsensorsfound.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -705,7 +726,10 @@ impl ISensorManager_Vtbl {
                         ppsensorsfound.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsensorsfound.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -717,7 +741,10 @@ impl ISensorManager_Vtbl {
                         ppsensor.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppsensor.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

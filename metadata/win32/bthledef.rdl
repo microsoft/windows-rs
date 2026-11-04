@@ -183,7 +183,6 @@ mod Windows {
         const BTH_LE_GATT_CHARACTERISTIC_TYPE_SERVICE_CHANGED: i32 = 10757;
         struct BTH_LE_GATT_CHARACTERISTIC_VALUE {
             DataSize: ULONG,
-            #[writable(bytes(DataSize))]
             Data: [UCHAR; 1],
         }
         const BTH_LE_GATT_DEFAULT_MAX_INCLUDED_SERVICES_DEPTH: i32 = 3;
@@ -228,7 +227,6 @@ mod Windows {
                 },
             },
             DataSize: ULONG,
-            #[writable(bytes(DataSize))]
             Data: [UCHAR; 1],
         }
         #[repr(i32)]

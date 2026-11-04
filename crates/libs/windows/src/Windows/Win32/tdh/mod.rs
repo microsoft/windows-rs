@@ -17,9 +17,9 @@ pub unsafe fn TdhCloseDecodingHandle(handle: TDH_HANDLE) -> TDHSTATUS {
 }
 #[cfg(all(feature = "evntprov", feature = "guiddef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn TdhCreatePayloadFilter(providerguid: super::LPCGUID, eventdescriptor: super::PCEVENT_DESCRIPTOR, eventmatchany: super::BOOLEAN, payloadpredicates: &[PAYLOAD_FILTER_PREDICATE], payloadfilter: *mut super::PVOID) -> TDHSTATUS {
+pub unsafe fn TdhCreatePayloadFilter(providerguid: super::LPCGUID, eventdescriptor: super::PCEVENT_DESCRIPTOR, eventmatchany: super::BOOLEAN, payloadpredicatecount: super::ULONG, payloadpredicates: PPAYLOAD_FILTER_PREDICATE, payloadfilter: *mut super::PVOID) -> TDHSTATUS {
     windows_core::link!("tdh.dll" "system" fn TdhCreatePayloadFilter(providerguid : super::LPCGUID, eventdescriptor : super::PCEVENT_DESCRIPTOR, eventmatchany : super::BOOLEAN, payloadpredicatecount : super::ULONG, payloadpredicates : PPAYLOAD_FILTER_PREDICATE, payloadfilter : *mut super::PVOID) -> TDHSTATUS);
-    unsafe { TdhCreatePayloadFilter(providerguid, eventdescriptor, eventmatchany, payloadpredicates.len().try_into().unwrap(), core::mem::transmute(payloadpredicates.as_ptr()), payloadfilter as _) }
+    unsafe { TdhCreatePayloadFilter(providerguid, eventdescriptor, eventmatchany, payloadpredicatecount, payloadpredicates, payloadfilter as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -41,9 +41,9 @@ pub unsafe fn TdhEnumerateProviderFieldInformation(pguid: super::LPGUID, eventfi
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 #[inline]
-pub unsafe fn TdhEnumerateProviderFilters(guid: super::LPGUID, tdhcontext: Option<&[TDH_CONTEXT]>, filtercount: *mut super::ULONG, buffer: Option<*mut PPROVIDER_FILTER_INFO>, buffersize: *mut super::ULONG) -> TDHSTATUS {
+pub unsafe fn TdhEnumerateProviderFilters(guid: super::LPGUID, tdhcontextcount: super::ULONG, tdhcontext: Option<PTDH_CONTEXT>, filtercount: *mut super::ULONG, buffer: Option<*mut PPROVIDER_FILTER_INFO>, buffersize: *mut super::ULONG) -> TDHSTATUS {
     windows_core::link!("tdh.dll" "system" fn TdhEnumerateProviderFilters(guid : super::LPGUID, tdhcontextcount : super::ULONG, tdhcontext : PTDH_CONTEXT, filtercount : *mut super::ULONG, buffer : *mut PPROVIDER_FILTER_INFO, buffersize : *mut super::ULONG) -> TDHSTATUS);
-    unsafe { TdhEnumerateProviderFilters(guid, tdhcontext.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(tdhcontext.map_or(core::ptr::null(), |slice| slice.as_ptr())), filtercount as _, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
+    unsafe { TdhEnumerateProviderFilters(guid, tdhcontextcount, tdhcontext.unwrap_or(core::mem::zeroed()) as _, filtercount as _, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -59,9 +59,9 @@ pub unsafe fn TdhEnumerateProvidersForDecodingSource(filter: DECODING_SOURCE, bu
 }
 #[cfg(all(feature = "evntprov", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn TdhFormatProperty(eventinfo: PTRACE_EVENT_INFO, mapinfo: Option<PEVENT_MAP_INFO>, pointersize: super::ULONG, propertyintype: super::USHORT, propertyouttype: super::USHORT, propertylength: super::USHORT, userdata: &[u8], buffersize: super::PULONG, buffer: Option<super::PWCHAR>, userdataconsumed: super::PUSHORT) -> TDHSTATUS {
+pub unsafe fn TdhFormatProperty(eventinfo: PTRACE_EVENT_INFO, mapinfo: Option<PEVENT_MAP_INFO>, pointersize: super::ULONG, propertyintype: super::USHORT, propertyouttype: super::USHORT, propertylength: super::USHORT, userdatalength: super::USHORT, userdata: super::PBYTE, buffersize: super::PULONG, buffer: Option<super::PWCHAR>, userdataconsumed: super::PUSHORT) -> TDHSTATUS {
     windows_core::link!("tdh.dll" "system" fn TdhFormatProperty(eventinfo : PTRACE_EVENT_INFO, mapinfo : PEVENT_MAP_INFO, pointersize : super::ULONG, propertyintype : super::USHORT, propertyouttype : super::USHORT, propertylength : super::USHORT, userdatalength : super::USHORT, userdata : super::PBYTE, buffersize : super::PULONG, buffer : super::PWCHAR, userdataconsumed : super::PUSHORT) -> TDHSTATUS);
-    unsafe { TdhFormatProperty(eventinfo, mapinfo.unwrap_or(core::mem::zeroed()) as _, pointersize, propertyintype, propertyouttype, propertylength, userdata.len().try_into().unwrap(), core::mem::transmute(userdata.as_ptr()), buffersize as _, buffer.unwrap_or(core::mem::zeroed()) as _, userdataconsumed as _) }
+    unsafe { TdhFormatProperty(eventinfo, mapinfo.unwrap_or(core::mem::zeroed()) as _, pointersize, propertyintype, propertyouttype, propertylength, userdatalength, userdata, buffersize as _, buffer.unwrap_or(core::mem::zeroed()) as _, userdataconsumed as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -71,9 +71,9 @@ pub unsafe fn TdhGetDecodingParameter(handle: TDH_HANDLE, tdhcontext: PTDH_CONTE
 }
 #[cfg(all(feature = "evntcons", feature = "evntprov", feature = "evntrace", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn TdhGetEventInformation(event: super::PEVENT_RECORD, tdhcontext: Option<&[TDH_CONTEXT]>, buffer: Option<PTRACE_EVENT_INFO>, buffersize: super::PULONG) -> TDHSTATUS {
+pub unsafe fn TdhGetEventInformation(event: super::PEVENT_RECORD, tdhcontextcount: super::ULONG, tdhcontext: Option<PTDH_CONTEXT>, buffer: Option<PTRACE_EVENT_INFO>, buffersize: super::PULONG) -> TDHSTATUS {
     windows_core::link!("tdh.dll" "system" fn TdhGetEventInformation(event : super::PEVENT_RECORD, tdhcontextcount : super::ULONG, tdhcontext : PTDH_CONTEXT, buffer : PTRACE_EVENT_INFO, buffersize : super::PULONG) -> TDHSTATUS);
-    unsafe { TdhGetEventInformation(event, tdhcontext.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(tdhcontext.map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
+    unsafe { TdhGetEventInformation(event, tdhcontextcount, tdhcontext.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
 #[cfg(all(feature = "evntcons", feature = "evntprov", feature = "evntrace", feature = "shared", feature = "winnt"))]
 #[inline]
@@ -92,15 +92,15 @@ pub unsafe fn TdhGetManifestEventInformation(providerguid: super::LPGUID, eventd
 }
 #[cfg(all(feature = "evntcons", feature = "evntprov", feature = "evntrace", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn TdhGetProperty(pevent: super::PEVENT_RECORD, ptdhcontext: Option<&[TDH_CONTEXT]>, ppropertydata: &[PROPERTY_DATA_DESCRIPTOR], buffersize: super::ULONG, pbuffer: super::PBYTE) -> TDHSTATUS {
+pub unsafe fn TdhGetProperty(pevent: super::PEVENT_RECORD, tdhcontextcount: super::ULONG, ptdhcontext: Option<PTDH_CONTEXT>, propertydatacount: super::ULONG, ppropertydata: PPROPERTY_DATA_DESCRIPTOR, buffersize: super::ULONG, pbuffer: super::PBYTE) -> TDHSTATUS {
     windows_core::link!("tdh.dll" "system" fn TdhGetProperty(pevent : super::PEVENT_RECORD, tdhcontextcount : super::ULONG, ptdhcontext : PTDH_CONTEXT, propertydatacount : super::ULONG, ppropertydata : PPROPERTY_DATA_DESCRIPTOR, buffersize : super::ULONG, pbuffer : super::PBYTE) -> TDHSTATUS);
-    unsafe { TdhGetProperty(pevent, ptdhcontext.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ptdhcontext.map_or(core::ptr::null(), |slice| slice.as_ptr())), ppropertydata.len().try_into().unwrap(), core::mem::transmute(ppropertydata.as_ptr()), buffersize, pbuffer as _) }
+    unsafe { TdhGetProperty(pevent, tdhcontextcount, ptdhcontext.unwrap_or(core::mem::zeroed()) as _, propertydatacount, ppropertydata, buffersize, pbuffer as _) }
 }
 #[cfg(all(feature = "evntcons", feature = "evntprov", feature = "evntrace", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn TdhGetPropertySize(pevent: super::PEVENT_RECORD, ptdhcontext: Option<&[TDH_CONTEXT]>, ppropertydata: &[PROPERTY_DATA_DESCRIPTOR], ppropertysize: *mut super::ULONG) -> TDHSTATUS {
+pub unsafe fn TdhGetPropertySize(pevent: super::PEVENT_RECORD, tdhcontextcount: super::ULONG, ptdhcontext: Option<PTDH_CONTEXT>, propertydatacount: super::ULONG, ppropertydata: PPROPERTY_DATA_DESCRIPTOR, ppropertysize: *mut super::ULONG) -> TDHSTATUS {
     windows_core::link!("tdh.dll" "system" fn TdhGetPropertySize(pevent : super::PEVENT_RECORD, tdhcontextcount : super::ULONG, ptdhcontext : PTDH_CONTEXT, propertydatacount : super::ULONG, ppropertydata : PPROPERTY_DATA_DESCRIPTOR, ppropertysize : *mut super::ULONG) -> TDHSTATUS);
-    unsafe { TdhGetPropertySize(pevent, ptdhcontext.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ptdhcontext.map_or(core::ptr::null(), |slice| slice.as_ptr())), ppropertydata.len().try_into().unwrap(), core::mem::transmute(ppropertydata.as_ptr()), ppropertysize as _) }
+    unsafe { TdhGetPropertySize(pevent, tdhcontextcount, ptdhcontext.unwrap_or(core::mem::zeroed()) as _, propertydatacount, ppropertydata, ppropertysize as _) }
 }
 #[cfg(all(feature = "evntcons", feature = "evntprov", feature = "evntrace", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]

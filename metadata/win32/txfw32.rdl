@@ -69,15 +69,15 @@ mod Windows {
         #[library("txfw32.dll")]
         extern fn TxfGetThreadMiniVersionForCreate(#[out] MiniVersion: PUSHORT);
         #[library("txfw32.dll")]
-        extern fn TxfLogCreateFileReadContext(#[in] LogPath: LPCWSTR, #[in] BeginningLsn: CLFS_LSN, #[in] EndingLsn: CLFS_LSN, #[in] TxfFileId: PTXF_ID, #[out] #[out_ptr] TxfLogContext: *mut PVOID) -> BOOL;
+        extern fn TxfLogCreateFileReadContext(#[in] LogPath: LPCWSTR, #[in] BeginningLsn: CLFS_LSN, #[in] EndingLsn: CLFS_LSN, #[in] TxfFileId: PTXF_ID, #[out] TxfLogContext: *mut PVOID) -> BOOL;
         #[library("txfw32.dll")]
-        extern fn TxfLogCreateRangeReadContext(#[in] LogPath: LPCWSTR, #[in] BeginningLsn: CLFS_LSN, #[in] EndingLsn: CLFS_LSN, #[in] BeginningVirtualClock: PLARGE_INTEGER, #[in] EndingVirtualClock: PLARGE_INTEGER, #[in] RecordTypeMask: ULONG, #[out] #[out_ptr] TxfLogContext: *mut PVOID) -> BOOL;
+        extern fn TxfLogCreateRangeReadContext(#[in] LogPath: LPCWSTR, #[in] BeginningLsn: CLFS_LSN, #[in] EndingLsn: CLFS_LSN, #[in] BeginningVirtualClock: PLARGE_INTEGER, #[in] EndingVirtualClock: PLARGE_INTEGER, #[in] RecordTypeMask: ULONG, #[out] TxfLogContext: *mut PVOID) -> BOOL;
         #[library("txfw32.dll")]
         extern fn TxfLogDestroyReadContext(#[in] TxfLogContext: PVOID) -> BOOL;
         #[library("txfw32.dll")]
-        extern fn TxfLogReadRecords(#[in] TxfLogContext: PVOID, #[in] BufferLength: ULONG, #[out] #[readable(success, bytes(*BytesUsed))] #[writable(entry, bytes(BufferLength))] Buffer: PVOID, #[out] BytesUsed: PULONG, #[out] RecordCount: PULONG) -> BOOL;
+        extern fn TxfLogReadRecords(#[in] TxfLogContext: PVOID, #[in] BufferLength: ULONG, #[buffer(bytes(BufferLength))] #[out] Buffer: PVOID, #[out] BytesUsed: PULONG, #[out] RecordCount: PULONG) -> BOOL;
         #[library("txfw32.dll")]
-        extern fn TxfLogRecordGetFileName(#[in] #[readable(entry, bytes(RecordBufferLengthInBytes))] RecordBuffer: PVOID, #[in] RecordBufferLengthInBytes: ULONG, #[out] #[writable(entry, bytes(*NameBufferLengthInBytes))] NameBuffer: PWSTR, #[in] #[out] NameBufferLengthInBytes: PULONG, #[opt] #[out] TxfId: PTXF_ID) -> BOOL;
+        extern fn TxfLogRecordGetFileName(#[buffer(bytes(RecordBufferLengthInBytes))] #[in] RecordBuffer: PVOID, #[in] RecordBufferLengthInBytes: ULONG, #[buffer(bytes(*NameBufferLengthInBytes))] #[out] NameBuffer: PWSTR, #[in] #[out] NameBufferLengthInBytes: PULONG, #[opt] #[out] TxfId: PTXF_ID) -> BOOL;
         #[library("txfw32.dll")]
         extern fn TxfLogRecordGetGenericType(#[in] RecordBuffer: PVOID, #[in] RecordBufferLengthInBytes: ULONG, #[out] GenericType: PULONG, #[opt] #[out] VirtualClock: PLARGE_INTEGER) -> BOOL;
         #[library("txfw32.dll")]

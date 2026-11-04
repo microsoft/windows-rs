@@ -3,6 +3,44 @@ fn out_path(name: &str) -> std::path::PathBuf {
 }
 
 #[test]
+fn returned_pointer_short_forms_are_rejected() {
+    for attribute in ["out_ptr", "out_ptr(null_on_failure)"] {
+        let error = windows_rdl::reader()
+            .input(
+                std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+                    .join("..\\..\\..\\..\\metadata\\metadata.rdl"),
+            )
+            .input_text(&format!(
+                "#[win32] mod Test {{ extern fn F(#[out] #[{attribute}] data: *mut *mut u8); }}"
+            ))
+            .output(out_path("returned_pointer"))
+            .write()
+            .unwrap_err();
+        assert_eq!(error.message, "attribute type not found");
+    }
+}
+
+#[test]
+fn nullable_short_forms_are_rejected() {
+    for declaration in [
+        "extern fn F(#[out] #[nullable] value: *mut *mut u8);",
+        "extern fn F() -> #[nullable] *mut u8;",
+        "struct Value { #[nullable] value: *mut u8, }",
+    ] {
+        let error = windows_rdl::reader()
+            .input(
+                std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+                    .join("..\\..\\..\\..\\metadata\\metadata.rdl"),
+            )
+            .input_text(&format!("#[win32] mod Test {{ {declaration} }}"))
+            .output(out_path("nullable"))
+            .write()
+            .unwrap_err();
+        assert_eq!(error.message, "attribute type not found");
+    }
+}
+
+#[test]
 fn fixed_pointer_arguments() {
     for ty in [
         "ptr64",

@@ -199,59 +199,59 @@ pub unsafe fn JetCreateDatabaseW(sesid: JET_SESID, szfilename: JET_PCWSTR, szcon
     unsafe { JetCreateDatabaseW(sesid, szfilename, szconnect.unwrap_or(core::mem::zeroed()) as _, pdbid as _, grbit) }
 }
 #[inline]
-pub unsafe fn JetCreateIndex(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: JET_PCSTR, grbit: JET_GRBIT, szkey: &[u8], ldensity: JET_UINT32) -> JET_ERR {
+pub unsafe fn JetCreateIndex(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: JET_PCSTR, grbit: JET_GRBIT, szkey: JET_PCSTR, cbkey: JET_UINT32, ldensity: JET_UINT32) -> JET_ERR {
     windows_core::link!("esent.dll" "system" "JetCreateIndexA" fn JetCreateIndex(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PCSTR, grbit : JET_GRBIT, szkey : JET_PCSTR, cbkey : JET_UINT32, ldensity : JET_UINT32) -> JET_ERR);
-    unsafe { JetCreateIndex(sesid, tableid, szindexname, grbit, core::mem::transmute(szkey.as_ptr()), szkey.len().try_into().unwrap(), ldensity) }
+    unsafe { JetCreateIndex(sesid, tableid, szindexname, grbit, szkey, cbkey, ldensity) }
 }
 #[inline]
-pub unsafe fn JetCreateIndex2(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: &[JET_INDEXCREATE_A]) -> JET_ERR {
+pub unsafe fn JetCreateIndex2(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: *const JET_INDEXCREATE_A, cindexcreate: JET_UINT32) -> JET_ERR {
     windows_core::link!("esent.dll" "system" "JetCreateIndex2A" fn JetCreateIndex2(sesid : JET_SESID, tableid : JET_TABLEID, pindexcreate : *const JET_INDEXCREATE_A, cindexcreate : JET_UINT32) -> JET_ERR);
-    unsafe { JetCreateIndex2(sesid, tableid, pindexcreate.as_ptr(), pindexcreate.len().try_into().unwrap()) }
+    unsafe { JetCreateIndex2(sesid, tableid, pindexcreate, cindexcreate) }
 }
 #[inline]
-pub unsafe fn JetCreateIndex2A(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: &[JET_INDEXCREATE_A]) -> JET_ERR {
+pub unsafe fn JetCreateIndex2A(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: *const JET_INDEXCREATE_A, cindexcreate: JET_UINT32) -> JET_ERR {
     windows_core::link!("esent.dll" "system" fn JetCreateIndex2A(sesid : JET_SESID, tableid : JET_TABLEID, pindexcreate : *const JET_INDEXCREATE_A, cindexcreate : JET_UINT32) -> JET_ERR);
-    unsafe { JetCreateIndex2A(sesid, tableid, pindexcreate.as_ptr(), pindexcreate.len().try_into().unwrap()) }
+    unsafe { JetCreateIndex2A(sesid, tableid, pindexcreate, cindexcreate) }
 }
 #[inline]
-pub unsafe fn JetCreateIndex2W(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: &[JET_INDEXCREATE_W]) -> JET_ERR {
+pub unsafe fn JetCreateIndex2W(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: *const JET_INDEXCREATE_W, cindexcreate: JET_UINT32) -> JET_ERR {
     windows_core::link!("esent.dll" "system" fn JetCreateIndex2W(sesid : JET_SESID, tableid : JET_TABLEID, pindexcreate : *const JET_INDEXCREATE_W, cindexcreate : JET_UINT32) -> JET_ERR);
-    unsafe { JetCreateIndex2W(sesid, tableid, pindexcreate.as_ptr(), pindexcreate.len().try_into().unwrap()) }
+    unsafe { JetCreateIndex2W(sesid, tableid, pindexcreate, cindexcreate) }
 }
 #[inline]
-pub unsafe fn JetCreateIndex3(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: &[JET_INDEXCREATE2_A]) -> JET_ERR {
+pub unsafe fn JetCreateIndex3(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: *const JET_INDEXCREATE2_A, cindexcreate: JET_UINT32) -> JET_ERR {
     windows_core::link!("esent.dll" "system" "JetCreateIndex3A" fn JetCreateIndex3(sesid : JET_SESID, tableid : JET_TABLEID, pindexcreate : *const JET_INDEXCREATE2_A, cindexcreate : JET_UINT32) -> JET_ERR);
-    unsafe { JetCreateIndex3(sesid, tableid, pindexcreate.as_ptr(), pindexcreate.len().try_into().unwrap()) }
+    unsafe { JetCreateIndex3(sesid, tableid, pindexcreate, cindexcreate) }
 }
 #[inline]
-pub unsafe fn JetCreateIndex3A(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: &[JET_INDEXCREATE2_A]) -> JET_ERR {
+pub unsafe fn JetCreateIndex3A(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: *const JET_INDEXCREATE2_A, cindexcreate: JET_UINT32) -> JET_ERR {
     windows_core::link!("esent.dll" "system" fn JetCreateIndex3A(sesid : JET_SESID, tableid : JET_TABLEID, pindexcreate : *const JET_INDEXCREATE2_A, cindexcreate : JET_UINT32) -> JET_ERR);
-    unsafe { JetCreateIndex3A(sesid, tableid, pindexcreate.as_ptr(), pindexcreate.len().try_into().unwrap()) }
+    unsafe { JetCreateIndex3A(sesid, tableid, pindexcreate, cindexcreate) }
 }
 #[inline]
-pub unsafe fn JetCreateIndex3W(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: &[JET_INDEXCREATE2_W]) -> JET_ERR {
+pub unsafe fn JetCreateIndex3W(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: *const JET_INDEXCREATE2_W, cindexcreate: JET_UINT32) -> JET_ERR {
     windows_core::link!("esent.dll" "system" fn JetCreateIndex3W(sesid : JET_SESID, tableid : JET_TABLEID, pindexcreate : *const JET_INDEXCREATE2_W, cindexcreate : JET_UINT32) -> JET_ERR);
-    unsafe { JetCreateIndex3W(sesid, tableid, pindexcreate.as_ptr(), pindexcreate.len().try_into().unwrap()) }
+    unsafe { JetCreateIndex3W(sesid, tableid, pindexcreate, cindexcreate) }
 }
 #[inline]
-pub unsafe fn JetCreateIndex4(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: &[JET_INDEXCREATE3_A]) -> JET_ERR {
+pub unsafe fn JetCreateIndex4(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: *const JET_INDEXCREATE3_A, cindexcreate: JET_UINT32) -> JET_ERR {
     windows_core::link!("esent.dll" "system" "JetCreateIndex4A" fn JetCreateIndex4(sesid : JET_SESID, tableid : JET_TABLEID, pindexcreate : *const JET_INDEXCREATE3_A, cindexcreate : JET_UINT32) -> JET_ERR);
-    unsafe { JetCreateIndex4(sesid, tableid, pindexcreate.as_ptr(), pindexcreate.len().try_into().unwrap()) }
+    unsafe { JetCreateIndex4(sesid, tableid, pindexcreate, cindexcreate) }
 }
 #[inline]
-pub unsafe fn JetCreateIndex4A(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: &[JET_INDEXCREATE3_A]) -> JET_ERR {
+pub unsafe fn JetCreateIndex4A(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: *const JET_INDEXCREATE3_A, cindexcreate: JET_UINT32) -> JET_ERR {
     windows_core::link!("esent.dll" "system" fn JetCreateIndex4A(sesid : JET_SESID, tableid : JET_TABLEID, pindexcreate : *const JET_INDEXCREATE3_A, cindexcreate : JET_UINT32) -> JET_ERR);
-    unsafe { JetCreateIndex4A(sesid, tableid, pindexcreate.as_ptr(), pindexcreate.len().try_into().unwrap()) }
+    unsafe { JetCreateIndex4A(sesid, tableid, pindexcreate, cindexcreate) }
 }
 #[inline]
-pub unsafe fn JetCreateIndex4W(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: &[JET_INDEXCREATE3_W]) -> JET_ERR {
+pub unsafe fn JetCreateIndex4W(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: *const JET_INDEXCREATE3_W, cindexcreate: JET_UINT32) -> JET_ERR {
     windows_core::link!("esent.dll" "system" fn JetCreateIndex4W(sesid : JET_SESID, tableid : JET_TABLEID, pindexcreate : *const JET_INDEXCREATE3_W, cindexcreate : JET_UINT32) -> JET_ERR);
-    unsafe { JetCreateIndex4W(sesid, tableid, pindexcreate.as_ptr(), pindexcreate.len().try_into().unwrap()) }
+    unsafe { JetCreateIndex4W(sesid, tableid, pindexcreate, cindexcreate) }
 }
 #[inline]
-pub unsafe fn JetCreateIndexA(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: JET_PCSTR, grbit: JET_GRBIT, szkey: &[u8], ldensity: JET_UINT32) -> JET_ERR {
+pub unsafe fn JetCreateIndexA(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: JET_PCSTR, grbit: JET_GRBIT, szkey: JET_PCSTR, cbkey: JET_UINT32, ldensity: JET_UINT32) -> JET_ERR {
     windows_core::link!("esent.dll" "system" fn JetCreateIndexA(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PCSTR, grbit : JET_GRBIT, szkey : JET_PCSTR, cbkey : JET_UINT32, ldensity : JET_UINT32) -> JET_ERR);
-    unsafe { JetCreateIndexA(sesid, tableid, szindexname, grbit, core::mem::transmute(szkey.as_ptr()), szkey.len().try_into().unwrap(), ldensity) }
+    unsafe { JetCreateIndexA(sesid, tableid, szindexname, grbit, szkey, cbkey, ldensity) }
 }
 #[inline]
 pub unsafe fn JetCreateIndexW(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: JET_PCWSTR, grbit: JET_GRBIT, szkey: JET_PCWSTR, cbkey: JET_UINT32, ldensity: JET_UINT32) -> JET_ERR {
@@ -514,19 +514,19 @@ pub unsafe fn JetDupSession(sesid: JET_SESID, psesid: *mut JET_SESID) -> JET_ERR
     unsafe { JetDupSession(sesid, psesid as _) }
 }
 #[inline]
-pub unsafe fn JetEnableMultiInstance(psetsysparam: Option<&[JET_SETSYSPARAM_A]>, pcsetsucceed: Option<*mut JET_UINT32>) -> JET_ERR {
+pub unsafe fn JetEnableMultiInstance(psetsysparam: Option<*const JET_SETSYSPARAM_A>, csetsysparam: JET_UINT32, pcsetsucceed: Option<*mut JET_UINT32>) -> JET_ERR {
     windows_core::link!("esent.dll" "system" "JetEnableMultiInstanceA" fn JetEnableMultiInstance(psetsysparam : *const JET_SETSYSPARAM_A, csetsysparam : JET_UINT32, pcsetsucceed : *mut JET_UINT32) -> JET_ERR);
-    unsafe { JetEnableMultiInstance(psetsysparam.map_or(core::ptr::null(), |slice| slice.as_ptr()), psetsysparam.map_or(0, |slice| slice.len().try_into().unwrap()), pcsetsucceed.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { JetEnableMultiInstance(psetsysparam.unwrap_or(core::mem::zeroed()) as _, csetsysparam, pcsetsucceed.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn JetEnableMultiInstanceA(psetsysparam: Option<&[JET_SETSYSPARAM_A]>, pcsetsucceed: Option<*mut JET_UINT32>) -> JET_ERR {
+pub unsafe fn JetEnableMultiInstanceA(psetsysparam: Option<*const JET_SETSYSPARAM_A>, csetsysparam: JET_UINT32, pcsetsucceed: Option<*mut JET_UINT32>) -> JET_ERR {
     windows_core::link!("esent.dll" "system" fn JetEnableMultiInstanceA(psetsysparam : *const JET_SETSYSPARAM_A, csetsysparam : JET_UINT32, pcsetsucceed : *mut JET_UINT32) -> JET_ERR);
-    unsafe { JetEnableMultiInstanceA(psetsysparam.map_or(core::ptr::null(), |slice| slice.as_ptr()), psetsysparam.map_or(0, |slice| slice.len().try_into().unwrap()), pcsetsucceed.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { JetEnableMultiInstanceA(psetsysparam.unwrap_or(core::mem::zeroed()) as _, csetsysparam, pcsetsucceed.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn JetEnableMultiInstanceW(psetsysparam: Option<&[JET_SETSYSPARAM_W]>, pcsetsucceed: Option<*mut JET_UINT32>) -> JET_ERR {
+pub unsafe fn JetEnableMultiInstanceW(psetsysparam: Option<*const JET_SETSYSPARAM_W>, csetsysparam: JET_UINT32, pcsetsucceed: Option<*mut JET_UINT32>) -> JET_ERR {
     windows_core::link!("esent.dll" "system" fn JetEnableMultiInstanceW(psetsysparam : *const JET_SETSYSPARAM_W, csetsysparam : JET_UINT32, pcsetsucceed : *mut JET_UINT32) -> JET_ERR);
-    unsafe { JetEnableMultiInstanceW(psetsysparam.map_or(core::ptr::null(), |slice| slice.as_ptr()), psetsysparam.map_or(0, |slice| slice.len().try_into().unwrap()), pcsetsucceed.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { JetEnableMultiInstanceW(psetsysparam.unwrap_or(core::mem::zeroed()) as _, csetsysparam, pcsetsucceed.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn JetEndExternalBackup() -> JET_ERR {
@@ -549,9 +549,9 @@ pub unsafe fn JetEndSession(sesid: JET_SESID, grbit: JET_GRBIT) -> JET_ERR {
     unsafe { JetEndSession(sesid, grbit) }
 }
 #[inline]
-pub unsafe fn JetEnumerateColumns(sesid: JET_SESID, tableid: JET_TABLEID, rgenumcolumnid: Option<&[JET_ENUMCOLUMNID]>, pcenumcolumn: *mut JET_UINT32, prgenumcolumn: *mut *mut JET_ENUMCOLUMN, pfnrealloc: JET_PFNREALLOC, pvrealloccontext: Option<JET_PVOID>, cbdatamost: JET_UINT32, grbit: JET_GRBIT) -> JET_ERR {
+pub unsafe fn JetEnumerateColumns(sesid: JET_SESID, tableid: JET_TABLEID, cenumcolumnid: JET_UINT32, rgenumcolumnid: Option<*const JET_ENUMCOLUMNID>, pcenumcolumn: *mut JET_UINT32, prgenumcolumn: *mut *mut JET_ENUMCOLUMN, pfnrealloc: JET_PFNREALLOC, pvrealloccontext: Option<JET_PVOID>, cbdatamost: JET_UINT32, grbit: JET_GRBIT) -> JET_ERR {
     windows_core::link!("esent.dll" "system" fn JetEnumerateColumns(sesid : JET_SESID, tableid : JET_TABLEID, cenumcolumnid : JET_UINT32, rgenumcolumnid : *const JET_ENUMCOLUMNID, pcenumcolumn : *mut JET_UINT32, prgenumcolumn : *mut *mut JET_ENUMCOLUMN, pfnrealloc : JET_PFNREALLOC, pvrealloccontext : JET_PVOID, cbdatamost : JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
-    unsafe { JetEnumerateColumns(sesid, tableid, rgenumcolumnid.map_or(0, |slice| slice.len().try_into().unwrap()), rgenumcolumnid.map_or(core::ptr::null(), |slice| slice.as_ptr()), pcenumcolumn as _, prgenumcolumn as _, pfnrealloc, pvrealloccontext.unwrap_or(core::mem::zeroed()) as _, cbdatamost, grbit) }
+    unsafe { JetEnumerateColumns(sesid, tableid, cenumcolumnid, rgenumcolumnid.unwrap_or(core::mem::zeroed()) as _, pcenumcolumn as _, prgenumcolumn as _, pfnrealloc, pvrealloccontext.unwrap_or(core::mem::zeroed()) as _, cbdatamost, grbit) }
 }
 #[inline]
 pub unsafe fn JetEscrowUpdate(sesid: JET_SESID, tableid: JET_TABLEID, columnid: JET_COLUMNID, pv: JET_PVOID, cbmax: JET_UINT32, pvold: Option<JET_PVOID>, cboldmax: JET_UINT32, pcboldactual: Option<*mut JET_UINT32>, grbit: JET_GRBIT) -> JET_ERR {
@@ -969,9 +969,9 @@ pub unsafe fn JetInit3W(pinstance: Option<*mut JET_INSTANCE>, prstinfo: Option<*
     unsafe { JetInit3W(pinstance.unwrap_or(core::mem::zeroed()) as _, prstinfo.unwrap_or(core::mem::zeroed()) as _, grbit) }
 }
 #[inline]
-pub unsafe fn JetIntersectIndexes(sesid: JET_SESID, rgindexrange: &[JET_INDEXRANGE], precordlist: *mut JET_RECORDLIST, grbit: JET_GRBIT) -> JET_ERR {
+pub unsafe fn JetIntersectIndexes(sesid: JET_SESID, rgindexrange: *const JET_INDEXRANGE, cindexrange: JET_UINT32, precordlist: *mut JET_RECORDLIST, grbit: JET_GRBIT) -> JET_ERR {
     windows_core::link!("esent.dll" "system" fn JetIntersectIndexes(sesid : JET_SESID, rgindexrange : *const JET_INDEXRANGE, cindexrange : JET_UINT32, precordlist : *mut JET_RECORDLIST, grbit : JET_GRBIT) -> JET_ERR);
-    unsafe { JetIntersectIndexes(sesid, rgindexrange.as_ptr(), rgindexrange.len().try_into().unwrap(), precordlist as _, grbit) }
+    unsafe { JetIntersectIndexes(sesid, rgindexrange, cindexrange, precordlist as _, grbit) }
 }
 #[inline]
 pub unsafe fn JetMakeKey(sesid: JET_SESID, tableid: JET_TABLEID, pvdata: Option<JET_PCVOID>, cbdata: JET_UINT32, grbit: JET_GRBIT) -> JET_ERR {
@@ -1139,9 +1139,9 @@ pub unsafe fn JetPrepareUpdate(sesid: JET_SESID, tableid: JET_TABLEID, prep: JET
     unsafe { JetPrepareUpdate(sesid, tableid, prep) }
 }
 #[inline]
-pub unsafe fn JetPrereadIndexRanges(sesid: JET_SESID, tableid: JET_TABLEID, rgindexranges: &[JET_INDEX_RANGE], pcrangespreread: Option<*mut JET_UINT32>, rgcolumnidpreread: &[JET_COLUMNID], grbit: JET_GRBIT) -> JET_ERR {
+pub unsafe fn JetPrereadIndexRanges(sesid: JET_SESID, tableid: JET_TABLEID, rgindexranges: *const JET_INDEX_RANGE, cindexranges: JET_UINT32, pcrangespreread: Option<*mut JET_UINT32>, rgcolumnidpreread: *const JET_COLUMNID, ccolumnidpreread: JET_UINT32, grbit: JET_GRBIT) -> JET_ERR {
     windows_core::link!("esent.dll" "system" fn JetPrereadIndexRanges(sesid : JET_SESID, tableid : JET_TABLEID, rgindexranges : *const JET_INDEX_RANGE, cindexranges : JET_UINT32, pcrangespreread : *mut JET_UINT32, rgcolumnidpreread : *const JET_COLUMNID, ccolumnidpreread : JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
-    unsafe { JetPrereadIndexRanges(sesid, tableid, rgindexranges.as_ptr(), rgindexranges.len().try_into().unwrap(), pcrangespreread.unwrap_or(core::mem::zeroed()) as _, rgcolumnidpreread.as_ptr(), rgcolumnidpreread.len().try_into().unwrap(), grbit) }
+    unsafe { JetPrereadIndexRanges(sesid, tableid, rgindexranges, cindexranges, pcrangespreread.unwrap_or(core::mem::zeroed()) as _, rgcolumnidpreread, ccolumnidpreread, grbit) }
 }
 #[inline]
 pub unsafe fn JetPrereadKeys(sesid: JET_SESID, tableid: JET_TABLEID, rgpvkeys: *const JET_PCVOID, rgcbkeys: *const JET_UINT32, ckeys: JET_INT32, pckeyspreread: Option<*mut JET_INT32>, grbit: JET_GRBIT) -> JET_ERR {
@@ -1259,9 +1259,9 @@ pub unsafe fn JetRetrieveColumn(sesid: JET_SESID, tableid: JET_TABLEID, columnid
     unsafe { JetRetrieveColumn(sesid, tableid, columnid, pvdata.unwrap_or(core::mem::zeroed()) as _, cbdata, pcbactual.unwrap_or(core::mem::zeroed()) as _, grbit, pretinfo.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn JetRetrieveColumns(sesid: JET_SESID, tableid: JET_TABLEID, mut pretrievecolumn: Option<&mut [JET_RETRIEVECOLUMN]>) -> JET_ERR {
+pub unsafe fn JetRetrieveColumns(sesid: JET_SESID, tableid: JET_TABLEID, pretrievecolumn: Option<*mut JET_RETRIEVECOLUMN>, cretrievecolumn: JET_UINT32) -> JET_ERR {
     windows_core::link!("esent.dll" "system" fn JetRetrieveColumns(sesid : JET_SESID, tableid : JET_TABLEID, pretrievecolumn : *mut JET_RETRIEVECOLUMN, cretrievecolumn : JET_UINT32) -> JET_ERR);
-    unsafe { JetRetrieveColumns(sesid, tableid, pretrievecolumn.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pretrievecolumn.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { JetRetrieveColumns(sesid, tableid, pretrievecolumn.unwrap_or(core::mem::zeroed()) as _, cretrievecolumn) }
 }
 #[inline]
 pub unsafe fn JetRetrieveKey(sesid: JET_SESID, tableid: JET_TABLEID, pvkey: Option<JET_PVOID>, cbmax: JET_UINT32, pcbactual: Option<*mut JET_UINT32>, grbit: JET_GRBIT) -> JET_ERR {
@@ -1299,9 +1299,9 @@ pub unsafe fn JetSetColumnDefaultValueW(sesid: JET_SESID, dbid: JET_DBID, sztabl
     unsafe { JetSetColumnDefaultValueW(sesid, dbid, sztablename, szcolumnname, pvdata, cbdata, grbit) }
 }
 #[inline]
-pub unsafe fn JetSetColumns(sesid: JET_SESID, tableid: JET_TABLEID, psetcolumn: Option<&[JET_SETCOLUMN]>) -> JET_ERR {
+pub unsafe fn JetSetColumns(sesid: JET_SESID, tableid: JET_TABLEID, psetcolumn: Option<*const JET_SETCOLUMN>, csetcolumn: JET_UINT32) -> JET_ERR {
     windows_core::link!("esent.dll" "system" fn JetSetColumns(sesid : JET_SESID, tableid : JET_TABLEID, psetcolumn : *const JET_SETCOLUMN, csetcolumn : JET_UINT32) -> JET_ERR);
-    unsafe { JetSetColumns(sesid, tableid, psetcolumn.map_or(core::ptr::null(), |slice| slice.as_ptr()), psetcolumn.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { JetSetColumns(sesid, tableid, psetcolumn.unwrap_or(core::mem::zeroed()) as _, csetcolumn) }
 }
 #[inline]
 pub unsafe fn JetSetCurrentIndex(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Option<JET_PCSTR>) -> JET_ERR {
@@ -1364,9 +1364,9 @@ pub unsafe fn JetSetCurrentIndexW(sesid: JET_SESID, tableid: JET_TABLEID, szinde
     unsafe { JetSetCurrentIndexW(sesid, tableid, szindexname.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn JetSetCursorFilter(sesid: JET_SESID, tableid: JET_TABLEID, rgcolumnfilters: &[JET_INDEX_COLUMN], grbit: JET_GRBIT) -> JET_ERR {
+pub unsafe fn JetSetCursorFilter(sesid: JET_SESID, tableid: JET_TABLEID, rgcolumnfilters: *const JET_INDEX_COLUMN, ccolumnfilters: JET_UINT32, grbit: JET_GRBIT) -> JET_ERR {
     windows_core::link!("esent.dll" "system" fn JetSetCursorFilter(sesid : JET_SESID, tableid : JET_TABLEID, rgcolumnfilters : *const JET_INDEX_COLUMN, ccolumnfilters : JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
-    unsafe { JetSetCursorFilter(sesid, tableid, rgcolumnfilters.as_ptr(), rgcolumnfilters.len().try_into().unwrap(), grbit) }
+    unsafe { JetSetCursorFilter(sesid, tableid, rgcolumnfilters, ccolumnfilters, grbit) }
 }
 #[inline]
 pub unsafe fn JetSetDatabaseSize(sesid: JET_SESID, szdatabasename: JET_PCSTR, cpg: JET_UINT32, pcpgreal: *mut JET_UINT32) -> JET_ERR {

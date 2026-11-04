@@ -324,9 +324,9 @@ mod Windows {
         #[library("COMDLG32.dll")]
         extern fn FindTextW(param0: LPFINDREPLACEW) -> HWND;
         #[library("COMDLG32.dll")]
-        extern fn GetFileTitleA(param0: LPCSTR, #[out] #[writable(entry, cchSize)] Buf: LPSTR, #[in] cchSize: WORD) -> i16;
+        extern fn GetFileTitleA(param0: LPCSTR, #[buffer(cchSize)] #[out] Buf: LPSTR, #[in] cchSize: WORD) -> i16;
         #[library("COMDLG32.dll")]
-        extern fn GetFileTitleW(param0: LPCWSTR, #[out] #[writable(entry, cchSize)] Buf: LPWSTR, #[in] cchSize: WORD) -> i16;
+        extern fn GetFileTitleW(param0: LPCWSTR, #[buffer(cchSize)] #[out] Buf: LPWSTR, #[in] cchSize: WORD) -> i16;
         #[library("COMDLG32.dll")]
         extern fn GetOpenFileNameA(param0: LPOPENFILENAMEA) -> BOOL;
         #[library("COMDLG32.dll")]
@@ -344,7 +344,7 @@ mod Windows {
         #[guid(0x5852a2c3_6530_11d1_b6a3_0000f8757bf9)]
         interface IPrintDialogCallback: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr] ppvObj: *mut *mut void) -> HRESULT;
+            fn QueryInterface(&self, #[in] riid: &IID, #[out] ppvObj: *mut *mut void) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
@@ -356,14 +356,14 @@ mod Windows {
         #[guid(0x509aaeda_5639_11d1_b6a1_0000f8757bf9)]
         interface IPrintDialogServices: IUnknown {
             #[override_slot(0)]
-            fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr] ppvObj: *mut *mut void) -> HRESULT;
+            fn QueryInterface(&self, #[in] riid: &IID, #[out] ppvObj: *mut *mut void) -> HRESULT;
             #[override_slot(1)]
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
             fn Release(&self) -> ULONG;
             fn GetCurrentDevMode(&self, #[in] #[out] pDevMode: LPDEVMODE, #[in] #[out] pcbSize: *mut UINT) -> HRESULT;
-            fn GetCurrentPrinterName(&self, #[opt] #[out] #[writable(entry, *pcchSize)] pPrinterName: LPWSTR, #[in] #[out] pcchSize: *mut UINT) -> HRESULT;
-            fn GetCurrentPortName(&self, #[opt] #[out] #[writable(entry, *pcchSize)] pPortName: LPWSTR, #[in] #[out] pcchSize: *mut UINT) -> HRESULT;
+            fn GetCurrentPrinterName(&self, #[buffer(*pcchSize)] #[opt] #[out] pPrinterName: LPWSTR, #[in] #[out] pcchSize: *mut UINT) -> HRESULT;
+            fn GetCurrentPortName(&self, #[buffer(*pcchSize)] #[opt] #[out] pPortName: LPWSTR, #[in] #[out] pcchSize: *mut UINT) -> HRESULT;
         }
         const ITALIC_FONTTYPE: i32 = 512;
         #[encoding("ansi")]

@@ -322,11 +322,11 @@ impl IRoSimpleMetaDataBuilder {
         unsafe { (windows_core::Interface::vtable(self).SetInterfaceGroupSimpleDefault)(windows_core::Interface::as_raw(self), name.param().abi(), defaultinterfacename.param().abi(), defaultinterfaceiid.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetInterfaceGroupParameterizedDefault<P0>(&self, name: P0, defaultinterfacenameelements: &[windows_core::PCWSTR]) -> windows_core::HRESULT
+    pub unsafe fn SetInterfaceGroupParameterizedDefault<P0>(&self, name: P0, elementcount: super::UINT32, defaultinterfacenameelements: *const windows_core::PCWSTR) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetInterfaceGroupParameterizedDefault)(windows_core::Interface::as_raw(self), name.param().abi(), defaultinterfacenameelements.len().try_into().unwrap(), defaultinterfacenameelements.as_ptr()) }
+        unsafe { (windows_core::Interface::vtable(self).SetInterfaceGroupParameterizedDefault)(windows_core::Interface::as_raw(self), name.param().abi(), elementcount, defaultinterfacenameelements) }
     }
     pub unsafe fn SetRuntimeClassSimpleDefault<P0, P1>(&self, name: P0, defaultinterfacename: P1, defaultinterfaceiid: Option<*const windows_core::GUID>) -> windows_core::HRESULT
     where
@@ -336,18 +336,18 @@ impl IRoSimpleMetaDataBuilder {
         unsafe { (windows_core::Interface::vtable(self).SetRuntimeClassSimpleDefault)(windows_core::Interface::as_raw(self), name.param().abi(), defaultinterfacename.param().abi(), defaultinterfaceiid.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetRuntimeClassParameterizedDefault<P0>(&self, name: P0, defaultinterfacenameelements: &[windows_core::PCWSTR]) -> windows_core::HRESULT
+    pub unsafe fn SetRuntimeClassParameterizedDefault<P0>(&self, name: P0, elementcount: super::UINT32, defaultinterfacenameelements: *const windows_core::PCWSTR) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetRuntimeClassParameterizedDefault)(windows_core::Interface::as_raw(self), name.param().abi(), defaultinterfacenameelements.len().try_into().unwrap(), defaultinterfacenameelements.as_ptr()) }
+        unsafe { (windows_core::Interface::vtable(self).SetRuntimeClassParameterizedDefault)(windows_core::Interface::as_raw(self), name.param().abi(), elementcount, defaultinterfacenameelements) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetStruct<P0>(&self, name: P0, fieldtypenames: &[windows_core::PCWSTR]) -> windows_core::HRESULT
+    pub unsafe fn SetStruct<P0>(&self, name: P0, numfields: super::UINT32, fieldtypenames: *const windows_core::PCWSTR) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetStruct)(windows_core::Interface::as_raw(self), name.param().abi(), fieldtypenames.len().try_into().unwrap(), fieldtypenames.as_ptr()) }
+        unsafe { (windows_core::Interface::vtable(self).SetStruct)(windows_core::Interface::as_raw(self), name.param().abi(), numfields, fieldtypenames) }
     }
     pub unsafe fn SetEnum<P0, P1>(&self, name: P0, basetype: P1) -> windows_core::HRESULT
     where

@@ -31,9 +31,9 @@ pub unsafe fn WinBioAsyncOpenFramework(notificationmethod: WINBIO_ASYNC_NOTIFICA
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn WinBioAsyncOpenSession(factor: WINBIO_BIOMETRIC_TYPE, pooltype: WINBIO_POOL_TYPE, flags: WINBIO_SESSION_FLAGS, unitarray: Option<&[WINBIO_UNIT_ID]>, databaseid: Option<*const windows_core::GUID>, notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: Option<super::HWND>, messagecode: Option<super::UINT>, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: Option<super::PVOID>, asynchronousopen: bool, sessionhandle: Option<*mut WINBIO_SESSION_HANDLE>) -> windows_core::HRESULT {
+pub unsafe fn WinBioAsyncOpenSession(factor: WINBIO_BIOMETRIC_TYPE, pooltype: WINBIO_POOL_TYPE, flags: WINBIO_SESSION_FLAGS, unitarray: Option<*const WINBIO_UNIT_ID>, unitcount: Option<super::SIZE_T>, databaseid: Option<*const windows_core::GUID>, notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: Option<super::HWND>, messagecode: Option<super::UINT>, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: Option<super::PVOID>, asynchronousopen: bool, sessionhandle: Option<*mut WINBIO_SESSION_HANDLE>) -> windows_core::HRESULT {
     windows_core::link!("winbio.dll" "system" fn WinBioAsyncOpenSession(factor : WINBIO_BIOMETRIC_TYPE, pooltype : WINBIO_POOL_TYPE, flags : WINBIO_SESSION_FLAGS, unitarray : *const WINBIO_UNIT_ID, unitcount : super::SIZE_T, databaseid : *const windows_core::GUID, notificationmethod : WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow : super::HWND, messagecode : super::UINT, callbackroutine : PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata : super::PVOID, asynchronousopen : windows_core::BOOL, sessionhandle : *mut WINBIO_SESSION_HANDLE) -> windows_core::HRESULT);
-    unsafe { WinBioAsyncOpenSession(factor, pooltype, flags, unitarray.map_or(core::ptr::null(), |slice| slice.as_ptr()), unitarray.map_or(0, |slice| slice.len().try_into().unwrap()), databaseid.unwrap_or(core::mem::zeroed()) as _, notificationmethod, targetwindow.unwrap_or(core::mem::zeroed()) as _, messagecode.unwrap_or(core::mem::zeroed()) as _, callbackroutine, userdata.unwrap_or(core::mem::zeroed()) as _, asynchronousopen.into(), sessionhandle.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WinBioAsyncOpenSession(factor, pooltype, flags, unitarray.unwrap_or(core::mem::zeroed()) as _, unitcount.unwrap_or(core::mem::zeroed()) as _, databaseid.unwrap_or(core::mem::zeroed()) as _, notificationmethod, targetwindow.unwrap_or(core::mem::zeroed()) as _, messagecode.unwrap_or(core::mem::zeroed()) as _, callbackroutine, userdata.unwrap_or(core::mem::zeroed()) as _, asynchronousopen.into(), sessionhandle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn WinBioCancel(sessionhandle: WINBIO_SESSION_HANDLE) -> windows_core::HRESULT {
@@ -64,15 +64,15 @@ pub unsafe fn WinBioCloseSession(sessionhandle: WINBIO_SESSION_HANDLE) -> window
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn WinBioControlUnit(sessionhandle: WINBIO_SESSION_HANDLE, unitid: WINBIO_UNIT_ID, component: WINBIO_COMPONENT, controlcode: super::ULONG, sendbuffer: &[u8], receivebuffer: super::PUCHAR, receivebuffersize: super::SIZE_T, receivedatasize: *mut super::SIZE_T, operationstatus: Option<*mut super::ULONG>) -> windows_core::HRESULT {
+pub unsafe fn WinBioControlUnit(sessionhandle: WINBIO_SESSION_HANDLE, unitid: WINBIO_UNIT_ID, component: WINBIO_COMPONENT, controlcode: super::ULONG, sendbuffer: super::PUCHAR, sendbuffersize: super::SIZE_T, receivebuffer: super::PUCHAR, receivebuffersize: super::SIZE_T, receivedatasize: *mut super::SIZE_T, operationstatus: Option<*mut super::ULONG>) -> windows_core::HRESULT {
     windows_core::link!("winbio.dll" "system" fn WinBioControlUnit(sessionhandle : WINBIO_SESSION_HANDLE, unitid : WINBIO_UNIT_ID, component : WINBIO_COMPONENT, controlcode : super::ULONG, sendbuffer : super::PUCHAR, sendbuffersize : super::SIZE_T, receivebuffer : super::PUCHAR, receivebuffersize : super::SIZE_T, receivedatasize : *mut super::SIZE_T, operationstatus : *mut super::ULONG) -> windows_core::HRESULT);
-    unsafe { WinBioControlUnit(sessionhandle, unitid, component, controlcode, core::mem::transmute(sendbuffer.as_ptr()), sendbuffer.len().try_into().unwrap(), receivebuffer as _, receivebuffersize, receivedatasize as _, operationstatus.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WinBioControlUnit(sessionhandle, unitid, component, controlcode, sendbuffer, sendbuffersize, receivebuffer as _, receivebuffersize, receivedatasize as _, operationstatus.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn WinBioControlUnitPrivileged(sessionhandle: WINBIO_SESSION_HANDLE, unitid: WINBIO_UNIT_ID, component: WINBIO_COMPONENT, controlcode: super::ULONG, sendbuffer: &[u8], receivebuffer: super::PUCHAR, receivebuffersize: super::SIZE_T, receivedatasize: *mut super::SIZE_T, operationstatus: Option<*mut super::ULONG>) -> windows_core::HRESULT {
+pub unsafe fn WinBioControlUnitPrivileged(sessionhandle: WINBIO_SESSION_HANDLE, unitid: WINBIO_UNIT_ID, component: WINBIO_COMPONENT, controlcode: super::ULONG, sendbuffer: super::PUCHAR, sendbuffersize: super::SIZE_T, receivebuffer: super::PUCHAR, receivebuffersize: super::SIZE_T, receivedatasize: *mut super::SIZE_T, operationstatus: Option<*mut super::ULONG>) -> windows_core::HRESULT {
     windows_core::link!("winbio.dll" "system" fn WinBioControlUnitPrivileged(sessionhandle : WINBIO_SESSION_HANDLE, unitid : WINBIO_UNIT_ID, component : WINBIO_COMPONENT, controlcode : super::ULONG, sendbuffer : super::PUCHAR, sendbuffersize : super::SIZE_T, receivebuffer : super::PUCHAR, receivebuffersize : super::SIZE_T, receivedatasize : *mut super::SIZE_T, operationstatus : *mut super::ULONG) -> windows_core::HRESULT);
-    unsafe { WinBioControlUnitPrivileged(sessionhandle, unitid, component, controlcode, core::mem::transmute(sendbuffer.as_ptr()), sendbuffer.len().try_into().unwrap(), receivebuffer as _, receivebuffersize, receivedatasize as _, operationstatus.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WinBioControlUnitPrivileged(sessionhandle, unitid, component, controlcode, sendbuffer, sendbuffersize, receivebuffer as _, receivebuffersize, receivedatasize as _, operationstatus.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -235,9 +235,9 @@ pub unsafe fn WinBioMonitorPresence(sessionhandle: WINBIO_SESSION_HANDLE, unitid
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WinBioOpenSession(factor: WINBIO_BIOMETRIC_TYPE, pooltype: WINBIO_POOL_TYPE, flags: WINBIO_SESSION_FLAGS, unitarray: Option<&[WINBIO_UNIT_ID]>, databaseid: Option<*const windows_core::GUID>, sessionhandle: *mut WINBIO_SESSION_HANDLE) -> windows_core::HRESULT {
+pub unsafe fn WinBioOpenSession(factor: WINBIO_BIOMETRIC_TYPE, pooltype: WINBIO_POOL_TYPE, flags: WINBIO_SESSION_FLAGS, unitarray: Option<*const WINBIO_UNIT_ID>, unitcount: Option<super::SIZE_T>, databaseid: Option<*const windows_core::GUID>, sessionhandle: *mut WINBIO_SESSION_HANDLE) -> windows_core::HRESULT {
     windows_core::link!("winbio.dll" "system" fn WinBioOpenSession(factor : WINBIO_BIOMETRIC_TYPE, pooltype : WINBIO_POOL_TYPE, flags : WINBIO_SESSION_FLAGS, unitarray : *const WINBIO_UNIT_ID, unitcount : super::SIZE_T, databaseid : *const windows_core::GUID, sessionhandle : *mut WINBIO_SESSION_HANDLE) -> windows_core::HRESULT);
-    unsafe { WinBioOpenSession(factor, pooltype, flags, unitarray.map_or(core::ptr::null(), |slice| slice.as_ptr()), unitarray.map_or(0, |slice| slice.len().try_into().unwrap()), databaseid.unwrap_or(core::mem::zeroed()) as _, sessionhandle as _) }
+    unsafe { WinBioOpenSession(factor, pooltype, flags, unitarray.unwrap_or(core::mem::zeroed()) as _, unitcount.unwrap_or(core::mem::zeroed()) as _, databaseid.unwrap_or(core::mem::zeroed()) as _, sessionhandle as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -268,9 +268,9 @@ pub unsafe fn WinBioRemoveCredential(identity: WINBIO_IDENTITY, r#type: WINBIO_C
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn WinBioSetCredential(r#type: WINBIO_CREDENTIAL_TYPE, credential: &[u8], format: WINBIO_CREDENTIAL_FORMAT) -> windows_core::HRESULT {
+pub unsafe fn WinBioSetCredential(r#type: WINBIO_CREDENTIAL_TYPE, credential: super::PUCHAR, credentialsize: super::SIZE_T, format: WINBIO_CREDENTIAL_FORMAT) -> windows_core::HRESULT {
     windows_core::link!("winbio.dll" "system" fn WinBioSetCredential(r#type : WINBIO_CREDENTIAL_TYPE, credential : super::PUCHAR, credentialsize : super::SIZE_T, format : WINBIO_CREDENTIAL_FORMAT) -> windows_core::HRESULT);
-    unsafe { WinBioSetCredential(r#type, core::mem::transmute(credential.as_ptr()), credential.len().try_into().unwrap(), format) }
+    unsafe { WinBioSetCredential(r#type, credential, credentialsize, format) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]

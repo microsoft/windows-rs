@@ -13,7 +13,7 @@ mod Fixture {
         fn MutateAlias(&self, #[in] #[incomplete] context: LPCONTEXT) -> HRESULT;
         fn MutateReference(&self, #[in] #[incomplete] context: IContext) -> HRESULT;
         fn Read(&self, #[in] context: IContext) -> HRESULT;
-        fn Create(&self, #[out] #[out_ptr] context: *mut IContext) -> HRESULT;
+        fn Create(&self, #[out] context: *mut IContext) -> HRESULT;
         fn Replace(&self, #[in] #[out] context: *mut IContext) -> HRESULT;
     }
     type LPCONTEXT = IContext;

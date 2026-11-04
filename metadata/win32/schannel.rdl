@@ -367,7 +367,6 @@ mod Windows {
         struct SecPkgContext_EapPrfInfo {
             dwVersion: DWORD,
             cbPrfData: DWORD,
-            #[writable(bytes(cbPrfData))]
             pbPrfData: PBYTE,
         }
         struct SecPkgContext_EarlyStart {
@@ -379,7 +378,6 @@ mod Windows {
         }
         struct SecPkgContext_KeyingMaterial {
             cbKeyingMaterial: DWORD,
-            #[writable(bytes(cbKeyingMaterial))]
             pbKeyingMaterial: PBYTE,
         }
         struct SecPkgContext_KeyingMaterialInfo {
@@ -420,7 +418,6 @@ mod Windows {
         struct SecPkgContext_SessionAppData {
             dwFlags: DWORD,
             cbAppData: DWORD,
-            #[writable(bytes(cbAppData))]
             pbAppData: PBYTE,
         }
         struct SecPkgContext_SessionInfo {
@@ -431,33 +428,30 @@ mod Windows {
         struct SecPkgContext_SrtpParameters {
             ProtectionProfile: WORD,
             MasterKeyIdentifierSize: BYTE,
-            #[writable(bytes(MasterKeyIdentifierSize))]
             MasterKeyIdentifier: PBYTE,
         }
         struct SecPkgContext_SupportedSignatures {
             cSignatureAndHashAlgorithms: WORD,
-            #[writable(cSignatureAndHashAlgorithms)]
             pSignatureAndHashAlgorithms: *mut WORD,
         }
         struct SecPkgContext_TokenBinding {
             MajorVersion: BYTE,
             MinorVersion: BYTE,
             KeyParametersSize: WORD,
-            #[writable(bytes(KeyParametersSize))]
             KeyParameters: PBYTE,
         }
         struct SecPkgContext_UiInfo {
             hParentWindow: HWND,
         }
         #[library("SCHANNEL.dll")]
-        extern fn SslDeserializeCertificateStore(#[in] SerializedCertificateStore: CERT_BLOB, #[nullable] #[out] #[out_ptr] ppCertContext: *mut PCCERT_CONTEXT) -> SECURITY_STATUS;
-        extern fn SslDeserializeCertificateStoreFn(#[in] SerializedCertificateStore: CERT_BLOB, #[nullable] #[out] #[out_ptr] ppCertContext: *mut PCCERT_CONTEXT) -> SECURITY_STATUS;
+        extern fn SslDeserializeCertificateStore(#[in] SerializedCertificateStore: CERT_BLOB, #[out] ppCertContext: *mut PCCERT_CONTEXT) -> SECURITY_STATUS;
+        extern fn SslDeserializeCertificateStoreFn(#[in] SerializedCertificateStore: CERT_BLOB, #[out] ppCertContext: *mut PCCERT_CONTEXT) -> SECURITY_STATUS;
         #[library("SCHANNEL.dll")]
-        extern fn SslGetExtensions(#[in] #[readable(entry, clientHelloByteSize)] clientHello: *const BYTE, #[in] clientHelloByteSize: DWORD, #[in] #[out] #[writable(entry, genericExtensionsCount)] genericExtensions: *mut SCH_EXTENSION_DATA, #[in] genericExtensionsCount: BYTE, #[out] bytesToRead: *mut DWORD, #[in] flags: SchGetExtensionsOptions) -> SECURITY_STATUS;
-        extern fn SslGetExtensionsFn(#[in] #[readable(entry, clientHelloByteSize)] clientHello: *const BYTE, #[in] clientHelloByteSize: DWORD, #[in] #[out] #[writable(entry, genericExtensionsCount)] genericExtensions: *mut SCH_EXTENSION_DATA, #[in] genericExtensionsCount: BYTE, #[out] bytesToRead: *mut DWORD, #[in] flags: SchGetExtensionsOptions) -> SECURITY_STATUS;
+        extern fn SslGetExtensions(#[buffer(clientHelloByteSize)] #[in] clientHello: *const BYTE, #[in] clientHelloByteSize: DWORD, #[buffer(genericExtensionsCount)] #[in] #[out] genericExtensions: *mut SCH_EXTENSION_DATA, #[in] genericExtensionsCount: BYTE, #[out] bytesToRead: *mut DWORD, #[in] flags: SchGetExtensionsOptions) -> SECURITY_STATUS;
+        extern fn SslGetExtensionsFn(#[buffer(clientHelloByteSize)] #[in] clientHello: *const BYTE, #[in] clientHelloByteSize: DWORD, #[buffer(genericExtensionsCount)] #[in] #[out] genericExtensions: *mut SCH_EXTENSION_DATA, #[in] genericExtensionsCount: BYTE, #[out] bytesToRead: *mut DWORD, #[in] flags: SchGetExtensionsOptions) -> SECURITY_STATUS;
         #[library("SCHANNEL.dll")]
-        extern fn SslGetServerIdentity(#[in] #[readable(entry, bytes(ClientHelloSize))] ClientHello: PBYTE, #[in] ClientHelloSize: DWORD, #[out] #[writable(success, bytes(*ServerIdentitySize), indirect)] ServerIdentity: *mut PBYTE, #[out] ServerIdentitySize: PDWORD, #[in] Flags: DWORD) -> SECURITY_STATUS;
-        extern fn SslGetServerIdentityFn(#[in] #[readable(entry, bytes(ClientHelloSize))] ClientHello: PBYTE, #[in] ClientHelloSize: DWORD, #[out] #[writable(success, bytes(*ServerIdentitySize), indirect)] ServerIdentity: *mut PBYTE, #[out] ServerIdentitySize: PDWORD, #[in] Flags: DWORD) -> SECURITY_STATUS;
+        extern fn SslGetServerIdentity(#[buffer(bytes(ClientHelloSize))] #[in] ClientHello: PBYTE, #[in] ClientHelloSize: DWORD, #[incomplete] #[out] ServerIdentity: *mut PBYTE, #[out] ServerIdentitySize: PDWORD, #[in] Flags: DWORD) -> SECURITY_STATUS;
+        extern fn SslGetServerIdentityFn(#[buffer(bytes(ClientHelloSize))] #[in] ClientHello: PBYTE, #[in] ClientHelloSize: DWORD, #[incomplete] #[out] ServerIdentity: *mut PBYTE, #[out] ServerIdentitySize: PDWORD, #[in] Flags: DWORD) -> SECURITY_STATUS;
         #[encoding("ansi")]
         const TLS1SP_NAME: String = "Microsoft TLS 1.0";
         #[encoding("ansi")]

@@ -5,12 +5,12 @@ pub unsafe fn Output(count: u32, values: *mut u32) -> windows_core::HRESULT {
 }
 windows_core::imp::define_interface!(Buffers, Buffers_Vtbl);
 impl Buffers {
-    pub unsafe fn Input(&self, values: &[u32]) {
+    pub unsafe fn Input(&self, count: u32, values: *const u32) {
         unsafe {
             (windows_core::Interface::vtable(self).Input)(
                 windows_core::Interface::as_raw(self),
-                values.len().try_into().unwrap(),
-                values.as_ptr(),
+                count,
+                values,
             );
         }
     }
@@ -62,12 +62,12 @@ impl Buffers {
             )
         }
     }
-    pub unsafe fn UnknownDirection(&self, values: &[u32]) {
+    pub unsafe fn UnknownDirection(&self, count: u32, values: *const u32) {
         unsafe {
             (windows_core::Interface::vtable(self).UnknownDirection)(
                 windows_core::Interface::as_raw(self),
-                values.len().try_into().unwrap(),
-                values.as_ptr(),
+                count,
+                values,
             );
         }
     }
@@ -122,14 +122,15 @@ impl Buffers {
     }
     pub unsafe fn GuidBuffer(
         &self,
-        filters: &[windows_core::GUID],
+        count: u32,
+        filters: *const windows_core::GUID,
         result: *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).GuidBuffer)(
                 windows_core::Interface::as_raw(self),
-                filters.len().try_into().unwrap(),
-                filters.as_ptr(),
+                count,
+                filters,
                 result as _,
             )
         }

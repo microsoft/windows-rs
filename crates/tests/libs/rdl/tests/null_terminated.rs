@@ -1,4 +1,4 @@
-use windows_metadata::{HasAttributes, Value, reader};
+use windows_metadata::{HasAttributes, reader};
 
 const SCHEMA: &str = r#"
 #[win32] mod Windows { mod Win32 { mod Metadata {
@@ -6,14 +6,8 @@ const SCHEMA: &str = r#"
         fn();
         OnEntry: bool,
         OnSuccess: bool,
-        DoubleNullOnEntry: bool,
-        DoubleNullOnSuccess: bool,
-        Indirect: bool,
-        Future: bool,
     }
-    attribute NullableAttribute {
-        fn();
-    }
+    attribute NullNullTerminatedAttribute { fn(); }
 }}}
 "#;
 
@@ -44,7 +38,7 @@ fn writer_references_resolve_without_emitting_definitions() {
         .output(&reference)
         .write()
         .unwrap();
-    let full = "#[Windows::Win32::Metadata::NullTerminated(OnEntry = true, OnSuccess = false)]";
+    let full = "#[Windows::Win32::Metadata::NullTerminated]";
     windows_rdl::reader()
         .reference(&reference)
         .input_text(&format!(
@@ -55,7 +49,7 @@ fn writer_references_resolve_without_emitting_definitions() {
                 #[repr(i32)] enum Shared {{ LocalMember = 1, }}
                 #[library("local.dll")]
                 extern fn Call(
-                    #[in] #[null_terminated(entry)] text: TextAlias,
+                    #[in] #[null_terminated] text: TextAlias,
                     {full} scalar: Scalar,
                     {full} record: Record,
                     {full} variant: Variant,
@@ -75,7 +69,7 @@ fn writer_references_resolve_without_emitting_definitions() {
     assert!(
         !std::fs::read_to_string(unresolved)
             .unwrap()
-            .contains("#[null_terminated(")
+            .contains("#[null_terminated]")
     );
 
     let mut expected = None;
@@ -118,9 +112,9 @@ fn writer_references_resolve_without_emitting_definitions() {
             assert_eq!(std::fs::read_dir(&destination).unwrap().count(), 1);
         }
         let text = std::fs::read_to_string(&path).unwrap();
-        assert_eq!(text.matches("#[null_terminated(").count(), 1, "{text}");
-        assert!(text.contains("#[in] #[null_terminated(entry)] text: TextAlias"));
-        assert_eq!(text.matches("::NullTerminated(").count(), 3, "{text}");
+        assert_eq!(text.matches("#[null_terminated]").count(), 1, "{text}");
+        assert!(text.contains("#[in] #[null_terminated] text: TextAlias"));
+        assert_eq!(text.matches(full).count(), 3, "{text}");
         assert!(text.contains("LocalMember = 1"));
         assert!(text.contains("struct Colliding"));
         for absent in [
@@ -176,152 +170,16 @@ fn writer_references_resolve_without_emitting_definitions() {
 }
 
 #[test]
-fn termination_preserves_phases_and_properties() {
-    let mut full = format!("{SCHEMA} #[win32] mod Test {{");
-    let mut compact = full.clone();
-    let mut expected = Vec::new();
-    for entry in [None, Some(false), Some(true)] {
-        for success in [None, Some(false), Some(true)] {
-            if entry.is_none() && success.is_none() {
-                continue;
-            }
-            let index = expected.len();
-            let short = windows_rdl::emit::write_null_terminated(entry, success, false);
-            let mut properties = format!(
-                "OnEntry = {}, OnSuccess = {}",
-                entry.is_some(),
-                success.is_some()
-            );
-            let mut values = vec![
-                ("OnEntry".into(), Value::Bool(entry.is_some())),
-                ("OnSuccess".into(), Value::Bool(success.is_some())),
-            ];
-            for (phase, double) in [
-                ("DoubleNullOnEntry", entry),
-                ("DoubleNullOnSuccess", success),
-            ] {
-                if double == Some(true) {
-                    properties.push_str(&format!(", {phase} = true"));
-                    values.push((phase.into(), Value::Bool(true)));
-                }
-            }
-            expected.push(values);
-            full.push_str(&format!(
-                "extern fn Callback{index}(#[out] #[opt] #[Windows::Win32::Metadata::NullTerminated({properties})] value: *mut u16);"
-            ));
-            compact.push_str(&format!(
-                "extern fn Callback{index}(#[out] #[opt] {short} value: *mut u16);"
-            ));
-        }
-    }
-    for source in [&mut full, &mut compact] {
-        for (index, properties) in [
-            "OnEntry = true",
-            "OnEntry = true, OnSuccess = false, DoubleNullOnEntry = false",
-            "OnEntry = false, OnSuccess = true, DoubleNullOnEntry = true",
-            "OnEntry = false, OnSuccess = false",
-            "OnEntry = true, OnSuccess = false, Future = true",
-        ]
-        .iter()
-        .enumerate()
-        {
-            source.push_str(&format!(
-                "extern fn Full{index}(#[Windows::Win32::Metadata::NullTerminated({properties})] value: *mut u16);"
-            ));
-        }
-        source.push('}');
-    }
-    let output = std::path::Path::new(env!("OUT_DIR"));
-    let mut canonical = None;
-    for (index, source) in [full, compact].iter().enumerate() {
-        let before = output.join(format!("null-terminated-{index}.winmd"));
-        let rdl = before.with_extension("rdl");
-        let after = before.with_extension("again.winmd");
-        windows_rdl::reader()
-            .input_text(source)
-            .output(&before)
-            .write()
-            .unwrap();
-        windows_rdl::writer()
-            .input(&before)
-            .output(&rdl)
-            .write()
-            .unwrap();
-        let text = std::fs::read_to_string(&rdl).unwrap();
-        assert_eq!(text.matches("#[null_terminated(").count(), 8);
-        assert_eq!(
-            text.matches("#[Windows::Win32::Metadata::NullTerminated(")
-                .count(),
-            5
-        );
-        if let Some(canonical) = &canonical {
-            assert_eq!(&text, canonical);
-        }
-        canonical = Some(text);
-        windows_rdl::reader()
-            .input(&rdl)
-            .output(&after)
-            .write()
-            .unwrap();
-        let mut full_properties = None;
-        for path in [before, after] {
-            let metadata = reader::Index::read(path).unwrap();
-            for (index, expected) in expected.iter().enumerate() {
-                let method = metadata
-                    .expect("Test", &format!("Callback{index}"))
-                    .methods()
-                    .next()
-                    .unwrap();
-                let parameter = method.params().next().unwrap();
-                assert!(parameter.is_optional());
-                assert_eq!(parameter.direction(), reader::ParamDirection::Output);
-                assert_eq!(
-                    &parameter
-                        .find_attribute("NullTerminatedAttribute")
-                        .unwrap()
-                        .value(),
-                    expected
-                );
-            }
-            let properties: Vec<_> = (0..5)
-                .map(|index| {
-                    metadata
-                        .expect("Test", &format!("Full{index}"))
-                        .methods()
-                        .next()
-                        .unwrap()
-                        .params()
-                        .next()
-                        .unwrap()
-                        .find_attribute("NullTerminatedAttribute")
-                        .unwrap()
-                        .value()
-                })
-                .collect();
-            if let Some(expected) = &full_properties {
-                assert_eq!(&properties, expected);
-            }
-            full_properties = Some(properties);
-        }
-    }
-}
-
-#[test]
-fn termination_requires_unambiguous_phases() {
+fn termination_rejects_arguments() {
     for attribute in [
-        "null_terminated",
         "null_terminated()",
         "null_terminated = true",
-        "null_terminated(unknown)",
-        "null_terminated(entry, entry)",
-        "null_terminated(success, success)",
-        "null_terminated(entry, double_entry)",
-        "null_terminated(double_entry, entry)",
-        "null_terminated(success, double_success)",
-        "null_terminated(entry = true)",
-        "null_terminated(indirect)",
-        "null_terminated(success, indirect, indirect)",
+        "null_terminated(entry)",
+        "null_terminated(double_success)",
         "null_terminated(success, indirect)",
+        "null_null_terminated()",
+        "null_null_terminated = true",
+        "null_null_terminated(entry)",
     ] {
         assert!(
             windows_rdl::reader()
@@ -339,31 +197,22 @@ fn termination_requires_unambiguous_phases() {
 #[test]
 fn pointer_contract_owners_are_checked() {
     for declaration in [
-        "extern fn F(#[null_terminated(entry)] value: u32);",
-        "extern fn F(#[null_terminated(double_success)] value: f64);",
-        "type Scalar = u32; extern fn F(#[null_terminated(entry)] value: Scalar);",
-        "struct Value { value: u32, } extern fn F(#[null_terminated(entry)] value: Value);",
-        "extern fn Callback(); extern fn F(#[null_terminated(entry)] value: Callback);",
-        "extern fn F(#[null_terminated(entry)] value: extern \"C\" fn());",
-        "extern fn F(#[null_terminated(success, indirect)] value: *mut u16);",
-        "extern fn F() -> #[null_terminated(success)] *mut u16;",
-        "extern fn F() -> #[null_terminated(entry)] *mut u16;",
-        "#[null_terminated(success)] extern fn F();",
-        "#[null_terminated(entry)] type Text = *const u16;",
-        "#[null_terminated(entry)] struct Value { value: u32, }",
-        "struct Value { #[null_terminated(entry)] value: *mut u16, }",
-        "struct Value { #[null_terminated(double_success)] value: [u16; 8], }",
-        "extern fn F(#[out] #[nullable(success, indirect)] value: *mut *mut u8);",
-        "extern fn F(#[out] #[nullable()] value: *mut *mut u8);",
-        "extern fn F(#[nullable] value: *mut *mut u8);",
-        "extern fn F(#[out] #[nullable] value: *mut u8);",
-        "extern fn F(#[out] #[nullable] value: u32);",
-        "extern fn F() -> #[nullable] u32;",
-        "extern fn F() -> #[nullable(success)] *mut u8;",
-        "extern fn F() -> #[null_terminated(success, indirect)] *mut *mut u8;",
-        "#[nullable] extern fn F();",
-        "struct Value { #[nullable(entry)] value: *mut u8, }",
-        "struct Value { #[nullable] value: u32, }",
+        "extern fn F(#[null_terminated] value: u32);",
+        "extern fn F(#[null_null_terminated] value: f64);",
+        "type Scalar = u32; extern fn F(#[null_terminated] value: Scalar);",
+        "struct Value { value: u32, } extern fn F(#[null_terminated] value: Value);",
+        "extern fn Callback(); extern fn F(#[null_terminated] value: Callback);",
+        "extern fn F(#[null_null_terminated] value: extern \"C\" fn());",
+        "extern fn F() -> #[null_terminated] *mut u16;",
+        "extern fn F() -> #[null_null_terminated] *mut u16;",
+        "#[null_terminated] extern fn F();",
+        "#[null_null_terminated] type Text = *const u16;",
+        "#[null_terminated] struct Value { value: u32, }",
+        "struct Value { #[null_terminated] value: *mut u16, }",
+        "struct Value { #[null_null_terminated] value: [u16; 8], }",
+        "extern fn F(#[null_terminated] #[null_terminated] value: *const u16);",
+        "extern fn F(#[null_null_terminated] #[null_null_terminated] value: *const u16);",
+        "extern fn F(#[null_terminated] #[null_null_terminated] value: *const u16);",
     ] {
         assert!(
             windows_rdl::reader()
@@ -377,68 +226,29 @@ fn pointer_contract_owners_are_checked() {
 }
 
 #[test]
-fn nullable_shorthand_requires_valid_owner() {
-    let full = "#[Windows::Win32::Metadata::Nullable]";
-    let source = format!(
-        r#"{SCHEMA}
-        #[win32] mod Test {{
-            extern fn Valid(#[out] {full} value: *mut *mut u8) -> {full} *mut u8;
-            struct Record {{ {full} valid: *mut u8, {full} scalar: u32, }}
-            extern fn Input(#[in] {full} value: *mut *mut u8);
-            extern fn Direct(#[out] {full} value: *mut u8);
-            extern fn Scalar() -> {full} u32;
-        }}
-        "#
-    );
-    let out = std::path::Path::new(env!("OUT_DIR")).join("nullable-owners");
-    std::fs::create_dir_all(&out).unwrap();
-    let first = out.join("first.winmd");
-    let rdl = out.join("roundtrip.rdl");
-    let second = out.join("second.winmd");
-    windows_rdl::reader()
-        .input_text(&source)
-        .output(&first)
-        .write()
-        .unwrap();
-    windows_rdl::writer()
-        .input(&first)
-        .filter("Test")
-        .output(&rdl)
-        .write()
-        .unwrap();
-    let text = std::fs::read_to_string(&rdl).unwrap();
-    assert_eq!(text.matches("#[nullable]").count(), 3, "{text}");
-    assert_eq!(text.matches(full).count(), 4, "{text}");
-    windows_rdl::reader()
-        .input_text(SCHEMA)
-        .input(&rdl)
-        .output(&second)
-        .write()
-        .unwrap();
-}
-
-#[test]
-fn termination_storage_and_legacy_owners_roundtrip() {
-    let full = "#[Windows::Win32::Metadata::NullTerminated(OnEntry = false, OnSuccess = true, DoubleNullOnSuccess = true)]";
-    let indirect = "#[Windows::Win32::Metadata::NullTerminated(OnEntry = false, OnSuccess = true, Indirect = true)]";
+fn termination_storage_and_full_attributes_roundtrip() {
+    let full = "#[Windows::Win32::Metadata::NullTerminated]";
+    let double = "#[Windows::Win32::Metadata::NullNullTerminated]";
+    let legacy = "#[Windows::Win32::Metadata::NullTerminated(OnEntry = true, OnSuccess = false)]";
     let source = format!(
         r#"{SCHEMA}
         #[win32] mod Test {{
             type Text = *const u16;
             type TextAlias = Text;
-            type ReturnedText = *mut TextAlias;
             extern fn Valid(
-                #[null_terminated(entry, double_success)] direct: TextAlias,
-                #[null_terminated(double_entry)] array: [u16; 8],
-                #[null_terminated(entry)] reference: &u8,
-                #[null_terminated(success, indirect)] returned: ReturnedText,
-                #[null_terminated(double_success, indirect)] referenced: &mut Text,
+                #[in] #[opt] #[null_terminated] direct: TextAlias,
+                #[out] #[null_null_terminated] array: [u16; 8],
+                #[null_terminated] reference: &u8,
+                {double} pointers: *const *const u8,
+                {full} text: *const u16,
             );
             {full} extern fn Callback();
             {full} type LegacyText = *const u16;
             struct Record {{ {full} text: *const u16, }}
-            extern fn Legacy({full} scalar: i32, {indirect} single: *mut u16)
+            extern fn Legacy({full} scalar: i32, {legacy} text: *const u16)
                 -> {full} *const u16;
+            extern fn Repeated({full} {full} value: *const u16);
+            extern fn Combined({full} {double} value: *const u16);
         }}
         "#
     );
@@ -459,8 +269,11 @@ fn termination_storage_and_legacy_owners_roundtrip() {
         .write()
         .unwrap();
     let text = std::fs::read_to_string(&rdl).unwrap();
-    assert_eq!(text.matches("#[null_terminated(").count(), 5, "{text}");
-    assert_eq!(text.matches("::NullTerminated(").count(), 6, "{text}");
+    assert_eq!(text.matches("#[null_terminated]").count(), 3, "{text}");
+    assert_eq!(text.matches("#[null_null_terminated]").count(), 2, "{text}");
+    assert_eq!(text.matches(full).count(), 8, "{text}");
+    assert_eq!(text.matches(double).count(), 1, "{text}");
+    assert!(text.contains(legacy), "{text}");
     windows_rdl::reader()
         .input_text(SCHEMA)
         .input(&rdl)
@@ -470,11 +283,27 @@ fn termination_storage_and_legacy_owners_roundtrip() {
     let mut previous = None;
     for path in [first, second] {
         let index = reader::Index::read(path).unwrap();
+        let method = index.expect("Test", "Valid").methods().next().unwrap();
+        let mut parameters = method.params();
+        let input = parameters.next().unwrap();
+        assert!(input.is_optional());
+        assert_eq!(input.direction(), reader::ParamDirection::Input);
+        assert_eq!(
+            parameters.next().unwrap().direction(),
+            reader::ParamDirection::Output
+        );
+        assert_eq!(
+            parameters.next().unwrap().direction(),
+            reader::ParamDirection::Unspecified
+        );
         let mut contracts = Vec::new();
         let mut collect = |owner: String, attributes: Vec<reader::Attribute<'_>>| {
             for attr in attributes {
-                if attr.name() == "NullTerminatedAttribute" {
-                    contracts.push((owner.clone(), attr.value()));
+                if matches!(
+                    attr.name(),
+                    "NullTerminatedAttribute" | "NullNullTerminatedAttribute"
+                ) {
+                    contracts.push((owner.clone(), attr.name().to_string(), attr.value()));
                 }
             }
         };
@@ -499,8 +328,8 @@ fn termination_storage_and_legacy_owners_roundtrip() {
                 }
             }
         }
-        contracts.sort_by(|a, b| a.0.cmp(&b.0));
-        assert_eq!(contracts.len(), 11);
+        contracts.sort_by(|a, b| (&a.0, &a.1).cmp(&(&b.0, &b.1)));
+        assert_eq!(contracts.len(), 15);
         if let Some(previous) = &previous {
             assert_eq!(&contracts, previous);
         }

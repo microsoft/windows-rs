@@ -103,7 +103,10 @@ impl IEnumWbemClassObject_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -143,14 +146,14 @@ impl IMofCompiler {
         unsafe { (windows_core::Interface::vtable(self).CompileFile)(windows_core::Interface::as_raw(self), filename.param().abi(), serverandnamespace.param().abi(), user.param().abi(), authority.param().abi(), password.param().abi(), loptionflags, lclassflags, linstanceflags, pinfo as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn CompileBuffer<P2, P3, P4, P5>(&self, pbuffer: &[u8], serverandnamespace: P2, user: P3, authority: P4, password: P5, loptionflags: super::LONG, lclassflags: super::LONG, linstanceflags: super::LONG, pinfo: *mut WBEM_COMPILE_STATUS_INFO) -> windows_core::HRESULT
+    pub unsafe fn CompileBuffer<P2, P3, P4, P5>(&self, buffsize: i32, pbuffer: *const super::BYTE, serverandnamespace: P2, user: P3, authority: P4, password: P5, loptionflags: super::LONG, lclassflags: super::LONG, linstanceflags: super::LONG, pinfo: *mut WBEM_COMPILE_STATUS_INFO) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
         P5: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CompileBuffer)(windows_core::Interface::as_raw(self), pbuffer.len().try_into().unwrap(), core::mem::transmute(pbuffer.as_ptr()), serverandnamespace.param().abi(), user.param().abi(), authority.param().abi(), password.param().abi(), loptionflags, lclassflags, linstanceflags, pinfo as _) }
+        unsafe { (windows_core::Interface::vtable(self).CompileBuffer)(windows_core::Interface::as_raw(self), buffsize, pbuffer, serverandnamespace.param().abi(), user.param().abi(), authority.param().abi(), password.param().abi(), loptionflags, lclassflags, linstanceflags, pinfo as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn CreateBMOF<P0, P1, P2>(&self, textfilename: P0, bmoffilename: P1, serverandnamespace: P2, loptionflags: super::LONG, lclassflags: super::LONG, linstanceflags: super::LONG, pinfo: *mut WBEM_COMPILE_STATUS_INFO) -> windows_core::HRESULT
@@ -251,7 +254,10 @@ impl IUnsecuredApartment_Vtbl {
                         ppstub.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstub.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -405,7 +411,10 @@ impl IWbemCallResult_Vtbl {
                         ppresultobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppresultobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -423,7 +432,10 @@ impl IWbemCallResult_Vtbl {
                         ppservices.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppservices.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1366,8 +1378,8 @@ impl windows_core::RuntimeName for IWbemObjectAccess {}
 windows_core::imp::define_interface!(IWbemObjectSink, IWbemObjectSink_Vtbl, 0x7c857801_7381_11cf_884d_00aa004b2e24);
 windows_core::imp::interface_hierarchy!(IWbemObjectSink, windows_core::IUnknown);
 impl IWbemObjectSink {
-    pub unsafe fn Indicate(&self, apobjarray: &[Option<IWbemClassObject>]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Indicate)(windows_core::Interface::as_raw(self), apobjarray.len().try_into().unwrap(), core::mem::transmute(apobjarray.as_ptr())) }
+    pub unsafe fn Indicate(&self, lobjectcount: i32, apobjarray: *const Option<IWbemClassObject>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Indicate)(windows_core::Interface::as_raw(self), lobjectcount, core::mem::transmute(apobjarray)) }
     }
     pub unsafe fn SetStatus<P3>(&self, lflags: i32, hresult: windows_core::HRESULT, strparam: &windows_core::BSTR, pobjparam: P3) -> windows_core::HRESULT
     where
@@ -1988,7 +2000,10 @@ impl IWbemServices_Vtbl {
                         ppresponsehandler.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppresponsehandler.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2036,7 +2051,10 @@ impl IWbemServices_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2078,7 +2096,10 @@ impl IWbemServices_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2096,7 +2117,10 @@ impl IWbemServices_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2114,7 +2138,10 @@ impl IWbemServices_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppenum.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2311,7 +2338,10 @@ impl IWbemUnsecuredApartment_Vtbl {
                         ppstub.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppstub.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

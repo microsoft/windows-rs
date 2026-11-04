@@ -47,22 +47,22 @@ pub unsafe fn CoFreeLibrary(hinst: super::HINSTANCE) {
 }
 #[cfg(all(feature = "guiddef", feature = "objidlbase", feature = "shared", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn CoGetInstanceFromFile<P2>(pserverinfo: Option<*const super::COSERVERINFO>, pclsid: Option<*const super::CLSID>, punkouter: P2, dwclsctx: super::DWORD, grfmode: super::DWORD, pwszname: *const super::OLECHAR, presults: &mut [super::MULTI_QI]) -> windows_core::HRESULT
+pub unsafe fn CoGetInstanceFromFile<P2>(pserverinfo: Option<*const super::COSERVERINFO>, pclsid: Option<*const super::CLSID>, punkouter: P2, dwclsctx: super::DWORD, grfmode: super::DWORD, pwszname: *const super::OLECHAR, dwcount: super::DWORD, presults: *mut super::MULTI_QI) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("ole32.dll" "system" fn CoGetInstanceFromFile(pserverinfo : *const super::COSERVERINFO, pclsid : *const super::CLSID, punkouter : *mut core::ffi::c_void, dwclsctx : super::DWORD, grfmode : super::DWORD, pwszname : *const super::OLECHAR, dwcount : super::DWORD, presults : *mut super::MULTI_QI) -> windows_core::HRESULT);
-    unsafe { CoGetInstanceFromFile(pserverinfo.unwrap_or(core::mem::zeroed()) as _, pclsid.unwrap_or(core::mem::zeroed()) as _, punkouter.param().abi(), dwclsctx, grfmode, pwszname, presults.len().try_into().unwrap(), presults.as_mut_ptr()) }
+    unsafe { CoGetInstanceFromFile(pserverinfo.unwrap_or(core::mem::zeroed()) as _, pclsid.unwrap_or(core::mem::zeroed()) as _, punkouter.param().abi(), dwclsctx, grfmode, pwszname, dwcount, presults) }
 }
 #[cfg(all(feature = "guiddef", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn CoGetInstanceFromIStorage<P2, P4>(pserverinfo: Option<*const super::COSERVERINFO>, pclsid: Option<*const super::CLSID>, punkouter: P2, dwclsctx: super::DWORD, pstg: P4, presults: &mut [super::MULTI_QI]) -> windows_core::HRESULT
+pub unsafe fn CoGetInstanceFromIStorage<P2, P4>(pserverinfo: Option<*const super::COSERVERINFO>, pclsid: Option<*const super::CLSID>, punkouter: P2, dwclsctx: super::DWORD, pstg: P4, dwcount: super::DWORD, presults: *mut super::MULTI_QI) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::IUnknown>,
     P4: windows_core::Param<super::IStorage>,
 {
     windows_core::link!("ole32.dll" "system" fn CoGetInstanceFromIStorage(pserverinfo : *const super::COSERVERINFO, pclsid : *const super::CLSID, punkouter : *mut core::ffi::c_void, dwclsctx : super::DWORD, pstg : *mut core::ffi::c_void, dwcount : super::DWORD, presults : *mut super::MULTI_QI) -> windows_core::HRESULT);
-    unsafe { CoGetInstanceFromIStorage(pserverinfo.unwrap_or(core::mem::zeroed()) as _, pclsid.unwrap_or(core::mem::zeroed()) as _, punkouter.param().abi(), dwclsctx, pstg.param().abi(), presults.len().try_into().unwrap(), presults.as_mut_ptr()) }
+    unsafe { CoGetInstanceFromIStorage(pserverinfo.unwrap_or(core::mem::zeroed()) as _, pclsid.unwrap_or(core::mem::zeroed()) as _, punkouter.param().abi(), dwclsctx, pstg.param().abi(), dwcount, presults) }
 }
 #[cfg(all(feature = "guiddef", feature = "objidl", feature = "shared"))]
 #[inline]

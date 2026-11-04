@@ -3,6 +3,6 @@ mod Windows {
     mod Win32 {
         type NTPROP = *mut void;
         #[library("ole32.dll")]
-        extern fn StgPropertyLengthAsVariant(#[in] #[readable(entry, bytes(cbProp))] pProp: *const SERIALIZEDPROPERTYVALUE, #[in] cbProp: ULONG, #[in] CodePage: USHORT, #[reserved] bReserved: BYTE) -> ULONG;
+        extern fn StgPropertyLengthAsVariant(#[buffer(bytes(cbProp))] #[in] pProp: *const SERIALIZEDPROPERTYVALUE, #[in] cbProp: ULONG, #[in] CodePage: USHORT, #[reserved] bReserved: BYTE) -> ULONG;
     }
 }

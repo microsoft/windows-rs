@@ -1,8 +1,8 @@
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AuthzAccessCheck(flags: super::DWORD, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, prequest: PAUTHZ_ACCESS_REQUEST, hauditevent: Option<AUTHZ_AUDIT_EVENT_HANDLE>, psecuritydescriptor: super::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorarray: Option<&[super::PSECURITY_DESCRIPTOR]>, preply: PAUTHZ_ACCESS_REPLY, phaccesscheckresults: Option<PAUTHZ_ACCESS_CHECK_RESULTS_HANDLE>) -> windows_core::BOOL {
+pub unsafe fn AuthzAccessCheck(flags: super::DWORD, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, prequest: PAUTHZ_ACCESS_REQUEST, hauditevent: Option<AUTHZ_AUDIT_EVENT_HANDLE>, psecuritydescriptor: super::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorarray: Option<*const super::PSECURITY_DESCRIPTOR>, optionalsecuritydescriptorcount: super::DWORD, preply: PAUTHZ_ACCESS_REPLY, phaccesscheckresults: Option<PAUTHZ_ACCESS_CHECK_RESULTS_HANDLE>) -> windows_core::BOOL {
     windows_core::link!("authz.dll" "system" fn AuthzAccessCheck(flags : super::DWORD, hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, prequest : PAUTHZ_ACCESS_REQUEST, hauditevent : AUTHZ_AUDIT_EVENT_HANDLE, psecuritydescriptor : super::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorarray : *const super::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorcount : super::DWORD, preply : PAUTHZ_ACCESS_REPLY, phaccesscheckresults : PAUTHZ_ACCESS_CHECK_RESULTS_HANDLE) -> windows_core::BOOL);
-    unsafe { AuthzAccessCheck(flags, hauthzclientcontext, prequest, hauditevent.unwrap_or(core::mem::zeroed()) as _, psecuritydescriptor, optionalsecuritydescriptorarray.map_or(core::ptr::null(), |slice| slice.as_ptr()), optionalsecuritydescriptorarray.map_or(0, |slice| slice.len().try_into().unwrap()), preply as _, phaccesscheckresults.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { AuthzAccessCheck(flags, hauthzclientcontext, prequest, hauditevent.unwrap_or(core::mem::zeroed()) as _, psecuritydescriptor, optionalsecuritydescriptorarray.unwrap_or(core::mem::zeroed()) as _, optionalsecuritydescriptorcount, preply as _, phaccesscheckresults.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -129,9 +129,9 @@ pub unsafe fn AuthzModifySids(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, 
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AuthzOpenObjectAudit(flags: super::DWORD, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, prequest: PAUTHZ_ACCESS_REQUEST, hauditevent: AUTHZ_AUDIT_EVENT_HANDLE, psecuritydescriptor: super::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorarray: Option<&[super::PSECURITY_DESCRIPTOR]>, preply: PAUTHZ_ACCESS_REPLY) -> windows_core::BOOL {
+pub unsafe fn AuthzOpenObjectAudit(flags: super::DWORD, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, prequest: PAUTHZ_ACCESS_REQUEST, hauditevent: AUTHZ_AUDIT_EVENT_HANDLE, psecuritydescriptor: super::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorarray: Option<*const super::PSECURITY_DESCRIPTOR>, optionalsecuritydescriptorcount: super::DWORD, preply: PAUTHZ_ACCESS_REPLY) -> windows_core::BOOL {
     windows_core::link!("authz.dll" "system" fn AuthzOpenObjectAudit(flags : super::DWORD, hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, prequest : PAUTHZ_ACCESS_REQUEST, hauditevent : AUTHZ_AUDIT_EVENT_HANDLE, psecuritydescriptor : super::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorarray : *const super::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorcount : super::DWORD, preply : PAUTHZ_ACCESS_REPLY) -> windows_core::BOOL);
-    unsafe { AuthzOpenObjectAudit(flags, hauthzclientcontext, prequest, hauditevent, psecuritydescriptor, optionalsecuritydescriptorarray.map_or(core::ptr::null(), |slice| slice.as_ptr()), optionalsecuritydescriptorarray.map_or(0, |slice| slice.len().try_into().unwrap()), preply) }
+    unsafe { AuthzOpenObjectAudit(flags, hauthzclientcontext, prequest, hauditevent, psecuritydescriptor, optionalsecuritydescriptorarray.unwrap_or(core::mem::zeroed()) as _, optionalsecuritydescriptorcount, preply) }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
@@ -156,9 +156,9 @@ pub unsafe fn AuthzReportSecurityEventFromParams(dwflags: super::DWORD, heventpr
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AuthzSetAppContainerInformation(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, pappcontainersid: super::PSID, pcapabilitysids: Option<&[super::SID_AND_ATTRIBUTES]>) -> windows_core::BOOL {
+pub unsafe fn AuthzSetAppContainerInformation(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, pappcontainersid: super::PSID, capabilitycount: super::DWORD, pcapabilitysids: Option<super::PSID_AND_ATTRIBUTES>) -> windows_core::BOOL {
     windows_core::link!("authz.dll" "system" fn AuthzSetAppContainerInformation(hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, pappcontainersid : super::PSID, capabilitycount : super::DWORD, pcapabilitysids : super::PSID_AND_ATTRIBUTES) -> windows_core::BOOL);
-    unsafe { AuthzSetAppContainerInformation(hauthzclientcontext, pappcontainersid, pcapabilitysids.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcapabilitysids.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { AuthzSetAppContainerInformation(hauthzclientcontext, pappcontainersid, capabilitycount, pcapabilitysids.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]

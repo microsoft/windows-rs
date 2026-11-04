@@ -612,7 +612,6 @@ mod Windows {
                     ResourceFileName: UNICODE_STRING,
                     ResourceReasonId: USHORT,
                     StringCount: ULONG,
-                    #[writable(StringCount)]
                     ReasonStrings: PUNICODE_STRING,
                 },
                 SimpleString: UNICODE_STRING,
@@ -905,7 +904,6 @@ mod Windows {
         }
         struct DEVICE_RELATIONS {
             Count: ULONG,
-            #[writable(Count)]
             Objects: [PDEVICE_OBJECT; 1],
         }
         #[repr(i32)]
@@ -1645,11 +1643,11 @@ mod Windows {
         const DRVO_UNLOAD_INVOKED: i32 = 1;
         const DUPLICATE_SAME_ATTRIBUTES: i32 = 4;
         #[library("ntdll.dll")]
-        extern "C" fn DbgPrint(#[in] #[null_terminated(entry)] Format: PCSTR, ...) -> ULONG;
+        extern "C" fn DbgPrint(#[in] #[null_terminated] Format: PCSTR, ...) -> ULONG;
         #[library("ntdll.dll")]
-        extern "C" fn DbgPrintEx(#[in] ComponentId: ULONG, #[in] Level: ULONG, #[in] #[null_terminated(entry)] Format: PCSTR, ...) -> ULONG;
+        extern "C" fn DbgPrintEx(#[in] ComponentId: ULONG, #[in] Level: ULONG, #[in] #[null_terminated] Format: PCSTR, ...) -> ULONG;
         #[library("ntdll.dll")]
-        extern "C" fn DbgPrintReturnControlC(#[in] #[null_terminated(entry)] Format: PCCH, ...) -> ULONG;
+        extern "C" fn DbgPrintReturnControlC(#[in] #[null_terminated] Format: PCCH, ...) -> ULONG;
         #[library("ntdll.dll")]
         extern fn DbgQueryDebugFilterState(#[in] ComponentId: ULONG, #[in] Level: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
@@ -1930,7 +1928,7 @@ mod Windows {
         extern fn FAST_IO_QUERY_OPEN(#[in] #[out] Irp: *mut IRP, #[out] NetworkInformation: PFILE_NETWORK_OPEN_INFORMATION, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
         extern fn FAST_IO_QUERY_STANDARD_INFO(#[in] FileObject: *mut FILE_OBJECT, #[in] Wait: BOOLEAN, #[out] Buffer: PFILE_STANDARD_INFORMATION, #[out] IoStatus: PIO_STATUS_BLOCK, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
         extern fn FAST_IO_READ(#[in] FileObject: *mut FILE_OBJECT, #[in] FileOffset: PLARGE_INTEGER, #[in] Length: ULONG, #[in] Wait: BOOLEAN, #[in] LockKey: ULONG, #[out] Buffer: PVOID, #[out] IoStatus: PIO_STATUS_BLOCK, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
-        extern fn FAST_IO_READ_COMPRESSED(#[in] FileObject: *mut FILE_OBJECT, #[in] FileOffset: PLARGE_INTEGER, #[in] Length: ULONG, #[in] LockKey: ULONG, #[out] Buffer: PVOID, #[out] MdlChain: *mut PMDL, #[out] IoStatus: PIO_STATUS_BLOCK, #[out] #[writable(entry, bytes(CompressedDataInfoLength))] CompressedDataInfo: *mut COMPRESSED_DATA_INFO, #[in] CompressedDataInfoLength: ULONG, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
+        extern fn FAST_IO_READ_COMPRESSED(#[in] FileObject: *mut FILE_OBJECT, #[in] FileOffset: PLARGE_INTEGER, #[in] Length: ULONG, #[in] LockKey: ULONG, #[out] Buffer: PVOID, #[out] MdlChain: *mut PMDL, #[out] IoStatus: PIO_STATUS_BLOCK, #[buffer(bytes(CompressedDataInfoLength))] #[out] CompressedDataInfo: *mut COMPRESSED_DATA_INFO, #[in] CompressedDataInfoLength: ULONG, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
         extern fn FAST_IO_RELEASE_FILE(#[in] FileObject: *mut FILE_OBJECT);
         extern fn FAST_IO_RELEASE_FOR_CCFLUSH(#[in] FileObject: *mut FILE_OBJECT, #[in] DeviceObject: *mut DEVICE_OBJECT) -> NTSTATUS;
         extern fn FAST_IO_RELEASE_FOR_MOD_WRITE(#[in] FileObject: *mut FILE_OBJECT, #[in] ResourceToRelease: *mut ERESOURCE, #[in] DeviceObject: *mut DEVICE_OBJECT) -> NTSTATUS;
@@ -1938,7 +1936,7 @@ mod Windows {
         extern fn FAST_IO_UNLOCK_ALL_BY_KEY(#[in] FileObject: *mut FILE_OBJECT, #[in] ProcessId: PVOID, #[in] Key: ULONG, #[out] IoStatus: PIO_STATUS_BLOCK, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
         extern fn FAST_IO_UNLOCK_SINGLE(#[in] FileObject: *mut FILE_OBJECT, #[in] FileOffset: PLARGE_INTEGER, #[in] Length: PLARGE_INTEGER, #[in] ProcessId: PEPROCESS, #[in] Key: ULONG, #[out] IoStatus: PIO_STATUS_BLOCK, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
         extern fn FAST_IO_WRITE(#[in] FileObject: *mut FILE_OBJECT, #[in] FileOffset: PLARGE_INTEGER, #[in] Length: ULONG, #[in] Wait: BOOLEAN, #[in] LockKey: ULONG, #[in] Buffer: PVOID, #[out] IoStatus: PIO_STATUS_BLOCK, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
-        extern fn FAST_IO_WRITE_COMPRESSED(#[in] FileObject: *mut FILE_OBJECT, #[in] FileOffset: PLARGE_INTEGER, #[in] Length: ULONG, #[in] LockKey: ULONG, #[in] Buffer: PVOID, #[out] MdlChain: *mut PMDL, #[out] IoStatus: PIO_STATUS_BLOCK, #[in] #[readable(entry, bytes(CompressedDataInfoLength))] CompressedDataInfo: *mut COMPRESSED_DATA_INFO, #[in] CompressedDataInfoLength: ULONG, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
+        extern fn FAST_IO_WRITE_COMPRESSED(#[in] FileObject: *mut FILE_OBJECT, #[in] FileOffset: PLARGE_INTEGER, #[in] Length: ULONG, #[in] LockKey: ULONG, #[in] Buffer: PVOID, #[out] MdlChain: *mut PMDL, #[out] IoStatus: PIO_STATUS_BLOCK, #[buffer(bytes(CompressedDataInfoLength))] #[in] CompressedDataInfo: *mut COMPRESSED_DATA_INFO, #[in] CompressedDataInfoLength: ULONG, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
         type FAST_MUTEX = _FAST_MUTEX;
         struct FAULT_INFORMATION {
             Type: FAULT_INFORMATION_ARCH,
@@ -2342,15 +2340,15 @@ mod Windows {
         extern fn GET_D3COLD_CAPABILITY(#[in] #[incomplete] #[opt] Context: PVOID, #[out] D3ColdSupported: PBOOLEAN) -> NTSTATUS;
         extern fn GET_D3COLD_LAST_TRANSITION_STATUS(#[in] #[incomplete] #[opt] Context: PVOID, #[out] LastTransitionStatus: PD3COLD_LAST_TRANSITION_STATUS);
         extern fn GET_DEVICE_RESET_STATUS(#[in] InterfaceContext: PVOID, #[out] IsResetting: PBOOLEAN, #[out] ResetTypeSelected: PDEVICE_BUS_SPECIFIC_RESET_TYPE, #[out] Flags: PDEVICE_RESET_STATUS_FLAGS) -> NTSTATUS;
-        extern fn GET_DOE_PREVIOUS_RESPONSE(#[in] InterfaceContext: PVOID, #[in] RequestId: LONGLONG, #[in] OutputArrayCount: ULONG, #[out] OutputWritten: PULONG, #[opt] #[out] #[readable(success, *OutputWritten)] #[writable(entry, OutputArrayCount)] OutputArray: PULONG, #[out] DoeStatus: PNTSTATUS) -> NTSTATUS;
+        extern fn GET_DOE_PREVIOUS_RESPONSE(#[in] InterfaceContext: PVOID, #[in] RequestId: LONGLONG, #[in] OutputArrayCount: ULONG, #[out] OutputWritten: PULONG, #[buffer(OutputArrayCount)] #[opt] #[out] OutputArray: PULONG, #[out] DoeStatus: PNTSTATUS) -> NTSTATUS;
         extern fn GET_IDLE_WAKE_INFO(#[in] #[incomplete] #[opt] Context: PVOID, #[in] SystemPowerState: SYSTEM_POWER_STATE, #[out] DeepestWakeableDstate: PDEVICE_WAKE_DEPTH) -> NTSTATUS;
         extern fn GET_SDEV_IDENTIFIER(#[in] InterfaceContext: PVOID) -> ULONGLONG;
-        extern fn GET_SET_DEVICE_DATA(#[in] #[opt] #[out] Context: PVOID, #[in] DataType: ULONG, #[in] #[out] #[writable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, Length: ULONG) -> ULONG;
+        extern fn GET_SET_DEVICE_DATA(#[in] #[opt] #[out] Context: PVOID, #[in] DataType: ULONG, #[buffer(bytes(Length))] #[in] #[out] Buffer: PVOID, #[in] Offset: ULONG, Length: ULONG) -> ULONG;
         extern fn GET_UPDATED_BUS_RESOURCE(#[in] #[incomplete] #[opt] Context: PVOID, #[out] UpdatedResourceList: *mut PCM_RESOURCE_LIST, #[out] UpdatedTranslatedResourceList: *mut PCM_RESOURCE_LIST) -> NTSTATUS;
-        extern fn GET_VIRTUAL_DEVICE_DATA(#[in] #[out] Context: PVOID, #[in] VirtualFunction: USHORT, #[out] #[writable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG) -> ULONG;
+        extern fn GET_VIRTUAL_DEVICE_DATA(#[in] #[out] Context: PVOID, #[in] VirtualFunction: USHORT, #[buffer(bytes(Length))] #[out] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG) -> ULONG;
         extern fn GET_VIRTUAL_DEVICE_LOCATION(#[in] #[out] Context: PVOID, #[in] VirtualFunction: USHORT, #[out] SegmentNumber: PUINT16, #[out] BusNumber: PUINT8, #[out] FunctionNumber: PUINT8) -> NTSTATUS;
         extern fn GET_VIRTUAL_DEVICE_RESOURCES(#[in] #[out] Context: PVOID, #[out] CapturedBusNumbers: PUINT8);
-        extern fn GET_VIRTUAL_FUNCTION_PROBED_BARS(#[in] #[out] Context: PVOID, #[out] #[writable(entry, 6)] BaseRegisterValues: PULONG) -> NTSTATUS;
+        extern fn GET_VIRTUAL_FUNCTION_PROBED_BARS(#[in] #[out] Context: PVOID, #[buffer(6)] #[out] BaseRegisterValues: PULONG) -> NTSTATUS;
         const HAL_DMA_ADAPTER_VERSION_1: i32 = 1;
         const HAL_MASK_UNMASK_FLAGS_NONE: i32 = 0;
         const HAL_MASK_UNMASK_FLAGS_SERVICING_COMPLETE: i32 = 2;
@@ -2475,7 +2473,7 @@ mod Windows {
         extern fn IOMMU_DEVICE_DELETE(#[in] DmaDevice: PIOMMU_DMA_DEVICE) -> NTSTATUS;
         extern fn IOMMU_DEVICE_FAULT_HANDLER(#[in] Context: PVOID, #[in] FaultInformation: PFAULT_INFORMATION);
         extern fn IOMMU_DEVICE_QUERY_DOMAIN_TYPES(#[in] DmaDevice: PIOMMU_DMA_DEVICE, #[out] AvailableDomains: PULONG);
-        extern fn IOMMU_DEVICE_QUERY_INFORMATION(#[in] DmaDevice: PIOMMU_DMA_DEVICE, #[in] Size: ULONG, #[out] BytesWritten: PULONG, #[out] #[readable(success, *BytesWritten)] #[writable(entry, Size)] Buffer: PIOMMU_DMA_DEVICE_INFORMATION) -> NTSTATUS;
+        extern fn IOMMU_DEVICE_QUERY_INFORMATION(#[in] DmaDevice: PIOMMU_DMA_DEVICE, #[in] Size: ULONG, #[out] BytesWritten: PULONG, #[buffer(Size)] #[out] Buffer: PIOMMU_DMA_DEVICE_INFORMATION) -> NTSTATUS;
         type IOMMU_DMA_DEVICE = _IOMMU_DMA_DEVICE;
         struct IOMMU_DMA_DEVICE_INFORMATION {
             DefaultPasidEnabled: BOOLEAN,
@@ -2986,7 +2984,7 @@ mod Windows {
             IoSessionEventMax = 7,
         }
         const IO_SESSION_MAX_PAYLOAD_SIZE: i32 = 256;
-        extern fn IO_SESSION_NOTIFICATION_FUNCTION(#[in] SessionObject: PVOID, #[in] IoObject: PVOID, #[in] Event: ULONG, #[in] Context: PVOID, #[in] #[opt] #[readable(entry, bytes(PayloadLength))] NotificationPayload: PVOID, #[in] PayloadLength: ULONG) -> NTSTATUS;
+        extern fn IO_SESSION_NOTIFICATION_FUNCTION(#[in] SessionObject: PVOID, #[in] IoObject: PVOID, #[in] Event: ULONG, #[in] Context: PVOID, #[buffer(bytes(PayloadLength))] #[in] #[opt] NotificationPayload: PVOID, #[in] PayloadLength: ULONG) -> NTSTATUS;
         #[repr(i32)]
         enum IO_SESSION_STATE {
             IoSessionStateCreated = 1,
@@ -3753,12 +3751,10 @@ mod Windows {
         #[arch(X86)]
         const KADDRESS_BASE: i32 = 0;
         struct KADDRESS_RANGE {
-            #[writable(bytes(Size))]
             Address: PVOID,
             Size: SIZE_T,
         }
         struct KADDRESS_RANGE_DESCRIPTOR {
-            #[writable(AddressRangeCount)]
             AddressRanges: *const KADDRESS_RANGE,
             AddressRangeCount: SIZE_T,
         }
@@ -3827,8 +3823,6 @@ mod Windows {
         struct KBUGCHECK_CALLBACK_RECORD {
             Entry: LIST_ENTRY,
             CallbackRoutine: PKBUGCHECK_CALLBACK_ROUTINE,
-            #[nullable]
-            #[writable(bytes(Length))]
             Buffer: PVOID,
             Length: ULONG,
             Component: PUCHAR,
@@ -4077,13 +4071,11 @@ mod Windows {
             TitleIndex: ULONG,
             Type: ULONG,
             DataLength: ULONG,
-            #[writable(bytes(DataLength))]
             Data: [UCHAR; 1],
         }
         struct KEY_VALUE_PARTIAL_INFORMATION_ALIGN64 {
             Type: ULONG,
             DataLength: ULONG,
-            #[writable(bytes(DataLength))]
             Data: [UCHAR; 1],
         }
         struct KEY_WOW64_FLAGS_INFORMATION {
@@ -4261,8 +4253,6 @@ mod Windows {
             MaxDataSize: ULONG,
             ComponentNameBufferLength: ULONG,
             ComponentName: PUCHAR,
-            #[readable(NumBlocksUsed)]
-            #[writable(NumBlocksTotal)]
             Blocks: [KADDRESS_RANGE; 1],
         }
         #[arch(X64 | Arm64)]
@@ -4644,13 +4634,13 @@ mod Windows {
         extern fn NtCreateTransactionManager(#[out] TmHandle: PHANDLE, #[in] DesiredAccess: ACCESS_MASK, #[in] #[opt] ObjectAttributes: POBJECT_ATTRIBUTES, #[in] #[opt] LogFileName: PUNICODE_STRING, #[in] #[opt] CreateOptions: ULONG, #[in] #[opt] CommitStrength: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         #[must_use]
-        extern fn NtEnumerateTransactionObject(#[in] #[opt] RootObjectHandle: HANDLE, #[in] QueryType: KTMOBJECT_TYPE, #[in] #[out] #[writable(entry, bytes(ObjectCursorLength))] ObjectCursor: PKTMOBJECT_CURSOR, #[in] ObjectCursorLength: ULONG, #[out] ReturnLength: PULONG) -> NTSTATUS;
+        extern fn NtEnumerateTransactionObject(#[in] #[opt] RootObjectHandle: HANDLE, #[in] QueryType: KTMOBJECT_TYPE, #[buffer(bytes(ObjectCursorLength))] #[in] #[out] ObjectCursor: PKTMOBJECT_CURSOR, #[in] ObjectCursorLength: ULONG, #[out] ReturnLength: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         #[must_use]
         extern fn NtGetNotificationResourceManager(#[in] ResourceManagerHandle: HANDLE, #[out] TransactionNotification: PTRANSACTION_NOTIFICATION, #[in] NotificationLength: ULONG, #[in] #[opt] Timeout: PLARGE_INTEGER, #[opt] #[out] ReturnLength: PULONG, #[in] Asynchronous: ULONG, #[in] #[opt] AsynchronousContext: ULONG_PTR) -> NTSTATUS;
         #[library("ntdll.dll")]
         #[must_use]
-        extern fn NtManagePartition(#[in] TargetHandle: HANDLE, #[in] #[opt] SourceHandle: HANDLE, #[in] PartitionInformationClass: PARTITION_INFORMATION_CLASS, #[in] #[out] #[writable(entry, bytes(PartitionInformationLength))] PartitionInformation: PVOID, #[in] PartitionInformationLength: ULONG) -> NTSTATUS;
+        extern fn NtManagePartition(#[in] TargetHandle: HANDLE, #[in] #[opt] SourceHandle: HANDLE, #[in] PartitionInformationClass: PARTITION_INFORMATION_CLASS, #[buffer(bytes(PartitionInformationLength))] #[in] #[out] PartitionInformation: PVOID, #[in] PartitionInformationLength: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         #[must_use]
         extern fn NtOpenEnlistment(#[out] EnlistmentHandle: PHANDLE, #[in] DesiredAccess: ACCESS_MASK, #[in] ResourceManagerHandle: HANDLE, #[in] EnlistmentGuid: LPGUID, #[in] #[opt] ObjectAttributes: POBJECT_ATTRIBUTES) -> NTSTATUS;
@@ -4667,7 +4657,7 @@ mod Windows {
         #[must_use]
         extern fn NtOpenTransactionManager(#[out] TmHandle: PHANDLE, #[in] DesiredAccess: ACCESS_MASK, #[in] #[opt] ObjectAttributes: POBJECT_ATTRIBUTES, #[in] #[opt] LogFileName: PUNICODE_STRING, #[in] #[opt] TmIdentity: LPGUID, #[in] #[opt] OpenOptions: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtPowerInformation(#[in] InformationLevel: POWER_INFORMATION_LEVEL, #[in] #[opt] #[readable(entry, bytes(InputBufferLength))] InputBuffer: PVOID, #[in] InputBufferLength: ULONG, #[opt] #[out] #[writable(entry, bytes(OutputBufferLength))] OutputBuffer: PVOID, #[in] OutputBufferLength: ULONG) -> NTSTATUS;
+        extern fn NtPowerInformation(#[in] InformationLevel: POWER_INFORMATION_LEVEL, #[buffer(bytes(InputBufferLength))] #[in] #[opt] InputBuffer: PVOID, #[in] InputBufferLength: ULONG, #[buffer(bytes(OutputBufferLength))] #[opt] #[out] OutputBuffer: PVOID, #[in] OutputBufferLength: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn NtPrePrepareComplete(#[in] EnlistmentHandle: HANDLE, #[in] #[opt] TmVirtualClock: PLARGE_INTEGER) -> NTSTATUS;
         #[library("ntdll.dll")]
@@ -4684,16 +4674,16 @@ mod Windows {
         extern fn NtPropagationFailed(#[in] ResourceManagerHandle: HANDLE, #[in] RequestCookie: ULONG, #[in] PropStatus: NTSTATUS) -> NTSTATUS;
         #[library("ntdll.dll")]
         #[must_use]
-        extern fn NtQueryInformationEnlistment(#[in] EnlistmentHandle: HANDLE, #[in] EnlistmentInformationClass: ENLISTMENT_INFORMATION_CLASS, #[out] #[writable(entry, bytes(EnlistmentInformationLength))] EnlistmentInformation: PVOID, #[in] EnlistmentInformationLength: ULONG, #[out] ReturnLength: PULONG) -> NTSTATUS;
+        extern fn NtQueryInformationEnlistment(#[in] EnlistmentHandle: HANDLE, #[in] EnlistmentInformationClass: ENLISTMENT_INFORMATION_CLASS, #[buffer(bytes(EnlistmentInformationLength))] #[out] EnlistmentInformation: PVOID, #[in] EnlistmentInformationLength: ULONG, #[out] ReturnLength: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         #[must_use]
-        extern fn NtQueryInformationResourceManager(#[in] ResourceManagerHandle: HANDLE, #[in] ResourceManagerInformationClass: RESOURCEMANAGER_INFORMATION_CLASS, #[out] #[writable(entry, bytes(ResourceManagerInformationLength))] ResourceManagerInformation: PVOID, #[in] ResourceManagerInformationLength: ULONG, #[opt] #[out] ReturnLength: PULONG) -> NTSTATUS;
+        extern fn NtQueryInformationResourceManager(#[in] ResourceManagerHandle: HANDLE, #[in] ResourceManagerInformationClass: RESOURCEMANAGER_INFORMATION_CLASS, #[buffer(bytes(ResourceManagerInformationLength))] #[out] ResourceManagerInformation: PVOID, #[in] ResourceManagerInformationLength: ULONG, #[opt] #[out] ReturnLength: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         #[must_use]
-        extern fn NtQueryInformationTransaction(#[in] TransactionHandle: HANDLE, #[in] TransactionInformationClass: TRANSACTION_INFORMATION_CLASS, #[out] #[writable(entry, bytes(TransactionInformationLength))] TransactionInformation: PVOID, #[in] TransactionInformationLength: ULONG, #[opt] #[out] ReturnLength: PULONG) -> NTSTATUS;
+        extern fn NtQueryInformationTransaction(#[in] TransactionHandle: HANDLE, #[in] TransactionInformationClass: TRANSACTION_INFORMATION_CLASS, #[buffer(bytes(TransactionInformationLength))] #[out] TransactionInformation: PVOID, #[in] TransactionInformationLength: ULONG, #[opt] #[out] ReturnLength: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         #[must_use]
-        extern fn NtQueryInformationTransactionManager(#[in] TransactionManagerHandle: HANDLE, #[in] TransactionManagerInformationClass: TRANSACTIONMANAGER_INFORMATION_CLASS, #[out] #[writable(entry, bytes(TransactionManagerInformationLength))] TransactionManagerInformation: PVOID, #[in] TransactionManagerInformationLength: ULONG, #[out] ReturnLength: PULONG) -> NTSTATUS;
+        extern fn NtQueryInformationTransactionManager(#[in] TransactionManagerHandle: HANDLE, #[in] TransactionManagerInformationClass: TRANSACTIONMANAGER_INFORMATION_CLASS, #[buffer(bytes(TransactionManagerInformationLength))] #[out] TransactionManagerInformation: PVOID, #[in] TransactionManagerInformationLength: ULONG, #[out] ReturnLength: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn NtReadOnlyEnlistment(#[in] EnlistmentHandle: HANDLE, #[in] #[opt] TmVirtualClock: PLARGE_INTEGER) -> NTSTATUS;
         #[library("ntdll.dll")]
@@ -4724,16 +4714,16 @@ mod Windows {
         extern fn NtRollforwardTransactionManager(#[in] TransactionManagerHandle: HANDLE, #[in] #[opt] TmVirtualClock: PLARGE_INTEGER) -> NTSTATUS;
         #[library("ntdll.dll")]
         #[must_use]
-        extern fn NtSetInformationEnlistment(#[in] #[opt] EnlistmentHandle: HANDLE, #[in] EnlistmentInformationClass: ENLISTMENT_INFORMATION_CLASS, #[in] #[readable(entry, bytes(EnlistmentInformationLength))] EnlistmentInformation: PVOID, #[in] EnlistmentInformationLength: ULONG) -> NTSTATUS;
+        extern fn NtSetInformationEnlistment(#[in] #[opt] EnlistmentHandle: HANDLE, #[in] EnlistmentInformationClass: ENLISTMENT_INFORMATION_CLASS, #[buffer(bytes(EnlistmentInformationLength))] #[in] EnlistmentInformation: PVOID, #[in] EnlistmentInformationLength: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         #[must_use]
-        extern fn NtSetInformationResourceManager(#[in] ResourceManagerHandle: HANDLE, #[in] ResourceManagerInformationClass: RESOURCEMANAGER_INFORMATION_CLASS, #[in] #[readable(entry, bytes(ResourceManagerInformationLength))] ResourceManagerInformation: PVOID, #[in] ResourceManagerInformationLength: ULONG) -> NTSTATUS;
+        extern fn NtSetInformationResourceManager(#[in] ResourceManagerHandle: HANDLE, #[in] ResourceManagerInformationClass: RESOURCEMANAGER_INFORMATION_CLASS, #[buffer(bytes(ResourceManagerInformationLength))] #[in] ResourceManagerInformation: PVOID, #[in] ResourceManagerInformationLength: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         #[must_use]
-        extern fn NtSetInformationTransaction(#[in] TransactionHandle: HANDLE, #[in] TransactionInformationClass: TRANSACTION_INFORMATION_CLASS, #[in] #[readable(entry, bytes(TransactionInformationLength))] TransactionInformation: PVOID, #[in] TransactionInformationLength: ULONG) -> NTSTATUS;
+        extern fn NtSetInformationTransaction(#[in] TransactionHandle: HANDLE, #[in] TransactionInformationClass: TRANSACTION_INFORMATION_CLASS, #[buffer(bytes(TransactionInformationLength))] #[in] TransactionInformation: PVOID, #[in] TransactionInformationLength: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         #[must_use]
-        extern fn NtSetInformationTransactionManager(#[in] #[opt] TmHandle: HANDLE, #[in] TransactionManagerInformationClass: TRANSACTIONMANAGER_INFORMATION_CLASS, #[in] #[readable(entry, bytes(TransactionManagerInformationLength))] TransactionManagerInformation: PVOID, #[in] TransactionManagerInformationLength: ULONG) -> NTSTATUS;
+        extern fn NtSetInformationTransactionManager(#[in] #[opt] TmHandle: HANDLE, #[in] TransactionManagerInformationClass: TRANSACTIONMANAGER_INFORMATION_CLASS, #[buffer(bytes(TransactionManagerInformationLength))] #[in] TransactionManagerInformation: PVOID, #[in] TransactionManagerInformationLength: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn NtSinglePhaseReject(#[in] EnlistmentHandle: HANDLE, #[in] #[opt] TmVirtualClock: PLARGE_INTEGER) -> NTSTATUS;
         struct OBJECT_HANDLE_INFORMATION {
@@ -6230,7 +6220,7 @@ mod Windows {
         extern fn PFAST_IO_QUERY_OPEN(#[in] #[out] Irp: *mut IRP, #[out] NetworkInformation: PFILE_NETWORK_OPEN_INFORMATION, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
         extern fn PFAST_IO_QUERY_STANDARD_INFO(#[in] FileObject: *mut FILE_OBJECT, #[in] Wait: BOOLEAN, #[out] Buffer: PFILE_STANDARD_INFORMATION, #[out] IoStatus: PIO_STATUS_BLOCK, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
         extern fn PFAST_IO_READ(#[in] FileObject: *mut FILE_OBJECT, #[in] FileOffset: PLARGE_INTEGER, #[in] Length: ULONG, #[in] Wait: BOOLEAN, #[in] LockKey: ULONG, #[out] Buffer: PVOID, #[out] IoStatus: PIO_STATUS_BLOCK, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
-        extern fn PFAST_IO_READ_COMPRESSED(#[in] FileObject: *mut FILE_OBJECT, #[in] FileOffset: PLARGE_INTEGER, #[in] Length: ULONG, #[in] LockKey: ULONG, #[out] Buffer: PVOID, #[out] MdlChain: *mut PMDL, #[out] IoStatus: PIO_STATUS_BLOCK, #[out] #[writable(entry, bytes(CompressedDataInfoLength))] CompressedDataInfo: *mut COMPRESSED_DATA_INFO, #[in] CompressedDataInfoLength: ULONG, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
+        extern fn PFAST_IO_READ_COMPRESSED(#[in] FileObject: *mut FILE_OBJECT, #[in] FileOffset: PLARGE_INTEGER, #[in] Length: ULONG, #[in] LockKey: ULONG, #[out] Buffer: PVOID, #[out] MdlChain: *mut PMDL, #[out] IoStatus: PIO_STATUS_BLOCK, #[buffer(bytes(CompressedDataInfoLength))] #[out] CompressedDataInfo: *mut COMPRESSED_DATA_INFO, #[in] CompressedDataInfoLength: ULONG, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
         extern fn PFAST_IO_RELEASE_FILE(#[in] FileObject: *mut FILE_OBJECT);
         extern fn PFAST_IO_RELEASE_FOR_CCFLUSH(#[in] FileObject: *mut FILE_OBJECT, #[in] DeviceObject: *mut DEVICE_OBJECT) -> NTSTATUS;
         extern fn PFAST_IO_RELEASE_FOR_MOD_WRITE(#[in] FileObject: *mut FILE_OBJECT, #[in] ResourceToRelease: *mut ERESOURCE, #[in] DeviceObject: *mut DEVICE_OBJECT) -> NTSTATUS;
@@ -6238,7 +6228,7 @@ mod Windows {
         extern fn PFAST_IO_UNLOCK_ALL_BY_KEY(#[in] FileObject: *mut FILE_OBJECT, #[in] ProcessId: PVOID, #[in] Key: ULONG, #[out] IoStatus: PIO_STATUS_BLOCK, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
         extern fn PFAST_IO_UNLOCK_SINGLE(#[in] FileObject: *mut FILE_OBJECT, #[in] FileOffset: PLARGE_INTEGER, #[in] Length: PLARGE_INTEGER, #[in] ProcessId: PEPROCESS, #[in] Key: ULONG, #[out] IoStatus: PIO_STATUS_BLOCK, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
         extern fn PFAST_IO_WRITE(#[in] FileObject: *mut FILE_OBJECT, #[in] FileOffset: PLARGE_INTEGER, #[in] Length: ULONG, #[in] Wait: BOOLEAN, #[in] LockKey: ULONG, #[in] Buffer: PVOID, #[out] IoStatus: PIO_STATUS_BLOCK, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
-        extern fn PFAST_IO_WRITE_COMPRESSED(#[in] FileObject: *mut FILE_OBJECT, #[in] FileOffset: PLARGE_INTEGER, #[in] Length: ULONG, #[in] LockKey: ULONG, #[in] Buffer: PVOID, #[out] MdlChain: *mut PMDL, #[out] IoStatus: PIO_STATUS_BLOCK, #[in] #[readable(entry, bytes(CompressedDataInfoLength))] CompressedDataInfo: *mut COMPRESSED_DATA_INFO, #[in] CompressedDataInfoLength: ULONG, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
+        extern fn PFAST_IO_WRITE_COMPRESSED(#[in] FileObject: *mut FILE_OBJECT, #[in] FileOffset: PLARGE_INTEGER, #[in] Length: ULONG, #[in] LockKey: ULONG, #[in] Buffer: PVOID, #[out] MdlChain: *mut PMDL, #[out] IoStatus: PIO_STATUS_BLOCK, #[buffer(bytes(CompressedDataInfoLength))] #[in] CompressedDataInfo: *mut COMPRESSED_DATA_INFO, #[in] CompressedDataInfoLength: ULONG, #[in] DeviceObject: *mut DEVICE_OBJECT) -> BOOLEAN;
         type PFAST_MUTEX = *mut _FAST_MUTEX;
         type PFAULT_INFORMATION = *mut FAULT_INFORMATION;
         type PFAULT_INFORMATION_ARCH = *mut FAULT_INFORMATION_ARCH;
@@ -6272,7 +6262,7 @@ mod Windows {
         extern fn PFN_NT_COMMIT_TRANSACTION(#[in] TransactionHandle: HANDLE, #[in] Wait: BOOLEAN) -> NTSTATUS;
         extern fn PFN_NT_CREATE_TRANSACTION(#[out] TransactionHandle: PHANDLE, #[in] DesiredAccess: ACCESS_MASK, #[in] #[opt] ObjectAttributes: POBJECT_ATTRIBUTES, #[in] #[opt] Uow: LPGUID, #[in] #[opt] TmHandle: HANDLE, #[in] #[opt] CreateOptions: ULONG, #[in] #[opt] IsolationLevel: ULONG, #[in] #[opt] IsolationFlags: ULONG, #[in] #[opt] Timeout: PLARGE_INTEGER, #[in] #[opt] Description: PUNICODE_STRING) -> NTSTATUS;
         extern fn PFN_NT_OPEN_TRANSACTION(#[out] TransactionHandle: PHANDLE, #[in] DesiredAccess: ACCESS_MASK, #[in] ObjectAttributes: POBJECT_ATTRIBUTES, #[in] #[opt] Uow: LPGUID, #[in] #[opt] TmHandle: HANDLE) -> NTSTATUS;
-        extern fn PFN_NT_QUERY_INFORMATION_TRANSACTION(#[in] TransactionHandle: HANDLE, #[in] TransactionInformationClass: TRANSACTION_INFORMATION_CLASS, #[out] #[writable(entry, bytes(TransactionInformationLength))] TransactionInformation: PVOID, #[in] TransactionInformationLength: ULONG, #[opt] #[out] ReturnLength: PULONG) -> NTSTATUS;
+        extern fn PFN_NT_QUERY_INFORMATION_TRANSACTION(#[in] TransactionHandle: HANDLE, #[in] TransactionInformationClass: TRANSACTION_INFORMATION_CLASS, #[buffer(bytes(TransactionInformationLength))] #[out] TransactionInformation: PVOID, #[in] TransactionInformationLength: ULONG, #[opt] #[out] ReturnLength: PULONG) -> NTSTATUS;
         extern fn PFN_NT_ROLLBACK_TRANSACTION(#[in] TransactionHandle: HANDLE, #[in] Wait: BOOLEAN) -> NTSTATUS;
         extern fn PFN_NT_SET_INFORMATION_TRANSACTION(#[in] TransactionHandle: HANDLE, #[in] TransactionInformationClass: TRANSACTION_INFORMATION_CLASS, #[in] TransactionInformation: PVOID, #[in] TransactionInformationLength: ULONG) -> NTSTATUS;
         #[arch(X64 | Arm64)]
@@ -6292,15 +6282,15 @@ mod Windows {
         extern fn PGET_D3COLD_CAPABILITY(#[in] #[incomplete] #[opt] Context: PVOID, #[out] D3ColdSupported: PBOOLEAN) -> NTSTATUS;
         extern fn PGET_D3COLD_LAST_TRANSITION_STATUS(#[in] #[incomplete] #[opt] Context: PVOID, #[out] LastTransitionStatus: PD3COLD_LAST_TRANSITION_STATUS);
         extern fn PGET_DEVICE_RESET_STATUS(#[in] InterfaceContext: PVOID, #[out] IsResetting: PBOOLEAN, #[out] ResetTypeSelected: PDEVICE_BUS_SPECIFIC_RESET_TYPE, #[out] Flags: PDEVICE_RESET_STATUS_FLAGS) -> NTSTATUS;
-        extern fn PGET_DOE_PREVIOUS_RESPONSE(#[in] InterfaceContext: PVOID, #[in] RequestId: LONGLONG, #[in] OutputArrayCount: ULONG, #[out] OutputWritten: PULONG, #[opt] #[out] #[readable(success, *OutputWritten)] #[writable(entry, OutputArrayCount)] OutputArray: PULONG, #[out] DoeStatus: PNTSTATUS) -> NTSTATUS;
+        extern fn PGET_DOE_PREVIOUS_RESPONSE(#[in] InterfaceContext: PVOID, #[in] RequestId: LONGLONG, #[in] OutputArrayCount: ULONG, #[out] OutputWritten: PULONG, #[buffer(OutputArrayCount)] #[opt] #[out] OutputArray: PULONG, #[out] DoeStatus: PNTSTATUS) -> NTSTATUS;
         extern fn PGET_IDLE_WAKE_INFO(#[in] #[incomplete] #[opt] Context: PVOID, #[in] SystemPowerState: SYSTEM_POWER_STATE, #[out] DeepestWakeableDstate: PDEVICE_WAKE_DEPTH) -> NTSTATUS;
         extern fn PGET_SDEV_IDENTIFIER(#[in] InterfaceContext: PVOID) -> ULONGLONG;
-        extern fn PGET_SET_DEVICE_DATA(#[in] #[opt] #[out] Context: PVOID, #[in] DataType: ULONG, #[in] #[out] #[writable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, Length: ULONG) -> ULONG;
+        extern fn PGET_SET_DEVICE_DATA(#[in] #[opt] #[out] Context: PVOID, #[in] DataType: ULONG, #[buffer(bytes(Length))] #[in] #[out] Buffer: PVOID, #[in] Offset: ULONG, Length: ULONG) -> ULONG;
         extern fn PGET_UPDATED_BUS_RESOURCE(#[in] #[incomplete] #[opt] Context: PVOID, #[out] UpdatedResourceList: *mut PCM_RESOURCE_LIST, #[out] UpdatedTranslatedResourceList: *mut PCM_RESOURCE_LIST) -> NTSTATUS;
-        extern fn PGET_VIRTUAL_DEVICE_DATA(#[in] #[out] Context: PVOID, #[in] VirtualFunction: USHORT, #[out] #[writable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG) -> ULONG;
+        extern fn PGET_VIRTUAL_DEVICE_DATA(#[in] #[out] Context: PVOID, #[in] VirtualFunction: USHORT, #[buffer(bytes(Length))] #[out] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG) -> ULONG;
         extern fn PGET_VIRTUAL_DEVICE_LOCATION(#[in] #[out] Context: PVOID, #[in] VirtualFunction: USHORT, #[out] SegmentNumber: PUINT16, #[out] BusNumber: PUINT8, #[out] FunctionNumber: PUINT8) -> NTSTATUS;
         extern fn PGET_VIRTUAL_DEVICE_RESOURCES(#[in] #[out] Context: PVOID, #[out] CapturedBusNumbers: PUINT8);
-        extern fn PGET_VIRTUAL_FUNCTION_PROBED_BARS(#[in] #[out] Context: PVOID, #[out] #[writable(entry, 6)] BaseRegisterValues: PULONG) -> NTSTATUS;
+        extern fn PGET_VIRTUAL_FUNCTION_PROBED_BARS(#[in] #[out] Context: PVOID, #[buffer(6)] #[out] BaseRegisterValues: PULONG) -> NTSTATUS;
         #[must_use]
         extern fn PGPE_CLEAR_STATUS(param0: PDEVICE_OBJECT, param1: PVOID) -> NTSTATUS;
         #[must_use]
@@ -6342,7 +6332,7 @@ mod Windows {
         extern fn PIOMMU_DEVICE_DELETE(#[in] DmaDevice: PIOMMU_DMA_DEVICE) -> NTSTATUS;
         extern fn PIOMMU_DEVICE_FAULT_HANDLER(#[in] Context: PVOID, #[in] FaultInformation: PFAULT_INFORMATION);
         extern fn PIOMMU_DEVICE_QUERY_DOMAIN_TYPES(#[in] DmaDevice: PIOMMU_DMA_DEVICE, #[out] AvailableDomains: PULONG);
-        extern fn PIOMMU_DEVICE_QUERY_INFORMATION(#[in] DmaDevice: PIOMMU_DMA_DEVICE, #[in] Size: ULONG, #[out] BytesWritten: PULONG, #[out] #[readable(success, *BytesWritten)] #[writable(entry, Size)] Buffer: PIOMMU_DMA_DEVICE_INFORMATION) -> NTSTATUS;
+        extern fn PIOMMU_DEVICE_QUERY_INFORMATION(#[in] DmaDevice: PIOMMU_DMA_DEVICE, #[in] Size: ULONG, #[out] BytesWritten: PULONG, #[buffer(Size)] #[out] Buffer: PIOMMU_DMA_DEVICE_INFORMATION) -> NTSTATUS;
         type PIOMMU_DMA_DEVICE = *mut _IOMMU_DMA_DEVICE;
         type PIOMMU_DMA_DEVICE_INFORMATION = *mut IOMMU_DMA_DEVICE_INFORMATION;
         type PIOMMU_DMA_DOMAIN = *mut _IOMMU_DMA_DOMAIN;
@@ -6429,7 +6419,7 @@ mod Windows {
         type PIO_SECURITY_CONTEXT = *mut IO_SECURITY_CONTEXT;
         type PIO_SESSION_CONNECT_INFO = *mut IO_SESSION_CONNECT_INFO;
         type PIO_SESSION_EVENT = *mut IO_SESSION_EVENT;
-        extern fn PIO_SESSION_NOTIFICATION_FUNCTION(#[in] SessionObject: PVOID, #[in] IoObject: PVOID, #[in] Event: ULONG, #[in] Context: PVOID, #[in] #[opt] #[readable(entry, bytes(PayloadLength))] NotificationPayload: PVOID, #[in] PayloadLength: ULONG) -> NTSTATUS;
+        extern fn PIO_SESSION_NOTIFICATION_FUNCTION(#[in] SessionObject: PVOID, #[in] IoObject: PVOID, #[in] Event: ULONG, #[in] Context: PVOID, #[buffer(bytes(PayloadLength))] #[in] #[opt] NotificationPayload: PVOID, #[in] PayloadLength: ULONG) -> NTSTATUS;
         type PIO_SESSION_STATE = *mut IO_SESSION_STATE;
         type PIO_SESSION_STATE_INFORMATION = *mut IO_SESSION_STATE_INFORMATION;
         type PIO_SESSION_STATE_NOTIFICATION = *mut IO_SESSION_STATE_NOTIFICATION;
@@ -6820,8 +6810,6 @@ mod Windows {
             Anonymous: union {
                 Discrete: struct {
                     Count: ULONG,
-                    #[readable(Count)]
-                    #[writable(Count)]
                     States: PPO_FX_PERF_STATE,
                 },
                 Range: struct {
@@ -6835,8 +6823,6 @@ mod Windows {
             Id: GUID,
             IdleStateCount: ULONG,
             DeepestWakeableIdleState: ULONG,
-            #[readable(IdleStateCount)]
-            #[writable(IdleStateCount)]
             IdleStates: PPO_FX_COMPONENT_IDLE_STATE,
         }
         struct PO_FX_COMPONENT_V2 {
@@ -6844,12 +6830,8 @@ mod Windows {
             Flags: ULONGLONG,
             DeepestWakeableIdleState: ULONG,
             IdleStateCount: ULONG,
-            #[readable(IdleStateCount)]
-            #[writable(IdleStateCount)]
             IdleStates: PPO_FX_COMPONENT_IDLE_STATE,
             ProviderCount: ULONG,
-            #[readable(ProviderCount)]
-            #[writable(ProviderCount)]
             Providers: PULONG,
         }
         type PO_FX_DEVICE = PO_FX_DEVICE_V1;
@@ -6873,8 +6855,6 @@ mod Windows {
             DevicePowerNotRequiredCallback: PPO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK,
             PowerControlCallback: PPO_FX_POWER_CONTROL_CALLBACK,
             DeviceContext: PVOID,
-            #[readable(ComponentCount)]
-            #[writable(ComponentCount)]
             Components: [PO_FX_COMPONENT_V1; 1],
         }
         struct PO_FX_DEVICE_V2 {
@@ -6888,8 +6868,6 @@ mod Windows {
             PowerControlCallback: PPO_FX_POWER_CONTROL_CALLBACK,
             DeviceContext: PVOID,
             ComponentCount: ULONG,
-            #[readable(ComponentCount)]
-            #[writable(ComponentCount)]
             Components: [PO_FX_COMPONENT_V2; 1],
         }
         struct PO_FX_DEVICE_V3 {
@@ -6906,8 +6884,6 @@ mod Windows {
             DirectedFxTimeoutInSeconds: ULONG,
             DeviceContext: PVOID,
             ComponentCount: ULONG,
-            #[readable(ComponentCount)]
-            #[writable(ComponentCount)]
             Components: [PO_FX_COMPONENT_V2; 1],
         }
         const PO_FX_DIRECTED_FX_DEFAULT_IDLE_TIMEOUT: u32 = 0;
@@ -6945,7 +6921,7 @@ mod Windows {
             PoFxPerfStateUnitBandwidth = 2,
             PoFxPerfStateUnitMaximum = 3,
         }
-        extern fn PO_FX_POWER_CONTROL_CALLBACK(#[in] DeviceContext: PVOID, #[in] PowerControlCode: LPCGUID, #[in] #[opt] #[readable(entry, bytes(InBufferSize))] InBuffer: PVOID, #[in] InBufferSize: SIZE_T, #[opt] #[out] #[writable(entry, bytes(OutBufferSize))] OutBuffer: PVOID, #[in] OutBufferSize: SIZE_T, #[opt] #[out] BytesReturned: PSIZE_T) -> NTSTATUS;
+        extern fn PO_FX_POWER_CONTROL_CALLBACK(#[in] DeviceContext: PVOID, #[in] PowerControlCode: LPCGUID, #[buffer(bytes(InBufferSize))] #[in] #[opt] InBuffer: PVOID, #[in] InBufferSize: SIZE_T, #[buffer(bytes(OutBufferSize))] #[opt] #[out] OutBuffer: PVOID, #[in] OutBufferSize: SIZE_T, #[opt] #[out] BytesReturned: PSIZE_T) -> NTSTATUS;
         const PO_FX_UNKNOWN_POWER: u32 = 4294967295;
         const PO_FX_UNKNOWN_TIME: u64 = 18446744073709551615;
         const PO_FX_VERSION: i32 = 1;
@@ -7010,8 +6986,8 @@ mod Windows {
         type PPCI_EXPRESS_ROOT_ERROR_COMMAND = *mut PCI_EXPRESS_ROOT_ERROR_COMMAND;
         type PPCI_EXPRESS_ROOT_ERROR_STATUS = *mut PCI_EXPRESS_ROOT_ERROR_STATUS;
         type PPCI_EXPRESS_ROOT_PORT_INTERFACE = *mut PCI_EXPRESS_ROOT_PORT_INTERFACE;
-        extern fn PPCI_EXPRESS_ROOT_PORT_READ_CONFIG_SPACE(#[in] Context: PVOID, #[out] #[writable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG) -> ULONG;
-        extern fn PPCI_EXPRESS_ROOT_PORT_WRITE_CONFIG_SPACE(#[in] Context: PVOID, #[in] #[readable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG) -> ULONG;
+        extern fn PPCI_EXPRESS_ROOT_PORT_READ_CONFIG_SPACE(#[in] Context: PVOID, #[buffer(bytes(Length))] #[out] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG) -> ULONG;
+        extern fn PPCI_EXPRESS_ROOT_PORT_WRITE_CONFIG_SPACE(#[in] Context: PVOID, #[buffer(bytes(Length))] #[in] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG) -> ULONG;
         type PPCI_EXPRESS_SEC_AER_CAPABILITIES = *mut PCI_EXPRESS_SEC_AER_CAPABILITIES;
         type PPCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK = *mut PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK;
         type PPCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY = *mut PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY;
@@ -7113,7 +7089,7 @@ mod Windows {
         type PPO_FX_PERF_STATE_CHANGE = *mut PO_FX_PERF_STATE_CHANGE;
         type PPO_FX_PERF_STATE_TYPE = *mut PO_FX_PERF_STATE_TYPE;
         type PPO_FX_PERF_STATE_UNIT = *mut PO_FX_PERF_STATE_UNIT;
-        extern fn PPO_FX_POWER_CONTROL_CALLBACK(#[in] DeviceContext: PVOID, #[in] PowerControlCode: LPCGUID, #[in] #[opt] #[readable(entry, bytes(InBufferSize))] InBuffer: PVOID, #[in] InBufferSize: SIZE_T, #[opt] #[out] #[writable(entry, bytes(OutBufferSize))] OutBuffer: PVOID, #[in] OutBufferSize: SIZE_T, #[opt] #[out] BytesReturned: PSIZE_T) -> NTSTATUS;
+        extern fn PPO_FX_POWER_CONTROL_CALLBACK(#[in] DeviceContext: PVOID, #[in] PowerControlCode: LPCGUID, #[buffer(bytes(InBufferSize))] #[in] #[opt] InBuffer: PVOID, #[in] InBufferSize: SIZE_T, #[buffer(bytes(OutBufferSize))] #[opt] #[out] OutBuffer: PVOID, #[in] OutBufferSize: SIZE_T, #[opt] #[out] BytesReturned: PSIZE_T) -> NTSTATUS;
         type PPO_THERMAL_REQUEST_TYPE = *mut PO_THERMAL_REQUEST_TYPE;
         extern fn PPROCESSOR_CALLBACK_FUNCTION(#[in] CallbackContext: PVOID, #[in] ChangeContext: PKE_PROCESSOR_CHANGE_NOTIFY_CONTEXT, #[in] #[out] OperationStatus: PNTSTATUS);
         extern fn PPROCESSOR_HALT_ROUTINE(#[in] #[opt] #[out] Context: PVOID) -> NTSTATUS;
@@ -7123,7 +7099,7 @@ mod Windows {
         extern fn PPTM_DEVICE_QUERY_GRANULARITY(#[in] Context: PVOID, #[out] Granularity: PUCHAR) -> NTSTATUS;
         extern fn PPTM_DEVICE_QUERY_TIME_SOURCE(#[in] Context: PVOID, #[out] TimeSource: PULONG) -> NTSTATUS;
         extern fn PQUERYEXTENDEDADDRESS(#[in] Context: PVOID, #[out] ExtendedAddress: PULONG64);
-        extern fn PQUERY_SUPPORTED_DOE_PROTOCOLS(#[in] InterfaceContext: PVOID, #[in] DataObjectVendorId: USHORT, #[in] ArrayCount: ULONG, #[opt] #[out] #[writable(entry, ArrayCount)] DataObjectTypes: PUCHAR, #[out] DataObjectCount: PULONG) -> NTSTATUS;
+        extern fn PQUERY_SUPPORTED_DOE_PROTOCOLS(#[in] InterfaceContext: PVOID, #[in] DataObjectVendorId: USHORT, #[in] ArrayCount: ULONG, #[buffer(ArrayCount)] #[opt] #[out] DataObjectTypes: PUCHAR, #[out] DataObjectCount: PULONG) -> NTSTATUS;
         extern fn PREENUMERATE_SELF(#[in] Context: PVOID);
         type PREENUMERATE_SELF_INTERFACE_STANDARD = *mut REENUMERATE_SELF_INTERFACE_STANDARD;
         #[must_use]
@@ -7162,7 +7138,7 @@ mod Windows {
         type PREG_SET_VALUE_KEY_INFORMATION = *mut REG_SET_VALUE_KEY_INFORMATION;
         type PREG_UNLOAD_KEY_INFORMATION = *mut REG_UNLOAD_KEY_INFORMATION;
         #[must_use]
-        extern fn PREPLACE_BEGIN(#[in] Parameters: PPNP_REPLACE_PARAMETERS, #[out] #[out_ptr] Context: *mut PVOID) -> NTSTATUS;
+        extern fn PREPLACE_BEGIN(#[in] Parameters: PPNP_REPLACE_PARAMETERS, #[out] Context: *mut PVOID) -> NTSTATUS;
         #[must_use]
         extern fn PREPLACE_DRIVER_INIT(#[in] #[out] Interface: PPNP_REPLACE_DRIVER_INTERFACE, #[in] Unused: PVOID) -> NTSTATUS;
         #[must_use]
@@ -7174,7 +7150,7 @@ mod Windows {
         #[must_use]
         extern fn PREPLACE_INITIATE_HARDWARE_MIRROR(#[in] Context: PVOID) -> NTSTATUS;
         #[must_use]
-        extern fn PREPLACE_MAP_MEMORY(#[in] TargetPhysicalAddress: PHYSICAL_ADDRESS, #[in] SparePhysicalAddress: PHYSICAL_ADDRESS, #[in] #[out] NumberOfBytes: PLARGE_INTEGER, #[out] #[out_ptr] TargetAddress: *mut PVOID, #[out] #[out_ptr] SpareAddress: *mut PVOID) -> NTSTATUS;
+        extern fn PREPLACE_MAP_MEMORY(#[in] TargetPhysicalAddress: PHYSICAL_ADDRESS, #[in] SparePhysicalAddress: PHYSICAL_ADDRESS, #[in] #[out] NumberOfBytes: PLARGE_INTEGER, #[out] TargetAddress: *mut PVOID, #[out] SpareAddress: *mut PVOID) -> NTSTATUS;
         #[must_use]
         extern fn PREPLACE_MIRROR_PHYSICAL_MEMORY(#[in] Context: PVOID, #[in] PhysicalAddress: PHYSICAL_ADDRESS, #[in] ByteCount: LARGE_INTEGER) -> NTSTATUS;
         #[must_use]
@@ -7211,7 +7187,7 @@ mod Windows {
         const PROFILE_LEVEL: i32 = 27;
         type PRTL_BITMAP = *mut RTL_BITMAP;
         type PRTL_BITMAP_RUN = *mut RTL_BITMAP_RUN;
-        extern fn PRTL_QUERY_REGISTRY_ROUTINE(#[in] #[null_terminated(entry)] ValueName: PWSTR, #[in] ValueType: ULONG, #[in] #[opt] #[readable(entry, bytes(ValueLength))] ValueData: PVOID, #[in] ValueLength: ULONG, #[in] #[opt] Context: PVOID, #[in] #[opt] EntryContext: PVOID) -> NTSTATUS;
+        extern fn PRTL_QUERY_REGISTRY_ROUTINE(#[in] #[null_terminated] ValueName: PWSTR, #[in] ValueType: ULONG, #[buffer(bytes(ValueLength))] #[in] #[opt] ValueData: PVOID, #[in] ValueLength: ULONG, #[in] #[opt] Context: PVOID, #[in] #[opt] EntryContext: PVOID) -> NTSTATUS;
         type PRTL_QUERY_REGISTRY_TABLE = *mut RTL_QUERY_REGISTRY_TABLE;
         type PSCATTER_GATHER_ELEMENT = *mut SCATTER_GATHER_ELEMENT;
         type PSDEV_IDENTIFIER_INTERFACE = *mut SDEV_IDENTIFIER_INTERFACE;
@@ -7221,10 +7197,10 @@ mod Windows {
         extern fn PSECURE_DRIVER_PROCESS_REFERENCE(#[in] InterfaceContext: PVOID) -> PEPROCESS;
         type PSECURITY_OPERATION_CODE = *mut SECURITY_OPERATION_CODE;
         type PSECURITY_SUBJECT_CONTEXT = *mut SECURITY_SUBJECT_CONTEXT;
-        extern fn PSEND_DOE_REQUEST(#[in] InterfaceContext: PVOID, #[in] DataObjectVendorId: USHORT, #[in] DataObjectType: UCHAR, #[in] InputArrayCount: ULONG, #[in] #[opt] #[readable(entry, InputArrayCount)] InputArray: PULONG, #[in] OutputArrayCount: ULONG, #[out] OutputWritten: PULONG, #[opt] #[out] #[readable(success, *OutputWritten)] #[writable(entry, OutputArrayCount)] OutputArray: PULONG) -> NTSTATUS;
-        extern fn PSEND_DOE_REQUEST_ASYNC(#[in] InterfaceContext: PVOID, #[in] DataObjectVendorId: USHORT, #[in] DataObjectType: UCHAR, #[in] InputArrayCount: ULONG, #[in] #[opt] #[readable(entry, InputArrayCount)] InputArray: PULONG, #[in] CompletionEvent: PKEVENT, #[out] RequestId: PLONGLONG) -> NTSTATUS;
+        extern fn PSEND_DOE_REQUEST(#[in] InterfaceContext: PVOID, #[in] DataObjectVendorId: USHORT, #[in] DataObjectType: UCHAR, #[in] InputArrayCount: ULONG, #[buffer(InputArrayCount)] #[in] #[opt] InputArray: PULONG, #[in] OutputArrayCount: ULONG, #[out] OutputWritten: PULONG, #[buffer(OutputArrayCount)] #[opt] #[out] OutputArray: PULONG) -> NTSTATUS;
+        extern fn PSEND_DOE_REQUEST_ASYNC(#[in] InterfaceContext: PVOID, #[in] DataObjectVendorId: USHORT, #[in] DataObjectType: UCHAR, #[in] InputArrayCount: ULONG, #[buffer(InputArrayCount)] #[in] #[opt] InputArray: PULONG, #[in] CompletionEvent: PKEVENT, #[out] RequestId: PLONGLONG) -> NTSTATUS;
         extern fn PSET_D3COLD_SUPPORT(#[in] #[incomplete] #[opt] Context: PVOID, #[in] D3ColdSupport: BOOLEAN);
-        extern fn PSET_VIRTUAL_DEVICE_DATA(#[in] #[out] Context: PVOID, #[in] VirtualFunction: USHORT, #[in] #[readable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG) -> ULONG;
+        extern fn PSET_VIRTUAL_DEVICE_DATA(#[in] #[out] Context: PVOID, #[in] VirtualFunction: USHORT, #[buffer(bytes(Length))] #[in] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG) -> ULONG;
         type PSE_IMAGE_TYPE = *mut SE_IMAGE_TYPE;
         extern fn PSE_IMAGE_VERIFICATION_CALLBACK_FUNCTION(#[in] #[opt] CallbackContext: PVOID, #[in] ImageType: SE_IMAGE_TYPE, #[in] #[out] ImageInformation: PBDCB_IMAGE_INFORMATION);
         type PSE_IMAGE_VERIFICATION_CALLBACK_TOKEN = *mut PVOID;
@@ -7271,7 +7247,7 @@ mod Windows {
         extern fn PWORKER_THREAD_ROUTINE(#[in] Parameter: PVOID);
         type PWORK_QUEUE_ITEM = *mut WORK_QUEUE_ITEM;
         type PXSTATE_SAVE = *mut XSTATE_SAVE;
-        extern fn QUERY_SUPPORTED_DOE_PROTOCOLS(#[in] InterfaceContext: PVOID, #[in] DataObjectVendorId: USHORT, #[in] ArrayCount: ULONG, #[opt] #[out] #[writable(entry, ArrayCount)] DataObjectTypes: PUCHAR, #[out] DataObjectCount: PULONG) -> NTSTATUS;
+        extern fn QUERY_SUPPORTED_DOE_PROTOCOLS(#[in] InterfaceContext: PVOID, #[in] DataObjectVendorId: USHORT, #[in] ArrayCount: ULONG, #[buffer(ArrayCount)] #[opt] #[out] DataObjectTypes: PUCHAR, #[out] DataObjectCount: PULONG) -> NTSTATUS;
         struct REENUMERATE_SELF_INTERFACE_STANDARD {
             Size: USHORT,
             Version: USHORT,
@@ -7615,7 +7591,7 @@ mod Windows {
         const RTL_QUERY_REGISTRY_NOSTRING: i32 = 128;
         const RTL_QUERY_REGISTRY_NOVALUE: i32 = 8;
         const RTL_QUERY_REGISTRY_REQUIRED: i32 = 4;
-        extern fn RTL_QUERY_REGISTRY_ROUTINE(#[in] #[null_terminated(entry)] ValueName: PWSTR, #[in] ValueType: ULONG, #[in] #[opt] #[readable(entry, bytes(ValueLength))] ValueData: PVOID, #[in] ValueLength: ULONG, #[in] #[opt] Context: PVOID, #[in] #[opt] EntryContext: PVOID) -> NTSTATUS;
+        extern fn RTL_QUERY_REGISTRY_ROUTINE(#[in] #[null_terminated] ValueName: PWSTR, #[in] ValueType: ULONG, #[buffer(bytes(ValueLength))] #[in] #[opt] ValueData: PVOID, #[in] ValueLength: ULONG, #[in] #[opt] Context: PVOID, #[in] #[opt] EntryContext: PVOID) -> NTSTATUS;
         const RTL_QUERY_REGISTRY_SUBKEY: i32 = 1;
         struct RTL_QUERY_REGISTRY_TABLE {
             QueryRoutine: PRTL_QUERY_REGISTRY_ROUTINE,
@@ -7645,7 +7621,7 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlAppendUnicodeStringToString(#[in] #[out] Destination: PUNICODE_STRING, #[in] Source: PCUNICODE_STRING) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlAppendUnicodeToString(#[in] #[out] Destination: PUNICODE_STRING, #[in] #[null_terminated(entry)] #[opt] Source: PCWSTR) -> NTSTATUS;
+        extern fn RtlAppendUnicodeToString(#[in] #[out] Destination: PUNICODE_STRING, #[in] #[null_terminated] #[opt] Source: PCWSTR) -> NTSTATUS;
         #[library("ntdll.dll")]
         #[must_use]
         extern fn RtlAreBitsClear(#[in] BitMapHeader: PRTL_BITMAP, #[in] StartingIndex: ULONG, #[in] Length: ULONG) -> BOOLEAN;
@@ -7672,7 +7648,7 @@ mod Windows {
         extern fn RtlCompareUnicodeString(#[in] String1: PCUNICODE_STRING, #[in] String2: PCUNICODE_STRING, #[in] CaseInSensitive: BOOLEAN) -> LONG;
         #[library("ntdll.dll")]
         #[must_use]
-        extern fn RtlCompareUnicodeStrings(#[in] #[readable(entry, String1Length)] String1: PCWCH, #[in] String1Length: SIZE_T, #[in] #[readable(entry, String2Length)] String2: PCWCH, #[in] String2Length: SIZE_T, #[in] CaseInSensitive: BOOLEAN) -> LONG;
+        extern fn RtlCompareUnicodeStrings(#[buffer(String1Length)] #[in] String1: PCWCH, #[in] String1Length: SIZE_T, #[buffer(String2Length)] #[in] String2: PCWCH, #[in] String2Length: SIZE_T, #[in] CaseInSensitive: BOOLEAN) -> LONG;
         #[library("ntdll.dll")]
         extern fn RtlCopyBitMap(#[in] Source: PRTL_BITMAP, #[in] Destination: PRTL_BITMAP, TargetBit: ULONG);
         #[library("ntdll.dll")]
@@ -7682,7 +7658,7 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlCreateSecurityDescriptor(#[out] SecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] Revision: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlDeleteRegistryValue(#[in] RelativeTo: ULONG, #[in] Path: PCWSTR, #[in] #[null_terminated(entry)] ValueName: PCWSTR) -> NTSTATUS;
+        extern fn RtlDeleteRegistryValue(#[in] RelativeTo: ULONG, #[in] Path: PCWSTR, #[in] #[null_terminated] ValueName: PCWSTR) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn RtlDowncaseUnicodeChar(#[in] SourceCharacter: WCHAR) -> WCHAR;
         #[library("ntdll.dll")]
@@ -7705,7 +7681,7 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlFindClearBitsAndSet(#[in] BitMapHeader: PRTL_BITMAP, #[in] NumberToFind: ULONG, #[in] HintIndex: ULONG) -> ULONG;
         #[library("ntdll.dll")]
-        extern fn RtlFindClearRuns(#[in] BitMapHeader: PRTL_BITMAP, #[incomplete] #[out] #[writable(entry, SizeOfRunArray)] RunArray: PRTL_BITMAP_RUN, SizeOfRunArray: ULONG, #[in] LocateLongestRuns: BOOLEAN) -> ULONG;
+        extern fn RtlFindClearRuns(#[in] BitMapHeader: PRTL_BITMAP, #[buffer(SizeOfRunArray)] #[incomplete] #[out] RunArray: PRTL_BITMAP_RUN, SizeOfRunArray: ULONG, #[in] LocateLongestRuns: BOOLEAN) -> ULONG;
         #[library("ntdll.dll")]
         extern fn RtlFindClosestEncodableLength(#[in] SourceLength: ULONGLONG, #[out] TargetLength: PULONGLONG) -> NTSTATUS;
         #[library("ntdll.dll")]
@@ -7735,7 +7711,7 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlHashUnicodeString(#[in] String: PCUNICODE_STRING, #[in] CaseInSensitive: BOOLEAN, #[in] HashAlgorithm: ULONG, #[out] HashValue: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlInitUTF8String(#[out] DestinationString: PUTF8_STRING, #[in] #[incomplete] #[null_terminated(entry)] #[opt] SourceString: PCSZ);
+        extern fn RtlInitUTF8String(#[out] DestinationString: PUTF8_STRING, #[in] #[incomplete] #[null_terminated] #[opt] SourceString: PCSZ);
         #[library("ntdll.dll")]
         extern fn RtlInitializeBitMap(#[out] BitMapHeader: PRTL_BITMAP, #[in] #[incomplete] #[opt] BitMapBuffer: PULONG, #[in] #[opt] SizeOfBitMap: ULONG);
         #[library("ntdll.dll")]
@@ -7786,7 +7762,7 @@ mod Windows {
         extern fn RtlUpcaseUnicodeChar(#[in] SourceCharacter: WCHAR) -> WCHAR;
         #[library("ntdll.dll")]
         #[must_use]
-        extern fn RtlValidRelativeSecurityDescriptor(#[in] #[readable(entry, bytes(SecurityDescriptorLength))] SecurityDescriptorInput: PSECURITY_DESCRIPTOR, #[in] SecurityDescriptorLength: ULONG, #[in] RequiredInformation: SECURITY_INFORMATION) -> BOOLEAN;
+        extern fn RtlValidRelativeSecurityDescriptor(#[buffer(bytes(SecurityDescriptorLength))] #[in] SecurityDescriptorInput: PSECURITY_DESCRIPTOR, #[in] SecurityDescriptorLength: ULONG, #[in] RequiredInformation: SECURITY_INFORMATION) -> BOOLEAN;
         #[library("ntdll.dll")]
         #[must_use]
         extern fn RtlValidSecurityDescriptor(#[in] SecurityDescriptor: PSECURITY_DESCRIPTOR) -> BOOLEAN;
@@ -7794,7 +7770,7 @@ mod Windows {
         #[must_use]
         extern fn RtlVerifyVersionInfo(#[in] VersionInfo: PRTL_OSVERSIONINFOEXW, #[in] TypeMask: ULONG, #[in] ConditionMask: ULONGLONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlWriteRegistryValue(#[in] RelativeTo: ULONG, #[in] Path: PCWSTR, #[in] #[null_terminated(entry)] ValueName: PCWSTR, #[in] ValueType: ULONG, #[in] #[opt] #[readable(entry, bytes(ValueLength))] ValueData: PVOID, #[in] ValueLength: ULONG) -> NTSTATUS;
+        extern fn RtlWriteRegistryValue(#[in] RelativeTo: ULONG, #[in] Path: PCWSTR, #[in] #[null_terminated] ValueName: PCWSTR, #[in] ValueType: ULONG, #[buffer(bytes(ValueLength))] #[in] #[opt] ValueData: PVOID, #[in] ValueLength: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn RtlxAnsiStringToUnicodeSize(#[in] AnsiString: PCANSI_STRING) -> ULONG;
         #[library("ntdll.dll")]
@@ -7847,10 +7823,10 @@ mod Windows {
         }
         const SEGMENT_ALL_ACCESS: i32 = 983071;
         const SEMAPHORE_QUERY_STATE: i32 = 1;
-        extern fn SEND_DOE_REQUEST(#[in] InterfaceContext: PVOID, #[in] DataObjectVendorId: USHORT, #[in] DataObjectType: UCHAR, #[in] InputArrayCount: ULONG, #[in] #[opt] #[readable(entry, InputArrayCount)] InputArray: PULONG, #[in] OutputArrayCount: ULONG, #[out] OutputWritten: PULONG, #[opt] #[out] #[readable(success, *OutputWritten)] #[writable(entry, OutputArrayCount)] OutputArray: PULONG) -> NTSTATUS;
-        extern fn SEND_DOE_REQUEST_ASYNC(#[in] InterfaceContext: PVOID, #[in] DataObjectVendorId: USHORT, #[in] DataObjectType: UCHAR, #[in] InputArrayCount: ULONG, #[in] #[opt] #[readable(entry, InputArrayCount)] InputArray: PULONG, #[in] CompletionEvent: PKEVENT, #[out] RequestId: PLONGLONG) -> NTSTATUS;
+        extern fn SEND_DOE_REQUEST(#[in] InterfaceContext: PVOID, #[in] DataObjectVendorId: USHORT, #[in] DataObjectType: UCHAR, #[in] InputArrayCount: ULONG, #[buffer(InputArrayCount)] #[in] #[opt] InputArray: PULONG, #[in] OutputArrayCount: ULONG, #[out] OutputWritten: PULONG, #[buffer(OutputArrayCount)] #[opt] #[out] OutputArray: PULONG) -> NTSTATUS;
+        extern fn SEND_DOE_REQUEST_ASYNC(#[in] InterfaceContext: PVOID, #[in] DataObjectVendorId: USHORT, #[in] DataObjectType: UCHAR, #[in] InputArrayCount: ULONG, #[buffer(InputArrayCount)] #[in] #[opt] InputArray: PULONG, #[in] CompletionEvent: PKEVENT, #[out] RequestId: PLONGLONG) -> NTSTATUS;
         extern fn SET_D3COLD_SUPPORT(#[in] #[incomplete] #[opt] Context: PVOID, #[in] D3ColdSupport: BOOLEAN);
-        extern fn SET_VIRTUAL_DEVICE_DATA(#[in] #[out] Context: PVOID, #[in] VirtualFunction: USHORT, #[in] #[readable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG) -> ULONG;
+        extern fn SET_VIRTUAL_DEVICE_DATA(#[in] #[out] Context: PVOID, #[in] VirtualFunction: USHORT, #[buffer(bytes(Length))] #[in] Buffer: PVOID, #[in] Offset: ULONG, #[in] Length: ULONG) -> ULONG;
         const SE_ASSIGNPRIMARYTOKEN_PRIVILEGE: i32 = 3;
         const SE_AUDIT_PRIVILEGE: i32 = 21;
         const SE_BACKUP_PRIVILEGE: i32 = 17;
@@ -8244,7 +8220,7 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn ZwCreateEnlistment(#[out] EnlistmentHandle: PHANDLE, #[in] DesiredAccess: ACCESS_MASK, #[in] ResourceManagerHandle: HANDLE, #[in] TransactionHandle: HANDLE, #[in] #[opt] ObjectAttributes: POBJECT_ATTRIBUTES, #[in] #[opt] CreateOptions: ULONG, #[in] NotificationMask: NOTIFICATION_MASK, #[in] #[opt] EnlistmentKey: PVOID) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn ZwCreateFile(#[out] FileHandle: PHANDLE, #[in] DesiredAccess: ACCESS_MASK, #[in] ObjectAttributes: POBJECT_ATTRIBUTES, #[out] IoStatusBlock: PIO_STATUS_BLOCK, #[in] #[opt] AllocationSize: PLARGE_INTEGER, #[in] FileAttributes: ULONG, #[in] ShareAccess: ULONG, #[in] CreateDisposition: ULONG, #[in] CreateOptions: ULONG, #[in] #[opt] #[readable(entry, bytes(EaLength))] EaBuffer: PVOID, #[in] EaLength: ULONG) -> NTSTATUS;
+        extern fn ZwCreateFile(#[out] FileHandle: PHANDLE, #[in] DesiredAccess: ACCESS_MASK, #[in] ObjectAttributes: POBJECT_ATTRIBUTES, #[out] IoStatusBlock: PIO_STATUS_BLOCK, #[in] #[opt] AllocationSize: PLARGE_INTEGER, #[in] FileAttributes: ULONG, #[in] ShareAccess: ULONG, #[in] CreateDisposition: ULONG, #[in] CreateOptions: ULONG, #[buffer(bytes(EaLength))] #[in] #[opt] EaBuffer: PVOID, #[in] EaLength: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn ZwCreateIoCompletion(#[out] IoCompletionHandle: PHANDLE, #[in] DesiredAccess: ACCESS_MASK, #[in] #[opt] ObjectAttributes: POBJECT_ATTRIBUTES, #[in] #[opt] Count: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
@@ -8267,11 +8243,11 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn ZwDeleteValueKey(#[in] KeyHandle: HANDLE, #[in] ValueName: PUNICODE_STRING) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn ZwEnumerateKey(#[in] KeyHandle: HANDLE, #[in] Index: ULONG, #[in] KeyInformationClass: KEY_INFORMATION_CLASS, #[opt] #[out] #[readable(success, bytes(*ResultLength))] #[writable(entry, bytes(Length))] KeyInformation: PVOID, #[in] Length: ULONG, #[out] ResultLength: PULONG) -> NTSTATUS;
+        extern fn ZwEnumerateKey(#[in] KeyHandle: HANDLE, #[in] Index: ULONG, #[in] KeyInformationClass: KEY_INFORMATION_CLASS, #[buffer(bytes(Length))] #[opt] #[out] KeyInformation: PVOID, #[in] Length: ULONG, #[out] ResultLength: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn ZwEnumerateTransactionObject(#[in] #[opt] RootObjectHandle: HANDLE, #[in] QueryType: KTMOBJECT_TYPE, #[in] #[out] #[writable(entry, bytes(ObjectCursorLength))] ObjectCursor: PKTMOBJECT_CURSOR, #[in] ObjectCursorLength: ULONG, #[out] ReturnLength: PULONG) -> NTSTATUS;
+        extern fn ZwEnumerateTransactionObject(#[in] #[opt] RootObjectHandle: HANDLE, #[in] QueryType: KTMOBJECT_TYPE, #[buffer(bytes(ObjectCursorLength))] #[in] #[out] ObjectCursor: PKTMOBJECT_CURSOR, #[in] ObjectCursorLength: ULONG, #[out] ReturnLength: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn ZwEnumerateValueKey(#[in] KeyHandle: HANDLE, #[in] Index: ULONG, #[in] KeyValueInformationClass: KEY_VALUE_INFORMATION_CLASS, #[opt] #[out] #[readable(success, bytes(*ResultLength))] #[writable(entry, bytes(Length))] KeyValueInformation: PVOID, #[in] Length: ULONG, #[out] ResultLength: PULONG) -> NTSTATUS;
+        extern fn ZwEnumerateValueKey(#[in] KeyHandle: HANDLE, #[in] Index: ULONG, #[in] KeyValueInformationClass: KEY_VALUE_INFORMATION_CLASS, #[buffer(bytes(Length))] #[opt] #[out] KeyValueInformation: PVOID, #[in] Length: ULONG, #[out] ResultLength: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn ZwFlushKey(#[in] KeyHandle: HANDLE) -> NTSTATUS;
         #[library("ntdll.dll")]
@@ -8282,7 +8258,7 @@ mod Windows {
         extern fn ZwMakeTemporaryObject(#[in] Handle: HANDLE) -> NTSTATUS;
         #[library("ntdll.dll")]
         #[must_use]
-        extern fn ZwMapViewOfSection(#[in] SectionHandle: HANDLE, #[in] ProcessHandle: HANDLE, #[out] #[writable(success, bytes(*ViewSize), indirect)] BaseAddress: *mut PVOID, #[in] ZeroBits: ULONG_PTR, #[in] CommitSize: SIZE_T, #[in] #[opt] #[out] SectionOffset: PLARGE_INTEGER, #[in] #[out] ViewSize: PSIZE_T, #[in] InheritDisposition: SECTION_INHERIT, #[in] AllocationType: ULONG, #[in] Win32Protect: ULONG) -> NTSTATUS;
+        extern fn ZwMapViewOfSection(#[in] SectionHandle: HANDLE, #[in] ProcessHandle: HANDLE, #[incomplete] #[out] BaseAddress: *mut PVOID, #[in] ZeroBits: ULONG_PTR, #[in] CommitSize: SIZE_T, #[in] #[opt] #[out] SectionOffset: PLARGE_INTEGER, #[in] #[out] ViewSize: PSIZE_T, #[in] InheritDisposition: SECTION_INHERIT, #[in] AllocationType: ULONG, #[in] Win32Protect: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn ZwOpenEnlistment(#[out] EnlistmentHandle: PHANDLE, #[in] DesiredAccess: ACCESS_MASK, #[in] RmHandle: HANDLE, #[in] EnlistmentGuid: LPGUID, #[in] #[opt] ObjectAttributes: POBJECT_ATTRIBUTES) -> NTSTATUS;
         #[library("ntdll.dll")]
@@ -8318,25 +8294,25 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn ZwQueryFullAttributesFile(#[in] ObjectAttributes: POBJECT_ATTRIBUTES, #[out] FileInformation: PFILE_NETWORK_OPEN_INFORMATION) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn ZwQueryInformationByName(#[in] ObjectAttributes: POBJECT_ATTRIBUTES, #[out] IoStatusBlock: PIO_STATUS_BLOCK, #[out] #[writable(entry, bytes(Length))] FileInformation: PVOID, #[in] Length: ULONG, #[in] FileInformationClass: FILE_INFORMATION_CLASS) -> NTSTATUS;
+        extern fn ZwQueryInformationByName(#[in] ObjectAttributes: POBJECT_ATTRIBUTES, #[out] IoStatusBlock: PIO_STATUS_BLOCK, #[buffer(bytes(Length))] #[out] FileInformation: PVOID, #[in] Length: ULONG, #[in] FileInformationClass: FILE_INFORMATION_CLASS) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn ZwQueryInformationEnlistment(#[in] EnlistmentHandle: HANDLE, #[in] EnlistmentInformationClass: ENLISTMENT_INFORMATION_CLASS, #[out] #[writable(entry, bytes(EnlistmentInformationLength))] EnlistmentInformation: PVOID, #[in] EnlistmentInformationLength: ULONG, #[opt] #[out] ReturnLength: PULONG) -> NTSTATUS;
+        extern fn ZwQueryInformationEnlistment(#[in] EnlistmentHandle: HANDLE, #[in] EnlistmentInformationClass: ENLISTMENT_INFORMATION_CLASS, #[buffer(bytes(EnlistmentInformationLength))] #[out] EnlistmentInformation: PVOID, #[in] EnlistmentInformationLength: ULONG, #[opt] #[out] ReturnLength: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn ZwQueryInformationFile(#[in] FileHandle: HANDLE, #[out] IoStatusBlock: PIO_STATUS_BLOCK, #[out] #[writable(entry, bytes(Length))] FileInformation: PVOID, #[in] Length: ULONG, #[in] FileInformationClass: FILE_INFORMATION_CLASS) -> NTSTATUS;
+        extern fn ZwQueryInformationFile(#[in] FileHandle: HANDLE, #[out] IoStatusBlock: PIO_STATUS_BLOCK, #[buffer(bytes(Length))] #[out] FileInformation: PVOID, #[in] Length: ULONG, #[in] FileInformationClass: FILE_INFORMATION_CLASS) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn ZwQueryInformationResourceManager(#[in] ResourceManagerHandle: HANDLE, #[in] ResourceManagerInformationClass: RESOURCEMANAGER_INFORMATION_CLASS, #[out] #[writable(entry, bytes(ResourceManagerInformationLength))] ResourceManagerInformation: PVOID, #[in] ResourceManagerInformationLength: ULONG, #[opt] #[out] ReturnLength: PULONG) -> NTSTATUS;
+        extern fn ZwQueryInformationResourceManager(#[in] ResourceManagerHandle: HANDLE, #[in] ResourceManagerInformationClass: RESOURCEMANAGER_INFORMATION_CLASS, #[buffer(bytes(ResourceManagerInformationLength))] #[out] ResourceManagerInformation: PVOID, #[in] ResourceManagerInformationLength: ULONG, #[opt] #[out] ReturnLength: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn ZwQueryInformationTransaction(#[in] TransactionHandle: HANDLE, #[in] TransactionInformationClass: TRANSACTION_INFORMATION_CLASS, #[out] #[writable(entry, bytes(TransactionInformationLength))] TransactionInformation: PVOID, #[in] TransactionInformationLength: ULONG, #[opt] #[out] ReturnLength: PULONG) -> NTSTATUS;
+        extern fn ZwQueryInformationTransaction(#[in] TransactionHandle: HANDLE, #[in] TransactionInformationClass: TRANSACTION_INFORMATION_CLASS, #[buffer(bytes(TransactionInformationLength))] #[out] TransactionInformation: PVOID, #[in] TransactionInformationLength: ULONG, #[opt] #[out] ReturnLength: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn ZwQueryInformationTransactionManager(#[in] TransactionManagerHandle: HANDLE, #[in] TransactionManagerInformationClass: TRANSACTIONMANAGER_INFORMATION_CLASS, #[out] #[writable(entry, bytes(TransactionManagerInformationLength))] TransactionManagerInformation: PVOID, #[in] TransactionManagerInformationLength: ULONG, #[opt] #[out] ReturnLength: PULONG) -> NTSTATUS;
+        extern fn ZwQueryInformationTransactionManager(#[in] TransactionManagerHandle: HANDLE, #[in] TransactionManagerInformationClass: TRANSACTIONMANAGER_INFORMATION_CLASS, #[buffer(bytes(TransactionManagerInformationLength))] #[out] TransactionManagerInformation: PVOID, #[in] TransactionManagerInformationLength: ULONG, #[opt] #[out] ReturnLength: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn ZwQueryKey(#[in] KeyHandle: HANDLE, #[in] KeyInformationClass: KEY_INFORMATION_CLASS, #[opt] #[out] #[readable(success, bytes(*ResultLength))] #[writable(entry, bytes(Length))] KeyInformation: PVOID, #[in] Length: ULONG, #[out] ResultLength: PULONG) -> NTSTATUS;
+        extern fn ZwQueryKey(#[in] KeyHandle: HANDLE, #[in] KeyInformationClass: KEY_INFORMATION_CLASS, #[buffer(bytes(Length))] #[opt] #[out] KeyInformation: PVOID, #[in] Length: ULONG, #[out] ResultLength: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn ZwQuerySymbolicLinkObject(#[in] LinkHandle: HANDLE, #[in] #[out] LinkTarget: PUNICODE_STRING, #[opt] #[out] ReturnedLength: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn ZwQueryValueKey(#[in] KeyHandle: HANDLE, #[in] ValueName: PUNICODE_STRING, #[in] KeyValueInformationClass: KEY_VALUE_INFORMATION_CLASS, #[opt] #[out] #[readable(success, bytes(*ResultLength))] #[writable(entry, bytes(Length))] KeyValueInformation: PVOID, #[in] Length: ULONG, #[out] ResultLength: PULONG) -> NTSTATUS;
+        extern fn ZwQueryValueKey(#[in] KeyHandle: HANDLE, #[in] ValueName: PUNICODE_STRING, #[in] KeyValueInformationClass: KEY_VALUE_INFORMATION_CLASS, #[buffer(bytes(Length))] #[opt] #[out] KeyValueInformation: PVOID, #[in] Length: ULONG, #[out] ResultLength: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn ZwReadFile(#[in] FileHandle: HANDLE, #[in] #[opt] Event: HANDLE, #[in] #[opt] ApcRoutine: PIO_APC_ROUTINE, #[in] #[opt] ApcContext: PVOID, #[out] IoStatusBlock: PIO_STATUS_BLOCK, #[out] #[writable(entry, bytes(Length))] Buffer: PVOID, #[in] Length: ULONG, #[in] #[opt] ByteOffset: PLARGE_INTEGER, #[in] #[opt] Key: PULONG) -> NTSTATUS;
+        extern fn ZwReadFile(#[in] FileHandle: HANDLE, #[in] #[opt] Event: HANDLE, #[in] #[opt] ApcRoutine: PIO_APC_ROUTINE, #[in] #[opt] ApcContext: PVOID, #[out] IoStatusBlock: PIO_STATUS_BLOCK, #[buffer(bytes(Length))] #[out] Buffer: PVOID, #[in] Length: ULONG, #[in] #[opt] ByteOffset: PLARGE_INTEGER, #[in] #[opt] Key: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn ZwReadOnlyEnlistment(#[in] EnlistmentHandle: HANDLE, #[in] #[opt] TmVirtualClock: PLARGE_INTEGER) -> NTSTATUS;
         #[library("ntdll.dll")]
@@ -8362,17 +8338,17 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn ZwSaveKeyEx(#[in] KeyHandle: HANDLE, #[in] FileHandle: HANDLE, #[in] Format: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn ZwSetInformationEnlistment(#[in] EnlistmentHandle: HANDLE, #[in] EnlistmentInformationClass: ENLISTMENT_INFORMATION_CLASS, #[in] #[readable(entry, bytes(EnlistmentInformationLength))] EnlistmentInformation: PVOID, #[in] EnlistmentInformationLength: ULONG) -> NTSTATUS;
+        extern fn ZwSetInformationEnlistment(#[in] EnlistmentHandle: HANDLE, #[in] EnlistmentInformationClass: ENLISTMENT_INFORMATION_CLASS, #[buffer(bytes(EnlistmentInformationLength))] #[in] EnlistmentInformation: PVOID, #[in] EnlistmentInformationLength: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn ZwSetInformationFile(#[in] FileHandle: HANDLE, #[out] IoStatusBlock: PIO_STATUS_BLOCK, #[in] #[readable(entry, bytes(Length))] FileInformation: PVOID, #[in] Length: ULONG, #[in] FileInformationClass: FILE_INFORMATION_CLASS) -> NTSTATUS;
+        extern fn ZwSetInformationFile(#[in] FileHandle: HANDLE, #[out] IoStatusBlock: PIO_STATUS_BLOCK, #[buffer(bytes(Length))] #[in] FileInformation: PVOID, #[in] Length: ULONG, #[in] FileInformationClass: FILE_INFORMATION_CLASS) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn ZwSetInformationResourceManager(#[in] ResourceManagerHandle: HANDLE, #[in] ResourceManagerInformationClass: RESOURCEMANAGER_INFORMATION_CLASS, #[in] #[readable(entry, bytes(ResourceManagerInformationLength))] ResourceManagerInformation: PVOID, #[in] ResourceManagerInformationLength: ULONG) -> NTSTATUS;
+        extern fn ZwSetInformationResourceManager(#[in] ResourceManagerHandle: HANDLE, #[in] ResourceManagerInformationClass: RESOURCEMANAGER_INFORMATION_CLASS, #[buffer(bytes(ResourceManagerInformationLength))] #[in] ResourceManagerInformation: PVOID, #[in] ResourceManagerInformationLength: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn ZwSetInformationTransaction(#[in] TransactionHandle: HANDLE, #[in] TransactionInformationClass: TRANSACTION_INFORMATION_CLASS, #[in] TransactionInformation: PVOID, #[in] TransactionInformationLength: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn ZwSetInformationTransactionManager(#[in] TmHandle: HANDLE, #[in] TransactionManagerInformationClass: TRANSACTIONMANAGER_INFORMATION_CLASS, #[in] TransactionManagerInformation: PVOID, #[in] TransactionManagerInformationLength: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn ZwSetValueKey(#[in] KeyHandle: HANDLE, #[in] ValueName: PUNICODE_STRING, #[in] #[opt] TitleIndex: ULONG, #[in] Type: ULONG, #[in] #[opt] #[readable(entry, bytes(DataSize))] Data: PVOID, #[in] DataSize: ULONG) -> NTSTATUS;
+        extern fn ZwSetValueKey(#[in] KeyHandle: HANDLE, #[in] ValueName: PUNICODE_STRING, #[in] #[opt] TitleIndex: ULONG, #[in] Type: ULONG, #[buffer(bytes(DataSize))] #[in] #[opt] Data: PVOID, #[in] DataSize: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn ZwSinglePhaseReject(#[in] EnlistmentHandle: HANDLE, #[in] #[opt] TmVirtualClock: PLARGE_INTEGER) -> NTSTATUS;
         #[library("ntdll.dll")]
@@ -8380,7 +8356,7 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn ZwUnmapViewOfSection(#[in] ProcessHandle: HANDLE, #[in] #[opt] BaseAddress: PVOID) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn ZwWriteFile(#[in] FileHandle: HANDLE, #[in] #[opt] Event: HANDLE, #[in] #[opt] ApcRoutine: PIO_APC_ROUTINE, #[in] #[opt] ApcContext: PVOID, #[out] IoStatusBlock: PIO_STATUS_BLOCK, #[in] #[readable(entry, bytes(Length))] Buffer: PVOID, #[in] Length: ULONG, #[in] #[opt] ByteOffset: PLARGE_INTEGER, #[in] #[opt] Key: PULONG) -> NTSTATUS;
+        extern fn ZwWriteFile(#[in] FileHandle: HANDLE, #[in] #[opt] Event: HANDLE, #[in] #[opt] ApcRoutine: PIO_APC_ROUTINE, #[in] #[opt] ApcContext: PVOID, #[out] IoStatusBlock: PIO_STATUS_BLOCK, #[buffer(bytes(Length))] #[in] Buffer: PVOID, #[in] Length: ULONG, #[in] #[opt] ByteOffset: PLARGE_INTEGER, #[in] #[opt] Key: PULONG) -> NTSTATUS;
         struct _AFFINITY_TOKEN {}
         struct _CALLBACK_OBJECT {}
         struct _DEVICE_OBJECT_POWER_EXTENSION {}
@@ -8503,8 +8479,8 @@ mod Windows {
         type __prefast_analysis_mode_flag1 = i32;
         const __string_type: i32 = 0;
         #[library("ntdll.dll")]
-        extern fn vDbgPrintEx(#[in] ComponentId: ULONG, #[in] Level: ULONG, #[in] #[null_terminated(entry)] Format: PCCH, #[in] arglist: va_list) -> ULONG;
+        extern fn vDbgPrintEx(#[in] ComponentId: ULONG, #[in] Level: ULONG, #[in] #[null_terminated] Format: PCCH, #[in] arglist: va_list) -> ULONG;
         #[library("ntdll.dll")]
-        extern fn vDbgPrintExWithPrefix(#[in] #[null_terminated(entry)] Prefix: PCCH, #[in] ComponentId: ULONG, #[in] Level: ULONG, #[in] #[null_terminated(entry)] Format: PCCH, #[in] arglist: va_list) -> ULONG;
+        extern fn vDbgPrintExWithPrefix(#[in] #[null_terminated] Prefix: PCCH, #[in] ComponentId: ULONG, #[in] Level: ULONG, #[in] #[null_terminated] Format: PCCH, #[in] arglist: va_list) -> ULONG;
     }
 }

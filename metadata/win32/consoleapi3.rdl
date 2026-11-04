@@ -38,33 +38,33 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn ExpungeConsoleCommandHistoryW(#[in] ExeName: LPWSTR);
         #[library("KERNEL32.dll")]
-        extern fn GetConsoleAliasA(#[in] Source: LPSTR, #[out] #[writable(entry, TargetBufferLength)] TargetBuffer: LPSTR, #[in] TargetBufferLength: DWORD, #[in] ExeName: LPSTR) -> DWORD;
+        extern fn GetConsoleAliasA(#[in] Source: LPSTR, #[buffer(TargetBufferLength)] #[out] TargetBuffer: LPSTR, #[in] TargetBufferLength: DWORD, #[in] ExeName: LPSTR) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetConsoleAliasExesA(#[out] #[writable(entry, ExeNameBufferLength)] ExeNameBuffer: LPSTR, #[in] ExeNameBufferLength: DWORD) -> DWORD;
+        extern fn GetConsoleAliasExesA(#[buffer(ExeNameBufferLength)] #[out] ExeNameBuffer: LPSTR, #[in] ExeNameBufferLength: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn GetConsoleAliasExesLengthA() -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn GetConsoleAliasExesLengthW() -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetConsoleAliasExesW(#[out] #[writable(entry, ExeNameBufferLength)] ExeNameBuffer: LPWSTR, #[in] ExeNameBufferLength: DWORD) -> DWORD;
+        extern fn GetConsoleAliasExesW(#[buffer(ExeNameBufferLength)] #[out] ExeNameBuffer: LPWSTR, #[in] ExeNameBufferLength: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetConsoleAliasW(#[in] Source: LPWSTR, #[out] #[writable(entry, TargetBufferLength)] TargetBuffer: LPWSTR, #[in] TargetBufferLength: DWORD, #[in] ExeName: LPWSTR) -> DWORD;
+        extern fn GetConsoleAliasW(#[in] Source: LPWSTR, #[buffer(TargetBufferLength)] #[out] TargetBuffer: LPWSTR, #[in] TargetBufferLength: DWORD, #[in] ExeName: LPWSTR) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetConsoleAliasesA(#[out] #[writable(entry, AliasBufferLength)] AliasBuffer: LPSTR, #[in] AliasBufferLength: DWORD, #[in] ExeName: LPSTR) -> DWORD;
+        extern fn GetConsoleAliasesA(#[buffer(AliasBufferLength)] #[out] AliasBuffer: LPSTR, #[in] AliasBufferLength: DWORD, #[in] ExeName: LPSTR) -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn GetConsoleAliasesLengthA(#[in] ExeName: LPSTR) -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn GetConsoleAliasesLengthW(#[in] ExeName: LPWSTR) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetConsoleAliasesW(#[out] #[writable(entry, AliasBufferLength)] AliasBuffer: LPWSTR, #[in] AliasBufferLength: DWORD, #[in] ExeName: LPWSTR) -> DWORD;
+        extern fn GetConsoleAliasesW(#[buffer(AliasBufferLength)] #[out] AliasBuffer: LPWSTR, #[in] AliasBufferLength: DWORD, #[in] ExeName: LPWSTR) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetConsoleCommandHistoryA(#[out] #[writable(entry, bytes(CommandBufferLength))] Commands: LPSTR, #[in] CommandBufferLength: DWORD, #[in] ExeName: LPSTR) -> DWORD;
+        extern fn GetConsoleCommandHistoryA(#[buffer(bytes(CommandBufferLength))] #[out] Commands: LPSTR, #[in] CommandBufferLength: DWORD, #[in] ExeName: LPSTR) -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn GetConsoleCommandHistoryLengthA(#[in] ExeName: LPSTR) -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn GetConsoleCommandHistoryLengthW(#[in] ExeName: LPWSTR) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetConsoleCommandHistoryW(#[out] #[writable(entry, bytes(CommandBufferLength))] Commands: LPWSTR, #[in] CommandBufferLength: DWORD, #[in] ExeName: LPWSTR) -> DWORD;
+        extern fn GetConsoleCommandHistoryW(#[buffer(bytes(CommandBufferLength))] #[out] Commands: LPWSTR, #[in] CommandBufferLength: DWORD, #[in] ExeName: LPWSTR) -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn GetConsoleDisplayMode(#[out] lpModeFlags: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -72,7 +72,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn GetConsoleHistoryInfo(#[out] lpConsoleHistoryInfo: PCONSOLE_HISTORY_INFO) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetConsoleProcessList(#[out] #[writable(entry, dwProcessCount)] lpdwProcessList: LPDWORD, #[in] dwProcessCount: DWORD) -> DWORD;
+        extern fn GetConsoleProcessList(#[buffer(dwProcessCount)] #[out] lpdwProcessList: LPDWORD, #[in] dwProcessCount: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn GetConsoleSelectionInfo(#[out] lpConsoleSelectionInfo: PCONSOLE_SELECTION_INFO) -> BOOL;
         #[library("KERNEL32.dll")]

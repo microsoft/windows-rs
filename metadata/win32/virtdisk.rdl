@@ -243,7 +243,7 @@ mod Windows {
             EXPAND_VIRTUAL_DISK_VERSION_1 = 1,
         }
         #[library("VirtDisk.dll")]
-        extern fn EnumerateVirtualDiskMetadata(#[in] VirtualDiskHandle: HANDLE, #[in] #[out] NumberOfItems: PULONG, #[out] #[writable(entry, *NumberOfItems)] Items: *mut GUID) -> DWORD;
+        extern fn EnumerateVirtualDiskMetadata(#[in] VirtualDiskHandle: HANDLE, #[in] #[out] NumberOfItems: PULONG, #[buffer(*NumberOfItems)] #[out] Items: *mut GUID) -> DWORD;
         #[library("VirtDisk.dll")]
         extern fn ExpandVirtualDisk(#[in] VirtualDiskHandle: HANDLE, #[in] Flags: EXPAND_VIRTUAL_DISK_FLAG, #[in] Parameters: PEXPAND_VIRTUAL_DISK_PARAMETERS, #[in] #[opt] Overlapped: LPOVERLAPPED) -> DWORD;
         #[flags]
@@ -331,15 +331,15 @@ mod Windows {
             GET_VIRTUAL_DISK_INFO_CHANGE_TRACKING_STATE = 15,
         }
         #[library("VirtDisk.dll")]
-        extern fn GetAllAttachedVirtualDiskPhysicalPaths(#[in] #[out] PathsBufferSizeInBytes: PULONG, #[out] #[writable(entry, bytes(*PathsBufferSizeInBytes))] PathsBuffer: PWSTR) -> DWORD;
+        extern fn GetAllAttachedVirtualDiskPhysicalPaths(#[in] #[out] PathsBufferSizeInBytes: PULONG, #[buffer(bytes(*PathsBufferSizeInBytes))] #[out] PathsBuffer: PWSTR) -> DWORD;
         #[library("VirtDisk.dll")]
-        extern fn GetVirtualDiskInformation(#[in] VirtualDiskHandle: HANDLE, #[in] #[out] VirtualDiskInfoSize: PULONG, #[in] #[out] #[readable(entry, bytes(*VirtualDiskInfoSize))] #[readable(success, bytes(*VirtualDiskInfoSize))] #[writable(entry, bytes(*VirtualDiskInfoSize))] VirtualDiskInfo: PGET_VIRTUAL_DISK_INFO, #[opt] #[out] SizeUsed: PULONG) -> DWORD;
+        extern fn GetVirtualDiskInformation(#[in] VirtualDiskHandle: HANDLE, #[in] #[out] VirtualDiskInfoSize: PULONG, #[buffer(bytes(*VirtualDiskInfoSize))] #[in] #[out] VirtualDiskInfo: PGET_VIRTUAL_DISK_INFO, #[opt] #[out] SizeUsed: PULONG) -> DWORD;
         #[library("VirtDisk.dll")]
-        extern fn GetVirtualDiskMetadata(#[in] VirtualDiskHandle: HANDLE, #[in] Item: *const GUID, #[in] #[out] MetaDataSize: PULONG, #[out] #[writable(entry, bytes(*MetaDataSize))] MetaData: PVOID) -> DWORD;
+        extern fn GetVirtualDiskMetadata(#[in] VirtualDiskHandle: HANDLE, #[in] Item: *const GUID, #[in] #[out] MetaDataSize: PULONG, #[buffer(bytes(*MetaDataSize))] #[out] MetaData: PVOID) -> DWORD;
         #[library("VirtDisk.dll")]
         extern fn GetVirtualDiskOperationProgress(#[in] VirtualDiskHandle: HANDLE, #[in] Overlapped: LPOVERLAPPED, #[out] Progress: PVIRTUAL_DISK_PROGRESS) -> DWORD;
         #[library("VirtDisk.dll")]
-        extern fn GetVirtualDiskPhysicalPath(#[in] VirtualDiskHandle: HANDLE, #[in] #[out] DiskPathSizeInBytes: PULONG, #[out] #[writable(entry, bytes(*DiskPathSizeInBytes))] DiskPath: PWSTR) -> DWORD;
+        extern fn GetVirtualDiskPhysicalPath(#[in] VirtualDiskHandle: HANDLE, #[in] #[out] DiskPathSizeInBytes: PULONG, #[buffer(bytes(*DiskPathSizeInBytes))] #[out] DiskPath: PWSTR) -> DWORD;
         const MERGE_VIRTUAL_DISK_DEFAULT_MERGE_DEPTH: i32 = 1;
         #[flags]
         #[repr(i32)]
@@ -500,7 +500,7 @@ mod Windows {
             Reserved: ULONG64,
         }
         #[library("VirtDisk.dll")]
-        extern fn QueryChangesVirtualDisk(#[in] VirtualDiskHandle: HANDLE, #[in] ChangeTrackingId: PCWSTR, #[in] ByteOffset: ULONG64, #[in] ByteLength: ULONG64, #[in] Flags: QUERY_CHANGES_VIRTUAL_DISK_FLAG, #[out] #[readable(success, *RangeCount)] #[writable(entry, *RangeCount)] Ranges: PQUERY_CHANGES_VIRTUAL_DISK_RANGE, #[in] #[out] RangeCount: PULONG, #[out] ProcessedLength: PULONG64) -> DWORD;
+        extern fn QueryChangesVirtualDisk(#[in] VirtualDiskHandle: HANDLE, #[in] ChangeTrackingId: PCWSTR, #[in] ByteOffset: ULONG64, #[in] ByteLength: ULONG64, #[in] Flags: QUERY_CHANGES_VIRTUAL_DISK_FLAG, #[buffer(*RangeCount)] #[out] Ranges: PQUERY_CHANGES_VIRTUAL_DISK_RANGE, #[in] #[out] RangeCount: PULONG, #[out] ProcessedLength: PULONG64) -> DWORD;
         #[flags]
         #[repr(i32)]
         enum RAW_SCSI_VIRTUAL_DISK_FLAG {
@@ -516,14 +516,8 @@ mod Windows {
                     SenseInfoLength: UCHAR,
                     SrbFlags: ULONG,
                     DataTransferLength: ULONG,
-                    #[readable(bytes(DataTransferLength))]
-                    #[writable(bytes(DataTransferLength))]
                     DataBuffer: PVOID,
-                    #[readable(bytes(SenseInfoLength))]
-                    #[writable(bytes(SenseInfoLength))]
                     SenseInfo: *mut UCHAR,
-                    #[readable(bytes(CdbLength))]
-                    #[writable(bytes(CdbLength))]
                     Cdb: *mut UCHAR,
                 },
             },
@@ -629,7 +623,7 @@ mod Windows {
         #[library("VirtDisk.dll")]
         extern fn SetVirtualDiskInformation(#[in] VirtualDiskHandle: HANDLE, #[in] VirtualDiskInfo: PSET_VIRTUAL_DISK_INFO) -> DWORD;
         #[library("VirtDisk.dll")]
-        extern fn SetVirtualDiskMetadata(#[in] VirtualDiskHandle: HANDLE, #[in] Item: *const GUID, #[in] MetaDataSize: ULONG, #[in] #[readable(entry, bytes(MetaDataSize))] MetaData: *const void) -> DWORD;
+        extern fn SetVirtualDiskMetadata(#[in] VirtualDiskHandle: HANDLE, #[in] Item: *const GUID, #[in] MetaDataSize: ULONG, #[buffer(bytes(MetaDataSize))] #[in] MetaData: *const void) -> DWORD;
         #[library("VirtDisk.dll", import = "AttachVirtualDisk")]
         extern fn SurfaceVirtualDisk(#[in] VirtualDiskHandle: HANDLE, #[in] #[opt] SecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] Flags: ATTACH_VIRTUAL_DISK_FLAG, #[in] ProviderSpecificFlags: ULONG, #[in] #[opt] Parameters: PATTACH_VIRTUAL_DISK_PARAMETERS, #[in] #[opt] Overlapped: LPOVERLAPPED) -> DWORD;
         #[flags]

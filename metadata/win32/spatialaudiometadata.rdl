@@ -3,11 +3,11 @@ mod Windows {
     mod Win32 {
         #[guid(0x777d4a3b_f6ff_4a26_85dc_68d7cdeda1d4)]
         interface ISpatialAudioMetadataClient: IUnknown {
-            fn ActivateSpatialAudioMetadataItems(&self, #[in] maxItemCount: UINT16, #[in] frameCount: UINT16, #[opt] #[out] #[out_ptr(null_on_failure)] metadataItemsBuffer: *mut ISpatialAudioMetadataItemsBuffer, #[out] #[out_ptr(null_on_failure)] #[retval] metadataItems: *mut ISpatialAudioMetadataItems) -> HRESULT;
+            fn ActivateSpatialAudioMetadataItems(&self, #[in] maxItemCount: UINT16, #[in] frameCount: UINT16, #[opt] #[out] metadataItemsBuffer: *mut ISpatialAudioMetadataItemsBuffer, #[out] #[retval] metadataItems: *mut ISpatialAudioMetadataItems) -> HRESULT;
             fn GetSpatialAudioMetadataItemsBufferLength(&self, #[in] maxItemCount: UINT16, #[out] bufferLength: *mut UINT32) -> HRESULT;
-            fn ActivateSpatialAudioMetadataWriter(&self, #[in] overflowMode: SpatialAudioMetadataWriterOverflowMode, #[out] #[out_ptr(null_on_failure)] #[retval] metadataWriter: *mut ISpatialAudioMetadataWriter) -> HRESULT;
-            fn ActivateSpatialAudioMetadataCopier(&self, #[out] #[out_ptr(null_on_failure)] #[retval] metadataCopier: *mut ISpatialAudioMetadataCopier) -> HRESULT;
-            fn ActivateSpatialAudioMetadataReader(&self, #[out] #[out_ptr(null_on_failure)] #[retval] metadataReader: *mut ISpatialAudioMetadataReader) -> HRESULT;
+            fn ActivateSpatialAudioMetadataWriter(&self, #[in] overflowMode: SpatialAudioMetadataWriterOverflowMode, #[out] #[retval] metadataWriter: *mut ISpatialAudioMetadataWriter) -> HRESULT;
+            fn ActivateSpatialAudioMetadataCopier(&self, #[out] #[retval] metadataCopier: *mut ISpatialAudioMetadataCopier) -> HRESULT;
+            fn ActivateSpatialAudioMetadataReader(&self, #[out] #[retval] metadataReader: *mut ISpatialAudioMetadataReader) -> HRESULT;
         }
         #[guid(0xd224b233_e251_4fd0_9ca2_d5ecf9a68404)]
         interface ISpatialAudioMetadataCopier: IUnknown {
@@ -25,36 +25,36 @@ mod Windows {
         }
         #[guid(0x42640a16_e1bd_42d9_9ff6_031ab71a2dba)]
         interface ISpatialAudioMetadataItemsBuffer: IUnknown {
-            fn AttachToBuffer(&self, #[in] #[out] #[writable(entry, bytes(bufferLength))] buffer: *mut BYTE, #[in] bufferLength: UINT32) -> HRESULT;
-            fn AttachToPopulatedBuffer(&self, #[in] #[out] #[writable(entry, bytes(bufferLength))] buffer: *mut BYTE, #[in] bufferLength: UINT32) -> HRESULT;
+            fn AttachToBuffer(&self, #[buffer(bytes(bufferLength))] #[in] #[out] buffer: *mut BYTE, #[in] bufferLength: UINT32) -> HRESULT;
+            fn AttachToPopulatedBuffer(&self, #[buffer(bytes(bufferLength))] #[in] #[out] buffer: *mut BYTE, #[in] bufferLength: UINT32) -> HRESULT;
             fn DetachBuffer(&self) -> HRESULT;
         }
         #[guid(0xb78e86a2_31d9_4c32_94d2_7df40fc7ebec)]
         interface ISpatialAudioMetadataReader: IUnknown {
             fn Open(&self, #[in] metadataItems: ISpatialAudioMetadataItems) -> HRESULT;
             fn ReadNextItem(&self, #[out] commandCount: *mut UINT8, #[out] frameOffset: *mut UINT16) -> HRESULT;
-            fn ReadNextItemCommand(&self, #[out] commandID: *mut BYTE, #[in] #[out] #[writable(entry, bytes(maxValueBufferLength))] valueBuffer: *mut void, #[in] maxValueBufferLength: UINT32, #[out] valueBufferLength: *mut UINT32) -> HRESULT;
+            fn ReadNextItemCommand(&self, #[out] commandID: *mut BYTE, #[buffer(bytes(maxValueBufferLength))] #[in] #[out] valueBuffer: *mut void, #[in] maxValueBufferLength: UINT32, #[out] valueBufferLength: *mut UINT32) -> HRESULT;
             fn Close(&self) -> HRESULT;
         }
         #[guid(0x1b17ca01_2955_444d_a430_537dc589a844)]
         interface ISpatialAudioMetadataWriter: IUnknown {
             fn Open(&self, #[in] metadataItems: ISpatialAudioMetadataItems) -> HRESULT;
             fn WriteNextItem(&self, #[in] frameOffset: UINT16) -> HRESULT;
-            fn WriteNextItemCommand(&self, #[in] commandID: BYTE, #[in] #[opt] #[readable(entry, bytes(valueBufferLength))] valueBuffer: *const void, #[in] valueBufferLength: UINT32) -> HRESULT;
+            fn WriteNextItemCommand(&self, #[in] commandID: BYTE, #[buffer(bytes(valueBufferLength))] #[in] #[opt] valueBuffer: *const void, #[in] valueBufferLength: UINT32) -> HRESULT;
             fn Close(&self) -> HRESULT;
         }
         #[guid(0x0df2c94b_f5f9_472d_af6b_c46e0ac9cd05)]
         interface ISpatialAudioObjectForMetadataCommands: ISpatialAudioObjectBase {
-            fn WriteNextMetadataCommand(&self, #[in] commandID: BYTE, #[in] #[opt] #[readable(entry, bytes(valueBufferLength))] valueBuffer: *mut void, #[in] valueBufferLength: UINT32) -> HRESULT;
+            fn WriteNextMetadataCommand(&self, #[in] commandID: BYTE, #[buffer(bytes(valueBufferLength))] #[in] #[opt] valueBuffer: *mut void, #[in] valueBufferLength: UINT32) -> HRESULT;
         }
         #[guid(0xddea49ff_3bc0_4377_8aad_9fbcfd808566)]
         interface ISpatialAudioObjectForMetadataItems: ISpatialAudioObjectBase {
-            fn GetSpatialAudioMetadataItems(&self, #[out] #[out_ptr(null_on_failure)] #[retval] metadataItems: *mut ISpatialAudioMetadataItems) -> HRESULT;
+            fn GetSpatialAudioMetadataItems(&self, #[out] #[retval] metadataItems: *mut ISpatialAudioMetadataItems) -> HRESULT;
         }
         #[guid(0xbbc9c907_48d5_4a2e_a0c7_f7f0d67c1fb1)]
         interface ISpatialAudioObjectRenderStreamForMetadata: ISpatialAudioObjectRenderStreamBase {
-            fn ActivateSpatialAudioObjectForMetadataCommands(&self, #[in] r#type: AudioObjectType, #[out] #[out_ptr(null_on_failure)] #[retval] audioObject: *mut ISpatialAudioObjectForMetadataCommands) -> HRESULT;
-            fn ActivateSpatialAudioObjectForMetadataItems(&self, #[in] r#type: AudioObjectType, #[out] #[out_ptr(null_on_failure)] #[retval] audioObject: *mut ISpatialAudioObjectForMetadataItems) -> HRESULT;
+            fn ActivateSpatialAudioObjectForMetadataCommands(&self, #[in] r#type: AudioObjectType, #[out] #[retval] audioObject: *mut ISpatialAudioObjectForMetadataCommands) -> HRESULT;
+            fn ActivateSpatialAudioObjectForMetadataItems(&self, #[in] r#type: AudioObjectType, #[out] #[retval] audioObject: *mut ISpatialAudioObjectForMetadataItems) -> HRESULT;
         }
         const SPATIAL_AUDIO_POSITION: i32 = 200;
         #[arch(X64 | Arm64)]

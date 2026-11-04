@@ -282,7 +282,10 @@ impl IScriptErrorList_Vtbl {
                         pfcanadvance.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfcanadvance.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -294,7 +297,10 @@ impl IScriptErrorList_Vtbl {
                         pfcanretreat.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfcanretreat.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -306,7 +312,10 @@ impl IScriptErrorList_Vtbl {
                         plline.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plline.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -318,7 +327,10 @@ impl IScriptErrorList_Vtbl {
                         plchar.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plchar.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -330,7 +342,10 @@ impl IScriptErrorList_Vtbl {
                         plcode.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plcode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -342,7 +357,10 @@ impl IScriptErrorList_Vtbl {
                         pstr.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstr.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -354,7 +372,10 @@ impl IScriptErrorList_Vtbl {
                         pstr.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pstr.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -366,7 +387,10 @@ impl IScriptErrorList_Vtbl {
                         pfalwaysshowlocked.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfalwaysshowlocked.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -378,7 +402,10 @@ impl IScriptErrorList_Vtbl {
                         pfdetailspaneopen.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfdetailspaneopen.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -396,7 +423,10 @@ impl IScriptErrorList_Vtbl {
                         pfpererrordisplay.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfpererrordisplay.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -604,7 +634,10 @@ impl IShellFavoritesNameSpace_Vtbl {
                         pbool.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbool.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -616,7 +649,10 @@ impl IShellFavoritesNameSpace_Vtbl {
                         pbool.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbool.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -628,7 +664,10 @@ impl IShellFavoritesNameSpace_Vtbl {
                         pbool.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbool.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -877,7 +916,10 @@ impl IShellNameSpace_Vtbl {
                         pgrfenumflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pgrfenumflags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -895,7 +937,10 @@ impl IShellNameSpace_Vtbl {
                         pitem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pitem.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -913,7 +958,10 @@ impl IShellNameSpace_Vtbl {
                         pvar.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvar.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -931,7 +979,10 @@ impl IShellNameSpace_Vtbl {
                         pidepth.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pidepth.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -949,7 +1000,10 @@ impl IShellNameSpace_Vtbl {
                         pumode.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pumode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -967,7 +1021,10 @@ impl IShellNameSpace_Vtbl {
                         pdwflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdwflags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -991,7 +1048,10 @@ impl IShellNameSpace_Vtbl {
                         dwflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        dwflags.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1003,7 +1063,10 @@ impl IShellNameSpace_Vtbl {
                         bstrcolumns.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        bstrcolumns.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1021,7 +1084,10 @@ impl IShellNameSpace_Vtbl {
                         pitypes.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pitypes.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1039,7 +1105,10 @@ impl IShellNameSpace_Vtbl {
                         ppid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1263,7 +1332,10 @@ impl IShellUIHelper_Vtbl {
                         pbool.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbool.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1305,7 +1377,10 @@ impl IShellUIHelper_Vtbl {
                         pvarout.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarout.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1526,7 +1601,10 @@ impl IShellUIHelper2_Vtbl {
                         pfenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfenabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1538,7 +1616,10 @@ impl IShellUIHelper2_Vtbl {
                         pfenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfenabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1550,7 +1631,10 @@ impl IShellUIHelper2_Vtbl {
                         pbstruri.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstruri.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1580,7 +1664,10 @@ impl IShellUIHelper2_Vtbl {
                         pdwresult.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdwresult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1592,7 +1679,10 @@ impl IShellUIHelper2_Vtbl {
                         pfmigrated.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfmigrated.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1604,7 +1694,10 @@ impl IShellUIHelper2_Vtbl {
                         pbstrname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1622,7 +1715,10 @@ impl IShellUIHelper2_Vtbl {
                         pfshown.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfshown.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1634,7 +1730,10 @@ impl IShellUIHelper2_Vtbl {
                         pbstrurl.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrurl.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1806,7 +1905,10 @@ impl IShellUIHelper3_Vtbl {
                         pdwresult.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdwresult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1818,7 +1920,10 @@ impl IShellUIHelper3_Vtbl {
                         pfenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfenabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1860,7 +1965,10 @@ impl IShellUIHelper3_Vtbl {
                         pfenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfenabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2093,7 +2201,10 @@ impl IShellUIHelper4_Vtbl {
                         pfsitemode.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfsitemode.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2111,7 +2222,10 @@ impl IShellUIHelper4_Vtbl {
                         pvarbuttonid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarbuttonid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2171,7 +2285,10 @@ impl IShellUIHelper4_Vtbl {
                         pvarstyleid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarstyleid.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2195,7 +2312,10 @@ impl IShellUIHelper4_Vtbl {
                         puifirstrun.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        puifirstrun.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2213,7 +2333,10 @@ impl IShellUIHelper4_Vtbl {
                         pfenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfenabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2225,7 +2348,10 @@ impl IShellUIHelper4_Vtbl {
                         pfenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pfenabled.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2337,7 +2463,10 @@ impl IShellUIHelper5_Vtbl {
                         puiresult.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        puiresult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2567,7 +2696,10 @@ impl IShellUIHelper6_Vtbl {
                         pvarsitestate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvarsitestate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2772,7 +2904,10 @@ impl IShellUIHelper7_Vtbl {
                         vfflag.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        vfflag.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2790,7 +2925,10 @@ impl IShellUIHelper7_Vtbl {
                         pdwvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdwvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2808,7 +2946,10 @@ impl IShellUIHelper7_Vtbl {
                         flag.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        flag.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2826,7 +2967,10 @@ impl IShellUIHelper7_Vtbl {
                         exists.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        exists.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2936,7 +3080,10 @@ impl IShellUIHelper8_Vtbl {
                         pbstrresult.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrresult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2948,7 +3095,10 @@ impl IShellUIHelper8_Vtbl {
                         pbstrresult.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrresult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2960,7 +3110,10 @@ impl IShellUIHelper8_Vtbl {
                         pbstrresult.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrresult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2972,7 +3125,10 @@ impl IShellUIHelper8_Vtbl {
                         pbstrresult.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbstrresult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3057,7 +3213,10 @@ impl IShellUIHelper9_Vtbl {
                         pdwresult.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pdwresult.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3200,7 +3359,10 @@ impl IShellWindows_Vtbl {
                         count.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        count.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3212,7 +3374,10 @@ impl IShellWindows_Vtbl {
                         folder.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        folder.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3224,7 +3389,10 @@ impl IShellWindows_Vtbl {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunk.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3266,7 +3434,10 @@ impl IShellWindows_Vtbl {
                         ppdispout.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdispout.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3565,7 +3736,10 @@ impl IWebBrowser_Vtbl {
                         ppdisp.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdisp.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3577,7 +3751,10 @@ impl IWebBrowser_Vtbl {
                         ppdisp.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdisp.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3589,7 +3766,10 @@ impl IWebBrowser_Vtbl {
                         ppdisp.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdisp.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3601,7 +3781,10 @@ impl IWebBrowser_Vtbl {
                         ppdisp.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppdisp.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3613,7 +3796,10 @@ impl IWebBrowser_Vtbl {
                         pbool.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbool.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3625,7 +3811,10 @@ impl IWebBrowser_Vtbl {
                         r#type.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        r#type.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3637,7 +3826,10 @@ impl IWebBrowser_Vtbl {
                         pl.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pl.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3655,7 +3847,10 @@ impl IWebBrowser_Vtbl {
                         pl.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pl.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3673,7 +3868,10 @@ impl IWebBrowser_Vtbl {
                         pl.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pl.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3691,7 +3889,10 @@ impl IWebBrowser_Vtbl {
                         pl.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pl.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3709,7 +3910,10 @@ impl IWebBrowser_Vtbl {
                         locationname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        locationname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3721,7 +3925,10 @@ impl IWebBrowser_Vtbl {
                         locationurl.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        locationurl.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -3733,7 +3940,10 @@ impl IWebBrowser_Vtbl {
                         pbool.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbool.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4010,7 +4220,10 @@ impl IWebBrowser2_Vtbl {
                         pcmdf.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pcmdf.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4034,7 +4247,10 @@ impl IWebBrowser2_Vtbl {
                         plreadystate.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        plreadystate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4046,7 +4262,10 @@ impl IWebBrowser2_Vtbl {
                         pboffline.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pboffline.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4064,7 +4283,10 @@ impl IWebBrowser2_Vtbl {
                         pbsilent.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbsilent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4082,7 +4304,10 @@ impl IWebBrowser2_Vtbl {
                         pbregister.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbregister.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4100,7 +4325,10 @@ impl IWebBrowser2_Vtbl {
                         pbregister.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbregister.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4118,7 +4346,10 @@ impl IWebBrowser2_Vtbl {
                         pbregister.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbregister.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4136,7 +4367,10 @@ impl IWebBrowser2_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4154,7 +4388,10 @@ impl IWebBrowser2_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4422,7 +4659,10 @@ impl IWebBrowserApp_Vtbl {
                         pvtvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pvtvalue.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4434,7 +4674,10 @@ impl IWebBrowserApp_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        name.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4446,7 +4689,10 @@ impl IWebBrowserApp_Vtbl {
                         phwnd.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        phwnd.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4458,7 +4704,10 @@ impl IWebBrowserApp_Vtbl {
                         fullname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        fullname.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4470,7 +4719,10 @@ impl IWebBrowserApp_Vtbl {
                         path.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        path.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4482,7 +4734,10 @@ impl IWebBrowserApp_Vtbl {
                         pbool.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbool.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4500,7 +4755,10 @@ impl IWebBrowserApp_Vtbl {
                         pbool.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbool.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4518,7 +4776,10 @@ impl IWebBrowserApp_Vtbl {
                         statustext.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        statustext.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4536,7 +4797,10 @@ impl IWebBrowserApp_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4554,7 +4818,10 @@ impl IWebBrowserApp_Vtbl {
                         value.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -4572,7 +4839,10 @@ impl IWebBrowserApp_Vtbl {
                         pbfullscreen.write(ok__);
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        pbfullscreen.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }

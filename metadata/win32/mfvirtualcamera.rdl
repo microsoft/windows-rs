@@ -14,20 +14,20 @@ mod Windows {
         }
         #[guid(0x1c08a864_ef6c_4c75_af59_5f2d68da9563)]
         interface IMFVirtualCamera: IMFAttributes {
-            fn AddDeviceSourceInfo(&self, #[in] #[null_terminated(entry)] DeviceSourceInfo: LPCWSTR) -> HRESULT;
-            fn AddProperty(&self, #[in] pKey: *const DEVPROPKEY, #[in] Type: DEVPROPTYPE, #[in] #[readable(entry, bytes(cbData))] pbData: *const BYTE, #[in] cbData: ULONG) -> HRESULT;
-            fn AddRegistryEntry(&self, #[in] #[null_terminated(entry)] EntryName: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] SubkeyPath: LPCWSTR, #[in] dwRegType: DWORD, #[in] #[readable(entry, bytes(cbData))] pbData: *const BYTE, #[in] cbData: ULONG) -> HRESULT;
+            fn AddDeviceSourceInfo(&self, #[in] #[null_terminated] DeviceSourceInfo: LPCWSTR) -> HRESULT;
+            fn AddProperty(&self, #[in] pKey: *const DEVPROPKEY, #[in] Type: DEVPROPTYPE, #[buffer(bytes(cbData))] #[in] pbData: *const BYTE, #[in] cbData: ULONG) -> HRESULT;
+            fn AddRegistryEntry(&self, #[in] #[null_terminated] EntryName: LPCWSTR, #[in] #[null_terminated] #[opt] SubkeyPath: LPCWSTR, #[in] dwRegType: DWORD, #[buffer(bytes(cbData))] #[in] pbData: *const BYTE, #[in] cbData: ULONG) -> HRESULT;
             fn Start(&self, #[in] #[opt] pCallback: IMFAsyncCallback) -> HRESULT;
             fn Stop(&self) -> HRESULT;
             fn Remove(&self) -> HRESULT;
-            fn GetMediaSource(&self, #[out] #[out_ptr(null_on_failure)] #[retval] ppMediaSource: *mut IMFMediaSource) -> HRESULT;
-            fn SendCameraProperty(&self, #[in] propertySet: &GUID, #[in] propertyId: ULONG, #[in] propertyFlags: ULONG, #[in] #[opt] #[out] #[writable(entry, bytes(propertyPayloadLength))] propertyPayload: *mut void, #[in] propertyPayloadLength: ULONG, #[in] #[opt] #[out] #[readable(entry, bytes(dataLength))] #[readable(success, bytes(*dataWritten))] #[writable(entry, bytes(dataLength))] data: *mut void, #[in] dataLength: ULONG, #[out] dataWritten: *mut ULONG) -> HRESULT;
-            fn CreateSyncEvent(&self, #[in] kseventSet: &GUID, #[in] kseventId: ULONG, #[in] kseventFlags: ULONG, #[in] eventHandle: HANDLE, #[out] #[out_ptr(null_on_failure)] #[retval] cameraSyncObject: *mut IMFCameraSyncObject) -> HRESULT;
-            fn CreateSyncSemaphore(&self, #[in] kseventSet: &GUID, #[in] kseventId: ULONG, #[in] kseventFlags: ULONG, #[in] semaphoreHandle: HANDLE, #[in] semaphoreAdjustment: LONG, #[out] #[out_ptr(null_on_failure)] #[retval] cameraSyncObject: *mut IMFCameraSyncObject) -> HRESULT;
+            fn GetMediaSource(&self, #[out] #[retval] ppMediaSource: *mut IMFMediaSource) -> HRESULT;
+            fn SendCameraProperty(&self, #[in] propertySet: &GUID, #[in] propertyId: ULONG, #[in] propertyFlags: ULONG, #[buffer(bytes(propertyPayloadLength))] #[in] #[opt] #[out] propertyPayload: *mut void, #[in] propertyPayloadLength: ULONG, #[buffer(bytes(dataLength))] #[in] #[opt] #[out] data: *mut void, #[in] dataLength: ULONG, #[out] dataWritten: *mut ULONG) -> HRESULT;
+            fn CreateSyncEvent(&self, #[in] kseventSet: &GUID, #[in] kseventId: ULONG, #[in] kseventFlags: ULONG, #[in] eventHandle: HANDLE, #[out] #[retval] cameraSyncObject: *mut IMFCameraSyncObject) -> HRESULT;
+            fn CreateSyncSemaphore(&self, #[in] kseventSet: &GUID, #[in] kseventId: ULONG, #[in] kseventFlags: ULONG, #[in] semaphoreHandle: HANDLE, #[in] semaphoreAdjustment: LONG, #[out] #[retval] cameraSyncObject: *mut IMFCameraSyncObject) -> HRESULT;
             fn Shutdown(&self) -> HRESULT;
         }
         #[library("MFSENSORGROUP.dll")]
-        extern fn MFCreateVirtualCamera(#[in] r#type: MFVirtualCameraType, #[in] lifetime: MFVirtualCameraLifetime, #[in] access: MFVirtualCameraAccess, #[in] #[null_terminated(entry)] friendlyName: LPCWSTR, #[in] #[null_terminated(entry)] sourceId: LPCWSTR, #[in] #[opt] #[readable(entry, categoryCount)] categories: *const GUID, #[in] categoryCount: ULONG, #[out] #[out_ptr(null_on_failure)] #[retval] virtualCamera: *mut IMFVirtualCamera) -> HRESULT;
+        extern fn MFCreateVirtualCamera(#[in] r#type: MFVirtualCameraType, #[in] lifetime: MFVirtualCameraLifetime, #[in] access: MFVirtualCameraAccess, #[in] #[null_terminated] friendlyName: LPCWSTR, #[in] #[null_terminated] sourceId: LPCWSTR, #[buffer(categoryCount)] #[in] #[opt] categories: *const GUID, #[in] categoryCount: ULONG, #[out] #[retval] virtualCamera: *mut IMFVirtualCamera) -> HRESULT;
         #[library("MFSENSORGROUP.dll")]
         extern fn MFIsVirtualCameraTypeSupported(#[in] r#type: MFVirtualCameraType, #[out] supported: *mut BOOL) -> HRESULT;
         #[repr(i32)]

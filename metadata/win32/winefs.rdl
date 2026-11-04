@@ -98,7 +98,7 @@ mod Windows {
         extern fn FreeEncryptionCertificateHashList(#[in] pUsers: PENCRYPTION_CERTIFICATE_HASH_LIST);
         #[deprecated]
         #[library("ADVAPI32.dll")]
-        extern fn GetEncryptedFileMetadata(#[in] lpFileName: LPCWSTR, #[out] pcbMetadata: PDWORD, #[out] #[writable(success, bytes(*pcbMetadata), indirect)] ppbMetadata: *mut PBYTE) -> DWORD;
+        extern fn GetEncryptedFileMetadata(#[in] lpFileName: LPCWSTR, #[out] pcbMetadata: PDWORD, #[incomplete] #[out] ppbMetadata: *mut PBYTE) -> DWORD;
         const MAX_SID_SIZE: i32 = 256;
         type PEFS_CERTIFICATE_BLOB = *mut EFS_CERTIFICATE_BLOB;
         type PEFS_COMPATIBILITY_INFO = *mut EFS_COMPATIBILITY_INFO;
@@ -117,9 +117,9 @@ mod Windows {
         type PENCRYPTION_PROTECTOR = *mut ENCRYPTION_PROTECTOR;
         type PENCRYPTION_PROTECTOR_LIST = *mut ENCRYPTION_PROTECTOR_LIST;
         #[library("ADVAPI32.dll")]
-        extern fn QueryRecoveryAgentsOnEncryptedFile(#[in] lpFileName: LPCWSTR, #[out] #[out_ptr] pRecoveryAgents: *mut PENCRYPTION_CERTIFICATE_HASH_LIST) -> DWORD;
+        extern fn QueryRecoveryAgentsOnEncryptedFile(#[in] lpFileName: LPCWSTR, #[out] pRecoveryAgents: *mut PENCRYPTION_CERTIFICATE_HASH_LIST) -> DWORD;
         #[library("ADVAPI32.dll")]
-        extern fn QueryUsersOnEncryptedFile(#[in] lpFileName: LPCWSTR, #[out] #[out_ptr] pUsers: *mut PENCRYPTION_CERTIFICATE_HASH_LIST) -> DWORD;
+        extern fn QueryUsersOnEncryptedFile(#[in] lpFileName: LPCWSTR, #[out] pUsers: *mut PENCRYPTION_CERTIFICATE_HASH_LIST) -> DWORD;
         #[library("ADVAPI32.dll")]
         extern fn RemoveUsersFromEncryptedFile(#[in] lpFileName: LPCWSTR, #[in] pHashes: PENCRYPTION_CERTIFICATE_HASH_LIST) -> DWORD;
         #[deprecated]

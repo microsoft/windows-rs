@@ -1,6 +1,5 @@
 use super::guid;
 use super::*;
-use buffer_extent::pointee as extent_pointee;
 use syn::ext::IdentExt;
 
 #[derive(PartialEq)]
@@ -17,8 +16,8 @@ pub struct AttributeRef {
 
 pub(super) struct ExtentTypes<'a> {
     pub counts: &'a [metadata::Type],
+    pub optional: &'a [bool],
     pub subject: &'a metadata::Type,
-    pub result: Option<&'a metadata::Type>,
 }
 
 struct AttributeInfo {
@@ -30,22 +29,6 @@ struct AttributeInfo {
 struct SplitArgs<'a> {
     positional: Vec<&'a syn::Expr>,
     named: Vec<(String, &'a syn::Expr)>,
-}
-
-fn extent_integer(ty: &metadata::Type) -> bool {
-    matches!(
-        ty,
-        metadata::Type::I8
-            | metadata::Type::U8
-            | metadata::Type::I16
-            | metadata::Type::U16
-            | metadata::Type::I32
-            | metadata::Type::U32
-            | metadata::Type::I64
-            | metadata::Type::U64
-            | metadata::Type::ISize
-            | metadata::Type::USize
-    )
 }
 
 fn collect_bitor_variants(expr: &syn::Expr) -> Option<Vec<String>> {
@@ -675,164 +658,66 @@ impl Encoder<'_> {
         types: ExtentTypes<'_>,
     ) -> Result<(), Error> {
         for attr in attrs {
-            if attr.path().is_ident("null_terminated") {
-                let (_, _, indirect) = self.null_terminated_flags(attr)?;
+            if attr.path().is_ident("buffer") {
                 if field {
-                    return self.err(attr, "termination phases require a parameter owner");
+                    return self.err(attr, "buffer requires a parameter owner");
                 }
-                self.validate_buffer_subject(attr, types.subject, indirect)?;
-                continue;
-            }
-            if attr.path().is_ident("nullable") {
-                if !field && !attrs.iter().any(|attr| attr.path().is_ident("out")) {
-                    return self.err(attr, "parameter nullability requires `out`");
-                }
-                self.emit_value_nullable(target, attr, types.subject, !field)?;
-                continue;
-            }
-            if !attr.path().is_ident("readable") && !attr.path().is_ident("writable") {
-                continue;
-            }
-            let extent = buffer_extent::parse_buffer_extent(attr, names, field)
-                .map_err(|error| self.error(error.span(), &error.to_string()))?;
-            let count_type = match &extent.count {
-                metadata::BufferCount::Parameter(index)
-                | metadata::BufferCount::Dereference(index) => {
-                    Some(types.counts[*index as usize].clone())
-                }
-                metadata::BufferCount::Field(name) => names
+                if attrs
                     .iter()
-                    .position(|candidate| *candidate == name)
-                    .map(|index| types.counts[index].clone()),
-                metadata::BufferCount::Return => types.result.cloned(),
-                metadata::BufferCount::Constant(_) | metadata::BufferCount::Unknown => None,
-                metadata::BufferCount::Expression(expression) => {
-                    self.validate_integer_expression(attr, expression, names, &types)?;
-                    None
+                    .filter(|other| other.path() == attr.path())
+                    .count()
+                    != 1
+                {
+                    return self.err(attr, "repeated buffer contract");
                 }
-            };
-            if !matches!(
-                extent.count,
-                metadata::BufferCount::Constant(_)
-                    | metadata::BufferCount::Expression(_)
-                    | metadata::BufferCount::Unknown
-            ) {
-                let mut ty = count_type.and_then(|ty| self.extent_underlying(ty));
-                if matches!(extent.count, metadata::BufferCount::Dereference(_)) {
-                    ty = ty
-                        .and_then(extent_pointee)
-                        .and_then(|ty| self.extent_underlying(ty));
-                }
-                if !ty.as_ref().is_some_and(extent_integer) {
+                let info = buffer_info::parse_buffer_info(attr, names)
+                    .map_err(|error| self.error(error.span(), &error.to_string()))?;
+                if let metadata::BufferSize::Dereference(index) = info.count
+                    && types.optional[index as usize]
+                {
                     return self.err(
                         attr,
-                        "buffer count requires an integer value at the specified indirection",
+                        "buffer count cannot dereference an optional parameter",
                     );
                 }
-            }
-            if let Some(index) = extent.null_fallback
-                && !self
-                    .extent_underlying(types.counts[index as usize].clone())
-                    .as_ref()
-                    .is_some_and(extent_integer)
-            {
-                return self.err(attr, "buffer count fallback requires a by-value integer");
-            }
-            self.validate_buffer_subject(attr, types.subject, extent.indirect)?;
-            self.encode_named_attribute(
-                target,
-                &AttributeRef {
-                    type_name: metadata::TypeName::named(
-                        METADATA_NAMESPACE,
-                        "BufferExtentAttribute",
-                    ),
-                    args: extent.to_values(),
-                },
-            );
-        }
-        Ok(())
-    }
-
-    fn validate_integer_expression(
-        &self,
-        attr: &syn::Attribute,
-        expression: &metadata::IntegerExpression,
-        names: &[&str],
-        types: &ExtentTypes<'_>,
-    ) -> Result<(), Error> {
-        let references = expression
-            .references()
-            .ok_or_else(|| self.error(attr, "invalid integer expression"))?;
-        for reference in references {
-            use metadata::IntegerReference::*;
-            let ty = match reference {
-                Parameter(index) | Dereference(index) | OptionalDereference(index) => {
-                    types.counts.get(*index as usize)
+                if !buffer_info::is_buffer_count(&info.count, types.counts, |ty| {
+                    self.extent_underlying(ty)
+                }) {
+                    return self.err(
+                        attr,
+                        "buffer count requires an integer at the specified indirection",
+                    );
                 }
-                Field(name) => names
-                    .iter()
-                    .position(|candidate| *candidate == name)
-                    .and_then(|index| types.counts.get(index)),
-                Return => types.result,
-            };
-            let mut ty = ty.cloned().and_then(|ty| self.extent_underlying(ty));
-            if matches!(reference, Dereference(_) | OptionalDereference(_)) {
-                ty = ty
-                    .and_then(extent_pointee)
-                    .and_then(|ty| self.extent_underlying(ty));
-            }
-            if !ty.as_ref().is_some_and(extent_integer) {
-                return self.err(
-                    attr,
-                    "expression reference requires an integer at the specified indirection",
+                self.validate_buffer_subject(attr, types.subject)?;
+                self.encode_named_attribute(
+                    target,
+                    &AttributeRef {
+                        type_name: metadata::TypeName::named(METADATA_NAMESPACE, "BufferAttribute"),
+                        args: info.to_values(),
+                    },
                 );
+                continue;
             }
-        }
-        Ok(())
-    }
-
-    pub(super) fn emit_value_nullable(
-        &mut self,
-        target: metadata::writer::HasAttribute,
-        attr: &syn::Attribute,
-        ty: &metadata::Type,
-        indirect: bool,
-    ) -> Result<(), Error> {
-        if !matches!(attr.meta, syn::Meta::Path(_)) {
-            return self.err(attr, "nullable does not accept arguments");
-        }
-        self.validate_nullable_subject(attr, ty, indirect)?;
-        let expanded = syn::parse_quote! { #[Windows::Win32::Metadata::Nullable] };
-        self.encode_attrs(target, &[expanded], &[])
-    }
-
-    pub(super) fn validate_nullable_subject(
-        &self,
-        attr: &syn::Attribute,
-        ty: &metadata::Type,
-        indirect: bool,
-    ) -> Result<(), Error> {
-        let mut subject = self.extent_underlying(ty.clone());
-        if indirect {
-            subject = subject
-                .and_then(extent_pointee)
-                .and_then(|ty| self.extent_underlying(ty));
-        }
-        if !subject.is_some_and(|ty| {
-            matches!(
-                ty,
-                metadata::Type::PtrMut(..)
-                    | metadata::Type::PtrConst(..)
-                    | metadata::Type::RefMut(_)
-                    | metadata::Type::RefConst(_)
-                    | metadata::Type::ClassName(_)
-                    | metadata::Type::FnPtr(_)
-            )
-        }) {
-            return self.err(
-                attr,
-                "nullable requires a pointer at the specified indirection",
-            );
+            if attr.path().is_ident("null_terminated")
+                || attr.path().is_ident("null_null_terminated")
+            {
+                if field {
+                    return self.err(attr, "termination requires a parameter owner");
+                }
+                if attrs
+                    .iter()
+                    .filter(|attr| {
+                        attr.path().is_ident("null_terminated")
+                            || attr.path().is_ident("null_null_terminated")
+                    })
+                    .count()
+                    != 1
+                {
+                    return self.err(attr, "repeated or conflicting termination attributes");
+                }
+                self.validate_buffer_subject(attr, types.subject)?;
+                continue;
+            }
         }
         Ok(())
     }
@@ -841,14 +726,9 @@ impl Encoder<'_> {
         &self,
         attr: &syn::Attribute,
         ty: &metadata::Type,
-        indirect: bool,
     ) -> Result<(), Error> {
-        if !buffer_extent::is_buffer_storage(ty.clone(), indirect, |ty| self.extent_underlying(ty))
-        {
-            return self.err(
-                attr,
-                "buffer contract requires pointer or array storage at the specified indirection",
-            );
+        if !buffer_info::is_buffer_storage(ty.clone(), |ty| self.extent_underlying(ty)) {
+            return self.err(attr, "buffer contract requires pointer or array storage");
         }
         Ok(())
     }
@@ -918,14 +798,10 @@ impl Encoder<'_> {
                     "use explicit `in`/`out` flags, or omit both for unspecified direction",
                 );
             }
-            if path.is_ident("readable") || path.is_ident("writable") {
-                return self.err(attr, "buffer extents require a parameter or field owner");
+            if path.is_ident("buffer") {
+                return self.err(attr, "buffer requires a parameter owner");
             }
-            if path.is_ident("out_ptr") {
-                self.emit_returned_pointer_attribute(has_attribute, attr)?;
-                continue;
-            }
-            if path.is_ident("null_terminated") {
+            if path.is_ident("null_terminated") || path.is_ident("null_null_terminated") {
                 self.emit_null_terminated(has_attribute, attr)?;
                 continue;
             }
@@ -948,86 +824,24 @@ impl Encoder<'_> {
         Ok(())
     }
 
-    fn emit_returned_pointer_attribute(
-        &mut self,
-        target: metadata::writer::HasAttribute,
-        attr: &syn::Attribute,
-    ) -> Result<(), Error> {
-        let flags = match &attr.meta {
-            syn::Meta::Path(_) => syn::punctuated::Punctuated::new(),
-            syn::Meta::List(_) => attr
-                .parse_args_with(
-                    syn::punctuated::Punctuated::<syn::Ident, syn::Token![,]>::parse_terminated,
-                )
-                .map_err(|error| self.error(attr, &error.to_string()))?,
-            syn::Meta::NameValue(_) => {
-                return self.err(attr, "out_ptr requires optional flag names");
-            }
-        };
-        let mut null_on_failure = false;
-        for flag in flags {
-            match flag.to_string().as_str() {
-                "null_on_failure" if !null_on_failure => null_on_failure = true,
-                _ => return self.err(flag, "unknown or duplicate out_ptr flag"),
-            }
-        }
-        let expanded = syn::parse_quote! {
-            #[Windows::Win32::Metadata::ReturnedPointer(NullOnFailure = #null_on_failure)]
-        };
-        let attr_ref = self.resolve_attribute_ref(&expanded)?;
-        self.encode_named_attribute(target, &attr_ref);
-        Ok(())
-    }
-
     fn emit_null_terminated(
         &mut self,
         target: metadata::writer::HasAttribute,
         attr: &syn::Attribute,
     ) -> Result<(), Error> {
-        let (entry, success, indirect) = self.null_terminated_flags(attr)?;
-        if !matches!(target, metadata::writer::HasAttribute::Param(_)) {
-            return self.err(attr, "termination phases require a parameter owner");
+        if !matches!(attr.meta, syn::Meta::Path(_)) {
+            return self.err(attr, "termination attributes do not accept arguments");
         }
-        let on_entry = entry.is_some();
-        let on_success = success.is_some();
-        let double_entry = (entry == Some(true)).then(|| quote! { , DoubleNullOnEntry = true });
-        let double_success =
-            (success == Some(true)).then(|| quote! { , DoubleNullOnSuccess = true });
-        let indirect = indirect.then(|| quote! { , Indirect = true });
-        let expanded = syn::parse_quote! {
-            #[Windows::Win32::Metadata::NullTerminated(
-                OnEntry = #on_entry, OnSuccess = #on_success #double_entry #double_success #indirect
-            )]
+        if !matches!(target, metadata::writer::HasAttribute::Param(_)) {
+            return self.err(attr, "termination requires a parameter owner");
+        }
+        let expanded = if attr.path().is_ident("null_null_terminated") {
+            syn::parse_quote! { #[Windows::Win32::Metadata::NullNullTerminated] }
+        } else {
+            syn::parse_quote! { #[Windows::Win32::Metadata::NullTerminated] }
         };
         let attr_ref = self.resolve_attribute_ref(&expanded)?;
         self.encode_named_attribute(target, &attr_ref);
         Ok(())
-    }
-
-    pub(super) fn null_terminated_flags(
-        &self,
-        attr: &syn::Attribute,
-    ) -> Result<(Option<bool>, Option<bool>, bool), Error> {
-        let flags = attr
-            .parse_args_with(
-                syn::punctuated::Punctuated::<syn::Ident, syn::Token![,]>::parse_terminated,
-            )
-            .map_err(|error| self.error(attr, &error.to_string()))?;
-        let (mut entry, mut success) = (None, None);
-        let mut indirect = false;
-        for flag in flags {
-            match flag.to_string().as_str() {
-                "entry" if entry.is_none() => entry = Some(false),
-                "double_entry" if entry.is_none() => entry = Some(true),
-                "success" if success.is_none() => success = Some(false),
-                "double_success" if success.is_none() => success = Some(true),
-                "indirect" if !indirect => indirect = true,
-                _ => return self.err(flag, "unknown or duplicate null_terminated flag"),
-            }
-        }
-        if entry.is_none() && success.is_none() {
-            return self.err(attr, "null_terminated requires an entry or success phase");
-        }
-        Ok((entry, success, indirect))
     }
 }

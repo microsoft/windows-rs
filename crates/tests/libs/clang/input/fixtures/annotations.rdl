@@ -5,7 +5,6 @@ mod Fixture {
     extern "C" fn AResultContract(context: *mut void) -> Status;
     struct BufferView {
         count: u32,
-        #[writable(count)]
         data: *mut u8,
     }
     struct CallbackHolder {
@@ -27,22 +26,22 @@ mod Fixture {
     extern "C" fn Failure(value: *mut i32);
     #[guid(0x11111111_1111_1111_1111_111111111111)]
     interface IAnnotated {
-        fn Get(&self, #[iid_is] #[out] #[out_ptr(null_on_failure)] object: *mut *mut void) -> Status;
+        fn Get(&self, #[iid_is] #[out] object: *mut *mut void) -> Status;
     }
     #[library("fixture.dll")]
-    extern "C" fn InspectResult(#[nullable] #[out] #[out_ptr] result: *mut *mut void);
+    extern "C" fn InspectResult(#[out] result: *mut *mut void);
     struct OnlyInferred {
         callback: ZPlain,
     }
     #[library("fixture.dll")]
-    extern "C" fn OptionalResult(#[opt] #[out] #[out_ptr] result: *mut *mut void);
+    extern "C" fn OptionalResult(#[opt] #[out] result: *mut *mut void);
     #[library("fixture.dll")]
     #[must_use]
-    extern "C" fn ReadBuffer(#[opt] #[out] #[readable(success, bytes(if_present(*written)))] #[writable(entry, bytes(capacity))] buffer: *mut void, #[in] capacity: u32, #[opt] #[out] written: *mut u32) -> Status;
+    extern "C" fn ReadBuffer(#[buffer(bytes(capacity))] #[opt] #[out] buffer: *mut void, #[in] capacity: u32, #[opt] #[out] written: *mut u32) -> Status;
     #[library("fixture.dll")]
-    extern "C" fn ReadFixed(#[in] #[readable(entry, 16)] values: *const i32);
+    extern "C" fn ReadFixed(#[buffer(16)] #[in] values: *const i32);
     #[library("fixture.dll")]
-    extern "C" fn ReadHook(#[in] #[readable(entry, 16)] values: *const i32);
+    extern "C" fn ReadHook(#[buffer(16)] #[in] values: *const i32);
     type ResultAddress = *mut AResultContract;
     struct ResultOnly {
         callback: extern "C" fn(*mut void) -> Status,

@@ -72,9 +72,9 @@ mod Windows {
         #[library("RPCNS4.dll")]
         extern fn RpcNsGroupMbrInqDone(InquiryContext: *mut RPC_NS_HANDLE) -> RPC_STATUS;
         #[library("RPCNS4.dll")]
-        extern fn RpcNsGroupMbrInqNextA(#[in] #[out] InquiryContext: RPC_NS_HANDLE, #[out] #[out_ptr] MemberName: *mut RPC_CSTR) -> RPC_STATUS;
+        extern fn RpcNsGroupMbrInqNextA(#[in] #[out] InquiryContext: RPC_NS_HANDLE, #[out] MemberName: *mut RPC_CSTR) -> RPC_STATUS;
         #[library("RPCNS4.dll")]
-        extern fn RpcNsGroupMbrInqNextW(#[in] #[out] InquiryContext: RPC_NS_HANDLE, #[out] #[out_ptr] MemberName: *mut RPC_WSTR) -> RPC_STATUS;
+        extern fn RpcNsGroupMbrInqNextW(#[in] #[out] InquiryContext: RPC_NS_HANDLE, #[out] MemberName: *mut RPC_WSTR) -> RPC_STATUS;
         #[library("RPCNS4.dll")]
         extern fn RpcNsGroupMbrRemoveA(#[in] GroupNameSyntax: u32, #[in] GroupName: RPC_CSTR, #[in] MemberNameSyntax: u32, #[in] MemberName: RPC_CSTR) -> RPC_STATUS;
         #[library("RPCNS4.dll")]

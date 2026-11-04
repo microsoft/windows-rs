@@ -1,9 +1,9 @@
 #[must_use]
 #[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn BluetoothAuthenticateDevice(hwndparent: Option<super::HWND>, hradio: Option<super::HANDLE>, pbtbi: *mut BLUETOOTH_DEVICE_INFO_STRUCT, pszpasskey: Option<&[u16]>) -> super::DWORD {
+pub unsafe fn BluetoothAuthenticateDevice(hwndparent: Option<super::HWND>, hradio: Option<super::HANDLE>, pbtbi: *mut BLUETOOTH_DEVICE_INFO_STRUCT, pszpasskey: Option<windows_core::PCWSTR>, ulpasskeylength: super::ULONG) -> super::DWORD {
     windows_core::link!("bthprops.cpl" "system" fn BluetoothAuthenticateDevice(hwndparent : super::HWND, hradio : super::HANDLE, pbtbi : *mut BLUETOOTH_DEVICE_INFO_STRUCT, pszpasskey : windows_core::PCWSTR, ulpasskeylength : super::ULONG) -> super::DWORD);
-    unsafe { BluetoothAuthenticateDevice(hwndparent.unwrap_or(core::mem::zeroed()) as _, hradio.unwrap_or(core::mem::zeroed()) as _, pbtbi as _, core::mem::transmute(pszpasskey.map_or(core::ptr::null(), |slice| slice.as_ptr())), pszpasskey.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { BluetoothAuthenticateDevice(hwndparent.unwrap_or(core::mem::zeroed()) as _, hradio.unwrap_or(core::mem::zeroed()) as _, pbtbi as _, pszpasskey.unwrap_or(core::mem::zeroed()) as _, ulpasskeylength) }
 }
 #[must_use]
 #[cfg(all(feature = "bthdef", feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt"))]
@@ -15,9 +15,9 @@ pub unsafe fn BluetoothAuthenticateDeviceEx(hwndparentin: Option<super::HWND>, h
 #[must_use]
 #[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn BluetoothAuthenticateMultipleDevices(hwndparent: Option<super::HWND>, hradio: Option<super::HANDLE>, rgbtdi: &mut [BLUETOOTH_DEVICE_INFO_STRUCT]) -> super::DWORD {
+pub unsafe fn BluetoothAuthenticateMultipleDevices(hwndparent: Option<super::HWND>, hradio: Option<super::HANDLE>, cdevices: super::DWORD, rgbtdi: *mut BLUETOOTH_DEVICE_INFO_STRUCT) -> super::DWORD {
     windows_core::link!("bthprops.cpl" "system" fn BluetoothAuthenticateMultipleDevices(hwndparent : super::HWND, hradio : super::HANDLE, cdevices : super::DWORD, rgbtdi : *mut BLUETOOTH_DEVICE_INFO_STRUCT) -> super::DWORD);
-    unsafe { BluetoothAuthenticateMultipleDevices(hwndparent.unwrap_or(core::mem::zeroed()) as _, hradio.unwrap_or(core::mem::zeroed()) as _, rgbtdi.len().try_into().unwrap(), rgbtdi.as_mut_ptr()) }
+    unsafe { BluetoothAuthenticateMultipleDevices(hwndparent.unwrap_or(core::mem::zeroed()) as _, hradio.unwrap_or(core::mem::zeroed()) as _, cdevices, rgbtdi as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
@@ -39,9 +39,9 @@ pub unsafe fn BluetoothEnableIncomingConnections(hradio: Option<super::HANDLE>, 
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn BluetoothEnumAttributes(psdpstream: &[u8], pfncallback: PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK, pvparam: super::LPVOID) -> windows_core::BOOL {
+pub unsafe fn BluetoothEnumAttributes(psdpstream: super::LPBYTE, cbstreamsize: super::ULONG, pfncallback: PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK, pvparam: super::LPVOID) -> windows_core::BOOL {
     windows_core::link!("bthprops.cpl" "system" "BluetoothSdpEnumAttributes" fn BluetoothEnumAttributes(psdpstream : super::LPBYTE, cbstreamsize : super::ULONG, pfncallback : PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK, pvparam : super::LPVOID) -> windows_core::BOOL);
-    unsafe { BluetoothEnumAttributes(core::mem::transmute(psdpstream.as_ptr()), psdpstream.len().try_into().unwrap(), pfncallback, pvparam) }
+    unsafe { BluetoothEnumAttributes(psdpstream, cbstreamsize, pfncallback, pvparam) }
 }
 #[must_use]
 #[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
@@ -140,37 +140,37 @@ pub unsafe fn BluetoothRemoveDevice(paddress: *const BLUETOOTH_ADDRESS_STRUCT) -
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn BluetoothSdpEnumAttributes(psdpstream: &[u8], pfncallback: PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK, pvparam: super::LPVOID) -> windows_core::BOOL {
+pub unsafe fn BluetoothSdpEnumAttributes(psdpstream: super::LPBYTE, cbstreamsize: super::ULONG, pfncallback: PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK, pvparam: super::LPVOID) -> windows_core::BOOL {
     windows_core::link!("bthprops.cpl" "system" fn BluetoothSdpEnumAttributes(psdpstream : super::LPBYTE, cbstreamsize : super::ULONG, pfncallback : PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK, pvparam : super::LPVOID) -> windows_core::BOOL);
-    unsafe { BluetoothSdpEnumAttributes(core::mem::transmute(psdpstream.as_ptr()), psdpstream.len().try_into().unwrap(), pfncallback, pvparam) }
+    unsafe { BluetoothSdpEnumAttributes(psdpstream, cbstreamsize, pfncallback, pvparam) }
 }
 #[must_use]
 #[cfg(all(feature = "bthsdpdef", feature = "shared"))]
 #[inline]
-pub unsafe fn BluetoothSdpGetAttributeValue(precordstream: &[u8], usattributeid: super::USHORT, pattributedata: PSDP_ELEMENT_DATA) -> super::DWORD {
+pub unsafe fn BluetoothSdpGetAttributeValue(precordstream: super::LPBYTE, cbrecordlength: super::ULONG, usattributeid: super::USHORT, pattributedata: PSDP_ELEMENT_DATA) -> super::DWORD {
     windows_core::link!("bthprops.cpl" "system" fn BluetoothSdpGetAttributeValue(precordstream : super::LPBYTE, cbrecordlength : super::ULONG, usattributeid : super::USHORT, pattributedata : PSDP_ELEMENT_DATA) -> super::DWORD);
-    unsafe { BluetoothSdpGetAttributeValue(core::mem::transmute(precordstream.as_ptr()), precordstream.len().try_into().unwrap(), usattributeid, pattributedata as _) }
+    unsafe { BluetoothSdpGetAttributeValue(precordstream, cbrecordlength, usattributeid, pattributedata as _) }
 }
 #[must_use]
 #[cfg(all(feature = "bthsdpdef", feature = "shared"))]
 #[inline]
-pub unsafe fn BluetoothSdpGetContainerElementData(pcontainerstream: &[u8], pelement: *mut HBLUETOOTH_CONTAINER_ELEMENT, pdata: PSDP_ELEMENT_DATA) -> super::DWORD {
+pub unsafe fn BluetoothSdpGetContainerElementData(pcontainerstream: super::LPBYTE, cbcontainerlength: super::ULONG, pelement: *mut HBLUETOOTH_CONTAINER_ELEMENT, pdata: PSDP_ELEMENT_DATA) -> super::DWORD {
     windows_core::link!("bthprops.cpl" "system" fn BluetoothSdpGetContainerElementData(pcontainerstream : super::LPBYTE, cbcontainerlength : super::ULONG, pelement : *mut HBLUETOOTH_CONTAINER_ELEMENT, pdata : PSDP_ELEMENT_DATA) -> super::DWORD);
-    unsafe { BluetoothSdpGetContainerElementData(core::mem::transmute(pcontainerstream.as_ptr()), pcontainerstream.len().try_into().unwrap(), pelement as _, pdata as _) }
+    unsafe { BluetoothSdpGetContainerElementData(pcontainerstream, cbcontainerlength, pelement as _, pdata as _) }
 }
 #[must_use]
 #[cfg(all(feature = "bthsdpdef", feature = "shared"))]
 #[inline]
-pub unsafe fn BluetoothSdpGetElementData(psdpstream: &[u8], pdata: PSDP_ELEMENT_DATA) -> super::DWORD {
+pub unsafe fn BluetoothSdpGetElementData(psdpstream: super::LPBYTE, cbsdpstreamlength: super::ULONG, pdata: PSDP_ELEMENT_DATA) -> super::DWORD {
     windows_core::link!("bthprops.cpl" "system" fn BluetoothSdpGetElementData(psdpstream : super::LPBYTE, cbsdpstreamlength : super::ULONG, pdata : PSDP_ELEMENT_DATA) -> super::DWORD);
-    unsafe { BluetoothSdpGetElementData(core::mem::transmute(psdpstream.as_ptr()), psdpstream.len().try_into().unwrap(), pdata as _) }
+    unsafe { BluetoothSdpGetElementData(psdpstream, cbsdpstreamlength, pdata as _) }
 }
 #[must_use]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn BluetoothSdpGetString(precordstream: &[u8], pstringdata: Option<PSDP_STRING_TYPE_DATA>, usstringoffset: super::USHORT, pszstring: windows_core::PWSTR, pcchstringlength: super::PULONG) -> super::DWORD {
+pub unsafe fn BluetoothSdpGetString(precordstream: super::LPBYTE, cbrecordlength: super::ULONG, pstringdata: Option<PSDP_STRING_TYPE_DATA>, usstringoffset: super::USHORT, pszstring: windows_core::PWSTR, pcchstringlength: super::PULONG) -> super::DWORD {
     windows_core::link!("bthprops.cpl" "system" fn BluetoothSdpGetString(precordstream : super::LPBYTE, cbrecordlength : super::ULONG, pstringdata : PSDP_STRING_TYPE_DATA, usstringoffset : super::USHORT, pszstring : windows_core::PWSTR, pcchstringlength : super::PULONG) -> super::DWORD);
-    unsafe { BluetoothSdpGetString(core::mem::transmute(precordstream.as_ptr()), precordstream.len().try_into().unwrap(), pstringdata.unwrap_or(core::mem::zeroed()) as _, usstringoffset, pszstring, pcchstringlength as _) }
+    unsafe { BluetoothSdpGetString(precordstream, cbrecordlength, pstringdata.unwrap_or(core::mem::zeroed()) as _, usstringoffset, pszstring, pcchstringlength as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]

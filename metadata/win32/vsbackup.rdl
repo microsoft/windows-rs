@@ -51,20 +51,20 @@ mod Windows {
             fn PostRestore(&self, #[out] ppAsync: *mut IVssAsync) -> HRESULT;
             fn SetContext(&self, #[in] lContext: LONG) -> HRESULT;
             fn StartSnapshotSet(&self, #[out] pSnapshotSetId: *mut VSS_ID) -> HRESULT;
-            fn AddToSnapshotSet(&self, #[in] #[null_terminated(entry)] pwszVolumeName: VSS_PWSZ, #[in] ProviderId: VSS_ID, #[out] pidSnapshot: *mut VSS_ID) -> HRESULT;
+            fn AddToSnapshotSet(&self, #[in] #[null_terminated] pwszVolumeName: VSS_PWSZ, #[in] ProviderId: VSS_ID, #[out] pidSnapshot: *mut VSS_ID) -> HRESULT;
             fn DoSnapshotSet(&self, #[out] ppAsync: *mut IVssAsync) -> HRESULT;
             fn DeleteSnapshots(&self, #[in] SourceObjectId: VSS_ID, #[in] eSourceObjectType: VSS_OBJECT_TYPE, #[in] bForceDelete: BOOL, #[in] plDeletedSnapshots: *mut LONG, #[in] pNondeletedSnapshotID: *mut VSS_ID) -> HRESULT;
             fn ImportSnapshots(&self, #[out] ppAsync: *mut IVssAsync) -> HRESULT;
             fn BreakSnapshotSet(&self, #[in] SnapshotSetId: VSS_ID) -> HRESULT;
             fn GetSnapshotProperties(&self, #[in] SnapshotId: VSS_ID, #[out] pProp: *mut VSS_SNAPSHOT_PROP) -> HRESULT;
             fn Query(&self, #[in] QueriedObjectId: VSS_ID, #[in] eQueriedObjectType: VSS_OBJECT_TYPE, #[in] eReturnedObjectsType: VSS_OBJECT_TYPE, #[in] ppEnum: *mut IVssEnumObject) -> HRESULT;
-            fn IsVolumeSupported(&self, #[in] ProviderId: VSS_ID, #[in] #[null_terminated(entry)] pwszVolumeName: VSS_PWSZ, #[in] pbSupportedByThisProvider: *mut BOOL) -> HRESULT;
+            fn IsVolumeSupported(&self, #[in] ProviderId: VSS_ID, #[in] #[null_terminated] pwszVolumeName: VSS_PWSZ, #[in] pbSupportedByThisProvider: *mut BOOL) -> HRESULT;
             fn DisableWriterClasses(&self, #[in] rgWriterClassId: *const VSS_ID, #[in] cClassId: UINT) -> HRESULT;
             fn EnableWriterClasses(&self, #[in] rgWriterClassId: *const VSS_ID, #[in] cClassId: UINT) -> HRESULT;
             fn DisableWriterInstances(&self, #[in] rgWriterInstanceId: *const VSS_ID, #[in] cInstanceId: UINT) -> HRESULT;
-            fn ExposeSnapshot(&self, #[in] SnapshotId: VSS_ID, #[in] #[null_terminated(entry)] wszPathFromRoot: VSS_PWSZ, #[in] lAttributes: LONG, #[in] #[null_terminated(entry)] wszExpose: VSS_PWSZ, #[null_terminated(success, indirect)] #[out] #[out_ptr] pwszExposed: *mut VSS_PWSZ) -> HRESULT;
+            fn ExposeSnapshot(&self, #[in] SnapshotId: VSS_ID, #[in] #[null_terminated] wszPathFromRoot: VSS_PWSZ, #[in] lAttributes: LONG, #[in] #[null_terminated] wszExpose: VSS_PWSZ, #[incomplete] #[out] pwszExposed: *mut VSS_PWSZ) -> HRESULT;
             fn RevertToSnapshot(&self, #[in] SnapshotId: VSS_ID, #[in] bForceDismount: BOOL) -> HRESULT;
-            fn QueryRevertStatus(&self, #[in] #[null_terminated(entry)] pwszVolume: VSS_PWSZ, #[out] ppAsync: *mut IVssAsync) -> HRESULT;
+            fn QueryRevertStatus(&self, #[in] #[null_terminated] pwszVolume: VSS_PWSZ, #[out] ppAsync: *mut IVssAsync) -> HRESULT;
         }
         #[guid(0x963f03ad_9e4c_4a34_ac15_e4b6174e5036)]
         interface IVssBackupComponentsEx: IVssBackupComponents {
@@ -85,12 +85,12 @@ mod Windows {
         interface IVssBackupComponentsEx3: IVssBackupComponentsEx2 {
             fn GetWriterStatusEx(&self, #[in] iWriter: UINT, #[out] pidInstance: *mut VSS_ID, #[out] pidWriter: *mut VSS_ID, #[out] pbstrWriter: *mut BSTR, #[out] pnStatus: *mut VSS_WRITER_STATE, #[out] phrFailureWriter: *mut HRESULT, #[opt] #[out] phrApplication: *mut HRESULT, #[opt] #[out] pbstrApplicationMessage: *mut BSTR) -> HRESULT;
             fn AddSnapshotToRecoverySet(&self, #[in] snapshotId: VSS_ID, #[in] dwFlags: DWORD, #[in] #[opt] pwszDestinationVolume: VSS_PWSZ) -> HRESULT;
-            fn RecoverSet(&self, #[in] dwFlags: DWORD, #[out] #[out_ptr] #[retval] ppAsync: *mut IVssAsync) -> HRESULT;
+            fn RecoverSet(&self, #[in] dwFlags: DWORD, #[out] #[retval] ppAsync: *mut IVssAsync) -> HRESULT;
             fn GetSessionId(&self, #[out] idSession: *mut VSS_ID) -> HRESULT;
         }
         #[guid(0xf434c2fd_b553_4961_a9f9_a8e90b673e53)]
         interface IVssBackupComponentsEx4: IVssBackupComponentsEx3 {
-            fn GetRootAndLogicalPrefixPaths(&self, #[in] pwszFilePath: VSS_PWSZ, #[out] #[out_ptr] ppwszRootPath: *mut VSS_PWSZ, #[out] #[out_ptr] ppwszLogicalPrefix: *mut VSS_PWSZ, #[in] #[opt] bNormalizeFQDNforRootPath: BOOL) -> HRESULT;
+            fn GetRootAndLogicalPrefixPaths(&self, #[in] pwszFilePath: VSS_PWSZ, #[out] ppwszRootPath: *mut VSS_PWSZ, #[out] ppwszLogicalPrefix: *mut VSS_PWSZ, #[in] #[opt] bNormalizeFQDNforRootPath: BOOL) -> HRESULT;
         }
         #[guid(0x902fcf7f_b7fd_42f8_81f1_b2e400b1e5bd)]
         interface IVssExamineWriterMetadata: IUnknown {
@@ -131,7 +131,7 @@ mod Windows {
             base1: IUnknown,
         }
         #[library("VSSAPI.DLL")]
-        extern fn IsVolumeSnapshottedInternal(#[in] #[null_terminated(entry)] pwszVolumeName: VSS_PWSZ, #[out] pbSnapshotsPresent: *mut BOOL, #[out] plSnapshotCapability: *mut LONG) -> HRESULT;
+        extern fn IsVolumeSnapshottedInternal(#[in] #[null_terminated] pwszVolumeName: VSS_PWSZ, #[out] pbSnapshotsPresent: *mut BOOL, #[out] plSnapshotCapability: *mut LONG) -> HRESULT;
         type PVSSCOMPONENTINFO = *const VSS_COMPONENTINFO;
         #[library("VSSAPI.DLL")]
         extern fn ShouldBlockRevertInternal(#[in] wszVolumeName: LPCWSTR, #[out] pbBlock: *mut bool) -> HRESULT;

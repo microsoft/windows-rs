@@ -45,8 +45,8 @@ impl IMF2DBuffer {
         unsafe { (windows_core::Interface::vtable(self).ContiguousCopyTo)(windows_core::Interface::as_raw(self), pbdestbuffer as _, cbdestbuffer) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn ContiguousCopyFrom(&self, pbsrcbuffer: &[u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ContiguousCopyFrom)(windows_core::Interface::as_raw(self), core::mem::transmute(pbsrcbuffer.as_ptr()), pbsrcbuffer.len().try_into().unwrap()) }
+    pub unsafe fn ContiguousCopyFrom(&self, pbsrcbuffer: *const super::BYTE, cbsrcbuffer: super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ContiguousCopyFrom)(windows_core::Interface::as_raw(self), pbsrcbuffer, cbsrcbuffer) }
     }
 }
 #[repr(C)]
@@ -448,7 +448,10 @@ impl IMFAsyncResult_Vtbl {
                         ppunkstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunkstate.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -472,7 +475,10 @@ impl IMFAsyncResult_Vtbl {
                         ppobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppobject.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -593,8 +599,8 @@ impl IMFAttributes {
         unsafe { (windows_core::Interface::vtable(self).SetString)(windows_core::Interface::as_raw(self), guidkey, wszvalue.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetBlob(&self, guidkey: *const windows_core::GUID, pbuf: &[super::UINT8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetBlob)(windows_core::Interface::as_raw(self), guidkey, pbuf.as_ptr(), pbuf.len().try_into().unwrap()) }
+    pub unsafe fn SetBlob(&self, guidkey: *const windows_core::GUID, pbuf: *const super::UINT8, cbbufsize: super::UINT32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetBlob)(windows_core::Interface::as_raw(self), guidkey, pbuf, cbbufsize) }
     }
     pub unsafe fn SetUnknown<P1>(&self, guidkey: *const windows_core::GUID, punknown: P1) -> windows_core::HRESULT
     where
@@ -1055,16 +1061,16 @@ impl IMFByteStream {
         unsafe { (windows_core::Interface::vtable(self).EndRead)(windows_core::Interface::as_raw(self), presult.param().abi(), pcbread as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn Write(&self, pb: &[super::BYTE], pcbwritten: *mut super::ULONG) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), pb.as_ptr(), pb.len().try_into().unwrap(), pcbwritten as _) }
+    pub unsafe fn Write(&self, pb: *const super::BYTE, cb: super::ULONG, pcbwritten: *mut super::ULONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), pb, cb, pcbwritten as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn BeginWrite<P2, P3>(&self, pb: &[u8], pcallback: P2, punkstate: P3) -> windows_core::HRESULT
+    pub unsafe fn BeginWrite<P2, P3>(&self, pb: *const super::BYTE, cb: super::ULONG, pcallback: P2, punkstate: P3) -> windows_core::HRESULT
     where
         P2: windows_core::Param<IMFAsyncCallback>,
         P3: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).BeginWrite)(windows_core::Interface::as_raw(self), core::mem::transmute(pb.as_ptr()), pb.len().try_into().unwrap(), pcallback.param().abi(), punkstate.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).BeginWrite)(windows_core::Interface::as_raw(self), pb, cb, pcallback.param().abi(), punkstate.param().abi()) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn EndWrite<P0>(&self, presult: P0, pcbwritten: *mut super::ULONG) -> windows_core::HRESULT
@@ -1407,7 +1413,10 @@ impl IMFCollection_Vtbl {
                         ppunkelement.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunkelement.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -1425,7 +1434,10 @@ impl IMFCollection_Vtbl {
                         ppunkelement.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppunkelement.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2040,7 +2052,10 @@ impl IMFMediaEventGenerator_Vtbl {
                         ppevent.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppevent.write_bytes(0, 1);
+                        err.into()
+                    }
                 }
             }
         }
@@ -2363,7 +2378,7 @@ impl IMFMuxStreamAttributesManager_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppstreamattributes.write(core::mem::zeroed());
+                        ppstreamattributes.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2468,7 +2483,7 @@ impl IMFMuxStreamMediaTypeManager_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppmediatype.write(core::mem::zeroed());
+                        ppmediatype.write_bytes(0, 1);
                         err.into()
                     }
                 }
@@ -2574,7 +2589,7 @@ impl IMFMuxStreamSampleManager_Vtbl {
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
-                        ppsample.write(core::mem::zeroed());
+                        ppsample.write_bytes(0, 1);
                         err.into()
                     }
                 }

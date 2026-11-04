@@ -142,8 +142,8 @@ windows_core::imp::define_interface!(IAudioAmbisonicsControl, IAudioAmbisonicsCo
 windows_core::imp::interface_hierarchy!(IAudioAmbisonicsControl, windows_core::IUnknown);
 impl IAudioAmbisonicsControl {
     #[cfg(feature = "shared")]
-    pub unsafe fn SetData(&self, pambisonicsparams: &[AMBISONICS_PARAMS]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), pambisonicsparams.as_ptr(), pambisonicsparams.len().try_into().unwrap()) }
+    pub unsafe fn SetData(&self, pambisonicsparams: *const AMBISONICS_PARAMS, cbambisonicsparams: super::UINT32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), pambisonicsparams, cbambisonicsparams) }
     }
     pub unsafe fn SetHeadTracking(&self, benableheadtracking: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetHeadTracking)(windows_core::Interface::as_raw(self), benableheadtracking.into()) }
@@ -1018,8 +1018,8 @@ impl IAudioStreamVolume {
         unsafe { (windows_core::Interface::vtable(self).GetChannelVolume)(windows_core::Interface::as_raw(self), dwindex, pflevel as _) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn SetAllVolumes(&self, pfvolumes: &[f32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAllVolumes)(windows_core::Interface::as_raw(self), pfvolumes.len().try_into().unwrap(), pfvolumes.as_ptr()) }
+    pub unsafe fn SetAllVolumes(&self, dwcount: super::UINT32, pfvolumes: *const f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetAllVolumes)(windows_core::Interface::as_raw(self), dwcount, pfvolumes) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetAllVolumes(&self, dwcount: super::UINT32, pfvolumes: *mut f32) -> windows_core::HRESULT {
@@ -1161,8 +1161,8 @@ impl IChannelAudioVolume {
         unsafe { (windows_core::Interface::vtable(self).GetChannelVolume)(windows_core::Interface::as_raw(self), dwindex, pflevel as _) }
     }
     #[cfg(all(feature = "guiddef", feature = "shared"))]
-    pub unsafe fn SetAllVolumes(&self, pfvolumes: &[f32], eventcontext: super::LPCGUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAllVolumes)(windows_core::Interface::as_raw(self), pfvolumes.len().try_into().unwrap(), pfvolumes.as_ptr(), eventcontext) }
+    pub unsafe fn SetAllVolumes(&self, dwcount: super::UINT32, pfvolumes: *const f32, eventcontext: super::LPCGUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetAllVolumes)(windows_core::Interface::as_raw(self), dwcount, pfvolumes, eventcontext) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetAllVolumes(&self, dwcount: super::UINT32, pfvolumes: *mut f32) -> windows_core::HRESULT {
