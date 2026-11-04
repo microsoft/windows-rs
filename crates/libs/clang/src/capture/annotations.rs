@@ -30,7 +30,7 @@ pub(super) fn read(cursor: CXCursor, owner: CXCursor) -> Result<AttributeKind, E
         if library.is_empty()
             || library
                 .chars()
-                .any(|c| c.is_control() || matches!(c, '/' | '\\'))
+                .any(|c| c.is_control() || matches!(c, '/' | '\\' | ':'))
         {
             return Err(unsupported(cursor, "invalid ImportLibrary DLL name"));
         }
@@ -79,6 +79,8 @@ fn entry_point(cursor: CXCursor) -> Result<String, Error> {
             | CXType_SChar
             | CXType_Char_U
             | CXType_UChar
+            | CXType_Char16
+            | CXType_Char32
             | CXType_Short
             | CXType_UShort
             | CXType_WChar

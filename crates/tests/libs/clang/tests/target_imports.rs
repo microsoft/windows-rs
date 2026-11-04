@@ -34,7 +34,7 @@ fn import_annotation_precedence() {
             }
         }
         let output = projection::project_with_imports(&merged, "Fixture", &imports).unwrap();
-        assert_eq!(output.functions, 5);
+        assert_eq!(output.functions, 9);
         let text: String = output
             .partitions
             .values()
@@ -52,8 +52,8 @@ fn import_annotation_precedence() {
             assert_eq!(import.import_scope().name(), "actual.dll");
             let entry = match method.name() {
                 "Named" => "NativeEntry",
-                "Ordinal" => "#42",
-                "StringOrdinal" => "#65535",
+                "Ordinal" | "Char16Ordinal" | "Enum16Ordinal" => "#42",
+                "StringOrdinal" | "Char32Ordinal" | "Enum32Ordinal" => "#65535",
                 name => {
                     if fallback {
                         "ScannedEntry"
@@ -114,7 +114,7 @@ fn import_annotation_precedence() {
     assert!(text.contains("extern fn DefaultConvention("));
     let output = projection::generate_partial(&[input], "Fixture").unwrap();
     assert!(output.omissions.is_empty());
-    assert_eq!(output.output.functions, 5);
+    assert_eq!(output.output.functions, 9);
 }
 
 #[test]

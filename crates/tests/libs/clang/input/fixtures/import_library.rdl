@@ -1,13 +1,31 @@
 #[win32]
 mod Fixture {
+    #[library("actual.dll", import = "#42")]
+    extern fn Char16Ordinal(value: i32) -> i32;
+    #[library("actual.dll", import = "#65535")]
+    extern fn Char32Ordinal(value: i32) -> i32;
     #[library("actual.dll")]
     extern "C" fn DefaultConvention(value: i32) -> i32;
     #[library("actual.dll", last_error)]
     extern fn DllOnly(value: i32) -> i32;
+    #[library("actual.dll", import = "#42")]
+    extern fn Enum16Ordinal(value: i32) -> i32;
+    #[library("actual.dll", import = "#65535")]
+    extern fn Enum32Ordinal(value: i32) -> i32;
     #[library("actual.dll", import = "NativeEntry")]
     extern fn Named(value: i32) -> i32;
     #[library("actual.dll", import = "#42")]
     extern fn Ordinal(value: i32) -> i32;
+    #[repr(u16)]
+    #[scoped]
+    enum Ordinal16 {
+        Entry = 42,
+    }
+    #[repr(u32)]
+    #[scoped]
+    enum Ordinal32 {
+        Entry = 65535,
+    }
     #[library("actual.dll", import = "#65535")]
     extern fn StringOrdinal(value: i32) -> i32;
 }
