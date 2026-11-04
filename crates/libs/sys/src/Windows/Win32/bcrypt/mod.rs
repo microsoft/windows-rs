@@ -180,6 +180,31 @@ pub const BCRYPT_CHAIN_MODE_GCM: windows_sys::core::PCWSTR = windows_sys::core::
 pub const BCRYPT_CHAIN_MODE_NA: windows_sys::core::PCWSTR = windows_sys::core::w!("ChainingModeN/A");
 pub const BCRYPT_CIPHER_INTERFACE: i32 = 1;
 pub const BCRYPT_CIPHER_OPERATION: i32 = 1;
+pub const BCRYPT_COMPOSITE_MLDSA_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("Composite-ML-DSA");
+pub const BCRYPT_COMPOSITE_MLDSA_ALG_HANDLE: BCRYPT_ALG_HANDLE = 1169 as _;
+pub const BCRYPT_COMPOSITE_MLDSA_PARAMETER_SET_44_ECDSA_P256_SHA256: windows_sys::core::PCWSTR = windows_sys::core::w!("44-ECDSA-P256-SHA256");
+pub const BCRYPT_COMPOSITE_MLDSA_PARAMETER_SET_65_ECDSA_P256_SHA512: windows_sys::core::PCWSTR = windows_sys::core::w!("65-ECDSA-P256-SHA512");
+pub const BCRYPT_COMPOSITE_MLDSA_PARAMETER_SET_65_ECDSA_P384_SHA512: windows_sys::core::PCWSTR = windows_sys::core::w!("65-ECDSA-P384-SHA512");
+pub const BCRYPT_COMPOSITE_MLDSA_PARAMETER_SET_87_ECDSA_P384_SHA512: windows_sys::core::PCWSTR = windows_sys::core::w!("87-ECDSA-P384-SHA512");
+pub const BCRYPT_COMPOSITE_MLDSA_PRIVATE_MAGIC: i32 = 1263750467;
+pub const BCRYPT_COMPOSITE_MLDSA_PUBLIC_MAGIC: i32 = 1263553859;
+pub const BCRYPT_COMPOSITE_MLKEM_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("Composite-ML-KEM");
+pub const BCRYPT_COMPOSITE_MLKEM_ALG_HANDLE: BCRYPT_ALG_HANDLE = 1185 as _;
+pub const BCRYPT_COMPOSITE_MLKEM_DECAPSULATION_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("COMPMLKEMPRIVATELAMPSBLOB");
+pub const BCRYPT_COMPOSITE_MLKEM_ENCAPSULATION_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("COMPMLKEMPUBLICBLOB");
+#[cfg(feature = "shared")]
+pub type BCRYPT_COMPOSITE_MLKEM_KEY_BLOB = _BCRYPT_PARAMETER_SET_KEY_BLOB;
+pub const BCRYPT_COMPOSITE_MLKEM_PARAMETER_SET_1024_P384: windows_sys::core::PCWSTR = windows_sys::core::w!("1024-P384");
+pub const BCRYPT_COMPOSITE_MLKEM_PARAMETER_SET_768_P256: windows_sys::core::PCWSTR = windows_sys::core::w!("768-P256");
+pub const BCRYPT_COMPOSITE_MLKEM_PARAMETER_SET_768_X25519: windows_sys::core::PCWSTR = windows_sys::core::w!("768-X25519");
+pub const BCRYPT_COMPOSITE_MLKEM_PRIVATE_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("COMPMLKEMPRIVATELAMPSBLOB");
+pub const BCRYPT_COMPOSITE_MLKEM_PRIVATE_IRTF_SEED_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("COMPMLKEMPRIVATEIRTFSEEDBLOB");
+pub const BCRYPT_COMPOSITE_MLKEM_PRIVATE_IRTF_SEED_MAGIC: i32 = 1397443907;
+pub const BCRYPT_COMPOSITE_MLKEM_PRIVATE_LAMPS_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("COMPMLKEMPRIVATELAMPSBLOB");
+pub const BCRYPT_COMPOSITE_MLKEM_PRIVATE_LAMPS_MAGIC: i32 = 1380666691;
+pub const BCRYPT_COMPOSITE_MLKEM_PRIVATE_MAGIC: i32 = 1380666691;
+pub const BCRYPT_COMPOSITE_MLKEM_PUBLIC_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("COMPMLKEMPUBLICBLOB");
+pub const BCRYPT_COMPOSITE_MLKEM_PUBLIC_MAGIC: i32 = 1347112259;
 pub const BCRYPT_CSHAKE128_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("CSHAKE128");
 pub const BCRYPT_CSHAKE128_ALG_HANDLE: BCRYPT_ALG_HANDLE = 1041 as _;
 pub const BCRYPT_CSHAKE256_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("CSHAKE256");
@@ -529,14 +554,8 @@ pub const BCRYPT_MLKEM_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core:
 pub const BCRYPT_MLKEM_ALG_HANDLE: BCRYPT_ALG_HANDLE = 1153 as _;
 pub const BCRYPT_MLKEM_DECAPSULATION_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("MLKEMPRIVATEBLOB");
 pub const BCRYPT_MLKEM_ENCAPSULATION_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("MLKEMPUBLICBLOB");
-#[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
-pub struct BCRYPT_MLKEM_KEY_BLOB {
-    pub dwMagic: super::ULONG,
-    pub cbParameterSet: super::ULONG,
-    pub cbKey: super::ULONG,
-}
+pub type BCRYPT_MLKEM_KEY_BLOB = _BCRYPT_PARAMETER_SET_KEY_BLOB;
 pub const BCRYPT_MLKEM_PARAMETER_SET_1024: windows_sys::core::PCWSTR = windows_sys::core::w!("1024");
 pub const BCRYPT_MLKEM_PARAMETER_SET_512: windows_sys::core::PCWSTR = windows_sys::core::w!("512");
 pub const BCRYPT_MLKEM_PARAMETER_SET_768: windows_sys::core::PCWSTR = windows_sys::core::w!("768");
@@ -600,7 +619,17 @@ pub const BCRYPT_PAD_PKCS1: i32 = 2;
 pub const BCRYPT_PAD_PKCS1_OPTIONAL_HASH_OID: i32 = 16;
 pub const BCRYPT_PAD_PQDSA: i32 = 32;
 pub const BCRYPT_PAD_PSS: i32 = 8;
+#[cfg(feature = "shared")]
+pub type BCRYPT_PARAMETER_SET_KEY_BLOB = _BCRYPT_PARAMETER_SET_KEY_BLOB;
 pub const BCRYPT_PARAMETER_SET_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("ParameterSetName");
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct BCRYPT_PARAMETER_SET_NAMES {
+    pub dwParameterSetNames: super::ULONG,
+    pub ppszParameterSetNames: *mut windows_sys::core::PWSTR,
+}
+pub const BCRYPT_PARAMETER_SET_NAME_LIST: windows_sys::core::PCWSTR = windows_sys::core::w!("ParameterSetNameList");
 pub const BCRYPT_PBKDF2_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("PBKDF2");
 pub const BCRYPT_PBKDF2_ALG_HANDLE: BCRYPT_ALG_HANDLE = 817 as _;
 pub const BCRYPT_PCP_PLATFORM_TYPE_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("PCP_PLATFORM_TYPE");
@@ -621,14 +650,8 @@ pub const BCRYPT_PKCS11_RSA_AES_WRAP_KEY_BLOB: windows_sys::core::PCWSTR = windo
 pub struct BCRYPT_PKCS1_PADDING_INFO {
     pub pszAlgId: windows_sys::core::PCWSTR,
 }
-#[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
-pub struct BCRYPT_PQDSA_KEY_BLOB {
-    pub dwMagic: super::ULONG,
-    pub cbParameterSet: super::ULONG,
-    pub cbKey: super::ULONG,
-}
+pub type BCRYPT_PQDSA_KEY_BLOB = _BCRYPT_PARAMETER_SET_KEY_BLOB;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
@@ -932,6 +955,8 @@ pub const MS_PRIMITIVE_PROVIDER: windows_sys::core::PCWSTR = windows_sys::core::
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PBCRYPT_AUTHENTICATED_CIPHER_MODE_INFO = *mut BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO;
 #[cfg(feature = "shared")]
+pub type PBCRYPT_COMPOSITE_MLKEM_KEY_BLOB = *mut _BCRYPT_PARAMETER_SET_KEY_BLOB;
+#[cfg(feature = "shared")]
 pub type PBCRYPT_DH_KEY_BLOB = *mut BCRYPT_DH_KEY_BLOB;
 #[cfg(feature = "shared")]
 pub type PBCRYPT_DSA_KEY_BLOB = *mut BCRYPT_DSA_KEY_BLOB;
@@ -946,11 +971,15 @@ pub type PBCRYPT_INTERFACE_VERSION = *mut BCRYPT_INTERFACE_VERSION;
 #[cfg(feature = "shared")]
 pub type PBCRYPT_KEY_DATA_BLOB_HEADER = *mut BCRYPT_KEY_DATA_BLOB_HEADER;
 #[cfg(feature = "shared")]
-pub type PBCRYPT_MLKEM_KEY_BLOB = *mut BCRYPT_MLKEM_KEY_BLOB;
+pub type PBCRYPT_MLKEM_KEY_BLOB = *mut _BCRYPT_PARAMETER_SET_KEY_BLOB;
+#[cfg(feature = "shared")]
+pub type PBCRYPT_PARAMETER_SET_KEY_BLOB = *mut _BCRYPT_PARAMETER_SET_KEY_BLOB;
+#[cfg(feature = "shared")]
+pub type PBCRYPT_PARAMETER_SET_NAMES = *mut BCRYPT_PARAMETER_SET_NAMES;
 #[cfg(feature = "shared")]
 pub type PBCRYPT_PKCS11_RSA_AES_WRAP_BLOB = *mut BCRYPT_PKCS11_RSA_AES_WRAP_BLOB;
 #[cfg(feature = "shared")]
-pub type PBCRYPT_PQDSA_KEY_BLOB = *mut BCRYPT_PQDSA_KEY_BLOB;
+pub type PBCRYPT_PQDSA_KEY_BLOB = *mut _BCRYPT_PARAMETER_SET_KEY_BLOB;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PBCryptBuffer = *mut BCryptBuffer;
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -1023,3 +1052,11 @@ pub struct TLS_KEM_CIPHERTEXT_BLOB {
     pub cbLength: super::ULONG,
 }
 pub const TLS_KEM_CIPHERTEXT_MAGIC: i32 = 1129008205;
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct _BCRYPT_PARAMETER_SET_KEY_BLOB {
+    pub dwMagic: super::ULONG,
+    pub cbParameterSet: super::ULONG,
+    pub cbKey: super::ULONG,
+}

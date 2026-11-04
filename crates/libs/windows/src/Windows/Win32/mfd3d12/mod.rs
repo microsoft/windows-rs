@@ -30,8 +30,8 @@ pub struct IMFD3D12SynchronizationObject_Vtbl {
 }
 #[cfg(feature = "winnt")]
 pub trait IMFD3D12SynchronizationObject_Impl: windows_core::IUnknownImpl {
-    fn SignalEventOnFinalResourceRelease(&self, hevent: super::HANDLE) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
+    fn SignalEventOnFinalResourceRelease(&self, hevent: super::HANDLE) -> windows_core::HRESULT;
+    fn Reset(&self) -> windows_core::HRESULT;
 }
 #[cfg(feature = "winnt")]
 impl IMFD3D12SynchronizationObject_Vtbl {
@@ -39,13 +39,13 @@ impl IMFD3D12SynchronizationObject_Vtbl {
         unsafe extern "system" fn SignalEventOnFinalResourceRelease<Identity: IMFD3D12SynchronizationObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hevent: super::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFD3D12SynchronizationObject_Impl::SignalEventOnFinalResourceRelease(this, core::mem::transmute_copy(&hevent)).into()
+                IMFD3D12SynchronizationObject_Impl::SignalEventOnFinalResourceRelease(this, core::mem::transmute_copy(&hevent))
             }
         }
         unsafe extern "system" fn Reset<Identity: IMFD3D12SynchronizationObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFD3D12SynchronizationObject_Impl::Reset(this).into()
+                IMFD3D12SynchronizationObject_Impl::Reset(this)
             }
         }
         Self {
@@ -112,10 +112,10 @@ pub struct IMFD3D12SynchronizationObjectCommands_Vtbl {
 }
 #[cfg(all(feature = "d3d12", feature = "winnt"))]
 pub trait IMFD3D12SynchronizationObjectCommands_Impl: windows_core::IUnknownImpl {
-    fn EnqueueResourceReady(&self, pproducercommandqueue: windows_core::Ref<super::ID3D12CommandQueue>) -> windows_core::Result<()>;
-    fn EnqueueResourceReadyWait(&self, pconsumercommandqueue: windows_core::Ref<super::ID3D12CommandQueue>) -> windows_core::Result<()>;
-    fn SignalEventOnResourceReady(&self, hevent: super::HANDLE) -> windows_core::Result<()>;
-    fn EnqueueResourceRelease(&self, pconsumercommandqueue: windows_core::Ref<super::ID3D12CommandQueue>) -> windows_core::Result<()>;
+    fn EnqueueResourceReady(&self, pproducercommandqueue: windows_core::Ref<super::ID3D12CommandQueue>) -> windows_core::HRESULT;
+    fn EnqueueResourceReadyWait(&self, pconsumercommandqueue: windows_core::Ref<super::ID3D12CommandQueue>) -> windows_core::HRESULT;
+    fn SignalEventOnResourceReady(&self, hevent: super::HANDLE) -> windows_core::HRESULT;
+    fn EnqueueResourceRelease(&self, pconsumercommandqueue: windows_core::Ref<super::ID3D12CommandQueue>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "d3d12", feature = "winnt"))]
 impl IMFD3D12SynchronizationObjectCommands_Vtbl {
@@ -123,25 +123,25 @@ impl IMFD3D12SynchronizationObjectCommands_Vtbl {
         unsafe extern "system" fn EnqueueResourceReady<Identity: IMFD3D12SynchronizationObjectCommands_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pproducercommandqueue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFD3D12SynchronizationObjectCommands_Impl::EnqueueResourceReady(this, core::mem::transmute_copy(&pproducercommandqueue)).into()
+                IMFD3D12SynchronizationObjectCommands_Impl::EnqueueResourceReady(this, core::mem::transmute_copy(&pproducercommandqueue))
             }
         }
         unsafe extern "system" fn EnqueueResourceReadyWait<Identity: IMFD3D12SynchronizationObjectCommands_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pconsumercommandqueue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFD3D12SynchronizationObjectCommands_Impl::EnqueueResourceReadyWait(this, core::mem::transmute_copy(&pconsumercommandqueue)).into()
+                IMFD3D12SynchronizationObjectCommands_Impl::EnqueueResourceReadyWait(this, core::mem::transmute_copy(&pconsumercommandqueue))
             }
         }
         unsafe extern "system" fn SignalEventOnResourceReady<Identity: IMFD3D12SynchronizationObjectCommands_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hevent: super::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFD3D12SynchronizationObjectCommands_Impl::SignalEventOnResourceReady(this, core::mem::transmute_copy(&hevent)).into()
+                IMFD3D12SynchronizationObjectCommands_Impl::SignalEventOnResourceReady(this, core::mem::transmute_copy(&hevent))
             }
         }
         unsafe extern "system" fn EnqueueResourceRelease<Identity: IMFD3D12SynchronizationObjectCommands_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pconsumercommandqueue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFD3D12SynchronizationObjectCommands_Impl::EnqueueResourceRelease(this, core::mem::transmute_copy(&pconsumercommandqueue)).into()
+                IMFD3D12SynchronizationObjectCommands_Impl::EnqueueResourceRelease(this, core::mem::transmute_copy(&pconsumercommandqueue))
             }
         }
         Self {

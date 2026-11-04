@@ -39,6 +39,22 @@ impl Provider {
 }
 
 impl Results_Impl for Provider_Impl {
+    fn Status(&self, status: HRESULT) -> StatusCode {
+        status
+    }
+
+    fn Read(&self, status: HRESULT, value: *mut u32) -> HRESULT {
+        if status != E_FAIL {
+            unsafe { value.write(42) };
+        }
+        status
+    }
+
+    fn ExplicitObject(&self, status: HRESULT, value: OutRef<Tracked>) -> HRESULT {
+        value.write(self.value().unwrap()).unwrap();
+        status
+    }
+
     fn Object(&self) -> windows_core::Result<ObjectAlias> {
         self.value()?.ok_or_else(windows_core::Error::empty)
     }
@@ -87,16 +103,12 @@ impl Results_Impl for Provider_Impl {
         }
     }
 
-    fn InOutQuery(
-        &self,
-        iid: *const GUID,
-        value: *mut *mut core::ffi::c_void,
-    ) -> windows_core::Result<()> {
+    fn InOutQuery(&self, iid: *const GUID, value: *mut *mut core::ffi::c_void) -> HRESULT {
         unsafe {
             assert_eq!(*iid, Tracked::IID);
             assert!(!(*value).is_null());
         }
-        Ok(())
+        HRESULT(1)
     }
 
     fn Data(&self) -> windows_core::Result<*mut u8> {
@@ -122,6 +134,38 @@ fn provider(mode: &Rc<Cell<Mode>>, drops: &Rc<Cell<u32>>) -> Results {
         drops: drops.clone(),
     }
     .into()
+}
+
+#[test]
+fn native_results_preserve_status_and_explicit_outputs() {
+    let mode = Rc::new(Cell::new(Mode::Value));
+    let drops = Rc::new(Cell::new(0));
+    let object = provider(&mode, &drops);
+    unsafe {
+        for (index, status) in [
+            HRESULT(0),
+            HRESULT(1),
+            E_FAIL,
+            HRESULT(0x887A0002u32 as i32),
+        ]
+        .into_iter()
+        .enumerate()
+        {
+            assert_eq!(object.Status(status), status);
+            let mut value = 17;
+            assert_eq!(object.Read(status, &mut value), status);
+            assert_eq!(value, if status == E_FAIL { 17 } else { 42 });
+            let mut value = None;
+            assert_eq!(object.ExplicitObject(status, &mut value), status);
+            assert!(value.is_some());
+            drop(value);
+            assert_eq!(drops.get(), index as u32 + 1);
+        }
+        mode.set(Mode::Null);
+        let mut value = None;
+        assert_eq!(object.ExplicitObject(HRESULT(1), &mut value), HRESULT(1));
+        assert!(value.is_none());
+    }
 }
 
 #[test]
@@ -263,7 +307,7 @@ fn inout_query_keeps_incoming_storage() {
     let mut raw = value.as_raw();
     assert_eq!(
         unsafe { result.InOutQuery(&Tracked::IID, &mut raw) },
-        HRESULT(0)
+        HRESULT(1)
     );
     assert_eq!(raw, value.as_raw());
     drop(value);

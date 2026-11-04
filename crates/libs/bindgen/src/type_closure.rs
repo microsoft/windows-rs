@@ -74,18 +74,6 @@ impl TypeClosure {
                 ty.combine_root(&mut types, reader, references, style);
                 types.insert(ty.clone());
 
-                if let Type::Interface(interface) = &ty
-                    && implements
-                        .is_some_and(|implements| implements.matches(interface.type_name()))
-                {
-                    for method in interface.def.methods() {
-                        let sig = method.method_signature(&interface.generics, reader);
-                        for dep_ty in sig.types() {
-                            dep_ty.combine_root(&mut types, reader, references, style);
-                        }
-                    }
-                }
-
                 // Unscoped enum variants are standalone constants; include the requested set
                 // explicitly.
                 if let Type::CppEnum(e) = &ty
@@ -102,6 +90,45 @@ impl TypeClosure {
                                     constant.combine_root(&mut types, reader, references, style);
                                 }
                             }
+                        }
+                    }
+                }
+            }
+        }
+
+        if let Some(implements) = implements {
+            let mut visited = HashSet::new();
+            loop {
+                let pending: Vec<_> = types
+                    .values()
+                    .flatten()
+                    .filter(|ty| {
+                        matches!(ty, Type::Interface(_) | Type::CppInterface(_))
+                            && implements.matches(ty.type_name())
+                            && visited.insert((*ty).clone())
+                    })
+                    .cloned()
+                    .collect();
+                if pending.is_empty() {
+                    break;
+                }
+                for ty in pending {
+                    let (def, generics) = match &ty {
+                        Type::Interface(interface) => {
+                            (interface.def, interface.generics.as_slice())
+                        }
+                        Type::CppInterface(interface) => (interface.def, &[][..]),
+                        _ => unreachable!(),
+                    };
+                    for method in def.methods() {
+                        if matches!(ty, Type::CppInterface(_)) {
+                            for dependency in method.associated_enums(reader) {
+                                dependency.combine_root(&mut types, reader, references, style);
+                            }
+                        }
+                        let sig = method.method_signature(generics, reader);
+                        for dep_ty in sig.types() {
+                            dep_ty.combine_root(&mut types, reader, references, style);
                         }
                     }
                 }

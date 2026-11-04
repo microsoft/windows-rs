@@ -84,7 +84,7 @@ impl IFsrmAccessDeniedRemediationClient_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), Show: Show::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsrmAccessDeniedRemediationClient as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IFsrmAccessDeniedRemediationClient as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -151,8 +151,8 @@ pub trait IFsrmAction_Impl: super::IDispatch_Impl {
     fn Id(&self) -> windows_core::Result<super::FSRM_OBJECT_ID>;
     fn ActionType(&self) -> windows_core::Result<super::FsrmActionType>;
     fn RunLimitInterval(&self) -> windows_core::Result<i32>;
-    fn SetRunLimitInterval(&self, minutes: i32) -> windows_core::Result<()>;
-    fn Delete(&self) -> windows_core::Result<()>;
+    fn SetRunLimitInterval(&self, minutes: i32) -> windows_core::HRESULT;
+    fn Delete(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmAction_Vtbl {
@@ -205,13 +205,13 @@ impl IFsrmAction_Vtbl {
         unsafe extern "system" fn SetRunLimitInterval<Identity: IFsrmAction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minutes: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmAction_Impl::SetRunLimitInterval(this, core::mem::transmute_copy(&minutes)).into()
+                IFsrmAction_Impl::SetRunLimitInterval(this, core::mem::transmute_copy(&minutes))
             }
         }
         unsafe extern "system" fn Delete<Identity: IFsrmAction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmAction_Impl::Delete(this).into()
+                IFsrmAction_Impl::Delete(this)
             }
         }
         Self {
@@ -224,7 +224,7 @@ impl IFsrmAction_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsrmAction as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IFsrmAction as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -353,19 +353,19 @@ pub struct IFsrmActionCommand_Vtbl {
 #[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmActionCommand_Impl: IFsrmAction_Impl {
     fn ExecutablePath(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetExecutablePath(&self, executablepath: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetExecutablePath(&self, executablepath: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Arguments(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetArguments(&self, arguments: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetArguments(&self, arguments: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Account(&self) -> windows_core::Result<super::FsrmAccountType>;
-    fn SetAccount(&self, account: super::FsrmAccountType) -> windows_core::Result<()>;
+    fn SetAccount(&self, account: super::FsrmAccountType) -> windows_core::HRESULT;
     fn WorkingDirectory(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetWorkingDirectory(&self, workingdirectory: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetWorkingDirectory(&self, workingdirectory: &windows_core::BSTR) -> windows_core::HRESULT;
     fn MonitorCommand(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetMonitorCommand(&self, monitorcommand: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetMonitorCommand(&self, monitorcommand: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn KillTimeOut(&self) -> windows_core::Result<i32>;
-    fn SetKillTimeOut(&self, minutes: i32) -> windows_core::Result<()>;
+    fn SetKillTimeOut(&self, minutes: i32) -> windows_core::HRESULT;
     fn LogResult(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetLogResult(&self, logresults: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetLogResult(&self, logresults: super::VARIANT_BOOL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmActionCommand_Vtbl {
@@ -388,7 +388,7 @@ impl IFsrmActionCommand_Vtbl {
         unsafe extern "system" fn SetExecutablePath<Identity: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, executablepath: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmActionCommand_Impl::SetExecutablePath(this, core::mem::transmute(&executablepath)).into()
+                IFsrmActionCommand_Impl::SetExecutablePath(this, core::mem::transmute(&executablepath))
             }
         }
         unsafe extern "system" fn Arguments<Identity: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, arguments: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -409,7 +409,7 @@ impl IFsrmActionCommand_Vtbl {
         unsafe extern "system" fn SetArguments<Identity: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, arguments: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmActionCommand_Impl::SetArguments(this, core::mem::transmute(&arguments)).into()
+                IFsrmActionCommand_Impl::SetArguments(this, core::mem::transmute(&arguments))
             }
         }
         unsafe extern "system" fn Account<Identity: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, account: *mut super::FsrmAccountType) -> windows_core::HRESULT {
@@ -430,7 +430,7 @@ impl IFsrmActionCommand_Vtbl {
         unsafe extern "system" fn SetAccount<Identity: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, account: super::FsrmAccountType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmActionCommand_Impl::SetAccount(this, core::mem::transmute_copy(&account)).into()
+                IFsrmActionCommand_Impl::SetAccount(this, core::mem::transmute_copy(&account))
             }
         }
         unsafe extern "system" fn WorkingDirectory<Identity: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, workingdirectory: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -451,7 +451,7 @@ impl IFsrmActionCommand_Vtbl {
         unsafe extern "system" fn SetWorkingDirectory<Identity: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, workingdirectory: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmActionCommand_Impl::SetWorkingDirectory(this, core::mem::transmute(&workingdirectory)).into()
+                IFsrmActionCommand_Impl::SetWorkingDirectory(this, core::mem::transmute(&workingdirectory))
             }
         }
         unsafe extern "system" fn MonitorCommand<Identity: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, monitorcommand: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -472,7 +472,7 @@ impl IFsrmActionCommand_Vtbl {
         unsafe extern "system" fn SetMonitorCommand<Identity: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, monitorcommand: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmActionCommand_Impl::SetMonitorCommand(this, core::mem::transmute_copy(&monitorcommand)).into()
+                IFsrmActionCommand_Impl::SetMonitorCommand(this, core::mem::transmute_copy(&monitorcommand))
             }
         }
         unsafe extern "system" fn KillTimeOut<Identity: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minutes: *mut i32) -> windows_core::HRESULT {
@@ -493,7 +493,7 @@ impl IFsrmActionCommand_Vtbl {
         unsafe extern "system" fn SetKillTimeOut<Identity: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minutes: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmActionCommand_Impl::SetKillTimeOut(this, core::mem::transmute_copy(&minutes)).into()
+                IFsrmActionCommand_Impl::SetKillTimeOut(this, core::mem::transmute_copy(&minutes))
             }
         }
         unsafe extern "system" fn LogResult<Identity: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, logresults: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -514,7 +514,7 @@ impl IFsrmActionCommand_Vtbl {
         unsafe extern "system" fn SetLogResult<Identity: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, logresults: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmActionCommand_Impl::SetLogResult(this, core::mem::transmute_copy(&logresults)).into()
+                IFsrmActionCommand_Impl::SetLogResult(this, core::mem::transmute_copy(&logresults))
             }
         }
         Self {
@@ -536,7 +536,7 @@ impl IFsrmActionCommand_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsrmActionCommand as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmAction as windows_core::Interface>::IID
+        iid == &<IFsrmActionCommand as windows_core::Interface>::IID || IFsrmAction_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -641,19 +641,19 @@ pub struct IFsrmActionEmail_Vtbl {
 #[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmActionEmail_Impl: IFsrmAction_Impl {
     fn MailFrom(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetMailFrom(&self, mailfrom: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetMailFrom(&self, mailfrom: &windows_core::BSTR) -> windows_core::HRESULT;
     fn MailReplyTo(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetMailReplyTo(&self, mailreplyto: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetMailReplyTo(&self, mailreplyto: &windows_core::BSTR) -> windows_core::HRESULT;
     fn MailTo(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetMailTo(&self, mailto: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetMailTo(&self, mailto: &windows_core::BSTR) -> windows_core::HRESULT;
     fn MailCc(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetMailCc(&self, mailcc: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetMailCc(&self, mailcc: &windows_core::BSTR) -> windows_core::HRESULT;
     fn MailBcc(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetMailBcc(&self, mailbcc: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetMailBcc(&self, mailbcc: &windows_core::BSTR) -> windows_core::HRESULT;
     fn MailSubject(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetMailSubject(&self, mailsubject: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetMailSubject(&self, mailsubject: &windows_core::BSTR) -> windows_core::HRESULT;
     fn MessageText(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetMessageText(&self, messagetext: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetMessageText(&self, messagetext: &windows_core::BSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmActionEmail_Vtbl {
@@ -676,7 +676,7 @@ impl IFsrmActionEmail_Vtbl {
         unsafe extern "system" fn SetMailFrom<Identity: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailfrom: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmActionEmail_Impl::SetMailFrom(this, core::mem::transmute(&mailfrom)).into()
+                IFsrmActionEmail_Impl::SetMailFrom(this, core::mem::transmute(&mailfrom))
             }
         }
         unsafe extern "system" fn MailReplyTo<Identity: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailreplyto: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -697,7 +697,7 @@ impl IFsrmActionEmail_Vtbl {
         unsafe extern "system" fn SetMailReplyTo<Identity: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailreplyto: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmActionEmail_Impl::SetMailReplyTo(this, core::mem::transmute(&mailreplyto)).into()
+                IFsrmActionEmail_Impl::SetMailReplyTo(this, core::mem::transmute(&mailreplyto))
             }
         }
         unsafe extern "system" fn MailTo<Identity: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailto: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -718,7 +718,7 @@ impl IFsrmActionEmail_Vtbl {
         unsafe extern "system" fn SetMailTo<Identity: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailto: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmActionEmail_Impl::SetMailTo(this, core::mem::transmute(&mailto)).into()
+                IFsrmActionEmail_Impl::SetMailTo(this, core::mem::transmute(&mailto))
             }
         }
         unsafe extern "system" fn MailCc<Identity: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailcc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -739,7 +739,7 @@ impl IFsrmActionEmail_Vtbl {
         unsafe extern "system" fn SetMailCc<Identity: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailcc: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmActionEmail_Impl::SetMailCc(this, core::mem::transmute(&mailcc)).into()
+                IFsrmActionEmail_Impl::SetMailCc(this, core::mem::transmute(&mailcc))
             }
         }
         unsafe extern "system" fn MailBcc<Identity: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailbcc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -760,7 +760,7 @@ impl IFsrmActionEmail_Vtbl {
         unsafe extern "system" fn SetMailBcc<Identity: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailbcc: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmActionEmail_Impl::SetMailBcc(this, core::mem::transmute(&mailbcc)).into()
+                IFsrmActionEmail_Impl::SetMailBcc(this, core::mem::transmute(&mailbcc))
             }
         }
         unsafe extern "system" fn MailSubject<Identity: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailsubject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -781,7 +781,7 @@ impl IFsrmActionEmail_Vtbl {
         unsafe extern "system" fn SetMailSubject<Identity: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailsubject: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmActionEmail_Impl::SetMailSubject(this, core::mem::transmute(&mailsubject)).into()
+                IFsrmActionEmail_Impl::SetMailSubject(this, core::mem::transmute(&mailsubject))
             }
         }
         unsafe extern "system" fn MessageText<Identity: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, messagetext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -802,7 +802,7 @@ impl IFsrmActionEmail_Vtbl {
         unsafe extern "system" fn SetMessageText<Identity: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, messagetext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmActionEmail_Impl::SetMessageText(this, core::mem::transmute(&messagetext)).into()
+                IFsrmActionEmail_Impl::SetMessageText(this, core::mem::transmute(&messagetext))
             }
         }
         Self {
@@ -824,7 +824,7 @@ impl IFsrmActionEmail_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsrmActionEmail as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmAction as windows_core::Interface>::IID
+        iid == &<IFsrmActionEmail as windows_core::Interface>::IID || IFsrmAction_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -863,7 +863,7 @@ pub struct IFsrmActionEmail2_Vtbl {
 #[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmActionEmail2_Impl: IFsrmActionEmail_Impl {
     fn AttachmentFileListSize(&self) -> windows_core::Result<i32>;
-    fn SetAttachmentFileListSize(&self, attachmentfilelistsize: i32) -> windows_core::Result<()>;
+    fn SetAttachmentFileListSize(&self, attachmentfilelistsize: i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmActionEmail2_Vtbl {
@@ -886,7 +886,7 @@ impl IFsrmActionEmail2_Vtbl {
         unsafe extern "system" fn SetAttachmentFileListSize<Identity: IFsrmActionEmail2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attachmentfilelistsize: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmActionEmail2_Impl::SetAttachmentFileListSize(this, core::mem::transmute_copy(&attachmentfilelistsize)).into()
+                IFsrmActionEmail2_Impl::SetAttachmentFileListSize(this, core::mem::transmute_copy(&attachmentfilelistsize))
             }
         }
         Self {
@@ -896,7 +896,7 @@ impl IFsrmActionEmail2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsrmActionEmail2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmAction as windows_core::Interface>::IID || iid == &<IFsrmActionEmail as windows_core::Interface>::IID
+        iid == &<IFsrmActionEmail2 as windows_core::Interface>::IID || IFsrmActionEmail_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -954,9 +954,9 @@ pub struct IFsrmActionEventLog_Vtbl {
 #[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmActionEventLog_Impl: IFsrmAction_Impl {
     fn EventType(&self) -> windows_core::Result<super::FsrmEventType>;
-    fn SetEventType(&self, eventtype: super::FsrmEventType) -> windows_core::Result<()>;
+    fn SetEventType(&self, eventtype: super::FsrmEventType) -> windows_core::HRESULT;
     fn MessageText(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetMessageText(&self, messagetext: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetMessageText(&self, messagetext: &windows_core::BSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmActionEventLog_Vtbl {
@@ -979,7 +979,7 @@ impl IFsrmActionEventLog_Vtbl {
         unsafe extern "system" fn SetEventType<Identity: IFsrmActionEventLog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventtype: super::FsrmEventType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmActionEventLog_Impl::SetEventType(this, core::mem::transmute_copy(&eventtype)).into()
+                IFsrmActionEventLog_Impl::SetEventType(this, core::mem::transmute_copy(&eventtype))
             }
         }
         unsafe extern "system" fn MessageText<Identity: IFsrmActionEventLog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, messagetext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1000,7 +1000,7 @@ impl IFsrmActionEventLog_Vtbl {
         unsafe extern "system" fn SetMessageText<Identity: IFsrmActionEventLog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, messagetext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmActionEventLog_Impl::SetMessageText(this, core::mem::transmute(&messagetext)).into()
+                IFsrmActionEventLog_Impl::SetMessageText(this, core::mem::transmute(&messagetext))
             }
         }
         Self {
@@ -1012,7 +1012,7 @@ impl IFsrmActionEventLog_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsrmActionEventLog as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmAction as windows_core::Interface>::IID
+        iid == &<IFsrmActionEventLog as windows_core::Interface>::IID || IFsrmAction_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1070,9 +1070,9 @@ pub struct IFsrmActionReport_Vtbl {
 #[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmActionReport_Impl: IFsrmAction_Impl {
     fn ReportTypes(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
-    fn SetReportTypes(&self, reporttypes: *const super::SAFEARRAY) -> windows_core::Result<()>;
+    fn SetReportTypes(&self, reporttypes: *const super::SAFEARRAY) -> windows_core::HRESULT;
     fn MailTo(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetMailTo(&self, mailto: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetMailTo(&self, mailto: &windows_core::BSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmActionReport_Vtbl {
@@ -1095,7 +1095,7 @@ impl IFsrmActionReport_Vtbl {
         unsafe extern "system" fn SetReportTypes<Identity: IFsrmActionReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttypes: *const super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmActionReport_Impl::SetReportTypes(this, core::mem::transmute_copy(&reporttypes)).into()
+                IFsrmActionReport_Impl::SetReportTypes(this, core::mem::transmute_copy(&reporttypes))
             }
         }
         unsafe extern "system" fn MailTo<Identity: IFsrmActionReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailto: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1116,7 +1116,7 @@ impl IFsrmActionReport_Vtbl {
         unsafe extern "system" fn SetMailTo<Identity: IFsrmActionReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailto: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmActionReport_Impl::SetMailTo(this, core::mem::transmute(&mailto)).into()
+                IFsrmActionReport_Impl::SetMailTo(this, core::mem::transmute(&mailto))
             }
         }
         Self {
@@ -1128,7 +1128,7 @@ impl IFsrmActionReport_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsrmActionReport as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmAction as windows_core::Interface>::IID
+        iid == &<IFsrmActionReport as windows_core::Interface>::IID || IFsrmAction_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1221,7 +1221,7 @@ pub trait IFsrmCollection_Impl: super::IDispatch_Impl {
     fn Item(&self, index: i32) -> windows_core::Result<super::VARIANT>;
     fn Count(&self) -> windows_core::Result<i32>;
     fn State(&self) -> windows_core::Result<super::FsrmCollectionState>;
-    fn Cancel(&self) -> windows_core::Result<()>;
+    fn Cancel(&self) -> windows_core::HRESULT;
     fn WaitForCompletion(&self, waitseconds: i32) -> windows_core::Result<super::VARIANT_BOOL>;
     fn GetById(&self, id: &super::FSRM_OBJECT_ID) -> windows_core::Result<super::VARIANT>;
 }
@@ -1291,7 +1291,7 @@ impl IFsrmCollection_Vtbl {
         unsafe extern "system" fn Cancel<Identity: IFsrmCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmCollection_Impl::Cancel(this).into()
+                IFsrmCollection_Impl::Cancel(this)
             }
         }
         unsafe extern "system" fn WaitForCompletion<Identity: IFsrmCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, waitseconds: i32, completed: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -1336,7 +1336,7 @@ impl IFsrmCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsrmCollection as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IFsrmCollection as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1397,7 +1397,7 @@ impl IFsrmCommittableCollection_Vtbl {
         Self { base__: IFsrmMutableCollection_Vtbl::new::<Identity, OFFSET>(), Commit: Commit::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsrmCommittableCollection as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmCollection as windows_core::Interface>::IID || iid == &<IFsrmMutableCollection as windows_core::Interface>::IID
+        iid == &<IFsrmCommittableCollection as windows_core::Interface>::IID || IFsrmMutableCollection_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1481,7 +1481,7 @@ impl IFsrmDerivedObjectsResult_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsrmDerivedObjectsResult as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IFsrmDerivedObjectsResult as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1565,11 +1565,11 @@ pub struct IFsrmExportImport_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmExportImport_Impl: super::IDispatch_Impl {
-    fn ExportFileGroups(&self, filepath: &windows_core::BSTR, filegroupnamessafearray: *const super::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn ExportFileGroups(&self, filepath: &windows_core::BSTR, filegroupnamessafearray: *const super::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::HRESULT;
     fn ImportFileGroups(&self, filepath: &windows_core::BSTR, filegroupnamessafearray: *const super::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<IFsrmCommittableCollection>;
-    fn ExportFileScreenTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const super::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn ExportFileScreenTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const super::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::HRESULT;
     fn ImportFileScreenTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const super::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<IFsrmCommittableCollection>;
-    fn ExportQuotaTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const super::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn ExportQuotaTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const super::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::HRESULT;
     fn ImportQuotaTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const super::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<IFsrmCommittableCollection>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1578,7 +1578,7 @@ impl IFsrmExportImport_Vtbl {
         unsafe extern "system" fn ExportFileGroups<Identity: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: *mut core::ffi::c_void, filegroupnamessafearray: *const super::VARIANT, remotehost: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmExportImport_Impl::ExportFileGroups(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&filegroupnamessafearray), core::mem::transmute(&remotehost)).into()
+                IFsrmExportImport_Impl::ExportFileGroups(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&filegroupnamessafearray), core::mem::transmute(&remotehost))
             }
         }
         unsafe extern "system" fn ImportFileGroups<Identity: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: *mut core::ffi::c_void, filegroupnamessafearray: *const super::VARIANT, remotehost: *mut core::ffi::c_void, filegroups: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1599,7 +1599,7 @@ impl IFsrmExportImport_Vtbl {
         unsafe extern "system" fn ExportFileScreenTemplates<Identity: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: *mut core::ffi::c_void, templatenamessafearray: *const super::VARIANT, remotehost: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmExportImport_Impl::ExportFileScreenTemplates(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&templatenamessafearray), core::mem::transmute(&remotehost)).into()
+                IFsrmExportImport_Impl::ExportFileScreenTemplates(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&templatenamessafearray), core::mem::transmute(&remotehost))
             }
         }
         unsafe extern "system" fn ImportFileScreenTemplates<Identity: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: *mut core::ffi::c_void, templatenamessafearray: *const super::VARIANT, remotehost: *mut core::ffi::c_void, templates: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1620,7 +1620,7 @@ impl IFsrmExportImport_Vtbl {
         unsafe extern "system" fn ExportQuotaTemplates<Identity: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: *mut core::ffi::c_void, templatenamessafearray: *const super::VARIANT, remotehost: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmExportImport_Impl::ExportQuotaTemplates(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&templatenamessafearray), core::mem::transmute(&remotehost)).into()
+                IFsrmExportImport_Impl::ExportQuotaTemplates(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&templatenamessafearray), core::mem::transmute(&remotehost))
             }
         }
         unsafe extern "system" fn ImportQuotaTemplates<Identity: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: *mut core::ffi::c_void, templatenamessafearray: *const super::VARIANT, remotehost: *mut core::ffi::c_void, templates: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1649,7 +1649,7 @@ impl IFsrmExportImport_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsrmExportImport as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IFsrmExportImport as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1703,9 +1703,9 @@ pub struct IFsrmMutableCollection_Vtbl {
 }
 #[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmMutableCollection_Impl: IFsrmCollection_Impl {
-    fn Add(&self, item: &super::VARIANT) -> windows_core::Result<()>;
-    fn Remove(&self, index: i32) -> windows_core::Result<()>;
-    fn RemoveById(&self, id: &super::FSRM_OBJECT_ID) -> windows_core::Result<()>;
+    fn Add(&self, item: &super::VARIANT) -> windows_core::HRESULT;
+    fn Remove(&self, index: i32) -> windows_core::HRESULT;
+    fn RemoveById(&self, id: &super::FSRM_OBJECT_ID) -> windows_core::HRESULT;
     fn Clone(&self) -> windows_core::Result<IFsrmMutableCollection>;
 }
 #[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1714,19 +1714,19 @@ impl IFsrmMutableCollection_Vtbl {
         unsafe extern "system" fn Add<Identity: IFsrmMutableCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, item: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmMutableCollection_Impl::Add(this, core::mem::transmute(&item)).into()
+                IFsrmMutableCollection_Impl::Add(this, core::mem::transmute(&item))
             }
         }
         unsafe extern "system" fn Remove<Identity: IFsrmMutableCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmMutableCollection_Impl::Remove(this, core::mem::transmute_copy(&index)).into()
+                IFsrmMutableCollection_Impl::Remove(this, core::mem::transmute_copy(&index))
             }
         }
         unsafe extern "system" fn RemoveById<Identity: IFsrmMutableCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: super::FSRM_OBJECT_ID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmMutableCollection_Impl::RemoveById(this, core::mem::transmute(&id)).into()
+                IFsrmMutableCollection_Impl::RemoveById(this, core::mem::transmute(&id))
             }
         }
         unsafe extern "system" fn Clone<Identity: IFsrmMutableCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, collection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1753,7 +1753,7 @@ impl IFsrmMutableCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsrmMutableCollection as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmCollection as windows_core::Interface>::IID
+        iid == &<IFsrmMutableCollection as windows_core::Interface>::IID || IFsrmCollection_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1812,9 +1812,9 @@ pub struct IFsrmObject_Vtbl {
 pub trait IFsrmObject_Impl: super::IDispatch_Impl {
     fn Id(&self) -> windows_core::Result<super::FSRM_OBJECT_ID>;
     fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetDescription(&self, description: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Delete(&self) -> windows_core::Result<()>;
-    fn Commit(&self) -> windows_core::Result<()>;
+    fn SetDescription(&self, description: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn Delete(&self) -> windows_core::HRESULT;
+    fn Commit(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmObject_Vtbl {
@@ -1852,19 +1852,19 @@ impl IFsrmObject_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: IFsrmObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, description: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmObject_Impl::SetDescription(this, core::mem::transmute(&description)).into()
+                IFsrmObject_Impl::SetDescription(this, core::mem::transmute(&description))
             }
         }
         unsafe extern "system" fn Delete<Identity: IFsrmObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmObject_Impl::Delete(this).into()
+                IFsrmObject_Impl::Delete(this)
             }
         }
         unsafe extern "system" fn Commit<Identity: IFsrmObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmObject_Impl::Commit(this).into()
+                IFsrmObject_Impl::Commit(this)
             }
         }
         Self {
@@ -1877,7 +1877,7 @@ impl IFsrmObject_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsrmObject as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IFsrmObject as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1938,7 +1938,7 @@ impl IFsrmPathMapper_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), GetSharePathsForLocalPath: GetSharePathsForLocalPath::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsrmPathMapper as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IFsrmPathMapper as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2060,17 +2060,17 @@ pub struct IFsrmSetting_Vtbl {
 #[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmSetting_Impl: super::IDispatch_Impl {
     fn SmtpServer(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetSmtpServer(&self, smtpserver: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetSmtpServer(&self, smtpserver: &windows_core::BSTR) -> windows_core::HRESULT;
     fn MailFrom(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetMailFrom(&self, mailfrom: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetMailFrom(&self, mailfrom: &windows_core::BSTR) -> windows_core::HRESULT;
     fn AdminEmail(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetAdminEmail(&self, adminemail: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetAdminEmail(&self, adminemail: &windows_core::BSTR) -> windows_core::HRESULT;
     fn DisableCommandLine(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetDisableCommandLine(&self, disablecommandline: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetDisableCommandLine(&self, disablecommandline: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn EnableScreeningAudit(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetEnableScreeningAudit(&self, enablescreeningaudit: super::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn EmailTest(&self, mailto: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetActionRunLimitInterval(&self, actiontype: super::FsrmActionType, delaytimeminutes: i32) -> windows_core::Result<()>;
+    fn SetEnableScreeningAudit(&self, enablescreeningaudit: super::VARIANT_BOOL) -> windows_core::HRESULT;
+    fn EmailTest(&self, mailto: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn SetActionRunLimitInterval(&self, actiontype: super::FsrmActionType, delaytimeminutes: i32) -> windows_core::HRESULT;
     fn GetActionRunLimitInterval(&self, actiontype: super::FsrmActionType) -> windows_core::Result<i32>;
 }
 #[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2094,7 +2094,7 @@ impl IFsrmSetting_Vtbl {
         unsafe extern "system" fn SetSmtpServer<Identity: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, smtpserver: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmSetting_Impl::SetSmtpServer(this, core::mem::transmute(&smtpserver)).into()
+                IFsrmSetting_Impl::SetSmtpServer(this, core::mem::transmute(&smtpserver))
             }
         }
         unsafe extern "system" fn MailFrom<Identity: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailfrom: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2115,7 +2115,7 @@ impl IFsrmSetting_Vtbl {
         unsafe extern "system" fn SetMailFrom<Identity: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailfrom: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmSetting_Impl::SetMailFrom(this, core::mem::transmute(&mailfrom)).into()
+                IFsrmSetting_Impl::SetMailFrom(this, core::mem::transmute(&mailfrom))
             }
         }
         unsafe extern "system" fn AdminEmail<Identity: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adminemail: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2136,7 +2136,7 @@ impl IFsrmSetting_Vtbl {
         unsafe extern "system" fn SetAdminEmail<Identity: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adminemail: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmSetting_Impl::SetAdminEmail(this, core::mem::transmute(&adminemail)).into()
+                IFsrmSetting_Impl::SetAdminEmail(this, core::mem::transmute(&adminemail))
             }
         }
         unsafe extern "system" fn DisableCommandLine<Identity: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, disablecommandline: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2157,7 +2157,7 @@ impl IFsrmSetting_Vtbl {
         unsafe extern "system" fn SetDisableCommandLine<Identity: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, disablecommandline: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmSetting_Impl::SetDisableCommandLine(this, core::mem::transmute_copy(&disablecommandline)).into()
+                IFsrmSetting_Impl::SetDisableCommandLine(this, core::mem::transmute_copy(&disablecommandline))
             }
         }
         unsafe extern "system" fn EnableScreeningAudit<Identity: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enablescreeningaudit: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2178,19 +2178,19 @@ impl IFsrmSetting_Vtbl {
         unsafe extern "system" fn SetEnableScreeningAudit<Identity: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enablescreeningaudit: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmSetting_Impl::SetEnableScreeningAudit(this, core::mem::transmute_copy(&enablescreeningaudit)).into()
+                IFsrmSetting_Impl::SetEnableScreeningAudit(this, core::mem::transmute_copy(&enablescreeningaudit))
             }
         }
         unsafe extern "system" fn EmailTest<Identity: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailto: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmSetting_Impl::EmailTest(this, core::mem::transmute(&mailto)).into()
+                IFsrmSetting_Impl::EmailTest(this, core::mem::transmute(&mailto))
             }
         }
         unsafe extern "system" fn SetActionRunLimitInterval<Identity: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, actiontype: super::FsrmActionType, delaytimeminutes: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmSetting_Impl::SetActionRunLimitInterval(this, core::mem::transmute_copy(&actiontype), core::mem::transmute_copy(&delaytimeminutes)).into()
+                IFsrmSetting_Impl::SetActionRunLimitInterval(this, core::mem::transmute_copy(&actiontype), core::mem::transmute_copy(&delaytimeminutes))
             }
         }
         unsafe extern "system" fn GetActionRunLimitInterval<Identity: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, actiontype: super::FsrmActionType, delaytimeminutes: *mut i32) -> windows_core::HRESULT {
@@ -2226,7 +2226,7 @@ impl IFsrmSetting_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsrmSetting as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IFsrmSetting as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]

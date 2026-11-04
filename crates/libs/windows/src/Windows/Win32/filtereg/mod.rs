@@ -55,9 +55,9 @@ pub struct ILoadFilter_Vtbl {
 }
 #[cfg(all(feature = "filter", feature = "guiddef", feature = "objidl", feature = "objidlbase", feature = "winnt"))]
 pub trait ILoadFilter_Impl: windows_core::IUnknownImpl {
-    fn LoadIFilter(&self, pwcspath: &windows_core::PCWSTR, pfilteredsources: *const FILTERED_DATA_SOURCES, punkouter: windows_core::Ref<windows_core::IUnknown>, fusedefault: windows_core::BOOL, pfilterclsid: *mut super::CLSID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut super::WCHAR, ppifilt: *mut Option<super::IFilter>) -> windows_core::Result<()>;
-    fn LoadIFilterFromStorage(&self, pstg: windows_core::Ref<super::IStorage>, punkouter: windows_core::Ref<windows_core::IUnknown>, pwcsoverride: &windows_core::PCWSTR, fusedefault: windows_core::BOOL, pfilterclsid: *mut super::CLSID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut super::WCHAR, ppifilt: *mut Option<super::IFilter>) -> windows_core::Result<()>;
-    fn LoadIFilterFromStream(&self, pstm: windows_core::Ref<super::IStream>, pfilteredsources: *const FILTERED_DATA_SOURCES, punkouter: windows_core::Ref<windows_core::IUnknown>, fusedefault: windows_core::BOOL, pfilterclsid: *mut super::CLSID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut super::WCHAR, ppifilt: *mut Option<super::IFilter>) -> windows_core::Result<()>;
+    fn LoadIFilter(&self, pwcspath: &windows_core::PCWSTR, pfilteredsources: *const FILTERED_DATA_SOURCES, punkouter: windows_core::Ref<windows_core::IUnknown>, fusedefault: windows_core::BOOL, pfilterclsid: *mut super::CLSID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut super::WCHAR, ppifilt: *mut Option<super::IFilter>) -> windows_core::HRESULT;
+    fn LoadIFilterFromStorage(&self, pstg: windows_core::Ref<super::IStorage>, punkouter: windows_core::Ref<windows_core::IUnknown>, pwcsoverride: &windows_core::PCWSTR, fusedefault: windows_core::BOOL, pfilterclsid: *mut super::CLSID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut super::WCHAR, ppifilt: *mut Option<super::IFilter>) -> windows_core::HRESULT;
+    fn LoadIFilterFromStream(&self, pstm: windows_core::Ref<super::IStream>, pfilteredsources: *const FILTERED_DATA_SOURCES, punkouter: windows_core::Ref<windows_core::IUnknown>, fusedefault: windows_core::BOOL, pfilterclsid: *mut super::CLSID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut super::WCHAR, ppifilt: *mut Option<super::IFilter>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "filter", feature = "guiddef", feature = "objidl", feature = "objidlbase", feature = "winnt"))]
 impl ILoadFilter_Vtbl {
@@ -65,19 +65,19 @@ impl ILoadFilter_Vtbl {
         unsafe extern "system" fn LoadIFilter<Identity: ILoadFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwcspath: windows_core::PCWSTR, pfilteredsources: *const FILTERED_DATA_SOURCES, punkouter: *mut core::ffi::c_void, fusedefault: windows_core::BOOL, pfilterclsid: *mut super::CLSID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut super::WCHAR, ppifilt: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILoadFilter_Impl::LoadIFilter(this, core::mem::transmute(&pwcspath), core::mem::transmute_copy(&pfilteredsources), core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&fusedefault), core::mem::transmute_copy(&pfilterclsid), core::mem::transmute_copy(&searchdecsize), core::mem::transmute_copy(&pwcssearchdesc), core::mem::transmute_copy(&ppifilt)).into()
+                ILoadFilter_Impl::LoadIFilter(this, core::mem::transmute(&pwcspath), core::mem::transmute_copy(&pfilteredsources), core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&fusedefault), core::mem::transmute_copy(&pfilterclsid), core::mem::transmute_copy(&searchdecsize), core::mem::transmute_copy(&pwcssearchdesc), core::mem::transmute_copy(&ppifilt))
             }
         }
         unsafe extern "system" fn LoadIFilterFromStorage<Identity: ILoadFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstg: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, pwcsoverride: windows_core::PCWSTR, fusedefault: windows_core::BOOL, pfilterclsid: *mut super::CLSID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut super::WCHAR, ppifilt: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILoadFilter_Impl::LoadIFilterFromStorage(this, core::mem::transmute_copy(&pstg), core::mem::transmute_copy(&punkouter), core::mem::transmute(&pwcsoverride), core::mem::transmute_copy(&fusedefault), core::mem::transmute_copy(&pfilterclsid), core::mem::transmute_copy(&searchdecsize), core::mem::transmute_copy(&pwcssearchdesc), core::mem::transmute_copy(&ppifilt)).into()
+                ILoadFilter_Impl::LoadIFilterFromStorage(this, core::mem::transmute_copy(&pstg), core::mem::transmute_copy(&punkouter), core::mem::transmute(&pwcsoverride), core::mem::transmute_copy(&fusedefault), core::mem::transmute_copy(&pfilterclsid), core::mem::transmute_copy(&searchdecsize), core::mem::transmute_copy(&pwcssearchdesc), core::mem::transmute_copy(&ppifilt))
             }
         }
         unsafe extern "system" fn LoadIFilterFromStream<Identity: ILoadFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstm: *mut core::ffi::c_void, pfilteredsources: *const FILTERED_DATA_SOURCES, punkouter: *mut core::ffi::c_void, fusedefault: windows_core::BOOL, pfilterclsid: *mut super::CLSID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut super::WCHAR, ppifilt: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILoadFilter_Impl::LoadIFilterFromStream(this, core::mem::transmute_copy(&pstm), core::mem::transmute_copy(&pfilteredsources), core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&fusedefault), core::mem::transmute_copy(&pfilterclsid), core::mem::transmute_copy(&searchdecsize), core::mem::transmute_copy(&pwcssearchdesc), core::mem::transmute_copy(&ppifilt)).into()
+                ILoadFilter_Impl::LoadIFilterFromStream(this, core::mem::transmute_copy(&pstm), core::mem::transmute_copy(&pfilteredsources), core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&fusedefault), core::mem::transmute_copy(&pfilterclsid), core::mem::transmute_copy(&searchdecsize), core::mem::transmute_copy(&pwcssearchdesc), core::mem::transmute_copy(&ppifilt))
             }
         }
         Self {
@@ -118,7 +118,7 @@ pub struct ILoadFilterWithPrivateComActivation_Vtbl {
 }
 #[cfg(all(feature = "filter", feature = "guiddef", feature = "objidl", feature = "objidlbase", feature = "winnt"))]
 pub trait ILoadFilterWithPrivateComActivation_Impl: ILoadFilter_Impl {
-    fn LoadIFilterWithPrivateComActivation(&self, filteredsources: *const FILTERED_DATA_SOURCES, usedefault: windows_core::BOOL, filterclsid: *mut super::CLSID, isfilterprivatecomactivated: *mut windows_core::BOOL, filterobj: *mut Option<super::IFilter>) -> windows_core::Result<()>;
+    fn LoadIFilterWithPrivateComActivation(&self, filteredsources: *const FILTERED_DATA_SOURCES, usedefault: windows_core::BOOL, filterclsid: *mut super::CLSID, isfilterprivatecomactivated: *mut windows_core::BOOL, filterobj: *mut Option<super::IFilter>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "filter", feature = "guiddef", feature = "objidl", feature = "objidlbase", feature = "winnt"))]
 impl ILoadFilterWithPrivateComActivation_Vtbl {
@@ -126,7 +126,7 @@ impl ILoadFilterWithPrivateComActivation_Vtbl {
         unsafe extern "system" fn LoadIFilterWithPrivateComActivation<Identity: ILoadFilterWithPrivateComActivation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filteredsources: *const FILTERED_DATA_SOURCES, usedefault: windows_core::BOOL, filterclsid: *mut super::CLSID, isfilterprivatecomactivated: *mut windows_core::BOOL, filterobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILoadFilterWithPrivateComActivation_Impl::LoadIFilterWithPrivateComActivation(this, core::mem::transmute_copy(&filteredsources), core::mem::transmute_copy(&usedefault), core::mem::transmute_copy(&filterclsid), core::mem::transmute_copy(&isfilterprivatecomactivated), core::mem::transmute_copy(&filterobj)).into()
+                ILoadFilterWithPrivateComActivation_Impl::LoadIFilterWithPrivateComActivation(this, core::mem::transmute_copy(&filteredsources), core::mem::transmute_copy(&usedefault), core::mem::transmute_copy(&filterclsid), core::mem::transmute_copy(&isfilterprivatecomactivated), core::mem::transmute_copy(&filterobj))
             }
         }
         Self {
@@ -135,7 +135,7 @@ impl ILoadFilterWithPrivateComActivation_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ILoadFilterWithPrivateComActivation as windows_core::Interface>::IID || iid == &<ILoadFilter as windows_core::Interface>::IID
+        iid == &<ILoadFilterWithPrivateComActivation as windows_core::Interface>::IID || ILoadFilter_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "filter", feature = "guiddef", feature = "objidl", feature = "objidlbase", feature = "winnt"))]

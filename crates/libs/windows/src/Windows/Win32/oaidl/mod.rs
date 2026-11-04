@@ -254,11 +254,11 @@ pub struct ICreateErrorInfo_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
 pub trait ICreateErrorInfo_Impl: windows_core::IUnknownImpl {
-    fn SetGUID(&self, rguid: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn SetSource(&self, szsource: super::LPOLESTR) -> windows_core::Result<()>;
-    fn SetDescription(&self, szdescription: super::LPOLESTR) -> windows_core::Result<()>;
-    fn SetHelpFile(&self, szhelpfile: super::LPOLESTR) -> windows_core::Result<()>;
-    fn SetHelpContext(&self, dwhelpcontext: super::DWORD) -> windows_core::Result<()>;
+    fn SetGUID(&self, rguid: *const windows_core::GUID) -> windows_core::HRESULT;
+    fn SetSource(&self, szsource: super::LPOLESTR) -> windows_core::HRESULT;
+    fn SetDescription(&self, szdescription: super::LPOLESTR) -> windows_core::HRESULT;
+    fn SetHelpFile(&self, szhelpfile: super::LPOLESTR) -> windows_core::HRESULT;
+    fn SetHelpContext(&self, dwhelpcontext: super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
 impl ICreateErrorInfo_Vtbl {
@@ -266,31 +266,31 @@ impl ICreateErrorInfo_Vtbl {
         unsafe extern "system" fn SetGUID<Identity: ICreateErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rguid: *const windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateErrorInfo_Impl::SetGUID(this, core::mem::transmute_copy(&rguid)).into()
+                ICreateErrorInfo_Impl::SetGUID(this, core::mem::transmute_copy(&rguid))
             }
         }
         unsafe extern "system" fn SetSource<Identity: ICreateErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szsource: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateErrorInfo_Impl::SetSource(this, core::mem::transmute_copy(&szsource)).into()
+                ICreateErrorInfo_Impl::SetSource(this, core::mem::transmute_copy(&szsource))
             }
         }
         unsafe extern "system" fn SetDescription<Identity: ICreateErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szdescription: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateErrorInfo_Impl::SetDescription(this, core::mem::transmute_copy(&szdescription)).into()
+                ICreateErrorInfo_Impl::SetDescription(this, core::mem::transmute_copy(&szdescription))
             }
         }
         unsafe extern "system" fn SetHelpFile<Identity: ICreateErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szhelpfile: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateErrorInfo_Impl::SetHelpFile(this, core::mem::transmute_copy(&szhelpfile)).into()
+                ICreateErrorInfo_Impl::SetHelpFile(this, core::mem::transmute_copy(&szhelpfile))
             }
         }
         unsafe extern "system" fn SetHelpContext<Identity: ICreateErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwhelpcontext: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateErrorInfo_Impl::SetHelpContext(this, core::mem::transmute_copy(&dwhelpcontext)).into()
+                ICreateErrorInfo_Impl::SetHelpContext(this, core::mem::transmute_copy(&dwhelpcontext))
             }
         }
         Self {
@@ -494,29 +494,29 @@ pub struct ICreateTypeInfo_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICreateTypeInfo_Impl: windows_core::IUnknownImpl {
-    fn SetGuid(&self, guid: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn SetTypeFlags(&self, utypeflags: super::UINT) -> windows_core::Result<()>;
-    fn SetDocString(&self, pstrdoc: super::LPOLESTR) -> windows_core::Result<()>;
-    fn SetHelpContext(&self, dwhelpcontext: super::DWORD) -> windows_core::Result<()>;
-    fn SetVersion(&self, wmajorvernum: super::WORD, wminorvernum: super::WORD) -> windows_core::Result<()>;
-    fn AddRefTypeInfo(&self, ptinfo: windows_core::Ref<ITypeInfo>, phreftype: *const HREFTYPE) -> windows_core::Result<()>;
-    fn AddFuncDesc(&self, index: super::UINT, pfuncdesc: *const FUNCDESC) -> windows_core::Result<()>;
-    fn AddImplType(&self, index: super::UINT, hreftype: HREFTYPE) -> windows_core::Result<()>;
-    fn SetImplTypeFlags(&self, index: super::UINT, impltypeflags: super::INT) -> windows_core::Result<()>;
-    fn SetAlignment(&self, cbalignment: super::WORD) -> windows_core::Result<()>;
-    fn SetSchema(&self, pstrschema: super::LPOLESTR) -> windows_core::Result<()>;
-    fn AddVarDesc(&self, index: super::UINT, pvardesc: *const VARDESC) -> windows_core::Result<()>;
-    fn SetFuncAndParamNames(&self, index: super::UINT, rgsznames: *const super::LPOLESTR, cnames: super::UINT) -> windows_core::Result<()>;
-    fn SetVarName(&self, index: super::UINT, szname: super::LPOLESTR) -> windows_core::Result<()>;
-    fn SetTypeDescAlias(&self, ptdescalias: *const TYPEDESC) -> windows_core::Result<()>;
-    fn DefineFuncAsDllEntry(&self, index: super::UINT, szdllname: super::LPOLESTR, szprocname: super::LPOLESTR) -> windows_core::Result<()>;
-    fn SetFuncDocString(&self, index: super::UINT, szdocstring: super::LPOLESTR) -> windows_core::Result<()>;
-    fn SetVarDocString(&self, index: super::UINT, szdocstring: super::LPOLESTR) -> windows_core::Result<()>;
-    fn SetFuncHelpContext(&self, index: super::UINT, dwhelpcontext: super::DWORD) -> windows_core::Result<()>;
-    fn SetVarHelpContext(&self, index: super::UINT, dwhelpcontext: super::DWORD) -> windows_core::Result<()>;
-    fn SetMops(&self, index: super::UINT, bstrmops: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetTypeIdldesc(&self, pidldesc: *const IDLDESC) -> windows_core::Result<()>;
-    fn LayOut(&self) -> windows_core::Result<()>;
+    fn SetGuid(&self, guid: *const windows_core::GUID) -> windows_core::HRESULT;
+    fn SetTypeFlags(&self, utypeflags: super::UINT) -> windows_core::HRESULT;
+    fn SetDocString(&self, pstrdoc: super::LPOLESTR) -> windows_core::HRESULT;
+    fn SetHelpContext(&self, dwhelpcontext: super::DWORD) -> windows_core::HRESULT;
+    fn SetVersion(&self, wmajorvernum: super::WORD, wminorvernum: super::WORD) -> windows_core::HRESULT;
+    fn AddRefTypeInfo(&self, ptinfo: windows_core::Ref<ITypeInfo>, phreftype: *const HREFTYPE) -> windows_core::HRESULT;
+    fn AddFuncDesc(&self, index: super::UINT, pfuncdesc: *const FUNCDESC) -> windows_core::HRESULT;
+    fn AddImplType(&self, index: super::UINT, hreftype: HREFTYPE) -> windows_core::HRESULT;
+    fn SetImplTypeFlags(&self, index: super::UINT, impltypeflags: super::INT) -> windows_core::HRESULT;
+    fn SetAlignment(&self, cbalignment: super::WORD) -> windows_core::HRESULT;
+    fn SetSchema(&self, pstrschema: super::LPOLESTR) -> windows_core::HRESULT;
+    fn AddVarDesc(&self, index: super::UINT, pvardesc: *const VARDESC) -> windows_core::HRESULT;
+    fn SetFuncAndParamNames(&self, index: super::UINT, rgsznames: *const super::LPOLESTR, cnames: super::UINT) -> windows_core::HRESULT;
+    fn SetVarName(&self, index: super::UINT, szname: super::LPOLESTR) -> windows_core::HRESULT;
+    fn SetTypeDescAlias(&self, ptdescalias: *const TYPEDESC) -> windows_core::HRESULT;
+    fn DefineFuncAsDllEntry(&self, index: super::UINT, szdllname: super::LPOLESTR, szprocname: super::LPOLESTR) -> windows_core::HRESULT;
+    fn SetFuncDocString(&self, index: super::UINT, szdocstring: super::LPOLESTR) -> windows_core::HRESULT;
+    fn SetVarDocString(&self, index: super::UINT, szdocstring: super::LPOLESTR) -> windows_core::HRESULT;
+    fn SetFuncHelpContext(&self, index: super::UINT, dwhelpcontext: super::DWORD) -> windows_core::HRESULT;
+    fn SetVarHelpContext(&self, index: super::UINT, dwhelpcontext: super::DWORD) -> windows_core::HRESULT;
+    fn SetMops(&self, index: super::UINT, bstrmops: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn SetTypeIdldesc(&self, pidldesc: *const IDLDESC) -> windows_core::HRESULT;
+    fn LayOut(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICreateTypeInfo_Vtbl {
@@ -524,139 +524,139 @@ impl ICreateTypeInfo_Vtbl {
         unsafe extern "system" fn SetGuid<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo_Impl::SetGuid(this, core::mem::transmute_copy(&guid)).into()
+                ICreateTypeInfo_Impl::SetGuid(this, core::mem::transmute_copy(&guid))
             }
         }
         unsafe extern "system" fn SetTypeFlags<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, utypeflags: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo_Impl::SetTypeFlags(this, core::mem::transmute_copy(&utypeflags)).into()
+                ICreateTypeInfo_Impl::SetTypeFlags(this, core::mem::transmute_copy(&utypeflags))
             }
         }
         unsafe extern "system" fn SetDocString<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrdoc: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo_Impl::SetDocString(this, core::mem::transmute_copy(&pstrdoc)).into()
+                ICreateTypeInfo_Impl::SetDocString(this, core::mem::transmute_copy(&pstrdoc))
             }
         }
         unsafe extern "system" fn SetHelpContext<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwhelpcontext: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo_Impl::SetHelpContext(this, core::mem::transmute_copy(&dwhelpcontext)).into()
+                ICreateTypeInfo_Impl::SetHelpContext(this, core::mem::transmute_copy(&dwhelpcontext))
             }
         }
         unsafe extern "system" fn SetVersion<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wmajorvernum: super::WORD, wminorvernum: super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo_Impl::SetVersion(this, core::mem::transmute_copy(&wmajorvernum), core::mem::transmute_copy(&wminorvernum)).into()
+                ICreateTypeInfo_Impl::SetVersion(this, core::mem::transmute_copy(&wmajorvernum), core::mem::transmute_copy(&wminorvernum))
             }
         }
         unsafe extern "system" fn AddRefTypeInfo<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptinfo: *mut core::ffi::c_void, phreftype: *const HREFTYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo_Impl::AddRefTypeInfo(this, core::mem::transmute_copy(&ptinfo), core::mem::transmute_copy(&phreftype)).into()
+                ICreateTypeInfo_Impl::AddRefTypeInfo(this, core::mem::transmute_copy(&ptinfo), core::mem::transmute_copy(&phreftype))
             }
         }
         unsafe extern "system" fn AddFuncDesc<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT, pfuncdesc: *const FUNCDESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo_Impl::AddFuncDesc(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&pfuncdesc)).into()
+                ICreateTypeInfo_Impl::AddFuncDesc(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&pfuncdesc))
             }
         }
         unsafe extern "system" fn AddImplType<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT, hreftype: HREFTYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo_Impl::AddImplType(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&hreftype)).into()
+                ICreateTypeInfo_Impl::AddImplType(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&hreftype))
             }
         }
         unsafe extern "system" fn SetImplTypeFlags<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT, impltypeflags: super::INT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo_Impl::SetImplTypeFlags(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&impltypeflags)).into()
+                ICreateTypeInfo_Impl::SetImplTypeFlags(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&impltypeflags))
             }
         }
         unsafe extern "system" fn SetAlignment<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbalignment: super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo_Impl::SetAlignment(this, core::mem::transmute_copy(&cbalignment)).into()
+                ICreateTypeInfo_Impl::SetAlignment(this, core::mem::transmute_copy(&cbalignment))
             }
         }
         unsafe extern "system" fn SetSchema<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrschema: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo_Impl::SetSchema(this, core::mem::transmute_copy(&pstrschema)).into()
+                ICreateTypeInfo_Impl::SetSchema(this, core::mem::transmute_copy(&pstrschema))
             }
         }
         unsafe extern "system" fn AddVarDesc<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT, pvardesc: *const VARDESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo_Impl::AddVarDesc(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&pvardesc)).into()
+                ICreateTypeInfo_Impl::AddVarDesc(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&pvardesc))
             }
         }
         unsafe extern "system" fn SetFuncAndParamNames<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT, rgsznames: *const super::LPOLESTR, cnames: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo_Impl::SetFuncAndParamNames(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&rgsznames), core::mem::transmute_copy(&cnames)).into()
+                ICreateTypeInfo_Impl::SetFuncAndParamNames(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&rgsznames), core::mem::transmute_copy(&cnames))
             }
         }
         unsafe extern "system" fn SetVarName<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT, szname: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo_Impl::SetVarName(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&szname)).into()
+                ICreateTypeInfo_Impl::SetVarName(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&szname))
             }
         }
         unsafe extern "system" fn SetTypeDescAlias<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptdescalias: *const TYPEDESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo_Impl::SetTypeDescAlias(this, core::mem::transmute_copy(&ptdescalias)).into()
+                ICreateTypeInfo_Impl::SetTypeDescAlias(this, core::mem::transmute_copy(&ptdescalias))
             }
         }
         unsafe extern "system" fn DefineFuncAsDllEntry<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT, szdllname: super::LPOLESTR, szprocname: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo_Impl::DefineFuncAsDllEntry(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&szdllname), core::mem::transmute_copy(&szprocname)).into()
+                ICreateTypeInfo_Impl::DefineFuncAsDllEntry(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&szdllname), core::mem::transmute_copy(&szprocname))
             }
         }
         unsafe extern "system" fn SetFuncDocString<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT, szdocstring: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo_Impl::SetFuncDocString(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&szdocstring)).into()
+                ICreateTypeInfo_Impl::SetFuncDocString(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&szdocstring))
             }
         }
         unsafe extern "system" fn SetVarDocString<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT, szdocstring: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo_Impl::SetVarDocString(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&szdocstring)).into()
+                ICreateTypeInfo_Impl::SetVarDocString(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&szdocstring))
             }
         }
         unsafe extern "system" fn SetFuncHelpContext<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT, dwhelpcontext: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo_Impl::SetFuncHelpContext(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&dwhelpcontext)).into()
+                ICreateTypeInfo_Impl::SetFuncHelpContext(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&dwhelpcontext))
             }
         }
         unsafe extern "system" fn SetVarHelpContext<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT, dwhelpcontext: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo_Impl::SetVarHelpContext(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&dwhelpcontext)).into()
+                ICreateTypeInfo_Impl::SetVarHelpContext(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&dwhelpcontext))
             }
         }
         unsafe extern "system" fn SetMops<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT, bstrmops: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo_Impl::SetMops(this, core::mem::transmute_copy(&index), core::mem::transmute(&bstrmops)).into()
+                ICreateTypeInfo_Impl::SetMops(this, core::mem::transmute_copy(&index), core::mem::transmute(&bstrmops))
             }
         }
         unsafe extern "system" fn SetTypeIdldesc<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidldesc: *const IDLDESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo_Impl::SetTypeIdldesc(this, core::mem::transmute_copy(&pidldesc)).into()
+                ICreateTypeInfo_Impl::SetTypeIdldesc(this, core::mem::transmute_copy(&pidldesc))
             }
         }
         unsafe extern "system" fn LayOut<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo_Impl::LayOut(this).into()
+                ICreateTypeInfo_Impl::LayOut(this)
             }
         }
         Self {
@@ -825,21 +825,21 @@ pub struct ICreateTypeInfo2_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICreateTypeInfo2_Impl: ICreateTypeInfo_Impl {
-    fn DeleteFuncDesc(&self, index: super::UINT) -> windows_core::Result<()>;
-    fn DeleteFuncDescByMemId(&self, memid: super::MEMBERID, invkind: INVOKEKIND) -> windows_core::Result<()>;
-    fn DeleteVarDesc(&self, index: super::UINT) -> windows_core::Result<()>;
-    fn DeleteVarDescByMemId(&self, memid: super::MEMBERID) -> windows_core::Result<()>;
-    fn DeleteImplType(&self, index: super::UINT) -> windows_core::Result<()>;
-    fn SetCustData(&self, guid: *const windows_core::GUID, pvarval: *const VARIANT) -> windows_core::Result<()>;
-    fn SetFuncCustData(&self, index: super::UINT, guid: *const windows_core::GUID, pvarval: *const VARIANT) -> windows_core::Result<()>;
-    fn SetParamCustData(&self, indexfunc: super::UINT, indexparam: super::UINT, guid: *const windows_core::GUID, pvarval: *const VARIANT) -> windows_core::Result<()>;
-    fn SetVarCustData(&self, index: super::UINT, guid: *const windows_core::GUID, pvarval: *const VARIANT) -> windows_core::Result<()>;
-    fn SetImplTypeCustData(&self, index: super::UINT, guid: *const windows_core::GUID, pvarval: *const VARIANT) -> windows_core::Result<()>;
-    fn SetHelpStringContext(&self, dwhelpstringcontext: super::ULONG) -> windows_core::Result<()>;
-    fn SetFuncHelpStringContext(&self, index: super::UINT, dwhelpstringcontext: super::ULONG) -> windows_core::Result<()>;
-    fn SetVarHelpStringContext(&self, index: super::UINT, dwhelpstringcontext: super::ULONG) -> windows_core::Result<()>;
-    fn Invalidate(&self) -> windows_core::Result<()>;
-    fn SetName(&self, szname: super::LPOLESTR) -> windows_core::Result<()>;
+    fn DeleteFuncDesc(&self, index: super::UINT) -> windows_core::HRESULT;
+    fn DeleteFuncDescByMemId(&self, memid: super::MEMBERID, invkind: INVOKEKIND) -> windows_core::HRESULT;
+    fn DeleteVarDesc(&self, index: super::UINT) -> windows_core::HRESULT;
+    fn DeleteVarDescByMemId(&self, memid: super::MEMBERID) -> windows_core::HRESULT;
+    fn DeleteImplType(&self, index: super::UINT) -> windows_core::HRESULT;
+    fn SetCustData(&self, guid: *const windows_core::GUID, pvarval: *const VARIANT) -> windows_core::HRESULT;
+    fn SetFuncCustData(&self, index: super::UINT, guid: *const windows_core::GUID, pvarval: *const VARIANT) -> windows_core::HRESULT;
+    fn SetParamCustData(&self, indexfunc: super::UINT, indexparam: super::UINT, guid: *const windows_core::GUID, pvarval: *const VARIANT) -> windows_core::HRESULT;
+    fn SetVarCustData(&self, index: super::UINT, guid: *const windows_core::GUID, pvarval: *const VARIANT) -> windows_core::HRESULT;
+    fn SetImplTypeCustData(&self, index: super::UINT, guid: *const windows_core::GUID, pvarval: *const VARIANT) -> windows_core::HRESULT;
+    fn SetHelpStringContext(&self, dwhelpstringcontext: super::ULONG) -> windows_core::HRESULT;
+    fn SetFuncHelpStringContext(&self, index: super::UINT, dwhelpstringcontext: super::ULONG) -> windows_core::HRESULT;
+    fn SetVarHelpStringContext(&self, index: super::UINT, dwhelpstringcontext: super::ULONG) -> windows_core::HRESULT;
+    fn Invalidate(&self) -> windows_core::HRESULT;
+    fn SetName(&self, szname: super::LPOLESTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICreateTypeInfo2_Vtbl {
@@ -847,91 +847,91 @@ impl ICreateTypeInfo2_Vtbl {
         unsafe extern "system" fn DeleteFuncDesc<Identity: ICreateTypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo2_Impl::DeleteFuncDesc(this, core::mem::transmute_copy(&index)).into()
+                ICreateTypeInfo2_Impl::DeleteFuncDesc(this, core::mem::transmute_copy(&index))
             }
         }
         unsafe extern "system" fn DeleteFuncDescByMemId<Identity: ICreateTypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, memid: super::MEMBERID, invkind: INVOKEKIND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo2_Impl::DeleteFuncDescByMemId(this, core::mem::transmute_copy(&memid), core::mem::transmute_copy(&invkind)).into()
+                ICreateTypeInfo2_Impl::DeleteFuncDescByMemId(this, core::mem::transmute_copy(&memid), core::mem::transmute_copy(&invkind))
             }
         }
         unsafe extern "system" fn DeleteVarDesc<Identity: ICreateTypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo2_Impl::DeleteVarDesc(this, core::mem::transmute_copy(&index)).into()
+                ICreateTypeInfo2_Impl::DeleteVarDesc(this, core::mem::transmute_copy(&index))
             }
         }
         unsafe extern "system" fn DeleteVarDescByMemId<Identity: ICreateTypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, memid: super::MEMBERID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo2_Impl::DeleteVarDescByMemId(this, core::mem::transmute_copy(&memid)).into()
+                ICreateTypeInfo2_Impl::DeleteVarDescByMemId(this, core::mem::transmute_copy(&memid))
             }
         }
         unsafe extern "system" fn DeleteImplType<Identity: ICreateTypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo2_Impl::DeleteImplType(this, core::mem::transmute_copy(&index)).into()
+                ICreateTypeInfo2_Impl::DeleteImplType(this, core::mem::transmute_copy(&index))
             }
         }
         unsafe extern "system" fn SetCustData<Identity: ICreateTypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID, pvarval: *const VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo2_Impl::SetCustData(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvarval)).into()
+                ICreateTypeInfo2_Impl::SetCustData(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvarval))
             }
         }
         unsafe extern "system" fn SetFuncCustData<Identity: ICreateTypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT, guid: *const windows_core::GUID, pvarval: *const VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo2_Impl::SetFuncCustData(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvarval)).into()
+                ICreateTypeInfo2_Impl::SetFuncCustData(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvarval))
             }
         }
         unsafe extern "system" fn SetParamCustData<Identity: ICreateTypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, indexfunc: super::UINT, indexparam: super::UINT, guid: *const windows_core::GUID, pvarval: *const VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo2_Impl::SetParamCustData(this, core::mem::transmute_copy(&indexfunc), core::mem::transmute_copy(&indexparam), core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvarval)).into()
+                ICreateTypeInfo2_Impl::SetParamCustData(this, core::mem::transmute_copy(&indexfunc), core::mem::transmute_copy(&indexparam), core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvarval))
             }
         }
         unsafe extern "system" fn SetVarCustData<Identity: ICreateTypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT, guid: *const windows_core::GUID, pvarval: *const VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo2_Impl::SetVarCustData(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvarval)).into()
+                ICreateTypeInfo2_Impl::SetVarCustData(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvarval))
             }
         }
         unsafe extern "system" fn SetImplTypeCustData<Identity: ICreateTypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT, guid: *const windows_core::GUID, pvarval: *const VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo2_Impl::SetImplTypeCustData(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvarval)).into()
+                ICreateTypeInfo2_Impl::SetImplTypeCustData(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvarval))
             }
         }
         unsafe extern "system" fn SetHelpStringContext<Identity: ICreateTypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwhelpstringcontext: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo2_Impl::SetHelpStringContext(this, core::mem::transmute_copy(&dwhelpstringcontext)).into()
+                ICreateTypeInfo2_Impl::SetHelpStringContext(this, core::mem::transmute_copy(&dwhelpstringcontext))
             }
         }
         unsafe extern "system" fn SetFuncHelpStringContext<Identity: ICreateTypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT, dwhelpstringcontext: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo2_Impl::SetFuncHelpStringContext(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&dwhelpstringcontext)).into()
+                ICreateTypeInfo2_Impl::SetFuncHelpStringContext(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&dwhelpstringcontext))
             }
         }
         unsafe extern "system" fn SetVarHelpStringContext<Identity: ICreateTypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT, dwhelpstringcontext: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo2_Impl::SetVarHelpStringContext(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&dwhelpstringcontext)).into()
+                ICreateTypeInfo2_Impl::SetVarHelpStringContext(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&dwhelpstringcontext))
             }
         }
         unsafe extern "system" fn Invalidate<Identity: ICreateTypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo2_Impl::Invalidate(this).into()
+                ICreateTypeInfo2_Impl::Invalidate(this)
             }
         }
         unsafe extern "system" fn SetName<Identity: ICreateTypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo2_Impl::SetName(this, core::mem::transmute_copy(&szname)).into()
+                ICreateTypeInfo2_Impl::SetName(this, core::mem::transmute_copy(&szname))
             }
         }
         Self {
@@ -954,7 +954,7 @@ impl ICreateTypeInfo2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICreateTypeInfo2 as windows_core::Interface>::IID || iid == &<ICreateTypeInfo as windows_core::Interface>::IID
+        iid == &<ICreateTypeInfo2 as windows_core::Interface>::IID || ICreateTypeInfo_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1042,16 +1042,16 @@ pub struct ICreateTypeLib_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
 pub trait ICreateTypeLib_Impl: windows_core::IUnknownImpl {
-    fn CreateTypeInfo(&self, szname: super::LPOLESTR, tkind: TYPEKIND, ppctinfo: windows_core::OutRef<ICreateTypeInfo>) -> windows_core::Result<()>;
-    fn SetName(&self, szname: super::LPOLESTR) -> windows_core::Result<()>;
-    fn SetVersion(&self, wmajorvernum: super::WORD, wminorvernum: super::WORD) -> windows_core::Result<()>;
-    fn SetGuid(&self, guid: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn SetDocString(&self, szdoc: super::LPOLESTR) -> windows_core::Result<()>;
-    fn SetHelpFileName(&self, szhelpfilename: super::LPOLESTR) -> windows_core::Result<()>;
-    fn SetHelpContext(&self, dwhelpcontext: super::DWORD) -> windows_core::Result<()>;
-    fn SetLcid(&self, lcid: super::LCID) -> windows_core::Result<()>;
-    fn SetLibFlags(&self, ulibflags: super::UINT) -> windows_core::Result<()>;
-    fn SaveAllChanges(&self) -> windows_core::Result<()>;
+    fn CreateTypeInfo(&self, szname: super::LPOLESTR, tkind: TYPEKIND, ppctinfo: windows_core::OutRef<ICreateTypeInfo>) -> windows_core::HRESULT;
+    fn SetName(&self, szname: super::LPOLESTR) -> windows_core::HRESULT;
+    fn SetVersion(&self, wmajorvernum: super::WORD, wminorvernum: super::WORD) -> windows_core::HRESULT;
+    fn SetGuid(&self, guid: *const windows_core::GUID) -> windows_core::HRESULT;
+    fn SetDocString(&self, szdoc: super::LPOLESTR) -> windows_core::HRESULT;
+    fn SetHelpFileName(&self, szhelpfilename: super::LPOLESTR) -> windows_core::HRESULT;
+    fn SetHelpContext(&self, dwhelpcontext: super::DWORD) -> windows_core::HRESULT;
+    fn SetLcid(&self, lcid: super::LCID) -> windows_core::HRESULT;
+    fn SetLibFlags(&self, ulibflags: super::UINT) -> windows_core::HRESULT;
+    fn SaveAllChanges(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
 impl ICreateTypeLib_Vtbl {
@@ -1059,61 +1059,61 @@ impl ICreateTypeLib_Vtbl {
         unsafe extern "system" fn CreateTypeInfo<Identity: ICreateTypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: super::LPOLESTR, tkind: TYPEKIND, ppctinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeLib_Impl::CreateTypeInfo(this, core::mem::transmute_copy(&szname), core::mem::transmute_copy(&tkind), core::mem::transmute_copy(&ppctinfo)).into()
+                ICreateTypeLib_Impl::CreateTypeInfo(this, core::mem::transmute_copy(&szname), core::mem::transmute_copy(&tkind), core::mem::transmute_copy(&ppctinfo))
             }
         }
         unsafe extern "system" fn SetName<Identity: ICreateTypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeLib_Impl::SetName(this, core::mem::transmute_copy(&szname)).into()
+                ICreateTypeLib_Impl::SetName(this, core::mem::transmute_copy(&szname))
             }
         }
         unsafe extern "system" fn SetVersion<Identity: ICreateTypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wmajorvernum: super::WORD, wminorvernum: super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeLib_Impl::SetVersion(this, core::mem::transmute_copy(&wmajorvernum), core::mem::transmute_copy(&wminorvernum)).into()
+                ICreateTypeLib_Impl::SetVersion(this, core::mem::transmute_copy(&wmajorvernum), core::mem::transmute_copy(&wminorvernum))
             }
         }
         unsafe extern "system" fn SetGuid<Identity: ICreateTypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeLib_Impl::SetGuid(this, core::mem::transmute_copy(&guid)).into()
+                ICreateTypeLib_Impl::SetGuid(this, core::mem::transmute_copy(&guid))
             }
         }
         unsafe extern "system" fn SetDocString<Identity: ICreateTypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szdoc: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeLib_Impl::SetDocString(this, core::mem::transmute_copy(&szdoc)).into()
+                ICreateTypeLib_Impl::SetDocString(this, core::mem::transmute_copy(&szdoc))
             }
         }
         unsafe extern "system" fn SetHelpFileName<Identity: ICreateTypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szhelpfilename: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeLib_Impl::SetHelpFileName(this, core::mem::transmute_copy(&szhelpfilename)).into()
+                ICreateTypeLib_Impl::SetHelpFileName(this, core::mem::transmute_copy(&szhelpfilename))
             }
         }
         unsafe extern "system" fn SetHelpContext<Identity: ICreateTypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwhelpcontext: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeLib_Impl::SetHelpContext(this, core::mem::transmute_copy(&dwhelpcontext)).into()
+                ICreateTypeLib_Impl::SetHelpContext(this, core::mem::transmute_copy(&dwhelpcontext))
             }
         }
         unsafe extern "system" fn SetLcid<Identity: ICreateTypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lcid: super::LCID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeLib_Impl::SetLcid(this, core::mem::transmute_copy(&lcid)).into()
+                ICreateTypeLib_Impl::SetLcid(this, core::mem::transmute_copy(&lcid))
             }
         }
         unsafe extern "system" fn SetLibFlags<Identity: ICreateTypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulibflags: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeLib_Impl::SetLibFlags(this, core::mem::transmute_copy(&ulibflags)).into()
+                ICreateTypeLib_Impl::SetLibFlags(this, core::mem::transmute_copy(&ulibflags))
             }
         }
         unsafe extern "system" fn SaveAllChanges<Identity: ICreateTypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeLib_Impl::SaveAllChanges(this).into()
+                ICreateTypeLib_Impl::SaveAllChanges(this)
             }
         }
         Self {
@@ -1185,10 +1185,10 @@ pub struct ICreateTypeLib2_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICreateTypeLib2_Impl: ICreateTypeLib_Impl {
-    fn DeleteTypeInfo(&self, szname: super::LPOLESTR) -> windows_core::Result<()>;
-    fn SetCustData(&self, guid: *const windows_core::GUID, pvarval: *const VARIANT) -> windows_core::Result<()>;
-    fn SetHelpStringContext(&self, dwhelpstringcontext: super::ULONG) -> windows_core::Result<()>;
-    fn SetHelpStringDll(&self, szfilename: super::LPOLESTR) -> windows_core::Result<()>;
+    fn DeleteTypeInfo(&self, szname: super::LPOLESTR) -> windows_core::HRESULT;
+    fn SetCustData(&self, guid: *const windows_core::GUID, pvarval: *const VARIANT) -> windows_core::HRESULT;
+    fn SetHelpStringContext(&self, dwhelpstringcontext: super::ULONG) -> windows_core::HRESULT;
+    fn SetHelpStringDll(&self, szfilename: super::LPOLESTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICreateTypeLib2_Vtbl {
@@ -1196,25 +1196,25 @@ impl ICreateTypeLib2_Vtbl {
         unsafe extern "system" fn DeleteTypeInfo<Identity: ICreateTypeLib2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeLib2_Impl::DeleteTypeInfo(this, core::mem::transmute_copy(&szname)).into()
+                ICreateTypeLib2_Impl::DeleteTypeInfo(this, core::mem::transmute_copy(&szname))
             }
         }
         unsafe extern "system" fn SetCustData<Identity: ICreateTypeLib2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID, pvarval: *const VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeLib2_Impl::SetCustData(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvarval)).into()
+                ICreateTypeLib2_Impl::SetCustData(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvarval))
             }
         }
         unsafe extern "system" fn SetHelpStringContext<Identity: ICreateTypeLib2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwhelpstringcontext: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeLib2_Impl::SetHelpStringContext(this, core::mem::transmute_copy(&dwhelpstringcontext)).into()
+                ICreateTypeLib2_Impl::SetHelpStringContext(this, core::mem::transmute_copy(&dwhelpstringcontext))
             }
         }
         unsafe extern "system" fn SetHelpStringDll<Identity: ICreateTypeLib2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szfilename: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeLib2_Impl::SetHelpStringDll(this, core::mem::transmute_copy(&szfilename)).into()
+                ICreateTypeLib2_Impl::SetHelpStringDll(this, core::mem::transmute_copy(&szfilename))
             }
         }
         Self {
@@ -1226,7 +1226,7 @@ impl ICreateTypeLib2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICreateTypeLib2 as windows_core::Interface>::IID || iid == &<ICreateTypeLib as windows_core::Interface>::IID
+        iid == &<ICreateTypeLib2 as windows_core::Interface>::IID || ICreateTypeLib_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1289,10 +1289,10 @@ pub struct IDispatch_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDispatch_Impl: windows_core::IUnknownImpl {
-    fn GetTypeInfoCount(&self, pctinfo: *mut super::UINT) -> windows_core::Result<()>;
+    fn GetTypeInfoCount(&self, pctinfo: *mut super::UINT) -> windows_core::HRESULT;
     fn GetTypeInfo(&self, itinfo: super::UINT, lcid: super::LCID) -> windows_core::Result<ITypeInfo>;
-    fn GetIDsOfNames(&self, riid: *const super::IID, rgsznames: *const super::LPOLESTR, cnames: super::UINT, lcid: super::LCID, rgdispid: *mut super::DISPID) -> windows_core::Result<()>;
-    fn Invoke(&self, dispidmember: super::DISPID, riid: *const super::IID, lcid: super::LCID, wflags: super::WORD, pdispparams: *mut DISPPARAMS, pvarresult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut super::UINT) -> windows_core::Result<()>;
+    fn GetIDsOfNames(&self, riid: *const super::IID, rgsznames: *const super::LPOLESTR, cnames: super::UINT, lcid: super::LCID, rgdispid: *mut super::DISPID) -> windows_core::HRESULT;
+    fn Invoke(&self, dispidmember: super::DISPID, riid: *const super::IID, lcid: super::LCID, wflags: super::WORD, pdispparams: *mut DISPPARAMS, pvarresult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut super::UINT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDispatch_Vtbl {
@@ -1300,7 +1300,7 @@ impl IDispatch_Vtbl {
         unsafe extern "system" fn GetTypeInfoCount<Identity: IDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pctinfo: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDispatch_Impl::GetTypeInfoCount(this, core::mem::transmute_copy(&pctinfo)).into()
+                IDispatch_Impl::GetTypeInfoCount(this, core::mem::transmute_copy(&pctinfo))
             }
         }
         unsafe extern "system" fn GetTypeInfo<Identity: IDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, itinfo: super::UINT, lcid: super::LCID, pptinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1321,13 +1321,13 @@ impl IDispatch_Vtbl {
         unsafe extern "system" fn GetIDsOfNames<Identity: IDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, rgsznames: *const super::LPOLESTR, cnames: super::UINT, lcid: super::LCID, rgdispid: *mut super::DISPID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDispatch_Impl::GetIDsOfNames(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&rgsznames), core::mem::transmute_copy(&cnames), core::mem::transmute_copy(&lcid), core::mem::transmute_copy(&rgdispid)).into()
+                IDispatch_Impl::GetIDsOfNames(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&rgsznames), core::mem::transmute_copy(&cnames), core::mem::transmute_copy(&lcid), core::mem::transmute_copy(&rgdispid))
             }
         }
         unsafe extern "system" fn Invoke<Identity: IDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dispidmember: super::DISPID, riid: *const super::IID, lcid: super::LCID, wflags: super::WORD, pdispparams: *mut DISPPARAMS, pvarresult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDispatch_Impl::Invoke(this, core::mem::transmute_copy(&dispidmember), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&lcid), core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&pdispparams), core::mem::transmute_copy(&pvarresult), core::mem::transmute_copy(&pexcepinfo), core::mem::transmute_copy(&puargerr)).into()
+                IDispatch_Impl::Invoke(this, core::mem::transmute_copy(&dispidmember), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&lcid), core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&pdispparams), core::mem::transmute_copy(&pvarresult), core::mem::transmute_copy(&pexcepinfo), core::mem::transmute_copy(&puargerr))
             }
         }
         Self {
@@ -1382,9 +1382,9 @@ pub struct IEnumVARIANT_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IEnumVARIANT_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: super::ULONG, rgvar: *mut VARIANT, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
-    fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
+    fn Next(&self, celt: super::ULONG, rgvar: *mut VARIANT, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT;
+    fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT;
+    fn Reset(&self) -> windows_core::HRESULT;
     fn Clone(&self) -> windows_core::Result<IEnumVARIANT>;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1393,19 +1393,19 @@ impl IEnumVARIANT_Vtbl {
         unsafe extern "system" fn Next<Identity: IEnumVARIANT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG, rgvar: *mut VARIANT, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumVARIANT_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgvar), core::mem::transmute_copy(&pceltfetched)).into()
+                IEnumVARIANT_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgvar), core::mem::transmute_copy(&pceltfetched))
             }
         }
         unsafe extern "system" fn Skip<Identity: IEnumVARIANT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumVARIANT_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+                IEnumVARIANT_Impl::Skip(this, core::mem::transmute_copy(&celt))
             }
         }
         unsafe extern "system" fn Reset<Identity: IEnumVARIANT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumVARIANT_Impl::Reset(this).into()
+                IEnumVARIANT_Impl::Reset(this)
             }
         }
         unsafe extern "system" fn Clone<Identity: IEnumVARIANT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1472,11 +1472,11 @@ pub struct IErrorInfo_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IErrorInfo_Impl: windows_core::IUnknownImpl {
-    fn GetGUID(&self, pguid: *mut windows_core::GUID) -> windows_core::Result<()>;
-    fn GetSource(&self, pbstrsource: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetDescription(&self, pbstrdescription: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetHelpFile(&self, pbstrhelpfile: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetHelpContext(&self, pdwhelpcontext: *mut super::DWORD) -> windows_core::Result<()>;
+    fn GetGUID(&self, pguid: *mut windows_core::GUID) -> windows_core::HRESULT;
+    fn GetSource(&self, pbstrsource: *mut windows_core::BSTR) -> windows_core::HRESULT;
+    fn GetDescription(&self, pbstrdescription: *mut windows_core::BSTR) -> windows_core::HRESULT;
+    fn GetHelpFile(&self, pbstrhelpfile: *mut windows_core::BSTR) -> windows_core::HRESULT;
+    fn GetHelpContext(&self, pdwhelpcontext: *mut super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IErrorInfo_Vtbl {
@@ -1484,31 +1484,31 @@ impl IErrorInfo_Vtbl {
         unsafe extern "system" fn GetGUID<Identity: IErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguid: *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IErrorInfo_Impl::GetGUID(this, core::mem::transmute_copy(&pguid)).into()
+                IErrorInfo_Impl::GetGUID(this, core::mem::transmute_copy(&pguid))
             }
         }
         unsafe extern "system" fn GetSource<Identity: IErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IErrorInfo_Impl::GetSource(this, core::mem::transmute_copy(&pbstrsource)).into()
+                IErrorInfo_Impl::GetSource(this, core::mem::transmute_copy(&pbstrsource))
             }
         }
         unsafe extern "system" fn GetDescription<Identity: IErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdescription: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IErrorInfo_Impl::GetDescription(this, core::mem::transmute_copy(&pbstrdescription)).into()
+                IErrorInfo_Impl::GetDescription(this, core::mem::transmute_copy(&pbstrdescription))
             }
         }
         unsafe extern "system" fn GetHelpFile<Identity: IErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrhelpfile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IErrorInfo_Impl::GetHelpFile(this, core::mem::transmute_copy(&pbstrhelpfile)).into()
+                IErrorInfo_Impl::GetHelpFile(this, core::mem::transmute_copy(&pbstrhelpfile))
             }
         }
         unsafe extern "system" fn GetHelpContext<Identity: IErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwhelpcontext: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IErrorInfo_Impl::GetHelpContext(this, core::mem::transmute_copy(&pdwhelpcontext)).into()
+                IErrorInfo_Impl::GetHelpContext(this, core::mem::transmute_copy(&pdwhelpcontext))
             }
         }
         Self {
@@ -1545,7 +1545,7 @@ pub struct IErrorLog_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 pub trait IErrorLog_Impl: windows_core::IUnknownImpl {
-    fn AddError(&self, pszpropname: super::LPCOLESTR, pexcepinfo: *const EXCEPINFO) -> windows_core::Result<()>;
+    fn AddError(&self, pszpropname: super::LPCOLESTR, pexcepinfo: *const EXCEPINFO) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 impl IErrorLog_Vtbl {
@@ -1553,7 +1553,7 @@ impl IErrorLog_Vtbl {
         unsafe extern "system" fn AddError<Identity: IErrorLog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpropname: super::LPCOLESTR, pexcepinfo: *const EXCEPINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IErrorLog_Impl::AddError(this, core::mem::transmute_copy(&pszpropname), core::mem::transmute_copy(&pexcepinfo)).into()
+                IErrorLog_Impl::AddError(this, core::mem::transmute_copy(&pszpropname), core::mem::transmute_copy(&pexcepinfo))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AddError: AddError::<Identity, OFFSET> }
@@ -1603,8 +1603,8 @@ pub struct IPropertyBag_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPropertyBag_Impl: windows_core::IUnknownImpl {
-    fn Read(&self, pszpropname: super::LPCOLESTR, pvar: *mut VARIANT, perrorlog: windows_core::Ref<IErrorLog>) -> windows_core::Result<()>;
-    fn Write(&self, pszpropname: super::LPCOLESTR, pvar: *const VARIANT) -> windows_core::Result<()>;
+    fn Read(&self, pszpropname: super::LPCOLESTR, pvar: *mut VARIANT, perrorlog: windows_core::Ref<IErrorLog>) -> windows_core::HRESULT;
+    fn Write(&self, pszpropname: super::LPCOLESTR, pvar: *const VARIANT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPropertyBag_Vtbl {
@@ -1612,13 +1612,13 @@ impl IPropertyBag_Vtbl {
         unsafe extern "system" fn Read<Identity: IPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpropname: super::LPCOLESTR, pvar: *mut VARIANT, perrorlog: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPropertyBag_Impl::Read(this, core::mem::transmute_copy(&pszpropname), core::mem::transmute_copy(&pvar), core::mem::transmute_copy(&perrorlog)).into()
+                IPropertyBag_Impl::Read(this, core::mem::transmute_copy(&pszpropname), core::mem::transmute_copy(&pvar), core::mem::transmute_copy(&perrorlog))
             }
         }
         unsafe extern "system" fn Write<Identity: IPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpropname: super::LPCOLESTR, pvar: *const VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPropertyBag_Impl::Write(this, core::mem::transmute_copy(&pszpropname), core::mem::transmute_copy(&pvar)).into()
+                IPropertyBag_Impl::Write(this, core::mem::transmute_copy(&pszpropname), core::mem::transmute_copy(&pvar))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Read: Read::<Identity, OFFSET>, Write: Write::<Identity, OFFSET> }
@@ -1755,22 +1755,22 @@ pub struct IRecordInfo_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IRecordInfo_Impl: windows_core::IUnknownImpl {
-    fn RecordInit(&self, pvnew: super::PVOID) -> windows_core::Result<()>;
-    fn RecordClear(&self, pvexisting: super::PVOID) -> windows_core::Result<()>;
-    fn RecordCopy(&self, pvexisting: super::PVOID, pvnew: super::PVOID) -> windows_core::Result<()>;
-    fn GetGuid(&self, pguid: *mut windows_core::GUID) -> windows_core::Result<()>;
-    fn GetName(&self, pbstrname: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetSize(&self, pcbsize: *mut super::ULONG) -> windows_core::Result<()>;
-    fn GetTypeInfo(&self, pptypeinfo: windows_core::OutRef<ITypeInfo>) -> windows_core::Result<()>;
-    fn GetField(&self, pvdata: super::PVOID, szfieldname: super::LPCOLESTR, pvarfield: *mut VARIANT) -> windows_core::Result<()>;
-    fn GetFieldNoCopy(&self, pvdata: super::PVOID, szfieldname: super::LPCOLESTR, pvarfield: *mut VARIANT, ppvdatacarray: *mut super::PVOID) -> windows_core::Result<()>;
-    fn PutField(&self, wflags: super::ULONG, pvdata: super::PVOID, szfieldname: super::LPCOLESTR, pvarfield: *const VARIANT) -> windows_core::Result<()>;
-    fn PutFieldNoCopy(&self, wflags: super::ULONG, pvdata: super::PVOID, szfieldname: super::LPCOLESTR, pvarfield: *const VARIANT) -> windows_core::Result<()>;
-    fn GetFieldNames(&self, pcnames: *mut super::ULONG, rgbstrnames: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn RecordInit(&self, pvnew: super::PVOID) -> windows_core::HRESULT;
+    fn RecordClear(&self, pvexisting: super::PVOID) -> windows_core::HRESULT;
+    fn RecordCopy(&self, pvexisting: super::PVOID, pvnew: super::PVOID) -> windows_core::HRESULT;
+    fn GetGuid(&self, pguid: *mut windows_core::GUID) -> windows_core::HRESULT;
+    fn GetName(&self, pbstrname: *mut windows_core::BSTR) -> windows_core::HRESULT;
+    fn GetSize(&self, pcbsize: *mut super::ULONG) -> windows_core::HRESULT;
+    fn GetTypeInfo(&self, pptypeinfo: windows_core::OutRef<ITypeInfo>) -> windows_core::HRESULT;
+    fn GetField(&self, pvdata: super::PVOID, szfieldname: super::LPCOLESTR, pvarfield: *mut VARIANT) -> windows_core::HRESULT;
+    fn GetFieldNoCopy(&self, pvdata: super::PVOID, szfieldname: super::LPCOLESTR, pvarfield: *mut VARIANT, ppvdatacarray: *mut super::PVOID) -> windows_core::HRESULT;
+    fn PutField(&self, wflags: super::ULONG, pvdata: super::PVOID, szfieldname: super::LPCOLESTR, pvarfield: *const VARIANT) -> windows_core::HRESULT;
+    fn PutFieldNoCopy(&self, wflags: super::ULONG, pvdata: super::PVOID, szfieldname: super::LPCOLESTR, pvarfield: *const VARIANT) -> windows_core::HRESULT;
+    fn GetFieldNames(&self, pcnames: *mut super::ULONG, rgbstrnames: *mut windows_core::BSTR) -> windows_core::HRESULT;
     fn IsMatchingType(&self, precordinfo: windows_core::Ref<IRecordInfo>) -> windows_core::BOOL;
     fn RecordCreate(&self) -> super::PVOID;
-    fn RecordCreateCopy(&self, pvsource: super::PVOID, ppvdest: *mut super::PVOID) -> windows_core::Result<()>;
-    fn RecordDestroy(&self, pvrecord: super::PVOID) -> windows_core::Result<()>;
+    fn RecordCreateCopy(&self, pvsource: super::PVOID, ppvdest: *mut super::PVOID) -> windows_core::HRESULT;
+    fn RecordDestroy(&self, pvrecord: super::PVOID) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IRecordInfo_Vtbl {
@@ -1778,73 +1778,73 @@ impl IRecordInfo_Vtbl {
         unsafe extern "system" fn RecordInit<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvnew: super::PVOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRecordInfo_Impl::RecordInit(this, core::mem::transmute_copy(&pvnew)).into()
+                IRecordInfo_Impl::RecordInit(this, core::mem::transmute_copy(&pvnew))
             }
         }
         unsafe extern "system" fn RecordClear<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvexisting: super::PVOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRecordInfo_Impl::RecordClear(this, core::mem::transmute_copy(&pvexisting)).into()
+                IRecordInfo_Impl::RecordClear(this, core::mem::transmute_copy(&pvexisting))
             }
         }
         unsafe extern "system" fn RecordCopy<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvexisting: super::PVOID, pvnew: super::PVOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRecordInfo_Impl::RecordCopy(this, core::mem::transmute_copy(&pvexisting), core::mem::transmute_copy(&pvnew)).into()
+                IRecordInfo_Impl::RecordCopy(this, core::mem::transmute_copy(&pvexisting), core::mem::transmute_copy(&pvnew))
             }
         }
         unsafe extern "system" fn GetGuid<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguid: *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRecordInfo_Impl::GetGuid(this, core::mem::transmute_copy(&pguid)).into()
+                IRecordInfo_Impl::GetGuid(this, core::mem::transmute_copy(&pguid))
             }
         }
         unsafe extern "system" fn GetName<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRecordInfo_Impl::GetName(this, core::mem::transmute_copy(&pbstrname)).into()
+                IRecordInfo_Impl::GetName(this, core::mem::transmute_copy(&pbstrname))
             }
         }
         unsafe extern "system" fn GetSize<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbsize: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRecordInfo_Impl::GetSize(this, core::mem::transmute_copy(&pcbsize)).into()
+                IRecordInfo_Impl::GetSize(this, core::mem::transmute_copy(&pcbsize))
             }
         }
         unsafe extern "system" fn GetTypeInfo<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptypeinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRecordInfo_Impl::GetTypeInfo(this, core::mem::transmute_copy(&pptypeinfo)).into()
+                IRecordInfo_Impl::GetTypeInfo(this, core::mem::transmute_copy(&pptypeinfo))
             }
         }
         unsafe extern "system" fn GetField<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvdata: super::PVOID, szfieldname: super::LPCOLESTR, pvarfield: *mut VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRecordInfo_Impl::GetField(this, core::mem::transmute_copy(&pvdata), core::mem::transmute_copy(&szfieldname), core::mem::transmute_copy(&pvarfield)).into()
+                IRecordInfo_Impl::GetField(this, core::mem::transmute_copy(&pvdata), core::mem::transmute_copy(&szfieldname), core::mem::transmute_copy(&pvarfield))
             }
         }
         unsafe extern "system" fn GetFieldNoCopy<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvdata: super::PVOID, szfieldname: super::LPCOLESTR, pvarfield: *mut VARIANT, ppvdatacarray: *mut super::PVOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRecordInfo_Impl::GetFieldNoCopy(this, core::mem::transmute_copy(&pvdata), core::mem::transmute_copy(&szfieldname), core::mem::transmute_copy(&pvarfield), core::mem::transmute_copy(&ppvdatacarray)).into()
+                IRecordInfo_Impl::GetFieldNoCopy(this, core::mem::transmute_copy(&pvdata), core::mem::transmute_copy(&szfieldname), core::mem::transmute_copy(&pvarfield), core::mem::transmute_copy(&ppvdatacarray))
             }
         }
         unsafe extern "system" fn PutField<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wflags: super::ULONG, pvdata: super::PVOID, szfieldname: super::LPCOLESTR, pvarfield: *const VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRecordInfo_Impl::PutField(this, core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&pvdata), core::mem::transmute_copy(&szfieldname), core::mem::transmute_copy(&pvarfield)).into()
+                IRecordInfo_Impl::PutField(this, core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&pvdata), core::mem::transmute_copy(&szfieldname), core::mem::transmute_copy(&pvarfield))
             }
         }
         unsafe extern "system" fn PutFieldNoCopy<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wflags: super::ULONG, pvdata: super::PVOID, szfieldname: super::LPCOLESTR, pvarfield: *const VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRecordInfo_Impl::PutFieldNoCopy(this, core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&pvdata), core::mem::transmute_copy(&szfieldname), core::mem::transmute_copy(&pvarfield)).into()
+                IRecordInfo_Impl::PutFieldNoCopy(this, core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&pvdata), core::mem::transmute_copy(&szfieldname), core::mem::transmute_copy(&pvarfield))
             }
         }
         unsafe extern "system" fn GetFieldNames<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcnames: *mut super::ULONG, rgbstrnames: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRecordInfo_Impl::GetFieldNames(this, core::mem::transmute_copy(&pcnames), core::mem::transmute_copy(&rgbstrnames)).into()
+                IRecordInfo_Impl::GetFieldNames(this, core::mem::transmute_copy(&pcnames), core::mem::transmute_copy(&rgbstrnames))
             }
         }
         unsafe extern "system" fn IsMatchingType<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, precordinfo: *mut core::ffi::c_void) -> windows_core::BOOL {
@@ -1862,13 +1862,13 @@ impl IRecordInfo_Vtbl {
         unsafe extern "system" fn RecordCreateCopy<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvsource: super::PVOID, ppvdest: *mut super::PVOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRecordInfo_Impl::RecordCreateCopy(this, core::mem::transmute_copy(&pvsource), core::mem::transmute_copy(&ppvdest)).into()
+                IRecordInfo_Impl::RecordCreateCopy(this, core::mem::transmute_copy(&pvsource), core::mem::transmute_copy(&ppvdest))
             }
         }
         unsafe extern "system" fn RecordDestroy<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvrecord: super::PVOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRecordInfo_Impl::RecordDestroy(this, core::mem::transmute_copy(&pvrecord)).into()
+                IRecordInfo_Impl::RecordDestroy(this, core::mem::transmute_copy(&pvrecord))
             }
         }
         Self {
@@ -1916,7 +1916,7 @@ pub struct ISupportErrorInfo_Vtbl {
 }
 #[cfg(feature = "guiddef")]
 pub trait ISupportErrorInfo_Impl: windows_core::IUnknownImpl {
-    fn InterfaceSupportsErrorInfo(&self, riid: *const super::IID) -> windows_core::Result<()>;
+    fn InterfaceSupportsErrorInfo(&self, riid: *const super::IID) -> windows_core::HRESULT;
 }
 #[cfg(feature = "guiddef")]
 impl ISupportErrorInfo_Vtbl {
@@ -1924,7 +1924,7 @@ impl ISupportErrorInfo_Vtbl {
         unsafe extern "system" fn InterfaceSupportsErrorInfo<Identity: ISupportErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISupportErrorInfo_Impl::InterfaceSupportsErrorInfo(this, core::mem::transmute_copy(&riid)).into()
+                ISupportErrorInfo_Impl::InterfaceSupportsErrorInfo(this, core::mem::transmute_copy(&riid))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), InterfaceSupportsErrorInfo: InterfaceSupportsErrorInfo::<Identity, OFFSET> }
@@ -1968,8 +1968,8 @@ pub struct ITypeChangeEvents_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
 pub trait ITypeChangeEvents_Impl: windows_core::IUnknownImpl {
-    fn RequestTypeChange(&self, changekind: CHANGEKIND, ptinfobefore: windows_core::Ref<ITypeInfo>, pstrname: super::LPOLESTR, pfcancel: *mut super::INT) -> windows_core::Result<()>;
-    fn AfterTypeChange(&self, changekind: CHANGEKIND, ptinfoafter: windows_core::Ref<ITypeInfo>, pstrname: super::LPOLESTR) -> windows_core::Result<()>;
+    fn RequestTypeChange(&self, changekind: CHANGEKIND, ptinfobefore: windows_core::Ref<ITypeInfo>, pstrname: super::LPOLESTR, pfcancel: *mut super::INT) -> windows_core::HRESULT;
+    fn AfterTypeChange(&self, changekind: CHANGEKIND, ptinfoafter: windows_core::Ref<ITypeInfo>, pstrname: super::LPOLESTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
 impl ITypeChangeEvents_Vtbl {
@@ -1977,13 +1977,13 @@ impl ITypeChangeEvents_Vtbl {
         unsafe extern "system" fn RequestTypeChange<Identity: ITypeChangeEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, changekind: CHANGEKIND, ptinfobefore: *mut core::ffi::c_void, pstrname: super::LPOLESTR, pfcancel: *mut super::INT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeChangeEvents_Impl::RequestTypeChange(this, core::mem::transmute_copy(&changekind), core::mem::transmute_copy(&ptinfobefore), core::mem::transmute_copy(&pstrname), core::mem::transmute_copy(&pfcancel)).into()
+                ITypeChangeEvents_Impl::RequestTypeChange(this, core::mem::transmute_copy(&changekind), core::mem::transmute_copy(&ptinfobefore), core::mem::transmute_copy(&pstrname), core::mem::transmute_copy(&pfcancel))
             }
         }
         unsafe extern "system" fn AfterTypeChange<Identity: ITypeChangeEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, changekind: CHANGEKIND, ptinfoafter: *mut core::ffi::c_void, pstrname: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeChangeEvents_Impl::AfterTypeChange(this, core::mem::transmute_copy(&changekind), core::mem::transmute_copy(&ptinfoafter), core::mem::transmute_copy(&pstrname)).into()
+                ITypeChangeEvents_Impl::AfterTypeChange(this, core::mem::transmute_copy(&changekind), core::mem::transmute_copy(&ptinfoafter), core::mem::transmute_copy(&pstrname))
             }
         }
         Self {
@@ -2025,8 +2025,8 @@ pub struct ITypeComp_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITypeComp_Impl: windows_core::IUnknownImpl {
-    fn Bind(&self, szname: super::LPOLESTR, lhashval: super::ULONG, wflags: super::WORD, pptinfo: windows_core::OutRef<ITypeInfo>, pdesckind: *mut DESCKIND, pbindptr: *mut BINDPTR) -> windows_core::Result<()>;
-    fn BindType(&self, szname: super::LPOLESTR, lhashval: super::ULONG, pptinfo: windows_core::OutRef<ITypeInfo>, pptcomp: windows_core::OutRef<ITypeComp>) -> windows_core::Result<()>;
+    fn Bind(&self, szname: super::LPOLESTR, lhashval: super::ULONG, wflags: super::WORD, pptinfo: windows_core::OutRef<ITypeInfo>, pdesckind: *mut DESCKIND, pbindptr: *mut BINDPTR) -> windows_core::HRESULT;
+    fn BindType(&self, szname: super::LPOLESTR, lhashval: super::ULONG, pptinfo: windows_core::OutRef<ITypeInfo>, pptcomp: windows_core::OutRef<ITypeComp>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ITypeComp_Vtbl {
@@ -2034,13 +2034,13 @@ impl ITypeComp_Vtbl {
         unsafe extern "system" fn Bind<Identity: ITypeComp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: super::LPOLESTR, lhashval: super::ULONG, wflags: super::WORD, pptinfo: *mut *mut core::ffi::c_void, pdesckind: *mut DESCKIND, pbindptr: *mut BINDPTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeComp_Impl::Bind(this, core::mem::transmute_copy(&szname), core::mem::transmute_copy(&lhashval), core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&pptinfo), core::mem::transmute_copy(&pdesckind), core::mem::transmute_copy(&pbindptr)).into()
+                ITypeComp_Impl::Bind(this, core::mem::transmute_copy(&szname), core::mem::transmute_copy(&lhashval), core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&pptinfo), core::mem::transmute_copy(&pdesckind), core::mem::transmute_copy(&pbindptr))
             }
         }
         unsafe extern "system" fn BindType<Identity: ITypeComp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: super::LPOLESTR, lhashval: super::ULONG, pptinfo: *mut *mut core::ffi::c_void, pptcomp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeComp_Impl::BindType(this, core::mem::transmute_copy(&szname), core::mem::transmute_copy(&lhashval), core::mem::transmute_copy(&pptinfo), core::mem::transmute_copy(&pptcomp)).into()
+                ITypeComp_Impl::BindType(this, core::mem::transmute_copy(&szname), core::mem::transmute_copy(&lhashval), core::mem::transmute_copy(&pptinfo), core::mem::transmute_copy(&pptcomp))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Bind: Bind::<Identity, OFFSET>, BindType: BindType::<Identity, OFFSET> }
@@ -2073,7 +2073,7 @@ pub struct ITypeFactory_Vtbl {
 }
 #[cfg(feature = "guiddef")]
 pub trait ITypeFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateFromTypeInfo(&self, ptypeinfo: windows_core::Ref<ITypeInfo>, riid: *const super::IID, ppv: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateFromTypeInfo(&self, ptypeinfo: windows_core::Ref<ITypeInfo>, riid: *const super::IID, ppv: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "guiddef")]
 impl ITypeFactory_Vtbl {
@@ -2081,7 +2081,7 @@ impl ITypeFactory_Vtbl {
         unsafe extern "system" fn CreateFromTypeInfo<Identity: ITypeFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptypeinfo: *mut core::ffi::c_void, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeFactory_Impl::CreateFromTypeInfo(this, core::mem::transmute_copy(&ptypeinfo), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+                ITypeFactory_Impl::CreateFromTypeInfo(this, core::mem::transmute_copy(&ptypeinfo), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateFromTypeInfo: CreateFromTypeInfo::<Identity, OFFSET> }
@@ -2264,22 +2264,22 @@ pub struct ITypeInfo_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITypeInfo_Impl: windows_core::IUnknownImpl {
-    fn GetTypeAttr(&self, pptypeattr: *mut *mut TYPEATTR) -> windows_core::Result<()>;
+    fn GetTypeAttr(&self, pptypeattr: *mut *mut TYPEATTR) -> windows_core::HRESULT;
     fn GetTypeComp(&self) -> windows_core::Result<ITypeComp>;
-    fn GetFuncDesc(&self, index: super::UINT, ppfuncdesc: *mut *mut FUNCDESC) -> windows_core::Result<()>;
-    fn GetVarDesc(&self, index: super::UINT, ppvardesc: *mut *mut VARDESC) -> windows_core::Result<()>;
-    fn GetNames(&self, memid: super::MEMBERID, rgbstrnames: *mut windows_core::BSTR, cmaxnames: super::UINT, pcnames: *mut super::UINT) -> windows_core::Result<()>;
-    fn GetRefTypeOfImplType(&self, index: super::UINT, preftype: *mut HREFTYPE) -> windows_core::Result<()>;
-    fn GetImplTypeFlags(&self, index: super::UINT, pimpltypeflags: *mut super::INT) -> windows_core::Result<()>;
-    fn GetIDsOfNames(&self, rgsznames: *const super::LPOLESTR, cnames: super::UINT, pmemid: *mut super::MEMBERID) -> windows_core::Result<()>;
-    fn Invoke(&self, pvinstance: super::PVOID, memid: super::MEMBERID, wflags: super::WORD, pdispparams: *mut DISPPARAMS, pvarresult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut super::UINT) -> windows_core::Result<()>;
-    fn GetDocumentation(&self, memid: super::MEMBERID, pbstrname: *mut windows_core::BSTR, pbstrdocstring: *mut windows_core::BSTR, pdwhelpcontext: *mut super::DWORD, pbstrhelpfile: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetDllEntry(&self, memid: super::MEMBERID, invkind: INVOKEKIND, pbstrdllname: *mut windows_core::BSTR, pbstrname: *mut windows_core::BSTR, pwordinal: *mut super::WORD) -> windows_core::Result<()>;
+    fn GetFuncDesc(&self, index: super::UINT, ppfuncdesc: *mut *mut FUNCDESC) -> windows_core::HRESULT;
+    fn GetVarDesc(&self, index: super::UINT, ppvardesc: *mut *mut VARDESC) -> windows_core::HRESULT;
+    fn GetNames(&self, memid: super::MEMBERID, rgbstrnames: *mut windows_core::BSTR, cmaxnames: super::UINT, pcnames: *mut super::UINT) -> windows_core::HRESULT;
+    fn GetRefTypeOfImplType(&self, index: super::UINT, preftype: *mut HREFTYPE) -> windows_core::HRESULT;
+    fn GetImplTypeFlags(&self, index: super::UINT, pimpltypeflags: *mut super::INT) -> windows_core::HRESULT;
+    fn GetIDsOfNames(&self, rgsznames: *const super::LPOLESTR, cnames: super::UINT, pmemid: *mut super::MEMBERID) -> windows_core::HRESULT;
+    fn Invoke(&self, pvinstance: super::PVOID, memid: super::MEMBERID, wflags: super::WORD, pdispparams: *mut DISPPARAMS, pvarresult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut super::UINT) -> windows_core::HRESULT;
+    fn GetDocumentation(&self, memid: super::MEMBERID, pbstrname: *mut windows_core::BSTR, pbstrdocstring: *mut windows_core::BSTR, pdwhelpcontext: *mut super::DWORD, pbstrhelpfile: *mut windows_core::BSTR) -> windows_core::HRESULT;
+    fn GetDllEntry(&self, memid: super::MEMBERID, invkind: INVOKEKIND, pbstrdllname: *mut windows_core::BSTR, pbstrname: *mut windows_core::BSTR, pwordinal: *mut super::WORD) -> windows_core::HRESULT;
     fn GetRefTypeInfo(&self, hreftype: HREFTYPE) -> windows_core::Result<ITypeInfo>;
-    fn AddressOfMember(&self, memid: super::MEMBERID, invkind: INVOKEKIND, ppv: *mut super::PVOID) -> windows_core::Result<()>;
+    fn AddressOfMember(&self, memid: super::MEMBERID, invkind: INVOKEKIND, ppv: *mut super::PVOID) -> windows_core::HRESULT;
     fn CreateInstance(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const super::IID, ppvobj: *mut super::PVOID) -> windows_core::Result<()>;
-    fn GetMops(&self, memid: super::MEMBERID, pbstrmops: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetContainingTypeLib(&self, pptlib: windows_core::OutRef<ITypeLib>, pindex: *mut super::UINT) -> windows_core::Result<()>;
+    fn GetMops(&self, memid: super::MEMBERID, pbstrmops: *mut windows_core::BSTR) -> windows_core::HRESULT;
+    fn GetContainingTypeLib(&self, pptlib: windows_core::OutRef<ITypeLib>, pindex: *mut super::UINT) -> windows_core::HRESULT;
     fn ReleaseTypeAttr(&self, ptypeattr: *const TYPEATTR);
     fn ReleaseFuncDesc(&self, pfuncdesc: *const FUNCDESC);
     fn ReleaseVarDesc(&self, pvardesc: *const VARDESC);
@@ -2290,7 +2290,7 @@ impl ITypeInfo_Vtbl {
         unsafe extern "system" fn GetTypeAttr<Identity: ITypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptypeattr: *mut *mut TYPEATTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeInfo_Impl::GetTypeAttr(this, core::mem::transmute_copy(&pptypeattr)).into()
+                ITypeInfo_Impl::GetTypeAttr(this, core::mem::transmute_copy(&pptypeattr))
             }
         }
         unsafe extern "system" fn GetTypeComp<Identity: ITypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptcomp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2311,55 +2311,55 @@ impl ITypeInfo_Vtbl {
         unsafe extern "system" fn GetFuncDesc<Identity: ITypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT, ppfuncdesc: *mut *mut FUNCDESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeInfo_Impl::GetFuncDesc(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&ppfuncdesc)).into()
+                ITypeInfo_Impl::GetFuncDesc(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&ppfuncdesc))
             }
         }
         unsafe extern "system" fn GetVarDesc<Identity: ITypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT, ppvardesc: *mut *mut VARDESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeInfo_Impl::GetVarDesc(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&ppvardesc)).into()
+                ITypeInfo_Impl::GetVarDesc(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&ppvardesc))
             }
         }
         unsafe extern "system" fn GetNames<Identity: ITypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, memid: super::MEMBERID, rgbstrnames: *mut *mut core::ffi::c_void, cmaxnames: super::UINT, pcnames: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeInfo_Impl::GetNames(this, core::mem::transmute_copy(&memid), core::mem::transmute_copy(&rgbstrnames), core::mem::transmute_copy(&cmaxnames), core::mem::transmute_copy(&pcnames)).into()
+                ITypeInfo_Impl::GetNames(this, core::mem::transmute_copy(&memid), core::mem::transmute_copy(&rgbstrnames), core::mem::transmute_copy(&cmaxnames), core::mem::transmute_copy(&pcnames))
             }
         }
         unsafe extern "system" fn GetRefTypeOfImplType<Identity: ITypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT, preftype: *mut HREFTYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeInfo_Impl::GetRefTypeOfImplType(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&preftype)).into()
+                ITypeInfo_Impl::GetRefTypeOfImplType(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&preftype))
             }
         }
         unsafe extern "system" fn GetImplTypeFlags<Identity: ITypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT, pimpltypeflags: *mut super::INT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeInfo_Impl::GetImplTypeFlags(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&pimpltypeflags)).into()
+                ITypeInfo_Impl::GetImplTypeFlags(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&pimpltypeflags))
             }
         }
         unsafe extern "system" fn GetIDsOfNames<Identity: ITypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rgsznames: *const super::LPOLESTR, cnames: super::UINT, pmemid: *mut super::MEMBERID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeInfo_Impl::GetIDsOfNames(this, core::mem::transmute_copy(&rgsznames), core::mem::transmute_copy(&cnames), core::mem::transmute_copy(&pmemid)).into()
+                ITypeInfo_Impl::GetIDsOfNames(this, core::mem::transmute_copy(&rgsznames), core::mem::transmute_copy(&cnames), core::mem::transmute_copy(&pmemid))
             }
         }
         unsafe extern "system" fn Invoke<Identity: ITypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvinstance: super::PVOID, memid: super::MEMBERID, wflags: super::WORD, pdispparams: *mut DISPPARAMS, pvarresult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeInfo_Impl::Invoke(this, core::mem::transmute_copy(&pvinstance), core::mem::transmute_copy(&memid), core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&pdispparams), core::mem::transmute_copy(&pvarresult), core::mem::transmute_copy(&pexcepinfo), core::mem::transmute_copy(&puargerr)).into()
+                ITypeInfo_Impl::Invoke(this, core::mem::transmute_copy(&pvinstance), core::mem::transmute_copy(&memid), core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&pdispparams), core::mem::transmute_copy(&pvarresult), core::mem::transmute_copy(&pexcepinfo), core::mem::transmute_copy(&puargerr))
             }
         }
         unsafe extern "system" fn GetDocumentation<Identity: ITypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, memid: super::MEMBERID, pbstrname: *mut *mut core::ffi::c_void, pbstrdocstring: *mut *mut core::ffi::c_void, pdwhelpcontext: *mut super::DWORD, pbstrhelpfile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeInfo_Impl::GetDocumentation(this, core::mem::transmute_copy(&memid), core::mem::transmute_copy(&pbstrname), core::mem::transmute_copy(&pbstrdocstring), core::mem::transmute_copy(&pdwhelpcontext), core::mem::transmute_copy(&pbstrhelpfile)).into()
+                ITypeInfo_Impl::GetDocumentation(this, core::mem::transmute_copy(&memid), core::mem::transmute_copy(&pbstrname), core::mem::transmute_copy(&pbstrdocstring), core::mem::transmute_copy(&pdwhelpcontext), core::mem::transmute_copy(&pbstrhelpfile))
             }
         }
         unsafe extern "system" fn GetDllEntry<Identity: ITypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, memid: super::MEMBERID, invkind: INVOKEKIND, pbstrdllname: *mut *mut core::ffi::c_void, pbstrname: *mut *mut core::ffi::c_void, pwordinal: *mut super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeInfo_Impl::GetDllEntry(this, core::mem::transmute_copy(&memid), core::mem::transmute_copy(&invkind), core::mem::transmute_copy(&pbstrdllname), core::mem::transmute_copy(&pbstrname), core::mem::transmute_copy(&pwordinal)).into()
+                ITypeInfo_Impl::GetDllEntry(this, core::mem::transmute_copy(&memid), core::mem::transmute_copy(&invkind), core::mem::transmute_copy(&pbstrdllname), core::mem::transmute_copy(&pbstrname), core::mem::transmute_copy(&pwordinal))
             }
         }
         unsafe extern "system" fn GetRefTypeInfo<Identity: ITypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hreftype: HREFTYPE, pptinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2380,7 +2380,7 @@ impl ITypeInfo_Vtbl {
         unsafe extern "system" fn AddressOfMember<Identity: ITypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, memid: super::MEMBERID, invkind: INVOKEKIND, ppv: *mut super::PVOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeInfo_Impl::AddressOfMember(this, core::mem::transmute_copy(&memid), core::mem::transmute_copy(&invkind), core::mem::transmute_copy(&ppv)).into()
+                ITypeInfo_Impl::AddressOfMember(this, core::mem::transmute_copy(&memid), core::mem::transmute_copy(&invkind), core::mem::transmute_copy(&ppv))
             }
         }
         unsafe extern "system" fn CreateInstance<Identity: ITypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, riid: *const super::IID, ppvobj: *mut super::PVOID) -> windows_core::HRESULT {
@@ -2392,13 +2392,13 @@ impl ITypeInfo_Vtbl {
         unsafe extern "system" fn GetMops<Identity: ITypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, memid: super::MEMBERID, pbstrmops: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeInfo_Impl::GetMops(this, core::mem::transmute_copy(&memid), core::mem::transmute_copy(&pbstrmops)).into()
+                ITypeInfo_Impl::GetMops(this, core::mem::transmute_copy(&memid), core::mem::transmute_copy(&pbstrmops))
             }
         }
         unsafe extern "system" fn GetContainingTypeLib<Identity: ITypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptlib: *mut *mut core::ffi::c_void, pindex: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeInfo_Impl::GetContainingTypeLib(this, core::mem::transmute_copy(&pptlib), core::mem::transmute_copy(&pindex)).into()
+                ITypeInfo_Impl::GetContainingTypeLib(this, core::mem::transmute_copy(&pptlib), core::mem::transmute_copy(&pindex))
             }
         }
         unsafe extern "system" fn ReleaseTypeAttr<Identity: ITypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptypeattr: *const TYPEATTR) {
@@ -2581,21 +2581,21 @@ pub struct ITypeInfo2_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITypeInfo2_Impl: ITypeInfo_Impl {
-    fn GetTypeKind(&self, ptypekind: *mut TYPEKIND) -> windows_core::Result<()>;
-    fn GetTypeFlags(&self, ptypeflags: *mut super::ULONG) -> windows_core::Result<()>;
-    fn GetFuncIndexOfMemId(&self, memid: super::MEMBERID, invkind: INVOKEKIND, pfuncindex: *mut super::UINT) -> windows_core::Result<()>;
-    fn GetVarIndexOfMemId(&self, memid: super::MEMBERID, pvarindex: *mut super::UINT) -> windows_core::Result<()>;
-    fn GetCustData(&self, guid: *const windows_core::GUID, pvarval: *mut VARIANT) -> windows_core::Result<()>;
-    fn GetFuncCustData(&self, index: super::UINT, guid: *const windows_core::GUID, pvarval: *mut VARIANT) -> windows_core::Result<()>;
-    fn GetParamCustData(&self, indexfunc: super::UINT, indexparam: super::UINT, guid: *const windows_core::GUID, pvarval: *mut VARIANT) -> windows_core::Result<()>;
-    fn GetVarCustData(&self, index: super::UINT, guid: *const windows_core::GUID, pvarval: *mut VARIANT) -> windows_core::Result<()>;
-    fn GetImplTypeCustData(&self, index: super::UINT, guid: *const windows_core::GUID, pvarval: *mut VARIANT) -> windows_core::Result<()>;
-    fn GetDocumentation2(&self, memid: super::MEMBERID, lcid: super::LCID, pbstrhelpstring: *mut windows_core::BSTR, pdwhelpstringcontext: *mut super::DWORD, pbstrhelpstringdll: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetAllCustData(&self, pcustdata: *mut CUSTDATA) -> windows_core::Result<()>;
-    fn GetAllFuncCustData(&self, index: super::UINT, pcustdata: *mut CUSTDATA) -> windows_core::Result<()>;
-    fn GetAllParamCustData(&self, indexfunc: super::UINT, indexparam: super::UINT, pcustdata: *mut CUSTDATA) -> windows_core::Result<()>;
-    fn GetAllVarCustData(&self, index: super::UINT, pcustdata: *mut CUSTDATA) -> windows_core::Result<()>;
-    fn GetAllImplTypeCustData(&self, index: super::UINT, pcustdata: *mut CUSTDATA) -> windows_core::Result<()>;
+    fn GetTypeKind(&self, ptypekind: *mut TYPEKIND) -> windows_core::HRESULT;
+    fn GetTypeFlags(&self, ptypeflags: *mut super::ULONG) -> windows_core::HRESULT;
+    fn GetFuncIndexOfMemId(&self, memid: super::MEMBERID, invkind: INVOKEKIND, pfuncindex: *mut super::UINT) -> windows_core::HRESULT;
+    fn GetVarIndexOfMemId(&self, memid: super::MEMBERID, pvarindex: *mut super::UINT) -> windows_core::HRESULT;
+    fn GetCustData(&self, guid: *const windows_core::GUID, pvarval: *mut VARIANT) -> windows_core::HRESULT;
+    fn GetFuncCustData(&self, index: super::UINT, guid: *const windows_core::GUID, pvarval: *mut VARIANT) -> windows_core::HRESULT;
+    fn GetParamCustData(&self, indexfunc: super::UINT, indexparam: super::UINT, guid: *const windows_core::GUID, pvarval: *mut VARIANT) -> windows_core::HRESULT;
+    fn GetVarCustData(&self, index: super::UINT, guid: *const windows_core::GUID, pvarval: *mut VARIANT) -> windows_core::HRESULT;
+    fn GetImplTypeCustData(&self, index: super::UINT, guid: *const windows_core::GUID, pvarval: *mut VARIANT) -> windows_core::HRESULT;
+    fn GetDocumentation2(&self, memid: super::MEMBERID, lcid: super::LCID, pbstrhelpstring: *mut windows_core::BSTR, pdwhelpstringcontext: *mut super::DWORD, pbstrhelpstringdll: *mut windows_core::BSTR) -> windows_core::HRESULT;
+    fn GetAllCustData(&self, pcustdata: *mut CUSTDATA) -> windows_core::HRESULT;
+    fn GetAllFuncCustData(&self, index: super::UINT, pcustdata: *mut CUSTDATA) -> windows_core::HRESULT;
+    fn GetAllParamCustData(&self, indexfunc: super::UINT, indexparam: super::UINT, pcustdata: *mut CUSTDATA) -> windows_core::HRESULT;
+    fn GetAllVarCustData(&self, index: super::UINT, pcustdata: *mut CUSTDATA) -> windows_core::HRESULT;
+    fn GetAllImplTypeCustData(&self, index: super::UINT, pcustdata: *mut CUSTDATA) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ITypeInfo2_Vtbl {
@@ -2603,91 +2603,91 @@ impl ITypeInfo2_Vtbl {
         unsafe extern "system" fn GetTypeKind<Identity: ITypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptypekind: *mut TYPEKIND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeInfo2_Impl::GetTypeKind(this, core::mem::transmute_copy(&ptypekind)).into()
+                ITypeInfo2_Impl::GetTypeKind(this, core::mem::transmute_copy(&ptypekind))
             }
         }
         unsafe extern "system" fn GetTypeFlags<Identity: ITypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptypeflags: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeInfo2_Impl::GetTypeFlags(this, core::mem::transmute_copy(&ptypeflags)).into()
+                ITypeInfo2_Impl::GetTypeFlags(this, core::mem::transmute_copy(&ptypeflags))
             }
         }
         unsafe extern "system" fn GetFuncIndexOfMemId<Identity: ITypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, memid: super::MEMBERID, invkind: INVOKEKIND, pfuncindex: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeInfo2_Impl::GetFuncIndexOfMemId(this, core::mem::transmute_copy(&memid), core::mem::transmute_copy(&invkind), core::mem::transmute_copy(&pfuncindex)).into()
+                ITypeInfo2_Impl::GetFuncIndexOfMemId(this, core::mem::transmute_copy(&memid), core::mem::transmute_copy(&invkind), core::mem::transmute_copy(&pfuncindex))
             }
         }
         unsafe extern "system" fn GetVarIndexOfMemId<Identity: ITypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, memid: super::MEMBERID, pvarindex: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeInfo2_Impl::GetVarIndexOfMemId(this, core::mem::transmute_copy(&memid), core::mem::transmute_copy(&pvarindex)).into()
+                ITypeInfo2_Impl::GetVarIndexOfMemId(this, core::mem::transmute_copy(&memid), core::mem::transmute_copy(&pvarindex))
             }
         }
         unsafe extern "system" fn GetCustData<Identity: ITypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID, pvarval: *mut VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeInfo2_Impl::GetCustData(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvarval)).into()
+                ITypeInfo2_Impl::GetCustData(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvarval))
             }
         }
         unsafe extern "system" fn GetFuncCustData<Identity: ITypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT, guid: *const windows_core::GUID, pvarval: *mut VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeInfo2_Impl::GetFuncCustData(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvarval)).into()
+                ITypeInfo2_Impl::GetFuncCustData(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvarval))
             }
         }
         unsafe extern "system" fn GetParamCustData<Identity: ITypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, indexfunc: super::UINT, indexparam: super::UINT, guid: *const windows_core::GUID, pvarval: *mut VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeInfo2_Impl::GetParamCustData(this, core::mem::transmute_copy(&indexfunc), core::mem::transmute_copy(&indexparam), core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvarval)).into()
+                ITypeInfo2_Impl::GetParamCustData(this, core::mem::transmute_copy(&indexfunc), core::mem::transmute_copy(&indexparam), core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvarval))
             }
         }
         unsafe extern "system" fn GetVarCustData<Identity: ITypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT, guid: *const windows_core::GUID, pvarval: *mut VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeInfo2_Impl::GetVarCustData(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvarval)).into()
+                ITypeInfo2_Impl::GetVarCustData(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvarval))
             }
         }
         unsafe extern "system" fn GetImplTypeCustData<Identity: ITypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT, guid: *const windows_core::GUID, pvarval: *mut VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeInfo2_Impl::GetImplTypeCustData(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvarval)).into()
+                ITypeInfo2_Impl::GetImplTypeCustData(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvarval))
             }
         }
         unsafe extern "system" fn GetDocumentation2<Identity: ITypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, memid: super::MEMBERID, lcid: super::LCID, pbstrhelpstring: *mut *mut core::ffi::c_void, pdwhelpstringcontext: *mut super::DWORD, pbstrhelpstringdll: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeInfo2_Impl::GetDocumentation2(this, core::mem::transmute_copy(&memid), core::mem::transmute_copy(&lcid), core::mem::transmute_copy(&pbstrhelpstring), core::mem::transmute_copy(&pdwhelpstringcontext), core::mem::transmute_copy(&pbstrhelpstringdll)).into()
+                ITypeInfo2_Impl::GetDocumentation2(this, core::mem::transmute_copy(&memid), core::mem::transmute_copy(&lcid), core::mem::transmute_copy(&pbstrhelpstring), core::mem::transmute_copy(&pdwhelpstringcontext), core::mem::transmute_copy(&pbstrhelpstringdll))
             }
         }
         unsafe extern "system" fn GetAllCustData<Identity: ITypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcustdata: *mut CUSTDATA) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeInfo2_Impl::GetAllCustData(this, core::mem::transmute_copy(&pcustdata)).into()
+                ITypeInfo2_Impl::GetAllCustData(this, core::mem::transmute_copy(&pcustdata))
             }
         }
         unsafe extern "system" fn GetAllFuncCustData<Identity: ITypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT, pcustdata: *mut CUSTDATA) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeInfo2_Impl::GetAllFuncCustData(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&pcustdata)).into()
+                ITypeInfo2_Impl::GetAllFuncCustData(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&pcustdata))
             }
         }
         unsafe extern "system" fn GetAllParamCustData<Identity: ITypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, indexfunc: super::UINT, indexparam: super::UINT, pcustdata: *mut CUSTDATA) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeInfo2_Impl::GetAllParamCustData(this, core::mem::transmute_copy(&indexfunc), core::mem::transmute_copy(&indexparam), core::mem::transmute_copy(&pcustdata)).into()
+                ITypeInfo2_Impl::GetAllParamCustData(this, core::mem::transmute_copy(&indexfunc), core::mem::transmute_copy(&indexparam), core::mem::transmute_copy(&pcustdata))
             }
         }
         unsafe extern "system" fn GetAllVarCustData<Identity: ITypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT, pcustdata: *mut CUSTDATA) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeInfo2_Impl::GetAllVarCustData(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&pcustdata)).into()
+                ITypeInfo2_Impl::GetAllVarCustData(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&pcustdata))
             }
         }
         unsafe extern "system" fn GetAllImplTypeCustData<Identity: ITypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT, pcustdata: *mut CUSTDATA) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeInfo2_Impl::GetAllImplTypeCustData(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&pcustdata)).into()
+                ITypeInfo2_Impl::GetAllImplTypeCustData(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&pcustdata))
             }
         }
         Self {
@@ -2710,7 +2710,7 @@ impl ITypeInfo2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITypeInfo2 as windows_core::Interface>::IID || iid == &<ITypeInfo as windows_core::Interface>::IID
+        iid == &<ITypeInfo2 as windows_core::Interface>::IID || ITypeInfo_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2811,13 +2811,13 @@ pub struct ITypeLib_Vtbl {
 pub trait ITypeLib_Impl: windows_core::IUnknownImpl {
     fn GetTypeInfoCount(&self) -> super::UINT;
     fn GetTypeInfo(&self, index: super::UINT) -> windows_core::Result<ITypeInfo>;
-    fn GetTypeInfoType(&self, index: super::UINT, ptkind: *mut TYPEKIND) -> windows_core::Result<()>;
+    fn GetTypeInfoType(&self, index: super::UINT, ptkind: *mut TYPEKIND) -> windows_core::HRESULT;
     fn GetTypeInfoOfGuid(&self, guid: *const windows_core::GUID) -> windows_core::Result<ITypeInfo>;
-    fn GetLibAttr(&self, pptlibattr: *mut *mut TLIBATTR) -> windows_core::Result<()>;
+    fn GetLibAttr(&self, pptlibattr: *mut *mut TLIBATTR) -> windows_core::HRESULT;
     fn GetTypeComp(&self) -> windows_core::Result<ITypeComp>;
-    fn GetDocumentation(&self, index: super::INT, pbstrname: *mut windows_core::BSTR, pbstrdocstring: *mut windows_core::BSTR, pdwhelpcontext: *mut super::DWORD, pbstrhelpfile: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn IsName(&self, sznamebuf: super::LPOLESTR, lhashval: super::ULONG, pfname: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn FindName(&self, sznamebuf: super::LPOLESTR, lhashval: super::ULONG, pptinfo: windows_core::OutRef<ITypeInfo>, rgmemid: *mut super::MEMBERID, pcfound: *mut super::USHORT) -> windows_core::Result<()>;
+    fn GetDocumentation(&self, index: super::INT, pbstrname: *mut windows_core::BSTR, pbstrdocstring: *mut windows_core::BSTR, pdwhelpcontext: *mut super::DWORD, pbstrhelpfile: *mut windows_core::BSTR) -> windows_core::HRESULT;
+    fn IsName(&self, sznamebuf: super::LPOLESTR, lhashval: super::ULONG, pfname: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn FindName(&self, sznamebuf: super::LPOLESTR, lhashval: super::ULONG, pptinfo: windows_core::OutRef<ITypeInfo>, rgmemid: *mut super::MEMBERID, pcfound: *mut super::USHORT) -> windows_core::HRESULT;
     fn ReleaseTLibAttr(&self, ptlibattr: *const TLIBATTR);
 }
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
@@ -2847,7 +2847,7 @@ impl ITypeLib_Vtbl {
         unsafe extern "system" fn GetTypeInfoType<Identity: ITypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT, ptkind: *mut TYPEKIND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeLib_Impl::GetTypeInfoType(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&ptkind)).into()
+                ITypeLib_Impl::GetTypeInfoType(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&ptkind))
             }
         }
         unsafe extern "system" fn GetTypeInfoOfGuid<Identity: ITypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID, pptinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2868,7 +2868,7 @@ impl ITypeLib_Vtbl {
         unsafe extern "system" fn GetLibAttr<Identity: ITypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptlibattr: *mut *mut TLIBATTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeLib_Impl::GetLibAttr(this, core::mem::transmute_copy(&pptlibattr)).into()
+                ITypeLib_Impl::GetLibAttr(this, core::mem::transmute_copy(&pptlibattr))
             }
         }
         unsafe extern "system" fn GetTypeComp<Identity: ITypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptcomp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2889,19 +2889,19 @@ impl ITypeLib_Vtbl {
         unsafe extern "system" fn GetDocumentation<Identity: ITypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::INT, pbstrname: *mut *mut core::ffi::c_void, pbstrdocstring: *mut *mut core::ffi::c_void, pdwhelpcontext: *mut super::DWORD, pbstrhelpfile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeLib_Impl::GetDocumentation(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&pbstrname), core::mem::transmute_copy(&pbstrdocstring), core::mem::transmute_copy(&pdwhelpcontext), core::mem::transmute_copy(&pbstrhelpfile)).into()
+                ITypeLib_Impl::GetDocumentation(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&pbstrname), core::mem::transmute_copy(&pbstrdocstring), core::mem::transmute_copy(&pdwhelpcontext), core::mem::transmute_copy(&pbstrhelpfile))
             }
         }
         unsafe extern "system" fn IsName<Identity: ITypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sznamebuf: super::LPOLESTR, lhashval: super::ULONG, pfname: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeLib_Impl::IsName(this, core::mem::transmute_copy(&sznamebuf), core::mem::transmute_copy(&lhashval), core::mem::transmute_copy(&pfname)).into()
+                ITypeLib_Impl::IsName(this, core::mem::transmute_copy(&sznamebuf), core::mem::transmute_copy(&lhashval), core::mem::transmute_copy(&pfname))
             }
         }
         unsafe extern "system" fn FindName<Identity: ITypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sznamebuf: super::LPOLESTR, lhashval: super::ULONG, pptinfo: *mut *mut core::ffi::c_void, rgmemid: *mut super::MEMBERID, pcfound: *mut super::USHORT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeLib_Impl::FindName(this, core::mem::transmute_copy(&sznamebuf), core::mem::transmute_copy(&lhashval), core::mem::transmute_copy(&pptinfo), core::mem::transmute_copy(&rgmemid), core::mem::transmute_copy(&pcfound)).into()
+                ITypeLib_Impl::FindName(this, core::mem::transmute_copy(&sznamebuf), core::mem::transmute_copy(&lhashval), core::mem::transmute_copy(&pptinfo), core::mem::transmute_copy(&rgmemid), core::mem::transmute_copy(&pcfound))
             }
         }
         unsafe extern "system" fn ReleaseTLibAttr<Identity: ITypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptlibattr: *const TLIBATTR) {
@@ -2979,10 +2979,10 @@ pub struct ITypeLib2_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITypeLib2_Impl: ITypeLib_Impl {
-    fn GetCustData(&self, guid: *const windows_core::GUID, pvarval: *mut VARIANT) -> windows_core::Result<()>;
-    fn GetLibStatistics(&self, pcuniquenames: *mut super::ULONG, pcchuniquenames: *mut super::ULONG) -> windows_core::Result<()>;
-    fn GetDocumentation2(&self, index: super::INT, lcid: super::LCID, pbstrhelpstring: *mut windows_core::BSTR, pdwhelpstringcontext: *mut super::DWORD, pbstrhelpstringdll: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetAllCustData(&self, pcustdata: *mut CUSTDATA) -> windows_core::Result<()>;
+    fn GetCustData(&self, guid: *const windows_core::GUID, pvarval: *mut VARIANT) -> windows_core::HRESULT;
+    fn GetLibStatistics(&self, pcuniquenames: *mut super::ULONG, pcchuniquenames: *mut super::ULONG) -> windows_core::HRESULT;
+    fn GetDocumentation2(&self, index: super::INT, lcid: super::LCID, pbstrhelpstring: *mut windows_core::BSTR, pdwhelpstringcontext: *mut super::DWORD, pbstrhelpstringdll: *mut windows_core::BSTR) -> windows_core::HRESULT;
+    fn GetAllCustData(&self, pcustdata: *mut CUSTDATA) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ITypeLib2_Vtbl {
@@ -2990,25 +2990,25 @@ impl ITypeLib2_Vtbl {
         unsafe extern "system" fn GetCustData<Identity: ITypeLib2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID, pvarval: *mut VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeLib2_Impl::GetCustData(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvarval)).into()
+                ITypeLib2_Impl::GetCustData(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvarval))
             }
         }
         unsafe extern "system" fn GetLibStatistics<Identity: ITypeLib2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcuniquenames: *mut super::ULONG, pcchuniquenames: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeLib2_Impl::GetLibStatistics(this, core::mem::transmute_copy(&pcuniquenames), core::mem::transmute_copy(&pcchuniquenames)).into()
+                ITypeLib2_Impl::GetLibStatistics(this, core::mem::transmute_copy(&pcuniquenames), core::mem::transmute_copy(&pcchuniquenames))
             }
         }
         unsafe extern "system" fn GetDocumentation2<Identity: ITypeLib2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::INT, lcid: super::LCID, pbstrhelpstring: *mut *mut core::ffi::c_void, pdwhelpstringcontext: *mut super::DWORD, pbstrhelpstringdll: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeLib2_Impl::GetDocumentation2(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&lcid), core::mem::transmute_copy(&pbstrhelpstring), core::mem::transmute_copy(&pdwhelpstringcontext), core::mem::transmute_copy(&pbstrhelpstringdll)).into()
+                ITypeLib2_Impl::GetDocumentation2(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&lcid), core::mem::transmute_copy(&pbstrhelpstring), core::mem::transmute_copy(&pdwhelpstringcontext), core::mem::transmute_copy(&pbstrhelpstringdll))
             }
         }
         unsafe extern "system" fn GetAllCustData<Identity: ITypeLib2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcustdata: *mut CUSTDATA) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeLib2_Impl::GetAllCustData(this, core::mem::transmute_copy(&pcustdata)).into()
+                ITypeLib2_Impl::GetAllCustData(this, core::mem::transmute_copy(&pcustdata))
             }
         }
         Self {
@@ -3020,7 +3020,7 @@ impl ITypeLib2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITypeLib2 as windows_core::Interface>::IID || iid == &<ITypeLib as windows_core::Interface>::IID
+        iid == &<ITypeLib2 as windows_core::Interface>::IID || ITypeLib_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3076,14 +3076,14 @@ pub struct ITypeLibRegistration_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ITypeLibRegistration_Impl: windows_core::IUnknownImpl {
-    fn GetGuid(&self, pguid: *mut windows_core::GUID) -> windows_core::Result<()>;
-    fn GetVersion(&self, pversion: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetLcid(&self, plcid: *mut super::LCID) -> windows_core::Result<()>;
-    fn GetWin32Path(&self, pwin32path: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetWin64Path(&self, pwin64path: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetDisplayName(&self, pdisplayname: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetFlags(&self, pflags: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetHelpDir(&self, phelpdir: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn GetGuid(&self, pguid: *mut windows_core::GUID) -> windows_core::HRESULT;
+    fn GetVersion(&self, pversion: *mut windows_core::BSTR) -> windows_core::HRESULT;
+    fn GetLcid(&self, plcid: *mut super::LCID) -> windows_core::HRESULT;
+    fn GetWin32Path(&self, pwin32path: *mut windows_core::BSTR) -> windows_core::HRESULT;
+    fn GetWin64Path(&self, pwin64path: *mut windows_core::BSTR) -> windows_core::HRESULT;
+    fn GetDisplayName(&self, pdisplayname: *mut windows_core::BSTR) -> windows_core::HRESULT;
+    fn GetFlags(&self, pflags: *mut super::DWORD) -> windows_core::HRESULT;
+    fn GetHelpDir(&self, phelpdir: *mut windows_core::BSTR) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ITypeLibRegistration_Vtbl {
@@ -3091,49 +3091,49 @@ impl ITypeLibRegistration_Vtbl {
         unsafe extern "system" fn GetGuid<Identity: ITypeLibRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguid: *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeLibRegistration_Impl::GetGuid(this, core::mem::transmute_copy(&pguid)).into()
+                ITypeLibRegistration_Impl::GetGuid(this, core::mem::transmute_copy(&pguid))
             }
         }
         unsafe extern "system" fn GetVersion<Identity: ITypeLibRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pversion: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeLibRegistration_Impl::GetVersion(this, core::mem::transmute_copy(&pversion)).into()
+                ITypeLibRegistration_Impl::GetVersion(this, core::mem::transmute_copy(&pversion))
             }
         }
         unsafe extern "system" fn GetLcid<Identity: ITypeLibRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcid: *mut super::LCID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeLibRegistration_Impl::GetLcid(this, core::mem::transmute_copy(&plcid)).into()
+                ITypeLibRegistration_Impl::GetLcid(this, core::mem::transmute_copy(&plcid))
             }
         }
         unsafe extern "system" fn GetWin32Path<Identity: ITypeLibRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwin32path: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeLibRegistration_Impl::GetWin32Path(this, core::mem::transmute_copy(&pwin32path)).into()
+                ITypeLibRegistration_Impl::GetWin32Path(this, core::mem::transmute_copy(&pwin32path))
             }
         }
         unsafe extern "system" fn GetWin64Path<Identity: ITypeLibRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwin64path: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeLibRegistration_Impl::GetWin64Path(this, core::mem::transmute_copy(&pwin64path)).into()
+                ITypeLibRegistration_Impl::GetWin64Path(this, core::mem::transmute_copy(&pwin64path))
             }
         }
         unsafe extern "system" fn GetDisplayName<Identity: ITypeLibRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdisplayname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeLibRegistration_Impl::GetDisplayName(this, core::mem::transmute_copy(&pdisplayname)).into()
+                ITypeLibRegistration_Impl::GetDisplayName(this, core::mem::transmute_copy(&pdisplayname))
             }
         }
         unsafe extern "system" fn GetFlags<Identity: ITypeLibRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflags: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeLibRegistration_Impl::GetFlags(this, core::mem::transmute_copy(&pflags)).into()
+                ITypeLibRegistration_Impl::GetFlags(this, core::mem::transmute_copy(&pflags))
             }
         }
         unsafe extern "system" fn GetHelpDir<Identity: ITypeLibRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phelpdir: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeLibRegistration_Impl::GetHelpDir(this, core::mem::transmute_copy(&phelpdir)).into()
+                ITypeLibRegistration_Impl::GetHelpDir(this, core::mem::transmute_copy(&phelpdir))
             }
         }
         Self {
@@ -3173,7 +3173,7 @@ pub struct ITypeLibRegistrationReader_Vtbl {
 }
 #[cfg(feature = "objidlbase")]
 pub trait ITypeLibRegistrationReader_Impl: windows_core::IUnknownImpl {
-    fn EnumTypeLibRegistrations(&self, ppenumunknown: windows_core::OutRef<super::IEnumUnknown>) -> windows_core::Result<()>;
+    fn EnumTypeLibRegistrations(&self, ppenumunknown: windows_core::OutRef<super::IEnumUnknown>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "objidlbase")]
 impl ITypeLibRegistrationReader_Vtbl {
@@ -3181,7 +3181,7 @@ impl ITypeLibRegistrationReader_Vtbl {
         unsafe extern "system" fn EnumTypeLibRegistrations<Identity: ITypeLibRegistrationReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumunknown: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeLibRegistrationReader_Impl::EnumTypeLibRegistrations(this, core::mem::transmute_copy(&ppenumunknown)).into()
+                ITypeLibRegistrationReader_Impl::EnumTypeLibRegistrations(this, core::mem::transmute_copy(&ppenumunknown))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), EnumTypeLibRegistrations: EnumTypeLibRegistrations::<Identity, OFFSET> }
@@ -3235,10 +3235,10 @@ pub struct ITypeMarshal_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait ITypeMarshal_Impl: windows_core::IUnknownImpl {
-    fn Size(&self, pvtype: super::PVOID, dwdestcontext: super::DWORD, pvdestcontext: super::PVOID, psize: *mut super::ULONG) -> windows_core::Result<()>;
-    fn Marshal(&self, pvtype: super::PVOID, dwdestcontext: super::DWORD, pvdestcontext: super::PVOID, cbbufferlength: super::ULONG, pbuffer: *mut super::BYTE, pcbwritten: *mut super::ULONG) -> windows_core::Result<()>;
-    fn Unmarshal(&self, pvtype: super::PVOID, dwflags: super::DWORD, cbbufferlength: super::ULONG, pbuffer: *const super::BYTE, pcbread: *mut super::ULONG) -> windows_core::Result<()>;
-    fn Free(&self, pvtype: super::PVOID) -> windows_core::Result<()>;
+    fn Size(&self, pvtype: super::PVOID, dwdestcontext: super::DWORD, pvdestcontext: super::PVOID, psize: *mut super::ULONG) -> windows_core::HRESULT;
+    fn Marshal(&self, pvtype: super::PVOID, dwdestcontext: super::DWORD, pvdestcontext: super::PVOID, cbbufferlength: super::ULONG, pbuffer: *mut super::BYTE, pcbwritten: *mut super::ULONG) -> windows_core::HRESULT;
+    fn Unmarshal(&self, pvtype: super::PVOID, dwflags: super::DWORD, cbbufferlength: super::ULONG, pbuffer: *const super::BYTE, pcbread: *mut super::ULONG) -> windows_core::HRESULT;
+    fn Free(&self, pvtype: super::PVOID) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 impl ITypeMarshal_Vtbl {
@@ -3246,25 +3246,25 @@ impl ITypeMarshal_Vtbl {
         unsafe extern "system" fn Size<Identity: ITypeMarshal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvtype: super::PVOID, dwdestcontext: super::DWORD, pvdestcontext: super::PVOID, psize: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeMarshal_Impl::Size(this, core::mem::transmute_copy(&pvtype), core::mem::transmute_copy(&dwdestcontext), core::mem::transmute_copy(&pvdestcontext), core::mem::transmute_copy(&psize)).into()
+                ITypeMarshal_Impl::Size(this, core::mem::transmute_copy(&pvtype), core::mem::transmute_copy(&dwdestcontext), core::mem::transmute_copy(&pvdestcontext), core::mem::transmute_copy(&psize))
             }
         }
         unsafe extern "system" fn Marshal<Identity: ITypeMarshal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvtype: super::PVOID, dwdestcontext: super::DWORD, pvdestcontext: super::PVOID, cbbufferlength: super::ULONG, pbuffer: *mut super::BYTE, pcbwritten: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeMarshal_Impl::Marshal(this, core::mem::transmute_copy(&pvtype), core::mem::transmute_copy(&dwdestcontext), core::mem::transmute_copy(&pvdestcontext), core::mem::transmute_copy(&cbbufferlength), core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&pcbwritten)).into()
+                ITypeMarshal_Impl::Marshal(this, core::mem::transmute_copy(&pvtype), core::mem::transmute_copy(&dwdestcontext), core::mem::transmute_copy(&pvdestcontext), core::mem::transmute_copy(&cbbufferlength), core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&pcbwritten))
             }
         }
         unsafe extern "system" fn Unmarshal<Identity: ITypeMarshal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvtype: super::PVOID, dwflags: super::DWORD, cbbufferlength: super::ULONG, pbuffer: *const super::BYTE, pcbread: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeMarshal_Impl::Unmarshal(this, core::mem::transmute_copy(&pvtype), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&cbbufferlength), core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&pcbread)).into()
+                ITypeMarshal_Impl::Unmarshal(this, core::mem::transmute_copy(&pvtype), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&cbbufferlength), core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&pcbread))
             }
         }
         unsafe extern "system" fn Free<Identity: ITypeMarshal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvtype: super::PVOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeMarshal_Impl::Free(this, core::mem::transmute_copy(&pvtype)).into()
+                ITypeMarshal_Impl::Free(this, core::mem::transmute_copy(&pvtype))
             }
         }
         Self {

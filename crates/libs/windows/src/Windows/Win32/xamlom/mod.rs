@@ -89,10 +89,10 @@ pub struct IBitmapData_Vtbl {
 }
 #[cfg(all(feature = "dxgi", feature = "rpc"))]
 pub trait IBitmapData_Impl: windows_core::IUnknownImpl {
-    fn CopyBytesTo(&self, sourceoffsetinbytes: u32, maxbytestocopy: u32, pvbytes: *mut super::byte, numberofbytescopied: *mut u32) -> windows_core::Result<()>;
-    fn GetStride(&self, pstride: *mut u32) -> windows_core::Result<()>;
-    fn GetBitmapDescription(&self, pbitmapdescription: *mut BitmapDescription) -> windows_core::Result<()>;
-    fn GetSourceBitmapDescription(&self, pbitmapdescription: *mut BitmapDescription) -> windows_core::Result<()>;
+    fn CopyBytesTo(&self, sourceoffsetinbytes: u32, maxbytestocopy: u32, pvbytes: *mut super::byte, numberofbytescopied: *mut u32) -> windows_core::HRESULT;
+    fn GetStride(&self, pstride: *mut u32) -> windows_core::HRESULT;
+    fn GetBitmapDescription(&self, pbitmapdescription: *mut BitmapDescription) -> windows_core::HRESULT;
+    fn GetSourceBitmapDescription(&self, pbitmapdescription: *mut BitmapDescription) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "dxgi", feature = "rpc"))]
 impl IBitmapData_Vtbl {
@@ -100,25 +100,25 @@ impl IBitmapData_Vtbl {
         unsafe extern "system" fn CopyBytesTo<Identity: IBitmapData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourceoffsetinbytes: u32, maxbytestocopy: u32, pvbytes: *mut super::byte, numberofbytescopied: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBitmapData_Impl::CopyBytesTo(this, core::mem::transmute_copy(&sourceoffsetinbytes), core::mem::transmute_copy(&maxbytestocopy), core::mem::transmute_copy(&pvbytes), core::mem::transmute_copy(&numberofbytescopied)).into()
+                IBitmapData_Impl::CopyBytesTo(this, core::mem::transmute_copy(&sourceoffsetinbytes), core::mem::transmute_copy(&maxbytestocopy), core::mem::transmute_copy(&pvbytes), core::mem::transmute_copy(&numberofbytescopied))
             }
         }
         unsafe extern "system" fn GetStride<Identity: IBitmapData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstride: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBitmapData_Impl::GetStride(this, core::mem::transmute_copy(&pstride)).into()
+                IBitmapData_Impl::GetStride(this, core::mem::transmute_copy(&pstride))
             }
         }
         unsafe extern "system" fn GetBitmapDescription<Identity: IBitmapData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbitmapdescription: *mut BitmapDescription) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBitmapData_Impl::GetBitmapDescription(this, core::mem::transmute_copy(&pbitmapdescription)).into()
+                IBitmapData_Impl::GetBitmapDescription(this, core::mem::transmute_copy(&pbitmapdescription))
             }
         }
         unsafe extern "system" fn GetSourceBitmapDescription<Identity: IBitmapData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbitmapdescription: *mut BitmapDescription) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBitmapData_Impl::GetSourceBitmapDescription(this, core::mem::transmute_copy(&pbitmapdescription)).into()
+                IBitmapData_Impl::GetSourceBitmapDescription(this, core::mem::transmute_copy(&pbitmapdescription))
             }
         }
         Self {
@@ -207,18 +207,18 @@ pub struct IVisualTreeService_Vtbl {
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
 pub trait IVisualTreeService_Impl: windows_core::IUnknownImpl {
-    fn AdviseVisualTreeChange(&self, pcallback: windows_core::Ref<IVisualTreeServiceCallback>) -> windows_core::Result<()>;
-    fn UnadviseVisualTreeChange(&self, pcallback: windows_core::Ref<IVisualTreeServiceCallback>) -> windows_core::Result<()>;
-    fn GetEnums(&self, pcount: *mut u32, ppenums: *mut *mut EnumType) -> windows_core::Result<()>;
+    fn AdviseVisualTreeChange(&self, pcallback: windows_core::Ref<IVisualTreeServiceCallback>) -> windows_core::HRESULT;
+    fn UnadviseVisualTreeChange(&self, pcallback: windows_core::Ref<IVisualTreeServiceCallback>) -> windows_core::HRESULT;
+    fn GetEnums(&self, pcount: *mut u32, ppenums: *mut *mut EnumType) -> windows_core::HRESULT;
     fn CreateInstance(&self, typename: &windows_core::BSTR, value: &windows_core::BSTR) -> windows_core::Result<InstanceHandle>;
-    fn GetPropertyValuesChain(&self, instancehandle: InstanceHandle, psourcecount: *mut u32, pppropertysources: *mut *mut PropertyChainSource, ppropertycount: *mut u32, pppropertyvalues: *mut *mut PropertyChainValue) -> windows_core::Result<()>;
-    fn SetProperty(&self, instancehandle: InstanceHandle, value: InstanceHandle, propertyindex: u32) -> windows_core::Result<()>;
-    fn ClearProperty(&self, instancehandle: InstanceHandle, propertyindex: u32) -> windows_core::Result<()>;
-    fn GetCollectionCount(&self, instancehandle: InstanceHandle, pcollectionsize: *mut u32) -> windows_core::Result<()>;
-    fn GetCollectionElements(&self, instancehandle: InstanceHandle, startindex: u32, pelementcount: *mut u32, ppelementvalues: *mut *mut CollectionElementValue) -> windows_core::Result<()>;
-    fn AddChild(&self, parent: InstanceHandle, child: InstanceHandle, index: u32) -> windows_core::Result<()>;
-    fn RemoveChild(&self, parent: InstanceHandle, index: u32) -> windows_core::Result<()>;
-    fn ClearChildren(&self, parent: InstanceHandle) -> windows_core::Result<()>;
+    fn GetPropertyValuesChain(&self, instancehandle: InstanceHandle, psourcecount: *mut u32, pppropertysources: *mut *mut PropertyChainSource, ppropertycount: *mut u32, pppropertyvalues: *mut *mut PropertyChainValue) -> windows_core::HRESULT;
+    fn SetProperty(&self, instancehandle: InstanceHandle, value: InstanceHandle, propertyindex: u32) -> windows_core::HRESULT;
+    fn ClearProperty(&self, instancehandle: InstanceHandle, propertyindex: u32) -> windows_core::HRESULT;
+    fn GetCollectionCount(&self, instancehandle: InstanceHandle, pcollectionsize: *mut u32) -> windows_core::HRESULT;
+    fn GetCollectionElements(&self, instancehandle: InstanceHandle, startindex: u32, pelementcount: *mut u32, ppelementvalues: *mut *mut CollectionElementValue) -> windows_core::HRESULT;
+    fn AddChild(&self, parent: InstanceHandle, child: InstanceHandle, index: u32) -> windows_core::HRESULT;
+    fn RemoveChild(&self, parent: InstanceHandle, index: u32) -> windows_core::HRESULT;
+    fn ClearChildren(&self, parent: InstanceHandle) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
 impl IVisualTreeService_Vtbl {
@@ -226,19 +226,19 @@ impl IVisualTreeService_Vtbl {
         unsafe extern "system" fn AdviseVisualTreeChange<Identity: IVisualTreeService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVisualTreeService_Impl::AdviseVisualTreeChange(this, core::mem::transmute_copy(&pcallback)).into()
+                IVisualTreeService_Impl::AdviseVisualTreeChange(this, core::mem::transmute_copy(&pcallback))
             }
         }
         unsafe extern "system" fn UnadviseVisualTreeChange<Identity: IVisualTreeService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVisualTreeService_Impl::UnadviseVisualTreeChange(this, core::mem::transmute_copy(&pcallback)).into()
+                IVisualTreeService_Impl::UnadviseVisualTreeChange(this, core::mem::transmute_copy(&pcallback))
             }
         }
         unsafe extern "system" fn GetEnums<Identity: IVisualTreeService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcount: *mut u32, ppenums: *mut *mut EnumType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVisualTreeService_Impl::GetEnums(this, core::mem::transmute_copy(&pcount), core::mem::transmute_copy(&ppenums)).into()
+                IVisualTreeService_Impl::GetEnums(this, core::mem::transmute_copy(&pcount), core::mem::transmute_copy(&ppenums))
             }
         }
         unsafe extern "system" fn CreateInstance<Identity: IVisualTreeService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, typename: *mut core::ffi::c_void, value: *mut core::ffi::c_void, pinstancehandle: *mut InstanceHandle) -> windows_core::HRESULT {
@@ -259,49 +259,49 @@ impl IVisualTreeService_Vtbl {
         unsafe extern "system" fn GetPropertyValuesChain<Identity: IVisualTreeService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, instancehandle: InstanceHandle, psourcecount: *mut u32, pppropertysources: *mut *mut PropertyChainSource, ppropertycount: *mut u32, pppropertyvalues: *mut *mut PropertyChainValue) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVisualTreeService_Impl::GetPropertyValuesChain(this, core::mem::transmute_copy(&instancehandle), core::mem::transmute_copy(&psourcecount), core::mem::transmute_copy(&pppropertysources), core::mem::transmute_copy(&ppropertycount), core::mem::transmute_copy(&pppropertyvalues)).into()
+                IVisualTreeService_Impl::GetPropertyValuesChain(this, core::mem::transmute_copy(&instancehandle), core::mem::transmute_copy(&psourcecount), core::mem::transmute_copy(&pppropertysources), core::mem::transmute_copy(&ppropertycount), core::mem::transmute_copy(&pppropertyvalues))
             }
         }
         unsafe extern "system" fn SetProperty<Identity: IVisualTreeService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, instancehandle: InstanceHandle, value: InstanceHandle, propertyindex: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVisualTreeService_Impl::SetProperty(this, core::mem::transmute_copy(&instancehandle), core::mem::transmute_copy(&value), core::mem::transmute_copy(&propertyindex)).into()
+                IVisualTreeService_Impl::SetProperty(this, core::mem::transmute_copy(&instancehandle), core::mem::transmute_copy(&value), core::mem::transmute_copy(&propertyindex))
             }
         }
         unsafe extern "system" fn ClearProperty<Identity: IVisualTreeService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, instancehandle: InstanceHandle, propertyindex: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVisualTreeService_Impl::ClearProperty(this, core::mem::transmute_copy(&instancehandle), core::mem::transmute_copy(&propertyindex)).into()
+                IVisualTreeService_Impl::ClearProperty(this, core::mem::transmute_copy(&instancehandle), core::mem::transmute_copy(&propertyindex))
             }
         }
         unsafe extern "system" fn GetCollectionCount<Identity: IVisualTreeService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, instancehandle: InstanceHandle, pcollectionsize: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVisualTreeService_Impl::GetCollectionCount(this, core::mem::transmute_copy(&instancehandle), core::mem::transmute_copy(&pcollectionsize)).into()
+                IVisualTreeService_Impl::GetCollectionCount(this, core::mem::transmute_copy(&instancehandle), core::mem::transmute_copy(&pcollectionsize))
             }
         }
         unsafe extern "system" fn GetCollectionElements<Identity: IVisualTreeService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, instancehandle: InstanceHandle, startindex: u32, pelementcount: *mut u32, ppelementvalues: *mut *mut CollectionElementValue) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVisualTreeService_Impl::GetCollectionElements(this, core::mem::transmute_copy(&instancehandle), core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&pelementcount), core::mem::transmute_copy(&ppelementvalues)).into()
+                IVisualTreeService_Impl::GetCollectionElements(this, core::mem::transmute_copy(&instancehandle), core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&pelementcount), core::mem::transmute_copy(&ppelementvalues))
             }
         }
         unsafe extern "system" fn AddChild<Identity: IVisualTreeService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parent: InstanceHandle, child: InstanceHandle, index: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVisualTreeService_Impl::AddChild(this, core::mem::transmute_copy(&parent), core::mem::transmute_copy(&child), core::mem::transmute_copy(&index)).into()
+                IVisualTreeService_Impl::AddChild(this, core::mem::transmute_copy(&parent), core::mem::transmute_copy(&child), core::mem::transmute_copy(&index))
             }
         }
         unsafe extern "system" fn RemoveChild<Identity: IVisualTreeService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parent: InstanceHandle, index: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVisualTreeService_Impl::RemoveChild(this, core::mem::transmute_copy(&parent), core::mem::transmute_copy(&index)).into()
+                IVisualTreeService_Impl::RemoveChild(this, core::mem::transmute_copy(&parent), core::mem::transmute_copy(&index))
             }
         }
         unsafe extern "system" fn ClearChildren<Identity: IVisualTreeService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parent: InstanceHandle) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVisualTreeService_Impl::ClearChildren(this, core::mem::transmute_copy(&parent)).into()
+                IVisualTreeService_Impl::ClearChildren(this, core::mem::transmute_copy(&parent))
             }
         }
         Self {
@@ -365,9 +365,9 @@ pub struct IVisualTreeService2_Vtbl {
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
 pub trait IVisualTreeService2_Impl: IVisualTreeService_Impl {
-    fn GetPropertyIndex(&self, object: InstanceHandle, propertyname: &windows_core::PCWSTR, ppropertyindex: *mut u32) -> windows_core::Result<()>;
-    fn GetProperty(&self, object: InstanceHandle, propertyindex: u32, pvalue: *mut InstanceHandle) -> windows_core::Result<()>;
-    fn ReplaceResource(&self, resourcedictionary: InstanceHandle, key: InstanceHandle, newvalue: InstanceHandle) -> windows_core::Result<()>;
+    fn GetPropertyIndex(&self, object: InstanceHandle, propertyname: &windows_core::PCWSTR, ppropertyindex: *mut u32) -> windows_core::HRESULT;
+    fn GetProperty(&self, object: InstanceHandle, propertyindex: u32, pvalue: *mut InstanceHandle) -> windows_core::HRESULT;
+    fn ReplaceResource(&self, resourcedictionary: InstanceHandle, key: InstanceHandle, newvalue: InstanceHandle) -> windows_core::HRESULT;
     fn RenderTargetBitmap(&self, handle: InstanceHandle, options: RenderTargetBitmapOptions, maxpixelwidth: u32, maxpixelheight: u32) -> windows_core::Result<IBitmapData>;
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
@@ -376,19 +376,19 @@ impl IVisualTreeService2_Vtbl {
         unsafe extern "system" fn GetPropertyIndex<Identity: IVisualTreeService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, object: InstanceHandle, propertyname: windows_core::PCWSTR, ppropertyindex: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVisualTreeService2_Impl::GetPropertyIndex(this, core::mem::transmute_copy(&object), core::mem::transmute(&propertyname), core::mem::transmute_copy(&ppropertyindex)).into()
+                IVisualTreeService2_Impl::GetPropertyIndex(this, core::mem::transmute_copy(&object), core::mem::transmute(&propertyname), core::mem::transmute_copy(&ppropertyindex))
             }
         }
         unsafe extern "system" fn GetProperty<Identity: IVisualTreeService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, object: InstanceHandle, propertyindex: u32, pvalue: *mut InstanceHandle) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVisualTreeService2_Impl::GetProperty(this, core::mem::transmute_copy(&object), core::mem::transmute_copy(&propertyindex), core::mem::transmute_copy(&pvalue)).into()
+                IVisualTreeService2_Impl::GetProperty(this, core::mem::transmute_copy(&object), core::mem::transmute_copy(&propertyindex), core::mem::transmute_copy(&pvalue))
             }
         }
         unsafe extern "system" fn ReplaceResource<Identity: IVisualTreeService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourcedictionary: InstanceHandle, key: InstanceHandle, newvalue: InstanceHandle) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVisualTreeService2_Impl::ReplaceResource(this, core::mem::transmute_copy(&resourcedictionary), core::mem::transmute_copy(&key), core::mem::transmute_copy(&newvalue)).into()
+                IVisualTreeService2_Impl::ReplaceResource(this, core::mem::transmute_copy(&resourcedictionary), core::mem::transmute_copy(&key), core::mem::transmute_copy(&newvalue))
             }
         }
         unsafe extern "system" fn RenderTargetBitmap<Identity: IVisualTreeService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: InstanceHandle, options: RenderTargetBitmapOptions, maxpixelwidth: u32, maxpixelheight: u32, ppbitmapdata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -415,7 +415,7 @@ impl IVisualTreeService2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVisualTreeService2 as windows_core::Interface>::IID || iid == &<IVisualTreeService as windows_core::Interface>::IID
+        iid == &<IVisualTreeService2 as windows_core::Interface>::IID || IVisualTreeService_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
@@ -459,10 +459,10 @@ pub struct IVisualTreeService3_Vtbl {
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
 pub trait IVisualTreeService3_Impl: IVisualTreeService2_Impl {
-    fn ResolveResource(&self, resourcecontext: InstanceHandle, resourcename: &windows_core::PCWSTR, resourcetype: ResourceType, propertyindex: u32) -> windows_core::Result<()>;
-    fn GetDictionaryItem(&self, dictionaryhandle: InstanceHandle, resourcename: &windows_core::PCWSTR, resourceisimplicitstyle: windows_core::BOOL, resourcehandle: *mut InstanceHandle) -> windows_core::Result<()>;
-    fn AddDictionaryItem(&self, dictionaryhandle: InstanceHandle, resourcekey: InstanceHandle, resourcehandle: InstanceHandle) -> windows_core::Result<()>;
-    fn RemoveDictionaryItem(&self, dictionaryhandle: InstanceHandle, resourcekey: InstanceHandle) -> windows_core::Result<()>;
+    fn ResolveResource(&self, resourcecontext: InstanceHandle, resourcename: &windows_core::PCWSTR, resourcetype: ResourceType, propertyindex: u32) -> windows_core::HRESULT;
+    fn GetDictionaryItem(&self, dictionaryhandle: InstanceHandle, resourcename: &windows_core::PCWSTR, resourceisimplicitstyle: windows_core::BOOL, resourcehandle: *mut InstanceHandle) -> windows_core::HRESULT;
+    fn AddDictionaryItem(&self, dictionaryhandle: InstanceHandle, resourcekey: InstanceHandle, resourcehandle: InstanceHandle) -> windows_core::HRESULT;
+    fn RemoveDictionaryItem(&self, dictionaryhandle: InstanceHandle, resourcekey: InstanceHandle) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
 impl IVisualTreeService3_Vtbl {
@@ -470,25 +470,25 @@ impl IVisualTreeService3_Vtbl {
         unsafe extern "system" fn ResolveResource<Identity: IVisualTreeService3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourcecontext: InstanceHandle, resourcename: windows_core::PCWSTR, resourcetype: ResourceType, propertyindex: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVisualTreeService3_Impl::ResolveResource(this, core::mem::transmute_copy(&resourcecontext), core::mem::transmute(&resourcename), core::mem::transmute_copy(&resourcetype), core::mem::transmute_copy(&propertyindex)).into()
+                IVisualTreeService3_Impl::ResolveResource(this, core::mem::transmute_copy(&resourcecontext), core::mem::transmute(&resourcename), core::mem::transmute_copy(&resourcetype), core::mem::transmute_copy(&propertyindex))
             }
         }
         unsafe extern "system" fn GetDictionaryItem<Identity: IVisualTreeService3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dictionaryhandle: InstanceHandle, resourcename: windows_core::PCWSTR, resourceisimplicitstyle: windows_core::BOOL, resourcehandle: *mut InstanceHandle) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVisualTreeService3_Impl::GetDictionaryItem(this, core::mem::transmute_copy(&dictionaryhandle), core::mem::transmute(&resourcename), core::mem::transmute_copy(&resourceisimplicitstyle), core::mem::transmute_copy(&resourcehandle)).into()
+                IVisualTreeService3_Impl::GetDictionaryItem(this, core::mem::transmute_copy(&dictionaryhandle), core::mem::transmute(&resourcename), core::mem::transmute_copy(&resourceisimplicitstyle), core::mem::transmute_copy(&resourcehandle))
             }
         }
         unsafe extern "system" fn AddDictionaryItem<Identity: IVisualTreeService3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dictionaryhandle: InstanceHandle, resourcekey: InstanceHandle, resourcehandle: InstanceHandle) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVisualTreeService3_Impl::AddDictionaryItem(this, core::mem::transmute_copy(&dictionaryhandle), core::mem::transmute_copy(&resourcekey), core::mem::transmute_copy(&resourcehandle)).into()
+                IVisualTreeService3_Impl::AddDictionaryItem(this, core::mem::transmute_copy(&dictionaryhandle), core::mem::transmute_copy(&resourcekey), core::mem::transmute_copy(&resourcehandle))
             }
         }
         unsafe extern "system" fn RemoveDictionaryItem<Identity: IVisualTreeService3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dictionaryhandle: InstanceHandle, resourcekey: InstanceHandle) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVisualTreeService3_Impl::RemoveDictionaryItem(this, core::mem::transmute_copy(&dictionaryhandle), core::mem::transmute_copy(&resourcekey)).into()
+                IVisualTreeService3_Impl::RemoveDictionaryItem(this, core::mem::transmute_copy(&dictionaryhandle), core::mem::transmute_copy(&resourcekey))
             }
         }
         Self {
@@ -500,7 +500,7 @@ impl IVisualTreeService3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVisualTreeService3 as windows_core::Interface>::IID || iid == &<IVisualTreeService as windows_core::Interface>::IID || iid == &<IVisualTreeService2 as windows_core::Interface>::IID
+        iid == &<IVisualTreeService3 as windows_core::Interface>::IID || IVisualTreeService2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
@@ -519,14 +519,14 @@ pub struct IVisualTreeServiceCallback_Vtbl {
     pub OnVisualTreeChange: unsafe extern "system" fn(*mut core::ffi::c_void, ParentChildRelation, VisualElement, VisualMutationType) -> windows_core::HRESULT,
 }
 pub trait IVisualTreeServiceCallback_Impl: windows_core::IUnknownImpl {
-    fn OnVisualTreeChange(&self, relation: &ParentChildRelation, element: &VisualElement, mutationtype: VisualMutationType) -> windows_core::Result<()>;
+    fn OnVisualTreeChange(&self, relation: &ParentChildRelation, element: &VisualElement, mutationtype: VisualMutationType) -> windows_core::HRESULT;
 }
 impl IVisualTreeServiceCallback_Vtbl {
     pub const fn new<Identity: IVisualTreeServiceCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnVisualTreeChange<Identity: IVisualTreeServiceCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, relation: ParentChildRelation, element: VisualElement, mutationtype: VisualMutationType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVisualTreeServiceCallback_Impl::OnVisualTreeChange(this, core::mem::transmute(&relation), core::mem::transmute(&element), core::mem::transmute_copy(&mutationtype)).into()
+                IVisualTreeServiceCallback_Impl::OnVisualTreeChange(this, core::mem::transmute(&relation), core::mem::transmute(&element), core::mem::transmute_copy(&mutationtype))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnVisualTreeChange: OnVisualTreeChange::<Identity, OFFSET> }
@@ -559,20 +559,20 @@ pub struct IVisualTreeServiceCallback2_Vtbl {
     pub OnElementStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, InstanceHandle, VisualElementState, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait IVisualTreeServiceCallback2_Impl: IVisualTreeServiceCallback_Impl {
-    fn OnElementStateChanged(&self, element: InstanceHandle, elementstate: VisualElementState, context: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn OnElementStateChanged(&self, element: InstanceHandle, elementstate: VisualElementState, context: &windows_core::PCWSTR) -> windows_core::HRESULT;
 }
 impl IVisualTreeServiceCallback2_Vtbl {
     pub const fn new<Identity: IVisualTreeServiceCallback2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnElementStateChanged<Identity: IVisualTreeServiceCallback2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: InstanceHandle, elementstate: VisualElementState, context: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVisualTreeServiceCallback2_Impl::OnElementStateChanged(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&elementstate), core::mem::transmute(&context)).into()
+                IVisualTreeServiceCallback2_Impl::OnElementStateChanged(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&elementstate), core::mem::transmute(&context))
             }
         }
         Self { base__: IVisualTreeServiceCallback_Vtbl::new::<Identity, OFFSET>(), OnElementStateChanged: OnElementStateChanged::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVisualTreeServiceCallback2 as windows_core::Interface>::IID || iid == &<IVisualTreeServiceCallback as windows_core::Interface>::IID
+        iid == &<IVisualTreeServiceCallback2 as windows_core::Interface>::IID || IVisualTreeServiceCallback_Vtbl::matches(iid)
     }
 }
 impl windows_core::RuntimeName for IVisualTreeServiceCallback2 {}
@@ -655,7 +655,7 @@ pub trait IXamlDiagnostics_Impl: windows_core::IUnknownImpl {
     fn GetApplication(&self) -> windows_core::Result<windows_core::IInspectable>;
     fn GetIInspectableFromHandle(&self, instancehandle: InstanceHandle) -> windows_core::Result<windows_core::IInspectable>;
     fn GetHandleFromIInspectable(&self, pinstance: windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<InstanceHandle>;
-    fn HitTest(&self, rect: &super::RECT, pcount: *mut u32, ppinstancehandles: *mut *mut InstanceHandle) -> windows_core::Result<()>;
+    fn HitTest(&self, rect: &super::RECT, pcount: *mut u32, ppinstancehandles: *mut *mut InstanceHandle) -> windows_core::HRESULT;
     fn RegisterInstance(&self, pinstance: windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<InstanceHandle>;
     fn GetInitializationData(&self) -> windows_core::Result<windows_core::BSTR>;
 }
@@ -740,7 +740,7 @@ impl IXamlDiagnostics_Vtbl {
         unsafe extern "system" fn HitTest<Identity: IXamlDiagnostics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rect: super::RECT, pcount: *mut u32, ppinstancehandles: *mut *mut InstanceHandle) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXamlDiagnostics_Impl::HitTest(this, core::mem::transmute(&rect), core::mem::transmute_copy(&pcount), core::mem::transmute_copy(&ppinstancehandles)).into()
+                IXamlDiagnostics_Impl::HitTest(this, core::mem::transmute(&rect), core::mem::transmute_copy(&pcount), core::mem::transmute_copy(&ppinstancehandles))
             }
         }
         unsafe extern "system" fn RegisterInstance<Identity: IXamlDiagnostics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinstance: *mut core::ffi::c_void, pinstancehandle: *mut InstanceHandle) -> windows_core::HRESULT {

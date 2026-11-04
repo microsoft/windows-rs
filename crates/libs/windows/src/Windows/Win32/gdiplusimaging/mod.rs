@@ -66,9 +66,9 @@ pub struct IImageBytes_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IImageBytes_Impl: windows_core::IUnknownImpl {
-    fn CountBytes(&self, pcb: *mut super::UINT) -> windows_core::Result<()>;
-    fn LockBytes(&self, cb: super::UINT, uloffset: super::ULONG, ppvbytes: *mut *const core::ffi::c_void) -> windows_core::Result<()>;
-    fn UnlockBytes(&self, pvbytes: *const core::ffi::c_void, cb: super::UINT, uloffset: super::ULONG) -> windows_core::Result<()>;
+    fn CountBytes(&self, pcb: *mut super::UINT) -> windows_core::HRESULT;
+    fn LockBytes(&self, cb: super::UINT, uloffset: super::ULONG, ppvbytes: *mut *const core::ffi::c_void) -> windows_core::HRESULT;
+    fn UnlockBytes(&self, pvbytes: *const core::ffi::c_void, cb: super::UINT, uloffset: super::ULONG) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IImageBytes_Vtbl {
@@ -76,19 +76,19 @@ impl IImageBytes_Vtbl {
         unsafe extern "system" fn CountBytes<Identity: IImageBytes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcb: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IImageBytes_Impl::CountBytes(this, core::mem::transmute_copy(&pcb)).into()
+                IImageBytes_Impl::CountBytes(this, core::mem::transmute_copy(&pcb))
             }
         }
         unsafe extern "system" fn LockBytes<Identity: IImageBytes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cb: super::UINT, uloffset: super::ULONG, ppvbytes: *mut *const core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IImageBytes_Impl::LockBytes(this, core::mem::transmute_copy(&cb), core::mem::transmute_copy(&uloffset), core::mem::transmute_copy(&ppvbytes)).into()
+                IImageBytes_Impl::LockBytes(this, core::mem::transmute_copy(&cb), core::mem::transmute_copy(&uloffset), core::mem::transmute_copy(&ppvbytes))
             }
         }
         unsafe extern "system" fn UnlockBytes<Identity: IImageBytes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvbytes: *const core::ffi::c_void, cb: super::UINT, uloffset: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IImageBytes_Impl::UnlockBytes(this, core::mem::transmute_copy(&pvbytes), core::mem::transmute_copy(&cb), core::mem::transmute_copy(&uloffset)).into()
+                IImageBytes_Impl::UnlockBytes(this, core::mem::transmute_copy(&pvbytes), core::mem::transmute_copy(&cb), core::mem::transmute_copy(&uloffset))
             }
         }
         Self {

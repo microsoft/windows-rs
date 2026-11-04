@@ -1734,6 +1734,7 @@ mod Windows {
                 ScatterBlts: D3DKMT_SCATTERBLTS,
                 Anonymous: struct {
                     hSyncObject: HANDLE,
+                    hLayoutSyncObject: HANDLE,
                     HDRMetaDataType: D3DDDI_HDR_METADATA_TYPE,
                     Anonymous: union {
                         HDRMetaDataHDR10: D3DDDI_HDR_METADATA_HDR10,
@@ -3356,6 +3357,7 @@ mod Windows {
             D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE_APERTURE = 0,
             D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE_MEMORY = 1,
             D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE_SYSMEM = 2,
+            D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE_PARTITION = 3,
         }
         struct D3DKMT_QUERYSTATISTICS_SYSTEM_MEMORY {
             BytesAllocated: ULONGLONG,

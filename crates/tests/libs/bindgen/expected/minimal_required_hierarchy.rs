@@ -39,32 +39,6 @@ impl IClose {
         }
     }
 }
-impl windows_core::RuntimeName for IClose {
-    const NAME: &'static str = "Test.IClose";
-}
-pub trait IClose_Impl: windows_core::IUnknownImpl {
-    fn Close(&self) -> windows_core::Result<()>;
-}
-impl IClose_Vtbl {
-    pub const fn new<Identity: IClose_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Close<Identity: IClose_Impl, const OFFSET: isize>(
-            this: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IClose_Impl::Close(this).into()
-            }
-        }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IClose, OFFSET>(),
-            Close: Close::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IClose as windows_core::Interface>::IID
-    }
-}
 #[repr(C)]
 pub struct IClose_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -84,20 +58,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl windows_core::RuntimeName for IExplicit {
-    const NAME: &'static str = "Test.IExplicit";
-}
-pub trait IExplicit_Impl: windows_core::IUnknownImpl {}
-impl IExplicit_Vtbl {
-    pub const fn new<Identity: IExplicit_Impl, const OFFSET: isize>() -> Self {
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IExplicit, OFFSET>(),
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IExplicit as windows_core::Interface>::IID
-    }
-}
 #[repr(C)]
 pub struct IExplicit_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -140,11 +100,6 @@ impl<T: windows_core::RuntimeType + 'static> IGeneric<T> {
         }
     }
 }
-impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IGeneric<T> {
-    const NAME: &'static str = "Test.IGeneric";
-    const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer =
-        <Self as windows_core::RuntimeType>::NAME;
-}
 #[repr(C)]
 pub struct IGeneric_Vtbl<T>
 where
@@ -179,11 +134,6 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IGene
         .push_other(T::SIGNATURE)
         .push_slice(b")");
 }
-impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IGenericBase<T> {
-    const NAME: &'static str = "Test.IGenericBase";
-    const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer =
-        <Self as windows_core::RuntimeType>::NAME;
-}
 #[repr(C)]
 pub struct IGenericBase_Vtbl<T>
 where
@@ -216,43 +166,6 @@ impl IProducer {
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
-    }
-}
-impl windows_core::RuntimeName for IProducer {
-    const NAME: &'static str = "Test.IProducer";
-}
-pub trait IProducer_Impl: windows_core::IUnknownImpl {
-    fn GetClose(&self) -> windows_core::Result<IClose>;
-}
-impl IProducer_Vtbl {
-    pub const fn new<Identity: IProducer_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetClose<Identity: IProducer_Impl, const OFFSET: isize>(
-            this: *mut core::ffi::c_void,
-            result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IProducer_Impl::GetClose(this) {
-                    Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        result__.write_bytes(0, 1);
-                        err.into()
-                    }
-                }
-            }
-        }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IProducer, OFFSET>(),
-            GetClose: GetClose::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IProducer as windows_core::Interface>::IID
     }
 }
 #[repr(C)]
@@ -289,42 +202,6 @@ impl IStream {
         }
     }
 }
-impl windows_core::RuntimeName for IStream {
-    const NAME: &'static str = "Test.IStream";
-}
-pub trait IStream_Impl: IClose_Impl {
-    fn Read(&self) -> windows_core::Result<i32>;
-}
-impl IStream_Vtbl {
-    pub const fn new<Identity: IStream_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Read<Identity: IStream_Impl, const OFFSET: isize>(
-            this: *mut core::ffi::c_void,
-            result__: *mut i32,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStream_Impl::Read(this) {
-                    Ok(ok__) => {
-                        result__.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        result__.write_bytes(0, 1);
-                        err.into()
-                    }
-                }
-            }
-        }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IStream, OFFSET>(),
-            Read: Read::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IStream as windows_core::Interface>::IID
-    }
-}
 #[repr(C)]
 pub struct IStream_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -356,42 +233,6 @@ impl IUnrelated {
         }
     }
 }
-impl windows_core::RuntimeName for IUnrelated {
-    const NAME: &'static str = "Test.IUnrelated";
-}
-pub trait IUnrelated_Impl: windows_core::IUnknownImpl {
-    fn Value(&self) -> windows_core::Result<i32>;
-}
-impl IUnrelated_Vtbl {
-    pub const fn new<Identity: IUnrelated_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Value<Identity: IUnrelated_Impl, const OFFSET: isize>(
-            this: *mut core::ffi::c_void,
-            result__: *mut i32,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUnrelated_Impl::Value(this) {
-                    Ok(ok__) => {
-                        result__.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        result__.write_bytes(0, 1);
-                        err.into()
-                    }
-                }
-            }
-        }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IUnrelated, OFFSET>(),
-            Value: Value::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUnrelated as windows_core::Interface>::IID
-    }
-}
 #[repr(C)]
 pub struct IUnrelated_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -412,9 +253,6 @@ impl IWhole {
         }
     }
 }
-impl windows_core::RuntimeName for IWhole {
-    const NAME: &'static str = "Test.IWhole";
-}
 #[repr(C)]
 pub struct IWhole_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -434,9 +272,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl windows_core::RuntimeName for IWholeBase {
-    const NAME: &'static str = "Test.IWholeBase";
-}
 #[repr(C)]
 pub struct IWholeBase_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -455,9 +290,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl windows_core::RuntimeName for IWholeMiddle {
-    const NAME: &'static str = "Test.IWholeMiddle";
-}
 #[repr(C)]
 pub struct IWholeMiddle_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

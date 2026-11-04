@@ -869,6 +869,31 @@ mod Windows {
                 Value: UINT,
             },
         }
+        struct D3DDDI_SEGMENTPREFERENCE2 {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32 {
+                        SegmentId0: UINT: 4,
+                        PagePreference0: UINT: 1,
+                        Direction0: UINT: 1,
+                        SegmentId1: UINT: 4,
+                        PagePreference1: UINT: 1,
+                        Direction1: UINT: 1,
+                        SegmentId2: UINT: 4,
+                        PagePreference2: UINT: 1,
+                        Direction2: UINT: 1,
+                        SegmentId3: UINT: 4,
+                        PagePreference3: UINT: 1,
+                        Direction3: UINT: 1,
+                        SegmentId4: UINT: 4,
+                        PagePreference4: UINT: 1,
+                        Direction4: UINT: 1,
+                        Reserved: UINT: 2,
+                    },
+                },
+                Value: UINT,
+            },
+        }
         struct D3DDDI_SURFACEINFO {
             Width: UINT,
             Height: UINT,
@@ -1322,8 +1347,15 @@ mod Windows {
             DXGK_DRIVER_FEATURE_NOTIFY_RESIDENCY2 = 43,
             DXGK_DRIVER_FEATURE_PROCESS_DEBUG_BLOB_COLLECTION = 45,
             DXGK_DRIVER_FEATURE_PANEL_BUFFER_CONTROL = 46,
-            DXGK_DRIVER_FEATURE_MAX = 47,
+            DXGK_DRIVER_FEATURE_INTELLIGENT_CARVEOUT = 48,
+            DXGK_DRIVER_FEATURE_TARGET_PROPERTY_MAP = 49,
+            DXGK_DRIVER_FEATURE_PARTITION_SEGMENT = 51,
+            DXGK_DRIVER_FEATURE_PAGING_INTENT = 52,
+            DXGK_DRIVER_FEATURE_SYSMEM_PAGING = 53,
+            DXGK_DRIVER_FEATURE_MAX = 54,
         }
+        const DXGK_DRIVER_FEATURE_MAX_VALUE: i32 = 54;
+        const DXGK_FEATURE_64K_PT_DEMOTION_FIX_VERSION: i32 = 0;
         #[repr(i32)]
         enum DXGK_FEATURE_CATEGORY {
             DXGK_FEATURE_CATEGORY_DRIVER = 0,
@@ -1346,6 +1378,10 @@ mod Windows {
         }
         const DXGK_FEATURE_EXTENDED_SEGMENT_FLAGS_VERSION: i32 = 1;
         const DXGK_FEATURE_EXTENDED_SEGMENT_FLAGS_VERSION_APERTUREPRESERVEDDURINGSTANDBY: i32 = 1;
+        const DXGK_FEATURE_GPUPV_PRESENT_HWQUEUE_VERSION: i32 = 0;
+        const DXGK_FEATURE_GPUVAIOMMU_VERSION: i32 = 0;
+        const DXGK_FEATURE_HWFLIPQUEUE_VERSION: i32 = 0;
+        const DXGK_FEATURE_HWSCH_VERSION: i32 = 0;
         #[repr(i32)]
         enum DXGK_FEATURE_ID {
             DXGK_FEATURE_HWSCH = 0,
@@ -1369,6 +1405,11 @@ mod Windows {
             DXGK_FEATURE_NOTIFY_RESIDENCY2 = 43,
             DXGK_FEATURE_PROCESS_DEBUG_BLOB_COLLECTION = 45,
             DXGK_FEATURE_PANEL_BUFFER_CONTROL = 46,
+            DXGK_FEATURE_INTELLIGENT_CARVEOUT = 48,
+            DXGK_FEATURE_TARGET_PROPERTY_MAP = 49,
+            DXGK_FEATURE_PARTITION_SEGMENT = 51,
+            DXGK_FEATURE_PAGING_INTENT = 52,
+            DXGK_FEATURE_SYSMEM_PAGING = 53,
             DXGK_FEATURE_QUERYSTATISTICS_EXTENSIONS = 268435456,
             DXGK_FEATURE_RESERVE_GPUVA_ZERO_BASE_ADDRESS = 268435457,
             DXGK_FEATURE_PER_PTE_PAGE_SIZE = 268435458,
@@ -1377,12 +1418,40 @@ mod Windows {
             DXGK_FEATURE_FEATURE_INTERFACE_EXTENSIONS = 268435461,
             DXGK_FEATURE_READONLY_EXISTINGSYSMEM = 268435462,
             DXGK_FEATURE_OPPORTUNISTIC_64KB_PAGES = 268435463,
+            DXGK_FEATURE_IOMMU_ATS_SUPPORT = 268435464,
+            DXGK_FEATURE_INTELLIGENT_CARVEOUT_OS = 268435467,
         }
         const DXGK_FEATURE_ID_CATEGORY_BITS: i32 = 4;
         const DXGK_FEATURE_ID_CATEGORY_SHIFT: i32 = 28;
         const DXGK_FEATURE_ID_FEATURE_BITS: i32 = 28;
         const DXGK_FEATURE_ID_MASK: i32 = 268435455;
-        const DXGK_FEATURE_MAX: DXGK_DRIVER_FEATURE = 47;
+        const DXGK_FEATURE_INTELLIGENT_CARVEOUT_OS_VERSION: i32 = 1;
+        const DXGK_FEATURE_INTELLIGENT_CARVEOUT_OS_VERSION_INITIAL: i32 = 1;
+        const DXGK_FEATURE_INTELLIGENT_CARVEOUT_VERSION: i32 = 2;
+        const DXGK_FEATURE_INTELLIGENT_CARVEOUT_VERSION_2: i32 = 2;
+        const DXGK_FEATURE_INTELLIGENT_CARVEOUT_VERSION_INITIAL: i32 = 1;
+        const DXGK_FEATURE_KERNEL_MODE_TESTING_VERSION: i32 = 0;
+        const DXGK_FEATURE_KMD_SIGNAL_CPU_EVENT_VERSION: i32 = 0;
+        const DXGK_FEATURE_LDA_GPUPV_VERSION: i32 = 0;
+        const DXGK_FEATURE_MAX: DXGK_DRIVER_FEATURE = 54;
+        const DXGK_FEATURE_NATIVE_FENCE_VERSION: i32 = 1;
+        const DXGK_FEATURE_NATIVE_FENCE_VERSION_INITIAL: i32 = 1;
+        const DXGK_FEATURE_PAGING_INTENT_VERSION: i32 = 1;
+        const DXGK_FEATURE_PAGING_INTENT_VERSION_INITIAL: i32 = 1;
+        const DXGK_FEATURE_PANEL_BUFFER_CONTROL_VERSION: i32 = 0;
+        const DXGK_FEATURE_PARTITION_SEGMENT_VERSION: i32 = 1;
+        const DXGK_FEATURE_PARTITION_SEGMENT_VERSION_INITIAL: i32 = 1;
+        const DXGK_FEATURE_PROCESS_DEBUG_BLOB_COLLECTION_VERSION: i32 = 0;
+        const DXGK_FEATURE_SAMPLE_VERSION: i32 = 5;
+        const DXGK_FEATURE_SAMPLE_VERSION_ADD_SUBTRACT: i32 = 5;
+        const DXGK_FEATURE_SHARE_BACKING_STORE_WITH_KMD_VERSION: i32 = 0;
+        const DXGK_FEATURE_SYNC_PRESENT_RENDER_HWQ_ONLY_VERSION: i32 = 0;
+        const DXGK_FEATURE_SYSMEM_PAGING_VERSION: i32 = 1;
+        const DXGK_FEATURE_SYSMEM_PAGING_VERSION_INITIAL: i32 = 1;
+        const DXGK_FEATURE_TARGET_PROPERTY_MAP_VERSION: i32 = 1;
+        const DXGK_FEATURE_TARGET_PROPERTY_MAP_VERSION_INITIAL: i32 = 1;
+        const DXGK_FEATURE_USER_MODE_SUBMISSION_VERSION: i32 = 1;
+        const DXGK_FEATURE_USER_MODE_SUBMISSION_VERSION_INITIAL: i32 = 1;
         type DXGK_FEATURE_VERSION = u16;
         struct DXGK_ISFEATUREENABLED_RESULT {
             Version: UINT16,
@@ -1474,7 +1543,9 @@ mod Windows {
             DXGK_OS_FEATURE_FEATURE_INTERFACE_EXTENSIONS = 5,
             DXGK_OS_FEATURE_READONLY_EXISTINGSYSMEM = 6,
             DXGK_OS_FEATURE_OPPORTUNISTIC_64KB_PAGES = 7,
-            DXGK_OS_FEATURE_MAX = 8,
+            DXGK_OS_FEATURE_IOMMU_ATS_SUPPORT = 8,
+            DXGK_OS_FEATURE_INTELLIGENT_CARVEOUT_OS = 11,
+            DXGK_OS_FEATURE_MAX = 12,
         }
         struct DXGK_PTE {
             Anonymous: union {
@@ -1512,6 +1583,8 @@ mod Windows {
             DXGK_PTE_PAGE_TABLE_PAGE_4KB = 0,
             DXGK_PTE_PAGE_TABLE_PAGE_64KB = 1,
         }
+        const DXGK_QUERYFEATURESUPPORT2_VERSION: i32 = 0;
+        const DXGK_SEGMENTPREFERENCE_PAGEPREFERENCE_LARGE: i32 = 16;
         struct GPUP_DRIVER_ESCAPE_INPUT {
             vfLUID: LUID,
         }

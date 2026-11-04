@@ -18,7 +18,7 @@ pub const IID_IWTSPluginServiceProvider: windows_core::GUID = windows_core::GUID
 pub const IID_IWTSVirtualChannel: windows_core::GUID = windows_core::GUID::from_u128(0xa1230207_d6a7_11d8_b9fd_000bdbd1f198);
 pub const IID_IWTSVirtualChannelCallback: windows_core::GUID = windows_core::GUID::from_u128(0xa1230204_d6a7_11d8_b9fd_000bdbd1f198);
 pub const IID_IWTSVirtualChannelManager: windows_core::GUID = windows_core::GUID::from_u128(0xa1230205_d6a7_11d8_b9fd_000bdbd1f198);
-pub const IID_IWTSWindowChangedCallback: windows_core::GUID = windows_core::GUID::from_u128(0xe8a47fd3_1af5_4d7f_8e15_515ccae1c00c);
+pub const IID_IWTSWindowChangedCallback: windows_core::GUID = windows_core::GUID::from_u128(0xe8a47fd3_1af6_4d7f_8e15_515ccae1c00c);
 pub const IID_IWTSWindowInfoService: windows_core::GUID = windows_core::GUID::from_u128(0x2a002c7b_0120_4d04_bfb1_3c73110c8581);
 windows_core::imp::define_interface!(IWTSBitmapRenderService, IWTSBitmapRenderService_Vtbl, 0xea326091_05fe_40c1_b49c_3d2ef4626a0e);
 windows_core::imp::interface_hierarchy!(IWTSBitmapRenderService, windows_core::IUnknown);
@@ -104,9 +104,9 @@ pub struct IWTSBitmapRenderer_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IWTSBitmapRenderer_Impl: windows_core::IUnknownImpl {
-    fn Render(&self, imageformat: &windows_core::GUID, dwwidth: super::DWORD, dwheight: super::DWORD, cbstride: super::LONG, cbimagebuffer: super::DWORD, pimagebuffer: *const super::BYTE) -> windows_core::Result<()>;
-    fn GetRendererStatistics(&self, pstatistics: *mut BITMAP_RENDERER_STATISTICS) -> windows_core::Result<()>;
-    fn RemoveMapping(&self) -> windows_core::Result<()>;
+    fn Render(&self, imageformat: &windows_core::GUID, dwwidth: super::DWORD, dwheight: super::DWORD, cbstride: super::LONG, cbimagebuffer: super::DWORD, pimagebuffer: *const super::BYTE) -> windows_core::HRESULT;
+    fn GetRendererStatistics(&self, pstatistics: *mut BITMAP_RENDERER_STATISTICS) -> windows_core::HRESULT;
+    fn RemoveMapping(&self) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IWTSBitmapRenderer_Vtbl {
@@ -114,19 +114,19 @@ impl IWTSBitmapRenderer_Vtbl {
         unsafe extern "system" fn Render<Identity: IWTSBitmapRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imageformat: windows_core::GUID, dwwidth: super::DWORD, dwheight: super::DWORD, cbstride: super::LONG, cbimagebuffer: super::DWORD, pimagebuffer: *const super::BYTE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWTSBitmapRenderer_Impl::Render(this, core::mem::transmute(&imageformat), core::mem::transmute_copy(&dwwidth), core::mem::transmute_copy(&dwheight), core::mem::transmute_copy(&cbstride), core::mem::transmute_copy(&cbimagebuffer), core::mem::transmute_copy(&pimagebuffer)).into()
+                IWTSBitmapRenderer_Impl::Render(this, core::mem::transmute(&imageformat), core::mem::transmute_copy(&dwwidth), core::mem::transmute_copy(&dwheight), core::mem::transmute_copy(&cbstride), core::mem::transmute_copy(&cbimagebuffer), core::mem::transmute_copy(&pimagebuffer))
             }
         }
         unsafe extern "system" fn GetRendererStatistics<Identity: IWTSBitmapRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstatistics: *mut BITMAP_RENDERER_STATISTICS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWTSBitmapRenderer_Impl::GetRendererStatistics(this, core::mem::transmute_copy(&pstatistics)).into()
+                IWTSBitmapRenderer_Impl::GetRendererStatistics(this, core::mem::transmute_copy(&pstatistics))
             }
         }
         unsafe extern "system" fn RemoveMapping<Identity: IWTSBitmapRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWTSBitmapRenderer_Impl::RemoveMapping(this).into()
+                IWTSBitmapRenderer_Impl::RemoveMapping(this)
             }
         }
         Self {
@@ -161,7 +161,7 @@ pub struct IWTSBitmapRendererCallback_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 pub trait IWTSBitmapRendererCallback_Impl: windows_core::IUnknownImpl {
-    fn OnTargetSizeChanged(&self, rcnewsize: &super::RECT) -> windows_core::Result<()>;
+    fn OnTargetSizeChanged(&self, rcnewsize: &super::RECT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 impl IWTSBitmapRendererCallback_Vtbl {
@@ -169,7 +169,7 @@ impl IWTSBitmapRendererCallback_Vtbl {
         unsafe extern "system" fn OnTargetSizeChanged<Identity: IWTSBitmapRendererCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rcnewsize: super::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWTSBitmapRendererCallback_Impl::OnTargetSizeChanged(this, core::mem::transmute(&rcnewsize)).into()
+                IWTSBitmapRendererCallback_Impl::OnTargetSizeChanged(this, core::mem::transmute(&rcnewsize))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnTargetSizeChanged: OnTargetSizeChanged::<Identity, OFFSET> }
@@ -310,10 +310,10 @@ pub struct IWTSPlugin_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IWTSPlugin_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, pchannelmgr: windows_core::Ref<IWTSVirtualChannelManager>) -> windows_core::Result<()>;
-    fn Connected(&self) -> windows_core::Result<()>;
-    fn Disconnected(&self, dwdisconnectcode: super::DWORD) -> windows_core::Result<()>;
-    fn Terminated(&self) -> windows_core::Result<()>;
+    fn Initialize(&self, pchannelmgr: windows_core::Ref<IWTSVirtualChannelManager>) -> windows_core::HRESULT;
+    fn Connected(&self) -> windows_core::HRESULT;
+    fn Disconnected(&self, dwdisconnectcode: super::DWORD) -> windows_core::HRESULT;
+    fn Terminated(&self) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IWTSPlugin_Vtbl {
@@ -321,25 +321,25 @@ impl IWTSPlugin_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IWTSPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pchannelmgr: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWTSPlugin_Impl::Initialize(this, core::mem::transmute_copy(&pchannelmgr)).into()
+                IWTSPlugin_Impl::Initialize(this, core::mem::transmute_copy(&pchannelmgr))
             }
         }
         unsafe extern "system" fn Connected<Identity: IWTSPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWTSPlugin_Impl::Connected(this).into()
+                IWTSPlugin_Impl::Connected(this)
             }
         }
         unsafe extern "system" fn Disconnected<Identity: IWTSPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwdisconnectcode: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWTSPlugin_Impl::Disconnected(this, core::mem::transmute_copy(&dwdisconnectcode)).into()
+                IWTSPlugin_Impl::Disconnected(this, core::mem::transmute_copy(&dwdisconnectcode))
             }
         }
         unsafe extern "system" fn Terminated<Identity: IWTSPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWTSPlugin_Impl::Terminated(this).into()
+                IWTSPlugin_Impl::Terminated(this)
             }
         }
         Self {
@@ -425,8 +425,8 @@ pub struct IWTSVirtualChannel_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IWTSVirtualChannel_Impl: windows_core::IUnknownImpl {
-    fn Write(&self, cbsize: super::ULONG, pbuffer: *const super::BYTE, preserved: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn Close(&self) -> windows_core::Result<()>;
+    fn Write(&self, cbsize: super::ULONG, pbuffer: *const super::BYTE, preserved: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn Close(&self) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IWTSVirtualChannel_Vtbl {
@@ -434,13 +434,13 @@ impl IWTSVirtualChannel_Vtbl {
         unsafe extern "system" fn Write<Identity: IWTSVirtualChannel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbsize: super::ULONG, pbuffer: *const super::BYTE, preserved: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWTSVirtualChannel_Impl::Write(this, core::mem::transmute_copy(&cbsize), core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&preserved)).into()
+                IWTSVirtualChannel_Impl::Write(this, core::mem::transmute_copy(&cbsize), core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&preserved))
             }
         }
         unsafe extern "system" fn Close<Identity: IWTSVirtualChannel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWTSVirtualChannel_Impl::Close(this).into()
+                IWTSVirtualChannel_Impl::Close(this)
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Write: Write::<Identity, OFFSET>, Close: Close::<Identity, OFFSET> }
@@ -474,8 +474,8 @@ pub struct IWTSVirtualChannelCallback_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IWTSVirtualChannelCallback_Impl: windows_core::IUnknownImpl {
-    fn OnDataReceived(&self, cbsize: super::ULONG, pbuffer: *const super::BYTE) -> windows_core::Result<()>;
-    fn OnClose(&self) -> windows_core::Result<()>;
+    fn OnDataReceived(&self, cbsize: super::ULONG, pbuffer: *const super::BYTE) -> windows_core::HRESULT;
+    fn OnClose(&self) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IWTSVirtualChannelCallback_Vtbl {
@@ -483,13 +483,13 @@ impl IWTSVirtualChannelCallback_Vtbl {
         unsafe extern "system" fn OnDataReceived<Identity: IWTSVirtualChannelCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbsize: super::ULONG, pbuffer: *const super::BYTE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWTSVirtualChannelCallback_Impl::OnDataReceived(this, core::mem::transmute_copy(&cbsize), core::mem::transmute_copy(&pbuffer)).into()
+                IWTSVirtualChannelCallback_Impl::OnDataReceived(this, core::mem::transmute_copy(&cbsize), core::mem::transmute_copy(&pbuffer))
             }
         }
         unsafe extern "system" fn OnClose<Identity: IWTSVirtualChannelCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWTSVirtualChannelCallback_Impl::OnClose(this).into()
+                IWTSVirtualChannelCallback_Impl::OnClose(this)
             }
         }
         Self {
@@ -576,7 +576,7 @@ pub struct IWTSWindowChangedCallback_Vtbl {
 }
 #[cfg(feature = "windef")]
 pub trait IWTSWindowChangedCallback_Impl: windows_core::IUnknownImpl {
-    fn WindowChanged(&self, windowinfo: *const WTSWindowInfo) -> windows_core::Result<()>;
+    fn WindowChanged(&self, windowinfo: *const WTSWindowInfo) -> windows_core::HRESULT;
 }
 #[cfg(feature = "windef")]
 impl IWTSWindowChangedCallback_Vtbl {
@@ -584,7 +584,7 @@ impl IWTSWindowChangedCallback_Vtbl {
         unsafe extern "system" fn WindowChanged<Identity: IWTSWindowChangedCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, windowinfo: *const WTSWindowInfo) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWTSWindowChangedCallback_Impl::WindowChanged(this, core::mem::transmute_copy(&windowinfo)).into()
+                IWTSWindowChangedCallback_Impl::WindowChanged(this, core::mem::transmute_copy(&windowinfo))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), WindowChanged: WindowChanged::<Identity, OFFSET> }
@@ -650,11 +650,11 @@ pub struct IWTSWindowInfoService_Vtbl {
 }
 #[cfg(feature = "windef")]
 pub trait IWTSWindowInfoService_Impl: windows_core::IUnknownImpl {
-    fn GetWindowInfo(&self, remotehwnd: super::HWND, windowinfo: *mut WTSWindowInfo) -> windows_core::Result<()>;
+    fn GetWindowInfo(&self, remotehwnd: super::HWND, windowinfo: *mut WTSWindowInfo) -> windows_core::HRESULT;
     fn GetRdpClientProcessId(&self) -> windows_core::Result<u32>;
     fn GetRdpSessionType(&self) -> windows_core::Result<RdpSessionType>;
-    fn SubscribeWindowChanged(&self, remotehwnd: super::HWND, windowchanged: windows_core::Ref<IWTSWindowChangedCallback>) -> windows_core::Result<()>;
-    fn UnsubscribeWindowChanged(&self, remotehwnd: super::HWND, windowchanged: windows_core::Ref<IWTSWindowChangedCallback>) -> windows_core::Result<()>;
+    fn SubscribeWindowChanged(&self, remotehwnd: super::HWND, windowchanged: windows_core::Ref<IWTSWindowChangedCallback>) -> windows_core::HRESULT;
+    fn UnsubscribeWindowChanged(&self, remotehwnd: super::HWND, windowchanged: windows_core::Ref<IWTSWindowChangedCallback>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "windef")]
 impl IWTSWindowInfoService_Vtbl {
@@ -662,7 +662,7 @@ impl IWTSWindowInfoService_Vtbl {
         unsafe extern "system" fn GetWindowInfo<Identity: IWTSWindowInfoService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remotehwnd: super::HWND, windowinfo: *mut WTSWindowInfo) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWTSWindowInfoService_Impl::GetWindowInfo(this, core::mem::transmute_copy(&remotehwnd), core::mem::transmute_copy(&windowinfo)).into()
+                IWTSWindowInfoService_Impl::GetWindowInfo(this, core::mem::transmute_copy(&remotehwnd), core::mem::transmute_copy(&windowinfo))
             }
         }
         unsafe extern "system" fn GetRdpClientProcessId<Identity: IWTSWindowInfoService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, processid: *mut u32) -> windows_core::HRESULT {
@@ -698,13 +698,13 @@ impl IWTSWindowInfoService_Vtbl {
         unsafe extern "system" fn SubscribeWindowChanged<Identity: IWTSWindowInfoService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remotehwnd: super::HWND, windowchanged: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWTSWindowInfoService_Impl::SubscribeWindowChanged(this, core::mem::transmute_copy(&remotehwnd), core::mem::transmute_copy(&windowchanged)).into()
+                IWTSWindowInfoService_Impl::SubscribeWindowChanged(this, core::mem::transmute_copy(&remotehwnd), core::mem::transmute_copy(&windowchanged))
             }
         }
         unsafe extern "system" fn UnsubscribeWindowChanged<Identity: IWTSWindowInfoService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remotehwnd: super::HWND, windowchanged: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWTSWindowInfoService_Impl::UnsubscribeWindowChanged(this, core::mem::transmute_copy(&remotehwnd), core::mem::transmute_copy(&windowchanged)).into()
+                IWTSWindowInfoService_Impl::UnsubscribeWindowChanged(this, core::mem::transmute_copy(&remotehwnd), core::mem::transmute_copy(&windowchanged))
             }
         }
         Self {

@@ -7,9 +7,9 @@ use windows::{Win32::byte, Win32::*};
 struct TestBuffer(std::cell::UnsafeCell<Vec<u8>>);
 
 impl IBufferByteAccess_Impl for TestBuffer_Impl {
-    fn Buffer(&self, value: *mut *mut byte) -> Result<()> {
+    fn Buffer(&self, value: *mut *mut byte) -> HRESULT {
         unsafe { *value = (*self.0.get()).as_mut_ptr().cast() };
-        Ok(())
+        S_OK
     }
 }
 

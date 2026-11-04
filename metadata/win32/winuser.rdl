@@ -734,6 +734,8 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn CreateSyntheticPointerDevice(#[in] pointerType: POINTER_INPUT_TYPE, #[in] maxCount: ULONG, #[in] mode: POINTER_FEEDBACK_MODE) -> HSYNTHETICPOINTERDEVICE;
         #[library("USER32.dll")]
+        extern fn CreateSyntheticPointerDevice2(#[in] pParams: *mut SYNTHETIC_DEVICE_CREATION_PARAMS) -> HSYNTHETICPOINTERDEVICE;
+        #[library("USER32.dll")]
         extern fn CreateWindowExA(#[in] dwExStyle: DWORD, #[in] #[opt] lpClassName: LPCSTR, #[in] #[opt] lpWindowName: LPCSTR, #[in] dwStyle: DWORD, #[in] X: i32, #[in] Y: i32, #[in] nWidth: i32, #[in] nHeight: i32, #[in] #[opt] hWndParent: HWND, #[in] #[opt] hMenu: HMENU, #[in] #[opt] hInstance: HINSTANCE, #[in] #[opt] lpParam: LPVOID) -> HWND;
         #[library("USER32.dll")]
         extern fn CreateWindowExW(#[in] dwExStyle: DWORD, #[in] #[opt] lpClassName: LPCWSTR, #[in] #[opt] lpWindowName: LPCWSTR, #[in] dwStyle: DWORD, #[in] X: i32, #[in] Y: i32, #[in] nWidth: i32, #[in] nHeight: i32, #[in] #[opt] hWndParent: HWND, #[in] #[opt] hMenu: HMENU, #[in] #[opt] hInstance: HINSTANCE, #[in] #[opt] lpParam: LPVOID) -> HWND;
@@ -1854,6 +1856,10 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetPointerFrameTouchInfoHistory(#[in] pointerId: UINT32, #[in] #[out] entriesCount: *mut UINT32, #[in] #[out] pointerCount: *mut UINT32, #[incomplete] #[opt] #[out] touchInfo: *mut POINTER_TOUCH_INFO) -> BOOL;
         #[library("USER32.dll")]
+        extern fn GetPointerFrameTouchpadInfo(#[in] pointerId: UINT32, #[in] #[out] pointerCount: *mut UINT32, #[buffer(*pointerCount)] #[opt] #[out] touchpadInfo: *mut POINTER_TOUCH_INFO) -> BOOL;
+        #[library("USER32.dll")]
+        extern fn GetPointerFrameTouchpadInfoHistory(#[in] pointerId: UINT32, #[in] #[out] entriesCount: *mut UINT32, #[in] #[out] pointerCount: *mut UINT32, #[incomplete] #[opt] #[out] touchpadInfo: *mut POINTER_TOUCH_INFO) -> BOOL;
+        #[library("USER32.dll")]
         extern fn GetPointerInfo(#[in] pointerId: UINT32, #[buffer(1)] #[out] pointerInfo: *mut POINTER_INFO) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetPointerInfoHistory(#[in] pointerId: UINT32, #[in] #[out] entriesCount: *mut UINT32, #[buffer(*entriesCount)] #[opt] #[out] pointerInfo: *mut POINTER_INFO) -> BOOL;
@@ -1867,6 +1873,10 @@ mod Windows {
         extern fn GetPointerTouchInfo(#[in] pointerId: UINT32, #[buffer(1)] #[out] touchInfo: *mut POINTER_TOUCH_INFO) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetPointerTouchInfoHistory(#[in] pointerId: UINT32, #[in] #[out] entriesCount: *mut UINT32, #[buffer(*entriesCount)] #[opt] #[out] touchInfo: *mut POINTER_TOUCH_INFO) -> BOOL;
+        #[library("USER32.dll")]
+        extern fn GetPointerTouchpadInfo(#[in] pointerId: UINT32, #[buffer(1)] #[out] touchpadInfo: *mut POINTER_TOUCH_INFO) -> BOOL;
+        #[library("USER32.dll")]
+        extern fn GetPointerTouchpadInfoHistory(#[in] pointerId: UINT32, #[in] #[out] entriesCount: *mut UINT32, #[buffer(*entriesCount)] #[opt] #[out] touchpadInfo: *mut POINTER_TOUCH_INFO) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetPointerType(#[in] pointerId: UINT32, #[out] pointerType: *mut POINTER_INPUT_TYPE) -> BOOL;
         #[library("USER32.dll")]
@@ -2398,6 +2408,8 @@ mod Windows {
         extern fn InjectSyntheticPointerInput(#[in] device: HSYNTHETICPOINTERDEVICE, #[buffer(count)] #[in] pointerInfo: *const POINTER_TYPE_INFO, #[in] count: UINT32) -> BOOL;
         #[library("USER32.dll")]
         extern fn InjectTouchInput(#[in] count: UINT32, #[buffer(count)] #[in] contacts: *const POINTER_TOUCH_INFO) -> BOOL;
+        #[library("USER32.dll")]
+        extern fn InjectTouchpadAction(hDevice: HSYNTHETICPOINTERDEVICE, action: TOUCHPAD_ACTION) -> BOOL;
         #[library("USER32.dll")]
         extern fn InsertMenuA(#[in] hMenu: HMENU, #[in] uPosition: UINT, #[in] uFlags: UINT, #[in] uIDNewItem: UINT_PTR, #[in] #[opt] lpNewItem: LPCSTR) -> BOOL;
         #[library("USER32.dll")]
@@ -4030,6 +4042,10 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn RegisterTouchWindow(#[in] hwnd: HWND, #[in] ulFlags: ULONG) -> BOOL;
         #[library("USER32.dll")]
+        extern fn RegisterTouchpadCapableThread(#[in] fEnable: BOOL) -> BOOL;
+        #[library("USER32.dll")]
+        extern fn RegisterTouchpadCapableWindow(#[in] hWnd: HWND, #[in] fEnable: BOOL) -> BOOL;
+        #[library("USER32.dll")]
         extern fn RegisterWindowMessageA(#[in] lpString: LPCSTR) -> UINT;
         #[library("USER32.dll")]
         extern fn RegisterWindowMessageW(#[in] lpString: LPCWSTR) -> UINT;
@@ -4047,6 +4063,8 @@ mod Windows {
         extern fn RemovePropW(#[in] hWnd: HWND, #[in] lpString: LPCWSTR) -> HANDLE;
         #[library("USER32.dll")]
         extern fn ReplyMessage(#[in] lResult: LRESULT) -> BOOL;
+        #[library("USER32.dll")]
+        extern fn ReportWindowContentInertia(hWnd: HWND, bStartInertia: BOOL) -> BOOL;
         const SBM_ENABLE_ARROWS: i32 = 228;
         const SBM_GETPOS: i32 = 225;
         const SBM_GETRANGE: i32 = 227;
@@ -4734,6 +4752,22 @@ mod Windows {
         const SW_SHOWNOACTIVATE: i32 = 4;
         const SW_SHOWNORMAL: i32 = 1;
         const SW_SMOOTHSCROLL: i32 = 16;
+        #[flags]
+        #[repr(i32)]
+        enum SYNTHETIC_DEVICE_CREATION_OPTIONS {
+            SDCO_NONE = 0,
+            SDCO_PHYSICAL_SIZE = 1,
+            SDCO_TOUCHPAD_GESTURE_ONLY = 2,
+        }
+        struct SYNTHETIC_DEVICE_CREATION_PARAMS {
+            pointerType: POINTER_INPUT_TYPE,
+            maxCount: ULONG,
+            feedbackMode: POINTER_FEEDBACK_MODE,
+            hMonitor: HMONITOR,
+            deviceWidth: ULONG,
+            deviceHeight: ULONG,
+            options: SYNTHETIC_DEVICE_CREATION_OPTIONS,
+        }
         #[library("USER32.dll")]
         extern fn ScreenToClient(#[in] hWnd: HWND, #[in] #[out] lpPoint: LPPOINT) -> BOOL;
         #[library("USER32.dll")]
@@ -4832,6 +4866,8 @@ mod Windows {
         extern fn SetLastErrorEx(#[in] dwErrCode: DWORD, #[in] dwType: DWORD);
         #[library("USER32.dll")]
         extern fn SetLayeredWindowAttributes(#[in] hwnd: HWND, #[in] crKey: COLORREF, #[in] bAlpha: BYTE, #[in] dwFlags: DWORD) -> BOOL;
+        #[library("USER32.dll")]
+        extern fn SetMaxTouchpadSensitivity(maxSensitivity: BOOL) -> BOOL;
         #[library("USER32.dll")]
         extern fn SetMenu(#[in] hWnd: HWND, #[in] #[opt] hMenu: HMENU) -> BOOL;
         #[library("USER32.dll")]
@@ -5035,6 +5071,20 @@ mod Windows {
         const TOUCHINPUTMASKF_CONTACTAREA: i32 = 4;
         const TOUCHINPUTMASKF_EXTRAINFO: i32 = 2;
         const TOUCHINPUTMASKF_TIMEFROMSYSTEM: i32 = 1;
+        #[repr(i32)]
+        enum TOUCHPAD_ACTION {
+            TA_3FINGER_TAP = 0,
+            TA_3FINGER_PRESS = 1,
+            TA_3FINGER_RELEASE = 2,
+            TA_4FINGER_TAP = 3,
+            TA_4FINGER_PRESS = 4,
+            TA_4FINGER_RELEASE = 5,
+            TA_5FINGER_TAP = 6,
+            TA_5FINGER_PRESS = 7,
+            TA_5FINGER_RELEASE = 8,
+            TA_INERTIA_STOP = 9,
+            TA_INERTIA_END = 10,
+        }
         struct TOUCHPAD_PARAMETERS_V1 {
             versionNumber: UINT,
             maxSupportedContacts: UINT,
@@ -5676,6 +5726,7 @@ mod Windows {
         const WM_DWMSENDICONICTHUMBNAIL: i32 = 803;
         const WM_DWMWINDOWMAXIMIZEDCHANGE: i32 = 801;
         const WM_ENABLE: i32 = 10;
+        const WM_ENDINERTIA: i32 = 572;
         const WM_ENDSESSION: i32 = 22;
         const WM_ENTERIDLE: i32 = 289;
         const WM_ENTERMENULOOP: i32 = 529;
@@ -5846,6 +5897,7 @@ mod Windows {
         const WM_SIZECLIPBOARD: i32 = 779;
         const WM_SIZING: i32 = 532;
         const WM_SPOOLERSTATUS: i32 = 42;
+        const WM_STOPINERTIA: i32 = 571;
         const WM_STYLECHANGED: i32 = 125;
         const WM_STYLECHANGING: i32 = 124;
         const WM_SYNCPAINT: i32 = 136;

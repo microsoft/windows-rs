@@ -65,43 +65,6 @@ impl Sink {
         }
     }
 }
-impl windows_core::RuntimeName for Sink {
-    const NAME: &'static str = "Test.Sink";
-}
-pub trait Sink_Impl: windows_core::IUnknownImpl {
-    fn Subscribe(&self, handler: windows_core::Ref<Handler>) -> windows_core::Result<i32>;
-}
-impl Sink_Vtbl {
-    pub const fn new<Identity: Sink_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Subscribe<Identity: Sink_Impl, const OFFSET: isize>(
-            this: *mut core::ffi::c_void,
-            handler: *mut core::ffi::c_void,
-            result__: *mut i32,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match Sink_Impl::Subscribe(this, core::mem::transmute_copy(&handler)) {
-                    Ok(ok__) => {
-                        result__.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        result__.write_bytes(0, 1);
-                        err.into()
-                    }
-                }
-            }
-        }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, Sink, OFFSET>(),
-            Subscribe: Subscribe::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<Sink as windows_core::Interface>::IID
-    }
-}
 #[repr(C)]
 pub struct Sink_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

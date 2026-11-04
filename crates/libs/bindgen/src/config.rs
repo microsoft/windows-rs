@@ -58,11 +58,10 @@ impl Config<'_> {
         }
     }
 
-    /// Applies `--implement`, falling back to `default` when the option is absent.
+    /// Minimal bindings require `--implement`; other styles use the supplied default.
     pub fn should_implement(&self, name: TypeName, default: bool) -> bool {
         match self.implement {
-            None => default,
-            Some(implements) if implements.is_empty() => true,
+            None => default && !self.bindgen.style.is_minimal(),
             Some(implements) => implements.matches(name),
         }
     }

@@ -605,13 +605,13 @@ pub struct IDirect3DDeviceManager9_Vtbl {
 }
 #[cfg(all(feature = "d3d9", feature = "guiddef", feature = "shared", feature = "winnt"))]
 pub trait IDirect3DDeviceManager9_Impl: windows_core::IUnknownImpl {
-    fn ResetDevice(&self, pdevice: windows_core::Ref<super::IDirect3DDevice9>, resettoken: super::UINT) -> windows_core::Result<()>;
-    fn OpenDeviceHandle(&self, phdevice: *mut super::HANDLE) -> windows_core::Result<()>;
-    fn CloseDeviceHandle(&self, hdevice: super::HANDLE) -> windows_core::Result<()>;
-    fn TestDevice(&self, hdevice: super::HANDLE) -> windows_core::Result<()>;
-    fn LockDevice(&self, hdevice: super::HANDLE, ppdevice: windows_core::OutRef<super::IDirect3DDevice9>, fblock: windows_core::BOOL) -> windows_core::Result<()>;
-    fn UnlockDevice(&self, hdevice: super::HANDLE, fsavestate: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetVideoService(&self, hdevice: super::HANDLE, riid: *const super::IID, ppservice: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn ResetDevice(&self, pdevice: windows_core::Ref<super::IDirect3DDevice9>, resettoken: super::UINT) -> windows_core::HRESULT;
+    fn OpenDeviceHandle(&self, phdevice: *mut super::HANDLE) -> windows_core::HRESULT;
+    fn CloseDeviceHandle(&self, hdevice: super::HANDLE) -> windows_core::HRESULT;
+    fn TestDevice(&self, hdevice: super::HANDLE) -> windows_core::HRESULT;
+    fn LockDevice(&self, hdevice: super::HANDLE, ppdevice: windows_core::OutRef<super::IDirect3DDevice9>, fblock: windows_core::BOOL) -> windows_core::HRESULT;
+    fn UnlockDevice(&self, hdevice: super::HANDLE, fsavestate: windows_core::BOOL) -> windows_core::HRESULT;
+    fn GetVideoService(&self, hdevice: super::HANDLE, riid: *const super::IID, ppservice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "d3d9", feature = "guiddef", feature = "shared", feature = "winnt"))]
 impl IDirect3DDeviceManager9_Vtbl {
@@ -619,43 +619,43 @@ impl IDirect3DDeviceManager9_Vtbl {
         unsafe extern "system" fn ResetDevice<Identity: IDirect3DDeviceManager9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, resettoken: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirect3DDeviceManager9_Impl::ResetDevice(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&resettoken)).into()
+                IDirect3DDeviceManager9_Impl::ResetDevice(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&resettoken))
             }
         }
         unsafe extern "system" fn OpenDeviceHandle<Identity: IDirect3DDeviceManager9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phdevice: *mut super::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirect3DDeviceManager9_Impl::OpenDeviceHandle(this, core::mem::transmute_copy(&phdevice)).into()
+                IDirect3DDeviceManager9_Impl::OpenDeviceHandle(this, core::mem::transmute_copy(&phdevice))
             }
         }
         unsafe extern "system" fn CloseDeviceHandle<Identity: IDirect3DDeviceManager9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdevice: super::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirect3DDeviceManager9_Impl::CloseDeviceHandle(this, core::mem::transmute_copy(&hdevice)).into()
+                IDirect3DDeviceManager9_Impl::CloseDeviceHandle(this, core::mem::transmute_copy(&hdevice))
             }
         }
         unsafe extern "system" fn TestDevice<Identity: IDirect3DDeviceManager9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdevice: super::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirect3DDeviceManager9_Impl::TestDevice(this, core::mem::transmute_copy(&hdevice)).into()
+                IDirect3DDeviceManager9_Impl::TestDevice(this, core::mem::transmute_copy(&hdevice))
             }
         }
         unsafe extern "system" fn LockDevice<Identity: IDirect3DDeviceManager9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdevice: super::HANDLE, ppdevice: *mut *mut core::ffi::c_void, fblock: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirect3DDeviceManager9_Impl::LockDevice(this, core::mem::transmute_copy(&hdevice), core::mem::transmute_copy(&ppdevice), core::mem::transmute_copy(&fblock)).into()
+                IDirect3DDeviceManager9_Impl::LockDevice(this, core::mem::transmute_copy(&hdevice), core::mem::transmute_copy(&ppdevice), core::mem::transmute_copy(&fblock))
             }
         }
         unsafe extern "system" fn UnlockDevice<Identity: IDirect3DDeviceManager9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdevice: super::HANDLE, fsavestate: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirect3DDeviceManager9_Impl::UnlockDevice(this, core::mem::transmute_copy(&hdevice), core::mem::transmute_copy(&fsavestate)).into()
+                IDirect3DDeviceManager9_Impl::UnlockDevice(this, core::mem::transmute_copy(&hdevice), core::mem::transmute_copy(&fsavestate))
             }
         }
         unsafe extern "system" fn GetVideoService<Identity: IDirect3DDeviceManager9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdevice: super::HANDLE, riid: *const super::IID, ppservice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirect3DDeviceManager9_Impl::GetVideoService(this, core::mem::transmute_copy(&hdevice), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppservice)).into()
+                IDirect3DDeviceManager9_Impl::GetVideoService(this, core::mem::transmute_copy(&hdevice), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppservice))
             }
         }
         Self {
@@ -694,7 +694,7 @@ pub struct IDirectXVideoAccelerationService_Vtbl {
 }
 #[cfg(all(feature = "d3d9", feature = "shared", feature = "winnt"))]
 pub trait IDirectXVideoAccelerationService_Impl: windows_core::IUnknownImpl {
-    fn CreateSurface(&self, width: super::UINT, height: super::UINT, backbuffers: super::UINT, format: super::D3DFORMAT, pool: super::D3DPOOL, usage: super::DWORD, dxvatype: super::DWORD, ppsurface: *mut Option<super::IDirect3DSurface9>, psharedhandle: *mut super::HANDLE) -> windows_core::Result<()>;
+    fn CreateSurface(&self, width: super::UINT, height: super::UINT, backbuffers: super::UINT, format: super::D3DFORMAT, pool: super::D3DPOOL, usage: super::DWORD, dxvatype: super::DWORD, ppsurface: *mut Option<super::IDirect3DSurface9>, psharedhandle: *mut super::HANDLE) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "d3d9", feature = "shared", feature = "winnt"))]
 impl IDirectXVideoAccelerationService_Vtbl {
@@ -702,7 +702,7 @@ impl IDirectXVideoAccelerationService_Vtbl {
         unsafe extern "system" fn CreateSurface<Identity: IDirectXVideoAccelerationService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: super::UINT, height: super::UINT, backbuffers: super::UINT, format: super::D3DFORMAT, pool: super::D3DPOOL, usage: super::DWORD, dxvatype: super::DWORD, ppsurface: *mut *mut core::ffi::c_void, psharedhandle: *mut super::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectXVideoAccelerationService_Impl::CreateSurface(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&backbuffers), core::mem::transmute_copy(&format), core::mem::transmute_copy(&pool), core::mem::transmute_copy(&usage), core::mem::transmute_copy(&dxvatype), core::mem::transmute_copy(&ppsurface), core::mem::transmute_copy(&psharedhandle)).into()
+                IDirectXVideoAccelerationService_Impl::CreateSurface(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&backbuffers), core::mem::transmute_copy(&format), core::mem::transmute_copy(&pool), core::mem::transmute_copy(&usage), core::mem::transmute_copy(&dxvatype), core::mem::transmute_copy(&ppsurface), core::mem::transmute_copy(&psharedhandle))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateSurface: CreateSurface::<Identity, OFFSET> }
@@ -783,12 +783,12 @@ pub struct IDirectXVideoDecoder_Vtbl {
 #[cfg(all(feature = "d3d9", feature = "shared", feature = "winnt"))]
 pub trait IDirectXVideoDecoder_Impl: windows_core::IUnknownImpl {
     fn GetVideoDecoderService(&self) -> windows_core::Result<IDirectXVideoDecoderService>;
-    fn GetCreationParameters(&self, pdeviceguid: *mut windows_core::GUID, pvideodesc: *mut DXVA2_VideoDesc, pconfig: *mut DXVA2_ConfigPictureDecode, pdecoderrendertargets: *mut *mut Option<super::IDirect3DSurface9>, pnumsurfaces: *mut super::UINT) -> windows_core::Result<()>;
-    fn GetBuffer(&self, buffertype: super::UINT, ppbuffer: *mut *mut core::ffi::c_void, pbuffersize: *mut super::UINT) -> windows_core::Result<()>;
-    fn ReleaseBuffer(&self, buffertype: super::UINT) -> windows_core::Result<()>;
-    fn BeginFrame(&self, prendertarget: windows_core::Ref<super::IDirect3DSurface9>, pvpvpdata: *const core::ffi::c_void) -> windows_core::Result<()>;
-    fn EndFrame(&self, phandlecomplete: *mut super::HANDLE) -> windows_core::Result<()>;
-    fn Execute(&self, pexecuteparams: *const DXVA2_DecodeExecuteParams) -> windows_core::Result<()>;
+    fn GetCreationParameters(&self, pdeviceguid: *mut windows_core::GUID, pvideodesc: *mut DXVA2_VideoDesc, pconfig: *mut DXVA2_ConfigPictureDecode, pdecoderrendertargets: *mut *mut Option<super::IDirect3DSurface9>, pnumsurfaces: *mut super::UINT) -> windows_core::HRESULT;
+    fn GetBuffer(&self, buffertype: super::UINT, ppbuffer: *mut *mut core::ffi::c_void, pbuffersize: *mut super::UINT) -> windows_core::HRESULT;
+    fn ReleaseBuffer(&self, buffertype: super::UINT) -> windows_core::HRESULT;
+    fn BeginFrame(&self, prendertarget: windows_core::Ref<super::IDirect3DSurface9>, pvpvpdata: *const core::ffi::c_void) -> windows_core::HRESULT;
+    fn EndFrame(&self, phandlecomplete: *mut super::HANDLE) -> windows_core::HRESULT;
+    fn Execute(&self, pexecuteparams: *const DXVA2_DecodeExecuteParams) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "d3d9", feature = "shared", feature = "winnt"))]
 impl IDirectXVideoDecoder_Vtbl {
@@ -811,37 +811,37 @@ impl IDirectXVideoDecoder_Vtbl {
         unsafe extern "system" fn GetCreationParameters<Identity: IDirectXVideoDecoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdeviceguid: *mut windows_core::GUID, pvideodesc: *mut DXVA2_VideoDesc, pconfig: *mut DXVA2_ConfigPictureDecode, pdecoderrendertargets: *mut *mut *mut core::ffi::c_void, pnumsurfaces: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectXVideoDecoder_Impl::GetCreationParameters(this, core::mem::transmute_copy(&pdeviceguid), core::mem::transmute_copy(&pvideodesc), core::mem::transmute_copy(&pconfig), core::mem::transmute_copy(&pdecoderrendertargets), core::mem::transmute_copy(&pnumsurfaces)).into()
+                IDirectXVideoDecoder_Impl::GetCreationParameters(this, core::mem::transmute_copy(&pdeviceguid), core::mem::transmute_copy(&pvideodesc), core::mem::transmute_copy(&pconfig), core::mem::transmute_copy(&pdecoderrendertargets), core::mem::transmute_copy(&pnumsurfaces))
             }
         }
         unsafe extern "system" fn GetBuffer<Identity: IDirectXVideoDecoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffertype: super::UINT, ppbuffer: *mut *mut core::ffi::c_void, pbuffersize: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectXVideoDecoder_Impl::GetBuffer(this, core::mem::transmute_copy(&buffertype), core::mem::transmute_copy(&ppbuffer), core::mem::transmute_copy(&pbuffersize)).into()
+                IDirectXVideoDecoder_Impl::GetBuffer(this, core::mem::transmute_copy(&buffertype), core::mem::transmute_copy(&ppbuffer), core::mem::transmute_copy(&pbuffersize))
             }
         }
         unsafe extern "system" fn ReleaseBuffer<Identity: IDirectXVideoDecoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffertype: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectXVideoDecoder_Impl::ReleaseBuffer(this, core::mem::transmute_copy(&buffertype)).into()
+                IDirectXVideoDecoder_Impl::ReleaseBuffer(this, core::mem::transmute_copy(&buffertype))
             }
         }
         unsafe extern "system" fn BeginFrame<Identity: IDirectXVideoDecoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prendertarget: *mut core::ffi::c_void, pvpvpdata: *const core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectXVideoDecoder_Impl::BeginFrame(this, core::mem::transmute_copy(&prendertarget), core::mem::transmute_copy(&pvpvpdata)).into()
+                IDirectXVideoDecoder_Impl::BeginFrame(this, core::mem::transmute_copy(&prendertarget), core::mem::transmute_copy(&pvpvpdata))
             }
         }
         unsafe extern "system" fn EndFrame<Identity: IDirectXVideoDecoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phandlecomplete: *mut super::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectXVideoDecoder_Impl::EndFrame(this, core::mem::transmute_copy(&phandlecomplete)).into()
+                IDirectXVideoDecoder_Impl::EndFrame(this, core::mem::transmute_copy(&phandlecomplete))
             }
         }
         unsafe extern "system" fn Execute<Identity: IDirectXVideoDecoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pexecuteparams: *const DXVA2_DecodeExecuteParams) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectXVideoDecoder_Impl::Execute(this, core::mem::transmute_copy(&pexecuteparams)).into()
+                IDirectXVideoDecoder_Impl::Execute(this, core::mem::transmute_copy(&pexecuteparams))
             }
         }
         Self {
@@ -913,9 +913,9 @@ pub struct IDirectXVideoDecoderService_Vtbl {
 }
 #[cfg(all(feature = "d3d9", feature = "shared", feature = "winnt"))]
 pub trait IDirectXVideoDecoderService_Impl: IDirectXVideoAccelerationService_Impl {
-    fn GetDecoderDeviceGuids(&self, pcount: *mut super::UINT, pguids: *mut *mut windows_core::GUID) -> windows_core::Result<()>;
-    fn GetDecoderRenderTargets(&self, guid: *const windows_core::GUID, pcount: *mut super::UINT, pformats: *mut *mut super::D3DFORMAT) -> windows_core::Result<()>;
-    fn GetDecoderConfigurations(&self, guid: *const windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, preserved: *const core::ffi::c_void, pcount: *mut super::UINT, ppconfigs: *mut *mut DXVA2_ConfigPictureDecode) -> windows_core::Result<()>;
+    fn GetDecoderDeviceGuids(&self, pcount: *mut super::UINT, pguids: *mut *mut windows_core::GUID) -> windows_core::HRESULT;
+    fn GetDecoderRenderTargets(&self, guid: *const windows_core::GUID, pcount: *mut super::UINT, pformats: *mut *mut super::D3DFORMAT) -> windows_core::HRESULT;
+    fn GetDecoderConfigurations(&self, guid: *const windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, preserved: *const core::ffi::c_void, pcount: *mut super::UINT, ppconfigs: *mut *mut DXVA2_ConfigPictureDecode) -> windows_core::HRESULT;
     fn CreateVideoDecoder(&self, guid: *const windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, pconfig: *const DXVA2_ConfigPictureDecode, ppdecoderrendertargets: *const Option<super::IDirect3DSurface9>, numrendertargets: super::UINT) -> windows_core::Result<IDirectXVideoDecoder>;
 }
 #[cfg(all(feature = "d3d9", feature = "shared", feature = "winnt"))]
@@ -924,19 +924,19 @@ impl IDirectXVideoDecoderService_Vtbl {
         unsafe extern "system" fn GetDecoderDeviceGuids<Identity: IDirectXVideoDecoderService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcount: *mut super::UINT, pguids: *mut *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectXVideoDecoderService_Impl::GetDecoderDeviceGuids(this, core::mem::transmute_copy(&pcount), core::mem::transmute_copy(&pguids)).into()
+                IDirectXVideoDecoderService_Impl::GetDecoderDeviceGuids(this, core::mem::transmute_copy(&pcount), core::mem::transmute_copy(&pguids))
             }
         }
         unsafe extern "system" fn GetDecoderRenderTargets<Identity: IDirectXVideoDecoderService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID, pcount: *mut super::UINT, pformats: *mut *mut super::D3DFORMAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectXVideoDecoderService_Impl::GetDecoderRenderTargets(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pcount), core::mem::transmute_copy(&pformats)).into()
+                IDirectXVideoDecoderService_Impl::GetDecoderRenderTargets(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pcount), core::mem::transmute_copy(&pformats))
             }
         }
         unsafe extern "system" fn GetDecoderConfigurations<Identity: IDirectXVideoDecoderService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, preserved: *const core::ffi::c_void, pcount: *mut super::UINT, ppconfigs: *mut *mut DXVA2_ConfigPictureDecode) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectXVideoDecoderService_Impl::GetDecoderConfigurations(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvideodesc), core::mem::transmute_copy(&preserved), core::mem::transmute_copy(&pcount), core::mem::transmute_copy(&ppconfigs)).into()
+                IDirectXVideoDecoderService_Impl::GetDecoderConfigurations(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvideodesc), core::mem::transmute_copy(&preserved), core::mem::transmute_copy(&pcount), core::mem::transmute_copy(&ppconfigs))
             }
         }
         unsafe extern "system" fn CreateVideoDecoder<Identity: IDirectXVideoDecoderService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, pconfig: *const DXVA2_ConfigPictureDecode, ppdecoderrendertargets: *const *mut core::ffi::c_void, numrendertargets: super::UINT, ppdecode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -963,7 +963,7 @@ impl IDirectXVideoDecoderService_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirectXVideoDecoderService as windows_core::Interface>::IID || iid == &<IDirectXVideoAccelerationService as windows_core::Interface>::IID
+        iid == &<IDirectXVideoDecoderService as windows_core::Interface>::IID || IDirectXVideoAccelerationService_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "d3d9", feature = "shared", feature = "winnt"))]
@@ -991,8 +991,8 @@ pub struct IDirectXVideoMemoryConfiguration_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IDirectXVideoMemoryConfiguration_Impl: windows_core::IUnknownImpl {
-    fn GetAvailableSurfaceTypeByIndex(&self, dwtypeindex: super::DWORD, pdwtype: *mut DXVA2_SurfaceType) -> windows_core::Result<()>;
-    fn SetSurfaceType(&self, dwtype: DXVA2_SurfaceType) -> windows_core::Result<()>;
+    fn GetAvailableSurfaceTypeByIndex(&self, dwtypeindex: super::DWORD, pdwtype: *mut DXVA2_SurfaceType) -> windows_core::HRESULT;
+    fn SetSurfaceType(&self, dwtype: DXVA2_SurfaceType) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IDirectXVideoMemoryConfiguration_Vtbl {
@@ -1000,13 +1000,13 @@ impl IDirectXVideoMemoryConfiguration_Vtbl {
         unsafe extern "system" fn GetAvailableSurfaceTypeByIndex<Identity: IDirectXVideoMemoryConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwtypeindex: super::DWORD, pdwtype: *mut DXVA2_SurfaceType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectXVideoMemoryConfiguration_Impl::GetAvailableSurfaceTypeByIndex(this, core::mem::transmute_copy(&dwtypeindex), core::mem::transmute_copy(&pdwtype)).into()
+                IDirectXVideoMemoryConfiguration_Impl::GetAvailableSurfaceTypeByIndex(this, core::mem::transmute_copy(&dwtypeindex), core::mem::transmute_copy(&pdwtype))
             }
         }
         unsafe extern "system" fn SetSurfaceType<Identity: IDirectXVideoMemoryConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwtype: DXVA2_SurfaceType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectXVideoMemoryConfiguration_Impl::SetSurfaceType(this, core::mem::transmute_copy(&dwtype)).into()
+                IDirectXVideoMemoryConfiguration_Impl::SetSurfaceType(this, core::mem::transmute_copy(&dwtype))
             }
         }
         Self {
@@ -1083,11 +1083,11 @@ pub struct IDirectXVideoProcessor_Vtbl {
 #[cfg(all(feature = "d3d9", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IDirectXVideoProcessor_Impl: windows_core::IUnknownImpl {
     fn GetVideoProcessorService(&self) -> windows_core::Result<IDirectXVideoProcessorService>;
-    fn GetCreationParameters(&self, pdeviceguid: *mut windows_core::GUID, pvideodesc: *mut DXVA2_VideoDesc, prendertargetformat: *mut super::D3DFORMAT, pmaxnumsubstreams: *mut super::UINT) -> windows_core::Result<()>;
-    fn GetVideoProcessorCaps(&self, pcaps: *mut DXVA2_VideoProcessorCaps) -> windows_core::Result<()>;
-    fn GetProcAmpRange(&self, procampcap: super::UINT, prange: *mut DXVA2_ValueRange) -> windows_core::Result<()>;
-    fn GetFilterPropertyRange(&self, filtersetting: super::UINT, prange: *mut DXVA2_ValueRange) -> windows_core::Result<()>;
-    fn VideoProcessBlt(&self, prendertarget: windows_core::Ref<super::IDirect3DSurface9>, pbltparams: *const DXVA2_VideoProcessBltParams, psamples: *const DXVA2_VideoSample, numsamples: super::UINT, phandlecomplete: *mut super::HANDLE) -> windows_core::Result<()>;
+    fn GetCreationParameters(&self, pdeviceguid: *mut windows_core::GUID, pvideodesc: *mut DXVA2_VideoDesc, prendertargetformat: *mut super::D3DFORMAT, pmaxnumsubstreams: *mut super::UINT) -> windows_core::HRESULT;
+    fn GetVideoProcessorCaps(&self, pcaps: *mut DXVA2_VideoProcessorCaps) -> windows_core::HRESULT;
+    fn GetProcAmpRange(&self, procampcap: super::UINT, prange: *mut DXVA2_ValueRange) -> windows_core::HRESULT;
+    fn GetFilterPropertyRange(&self, filtersetting: super::UINT, prange: *mut DXVA2_ValueRange) -> windows_core::HRESULT;
+    fn VideoProcessBlt(&self, prendertarget: windows_core::Ref<super::IDirect3DSurface9>, pbltparams: *const DXVA2_VideoProcessBltParams, psamples: *const DXVA2_VideoSample, numsamples: super::UINT, phandlecomplete: *mut super::HANDLE) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "d3d9", feature = "shared", feature = "windef", feature = "winnt"))]
 impl IDirectXVideoProcessor_Vtbl {
@@ -1110,31 +1110,31 @@ impl IDirectXVideoProcessor_Vtbl {
         unsafe extern "system" fn GetCreationParameters<Identity: IDirectXVideoProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdeviceguid: *mut windows_core::GUID, pvideodesc: *mut DXVA2_VideoDesc, prendertargetformat: *mut super::D3DFORMAT, pmaxnumsubstreams: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectXVideoProcessor_Impl::GetCreationParameters(this, core::mem::transmute_copy(&pdeviceguid), core::mem::transmute_copy(&pvideodesc), core::mem::transmute_copy(&prendertargetformat), core::mem::transmute_copy(&pmaxnumsubstreams)).into()
+                IDirectXVideoProcessor_Impl::GetCreationParameters(this, core::mem::transmute_copy(&pdeviceguid), core::mem::transmute_copy(&pvideodesc), core::mem::transmute_copy(&prendertargetformat), core::mem::transmute_copy(&pmaxnumsubstreams))
             }
         }
         unsafe extern "system" fn GetVideoProcessorCaps<Identity: IDirectXVideoProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcaps: *mut DXVA2_VideoProcessorCaps) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectXVideoProcessor_Impl::GetVideoProcessorCaps(this, core::mem::transmute_copy(&pcaps)).into()
+                IDirectXVideoProcessor_Impl::GetVideoProcessorCaps(this, core::mem::transmute_copy(&pcaps))
             }
         }
         unsafe extern "system" fn GetProcAmpRange<Identity: IDirectXVideoProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, procampcap: super::UINT, prange: *mut DXVA2_ValueRange) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectXVideoProcessor_Impl::GetProcAmpRange(this, core::mem::transmute_copy(&procampcap), core::mem::transmute_copy(&prange)).into()
+                IDirectXVideoProcessor_Impl::GetProcAmpRange(this, core::mem::transmute_copy(&procampcap), core::mem::transmute_copy(&prange))
             }
         }
         unsafe extern "system" fn GetFilterPropertyRange<Identity: IDirectXVideoProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filtersetting: super::UINT, prange: *mut DXVA2_ValueRange) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectXVideoProcessor_Impl::GetFilterPropertyRange(this, core::mem::transmute_copy(&filtersetting), core::mem::transmute_copy(&prange)).into()
+                IDirectXVideoProcessor_Impl::GetFilterPropertyRange(this, core::mem::transmute_copy(&filtersetting), core::mem::transmute_copy(&prange))
             }
         }
         unsafe extern "system" fn VideoProcessBlt<Identity: IDirectXVideoProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prendertarget: *mut core::ffi::c_void, pbltparams: *const DXVA2_VideoProcessBltParams, psamples: *const DXVA2_VideoSample, numsamples: super::UINT, phandlecomplete: *mut super::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectXVideoProcessor_Impl::VideoProcessBlt(this, core::mem::transmute_copy(&prendertarget), core::mem::transmute_copy(&pbltparams), core::mem::transmute_copy(&psamples), core::mem::transmute_copy(&numsamples), core::mem::transmute_copy(&phandlecomplete)).into()
+                IDirectXVideoProcessor_Impl::VideoProcessBlt(this, core::mem::transmute_copy(&prendertarget), core::mem::transmute_copy(&pbltparams), core::mem::transmute_copy(&psamples), core::mem::transmute_copy(&numsamples), core::mem::transmute_copy(&phandlecomplete))
             }
         }
         Self {
@@ -1233,13 +1233,13 @@ pub struct IDirectXVideoProcessorService_Vtbl {
 }
 #[cfg(all(feature = "d3d9", feature = "shared", feature = "winnt"))]
 pub trait IDirectXVideoProcessorService_Impl: IDirectXVideoAccelerationService_Impl {
-    fn RegisterVideoProcessorSoftwareDevice(&self, pcallbacks: *const core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetVideoProcessorDeviceGuids(&self, pvideodesc: *const DXVA2_VideoDesc, pcount: *mut super::UINT, pguids: *mut *mut windows_core::GUID) -> windows_core::Result<()>;
-    fn GetVideoProcessorRenderTargets(&self, videoprocdeviceguid: *const windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, pcount: *mut super::UINT, pformats: *mut *mut super::D3DFORMAT) -> windows_core::Result<()>;
-    fn GetVideoProcessorSubStreamFormats(&self, videoprocdeviceguid: *const windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::D3DFORMAT, pcount: *mut super::UINT, pformats: *mut *mut super::D3DFORMAT) -> windows_core::Result<()>;
-    fn GetVideoProcessorCaps(&self, videoprocdeviceguid: *const windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::D3DFORMAT, pcaps: *mut DXVA2_VideoProcessorCaps) -> windows_core::Result<()>;
-    fn GetProcAmpRange(&self, videoprocdeviceguid: *const windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::D3DFORMAT, procampcap: super::UINT, prange: *mut DXVA2_ValueRange) -> windows_core::Result<()>;
-    fn GetFilterPropertyRange(&self, videoprocdeviceguid: *const windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::D3DFORMAT, filtersetting: super::UINT, prange: *mut DXVA2_ValueRange) -> windows_core::Result<()>;
+    fn RegisterVideoProcessorSoftwareDevice(&self, pcallbacks: *const core::ffi::c_void) -> windows_core::HRESULT;
+    fn GetVideoProcessorDeviceGuids(&self, pvideodesc: *const DXVA2_VideoDesc, pcount: *mut super::UINT, pguids: *mut *mut windows_core::GUID) -> windows_core::HRESULT;
+    fn GetVideoProcessorRenderTargets(&self, videoprocdeviceguid: *const windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, pcount: *mut super::UINT, pformats: *mut *mut super::D3DFORMAT) -> windows_core::HRESULT;
+    fn GetVideoProcessorSubStreamFormats(&self, videoprocdeviceguid: *const windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::D3DFORMAT, pcount: *mut super::UINT, pformats: *mut *mut super::D3DFORMAT) -> windows_core::HRESULT;
+    fn GetVideoProcessorCaps(&self, videoprocdeviceguid: *const windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::D3DFORMAT, pcaps: *mut DXVA2_VideoProcessorCaps) -> windows_core::HRESULT;
+    fn GetProcAmpRange(&self, videoprocdeviceguid: *const windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::D3DFORMAT, procampcap: super::UINT, prange: *mut DXVA2_ValueRange) -> windows_core::HRESULT;
+    fn GetFilterPropertyRange(&self, videoprocdeviceguid: *const windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::D3DFORMAT, filtersetting: super::UINT, prange: *mut DXVA2_ValueRange) -> windows_core::HRESULT;
     fn CreateVideoProcessor(&self, videoprocdeviceguid: *const windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::D3DFORMAT, maxnumsubstreams: super::UINT) -> windows_core::Result<IDirectXVideoProcessor>;
 }
 #[cfg(all(feature = "d3d9", feature = "shared", feature = "winnt"))]
@@ -1248,43 +1248,43 @@ impl IDirectXVideoProcessorService_Vtbl {
         unsafe extern "system" fn RegisterVideoProcessorSoftwareDevice<Identity: IDirectXVideoProcessorService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallbacks: *const core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectXVideoProcessorService_Impl::RegisterVideoProcessorSoftwareDevice(this, core::mem::transmute_copy(&pcallbacks)).into()
+                IDirectXVideoProcessorService_Impl::RegisterVideoProcessorSoftwareDevice(this, core::mem::transmute_copy(&pcallbacks))
             }
         }
         unsafe extern "system" fn GetVideoProcessorDeviceGuids<Identity: IDirectXVideoProcessorService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvideodesc: *const DXVA2_VideoDesc, pcount: *mut super::UINT, pguids: *mut *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectXVideoProcessorService_Impl::GetVideoProcessorDeviceGuids(this, core::mem::transmute_copy(&pvideodesc), core::mem::transmute_copy(&pcount), core::mem::transmute_copy(&pguids)).into()
+                IDirectXVideoProcessorService_Impl::GetVideoProcessorDeviceGuids(this, core::mem::transmute_copy(&pvideodesc), core::mem::transmute_copy(&pcount), core::mem::transmute_copy(&pguids))
             }
         }
         unsafe extern "system" fn GetVideoProcessorRenderTargets<Identity: IDirectXVideoProcessorService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, videoprocdeviceguid: *const windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, pcount: *mut super::UINT, pformats: *mut *mut super::D3DFORMAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectXVideoProcessorService_Impl::GetVideoProcessorRenderTargets(this, core::mem::transmute_copy(&videoprocdeviceguid), core::mem::transmute_copy(&pvideodesc), core::mem::transmute_copy(&pcount), core::mem::transmute_copy(&pformats)).into()
+                IDirectXVideoProcessorService_Impl::GetVideoProcessorRenderTargets(this, core::mem::transmute_copy(&videoprocdeviceguid), core::mem::transmute_copy(&pvideodesc), core::mem::transmute_copy(&pcount), core::mem::transmute_copy(&pformats))
             }
         }
         unsafe extern "system" fn GetVideoProcessorSubStreamFormats<Identity: IDirectXVideoProcessorService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, videoprocdeviceguid: *const windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::D3DFORMAT, pcount: *mut super::UINT, pformats: *mut *mut super::D3DFORMAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectXVideoProcessorService_Impl::GetVideoProcessorSubStreamFormats(this, core::mem::transmute_copy(&videoprocdeviceguid), core::mem::transmute_copy(&pvideodesc), core::mem::transmute_copy(&rendertargetformat), core::mem::transmute_copy(&pcount), core::mem::transmute_copy(&pformats)).into()
+                IDirectXVideoProcessorService_Impl::GetVideoProcessorSubStreamFormats(this, core::mem::transmute_copy(&videoprocdeviceguid), core::mem::transmute_copy(&pvideodesc), core::mem::transmute_copy(&rendertargetformat), core::mem::transmute_copy(&pcount), core::mem::transmute_copy(&pformats))
             }
         }
         unsafe extern "system" fn GetVideoProcessorCaps<Identity: IDirectXVideoProcessorService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, videoprocdeviceguid: *const windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::D3DFORMAT, pcaps: *mut DXVA2_VideoProcessorCaps) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectXVideoProcessorService_Impl::GetVideoProcessorCaps(this, core::mem::transmute_copy(&videoprocdeviceguid), core::mem::transmute_copy(&pvideodesc), core::mem::transmute_copy(&rendertargetformat), core::mem::transmute_copy(&pcaps)).into()
+                IDirectXVideoProcessorService_Impl::GetVideoProcessorCaps(this, core::mem::transmute_copy(&videoprocdeviceguid), core::mem::transmute_copy(&pvideodesc), core::mem::transmute_copy(&rendertargetformat), core::mem::transmute_copy(&pcaps))
             }
         }
         unsafe extern "system" fn GetProcAmpRange<Identity: IDirectXVideoProcessorService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, videoprocdeviceguid: *const windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::D3DFORMAT, procampcap: super::UINT, prange: *mut DXVA2_ValueRange) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectXVideoProcessorService_Impl::GetProcAmpRange(this, core::mem::transmute_copy(&videoprocdeviceguid), core::mem::transmute_copy(&pvideodesc), core::mem::transmute_copy(&rendertargetformat), core::mem::transmute_copy(&procampcap), core::mem::transmute_copy(&prange)).into()
+                IDirectXVideoProcessorService_Impl::GetProcAmpRange(this, core::mem::transmute_copy(&videoprocdeviceguid), core::mem::transmute_copy(&pvideodesc), core::mem::transmute_copy(&rendertargetformat), core::mem::transmute_copy(&procampcap), core::mem::transmute_copy(&prange))
             }
         }
         unsafe extern "system" fn GetFilterPropertyRange<Identity: IDirectXVideoProcessorService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, videoprocdeviceguid: *const windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::D3DFORMAT, filtersetting: super::UINT, prange: *mut DXVA2_ValueRange) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectXVideoProcessorService_Impl::GetFilterPropertyRange(this, core::mem::transmute_copy(&videoprocdeviceguid), core::mem::transmute_copy(&pvideodesc), core::mem::transmute_copy(&rendertargetformat), core::mem::transmute_copy(&filtersetting), core::mem::transmute_copy(&prange)).into()
+                IDirectXVideoProcessorService_Impl::GetFilterPropertyRange(this, core::mem::transmute_copy(&videoprocdeviceguid), core::mem::transmute_copy(&pvideodesc), core::mem::transmute_copy(&rendertargetformat), core::mem::transmute_copy(&filtersetting), core::mem::transmute_copy(&prange))
             }
         }
         unsafe extern "system" fn CreateVideoProcessor<Identity: IDirectXVideoProcessorService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, videoprocdeviceguid: *const windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::D3DFORMAT, maxnumsubstreams: super::UINT, ppvidprocess: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1315,7 +1315,7 @@ impl IDirectXVideoProcessorService_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirectXVideoProcessorService as windows_core::Interface>::IID || iid == &<IDirectXVideoAccelerationService as windows_core::Interface>::IID
+        iid == &<IDirectXVideoProcessorService as windows_core::Interface>::IID || IDirectXVideoAccelerationService_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "d3d9", feature = "shared", feature = "winnt"))]

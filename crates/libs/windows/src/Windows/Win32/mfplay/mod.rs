@@ -146,25 +146,25 @@ pub struct IMFPMediaItem_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "propsys", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFPMediaItem_Impl: windows_core::IUnknownImpl {
-    fn GetMediaPlayer(&self, ppmediaplayer: windows_core::OutRef<IMFPMediaPlayer>) -> windows_core::Result<()>;
-    fn GetURL(&self, ppwszurl: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn GetObject(&self, ppiunknown: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn GetUserData(&self, pdwuserdata: *mut super::DWORD_PTR) -> windows_core::Result<()>;
-    fn SetUserData(&self, dwuserdata: super::DWORD_PTR) -> windows_core::Result<()>;
-    fn GetStartStopPosition(&self, pguidstartpositiontype: *mut windows_core::GUID, pvstartvalue: *mut super::PROPVARIANT, pguidstoppositiontype: *mut windows_core::GUID, pvstopvalue: *mut super::PROPVARIANT) -> windows_core::Result<()>;
-    fn SetStartStopPosition(&self, pguidstartpositiontype: *const windows_core::GUID, pvstartvalue: *const super::PROPVARIANT, pguidstoppositiontype: *const windows_core::GUID, pvstopvalue: *const super::PROPVARIANT) -> windows_core::Result<()>;
-    fn HasVideo(&self, pfhasvideo: *mut windows_core::BOOL, pfselected: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn HasAudio(&self, pfhasaudio: *mut windows_core::BOOL, pfselected: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn IsProtected(&self, pfprotected: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetDuration(&self, guidpositiontype: *const windows_core::GUID, pvdurationvalue: *mut super::PROPVARIANT) -> windows_core::Result<()>;
-    fn GetNumberOfStreams(&self, pdwstreamcount: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetStreamSelection(&self, dwstreamindex: super::DWORD, pfenabled: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetStreamSelection(&self, dwstreamindex: super::DWORD, fenabled: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetStreamAttribute(&self, dwstreamindex: super::DWORD, guidmfattribute: *const windows_core::GUID, pvvalue: *mut super::PROPVARIANT) -> windows_core::Result<()>;
-    fn GetPresentationAttribute(&self, guidmfattribute: *const windows_core::GUID, pvvalue: *mut super::PROPVARIANT) -> windows_core::Result<()>;
-    fn GetCharacteristics(&self, pcharacteristics: *mut MFP_MEDIAITEM_CHARACTERISTICS) -> windows_core::Result<()>;
-    fn SetStreamSink(&self, dwstreamindex: super::DWORD, pmediasink: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn GetMetadata(&self, ppmetadatastore: windows_core::OutRef<super::IPropertyStore>) -> windows_core::Result<()>;
+    fn GetMediaPlayer(&self, ppmediaplayer: windows_core::OutRef<IMFPMediaPlayer>) -> windows_core::HRESULT;
+    fn GetURL(&self, ppwszurl: *mut windows_core::PWSTR) -> windows_core::HRESULT;
+    fn GetObject(&self, ppiunknown: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn GetUserData(&self, pdwuserdata: *mut super::DWORD_PTR) -> windows_core::HRESULT;
+    fn SetUserData(&self, dwuserdata: super::DWORD_PTR) -> windows_core::HRESULT;
+    fn GetStartStopPosition(&self, pguidstartpositiontype: *mut windows_core::GUID, pvstartvalue: *mut super::PROPVARIANT, pguidstoppositiontype: *mut windows_core::GUID, pvstopvalue: *mut super::PROPVARIANT) -> windows_core::HRESULT;
+    fn SetStartStopPosition(&self, pguidstartpositiontype: *const windows_core::GUID, pvstartvalue: *const super::PROPVARIANT, pguidstoppositiontype: *const windows_core::GUID, pvstopvalue: *const super::PROPVARIANT) -> windows_core::HRESULT;
+    fn HasVideo(&self, pfhasvideo: *mut windows_core::BOOL, pfselected: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn HasAudio(&self, pfhasaudio: *mut windows_core::BOOL, pfselected: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn IsProtected(&self, pfprotected: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn GetDuration(&self, guidpositiontype: *const windows_core::GUID, pvdurationvalue: *mut super::PROPVARIANT) -> windows_core::HRESULT;
+    fn GetNumberOfStreams(&self, pdwstreamcount: *mut super::DWORD) -> windows_core::HRESULT;
+    fn GetStreamSelection(&self, dwstreamindex: super::DWORD, pfenabled: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn SetStreamSelection(&self, dwstreamindex: super::DWORD, fenabled: windows_core::BOOL) -> windows_core::HRESULT;
+    fn GetStreamAttribute(&self, dwstreamindex: super::DWORD, guidmfattribute: *const windows_core::GUID, pvvalue: *mut super::PROPVARIANT) -> windows_core::HRESULT;
+    fn GetPresentationAttribute(&self, guidmfattribute: *const windows_core::GUID, pvvalue: *mut super::PROPVARIANT) -> windows_core::HRESULT;
+    fn GetCharacteristics(&self, pcharacteristics: *mut MFP_MEDIAITEM_CHARACTERISTICS) -> windows_core::HRESULT;
+    fn SetStreamSink(&self, dwstreamindex: super::DWORD, pmediasink: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn GetMetadata(&self, ppmetadatastore: windows_core::OutRef<super::IPropertyStore>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "propsys", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFPMediaItem_Vtbl {
@@ -172,115 +172,115 @@ impl IMFPMediaItem_Vtbl {
         unsafe extern "system" fn GetMediaPlayer<Identity: IMFPMediaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppmediaplayer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaItem_Impl::GetMediaPlayer(this, core::mem::transmute_copy(&ppmediaplayer)).into()
+                IMFPMediaItem_Impl::GetMediaPlayer(this, core::mem::transmute_copy(&ppmediaplayer))
             }
         }
         unsafe extern "system" fn GetURL<Identity: IMFPMediaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwszurl: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaItem_Impl::GetURL(this, core::mem::transmute_copy(&ppwszurl)).into()
+                IMFPMediaItem_Impl::GetURL(this, core::mem::transmute_copy(&ppwszurl))
             }
         }
         unsafe extern "system" fn GetObject<Identity: IMFPMediaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppiunknown: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaItem_Impl::GetObject(this, core::mem::transmute_copy(&ppiunknown)).into()
+                IMFPMediaItem_Impl::GetObject(this, core::mem::transmute_copy(&ppiunknown))
             }
         }
         unsafe extern "system" fn GetUserData<Identity: IMFPMediaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwuserdata: *mut super::DWORD_PTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaItem_Impl::GetUserData(this, core::mem::transmute_copy(&pdwuserdata)).into()
+                IMFPMediaItem_Impl::GetUserData(this, core::mem::transmute_copy(&pdwuserdata))
             }
         }
         unsafe extern "system" fn SetUserData<Identity: IMFPMediaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwuserdata: super::DWORD_PTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaItem_Impl::SetUserData(this, core::mem::transmute_copy(&dwuserdata)).into()
+                IMFPMediaItem_Impl::SetUserData(this, core::mem::transmute_copy(&dwuserdata))
             }
         }
         unsafe extern "system" fn GetStartStopPosition<Identity: IMFPMediaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidstartpositiontype: *mut windows_core::GUID, pvstartvalue: *mut super::PROPVARIANT, pguidstoppositiontype: *mut windows_core::GUID, pvstopvalue: *mut super::PROPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaItem_Impl::GetStartStopPosition(this, core::mem::transmute_copy(&pguidstartpositiontype), core::mem::transmute_copy(&pvstartvalue), core::mem::transmute_copy(&pguidstoppositiontype), core::mem::transmute_copy(&pvstopvalue)).into()
+                IMFPMediaItem_Impl::GetStartStopPosition(this, core::mem::transmute_copy(&pguidstartpositiontype), core::mem::transmute_copy(&pvstartvalue), core::mem::transmute_copy(&pguidstoppositiontype), core::mem::transmute_copy(&pvstopvalue))
             }
         }
         unsafe extern "system" fn SetStartStopPosition<Identity: IMFPMediaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidstartpositiontype: *const windows_core::GUID, pvstartvalue: *const super::PROPVARIANT, pguidstoppositiontype: *const windows_core::GUID, pvstopvalue: *const super::PROPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaItem_Impl::SetStartStopPosition(this, core::mem::transmute_copy(&pguidstartpositiontype), core::mem::transmute_copy(&pvstartvalue), core::mem::transmute_copy(&pguidstoppositiontype), core::mem::transmute_copy(&pvstopvalue)).into()
+                IMFPMediaItem_Impl::SetStartStopPosition(this, core::mem::transmute_copy(&pguidstartpositiontype), core::mem::transmute_copy(&pvstartvalue), core::mem::transmute_copy(&pguidstoppositiontype), core::mem::transmute_copy(&pvstopvalue))
             }
         }
         unsafe extern "system" fn HasVideo<Identity: IMFPMediaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfhasvideo: *mut windows_core::BOOL, pfselected: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaItem_Impl::HasVideo(this, core::mem::transmute_copy(&pfhasvideo), core::mem::transmute_copy(&pfselected)).into()
+                IMFPMediaItem_Impl::HasVideo(this, core::mem::transmute_copy(&pfhasvideo), core::mem::transmute_copy(&pfselected))
             }
         }
         unsafe extern "system" fn HasAudio<Identity: IMFPMediaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfhasaudio: *mut windows_core::BOOL, pfselected: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaItem_Impl::HasAudio(this, core::mem::transmute_copy(&pfhasaudio), core::mem::transmute_copy(&pfselected)).into()
+                IMFPMediaItem_Impl::HasAudio(this, core::mem::transmute_copy(&pfhasaudio), core::mem::transmute_copy(&pfselected))
             }
         }
         unsafe extern "system" fn IsProtected<Identity: IMFPMediaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfprotected: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaItem_Impl::IsProtected(this, core::mem::transmute_copy(&pfprotected)).into()
+                IMFPMediaItem_Impl::IsProtected(this, core::mem::transmute_copy(&pfprotected))
             }
         }
         unsafe extern "system" fn GetDuration<Identity: IMFPMediaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidpositiontype: *const windows_core::GUID, pvdurationvalue: *mut super::PROPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaItem_Impl::GetDuration(this, core::mem::transmute_copy(&guidpositiontype), core::mem::transmute_copy(&pvdurationvalue)).into()
+                IMFPMediaItem_Impl::GetDuration(this, core::mem::transmute_copy(&guidpositiontype), core::mem::transmute_copy(&pvdurationvalue))
             }
         }
         unsafe extern "system" fn GetNumberOfStreams<Identity: IMFPMediaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwstreamcount: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaItem_Impl::GetNumberOfStreams(this, core::mem::transmute_copy(&pdwstreamcount)).into()
+                IMFPMediaItem_Impl::GetNumberOfStreams(this, core::mem::transmute_copy(&pdwstreamcount))
             }
         }
         unsafe extern "system" fn GetStreamSelection<Identity: IMFPMediaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamindex: super::DWORD, pfenabled: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaItem_Impl::GetStreamSelection(this, core::mem::transmute_copy(&dwstreamindex), core::mem::transmute_copy(&pfenabled)).into()
+                IMFPMediaItem_Impl::GetStreamSelection(this, core::mem::transmute_copy(&dwstreamindex), core::mem::transmute_copy(&pfenabled))
             }
         }
         unsafe extern "system" fn SetStreamSelection<Identity: IMFPMediaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamindex: super::DWORD, fenabled: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaItem_Impl::SetStreamSelection(this, core::mem::transmute_copy(&dwstreamindex), core::mem::transmute_copy(&fenabled)).into()
+                IMFPMediaItem_Impl::SetStreamSelection(this, core::mem::transmute_copy(&dwstreamindex), core::mem::transmute_copy(&fenabled))
             }
         }
         unsafe extern "system" fn GetStreamAttribute<Identity: IMFPMediaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamindex: super::DWORD, guidmfattribute: *const windows_core::GUID, pvvalue: *mut super::PROPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaItem_Impl::GetStreamAttribute(this, core::mem::transmute_copy(&dwstreamindex), core::mem::transmute_copy(&guidmfattribute), core::mem::transmute_copy(&pvvalue)).into()
+                IMFPMediaItem_Impl::GetStreamAttribute(this, core::mem::transmute_copy(&dwstreamindex), core::mem::transmute_copy(&guidmfattribute), core::mem::transmute_copy(&pvvalue))
             }
         }
         unsafe extern "system" fn GetPresentationAttribute<Identity: IMFPMediaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidmfattribute: *const windows_core::GUID, pvvalue: *mut super::PROPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaItem_Impl::GetPresentationAttribute(this, core::mem::transmute_copy(&guidmfattribute), core::mem::transmute_copy(&pvvalue)).into()
+                IMFPMediaItem_Impl::GetPresentationAttribute(this, core::mem::transmute_copy(&guidmfattribute), core::mem::transmute_copy(&pvvalue))
             }
         }
         unsafe extern "system" fn GetCharacteristics<Identity: IMFPMediaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcharacteristics: *mut MFP_MEDIAITEM_CHARACTERISTICS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaItem_Impl::GetCharacteristics(this, core::mem::transmute_copy(&pcharacteristics)).into()
+                IMFPMediaItem_Impl::GetCharacteristics(this, core::mem::transmute_copy(&pcharacteristics))
             }
         }
         unsafe extern "system" fn SetStreamSink<Identity: IMFPMediaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamindex: super::DWORD, pmediasink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaItem_Impl::SetStreamSink(this, core::mem::transmute_copy(&dwstreamindex), core::mem::transmute_copy(&pmediasink)).into()
+                IMFPMediaItem_Impl::SetStreamSink(this, core::mem::transmute_copy(&dwstreamindex), core::mem::transmute_copy(&pmediasink))
             }
         }
         unsafe extern "system" fn GetMetadata<Identity: IMFPMediaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppmetadatastore: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaItem_Impl::GetMetadata(this, core::mem::transmute_copy(&ppmetadatastore)).into()
+                IMFPMediaItem_Impl::GetMetadata(this, core::mem::transmute_copy(&ppmetadatastore))
             }
         }
         Self {
@@ -538,42 +538,42 @@ pub struct IMFPMediaPlayer_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "mfidl", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFPMediaPlayer_Impl: windows_core::IUnknownImpl {
-    fn Play(&self) -> windows_core::Result<()>;
-    fn Pause(&self) -> windows_core::Result<()>;
-    fn Stop(&self) -> windows_core::Result<()>;
-    fn FrameStep(&self) -> windows_core::Result<()>;
-    fn SetPosition(&self, guidpositiontype: *const windows_core::GUID, pvpositionvalue: *const super::PROPVARIANT) -> windows_core::Result<()>;
-    fn GetPosition(&self, guidpositiontype: *const windows_core::GUID, pvpositionvalue: *mut super::PROPVARIANT) -> windows_core::Result<()>;
-    fn GetDuration(&self, guidpositiontype: *const windows_core::GUID, pvdurationvalue: *mut super::PROPVARIANT) -> windows_core::Result<()>;
-    fn SetRate(&self, flrate: f32) -> windows_core::Result<()>;
-    fn GetRate(&self, pflrate: *mut f32) -> windows_core::Result<()>;
-    fn GetSupportedRates(&self, fforwarddirection: windows_core::BOOL, pflslowestrate: *mut f32, pflfastestrate: *mut f32) -> windows_core::Result<()>;
-    fn GetState(&self, pestate: *mut MFP_MEDIAPLAYER_STATE) -> windows_core::Result<()>;
-    fn CreateMediaItemFromURL(&self, pwszurl: &windows_core::PCWSTR, fsync: windows_core::BOOL, dwuserdata: super::DWORD_PTR, ppmediaitem: windows_core::OutRef<IMFPMediaItem>) -> windows_core::Result<()>;
-    fn CreateMediaItemFromObject(&self, piunknownobj: windows_core::Ref<windows_core::IUnknown>, fsync: windows_core::BOOL, dwuserdata: super::DWORD_PTR, ppmediaitem: windows_core::OutRef<IMFPMediaItem>) -> windows_core::Result<()>;
-    fn SetMediaItem(&self, pimfpmediaitem: windows_core::Ref<IMFPMediaItem>) -> windows_core::Result<()>;
-    fn ClearMediaItem(&self) -> windows_core::Result<()>;
-    fn GetMediaItem(&self, ppimfpmediaitem: windows_core::OutRef<IMFPMediaItem>) -> windows_core::Result<()>;
-    fn GetVolume(&self, pflvolume: *mut f32) -> windows_core::Result<()>;
-    fn SetVolume(&self, flvolume: f32) -> windows_core::Result<()>;
-    fn GetBalance(&self, pflbalance: *mut f32) -> windows_core::Result<()>;
-    fn SetBalance(&self, flbalance: f32) -> windows_core::Result<()>;
-    fn GetMute(&self, pfmute: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetMute(&self, fmute: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetNativeVideoSize(&self, pszvideo: *mut super::SIZE, pszarvideo: *mut super::SIZE) -> windows_core::Result<()>;
-    fn GetIdealVideoSize(&self, pszmin: *mut super::SIZE, pszmax: *mut super::SIZE) -> windows_core::Result<()>;
-    fn SetVideoSourceRect(&self, pnrcsource: *const super::MFVideoNormalizedRect) -> windows_core::Result<()>;
-    fn GetVideoSourceRect(&self, pnrcsource: *mut super::MFVideoNormalizedRect) -> windows_core::Result<()>;
-    fn SetAspectRatioMode(&self, dwaspectratiomode: super::DWORD) -> windows_core::Result<()>;
-    fn GetAspectRatioMode(&self, pdwaspectratiomode: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetVideoWindow(&self, phwndvideo: *mut super::HWND) -> windows_core::Result<()>;
-    fn UpdateVideo(&self) -> windows_core::Result<()>;
-    fn SetBorderColor(&self, clr: super::COLORREF) -> windows_core::Result<()>;
-    fn GetBorderColor(&self, pclr: *mut super::COLORREF) -> windows_core::Result<()>;
-    fn InsertEffect(&self, peffect: windows_core::Ref<windows_core::IUnknown>, foptional: windows_core::BOOL) -> windows_core::Result<()>;
-    fn RemoveEffect(&self, peffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn RemoveAllEffects(&self) -> windows_core::Result<()>;
-    fn Shutdown(&self) -> windows_core::Result<()>;
+    fn Play(&self) -> windows_core::HRESULT;
+    fn Pause(&self) -> windows_core::HRESULT;
+    fn Stop(&self) -> windows_core::HRESULT;
+    fn FrameStep(&self) -> windows_core::HRESULT;
+    fn SetPosition(&self, guidpositiontype: *const windows_core::GUID, pvpositionvalue: *const super::PROPVARIANT) -> windows_core::HRESULT;
+    fn GetPosition(&self, guidpositiontype: *const windows_core::GUID, pvpositionvalue: *mut super::PROPVARIANT) -> windows_core::HRESULT;
+    fn GetDuration(&self, guidpositiontype: *const windows_core::GUID, pvdurationvalue: *mut super::PROPVARIANT) -> windows_core::HRESULT;
+    fn SetRate(&self, flrate: f32) -> windows_core::HRESULT;
+    fn GetRate(&self, pflrate: *mut f32) -> windows_core::HRESULT;
+    fn GetSupportedRates(&self, fforwarddirection: windows_core::BOOL, pflslowestrate: *mut f32, pflfastestrate: *mut f32) -> windows_core::HRESULT;
+    fn GetState(&self, pestate: *mut MFP_MEDIAPLAYER_STATE) -> windows_core::HRESULT;
+    fn CreateMediaItemFromURL(&self, pwszurl: &windows_core::PCWSTR, fsync: windows_core::BOOL, dwuserdata: super::DWORD_PTR, ppmediaitem: windows_core::OutRef<IMFPMediaItem>) -> windows_core::HRESULT;
+    fn CreateMediaItemFromObject(&self, piunknownobj: windows_core::Ref<windows_core::IUnknown>, fsync: windows_core::BOOL, dwuserdata: super::DWORD_PTR, ppmediaitem: windows_core::OutRef<IMFPMediaItem>) -> windows_core::HRESULT;
+    fn SetMediaItem(&self, pimfpmediaitem: windows_core::Ref<IMFPMediaItem>) -> windows_core::HRESULT;
+    fn ClearMediaItem(&self) -> windows_core::HRESULT;
+    fn GetMediaItem(&self, ppimfpmediaitem: windows_core::OutRef<IMFPMediaItem>) -> windows_core::HRESULT;
+    fn GetVolume(&self, pflvolume: *mut f32) -> windows_core::HRESULT;
+    fn SetVolume(&self, flvolume: f32) -> windows_core::HRESULT;
+    fn GetBalance(&self, pflbalance: *mut f32) -> windows_core::HRESULT;
+    fn SetBalance(&self, flbalance: f32) -> windows_core::HRESULT;
+    fn GetMute(&self, pfmute: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn SetMute(&self, fmute: windows_core::BOOL) -> windows_core::HRESULT;
+    fn GetNativeVideoSize(&self, pszvideo: *mut super::SIZE, pszarvideo: *mut super::SIZE) -> windows_core::HRESULT;
+    fn GetIdealVideoSize(&self, pszmin: *mut super::SIZE, pszmax: *mut super::SIZE) -> windows_core::HRESULT;
+    fn SetVideoSourceRect(&self, pnrcsource: *const super::MFVideoNormalizedRect) -> windows_core::HRESULT;
+    fn GetVideoSourceRect(&self, pnrcsource: *mut super::MFVideoNormalizedRect) -> windows_core::HRESULT;
+    fn SetAspectRatioMode(&self, dwaspectratiomode: super::DWORD) -> windows_core::HRESULT;
+    fn GetAspectRatioMode(&self, pdwaspectratiomode: *mut super::DWORD) -> windows_core::HRESULT;
+    fn GetVideoWindow(&self, phwndvideo: *mut super::HWND) -> windows_core::HRESULT;
+    fn UpdateVideo(&self) -> windows_core::HRESULT;
+    fn SetBorderColor(&self, clr: super::COLORREF) -> windows_core::HRESULT;
+    fn GetBorderColor(&self, pclr: *mut super::COLORREF) -> windows_core::HRESULT;
+    fn InsertEffect(&self, peffect: windows_core::Ref<windows_core::IUnknown>, foptional: windows_core::BOOL) -> windows_core::HRESULT;
+    fn RemoveEffect(&self, peffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn RemoveAllEffects(&self) -> windows_core::HRESULT;
+    fn Shutdown(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "mfidl", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFPMediaPlayer_Vtbl {
@@ -581,217 +581,217 @@ impl IMFPMediaPlayer_Vtbl {
         unsafe extern "system" fn Play<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::Play(this).into()
+                IMFPMediaPlayer_Impl::Play(this)
             }
         }
         unsafe extern "system" fn Pause<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::Pause(this).into()
+                IMFPMediaPlayer_Impl::Pause(this)
             }
         }
         unsafe extern "system" fn Stop<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::Stop(this).into()
+                IMFPMediaPlayer_Impl::Stop(this)
             }
         }
         unsafe extern "system" fn FrameStep<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::FrameStep(this).into()
+                IMFPMediaPlayer_Impl::FrameStep(this)
             }
         }
         unsafe extern "system" fn SetPosition<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidpositiontype: *const windows_core::GUID, pvpositionvalue: *const super::PROPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::SetPosition(this, core::mem::transmute_copy(&guidpositiontype), core::mem::transmute_copy(&pvpositionvalue)).into()
+                IMFPMediaPlayer_Impl::SetPosition(this, core::mem::transmute_copy(&guidpositiontype), core::mem::transmute_copy(&pvpositionvalue))
             }
         }
         unsafe extern "system" fn GetPosition<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidpositiontype: *const windows_core::GUID, pvpositionvalue: *mut super::PROPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::GetPosition(this, core::mem::transmute_copy(&guidpositiontype), core::mem::transmute_copy(&pvpositionvalue)).into()
+                IMFPMediaPlayer_Impl::GetPosition(this, core::mem::transmute_copy(&guidpositiontype), core::mem::transmute_copy(&pvpositionvalue))
             }
         }
         unsafe extern "system" fn GetDuration<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidpositiontype: *const windows_core::GUID, pvdurationvalue: *mut super::PROPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::GetDuration(this, core::mem::transmute_copy(&guidpositiontype), core::mem::transmute_copy(&pvdurationvalue)).into()
+                IMFPMediaPlayer_Impl::GetDuration(this, core::mem::transmute_copy(&guidpositiontype), core::mem::transmute_copy(&pvdurationvalue))
             }
         }
         unsafe extern "system" fn SetRate<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flrate: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::SetRate(this, core::mem::transmute_copy(&flrate)).into()
+                IMFPMediaPlayer_Impl::SetRate(this, core::mem::transmute_copy(&flrate))
             }
         }
         unsafe extern "system" fn GetRate<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflrate: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::GetRate(this, core::mem::transmute_copy(&pflrate)).into()
+                IMFPMediaPlayer_Impl::GetRate(this, core::mem::transmute_copy(&pflrate))
             }
         }
         unsafe extern "system" fn GetSupportedRates<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fforwarddirection: windows_core::BOOL, pflslowestrate: *mut f32, pflfastestrate: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::GetSupportedRates(this, core::mem::transmute_copy(&fforwarddirection), core::mem::transmute_copy(&pflslowestrate), core::mem::transmute_copy(&pflfastestrate)).into()
+                IMFPMediaPlayer_Impl::GetSupportedRates(this, core::mem::transmute_copy(&fforwarddirection), core::mem::transmute_copy(&pflslowestrate), core::mem::transmute_copy(&pflfastestrate))
             }
         }
         unsafe extern "system" fn GetState<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pestate: *mut MFP_MEDIAPLAYER_STATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::GetState(this, core::mem::transmute_copy(&pestate)).into()
+                IMFPMediaPlayer_Impl::GetState(this, core::mem::transmute_copy(&pestate))
             }
         }
         unsafe extern "system" fn CreateMediaItemFromURL<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszurl: windows_core::PCWSTR, fsync: windows_core::BOOL, dwuserdata: super::DWORD_PTR, ppmediaitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::CreateMediaItemFromURL(this, core::mem::transmute(&pwszurl), core::mem::transmute_copy(&fsync), core::mem::transmute_copy(&dwuserdata), core::mem::transmute_copy(&ppmediaitem)).into()
+                IMFPMediaPlayer_Impl::CreateMediaItemFromURL(this, core::mem::transmute(&pwszurl), core::mem::transmute_copy(&fsync), core::mem::transmute_copy(&dwuserdata), core::mem::transmute_copy(&ppmediaitem))
             }
         }
         unsafe extern "system" fn CreateMediaItemFromObject<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piunknownobj: *mut core::ffi::c_void, fsync: windows_core::BOOL, dwuserdata: super::DWORD_PTR, ppmediaitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::CreateMediaItemFromObject(this, core::mem::transmute_copy(&piunknownobj), core::mem::transmute_copy(&fsync), core::mem::transmute_copy(&dwuserdata), core::mem::transmute_copy(&ppmediaitem)).into()
+                IMFPMediaPlayer_Impl::CreateMediaItemFromObject(this, core::mem::transmute_copy(&piunknownobj), core::mem::transmute_copy(&fsync), core::mem::transmute_copy(&dwuserdata), core::mem::transmute_copy(&ppmediaitem))
             }
         }
         unsafe extern "system" fn SetMediaItem<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pimfpmediaitem: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::SetMediaItem(this, core::mem::transmute_copy(&pimfpmediaitem)).into()
+                IMFPMediaPlayer_Impl::SetMediaItem(this, core::mem::transmute_copy(&pimfpmediaitem))
             }
         }
         unsafe extern "system" fn ClearMediaItem<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::ClearMediaItem(this).into()
+                IMFPMediaPlayer_Impl::ClearMediaItem(this)
             }
         }
         unsafe extern "system" fn GetMediaItem<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppimfpmediaitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::GetMediaItem(this, core::mem::transmute_copy(&ppimfpmediaitem)).into()
+                IMFPMediaPlayer_Impl::GetMediaItem(this, core::mem::transmute_copy(&ppimfpmediaitem))
             }
         }
         unsafe extern "system" fn GetVolume<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflvolume: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::GetVolume(this, core::mem::transmute_copy(&pflvolume)).into()
+                IMFPMediaPlayer_Impl::GetVolume(this, core::mem::transmute_copy(&pflvolume))
             }
         }
         unsafe extern "system" fn SetVolume<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flvolume: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::SetVolume(this, core::mem::transmute_copy(&flvolume)).into()
+                IMFPMediaPlayer_Impl::SetVolume(this, core::mem::transmute_copy(&flvolume))
             }
         }
         unsafe extern "system" fn GetBalance<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflbalance: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::GetBalance(this, core::mem::transmute_copy(&pflbalance)).into()
+                IMFPMediaPlayer_Impl::GetBalance(this, core::mem::transmute_copy(&pflbalance))
             }
         }
         unsafe extern "system" fn SetBalance<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flbalance: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::SetBalance(this, core::mem::transmute_copy(&flbalance)).into()
+                IMFPMediaPlayer_Impl::SetBalance(this, core::mem::transmute_copy(&flbalance))
             }
         }
         unsafe extern "system" fn GetMute<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfmute: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::GetMute(this, core::mem::transmute_copy(&pfmute)).into()
+                IMFPMediaPlayer_Impl::GetMute(this, core::mem::transmute_copy(&pfmute))
             }
         }
         unsafe extern "system" fn SetMute<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fmute: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::SetMute(this, core::mem::transmute_copy(&fmute)).into()
+                IMFPMediaPlayer_Impl::SetMute(this, core::mem::transmute_copy(&fmute))
             }
         }
         unsafe extern "system" fn GetNativeVideoSize<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszvideo: *mut super::SIZE, pszarvideo: *mut super::SIZE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::GetNativeVideoSize(this, core::mem::transmute_copy(&pszvideo), core::mem::transmute_copy(&pszarvideo)).into()
+                IMFPMediaPlayer_Impl::GetNativeVideoSize(this, core::mem::transmute_copy(&pszvideo), core::mem::transmute_copy(&pszarvideo))
             }
         }
         unsafe extern "system" fn GetIdealVideoSize<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszmin: *mut super::SIZE, pszmax: *mut super::SIZE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::GetIdealVideoSize(this, core::mem::transmute_copy(&pszmin), core::mem::transmute_copy(&pszmax)).into()
+                IMFPMediaPlayer_Impl::GetIdealVideoSize(this, core::mem::transmute_copy(&pszmin), core::mem::transmute_copy(&pszmax))
             }
         }
         unsafe extern "system" fn SetVideoSourceRect<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnrcsource: *const super::MFVideoNormalizedRect) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::SetVideoSourceRect(this, core::mem::transmute_copy(&pnrcsource)).into()
+                IMFPMediaPlayer_Impl::SetVideoSourceRect(this, core::mem::transmute_copy(&pnrcsource))
             }
         }
         unsafe extern "system" fn GetVideoSourceRect<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnrcsource: *mut super::MFVideoNormalizedRect) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::GetVideoSourceRect(this, core::mem::transmute_copy(&pnrcsource)).into()
+                IMFPMediaPlayer_Impl::GetVideoSourceRect(this, core::mem::transmute_copy(&pnrcsource))
             }
         }
         unsafe extern "system" fn SetAspectRatioMode<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwaspectratiomode: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::SetAspectRatioMode(this, core::mem::transmute_copy(&dwaspectratiomode)).into()
+                IMFPMediaPlayer_Impl::SetAspectRatioMode(this, core::mem::transmute_copy(&dwaspectratiomode))
             }
         }
         unsafe extern "system" fn GetAspectRatioMode<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwaspectratiomode: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::GetAspectRatioMode(this, core::mem::transmute_copy(&pdwaspectratiomode)).into()
+                IMFPMediaPlayer_Impl::GetAspectRatioMode(this, core::mem::transmute_copy(&pdwaspectratiomode))
             }
         }
         unsafe extern "system" fn GetVideoWindow<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phwndvideo: *mut super::HWND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::GetVideoWindow(this, core::mem::transmute_copy(&phwndvideo)).into()
+                IMFPMediaPlayer_Impl::GetVideoWindow(this, core::mem::transmute_copy(&phwndvideo))
             }
         }
         unsafe extern "system" fn UpdateVideo<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::UpdateVideo(this).into()
+                IMFPMediaPlayer_Impl::UpdateVideo(this)
             }
         }
         unsafe extern "system" fn SetBorderColor<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clr: super::COLORREF) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::SetBorderColor(this, core::mem::transmute_copy(&clr)).into()
+                IMFPMediaPlayer_Impl::SetBorderColor(this, core::mem::transmute_copy(&clr))
             }
         }
         unsafe extern "system" fn GetBorderColor<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclr: *mut super::COLORREF) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::GetBorderColor(this, core::mem::transmute_copy(&pclr)).into()
+                IMFPMediaPlayer_Impl::GetBorderColor(this, core::mem::transmute_copy(&pclr))
             }
         }
         unsafe extern "system" fn InsertEffect<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peffect: *mut core::ffi::c_void, foptional: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::InsertEffect(this, core::mem::transmute_copy(&peffect), core::mem::transmute_copy(&foptional)).into()
+                IMFPMediaPlayer_Impl::InsertEffect(this, core::mem::transmute_copy(&peffect), core::mem::transmute_copy(&foptional))
             }
         }
         unsafe extern "system" fn RemoveEffect<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peffect: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::RemoveEffect(this, core::mem::transmute_copy(&peffect)).into()
+                IMFPMediaPlayer_Impl::RemoveEffect(this, core::mem::transmute_copy(&peffect))
             }
         }
         unsafe extern "system" fn RemoveAllEffects<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::RemoveAllEffects(this).into()
+                IMFPMediaPlayer_Impl::RemoveAllEffects(this)
             }
         }
         unsafe extern "system" fn Shutdown<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::Shutdown(this).into()
+                IMFPMediaPlayer_Impl::Shutdown(this)
             }
         }
         Self {

@@ -159,24 +159,24 @@ pub trait Factory_Impl {
         count: u32,
         filters: *const windows_core::GUID,
         result: *mut *mut core::ffi::c_void,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
     fn ByteBuffer(
         &self,
         count: u32,
         filters: *const windows_core::GUID,
         result: *mut *mut core::ffi::c_void,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
     fn FixedBuffer(
         &self,
         filters: *const windows_core::GUID,
         result: *mut *mut core::ffi::c_void,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
     fn OutputBuffer(
         &self,
         riid: *const windows_core::GUID,
         count: u32,
         results: *mut *mut core::ffi::c_void,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
 }
 impl Factory_Vtbl {
     pub const fn new<Identity: Factory_Impl>() -> Self {
@@ -235,7 +235,6 @@ impl Factory_Vtbl {
                     core::mem::transmute_copy(&filters),
                     core::mem::transmute_copy(&result),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn ByteBuffer<Identity: Factory_Impl>(
@@ -253,7 +252,6 @@ impl Factory_Vtbl {
                     core::mem::transmute_copy(&filters),
                     core::mem::transmute_copy(&result),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn FixedBuffer<Identity: Factory_Impl>(
@@ -269,7 +267,6 @@ impl Factory_Vtbl {
                     core::mem::transmute_copy(&filters),
                     core::mem::transmute_copy(&result),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn OutputBuffer<Identity: Factory_Impl>(
@@ -287,7 +284,6 @@ impl Factory_Vtbl {
                     core::mem::transmute_copy(&count),
                     core::mem::transmute_copy(&results),
                 )
-                .into()
             }
         }
         Self {

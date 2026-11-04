@@ -58,6 +58,9 @@ mod Contoso {
 Generated RDL sorts attributes alphabetically by their full names, using case-sensitive ordering.
 Repeated attributes with the same name retain their relative order; their arguments are not sorted.
 The shared formatter applies this rule to declarations, parameters, fields, and return types.
+When writing WinMD, the metadata writer canonicalizes each owner's attributes by type, constructor
+signature, and encoded argument values. It preserves duplicates and the arguments within each
+attribute. RDL generated from that WinMD therefore has a repeatable order for repeated attributes.
 
 #### `#[winrt]`
 
@@ -614,6 +617,11 @@ Imported functions accept `#[library("example.dll", last_error)]`, optionally co
 `import = "EntryPoint"`. The bare `last_error` option sets the ECMA-335 ImplMap `SupportsLastError`
 flag, which requests native last-error capture for C# P/Invoke. It does not describe failure,
 change the calling convention or alter Rust bindings.
+
+`#[preserve_sig]` on a Win32 function, interface method or callback sets the ECMA-335
+`MethodImplAttributes.PreserveSig` flag. For callbacks the flag belongs to `Invoke`, not the
+delegate type. It takes no arguments. Consumers can use it to suppress HRESULT-to-exception or
+result conversion. It does not change the native ABI. `windows-bindgen` currently ignores the flag.
 
 The `import` option also accepts an ordinal as a string, such as `import = "#42"`. This preserves
 the entry point through metadata round trips; bindgen excludes ordinal imports, which it does not

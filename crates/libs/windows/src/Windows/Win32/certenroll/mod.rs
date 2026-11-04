@@ -255,9 +255,9 @@ pub struct IAlternativeName_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAlternativeName_Impl: super::IDispatch_Impl {
-    fn InitializeFromString(&self, r#type: AlternativeNameType, strvalue: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn InitializeFromRawData(&self, r#type: AlternativeNameType, encoding: EncodingType, strrawdata: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn InitializeFromOtherName(&self, pobjectid: windows_core::Ref<IObjectId>, encoding: EncodingType, strrawdata: &windows_core::BSTR, tobewrapped: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn InitializeFromString(&self, r#type: AlternativeNameType, strvalue: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn InitializeFromRawData(&self, r#type: AlternativeNameType, encoding: EncodingType, strrawdata: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn InitializeFromOtherName(&self, pobjectid: windows_core::Ref<IObjectId>, encoding: EncodingType, strrawdata: &windows_core::BSTR, tobewrapped: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn Type(&self) -> windows_core::Result<AlternativeNameType>;
     fn StrValue(&self) -> windows_core::Result<windows_core::BSTR>;
     fn ObjectId(&self) -> windows_core::Result<IObjectId>;
@@ -269,19 +269,19 @@ impl IAlternativeName_Vtbl {
         unsafe extern "system" fn InitializeFromString<Identity: IAlternativeName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: AlternativeNameType, strvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAlternativeName_Impl::InitializeFromString(this, core::mem::transmute_copy(&r#type), core::mem::transmute(&strvalue)).into()
+                IAlternativeName_Impl::InitializeFromString(this, core::mem::transmute_copy(&r#type), core::mem::transmute(&strvalue))
             }
         }
         unsafe extern "system" fn InitializeFromRawData<Identity: IAlternativeName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: AlternativeNameType, encoding: EncodingType, strrawdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAlternativeName_Impl::InitializeFromRawData(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&encoding), core::mem::transmute(&strrawdata)).into()
+                IAlternativeName_Impl::InitializeFromRawData(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&encoding), core::mem::transmute(&strrawdata))
             }
         }
         unsafe extern "system" fn InitializeFromOtherName<Identity: IAlternativeName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobjectid: *mut core::ffi::c_void, encoding: EncodingType, strrawdata: *mut core::ffi::c_void, tobewrapped: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAlternativeName_Impl::InitializeFromOtherName(this, core::mem::transmute_copy(&pobjectid), core::mem::transmute_copy(&encoding), core::mem::transmute(&strrawdata), core::mem::transmute_copy(&tobewrapped)).into()
+                IAlternativeName_Impl::InitializeFromOtherName(this, core::mem::transmute_copy(&pobjectid), core::mem::transmute_copy(&encoding), core::mem::transmute(&strrawdata), core::mem::transmute_copy(&tobewrapped))
             }
         }
         unsafe extern "system" fn Type<Identity: IAlternativeName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut AlternativeNameType) -> windows_core::HRESULT {
@@ -356,7 +356,7 @@ impl IAlternativeName_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAlternativeName as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IAlternativeName as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -434,9 +434,9 @@ pub trait IAlternativeNames_Impl: super::IDispatch_Impl {
     fn ItemByIndex(&self, index: super::LONG) -> windows_core::Result<IAlternativeName>;
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<super::LPUNKNOWN>;
-    fn Add(&self, pval: windows_core::Ref<IAlternativeName>) -> windows_core::Result<()>;
-    fn Remove(&self, index: super::LONG) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
+    fn Add(&self, pval: windows_core::Ref<IAlternativeName>) -> windows_core::HRESULT;
+    fn Remove(&self, index: super::LONG) -> windows_core::HRESULT;
+    fn Clear(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "unknwnbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAlternativeNames_Vtbl {
@@ -489,19 +489,19 @@ impl IAlternativeNames_Vtbl {
         unsafe extern "system" fn Add<Identity: IAlternativeNames_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAlternativeNames_Impl::Add(this, core::mem::transmute_copy(&pval)).into()
+                IAlternativeNames_Impl::Add(this, core::mem::transmute_copy(&pval))
             }
         }
         unsafe extern "system" fn Remove<Identity: IAlternativeNames_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAlternativeNames_Impl::Remove(this, core::mem::transmute_copy(&index)).into()
+                IAlternativeNames_Impl::Remove(this, core::mem::transmute_copy(&index))
             }
         }
         unsafe extern "system" fn Clear<Identity: IAlternativeNames_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAlternativeNames_Impl::Clear(this).into()
+                IAlternativeNames_Impl::Clear(this)
             }
         }
         Self {
@@ -515,7 +515,7 @@ impl IAlternativeNames_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAlternativeNames as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IAlternativeNames as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "unknwnbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -631,7 +631,7 @@ impl IBinaryConverter_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBinaryConverter as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IBinaryConverter as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -723,7 +723,7 @@ impl IBinaryConverter2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBinaryConverter2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IBinaryConverter as windows_core::Interface>::IID
+        iid == &<IBinaryConverter2 as windows_core::Interface>::IID || IBinaryConverter_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -809,10 +809,10 @@ pub trait ICertProperties_Impl: super::IDispatch_Impl {
     fn ItemByIndex(&self, index: super::LONG) -> windows_core::Result<ICertProperty>;
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<super::LPUNKNOWN>;
-    fn Add(&self, pval: windows_core::Ref<ICertProperty>) -> windows_core::Result<()>;
-    fn Remove(&self, index: super::LONG) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
-    fn InitializeFromCertificate(&self, machinecontext: super::VARIANT_BOOL, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Add(&self, pval: windows_core::Ref<ICertProperty>) -> windows_core::HRESULT;
+    fn Remove(&self, index: super::LONG) -> windows_core::HRESULT;
+    fn Clear(&self) -> windows_core::HRESULT;
+    fn InitializeFromCertificate(&self, machinecontext: super::VARIANT_BOOL, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "unknwnbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertProperties_Vtbl {
@@ -865,25 +865,25 @@ impl ICertProperties_Vtbl {
         unsafe extern "system" fn Add<Identity: ICertProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertProperties_Impl::Add(this, core::mem::transmute_copy(&pval)).into()
+                ICertProperties_Impl::Add(this, core::mem::transmute_copy(&pval))
             }
         }
         unsafe extern "system" fn Remove<Identity: ICertProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertProperties_Impl::Remove(this, core::mem::transmute_copy(&index)).into()
+                ICertProperties_Impl::Remove(this, core::mem::transmute_copy(&index))
             }
         }
         unsafe extern "system" fn Clear<Identity: ICertProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertProperties_Impl::Clear(this).into()
+                ICertProperties_Impl::Clear(this)
             }
         }
         unsafe extern "system" fn InitializeFromCertificate<Identity: ICertProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, machinecontext: super::VARIANT_BOOL, encoding: EncodingType, strcertificate: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertProperties_Impl::InitializeFromCertificate(this, core::mem::transmute_copy(&machinecontext), core::mem::transmute_copy(&encoding), core::mem::transmute(&strcertificate)).into()
+                ICertProperties_Impl::InitializeFromCertificate(this, core::mem::transmute_copy(&machinecontext), core::mem::transmute_copy(&encoding), core::mem::transmute(&strcertificate))
             }
         }
         Self {
@@ -898,7 +898,7 @@ impl ICertProperties_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertProperties as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ICertProperties as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "unknwnbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -971,13 +971,13 @@ pub struct ICertProperty_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertProperty_Impl: super::IDispatch_Impl {
-    fn InitializeFromCertificate(&self, machinecontext: super::VARIANT_BOOL, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn InitializeFromCertificate(&self, machinecontext: super::VARIANT_BOOL, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::HRESULT;
     fn PropertyId(&self) -> windows_core::Result<CERTENROLL_PROPERTYID>;
-    fn SetPropertyId(&self, value: CERTENROLL_PROPERTYID) -> windows_core::Result<()>;
+    fn SetPropertyId(&self, value: CERTENROLL_PROPERTYID) -> windows_core::HRESULT;
     fn RawData(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
-    fn RemoveFromCertificate(&self, machinecontext: super::VARIANT_BOOL, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetValueOnCertificate(&self, machinecontext: super::VARIANT_BOOL, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn RemoveFromCertificate(&self, machinecontext: super::VARIANT_BOOL, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn SetValueOnCertificate(&self, machinecontext: super::VARIANT_BOOL, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertProperty_Vtbl {
@@ -985,13 +985,13 @@ impl ICertProperty_Vtbl {
         unsafe extern "system" fn InitializeFromCertificate<Identity: ICertProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, machinecontext: super::VARIANT_BOOL, encoding: EncodingType, strcertificate: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertProperty_Impl::InitializeFromCertificate(this, core::mem::transmute_copy(&machinecontext), core::mem::transmute_copy(&encoding), core::mem::transmute(&strcertificate)).into()
+                ICertProperty_Impl::InitializeFromCertificate(this, core::mem::transmute_copy(&machinecontext), core::mem::transmute_copy(&encoding), core::mem::transmute(&strcertificate))
             }
         }
         unsafe extern "system" fn InitializeDecode<Identity: ICertProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strencodeddata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertProperty_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata)).into()
+                ICertProperty_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata))
             }
         }
         unsafe extern "system" fn PropertyId<Identity: ICertProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut CERTENROLL_PROPERTYID) -> windows_core::HRESULT {
@@ -1012,7 +1012,7 @@ impl ICertProperty_Vtbl {
         unsafe extern "system" fn SetPropertyId<Identity: ICertProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: CERTENROLL_PROPERTYID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertProperty_Impl::SetPropertyId(this, core::mem::transmute_copy(&value)).into()
+                ICertProperty_Impl::SetPropertyId(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn RawData<Identity: ICertProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1033,13 +1033,13 @@ impl ICertProperty_Vtbl {
         unsafe extern "system" fn RemoveFromCertificate<Identity: ICertProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, machinecontext: super::VARIANT_BOOL, encoding: EncodingType, strcertificate: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertProperty_Impl::RemoveFromCertificate(this, core::mem::transmute_copy(&machinecontext), core::mem::transmute_copy(&encoding), core::mem::transmute(&strcertificate)).into()
+                ICertProperty_Impl::RemoveFromCertificate(this, core::mem::transmute_copy(&machinecontext), core::mem::transmute_copy(&encoding), core::mem::transmute(&strcertificate))
             }
         }
         unsafe extern "system" fn SetValueOnCertificate<Identity: ICertProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, machinecontext: super::VARIANT_BOOL, encoding: EncodingType, strcertificate: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertProperty_Impl::SetValueOnCertificate(this, core::mem::transmute_copy(&machinecontext), core::mem::transmute_copy(&encoding), core::mem::transmute(&strcertificate)).into()
+                ICertProperty_Impl::SetValueOnCertificate(this, core::mem::transmute_copy(&machinecontext), core::mem::transmute_copy(&encoding), core::mem::transmute(&strcertificate))
             }
         }
         Self {
@@ -1054,7 +1054,7 @@ impl ICertProperty_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertProperty as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ICertProperty as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1100,7 +1100,7 @@ pub struct ICertPropertyArchived_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertPropertyArchived_Impl: ICertProperty_Impl {
-    fn Initialize(&self, archivedvalue: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn Initialize(&self, archivedvalue: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn Archived(&self) -> windows_core::Result<super::VARIANT_BOOL>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1109,7 +1109,7 @@ impl ICertPropertyArchived_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICertPropertyArchived_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, archivedvalue: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertPropertyArchived_Impl::Initialize(this, core::mem::transmute_copy(&archivedvalue)).into()
+                ICertPropertyArchived_Impl::Initialize(this, core::mem::transmute_copy(&archivedvalue))
             }
         }
         unsafe extern "system" fn Archived<Identity: ICertPropertyArchived_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -1130,7 +1130,7 @@ impl ICertPropertyArchived_Vtbl {
         Self { base__: ICertProperty_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, OFFSET>, Archived: Archived::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertPropertyArchived as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
+        iid == &<ICertPropertyArchived as windows_core::Interface>::IID || ICertProperty_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1168,7 +1168,7 @@ pub struct ICertPropertyArchivedKeyHash_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertPropertyArchivedKeyHash_Impl: ICertProperty_Impl {
-    fn Initialize(&self, encoding: EncodingType, strarchivedkeyhashvalue: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Initialize(&self, encoding: EncodingType, strarchivedkeyhashvalue: &windows_core::BSTR) -> windows_core::HRESULT;
     fn ArchivedKeyHash(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1177,7 +1177,7 @@ impl ICertPropertyArchivedKeyHash_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICertPropertyArchivedKeyHash_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strarchivedkeyhashvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertPropertyArchivedKeyHash_Impl::Initialize(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strarchivedkeyhashvalue)).into()
+                ICertPropertyArchivedKeyHash_Impl::Initialize(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strarchivedkeyhashvalue))
             }
         }
         unsafe extern "system" fn ArchivedKeyHash<Identity: ICertPropertyArchivedKeyHash_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1202,7 +1202,7 @@ impl ICertPropertyArchivedKeyHash_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertPropertyArchivedKeyHash as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
+        iid == &<ICertPropertyArchivedKeyHash as windows_core::Interface>::IID || ICertProperty_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1240,7 +1240,7 @@ pub struct ICertPropertyAutoEnroll_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertPropertyAutoEnroll_Impl: ICertProperty_Impl {
-    fn Initialize(&self, strtemplatename: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Initialize(&self, strtemplatename: &windows_core::BSTR) -> windows_core::HRESULT;
     fn TemplateName(&self) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1249,7 +1249,7 @@ impl ICertPropertyAutoEnroll_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICertPropertyAutoEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strtemplatename: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertPropertyAutoEnroll_Impl::Initialize(this, core::mem::transmute(&strtemplatename)).into()
+                ICertPropertyAutoEnroll_Impl::Initialize(this, core::mem::transmute(&strtemplatename))
             }
         }
         unsafe extern "system" fn TemplateName<Identity: ICertPropertyAutoEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1274,7 +1274,7 @@ impl ICertPropertyAutoEnroll_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertPropertyAutoEnroll as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
+        iid == &<ICertPropertyAutoEnroll as windows_core::Interface>::IID || ICertProperty_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1339,8 +1339,8 @@ pub struct ICertPropertyBackedUp_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertPropertyBackedUp_Impl: ICertProperty_Impl {
-    fn InitializeFromCurrentTime(&self, backedupvalue: super::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn Initialize(&self, backedupvalue: super::VARIANT_BOOL, date: super::DATE) -> windows_core::Result<()>;
+    fn InitializeFromCurrentTime(&self, backedupvalue: super::VARIANT_BOOL) -> windows_core::HRESULT;
+    fn Initialize(&self, backedupvalue: super::VARIANT_BOOL, date: super::DATE) -> windows_core::HRESULT;
     fn BackedUpValue(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn BackedUpTime(&self) -> windows_core::Result<super::DATE>;
 }
@@ -1350,13 +1350,13 @@ impl ICertPropertyBackedUp_Vtbl {
         unsafe extern "system" fn InitializeFromCurrentTime<Identity: ICertPropertyBackedUp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, backedupvalue: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertPropertyBackedUp_Impl::InitializeFromCurrentTime(this, core::mem::transmute_copy(&backedupvalue)).into()
+                ICertPropertyBackedUp_Impl::InitializeFromCurrentTime(this, core::mem::transmute_copy(&backedupvalue))
             }
         }
         unsafe extern "system" fn Initialize<Identity: ICertPropertyBackedUp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, backedupvalue: super::VARIANT_BOOL, date: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertPropertyBackedUp_Impl::Initialize(this, core::mem::transmute_copy(&backedupvalue), core::mem::transmute_copy(&date)).into()
+                ICertPropertyBackedUp_Impl::Initialize(this, core::mem::transmute_copy(&backedupvalue), core::mem::transmute_copy(&date))
             }
         }
         unsafe extern "system" fn BackedUpValue<Identity: ICertPropertyBackedUp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -1398,7 +1398,7 @@ impl ICertPropertyBackedUp_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertPropertyBackedUp as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
+        iid == &<ICertPropertyBackedUp as windows_core::Interface>::IID || ICertProperty_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1436,7 +1436,7 @@ pub struct ICertPropertyDescription_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertPropertyDescription_Impl: ICertProperty_Impl {
-    fn Initialize(&self, strdescription: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Initialize(&self, strdescription: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1445,7 +1445,7 @@ impl ICertPropertyDescription_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICertPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strdescription: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertPropertyDescription_Impl::Initialize(this, core::mem::transmute(&strdescription)).into()
+                ICertPropertyDescription_Impl::Initialize(this, core::mem::transmute(&strdescription))
             }
         }
         unsafe extern "system" fn Description<Identity: ICertPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1466,7 +1466,7 @@ impl ICertPropertyDescription_Vtbl {
         Self { base__: ICertProperty_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, OFFSET>, Description: Description::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertPropertyDescription as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
+        iid == &<ICertPropertyDescription as windows_core::Interface>::IID || ICertProperty_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1533,7 +1533,7 @@ pub struct ICertPropertyEnrollment_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertPropertyEnrollment_Impl: ICertProperty_Impl {
-    fn Initialize(&self, requestid: super::LONG, strcadnsname: &windows_core::BSTR, strcaname: &windows_core::BSTR, strfriendlyname: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Initialize(&self, requestid: super::LONG, strcadnsname: &windows_core::BSTR, strcaname: &windows_core::BSTR, strfriendlyname: &windows_core::BSTR) -> windows_core::HRESULT;
     fn RequestId(&self) -> windows_core::Result<super::LONG>;
     fn CADnsName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CAName(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -1545,7 +1545,7 @@ impl ICertPropertyEnrollment_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICertPropertyEnrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requestid: super::LONG, strcadnsname: *mut core::ffi::c_void, strcaname: *mut core::ffi::c_void, strfriendlyname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertPropertyEnrollment_Impl::Initialize(this, core::mem::transmute_copy(&requestid), core::mem::transmute(&strcadnsname), core::mem::transmute(&strcaname), core::mem::transmute(&strfriendlyname)).into()
+                ICertPropertyEnrollment_Impl::Initialize(this, core::mem::transmute_copy(&requestid), core::mem::transmute(&strcadnsname), core::mem::transmute(&strcaname), core::mem::transmute(&strfriendlyname))
             }
         }
         unsafe extern "system" fn RequestId<Identity: ICertPropertyEnrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::LONG) -> windows_core::HRESULT {
@@ -1618,7 +1618,7 @@ impl ICertPropertyEnrollment_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertPropertyEnrollment as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
+        iid == &<ICertPropertyEnrollment as windows_core::Interface>::IID || ICertProperty_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1717,7 +1717,7 @@ pub struct ICertPropertyEnrollmentPolicyServer_Vtbl {
 }
 #[cfg(all(feature = "certcli", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertPropertyEnrollmentPolicyServer_Impl: ICertProperty_Impl {
-    fn Initialize(&self, propertyflags: EnrollmentPolicyServerPropertyFlags, authflags: super::X509EnrollmentAuthFlags, enrollmentserverauthflags: super::X509EnrollmentAuthFlags, urlflags: PolicyServerUrlFlags, strrequestid: &windows_core::BSTR, strurl: &windows_core::BSTR, strid: &windows_core::BSTR, strenrollmentserverurl: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Initialize(&self, propertyflags: EnrollmentPolicyServerPropertyFlags, authflags: super::X509EnrollmentAuthFlags, enrollmentserverauthflags: super::X509EnrollmentAuthFlags, urlflags: PolicyServerUrlFlags, strrequestid: &windows_core::BSTR, strurl: &windows_core::BSTR, strid: &windows_core::BSTR, strenrollmentserverurl: &windows_core::BSTR) -> windows_core::HRESULT;
     fn GetPolicyServerUrl(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetPolicyServerId(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetEnrollmentServerUrl(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -1733,7 +1733,7 @@ impl ICertPropertyEnrollmentPolicyServer_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICertPropertyEnrollmentPolicyServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyflags: EnrollmentPolicyServerPropertyFlags, authflags: super::X509EnrollmentAuthFlags, enrollmentserverauthflags: super::X509EnrollmentAuthFlags, urlflags: PolicyServerUrlFlags, strrequestid: *mut core::ffi::c_void, strurl: *mut core::ffi::c_void, strid: *mut core::ffi::c_void, strenrollmentserverurl: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertPropertyEnrollmentPolicyServer_Impl::Initialize(this, core::mem::transmute_copy(&propertyflags), core::mem::transmute_copy(&authflags), core::mem::transmute_copy(&enrollmentserverauthflags), core::mem::transmute_copy(&urlflags), core::mem::transmute(&strrequestid), core::mem::transmute(&strurl), core::mem::transmute(&strid), core::mem::transmute(&strenrollmentserverurl)).into()
+                ICertPropertyEnrollmentPolicyServer_Impl::Initialize(this, core::mem::transmute_copy(&propertyflags), core::mem::transmute_copy(&authflags), core::mem::transmute_copy(&enrollmentserverauthflags), core::mem::transmute_copy(&urlflags), core::mem::transmute(&strrequestid), core::mem::transmute(&strurl), core::mem::transmute(&strid), core::mem::transmute(&strenrollmentserverurl))
             }
         }
         unsafe extern "system" fn GetPolicyServerUrl<Identity: ICertPropertyEnrollmentPolicyServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1870,7 +1870,7 @@ impl ICertPropertyEnrollmentPolicyServer_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertPropertyEnrollmentPolicyServer as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
+        iid == &<ICertPropertyEnrollmentPolicyServer as windows_core::Interface>::IID || ICertProperty_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "certcli", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1908,7 +1908,7 @@ pub struct ICertPropertyFriendlyName_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertPropertyFriendlyName_Impl: ICertProperty_Impl {
-    fn Initialize(&self, strfriendlyname: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Initialize(&self, strfriendlyname: &windows_core::BSTR) -> windows_core::HRESULT;
     fn FriendlyName(&self) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1917,7 +1917,7 @@ impl ICertPropertyFriendlyName_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICertPropertyFriendlyName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strfriendlyname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertPropertyFriendlyName_Impl::Initialize(this, core::mem::transmute(&strfriendlyname)).into()
+                ICertPropertyFriendlyName_Impl::Initialize(this, core::mem::transmute(&strfriendlyname))
             }
         }
         unsafe extern "system" fn FriendlyName<Identity: ICertPropertyFriendlyName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1942,7 +1942,7 @@ impl ICertPropertyFriendlyName_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertPropertyFriendlyName as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
+        iid == &<ICertPropertyFriendlyName as windows_core::Interface>::IID || ICertProperty_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1983,7 +1983,7 @@ pub struct ICertPropertyKeyProvInfo_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertPropertyKeyProvInfo_Impl: ICertProperty_Impl {
-    fn Initialize(&self, pvalue: windows_core::Ref<IX509PrivateKey>) -> windows_core::Result<()>;
+    fn Initialize(&self, pvalue: windows_core::Ref<IX509PrivateKey>) -> windows_core::HRESULT;
     fn PrivateKey(&self) -> windows_core::Result<IX509PrivateKey>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1992,7 +1992,7 @@ impl ICertPropertyKeyProvInfo_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICertPropertyKeyProvInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertPropertyKeyProvInfo_Impl::Initialize(this, core::mem::transmute_copy(&pvalue)).into()
+                ICertPropertyKeyProvInfo_Impl::Initialize(this, core::mem::transmute_copy(&pvalue))
             }
         }
         unsafe extern "system" fn PrivateKey<Identity: ICertPropertyKeyProvInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2013,7 +2013,7 @@ impl ICertPropertyKeyProvInfo_Vtbl {
         Self { base__: ICertProperty_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, OFFSET>, PrivateKey: PrivateKey::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertPropertyKeyProvInfo as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
+        iid == &<ICertPropertyKeyProvInfo as windows_core::Interface>::IID || ICertProperty_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2059,8 +2059,8 @@ pub struct ICertPropertyRenewal_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertPropertyRenewal_Impl: ICertProperty_Impl {
-    fn Initialize(&self, encoding: EncodingType, strrenewalvalue: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn InitializeFromCertificateHash(&self, machinecontext: super::VARIANT_BOOL, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Initialize(&self, encoding: EncodingType, strrenewalvalue: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn InitializeFromCertificateHash(&self, machinecontext: super::VARIANT_BOOL, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Renewal(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2069,13 +2069,13 @@ impl ICertPropertyRenewal_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICertPropertyRenewal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strrenewalvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertPropertyRenewal_Impl::Initialize(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strrenewalvalue)).into()
+                ICertPropertyRenewal_Impl::Initialize(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strrenewalvalue))
             }
         }
         unsafe extern "system" fn InitializeFromCertificateHash<Identity: ICertPropertyRenewal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, machinecontext: super::VARIANT_BOOL, encoding: EncodingType, strcertificate: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertPropertyRenewal_Impl::InitializeFromCertificateHash(this, core::mem::transmute_copy(&machinecontext), core::mem::transmute_copy(&encoding), core::mem::transmute(&strcertificate)).into()
+                ICertPropertyRenewal_Impl::InitializeFromCertificateHash(this, core::mem::transmute_copy(&machinecontext), core::mem::transmute_copy(&encoding), core::mem::transmute(&strcertificate))
             }
         }
         unsafe extern "system" fn Renewal<Identity: ICertPropertyRenewal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2101,7 +2101,7 @@ impl ICertPropertyRenewal_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertPropertyRenewal as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
+        iid == &<ICertPropertyRenewal as windows_core::Interface>::IID || ICertProperty_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2143,8 +2143,8 @@ pub struct ICertPropertyRequestOriginator_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertPropertyRequestOriginator_Impl: ICertProperty_Impl {
-    fn Initialize(&self, strrequestoriginator: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn InitializeFromLocalRequestOriginator(&self) -> windows_core::Result<()>;
+    fn Initialize(&self, strrequestoriginator: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn InitializeFromLocalRequestOriginator(&self) -> windows_core::HRESULT;
     fn RequestOriginator(&self) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2153,13 +2153,13 @@ impl ICertPropertyRequestOriginator_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICertPropertyRequestOriginator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strrequestoriginator: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertPropertyRequestOriginator_Impl::Initialize(this, core::mem::transmute(&strrequestoriginator)).into()
+                ICertPropertyRequestOriginator_Impl::Initialize(this, core::mem::transmute(&strrequestoriginator))
             }
         }
         unsafe extern "system" fn InitializeFromLocalRequestOriginator<Identity: ICertPropertyRequestOriginator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertPropertyRequestOriginator_Impl::InitializeFromLocalRequestOriginator(this).into()
+                ICertPropertyRequestOriginator_Impl::InitializeFromLocalRequestOriginator(this)
             }
         }
         unsafe extern "system" fn RequestOriginator<Identity: ICertPropertyRequestOriginator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2185,7 +2185,7 @@ impl ICertPropertyRequestOriginator_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertPropertyRequestOriginator as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
+        iid == &<ICertPropertyRequestOriginator as windows_core::Interface>::IID || ICertProperty_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2223,7 +2223,7 @@ pub struct ICertPropertySHA1Hash_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertPropertySHA1Hash_Impl: ICertProperty_Impl {
-    fn Initialize(&self, encoding: EncodingType, strrenewalvalue: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Initialize(&self, encoding: EncodingType, strrenewalvalue: &windows_core::BSTR) -> windows_core::HRESULT;
     fn SHA1Hash(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2232,7 +2232,7 @@ impl ICertPropertySHA1Hash_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICertPropertySHA1Hash_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strrenewalvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertPropertySHA1Hash_Impl::Initialize(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strrenewalvalue)).into()
+                ICertPropertySHA1Hash_Impl::Initialize(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strrenewalvalue))
             }
         }
         unsafe extern "system" fn SHA1Hash<Identity: ICertPropertySHA1Hash_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2253,7 +2253,7 @@ impl ICertPropertySHA1Hash_Vtbl {
         Self { base__: ICertProperty_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, OFFSET>, SHA1Hash: SHA1Hash::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertPropertySHA1Hash as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
+        iid == &<ICertPropertySHA1Hash as windows_core::Interface>::IID || ICertProperty_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2298,7 +2298,7 @@ pub struct ICertificateAttestationChallenge_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertificateAttestationChallenge_Impl: super::IDispatch_Impl {
-    fn Initialize(&self, encoding: EncodingType, strpendingfullcmcresponsewithchallenge: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Initialize(&self, encoding: EncodingType, strpendingfullcmcresponsewithchallenge: &windows_core::BSTR) -> windows_core::HRESULT;
     fn DecryptChallenge(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn RequestID(&self) -> windows_core::Result<windows_core::BSTR>;
 }
@@ -2308,7 +2308,7 @@ impl ICertificateAttestationChallenge_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICertificateAttestationChallenge_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strpendingfullcmcresponsewithchallenge: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertificateAttestationChallenge_Impl::Initialize(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strpendingfullcmcresponsewithchallenge)).into()
+                ICertificateAttestationChallenge_Impl::Initialize(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strpendingfullcmcresponsewithchallenge))
             }
         }
         unsafe extern "system" fn DecryptChallenge<Identity: ICertificateAttestationChallenge_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, pstrenvelopedpkcs7reencryptedtoca: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2349,7 +2349,7 @@ impl ICertificateAttestationChallenge_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertificateAttestationChallenge as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ICertificateAttestationChallenge as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2384,8 +2384,8 @@ pub struct ICertificateAttestationChallenge2_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertificateAttestationChallenge2_Impl: ICertificateAttestationChallenge_Impl {
-    fn SetKeyContainerName(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetKeyBlob(&self, encoding: EncodingType, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetKeyContainerName(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn SetKeyBlob(&self, encoding: EncodingType, value: &windows_core::BSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertificateAttestationChallenge2_Vtbl {
@@ -2393,13 +2393,13 @@ impl ICertificateAttestationChallenge2_Vtbl {
         unsafe extern "system" fn SetKeyContainerName<Identity: ICertificateAttestationChallenge2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertificateAttestationChallenge2_Impl::SetKeyContainerName(this, core::mem::transmute(&value)).into()
+                ICertificateAttestationChallenge2_Impl::SetKeyContainerName(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn SetKeyBlob<Identity: ICertificateAttestationChallenge2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertificateAttestationChallenge2_Impl::SetKeyBlob(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&value)).into()
+                ICertificateAttestationChallenge2_Impl::SetKeyBlob(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&value))
             }
         }
         Self {
@@ -2409,7 +2409,7 @@ impl ICertificateAttestationChallenge2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertificateAttestationChallenge2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ICertificateAttestationChallenge as windows_core::Interface>::IID
+        iid == &<ICertificateAttestationChallenge2 as windows_core::Interface>::IID || ICertificateAttestationChallenge_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2487,9 +2487,9 @@ pub trait ICertificatePolicies_Impl: super::IDispatch_Impl {
     fn ItemByIndex(&self, index: super::LONG) -> windows_core::Result<ICertificatePolicy>;
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<super::LPUNKNOWN>;
-    fn Add(&self, pval: windows_core::Ref<ICertificatePolicy>) -> windows_core::Result<()>;
-    fn Remove(&self, index: super::LONG) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
+    fn Add(&self, pval: windows_core::Ref<ICertificatePolicy>) -> windows_core::HRESULT;
+    fn Remove(&self, index: super::LONG) -> windows_core::HRESULT;
+    fn Clear(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "unknwnbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertificatePolicies_Vtbl {
@@ -2542,19 +2542,19 @@ impl ICertificatePolicies_Vtbl {
         unsafe extern "system" fn Add<Identity: ICertificatePolicies_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertificatePolicies_Impl::Add(this, core::mem::transmute_copy(&pval)).into()
+                ICertificatePolicies_Impl::Add(this, core::mem::transmute_copy(&pval))
             }
         }
         unsafe extern "system" fn Remove<Identity: ICertificatePolicies_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertificatePolicies_Impl::Remove(this, core::mem::transmute_copy(&index)).into()
+                ICertificatePolicies_Impl::Remove(this, core::mem::transmute_copy(&index))
             }
         }
         unsafe extern "system" fn Clear<Identity: ICertificatePolicies_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertificatePolicies_Impl::Clear(this).into()
+                ICertificatePolicies_Impl::Clear(this)
             }
         }
         Self {
@@ -2568,7 +2568,7 @@ impl ICertificatePolicies_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertificatePolicies as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ICertificatePolicies as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "unknwnbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2616,7 +2616,7 @@ pub struct ICertificatePolicy_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertificatePolicy_Impl: super::IDispatch_Impl {
-    fn Initialize(&self, pvalue: windows_core::Ref<IObjectId>) -> windows_core::Result<()>;
+    fn Initialize(&self, pvalue: windows_core::Ref<IObjectId>) -> windows_core::HRESULT;
     fn ObjectId(&self) -> windows_core::Result<IObjectId>;
     fn PolicyQualifiers(&self) -> windows_core::Result<IPolicyQualifiers>;
 }
@@ -2626,7 +2626,7 @@ impl ICertificatePolicy_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICertificatePolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertificatePolicy_Impl::Initialize(this, core::mem::transmute_copy(&pvalue)).into()
+                ICertificatePolicy_Impl::Initialize(this, core::mem::transmute_copy(&pvalue))
             }
         }
         unsafe extern "system" fn ObjectId<Identity: ICertificatePolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2667,7 +2667,7 @@ impl ICertificatePolicy_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertificatePolicy as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ICertificatePolicy as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2756,10 +2756,10 @@ pub trait ICertificationAuthorities_Impl: super::IDispatch_Impl {
     fn ItemByIndex(&self, index: super::LONG) -> windows_core::Result<ICertificationAuthority>;
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<super::LPUNKNOWN>;
-    fn Add(&self, pval: windows_core::Ref<ICertificationAuthority>) -> windows_core::Result<()>;
-    fn Remove(&self, index: super::LONG) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
-    fn ComputeSiteCosts(&self) -> windows_core::Result<()>;
+    fn Add(&self, pval: windows_core::Ref<ICertificationAuthority>) -> windows_core::HRESULT;
+    fn Remove(&self, index: super::LONG) -> windows_core::HRESULT;
+    fn Clear(&self) -> windows_core::HRESULT;
+    fn ComputeSiteCosts(&self) -> windows_core::HRESULT;
     fn ItemByName(&self, strname: &windows_core::BSTR) -> windows_core::Result<ICertificationAuthority>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "unknwnbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2813,25 +2813,25 @@ impl ICertificationAuthorities_Vtbl {
         unsafe extern "system" fn Add<Identity: ICertificationAuthorities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertificationAuthorities_Impl::Add(this, core::mem::transmute_copy(&pval)).into()
+                ICertificationAuthorities_Impl::Add(this, core::mem::transmute_copy(&pval))
             }
         }
         unsafe extern "system" fn Remove<Identity: ICertificationAuthorities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertificationAuthorities_Impl::Remove(this, core::mem::transmute_copy(&index)).into()
+                ICertificationAuthorities_Impl::Remove(this, core::mem::transmute_copy(&index))
             }
         }
         unsafe extern "system" fn Clear<Identity: ICertificationAuthorities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertificationAuthorities_Impl::Clear(this).into()
+                ICertificationAuthorities_Impl::Clear(this)
             }
         }
         unsafe extern "system" fn ComputeSiteCosts<Identity: ICertificationAuthorities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertificationAuthorities_Impl::ComputeSiteCosts(this).into()
+                ICertificationAuthorities_Impl::ComputeSiteCosts(this)
             }
         }
         unsafe extern "system" fn ItemByName<Identity: ICertificationAuthorities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2862,7 +2862,7 @@ impl ICertificationAuthorities_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertificationAuthorities as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ICertificationAuthorities as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "unknwnbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2923,7 +2923,7 @@ impl ICertificationAuthority_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), Property: Property::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertificationAuthority as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ICertificationAuthority as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2978,8 +2978,8 @@ pub struct ICryptAttribute_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICryptAttribute_Impl: super::IDispatch_Impl {
-    fn InitializeFromObjectId(&self, pobjectid: windows_core::Ref<IObjectId>) -> windows_core::Result<()>;
-    fn InitializeFromValues(&self, pattributes: windows_core::Ref<IX509Attributes>) -> windows_core::Result<()>;
+    fn InitializeFromObjectId(&self, pobjectid: windows_core::Ref<IObjectId>) -> windows_core::HRESULT;
+    fn InitializeFromValues(&self, pattributes: windows_core::Ref<IX509Attributes>) -> windows_core::HRESULT;
     fn ObjectId(&self) -> windows_core::Result<IObjectId>;
     fn Values(&self) -> windows_core::Result<IX509Attributes>;
 }
@@ -2989,13 +2989,13 @@ impl ICryptAttribute_Vtbl {
         unsafe extern "system" fn InitializeFromObjectId<Identity: ICryptAttribute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobjectid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICryptAttribute_Impl::InitializeFromObjectId(this, core::mem::transmute_copy(&pobjectid)).into()
+                ICryptAttribute_Impl::InitializeFromObjectId(this, core::mem::transmute_copy(&pobjectid))
             }
         }
         unsafe extern "system" fn InitializeFromValues<Identity: ICryptAttribute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pattributes: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICryptAttribute_Impl::InitializeFromValues(this, core::mem::transmute_copy(&pattributes)).into()
+                ICryptAttribute_Impl::InitializeFromValues(this, core::mem::transmute_copy(&pattributes))
             }
         }
         unsafe extern "system" fn ObjectId<Identity: ICryptAttribute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3037,7 +3037,7 @@ impl ICryptAttribute_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICryptAttribute as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ICryptAttribute as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3136,11 +3136,11 @@ pub trait ICryptAttributes_Impl: super::IDispatch_Impl {
     fn ItemByIndex(&self, index: super::LONG) -> windows_core::Result<ICryptAttribute>;
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<super::LPUNKNOWN>;
-    fn Add(&self, pval: windows_core::Ref<ICryptAttribute>) -> windows_core::Result<()>;
-    fn Remove(&self, index: super::LONG) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
+    fn Add(&self, pval: windows_core::Ref<ICryptAttribute>) -> windows_core::HRESULT;
+    fn Remove(&self, index: super::LONG) -> windows_core::HRESULT;
+    fn Clear(&self) -> windows_core::HRESULT;
     fn IndexByObjectId(&self, pobjectid: windows_core::Ref<IObjectId>) -> windows_core::Result<super::LONG>;
-    fn AddRange(&self, pvalue: windows_core::Ref<ICryptAttributes>) -> windows_core::Result<()>;
+    fn AddRange(&self, pvalue: windows_core::Ref<ICryptAttributes>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "unknwnbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICryptAttributes_Vtbl {
@@ -3193,19 +3193,19 @@ impl ICryptAttributes_Vtbl {
         unsafe extern "system" fn Add<Identity: ICryptAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICryptAttributes_Impl::Add(this, core::mem::transmute_copy(&pval)).into()
+                ICryptAttributes_Impl::Add(this, core::mem::transmute_copy(&pval))
             }
         }
         unsafe extern "system" fn Remove<Identity: ICryptAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICryptAttributes_Impl::Remove(this, core::mem::transmute_copy(&index)).into()
+                ICryptAttributes_Impl::Remove(this, core::mem::transmute_copy(&index))
             }
         }
         unsafe extern "system" fn Clear<Identity: ICryptAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICryptAttributes_Impl::Clear(this).into()
+                ICryptAttributes_Impl::Clear(this)
             }
         }
         unsafe extern "system" fn IndexByObjectId<Identity: ICryptAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobjectid: *mut core::ffi::c_void, pindex: *mut super::LONG) -> windows_core::HRESULT {
@@ -3226,7 +3226,7 @@ impl ICryptAttributes_Vtbl {
         unsafe extern "system" fn AddRange<Identity: ICryptAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICryptAttributes_Impl::AddRange(this, core::mem::transmute_copy(&pvalue)).into()
+                ICryptAttributes_Impl::AddRange(this, core::mem::transmute_copy(&pvalue))
             }
         }
         Self {
@@ -3242,7 +3242,7 @@ impl ICryptAttributes_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICryptAttributes as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ICryptAttributes as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "unknwnbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3542,7 +3542,7 @@ impl ICspAlgorithm_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICspAlgorithm as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ICspAlgorithm as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3641,9 +3641,9 @@ pub trait ICspAlgorithms_Impl: super::IDispatch_Impl {
     fn ItemByIndex(&self, index: super::LONG) -> windows_core::Result<ICspAlgorithm>;
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<super::LPUNKNOWN>;
-    fn Add(&self, pval: windows_core::Ref<ICspAlgorithm>) -> windows_core::Result<()>;
-    fn Remove(&self, index: super::LONG) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
+    fn Add(&self, pval: windows_core::Ref<ICspAlgorithm>) -> windows_core::HRESULT;
+    fn Remove(&self, index: super::LONG) -> windows_core::HRESULT;
+    fn Clear(&self) -> windows_core::HRESULT;
     fn ItemByName(&self, strname: &windows_core::BSTR) -> windows_core::Result<ICspAlgorithm>;
     fn IndexByObjectId(&self, pobjectid: windows_core::Ref<IObjectId>) -> windows_core::Result<super::LONG>;
 }
@@ -3698,19 +3698,19 @@ impl ICspAlgorithms_Vtbl {
         unsafe extern "system" fn Add<Identity: ICspAlgorithms_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICspAlgorithms_Impl::Add(this, core::mem::transmute_copy(&pval)).into()
+                ICspAlgorithms_Impl::Add(this, core::mem::transmute_copy(&pval))
             }
         }
         unsafe extern "system" fn Remove<Identity: ICspAlgorithms_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICspAlgorithms_Impl::Remove(this, core::mem::transmute_copy(&index)).into()
+                ICspAlgorithms_Impl::Remove(this, core::mem::transmute_copy(&index))
             }
         }
         unsafe extern "system" fn Clear<Identity: ICspAlgorithms_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICspAlgorithms_Impl::Clear(this).into()
+                ICspAlgorithms_Impl::Clear(this)
             }
         }
         unsafe extern "system" fn ItemByName<Identity: ICspAlgorithms_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3756,7 +3756,7 @@ impl ICspAlgorithms_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICspAlgorithms as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ICspAlgorithms as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "unknwnbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3946,8 +3946,8 @@ pub struct ICspInformation_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICspInformation_Impl: super::IDispatch_Impl {
-    fn InitializeFromName(&self, strname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn InitializeFromType(&self, r#type: X509ProviderType, palgorithm: windows_core::Ref<IObjectId>, machinecontext: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn InitializeFromName(&self, strname: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn InitializeFromType(&self, r#type: X509ProviderType, palgorithm: windows_core::Ref<IObjectId>, machinecontext: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn CspAlgorithms(&self) -> windows_core::Result<ICspAlgorithms>;
     fn HasHardwareRandomNumberGenerator(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn IsHardwareDevice(&self) -> windows_core::Result<super::VARIANT_BOOL>;
@@ -3970,13 +3970,13 @@ impl ICspInformation_Vtbl {
         unsafe extern "system" fn InitializeFromName<Identity: ICspInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICspInformation_Impl::InitializeFromName(this, core::mem::transmute(&strname)).into()
+                ICspInformation_Impl::InitializeFromName(this, core::mem::transmute(&strname))
             }
         }
         unsafe extern "system" fn InitializeFromType<Identity: ICspInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: X509ProviderType, palgorithm: *mut core::ffi::c_void, machinecontext: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICspInformation_Impl::InitializeFromType(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&palgorithm), core::mem::transmute_copy(&machinecontext)).into()
+                ICspInformation_Impl::InitializeFromType(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&palgorithm), core::mem::transmute_copy(&machinecontext))
             }
         }
         unsafe extern "system" fn CspAlgorithms<Identity: ICspInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4226,7 +4226,7 @@ impl ICspInformation_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICspInformation as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ICspInformation as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4352,10 +4352,10 @@ pub trait ICspInformations_Impl: super::IDispatch_Impl {
     fn ItemByIndex(&self, index: super::LONG) -> windows_core::Result<ICspInformation>;
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<super::LPUNKNOWN>;
-    fn Add(&self, pval: windows_core::Ref<ICspInformation>) -> windows_core::Result<()>;
-    fn Remove(&self, index: super::LONG) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
-    fn AddAvailableCsps(&self) -> windows_core::Result<()>;
+    fn Add(&self, pval: windows_core::Ref<ICspInformation>) -> windows_core::HRESULT;
+    fn Remove(&self, index: super::LONG) -> windows_core::HRESULT;
+    fn Clear(&self) -> windows_core::HRESULT;
+    fn AddAvailableCsps(&self) -> windows_core::HRESULT;
     fn ItemByName(&self, strname: &windows_core::BSTR) -> windows_core::Result<ICspInformation>;
     fn GetCspStatusFromProviderName(&self, strprovidername: &windows_core::BSTR, legacykeyspec: X509KeySpec) -> windows_core::Result<ICspStatus>;
     fn GetCspStatusesFromOperations(&self, operations: AlgorithmOperationFlags, pcspinformation: windows_core::Ref<ICspInformation>) -> windows_core::Result<ICspStatuses>;
@@ -4413,25 +4413,25 @@ impl ICspInformations_Vtbl {
         unsafe extern "system" fn Add<Identity: ICspInformations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICspInformations_Impl::Add(this, core::mem::transmute_copy(&pval)).into()
+                ICspInformations_Impl::Add(this, core::mem::transmute_copy(&pval))
             }
         }
         unsafe extern "system" fn Remove<Identity: ICspInformations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICspInformations_Impl::Remove(this, core::mem::transmute_copy(&index)).into()
+                ICspInformations_Impl::Remove(this, core::mem::transmute_copy(&index))
             }
         }
         unsafe extern "system" fn Clear<Identity: ICspInformations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICspInformations_Impl::Clear(this).into()
+                ICspInformations_Impl::Clear(this)
             }
         }
         unsafe extern "system" fn AddAvailableCsps<Identity: ICspInformations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICspInformations_Impl::AddAvailableCsps(this).into()
+                ICspInformations_Impl::AddAvailableCsps(this)
             }
         }
         unsafe extern "system" fn ItemByName<Identity: ICspInformations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, ppcspinformation: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4526,7 +4526,7 @@ impl ICspInformations_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICspInformations as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ICspInformations as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "unknwnbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4608,9 +4608,9 @@ pub struct ICspStatus_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICspStatus_Impl: super::IDispatch_Impl {
-    fn Initialize(&self, pcsp: windows_core::Ref<ICspInformation>, palgorithm: windows_core::Ref<ICspAlgorithm>) -> windows_core::Result<()>;
+    fn Initialize(&self, pcsp: windows_core::Ref<ICspInformation>, palgorithm: windows_core::Ref<ICspAlgorithm>) -> windows_core::HRESULT;
     fn Ordinal(&self) -> windows_core::Result<super::LONG>;
-    fn SetOrdinal(&self, value: super::LONG) -> windows_core::Result<()>;
+    fn SetOrdinal(&self, value: super::LONG) -> windows_core::HRESULT;
     fn CspAlgorithm(&self) -> windows_core::Result<ICspAlgorithm>;
     fn CspInformation(&self) -> windows_core::Result<ICspInformation>;
     fn EnrollmentStatus(&self) -> windows_core::Result<IX509EnrollmentStatus>;
@@ -4622,7 +4622,7 @@ impl ICspStatus_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICspStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcsp: *mut core::ffi::c_void, palgorithm: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICspStatus_Impl::Initialize(this, core::mem::transmute_copy(&pcsp), core::mem::transmute_copy(&palgorithm)).into()
+                ICspStatus_Impl::Initialize(this, core::mem::transmute_copy(&pcsp), core::mem::transmute_copy(&palgorithm))
             }
         }
         unsafe extern "system" fn Ordinal<Identity: ICspStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::LONG) -> windows_core::HRESULT {
@@ -4643,7 +4643,7 @@ impl ICspStatus_Vtbl {
         unsafe extern "system" fn SetOrdinal<Identity: ICspStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICspStatus_Impl::SetOrdinal(this, core::mem::transmute_copy(&value)).into()
+                ICspStatus_Impl::SetOrdinal(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn CspAlgorithm<Identity: ICspStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4718,7 +4718,7 @@ impl ICspStatus_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICspStatus as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ICspStatus as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4831,9 +4831,9 @@ pub trait ICspStatuses_Impl: super::IDispatch_Impl {
     fn ItemByIndex(&self, index: super::LONG) -> windows_core::Result<ICspStatus>;
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<super::LPUNKNOWN>;
-    fn Add(&self, pval: windows_core::Ref<ICspStatus>) -> windows_core::Result<()>;
-    fn Remove(&self, index: super::LONG) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
+    fn Add(&self, pval: windows_core::Ref<ICspStatus>) -> windows_core::HRESULT;
+    fn Remove(&self, index: super::LONG) -> windows_core::HRESULT;
+    fn Clear(&self) -> windows_core::HRESULT;
     fn ItemByName(&self, strcspname: &windows_core::BSTR, stralgorithmname: &windows_core::BSTR) -> windows_core::Result<ICspStatus>;
     fn ItemByOrdinal(&self, ordinal: super::LONG) -> windows_core::Result<ICspStatus>;
     fn ItemByOperations(&self, strcspname: &windows_core::BSTR, stralgorithmname: &windows_core::BSTR, operations: AlgorithmOperationFlags) -> windows_core::Result<ICspStatus>;
@@ -4890,19 +4890,19 @@ impl ICspStatuses_Vtbl {
         unsafe extern "system" fn Add<Identity: ICspStatuses_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICspStatuses_Impl::Add(this, core::mem::transmute_copy(&pval)).into()
+                ICspStatuses_Impl::Add(this, core::mem::transmute_copy(&pval))
             }
         }
         unsafe extern "system" fn Remove<Identity: ICspStatuses_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICspStatuses_Impl::Remove(this, core::mem::transmute_copy(&index)).into()
+                ICspStatuses_Impl::Remove(this, core::mem::transmute_copy(&index))
             }
         }
         unsafe extern "system" fn Clear<Identity: ICspStatuses_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICspStatuses_Impl::Clear(this).into()
+                ICspStatuses_Impl::Clear(this)
             }
         }
         unsafe extern "system" fn ItemByName<Identity: ICspStatuses_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strcspname: *mut core::ffi::c_void, stralgorithmname: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4980,7 +4980,7 @@ impl ICspStatuses_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICspStatuses as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ICspStatuses as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "unknwnbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -5051,12 +5051,12 @@ pub struct IObjectId_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IObjectId_Impl: super::IDispatch_Impl {
-    fn InitializeFromName(&self, name: CERTENROLL_OBJECTID) -> windows_core::Result<()>;
-    fn InitializeFromValue(&self, strvalue: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn InitializeFromAlgorithmName(&self, groupid: ObjectIdGroupId, keyflags: ObjectIdPublicKeyFlags, algflags: AlgorithmFlags, stralgorithmname: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn InitializeFromName(&self, name: CERTENROLL_OBJECTID) -> windows_core::HRESULT;
+    fn InitializeFromValue(&self, strvalue: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn InitializeFromAlgorithmName(&self, groupid: ObjectIdGroupId, keyflags: ObjectIdPublicKeyFlags, algflags: AlgorithmFlags, stralgorithmname: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Name(&self) -> windows_core::Result<CERTENROLL_OBJECTID>;
     fn FriendlyName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetFriendlyName(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetFriendlyName(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Value(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetAlgorithmName(&self, groupid: ObjectIdGroupId, keyflags: ObjectIdPublicKeyFlags) -> windows_core::Result<windows_core::BSTR>;
 }
@@ -5066,19 +5066,19 @@ impl IObjectId_Vtbl {
         unsafe extern "system" fn InitializeFromName<Identity: IObjectId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: CERTENROLL_OBJECTID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IObjectId_Impl::InitializeFromName(this, core::mem::transmute_copy(&name)).into()
+                IObjectId_Impl::InitializeFromName(this, core::mem::transmute_copy(&name))
             }
         }
         unsafe extern "system" fn InitializeFromValue<Identity: IObjectId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IObjectId_Impl::InitializeFromValue(this, core::mem::transmute(&strvalue)).into()
+                IObjectId_Impl::InitializeFromValue(this, core::mem::transmute(&strvalue))
             }
         }
         unsafe extern "system" fn InitializeFromAlgorithmName<Identity: IObjectId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, groupid: ObjectIdGroupId, keyflags: ObjectIdPublicKeyFlags, algflags: AlgorithmFlags, stralgorithmname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IObjectId_Impl::InitializeFromAlgorithmName(this, core::mem::transmute_copy(&groupid), core::mem::transmute_copy(&keyflags), core::mem::transmute_copy(&algflags), core::mem::transmute(&stralgorithmname)).into()
+                IObjectId_Impl::InitializeFromAlgorithmName(this, core::mem::transmute_copy(&groupid), core::mem::transmute_copy(&keyflags), core::mem::transmute_copy(&algflags), core::mem::transmute(&stralgorithmname))
             }
         }
         unsafe extern "system" fn Name<Identity: IObjectId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut CERTENROLL_OBJECTID) -> windows_core::HRESULT {
@@ -5114,7 +5114,7 @@ impl IObjectId_Vtbl {
         unsafe extern "system" fn SetFriendlyName<Identity: IObjectId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IObjectId_Impl::SetFriendlyName(this, core::mem::transmute(&value)).into()
+                IObjectId_Impl::SetFriendlyName(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn Value<Identity: IObjectId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5160,7 +5160,7 @@ impl IObjectId_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IObjectId as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IObjectId as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -5245,10 +5245,10 @@ pub trait IObjectIds_Impl: super::IDispatch_Impl {
     fn ItemByIndex(&self, index: super::LONG) -> windows_core::Result<IObjectId>;
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<super::LPUNKNOWN>;
-    fn Add(&self, pval: windows_core::Ref<IObjectId>) -> windows_core::Result<()>;
-    fn Remove(&self, index: super::LONG) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
-    fn AddRange(&self, pvalue: windows_core::Ref<IObjectIds>) -> windows_core::Result<()>;
+    fn Add(&self, pval: windows_core::Ref<IObjectId>) -> windows_core::HRESULT;
+    fn Remove(&self, index: super::LONG) -> windows_core::HRESULT;
+    fn Clear(&self) -> windows_core::HRESULT;
+    fn AddRange(&self, pvalue: windows_core::Ref<IObjectIds>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "unknwnbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IObjectIds_Vtbl {
@@ -5301,25 +5301,25 @@ impl IObjectIds_Vtbl {
         unsafe extern "system" fn Add<Identity: IObjectIds_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IObjectIds_Impl::Add(this, core::mem::transmute_copy(&pval)).into()
+                IObjectIds_Impl::Add(this, core::mem::transmute_copy(&pval))
             }
         }
         unsafe extern "system" fn Remove<Identity: IObjectIds_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IObjectIds_Impl::Remove(this, core::mem::transmute_copy(&index)).into()
+                IObjectIds_Impl::Remove(this, core::mem::transmute_copy(&index))
             }
         }
         unsafe extern "system" fn Clear<Identity: IObjectIds_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IObjectIds_Impl::Clear(this).into()
+                IObjectIds_Impl::Clear(this)
             }
         }
         unsafe extern "system" fn AddRange<Identity: IObjectIds_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IObjectIds_Impl::AddRange(this, core::mem::transmute_copy(&pvalue)).into()
+                IObjectIds_Impl::AddRange(this, core::mem::transmute_copy(&pvalue))
             }
         }
         Self {
@@ -5334,7 +5334,7 @@ impl IObjectIds_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IObjectIds as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IObjectIds as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "unknwnbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -5393,7 +5393,7 @@ pub struct IPolicyQualifier_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPolicyQualifier_Impl: super::IDispatch_Impl {
-    fn InitializeEncode(&self, strqualifier: &windows_core::BSTR, r#type: PolicyQualifierType) -> windows_core::Result<()>;
+    fn InitializeEncode(&self, strqualifier: &windows_core::BSTR, r#type: PolicyQualifierType) -> windows_core::HRESULT;
     fn ObjectId(&self) -> windows_core::Result<IObjectId>;
     fn Qualifier(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Type(&self) -> windows_core::Result<PolicyQualifierType>;
@@ -5405,7 +5405,7 @@ impl IPolicyQualifier_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IPolicyQualifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strqualifier: *mut core::ffi::c_void, r#type: PolicyQualifierType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPolicyQualifier_Impl::InitializeEncode(this, core::mem::transmute(&strqualifier), core::mem::transmute_copy(&r#type)).into()
+                IPolicyQualifier_Impl::InitializeEncode(this, core::mem::transmute(&strqualifier), core::mem::transmute_copy(&r#type))
             }
         }
         unsafe extern "system" fn ObjectId<Identity: IPolicyQualifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5478,7 +5478,7 @@ impl IPolicyQualifier_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPolicyQualifier as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IPolicyQualifier as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -5556,9 +5556,9 @@ pub trait IPolicyQualifiers_Impl: super::IDispatch_Impl {
     fn ItemByIndex(&self, index: super::LONG) -> windows_core::Result<IPolicyQualifier>;
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<super::LPUNKNOWN>;
-    fn Add(&self, pval: windows_core::Ref<IPolicyQualifier>) -> windows_core::Result<()>;
-    fn Remove(&self, index: super::LONG) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
+    fn Add(&self, pval: windows_core::Ref<IPolicyQualifier>) -> windows_core::HRESULT;
+    fn Remove(&self, index: super::LONG) -> windows_core::HRESULT;
+    fn Clear(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "unknwnbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPolicyQualifiers_Vtbl {
@@ -5611,19 +5611,19 @@ impl IPolicyQualifiers_Vtbl {
         unsafe extern "system" fn Add<Identity: IPolicyQualifiers_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPolicyQualifiers_Impl::Add(this, core::mem::transmute_copy(&pval)).into()
+                IPolicyQualifiers_Impl::Add(this, core::mem::transmute_copy(&pval))
             }
         }
         unsafe extern "system" fn Remove<Identity: IPolicyQualifiers_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPolicyQualifiers_Impl::Remove(this, core::mem::transmute_copy(&index)).into()
+                IPolicyQualifiers_Impl::Remove(this, core::mem::transmute_copy(&index))
             }
         }
         unsafe extern "system" fn Clear<Identity: IPolicyQualifiers_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPolicyQualifiers_Impl::Clear(this).into()
+                IPolicyQualifiers_Impl::Clear(this)
             }
         }
         Self {
@@ -5637,7 +5637,7 @@ impl IPolicyQualifiers_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPolicyQualifiers as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IPolicyQualifiers as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "unknwnbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -5746,16 +5746,16 @@ pub struct ISignerCertificate_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISignerCertificate_Impl: super::IDispatch_Impl {
-    fn Initialize(&self, machinecontext: super::VARIANT_BOOL, verifytype: X509PrivateKeyVerify, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Initialize(&self, machinecontext: super::VARIANT_BOOL, verifytype: X509PrivateKeyVerify, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Certificate(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn PrivateKey(&self) -> windows_core::Result<IX509PrivateKey>;
     fn Silent(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetSilent(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetSilent(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn ParentWindow(&self) -> windows_core::Result<super::LONG>;
-    fn SetParentWindow(&self, value: super::LONG) -> windows_core::Result<()>;
+    fn SetParentWindow(&self, value: super::LONG) -> windows_core::HRESULT;
     fn UIContextMessage(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetUIContextMessage(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetPin(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetUIContextMessage(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn SetPin(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn SignatureInformation(&self) -> windows_core::Result<IX509SignatureInformation>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -5764,7 +5764,7 @@ impl ISignerCertificate_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ISignerCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, machinecontext: super::VARIANT_BOOL, verifytype: X509PrivateKeyVerify, encoding: EncodingType, strcertificate: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISignerCertificate_Impl::Initialize(this, core::mem::transmute_copy(&machinecontext), core::mem::transmute_copy(&verifytype), core::mem::transmute_copy(&encoding), core::mem::transmute(&strcertificate)).into()
+                ISignerCertificate_Impl::Initialize(this, core::mem::transmute_copy(&machinecontext), core::mem::transmute_copy(&verifytype), core::mem::transmute_copy(&encoding), core::mem::transmute(&strcertificate))
             }
         }
         unsafe extern "system" fn Certificate<Identity: ISignerCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5815,7 +5815,7 @@ impl ISignerCertificate_Vtbl {
         unsafe extern "system" fn SetSilent<Identity: ISignerCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISignerCertificate_Impl::SetSilent(this, core::mem::transmute_copy(&value)).into()
+                ISignerCertificate_Impl::SetSilent(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn ParentWindow<Identity: ISignerCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::LONG) -> windows_core::HRESULT {
@@ -5836,7 +5836,7 @@ impl ISignerCertificate_Vtbl {
         unsafe extern "system" fn SetParentWindow<Identity: ISignerCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISignerCertificate_Impl::SetParentWindow(this, core::mem::transmute_copy(&value)).into()
+                ISignerCertificate_Impl::SetParentWindow(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn UIContextMessage<Identity: ISignerCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5857,13 +5857,13 @@ impl ISignerCertificate_Vtbl {
         unsafe extern "system" fn SetUIContextMessage<Identity: ISignerCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISignerCertificate_Impl::SetUIContextMessage(this, core::mem::transmute(&value)).into()
+                ISignerCertificate_Impl::SetUIContextMessage(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn SetPin<Identity: ISignerCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISignerCertificate_Impl::SetPin(this, core::mem::transmute(&value)).into()
+                ISignerCertificate_Impl::SetPin(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn SignatureInformation<Identity: ISignerCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5897,7 +5897,7 @@ impl ISignerCertificate_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISignerCertificate as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISignerCertificate as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -5989,9 +5989,9 @@ pub trait ISignerCertificates_Impl: super::IDispatch_Impl {
     fn ItemByIndex(&self, index: super::LONG) -> windows_core::Result<ISignerCertificate>;
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<super::LPUNKNOWN>;
-    fn Add(&self, pval: windows_core::Ref<ISignerCertificate>) -> windows_core::Result<()>;
-    fn Remove(&self, index: super::LONG) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
+    fn Add(&self, pval: windows_core::Ref<ISignerCertificate>) -> windows_core::HRESULT;
+    fn Remove(&self, index: super::LONG) -> windows_core::HRESULT;
+    fn Clear(&self) -> windows_core::HRESULT;
     fn Find(&self, psignercert: windows_core::Ref<ISignerCertificate>) -> windows_core::Result<super::LONG>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "unknwnbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6045,19 +6045,19 @@ impl ISignerCertificates_Vtbl {
         unsafe extern "system" fn Add<Identity: ISignerCertificates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISignerCertificates_Impl::Add(this, core::mem::transmute_copy(&pval)).into()
+                ISignerCertificates_Impl::Add(this, core::mem::transmute_copy(&pval))
             }
         }
         unsafe extern "system" fn Remove<Identity: ISignerCertificates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISignerCertificates_Impl::Remove(this, core::mem::transmute_copy(&index)).into()
+                ISignerCertificates_Impl::Remove(this, core::mem::transmute_copy(&index))
             }
         }
         unsafe extern "system" fn Clear<Identity: ISignerCertificates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISignerCertificates_Impl::Clear(this).into()
+                ISignerCertificates_Impl::Clear(this)
             }
         }
         unsafe extern "system" fn Find<Identity: ISignerCertificates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psignercert: *mut core::ffi::c_void, pisignercert: *mut super::LONG) -> windows_core::HRESULT {
@@ -6087,7 +6087,7 @@ impl ISignerCertificates_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISignerCertificates as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISignerCertificates as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "unknwnbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6180,11 +6180,11 @@ pub trait ISmimeCapabilities_Impl: super::IDispatch_Impl {
     fn ItemByIndex(&self, index: super::LONG) -> windows_core::Result<ISmimeCapability>;
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<super::LPUNKNOWN>;
-    fn Add(&self, pval: windows_core::Ref<ISmimeCapability>) -> windows_core::Result<()>;
-    fn Remove(&self, index: super::LONG) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
-    fn AddFromCsp(&self, pvalue: windows_core::Ref<ICspInformation>) -> windows_core::Result<()>;
-    fn AddAvailableSmimeCapabilities(&self, machinecontext: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn Add(&self, pval: windows_core::Ref<ISmimeCapability>) -> windows_core::HRESULT;
+    fn Remove(&self, index: super::LONG) -> windows_core::HRESULT;
+    fn Clear(&self) -> windows_core::HRESULT;
+    fn AddFromCsp(&self, pvalue: windows_core::Ref<ICspInformation>) -> windows_core::HRESULT;
+    fn AddAvailableSmimeCapabilities(&self, machinecontext: super::VARIANT_BOOL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "unknwnbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISmimeCapabilities_Vtbl {
@@ -6237,31 +6237,31 @@ impl ISmimeCapabilities_Vtbl {
         unsafe extern "system" fn Add<Identity: ISmimeCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISmimeCapabilities_Impl::Add(this, core::mem::transmute_copy(&pval)).into()
+                ISmimeCapabilities_Impl::Add(this, core::mem::transmute_copy(&pval))
             }
         }
         unsafe extern "system" fn Remove<Identity: ISmimeCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISmimeCapabilities_Impl::Remove(this, core::mem::transmute_copy(&index)).into()
+                ISmimeCapabilities_Impl::Remove(this, core::mem::transmute_copy(&index))
             }
         }
         unsafe extern "system" fn Clear<Identity: ISmimeCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISmimeCapabilities_Impl::Clear(this).into()
+                ISmimeCapabilities_Impl::Clear(this)
             }
         }
         unsafe extern "system" fn AddFromCsp<Identity: ISmimeCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISmimeCapabilities_Impl::AddFromCsp(this, core::mem::transmute_copy(&pvalue)).into()
+                ISmimeCapabilities_Impl::AddFromCsp(this, core::mem::transmute_copy(&pvalue))
             }
         }
         unsafe extern "system" fn AddAvailableSmimeCapabilities<Identity: ISmimeCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, machinecontext: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISmimeCapabilities_Impl::AddAvailableSmimeCapabilities(this, core::mem::transmute_copy(&machinecontext)).into()
+                ISmimeCapabilities_Impl::AddAvailableSmimeCapabilities(this, core::mem::transmute_copy(&machinecontext))
             }
         }
         Self {
@@ -6277,7 +6277,7 @@ impl ISmimeCapabilities_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISmimeCapabilities as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISmimeCapabilities as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "unknwnbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6333,7 +6333,7 @@ pub struct ISmimeCapability_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISmimeCapability_Impl: super::IDispatch_Impl {
-    fn Initialize(&self, pobjectid: windows_core::Ref<IObjectId>, bitcount: super::LONG) -> windows_core::Result<()>;
+    fn Initialize(&self, pobjectid: windows_core::Ref<IObjectId>, bitcount: super::LONG) -> windows_core::HRESULT;
     fn ObjectId(&self) -> windows_core::Result<IObjectId>;
     fn BitCount(&self) -> windows_core::Result<super::LONG>;
 }
@@ -6343,7 +6343,7 @@ impl ISmimeCapability_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ISmimeCapability_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobjectid: *mut core::ffi::c_void, bitcount: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISmimeCapability_Impl::Initialize(this, core::mem::transmute_copy(&pobjectid), core::mem::transmute_copy(&bitcount)).into()
+                ISmimeCapability_Impl::Initialize(this, core::mem::transmute_copy(&pobjectid), core::mem::transmute_copy(&bitcount))
             }
         }
         unsafe extern "system" fn ObjectId<Identity: ISmimeCapability_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6384,7 +6384,7 @@ impl ISmimeCapability_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISmimeCapability as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISmimeCapability as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6433,8 +6433,8 @@ pub struct IX500DistinguishedName_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX500DistinguishedName_Impl: super::IDispatch_Impl {
-    fn Decode(&self, strencodedname: &windows_core::BSTR, encoding: EncodingType, nameflags: X500NameFlags) -> windows_core::Result<()>;
-    fn Encode(&self, strname: &windows_core::BSTR, nameflags: X500NameFlags) -> windows_core::Result<()>;
+    fn Decode(&self, strencodedname: &windows_core::BSTR, encoding: EncodingType, nameflags: X500NameFlags) -> windows_core::HRESULT;
+    fn Encode(&self, strname: &windows_core::BSTR, nameflags: X500NameFlags) -> windows_core::HRESULT;
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn EncodedName(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
@@ -6444,13 +6444,13 @@ impl IX500DistinguishedName_Vtbl {
         unsafe extern "system" fn Decode<Identity: IX500DistinguishedName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencodedname: *mut core::ffi::c_void, encoding: EncodingType, nameflags: X500NameFlags) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX500DistinguishedName_Impl::Decode(this, core::mem::transmute(&strencodedname), core::mem::transmute_copy(&encoding), core::mem::transmute_copy(&nameflags)).into()
+                IX500DistinguishedName_Impl::Decode(this, core::mem::transmute(&strencodedname), core::mem::transmute_copy(&encoding), core::mem::transmute_copy(&nameflags))
             }
         }
         unsafe extern "system" fn Encode<Identity: IX500DistinguishedName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, nameflags: X500NameFlags) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX500DistinguishedName_Impl::Encode(this, core::mem::transmute(&strname), core::mem::transmute_copy(&nameflags)).into()
+                IX500DistinguishedName_Impl::Encode(this, core::mem::transmute(&strname), core::mem::transmute_copy(&nameflags))
             }
         }
         unsafe extern "system" fn Name<Identity: IX500DistinguishedName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6492,7 +6492,7 @@ impl IX500DistinguishedName_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX500DistinguishedName as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IX500DistinguishedName as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6540,7 +6540,7 @@ pub struct IX509Attribute_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509Attribute_Impl: super::IDispatch_Impl {
-    fn Initialize(&self, pobjectid: windows_core::Ref<IObjectId>, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Initialize(&self, pobjectid: windows_core::Ref<IObjectId>, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::HRESULT;
     fn ObjectId(&self) -> windows_core::Result<IObjectId>;
     fn RawData(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
@@ -6550,7 +6550,7 @@ impl IX509Attribute_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IX509Attribute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobjectid: *mut core::ffi::c_void, encoding: EncodingType, strencodeddata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509Attribute_Impl::Initialize(this, core::mem::transmute_copy(&pobjectid), core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata)).into()
+                IX509Attribute_Impl::Initialize(this, core::mem::transmute_copy(&pobjectid), core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata))
             }
         }
         unsafe extern "system" fn ObjectId<Identity: IX509Attribute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6591,7 +6591,7 @@ impl IX509Attribute_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509Attribute as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IX509Attribute as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6659,8 +6659,8 @@ pub struct IX509AttributeArchiveKey_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509AttributeArchiveKey_Impl: IX509Attribute_Impl {
-    fn InitializeEncode(&self, pkey: windows_core::Ref<IX509PrivateKey>, encoding: EncodingType, strcaxcert: &windows_core::BSTR, palgorithm: windows_core::Ref<IObjectId>, encryptionstrength: super::LONG) -> windows_core::Result<()>;
-    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn InitializeEncode(&self, pkey: windows_core::Ref<IX509PrivateKey>, encoding: EncodingType, strcaxcert: &windows_core::BSTR, palgorithm: windows_core::Ref<IObjectId>, encryptionstrength: super::LONG) -> windows_core::HRESULT;
+    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::HRESULT;
     fn EncryptedKeyBlob(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn EncryptionAlgorithm(&self) -> windows_core::Result<IObjectId>;
     fn EncryptionStrength(&self) -> windows_core::Result<super::LONG>;
@@ -6671,13 +6671,13 @@ impl IX509AttributeArchiveKey_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509AttributeArchiveKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pkey: *mut core::ffi::c_void, encoding: EncodingType, strcaxcert: *mut core::ffi::c_void, palgorithm: *mut core::ffi::c_void, encryptionstrength: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509AttributeArchiveKey_Impl::InitializeEncode(this, core::mem::transmute_copy(&pkey), core::mem::transmute_copy(&encoding), core::mem::transmute(&strcaxcert), core::mem::transmute_copy(&palgorithm), core::mem::transmute_copy(&encryptionstrength)).into()
+                IX509AttributeArchiveKey_Impl::InitializeEncode(this, core::mem::transmute_copy(&pkey), core::mem::transmute_copy(&encoding), core::mem::transmute(&strcaxcert), core::mem::transmute_copy(&palgorithm), core::mem::transmute_copy(&encryptionstrength))
             }
         }
         unsafe extern "system" fn InitializeDecode<Identity: IX509AttributeArchiveKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strencodeddata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509AttributeArchiveKey_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata)).into()
+                IX509AttributeArchiveKey_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata))
             }
         }
         unsafe extern "system" fn EncryptedKeyBlob<Identity: IX509AttributeArchiveKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6735,7 +6735,7 @@ impl IX509AttributeArchiveKey_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509AttributeArchiveKey as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IX509Attribute as windows_core::Interface>::IID
+        iid == &<IX509AttributeArchiveKey as windows_core::Interface>::IID || IX509Attribute_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6777,8 +6777,8 @@ pub struct IX509AttributeArchiveKeyHash_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509AttributeArchiveKeyHash_Impl: IX509Attribute_Impl {
-    fn InitializeEncodeFromEncryptedKeyBlob(&self, encoding: EncodingType, strencryptedkeyblob: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn InitializeEncodeFromEncryptedKeyBlob(&self, encoding: EncodingType, strencryptedkeyblob: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::HRESULT;
     fn EncryptedKeyHashBlob(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6787,13 +6787,13 @@ impl IX509AttributeArchiveKeyHash_Vtbl {
         unsafe extern "system" fn InitializeEncodeFromEncryptedKeyBlob<Identity: IX509AttributeArchiveKeyHash_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strencryptedkeyblob: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509AttributeArchiveKeyHash_Impl::InitializeEncodeFromEncryptedKeyBlob(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencryptedkeyblob)).into()
+                IX509AttributeArchiveKeyHash_Impl::InitializeEncodeFromEncryptedKeyBlob(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencryptedkeyblob))
             }
         }
         unsafe extern "system" fn InitializeDecode<Identity: IX509AttributeArchiveKeyHash_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strencodeddata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509AttributeArchiveKeyHash_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata)).into()
+                IX509AttributeArchiveKeyHash_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata))
             }
         }
         unsafe extern "system" fn EncryptedKeyHashBlob<Identity: IX509AttributeArchiveKeyHash_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6819,7 +6819,7 @@ impl IX509AttributeArchiveKeyHash_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509AttributeArchiveKeyHash as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IX509Attribute as windows_core::Interface>::IID
+        iid == &<IX509AttributeArchiveKeyHash as windows_core::Interface>::IID || IX509Attribute_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6882,8 +6882,8 @@ pub struct IX509AttributeClientId_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509AttributeClientId_Impl: IX509Attribute_Impl {
-    fn InitializeEncode(&self, clientid: RequestClientInfoClientId, strmachinednsname: &windows_core::BSTR, strusersamname: &windows_core::BSTR, strprocessname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn InitializeEncode(&self, clientid: RequestClientInfoClientId, strmachinednsname: &windows_core::BSTR, strusersamname: &windows_core::BSTR, strprocessname: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::HRESULT;
     fn ClientId(&self) -> windows_core::Result<RequestClientInfoClientId>;
     fn MachineDnsName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn UserSamName(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -6895,13 +6895,13 @@ impl IX509AttributeClientId_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509AttributeClientId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clientid: RequestClientInfoClientId, strmachinednsname: *mut core::ffi::c_void, strusersamname: *mut core::ffi::c_void, strprocessname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509AttributeClientId_Impl::InitializeEncode(this, core::mem::transmute_copy(&clientid), core::mem::transmute(&strmachinednsname), core::mem::transmute(&strusersamname), core::mem::transmute(&strprocessname)).into()
+                IX509AttributeClientId_Impl::InitializeEncode(this, core::mem::transmute_copy(&clientid), core::mem::transmute(&strmachinednsname), core::mem::transmute(&strusersamname), core::mem::transmute(&strprocessname))
             }
         }
         unsafe extern "system" fn InitializeDecode<Identity: IX509AttributeClientId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strencodeddata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509AttributeClientId_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata)).into()
+                IX509AttributeClientId_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata))
             }
         }
         unsafe extern "system" fn ClientId<Identity: IX509AttributeClientId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut RequestClientInfoClientId) -> windows_core::HRESULT {
@@ -6975,7 +6975,7 @@ impl IX509AttributeClientId_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509AttributeClientId as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IX509Attribute as windows_core::Interface>::IID
+        iid == &<IX509AttributeClientId as windows_core::Interface>::IID || IX509Attribute_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7031,8 +7031,8 @@ pub struct IX509AttributeCspProvider_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509AttributeCspProvider_Impl: IX509Attribute_Impl {
-    fn InitializeEncode(&self, keyspec: X509KeySpec, strprovidername: &windows_core::BSTR, encoding: EncodingType, strsignature: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn InitializeEncode(&self, keyspec: X509KeySpec, strprovidername: &windows_core::BSTR, encoding: EncodingType, strsignature: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::HRESULT;
     fn KeySpec(&self) -> windows_core::Result<X509KeySpec>;
     fn ProviderName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Signature(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
@@ -7043,13 +7043,13 @@ impl IX509AttributeCspProvider_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509AttributeCspProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, keyspec: X509KeySpec, strprovidername: *mut core::ffi::c_void, encoding: EncodingType, strsignature: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509AttributeCspProvider_Impl::InitializeEncode(this, core::mem::transmute_copy(&keyspec), core::mem::transmute(&strprovidername), core::mem::transmute_copy(&encoding), core::mem::transmute(&strsignature)).into()
+                IX509AttributeCspProvider_Impl::InitializeEncode(this, core::mem::transmute_copy(&keyspec), core::mem::transmute(&strprovidername), core::mem::transmute_copy(&encoding), core::mem::transmute(&strsignature))
             }
         }
         unsafe extern "system" fn InitializeDecode<Identity: IX509AttributeCspProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strencodeddata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509AttributeCspProvider_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata)).into()
+                IX509AttributeCspProvider_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata))
             }
         }
         unsafe extern "system" fn KeySpec<Identity: IX509AttributeCspProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut X509KeySpec) -> windows_core::HRESULT {
@@ -7107,7 +7107,7 @@ impl IX509AttributeCspProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509AttributeCspProvider as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IX509Attribute as windows_core::Interface>::IID
+        iid == &<IX509AttributeCspProvider as windows_core::Interface>::IID || IX509Attribute_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7152,8 +7152,8 @@ pub struct IX509AttributeExtensions_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509AttributeExtensions_Impl: IX509Attribute_Impl {
-    fn InitializeEncode(&self, pextensions: windows_core::Ref<IX509Extensions>) -> windows_core::Result<()>;
-    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn InitializeEncode(&self, pextensions: windows_core::Ref<IX509Extensions>) -> windows_core::HRESULT;
+    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::HRESULT;
     fn X509Extensions(&self) -> windows_core::Result<IX509Extensions>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7162,13 +7162,13 @@ impl IX509AttributeExtensions_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509AttributeExtensions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pextensions: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509AttributeExtensions_Impl::InitializeEncode(this, core::mem::transmute_copy(&pextensions)).into()
+                IX509AttributeExtensions_Impl::InitializeEncode(this, core::mem::transmute_copy(&pextensions))
             }
         }
         unsafe extern "system" fn InitializeDecode<Identity: IX509AttributeExtensions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strencodeddata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509AttributeExtensions_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata)).into()
+                IX509AttributeExtensions_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata))
             }
         }
         unsafe extern "system" fn X509Extensions<Identity: IX509AttributeExtensions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7194,7 +7194,7 @@ impl IX509AttributeExtensions_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509AttributeExtensions as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IX509Attribute as windows_core::Interface>::IID
+        iid == &<IX509AttributeExtensions as windows_core::Interface>::IID || IX509Attribute_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7236,8 +7236,8 @@ pub struct IX509AttributeOSVersion_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509AttributeOSVersion_Impl: IX509Attribute_Impl {
-    fn InitializeEncode(&self, strosversion: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn InitializeEncode(&self, strosversion: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::HRESULT;
     fn OSVersion(&self) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7246,13 +7246,13 @@ impl IX509AttributeOSVersion_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509AttributeOSVersion_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strosversion: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509AttributeOSVersion_Impl::InitializeEncode(this, core::mem::transmute(&strosversion)).into()
+                IX509AttributeOSVersion_Impl::InitializeEncode(this, core::mem::transmute(&strosversion))
             }
         }
         unsafe extern "system" fn InitializeDecode<Identity: IX509AttributeOSVersion_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strencodeddata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509AttributeOSVersion_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata)).into()
+                IX509AttributeOSVersion_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata))
             }
         }
         unsafe extern "system" fn OSVersion<Identity: IX509AttributeOSVersion_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7278,7 +7278,7 @@ impl IX509AttributeOSVersion_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509AttributeOSVersion as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IX509Attribute as windows_core::Interface>::IID
+        iid == &<IX509AttributeOSVersion as windows_core::Interface>::IID || IX509Attribute_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7320,8 +7320,8 @@ pub struct IX509AttributeRenewalCertificate_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509AttributeRenewalCertificate_Impl: IX509Attribute_Impl {
-    fn InitializeEncode(&self, encoding: EncodingType, strcert: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn InitializeEncode(&self, encoding: EncodingType, strcert: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::HRESULT;
     fn RenewalCertificate(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7330,13 +7330,13 @@ impl IX509AttributeRenewalCertificate_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509AttributeRenewalCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strcert: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509AttributeRenewalCertificate_Impl::InitializeEncode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strcert)).into()
+                IX509AttributeRenewalCertificate_Impl::InitializeEncode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strcert))
             }
         }
         unsafe extern "system" fn InitializeDecode<Identity: IX509AttributeRenewalCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strencodeddata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509AttributeRenewalCertificate_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata)).into()
+                IX509AttributeRenewalCertificate_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata))
             }
         }
         unsafe extern "system" fn RenewalCertificate<Identity: IX509AttributeRenewalCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7362,7 +7362,7 @@ impl IX509AttributeRenewalCertificate_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509AttributeRenewalCertificate as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IX509Attribute as windows_core::Interface>::IID
+        iid == &<IX509AttributeRenewalCertificate as windows_core::Interface>::IID || IX509Attribute_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7440,9 +7440,9 @@ pub trait IX509Attributes_Impl: super::IDispatch_Impl {
     fn ItemByIndex(&self, index: super::LONG) -> windows_core::Result<IX509Attribute>;
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<super::LPUNKNOWN>;
-    fn Add(&self, pval: windows_core::Ref<IX509Attribute>) -> windows_core::Result<()>;
-    fn Remove(&self, index: super::LONG) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
+    fn Add(&self, pval: windows_core::Ref<IX509Attribute>) -> windows_core::HRESULT;
+    fn Remove(&self, index: super::LONG) -> windows_core::HRESULT;
+    fn Clear(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "unknwnbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509Attributes_Vtbl {
@@ -7495,19 +7495,19 @@ impl IX509Attributes_Vtbl {
         unsafe extern "system" fn Add<Identity: IX509Attributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509Attributes_Impl::Add(this, core::mem::transmute_copy(&pval)).into()
+                IX509Attributes_Impl::Add(this, core::mem::transmute_copy(&pval))
             }
         }
         unsafe extern "system" fn Remove<Identity: IX509Attributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509Attributes_Impl::Remove(this, core::mem::transmute_copy(&index)).into()
+                IX509Attributes_Impl::Remove(this, core::mem::transmute_copy(&index))
             }
         }
         unsafe extern "system" fn Clear<Identity: IX509Attributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509Attributes_Impl::Clear(this).into()
+                IX509Attributes_Impl::Clear(this)
             }
         }
         Self {
@@ -7521,7 +7521,7 @@ impl IX509Attributes_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509Attributes as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IX509Attributes as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "unknwnbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7725,30 +7725,30 @@ pub struct IX509CertificateRequest_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509CertificateRequest_Impl: super::IDispatch_Impl {
-    fn Initialize(&self, context: X509CertificateEnrollmentContext) -> windows_core::Result<()>;
-    fn Encode(&self) -> windows_core::Result<()>;
-    fn ResetForEncode(&self) -> windows_core::Result<()>;
+    fn Initialize(&self, context: X509CertificateEnrollmentContext) -> windows_core::HRESULT;
+    fn Encode(&self) -> windows_core::HRESULT;
+    fn ResetForEncode(&self) -> windows_core::HRESULT;
     fn GetInnerRequest(&self, level: InnerRequestLevel) -> windows_core::Result<IX509CertificateRequest>;
     fn Type(&self) -> windows_core::Result<X509RequestType>;
     fn EnrollmentContext(&self) -> windows_core::Result<X509CertificateEnrollmentContext>;
     fn Silent(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetSilent(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetSilent(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn ParentWindow(&self) -> windows_core::Result<super::LONG>;
-    fn SetParentWindow(&self, value: super::LONG) -> windows_core::Result<()>;
+    fn SetParentWindow(&self, value: super::LONG) -> windows_core::HRESULT;
     fn UIContextMessage(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetUIContextMessage(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetUIContextMessage(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn SuppressDefaults(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetSuppressDefaults(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetSuppressDefaults(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn RenewalCertificate(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
-    fn SetRenewalCertificate(&self, encoding: EncodingType, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetRenewalCertificate(&self, encoding: EncodingType, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn ClientId(&self) -> windows_core::Result<RequestClientInfoClientId>;
-    fn SetClientId(&self, value: RequestClientInfoClientId) -> windows_core::Result<()>;
+    fn SetClientId(&self, value: RequestClientInfoClientId) -> windows_core::HRESULT;
     fn CspInformations(&self) -> windows_core::Result<ICspInformations>;
-    fn SetCspInformations(&self, pvalue: windows_core::Ref<ICspInformations>) -> windows_core::Result<()>;
+    fn SetCspInformations(&self, pvalue: windows_core::Ref<ICspInformations>) -> windows_core::HRESULT;
     fn HashAlgorithm(&self) -> windows_core::Result<IObjectId>;
-    fn SetHashAlgorithm(&self, pvalue: windows_core::Ref<IObjectId>) -> windows_core::Result<()>;
+    fn SetHashAlgorithm(&self, pvalue: windows_core::Ref<IObjectId>) -> windows_core::HRESULT;
     fn AlternateSignatureAlgorithm(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetAlternateSignatureAlgorithm(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetAlternateSignatureAlgorithm(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn RawData(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7757,19 +7757,19 @@ impl IX509CertificateRequest_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequest_Impl::Initialize(this, core::mem::transmute_copy(&context)).into()
+                IX509CertificateRequest_Impl::Initialize(this, core::mem::transmute_copy(&context))
             }
         }
         unsafe extern "system" fn Encode<Identity: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequest_Impl::Encode(this).into()
+                IX509CertificateRequest_Impl::Encode(this)
             }
         }
         unsafe extern "system" fn ResetForEncode<Identity: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequest_Impl::ResetForEncode(this).into()
+                IX509CertificateRequest_Impl::ResetForEncode(this)
             }
         }
         unsafe extern "system" fn GetInnerRequest<Identity: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, level: InnerRequestLevel, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7835,7 +7835,7 @@ impl IX509CertificateRequest_Vtbl {
         unsafe extern "system" fn SetSilent<Identity: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequest_Impl::SetSilent(this, core::mem::transmute_copy(&value)).into()
+                IX509CertificateRequest_Impl::SetSilent(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn ParentWindow<Identity: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::LONG) -> windows_core::HRESULT {
@@ -7856,7 +7856,7 @@ impl IX509CertificateRequest_Vtbl {
         unsafe extern "system" fn SetParentWindow<Identity: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequest_Impl::SetParentWindow(this, core::mem::transmute_copy(&value)).into()
+                IX509CertificateRequest_Impl::SetParentWindow(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn UIContextMessage<Identity: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7877,7 +7877,7 @@ impl IX509CertificateRequest_Vtbl {
         unsafe extern "system" fn SetUIContextMessage<Identity: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequest_Impl::SetUIContextMessage(this, core::mem::transmute(&value)).into()
+                IX509CertificateRequest_Impl::SetUIContextMessage(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn SuppressDefaults<Identity: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -7898,7 +7898,7 @@ impl IX509CertificateRequest_Vtbl {
         unsafe extern "system" fn SetSuppressDefaults<Identity: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequest_Impl::SetSuppressDefaults(this, core::mem::transmute_copy(&value)).into()
+                IX509CertificateRequest_Impl::SetSuppressDefaults(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn RenewalCertificate<Identity: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7919,7 +7919,7 @@ impl IX509CertificateRequest_Vtbl {
         unsafe extern "system" fn SetRenewalCertificate<Identity: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequest_Impl::SetRenewalCertificate(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&value)).into()
+                IX509CertificateRequest_Impl::SetRenewalCertificate(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn ClientId<Identity: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut RequestClientInfoClientId) -> windows_core::HRESULT {
@@ -7940,7 +7940,7 @@ impl IX509CertificateRequest_Vtbl {
         unsafe extern "system" fn SetClientId<Identity: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: RequestClientInfoClientId) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequest_Impl::SetClientId(this, core::mem::transmute_copy(&value)).into()
+                IX509CertificateRequest_Impl::SetClientId(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn CspInformations<Identity: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7961,7 +7961,7 @@ impl IX509CertificateRequest_Vtbl {
         unsafe extern "system" fn SetCspInformations<Identity: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequest_Impl::SetCspInformations(this, core::mem::transmute_copy(&pvalue)).into()
+                IX509CertificateRequest_Impl::SetCspInformations(this, core::mem::transmute_copy(&pvalue))
             }
         }
         unsafe extern "system" fn HashAlgorithm<Identity: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7982,7 +7982,7 @@ impl IX509CertificateRequest_Vtbl {
         unsafe extern "system" fn SetHashAlgorithm<Identity: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequest_Impl::SetHashAlgorithm(this, core::mem::transmute_copy(&pvalue)).into()
+                IX509CertificateRequest_Impl::SetHashAlgorithm(this, core::mem::transmute_copy(&pvalue))
             }
         }
         unsafe extern "system" fn AlternateSignatureAlgorithm<Identity: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -8003,7 +8003,7 @@ impl IX509CertificateRequest_Vtbl {
         unsafe extern "system" fn SetAlternateSignatureAlgorithm<Identity: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequest_Impl::SetAlternateSignatureAlgorithm(this, core::mem::transmute_copy(&value)).into()
+                IX509CertificateRequest_Impl::SetAlternateSignatureAlgorithm(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn RawData<Identity: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8051,7 +8051,7 @@ impl IX509CertificateRequest_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509CertificateRequest as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IX509CertificateRequest as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -8162,17 +8162,17 @@ pub struct IX509CertificateRequestCertificate_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509CertificateRequestCertificate_Impl: IX509CertificateRequestPkcs10_Impl {
-    fn CheckPublicKeySignature(&self, ppublickey: windows_core::Ref<IX509PublicKey>) -> windows_core::Result<()>;
+    fn CheckPublicKeySignature(&self, ppublickey: windows_core::Ref<IX509PublicKey>) -> windows_core::HRESULT;
     fn Issuer(&self) -> windows_core::Result<IX500DistinguishedName>;
-    fn SetIssuer(&self, pvalue: windows_core::Ref<IX500DistinguishedName>) -> windows_core::Result<()>;
+    fn SetIssuer(&self, pvalue: windows_core::Ref<IX500DistinguishedName>) -> windows_core::HRESULT;
     fn NotBefore(&self) -> windows_core::Result<super::DATE>;
-    fn SetNotBefore(&self, value: super::DATE) -> windows_core::Result<()>;
+    fn SetNotBefore(&self, value: super::DATE) -> windows_core::HRESULT;
     fn NotAfter(&self) -> windows_core::Result<super::DATE>;
-    fn SetNotAfter(&self, value: super::DATE) -> windows_core::Result<()>;
+    fn SetNotAfter(&self, value: super::DATE) -> windows_core::HRESULT;
     fn SerialNumber(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
-    fn SetSerialNumber(&self, encoding: EncodingType, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetSerialNumber(&self, encoding: EncodingType, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn SignerCertificate(&self) -> windows_core::Result<ISignerCertificate>;
-    fn SetSignerCertificate(&self, pvalue: windows_core::Ref<ISignerCertificate>) -> windows_core::Result<()>;
+    fn SetSignerCertificate(&self, pvalue: windows_core::Ref<ISignerCertificate>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509CertificateRequestCertificate_Vtbl {
@@ -8180,7 +8180,7 @@ impl IX509CertificateRequestCertificate_Vtbl {
         unsafe extern "system" fn CheckPublicKeySignature<Identity: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppublickey: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestCertificate_Impl::CheckPublicKeySignature(this, core::mem::transmute_copy(&ppublickey)).into()
+                IX509CertificateRequestCertificate_Impl::CheckPublicKeySignature(this, core::mem::transmute_copy(&ppublickey))
             }
         }
         unsafe extern "system" fn Issuer<Identity: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8201,7 +8201,7 @@ impl IX509CertificateRequestCertificate_Vtbl {
         unsafe extern "system" fn SetIssuer<Identity: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestCertificate_Impl::SetIssuer(this, core::mem::transmute_copy(&pvalue)).into()
+                IX509CertificateRequestCertificate_Impl::SetIssuer(this, core::mem::transmute_copy(&pvalue))
             }
         }
         unsafe extern "system" fn NotBefore<Identity: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::DATE) -> windows_core::HRESULT {
@@ -8222,7 +8222,7 @@ impl IX509CertificateRequestCertificate_Vtbl {
         unsafe extern "system" fn SetNotBefore<Identity: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestCertificate_Impl::SetNotBefore(this, core::mem::transmute_copy(&value)).into()
+                IX509CertificateRequestCertificate_Impl::SetNotBefore(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn NotAfter<Identity: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::DATE) -> windows_core::HRESULT {
@@ -8243,7 +8243,7 @@ impl IX509CertificateRequestCertificate_Vtbl {
         unsafe extern "system" fn SetNotAfter<Identity: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestCertificate_Impl::SetNotAfter(this, core::mem::transmute_copy(&value)).into()
+                IX509CertificateRequestCertificate_Impl::SetNotAfter(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn SerialNumber<Identity: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8264,7 +8264,7 @@ impl IX509CertificateRequestCertificate_Vtbl {
         unsafe extern "system" fn SetSerialNumber<Identity: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestCertificate_Impl::SetSerialNumber(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&value)).into()
+                IX509CertificateRequestCertificate_Impl::SetSerialNumber(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn SignerCertificate<Identity: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8285,7 +8285,7 @@ impl IX509CertificateRequestCertificate_Vtbl {
         unsafe extern "system" fn SetSignerCertificate<Identity: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestCertificate_Impl::SetSignerCertificate(this, core::mem::transmute_copy(&pvalue)).into()
+                IX509CertificateRequestCertificate_Impl::SetSignerCertificate(this, core::mem::transmute_copy(&pvalue))
             }
         }
         Self {
@@ -8304,7 +8304,7 @@ impl IX509CertificateRequestCertificate_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509CertificateRequestCertificate as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IX509CertificateRequest as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10 as windows_core::Interface>::IID
+        iid == &<IX509CertificateRequestCertificate as windows_core::Interface>::IID || IX509CertificateRequestPkcs10_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -8362,8 +8362,8 @@ pub struct IX509CertificateRequestCertificate2_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509CertificateRequestCertificate2_Impl: IX509CertificateRequestCertificate_Impl {
-    fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, ppolicyserver: windows_core::Ref<IX509EnrollmentPolicyServer>, ptemplate: windows_core::Ref<IX509CertificateTemplate>) -> windows_core::Result<()>;
-    fn InitializeFromPrivateKeyTemplate(&self, context: X509CertificateEnrollmentContext, pprivatekey: windows_core::Ref<IX509PrivateKey>, ppolicyserver: windows_core::Ref<IX509EnrollmentPolicyServer>, ptemplate: windows_core::Ref<IX509CertificateTemplate>) -> windows_core::Result<()>;
+    fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, ppolicyserver: windows_core::Ref<IX509EnrollmentPolicyServer>, ptemplate: windows_core::Ref<IX509CertificateTemplate>) -> windows_core::HRESULT;
+    fn InitializeFromPrivateKeyTemplate(&self, context: X509CertificateEnrollmentContext, pprivatekey: windows_core::Ref<IX509PrivateKey>, ppolicyserver: windows_core::Ref<IX509EnrollmentPolicyServer>, ptemplate: windows_core::Ref<IX509CertificateTemplate>) -> windows_core::HRESULT;
     fn PolicyServer(&self) -> windows_core::Result<IX509EnrollmentPolicyServer>;
     fn Template(&self) -> windows_core::Result<IX509CertificateTemplate>;
 }
@@ -8373,13 +8373,13 @@ impl IX509CertificateRequestCertificate2_Vtbl {
         unsafe extern "system" fn InitializeFromTemplate<Identity: IX509CertificateRequestCertificate2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext, ppolicyserver: *mut core::ffi::c_void, ptemplate: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestCertificate2_Impl::InitializeFromTemplate(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&ppolicyserver), core::mem::transmute_copy(&ptemplate)).into()
+                IX509CertificateRequestCertificate2_Impl::InitializeFromTemplate(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&ppolicyserver), core::mem::transmute_copy(&ptemplate))
             }
         }
         unsafe extern "system" fn InitializeFromPrivateKeyTemplate<Identity: IX509CertificateRequestCertificate2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext, pprivatekey: *mut core::ffi::c_void, ppolicyserver: *mut core::ffi::c_void, ptemplate: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestCertificate2_Impl::InitializeFromPrivateKeyTemplate(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&pprivatekey), core::mem::transmute_copy(&ppolicyserver), core::mem::transmute_copy(&ptemplate)).into()
+                IX509CertificateRequestCertificate2_Impl::InitializeFromPrivateKeyTemplate(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&pprivatekey), core::mem::transmute_copy(&ppolicyserver), core::mem::transmute_copy(&ptemplate))
             }
         }
         unsafe extern "system" fn PolicyServer<Identity: IX509CertificateRequestCertificate2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppolicyserver: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8421,7 +8421,7 @@ impl IX509CertificateRequestCertificate2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509CertificateRequestCertificate2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IX509CertificateRequest as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10 as windows_core::Interface>::IID || iid == &<IX509CertificateRequestCertificate as windows_core::Interface>::IID
+        iid == &<IX509CertificateRequestCertificate2 as windows_core::Interface>::IID || IX509CertificateRequestCertificate_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -8622,7 +8622,7 @@ pub struct IX509CertificateRequestCmc_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509CertificateRequestCmc_Impl: IX509CertificateRequestPkcs7_Impl {
-    fn InitializeFromInnerRequestTemplateName(&self, pinnerrequest: windows_core::Ref<IX509CertificateRequest>, strtemplatename: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn InitializeFromInnerRequestTemplateName(&self, pinnerrequest: windows_core::Ref<IX509CertificateRequest>, strtemplatename: &windows_core::BSTR) -> windows_core::HRESULT;
     fn TemplateObjectId(&self) -> windows_core::Result<IObjectId>;
     fn NullSigned(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn CryptAttributes(&self) -> windows_core::Result<ICryptAttributes>;
@@ -8631,18 +8631,18 @@ pub trait IX509CertificateRequestCmc_Impl: IX509CertificateRequestPkcs7_Impl {
     fn CriticalExtensions(&self) -> windows_core::Result<IObjectIds>;
     fn SuppressOids(&self) -> windows_core::Result<IObjectIds>;
     fn TransactionId(&self) -> windows_core::Result<super::LONG>;
-    fn SetTransactionId(&self, value: super::LONG) -> windows_core::Result<()>;
+    fn SetTransactionId(&self, value: super::LONG) -> windows_core::HRESULT;
     fn SenderNonce(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
-    fn SetSenderNonce(&self, encoding: EncodingType, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetSenderNonce(&self, encoding: EncodingType, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn SignatureInformation(&self) -> windows_core::Result<IX509SignatureInformation>;
     fn ArchivePrivateKey(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetArchivePrivateKey(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetArchivePrivateKey(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn KeyArchivalCertificate(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
-    fn SetKeyArchivalCertificate(&self, encoding: EncodingType, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetKeyArchivalCertificate(&self, encoding: EncodingType, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn EncryptionAlgorithm(&self) -> windows_core::Result<IObjectId>;
-    fn SetEncryptionAlgorithm(&self, pvalue: windows_core::Ref<IObjectId>) -> windows_core::Result<()>;
+    fn SetEncryptionAlgorithm(&self, pvalue: windows_core::Ref<IObjectId>) -> windows_core::HRESULT;
     fn EncryptionStrength(&self) -> windows_core::Result<super::LONG>;
-    fn SetEncryptionStrength(&self, value: super::LONG) -> windows_core::Result<()>;
+    fn SetEncryptionStrength(&self, value: super::LONG) -> windows_core::HRESULT;
     fn EncryptedKeyHash(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn SignerCertificates(&self) -> windows_core::Result<ISignerCertificates>;
 }
@@ -8652,7 +8652,7 @@ impl IX509CertificateRequestCmc_Vtbl {
         unsafe extern "system" fn InitializeFromInnerRequestTemplateName<Identity: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinnerrequest: *mut core::ffi::c_void, strtemplatename: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestCmc_Impl::InitializeFromInnerRequestTemplateName(this, core::mem::transmute_copy(&pinnerrequest), core::mem::transmute(&strtemplatename)).into()
+                IX509CertificateRequestCmc_Impl::InitializeFromInnerRequestTemplateName(this, core::mem::transmute_copy(&pinnerrequest), core::mem::transmute(&strtemplatename))
             }
         }
         unsafe extern "system" fn TemplateObjectId<Identity: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8778,7 +8778,7 @@ impl IX509CertificateRequestCmc_Vtbl {
         unsafe extern "system" fn SetTransactionId<Identity: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestCmc_Impl::SetTransactionId(this, core::mem::transmute_copy(&value)).into()
+                IX509CertificateRequestCmc_Impl::SetTransactionId(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn SenderNonce<Identity: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8799,7 +8799,7 @@ impl IX509CertificateRequestCmc_Vtbl {
         unsafe extern "system" fn SetSenderNonce<Identity: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestCmc_Impl::SetSenderNonce(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&value)).into()
+                IX509CertificateRequestCmc_Impl::SetSenderNonce(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn SignatureInformation<Identity: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8835,7 +8835,7 @@ impl IX509CertificateRequestCmc_Vtbl {
         unsafe extern "system" fn SetArchivePrivateKey<Identity: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestCmc_Impl::SetArchivePrivateKey(this, core::mem::transmute_copy(&value)).into()
+                IX509CertificateRequestCmc_Impl::SetArchivePrivateKey(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn KeyArchivalCertificate<Identity: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8856,7 +8856,7 @@ impl IX509CertificateRequestCmc_Vtbl {
         unsafe extern "system" fn SetKeyArchivalCertificate<Identity: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestCmc_Impl::SetKeyArchivalCertificate(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&value)).into()
+                IX509CertificateRequestCmc_Impl::SetKeyArchivalCertificate(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn EncryptionAlgorithm<Identity: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8877,7 +8877,7 @@ impl IX509CertificateRequestCmc_Vtbl {
         unsafe extern "system" fn SetEncryptionAlgorithm<Identity: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestCmc_Impl::SetEncryptionAlgorithm(this, core::mem::transmute_copy(&pvalue)).into()
+                IX509CertificateRequestCmc_Impl::SetEncryptionAlgorithm(this, core::mem::transmute_copy(&pvalue))
             }
         }
         unsafe extern "system" fn EncryptionStrength<Identity: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::LONG) -> windows_core::HRESULT {
@@ -8898,7 +8898,7 @@ impl IX509CertificateRequestCmc_Vtbl {
         unsafe extern "system" fn SetEncryptionStrength<Identity: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestCmc_Impl::SetEncryptionStrength(this, core::mem::transmute_copy(&value)).into()
+                IX509CertificateRequestCmc_Impl::SetEncryptionStrength(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn EncryptedKeyHash<Identity: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8959,7 +8959,7 @@ impl IX509CertificateRequestCmc_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509CertificateRequestCmc as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IX509CertificateRequest as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs7 as windows_core::Interface>::IID
+        iid == &<IX509CertificateRequestCmc as windows_core::Interface>::IID || IX509CertificateRequestPkcs7_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -9032,12 +9032,12 @@ pub struct IX509CertificateRequestCmc2_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509CertificateRequestCmc2_Impl: IX509CertificateRequestCmc_Impl {
-    fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, ppolicyserver: windows_core::Ref<IX509EnrollmentPolicyServer>, ptemplate: windows_core::Ref<IX509CertificateTemplate>) -> windows_core::Result<()>;
-    fn InitializeFromInnerRequestTemplate(&self, pinnerrequest: windows_core::Ref<IX509CertificateRequest>, ppolicyserver: windows_core::Ref<IX509EnrollmentPolicyServer>, ptemplate: windows_core::Ref<IX509CertificateTemplate>) -> windows_core::Result<()>;
+    fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, ppolicyserver: windows_core::Ref<IX509EnrollmentPolicyServer>, ptemplate: windows_core::Ref<IX509CertificateTemplate>) -> windows_core::HRESULT;
+    fn InitializeFromInnerRequestTemplate(&self, pinnerrequest: windows_core::Ref<IX509CertificateRequest>, ppolicyserver: windows_core::Ref<IX509EnrollmentPolicyServer>, ptemplate: windows_core::Ref<IX509CertificateTemplate>) -> windows_core::HRESULT;
     fn PolicyServer(&self) -> windows_core::Result<IX509EnrollmentPolicyServer>;
     fn Template(&self) -> windows_core::Result<IX509CertificateTemplate>;
-    fn CheckSignature(&self, allowedsignaturetypes: Pkcs10AllowedSignatureTypes) -> windows_core::Result<()>;
-    fn CheckCertificateSignature(&self, psignercertificate: windows_core::Ref<ISignerCertificate>, validatecertificatechain: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn CheckSignature(&self, allowedsignaturetypes: Pkcs10AllowedSignatureTypes) -> windows_core::HRESULT;
+    fn CheckCertificateSignature(&self, psignercertificate: windows_core::Ref<ISignerCertificate>, validatecertificatechain: super::VARIANT_BOOL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509CertificateRequestCmc2_Vtbl {
@@ -9045,13 +9045,13 @@ impl IX509CertificateRequestCmc2_Vtbl {
         unsafe extern "system" fn InitializeFromTemplate<Identity: IX509CertificateRequestCmc2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext, ppolicyserver: *mut core::ffi::c_void, ptemplate: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestCmc2_Impl::InitializeFromTemplate(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&ppolicyserver), core::mem::transmute_copy(&ptemplate)).into()
+                IX509CertificateRequestCmc2_Impl::InitializeFromTemplate(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&ppolicyserver), core::mem::transmute_copy(&ptemplate))
             }
         }
         unsafe extern "system" fn InitializeFromInnerRequestTemplate<Identity: IX509CertificateRequestCmc2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinnerrequest: *mut core::ffi::c_void, ppolicyserver: *mut core::ffi::c_void, ptemplate: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestCmc2_Impl::InitializeFromInnerRequestTemplate(this, core::mem::transmute_copy(&pinnerrequest), core::mem::transmute_copy(&ppolicyserver), core::mem::transmute_copy(&ptemplate)).into()
+                IX509CertificateRequestCmc2_Impl::InitializeFromInnerRequestTemplate(this, core::mem::transmute_copy(&pinnerrequest), core::mem::transmute_copy(&ppolicyserver), core::mem::transmute_copy(&ptemplate))
             }
         }
         unsafe extern "system" fn PolicyServer<Identity: IX509CertificateRequestCmc2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppolicyserver: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9087,13 +9087,13 @@ impl IX509CertificateRequestCmc2_Vtbl {
         unsafe extern "system" fn CheckSignature<Identity: IX509CertificateRequestCmc2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allowedsignaturetypes: Pkcs10AllowedSignatureTypes) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestCmc2_Impl::CheckSignature(this, core::mem::transmute_copy(&allowedsignaturetypes)).into()
+                IX509CertificateRequestCmc2_Impl::CheckSignature(this, core::mem::transmute_copy(&allowedsignaturetypes))
             }
         }
         unsafe extern "system" fn CheckCertificateSignature<Identity: IX509CertificateRequestCmc2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psignercertificate: *mut core::ffi::c_void, validatecertificatechain: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestCmc2_Impl::CheckCertificateSignature(this, core::mem::transmute_copy(&psignercertificate), core::mem::transmute_copy(&validatecertificatechain)).into()
+                IX509CertificateRequestCmc2_Impl::CheckCertificateSignature(this, core::mem::transmute_copy(&psignercertificate), core::mem::transmute_copy(&validatecertificatechain))
             }
         }
         Self {
@@ -9107,7 +9107,7 @@ impl IX509CertificateRequestCmc2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509CertificateRequestCmc2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IX509CertificateRequest as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs7 as windows_core::Interface>::IID || iid == &<IX509CertificateRequestCmc as windows_core::Interface>::IID
+        iid == &<IX509CertificateRequestCmc2 as windows_core::Interface>::IID || IX509CertificateRequestCmc_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -9332,12 +9332,12 @@ pub struct IX509CertificateRequestPkcs10_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509CertificateRequestPkcs10_Impl: IX509CertificateRequest_Impl {
-    fn InitializeFromTemplateName(&self, context: X509CertificateEnrollmentContext, strtemplatename: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn InitializeFromPrivateKey(&self, context: X509CertificateEnrollmentContext, pprivatekey: windows_core::Ref<IX509PrivateKey>, strtemplatename: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn InitializeFromPublicKey(&self, context: X509CertificateEnrollmentContext, ppublickey: windows_core::Ref<IX509PublicKey>, strtemplatename: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn InitializeFromCertificate(&self, context: X509CertificateEnrollmentContext, strcertificate: &windows_core::BSTR, encoding: EncodingType, inheritoptions: X509RequestInheritOptions) -> windows_core::Result<()>;
-    fn InitializeDecode(&self, strencodeddata: &windows_core::BSTR, encoding: EncodingType) -> windows_core::Result<()>;
-    fn CheckSignature(&self, allowedsignaturetypes: Pkcs10AllowedSignatureTypes) -> windows_core::Result<()>;
+    fn InitializeFromTemplateName(&self, context: X509CertificateEnrollmentContext, strtemplatename: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn InitializeFromPrivateKey(&self, context: X509CertificateEnrollmentContext, pprivatekey: windows_core::Ref<IX509PrivateKey>, strtemplatename: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn InitializeFromPublicKey(&self, context: X509CertificateEnrollmentContext, ppublickey: windows_core::Ref<IX509PublicKey>, strtemplatename: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn InitializeFromCertificate(&self, context: X509CertificateEnrollmentContext, strcertificate: &windows_core::BSTR, encoding: EncodingType, inheritoptions: X509RequestInheritOptions) -> windows_core::HRESULT;
+    fn InitializeDecode(&self, strencodeddata: &windows_core::BSTR, encoding: EncodingType) -> windows_core::HRESULT;
+    fn CheckSignature(&self, allowedsignaturetypes: Pkcs10AllowedSignatureTypes) -> windows_core::HRESULT;
     fn IsSmartCard(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn TemplateObjectId(&self) -> windows_core::Result<IObjectId>;
     fn PublicKey(&self) -> windows_core::Result<IX509PublicKey>;
@@ -9346,13 +9346,13 @@ pub trait IX509CertificateRequestPkcs10_Impl: IX509CertificateRequest_Impl {
     fn ReuseKey(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn OldCertificate(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn Subject(&self) -> windows_core::Result<IX500DistinguishedName>;
-    fn SetSubject(&self, pvalue: windows_core::Ref<IX500DistinguishedName>) -> windows_core::Result<()>;
+    fn SetSubject(&self, pvalue: windows_core::Ref<IX500DistinguishedName>) -> windows_core::HRESULT;
     fn CspStatuses(&self) -> windows_core::Result<ICspStatuses>;
     fn SmimeCapabilities(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetSmimeCapabilities(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetSmimeCapabilities(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn SignatureInformation(&self) -> windows_core::Result<IX509SignatureInformation>;
     fn KeyContainerNamePrefix(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetKeyContainerNamePrefix(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetKeyContainerNamePrefix(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn CryptAttributes(&self) -> windows_core::Result<ICryptAttributes>;
     fn X509Extensions(&self) -> windows_core::Result<IX509Extensions>;
     fn CriticalExtensions(&self) -> windows_core::Result<IObjectIds>;
@@ -9367,37 +9367,37 @@ impl IX509CertificateRequestPkcs10_Vtbl {
         unsafe extern "system" fn InitializeFromTemplateName<Identity: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext, strtemplatename: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestPkcs10_Impl::InitializeFromTemplateName(this, core::mem::transmute_copy(&context), core::mem::transmute(&strtemplatename)).into()
+                IX509CertificateRequestPkcs10_Impl::InitializeFromTemplateName(this, core::mem::transmute_copy(&context), core::mem::transmute(&strtemplatename))
             }
         }
         unsafe extern "system" fn InitializeFromPrivateKey<Identity: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext, pprivatekey: *mut core::ffi::c_void, strtemplatename: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestPkcs10_Impl::InitializeFromPrivateKey(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&pprivatekey), core::mem::transmute(&strtemplatename)).into()
+                IX509CertificateRequestPkcs10_Impl::InitializeFromPrivateKey(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&pprivatekey), core::mem::transmute(&strtemplatename))
             }
         }
         unsafe extern "system" fn InitializeFromPublicKey<Identity: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext, ppublickey: *mut core::ffi::c_void, strtemplatename: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestPkcs10_Impl::InitializeFromPublicKey(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&ppublickey), core::mem::transmute(&strtemplatename)).into()
+                IX509CertificateRequestPkcs10_Impl::InitializeFromPublicKey(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&ppublickey), core::mem::transmute(&strtemplatename))
             }
         }
         unsafe extern "system" fn InitializeFromCertificate<Identity: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext, strcertificate: *mut core::ffi::c_void, encoding: EncodingType, inheritoptions: X509RequestInheritOptions) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestPkcs10_Impl::InitializeFromCertificate(this, core::mem::transmute_copy(&context), core::mem::transmute(&strcertificate), core::mem::transmute_copy(&encoding), core::mem::transmute_copy(&inheritoptions)).into()
+                IX509CertificateRequestPkcs10_Impl::InitializeFromCertificate(this, core::mem::transmute_copy(&context), core::mem::transmute(&strcertificate), core::mem::transmute_copy(&encoding), core::mem::transmute_copy(&inheritoptions))
             }
         }
         unsafe extern "system" fn InitializeDecode<Identity: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencodeddata: *mut core::ffi::c_void, encoding: EncodingType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestPkcs10_Impl::InitializeDecode(this, core::mem::transmute(&strencodeddata), core::mem::transmute_copy(&encoding)).into()
+                IX509CertificateRequestPkcs10_Impl::InitializeDecode(this, core::mem::transmute(&strencodeddata), core::mem::transmute_copy(&encoding))
             }
         }
         unsafe extern "system" fn CheckSignature<Identity: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allowedsignaturetypes: Pkcs10AllowedSignatureTypes) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestPkcs10_Impl::CheckSignature(this, core::mem::transmute_copy(&allowedsignaturetypes)).into()
+                IX509CertificateRequestPkcs10_Impl::CheckSignature(this, core::mem::transmute_copy(&allowedsignaturetypes))
             }
         }
         unsafe extern "system" fn IsSmartCard<Identity: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -9523,7 +9523,7 @@ impl IX509CertificateRequestPkcs10_Vtbl {
         unsafe extern "system" fn SetSubject<Identity: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestPkcs10_Impl::SetSubject(this, core::mem::transmute_copy(&pvalue)).into()
+                IX509CertificateRequestPkcs10_Impl::SetSubject(this, core::mem::transmute_copy(&pvalue))
             }
         }
         unsafe extern "system" fn CspStatuses<Identity: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9559,7 +9559,7 @@ impl IX509CertificateRequestPkcs10_Vtbl {
         unsafe extern "system" fn SetSmimeCapabilities<Identity: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestPkcs10_Impl::SetSmimeCapabilities(this, core::mem::transmute_copy(&value)).into()
+                IX509CertificateRequestPkcs10_Impl::SetSmimeCapabilities(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn SignatureInformation<Identity: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9595,7 +9595,7 @@ impl IX509CertificateRequestPkcs10_Vtbl {
         unsafe extern "system" fn SetKeyContainerNamePrefix<Identity: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestPkcs10_Impl::SetKeyContainerNamePrefix(this, core::mem::transmute(&value)).into()
+                IX509CertificateRequestPkcs10_Impl::SetKeyContainerNamePrefix(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn CryptAttributes<Identity: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9736,7 +9736,7 @@ impl IX509CertificateRequestPkcs10_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509CertificateRequestPkcs10 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IX509CertificateRequest as windows_core::Interface>::IID
+        iid == &<IX509CertificateRequestPkcs10 as windows_core::Interface>::IID || IX509CertificateRequest_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -9803,9 +9803,9 @@ pub struct IX509CertificateRequestPkcs10V2_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509CertificateRequestPkcs10V2_Impl: IX509CertificateRequestPkcs10_Impl {
-    fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, ppolicyserver: windows_core::Ref<IX509EnrollmentPolicyServer>, ptemplate: windows_core::Ref<IX509CertificateTemplate>) -> windows_core::Result<()>;
-    fn InitializeFromPrivateKeyTemplate(&self, context: X509CertificateEnrollmentContext, pprivatekey: windows_core::Ref<IX509PrivateKey>, ppolicyserver: windows_core::Ref<IX509EnrollmentPolicyServer>, ptemplate: windows_core::Ref<IX509CertificateTemplate>) -> windows_core::Result<()>;
-    fn InitializeFromPublicKeyTemplate(&self, context: X509CertificateEnrollmentContext, ppublickey: windows_core::Ref<IX509PublicKey>, ppolicyserver: windows_core::Ref<IX509EnrollmentPolicyServer>, ptemplate: windows_core::Ref<IX509CertificateTemplate>) -> windows_core::Result<()>;
+    fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, ppolicyserver: windows_core::Ref<IX509EnrollmentPolicyServer>, ptemplate: windows_core::Ref<IX509CertificateTemplate>) -> windows_core::HRESULT;
+    fn InitializeFromPrivateKeyTemplate(&self, context: X509CertificateEnrollmentContext, pprivatekey: windows_core::Ref<IX509PrivateKey>, ppolicyserver: windows_core::Ref<IX509EnrollmentPolicyServer>, ptemplate: windows_core::Ref<IX509CertificateTemplate>) -> windows_core::HRESULT;
+    fn InitializeFromPublicKeyTemplate(&self, context: X509CertificateEnrollmentContext, ppublickey: windows_core::Ref<IX509PublicKey>, ppolicyserver: windows_core::Ref<IX509EnrollmentPolicyServer>, ptemplate: windows_core::Ref<IX509CertificateTemplate>) -> windows_core::HRESULT;
     fn PolicyServer(&self) -> windows_core::Result<IX509EnrollmentPolicyServer>;
     fn Template(&self) -> windows_core::Result<IX509CertificateTemplate>;
 }
@@ -9815,19 +9815,19 @@ impl IX509CertificateRequestPkcs10V2_Vtbl {
         unsafe extern "system" fn InitializeFromTemplate<Identity: IX509CertificateRequestPkcs10V2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext, ppolicyserver: *mut core::ffi::c_void, ptemplate: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestPkcs10V2_Impl::InitializeFromTemplate(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&ppolicyserver), core::mem::transmute_copy(&ptemplate)).into()
+                IX509CertificateRequestPkcs10V2_Impl::InitializeFromTemplate(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&ppolicyserver), core::mem::transmute_copy(&ptemplate))
             }
         }
         unsafe extern "system" fn InitializeFromPrivateKeyTemplate<Identity: IX509CertificateRequestPkcs10V2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext, pprivatekey: *mut core::ffi::c_void, ppolicyserver: *mut core::ffi::c_void, ptemplate: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestPkcs10V2_Impl::InitializeFromPrivateKeyTemplate(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&pprivatekey), core::mem::transmute_copy(&ppolicyserver), core::mem::transmute_copy(&ptemplate)).into()
+                IX509CertificateRequestPkcs10V2_Impl::InitializeFromPrivateKeyTemplate(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&pprivatekey), core::mem::transmute_copy(&ppolicyserver), core::mem::transmute_copy(&ptemplate))
             }
         }
         unsafe extern "system" fn InitializeFromPublicKeyTemplate<Identity: IX509CertificateRequestPkcs10V2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext, ppublickey: *mut core::ffi::c_void, ppolicyserver: *mut core::ffi::c_void, ptemplate: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestPkcs10V2_Impl::InitializeFromPublicKeyTemplate(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&ppublickey), core::mem::transmute_copy(&ppolicyserver), core::mem::transmute_copy(&ptemplate)).into()
+                IX509CertificateRequestPkcs10V2_Impl::InitializeFromPublicKeyTemplate(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&ppublickey), core::mem::transmute_copy(&ppolicyserver), core::mem::transmute_copy(&ptemplate))
             }
         }
         unsafe extern "system" fn PolicyServer<Identity: IX509CertificateRequestPkcs10V2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppolicyserver: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9870,7 +9870,7 @@ impl IX509CertificateRequestPkcs10V2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509CertificateRequestPkcs10V2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IX509CertificateRequest as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10 as windows_core::Interface>::IID
+        iid == &<IX509CertificateRequestPkcs10V2 as windows_core::Interface>::IID || IX509CertificateRequestPkcs10_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -9979,15 +9979,15 @@ pub struct IX509CertificateRequestPkcs10V3_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509CertificateRequestPkcs10V3_Impl: IX509CertificateRequestPkcs10V2_Impl {
     fn AttestPrivateKey(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetAttestPrivateKey(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetAttestPrivateKey(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn AttestationEncryptionCertificate(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
-    fn SetAttestationEncryptionCertificate(&self, encoding: EncodingType, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetAttestationEncryptionCertificate(&self, encoding: EncodingType, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn EncryptionAlgorithm(&self) -> windows_core::Result<IObjectId>;
-    fn SetEncryptionAlgorithm(&self, pvalue: windows_core::Ref<IObjectId>) -> windows_core::Result<()>;
+    fn SetEncryptionAlgorithm(&self, pvalue: windows_core::Ref<IObjectId>) -> windows_core::HRESULT;
     fn EncryptionStrength(&self) -> windows_core::Result<super::LONG>;
-    fn SetEncryptionStrength(&self, value: super::LONG) -> windows_core::Result<()>;
+    fn SetEncryptionStrength(&self, value: super::LONG) -> windows_core::HRESULT;
     fn ChallengePassword(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetChallengePassword(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetChallengePassword(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn NameValuePairs(&self) -> windows_core::Result<IX509NameValuePairs>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -10011,7 +10011,7 @@ impl IX509CertificateRequestPkcs10V3_Vtbl {
         unsafe extern "system" fn SetAttestPrivateKey<Identity: IX509CertificateRequestPkcs10V3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestPkcs10V3_Impl::SetAttestPrivateKey(this, core::mem::transmute_copy(&value)).into()
+                IX509CertificateRequestPkcs10V3_Impl::SetAttestPrivateKey(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn AttestationEncryptionCertificate<Identity: IX509CertificateRequestPkcs10V3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10032,7 +10032,7 @@ impl IX509CertificateRequestPkcs10V3_Vtbl {
         unsafe extern "system" fn SetAttestationEncryptionCertificate<Identity: IX509CertificateRequestPkcs10V3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestPkcs10V3_Impl::SetAttestationEncryptionCertificate(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&value)).into()
+                IX509CertificateRequestPkcs10V3_Impl::SetAttestationEncryptionCertificate(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn EncryptionAlgorithm<Identity: IX509CertificateRequestPkcs10V3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10053,7 +10053,7 @@ impl IX509CertificateRequestPkcs10V3_Vtbl {
         unsafe extern "system" fn SetEncryptionAlgorithm<Identity: IX509CertificateRequestPkcs10V3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestPkcs10V3_Impl::SetEncryptionAlgorithm(this, core::mem::transmute_copy(&pvalue)).into()
+                IX509CertificateRequestPkcs10V3_Impl::SetEncryptionAlgorithm(this, core::mem::transmute_copy(&pvalue))
             }
         }
         unsafe extern "system" fn EncryptionStrength<Identity: IX509CertificateRequestPkcs10V3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::LONG) -> windows_core::HRESULT {
@@ -10074,7 +10074,7 @@ impl IX509CertificateRequestPkcs10V3_Vtbl {
         unsafe extern "system" fn SetEncryptionStrength<Identity: IX509CertificateRequestPkcs10V3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestPkcs10V3_Impl::SetEncryptionStrength(this, core::mem::transmute_copy(&value)).into()
+                IX509CertificateRequestPkcs10V3_Impl::SetEncryptionStrength(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn ChallengePassword<Identity: IX509CertificateRequestPkcs10V3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10095,7 +10095,7 @@ impl IX509CertificateRequestPkcs10V3_Vtbl {
         unsafe extern "system" fn SetChallengePassword<Identity: IX509CertificateRequestPkcs10V3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestPkcs10V3_Impl::SetChallengePassword(this, core::mem::transmute(&value)).into()
+                IX509CertificateRequestPkcs10V3_Impl::SetChallengePassword(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn NameValuePairs<Identity: IX509CertificateRequestPkcs10V3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10129,7 +10129,7 @@ impl IX509CertificateRequestPkcs10V3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509CertificateRequestPkcs10V3 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IX509CertificateRequest as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10 as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10V2 as windows_core::Interface>::IID
+        iid == &<IX509CertificateRequestPkcs10V3 as windows_core::Interface>::IID || IX509CertificateRequestPkcs10V2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -10187,9 +10187,9 @@ pub struct IX509CertificateRequestPkcs10V4_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509CertificateRequestPkcs10V4_Impl: IX509CertificateRequestPkcs10V3_Impl {
     fn ClaimType(&self) -> windows_core::Result<KeyAttestationClaimType>;
-    fn SetClaimType(&self, value: KeyAttestationClaimType) -> windows_core::Result<()>;
+    fn SetClaimType(&self, value: KeyAttestationClaimType) -> windows_core::HRESULT;
     fn AttestPrivateKeyPreferred(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetAttestPrivateKeyPreferred(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetAttestPrivateKeyPreferred(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509CertificateRequestPkcs10V4_Vtbl {
@@ -10212,7 +10212,7 @@ impl IX509CertificateRequestPkcs10V4_Vtbl {
         unsafe extern "system" fn SetClaimType<Identity: IX509CertificateRequestPkcs10V4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: KeyAttestationClaimType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestPkcs10V4_Impl::SetClaimType(this, core::mem::transmute_copy(&value)).into()
+                IX509CertificateRequestPkcs10V4_Impl::SetClaimType(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn AttestPrivateKeyPreferred<Identity: IX509CertificateRequestPkcs10V4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -10233,7 +10233,7 @@ impl IX509CertificateRequestPkcs10V4_Vtbl {
         unsafe extern "system" fn SetAttestPrivateKeyPreferred<Identity: IX509CertificateRequestPkcs10V4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestPkcs10V4_Impl::SetAttestPrivateKeyPreferred(this, core::mem::transmute_copy(&value)).into()
+                IX509CertificateRequestPkcs10V4_Impl::SetAttestPrivateKeyPreferred(this, core::mem::transmute_copy(&value))
             }
         }
         Self {
@@ -10245,7 +10245,7 @@ impl IX509CertificateRequestPkcs10V4_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509CertificateRequestPkcs10V4 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IX509CertificateRequest as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10 as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10V2 as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10V3 as windows_core::Interface>::IID
+        iid == &<IX509CertificateRequestPkcs10V4 as windows_core::Interface>::IID || IX509CertificateRequestPkcs10V3_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -10320,14 +10320,14 @@ pub struct IX509CertificateRequestPkcs7_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509CertificateRequestPkcs7_Impl: IX509CertificateRequest_Impl {
-    fn InitializeFromTemplateName(&self, context: X509CertificateEnrollmentContext, strtemplatename: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn InitializeFromCertificate(&self, context: X509CertificateEnrollmentContext, renewalrequest: super::VARIANT_BOOL, strcertificate: &windows_core::BSTR, encoding: EncodingType, inheritoptions: X509RequestInheritOptions) -> windows_core::Result<()>;
-    fn InitializeFromInnerRequest(&self, pinnerrequest: windows_core::Ref<IX509CertificateRequest>) -> windows_core::Result<()>;
-    fn InitializeDecode(&self, strencodeddata: &windows_core::BSTR, encoding: EncodingType) -> windows_core::Result<()>;
+    fn InitializeFromTemplateName(&self, context: X509CertificateEnrollmentContext, strtemplatename: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn InitializeFromCertificate(&self, context: X509CertificateEnrollmentContext, renewalrequest: super::VARIANT_BOOL, strcertificate: &windows_core::BSTR, encoding: EncodingType, inheritoptions: X509RequestInheritOptions) -> windows_core::HRESULT;
+    fn InitializeFromInnerRequest(&self, pinnerrequest: windows_core::Ref<IX509CertificateRequest>) -> windows_core::HRESULT;
+    fn InitializeDecode(&self, strencodeddata: &windows_core::BSTR, encoding: EncodingType) -> windows_core::HRESULT;
     fn RequesterName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetRequesterName(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetRequesterName(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn SignerCertificate(&self) -> windows_core::Result<ISignerCertificate>;
-    fn SetSignerCertificate(&self, pvalue: windows_core::Ref<ISignerCertificate>) -> windows_core::Result<()>;
+    fn SetSignerCertificate(&self, pvalue: windows_core::Ref<ISignerCertificate>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509CertificateRequestPkcs7_Vtbl {
@@ -10335,25 +10335,25 @@ impl IX509CertificateRequestPkcs7_Vtbl {
         unsafe extern "system" fn InitializeFromTemplateName<Identity: IX509CertificateRequestPkcs7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext, strtemplatename: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestPkcs7_Impl::InitializeFromTemplateName(this, core::mem::transmute_copy(&context), core::mem::transmute(&strtemplatename)).into()
+                IX509CertificateRequestPkcs7_Impl::InitializeFromTemplateName(this, core::mem::transmute_copy(&context), core::mem::transmute(&strtemplatename))
             }
         }
         unsafe extern "system" fn InitializeFromCertificate<Identity: IX509CertificateRequestPkcs7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext, renewalrequest: super::VARIANT_BOOL, strcertificate: *mut core::ffi::c_void, encoding: EncodingType, inheritoptions: X509RequestInheritOptions) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestPkcs7_Impl::InitializeFromCertificate(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&renewalrequest), core::mem::transmute(&strcertificate), core::mem::transmute_copy(&encoding), core::mem::transmute_copy(&inheritoptions)).into()
+                IX509CertificateRequestPkcs7_Impl::InitializeFromCertificate(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&renewalrequest), core::mem::transmute(&strcertificate), core::mem::transmute_copy(&encoding), core::mem::transmute_copy(&inheritoptions))
             }
         }
         unsafe extern "system" fn InitializeFromInnerRequest<Identity: IX509CertificateRequestPkcs7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinnerrequest: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestPkcs7_Impl::InitializeFromInnerRequest(this, core::mem::transmute_copy(&pinnerrequest)).into()
+                IX509CertificateRequestPkcs7_Impl::InitializeFromInnerRequest(this, core::mem::transmute_copy(&pinnerrequest))
             }
         }
         unsafe extern "system" fn InitializeDecode<Identity: IX509CertificateRequestPkcs7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencodeddata: *mut core::ffi::c_void, encoding: EncodingType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestPkcs7_Impl::InitializeDecode(this, core::mem::transmute(&strencodeddata), core::mem::transmute_copy(&encoding)).into()
+                IX509CertificateRequestPkcs7_Impl::InitializeDecode(this, core::mem::transmute(&strencodeddata), core::mem::transmute_copy(&encoding))
             }
         }
         unsafe extern "system" fn RequesterName<Identity: IX509CertificateRequestPkcs7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10374,7 +10374,7 @@ impl IX509CertificateRequestPkcs7_Vtbl {
         unsafe extern "system" fn SetRequesterName<Identity: IX509CertificateRequestPkcs7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestPkcs7_Impl::SetRequesterName(this, core::mem::transmute(&value)).into()
+                IX509CertificateRequestPkcs7_Impl::SetRequesterName(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn SignerCertificate<Identity: IX509CertificateRequestPkcs7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10395,7 +10395,7 @@ impl IX509CertificateRequestPkcs7_Vtbl {
         unsafe extern "system" fn SetSignerCertificate<Identity: IX509CertificateRequestPkcs7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestPkcs7_Impl::SetSignerCertificate(this, core::mem::transmute_copy(&pvalue)).into()
+                IX509CertificateRequestPkcs7_Impl::SetSignerCertificate(this, core::mem::transmute_copy(&pvalue))
             }
         }
         Self {
@@ -10411,7 +10411,7 @@ impl IX509CertificateRequestPkcs7_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509CertificateRequestPkcs7 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IX509CertificateRequest as windows_core::Interface>::IID
+        iid == &<IX509CertificateRequestPkcs7 as windows_core::Interface>::IID || IX509CertificateRequest_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -10468,10 +10468,10 @@ pub struct IX509CertificateRequestPkcs7V2_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509CertificateRequestPkcs7V2_Impl: IX509CertificateRequestPkcs7_Impl {
-    fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, ppolicyserver: windows_core::Ref<IX509EnrollmentPolicyServer>, ptemplate: windows_core::Ref<IX509CertificateTemplate>) -> windows_core::Result<()>;
+    fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, ppolicyserver: windows_core::Ref<IX509EnrollmentPolicyServer>, ptemplate: windows_core::Ref<IX509CertificateTemplate>) -> windows_core::HRESULT;
     fn PolicyServer(&self) -> windows_core::Result<IX509EnrollmentPolicyServer>;
     fn Template(&self) -> windows_core::Result<IX509CertificateTemplate>;
-    fn CheckCertificateSignature(&self, validatecertificatechain: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn CheckCertificateSignature(&self, validatecertificatechain: super::VARIANT_BOOL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509CertificateRequestPkcs7V2_Vtbl {
@@ -10479,7 +10479,7 @@ impl IX509CertificateRequestPkcs7V2_Vtbl {
         unsafe extern "system" fn InitializeFromTemplate<Identity: IX509CertificateRequestPkcs7V2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext, ppolicyserver: *mut core::ffi::c_void, ptemplate: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestPkcs7V2_Impl::InitializeFromTemplate(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&ppolicyserver), core::mem::transmute_copy(&ptemplate)).into()
+                IX509CertificateRequestPkcs7V2_Impl::InitializeFromTemplate(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&ppolicyserver), core::mem::transmute_copy(&ptemplate))
             }
         }
         unsafe extern "system" fn PolicyServer<Identity: IX509CertificateRequestPkcs7V2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppolicyserver: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10515,7 +10515,7 @@ impl IX509CertificateRequestPkcs7V2_Vtbl {
         unsafe extern "system" fn CheckCertificateSignature<Identity: IX509CertificateRequestPkcs7V2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, validatecertificatechain: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRequestPkcs7V2_Impl::CheckCertificateSignature(this, core::mem::transmute_copy(&validatecertificatechain)).into()
+                IX509CertificateRequestPkcs7V2_Impl::CheckCertificateSignature(this, core::mem::transmute_copy(&validatecertificatechain))
             }
         }
         Self {
@@ -10527,7 +10527,7 @@ impl IX509CertificateRequestPkcs7V2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509CertificateRequestPkcs7V2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IX509CertificateRequest as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs7 as windows_core::Interface>::IID
+        iid == &<IX509CertificateRequestPkcs7V2 as windows_core::Interface>::IID || IX509CertificateRequestPkcs7_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -10781,33 +10781,33 @@ pub struct IX509CertificateRevocationList_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509CertificateRevocationList_Impl: super::IDispatch_Impl {
-    fn Initialize(&self) -> windows_core::Result<()>;
-    fn InitializeDecode(&self, strencodeddata: &windows_core::BSTR, encoding: EncodingType) -> windows_core::Result<()>;
-    fn Encode(&self) -> windows_core::Result<()>;
-    fn ResetForEncode(&self) -> windows_core::Result<()>;
-    fn CheckPublicKeySignature(&self, ppublickey: windows_core::Ref<IX509PublicKey>) -> windows_core::Result<()>;
-    fn CheckSignature(&self) -> windows_core::Result<()>;
+    fn Initialize(&self) -> windows_core::HRESULT;
+    fn InitializeDecode(&self, strencodeddata: &windows_core::BSTR, encoding: EncodingType) -> windows_core::HRESULT;
+    fn Encode(&self) -> windows_core::HRESULT;
+    fn ResetForEncode(&self) -> windows_core::HRESULT;
+    fn CheckPublicKeySignature(&self, ppublickey: windows_core::Ref<IX509PublicKey>) -> windows_core::HRESULT;
+    fn CheckSignature(&self) -> windows_core::HRESULT;
     fn Issuer(&self) -> windows_core::Result<IX500DistinguishedName>;
-    fn SetIssuer(&self, pvalue: windows_core::Ref<IX500DistinguishedName>) -> windows_core::Result<()>;
+    fn SetIssuer(&self, pvalue: windows_core::Ref<IX500DistinguishedName>) -> windows_core::HRESULT;
     fn ThisUpdate(&self) -> windows_core::Result<super::DATE>;
-    fn SetThisUpdate(&self, value: super::DATE) -> windows_core::Result<()>;
+    fn SetThisUpdate(&self, value: super::DATE) -> windows_core::HRESULT;
     fn NextUpdate(&self) -> windows_core::Result<super::DATE>;
-    fn SetNextUpdate(&self, value: super::DATE) -> windows_core::Result<()>;
+    fn SetNextUpdate(&self, value: super::DATE) -> windows_core::HRESULT;
     fn X509CRLEntries(&self) -> windows_core::Result<IX509CertificateRevocationListEntries>;
     fn X509Extensions(&self) -> windows_core::Result<IX509Extensions>;
     fn CriticalExtensions(&self) -> windows_core::Result<IObjectIds>;
     fn SignerCertificate(&self) -> windows_core::Result<ISignerCertificate>;
-    fn SetSignerCertificate(&self, pvalue: windows_core::Ref<ISignerCertificate>) -> windows_core::Result<()>;
+    fn SetSignerCertificate(&self, pvalue: windows_core::Ref<ISignerCertificate>) -> windows_core::HRESULT;
     fn CRLNumber(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
-    fn SetCRLNumber(&self, encoding: EncodingType, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetCRLNumber(&self, encoding: EncodingType, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn CAVersion(&self) -> windows_core::Result<super::LONG>;
-    fn SetCAVersion(&self, pvalue: super::LONG) -> windows_core::Result<()>;
+    fn SetCAVersion(&self, pvalue: super::LONG) -> windows_core::HRESULT;
     fn BaseCRL(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn NullSigned(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn HashAlgorithm(&self) -> windows_core::Result<IObjectId>;
-    fn SetHashAlgorithm(&self, pvalue: windows_core::Ref<IObjectId>) -> windows_core::Result<()>;
+    fn SetHashAlgorithm(&self, pvalue: windows_core::Ref<IObjectId>) -> windows_core::HRESULT;
     fn AlternateSignatureAlgorithm(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetAlternateSignatureAlgorithm(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetAlternateSignatureAlgorithm(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn SignatureInformation(&self) -> windows_core::Result<IX509SignatureInformation>;
     fn RawData(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn RawDataToBeSigned(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
@@ -10819,37 +10819,37 @@ impl IX509CertificateRevocationList_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRevocationList_Impl::Initialize(this).into()
+                IX509CertificateRevocationList_Impl::Initialize(this)
             }
         }
         unsafe extern "system" fn InitializeDecode<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencodeddata: *mut core::ffi::c_void, encoding: EncodingType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRevocationList_Impl::InitializeDecode(this, core::mem::transmute(&strencodeddata), core::mem::transmute_copy(&encoding)).into()
+                IX509CertificateRevocationList_Impl::InitializeDecode(this, core::mem::transmute(&strencodeddata), core::mem::transmute_copy(&encoding))
             }
         }
         unsafe extern "system" fn Encode<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRevocationList_Impl::Encode(this).into()
+                IX509CertificateRevocationList_Impl::Encode(this)
             }
         }
         unsafe extern "system" fn ResetForEncode<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRevocationList_Impl::ResetForEncode(this).into()
+                IX509CertificateRevocationList_Impl::ResetForEncode(this)
             }
         }
         unsafe extern "system" fn CheckPublicKeySignature<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppublickey: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRevocationList_Impl::CheckPublicKeySignature(this, core::mem::transmute_copy(&ppublickey)).into()
+                IX509CertificateRevocationList_Impl::CheckPublicKeySignature(this, core::mem::transmute_copy(&ppublickey))
             }
         }
         unsafe extern "system" fn CheckSignature<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRevocationList_Impl::CheckSignature(this).into()
+                IX509CertificateRevocationList_Impl::CheckSignature(this)
             }
         }
         unsafe extern "system" fn Issuer<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10870,7 +10870,7 @@ impl IX509CertificateRevocationList_Vtbl {
         unsafe extern "system" fn SetIssuer<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRevocationList_Impl::SetIssuer(this, core::mem::transmute_copy(&pvalue)).into()
+                IX509CertificateRevocationList_Impl::SetIssuer(this, core::mem::transmute_copy(&pvalue))
             }
         }
         unsafe extern "system" fn ThisUpdate<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::DATE) -> windows_core::HRESULT {
@@ -10891,7 +10891,7 @@ impl IX509CertificateRevocationList_Vtbl {
         unsafe extern "system" fn SetThisUpdate<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRevocationList_Impl::SetThisUpdate(this, core::mem::transmute_copy(&value)).into()
+                IX509CertificateRevocationList_Impl::SetThisUpdate(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn NextUpdate<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::DATE) -> windows_core::HRESULT {
@@ -10912,7 +10912,7 @@ impl IX509CertificateRevocationList_Vtbl {
         unsafe extern "system" fn SetNextUpdate<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRevocationList_Impl::SetNextUpdate(this, core::mem::transmute_copy(&value)).into()
+                IX509CertificateRevocationList_Impl::SetNextUpdate(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn X509CRLEntries<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10978,7 +10978,7 @@ impl IX509CertificateRevocationList_Vtbl {
         unsafe extern "system" fn SetSignerCertificate<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRevocationList_Impl::SetSignerCertificate(this, core::mem::transmute_copy(&pvalue)).into()
+                IX509CertificateRevocationList_Impl::SetSignerCertificate(this, core::mem::transmute_copy(&pvalue))
             }
         }
         unsafe extern "system" fn CRLNumber<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10999,7 +10999,7 @@ impl IX509CertificateRevocationList_Vtbl {
         unsafe extern "system" fn SetCRLNumber<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRevocationList_Impl::SetCRLNumber(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&value)).into()
+                IX509CertificateRevocationList_Impl::SetCRLNumber(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn CAVersion<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::LONG) -> windows_core::HRESULT {
@@ -11020,7 +11020,7 @@ impl IX509CertificateRevocationList_Vtbl {
         unsafe extern "system" fn SetCAVersion<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRevocationList_Impl::SetCAVersion(this, core::mem::transmute_copy(&pvalue)).into()
+                IX509CertificateRevocationList_Impl::SetCAVersion(this, core::mem::transmute_copy(&pvalue))
             }
         }
         unsafe extern "system" fn BaseCRL<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -11071,7 +11071,7 @@ impl IX509CertificateRevocationList_Vtbl {
         unsafe extern "system" fn SetHashAlgorithm<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRevocationList_Impl::SetHashAlgorithm(this, core::mem::transmute_copy(&pvalue)).into()
+                IX509CertificateRevocationList_Impl::SetHashAlgorithm(this, core::mem::transmute_copy(&pvalue))
             }
         }
         unsafe extern "system" fn AlternateSignatureAlgorithm<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -11092,7 +11092,7 @@ impl IX509CertificateRevocationList_Vtbl {
         unsafe extern "system" fn SetAlternateSignatureAlgorithm<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRevocationList_Impl::SetAlternateSignatureAlgorithm(this, core::mem::transmute_copy(&value)).into()
+                IX509CertificateRevocationList_Impl::SetAlternateSignatureAlgorithm(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn SignatureInformation<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11191,7 +11191,7 @@ impl IX509CertificateRevocationList_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509CertificateRevocationList as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IX509CertificateRevocationList as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -11287,11 +11287,11 @@ pub trait IX509CertificateRevocationListEntries_Impl: super::IDispatch_Impl {
     fn ItemByIndex(&self, index: super::LONG) -> windows_core::Result<IX509CertificateRevocationListEntry>;
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<super::LPUNKNOWN>;
-    fn Add(&self, pval: windows_core::Ref<IX509CertificateRevocationListEntry>) -> windows_core::Result<()>;
-    fn Remove(&self, index: super::LONG) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
+    fn Add(&self, pval: windows_core::Ref<IX509CertificateRevocationListEntry>) -> windows_core::HRESULT;
+    fn Remove(&self, index: super::LONG) -> windows_core::HRESULT;
+    fn Clear(&self) -> windows_core::HRESULT;
     fn IndexBySerialNumber(&self, encoding: EncodingType, serialnumber: &windows_core::BSTR) -> windows_core::Result<super::LONG>;
-    fn AddRange(&self, pvalue: windows_core::Ref<IX509CertificateRevocationListEntries>) -> windows_core::Result<()>;
+    fn AddRange(&self, pvalue: windows_core::Ref<IX509CertificateRevocationListEntries>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "unknwnbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509CertificateRevocationListEntries_Vtbl {
@@ -11344,19 +11344,19 @@ impl IX509CertificateRevocationListEntries_Vtbl {
         unsafe extern "system" fn Add<Identity: IX509CertificateRevocationListEntries_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRevocationListEntries_Impl::Add(this, core::mem::transmute_copy(&pval)).into()
+                IX509CertificateRevocationListEntries_Impl::Add(this, core::mem::transmute_copy(&pval))
             }
         }
         unsafe extern "system" fn Remove<Identity: IX509CertificateRevocationListEntries_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRevocationListEntries_Impl::Remove(this, core::mem::transmute_copy(&index)).into()
+                IX509CertificateRevocationListEntries_Impl::Remove(this, core::mem::transmute_copy(&index))
             }
         }
         unsafe extern "system" fn Clear<Identity: IX509CertificateRevocationListEntries_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRevocationListEntries_Impl::Clear(this).into()
+                IX509CertificateRevocationListEntries_Impl::Clear(this)
             }
         }
         unsafe extern "system" fn IndexBySerialNumber<Identity: IX509CertificateRevocationListEntries_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, serialnumber: *mut core::ffi::c_void, pindex: *mut super::LONG) -> windows_core::HRESULT {
@@ -11377,7 +11377,7 @@ impl IX509CertificateRevocationListEntries_Vtbl {
         unsafe extern "system" fn AddRange<Identity: IX509CertificateRevocationListEntries_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRevocationListEntries_Impl::AddRange(this, core::mem::transmute_copy(&pvalue)).into()
+                IX509CertificateRevocationListEntries_Impl::AddRange(this, core::mem::transmute_copy(&pvalue))
             }
         }
         Self {
@@ -11393,7 +11393,7 @@ impl IX509CertificateRevocationListEntries_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509CertificateRevocationListEntries as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IX509CertificateRevocationListEntries as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "unknwnbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -11471,11 +11471,11 @@ pub struct IX509CertificateRevocationListEntry_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509CertificateRevocationListEntry_Impl: super::IDispatch_Impl {
-    fn Initialize(&self, encoding: EncodingType, serialnumber: &windows_core::BSTR, revocationdate: super::DATE) -> windows_core::Result<()>;
+    fn Initialize(&self, encoding: EncodingType, serialnumber: &windows_core::BSTR, revocationdate: super::DATE) -> windows_core::HRESULT;
     fn SerialNumber(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn RevocationDate(&self) -> windows_core::Result<super::DATE>;
     fn RevocationReason(&self) -> windows_core::Result<CRLRevocationReason>;
-    fn SetRevocationReason(&self, value: CRLRevocationReason) -> windows_core::Result<()>;
+    fn SetRevocationReason(&self, value: CRLRevocationReason) -> windows_core::HRESULT;
     fn X509Extensions(&self) -> windows_core::Result<IX509Extensions>;
     fn CriticalExtensions(&self) -> windows_core::Result<IObjectIds>;
 }
@@ -11485,7 +11485,7 @@ impl IX509CertificateRevocationListEntry_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IX509CertificateRevocationListEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, serialnumber: *mut core::ffi::c_void, revocationdate: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRevocationListEntry_Impl::Initialize(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&serialnumber), core::mem::transmute_copy(&revocationdate)).into()
+                IX509CertificateRevocationListEntry_Impl::Initialize(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&serialnumber), core::mem::transmute_copy(&revocationdate))
             }
         }
         unsafe extern "system" fn SerialNumber<Identity: IX509CertificateRevocationListEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11536,7 +11536,7 @@ impl IX509CertificateRevocationListEntry_Vtbl {
         unsafe extern "system" fn SetRevocationReason<Identity: IX509CertificateRevocationListEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: CRLRevocationReason) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateRevocationListEntry_Impl::SetRevocationReason(this, core::mem::transmute_copy(&value)).into()
+                IX509CertificateRevocationListEntry_Impl::SetRevocationReason(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn X509Extensions<Identity: IX509CertificateRevocationListEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11581,7 +11581,7 @@ impl IX509CertificateRevocationListEntry_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509CertificateRevocationListEntry as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IX509CertificateRevocationListEntry as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -11642,7 +11642,7 @@ impl IX509CertificateTemplate_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), Property: Property::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509CertificateTemplate as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IX509CertificateTemplate as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -11706,10 +11706,10 @@ pub struct IX509CertificateTemplateWritable_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509CertificateTemplateWritable_Impl: super::IDispatch_Impl {
-    fn Initialize(&self, pvalue: windows_core::Ref<IX509CertificateTemplate>) -> windows_core::Result<()>;
-    fn Commit(&self, commitflags: CommitTemplateFlags, strservercontext: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Initialize(&self, pvalue: windows_core::Ref<IX509CertificateTemplate>) -> windows_core::HRESULT;
+    fn Commit(&self, commitflags: CommitTemplateFlags, strservercontext: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Property(&self, property: EnrollmentTemplateProperty) -> windows_core::Result<super::VARIANT>;
-    fn SetProperty(&self, property: EnrollmentTemplateProperty, value: &super::VARIANT) -> windows_core::Result<()>;
+    fn SetProperty(&self, property: EnrollmentTemplateProperty, value: &super::VARIANT) -> windows_core::HRESULT;
     fn Template(&self) -> windows_core::Result<IX509CertificateTemplate>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -11718,13 +11718,13 @@ impl IX509CertificateTemplateWritable_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IX509CertificateTemplateWritable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateTemplateWritable_Impl::Initialize(this, core::mem::transmute_copy(&pvalue)).into()
+                IX509CertificateTemplateWritable_Impl::Initialize(this, core::mem::transmute_copy(&pvalue))
             }
         }
         unsafe extern "system" fn Commit<Identity: IX509CertificateTemplateWritable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commitflags: CommitTemplateFlags, strservercontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateTemplateWritable_Impl::Commit(this, core::mem::transmute_copy(&commitflags), core::mem::transmute(&strservercontext)).into()
+                IX509CertificateTemplateWritable_Impl::Commit(this, core::mem::transmute_copy(&commitflags), core::mem::transmute(&strservercontext))
             }
         }
         unsafe extern "system" fn Property<Identity: IX509CertificateTemplateWritable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: EnrollmentTemplateProperty, pvalue: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -11745,7 +11745,7 @@ impl IX509CertificateTemplateWritable_Vtbl {
         unsafe extern "system" fn SetProperty<Identity: IX509CertificateTemplateWritable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: EnrollmentTemplateProperty, value: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateTemplateWritable_Impl::SetProperty(this, core::mem::transmute_copy(&property), core::mem::transmute(&value)).into()
+                IX509CertificateTemplateWritable_Impl::SetProperty(this, core::mem::transmute_copy(&property), core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn Template<Identity: IX509CertificateTemplateWritable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11773,7 +11773,7 @@ impl IX509CertificateTemplateWritable_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509CertificateTemplateWritable as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IX509CertificateTemplateWritable as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -11868,9 +11868,9 @@ pub trait IX509CertificateTemplates_Impl: super::IDispatch_Impl {
     fn ItemByIndex(&self, index: super::LONG) -> windows_core::Result<IX509CertificateTemplate>;
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<super::LPUNKNOWN>;
-    fn Add(&self, pval: windows_core::Ref<IX509CertificateTemplate>) -> windows_core::Result<()>;
-    fn Remove(&self, index: super::LONG) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
+    fn Add(&self, pval: windows_core::Ref<IX509CertificateTemplate>) -> windows_core::HRESULT;
+    fn Remove(&self, index: super::LONG) -> windows_core::HRESULT;
+    fn Clear(&self) -> windows_core::HRESULT;
     fn ItemByName(&self, bstrname: &windows_core::BSTR) -> windows_core::Result<IX509CertificateTemplate>;
     fn ItemByOid(&self, poid: windows_core::Ref<IObjectId>) -> windows_core::Result<IX509CertificateTemplate>;
 }
@@ -11925,19 +11925,19 @@ impl IX509CertificateTemplates_Vtbl {
         unsafe extern "system" fn Add<Identity: IX509CertificateTemplates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateTemplates_Impl::Add(this, core::mem::transmute_copy(&pval)).into()
+                IX509CertificateTemplates_Impl::Add(this, core::mem::transmute_copy(&pval))
             }
         }
         unsafe extern "system" fn Remove<Identity: IX509CertificateTemplates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateTemplates_Impl::Remove(this, core::mem::transmute_copy(&index)).into()
+                IX509CertificateTemplates_Impl::Remove(this, core::mem::transmute_copy(&index))
             }
         }
         unsafe extern "system" fn Clear<Identity: IX509CertificateTemplates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509CertificateTemplates_Impl::Clear(this).into()
+                IX509CertificateTemplates_Impl::Clear(this)
             }
         }
         unsafe extern "system" fn ItemByName<Identity: IX509CertificateTemplates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11983,7 +11983,7 @@ impl IX509CertificateTemplates_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509CertificateTemplates as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IX509CertificateTemplates as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "unknwnbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -12089,16 +12089,16 @@ pub struct IX509EndorsementKey_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509EndorsementKey_Impl: super::IDispatch_Impl {
     fn ProviderName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetProviderName(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetProviderName(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Length(&self) -> windows_core::Result<super::LONG>;
     fn Opened(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn AddCertificate(&self, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn RemoveCertificate(&self, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn AddCertificate(&self, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn RemoveCertificate(&self, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::HRESULT;
     fn GetCertificateByIndex(&self, manufactureronly: super::VARIANT_BOOL, dwindex: super::LONG, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn GetCertificateCount(&self, manufactureronly: super::VARIANT_BOOL) -> windows_core::Result<super::LONG>;
     fn ExportPublicKey(&self) -> windows_core::Result<IX509PublicKey>;
-    fn Open(&self) -> windows_core::Result<()>;
-    fn Close(&self) -> windows_core::Result<()>;
+    fn Open(&self) -> windows_core::HRESULT;
+    fn Close(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509EndorsementKey_Vtbl {
@@ -12121,7 +12121,7 @@ impl IX509EndorsementKey_Vtbl {
         unsafe extern "system" fn SetProviderName<Identity: IX509EndorsementKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509EndorsementKey_Impl::SetProviderName(this, core::mem::transmute(&value)).into()
+                IX509EndorsementKey_Impl::SetProviderName(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn Length<Identity: IX509EndorsementKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::LONG) -> windows_core::HRESULT {
@@ -12157,13 +12157,13 @@ impl IX509EndorsementKey_Vtbl {
         unsafe extern "system" fn AddCertificate<Identity: IX509EndorsementKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strcertificate: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509EndorsementKey_Impl::AddCertificate(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strcertificate)).into()
+                IX509EndorsementKey_Impl::AddCertificate(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strcertificate))
             }
         }
         unsafe extern "system" fn RemoveCertificate<Identity: IX509EndorsementKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strcertificate: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509EndorsementKey_Impl::RemoveCertificate(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strcertificate)).into()
+                IX509EndorsementKey_Impl::RemoveCertificate(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strcertificate))
             }
         }
         unsafe extern "system" fn GetCertificateByIndex<Identity: IX509EndorsementKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, manufactureronly: super::VARIANT_BOOL, dwindex: super::LONG, encoding: EncodingType, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12214,13 +12214,13 @@ impl IX509EndorsementKey_Vtbl {
         unsafe extern "system" fn Open<Identity: IX509EndorsementKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509EndorsementKey_Impl::Open(this).into()
+                IX509EndorsementKey_Impl::Open(this)
             }
         }
         unsafe extern "system" fn Close<Identity: IX509EndorsementKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509EndorsementKey_Impl::Close(this).into()
+                IX509EndorsementKey_Impl::Close(this)
             }
         }
         Self {
@@ -12239,7 +12239,7 @@ impl IX509EndorsementKey_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509EndorsementKey as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IX509EndorsementKey as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -12423,27 +12423,27 @@ pub struct IX509Enrollment_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509Enrollment_Impl: super::IDispatch_Impl {
-    fn Initialize(&self, context: X509CertificateEnrollmentContext) -> windows_core::Result<()>;
-    fn InitializeFromTemplateName(&self, context: X509CertificateEnrollmentContext, strtemplatename: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn InitializeFromRequest(&self, prequest: windows_core::Ref<IX509CertificateRequest>) -> windows_core::Result<()>;
+    fn Initialize(&self, context: X509CertificateEnrollmentContext) -> windows_core::HRESULT;
+    fn InitializeFromTemplateName(&self, context: X509CertificateEnrollmentContext, strtemplatename: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn InitializeFromRequest(&self, prequest: windows_core::Ref<IX509CertificateRequest>) -> windows_core::HRESULT;
     fn CreateRequest(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
-    fn Enroll(&self) -> windows_core::Result<()>;
-    fn InstallResponse(&self, restrictions: InstallResponseRestrictionFlags, strresponse: &windows_core::BSTR, encoding: EncodingType, strpassword: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Enroll(&self) -> windows_core::HRESULT;
+    fn InstallResponse(&self, restrictions: InstallResponseRestrictionFlags, strresponse: &windows_core::BSTR, encoding: EncodingType, strpassword: &windows_core::BSTR) -> windows_core::HRESULT;
     fn CreatePFX(&self, strpassword: &windows_core::BSTR, exportoptions: PFXExportOptions, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn Request(&self) -> windows_core::Result<IX509CertificateRequest>;
     fn Silent(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetSilent(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetSilent(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn ParentWindow(&self) -> windows_core::Result<super::LONG>;
-    fn SetParentWindow(&self, value: super::LONG) -> windows_core::Result<()>;
+    fn SetParentWindow(&self, value: super::LONG) -> windows_core::HRESULT;
     fn NameValuePairs(&self) -> windows_core::Result<IX509NameValuePairs>;
     fn EnrollmentContext(&self) -> windows_core::Result<X509CertificateEnrollmentContext>;
     fn Status(&self) -> windows_core::Result<IX509EnrollmentStatus>;
     fn Certificate(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn Response(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn CertificateFriendlyName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetCertificateFriendlyName(&self, strvalue: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetCertificateFriendlyName(&self, strvalue: &windows_core::BSTR) -> windows_core::HRESULT;
     fn CertificateDescription(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetCertificateDescription(&self, strvalue: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetCertificateDescription(&self, strvalue: &windows_core::BSTR) -> windows_core::HRESULT;
     fn RequestId(&self) -> windows_core::Result<super::LONG>;
     fn CAConfigString(&self) -> windows_core::Result<windows_core::BSTR>;
 }
@@ -12453,19 +12453,19 @@ impl IX509Enrollment_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IX509Enrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509Enrollment_Impl::Initialize(this, core::mem::transmute_copy(&context)).into()
+                IX509Enrollment_Impl::Initialize(this, core::mem::transmute_copy(&context))
             }
         }
         unsafe extern "system" fn InitializeFromTemplateName<Identity: IX509Enrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext, strtemplatename: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509Enrollment_Impl::InitializeFromTemplateName(this, core::mem::transmute_copy(&context), core::mem::transmute(&strtemplatename)).into()
+                IX509Enrollment_Impl::InitializeFromTemplateName(this, core::mem::transmute_copy(&context), core::mem::transmute(&strtemplatename))
             }
         }
         unsafe extern "system" fn InitializeFromRequest<Identity: IX509Enrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prequest: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509Enrollment_Impl::InitializeFromRequest(this, core::mem::transmute_copy(&prequest)).into()
+                IX509Enrollment_Impl::InitializeFromRequest(this, core::mem::transmute_copy(&prequest))
             }
         }
         unsafe extern "system" fn CreateRequest<Identity: IX509Enrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12486,13 +12486,13 @@ impl IX509Enrollment_Vtbl {
         unsafe extern "system" fn Enroll<Identity: IX509Enrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509Enrollment_Impl::Enroll(this).into()
+                IX509Enrollment_Impl::Enroll(this)
             }
         }
         unsafe extern "system" fn InstallResponse<Identity: IX509Enrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, restrictions: InstallResponseRestrictionFlags, strresponse: *mut core::ffi::c_void, encoding: EncodingType, strpassword: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509Enrollment_Impl::InstallResponse(this, core::mem::transmute_copy(&restrictions), core::mem::transmute(&strresponse), core::mem::transmute_copy(&encoding), core::mem::transmute(&strpassword)).into()
+                IX509Enrollment_Impl::InstallResponse(this, core::mem::transmute_copy(&restrictions), core::mem::transmute(&strresponse), core::mem::transmute_copy(&encoding), core::mem::transmute(&strpassword))
             }
         }
         unsafe extern "system" fn CreatePFX<Identity: IX509Enrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpassword: *mut core::ffi::c_void, exportoptions: PFXExportOptions, encoding: EncodingType, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12543,7 +12543,7 @@ impl IX509Enrollment_Vtbl {
         unsafe extern "system" fn SetSilent<Identity: IX509Enrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509Enrollment_Impl::SetSilent(this, core::mem::transmute_copy(&value)).into()
+                IX509Enrollment_Impl::SetSilent(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn ParentWindow<Identity: IX509Enrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::LONG) -> windows_core::HRESULT {
@@ -12564,7 +12564,7 @@ impl IX509Enrollment_Vtbl {
         unsafe extern "system" fn SetParentWindow<Identity: IX509Enrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509Enrollment_Impl::SetParentWindow(this, core::mem::transmute_copy(&value)).into()
+                IX509Enrollment_Impl::SetParentWindow(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn NameValuePairs<Identity: IX509Enrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12660,7 +12660,7 @@ impl IX509Enrollment_Vtbl {
         unsafe extern "system" fn SetCertificateFriendlyName<Identity: IX509Enrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509Enrollment_Impl::SetCertificateFriendlyName(this, core::mem::transmute(&strvalue)).into()
+                IX509Enrollment_Impl::SetCertificateFriendlyName(this, core::mem::transmute(&strvalue))
             }
         }
         unsafe extern "system" fn CertificateDescription<Identity: IX509Enrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12681,7 +12681,7 @@ impl IX509Enrollment_Vtbl {
         unsafe extern "system" fn SetCertificateDescription<Identity: IX509Enrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509Enrollment_Impl::SetCertificateDescription(this, core::mem::transmute(&strvalue)).into()
+                IX509Enrollment_Impl::SetCertificateDescription(this, core::mem::transmute(&strvalue))
             }
         }
         unsafe extern "system" fn RequestId<Identity: IX509Enrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::LONG) -> windows_core::HRESULT {
@@ -12742,7 +12742,7 @@ impl IX509Enrollment_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509Enrollment as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IX509Enrollment as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -12806,8 +12806,8 @@ pub struct IX509Enrollment2_Vtbl {
 }
 #[cfg(all(feature = "certcli", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509Enrollment2_Impl: IX509Enrollment_Impl {
-    fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, ppolicyserver: windows_core::Ref<IX509EnrollmentPolicyServer>, ptemplate: windows_core::Ref<IX509CertificateTemplate>) -> windows_core::Result<()>;
-    fn InstallResponse2(&self, restrictions: InstallResponseRestrictionFlags, strresponse: &windows_core::BSTR, encoding: EncodingType, strpassword: &windows_core::BSTR, strenrollmentpolicyserverurl: &windows_core::BSTR, strenrollmentpolicyserverid: &windows_core::BSTR, enrollmentpolicyserverflags: PolicyServerUrlFlags, authflags: super::X509EnrollmentAuthFlags) -> windows_core::Result<()>;
+    fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, ppolicyserver: windows_core::Ref<IX509EnrollmentPolicyServer>, ptemplate: windows_core::Ref<IX509CertificateTemplate>) -> windows_core::HRESULT;
+    fn InstallResponse2(&self, restrictions: InstallResponseRestrictionFlags, strresponse: &windows_core::BSTR, encoding: EncodingType, strpassword: &windows_core::BSTR, strenrollmentpolicyserverurl: &windows_core::BSTR, strenrollmentpolicyserverid: &windows_core::BSTR, enrollmentpolicyserverflags: PolicyServerUrlFlags, authflags: super::X509EnrollmentAuthFlags) -> windows_core::HRESULT;
     fn PolicyServer(&self) -> windows_core::Result<IX509EnrollmentPolicyServer>;
     fn Template(&self) -> windows_core::Result<IX509CertificateTemplate>;
     fn RequestIdString(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -12818,13 +12818,13 @@ impl IX509Enrollment2_Vtbl {
         unsafe extern "system" fn InitializeFromTemplate<Identity: IX509Enrollment2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext, ppolicyserver: *mut core::ffi::c_void, ptemplate: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509Enrollment2_Impl::InitializeFromTemplate(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&ppolicyserver), core::mem::transmute_copy(&ptemplate)).into()
+                IX509Enrollment2_Impl::InitializeFromTemplate(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&ppolicyserver), core::mem::transmute_copy(&ptemplate))
             }
         }
         unsafe extern "system" fn InstallResponse2<Identity: IX509Enrollment2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, restrictions: InstallResponseRestrictionFlags, strresponse: *mut core::ffi::c_void, encoding: EncodingType, strpassword: *mut core::ffi::c_void, strenrollmentpolicyserverurl: *mut core::ffi::c_void, strenrollmentpolicyserverid: *mut core::ffi::c_void, enrollmentpolicyserverflags: PolicyServerUrlFlags, authflags: super::X509EnrollmentAuthFlags) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509Enrollment2_Impl::InstallResponse2(this, core::mem::transmute_copy(&restrictions), core::mem::transmute(&strresponse), core::mem::transmute_copy(&encoding), core::mem::transmute(&strpassword), core::mem::transmute(&strenrollmentpolicyserverurl), core::mem::transmute(&strenrollmentpolicyserverid), core::mem::transmute_copy(&enrollmentpolicyserverflags), core::mem::transmute_copy(&authflags)).into()
+                IX509Enrollment2_Impl::InstallResponse2(this, core::mem::transmute_copy(&restrictions), core::mem::transmute(&strresponse), core::mem::transmute_copy(&encoding), core::mem::transmute(&strpassword), core::mem::transmute(&strenrollmentpolicyserverurl), core::mem::transmute(&strenrollmentpolicyserverid), core::mem::transmute_copy(&enrollmentpolicyserverflags), core::mem::transmute_copy(&authflags))
             }
         }
         unsafe extern "system" fn PolicyServer<Identity: IX509Enrollment2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppolicyserver: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12882,7 +12882,7 @@ impl IX509Enrollment2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509Enrollment2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IX509Enrollment as windows_core::Interface>::IID
+        iid == &<IX509Enrollment2 as windows_core::Interface>::IID || IX509Enrollment_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "certcli", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -12936,10 +12936,10 @@ pub struct IX509EnrollmentHelper_Vtbl {
 }
 #[cfg(all(feature = "certcli", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509EnrollmentHelper_Impl: super::IDispatch_Impl {
-    fn AddPolicyServer(&self, strenrollmentpolicyserveruri: &windows_core::BSTR, strenrollmentpolicyid: &windows_core::BSTR, enrollmentpolicyserverflags: PolicyServerUrlFlags, authflags: super::X509EnrollmentAuthFlags, strcredential: &windows_core::BSTR, strpassword: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn AddEnrollmentServer(&self, strenrollmentserveruri: &windows_core::BSTR, authflags: super::X509EnrollmentAuthFlags, strcredential: &windows_core::BSTR, strpassword: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn AddPolicyServer(&self, strenrollmentpolicyserveruri: &windows_core::BSTR, strenrollmentpolicyid: &windows_core::BSTR, enrollmentpolicyserverflags: PolicyServerUrlFlags, authflags: super::X509EnrollmentAuthFlags, strcredential: &windows_core::BSTR, strpassword: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn AddEnrollmentServer(&self, strenrollmentserveruri: &windows_core::BSTR, authflags: super::X509EnrollmentAuthFlags, strcredential: &windows_core::BSTR, strpassword: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Enroll(&self, strenrollmentpolicyserveruri: &windows_core::BSTR, strtemplatename: &windows_core::BSTR, encoding: EncodingType, enrollflags: WebEnrollmentFlags) -> windows_core::Result<windows_core::BSTR>;
-    fn Initialize(&self, context: X509CertificateEnrollmentContext) -> windows_core::Result<()>;
+    fn Initialize(&self, context: X509CertificateEnrollmentContext) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "certcli", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509EnrollmentHelper_Vtbl {
@@ -12947,13 +12947,13 @@ impl IX509EnrollmentHelper_Vtbl {
         unsafe extern "system" fn AddPolicyServer<Identity: IX509EnrollmentHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strenrollmentpolicyserveruri: *mut core::ffi::c_void, strenrollmentpolicyid: *mut core::ffi::c_void, enrollmentpolicyserverflags: PolicyServerUrlFlags, authflags: super::X509EnrollmentAuthFlags, strcredential: *mut core::ffi::c_void, strpassword: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509EnrollmentHelper_Impl::AddPolicyServer(this, core::mem::transmute(&strenrollmentpolicyserveruri), core::mem::transmute(&strenrollmentpolicyid), core::mem::transmute_copy(&enrollmentpolicyserverflags), core::mem::transmute_copy(&authflags), core::mem::transmute(&strcredential), core::mem::transmute(&strpassword)).into()
+                IX509EnrollmentHelper_Impl::AddPolicyServer(this, core::mem::transmute(&strenrollmentpolicyserveruri), core::mem::transmute(&strenrollmentpolicyid), core::mem::transmute_copy(&enrollmentpolicyserverflags), core::mem::transmute_copy(&authflags), core::mem::transmute(&strcredential), core::mem::transmute(&strpassword))
             }
         }
         unsafe extern "system" fn AddEnrollmentServer<Identity: IX509EnrollmentHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strenrollmentserveruri: *mut core::ffi::c_void, authflags: super::X509EnrollmentAuthFlags, strcredential: *mut core::ffi::c_void, strpassword: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509EnrollmentHelper_Impl::AddEnrollmentServer(this, core::mem::transmute(&strenrollmentserveruri), core::mem::transmute_copy(&authflags), core::mem::transmute(&strcredential), core::mem::transmute(&strpassword)).into()
+                IX509EnrollmentHelper_Impl::AddEnrollmentServer(this, core::mem::transmute(&strenrollmentserveruri), core::mem::transmute_copy(&authflags), core::mem::transmute(&strcredential), core::mem::transmute(&strpassword))
             }
         }
         unsafe extern "system" fn Enroll<Identity: IX509EnrollmentHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strenrollmentpolicyserveruri: *mut core::ffi::c_void, strtemplatename: *mut core::ffi::c_void, encoding: EncodingType, enrollflags: WebEnrollmentFlags, pstrcertificate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12974,7 +12974,7 @@ impl IX509EnrollmentHelper_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IX509EnrollmentHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509EnrollmentHelper_Impl::Initialize(this, core::mem::transmute_copy(&context)).into()
+                IX509EnrollmentHelper_Impl::Initialize(this, core::mem::transmute_copy(&context))
             }
         }
         Self {
@@ -12986,7 +12986,7 @@ impl IX509EnrollmentHelper_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509EnrollmentHelper as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IX509EnrollmentHelper as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "certcli", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -13218,12 +13218,12 @@ pub struct IX509EnrollmentPolicyServer_Vtbl {
 }
 #[cfg(all(feature = "certcli", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509EnrollmentPolicyServer_Impl: super::IDispatch_Impl {
-    fn Initialize(&self, bstrpolicyserverurl: &windows_core::BSTR, bstrpolicyserverid: &windows_core::BSTR, authflags: super::X509EnrollmentAuthFlags, fisuntrusted: super::VARIANT_BOOL, context: X509CertificateEnrollmentContext) -> windows_core::Result<()>;
-    fn LoadPolicy(&self, option: X509EnrollmentPolicyLoadOption) -> windows_core::Result<()>;
+    fn Initialize(&self, bstrpolicyserverurl: &windows_core::BSTR, bstrpolicyserverid: &windows_core::BSTR, authflags: super::X509EnrollmentAuthFlags, fisuntrusted: super::VARIANT_BOOL, context: X509CertificateEnrollmentContext) -> windows_core::HRESULT;
+    fn LoadPolicy(&self, option: X509EnrollmentPolicyLoadOption) -> windows_core::HRESULT;
     fn GetTemplates(&self) -> windows_core::Result<IX509CertificateTemplates>;
     fn GetCAsForTemplate(&self, ptemplate: windows_core::Ref<IX509CertificateTemplate>) -> windows_core::Result<ICertificationAuthorities>;
     fn GetCAs(&self) -> windows_core::Result<ICertificationAuthorities>;
-    fn Validate(&self) -> windows_core::Result<()>;
+    fn Validate(&self) -> windows_core::HRESULT;
     fn GetCustomOids(&self) -> windows_core::Result<IObjectIds>;
     fn GetNextUpdateTime(&self) -> windows_core::Result<super::DATE>;
     fn GetLastUpdateTime(&self) -> windows_core::Result<super::DATE>;
@@ -13236,12 +13236,12 @@ pub trait IX509EnrollmentPolicyServer_Impl: super::IDispatch_Impl {
     fn GetCachePath(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetCacheDir(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetAuthFlags(&self) -> windows_core::Result<super::X509EnrollmentAuthFlags>;
-    fn SetCredential(&self, hwndparent: super::LONG, flag: super::X509EnrollmentAuthFlags, strcredential: &windows_core::BSTR, strpassword: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetCredential(&self, hwndparent: super::LONG, flag: super::X509EnrollmentAuthFlags, strcredential: &windows_core::BSTR, strpassword: &windows_core::BSTR) -> windows_core::HRESULT;
     fn QueryChanges(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn InitializeImport(&self, val: &super::VARIANT) -> windows_core::Result<()>;
+    fn InitializeImport(&self, val: &super::VARIANT) -> windows_core::HRESULT;
     fn Export(&self, exportflags: X509EnrollmentPolicyExportFlags) -> windows_core::Result<super::VARIANT>;
     fn Cost(&self) -> windows_core::Result<super::DWORD>;
-    fn SetCost(&self, value: super::DWORD) -> windows_core::Result<()>;
+    fn SetCost(&self, value: super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "certcli", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509EnrollmentPolicyServer_Vtbl {
@@ -13249,13 +13249,13 @@ impl IX509EnrollmentPolicyServer_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IX509EnrollmentPolicyServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpolicyserverurl: *mut core::ffi::c_void, bstrpolicyserverid: *mut core::ffi::c_void, authflags: super::X509EnrollmentAuthFlags, fisuntrusted: super::VARIANT_BOOL, context: X509CertificateEnrollmentContext) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509EnrollmentPolicyServer_Impl::Initialize(this, core::mem::transmute(&bstrpolicyserverurl), core::mem::transmute(&bstrpolicyserverid), core::mem::transmute_copy(&authflags), core::mem::transmute_copy(&fisuntrusted), core::mem::transmute_copy(&context)).into()
+                IX509EnrollmentPolicyServer_Impl::Initialize(this, core::mem::transmute(&bstrpolicyserverurl), core::mem::transmute(&bstrpolicyserverid), core::mem::transmute_copy(&authflags), core::mem::transmute_copy(&fisuntrusted), core::mem::transmute_copy(&context))
             }
         }
         unsafe extern "system" fn LoadPolicy<Identity: IX509EnrollmentPolicyServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, option: X509EnrollmentPolicyLoadOption) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509EnrollmentPolicyServer_Impl::LoadPolicy(this, core::mem::transmute_copy(&option)).into()
+                IX509EnrollmentPolicyServer_Impl::LoadPolicy(this, core::mem::transmute_copy(&option))
             }
         }
         unsafe extern "system" fn GetTemplates<Identity: IX509EnrollmentPolicyServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptemplates: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -13306,7 +13306,7 @@ impl IX509EnrollmentPolicyServer_Vtbl {
         unsafe extern "system" fn Validate<Identity: IX509EnrollmentPolicyServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509EnrollmentPolicyServer_Impl::Validate(this).into()
+                IX509EnrollmentPolicyServer_Impl::Validate(this)
             }
         }
         unsafe extern "system" fn GetCustomOids<Identity: IX509EnrollmentPolicyServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppobjectids: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -13492,7 +13492,7 @@ impl IX509EnrollmentPolicyServer_Vtbl {
         unsafe extern "system" fn SetCredential<Identity: IX509EnrollmentPolicyServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::LONG, flag: super::X509EnrollmentAuthFlags, strcredential: *mut core::ffi::c_void, strpassword: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509EnrollmentPolicyServer_Impl::SetCredential(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&flag), core::mem::transmute(&strcredential), core::mem::transmute(&strpassword)).into()
+                IX509EnrollmentPolicyServer_Impl::SetCredential(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&flag), core::mem::transmute(&strcredential), core::mem::transmute(&strpassword))
             }
         }
         unsafe extern "system" fn QueryChanges<Identity: IX509EnrollmentPolicyServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -13513,7 +13513,7 @@ impl IX509EnrollmentPolicyServer_Vtbl {
         unsafe extern "system" fn InitializeImport<Identity: IX509EnrollmentPolicyServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, val: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509EnrollmentPolicyServer_Impl::InitializeImport(this, core::mem::transmute(&val)).into()
+                IX509EnrollmentPolicyServer_Impl::InitializeImport(this, core::mem::transmute(&val))
             }
         }
         unsafe extern "system" fn Export<Identity: IX509EnrollmentPolicyServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, exportflags: X509EnrollmentPolicyExportFlags, pval: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -13549,7 +13549,7 @@ impl IX509EnrollmentPolicyServer_Vtbl {
         unsafe extern "system" fn SetCost<Identity: IX509EnrollmentPolicyServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509EnrollmentPolicyServer_Impl::SetCost(this, core::mem::transmute_copy(&value)).into()
+                IX509EnrollmentPolicyServer_Impl::SetCost(this, core::mem::transmute_copy(&value))
             }
         }
         Self {
@@ -13581,7 +13581,7 @@ impl IX509EnrollmentPolicyServer_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509EnrollmentPolicyServer as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IX509EnrollmentPolicyServer as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "certcli", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -13674,17 +13674,17 @@ pub struct IX509EnrollmentStatus_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509EnrollmentStatus_Impl: super::IDispatch_Impl {
-    fn AppendText(&self, strtext: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn AppendText(&self, strtext: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Text(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetText(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetText(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Selected(&self) -> windows_core::Result<EnrollmentSelectionStatus>;
-    fn SetSelected(&self, value: EnrollmentSelectionStatus) -> windows_core::Result<()>;
+    fn SetSelected(&self, value: EnrollmentSelectionStatus) -> windows_core::HRESULT;
     fn Display(&self) -> windows_core::Result<EnrollmentDisplayStatus>;
-    fn SetDisplay(&self, value: EnrollmentDisplayStatus) -> windows_core::Result<()>;
+    fn SetDisplay(&self, value: EnrollmentDisplayStatus) -> windows_core::HRESULT;
     fn Status(&self) -> windows_core::Result<EnrollmentEnrollStatus>;
-    fn SetStatus(&self, value: EnrollmentEnrollStatus) -> windows_core::Result<()>;
+    fn SetStatus(&self, value: EnrollmentEnrollStatus) -> windows_core::HRESULT;
     fn Error(&self) -> windows_core::Result<windows_core::HRESULT>;
-    fn SetError(&self, value: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn SetError(&self, value: windows_core::HRESULT) -> windows_core::HRESULT;
     fn ErrorText(&self) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -13693,7 +13693,7 @@ impl IX509EnrollmentStatus_Vtbl {
         unsafe extern "system" fn AppendText<Identity: IX509EnrollmentStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strtext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509EnrollmentStatus_Impl::AppendText(this, core::mem::transmute(&strtext)).into()
+                IX509EnrollmentStatus_Impl::AppendText(this, core::mem::transmute(&strtext))
             }
         }
         unsafe extern "system" fn Text<Identity: IX509EnrollmentStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -13714,7 +13714,7 @@ impl IX509EnrollmentStatus_Vtbl {
         unsafe extern "system" fn SetText<Identity: IX509EnrollmentStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509EnrollmentStatus_Impl::SetText(this, core::mem::transmute(&value)).into()
+                IX509EnrollmentStatus_Impl::SetText(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn Selected<Identity: IX509EnrollmentStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut EnrollmentSelectionStatus) -> windows_core::HRESULT {
@@ -13735,7 +13735,7 @@ impl IX509EnrollmentStatus_Vtbl {
         unsafe extern "system" fn SetSelected<Identity: IX509EnrollmentStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: EnrollmentSelectionStatus) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509EnrollmentStatus_Impl::SetSelected(this, core::mem::transmute_copy(&value)).into()
+                IX509EnrollmentStatus_Impl::SetSelected(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn Display<Identity: IX509EnrollmentStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut EnrollmentDisplayStatus) -> windows_core::HRESULT {
@@ -13756,7 +13756,7 @@ impl IX509EnrollmentStatus_Vtbl {
         unsafe extern "system" fn SetDisplay<Identity: IX509EnrollmentStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: EnrollmentDisplayStatus) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509EnrollmentStatus_Impl::SetDisplay(this, core::mem::transmute_copy(&value)).into()
+                IX509EnrollmentStatus_Impl::SetDisplay(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn Status<Identity: IX509EnrollmentStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut EnrollmentEnrollStatus) -> windows_core::HRESULT {
@@ -13777,7 +13777,7 @@ impl IX509EnrollmentStatus_Vtbl {
         unsafe extern "system" fn SetStatus<Identity: IX509EnrollmentStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: EnrollmentEnrollStatus) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509EnrollmentStatus_Impl::SetStatus(this, core::mem::transmute_copy(&value)).into()
+                IX509EnrollmentStatus_Impl::SetStatus(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn Error<Identity: IX509EnrollmentStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut windows_core::HRESULT) -> windows_core::HRESULT {
@@ -13798,7 +13798,7 @@ impl IX509EnrollmentStatus_Vtbl {
         unsafe extern "system" fn SetError<Identity: IX509EnrollmentStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509EnrollmentStatus_Impl::SetError(this, core::mem::transmute_copy(&value)).into()
+                IX509EnrollmentStatus_Impl::SetError(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn ErrorText<Identity: IX509EnrollmentStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -13833,7 +13833,7 @@ impl IX509EnrollmentStatus_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509EnrollmentStatus as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IX509EnrollmentStatus as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -13890,7 +13890,7 @@ impl IX509EnrollmentWebClassFactory_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), CreateObject: CreateObject::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509EnrollmentWebClassFactory as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IX509EnrollmentWebClassFactory as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -13957,11 +13957,11 @@ pub struct IX509Extension_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509Extension_Impl: super::IDispatch_Impl {
-    fn Initialize(&self, pobjectid: windows_core::Ref<IObjectId>, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Initialize(&self, pobjectid: windows_core::Ref<IObjectId>, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::HRESULT;
     fn ObjectId(&self) -> windows_core::Result<IObjectId>;
     fn RawData(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn Critical(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetCritical(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetCritical(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509Extension_Vtbl {
@@ -13969,7 +13969,7 @@ impl IX509Extension_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IX509Extension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobjectid: *mut core::ffi::c_void, encoding: EncodingType, strencodeddata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509Extension_Impl::Initialize(this, core::mem::transmute_copy(&pobjectid), core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata)).into()
+                IX509Extension_Impl::Initialize(this, core::mem::transmute_copy(&pobjectid), core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata))
             }
         }
         unsafe extern "system" fn ObjectId<Identity: IX509Extension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -14020,7 +14020,7 @@ impl IX509Extension_Vtbl {
         unsafe extern "system" fn SetCritical<Identity: IX509Extension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509Extension_Impl::SetCritical(this, core::mem::transmute_copy(&value)).into()
+                IX509Extension_Impl::SetCritical(this, core::mem::transmute_copy(&value))
             }
         }
         Self {
@@ -14033,7 +14033,7 @@ impl IX509Extension_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509Extension as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IX509Extension as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -14078,8 +14078,8 @@ pub struct IX509ExtensionAlternativeNames_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509ExtensionAlternativeNames_Impl: IX509Extension_Impl {
-    fn InitializeEncode(&self, pvalue: windows_core::Ref<IAlternativeNames>) -> windows_core::Result<()>;
-    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn InitializeEncode(&self, pvalue: windows_core::Ref<IAlternativeNames>) -> windows_core::HRESULT;
+    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::HRESULT;
     fn AlternativeNames(&self) -> windows_core::Result<IAlternativeNames>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -14088,13 +14088,13 @@ impl IX509ExtensionAlternativeNames_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionAlternativeNames_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509ExtensionAlternativeNames_Impl::InitializeEncode(this, core::mem::transmute_copy(&pvalue)).into()
+                IX509ExtensionAlternativeNames_Impl::InitializeEncode(this, core::mem::transmute_copy(&pvalue))
             }
         }
         unsafe extern "system" fn InitializeDecode<Identity: IX509ExtensionAlternativeNames_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strencodeddata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509ExtensionAlternativeNames_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata)).into()
+                IX509ExtensionAlternativeNames_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata))
             }
         }
         unsafe extern "system" fn AlternativeNames<Identity: IX509ExtensionAlternativeNames_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -14120,7 +14120,7 @@ impl IX509ExtensionAlternativeNames_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509ExtensionAlternativeNames as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
+        iid == &<IX509ExtensionAlternativeNames as windows_core::Interface>::IID || IX509Extension_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -14162,8 +14162,8 @@ pub struct IX509ExtensionAuthorityKeyIdentifier_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509ExtensionAuthorityKeyIdentifier_Impl: IX509Extension_Impl {
-    fn InitializeEncode(&self, encoding: EncodingType, strkeyidentifier: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn InitializeEncode(&self, encoding: EncodingType, strkeyidentifier: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::HRESULT;
     fn AuthorityKeyIdentifier(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -14172,13 +14172,13 @@ impl IX509ExtensionAuthorityKeyIdentifier_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionAuthorityKeyIdentifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strkeyidentifier: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509ExtensionAuthorityKeyIdentifier_Impl::InitializeEncode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strkeyidentifier)).into()
+                IX509ExtensionAuthorityKeyIdentifier_Impl::InitializeEncode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strkeyidentifier))
             }
         }
         unsafe extern "system" fn InitializeDecode<Identity: IX509ExtensionAuthorityKeyIdentifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strencodeddata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509ExtensionAuthorityKeyIdentifier_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata)).into()
+                IX509ExtensionAuthorityKeyIdentifier_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata))
             }
         }
         unsafe extern "system" fn AuthorityKeyIdentifier<Identity: IX509ExtensionAuthorityKeyIdentifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -14204,7 +14204,7 @@ impl IX509ExtensionAuthorityKeyIdentifier_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509ExtensionAuthorityKeyIdentifier as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
+        iid == &<IX509ExtensionAuthorityKeyIdentifier as windows_core::Interface>::IID || IX509Extension_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -14265,8 +14265,8 @@ pub struct IX509ExtensionBasicConstraints_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509ExtensionBasicConstraints_Impl: IX509Extension_Impl {
-    fn InitializeEncode(&self, isca: super::VARIANT_BOOL, pathlenconstraint: super::LONG) -> windows_core::Result<()>;
-    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn InitializeEncode(&self, isca: super::VARIANT_BOOL, pathlenconstraint: super::LONG) -> windows_core::HRESULT;
+    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::HRESULT;
     fn IsCA(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn PathLenConstraint(&self) -> windows_core::Result<super::LONG>;
 }
@@ -14276,13 +14276,13 @@ impl IX509ExtensionBasicConstraints_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionBasicConstraints_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isca: super::VARIANT_BOOL, pathlenconstraint: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509ExtensionBasicConstraints_Impl::InitializeEncode(this, core::mem::transmute_copy(&isca), core::mem::transmute_copy(&pathlenconstraint)).into()
+                IX509ExtensionBasicConstraints_Impl::InitializeEncode(this, core::mem::transmute_copy(&isca), core::mem::transmute_copy(&pathlenconstraint))
             }
         }
         unsafe extern "system" fn InitializeDecode<Identity: IX509ExtensionBasicConstraints_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strencodeddata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509ExtensionBasicConstraints_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata)).into()
+                IX509ExtensionBasicConstraints_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata))
             }
         }
         unsafe extern "system" fn IsCA<Identity: IX509ExtensionBasicConstraints_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -14324,7 +14324,7 @@ impl IX509ExtensionBasicConstraints_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509ExtensionBasicConstraints as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
+        iid == &<IX509ExtensionBasicConstraints as windows_core::Interface>::IID || IX509Extension_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -14369,8 +14369,8 @@ pub struct IX509ExtensionCertificatePolicies_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509ExtensionCertificatePolicies_Impl: IX509Extension_Impl {
-    fn InitializeEncode(&self, pvalue: windows_core::Ref<ICertificatePolicies>) -> windows_core::Result<()>;
-    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn InitializeEncode(&self, pvalue: windows_core::Ref<ICertificatePolicies>) -> windows_core::HRESULT;
+    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Policies(&self) -> windows_core::Result<ICertificatePolicies>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -14379,13 +14379,13 @@ impl IX509ExtensionCertificatePolicies_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionCertificatePolicies_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509ExtensionCertificatePolicies_Impl::InitializeEncode(this, core::mem::transmute_copy(&pvalue)).into()
+                IX509ExtensionCertificatePolicies_Impl::InitializeEncode(this, core::mem::transmute_copy(&pvalue))
             }
         }
         unsafe extern "system" fn InitializeDecode<Identity: IX509ExtensionCertificatePolicies_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strencodeddata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509ExtensionCertificatePolicies_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata)).into()
+                IX509ExtensionCertificatePolicies_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata))
             }
         }
         unsafe extern "system" fn Policies<Identity: IX509ExtensionCertificatePolicies_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -14411,7 +14411,7 @@ impl IX509ExtensionCertificatePolicies_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509ExtensionCertificatePolicies as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
+        iid == &<IX509ExtensionCertificatePolicies as windows_core::Interface>::IID || IX509Extension_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -14456,8 +14456,8 @@ pub struct IX509ExtensionEnhancedKeyUsage_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509ExtensionEnhancedKeyUsage_Impl: IX509Extension_Impl {
-    fn InitializeEncode(&self, pvalue: windows_core::Ref<IObjectIds>) -> windows_core::Result<()>;
-    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn InitializeEncode(&self, pvalue: windows_core::Ref<IObjectIds>) -> windows_core::HRESULT;
+    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::HRESULT;
     fn EnhancedKeyUsage(&self) -> windows_core::Result<IObjectIds>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -14466,13 +14466,13 @@ impl IX509ExtensionEnhancedKeyUsage_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionEnhancedKeyUsage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509ExtensionEnhancedKeyUsage_Impl::InitializeEncode(this, core::mem::transmute_copy(&pvalue)).into()
+                IX509ExtensionEnhancedKeyUsage_Impl::InitializeEncode(this, core::mem::transmute_copy(&pvalue))
             }
         }
         unsafe extern "system" fn InitializeDecode<Identity: IX509ExtensionEnhancedKeyUsage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strencodeddata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509ExtensionEnhancedKeyUsage_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata)).into()
+                IX509ExtensionEnhancedKeyUsage_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata))
             }
         }
         unsafe extern "system" fn EnhancedKeyUsage<Identity: IX509ExtensionEnhancedKeyUsage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -14498,7 +14498,7 @@ impl IX509ExtensionEnhancedKeyUsage_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509ExtensionEnhancedKeyUsage as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
+        iid == &<IX509ExtensionEnhancedKeyUsage as windows_core::Interface>::IID || IX509Extension_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -14540,8 +14540,8 @@ pub struct IX509ExtensionKeyUsage_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509ExtensionKeyUsage_Impl: IX509Extension_Impl {
-    fn InitializeEncode(&self, usageflags: X509KeyUsageFlags) -> windows_core::Result<()>;
-    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn InitializeEncode(&self, usageflags: X509KeyUsageFlags) -> windows_core::HRESULT;
+    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::HRESULT;
     fn KeyUsage(&self) -> windows_core::Result<X509KeyUsageFlags>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -14550,13 +14550,13 @@ impl IX509ExtensionKeyUsage_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionKeyUsage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, usageflags: X509KeyUsageFlags) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509ExtensionKeyUsage_Impl::InitializeEncode(this, core::mem::transmute_copy(&usageflags)).into()
+                IX509ExtensionKeyUsage_Impl::InitializeEncode(this, core::mem::transmute_copy(&usageflags))
             }
         }
         unsafe extern "system" fn InitializeDecode<Identity: IX509ExtensionKeyUsage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strencodeddata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509ExtensionKeyUsage_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata)).into()
+                IX509ExtensionKeyUsage_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata))
             }
         }
         unsafe extern "system" fn KeyUsage<Identity: IX509ExtensionKeyUsage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut X509KeyUsageFlags) -> windows_core::HRESULT {
@@ -14582,7 +14582,7 @@ impl IX509ExtensionKeyUsage_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509ExtensionKeyUsage as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
+        iid == &<IX509ExtensionKeyUsage as windows_core::Interface>::IID || IX509Extension_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -14627,8 +14627,8 @@ pub struct IX509ExtensionMSApplicationPolicies_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509ExtensionMSApplicationPolicies_Impl: IX509Extension_Impl {
-    fn InitializeEncode(&self, pvalue: windows_core::Ref<ICertificatePolicies>) -> windows_core::Result<()>;
-    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn InitializeEncode(&self, pvalue: windows_core::Ref<ICertificatePolicies>) -> windows_core::HRESULT;
+    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Policies(&self) -> windows_core::Result<ICertificatePolicies>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -14637,13 +14637,13 @@ impl IX509ExtensionMSApplicationPolicies_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionMSApplicationPolicies_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509ExtensionMSApplicationPolicies_Impl::InitializeEncode(this, core::mem::transmute_copy(&pvalue)).into()
+                IX509ExtensionMSApplicationPolicies_Impl::InitializeEncode(this, core::mem::transmute_copy(&pvalue))
             }
         }
         unsafe extern "system" fn InitializeDecode<Identity: IX509ExtensionMSApplicationPolicies_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strencodeddata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509ExtensionMSApplicationPolicies_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata)).into()
+                IX509ExtensionMSApplicationPolicies_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata))
             }
         }
         unsafe extern "system" fn Policies<Identity: IX509ExtensionMSApplicationPolicies_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -14669,7 +14669,7 @@ impl IX509ExtensionMSApplicationPolicies_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509ExtensionMSApplicationPolicies as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
+        iid == &<IX509ExtensionMSApplicationPolicies as windows_core::Interface>::IID || IX509Extension_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -14714,8 +14714,8 @@ pub struct IX509ExtensionSmimeCapabilities_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509ExtensionSmimeCapabilities_Impl: IX509Extension_Impl {
-    fn InitializeEncode(&self, pvalue: windows_core::Ref<ISmimeCapabilities>) -> windows_core::Result<()>;
-    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn InitializeEncode(&self, pvalue: windows_core::Ref<ISmimeCapabilities>) -> windows_core::HRESULT;
+    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::HRESULT;
     fn SmimeCapabilities(&self) -> windows_core::Result<ISmimeCapabilities>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -14724,13 +14724,13 @@ impl IX509ExtensionSmimeCapabilities_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionSmimeCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509ExtensionSmimeCapabilities_Impl::InitializeEncode(this, core::mem::transmute_copy(&pvalue)).into()
+                IX509ExtensionSmimeCapabilities_Impl::InitializeEncode(this, core::mem::transmute_copy(&pvalue))
             }
         }
         unsafe extern "system" fn InitializeDecode<Identity: IX509ExtensionSmimeCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strencodeddata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509ExtensionSmimeCapabilities_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata)).into()
+                IX509ExtensionSmimeCapabilities_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata))
             }
         }
         unsafe extern "system" fn SmimeCapabilities<Identity: IX509ExtensionSmimeCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -14756,7 +14756,7 @@ impl IX509ExtensionSmimeCapabilities_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509ExtensionSmimeCapabilities as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
+        iid == &<IX509ExtensionSmimeCapabilities as windows_core::Interface>::IID || IX509Extension_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -14798,8 +14798,8 @@ pub struct IX509ExtensionSubjectKeyIdentifier_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509ExtensionSubjectKeyIdentifier_Impl: IX509Extension_Impl {
-    fn InitializeEncode(&self, encoding: EncodingType, strkeyidentifier: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn InitializeEncode(&self, encoding: EncodingType, strkeyidentifier: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::HRESULT;
     fn SubjectKeyIdentifier(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -14808,13 +14808,13 @@ impl IX509ExtensionSubjectKeyIdentifier_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionSubjectKeyIdentifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strkeyidentifier: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509ExtensionSubjectKeyIdentifier_Impl::InitializeEncode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strkeyidentifier)).into()
+                IX509ExtensionSubjectKeyIdentifier_Impl::InitializeEncode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strkeyidentifier))
             }
         }
         unsafe extern "system" fn InitializeDecode<Identity: IX509ExtensionSubjectKeyIdentifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strencodeddata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509ExtensionSubjectKeyIdentifier_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata)).into()
+                IX509ExtensionSubjectKeyIdentifier_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata))
             }
         }
         unsafe extern "system" fn SubjectKeyIdentifier<Identity: IX509ExtensionSubjectKeyIdentifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -14840,7 +14840,7 @@ impl IX509ExtensionSubjectKeyIdentifier_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509ExtensionSubjectKeyIdentifier as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
+        iid == &<IX509ExtensionSubjectKeyIdentifier as windows_core::Interface>::IID || IX509Extension_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -14911,8 +14911,8 @@ pub struct IX509ExtensionTemplate_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509ExtensionTemplate_Impl: IX509Extension_Impl {
-    fn InitializeEncode(&self, ptemplateoid: windows_core::Ref<IObjectId>, majorversion: super::LONG, minorversion: super::LONG) -> windows_core::Result<()>;
-    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn InitializeEncode(&self, ptemplateoid: windows_core::Ref<IObjectId>, majorversion: super::LONG, minorversion: super::LONG) -> windows_core::HRESULT;
+    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::HRESULT;
     fn TemplateOid(&self) -> windows_core::Result<IObjectId>;
     fn MajorVersion(&self) -> windows_core::Result<super::LONG>;
     fn MinorVersion(&self) -> windows_core::Result<super::LONG>;
@@ -14923,13 +14923,13 @@ impl IX509ExtensionTemplate_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionTemplate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptemplateoid: *mut core::ffi::c_void, majorversion: super::LONG, minorversion: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509ExtensionTemplate_Impl::InitializeEncode(this, core::mem::transmute_copy(&ptemplateoid), core::mem::transmute_copy(&majorversion), core::mem::transmute_copy(&minorversion)).into()
+                IX509ExtensionTemplate_Impl::InitializeEncode(this, core::mem::transmute_copy(&ptemplateoid), core::mem::transmute_copy(&majorversion), core::mem::transmute_copy(&minorversion))
             }
         }
         unsafe extern "system" fn InitializeDecode<Identity: IX509ExtensionTemplate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strencodeddata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509ExtensionTemplate_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata)).into()
+                IX509ExtensionTemplate_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata))
             }
         }
         unsafe extern "system" fn TemplateOid<Identity: IX509ExtensionTemplate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -14987,7 +14987,7 @@ impl IX509ExtensionTemplate_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509ExtensionTemplate as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
+        iid == &<IX509ExtensionTemplate as windows_core::Interface>::IID || IX509Extension_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -15029,8 +15029,8 @@ pub struct IX509ExtensionTemplateName_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509ExtensionTemplateName_Impl: IX509Extension_Impl {
-    fn InitializeEncode(&self, strtemplatename: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn InitializeEncode(&self, strtemplatename: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::HRESULT;
     fn TemplateName(&self) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -15039,13 +15039,13 @@ impl IX509ExtensionTemplateName_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionTemplateName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strtemplatename: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509ExtensionTemplateName_Impl::InitializeEncode(this, core::mem::transmute(&strtemplatename)).into()
+                IX509ExtensionTemplateName_Impl::InitializeEncode(this, core::mem::transmute(&strtemplatename))
             }
         }
         unsafe extern "system" fn InitializeDecode<Identity: IX509ExtensionTemplateName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strencodeddata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509ExtensionTemplateName_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata)).into()
+                IX509ExtensionTemplateName_Impl::InitializeDecode(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&strencodeddata))
             }
         }
         unsafe extern "system" fn TemplateName<Identity: IX509ExtensionTemplateName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -15071,7 +15071,7 @@ impl IX509ExtensionTemplateName_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509ExtensionTemplateName as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
+        iid == &<IX509ExtensionTemplateName as windows_core::Interface>::IID || IX509Extension_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -15170,11 +15170,11 @@ pub trait IX509Extensions_Impl: super::IDispatch_Impl {
     fn ItemByIndex(&self, index: super::LONG) -> windows_core::Result<IX509Extension>;
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<super::LPUNKNOWN>;
-    fn Add(&self, pval: windows_core::Ref<IX509Extension>) -> windows_core::Result<()>;
-    fn Remove(&self, index: super::LONG) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
+    fn Add(&self, pval: windows_core::Ref<IX509Extension>) -> windows_core::HRESULT;
+    fn Remove(&self, index: super::LONG) -> windows_core::HRESULT;
+    fn Clear(&self) -> windows_core::HRESULT;
     fn IndexByObjectId(&self, pobjectid: windows_core::Ref<IObjectId>) -> windows_core::Result<super::LONG>;
-    fn AddRange(&self, pvalue: windows_core::Ref<IX509Extensions>) -> windows_core::Result<()>;
+    fn AddRange(&self, pvalue: windows_core::Ref<IX509Extensions>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "unknwnbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509Extensions_Vtbl {
@@ -15227,19 +15227,19 @@ impl IX509Extensions_Vtbl {
         unsafe extern "system" fn Add<Identity: IX509Extensions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509Extensions_Impl::Add(this, core::mem::transmute_copy(&pval)).into()
+                IX509Extensions_Impl::Add(this, core::mem::transmute_copy(&pval))
             }
         }
         unsafe extern "system" fn Remove<Identity: IX509Extensions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509Extensions_Impl::Remove(this, core::mem::transmute_copy(&index)).into()
+                IX509Extensions_Impl::Remove(this, core::mem::transmute_copy(&index))
             }
         }
         unsafe extern "system" fn Clear<Identity: IX509Extensions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509Extensions_Impl::Clear(this).into()
+                IX509Extensions_Impl::Clear(this)
             }
         }
         unsafe extern "system" fn IndexByObjectId<Identity: IX509Extensions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobjectid: *mut core::ffi::c_void, pindex: *mut super::LONG) -> windows_core::HRESULT {
@@ -15260,7 +15260,7 @@ impl IX509Extensions_Vtbl {
         unsafe extern "system" fn AddRange<Identity: IX509Extensions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509Extensions_Impl::AddRange(this, core::mem::transmute_copy(&pvalue)).into()
+                IX509Extensions_Impl::AddRange(this, core::mem::transmute_copy(&pvalue))
             }
         }
         Self {
@@ -15276,7 +15276,7 @@ impl IX509Extensions_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509Extensions as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IX509Extensions as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "unknwnbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -15333,7 +15333,7 @@ impl IX509MachineEnrollmentFactory_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), CreateObject: CreateObject::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509MachineEnrollmentFactory as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IX509MachineEnrollmentFactory as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -15378,7 +15378,7 @@ pub struct IX509NameValuePair_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509NameValuePair_Impl: super::IDispatch_Impl {
-    fn Initialize(&self, strname: &windows_core::BSTR, strvalue: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Initialize(&self, strname: &windows_core::BSTR, strvalue: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Value(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
 }
@@ -15388,7 +15388,7 @@ impl IX509NameValuePair_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IX509NameValuePair_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, strvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509NameValuePair_Impl::Initialize(this, core::mem::transmute(&strname), core::mem::transmute(&strvalue)).into()
+                IX509NameValuePair_Impl::Initialize(this, core::mem::transmute(&strname), core::mem::transmute(&strvalue))
             }
         }
         unsafe extern "system" fn Value<Identity: IX509NameValuePair_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -15429,7 +15429,7 @@ impl IX509NameValuePair_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509NameValuePair as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IX509NameValuePair as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -15507,9 +15507,9 @@ pub trait IX509NameValuePairs_Impl: super::IDispatch_Impl {
     fn ItemByIndex(&self, index: super::LONG) -> windows_core::Result<IX509NameValuePair>;
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<super::LPUNKNOWN>;
-    fn Add(&self, pval: windows_core::Ref<IX509NameValuePair>) -> windows_core::Result<()>;
-    fn Remove(&self, index: super::LONG) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
+    fn Add(&self, pval: windows_core::Ref<IX509NameValuePair>) -> windows_core::HRESULT;
+    fn Remove(&self, index: super::LONG) -> windows_core::HRESULT;
+    fn Clear(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "unknwnbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509NameValuePairs_Vtbl {
@@ -15562,19 +15562,19 @@ impl IX509NameValuePairs_Vtbl {
         unsafe extern "system" fn Add<Identity: IX509NameValuePairs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509NameValuePairs_Impl::Add(this, core::mem::transmute_copy(&pval)).into()
+                IX509NameValuePairs_Impl::Add(this, core::mem::transmute_copy(&pval))
             }
         }
         unsafe extern "system" fn Remove<Identity: IX509NameValuePairs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509NameValuePairs_Impl::Remove(this, core::mem::transmute_copy(&index)).into()
+                IX509NameValuePairs_Impl::Remove(this, core::mem::transmute_copy(&index))
             }
         }
         unsafe extern "system" fn Clear<Identity: IX509NameValuePairs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509NameValuePairs_Impl::Clear(this).into()
+                IX509NameValuePairs_Impl::Clear(this)
             }
         }
         Self {
@@ -15588,7 +15588,7 @@ impl IX509NameValuePairs_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509NameValuePairs as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IX509NameValuePairs as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "unknwnbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -15670,10 +15670,10 @@ pub trait IX509PolicyServerListManager_Impl: super::IDispatch_Impl {
     fn ItemByIndex(&self, index: super::LONG) -> windows_core::Result<IX509PolicyServerUrl>;
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<super::LPUNKNOWN>;
-    fn Add(&self, pval: windows_core::Ref<IX509PolicyServerUrl>) -> windows_core::Result<()>;
-    fn Remove(&self, index: super::LONG) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
-    fn Initialize(&self, context: X509CertificateEnrollmentContext, flags: PolicyServerUrlFlags) -> windows_core::Result<()>;
+    fn Add(&self, pval: windows_core::Ref<IX509PolicyServerUrl>) -> windows_core::HRESULT;
+    fn Remove(&self, index: super::LONG) -> windows_core::HRESULT;
+    fn Clear(&self) -> windows_core::HRESULT;
+    fn Initialize(&self, context: X509CertificateEnrollmentContext, flags: PolicyServerUrlFlags) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "unknwnbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509PolicyServerListManager_Vtbl {
@@ -15726,25 +15726,25 @@ impl IX509PolicyServerListManager_Vtbl {
         unsafe extern "system" fn Add<Identity: IX509PolicyServerListManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PolicyServerListManager_Impl::Add(this, core::mem::transmute_copy(&pval)).into()
+                IX509PolicyServerListManager_Impl::Add(this, core::mem::transmute_copy(&pval))
             }
         }
         unsafe extern "system" fn Remove<Identity: IX509PolicyServerListManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PolicyServerListManager_Impl::Remove(this, core::mem::transmute_copy(&index)).into()
+                IX509PolicyServerListManager_Impl::Remove(this, core::mem::transmute_copy(&index))
             }
         }
         unsafe extern "system" fn Clear<Identity: IX509PolicyServerListManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PolicyServerListManager_Impl::Clear(this).into()
+                IX509PolicyServerListManager_Impl::Clear(this)
             }
         }
         unsafe extern "system" fn Initialize<Identity: IX509PolicyServerListManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext, flags: PolicyServerUrlFlags) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PolicyServerListManager_Impl::Initialize(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&flags)).into()
+                IX509PolicyServerListManager_Impl::Initialize(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&flags))
             }
         }
         Self {
@@ -15759,7 +15759,7 @@ impl IX509PolicyServerListManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509PolicyServerListManager as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IX509PolicyServerListManager as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "unknwnbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -15888,21 +15888,21 @@ pub struct IX509PolicyServerUrl_Vtbl {
 }
 #[cfg(all(feature = "certcli", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509PolicyServerUrl_Impl: super::IDispatch_Impl {
-    fn Initialize(&self, context: X509CertificateEnrollmentContext) -> windows_core::Result<()>;
+    fn Initialize(&self, context: X509CertificateEnrollmentContext) -> windows_core::HRESULT;
     fn Url(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetUrl(&self, pvalue: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetUrl(&self, pvalue: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Default(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetDefault(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetDefault(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn Flags(&self) -> windows_core::Result<PolicyServerUrlFlags>;
-    fn SetFlags(&self, flags: PolicyServerUrlFlags) -> windows_core::Result<()>;
+    fn SetFlags(&self, flags: PolicyServerUrlFlags) -> windows_core::HRESULT;
     fn AuthFlags(&self) -> windows_core::Result<super::X509EnrollmentAuthFlags>;
-    fn SetAuthFlags(&self, flags: super::X509EnrollmentAuthFlags) -> windows_core::Result<()>;
+    fn SetAuthFlags(&self, flags: super::X509EnrollmentAuthFlags) -> windows_core::HRESULT;
     fn Cost(&self) -> windows_core::Result<super::DWORD>;
-    fn SetCost(&self, value: super::DWORD) -> windows_core::Result<()>;
+    fn SetCost(&self, value: super::DWORD) -> windows_core::HRESULT;
     fn GetStringProperty(&self, propertyid: PolicyServerUrlPropertyID) -> windows_core::Result<windows_core::BSTR>;
-    fn SetStringProperty(&self, propertyid: PolicyServerUrlPropertyID, pvalue: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn UpdateRegistry(&self, context: X509CertificateEnrollmentContext) -> windows_core::Result<()>;
-    fn RemoveFromRegistry(&self, context: X509CertificateEnrollmentContext) -> windows_core::Result<()>;
+    fn SetStringProperty(&self, propertyid: PolicyServerUrlPropertyID, pvalue: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn UpdateRegistry(&self, context: X509CertificateEnrollmentContext) -> windows_core::HRESULT;
+    fn RemoveFromRegistry(&self, context: X509CertificateEnrollmentContext) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "certcli", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509PolicyServerUrl_Vtbl {
@@ -15910,7 +15910,7 @@ impl IX509PolicyServerUrl_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IX509PolicyServerUrl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PolicyServerUrl_Impl::Initialize(this, core::mem::transmute_copy(&context)).into()
+                IX509PolicyServerUrl_Impl::Initialize(this, core::mem::transmute_copy(&context))
             }
         }
         unsafe extern "system" fn Url<Identity: IX509PolicyServerUrl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -15931,7 +15931,7 @@ impl IX509PolicyServerUrl_Vtbl {
         unsafe extern "system" fn SetUrl<Identity: IX509PolicyServerUrl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PolicyServerUrl_Impl::SetUrl(this, core::mem::transmute(&pvalue)).into()
+                IX509PolicyServerUrl_Impl::SetUrl(this, core::mem::transmute(&pvalue))
             }
         }
         unsafe extern "system" fn Default<Identity: IX509PolicyServerUrl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -15952,7 +15952,7 @@ impl IX509PolicyServerUrl_Vtbl {
         unsafe extern "system" fn SetDefault<Identity: IX509PolicyServerUrl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PolicyServerUrl_Impl::SetDefault(this, core::mem::transmute_copy(&value)).into()
+                IX509PolicyServerUrl_Impl::SetDefault(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn Flags<Identity: IX509PolicyServerUrl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut PolicyServerUrlFlags) -> windows_core::HRESULT {
@@ -15973,7 +15973,7 @@ impl IX509PolicyServerUrl_Vtbl {
         unsafe extern "system" fn SetFlags<Identity: IX509PolicyServerUrl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: PolicyServerUrlFlags) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PolicyServerUrl_Impl::SetFlags(this, core::mem::transmute_copy(&flags)).into()
+                IX509PolicyServerUrl_Impl::SetFlags(this, core::mem::transmute_copy(&flags))
             }
         }
         unsafe extern "system" fn AuthFlags<Identity: IX509PolicyServerUrl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::X509EnrollmentAuthFlags) -> windows_core::HRESULT {
@@ -15994,7 +15994,7 @@ impl IX509PolicyServerUrl_Vtbl {
         unsafe extern "system" fn SetAuthFlags<Identity: IX509PolicyServerUrl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: super::X509EnrollmentAuthFlags) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PolicyServerUrl_Impl::SetAuthFlags(this, core::mem::transmute_copy(&flags)).into()
+                IX509PolicyServerUrl_Impl::SetAuthFlags(this, core::mem::transmute_copy(&flags))
             }
         }
         unsafe extern "system" fn Cost<Identity: IX509PolicyServerUrl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::DWORD) -> windows_core::HRESULT {
@@ -16015,7 +16015,7 @@ impl IX509PolicyServerUrl_Vtbl {
         unsafe extern "system" fn SetCost<Identity: IX509PolicyServerUrl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PolicyServerUrl_Impl::SetCost(this, core::mem::transmute_copy(&value)).into()
+                IX509PolicyServerUrl_Impl::SetCost(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn GetStringProperty<Identity: IX509PolicyServerUrl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: PolicyServerUrlPropertyID, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -16036,19 +16036,19 @@ impl IX509PolicyServerUrl_Vtbl {
         unsafe extern "system" fn SetStringProperty<Identity: IX509PolicyServerUrl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: PolicyServerUrlPropertyID, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PolicyServerUrl_Impl::SetStringProperty(this, core::mem::transmute_copy(&propertyid), core::mem::transmute(&pvalue)).into()
+                IX509PolicyServerUrl_Impl::SetStringProperty(this, core::mem::transmute_copy(&propertyid), core::mem::transmute(&pvalue))
             }
         }
         unsafe extern "system" fn UpdateRegistry<Identity: IX509PolicyServerUrl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PolicyServerUrl_Impl::UpdateRegistry(this, core::mem::transmute_copy(&context)).into()
+                IX509PolicyServerUrl_Impl::UpdateRegistry(this, core::mem::transmute_copy(&context))
             }
         }
         unsafe extern "system" fn RemoveFromRegistry<Identity: IX509PolicyServerUrl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PolicyServerUrl_Impl::RemoveFromRegistry(this, core::mem::transmute_copy(&context)).into()
+                IX509PolicyServerUrl_Impl::RemoveFromRegistry(this, core::mem::transmute_copy(&context))
             }
         }
         Self {
@@ -16071,7 +16071,7 @@ impl IX509PolicyServerUrl_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509PolicyServerUrl as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IX509PolicyServerUrl as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "certcli", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -16479,64 +16479,64 @@ pub struct IX509PrivateKey_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509PrivateKey_Impl: super::IDispatch_Impl {
-    fn Open(&self) -> windows_core::Result<()>;
-    fn Create(&self) -> windows_core::Result<()>;
-    fn Close(&self) -> windows_core::Result<()>;
-    fn Delete(&self) -> windows_core::Result<()>;
-    fn Verify(&self, verifytype: X509PrivateKeyVerify) -> windows_core::Result<()>;
-    fn Import(&self, strexporttype: &windows_core::BSTR, strencodedkey: &windows_core::BSTR, encoding: EncodingType) -> windows_core::Result<()>;
+    fn Open(&self) -> windows_core::HRESULT;
+    fn Create(&self) -> windows_core::HRESULT;
+    fn Close(&self) -> windows_core::HRESULT;
+    fn Delete(&self) -> windows_core::HRESULT;
+    fn Verify(&self, verifytype: X509PrivateKeyVerify) -> windows_core::HRESULT;
+    fn Import(&self, strexporttype: &windows_core::BSTR, strencodedkey: &windows_core::BSTR, encoding: EncodingType) -> windows_core::HRESULT;
     fn Export(&self, strexporttype: &windows_core::BSTR, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn ExportPublicKey(&self) -> windows_core::Result<IX509PublicKey>;
     fn ContainerName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetContainerName(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetContainerName(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn ContainerNamePrefix(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetContainerNamePrefix(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetContainerNamePrefix(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn ReaderName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetReaderName(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetReaderName(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn CspInformations(&self) -> windows_core::Result<ICspInformations>;
-    fn SetCspInformations(&self, pvalue: windows_core::Ref<ICspInformations>) -> windows_core::Result<()>;
+    fn SetCspInformations(&self, pvalue: windows_core::Ref<ICspInformations>) -> windows_core::HRESULT;
     fn CspStatus(&self) -> windows_core::Result<ICspStatus>;
-    fn SetCspStatus(&self, pvalue: windows_core::Ref<ICspStatus>) -> windows_core::Result<()>;
+    fn SetCspStatus(&self, pvalue: windows_core::Ref<ICspStatus>) -> windows_core::HRESULT;
     fn ProviderName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetProviderName(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetProviderName(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn ProviderType(&self) -> windows_core::Result<X509ProviderType>;
-    fn SetProviderType(&self, value: X509ProviderType) -> windows_core::Result<()>;
+    fn SetProviderType(&self, value: X509ProviderType) -> windows_core::HRESULT;
     fn LegacyCsp(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetLegacyCsp(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetLegacyCsp(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn Algorithm(&self) -> windows_core::Result<IObjectId>;
-    fn SetAlgorithm(&self, pvalue: windows_core::Ref<IObjectId>) -> windows_core::Result<()>;
+    fn SetAlgorithm(&self, pvalue: windows_core::Ref<IObjectId>) -> windows_core::HRESULT;
     fn KeySpec(&self) -> windows_core::Result<X509KeySpec>;
-    fn SetKeySpec(&self, value: X509KeySpec) -> windows_core::Result<()>;
+    fn SetKeySpec(&self, value: X509KeySpec) -> windows_core::HRESULT;
     fn Length(&self) -> windows_core::Result<super::LONG>;
-    fn SetLength(&self, value: super::LONG) -> windows_core::Result<()>;
+    fn SetLength(&self, value: super::LONG) -> windows_core::HRESULT;
     fn ExportPolicy(&self) -> windows_core::Result<X509PrivateKeyExportFlags>;
-    fn SetExportPolicy(&self, value: X509PrivateKeyExportFlags) -> windows_core::Result<()>;
+    fn SetExportPolicy(&self, value: X509PrivateKeyExportFlags) -> windows_core::HRESULT;
     fn KeyUsage(&self) -> windows_core::Result<X509PrivateKeyUsageFlags>;
-    fn SetKeyUsage(&self, value: X509PrivateKeyUsageFlags) -> windows_core::Result<()>;
+    fn SetKeyUsage(&self, value: X509PrivateKeyUsageFlags) -> windows_core::HRESULT;
     fn KeyProtection(&self) -> windows_core::Result<X509PrivateKeyProtection>;
-    fn SetKeyProtection(&self, value: X509PrivateKeyProtection) -> windows_core::Result<()>;
+    fn SetKeyProtection(&self, value: X509PrivateKeyProtection) -> windows_core::HRESULT;
     fn MachineContext(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetMachineContext(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetMachineContext(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn SecurityDescriptor(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetSecurityDescriptor(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetSecurityDescriptor(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Certificate(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
-    fn SetCertificate(&self, encoding: EncodingType, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetCertificate(&self, encoding: EncodingType, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn UniqueContainerName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Opened(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn DefaultContainer(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn Existing(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetExisting(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetExisting(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn Silent(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetSilent(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetSilent(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn ParentWindow(&self) -> windows_core::Result<super::LONG>;
-    fn SetParentWindow(&self, value: super::LONG) -> windows_core::Result<()>;
+    fn SetParentWindow(&self, value: super::LONG) -> windows_core::HRESULT;
     fn UIContextMessage(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetUIContextMessage(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetPin(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetUIContextMessage(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn SetPin(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn FriendlyName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetFriendlyName(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetFriendlyName(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetDescription(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetDescription(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509PrivateKey_Vtbl {
@@ -16544,37 +16544,37 @@ impl IX509PrivateKey_Vtbl {
         unsafe extern "system" fn Open<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey_Impl::Open(this).into()
+                IX509PrivateKey_Impl::Open(this)
             }
         }
         unsafe extern "system" fn Create<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey_Impl::Create(this).into()
+                IX509PrivateKey_Impl::Create(this)
             }
         }
         unsafe extern "system" fn Close<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey_Impl::Close(this).into()
+                IX509PrivateKey_Impl::Close(this)
             }
         }
         unsafe extern "system" fn Delete<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey_Impl::Delete(this).into()
+                IX509PrivateKey_Impl::Delete(this)
             }
         }
         unsafe extern "system" fn Verify<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, verifytype: X509PrivateKeyVerify) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey_Impl::Verify(this, core::mem::transmute_copy(&verifytype)).into()
+                IX509PrivateKey_Impl::Verify(this, core::mem::transmute_copy(&verifytype))
             }
         }
         unsafe extern "system" fn Import<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strexporttype: *mut core::ffi::c_void, strencodedkey: *mut core::ffi::c_void, encoding: EncodingType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey_Impl::Import(this, core::mem::transmute(&strexporttype), core::mem::transmute(&strencodedkey), core::mem::transmute_copy(&encoding)).into()
+                IX509PrivateKey_Impl::Import(this, core::mem::transmute(&strexporttype), core::mem::transmute(&strencodedkey), core::mem::transmute_copy(&encoding))
             }
         }
         unsafe extern "system" fn Export<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strexporttype: *mut core::ffi::c_void, encoding: EncodingType, pstrencodedkey: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -16625,7 +16625,7 @@ impl IX509PrivateKey_Vtbl {
         unsafe extern "system" fn SetContainerName<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey_Impl::SetContainerName(this, core::mem::transmute(&value)).into()
+                IX509PrivateKey_Impl::SetContainerName(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn ContainerNamePrefix<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -16646,7 +16646,7 @@ impl IX509PrivateKey_Vtbl {
         unsafe extern "system" fn SetContainerNamePrefix<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey_Impl::SetContainerNamePrefix(this, core::mem::transmute(&value)).into()
+                IX509PrivateKey_Impl::SetContainerNamePrefix(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn ReaderName<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -16667,7 +16667,7 @@ impl IX509PrivateKey_Vtbl {
         unsafe extern "system" fn SetReaderName<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey_Impl::SetReaderName(this, core::mem::transmute(&value)).into()
+                IX509PrivateKey_Impl::SetReaderName(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn CspInformations<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -16688,7 +16688,7 @@ impl IX509PrivateKey_Vtbl {
         unsafe extern "system" fn SetCspInformations<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey_Impl::SetCspInformations(this, core::mem::transmute_copy(&pvalue)).into()
+                IX509PrivateKey_Impl::SetCspInformations(this, core::mem::transmute_copy(&pvalue))
             }
         }
         unsafe extern "system" fn CspStatus<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -16709,7 +16709,7 @@ impl IX509PrivateKey_Vtbl {
         unsafe extern "system" fn SetCspStatus<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey_Impl::SetCspStatus(this, core::mem::transmute_copy(&pvalue)).into()
+                IX509PrivateKey_Impl::SetCspStatus(this, core::mem::transmute_copy(&pvalue))
             }
         }
         unsafe extern "system" fn ProviderName<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -16730,7 +16730,7 @@ impl IX509PrivateKey_Vtbl {
         unsafe extern "system" fn SetProviderName<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey_Impl::SetProviderName(this, core::mem::transmute(&value)).into()
+                IX509PrivateKey_Impl::SetProviderName(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn ProviderType<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut X509ProviderType) -> windows_core::HRESULT {
@@ -16751,7 +16751,7 @@ impl IX509PrivateKey_Vtbl {
         unsafe extern "system" fn SetProviderType<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: X509ProviderType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey_Impl::SetProviderType(this, core::mem::transmute_copy(&value)).into()
+                IX509PrivateKey_Impl::SetProviderType(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn LegacyCsp<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -16772,7 +16772,7 @@ impl IX509PrivateKey_Vtbl {
         unsafe extern "system" fn SetLegacyCsp<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey_Impl::SetLegacyCsp(this, core::mem::transmute_copy(&value)).into()
+                IX509PrivateKey_Impl::SetLegacyCsp(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn Algorithm<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -16793,7 +16793,7 @@ impl IX509PrivateKey_Vtbl {
         unsafe extern "system" fn SetAlgorithm<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey_Impl::SetAlgorithm(this, core::mem::transmute_copy(&pvalue)).into()
+                IX509PrivateKey_Impl::SetAlgorithm(this, core::mem::transmute_copy(&pvalue))
             }
         }
         unsafe extern "system" fn KeySpec<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut X509KeySpec) -> windows_core::HRESULT {
@@ -16814,7 +16814,7 @@ impl IX509PrivateKey_Vtbl {
         unsafe extern "system" fn SetKeySpec<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: X509KeySpec) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey_Impl::SetKeySpec(this, core::mem::transmute_copy(&value)).into()
+                IX509PrivateKey_Impl::SetKeySpec(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn Length<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::LONG) -> windows_core::HRESULT {
@@ -16835,7 +16835,7 @@ impl IX509PrivateKey_Vtbl {
         unsafe extern "system" fn SetLength<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey_Impl::SetLength(this, core::mem::transmute_copy(&value)).into()
+                IX509PrivateKey_Impl::SetLength(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn ExportPolicy<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut X509PrivateKeyExportFlags) -> windows_core::HRESULT {
@@ -16856,7 +16856,7 @@ impl IX509PrivateKey_Vtbl {
         unsafe extern "system" fn SetExportPolicy<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: X509PrivateKeyExportFlags) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey_Impl::SetExportPolicy(this, core::mem::transmute_copy(&value)).into()
+                IX509PrivateKey_Impl::SetExportPolicy(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn KeyUsage<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut X509PrivateKeyUsageFlags) -> windows_core::HRESULT {
@@ -16877,7 +16877,7 @@ impl IX509PrivateKey_Vtbl {
         unsafe extern "system" fn SetKeyUsage<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: X509PrivateKeyUsageFlags) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey_Impl::SetKeyUsage(this, core::mem::transmute_copy(&value)).into()
+                IX509PrivateKey_Impl::SetKeyUsage(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn KeyProtection<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut X509PrivateKeyProtection) -> windows_core::HRESULT {
@@ -16898,7 +16898,7 @@ impl IX509PrivateKey_Vtbl {
         unsafe extern "system" fn SetKeyProtection<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: X509PrivateKeyProtection) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey_Impl::SetKeyProtection(this, core::mem::transmute_copy(&value)).into()
+                IX509PrivateKey_Impl::SetKeyProtection(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn MachineContext<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -16919,7 +16919,7 @@ impl IX509PrivateKey_Vtbl {
         unsafe extern "system" fn SetMachineContext<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey_Impl::SetMachineContext(this, core::mem::transmute_copy(&value)).into()
+                IX509PrivateKey_Impl::SetMachineContext(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn SecurityDescriptor<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -16940,7 +16940,7 @@ impl IX509PrivateKey_Vtbl {
         unsafe extern "system" fn SetSecurityDescriptor<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey_Impl::SetSecurityDescriptor(this, core::mem::transmute(&value)).into()
+                IX509PrivateKey_Impl::SetSecurityDescriptor(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn Certificate<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -16961,7 +16961,7 @@ impl IX509PrivateKey_Vtbl {
         unsafe extern "system" fn SetCertificate<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey_Impl::SetCertificate(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&value)).into()
+                IX509PrivateKey_Impl::SetCertificate(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn UniqueContainerName<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -17027,7 +17027,7 @@ impl IX509PrivateKey_Vtbl {
         unsafe extern "system" fn SetExisting<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey_Impl::SetExisting(this, core::mem::transmute_copy(&value)).into()
+                IX509PrivateKey_Impl::SetExisting(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn Silent<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -17048,7 +17048,7 @@ impl IX509PrivateKey_Vtbl {
         unsafe extern "system" fn SetSilent<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey_Impl::SetSilent(this, core::mem::transmute_copy(&value)).into()
+                IX509PrivateKey_Impl::SetSilent(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn ParentWindow<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::LONG) -> windows_core::HRESULT {
@@ -17069,7 +17069,7 @@ impl IX509PrivateKey_Vtbl {
         unsafe extern "system" fn SetParentWindow<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey_Impl::SetParentWindow(this, core::mem::transmute_copy(&value)).into()
+                IX509PrivateKey_Impl::SetParentWindow(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn UIContextMessage<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -17090,13 +17090,13 @@ impl IX509PrivateKey_Vtbl {
         unsafe extern "system" fn SetUIContextMessage<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey_Impl::SetUIContextMessage(this, core::mem::transmute(&value)).into()
+                IX509PrivateKey_Impl::SetUIContextMessage(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn SetPin<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey_Impl::SetPin(this, core::mem::transmute(&value)).into()
+                IX509PrivateKey_Impl::SetPin(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn FriendlyName<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -17117,7 +17117,7 @@ impl IX509PrivateKey_Vtbl {
         unsafe extern "system" fn SetFriendlyName<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey_Impl::SetFriendlyName(this, core::mem::transmute(&value)).into()
+                IX509PrivateKey_Impl::SetFriendlyName(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn Description<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -17138,7 +17138,7 @@ impl IX509PrivateKey_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey_Impl::SetDescription(this, core::mem::transmute(&value)).into()
+                IX509PrivateKey_Impl::SetDescription(this, core::mem::transmute(&value))
             }
         }
         Self {
@@ -17204,7 +17204,7 @@ impl IX509PrivateKey_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509PrivateKey as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IX509PrivateKey as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -17287,15 +17287,15 @@ pub struct IX509PrivateKey2_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509PrivateKey2_Impl: IX509PrivateKey_Impl {
     fn HardwareKeyUsage(&self) -> windows_core::Result<X509HardwareKeyUsageFlags>;
-    fn SetHardwareKeyUsage(&self, value: X509HardwareKeyUsageFlags) -> windows_core::Result<()>;
+    fn SetHardwareKeyUsage(&self, value: X509HardwareKeyUsageFlags) -> windows_core::HRESULT;
     fn AlternateStorageLocation(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetAlternateStorageLocation(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetAlternateStorageLocation(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn AlgorithmName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetAlgorithmName(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetAlgorithmName(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn AlgorithmParameters(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
-    fn SetAlgorithmParameters(&self, encoding: EncodingType, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetAlgorithmParameters(&self, encoding: EncodingType, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn ParametersExportType(&self) -> windows_core::Result<X509KeyParametersExportType>;
-    fn SetParametersExportType(&self, value: X509KeyParametersExportType) -> windows_core::Result<()>;
+    fn SetParametersExportType(&self, value: X509KeyParametersExportType) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509PrivateKey2_Vtbl {
@@ -17318,7 +17318,7 @@ impl IX509PrivateKey2_Vtbl {
         unsafe extern "system" fn SetHardwareKeyUsage<Identity: IX509PrivateKey2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: X509HardwareKeyUsageFlags) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey2_Impl::SetHardwareKeyUsage(this, core::mem::transmute_copy(&value)).into()
+                IX509PrivateKey2_Impl::SetHardwareKeyUsage(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn AlternateStorageLocation<Identity: IX509PrivateKey2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -17339,7 +17339,7 @@ impl IX509PrivateKey2_Vtbl {
         unsafe extern "system" fn SetAlternateStorageLocation<Identity: IX509PrivateKey2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey2_Impl::SetAlternateStorageLocation(this, core::mem::transmute(&value)).into()
+                IX509PrivateKey2_Impl::SetAlternateStorageLocation(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn AlgorithmName<Identity: IX509PrivateKey2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -17360,7 +17360,7 @@ impl IX509PrivateKey2_Vtbl {
         unsafe extern "system" fn SetAlgorithmName<Identity: IX509PrivateKey2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey2_Impl::SetAlgorithmName(this, core::mem::transmute(&value)).into()
+                IX509PrivateKey2_Impl::SetAlgorithmName(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn AlgorithmParameters<Identity: IX509PrivateKey2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -17381,7 +17381,7 @@ impl IX509PrivateKey2_Vtbl {
         unsafe extern "system" fn SetAlgorithmParameters<Identity: IX509PrivateKey2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey2_Impl::SetAlgorithmParameters(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&value)).into()
+                IX509PrivateKey2_Impl::SetAlgorithmParameters(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn ParametersExportType<Identity: IX509PrivateKey2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut X509KeyParametersExportType) -> windows_core::HRESULT {
@@ -17402,7 +17402,7 @@ impl IX509PrivateKey2_Vtbl {
         unsafe extern "system" fn SetParametersExportType<Identity: IX509PrivateKey2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: X509KeyParametersExportType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PrivateKey2_Impl::SetParametersExportType(this, core::mem::transmute_copy(&value)).into()
+                IX509PrivateKey2_Impl::SetParametersExportType(this, core::mem::transmute_copy(&value))
             }
         }
         Self {
@@ -17420,7 +17420,7 @@ impl IX509PrivateKey2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509PrivateKey2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IX509PrivateKey as windows_core::Interface>::IID
+        iid == &<IX509PrivateKey2 as windows_core::Interface>::IID || IX509PrivateKey_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -17497,8 +17497,8 @@ pub struct IX509PublicKey_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509PublicKey_Impl: super::IDispatch_Impl {
-    fn Initialize(&self, pobjectid: windows_core::Ref<IObjectId>, strencodedkey: &windows_core::BSTR, strencodedparameters: &windows_core::BSTR, encoding: EncodingType) -> windows_core::Result<()>;
-    fn InitializeFromEncodedPublicKeyInfo(&self, strencodedpublickeyinfo: &windows_core::BSTR, encoding: EncodingType) -> windows_core::Result<()>;
+    fn Initialize(&self, pobjectid: windows_core::Ref<IObjectId>, strencodedkey: &windows_core::BSTR, strencodedparameters: &windows_core::BSTR, encoding: EncodingType) -> windows_core::HRESULT;
+    fn InitializeFromEncodedPublicKeyInfo(&self, strencodedpublickeyinfo: &windows_core::BSTR, encoding: EncodingType) -> windows_core::HRESULT;
     fn Algorithm(&self) -> windows_core::Result<IObjectId>;
     fn Length(&self) -> windows_core::Result<super::LONG>;
     fn EncodedKey(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
@@ -17511,13 +17511,13 @@ impl IX509PublicKey_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IX509PublicKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobjectid: *mut core::ffi::c_void, strencodedkey: *mut core::ffi::c_void, strencodedparameters: *mut core::ffi::c_void, encoding: EncodingType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PublicKey_Impl::Initialize(this, core::mem::transmute_copy(&pobjectid), core::mem::transmute(&strencodedkey), core::mem::transmute(&strencodedparameters), core::mem::transmute_copy(&encoding)).into()
+                IX509PublicKey_Impl::Initialize(this, core::mem::transmute_copy(&pobjectid), core::mem::transmute(&strencodedkey), core::mem::transmute(&strencodedparameters), core::mem::transmute_copy(&encoding))
             }
         }
         unsafe extern "system" fn InitializeFromEncodedPublicKeyInfo<Identity: IX509PublicKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencodedpublickeyinfo: *mut core::ffi::c_void, encoding: EncodingType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509PublicKey_Impl::InitializeFromEncodedPublicKeyInfo(this, core::mem::transmute(&strencodedpublickeyinfo), core::mem::transmute_copy(&encoding)).into()
+                IX509PublicKey_Impl::InitializeFromEncodedPublicKeyInfo(this, core::mem::transmute(&strencodedpublickeyinfo), core::mem::transmute_copy(&encoding))
             }
         }
         unsafe extern "system" fn Algorithm<Identity: IX509PublicKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -17607,7 +17607,7 @@ impl IX509PublicKey_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509PublicKey as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IX509PublicKey as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -17786,28 +17786,28 @@ pub struct IX509SCEPEnrollment_Vtbl {
 }
 #[cfg(all(feature = "certpol", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509SCEPEnrollment_Impl: super::IDispatch_Impl {
-    fn Initialize(&self, prequest: windows_core::Ref<IX509CertificateRequestPkcs10>, strthumbprint: &windows_core::BSTR, thumprintencoding: EncodingType, strservercertificates: &windows_core::BSTR, encoding: EncodingType) -> windows_core::Result<()>;
-    fn InitializeForPending(&self, context: X509CertificateEnrollmentContext) -> windows_core::Result<()>;
+    fn Initialize(&self, prequest: windows_core::Ref<IX509CertificateRequestPkcs10>, strthumbprint: &windows_core::BSTR, thumprintencoding: EncodingType, strservercertificates: &windows_core::BSTR, encoding: EncodingType) -> windows_core::HRESULT;
+    fn InitializeForPending(&self, context: X509CertificateEnrollmentContext) -> windows_core::HRESULT;
     fn CreateRequestMessage(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn CreateRetrievePendingMessage(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn CreateRetrieveCertificateMessage(&self, context: X509CertificateEnrollmentContext, strissuer: &windows_core::BSTR, issuerencoding: EncodingType, strserialnumber: &windows_core::BSTR, serialnumberencoding: EncodingType, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn ProcessResponseMessage(&self, strresponse: &windows_core::BSTR, encoding: EncodingType) -> windows_core::Result<super::X509SCEPDisposition>;
-    fn SetServerCapabilities(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetServerCapabilities(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn FailInfo(&self) -> windows_core::Result<super::X509SCEPFailInfo>;
     fn SignerCertificate(&self) -> windows_core::Result<ISignerCertificate>;
-    fn SetSignerCertificate(&self, pvalue: windows_core::Ref<ISignerCertificate>) -> windows_core::Result<()>;
+    fn SetSignerCertificate(&self, pvalue: windows_core::Ref<ISignerCertificate>) -> windows_core::HRESULT;
     fn OldCertificate(&self) -> windows_core::Result<ISignerCertificate>;
-    fn SetOldCertificate(&self, pvalue: windows_core::Ref<ISignerCertificate>) -> windows_core::Result<()>;
+    fn SetOldCertificate(&self, pvalue: windows_core::Ref<ISignerCertificate>) -> windows_core::HRESULT;
     fn TransactionId(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
-    fn SetTransactionId(&self, encoding: EncodingType, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetTransactionId(&self, encoding: EncodingType, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Request(&self) -> windows_core::Result<IX509CertificateRequestPkcs10>;
     fn CertificateFriendlyName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetCertificateFriendlyName(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetCertificateFriendlyName(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Status(&self) -> windows_core::Result<IX509EnrollmentStatus>;
     fn Certificate(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn Silent(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetSilent(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn DeleteRequest(&self) -> windows_core::Result<()>;
+    fn SetSilent(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
+    fn DeleteRequest(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "certpol", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509SCEPEnrollment_Vtbl {
@@ -17815,13 +17815,13 @@ impl IX509SCEPEnrollment_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prequest: *mut core::ffi::c_void, strthumbprint: *mut core::ffi::c_void, thumprintencoding: EncodingType, strservercertificates: *mut core::ffi::c_void, encoding: EncodingType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509SCEPEnrollment_Impl::Initialize(this, core::mem::transmute_copy(&prequest), core::mem::transmute(&strthumbprint), core::mem::transmute_copy(&thumprintencoding), core::mem::transmute(&strservercertificates), core::mem::transmute_copy(&encoding)).into()
+                IX509SCEPEnrollment_Impl::Initialize(this, core::mem::transmute_copy(&prequest), core::mem::transmute(&strthumbprint), core::mem::transmute_copy(&thumprintencoding), core::mem::transmute(&strservercertificates), core::mem::transmute_copy(&encoding))
             }
         }
         unsafe extern "system" fn InitializeForPending<Identity: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509SCEPEnrollment_Impl::InitializeForPending(this, core::mem::transmute_copy(&context)).into()
+                IX509SCEPEnrollment_Impl::InitializeForPending(this, core::mem::transmute_copy(&context))
             }
         }
         unsafe extern "system" fn CreateRequestMessage<Identity: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -17887,7 +17887,7 @@ impl IX509SCEPEnrollment_Vtbl {
         unsafe extern "system" fn SetServerCapabilities<Identity: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509SCEPEnrollment_Impl::SetServerCapabilities(this, core::mem::transmute(&value)).into()
+                IX509SCEPEnrollment_Impl::SetServerCapabilities(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn FailInfo<Identity: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::X509SCEPFailInfo) -> windows_core::HRESULT {
@@ -17923,7 +17923,7 @@ impl IX509SCEPEnrollment_Vtbl {
         unsafe extern "system" fn SetSignerCertificate<Identity: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509SCEPEnrollment_Impl::SetSignerCertificate(this, core::mem::transmute_copy(&pvalue)).into()
+                IX509SCEPEnrollment_Impl::SetSignerCertificate(this, core::mem::transmute_copy(&pvalue))
             }
         }
         unsafe extern "system" fn OldCertificate<Identity: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -17944,7 +17944,7 @@ impl IX509SCEPEnrollment_Vtbl {
         unsafe extern "system" fn SetOldCertificate<Identity: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509SCEPEnrollment_Impl::SetOldCertificate(this, core::mem::transmute_copy(&pvalue)).into()
+                IX509SCEPEnrollment_Impl::SetOldCertificate(this, core::mem::transmute_copy(&pvalue))
             }
         }
         unsafe extern "system" fn TransactionId<Identity: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -17965,7 +17965,7 @@ impl IX509SCEPEnrollment_Vtbl {
         unsafe extern "system" fn SetTransactionId<Identity: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509SCEPEnrollment_Impl::SetTransactionId(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&value)).into()
+                IX509SCEPEnrollment_Impl::SetTransactionId(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn Request<Identity: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -18001,7 +18001,7 @@ impl IX509SCEPEnrollment_Vtbl {
         unsafe extern "system" fn SetCertificateFriendlyName<Identity: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509SCEPEnrollment_Impl::SetCertificateFriendlyName(this, core::mem::transmute(&value)).into()
+                IX509SCEPEnrollment_Impl::SetCertificateFriendlyName(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn Status<Identity: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -18052,13 +18052,13 @@ impl IX509SCEPEnrollment_Vtbl {
         unsafe extern "system" fn SetSilent<Identity: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509SCEPEnrollment_Impl::SetSilent(this, core::mem::transmute_copy(&value)).into()
+                IX509SCEPEnrollment_Impl::SetSilent(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn DeleteRequest<Identity: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509SCEPEnrollment_Impl::DeleteRequest(this).into()
+                IX509SCEPEnrollment_Impl::DeleteRequest(this)
             }
         }
         Self {
@@ -18088,7 +18088,7 @@ impl IX509SCEPEnrollment_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509SCEPEnrollment as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IX509SCEPEnrollment as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "certpol", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -18163,7 +18163,7 @@ pub trait IX509SCEPEnrollment2_Impl: IX509SCEPEnrollment_Impl {
     fn ResultMessageText(&self) -> windows_core::Result<windows_core::BSTR>;
     fn DelayRetry(&self) -> windows_core::Result<DelayRetryAction>;
     fn ActivityId(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetActivityId(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetActivityId(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "certpol", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509SCEPEnrollment2_Vtbl {
@@ -18246,7 +18246,7 @@ impl IX509SCEPEnrollment2_Vtbl {
         unsafe extern "system" fn SetActivityId<Identity: IX509SCEPEnrollment2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509SCEPEnrollment2_Impl::SetActivityId(this, core::mem::transmute(&value)).into()
+                IX509SCEPEnrollment2_Impl::SetActivityId(this, core::mem::transmute(&value))
             }
         }
         Self {
@@ -18260,7 +18260,7 @@ impl IX509SCEPEnrollment2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509SCEPEnrollment2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IX509SCEPEnrollment as windows_core::Interface>::IID
+        iid == &<IX509SCEPEnrollment2 as windows_core::Interface>::IID || IX509SCEPEnrollment_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "certpol", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -18334,8 +18334,8 @@ pub struct IX509SCEPEnrollmentHelper_Vtbl {
 }
 #[cfg(all(feature = "certpol", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509SCEPEnrollmentHelper_Impl: super::IDispatch_Impl {
-    fn Initialize(&self, strserverurl: &windows_core::BSTR, strrequestheaders: &windows_core::BSTR, prequest: windows_core::Ref<IX509CertificateRequestPkcs10>, strcacertificatethumbprint: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn InitializeForPending(&self, strserverurl: &windows_core::BSTR, strrequestheaders: &windows_core::BSTR, context: X509CertificateEnrollmentContext, strtransactionid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Initialize(&self, strserverurl: &windows_core::BSTR, strrequestheaders: &windows_core::BSTR, prequest: windows_core::Ref<IX509CertificateRequestPkcs10>, strcacertificatethumbprint: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn InitializeForPending(&self, strserverurl: &windows_core::BSTR, strrequestheaders: &windows_core::BSTR, context: X509CertificateEnrollmentContext, strtransactionid: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Enroll(&self, processflags: X509SCEPProcessMessageFlags) -> windows_core::Result<super::X509SCEPDisposition>;
     fn FetchPending(&self, processflags: X509SCEPProcessMessageFlags) -> windows_core::Result<super::X509SCEPDisposition>;
     fn X509SCEPEnrollment(&self) -> windows_core::Result<IX509SCEPEnrollment>;
@@ -18347,13 +18347,13 @@ impl IX509SCEPEnrollmentHelper_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IX509SCEPEnrollmentHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strserverurl: *mut core::ffi::c_void, strrequestheaders: *mut core::ffi::c_void, prequest: *mut core::ffi::c_void, strcacertificatethumbprint: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509SCEPEnrollmentHelper_Impl::Initialize(this, core::mem::transmute(&strserverurl), core::mem::transmute(&strrequestheaders), core::mem::transmute_copy(&prequest), core::mem::transmute(&strcacertificatethumbprint)).into()
+                IX509SCEPEnrollmentHelper_Impl::Initialize(this, core::mem::transmute(&strserverurl), core::mem::transmute(&strrequestheaders), core::mem::transmute_copy(&prequest), core::mem::transmute(&strcacertificatethumbprint))
             }
         }
         unsafe extern "system" fn InitializeForPending<Identity: IX509SCEPEnrollmentHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strserverurl: *mut core::ffi::c_void, strrequestheaders: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext, strtransactionid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509SCEPEnrollmentHelper_Impl::InitializeForPending(this, core::mem::transmute(&strserverurl), core::mem::transmute(&strrequestheaders), core::mem::transmute_copy(&context), core::mem::transmute(&strtransactionid)).into()
+                IX509SCEPEnrollmentHelper_Impl::InitializeForPending(this, core::mem::transmute(&strserverurl), core::mem::transmute(&strrequestheaders), core::mem::transmute_copy(&context), core::mem::transmute(&strtransactionid))
             }
         }
         unsafe extern "system" fn Enroll<Identity: IX509SCEPEnrollmentHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, processflags: X509SCEPProcessMessageFlags, pdisposition: *mut super::X509SCEPDisposition) -> windows_core::HRESULT {
@@ -18427,7 +18427,7 @@ impl IX509SCEPEnrollmentHelper_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509SCEPEnrollmentHelper as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IX509SCEPEnrollmentHelper as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "certpol", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -18558,18 +18558,18 @@ pub struct IX509SignatureInformation_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509SignatureInformation_Impl: super::IDispatch_Impl {
     fn HashAlgorithm(&self) -> windows_core::Result<IObjectId>;
-    fn SetHashAlgorithm(&self, pvalue: windows_core::Ref<IObjectId>) -> windows_core::Result<()>;
+    fn SetHashAlgorithm(&self, pvalue: windows_core::Ref<IObjectId>) -> windows_core::HRESULT;
     fn PublicKeyAlgorithm(&self) -> windows_core::Result<IObjectId>;
-    fn SetPublicKeyAlgorithm(&self, pvalue: windows_core::Ref<IObjectId>) -> windows_core::Result<()>;
+    fn SetPublicKeyAlgorithm(&self, pvalue: windows_core::Ref<IObjectId>) -> windows_core::HRESULT;
     fn Parameters(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
-    fn SetParameters(&self, encoding: EncodingType, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetParameters(&self, encoding: EncodingType, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn AlternateSignatureAlgorithm(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetAlternateSignatureAlgorithm(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetAlternateSignatureAlgorithm(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn AlternateSignatureAlgorithmSet(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn NullSigned(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetNullSigned(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetNullSigned(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn GetSignatureAlgorithm(&self, pkcs7signature: super::VARIANT_BOOL, signaturekey: super::VARIANT_BOOL) -> windows_core::Result<IObjectId>;
-    fn SetDefaultValues(&self) -> windows_core::Result<()>;
+    fn SetDefaultValues(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509SignatureInformation_Vtbl {
@@ -18592,7 +18592,7 @@ impl IX509SignatureInformation_Vtbl {
         unsafe extern "system" fn SetHashAlgorithm<Identity: IX509SignatureInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509SignatureInformation_Impl::SetHashAlgorithm(this, core::mem::transmute_copy(&pvalue)).into()
+                IX509SignatureInformation_Impl::SetHashAlgorithm(this, core::mem::transmute_copy(&pvalue))
             }
         }
         unsafe extern "system" fn PublicKeyAlgorithm<Identity: IX509SignatureInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -18613,7 +18613,7 @@ impl IX509SignatureInformation_Vtbl {
         unsafe extern "system" fn SetPublicKeyAlgorithm<Identity: IX509SignatureInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509SignatureInformation_Impl::SetPublicKeyAlgorithm(this, core::mem::transmute_copy(&pvalue)).into()
+                IX509SignatureInformation_Impl::SetPublicKeyAlgorithm(this, core::mem::transmute_copy(&pvalue))
             }
         }
         unsafe extern "system" fn Parameters<Identity: IX509SignatureInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, pvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -18634,7 +18634,7 @@ impl IX509SignatureInformation_Vtbl {
         unsafe extern "system" fn SetParameters<Identity: IX509SignatureInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509SignatureInformation_Impl::SetParameters(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&value)).into()
+                IX509SignatureInformation_Impl::SetParameters(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn AlternateSignatureAlgorithm<Identity: IX509SignatureInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -18655,7 +18655,7 @@ impl IX509SignatureInformation_Vtbl {
         unsafe extern "system" fn SetAlternateSignatureAlgorithm<Identity: IX509SignatureInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509SignatureInformation_Impl::SetAlternateSignatureAlgorithm(this, core::mem::transmute_copy(&value)).into()
+                IX509SignatureInformation_Impl::SetAlternateSignatureAlgorithm(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn AlternateSignatureAlgorithmSet<Identity: IX509SignatureInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -18691,7 +18691,7 @@ impl IX509SignatureInformation_Vtbl {
         unsafe extern "system" fn SetNullSigned<Identity: IX509SignatureInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509SignatureInformation_Impl::SetNullSigned(this, core::mem::transmute_copy(&value)).into()
+                IX509SignatureInformation_Impl::SetNullSigned(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn GetSignatureAlgorithm<Identity: IX509SignatureInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pkcs7signature: super::VARIANT_BOOL, signaturekey: super::VARIANT_BOOL, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -18712,7 +18712,7 @@ impl IX509SignatureInformation_Vtbl {
         unsafe extern "system" fn SetDefaultValues<Identity: IX509SignatureInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IX509SignatureInformation_Impl::SetDefaultValues(this).into()
+                IX509SignatureInformation_Impl::SetDefaultValues(this)
             }
         }
         Self {
@@ -18733,7 +18733,7 @@ impl IX509SignatureInformation_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IX509SignatureInformation as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IX509SignatureInformation as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]

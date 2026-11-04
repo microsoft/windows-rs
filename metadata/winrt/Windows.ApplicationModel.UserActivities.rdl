@@ -198,8 +198,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IUserActivityChannelStatics, 327680, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Static(IUserActivityChannelStatics3, 524288, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IUserActivityChannelStatics2, 393216, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IUserActivityChannelStatics3, 524288, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class UserActivityChannel {
                 IUserActivityChannel,

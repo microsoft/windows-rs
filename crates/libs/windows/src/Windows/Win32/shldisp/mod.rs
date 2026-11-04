@@ -92,7 +92,7 @@ impl DFConstraint_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), Name: Name::<Identity, OFFSET>, Value: Value::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<DFConstraint as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<DFConstraint as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -122,7 +122,7 @@ impl DShellFolderViewEvents_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<DShellFolderViewEvents as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<DShellFolderViewEvents as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -233,9 +233,9 @@ pub trait Folder_Impl: super::IDispatch_Impl {
     fn ParentFolder(&self) -> windows_core::Result<Folder>;
     fn Items(&self) -> windows_core::Result<FolderItems>;
     fn ParseName(&self, bname: &windows_core::BSTR) -> windows_core::Result<FolderItem>;
-    fn NewFolder(&self, bname: &windows_core::BSTR, voptions: &super::VARIANT) -> windows_core::Result<()>;
-    fn MoveHere(&self, vitem: &super::VARIANT, voptions: &super::VARIANT) -> windows_core::Result<()>;
-    fn CopyHere(&self, vitem: &super::VARIANT, voptions: &super::VARIANT) -> windows_core::Result<()>;
+    fn NewFolder(&self, bname: &windows_core::BSTR, voptions: &super::VARIANT) -> windows_core::HRESULT;
+    fn MoveHere(&self, vitem: &super::VARIANT, voptions: &super::VARIANT) -> windows_core::HRESULT;
+    fn CopyHere(&self, vitem: &super::VARIANT, voptions: &super::VARIANT) -> windows_core::HRESULT;
     fn GetDetailsOf(&self, vitem: &super::VARIANT, icolumn: i32) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -334,19 +334,19 @@ impl Folder_Vtbl {
         unsafe extern "system" fn NewFolder<Identity: Folder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bname: *mut core::ffi::c_void, voptions: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                Folder_Impl::NewFolder(this, core::mem::transmute(&bname), core::mem::transmute(&voptions)).into()
+                Folder_Impl::NewFolder(this, core::mem::transmute(&bname), core::mem::transmute(&voptions))
             }
         }
         unsafe extern "system" fn MoveHere<Identity: Folder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vitem: super::VARIANT, voptions: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                Folder_Impl::MoveHere(this, core::mem::transmute(&vitem), core::mem::transmute(&voptions)).into()
+                Folder_Impl::MoveHere(this, core::mem::transmute(&vitem), core::mem::transmute(&voptions))
             }
         }
         unsafe extern "system" fn CopyHere<Identity: Folder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vitem: super::VARIANT, voptions: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                Folder_Impl::CopyHere(this, core::mem::transmute(&vitem), core::mem::transmute(&voptions)).into()
+                Folder_Impl::CopyHere(this, core::mem::transmute(&vitem), core::mem::transmute(&voptions))
             }
         }
         unsafe extern "system" fn GetDetailsOf<Identity: Folder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vitem: super::VARIANT, icolumn: i32, pbs: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -379,7 +379,7 @@ impl Folder_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<Folder as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<Folder as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -445,9 +445,9 @@ pub struct Folder2_Vtbl {
 pub trait Folder2_Impl: Folder_Impl {
     fn Self_(&self) -> windows_core::Result<FolderItem>;
     fn OfflineStatus(&self) -> windows_core::Result<super::LONG>;
-    fn Synchronize(&self) -> windows_core::Result<()>;
+    fn Synchronize(&self) -> windows_core::HRESULT;
     fn HaveToShowWebViewBarricade(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn DismissedWebViewBarricade(&self) -> windows_core::Result<()>;
+    fn DismissedWebViewBarricade(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Folder2_Vtbl {
@@ -485,7 +485,7 @@ impl Folder2_Vtbl {
         unsafe extern "system" fn Synchronize<Identity: Folder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                Folder2_Impl::Synchronize(this).into()
+                Folder2_Impl::Synchronize(this)
             }
         }
         unsafe extern "system" fn HaveToShowWebViewBarricade<Identity: Folder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbhavetoshowwebviewbarricade: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -506,7 +506,7 @@ impl Folder2_Vtbl {
         unsafe extern "system" fn DismissedWebViewBarricade<Identity: Folder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                Folder2_Impl::DismissedWebViewBarricade(this).into()
+                Folder2_Impl::DismissedWebViewBarricade(this)
             }
         }
         Self {
@@ -519,7 +519,7 @@ impl Folder2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<Folder2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<Folder as windows_core::Interface>::IID
+        iid == &<Folder2 as windows_core::Interface>::IID || Folder_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -566,7 +566,7 @@ pub struct Folder3_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait Folder3_Impl: Folder2_Impl {
     fn ShowWebViewBarricade(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetShowWebViewBarricade(&self, bshowwebviewbarricade: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetShowWebViewBarricade(&self, bshowwebviewbarricade: super::VARIANT_BOOL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Folder3_Vtbl {
@@ -589,7 +589,7 @@ impl Folder3_Vtbl {
         unsafe extern "system" fn SetShowWebViewBarricade<Identity: Folder3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bshowwebviewbarricade: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                Folder3_Impl::SetShowWebViewBarricade(this, core::mem::transmute_copy(&bshowwebviewbarricade)).into()
+                Folder3_Impl::SetShowWebViewBarricade(this, core::mem::transmute_copy(&bshowwebviewbarricade))
             }
         }
         Self {
@@ -599,7 +599,7 @@ impl Folder3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<Folder3 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<Folder as windows_core::Interface>::IID || iid == &<Folder2 as windows_core::Interface>::IID
+        iid == &<Folder3 as windows_core::Interface>::IID || Folder2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -771,7 +771,7 @@ pub trait FolderItem_Impl: super::IDispatch_Impl {
     fn Application(&self) -> windows_core::Result<super::IDispatch>;
     fn Parent(&self) -> windows_core::Result<super::IDispatch>;
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetName(&self, bs: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetName(&self, bs: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Path(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetLink(&self) -> windows_core::Result<super::IDispatch>;
     fn GetFolder(&self) -> windows_core::Result<super::IDispatch>;
@@ -780,11 +780,11 @@ pub trait FolderItem_Impl: super::IDispatch_Impl {
     fn IsFileSystem(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn IsBrowsable(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn ModifyDate(&self) -> windows_core::Result<super::DATE>;
-    fn SetModifyDate(&self, dt: super::DATE) -> windows_core::Result<()>;
+    fn SetModifyDate(&self, dt: super::DATE) -> windows_core::HRESULT;
     fn Size(&self) -> windows_core::Result<super::LONG>;
     fn Type(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Verbs(&self) -> windows_core::Result<FolderItemVerbs>;
-    fn InvokeVerb(&self, vverb: &super::VARIANT) -> windows_core::Result<()>;
+    fn InvokeVerb(&self, vverb: &super::VARIANT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl FolderItem_Vtbl {
@@ -837,7 +837,7 @@ impl FolderItem_Vtbl {
         unsafe extern "system" fn SetName<Identity: FolderItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bs: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                FolderItem_Impl::SetName(this, core::mem::transmute(&bs)).into()
+                FolderItem_Impl::SetName(this, core::mem::transmute(&bs))
             }
         }
         unsafe extern "system" fn Path<Identity: FolderItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbs: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -963,7 +963,7 @@ impl FolderItem_Vtbl {
         unsafe extern "system" fn SetModifyDate<Identity: FolderItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dt: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                FolderItem_Impl::SetModifyDate(this, core::mem::transmute_copy(&dt)).into()
+                FolderItem_Impl::SetModifyDate(this, core::mem::transmute_copy(&dt))
             }
         }
         unsafe extern "system" fn Size<Identity: FolderItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pul: *mut super::LONG) -> windows_core::HRESULT {
@@ -1014,7 +1014,7 @@ impl FolderItem_Vtbl {
         unsafe extern "system" fn InvokeVerb<Identity: FolderItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vverb: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                FolderItem_Impl::InvokeVerb(this, core::mem::transmute(&vverb)).into()
+                FolderItem_Impl::InvokeVerb(this, core::mem::transmute(&vverb))
             }
         }
         Self {
@@ -1039,7 +1039,7 @@ impl FolderItem_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<FolderItem as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<FolderItem as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1085,7 +1085,7 @@ pub struct FolderItem2_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait FolderItem2_Impl: FolderItem_Impl {
-    fn InvokeVerbEx(&self, vverb: &super::VARIANT, vargs: &super::VARIANT) -> windows_core::Result<()>;
+    fn InvokeVerbEx(&self, vverb: &super::VARIANT, vargs: &super::VARIANT) -> windows_core::HRESULT;
     fn ExtendedProperty(&self, bstrpropname: &windows_core::BSTR) -> windows_core::Result<super::VARIANT>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1094,7 +1094,7 @@ impl FolderItem2_Vtbl {
         unsafe extern "system" fn InvokeVerbEx<Identity: FolderItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vverb: super::VARIANT, vargs: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                FolderItem2_Impl::InvokeVerbEx(this, core::mem::transmute(&vverb), core::mem::transmute(&vargs)).into()
+                FolderItem2_Impl::InvokeVerbEx(this, core::mem::transmute(&vverb), core::mem::transmute(&vargs))
             }
         }
         unsafe extern "system" fn ExtendedProperty<Identity: FolderItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropname: *mut core::ffi::c_void, pvret: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -1119,7 +1119,7 @@ impl FolderItem2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<FolderItem2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<FolderItem as windows_core::Interface>::IID
+        iid == &<FolderItem2 as windows_core::Interface>::IID || FolderItem_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1174,7 +1174,7 @@ pub trait FolderItemVerb_Impl: super::IDispatch_Impl {
     fn Application(&self) -> windows_core::Result<super::IDispatch>;
     fn Parent(&self) -> windows_core::Result<super::IDispatch>;
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn DoIt(&self) -> windows_core::Result<()>;
+    fn DoIt(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl FolderItemVerb_Vtbl {
@@ -1227,7 +1227,7 @@ impl FolderItemVerb_Vtbl {
         unsafe extern "system" fn DoIt<Identity: FolderItemVerb_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                FolderItemVerb_Impl::DoIt(this).into()
+                FolderItemVerb_Impl::DoIt(this)
             }
         }
         Self {
@@ -1239,7 +1239,7 @@ impl FolderItemVerb_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<FolderItemVerb as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<FolderItemVerb as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1399,7 +1399,7 @@ impl FolderItemVerbs_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<FolderItemVerbs as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<FolderItemVerbs as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1559,7 +1559,7 @@ impl FolderItems_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<FolderItems as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<FolderItems as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1594,7 +1594,7 @@ pub struct FolderItems2_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait FolderItems2_Impl: FolderItems_Impl {
-    fn InvokeVerbEx(&self, vverb: &super::VARIANT, vargs: &super::VARIANT) -> windows_core::Result<()>;
+    fn InvokeVerbEx(&self, vverb: &super::VARIANT, vargs: &super::VARIANT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl FolderItems2_Vtbl {
@@ -1602,13 +1602,13 @@ impl FolderItems2_Vtbl {
         unsafe extern "system" fn InvokeVerbEx<Identity: FolderItems2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vverb: super::VARIANT, vargs: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                FolderItems2_Impl::InvokeVerbEx(this, core::mem::transmute(&vverb), core::mem::transmute(&vargs)).into()
+                FolderItems2_Impl::InvokeVerbEx(this, core::mem::transmute(&vverb), core::mem::transmute(&vargs))
             }
         }
         Self { base__: FolderItems_Vtbl::new::<Identity, OFFSET>(), InvokeVerbEx: InvokeVerbEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<FolderItems2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<FolderItems as windows_core::Interface>::IID
+        iid == &<FolderItems2 as windows_core::Interface>::IID || FolderItems_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1646,7 +1646,7 @@ pub struct FolderItems3_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait FolderItems3_Impl: FolderItems2_Impl {
-    fn Filter(&self, grfflags: i32, bstrfilespec: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Filter(&self, grfflags: i32, bstrfilespec: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Verbs(&self) -> windows_core::Result<FolderItemVerbs>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1655,7 +1655,7 @@ impl FolderItems3_Vtbl {
         unsafe extern "system" fn Filter<Identity: FolderItems3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfflags: i32, bstrfilespec: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                FolderItems3_Impl::Filter(this, core::mem::transmute_copy(&grfflags), core::mem::transmute(&bstrfilespec)).into()
+                FolderItems3_Impl::Filter(this, core::mem::transmute_copy(&grfflags), core::mem::transmute(&bstrfilespec))
             }
         }
         unsafe extern "system" fn Verbs<Identity: FolderItems3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppfic: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1676,7 +1676,7 @@ impl FolderItems3_Vtbl {
         Self { base__: FolderItems2_Vtbl::new::<Identity, OFFSET>(), Filter: Filter::<Identity, OFFSET>, Verbs: Verbs::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<FolderItems3 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<FolderItems as windows_core::Interface>::IID || iid == &<FolderItems2 as windows_core::Interface>::IID
+        iid == &<FolderItems3 as windows_core::Interface>::IID || FolderItems2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1709,8 +1709,8 @@ pub struct IAutoComplete_Vtbl {
 }
 #[cfg(feature = "windef")]
 pub trait IAutoComplete_Impl: windows_core::IUnknownImpl {
-    fn Init(&self, hwndedit: super::HWND, punkacl: windows_core::Ref<windows_core::IUnknown>, pwszregkeypath: &windows_core::PCWSTR, pwszquickcomplete: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn Enable(&self, fenable: windows_core::BOOL) -> windows_core::Result<()>;
+    fn Init(&self, hwndedit: super::HWND, punkacl: windows_core::Ref<windows_core::IUnknown>, pwszregkeypath: &windows_core::PCWSTR, pwszquickcomplete: &windows_core::PCWSTR) -> windows_core::HRESULT;
+    fn Enable(&self, fenable: windows_core::BOOL) -> windows_core::HRESULT;
 }
 #[cfg(feature = "windef")]
 impl IAutoComplete_Vtbl {
@@ -1718,13 +1718,13 @@ impl IAutoComplete_Vtbl {
         unsafe extern "system" fn Init<Identity: IAutoComplete_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndedit: super::HWND, punkacl: *mut core::ffi::c_void, pwszregkeypath: windows_core::PCWSTR, pwszquickcomplete: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAutoComplete_Impl::Init(this, core::mem::transmute_copy(&hwndedit), core::mem::transmute_copy(&punkacl), core::mem::transmute(&pwszregkeypath), core::mem::transmute(&pwszquickcomplete)).into()
+                IAutoComplete_Impl::Init(this, core::mem::transmute_copy(&hwndedit), core::mem::transmute_copy(&punkacl), core::mem::transmute(&pwszregkeypath), core::mem::transmute(&pwszquickcomplete))
             }
         }
         unsafe extern "system" fn Enable<Identity: IAutoComplete_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fenable: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAutoComplete_Impl::Enable(this, core::mem::transmute_copy(&fenable)).into()
+                IAutoComplete_Impl::Enable(this, core::mem::transmute_copy(&fenable))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Init: Init::<Identity, OFFSET>, Enable: Enable::<Identity, OFFSET> }
@@ -1768,8 +1768,8 @@ pub struct IAutoComplete2_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 pub trait IAutoComplete2_Impl: IAutoComplete_Impl {
-    fn SetOptions(&self, dwflag: super::DWORD) -> windows_core::Result<()>;
-    fn GetOptions(&self, pdwflag: *mut super::DWORD) -> windows_core::Result<()>;
+    fn SetOptions(&self, dwflag: super::DWORD) -> windows_core::HRESULT;
+    fn GetOptions(&self, pdwflag: *mut super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 impl IAutoComplete2_Vtbl {
@@ -1777,19 +1777,19 @@ impl IAutoComplete2_Vtbl {
         unsafe extern "system" fn SetOptions<Identity: IAutoComplete2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflag: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAutoComplete2_Impl::SetOptions(this, core::mem::transmute_copy(&dwflag)).into()
+                IAutoComplete2_Impl::SetOptions(this, core::mem::transmute_copy(&dwflag))
             }
         }
         unsafe extern "system" fn GetOptions<Identity: IAutoComplete2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwflag: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAutoComplete2_Impl::GetOptions(this, core::mem::transmute_copy(&pdwflag)).into()
+                IAutoComplete2_Impl::GetOptions(this, core::mem::transmute_copy(&pdwflag))
             }
         }
         Self { base__: IAutoComplete_Vtbl::new::<Identity, OFFSET>(), SetOptions: SetOptions::<Identity, OFFSET>, GetOptions: GetOptions::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAutoComplete2 as windows_core::Interface>::IID || iid == &<IAutoComplete as windows_core::Interface>::IID
+        iid == &<IAutoComplete2 as windows_core::Interface>::IID || IAutoComplete_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
@@ -1839,11 +1839,11 @@ pub struct IDataObjectAsyncCapability_Vtbl {
 }
 #[cfg(all(feature = "objidl", feature = "shared"))]
 pub trait IDataObjectAsyncCapability_Impl: windows_core::IUnknownImpl {
-    fn SetAsyncMode(&self, fdoopasync: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetAsyncMode(&self, pfisopasync: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn StartOperation(&self, pbcreserved: windows_core::Ref<super::IBindCtx>) -> windows_core::Result<()>;
-    fn InOperation(&self, pfinasyncop: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn EndOperation(&self, hresult: windows_core::HRESULT, pbcreserved: windows_core::Ref<super::IBindCtx>, dweffects: super::DWORD) -> windows_core::Result<()>;
+    fn SetAsyncMode(&self, fdoopasync: windows_core::BOOL) -> windows_core::HRESULT;
+    fn GetAsyncMode(&self, pfisopasync: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn StartOperation(&self, pbcreserved: windows_core::Ref<super::IBindCtx>) -> windows_core::HRESULT;
+    fn InOperation(&self, pfinasyncop: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn EndOperation(&self, hresult: windows_core::HRESULT, pbcreserved: windows_core::Ref<super::IBindCtx>, dweffects: super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "objidl", feature = "shared"))]
 impl IDataObjectAsyncCapability_Vtbl {
@@ -1851,31 +1851,31 @@ impl IDataObjectAsyncCapability_Vtbl {
         unsafe extern "system" fn SetAsyncMode<Identity: IDataObjectAsyncCapability_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fdoopasync: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataObjectAsyncCapability_Impl::SetAsyncMode(this, core::mem::transmute_copy(&fdoopasync)).into()
+                IDataObjectAsyncCapability_Impl::SetAsyncMode(this, core::mem::transmute_copy(&fdoopasync))
             }
         }
         unsafe extern "system" fn GetAsyncMode<Identity: IDataObjectAsyncCapability_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfisopasync: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataObjectAsyncCapability_Impl::GetAsyncMode(this, core::mem::transmute_copy(&pfisopasync)).into()
+                IDataObjectAsyncCapability_Impl::GetAsyncMode(this, core::mem::transmute_copy(&pfisopasync))
             }
         }
         unsafe extern "system" fn StartOperation<Identity: IDataObjectAsyncCapability_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbcreserved: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataObjectAsyncCapability_Impl::StartOperation(this, core::mem::transmute_copy(&pbcreserved)).into()
+                IDataObjectAsyncCapability_Impl::StartOperation(this, core::mem::transmute_copy(&pbcreserved))
             }
         }
         unsafe extern "system" fn InOperation<Identity: IDataObjectAsyncCapability_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfinasyncop: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataObjectAsyncCapability_Impl::InOperation(this, core::mem::transmute_copy(&pfinasyncop)).into()
+                IDataObjectAsyncCapability_Impl::InOperation(this, core::mem::transmute_copy(&pfinasyncop))
             }
         }
         unsafe extern "system" fn EndOperation<Identity: IDataObjectAsyncCapability_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hresult: windows_core::HRESULT, pbcreserved: *mut core::ffi::c_void, dweffects: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataObjectAsyncCapability_Impl::EndOperation(this, core::mem::transmute_copy(&hresult), core::mem::transmute_copy(&pbcreserved), core::mem::transmute_copy(&dweffects)).into()
+                IDataObjectAsyncCapability_Impl::EndOperation(this, core::mem::transmute_copy(&hresult), core::mem::transmute_copy(&pbcreserved), core::mem::transmute_copy(&dweffects))
             }
         }
         Self {
@@ -1939,9 +1939,9 @@ pub struct IEnumACString_Vtbl {
 }
 #[cfg(all(feature = "objidlbase", feature = "shared", feature = "wtypesbase"))]
 pub trait IEnumACString_Impl: super::IEnumString_Impl {
-    fn NextItem(&self, pszurl: windows_core::PWSTR, cchmax: super::ULONG, pulsortindex: *mut super::ULONG) -> windows_core::Result<()>;
-    fn SetEnumOptions(&self, dwoptions: super::DWORD) -> windows_core::Result<()>;
-    fn GetEnumOptions(&self, pdwoptions: *mut super::DWORD) -> windows_core::Result<()>;
+    fn NextItem(&self, pszurl: windows_core::PWSTR, cchmax: super::ULONG, pulsortindex: *mut super::ULONG) -> windows_core::HRESULT;
+    fn SetEnumOptions(&self, dwoptions: super::DWORD) -> windows_core::HRESULT;
+    fn GetEnumOptions(&self, pdwoptions: *mut super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "objidlbase", feature = "shared", feature = "wtypesbase"))]
 impl IEnumACString_Vtbl {
@@ -1949,19 +1949,19 @@ impl IEnumACString_Vtbl {
         unsafe extern "system" fn NextItem<Identity: IEnumACString_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszurl: windows_core::PWSTR, cchmax: super::ULONG, pulsortindex: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumACString_Impl::NextItem(this, core::mem::transmute_copy(&pszurl), core::mem::transmute_copy(&cchmax), core::mem::transmute_copy(&pulsortindex)).into()
+                IEnumACString_Impl::NextItem(this, core::mem::transmute_copy(&pszurl), core::mem::transmute_copy(&cchmax), core::mem::transmute_copy(&pulsortindex))
             }
         }
         unsafe extern "system" fn SetEnumOptions<Identity: IEnumACString_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwoptions: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumACString_Impl::SetEnumOptions(this, core::mem::transmute_copy(&dwoptions)).into()
+                IEnumACString_Impl::SetEnumOptions(this, core::mem::transmute_copy(&dwoptions))
             }
         }
         unsafe extern "system" fn GetEnumOptions<Identity: IEnumACString_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwoptions: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumACString_Impl::GetEnumOptions(this, core::mem::transmute_copy(&pdwoptions)).into()
+                IEnumACString_Impl::GetEnumOptions(this, core::mem::transmute_copy(&pdwoptions))
             }
         }
         Self {
@@ -1972,7 +1972,7 @@ impl IEnumACString_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IEnumACString as windows_core::Interface>::IID || iid == &<super::IEnumString as windows_core::Interface>::IID
+        iid == &<IEnumACString as windows_core::Interface>::IID || super::IEnumString_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "objidlbase", feature = "shared", feature = "wtypesbase"))]
@@ -2040,8 +2040,8 @@ pub struct IFileSearchBand_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFileSearchBand_Impl: super::IDispatch_Impl {
-    fn SetFocus(&self) -> windows_core::Result<()>;
-    fn SetSearchParameters(&self, pbstrsearchid: *const windows_core::BSTR, bnavtoresults: super::VARIANT_BOOL, pvarscope: *const super::VARIANT, pvarqueryfile: *const super::VARIANT) -> windows_core::Result<()>;
+    fn SetFocus(&self) -> windows_core::HRESULT;
+    fn SetSearchParameters(&self, pbstrsearchid: *const windows_core::BSTR, bnavtoresults: super::VARIANT_BOOL, pvarscope: *const super::VARIANT, pvarqueryfile: *const super::VARIANT) -> windows_core::HRESULT;
     fn SearchID(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Scope(&self) -> windows_core::Result<super::VARIANT>;
     fn QueryFile(&self) -> windows_core::Result<super::VARIANT>;
@@ -2052,13 +2052,13 @@ impl IFileSearchBand_Vtbl {
         unsafe extern "system" fn SetFocus<Identity: IFileSearchBand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileSearchBand_Impl::SetFocus(this).into()
+                IFileSearchBand_Impl::SetFocus(this)
             }
         }
         unsafe extern "system" fn SetSearchParameters<Identity: IFileSearchBand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsearchid: *const *mut core::ffi::c_void, bnavtoresults: super::VARIANT_BOOL, pvarscope: *const super::VARIANT, pvarqueryfile: *const super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileSearchBand_Impl::SetSearchParameters(this, core::mem::transmute_copy(&pbstrsearchid), core::mem::transmute_copy(&bnavtoresults), core::mem::transmute_copy(&pvarscope), core::mem::transmute_copy(&pvarqueryfile)).into()
+                IFileSearchBand_Impl::SetSearchParameters(this, core::mem::transmute_copy(&pbstrsearchid), core::mem::transmute_copy(&bnavtoresults), core::mem::transmute_copy(&pvarscope), core::mem::transmute_copy(&pvarqueryfile))
             }
         }
         unsafe extern "system" fn SearchID<Identity: IFileSearchBand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsearchid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2116,7 +2116,7 @@ impl IFileSearchBand_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFileSearchBand as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IFileSearchBand as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2150,7 +2150,7 @@ pub struct IFolderViewOC_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFolderViewOC_Impl: super::IDispatch_Impl {
-    fn SetFolderView(&self, pdisp: windows_core::Ref<super::IDispatch>) -> windows_core::Result<()>;
+    fn SetFolderView(&self, pdisp: windows_core::Ref<super::IDispatch>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFolderViewOC_Vtbl {
@@ -2158,13 +2158,13 @@ impl IFolderViewOC_Vtbl {
         unsafe extern "system" fn SetFolderView<Identity: IFolderViewOC_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdisp: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFolderViewOC_Impl::SetFolderView(this, core::mem::transmute_copy(&pdisp)).into()
+                IFolderViewOC_Impl::SetFolderView(this, core::mem::transmute_copy(&pdisp))
             }
         }
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), SetFolderView: SetFolderView::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFolderViewOC as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IFolderViewOC as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2225,7 +2225,7 @@ impl INewWDEvents_Vtbl {
         Self { base__: IWebWizardHost_Vtbl::new::<Identity, OFFSET>(), PassportAuthenticate: PassportAuthenticate::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INewWDEvents as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IWebWizardHost as windows_core::Interface>::IID
+        iid == &<INewWDEvents as windows_core::Interface>::IID || IWebWizardHost_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2380,24 +2380,24 @@ pub trait IShellDispatch_Impl: super::IDispatch_Impl {
     fn NameSpace(&self, vdir: &super::VARIANT) -> windows_core::Result<Folder>;
     fn BrowseForFolder(&self, hwnd: i32, title: &windows_core::BSTR, options: i32, rootfolder: &super::VARIANT) -> windows_core::Result<Folder>;
     fn Windows(&self) -> windows_core::Result<super::IDispatch>;
-    fn Open(&self, vdir: &super::VARIANT) -> windows_core::Result<()>;
-    fn Explore(&self, vdir: &super::VARIANT) -> windows_core::Result<()>;
-    fn MinimizeAll(&self) -> windows_core::Result<()>;
-    fn UndoMinimizeALL(&self) -> windows_core::Result<()>;
-    fn FileRun(&self) -> windows_core::Result<()>;
-    fn CascadeWindows(&self) -> windows_core::Result<()>;
-    fn TileVertically(&self) -> windows_core::Result<()>;
-    fn TileHorizontally(&self) -> windows_core::Result<()>;
-    fn ShutdownWindows(&self) -> windows_core::Result<()>;
-    fn Suspend(&self) -> windows_core::Result<()>;
-    fn EjectPC(&self) -> windows_core::Result<()>;
-    fn SetTime(&self) -> windows_core::Result<()>;
-    fn TrayProperties(&self) -> windows_core::Result<()>;
-    fn Help(&self) -> windows_core::Result<()>;
-    fn FindFiles(&self) -> windows_core::Result<()>;
-    fn FindComputer(&self) -> windows_core::Result<()>;
-    fn RefreshMenu(&self) -> windows_core::Result<()>;
-    fn ControlPanelItem(&self, bstrdir: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Open(&self, vdir: &super::VARIANT) -> windows_core::HRESULT;
+    fn Explore(&self, vdir: &super::VARIANT) -> windows_core::HRESULT;
+    fn MinimizeAll(&self) -> windows_core::HRESULT;
+    fn UndoMinimizeALL(&self) -> windows_core::HRESULT;
+    fn FileRun(&self) -> windows_core::HRESULT;
+    fn CascadeWindows(&self) -> windows_core::HRESULT;
+    fn TileVertically(&self) -> windows_core::HRESULT;
+    fn TileHorizontally(&self) -> windows_core::HRESULT;
+    fn ShutdownWindows(&self) -> windows_core::HRESULT;
+    fn Suspend(&self) -> windows_core::HRESULT;
+    fn EjectPC(&self) -> windows_core::HRESULT;
+    fn SetTime(&self) -> windows_core::HRESULT;
+    fn TrayProperties(&self) -> windows_core::HRESULT;
+    fn Help(&self) -> windows_core::HRESULT;
+    fn FindFiles(&self) -> windows_core::HRESULT;
+    fn FindComputer(&self) -> windows_core::HRESULT;
+    fn RefreshMenu(&self) -> windows_core::HRESULT;
+    fn ControlPanelItem(&self, bstrdir: &windows_core::BSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IShellDispatch_Vtbl {
@@ -2480,109 +2480,109 @@ impl IShellDispatch_Vtbl {
         unsafe extern "system" fn Open<Identity: IShellDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vdir: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellDispatch_Impl::Open(this, core::mem::transmute(&vdir)).into()
+                IShellDispatch_Impl::Open(this, core::mem::transmute(&vdir))
             }
         }
         unsafe extern "system" fn Explore<Identity: IShellDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vdir: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellDispatch_Impl::Explore(this, core::mem::transmute(&vdir)).into()
+                IShellDispatch_Impl::Explore(this, core::mem::transmute(&vdir))
             }
         }
         unsafe extern "system" fn MinimizeAll<Identity: IShellDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellDispatch_Impl::MinimizeAll(this).into()
+                IShellDispatch_Impl::MinimizeAll(this)
             }
         }
         unsafe extern "system" fn UndoMinimizeALL<Identity: IShellDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellDispatch_Impl::UndoMinimizeALL(this).into()
+                IShellDispatch_Impl::UndoMinimizeALL(this)
             }
         }
         unsafe extern "system" fn FileRun<Identity: IShellDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellDispatch_Impl::FileRun(this).into()
+                IShellDispatch_Impl::FileRun(this)
             }
         }
         unsafe extern "system" fn CascadeWindows<Identity: IShellDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellDispatch_Impl::CascadeWindows(this).into()
+                IShellDispatch_Impl::CascadeWindows(this)
             }
         }
         unsafe extern "system" fn TileVertically<Identity: IShellDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellDispatch_Impl::TileVertically(this).into()
+                IShellDispatch_Impl::TileVertically(this)
             }
         }
         unsafe extern "system" fn TileHorizontally<Identity: IShellDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellDispatch_Impl::TileHorizontally(this).into()
+                IShellDispatch_Impl::TileHorizontally(this)
             }
         }
         unsafe extern "system" fn ShutdownWindows<Identity: IShellDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellDispatch_Impl::ShutdownWindows(this).into()
+                IShellDispatch_Impl::ShutdownWindows(this)
             }
         }
         unsafe extern "system" fn Suspend<Identity: IShellDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellDispatch_Impl::Suspend(this).into()
+                IShellDispatch_Impl::Suspend(this)
             }
         }
         unsafe extern "system" fn EjectPC<Identity: IShellDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellDispatch_Impl::EjectPC(this).into()
+                IShellDispatch_Impl::EjectPC(this)
             }
         }
         unsafe extern "system" fn SetTime<Identity: IShellDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellDispatch_Impl::SetTime(this).into()
+                IShellDispatch_Impl::SetTime(this)
             }
         }
         unsafe extern "system" fn TrayProperties<Identity: IShellDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellDispatch_Impl::TrayProperties(this).into()
+                IShellDispatch_Impl::TrayProperties(this)
             }
         }
         unsafe extern "system" fn Help<Identity: IShellDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellDispatch_Impl::Help(this).into()
+                IShellDispatch_Impl::Help(this)
             }
         }
         unsafe extern "system" fn FindFiles<Identity: IShellDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellDispatch_Impl::FindFiles(this).into()
+                IShellDispatch_Impl::FindFiles(this)
             }
         }
         unsafe extern "system" fn FindComputer<Identity: IShellDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellDispatch_Impl::FindComputer(this).into()
+                IShellDispatch_Impl::FindComputer(this)
             }
         }
         unsafe extern "system" fn RefreshMenu<Identity: IShellDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellDispatch_Impl::RefreshMenu(this).into()
+                IShellDispatch_Impl::RefreshMenu(this)
             }
         }
         unsafe extern "system" fn ControlPanelItem<Identity: IShellDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdir: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellDispatch_Impl::ControlPanelItem(this, core::mem::transmute(&bstrdir)).into()
+                IShellDispatch_Impl::ControlPanelItem(this, core::mem::transmute(&bstrdir))
             }
         }
         Self {
@@ -2613,7 +2613,7 @@ impl IShellDispatch_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellDispatch as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IShellDispatch as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2726,8 +2726,8 @@ pub struct IShellDispatch2_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IShellDispatch2_Impl: IShellDispatch_Impl {
     fn IsRestricted(&self, group: &windows_core::BSTR, restriction: &windows_core::BSTR) -> windows_core::Result<i32>;
-    fn ShellExecute(&self, file: &windows_core::BSTR, vargs: &super::VARIANT, vdir: &super::VARIANT, voperation: &super::VARIANT, vshow: &super::VARIANT) -> windows_core::Result<()>;
-    fn FindPrinter(&self, name: &windows_core::BSTR, location: &windows_core::BSTR, model: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn ShellExecute(&self, file: &windows_core::BSTR, vargs: &super::VARIANT, vdir: &super::VARIANT, voperation: &super::VARIANT, vshow: &super::VARIANT) -> windows_core::HRESULT;
+    fn FindPrinter(&self, name: &windows_core::BSTR, location: &windows_core::BSTR, model: &windows_core::BSTR) -> windows_core::HRESULT;
     fn GetSystemInformation(&self, name: &windows_core::BSTR) -> windows_core::Result<super::VARIANT>;
     fn ServiceStart(&self, servicename: &windows_core::BSTR, persistent: &super::VARIANT) -> windows_core::Result<super::VARIANT>;
     fn ServiceStop(&self, servicename: &windows_core::BSTR, persistent: &super::VARIANT) -> windows_core::Result<super::VARIANT>;
@@ -2756,13 +2756,13 @@ impl IShellDispatch2_Vtbl {
         unsafe extern "system" fn ShellExecute<Identity: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: *mut core::ffi::c_void, vargs: super::VARIANT, vdir: super::VARIANT, voperation: super::VARIANT, vshow: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellDispatch2_Impl::ShellExecute(this, core::mem::transmute(&file), core::mem::transmute(&vargs), core::mem::transmute(&vdir), core::mem::transmute(&voperation), core::mem::transmute(&vshow)).into()
+                IShellDispatch2_Impl::ShellExecute(this, core::mem::transmute(&file), core::mem::transmute(&vargs), core::mem::transmute(&vdir), core::mem::transmute(&voperation), core::mem::transmute(&vshow))
             }
         }
         unsafe extern "system" fn FindPrinter<Identity: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, location: *mut core::ffi::c_void, model: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellDispatch2_Impl::FindPrinter(this, core::mem::transmute(&name), core::mem::transmute(&location), core::mem::transmute(&model)).into()
+                IShellDispatch2_Impl::FindPrinter(this, core::mem::transmute(&name), core::mem::transmute(&location), core::mem::transmute(&model))
             }
         }
         unsafe extern "system" fn GetSystemInformation<Identity: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, pv: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -2869,7 +2869,7 @@ impl IShellDispatch2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellDispatch2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IShellDispatch as windows_core::Interface>::IID
+        iid == &<IShellDispatch2 as windows_core::Interface>::IID || IShellDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2904,7 +2904,7 @@ pub struct IShellDispatch3_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IShellDispatch3_Impl: IShellDispatch2_Impl {
-    fn AddToRecent(&self, varfile: &super::VARIANT, bstrcategory: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn AddToRecent(&self, varfile: &super::VARIANT, bstrcategory: &windows_core::BSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IShellDispatch3_Vtbl {
@@ -2912,13 +2912,13 @@ impl IShellDispatch3_Vtbl {
         unsafe extern "system" fn AddToRecent<Identity: IShellDispatch3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varfile: super::VARIANT, bstrcategory: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellDispatch3_Impl::AddToRecent(this, core::mem::transmute(&varfile), core::mem::transmute(&bstrcategory)).into()
+                IShellDispatch3_Impl::AddToRecent(this, core::mem::transmute(&varfile), core::mem::transmute(&bstrcategory))
             }
         }
         Self { base__: IShellDispatch2_Vtbl::new::<Identity, OFFSET>(), AddToRecent: AddToRecent::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellDispatch3 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IShellDispatch as windows_core::Interface>::IID || iid == &<IShellDispatch2 as windows_core::Interface>::IID
+        iid == &<IShellDispatch3 as windows_core::Interface>::IID || IShellDispatch2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2975,8 +2975,8 @@ pub struct IShellDispatch4_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IShellDispatch4_Impl: IShellDispatch3_Impl {
-    fn WindowsSecurity(&self) -> windows_core::Result<()>;
-    fn ToggleDesktop(&self) -> windows_core::Result<()>;
+    fn WindowsSecurity(&self) -> windows_core::HRESULT;
+    fn ToggleDesktop(&self) -> windows_core::HRESULT;
     fn ExplorerPolicy(&self, bstrpolicyname: &windows_core::BSTR) -> windows_core::Result<super::VARIANT>;
     fn GetSetting(&self, lsetting: i32) -> windows_core::Result<super::VARIANT_BOOL>;
 }
@@ -2986,13 +2986,13 @@ impl IShellDispatch4_Vtbl {
         unsafe extern "system" fn WindowsSecurity<Identity: IShellDispatch4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellDispatch4_Impl::WindowsSecurity(this).into()
+                IShellDispatch4_Impl::WindowsSecurity(this)
             }
         }
         unsafe extern "system" fn ToggleDesktop<Identity: IShellDispatch4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellDispatch4_Impl::ToggleDesktop(this).into()
+                IShellDispatch4_Impl::ToggleDesktop(this)
             }
         }
         unsafe extern "system" fn ExplorerPolicy<Identity: IShellDispatch4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpolicyname: *mut core::ffi::c_void, pvalue: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -3034,7 +3034,7 @@ impl IShellDispatch4_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellDispatch4 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IShellDispatch as windows_core::Interface>::IID || iid == &<IShellDispatch2 as windows_core::Interface>::IID || iid == &<IShellDispatch3 as windows_core::Interface>::IID
+        iid == &<IShellDispatch4 as windows_core::Interface>::IID || IShellDispatch3_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3065,7 +3065,7 @@ pub struct IShellDispatch5_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IShellDispatch5_Impl: IShellDispatch4_Impl {
-    fn WindowSwitcher(&self) -> windows_core::Result<()>;
+    fn WindowSwitcher(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IShellDispatch5_Vtbl {
@@ -3073,13 +3073,13 @@ impl IShellDispatch5_Vtbl {
         unsafe extern "system" fn WindowSwitcher<Identity: IShellDispatch5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellDispatch5_Impl::WindowSwitcher(this).into()
+                IShellDispatch5_Impl::WindowSwitcher(this)
             }
         }
         Self { base__: IShellDispatch4_Vtbl::new::<Identity, OFFSET>(), WindowSwitcher: WindowSwitcher::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellDispatch5 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IShellDispatch as windows_core::Interface>::IID || iid == &<IShellDispatch2 as windows_core::Interface>::IID || iid == &<IShellDispatch3 as windows_core::Interface>::IID || iid == &<IShellDispatch4 as windows_core::Interface>::IID
+        iid == &<IShellDispatch5 as windows_core::Interface>::IID || IShellDispatch4_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3110,7 +3110,7 @@ pub struct IShellDispatch6_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IShellDispatch6_Impl: IShellDispatch5_Impl {
-    fn SearchCommand(&self) -> windows_core::Result<()>;
+    fn SearchCommand(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IShellDispatch6_Vtbl {
@@ -3118,13 +3118,13 @@ impl IShellDispatch6_Vtbl {
         unsafe extern "system" fn SearchCommand<Identity: IShellDispatch6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellDispatch6_Impl::SearchCommand(this).into()
+                IShellDispatch6_Impl::SearchCommand(this)
             }
         }
         Self { base__: IShellDispatch5_Vtbl::new::<Identity, OFFSET>(), SearchCommand: SearchCommand::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellDispatch6 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IShellDispatch as windows_core::Interface>::IID || iid == &<IShellDispatch2 as windows_core::Interface>::IID || iid == &<IShellDispatch3 as windows_core::Interface>::IID || iid == &<IShellDispatch4 as windows_core::Interface>::IID || iid == &<IShellDispatch5 as windows_core::Interface>::IID
+        iid == &<IShellDispatch6 as windows_core::Interface>::IID || IShellDispatch5_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3227,7 +3227,7 @@ pub trait IShellFolderViewDual_Impl: super::IDispatch_Impl {
     fn Folder(&self) -> windows_core::Result<Folder>;
     fn SelectedItems(&self) -> windows_core::Result<FolderItems>;
     fn FocusedItem(&self) -> windows_core::Result<FolderItem>;
-    fn SelectItem(&self, pvfi: *const super::VARIANT, dwflags: i32) -> windows_core::Result<()>;
+    fn SelectItem(&self, pvfi: *const super::VARIANT, dwflags: i32) -> windows_core::HRESULT;
     fn PopupItemMenu(&self, pfi: windows_core::Ref<FolderItem>, vx: &super::VARIANT, vy: &super::VARIANT) -> windows_core::Result<windows_core::BSTR>;
     fn Script(&self) -> windows_core::Result<super::IDispatch>;
     fn ViewOptions(&self) -> windows_core::Result<i32>;
@@ -3313,7 +3313,7 @@ impl IShellFolderViewDual_Vtbl {
         unsafe extern "system" fn SelectItem<Identity: IShellFolderViewDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvfi: *const super::VARIANT, dwflags: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellFolderViewDual_Impl::SelectItem(this, core::mem::transmute_copy(&pvfi), core::mem::transmute_copy(&dwflags)).into()
+                IShellFolderViewDual_Impl::SelectItem(this, core::mem::transmute_copy(&pvfi), core::mem::transmute_copy(&dwflags))
             }
         }
         unsafe extern "system" fn PopupItemMenu<Identity: IShellFolderViewDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfi: *mut core::ffi::c_void, vx: super::VARIANT, vy: super::VARIANT, pbs: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3375,7 +3375,7 @@ impl IShellFolderViewDual_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellFolderViewDual as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IShellFolderViewDual as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3426,8 +3426,8 @@ pub struct IShellFolderViewDual2_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IShellFolderViewDual2_Impl: IShellFolderViewDual_Impl {
     fn CurrentViewMode(&self) -> windows_core::Result<super::UINT>;
-    fn SetCurrentViewMode(&self, viewmode: super::UINT) -> windows_core::Result<()>;
-    fn SelectItemRelative(&self, irelative: i32) -> windows_core::Result<()>;
+    fn SetCurrentViewMode(&self, viewmode: super::UINT) -> windows_core::HRESULT;
+    fn SelectItemRelative(&self, irelative: i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IShellFolderViewDual2_Vtbl {
@@ -3450,13 +3450,13 @@ impl IShellFolderViewDual2_Vtbl {
         unsafe extern "system" fn SetCurrentViewMode<Identity: IShellFolderViewDual2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, viewmode: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellFolderViewDual2_Impl::SetCurrentViewMode(this, core::mem::transmute_copy(&viewmode)).into()
+                IShellFolderViewDual2_Impl::SetCurrentViewMode(this, core::mem::transmute_copy(&viewmode))
             }
         }
         unsafe extern "system" fn SelectItemRelative<Identity: IShellFolderViewDual2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, irelative: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellFolderViewDual2_Impl::SelectItemRelative(this, core::mem::transmute_copy(&irelative)).into()
+                IShellFolderViewDual2_Impl::SelectItemRelative(this, core::mem::transmute_copy(&irelative))
             }
         }
         Self {
@@ -3467,7 +3467,7 @@ impl IShellFolderViewDual2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellFolderViewDual2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IShellFolderViewDual as windows_core::Interface>::IID
+        iid == &<IShellFolderViewDual2 as windows_core::Interface>::IID || IShellFolderViewDual_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3551,14 +3551,14 @@ pub struct IShellFolderViewDual3_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IShellFolderViewDual3_Impl: IShellFolderViewDual2_Impl {
     fn GroupBy(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetGroupBy(&self, bstrgroupby: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetGroupBy(&self, bstrgroupby: &windows_core::BSTR) -> windows_core::HRESULT;
     fn FolderFlags(&self) -> windows_core::Result<super::DWORD>;
-    fn SetFolderFlags(&self, dwflags: super::DWORD) -> windows_core::Result<()>;
+    fn SetFolderFlags(&self, dwflags: super::DWORD) -> windows_core::HRESULT;
     fn SortColumns(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetSortColumns(&self, bstrsortcolumns: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetIconSize(&self, iiconsize: i32) -> windows_core::Result<()>;
+    fn SetSortColumns(&self, bstrsortcolumns: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn SetIconSize(&self, iiconsize: i32) -> windows_core::HRESULT;
     fn IconSize(&self) -> windows_core::Result<i32>;
-    fn FilterView(&self, bstrfiltertext: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn FilterView(&self, bstrfiltertext: &windows_core::BSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IShellFolderViewDual3_Vtbl {
@@ -3581,7 +3581,7 @@ impl IShellFolderViewDual3_Vtbl {
         unsafe extern "system" fn SetGroupBy<Identity: IShellFolderViewDual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrgroupby: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellFolderViewDual3_Impl::SetGroupBy(this, core::mem::transmute(&bstrgroupby)).into()
+                IShellFolderViewDual3_Impl::SetGroupBy(this, core::mem::transmute(&bstrgroupby))
             }
         }
         unsafe extern "system" fn FolderFlags<Identity: IShellFolderViewDual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwflags: *mut super::DWORD) -> windows_core::HRESULT {
@@ -3602,7 +3602,7 @@ impl IShellFolderViewDual3_Vtbl {
         unsafe extern "system" fn SetFolderFlags<Identity: IShellFolderViewDual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellFolderViewDual3_Impl::SetFolderFlags(this, core::mem::transmute_copy(&dwflags)).into()
+                IShellFolderViewDual3_Impl::SetFolderFlags(this, core::mem::transmute_copy(&dwflags))
             }
         }
         unsafe extern "system" fn SortColumns<Identity: IShellFolderViewDual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsortcolumns: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3623,13 +3623,13 @@ impl IShellFolderViewDual3_Vtbl {
         unsafe extern "system" fn SetSortColumns<Identity: IShellFolderViewDual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsortcolumns: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellFolderViewDual3_Impl::SetSortColumns(this, core::mem::transmute(&bstrsortcolumns)).into()
+                IShellFolderViewDual3_Impl::SetSortColumns(this, core::mem::transmute(&bstrsortcolumns))
             }
         }
         unsafe extern "system" fn SetIconSize<Identity: IShellFolderViewDual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iiconsize: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellFolderViewDual3_Impl::SetIconSize(this, core::mem::transmute_copy(&iiconsize)).into()
+                IShellFolderViewDual3_Impl::SetIconSize(this, core::mem::transmute_copy(&iiconsize))
             }
         }
         unsafe extern "system" fn IconSize<Identity: IShellFolderViewDual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piiconsize: *mut i32) -> windows_core::HRESULT {
@@ -3650,7 +3650,7 @@ impl IShellFolderViewDual3_Vtbl {
         unsafe extern "system" fn FilterView<Identity: IShellFolderViewDual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrfiltertext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellFolderViewDual3_Impl::FilterView(this, core::mem::transmute(&bstrfiltertext)).into()
+                IShellFolderViewDual3_Impl::FilterView(this, core::mem::transmute(&bstrfiltertext))
             }
         }
         Self {
@@ -3667,7 +3667,7 @@ impl IShellFolderViewDual3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellFolderViewDual3 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IShellFolderViewDual as windows_core::Interface>::IID || iid == &<IShellFolderViewDual2 as windows_core::Interface>::IID
+        iid == &<IShellFolderViewDual3 as windows_core::Interface>::IID || IShellFolderViewDual2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3784,21 +3784,21 @@ pub struct IShellLinkDual_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IShellLinkDual_Impl: super::IDispatch_Impl {
     fn Path(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetPath(&self, bs: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetPath(&self, bs: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetDescription(&self, bs: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetDescription(&self, bs: &windows_core::BSTR) -> windows_core::HRESULT;
     fn WorkingDirectory(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetWorkingDirectory(&self, bs: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetWorkingDirectory(&self, bs: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Arguments(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetArguments(&self, bs: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetArguments(&self, bs: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Hotkey(&self) -> windows_core::Result<i32>;
-    fn SetHotkey(&self, ihk: i32) -> windows_core::Result<()>;
+    fn SetHotkey(&self, ihk: i32) -> windows_core::HRESULT;
     fn ShowCommand(&self) -> windows_core::Result<i32>;
-    fn SetShowCommand(&self, ishowcommand: i32) -> windows_core::Result<()>;
-    fn Resolve(&self, fflags: i32) -> windows_core::Result<()>;
+    fn SetShowCommand(&self, ishowcommand: i32) -> windows_core::HRESULT;
+    fn Resolve(&self, fflags: i32) -> windows_core::HRESULT;
     fn GetIconLocation(&self, pbs: *mut windows_core::BSTR) -> windows_core::Result<i32>;
-    fn SetIconLocation(&self, bs: &windows_core::BSTR, iicon: i32) -> windows_core::Result<()>;
-    fn Save(&self, vwhere: &super::VARIANT) -> windows_core::Result<()>;
+    fn SetIconLocation(&self, bs: &windows_core::BSTR, iicon: i32) -> windows_core::HRESULT;
+    fn Save(&self, vwhere: &super::VARIANT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IShellLinkDual_Vtbl {
@@ -3821,7 +3821,7 @@ impl IShellLinkDual_Vtbl {
         unsafe extern "system" fn SetPath<Identity: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bs: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellLinkDual_Impl::SetPath(this, core::mem::transmute(&bs)).into()
+                IShellLinkDual_Impl::SetPath(this, core::mem::transmute(&bs))
             }
         }
         unsafe extern "system" fn Description<Identity: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbs: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3842,7 +3842,7 @@ impl IShellLinkDual_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bs: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellLinkDual_Impl::SetDescription(this, core::mem::transmute(&bs)).into()
+                IShellLinkDual_Impl::SetDescription(this, core::mem::transmute(&bs))
             }
         }
         unsafe extern "system" fn WorkingDirectory<Identity: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbs: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3863,7 +3863,7 @@ impl IShellLinkDual_Vtbl {
         unsafe extern "system" fn SetWorkingDirectory<Identity: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bs: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellLinkDual_Impl::SetWorkingDirectory(this, core::mem::transmute(&bs)).into()
+                IShellLinkDual_Impl::SetWorkingDirectory(this, core::mem::transmute(&bs))
             }
         }
         unsafe extern "system" fn Arguments<Identity: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbs: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3884,7 +3884,7 @@ impl IShellLinkDual_Vtbl {
         unsafe extern "system" fn SetArguments<Identity: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bs: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellLinkDual_Impl::SetArguments(this, core::mem::transmute(&bs)).into()
+                IShellLinkDual_Impl::SetArguments(this, core::mem::transmute(&bs))
             }
         }
         unsafe extern "system" fn Hotkey<Identity: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pihk: *mut i32) -> windows_core::HRESULT {
@@ -3905,7 +3905,7 @@ impl IShellLinkDual_Vtbl {
         unsafe extern "system" fn SetHotkey<Identity: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ihk: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellLinkDual_Impl::SetHotkey(this, core::mem::transmute_copy(&ihk)).into()
+                IShellLinkDual_Impl::SetHotkey(this, core::mem::transmute_copy(&ihk))
             }
         }
         unsafe extern "system" fn ShowCommand<Identity: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pishowcommand: *mut i32) -> windows_core::HRESULT {
@@ -3926,13 +3926,13 @@ impl IShellLinkDual_Vtbl {
         unsafe extern "system" fn SetShowCommand<Identity: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ishowcommand: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellLinkDual_Impl::SetShowCommand(this, core::mem::transmute_copy(&ishowcommand)).into()
+                IShellLinkDual_Impl::SetShowCommand(this, core::mem::transmute_copy(&ishowcommand))
             }
         }
         unsafe extern "system" fn Resolve<Identity: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fflags: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellLinkDual_Impl::Resolve(this, core::mem::transmute_copy(&fflags)).into()
+                IShellLinkDual_Impl::Resolve(this, core::mem::transmute_copy(&fflags))
             }
         }
         unsafe extern "system" fn GetIconLocation<Identity: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbs: *mut *mut core::ffi::c_void, piicon: *mut i32) -> windows_core::HRESULT {
@@ -3953,13 +3953,13 @@ impl IShellLinkDual_Vtbl {
         unsafe extern "system" fn SetIconLocation<Identity: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bs: *mut core::ffi::c_void, iicon: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellLinkDual_Impl::SetIconLocation(this, core::mem::transmute(&bs), core::mem::transmute_copy(&iicon)).into()
+                IShellLinkDual_Impl::SetIconLocation(this, core::mem::transmute(&bs), core::mem::transmute_copy(&iicon))
             }
         }
         unsafe extern "system" fn Save<Identity: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vwhere: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellLinkDual_Impl::Save(this, core::mem::transmute(&vwhere)).into()
+                IShellLinkDual_Impl::Save(this, core::mem::transmute(&vwhere))
             }
         }
         Self {
@@ -3983,7 +3983,7 @@ impl IShellLinkDual_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellLinkDual as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IShellLinkDual as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4040,7 +4040,7 @@ impl IShellLinkDual2_Vtbl {
         Self { base__: IShellLinkDual_Vtbl::new::<Identity, OFFSET>(), Target: Target::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellLinkDual2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IShellLinkDual as windows_core::Interface>::IID
+        iid == &<IShellLinkDual2 as windows_core::Interface>::IID || IShellLinkDual_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4121,15 +4121,15 @@ pub struct IWebWizardHost_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWebWizardHost_Impl: super::IDispatch_Impl {
-    fn FinalBack(&self) -> windows_core::Result<()>;
-    fn FinalNext(&self) -> windows_core::Result<()>;
-    fn Cancel(&self) -> windows_core::Result<()>;
-    fn SetCaption(&self, bstrcaption: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn FinalBack(&self) -> windows_core::HRESULT;
+    fn FinalNext(&self) -> windows_core::HRESULT;
+    fn Cancel(&self) -> windows_core::HRESULT;
+    fn SetCaption(&self, bstrcaption: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Caption(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetProperty(&self, bstrpropertyname: &windows_core::BSTR, pvproperty: *const super::VARIANT) -> windows_core::Result<()>;
+    fn SetProperty(&self, bstrpropertyname: &windows_core::BSTR, pvproperty: *const super::VARIANT) -> windows_core::HRESULT;
     fn Property(&self, bstrpropertyname: &windows_core::BSTR) -> windows_core::Result<super::VARIANT>;
-    fn SetWizardButtons(&self, vfenableback: super::VARIANT_BOOL, vfenablenext: super::VARIANT_BOOL, vflastpage: super::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn SetHeaderText(&self, bstrheadertitle: &windows_core::BSTR, bstrheadersubtitle: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetWizardButtons(&self, vfenableback: super::VARIANT_BOOL, vfenablenext: super::VARIANT_BOOL, vflastpage: super::VARIANT_BOOL) -> windows_core::HRESULT;
+    fn SetHeaderText(&self, bstrheadertitle: &windows_core::BSTR, bstrheadersubtitle: &windows_core::BSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWebWizardHost_Vtbl {
@@ -4137,25 +4137,25 @@ impl IWebWizardHost_Vtbl {
         unsafe extern "system" fn FinalBack<Identity: IWebWizardHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWebWizardHost_Impl::FinalBack(this).into()
+                IWebWizardHost_Impl::FinalBack(this)
             }
         }
         unsafe extern "system" fn FinalNext<Identity: IWebWizardHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWebWizardHost_Impl::FinalNext(this).into()
+                IWebWizardHost_Impl::FinalNext(this)
             }
         }
         unsafe extern "system" fn Cancel<Identity: IWebWizardHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWebWizardHost_Impl::Cancel(this).into()
+                IWebWizardHost_Impl::Cancel(this)
             }
         }
         unsafe extern "system" fn SetCaption<Identity: IWebWizardHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcaption: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWebWizardHost_Impl::SetCaption(this, core::mem::transmute(&bstrcaption)).into()
+                IWebWizardHost_Impl::SetCaption(this, core::mem::transmute(&bstrcaption))
             }
         }
         unsafe extern "system" fn Caption<Identity: IWebWizardHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcaption: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4176,7 +4176,7 @@ impl IWebWizardHost_Vtbl {
         unsafe extern "system" fn SetProperty<Identity: IWebWizardHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropertyname: *mut core::ffi::c_void, pvproperty: *const super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWebWizardHost_Impl::SetProperty(this, core::mem::transmute(&bstrpropertyname), core::mem::transmute_copy(&pvproperty)).into()
+                IWebWizardHost_Impl::SetProperty(this, core::mem::transmute(&bstrpropertyname), core::mem::transmute_copy(&pvproperty))
             }
         }
         unsafe extern "system" fn Property<Identity: IWebWizardHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropertyname: *mut core::ffi::c_void, pvproperty: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -4197,13 +4197,13 @@ impl IWebWizardHost_Vtbl {
         unsafe extern "system" fn SetWizardButtons<Identity: IWebWizardHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vfenableback: super::VARIANT_BOOL, vfenablenext: super::VARIANT_BOOL, vflastpage: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWebWizardHost_Impl::SetWizardButtons(this, core::mem::transmute_copy(&vfenableback), core::mem::transmute_copy(&vfenablenext), core::mem::transmute_copy(&vflastpage)).into()
+                IWebWizardHost_Impl::SetWizardButtons(this, core::mem::transmute_copy(&vfenableback), core::mem::transmute_copy(&vfenablenext), core::mem::transmute_copy(&vflastpage))
             }
         }
         unsafe extern "system" fn SetHeaderText<Identity: IWebWizardHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrheadertitle: *mut core::ffi::c_void, bstrheadersubtitle: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWebWizardHost_Impl::SetHeaderText(this, core::mem::transmute(&bstrheadertitle), core::mem::transmute(&bstrheadersubtitle)).into()
+                IWebWizardHost_Impl::SetHeaderText(this, core::mem::transmute(&bstrheadertitle), core::mem::transmute(&bstrheadersubtitle))
             }
         }
         Self {
@@ -4220,7 +4220,7 @@ impl IWebWizardHost_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWebWizardHost as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IWebWizardHost as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4277,7 +4277,7 @@ impl IWebWizardHost2_Vtbl {
         Self { base__: IWebWizardHost_Vtbl::new::<Identity, OFFSET>(), SignString: SignString::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWebWizardHost2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IWebWizardHost as windows_core::Interface>::IID
+        iid == &<IWebWizardHost2 as windows_core::Interface>::IID || IWebWizardHost_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]

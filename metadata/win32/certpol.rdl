@@ -46,6 +46,7 @@ mod Windows {
             SCEPMessageGetCert = 21,
             SCEPMessageGetCRL = 22,
             SCEPMessageClaimChallengeAnswer = 41,
+            SCEPMessageGetCertifier = 198,
         }
     }
 }

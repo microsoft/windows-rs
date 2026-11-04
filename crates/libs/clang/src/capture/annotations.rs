@@ -44,6 +44,27 @@ pub(super) fn read(
     owner: CXCursor,
 ) -> Result<AttributeKind, Error> {
     let payload = text(unsafe { clang_getCursorSpelling(cursor) });
+    if payload == "Win32Metadata.PreserveResult" {
+        let callable = matches!(owner.kind, CXCursor_FunctionDecl | CXCursor_CXXMethod)
+            || matches!(owner.kind, CXCursor_TypedefDecl | CXCursor_TypeAliasDecl)
+                && unsafe {
+                    let mut ty = clang_getCanonicalType(clang_getTypedefDeclUnderlyingType(owner));
+                    if ty.kind == CXType_Pointer {
+                        ty = clang_getCanonicalType(clang_getPointeeType(ty));
+                    }
+                    ty.kind == CXType_FunctionProto
+                };
+        if !callable {
+            return Err(unsupported(
+                cursor,
+                "PreserveResult requires a function, method, or callback",
+            ));
+        }
+        if !children(cursor).is_empty() {
+            return Err(unsupported(cursor, "PreserveResult takes no arguments"));
+        }
+        return Ok(AttributeKind::PreserveResult);
+    }
     if let Some(members) = payload
         .strip_prefix("Win32Metadata.Enum(")
         .or_else(|| payload.strip_prefix("Win32Metadata.FlagsEnum("))

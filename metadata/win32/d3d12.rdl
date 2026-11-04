@@ -551,6 +551,12 @@ mod Windows {
             D3D12_CPU_PAGE_PROPERTY_WRITE_COMBINE = 2,
             D3D12_CPU_PAGE_PROPERTY_WRITE_BACK = 3,
         }
+        struct D3D12_CREATE_STATE_OBJECT_STATISTICS {
+            NumCreated: UINT,
+            NumPSDBCacheMissed: UINT,
+            NumTotalCacheMissed: UINT,
+            NumCacheUnknown: UINT,
+        }
         #[repr(i32)]
         enum D3D12_CROSS_NODE_SHARING_TIER {
             D3D12_CROSS_NODE_SHARING_TIER_NOT_SUPPORTED = 0,
@@ -3296,6 +3302,11 @@ mod Windows {
             D3D12_STATE_OBJECT_FLAG_ALLOW_EXTERNAL_DEPENDENCIES_ON_LOCAL_DEFINITIONS = 2,
             D3D12_STATE_OBJECT_FLAG_ALLOW_STATE_OBJECT_ADDITIONS = 4,
         }
+        struct D3D12_STATE_OBJECT_STATISTICS {
+            DefaultPSDBRegistered: BOOL,
+            PipelineStateObjectStatistics: D3D12_CREATE_STATE_OBJECT_STATISTICS,
+            StateObjectStatistics: D3D12_CREATE_STATE_OBJECT_STATISTICS,
+        }
         #[repr(i32)]
         enum D3D12_STATE_OBJECT_TYPE {
             D3D12_STATE_OBJECT_TYPE_COLLECTION = 0,
@@ -4089,6 +4100,10 @@ mod Windows {
         interface ID3D12DeviceRemovedExtendedDataSettings2: ID3D12DeviceRemovedExtendedDataSettings1 {
             fn UseMarkersOnlyAutoBreadcrumbs(&self, MarkersOnly: BOOL);
         }
+        #[guid(0x3d5ca1a8_a39e_4619_95e0_f9b0a40340f5)]
+        interface ID3D12DeviceStatistics: IUnknown {
+            fn GetStateObjectStatistics(&self, #[out] pStatistics: *mut D3D12_STATE_OBJECT_STATISTICS) -> HRESULT;
+        }
         #[guid(0x2ea68e9c_19c3_4e47_a109_6cdadff0aca9)]
         interface ID3D12DeviceTools: IUnknown {
             fn SetNextAllocationAddress(&self, #[in] nextAllocationVirtualAddress: D3D12_GPU_VIRTUAL_ADDRESS);
@@ -4431,6 +4446,7 @@ mod Windows {
         const IID_ID3D12DeviceRemovedExtendedDataSettings: GUID = 0x82bc481c_6b9b_4030_aedb_7ee3d1df1e63;
         const IID_ID3D12DeviceRemovedExtendedDataSettings1: GUID = 0xdbd5ae51_3317_4f0a_adf9_1d7cedcaae0b;
         const IID_ID3D12DeviceRemovedExtendedDataSettings2: GUID = 0x61552388_01ab_4008_a436_83db189566ea;
+        const IID_ID3D12DeviceStatistics: GUID = 0x3d5ca1a8_a39e_4619_95e0_f9b0a40340f5;
         const IID_ID3D12DeviceTools: GUID = 0x2ea68e9c_19c3_4e47_a109_6cdadff0aca9;
         const IID_ID3D12DeviceTools1: GUID = 0xe30e9fc7_e641_4d6e_8a81_9dd9206ec47a;
         const IID_ID3D12Fence: GUID = 0x0a753dcf_c4d8_4b91_adf6_be5a60d95a76;

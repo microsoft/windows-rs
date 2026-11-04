@@ -27,8 +27,8 @@ pub struct IAudioAutoGainControl_Vtbl {
 }
 #[cfg(feature = "guiddef")]
 pub trait IAudioAutoGainControl_Impl: windows_core::IUnknownImpl {
-    fn GetEnabled(&self, pbenabled: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetEnabled(&self, benable: windows_core::BOOL, pguideventcontext: super::LPCGUID) -> windows_core::Result<()>;
+    fn GetEnabled(&self, pbenabled: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn SetEnabled(&self, benable: windows_core::BOOL, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT;
 }
 #[cfg(feature = "guiddef")]
 impl IAudioAutoGainControl_Vtbl {
@@ -36,13 +36,13 @@ impl IAudioAutoGainControl_Vtbl {
         unsafe extern "system" fn GetEnabled<Identity: IAudioAutoGainControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbenabled: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioAutoGainControl_Impl::GetEnabled(this, core::mem::transmute_copy(&pbenabled)).into()
+                IAudioAutoGainControl_Impl::GetEnabled(this, core::mem::transmute_copy(&pbenabled))
             }
         }
         unsafe extern "system" fn SetEnabled<Identity: IAudioAutoGainControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, benable: windows_core::BOOL, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioAutoGainControl_Impl::SetEnabled(this, core::mem::transmute_copy(&benable), core::mem::transmute_copy(&pguideventcontext)).into()
+                IAudioAutoGainControl_Impl::SetEnabled(this, core::mem::transmute_copy(&benable), core::mem::transmute_copy(&pguideventcontext))
             }
         }
         Self {
@@ -78,7 +78,7 @@ impl IAudioBass_Vtbl {
         Self { base__: IPerChannelDbLevel_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAudioBass as windows_core::Interface>::IID || iid == &<IPerChannelDbLevel as windows_core::Interface>::IID
+        iid == &<IAudioBass as windows_core::Interface>::IID || IPerChannelDbLevel_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
@@ -113,7 +113,7 @@ pub struct IAudioChannelConfig_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait IAudioChannelConfig_Impl: windows_core::IUnknownImpl {
-    fn SetChannelConfig(&self, dwconfig: super::DWORD, pguideventcontext: super::LPCGUID) -> windows_core::Result<()>;
+    fn SetChannelConfig(&self, dwconfig: super::DWORD, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT;
     fn GetChannelConfig(&self) -> windows_core::Result<super::DWORD>;
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
@@ -122,7 +122,7 @@ impl IAudioChannelConfig_Vtbl {
         unsafe extern "system" fn SetChannelConfig<Identity: IAudioChannelConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwconfig: super::DWORD, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioChannelConfig_Impl::SetChannelConfig(this, core::mem::transmute_copy(&dwconfig), core::mem::transmute_copy(&pguideventcontext)).into()
+                IAudioChannelConfig_Impl::SetChannelConfig(this, core::mem::transmute_copy(&dwconfig), core::mem::transmute_copy(&pguideventcontext))
             }
         }
         unsafe extern "system" fn GetChannelConfig<Identity: IAudioChannelConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwconfig: *mut super::DWORD) -> windows_core::HRESULT {
@@ -179,8 +179,8 @@ pub struct IAudioInputSelector_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait IAudioInputSelector_Impl: windows_core::IUnknownImpl {
-    fn GetSelection(&self, pnidselected: *mut super::UINT) -> windows_core::Result<()>;
-    fn SetSelection(&self, nidselect: super::UINT, pguideventcontext: super::LPCGUID) -> windows_core::Result<()>;
+    fn GetSelection(&self, pnidselected: *mut super::UINT) -> windows_core::HRESULT;
+    fn SetSelection(&self, nidselect: super::UINT, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 impl IAudioInputSelector_Vtbl {
@@ -188,13 +188,13 @@ impl IAudioInputSelector_Vtbl {
         unsafe extern "system" fn GetSelection<Identity: IAudioInputSelector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnidselected: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioInputSelector_Impl::GetSelection(this, core::mem::transmute_copy(&pnidselected)).into()
+                IAudioInputSelector_Impl::GetSelection(this, core::mem::transmute_copy(&pnidselected))
             }
         }
         unsafe extern "system" fn SetSelection<Identity: IAudioInputSelector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nidselect: super::UINT, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioInputSelector_Impl::SetSelection(this, core::mem::transmute_copy(&nidselect), core::mem::transmute_copy(&pguideventcontext)).into()
+                IAudioInputSelector_Impl::SetSelection(this, core::mem::transmute_copy(&nidselect), core::mem::transmute_copy(&pguideventcontext))
             }
         }
         Self {
@@ -232,8 +232,8 @@ pub struct IAudioLoudness_Vtbl {
 }
 #[cfg(feature = "guiddef")]
 pub trait IAudioLoudness_Impl: windows_core::IUnknownImpl {
-    fn GetEnabled(&self, pbenabled: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetEnabled(&self, benable: windows_core::BOOL, pguideventcontext: super::LPCGUID) -> windows_core::Result<()>;
+    fn GetEnabled(&self, pbenabled: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn SetEnabled(&self, benable: windows_core::BOOL, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT;
 }
 #[cfg(feature = "guiddef")]
 impl IAudioLoudness_Vtbl {
@@ -241,13 +241,13 @@ impl IAudioLoudness_Vtbl {
         unsafe extern "system" fn GetEnabled<Identity: IAudioLoudness_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbenabled: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioLoudness_Impl::GetEnabled(this, core::mem::transmute_copy(&pbenabled)).into()
+                IAudioLoudness_Impl::GetEnabled(this, core::mem::transmute_copy(&pbenabled))
             }
         }
         unsafe extern "system" fn SetEnabled<Identity: IAudioLoudness_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, benable: windows_core::BOOL, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioLoudness_Impl::SetEnabled(this, core::mem::transmute_copy(&benable), core::mem::transmute_copy(&pguideventcontext)).into()
+                IAudioLoudness_Impl::SetEnabled(this, core::mem::transmute_copy(&benable), core::mem::transmute_copy(&pguideventcontext))
             }
         }
         Self {
@@ -283,7 +283,7 @@ impl IAudioMidrange_Vtbl {
         Self { base__: IPerChannelDbLevel_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAudioMidrange as windows_core::Interface>::IID || iid == &<IPerChannelDbLevel as windows_core::Interface>::IID
+        iid == &<IAudioMidrange as windows_core::Interface>::IID || IPerChannelDbLevel_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
@@ -311,8 +311,8 @@ pub struct IAudioMute_Vtbl {
 }
 #[cfg(feature = "guiddef")]
 pub trait IAudioMute_Impl: windows_core::IUnknownImpl {
-    fn SetMute(&self, bmuted: windows_core::BOOL, pguideventcontext: super::LPCGUID) -> windows_core::Result<()>;
-    fn GetMute(&self, pbmuted: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetMute(&self, bmuted: windows_core::BOOL, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT;
+    fn GetMute(&self, pbmuted: *mut windows_core::BOOL) -> windows_core::HRESULT;
 }
 #[cfg(feature = "guiddef")]
 impl IAudioMute_Vtbl {
@@ -320,13 +320,13 @@ impl IAudioMute_Vtbl {
         unsafe extern "system" fn SetMute<Identity: IAudioMute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bmuted: windows_core::BOOL, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioMute_Impl::SetMute(this, core::mem::transmute_copy(&bmuted), core::mem::transmute_copy(&pguideventcontext)).into()
+                IAudioMute_Impl::SetMute(this, core::mem::transmute_copy(&bmuted), core::mem::transmute_copy(&pguideventcontext))
             }
         }
         unsafe extern "system" fn GetMute<Identity: IAudioMute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbmuted: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioMute_Impl::GetMute(this, core::mem::transmute_copy(&pbmuted)).into()
+                IAudioMute_Impl::GetMute(this, core::mem::transmute_copy(&pbmuted))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetMute: SetMute::<Identity, OFFSET>, GetMute: GetMute::<Identity, OFFSET> }
@@ -364,8 +364,8 @@ pub struct IAudioOutputSelector_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait IAudioOutputSelector_Impl: windows_core::IUnknownImpl {
-    fn GetSelection(&self, pnidselected: *mut super::UINT) -> windows_core::Result<()>;
-    fn SetSelection(&self, nidselect: super::UINT, pguideventcontext: super::LPCGUID) -> windows_core::Result<()>;
+    fn GetSelection(&self, pnidselected: *mut super::UINT) -> windows_core::HRESULT;
+    fn SetSelection(&self, nidselect: super::UINT, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 impl IAudioOutputSelector_Vtbl {
@@ -373,13 +373,13 @@ impl IAudioOutputSelector_Vtbl {
         unsafe extern "system" fn GetSelection<Identity: IAudioOutputSelector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnidselected: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioOutputSelector_Impl::GetSelection(this, core::mem::transmute_copy(&pnidselected)).into()
+                IAudioOutputSelector_Impl::GetSelection(this, core::mem::transmute_copy(&pnidselected))
             }
         }
         unsafe extern "system" fn SetSelection<Identity: IAudioOutputSelector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nidselect: super::UINT, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioOutputSelector_Impl::SetSelection(this, core::mem::transmute_copy(&nidselect), core::mem::transmute_copy(&pguideventcontext)).into()
+                IAudioOutputSelector_Impl::SetSelection(this, core::mem::transmute_copy(&nidselect), core::mem::transmute_copy(&pguideventcontext))
             }
         }
         Self {
@@ -421,8 +421,8 @@ pub struct IAudioPeakMeter_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IAudioPeakMeter_Impl: windows_core::IUnknownImpl {
-    fn GetChannelCount(&self, pcchannels: *mut super::UINT) -> windows_core::Result<()>;
-    fn GetLevel(&self, nchannel: super::UINT, pflevel: *mut f32) -> windows_core::Result<()>;
+    fn GetChannelCount(&self, pcchannels: *mut super::UINT) -> windows_core::HRESULT;
+    fn GetLevel(&self, nchannel: super::UINT, pflevel: *mut f32) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IAudioPeakMeter_Vtbl {
@@ -430,13 +430,13 @@ impl IAudioPeakMeter_Vtbl {
         unsafe extern "system" fn GetChannelCount<Identity: IAudioPeakMeter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcchannels: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioPeakMeter_Impl::GetChannelCount(this, core::mem::transmute_copy(&pcchannels)).into()
+                IAudioPeakMeter_Impl::GetChannelCount(this, core::mem::transmute_copy(&pcchannels))
             }
         }
         unsafe extern "system" fn GetLevel<Identity: IAudioPeakMeter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nchannel: super::UINT, pflevel: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioPeakMeter_Impl::GetLevel(this, core::mem::transmute_copy(&nchannel), core::mem::transmute_copy(&pflevel)).into()
+                IAudioPeakMeter_Impl::GetLevel(this, core::mem::transmute_copy(&nchannel), core::mem::transmute_copy(&pflevel))
             }
         }
         Self {
@@ -472,7 +472,7 @@ impl IAudioTreble_Vtbl {
         Self { base__: IPerChannelDbLevel_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAudioTreble as windows_core::Interface>::IID || iid == &<IPerChannelDbLevel as windows_core::Interface>::IID
+        iid == &<IAudioTreble as windows_core::Interface>::IID || IPerChannelDbLevel_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
@@ -498,7 +498,7 @@ impl IAudioVolumeLevel_Vtbl {
         Self { base__: IPerChannelDbLevel_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAudioVolumeLevel as windows_core::Interface>::IID || iid == &<IPerChannelDbLevel as windows_core::Interface>::IID
+        iid == &<IAudioVolumeLevel as windows_core::Interface>::IID || IPerChannelDbLevel_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
@@ -548,63 +548,63 @@ pub struct IConnector_Vtbl {
     pub GetDeviceIdConnectedTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 pub trait IConnector_Impl: windows_core::IUnknownImpl {
-    fn GetType(&self, ptype: *mut ConnectorType) -> windows_core::Result<()>;
-    fn GetDataFlow(&self, pflow: *mut DataFlow) -> windows_core::Result<()>;
-    fn ConnectTo(&self, pconnectto: windows_core::Ref<IConnector>) -> windows_core::Result<()>;
-    fn Disconnect(&self) -> windows_core::Result<()>;
-    fn IsConnected(&self, pbconnected: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetConnectedTo(&self, ppconto: windows_core::OutRef<IConnector>) -> windows_core::Result<()>;
-    fn GetConnectorIdConnectedTo(&self, ppwstrconnectorid: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn GetDeviceIdConnectedTo(&self, ppwstrdeviceid: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetType(&self, ptype: *mut ConnectorType) -> windows_core::HRESULT;
+    fn GetDataFlow(&self, pflow: *mut DataFlow) -> windows_core::HRESULT;
+    fn ConnectTo(&self, pconnectto: windows_core::Ref<IConnector>) -> windows_core::HRESULT;
+    fn Disconnect(&self) -> windows_core::HRESULT;
+    fn IsConnected(&self, pbconnected: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn GetConnectedTo(&self, ppconto: windows_core::OutRef<IConnector>) -> windows_core::HRESULT;
+    fn GetConnectorIdConnectedTo(&self, ppwstrconnectorid: *mut windows_core::PWSTR) -> windows_core::HRESULT;
+    fn GetDeviceIdConnectedTo(&self, ppwstrdeviceid: *mut windows_core::PWSTR) -> windows_core::HRESULT;
 }
 impl IConnector_Vtbl {
     pub const fn new<Identity: IConnector_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetType<Identity: IConnector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptype: *mut ConnectorType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IConnector_Impl::GetType(this, core::mem::transmute_copy(&ptype)).into()
+                IConnector_Impl::GetType(this, core::mem::transmute_copy(&ptype))
             }
         }
         unsafe extern "system" fn GetDataFlow<Identity: IConnector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflow: *mut DataFlow) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IConnector_Impl::GetDataFlow(this, core::mem::transmute_copy(&pflow)).into()
+                IConnector_Impl::GetDataFlow(this, core::mem::transmute_copy(&pflow))
             }
         }
         unsafe extern "system" fn ConnectTo<Identity: IConnector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pconnectto: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IConnector_Impl::ConnectTo(this, core::mem::transmute_copy(&pconnectto)).into()
+                IConnector_Impl::ConnectTo(this, core::mem::transmute_copy(&pconnectto))
             }
         }
         unsafe extern "system" fn Disconnect<Identity: IConnector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IConnector_Impl::Disconnect(this).into()
+                IConnector_Impl::Disconnect(this)
             }
         }
         unsafe extern "system" fn IsConnected<Identity: IConnector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbconnected: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IConnector_Impl::IsConnected(this, core::mem::transmute_copy(&pbconnected)).into()
+                IConnector_Impl::IsConnected(this, core::mem::transmute_copy(&pbconnected))
             }
         }
         unsafe extern "system" fn GetConnectedTo<Identity: IConnector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppconto: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IConnector_Impl::GetConnectedTo(this, core::mem::transmute_copy(&ppconto)).into()
+                IConnector_Impl::GetConnectedTo(this, core::mem::transmute_copy(&ppconto))
             }
         }
         unsafe extern "system" fn GetConnectorIdConnectedTo<Identity: IConnector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwstrconnectorid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IConnector_Impl::GetConnectorIdConnectedTo(this, core::mem::transmute_copy(&ppwstrconnectorid)).into()
+                IConnector_Impl::GetConnectorIdConnectedTo(this, core::mem::transmute_copy(&ppwstrconnectorid))
             }
         }
         unsafe extern "system" fn GetDeviceIdConnectedTo<Identity: IConnector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwstrdeviceid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IConnector_Impl::GetDeviceIdConnectedTo(this, core::mem::transmute_copy(&ppwstrdeviceid)).into()
+                IConnector_Impl::GetDeviceIdConnectedTo(this, core::mem::transmute_copy(&ppwstrdeviceid))
             }
         }
         Self {
@@ -643,7 +643,7 @@ pub struct IControlChangeNotify_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait IControlChangeNotify_Impl: windows_core::IUnknownImpl {
-    fn OnNotify(&self, dwsenderprocessid: super::DWORD, pguideventcontext: super::LPCGUID) -> windows_core::Result<()>;
+    fn OnNotify(&self, dwsenderprocessid: super::DWORD, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 impl IControlChangeNotify_Vtbl {
@@ -651,7 +651,7 @@ impl IControlChangeNotify_Vtbl {
         unsafe extern "system" fn OnNotify<Identity: IControlChangeNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsenderprocessid: super::DWORD, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IControlChangeNotify_Impl::OnNotify(this, core::mem::transmute_copy(&dwsenderprocessid), core::mem::transmute_copy(&pguideventcontext)).into()
+                IControlChangeNotify_Impl::OnNotify(this, core::mem::transmute_copy(&dwsenderprocessid), core::mem::transmute_copy(&pguideventcontext))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnNotify: OnNotify::<Identity, OFFSET> }
@@ -680,21 +680,21 @@ pub struct IControlInterface_Vtbl {
     pub GetIID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 pub trait IControlInterface_Impl: windows_core::IUnknownImpl {
-    fn GetName(&self, ppwstrname: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn GetIID(&self, piid: *mut windows_core::GUID) -> windows_core::Result<()>;
+    fn GetName(&self, ppwstrname: *mut windows_core::PWSTR) -> windows_core::HRESULT;
+    fn GetIID(&self, piid: *mut windows_core::GUID) -> windows_core::HRESULT;
 }
 impl IControlInterface_Vtbl {
     pub const fn new<Identity: IControlInterface_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetName<Identity: IControlInterface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwstrname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IControlInterface_Impl::GetName(this, core::mem::transmute_copy(&ppwstrname)).into()
+                IControlInterface_Impl::GetName(this, core::mem::transmute_copy(&ppwstrname))
             }
         }
         unsafe extern "system" fn GetIID<Identity: IControlInterface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piid: *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IControlInterface_Impl::GetIID(this, core::mem::transmute_copy(&piid)).into()
+                IControlInterface_Impl::GetIID(this, core::mem::transmute_copy(&piid))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetName: GetName::<Identity, OFFSET>, GetIID: GetIID::<Identity, OFFSET> }
@@ -747,10 +747,10 @@ pub struct IDeviceSpecificProperty_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "wtypes"))]
 pub trait IDeviceSpecificProperty_Impl: windows_core::IUnknownImpl {
-    fn GetType(&self, pvtype: *mut super::VARTYPE) -> windows_core::Result<()>;
-    fn GetValue(&self, pvvalue: *mut core::ffi::c_void, pcbvalue: *mut super::DWORD) -> windows_core::Result<()>;
-    fn SetValue(&self, pvvalue: *const core::ffi::c_void, cbvalue: super::DWORD, pguideventcontext: super::LPCGUID) -> windows_core::Result<()>;
-    fn Get4BRange(&self, plmin: *mut super::LONG, plmax: *mut super::LONG, plstepping: *mut super::LONG) -> windows_core::Result<()>;
+    fn GetType(&self, pvtype: *mut super::VARTYPE) -> windows_core::HRESULT;
+    fn GetValue(&self, pvvalue: *mut core::ffi::c_void, pcbvalue: *mut super::DWORD) -> windows_core::HRESULT;
+    fn SetValue(&self, pvvalue: *const core::ffi::c_void, cbvalue: super::DWORD, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT;
+    fn Get4BRange(&self, plmin: *mut super::LONG, plmax: *mut super::LONG, plstepping: *mut super::LONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "wtypes"))]
 impl IDeviceSpecificProperty_Vtbl {
@@ -758,25 +758,25 @@ impl IDeviceSpecificProperty_Vtbl {
         unsafe extern "system" fn GetType<Identity: IDeviceSpecificProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvtype: *mut super::VARTYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDeviceSpecificProperty_Impl::GetType(this, core::mem::transmute_copy(&pvtype)).into()
+                IDeviceSpecificProperty_Impl::GetType(this, core::mem::transmute_copy(&pvtype))
             }
         }
         unsafe extern "system" fn GetValue<Identity: IDeviceSpecificProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvvalue: *mut core::ffi::c_void, pcbvalue: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDeviceSpecificProperty_Impl::GetValue(this, core::mem::transmute_copy(&pvvalue), core::mem::transmute_copy(&pcbvalue)).into()
+                IDeviceSpecificProperty_Impl::GetValue(this, core::mem::transmute_copy(&pvvalue), core::mem::transmute_copy(&pcbvalue))
             }
         }
         unsafe extern "system" fn SetValue<Identity: IDeviceSpecificProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvvalue: *const core::ffi::c_void, cbvalue: super::DWORD, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDeviceSpecificProperty_Impl::SetValue(this, core::mem::transmute_copy(&pvvalue), core::mem::transmute_copy(&cbvalue), core::mem::transmute_copy(&pguideventcontext)).into()
+                IDeviceSpecificProperty_Impl::SetValue(this, core::mem::transmute_copy(&pvvalue), core::mem::transmute_copy(&cbvalue), core::mem::transmute_copy(&pguideventcontext))
             }
         }
         unsafe extern "system" fn Get4BRange<Identity: IDeviceSpecificProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmin: *mut super::LONG, plmax: *mut super::LONG, plstepping: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDeviceSpecificProperty_Impl::Get4BRange(this, core::mem::transmute_copy(&plmin), core::mem::transmute_copy(&plmax), core::mem::transmute_copy(&plstepping)).into()
+                IDeviceSpecificProperty_Impl::Get4BRange(this, core::mem::transmute_copy(&plmin), core::mem::transmute_copy(&plmax), core::mem::transmute_copy(&plstepping))
             }
         }
         Self {
@@ -865,12 +865,12 @@ pub struct IDeviceTopology_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IDeviceTopology_Impl: windows_core::IUnknownImpl {
-    fn GetConnectorCount(&self, pcount: *mut super::UINT) -> windows_core::Result<()>;
-    fn GetConnector(&self, nindex: super::UINT, ppconnector: windows_core::OutRef<IConnector>) -> windows_core::Result<()>;
-    fn GetSubunitCount(&self, pcount: *mut super::UINT) -> windows_core::Result<()>;
+    fn GetConnectorCount(&self, pcount: *mut super::UINT) -> windows_core::HRESULT;
+    fn GetConnector(&self, nindex: super::UINT, ppconnector: windows_core::OutRef<IConnector>) -> windows_core::HRESULT;
+    fn GetSubunitCount(&self, pcount: *mut super::UINT) -> windows_core::HRESULT;
     fn GetSubunit(&self, nindex: super::UINT) -> windows_core::Result<ISubunit>;
     fn GetPartById(&self, nid: super::UINT) -> windows_core::Result<IPart>;
-    fn GetDeviceId(&self, ppwstrdeviceid: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetDeviceId(&self, ppwstrdeviceid: *mut windows_core::PWSTR) -> windows_core::HRESULT;
     fn GetSignalPath(&self, pipartfrom: windows_core::Ref<IPart>, pipartto: windows_core::Ref<IPart>, brejectmixedpaths: windows_core::BOOL) -> windows_core::Result<IPartsList>;
 }
 #[cfg(feature = "shared")]
@@ -879,19 +879,19 @@ impl IDeviceTopology_Vtbl {
         unsafe extern "system" fn GetConnectorCount<Identity: IDeviceTopology_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcount: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDeviceTopology_Impl::GetConnectorCount(this, core::mem::transmute_copy(&pcount)).into()
+                IDeviceTopology_Impl::GetConnectorCount(this, core::mem::transmute_copy(&pcount))
             }
         }
         unsafe extern "system" fn GetConnector<Identity: IDeviceTopology_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: super::UINT, ppconnector: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDeviceTopology_Impl::GetConnector(this, core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&ppconnector)).into()
+                IDeviceTopology_Impl::GetConnector(this, core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&ppconnector))
             }
         }
         unsafe extern "system" fn GetSubunitCount<Identity: IDeviceTopology_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcount: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDeviceTopology_Impl::GetSubunitCount(this, core::mem::transmute_copy(&pcount)).into()
+                IDeviceTopology_Impl::GetSubunitCount(this, core::mem::transmute_copy(&pcount))
             }
         }
         unsafe extern "system" fn GetSubunit<Identity: IDeviceTopology_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: super::UINT, ppsubunit: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -927,7 +927,7 @@ impl IDeviceTopology_Vtbl {
         unsafe extern "system" fn GetDeviceId<Identity: IDeviceTopology_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwstrdeviceid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDeviceTopology_Impl::GetDeviceId(this, core::mem::transmute_copy(&ppwstrdeviceid)).into()
+                IDeviceTopology_Impl::GetDeviceId(this, core::mem::transmute_copy(&ppwstrdeviceid))
             }
         }
         unsafe extern "system" fn GetSignalPath<Identity: IDeviceTopology_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipartfrom: *mut core::ffi::c_void, pipartto: *mut core::ffi::c_void, brejectmixedpaths: windows_core::BOOL, ppparts: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -997,9 +997,9 @@ pub struct IKsControl_Vtbl {
 }
 #[cfg(all(feature = "ks", feature = "shared"))]
 pub trait IKsControl_Impl: windows_core::IUnknownImpl {
-    fn KsProperty(&self, property: super::PKSPROPERTY, propertylength: super::ULONG, propertydata: *mut core::ffi::c_void, datalength: super::ULONG, bytesreturned: *mut super::ULONG) -> windows_core::Result<()>;
-    fn KsMethod(&self, method: super::PKSMETHOD, methodlength: super::ULONG, methoddata: *mut core::ffi::c_void, datalength: super::ULONG, bytesreturned: *mut super::ULONG) -> windows_core::Result<()>;
-    fn KsEvent(&self, event: super::PKSEVENT, eventlength: super::ULONG, eventdata: *mut core::ffi::c_void, datalength: super::ULONG, bytesreturned: *mut super::ULONG) -> windows_core::Result<()>;
+    fn KsProperty(&self, property: super::PKSPROPERTY, propertylength: super::ULONG, propertydata: *mut core::ffi::c_void, datalength: super::ULONG, bytesreturned: *mut super::ULONG) -> windows_core::HRESULT;
+    fn KsMethod(&self, method: super::PKSMETHOD, methodlength: super::ULONG, methoddata: *mut core::ffi::c_void, datalength: super::ULONG, bytesreturned: *mut super::ULONG) -> windows_core::HRESULT;
+    fn KsEvent(&self, event: super::PKSEVENT, eventlength: super::ULONG, eventdata: *mut core::ffi::c_void, datalength: super::ULONG, bytesreturned: *mut super::ULONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "ks", feature = "shared"))]
 impl IKsControl_Vtbl {
@@ -1007,19 +1007,19 @@ impl IKsControl_Vtbl {
         unsafe extern "system" fn KsProperty<Identity: IKsControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: super::PKSPROPERTY, propertylength: super::ULONG, propertydata: *mut core::ffi::c_void, datalength: super::ULONG, bytesreturned: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IKsControl_Impl::KsProperty(this, core::mem::transmute_copy(&property), core::mem::transmute_copy(&propertylength), core::mem::transmute_copy(&propertydata), core::mem::transmute_copy(&datalength), core::mem::transmute_copy(&bytesreturned)).into()
+                IKsControl_Impl::KsProperty(this, core::mem::transmute_copy(&property), core::mem::transmute_copy(&propertylength), core::mem::transmute_copy(&propertydata), core::mem::transmute_copy(&datalength), core::mem::transmute_copy(&bytesreturned))
             }
         }
         unsafe extern "system" fn KsMethod<Identity: IKsControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, method: super::PKSMETHOD, methodlength: super::ULONG, methoddata: *mut core::ffi::c_void, datalength: super::ULONG, bytesreturned: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IKsControl_Impl::KsMethod(this, core::mem::transmute_copy(&method), core::mem::transmute_copy(&methodlength), core::mem::transmute_copy(&methoddata), core::mem::transmute_copy(&datalength), core::mem::transmute_copy(&bytesreturned)).into()
+                IKsControl_Impl::KsMethod(this, core::mem::transmute_copy(&method), core::mem::transmute_copy(&methodlength), core::mem::transmute_copy(&methoddata), core::mem::transmute_copy(&datalength), core::mem::transmute_copy(&bytesreturned))
             }
         }
         unsafe extern "system" fn KsEvent<Identity: IKsControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: super::PKSEVENT, eventlength: super::ULONG, eventdata: *mut core::ffi::c_void, datalength: super::ULONG, bytesreturned: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IKsControl_Impl::KsEvent(this, core::mem::transmute_copy(&event), core::mem::transmute_copy(&eventlength), core::mem::transmute_copy(&eventdata), core::mem::transmute_copy(&datalength), core::mem::transmute_copy(&bytesreturned)).into()
+                IKsControl_Impl::KsEvent(this, core::mem::transmute_copy(&event), core::mem::transmute_copy(&eventlength), core::mem::transmute_copy(&eventdata), core::mem::transmute_copy(&datalength), core::mem::transmute_copy(&bytesreturned))
             }
         }
         Self {
@@ -1062,8 +1062,8 @@ pub struct IKsFormatSupport_Vtbl {
 }
 #[cfg(all(feature = "ks", feature = "shared"))]
 pub trait IKsFormatSupport_Impl: windows_core::IUnknownImpl {
-    fn IsFormatSupported(&self, pksformat: super::PKSDATAFORMAT, cbformat: super::DWORD, pbsupported: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetDevicePreferredFormat(&self, ppksformat: *mut super::PKSDATAFORMAT) -> windows_core::Result<()>;
+    fn IsFormatSupported(&self, pksformat: super::PKSDATAFORMAT, cbformat: super::DWORD, pbsupported: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn GetDevicePreferredFormat(&self, ppksformat: *mut super::PKSDATAFORMAT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "ks", feature = "shared"))]
 impl IKsFormatSupport_Vtbl {
@@ -1071,13 +1071,13 @@ impl IKsFormatSupport_Vtbl {
         unsafe extern "system" fn IsFormatSupported<Identity: IKsFormatSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pksformat: super::PKSDATAFORMAT, cbformat: super::DWORD, pbsupported: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IKsFormatSupport_Impl::IsFormatSupported(this, core::mem::transmute_copy(&pksformat), core::mem::transmute_copy(&cbformat), core::mem::transmute_copy(&pbsupported)).into()
+                IKsFormatSupport_Impl::IsFormatSupported(this, core::mem::transmute_copy(&pksformat), core::mem::transmute_copy(&cbformat), core::mem::transmute_copy(&pbsupported))
             }
         }
         unsafe extern "system" fn GetDevicePreferredFormat<Identity: IKsFormatSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppksformat: *mut super::PKSDATAFORMAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IKsFormatSupport_Impl::GetDevicePreferredFormat(this, core::mem::transmute_copy(&ppksformat)).into()
+                IKsFormatSupport_Impl::GetDevicePreferredFormat(this, core::mem::transmute_copy(&ppksformat))
             }
         }
         Self {
@@ -1106,14 +1106,14 @@ pub struct IKsJackContainerId_Vtbl {
     pub GetJackContainerId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 pub trait IKsJackContainerId_Impl: windows_core::IUnknownImpl {
-    fn GetJackContainerId(&self, pjackcontainerid: *mut windows_core::GUID) -> windows_core::Result<()>;
+    fn GetJackContainerId(&self, pjackcontainerid: *mut windows_core::GUID) -> windows_core::HRESULT;
 }
 impl IKsJackContainerId_Vtbl {
     pub const fn new<Identity: IKsJackContainerId_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetJackContainerId<Identity: IKsJackContainerId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pjackcontainerid: *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IKsJackContainerId_Impl::GetJackContainerId(this, core::mem::transmute_copy(&pjackcontainerid)).into()
+                IKsJackContainerId_Impl::GetJackContainerId(this, core::mem::transmute_copy(&pjackcontainerid))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetJackContainerId: GetJackContainerId::<Identity, OFFSET> }
@@ -1150,8 +1150,8 @@ pub struct IKsJackDescription_Vtbl {
 }
 #[cfg(all(feature = "ksmedia", feature = "shared"))]
 pub trait IKsJackDescription_Impl: windows_core::IUnknownImpl {
-    fn GetJackCount(&self, pcjacks: *mut super::UINT) -> windows_core::Result<()>;
-    fn GetJackDescription(&self, njack: super::UINT, pdescription: *mut super::KSJACK_DESCRIPTION) -> windows_core::Result<()>;
+    fn GetJackCount(&self, pcjacks: *mut super::UINT) -> windows_core::HRESULT;
+    fn GetJackDescription(&self, njack: super::UINT, pdescription: *mut super::KSJACK_DESCRIPTION) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "ksmedia", feature = "shared"))]
 impl IKsJackDescription_Vtbl {
@@ -1159,13 +1159,13 @@ impl IKsJackDescription_Vtbl {
         unsafe extern "system" fn GetJackCount<Identity: IKsJackDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcjacks: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IKsJackDescription_Impl::GetJackCount(this, core::mem::transmute_copy(&pcjacks)).into()
+                IKsJackDescription_Impl::GetJackCount(this, core::mem::transmute_copy(&pcjacks))
             }
         }
         unsafe extern "system" fn GetJackDescription<Identity: IKsJackDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, njack: super::UINT, pdescription: *mut super::KSJACK_DESCRIPTION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IKsJackDescription_Impl::GetJackDescription(this, core::mem::transmute_copy(&njack), core::mem::transmute_copy(&pdescription)).into()
+                IKsJackDescription_Impl::GetJackDescription(this, core::mem::transmute_copy(&njack), core::mem::transmute_copy(&pdescription))
             }
         }
         Self {
@@ -1207,8 +1207,8 @@ pub struct IKsJackDescription2_Vtbl {
 }
 #[cfg(all(feature = "ksmedia", feature = "shared"))]
 pub trait IKsJackDescription2_Impl: windows_core::IUnknownImpl {
-    fn GetJackCount(&self, pcjacks: *mut super::UINT) -> windows_core::Result<()>;
-    fn GetJackDescription2(&self, njack: super::UINT, pdescription2: *mut super::KSJACK_DESCRIPTION2) -> windows_core::Result<()>;
+    fn GetJackCount(&self, pcjacks: *mut super::UINT) -> windows_core::HRESULT;
+    fn GetJackDescription2(&self, njack: super::UINT, pdescription2: *mut super::KSJACK_DESCRIPTION2) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "ksmedia", feature = "shared"))]
 impl IKsJackDescription2_Vtbl {
@@ -1216,13 +1216,13 @@ impl IKsJackDescription2_Vtbl {
         unsafe extern "system" fn GetJackCount<Identity: IKsJackDescription2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcjacks: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IKsJackDescription2_Impl::GetJackCount(this, core::mem::transmute_copy(&pcjacks)).into()
+                IKsJackDescription2_Impl::GetJackCount(this, core::mem::transmute_copy(&pcjacks))
             }
         }
         unsafe extern "system" fn GetJackDescription2<Identity: IKsJackDescription2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, njack: super::UINT, pdescription2: *mut super::KSJACK_DESCRIPTION2) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IKsJackDescription2_Impl::GetJackDescription2(this, core::mem::transmute_copy(&njack), core::mem::transmute_copy(&pdescription2)).into()
+                IKsJackDescription2_Impl::GetJackDescription2(this, core::mem::transmute_copy(&njack), core::mem::transmute_copy(&pdescription2))
             }
         }
         Self {
@@ -1264,8 +1264,8 @@ pub struct IKsJackDescription3_Vtbl {
 }
 #[cfg(all(feature = "ksmedia", feature = "shared"))]
 pub trait IKsJackDescription3_Impl: windows_core::IUnknownImpl {
-    fn GetJackCount(&self, pcjacks: *mut super::UINT) -> windows_core::Result<()>;
-    fn GetJackDescription3(&self, njack: super::UINT, pdescription3: *mut super::KSJACK_DESCRIPTION3) -> windows_core::Result<()>;
+    fn GetJackCount(&self, pcjacks: *mut super::UINT) -> windows_core::HRESULT;
+    fn GetJackDescription3(&self, njack: super::UINT, pdescription3: *mut super::KSJACK_DESCRIPTION3) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "ksmedia", feature = "shared"))]
 impl IKsJackDescription3_Vtbl {
@@ -1273,13 +1273,13 @@ impl IKsJackDescription3_Vtbl {
         unsafe extern "system" fn GetJackCount<Identity: IKsJackDescription3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcjacks: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IKsJackDescription3_Impl::GetJackCount(this, core::mem::transmute_copy(&pcjacks)).into()
+                IKsJackDescription3_Impl::GetJackCount(this, core::mem::transmute_copy(&pcjacks))
             }
         }
         unsafe extern "system" fn GetJackDescription3<Identity: IKsJackDescription3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, njack: super::UINT, pdescription3: *mut super::KSJACK_DESCRIPTION3) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IKsJackDescription3_Impl::GetJackDescription3(this, core::mem::transmute_copy(&njack), core::mem::transmute_copy(&pdescription3)).into()
+                IKsJackDescription3_Impl::GetJackDescription3(this, core::mem::transmute_copy(&njack), core::mem::transmute_copy(&pdescription3))
             }
         }
         Self {
@@ -1313,7 +1313,7 @@ pub struct IKsJackSinkInformation_Vtbl {
 }
 #[cfg(all(feature = "ksmedia", feature = "shared", feature = "winnt"))]
 pub trait IKsJackSinkInformation_Impl: windows_core::IUnknownImpl {
-    fn GetJackSinkInformation(&self, pjacksinkinformation: *mut super::KSJACK_SINK_INFORMATION) -> windows_core::Result<()>;
+    fn GetJackSinkInformation(&self, pjacksinkinformation: *mut super::KSJACK_SINK_INFORMATION) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "ksmedia", feature = "shared", feature = "winnt"))]
 impl IKsJackSinkInformation_Vtbl {
@@ -1321,7 +1321,7 @@ impl IKsJackSinkInformation_Vtbl {
         unsafe extern "system" fn GetJackSinkInformation<Identity: IKsJackSinkInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pjacksinkinformation: *mut super::KSJACK_SINK_INFORMATION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IKsJackSinkInformation_Impl::GetJackSinkInformation(this, core::mem::transmute_copy(&pjacksinkinformation)).into()
+                IKsJackSinkInformation_Impl::GetJackSinkInformation(this, core::mem::transmute_copy(&pjacksinkinformation))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetJackSinkInformation: GetJackSinkInformation::<Identity, OFFSET> }
@@ -1420,19 +1420,19 @@ pub struct IPart_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait IPart_Impl: windows_core::IUnknownImpl {
-    fn GetName(&self, ppwstrname: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn GetLocalId(&self, pnid: *mut super::UINT) -> windows_core::Result<()>;
-    fn GetGlobalId(&self, ppwstrglobalid: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn GetPartType(&self, pparttype: *mut PartType) -> windows_core::Result<()>;
-    fn GetSubType(&self, psubtype: *mut windows_core::GUID) -> windows_core::Result<()>;
-    fn GetControlInterfaceCount(&self, pcount: *mut super::UINT) -> windows_core::Result<()>;
-    fn GetControlInterface(&self, nindex: super::UINT, ppinterfacedesc: windows_core::OutRef<IControlInterface>) -> windows_core::Result<()>;
-    fn EnumPartsIncoming(&self, ppparts: windows_core::OutRef<IPartsList>) -> windows_core::Result<()>;
-    fn EnumPartsOutgoing(&self, ppparts: windows_core::OutRef<IPartsList>) -> windows_core::Result<()>;
-    fn GetTopologyObject(&self, pptopology: windows_core::OutRef<IDeviceTopology>) -> windows_core::Result<()>;
+    fn GetName(&self, ppwstrname: *mut windows_core::PWSTR) -> windows_core::HRESULT;
+    fn GetLocalId(&self, pnid: *mut super::UINT) -> windows_core::HRESULT;
+    fn GetGlobalId(&self, ppwstrglobalid: *mut windows_core::PWSTR) -> windows_core::HRESULT;
+    fn GetPartType(&self, pparttype: *mut PartType) -> windows_core::HRESULT;
+    fn GetSubType(&self, psubtype: *mut windows_core::GUID) -> windows_core::HRESULT;
+    fn GetControlInterfaceCount(&self, pcount: *mut super::UINT) -> windows_core::HRESULT;
+    fn GetControlInterface(&self, nindex: super::UINT, ppinterfacedesc: windows_core::OutRef<IControlInterface>) -> windows_core::HRESULT;
+    fn EnumPartsIncoming(&self, ppparts: windows_core::OutRef<IPartsList>) -> windows_core::HRESULT;
+    fn EnumPartsOutgoing(&self, ppparts: windows_core::OutRef<IPartsList>) -> windows_core::HRESULT;
+    fn GetTopologyObject(&self, pptopology: windows_core::OutRef<IDeviceTopology>) -> windows_core::HRESULT;
     fn Activate(&self, dwclscontext: super::DWORD, refiid: *const super::IID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn RegisterControlChangeCallback(&self, riid: *const windows_core::GUID, pnotify: windows_core::Ref<IControlChangeNotify>) -> windows_core::Result<()>;
-    fn UnregisterControlChangeCallback(&self, pnotify: windows_core::Ref<IControlChangeNotify>) -> windows_core::Result<()>;
+    fn RegisterControlChangeCallback(&self, riid: *const windows_core::GUID, pnotify: windows_core::Ref<IControlChangeNotify>) -> windows_core::HRESULT;
+    fn UnregisterControlChangeCallback(&self, pnotify: windows_core::Ref<IControlChangeNotify>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 impl IPart_Vtbl {
@@ -1440,61 +1440,61 @@ impl IPart_Vtbl {
         unsafe extern "system" fn GetName<Identity: IPart_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwstrname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPart_Impl::GetName(this, core::mem::transmute_copy(&ppwstrname)).into()
+                IPart_Impl::GetName(this, core::mem::transmute_copy(&ppwstrname))
             }
         }
         unsafe extern "system" fn GetLocalId<Identity: IPart_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnid: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPart_Impl::GetLocalId(this, core::mem::transmute_copy(&pnid)).into()
+                IPart_Impl::GetLocalId(this, core::mem::transmute_copy(&pnid))
             }
         }
         unsafe extern "system" fn GetGlobalId<Identity: IPart_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwstrglobalid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPart_Impl::GetGlobalId(this, core::mem::transmute_copy(&ppwstrglobalid)).into()
+                IPart_Impl::GetGlobalId(this, core::mem::transmute_copy(&ppwstrglobalid))
             }
         }
         unsafe extern "system" fn GetPartType<Identity: IPart_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pparttype: *mut PartType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPart_Impl::GetPartType(this, core::mem::transmute_copy(&pparttype)).into()
+                IPart_Impl::GetPartType(this, core::mem::transmute_copy(&pparttype))
             }
         }
         unsafe extern "system" fn GetSubType<Identity: IPart_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psubtype: *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPart_Impl::GetSubType(this, core::mem::transmute_copy(&psubtype)).into()
+                IPart_Impl::GetSubType(this, core::mem::transmute_copy(&psubtype))
             }
         }
         unsafe extern "system" fn GetControlInterfaceCount<Identity: IPart_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcount: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPart_Impl::GetControlInterfaceCount(this, core::mem::transmute_copy(&pcount)).into()
+                IPart_Impl::GetControlInterfaceCount(this, core::mem::transmute_copy(&pcount))
             }
         }
         unsafe extern "system" fn GetControlInterface<Identity: IPart_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: super::UINT, ppinterfacedesc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPart_Impl::GetControlInterface(this, core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&ppinterfacedesc)).into()
+                IPart_Impl::GetControlInterface(this, core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&ppinterfacedesc))
             }
         }
         unsafe extern "system" fn EnumPartsIncoming<Identity: IPart_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppparts: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPart_Impl::EnumPartsIncoming(this, core::mem::transmute_copy(&ppparts)).into()
+                IPart_Impl::EnumPartsIncoming(this, core::mem::transmute_copy(&ppparts))
             }
         }
         unsafe extern "system" fn EnumPartsOutgoing<Identity: IPart_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppparts: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPart_Impl::EnumPartsOutgoing(this, core::mem::transmute_copy(&ppparts)).into()
+                IPart_Impl::EnumPartsOutgoing(this, core::mem::transmute_copy(&ppparts))
             }
         }
         unsafe extern "system" fn GetTopologyObject<Identity: IPart_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptopology: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPart_Impl::GetTopologyObject(this, core::mem::transmute_copy(&pptopology)).into()
+                IPart_Impl::GetTopologyObject(this, core::mem::transmute_copy(&pptopology))
             }
         }
         unsafe extern "system" fn Activate<Identity: IPart_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwclscontext: super::DWORD, refiid: *const super::IID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1506,13 +1506,13 @@ impl IPart_Vtbl {
         unsafe extern "system" fn RegisterControlChangeCallback<Identity: IPart_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, pnotify: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPart_Impl::RegisterControlChangeCallback(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pnotify)).into()
+                IPart_Impl::RegisterControlChangeCallback(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pnotify))
             }
         }
         unsafe extern "system" fn UnregisterControlChangeCallback<Identity: IPart_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnotify: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPart_Impl::UnregisterControlChangeCallback(this, core::mem::transmute_copy(&pnotify)).into()
+                IPart_Impl::UnregisterControlChangeCallback(this, core::mem::transmute_copy(&pnotify))
             }
         }
         Self {
@@ -1565,8 +1565,8 @@ pub struct IPartsList_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IPartsList_Impl: windows_core::IUnknownImpl {
-    fn GetCount(&self, pcount: *mut super::UINT) -> windows_core::Result<()>;
-    fn GetPart(&self, nindex: super::UINT, pppart: windows_core::OutRef<IPart>) -> windows_core::Result<()>;
+    fn GetCount(&self, pcount: *mut super::UINT) -> windows_core::HRESULT;
+    fn GetPart(&self, nindex: super::UINT, pppart: windows_core::OutRef<IPart>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IPartsList_Vtbl {
@@ -1574,13 +1574,13 @@ impl IPartsList_Vtbl {
         unsafe extern "system" fn GetCount<Identity: IPartsList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcount: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPartsList_Impl::GetCount(this, core::mem::transmute_copy(&pcount)).into()
+                IPartsList_Impl::GetCount(this, core::mem::transmute_copy(&pcount))
             }
         }
         unsafe extern "system" fn GetPart<Identity: IPartsList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: super::UINT, pppart: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPartsList_Impl::GetPart(this, core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&pppart)).into()
+                IPartsList_Impl::GetPart(this, core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&pppart))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetCount: GetCount::<Identity, OFFSET>, GetPart: GetPart::<Identity, OFFSET> }
@@ -1650,12 +1650,12 @@ pub struct IPerChannelDbLevel_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait IPerChannelDbLevel_Impl: windows_core::IUnknownImpl {
-    fn GetChannelCount(&self, pcchannels: *mut super::UINT) -> windows_core::Result<()>;
-    fn GetLevelRange(&self, nchannel: super::UINT, pfminleveldb: *mut f32, pfmaxleveldb: *mut f32, pfstepping: *mut f32) -> windows_core::Result<()>;
-    fn GetLevel(&self, nchannel: super::UINT, pfleveldb: *mut f32) -> windows_core::Result<()>;
-    fn SetLevel(&self, nchannel: super::UINT, fleveldb: f32, pguideventcontext: super::LPCGUID) -> windows_core::Result<()>;
-    fn SetLevelUniform(&self, fleveldb: f32, pguideventcontext: super::LPCGUID) -> windows_core::Result<()>;
-    fn SetLevelAllChannels(&self, alevelsdb: *const f32, cchannels: super::ULONG, pguideventcontext: super::LPCGUID) -> windows_core::Result<()>;
+    fn GetChannelCount(&self, pcchannels: *mut super::UINT) -> windows_core::HRESULT;
+    fn GetLevelRange(&self, nchannel: super::UINT, pfminleveldb: *mut f32, pfmaxleveldb: *mut f32, pfstepping: *mut f32) -> windows_core::HRESULT;
+    fn GetLevel(&self, nchannel: super::UINT, pfleveldb: *mut f32) -> windows_core::HRESULT;
+    fn SetLevel(&self, nchannel: super::UINT, fleveldb: f32, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT;
+    fn SetLevelUniform(&self, fleveldb: f32, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT;
+    fn SetLevelAllChannels(&self, alevelsdb: *const f32, cchannels: super::ULONG, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 impl IPerChannelDbLevel_Vtbl {
@@ -1663,37 +1663,37 @@ impl IPerChannelDbLevel_Vtbl {
         unsafe extern "system" fn GetChannelCount<Identity: IPerChannelDbLevel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcchannels: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPerChannelDbLevel_Impl::GetChannelCount(this, core::mem::transmute_copy(&pcchannels)).into()
+                IPerChannelDbLevel_Impl::GetChannelCount(this, core::mem::transmute_copy(&pcchannels))
             }
         }
         unsafe extern "system" fn GetLevelRange<Identity: IPerChannelDbLevel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nchannel: super::UINT, pfminleveldb: *mut f32, pfmaxleveldb: *mut f32, pfstepping: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPerChannelDbLevel_Impl::GetLevelRange(this, core::mem::transmute_copy(&nchannel), core::mem::transmute_copy(&pfminleveldb), core::mem::transmute_copy(&pfmaxleveldb), core::mem::transmute_copy(&pfstepping)).into()
+                IPerChannelDbLevel_Impl::GetLevelRange(this, core::mem::transmute_copy(&nchannel), core::mem::transmute_copy(&pfminleveldb), core::mem::transmute_copy(&pfmaxleveldb), core::mem::transmute_copy(&pfstepping))
             }
         }
         unsafe extern "system" fn GetLevel<Identity: IPerChannelDbLevel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nchannel: super::UINT, pfleveldb: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPerChannelDbLevel_Impl::GetLevel(this, core::mem::transmute_copy(&nchannel), core::mem::transmute_copy(&pfleveldb)).into()
+                IPerChannelDbLevel_Impl::GetLevel(this, core::mem::transmute_copy(&nchannel), core::mem::transmute_copy(&pfleveldb))
             }
         }
         unsafe extern "system" fn SetLevel<Identity: IPerChannelDbLevel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nchannel: super::UINT, fleveldb: f32, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPerChannelDbLevel_Impl::SetLevel(this, core::mem::transmute_copy(&nchannel), core::mem::transmute_copy(&fleveldb), core::mem::transmute_copy(&pguideventcontext)).into()
+                IPerChannelDbLevel_Impl::SetLevel(this, core::mem::transmute_copy(&nchannel), core::mem::transmute_copy(&fleveldb), core::mem::transmute_copy(&pguideventcontext))
             }
         }
         unsafe extern "system" fn SetLevelUniform<Identity: IPerChannelDbLevel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fleveldb: f32, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPerChannelDbLevel_Impl::SetLevelUniform(this, core::mem::transmute_copy(&fleveldb), core::mem::transmute_copy(&pguideventcontext)).into()
+                IPerChannelDbLevel_Impl::SetLevelUniform(this, core::mem::transmute_copy(&fleveldb), core::mem::transmute_copy(&pguideventcontext))
             }
         }
         unsafe extern "system" fn SetLevelAllChannels<Identity: IPerChannelDbLevel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, alevelsdb: *const f32, cchannels: super::ULONG, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPerChannelDbLevel_Impl::SetLevelAllChannels(this, core::mem::transmute_copy(&alevelsdb), core::mem::transmute_copy(&cchannels), core::mem::transmute_copy(&pguideventcontext)).into()
+                IPerChannelDbLevel_Impl::SetLevelAllChannels(this, core::mem::transmute_copy(&alevelsdb), core::mem::transmute_copy(&cchannels), core::mem::transmute_copy(&pguideventcontext))
             }
         }
         Self {

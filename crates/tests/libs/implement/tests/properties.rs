@@ -24,37 +24,37 @@ fn propvariant_value(value: &PROPVARIANT) -> i32 {
 }
 
 impl IInitializeWithStream_Impl for Object_Impl {
-    fn Initialize(&self, _: Ref<IStream>, _: u32) -> Result<()> {
-        Ok(())
+    fn Initialize(&self, _: Ref<IStream>, _: u32) -> HRESULT {
+        S_OK
     }
 }
 
 impl IPropertyStore_Impl for Object_Impl {
-    fn GetCount(&self, count: *mut u32) -> Result<()> {
+    fn GetCount(&self, count: *mut u32) -> HRESULT {
         unsafe { *count = 123 };
-        Ok(())
+        S_OK
     }
-    fn GetAt(&self, _: u32, _: *mut PROPERTYKEY) -> Result<()> {
+    fn GetAt(&self, _: u32, _: *mut PROPERTYKEY) -> HRESULT {
         unimplemented!()
     }
-    fn GetValue(&self, _: *const PROPERTYKEY, value: *mut PROPVARIANT) -> Result<()> {
+    fn GetValue(&self, _: *const PROPERTYKEY, value: *mut PROPVARIANT) -> HRESULT {
         let reader = self.0.read().unwrap();
         unsafe { value.write(reader.clone()) };
-        Ok(())
+        S_OK
     }
-    fn SetValue(&self, _: *const PROPERTYKEY, value: *const PROPVARIANT) -> Result<()> {
+    fn SetValue(&self, _: *const PROPERTYKEY, value: *const PROPVARIANT) -> HRESULT {
         let mut writer = self.0.write().unwrap();
         *writer = unsafe { (*value).clone() };
-        Ok(())
+        S_OK
     }
-    fn Commit(&self) -> Result<()> {
+    fn Commit(&self) -> HRESULT {
         unimplemented!()
     }
 }
 
 impl IPropertyStoreCapabilities_Impl for Object_Impl {
-    fn IsPropertyWritable(&self, _: *const PROPERTYKEY) -> Result<()> {
-        Ok(())
+    fn IsPropertyWritable(&self, _: *const PROPERTYKEY) -> HRESULT {
+        S_OK
     }
 }
 

@@ -3026,9 +3026,11 @@ pub const FSCTL_REFS_SET_VOLUME_COMPRESSION_INFO: i32 = 590932;
 pub const FSCTL_REFS_SET_VOLUME_DEDUP_INFO: i32 = 590960;
 pub const FSCTL_REFS_SET_VOLUME_IO_METRICS_INFO: i32 = 590984;
 pub const FSCTL_REFS_STREAM_SNAPSHOT_MANAGEMENT: i32 = 590912;
+pub const FSCTL_REFS_VOLUME_ATTESTATION_BIND_TO_TPM: i32 = 591020;
 pub const FSCTL_REFS_VOLUME_ATTESTATION_INJECT_CERTIFICATE: i32 = 591016;
 pub const FSCTL_REFS_VOLUME_ATTESTATION_PREPARE_TO_SIGN: i32 = 591012;
-pub const FSCTL_REFS_VOLUME_ATTESTATION_QUERY_STATUS: i32 = 591020;
+pub const FSCTL_REFS_VOLUME_ATTESTATION_QUERY_STATUS: i32 = 591024;
+pub const FSCTL_REFS_VOLUME_ATTESTATION_RESET: i32 = 591028;
 pub const FSCTL_REMOVE_OVERLAY: i32 = 623412;
 pub const FSCTL_REPAIR_COPIES: i32 = 639668;
 pub const FSCTL_REQUEST_BATCH_OPLOCK: i32 = 589832;
@@ -5379,6 +5381,10 @@ pub type PSTORAGE_ZONE_DESCRIPTOR = *mut STORAGE_ZONE_DESCRIPTOR;
 #[cfg(feature = "shared")]
 pub type PSTORAGE_ZONE_GROUP = *mut STORAGE_ZONE_GROUP;
 pub type PSTORAGE_ZONE_TYPES = *mut STORAGE_ZONE_TYPES;
+#[cfg(feature = "shared")]
+pub type PSTOR_PAGING_DEVICE_DUMP_DATA = *mut STOR_PAGING_DEVICE_DUMP_DATA;
+#[cfg(feature = "shared")]
+pub type PSTOR_PAGING_DEVICE_DUMP_ENTRY = *mut STOR_PAGING_DEVICE_DUMP_ENTRY;
 #[cfg(feature = "shared")]
 pub type PSTREAMS_ASSOCIATE_ID_INPUT_BUFFER = *mut STREAMS_ASSOCIATE_ID_INPUT_BUFFER;
 #[cfg(feature = "shared")]
@@ -8896,6 +8902,81 @@ pub struct STORAGE_ZONE_GROUP {
 pub type STORAGE_ZONE_TYPES = i32;
 pub const STORATTRIBUTE_MANAGEMENT_STATE: i32 = 1;
 pub const STORATTRIBUTE_NONE: i32 = 0;
+pub const STOR_MAX_PAGING_DEVICES: i32 = 16;
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct STOR_PAGING_DEVICE_DUMP_DATA {
+    pub Descriptor: DEVICEDUMP_STRUCTURE_VERSION,
+    pub EntryCount: super::DWORD,
+    pub EntrySize: super::DWORD,
+    pub Entries: [STOR_PAGING_DEVICE_DUMP_ENTRY; 1],
+}
+#[cfg(feature = "shared")]
+impl Default for STOR_PAGING_DEVICE_DUMP_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct STOR_PAGING_DEVICE_DUMP_ENTRY {
+    pub MiniportName: [super::CHAR; 33],
+    pub ModelName: [super::CHAR; 65],
+    pub FirmwareRevision: [super::CHAR; 17],
+    pub PagingPathCount: super::WORD,
+    pub Flags: STOR_PAGING_DEVICE_DUMP_ENTRY_0,
+}
+#[cfg(feature = "shared")]
+impl Default for STOR_PAGING_DEVICE_DUMP_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union STOR_PAGING_DEVICE_DUMP_ENTRY_0 {
+    pub Anonymous: STOR_PAGING_DEVICE_DUMP_ENTRY_0_0,
+    pub AsUchar: super::BYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for STOR_PAGING_DEVICE_DUMP_ENTRY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct STOR_PAGING_DEVICE_DUMP_ENTRY_0_0 {
+    pub _bitfield: u8,
+}
+#[cfg(feature = "shared")]
+impl STOR_PAGING_DEVICE_DUMP_ENTRY_0_0 {
+    pub fn IsBootDevice(&self) -> super::BYTE {
+        (self._bitfield) & 1
+    }
+    pub fn set_IsBootDevice(&mut self, value: super::BYTE) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
+    }
+    pub fn IsNativeNVMe(&self) -> super::BYTE {
+        (self._bitfield >> 1) & 1
+    }
+    pub fn set_IsNativeNVMe(&mut self, value: super::BYTE) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
+    }
+    pub fn Reserved(&self) -> super::BYTE {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: super::BYTE) {
+        self._bitfield = (self._bitfield & !(63 << 2)) | ((value & 63) << 2);
+    }
+}
+pub const STOR_PAGING_DEVICE_FW_REVISION_LENGTH: i32 = 16;
+pub const STOR_PAGING_DEVICE_MINIPORT_NAME_LENGTH: i32 = 32;
+pub const STOR_PAGING_DEVICE_MODEL_NAME_LENGTH: i32 = 64;
 pub const STREAMS_ASSOCIATE_ID_CLEAR: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]

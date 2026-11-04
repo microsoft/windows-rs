@@ -79,7 +79,7 @@ pub struct ILanguageExceptionErrorInfo2_Vtbl {
 }
 pub trait ILanguageExceptionErrorInfo2_Impl: ILanguageExceptionErrorInfo_Impl {
     fn GetPreviousLanguageExceptionErrorInfo(&self) -> windows_core::Result<ILanguageExceptionErrorInfo2>;
-    fn CapturePropagationContext(&self, languageexception: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CapturePropagationContext(&self, languageexception: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
     fn GetPropagationContextHead(&self) -> windows_core::Result<ILanguageExceptionErrorInfo2>;
 }
 impl ILanguageExceptionErrorInfo2_Vtbl {
@@ -102,7 +102,7 @@ impl ILanguageExceptionErrorInfo2_Vtbl {
         unsafe extern "system" fn CapturePropagationContext<Identity: ILanguageExceptionErrorInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, languageexception: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILanguageExceptionErrorInfo2_Impl::CapturePropagationContext(this, core::mem::transmute_copy(&languageexception)).into()
+                ILanguageExceptionErrorInfo2_Impl::CapturePropagationContext(this, core::mem::transmute_copy(&languageexception))
             }
         }
         unsafe extern "system" fn GetPropagationContextHead<Identity: ILanguageExceptionErrorInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propagatedlanguageexceptionerrorinfohead: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -128,7 +128,7 @@ impl ILanguageExceptionErrorInfo2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ILanguageExceptionErrorInfo2 as windows_core::Interface>::IID || iid == &<ILanguageExceptionErrorInfo as windows_core::Interface>::IID
+        iid == &<ILanguageExceptionErrorInfo2 as windows_core::Interface>::IID || ILanguageExceptionErrorInfo_Vtbl::matches(iid)
     }
 }
 impl windows_core::RuntimeName for ILanguageExceptionErrorInfo2 {}
@@ -151,7 +151,7 @@ pub struct ILanguageExceptionStackBackTrace_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ILanguageExceptionStackBackTrace_Impl: windows_core::IUnknownImpl {
-    fn GetStackBackTrace(&self, maxframestocapture: super::ULONG, stackbacktrace: *mut super::UINT_PTR, framescaptured: *mut super::ULONG) -> windows_core::Result<()>;
+    fn GetStackBackTrace(&self, maxframestocapture: super::ULONG, stackbacktrace: *mut super::UINT_PTR, framescaptured: *mut super::ULONG) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ILanguageExceptionStackBackTrace_Vtbl {
@@ -159,7 +159,7 @@ impl ILanguageExceptionStackBackTrace_Vtbl {
         unsafe extern "system" fn GetStackBackTrace<Identity: ILanguageExceptionStackBackTrace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxframestocapture: super::ULONG, stackbacktrace: *mut super::UINT_PTR, framescaptured: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILanguageExceptionStackBackTrace_Impl::GetStackBackTrace(this, core::mem::transmute_copy(&maxframestocapture), core::mem::transmute_copy(&stackbacktrace), core::mem::transmute_copy(&framescaptured)).into()
+                ILanguageExceptionStackBackTrace_Impl::GetStackBackTrace(this, core::mem::transmute_copy(&maxframestocapture), core::mem::transmute_copy(&stackbacktrace), core::mem::transmute_copy(&framescaptured))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetStackBackTrace: GetStackBackTrace::<Identity, OFFSET> }
@@ -234,21 +234,21 @@ pub struct IRestrictedErrorInfo_Vtbl {
     pub GetReference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRestrictedErrorInfo_Impl: windows_core::IUnknownImpl {
-    fn GetErrorDetails(&self, description: *mut windows_core::BSTR, error: *mut windows_core::HRESULT, restricteddescription: *mut windows_core::BSTR, capabilitysid: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetReference(&self, reference: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn GetErrorDetails(&self, description: *mut windows_core::BSTR, error: *mut windows_core::HRESULT, restricteddescription: *mut windows_core::BSTR, capabilitysid: *mut windows_core::BSTR) -> windows_core::HRESULT;
+    fn GetReference(&self, reference: *mut windows_core::BSTR) -> windows_core::HRESULT;
 }
 impl IRestrictedErrorInfo_Vtbl {
     pub const fn new<Identity: IRestrictedErrorInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetErrorDetails<Identity: IRestrictedErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, description: *mut *mut core::ffi::c_void, error: *mut windows_core::HRESULT, restricteddescription: *mut *mut core::ffi::c_void, capabilitysid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRestrictedErrorInfo_Impl::GetErrorDetails(this, core::mem::transmute_copy(&description), core::mem::transmute_copy(&error), core::mem::transmute_copy(&restricteddescription), core::mem::transmute_copy(&capabilitysid)).into()
+                IRestrictedErrorInfo_Impl::GetErrorDetails(this, core::mem::transmute_copy(&description), core::mem::transmute_copy(&error), core::mem::transmute_copy(&restricteddescription), core::mem::transmute_copy(&capabilitysid))
             }
         }
         unsafe extern "system" fn GetReference<Identity: IRestrictedErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reference: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRestrictedErrorInfo_Impl::GetReference(this, core::mem::transmute_copy(&reference)).into()
+                IRestrictedErrorInfo_Impl::GetReference(this, core::mem::transmute_copy(&reference))
             }
         }
         Self {

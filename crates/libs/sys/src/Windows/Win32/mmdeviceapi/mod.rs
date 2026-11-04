@@ -81,6 +81,8 @@ pub const PKEY_AudioEndpoint_Min_VolumeInDb: super::PROPERTYKEY = super::PROPERT
 #[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_AudioEndpoint_PhysicalSpeakers: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 3 };
 #[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_AudioEndpoint_StableId: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 12 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_AudioEndpoint_Supports_EventDriven_Mode: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 7 };
 #[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_AudioEngine_DeviceFormat: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xf19f064d_082c_4e27_bc73_6882a1bb8e4c), pid: 0 };

@@ -147,8 +147,8 @@ pub trait Buffers_Impl {
     fn Fixed(&self, values: *const u32);
     fn InOut(&self, values: *mut u32, count: u32);
     fn Optional(&self, values: *const u32, count: u32);
-    fn Output(&self, values: *mut u32, count: u32, written: *mut u32) -> windows_core::Result<()>;
-    fn Returned(&self, values: *mut *mut u32) -> windows_core::Result<()>;
+    fn Output(&self, values: *mut u32, count: u32, written: *mut u32) -> windows_core::HRESULT;
+    fn Returned(&self, values: *mut *mut u32) -> windows_core::HRESULT;
     fn Query(
         &self,
         iid: *const windows_core::GUID,
@@ -158,14 +158,14 @@ pub trait Buffers_Impl {
         &self,
         iid: *const windows_core::GUID,
         result: *mut *mut core::ffi::c_void,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
     fn QueryWithBuffer(
         &self,
         ids: *const windows_core::GUID,
         count: u32,
         result: *mut *mut core::ffi::c_void,
-    ) -> windows_core::Result<()>;
-    fn BufferResult(&self, value: *mut u32) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
+    fn BufferResult(&self, value: *mut u32) -> windows_core::HRESULT;
 }
 impl Buffers_Vtbl {
     pub const fn new<Identity: Buffers_Impl>() -> Self {
@@ -239,7 +239,6 @@ impl Buffers_Vtbl {
                     core::mem::transmute_copy(&count),
                     core::mem::transmute_copy(&written),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn Returned<Identity: Buffers_Impl>(
@@ -249,7 +248,7 @@ impl Buffers_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                Buffers_Impl::Returned(this, core::mem::transmute_copy(&values)).into()
+                Buffers_Impl::Returned(this, core::mem::transmute_copy(&values))
             }
         }
         unsafe extern "system" fn Query<Identity: Buffers_Impl>(
@@ -281,7 +280,6 @@ impl Buffers_Vtbl {
                     core::mem::transmute_copy(&iid),
                     core::mem::transmute_copy(&result),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn QueryWithBuffer<Identity: Buffers_Impl>(
@@ -299,7 +297,6 @@ impl Buffers_Vtbl {
                     core::mem::transmute_copy(&count),
                     core::mem::transmute_copy(&result),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn BufferResult<Identity: Buffers_Impl>(
@@ -309,7 +306,7 @@ impl Buffers_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                Buffers_Impl::BufferResult(this, core::mem::transmute_copy(&value)).into()
+                Buffers_Impl::BufferResult(this, core::mem::transmute_copy(&value))
             }
         }
         Self {

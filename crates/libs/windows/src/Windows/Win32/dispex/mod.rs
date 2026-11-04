@@ -20,7 +20,7 @@ pub struct ICanHandleException_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICanHandleException_Impl: windows_core::IUnknownImpl {
-    fn CanHandleException(&self, pexcepinfo: *const super::EXCEPINFO, pvar: *const super::VARIANT) -> windows_core::Result<()>;
+    fn CanHandleException(&self, pexcepinfo: *const super::EXCEPINFO, pvar: *const super::VARIANT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICanHandleException_Vtbl {
@@ -28,7 +28,7 @@ impl ICanHandleException_Vtbl {
         unsafe extern "system" fn CanHandleException<Identity: ICanHandleException_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pexcepinfo: *const super::EXCEPINFO, pvar: *const super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICanHandleException_Impl::CanHandleException(this, core::mem::transmute_copy(&pexcepinfo), core::mem::transmute_copy(&pvar)).into()
+                ICanHandleException_Impl::CanHandleException(this, core::mem::transmute_copy(&pexcepinfo), core::mem::transmute_copy(&pvar))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CanHandleException: CanHandleException::<Identity, OFFSET> }
@@ -86,10 +86,10 @@ pub struct IDispError_Vtbl {
 pub trait IDispError_Impl: windows_core::IUnknownImpl {
     fn QueryErrorInfo(&self, guiderrortype: &windows_core::GUID) -> windows_core::Result<IDispError>;
     fn GetNext(&self) -> windows_core::Result<IDispError>;
-    fn GetHresult(&self, phr: *mut windows_core::HRESULT) -> windows_core::Result<()>;
-    fn GetSource(&self, pbstrsource: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetHelpInfo(&self, pbstrfilename: *mut windows_core::BSTR, pdwcontext: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetDescription(&self, pbstrdescription: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn GetHresult(&self, phr: *mut windows_core::HRESULT) -> windows_core::HRESULT;
+    fn GetSource(&self, pbstrsource: *mut windows_core::BSTR) -> windows_core::HRESULT;
+    fn GetHelpInfo(&self, pbstrfilename: *mut windows_core::BSTR, pdwcontext: *mut super::DWORD) -> windows_core::HRESULT;
+    fn GetDescription(&self, pbstrdescription: *mut windows_core::BSTR) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IDispError_Vtbl {
@@ -127,25 +127,25 @@ impl IDispError_Vtbl {
         unsafe extern "system" fn GetHresult<Identity: IDispError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phr: *mut windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDispError_Impl::GetHresult(this, core::mem::transmute_copy(&phr)).into()
+                IDispError_Impl::GetHresult(this, core::mem::transmute_copy(&phr))
             }
         }
         unsafe extern "system" fn GetSource<Identity: IDispError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDispError_Impl::GetSource(this, core::mem::transmute_copy(&pbstrsource)).into()
+                IDispError_Impl::GetSource(this, core::mem::transmute_copy(&pbstrsource))
             }
         }
         unsafe extern "system" fn GetHelpInfo<Identity: IDispError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrfilename: *mut *mut core::ffi::c_void, pdwcontext: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDispError_Impl::GetHelpInfo(this, core::mem::transmute_copy(&pbstrfilename), core::mem::transmute_copy(&pdwcontext)).into()
+                IDispError_Impl::GetHelpInfo(this, core::mem::transmute_copy(&pbstrfilename), core::mem::transmute_copy(&pdwcontext))
             }
         }
         unsafe extern "system" fn GetDescription<Identity: IDispError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdescription: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDispError_Impl::GetDescription(this, core::mem::transmute_copy(&pbstrdescription)).into()
+                IDispError_Impl::GetDescription(this, core::mem::transmute_copy(&pbstrdescription))
             }
         }
         Self {
@@ -252,13 +252,13 @@ pub struct IDispatchEx_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "servprov", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDispatchEx_Impl: super::IDispatch_Impl {
-    fn GetDispID(&self, bstrname: &windows_core::BSTR, grfdex: super::DWORD, pid: *mut super::DISPID) -> windows_core::Result<()>;
-    fn InvokeEx(&self, id: super::DISPID, lcid: super::LCID, wflags: super::WORD, pdp: *const super::DISPPARAMS, pvarres: *mut super::VARIANT, pei: *mut super::EXCEPINFO, pspcaller: windows_core::Ref<super::IServiceProvider>) -> windows_core::Result<()>;
-    fn DeleteMemberByName(&self, bstrname: &windows_core::BSTR, grfdex: super::DWORD) -> windows_core::Result<()>;
-    fn DeleteMemberByDispID(&self, id: super::DISPID) -> windows_core::Result<()>;
-    fn GetMemberProperties(&self, id: super::DISPID, grfdexfetch: super::DWORD, pgrfdex: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetMemberName(&self, id: super::DISPID, pbstrname: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetNextDispID(&self, grfdex: super::DWORD, id: super::DISPID, pid: *mut super::DISPID) -> windows_core::Result<()>;
+    fn GetDispID(&self, bstrname: &windows_core::BSTR, grfdex: super::DWORD, pid: *mut super::DISPID) -> windows_core::HRESULT;
+    fn InvokeEx(&self, id: super::DISPID, lcid: super::LCID, wflags: super::WORD, pdp: *const super::DISPPARAMS, pvarres: *mut super::VARIANT, pei: *mut super::EXCEPINFO, pspcaller: windows_core::Ref<super::IServiceProvider>) -> windows_core::HRESULT;
+    fn DeleteMemberByName(&self, bstrname: &windows_core::BSTR, grfdex: super::DWORD) -> windows_core::HRESULT;
+    fn DeleteMemberByDispID(&self, id: super::DISPID) -> windows_core::HRESULT;
+    fn GetMemberProperties(&self, id: super::DISPID, grfdexfetch: super::DWORD, pgrfdex: *mut super::DWORD) -> windows_core::HRESULT;
+    fn GetMemberName(&self, id: super::DISPID, pbstrname: *mut windows_core::BSTR) -> windows_core::HRESULT;
+    fn GetNextDispID(&self, grfdex: super::DWORD, id: super::DISPID, pid: *mut super::DISPID) -> windows_core::HRESULT;
     fn GetNameSpaceParent(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "servprov", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -267,43 +267,43 @@ impl IDispatchEx_Vtbl {
         unsafe extern "system" fn GetDispID<Identity: IDispatchEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: *mut core::ffi::c_void, grfdex: super::DWORD, pid: *mut super::DISPID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDispatchEx_Impl::GetDispID(this, core::mem::transmute(&bstrname), core::mem::transmute_copy(&grfdex), core::mem::transmute_copy(&pid)).into()
+                IDispatchEx_Impl::GetDispID(this, core::mem::transmute(&bstrname), core::mem::transmute_copy(&grfdex), core::mem::transmute_copy(&pid))
             }
         }
         unsafe extern "system" fn InvokeEx<Identity: IDispatchEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: super::DISPID, lcid: super::LCID, wflags: super::WORD, pdp: *const super::DISPPARAMS, pvarres: *mut super::VARIANT, pei: *mut super::EXCEPINFO, pspcaller: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDispatchEx_Impl::InvokeEx(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&lcid), core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&pdp), core::mem::transmute_copy(&pvarres), core::mem::transmute_copy(&pei), core::mem::transmute_copy(&pspcaller)).into()
+                IDispatchEx_Impl::InvokeEx(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&lcid), core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&pdp), core::mem::transmute_copy(&pvarres), core::mem::transmute_copy(&pei), core::mem::transmute_copy(&pspcaller))
             }
         }
         unsafe extern "system" fn DeleteMemberByName<Identity: IDispatchEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: *mut core::ffi::c_void, grfdex: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDispatchEx_Impl::DeleteMemberByName(this, core::mem::transmute(&bstrname), core::mem::transmute_copy(&grfdex)).into()
+                IDispatchEx_Impl::DeleteMemberByName(this, core::mem::transmute(&bstrname), core::mem::transmute_copy(&grfdex))
             }
         }
         unsafe extern "system" fn DeleteMemberByDispID<Identity: IDispatchEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: super::DISPID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDispatchEx_Impl::DeleteMemberByDispID(this, core::mem::transmute_copy(&id)).into()
+                IDispatchEx_Impl::DeleteMemberByDispID(this, core::mem::transmute_copy(&id))
             }
         }
         unsafe extern "system" fn GetMemberProperties<Identity: IDispatchEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: super::DISPID, grfdexfetch: super::DWORD, pgrfdex: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDispatchEx_Impl::GetMemberProperties(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&grfdexfetch), core::mem::transmute_copy(&pgrfdex)).into()
+                IDispatchEx_Impl::GetMemberProperties(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&grfdexfetch), core::mem::transmute_copy(&pgrfdex))
             }
         }
         unsafe extern "system" fn GetMemberName<Identity: IDispatchEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: super::DISPID, pbstrname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDispatchEx_Impl::GetMemberName(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&pbstrname)).into()
+                IDispatchEx_Impl::GetMemberName(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&pbstrname))
             }
         }
         unsafe extern "system" fn GetNextDispID<Identity: IDispatchEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfdex: super::DWORD, id: super::DISPID, pid: *mut super::DISPID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDispatchEx_Impl::GetNextDispID(this, core::mem::transmute_copy(&grfdex), core::mem::transmute_copy(&id), core::mem::transmute_copy(&pid)).into()
+                IDispatchEx_Impl::GetNextDispID(this, core::mem::transmute_copy(&grfdex), core::mem::transmute_copy(&id), core::mem::transmute_copy(&pid))
             }
         }
         unsafe extern "system" fn GetNameSpaceParent<Identity: IDispatchEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -334,7 +334,7 @@ impl IDispatchEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDispatchEx as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IDispatchEx as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "servprov", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -362,14 +362,14 @@ pub struct IObjectIdentity_Vtbl {
     pub IsEqualObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IObjectIdentity_Impl: windows_core::IUnknownImpl {
-    fn IsEqualObject(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn IsEqualObject(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
 }
 impl IObjectIdentity_Vtbl {
     pub const fn new<Identity: IObjectIdentity_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsEqualObject<Identity: IObjectIdentity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IObjectIdentity_Impl::IsEqualObject(this, core::mem::transmute_copy(&punk)).into()
+                IObjectIdentity_Impl::IsEqualObject(this, core::mem::transmute_copy(&punk))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsEqualObject: IsEqualObject::<Identity, OFFSET> }
@@ -398,7 +398,7 @@ pub struct IProvideRuntimeContext_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "wtypes"))]
 pub trait IProvideRuntimeContext_Impl: windows_core::IUnknownImpl {
-    fn GetCurrentSourceContext(&self, pdwcontext: *mut super::DWORD_PTR, pfexecutingglobalcode: *mut super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn GetCurrentSourceContext(&self, pdwcontext: *mut super::DWORD_PTR, pfexecutingglobalcode: *mut super::VARIANT_BOOL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "wtypes"))]
 impl IProvideRuntimeContext_Vtbl {
@@ -406,7 +406,7 @@ impl IProvideRuntimeContext_Vtbl {
         unsafe extern "system" fn GetCurrentSourceContext<Identity: IProvideRuntimeContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcontext: *mut super::DWORD_PTR, pfexecutingglobalcode: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IProvideRuntimeContext_Impl::GetCurrentSourceContext(this, core::mem::transmute_copy(&pdwcontext), core::mem::transmute_copy(&pfexecutingglobalcode)).into()
+                IProvideRuntimeContext_Impl::GetCurrentSourceContext(this, core::mem::transmute_copy(&pdwcontext), core::mem::transmute_copy(&pfexecutingglobalcode))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetCurrentSourceContext: GetCurrentSourceContext::<Identity, OFFSET> }
@@ -436,7 +436,7 @@ pub struct IVariantChangeType_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IVariantChangeType_Impl: windows_core::IUnknownImpl {
-    fn ChangeType(&self, pvardst: *mut super::VARIANT, pvarsrc: *const super::VARIANT, lcid: super::LCID, vtnew: super::VARTYPE) -> windows_core::Result<()>;
+    fn ChangeType(&self, pvardst: *mut super::VARIANT, pvarsrc: *const super::VARIANT, lcid: super::LCID, vtnew: super::VARTYPE) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IVariantChangeType_Vtbl {
@@ -444,7 +444,7 @@ impl IVariantChangeType_Vtbl {
         unsafe extern "system" fn ChangeType<Identity: IVariantChangeType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvardst: *mut super::VARIANT, pvarsrc: *const super::VARIANT, lcid: super::LCID, vtnew: super::VARTYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVariantChangeType_Impl::ChangeType(this, core::mem::transmute_copy(&pvardst), core::mem::transmute_copy(&pvarsrc), core::mem::transmute_copy(&lcid), core::mem::transmute_copy(&vtnew)).into()
+                IVariantChangeType_Impl::ChangeType(this, core::mem::transmute_copy(&pvardst), core::mem::transmute_copy(&pvarsrc), core::mem::transmute_copy(&lcid), core::mem::transmute_copy(&vtnew))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ChangeType: ChangeType::<Identity, OFFSET> }

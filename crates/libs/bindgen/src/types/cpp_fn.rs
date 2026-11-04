@@ -303,7 +303,7 @@ impl CppFn {
                     }
                 }
             }
-            ReturnHint::ReturnStruct | ReturnHint::None | ReturnHint::HResult => {
+            ReturnHint::ReturnStruct | ReturnHint::None => {
                 let where_clause = method.write_where(config, false);
 
                 quote! {

@@ -95,10 +95,10 @@ pub struct ICondition_Vtbl {
 pub trait ICondition_Impl: super::IPersistStream_Impl {
     fn GetConditionType(&self) -> windows_core::Result<CONDITION_TYPE>;
     fn GetSubConditions(&self, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetComparisonInfo(&self, ppszpropertyname: *mut windows_core::PWSTR, pcop: *mut CONDITION_OPERATION, ppropvar: *mut super::PROPVARIANT) -> windows_core::Result<()>;
+    fn GetComparisonInfo(&self, ppszpropertyname: *mut windows_core::PWSTR, pcop: *mut CONDITION_OPERATION, ppropvar: *mut super::PROPVARIANT) -> windows_core::HRESULT;
     fn GetValueType(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetValueNormalization(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetInputTerms(&self, pppropertyterm: windows_core::OutRef<IRichChunk>, ppoperationterm: windows_core::OutRef<IRichChunk>, ppvalueterm: windows_core::OutRef<IRichChunk>) -> windows_core::Result<()>;
+    fn GetInputTerms(&self, pppropertyterm: windows_core::OutRef<IRichChunk>, ppoperationterm: windows_core::OutRef<IRichChunk>, ppvalueterm: windows_core::OutRef<IRichChunk>) -> windows_core::HRESULT;
     fn Clone(&self) -> windows_core::Result<ICondition>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -128,7 +128,7 @@ impl ICondition_Vtbl {
         unsafe extern "system" fn GetComparisonInfo<Identity: ICondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszpropertyname: *mut windows_core::PWSTR, pcop: *mut CONDITION_OPERATION, ppropvar: *mut super::PROPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICondition_Impl::GetComparisonInfo(this, core::mem::transmute_copy(&ppszpropertyname), core::mem::transmute_copy(&pcop), core::mem::transmute_copy(&ppropvar)).into()
+                ICondition_Impl::GetComparisonInfo(this, core::mem::transmute_copy(&ppszpropertyname), core::mem::transmute_copy(&pcop), core::mem::transmute_copy(&ppropvar))
             }
         }
         unsafe extern "system" fn GetValueType<Identity: ICondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszvaluetypename: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -164,7 +164,7 @@ impl ICondition_Vtbl {
         unsafe extern "system" fn GetInputTerms<Identity: ICondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppropertyterm: *mut *mut core::ffi::c_void, ppoperationterm: *mut *mut core::ffi::c_void, ppvalueterm: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICondition_Impl::GetInputTerms(this, core::mem::transmute_copy(&pppropertyterm), core::mem::transmute_copy(&ppoperationterm), core::mem::transmute_copy(&ppvalueterm)).into()
+                ICondition_Impl::GetInputTerms(this, core::mem::transmute_copy(&pppropertyterm), core::mem::transmute_copy(&ppoperationterm), core::mem::transmute_copy(&ppvalueterm))
             }
         }
         unsafe extern "system" fn Clone<Identity: ICondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -194,7 +194,7 @@ impl ICondition_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICondition as windows_core::Interface>::IID || iid == &<super::IPersist as windows_core::Interface>::IID || iid == &<super::IPersistStream as windows_core::Interface>::IID
+        iid == &<ICondition as windows_core::Interface>::IID || super::IPersistStream_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -233,8 +233,8 @@ pub struct ICondition2_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICondition2_Impl: ICondition_Impl {
-    fn GetLocale(&self, ppszlocalename: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn GetLeafConditionInfo(&self, ppropkey: *mut super::PROPERTYKEY, pcop: *mut CONDITION_OPERATION, ppropvar: *mut super::PROPVARIANT) -> windows_core::Result<()>;
+    fn GetLocale(&self, ppszlocalename: *mut windows_core::PWSTR) -> windows_core::HRESULT;
+    fn GetLeafConditionInfo(&self, ppropkey: *mut super::PROPERTYKEY, pcop: *mut CONDITION_OPERATION, ppropvar: *mut super::PROPVARIANT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICondition2_Vtbl {
@@ -242,13 +242,13 @@ impl ICondition2_Vtbl {
         unsafe extern "system" fn GetLocale<Identity: ICondition2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszlocalename: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICondition2_Impl::GetLocale(this, core::mem::transmute_copy(&ppszlocalename)).into()
+                ICondition2_Impl::GetLocale(this, core::mem::transmute_copy(&ppszlocalename))
             }
         }
         unsafe extern "system" fn GetLeafConditionInfo<Identity: ICondition2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppropkey: *mut super::PROPERTYKEY, pcop: *mut CONDITION_OPERATION, ppropvar: *mut super::PROPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICondition2_Impl::GetLeafConditionInfo(this, core::mem::transmute_copy(&ppropkey), core::mem::transmute_copy(&pcop), core::mem::transmute_copy(&ppropvar)).into()
+                ICondition2_Impl::GetLeafConditionInfo(this, core::mem::transmute_copy(&ppropkey), core::mem::transmute_copy(&pcop), core::mem::transmute_copy(&ppropvar))
             }
         }
         Self {
@@ -258,7 +258,7 @@ impl ICondition2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICondition2 as windows_core::Interface>::IID || iid == &<super::IPersist as windows_core::Interface>::IID || iid == &<super::IPersistStream as windows_core::Interface>::IID || iid == &<ICondition as windows_core::Interface>::IID
+        iid == &<ICondition2 as windows_core::Interface>::IID || ICondition_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -282,7 +282,7 @@ pub struct IRichChunk_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IRichChunk_Impl: windows_core::IUnknownImpl {
-    fn GetData(&self, pfirstpos: *mut super::ULONG, plength: *mut super::ULONG, ppsz: *mut windows_core::PWSTR, pvalue: *mut super::PROPVARIANT) -> windows_core::Result<()>;
+    fn GetData(&self, pfirstpos: *mut super::ULONG, plength: *mut super::ULONG, ppsz: *mut windows_core::PWSTR, pvalue: *mut super::PROPVARIANT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IRichChunk_Vtbl {
@@ -290,7 +290,7 @@ impl IRichChunk_Vtbl {
         unsafe extern "system" fn GetData<Identity: IRichChunk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfirstpos: *mut super::ULONG, plength: *mut super::ULONG, ppsz: *mut windows_core::PWSTR, pvalue: *mut super::PROPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichChunk_Impl::GetData(this, core::mem::transmute_copy(&pfirstpos), core::mem::transmute_copy(&plength), core::mem::transmute_copy(&ppsz), core::mem::transmute_copy(&pvalue)).into()
+                IRichChunk_Impl::GetData(this, core::mem::transmute_copy(&pfirstpos), core::mem::transmute_copy(&plength), core::mem::transmute_copy(&ppsz), core::mem::transmute_copy(&pvalue))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetData: GetData::<Identity, OFFSET> }

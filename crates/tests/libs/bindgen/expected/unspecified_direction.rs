@@ -94,18 +94,18 @@ pub struct Unknown_Vtbl {
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait Unknown_Impl {
-    fn Scalar(&self, value: u32) -> windows_core::Result<()>;
-    fn Raw(&self, value: *mut u32) -> windows_core::Result<()>;
-    fn Alias(&self, value: Pointer) -> windows_core::Result<()>;
-    fn Buffer(&self, count: u32, value: *mut u32) -> windows_core::Result<()>;
+    fn Scalar(&self, value: u32) -> windows_core::HRESULT;
+    fn Raw(&self, value: *mut u32) -> windows_core::HRESULT;
+    fn Alias(&self, value: Pointer) -> windows_core::HRESULT;
+    fn Buffer(&self, count: u32, value: *mut u32) -> windows_core::HRESULT;
     fn Query(
         &self,
         riid: *const windows_core::GUID,
         value: *mut *mut core::ffi::c_void,
-    ) -> windows_core::Result<()>;
-    fn Interface(&self, value: *mut Option<Unknown>) -> windows_core::Result<()>;
-    fn Input(&self, value: *const u32) -> windows_core::Result<()>;
-    fn Output(&self, value: *mut u32) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
+    fn Interface(&self, value: *mut Option<Unknown>) -> windows_core::HRESULT;
+    fn Input(&self, value: *const u32) -> windows_core::HRESULT;
+    fn Output(&self, value: *mut u32) -> windows_core::HRESULT;
 }
 impl Unknown_Vtbl {
     pub const fn new<Identity: Unknown_Impl>() -> Self {
@@ -116,7 +116,7 @@ impl Unknown_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                Unknown_Impl::Scalar(this, core::mem::transmute_copy(&value)).into()
+                Unknown_Impl::Scalar(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn Raw<Identity: Unknown_Impl>(
@@ -126,7 +126,7 @@ impl Unknown_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                Unknown_Impl::Raw(this, core::mem::transmute_copy(&value)).into()
+                Unknown_Impl::Raw(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn Alias<Identity: Unknown_Impl>(
@@ -136,7 +136,7 @@ impl Unknown_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                Unknown_Impl::Alias(this, core::mem::transmute_copy(&value)).into()
+                Unknown_Impl::Alias(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn Buffer<Identity: Unknown_Impl>(
@@ -152,7 +152,6 @@ impl Unknown_Vtbl {
                     core::mem::transmute_copy(&count),
                     core::mem::transmute_copy(&value),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn Query<Identity: Unknown_Impl>(
@@ -168,7 +167,6 @@ impl Unknown_Vtbl {
                     core::mem::transmute_copy(&riid),
                     core::mem::transmute_copy(&value),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn Interface<Identity: Unknown_Impl>(
@@ -178,7 +176,7 @@ impl Unknown_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                Unknown_Impl::Interface(this, core::mem::transmute_copy(&value)).into()
+                Unknown_Impl::Interface(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn Input<Identity: Unknown_Impl>(
@@ -188,7 +186,7 @@ impl Unknown_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                Unknown_Impl::Input(this, core::mem::transmute_copy(&value)).into()
+                Unknown_Impl::Input(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn Output<Identity: Unknown_Impl>(
@@ -198,7 +196,7 @@ impl Unknown_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                Unknown_Impl::Output(this, core::mem::transmute_copy(&value)).into()
+                Unknown_Impl::Output(this, core::mem::transmute_copy(&value))
             }
         }
         Self {

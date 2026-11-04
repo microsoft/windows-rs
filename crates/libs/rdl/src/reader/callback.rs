@@ -47,6 +47,7 @@ impl syn::parse::Parse for Callback {
 
 impl Encoder<'_> {
     pub fn encode_callback(&mut self, item: &Callback) -> Result<(), Error> {
+        let impl_flags = self.read_method_impl_flags(&item.attrs, false)?;
         let extends = self.output.TypeRef("System", "MulticastDelegate");
 
         let flags = metadata::TypeAttributes::Public | metadata::TypeAttributes::Sealed;
@@ -63,7 +64,7 @@ impl Encoder<'_> {
         self.encode_attrs(
             metadata::writer::HasAttribute::TypeDef(callback),
             &item.attrs,
-            &[],
+            &["preserve_sig"],
         )?;
 
         if let Some(arch_bits) = self.read_arch(&item.attrs)? {
@@ -132,7 +133,7 @@ impl Encoder<'_> {
         };
 
         self.output
-            .MethodDef("Invoke", &signature, flags, Default::default());
+            .MethodDef("Invoke", &signature, flags, impl_flags);
 
         let arch = self.read_arch(&item.attrs)?.unwrap_or(-1);
         self.encode_return_attrs(&item.return_attrs, &signature.return_type, arch)?;

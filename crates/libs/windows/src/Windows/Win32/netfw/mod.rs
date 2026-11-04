@@ -263,17 +263,17 @@ pub struct INetFwAuthorizedApplication_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait INetFwAuthorizedApplication_Impl: super::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetName(&self, name: &windows_core::BSTR) -> windows_core::HRESULT;
     fn ProcessImageFileName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetProcessImageFileName(&self, imagefilename: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetProcessImageFileName(&self, imagefilename: &windows_core::BSTR) -> windows_core::HRESULT;
     fn IpVersion(&self) -> windows_core::Result<super::NET_FW_IP_VERSION>;
-    fn SetIpVersion(&self, ipversion: super::NET_FW_IP_VERSION) -> windows_core::Result<()>;
+    fn SetIpVersion(&self, ipversion: super::NET_FW_IP_VERSION) -> windows_core::HRESULT;
     fn Scope(&self) -> windows_core::Result<super::NET_FW_SCOPE>;
-    fn SetScope(&self, scope: super::NET_FW_SCOPE) -> windows_core::Result<()>;
+    fn SetScope(&self, scope: super::NET_FW_SCOPE) -> windows_core::HRESULT;
     fn RemoteAddresses(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetRemoteAddresses(&self, remoteaddrs: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetRemoteAddresses(&self, remoteaddrs: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Enabled(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetEnabled(&self, enabled: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetEnabled(&self, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl INetFwAuthorizedApplication_Vtbl {
@@ -296,7 +296,7 @@ impl INetFwAuthorizedApplication_Vtbl {
         unsafe extern "system" fn SetName<Identity: INetFwAuthorizedApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwAuthorizedApplication_Impl::SetName(this, core::mem::transmute(&name)).into()
+                INetFwAuthorizedApplication_Impl::SetName(this, core::mem::transmute(&name))
             }
         }
         unsafe extern "system" fn ProcessImageFileName<Identity: INetFwAuthorizedApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imagefilename: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -317,7 +317,7 @@ impl INetFwAuthorizedApplication_Vtbl {
         unsafe extern "system" fn SetProcessImageFileName<Identity: INetFwAuthorizedApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imagefilename: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwAuthorizedApplication_Impl::SetProcessImageFileName(this, core::mem::transmute(&imagefilename)).into()
+                INetFwAuthorizedApplication_Impl::SetProcessImageFileName(this, core::mem::transmute(&imagefilename))
             }
         }
         unsafe extern "system" fn IpVersion<Identity: INetFwAuthorizedApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ipversion: *mut super::NET_FW_IP_VERSION) -> windows_core::HRESULT {
@@ -338,7 +338,7 @@ impl INetFwAuthorizedApplication_Vtbl {
         unsafe extern "system" fn SetIpVersion<Identity: INetFwAuthorizedApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ipversion: super::NET_FW_IP_VERSION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwAuthorizedApplication_Impl::SetIpVersion(this, core::mem::transmute_copy(&ipversion)).into()
+                INetFwAuthorizedApplication_Impl::SetIpVersion(this, core::mem::transmute_copy(&ipversion))
             }
         }
         unsafe extern "system" fn Scope<Identity: INetFwAuthorizedApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: *mut super::NET_FW_SCOPE) -> windows_core::HRESULT {
@@ -359,7 +359,7 @@ impl INetFwAuthorizedApplication_Vtbl {
         unsafe extern "system" fn SetScope<Identity: INetFwAuthorizedApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: super::NET_FW_SCOPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwAuthorizedApplication_Impl::SetScope(this, core::mem::transmute_copy(&scope)).into()
+                INetFwAuthorizedApplication_Impl::SetScope(this, core::mem::transmute_copy(&scope))
             }
         }
         unsafe extern "system" fn RemoteAddresses<Identity: INetFwAuthorizedApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remoteaddrs: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -380,7 +380,7 @@ impl INetFwAuthorizedApplication_Vtbl {
         unsafe extern "system" fn SetRemoteAddresses<Identity: INetFwAuthorizedApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remoteaddrs: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwAuthorizedApplication_Impl::SetRemoteAddresses(this, core::mem::transmute(&remoteaddrs)).into()
+                INetFwAuthorizedApplication_Impl::SetRemoteAddresses(this, core::mem::transmute(&remoteaddrs))
             }
         }
         unsafe extern "system" fn Enabled<Identity: INetFwAuthorizedApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -401,7 +401,7 @@ impl INetFwAuthorizedApplication_Vtbl {
         unsafe extern "system" fn SetEnabled<Identity: INetFwAuthorizedApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwAuthorizedApplication_Impl::SetEnabled(this, core::mem::transmute_copy(&enabled)).into()
+                INetFwAuthorizedApplication_Impl::SetEnabled(this, core::mem::transmute_copy(&enabled))
             }
         }
         Self {
@@ -421,7 +421,7 @@ impl INetFwAuthorizedApplication_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwAuthorizedApplication as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwAuthorizedApplication as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -481,8 +481,8 @@ pub struct INetFwAuthorizedApplications_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait INetFwAuthorizedApplications_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
-    fn Add(&self, app: windows_core::Ref<INetFwAuthorizedApplication>) -> windows_core::Result<()>;
-    fn Remove(&self, imagefilename: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Add(&self, app: windows_core::Ref<INetFwAuthorizedApplication>) -> windows_core::HRESULT;
+    fn Remove(&self, imagefilename: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Item(&self, imagefilename: &windows_core::BSTR) -> windows_core::Result<INetFwAuthorizedApplication>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
@@ -507,13 +507,13 @@ impl INetFwAuthorizedApplications_Vtbl {
         unsafe extern "system" fn Add<Identity: INetFwAuthorizedApplications_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, app: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwAuthorizedApplications_Impl::Add(this, core::mem::transmute_copy(&app)).into()
+                INetFwAuthorizedApplications_Impl::Add(this, core::mem::transmute_copy(&app))
             }
         }
         unsafe extern "system" fn Remove<Identity: INetFwAuthorizedApplications_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imagefilename: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwAuthorizedApplications_Impl::Remove(this, core::mem::transmute(&imagefilename)).into()
+                INetFwAuthorizedApplications_Impl::Remove(this, core::mem::transmute(&imagefilename))
             }
         }
         unsafe extern "system" fn Item<Identity: INetFwAuthorizedApplications_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imagefilename: *mut core::ffi::c_void, app: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -556,7 +556,7 @@ impl INetFwAuthorizedApplications_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwAuthorizedApplications as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwAuthorizedApplications as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -774,25 +774,25 @@ pub struct INetFwIcmpSettings_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait INetFwIcmpSettings_Impl: super::IDispatch_Impl {
     fn AllowOutboundDestinationUnreachable(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetAllowOutboundDestinationUnreachable(&self, allow: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetAllowOutboundDestinationUnreachable(&self, allow: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn AllowRedirect(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetAllowRedirect(&self, allow: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetAllowRedirect(&self, allow: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn AllowInboundEchoRequest(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetAllowInboundEchoRequest(&self, allow: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetAllowInboundEchoRequest(&self, allow: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn AllowOutboundTimeExceeded(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetAllowOutboundTimeExceeded(&self, allow: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetAllowOutboundTimeExceeded(&self, allow: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn AllowOutboundParameterProblem(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetAllowOutboundParameterProblem(&self, allow: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetAllowOutboundParameterProblem(&self, allow: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn AllowOutboundSourceQuench(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetAllowOutboundSourceQuench(&self, allow: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetAllowOutboundSourceQuench(&self, allow: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn AllowInboundRouterRequest(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetAllowInboundRouterRequest(&self, allow: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetAllowInboundRouterRequest(&self, allow: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn AllowInboundTimestampRequest(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetAllowInboundTimestampRequest(&self, allow: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetAllowInboundTimestampRequest(&self, allow: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn AllowInboundMaskRequest(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetAllowInboundMaskRequest(&self, allow: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetAllowInboundMaskRequest(&self, allow: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn AllowOutboundPacketTooBig(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetAllowOutboundPacketTooBig(&self, allow: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetAllowOutboundPacketTooBig(&self, allow: super::VARIANT_BOOL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl INetFwIcmpSettings_Vtbl {
@@ -815,7 +815,7 @@ impl INetFwIcmpSettings_Vtbl {
         unsafe extern "system" fn SetAllowOutboundDestinationUnreachable<Identity: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwIcmpSettings_Impl::SetAllowOutboundDestinationUnreachable(this, core::mem::transmute_copy(&allow)).into()
+                INetFwIcmpSettings_Impl::SetAllowOutboundDestinationUnreachable(this, core::mem::transmute_copy(&allow))
             }
         }
         unsafe extern "system" fn AllowRedirect<Identity: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -836,7 +836,7 @@ impl INetFwIcmpSettings_Vtbl {
         unsafe extern "system" fn SetAllowRedirect<Identity: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwIcmpSettings_Impl::SetAllowRedirect(this, core::mem::transmute_copy(&allow)).into()
+                INetFwIcmpSettings_Impl::SetAllowRedirect(this, core::mem::transmute_copy(&allow))
             }
         }
         unsafe extern "system" fn AllowInboundEchoRequest<Identity: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -857,7 +857,7 @@ impl INetFwIcmpSettings_Vtbl {
         unsafe extern "system" fn SetAllowInboundEchoRequest<Identity: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwIcmpSettings_Impl::SetAllowInboundEchoRequest(this, core::mem::transmute_copy(&allow)).into()
+                INetFwIcmpSettings_Impl::SetAllowInboundEchoRequest(this, core::mem::transmute_copy(&allow))
             }
         }
         unsafe extern "system" fn AllowOutboundTimeExceeded<Identity: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -878,7 +878,7 @@ impl INetFwIcmpSettings_Vtbl {
         unsafe extern "system" fn SetAllowOutboundTimeExceeded<Identity: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwIcmpSettings_Impl::SetAllowOutboundTimeExceeded(this, core::mem::transmute_copy(&allow)).into()
+                INetFwIcmpSettings_Impl::SetAllowOutboundTimeExceeded(this, core::mem::transmute_copy(&allow))
             }
         }
         unsafe extern "system" fn AllowOutboundParameterProblem<Identity: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -899,7 +899,7 @@ impl INetFwIcmpSettings_Vtbl {
         unsafe extern "system" fn SetAllowOutboundParameterProblem<Identity: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwIcmpSettings_Impl::SetAllowOutboundParameterProblem(this, core::mem::transmute_copy(&allow)).into()
+                INetFwIcmpSettings_Impl::SetAllowOutboundParameterProblem(this, core::mem::transmute_copy(&allow))
             }
         }
         unsafe extern "system" fn AllowOutboundSourceQuench<Identity: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -920,7 +920,7 @@ impl INetFwIcmpSettings_Vtbl {
         unsafe extern "system" fn SetAllowOutboundSourceQuench<Identity: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwIcmpSettings_Impl::SetAllowOutboundSourceQuench(this, core::mem::transmute_copy(&allow)).into()
+                INetFwIcmpSettings_Impl::SetAllowOutboundSourceQuench(this, core::mem::transmute_copy(&allow))
             }
         }
         unsafe extern "system" fn AllowInboundRouterRequest<Identity: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -941,7 +941,7 @@ impl INetFwIcmpSettings_Vtbl {
         unsafe extern "system" fn SetAllowInboundRouterRequest<Identity: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwIcmpSettings_Impl::SetAllowInboundRouterRequest(this, core::mem::transmute_copy(&allow)).into()
+                INetFwIcmpSettings_Impl::SetAllowInboundRouterRequest(this, core::mem::transmute_copy(&allow))
             }
         }
         unsafe extern "system" fn AllowInboundTimestampRequest<Identity: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -962,7 +962,7 @@ impl INetFwIcmpSettings_Vtbl {
         unsafe extern "system" fn SetAllowInboundTimestampRequest<Identity: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwIcmpSettings_Impl::SetAllowInboundTimestampRequest(this, core::mem::transmute_copy(&allow)).into()
+                INetFwIcmpSettings_Impl::SetAllowInboundTimestampRequest(this, core::mem::transmute_copy(&allow))
             }
         }
         unsafe extern "system" fn AllowInboundMaskRequest<Identity: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -983,7 +983,7 @@ impl INetFwIcmpSettings_Vtbl {
         unsafe extern "system" fn SetAllowInboundMaskRequest<Identity: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwIcmpSettings_Impl::SetAllowInboundMaskRequest(this, core::mem::transmute_copy(&allow)).into()
+                INetFwIcmpSettings_Impl::SetAllowInboundMaskRequest(this, core::mem::transmute_copy(&allow))
             }
         }
         unsafe extern "system" fn AllowOutboundPacketTooBig<Identity: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -1004,7 +1004,7 @@ impl INetFwIcmpSettings_Vtbl {
         unsafe extern "system" fn SetAllowOutboundPacketTooBig<Identity: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwIcmpSettings_Impl::SetAllowOutboundPacketTooBig(this, core::mem::transmute_copy(&allow)).into()
+                INetFwIcmpSettings_Impl::SetAllowOutboundPacketTooBig(this, core::mem::transmute_copy(&allow))
             }
         }
         Self {
@@ -1032,7 +1032,7 @@ impl INetFwIcmpSettings_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwIcmpSettings as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwIcmpSettings as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1099,9 +1099,9 @@ pub struct INetFwMgr_Vtbl {
 pub trait INetFwMgr_Impl: super::IDispatch_Impl {
     fn LocalPolicy(&self) -> windows_core::Result<INetFwPolicy>;
     fn CurrentProfileType(&self) -> windows_core::Result<super::NET_FW_PROFILE_TYPE>;
-    fn RestoreDefaults(&self) -> windows_core::Result<()>;
-    fn IsPortAllowed(&self, imagefilename: &windows_core::BSTR, ipversion: super::NET_FW_IP_VERSION, portnumber: super::LONG, localaddress: &windows_core::BSTR, ipprotocol: super::NET_FW_IP_PROTOCOL, allowed: *mut super::VARIANT, restricted: *mut super::VARIANT) -> windows_core::Result<()>;
-    fn IsIcmpTypeAllowed(&self, ipversion: super::NET_FW_IP_VERSION, localaddress: &windows_core::BSTR, r#type: super::BYTE, allowed: *mut super::VARIANT, restricted: *mut super::VARIANT) -> windows_core::Result<()>;
+    fn RestoreDefaults(&self) -> windows_core::HRESULT;
+    fn IsPortAllowed(&self, imagefilename: &windows_core::BSTR, ipversion: super::NET_FW_IP_VERSION, portnumber: super::LONG, localaddress: &windows_core::BSTR, ipprotocol: super::NET_FW_IP_PROTOCOL, allowed: *mut super::VARIANT, restricted: *mut super::VARIANT) -> windows_core::HRESULT;
+    fn IsIcmpTypeAllowed(&self, ipversion: super::NET_FW_IP_VERSION, localaddress: &windows_core::BSTR, r#type: super::BYTE, allowed: *mut super::VARIANT, restricted: *mut super::VARIANT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl INetFwMgr_Vtbl {
@@ -1139,19 +1139,19 @@ impl INetFwMgr_Vtbl {
         unsafe extern "system" fn RestoreDefaults<Identity: INetFwMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwMgr_Impl::RestoreDefaults(this).into()
+                INetFwMgr_Impl::RestoreDefaults(this)
             }
         }
         unsafe extern "system" fn IsPortAllowed<Identity: INetFwMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imagefilename: *mut core::ffi::c_void, ipversion: super::NET_FW_IP_VERSION, portnumber: super::LONG, localaddress: *mut core::ffi::c_void, ipprotocol: super::NET_FW_IP_PROTOCOL, allowed: *mut super::VARIANT, restricted: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwMgr_Impl::IsPortAllowed(this, core::mem::transmute(&imagefilename), core::mem::transmute_copy(&ipversion), core::mem::transmute_copy(&portnumber), core::mem::transmute(&localaddress), core::mem::transmute_copy(&ipprotocol), core::mem::transmute_copy(&allowed), core::mem::transmute_copy(&restricted)).into()
+                INetFwMgr_Impl::IsPortAllowed(this, core::mem::transmute(&imagefilename), core::mem::transmute_copy(&ipversion), core::mem::transmute_copy(&portnumber), core::mem::transmute(&localaddress), core::mem::transmute_copy(&ipprotocol), core::mem::transmute_copy(&allowed), core::mem::transmute_copy(&restricted))
             }
         }
         unsafe extern "system" fn IsIcmpTypeAllowed<Identity: INetFwMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ipversion: super::NET_FW_IP_VERSION, localaddress: *mut core::ffi::c_void, r#type: super::BYTE, allowed: *mut super::VARIANT, restricted: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwMgr_Impl::IsIcmpTypeAllowed(this, core::mem::transmute_copy(&ipversion), core::mem::transmute(&localaddress), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&allowed), core::mem::transmute_copy(&restricted)).into()
+                INetFwMgr_Impl::IsIcmpTypeAllowed(this, core::mem::transmute_copy(&ipversion), core::mem::transmute(&localaddress), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&allowed), core::mem::transmute_copy(&restricted))
             }
         }
         Self {
@@ -1164,7 +1164,7 @@ impl INetFwMgr_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwMgr as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwMgr as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1320,19 +1320,19 @@ pub struct INetFwOpenPort_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait INetFwOpenPort_Impl: super::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetName(&self, name: &windows_core::BSTR) -> windows_core::HRESULT;
     fn IpVersion(&self) -> windows_core::Result<super::NET_FW_IP_VERSION>;
-    fn SetIpVersion(&self, ipversion: super::NET_FW_IP_VERSION) -> windows_core::Result<()>;
+    fn SetIpVersion(&self, ipversion: super::NET_FW_IP_VERSION) -> windows_core::HRESULT;
     fn Protocol(&self) -> windows_core::Result<super::NET_FW_IP_PROTOCOL>;
-    fn SetProtocol(&self, ipprotocol: super::NET_FW_IP_PROTOCOL) -> windows_core::Result<()>;
+    fn SetProtocol(&self, ipprotocol: super::NET_FW_IP_PROTOCOL) -> windows_core::HRESULT;
     fn Port(&self) -> windows_core::Result<super::LONG>;
-    fn SetPort(&self, portnumber: super::LONG) -> windows_core::Result<()>;
+    fn SetPort(&self, portnumber: super::LONG) -> windows_core::HRESULT;
     fn Scope(&self) -> windows_core::Result<super::NET_FW_SCOPE>;
-    fn SetScope(&self, scope: super::NET_FW_SCOPE) -> windows_core::Result<()>;
+    fn SetScope(&self, scope: super::NET_FW_SCOPE) -> windows_core::HRESULT;
     fn RemoteAddresses(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetRemoteAddresses(&self, remoteaddrs: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetRemoteAddresses(&self, remoteaddrs: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Enabled(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetEnabled(&self, enabled: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetEnabled(&self, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn BuiltIn(&self) -> windows_core::Result<super::VARIANT_BOOL>;
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1356,7 +1356,7 @@ impl INetFwOpenPort_Vtbl {
         unsafe extern "system" fn SetName<Identity: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwOpenPort_Impl::SetName(this, core::mem::transmute(&name)).into()
+                INetFwOpenPort_Impl::SetName(this, core::mem::transmute(&name))
             }
         }
         unsafe extern "system" fn IpVersion<Identity: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ipversion: *mut super::NET_FW_IP_VERSION) -> windows_core::HRESULT {
@@ -1377,7 +1377,7 @@ impl INetFwOpenPort_Vtbl {
         unsafe extern "system" fn SetIpVersion<Identity: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ipversion: super::NET_FW_IP_VERSION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwOpenPort_Impl::SetIpVersion(this, core::mem::transmute_copy(&ipversion)).into()
+                INetFwOpenPort_Impl::SetIpVersion(this, core::mem::transmute_copy(&ipversion))
             }
         }
         unsafe extern "system" fn Protocol<Identity: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ipprotocol: *mut super::NET_FW_IP_PROTOCOL) -> windows_core::HRESULT {
@@ -1398,7 +1398,7 @@ impl INetFwOpenPort_Vtbl {
         unsafe extern "system" fn SetProtocol<Identity: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ipprotocol: super::NET_FW_IP_PROTOCOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwOpenPort_Impl::SetProtocol(this, core::mem::transmute_copy(&ipprotocol)).into()
+                INetFwOpenPort_Impl::SetProtocol(this, core::mem::transmute_copy(&ipprotocol))
             }
         }
         unsafe extern "system" fn Port<Identity: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, portnumber: *mut super::LONG) -> windows_core::HRESULT {
@@ -1419,7 +1419,7 @@ impl INetFwOpenPort_Vtbl {
         unsafe extern "system" fn SetPort<Identity: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, portnumber: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwOpenPort_Impl::SetPort(this, core::mem::transmute_copy(&portnumber)).into()
+                INetFwOpenPort_Impl::SetPort(this, core::mem::transmute_copy(&portnumber))
             }
         }
         unsafe extern "system" fn Scope<Identity: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: *mut super::NET_FW_SCOPE) -> windows_core::HRESULT {
@@ -1440,7 +1440,7 @@ impl INetFwOpenPort_Vtbl {
         unsafe extern "system" fn SetScope<Identity: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: super::NET_FW_SCOPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwOpenPort_Impl::SetScope(this, core::mem::transmute_copy(&scope)).into()
+                INetFwOpenPort_Impl::SetScope(this, core::mem::transmute_copy(&scope))
             }
         }
         unsafe extern "system" fn RemoteAddresses<Identity: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remoteaddrs: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1461,7 +1461,7 @@ impl INetFwOpenPort_Vtbl {
         unsafe extern "system" fn SetRemoteAddresses<Identity: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remoteaddrs: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwOpenPort_Impl::SetRemoteAddresses(this, core::mem::transmute(&remoteaddrs)).into()
+                INetFwOpenPort_Impl::SetRemoteAddresses(this, core::mem::transmute(&remoteaddrs))
             }
         }
         unsafe extern "system" fn Enabled<Identity: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -1482,7 +1482,7 @@ impl INetFwOpenPort_Vtbl {
         unsafe extern "system" fn SetEnabled<Identity: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwOpenPort_Impl::SetEnabled(this, core::mem::transmute_copy(&enabled)).into()
+                INetFwOpenPort_Impl::SetEnabled(this, core::mem::transmute_copy(&enabled))
             }
         }
         unsafe extern "system" fn BuiltIn<Identity: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, builtin: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -1520,7 +1520,7 @@ impl INetFwOpenPort_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwOpenPort as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwOpenPort as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1588,8 +1588,8 @@ pub struct INetFwOpenPorts_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait INetFwOpenPorts_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
-    fn Add(&self, port: windows_core::Ref<INetFwOpenPort>) -> windows_core::Result<()>;
-    fn Remove(&self, portnumber: super::LONG, ipprotocol: super::NET_FW_IP_PROTOCOL) -> windows_core::Result<()>;
+    fn Add(&self, port: windows_core::Ref<INetFwOpenPort>) -> windows_core::HRESULT;
+    fn Remove(&self, portnumber: super::LONG, ipprotocol: super::NET_FW_IP_PROTOCOL) -> windows_core::HRESULT;
     fn Item(&self, portnumber: super::LONG, ipprotocol: super::NET_FW_IP_PROTOCOL) -> windows_core::Result<INetFwOpenPort>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
@@ -1614,13 +1614,13 @@ impl INetFwOpenPorts_Vtbl {
         unsafe extern "system" fn Add<Identity: INetFwOpenPorts_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, port: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwOpenPorts_Impl::Add(this, core::mem::transmute_copy(&port)).into()
+                INetFwOpenPorts_Impl::Add(this, core::mem::transmute_copy(&port))
             }
         }
         unsafe extern "system" fn Remove<Identity: INetFwOpenPorts_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, portnumber: super::LONG, ipprotocol: super::NET_FW_IP_PROTOCOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwOpenPorts_Impl::Remove(this, core::mem::transmute_copy(&portnumber), core::mem::transmute_copy(&ipprotocol)).into()
+                INetFwOpenPorts_Impl::Remove(this, core::mem::transmute_copy(&portnumber), core::mem::transmute_copy(&ipprotocol))
             }
         }
         unsafe extern "system" fn Item<Identity: INetFwOpenPorts_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, portnumber: super::LONG, ipprotocol: super::NET_FW_IP_PROTOCOL, openport: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1663,7 +1663,7 @@ impl INetFwOpenPorts_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwOpenPorts as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwOpenPorts as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1751,7 +1751,7 @@ impl INetFwPolicy_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwPolicy as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwPolicy as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1979,24 +1979,24 @@ pub struct INetFwPolicy2_Vtbl {
 pub trait INetFwPolicy2_Impl: super::IDispatch_Impl {
     fn CurrentProfileTypes(&self) -> windows_core::Result<i32>;
     fn FirewallEnabled(&self, profiletype: super::NET_FW_PROFILE_TYPE2) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetFirewallEnabled(&self, profiletype: super::NET_FW_PROFILE_TYPE2, enabled: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetFirewallEnabled(&self, profiletype: super::NET_FW_PROFILE_TYPE2, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn ExcludedInterfaces(&self, profiletype: super::NET_FW_PROFILE_TYPE2) -> windows_core::Result<super::VARIANT>;
-    fn SetExcludedInterfaces(&self, profiletype: super::NET_FW_PROFILE_TYPE2, interfaces: &super::VARIANT) -> windows_core::Result<()>;
+    fn SetExcludedInterfaces(&self, profiletype: super::NET_FW_PROFILE_TYPE2, interfaces: &super::VARIANT) -> windows_core::HRESULT;
     fn BlockAllInboundTraffic(&self, profiletype: super::NET_FW_PROFILE_TYPE2) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetBlockAllInboundTraffic(&self, profiletype: super::NET_FW_PROFILE_TYPE2, block: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetBlockAllInboundTraffic(&self, profiletype: super::NET_FW_PROFILE_TYPE2, block: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn NotificationsDisabled(&self, profiletype: super::NET_FW_PROFILE_TYPE2) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetNotificationsDisabled(&self, profiletype: super::NET_FW_PROFILE_TYPE2, disabled: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetNotificationsDisabled(&self, profiletype: super::NET_FW_PROFILE_TYPE2, disabled: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn UnicastResponsesToMulticastBroadcastDisabled(&self, profiletype: super::NET_FW_PROFILE_TYPE2) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetUnicastResponsesToMulticastBroadcastDisabled(&self, profiletype: super::NET_FW_PROFILE_TYPE2, disabled: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetUnicastResponsesToMulticastBroadcastDisabled(&self, profiletype: super::NET_FW_PROFILE_TYPE2, disabled: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn Rules(&self) -> windows_core::Result<INetFwRules>;
     fn ServiceRestriction(&self) -> windows_core::Result<INetFwServiceRestriction>;
-    fn EnableRuleGroup(&self, profiletypesbitmask: i32, group: &windows_core::BSTR, enable: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn EnableRuleGroup(&self, profiletypesbitmask: i32, group: &windows_core::BSTR, enable: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn IsRuleGroupEnabled(&self, profiletypesbitmask: i32, group: &windows_core::BSTR) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn RestoreLocalFirewallDefaults(&self) -> windows_core::Result<()>;
+    fn RestoreLocalFirewallDefaults(&self) -> windows_core::HRESULT;
     fn DefaultInboundAction(&self, profiletype: super::NET_FW_PROFILE_TYPE2) -> windows_core::Result<super::NET_FW_ACTION>;
-    fn SetDefaultInboundAction(&self, profiletype: super::NET_FW_PROFILE_TYPE2, action: super::NET_FW_ACTION) -> windows_core::Result<()>;
+    fn SetDefaultInboundAction(&self, profiletype: super::NET_FW_PROFILE_TYPE2, action: super::NET_FW_ACTION) -> windows_core::HRESULT;
     fn DefaultOutboundAction(&self, profiletype: super::NET_FW_PROFILE_TYPE2) -> windows_core::Result<super::NET_FW_ACTION>;
-    fn SetDefaultOutboundAction(&self, profiletype: super::NET_FW_PROFILE_TYPE2, action: super::NET_FW_ACTION) -> windows_core::Result<()>;
+    fn SetDefaultOutboundAction(&self, profiletype: super::NET_FW_PROFILE_TYPE2, action: super::NET_FW_ACTION) -> windows_core::HRESULT;
     fn IsRuleGroupCurrentlyEnabled(&self, group: &windows_core::BSTR) -> windows_core::Result<super::VARIANT_BOOL>;
     fn LocalPolicyModifyState(&self) -> windows_core::Result<super::NET_FW_MODIFY_STATE>;
 }
@@ -2036,7 +2036,7 @@ impl INetFwPolicy2_Vtbl {
         unsafe extern "system" fn SetFirewallEnabled<Identity: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: super::NET_FW_PROFILE_TYPE2, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwPolicy2_Impl::SetFirewallEnabled(this, core::mem::transmute_copy(&profiletype), core::mem::transmute_copy(&enabled)).into()
+                INetFwPolicy2_Impl::SetFirewallEnabled(this, core::mem::transmute_copy(&profiletype), core::mem::transmute_copy(&enabled))
             }
         }
         unsafe extern "system" fn ExcludedInterfaces<Identity: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: super::NET_FW_PROFILE_TYPE2, interfaces: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -2057,7 +2057,7 @@ impl INetFwPolicy2_Vtbl {
         unsafe extern "system" fn SetExcludedInterfaces<Identity: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: super::NET_FW_PROFILE_TYPE2, interfaces: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwPolicy2_Impl::SetExcludedInterfaces(this, core::mem::transmute_copy(&profiletype), core::mem::transmute(&interfaces)).into()
+                INetFwPolicy2_Impl::SetExcludedInterfaces(this, core::mem::transmute_copy(&profiletype), core::mem::transmute(&interfaces))
             }
         }
         unsafe extern "system" fn BlockAllInboundTraffic<Identity: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: super::NET_FW_PROFILE_TYPE2, block: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2078,7 +2078,7 @@ impl INetFwPolicy2_Vtbl {
         unsafe extern "system" fn SetBlockAllInboundTraffic<Identity: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: super::NET_FW_PROFILE_TYPE2, block: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwPolicy2_Impl::SetBlockAllInboundTraffic(this, core::mem::transmute_copy(&profiletype), core::mem::transmute_copy(&block)).into()
+                INetFwPolicy2_Impl::SetBlockAllInboundTraffic(this, core::mem::transmute_copy(&profiletype), core::mem::transmute_copy(&block))
             }
         }
         unsafe extern "system" fn NotificationsDisabled<Identity: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: super::NET_FW_PROFILE_TYPE2, disabled: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2099,7 +2099,7 @@ impl INetFwPolicy2_Vtbl {
         unsafe extern "system" fn SetNotificationsDisabled<Identity: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: super::NET_FW_PROFILE_TYPE2, disabled: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwPolicy2_Impl::SetNotificationsDisabled(this, core::mem::transmute_copy(&profiletype), core::mem::transmute_copy(&disabled)).into()
+                INetFwPolicy2_Impl::SetNotificationsDisabled(this, core::mem::transmute_copy(&profiletype), core::mem::transmute_copy(&disabled))
             }
         }
         unsafe extern "system" fn UnicastResponsesToMulticastBroadcastDisabled<Identity: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: super::NET_FW_PROFILE_TYPE2, disabled: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2120,7 +2120,7 @@ impl INetFwPolicy2_Vtbl {
         unsafe extern "system" fn SetUnicastResponsesToMulticastBroadcastDisabled<Identity: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: super::NET_FW_PROFILE_TYPE2, disabled: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwPolicy2_Impl::SetUnicastResponsesToMulticastBroadcastDisabled(this, core::mem::transmute_copy(&profiletype), core::mem::transmute_copy(&disabled)).into()
+                INetFwPolicy2_Impl::SetUnicastResponsesToMulticastBroadcastDisabled(this, core::mem::transmute_copy(&profiletype), core::mem::transmute_copy(&disabled))
             }
         }
         unsafe extern "system" fn Rules<Identity: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rules: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2156,7 +2156,7 @@ impl INetFwPolicy2_Vtbl {
         unsafe extern "system" fn EnableRuleGroup<Identity: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletypesbitmask: i32, group: *mut core::ffi::c_void, enable: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwPolicy2_Impl::EnableRuleGroup(this, core::mem::transmute_copy(&profiletypesbitmask), core::mem::transmute(&group), core::mem::transmute_copy(&enable)).into()
+                INetFwPolicy2_Impl::EnableRuleGroup(this, core::mem::transmute_copy(&profiletypesbitmask), core::mem::transmute(&group), core::mem::transmute_copy(&enable))
             }
         }
         unsafe extern "system" fn IsRuleGroupEnabled<Identity: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletypesbitmask: i32, group: *mut core::ffi::c_void, enabled: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2177,7 +2177,7 @@ impl INetFwPolicy2_Vtbl {
         unsafe extern "system" fn RestoreLocalFirewallDefaults<Identity: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwPolicy2_Impl::RestoreLocalFirewallDefaults(this).into()
+                INetFwPolicy2_Impl::RestoreLocalFirewallDefaults(this)
             }
         }
         unsafe extern "system" fn DefaultInboundAction<Identity: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: super::NET_FW_PROFILE_TYPE2, action: *mut super::NET_FW_ACTION) -> windows_core::HRESULT {
@@ -2198,7 +2198,7 @@ impl INetFwPolicy2_Vtbl {
         unsafe extern "system" fn SetDefaultInboundAction<Identity: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: super::NET_FW_PROFILE_TYPE2, action: super::NET_FW_ACTION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwPolicy2_Impl::SetDefaultInboundAction(this, core::mem::transmute_copy(&profiletype), core::mem::transmute_copy(&action)).into()
+                INetFwPolicy2_Impl::SetDefaultInboundAction(this, core::mem::transmute_copy(&profiletype), core::mem::transmute_copy(&action))
             }
         }
         unsafe extern "system" fn DefaultOutboundAction<Identity: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: super::NET_FW_PROFILE_TYPE2, action: *mut super::NET_FW_ACTION) -> windows_core::HRESULT {
@@ -2219,7 +2219,7 @@ impl INetFwPolicy2_Vtbl {
         unsafe extern "system" fn SetDefaultOutboundAction<Identity: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: super::NET_FW_PROFILE_TYPE2, action: super::NET_FW_ACTION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwPolicy2_Impl::SetDefaultOutboundAction(this, core::mem::transmute_copy(&profiletype), core::mem::transmute_copy(&action)).into()
+                INetFwPolicy2_Impl::SetDefaultOutboundAction(this, core::mem::transmute_copy(&profiletype), core::mem::transmute_copy(&action))
             }
         }
         unsafe extern "system" fn IsRuleGroupCurrentlyEnabled<Identity: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, group: *mut core::ffi::c_void, enabled: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2279,7 +2279,7 @@ impl INetFwPolicy2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwPolicy2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwPolicy2 as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2344,9 +2344,9 @@ pub struct INetFwProduct_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait INetFwProduct_Impl: super::IDispatch_Impl {
     fn RuleCategories(&self) -> windows_core::Result<super::VARIANT>;
-    fn SetRuleCategories(&self, rulecategories: &super::VARIANT) -> windows_core::Result<()>;
+    fn SetRuleCategories(&self, rulecategories: &super::VARIANT) -> windows_core::HRESULT;
     fn DisplayName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetDisplayName(&self, displayname: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetDisplayName(&self, displayname: &windows_core::BSTR) -> windows_core::HRESULT;
     fn PathToSignedProductExe(&self) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2370,7 +2370,7 @@ impl INetFwProduct_Vtbl {
         unsafe extern "system" fn SetRuleCategories<Identity: INetFwProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rulecategories: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwProduct_Impl::SetRuleCategories(this, core::mem::transmute(&rulecategories)).into()
+                INetFwProduct_Impl::SetRuleCategories(this, core::mem::transmute(&rulecategories))
             }
         }
         unsafe extern "system" fn DisplayName<Identity: INetFwProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, displayname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2391,7 +2391,7 @@ impl INetFwProduct_Vtbl {
         unsafe extern "system" fn SetDisplayName<Identity: INetFwProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, displayname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwProduct_Impl::SetDisplayName(this, core::mem::transmute(&displayname)).into()
+                INetFwProduct_Impl::SetDisplayName(this, core::mem::transmute(&displayname))
             }
         }
         unsafe extern "system" fn PathToSignedProductExe<Identity: INetFwProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2419,7 +2419,7 @@ impl INetFwProduct_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwProduct as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwProduct as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2554,7 +2554,7 @@ impl INetFwProducts_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwProducts as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwProducts as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2705,13 +2705,13 @@ pub struct INetFwProfile_Vtbl {
 pub trait INetFwProfile_Impl: super::IDispatch_Impl {
     fn Type(&self) -> windows_core::Result<super::NET_FW_PROFILE_TYPE>;
     fn FirewallEnabled(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetFirewallEnabled(&self, enabled: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetFirewallEnabled(&self, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn ExceptionsNotAllowed(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetExceptionsNotAllowed(&self, notallowed: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetExceptionsNotAllowed(&self, notallowed: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn NotificationsDisabled(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetNotificationsDisabled(&self, disabled: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetNotificationsDisabled(&self, disabled: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn UnicastResponsesToMulticastBroadcastDisabled(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetUnicastResponsesToMulticastBroadcastDisabled(&self, disabled: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetUnicastResponsesToMulticastBroadcastDisabled(&self, disabled: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn RemoteAdminSettings(&self) -> windows_core::Result<INetFwRemoteAdminSettings>;
     fn IcmpSettings(&self) -> windows_core::Result<INetFwIcmpSettings>;
     fn GloballyOpenPorts(&self) -> windows_core::Result<INetFwOpenPorts>;
@@ -2754,7 +2754,7 @@ impl INetFwProfile_Vtbl {
         unsafe extern "system" fn SetFirewallEnabled<Identity: INetFwProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwProfile_Impl::SetFirewallEnabled(this, core::mem::transmute_copy(&enabled)).into()
+                INetFwProfile_Impl::SetFirewallEnabled(this, core::mem::transmute_copy(&enabled))
             }
         }
         unsafe extern "system" fn ExceptionsNotAllowed<Identity: INetFwProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, notallowed: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2775,7 +2775,7 @@ impl INetFwProfile_Vtbl {
         unsafe extern "system" fn SetExceptionsNotAllowed<Identity: INetFwProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, notallowed: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwProfile_Impl::SetExceptionsNotAllowed(this, core::mem::transmute_copy(&notallowed)).into()
+                INetFwProfile_Impl::SetExceptionsNotAllowed(this, core::mem::transmute_copy(&notallowed))
             }
         }
         unsafe extern "system" fn NotificationsDisabled<Identity: INetFwProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, disabled: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2796,7 +2796,7 @@ impl INetFwProfile_Vtbl {
         unsafe extern "system" fn SetNotificationsDisabled<Identity: INetFwProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, disabled: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwProfile_Impl::SetNotificationsDisabled(this, core::mem::transmute_copy(&disabled)).into()
+                INetFwProfile_Impl::SetNotificationsDisabled(this, core::mem::transmute_copy(&disabled))
             }
         }
         unsafe extern "system" fn UnicastResponsesToMulticastBroadcastDisabled<Identity: INetFwProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, disabled: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2817,7 +2817,7 @@ impl INetFwProfile_Vtbl {
         unsafe extern "system" fn SetUnicastResponsesToMulticastBroadcastDisabled<Identity: INetFwProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, disabled: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwProfile_Impl::SetUnicastResponsesToMulticastBroadcastDisabled(this, core::mem::transmute_copy(&disabled)).into()
+                INetFwProfile_Impl::SetUnicastResponsesToMulticastBroadcastDisabled(this, core::mem::transmute_copy(&disabled))
             }
         }
         unsafe extern "system" fn RemoteAdminSettings<Identity: INetFwProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remoteadminsettings: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2914,7 +2914,7 @@ impl INetFwProfile_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwProfile as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwProfile as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3010,13 +3010,13 @@ pub struct INetFwRemoteAdminSettings_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait INetFwRemoteAdminSettings_Impl: super::IDispatch_Impl {
     fn IpVersion(&self) -> windows_core::Result<super::NET_FW_IP_VERSION>;
-    fn SetIpVersion(&self, ipversion: super::NET_FW_IP_VERSION) -> windows_core::Result<()>;
+    fn SetIpVersion(&self, ipversion: super::NET_FW_IP_VERSION) -> windows_core::HRESULT;
     fn Scope(&self) -> windows_core::Result<super::NET_FW_SCOPE>;
-    fn SetScope(&self, scope: super::NET_FW_SCOPE) -> windows_core::Result<()>;
+    fn SetScope(&self, scope: super::NET_FW_SCOPE) -> windows_core::HRESULT;
     fn RemoteAddresses(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetRemoteAddresses(&self, remoteaddrs: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetRemoteAddresses(&self, remoteaddrs: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Enabled(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetEnabled(&self, enabled: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetEnabled(&self, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl INetFwRemoteAdminSettings_Vtbl {
@@ -3039,7 +3039,7 @@ impl INetFwRemoteAdminSettings_Vtbl {
         unsafe extern "system" fn SetIpVersion<Identity: INetFwRemoteAdminSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ipversion: super::NET_FW_IP_VERSION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwRemoteAdminSettings_Impl::SetIpVersion(this, core::mem::transmute_copy(&ipversion)).into()
+                INetFwRemoteAdminSettings_Impl::SetIpVersion(this, core::mem::transmute_copy(&ipversion))
             }
         }
         unsafe extern "system" fn Scope<Identity: INetFwRemoteAdminSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: *mut super::NET_FW_SCOPE) -> windows_core::HRESULT {
@@ -3060,7 +3060,7 @@ impl INetFwRemoteAdminSettings_Vtbl {
         unsafe extern "system" fn SetScope<Identity: INetFwRemoteAdminSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: super::NET_FW_SCOPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwRemoteAdminSettings_Impl::SetScope(this, core::mem::transmute_copy(&scope)).into()
+                INetFwRemoteAdminSettings_Impl::SetScope(this, core::mem::transmute_copy(&scope))
             }
         }
         unsafe extern "system" fn RemoteAddresses<Identity: INetFwRemoteAdminSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remoteaddrs: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3081,7 +3081,7 @@ impl INetFwRemoteAdminSettings_Vtbl {
         unsafe extern "system" fn SetRemoteAddresses<Identity: INetFwRemoteAdminSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remoteaddrs: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwRemoteAdminSettings_Impl::SetRemoteAddresses(this, core::mem::transmute(&remoteaddrs)).into()
+                INetFwRemoteAdminSettings_Impl::SetRemoteAddresses(this, core::mem::transmute(&remoteaddrs))
             }
         }
         unsafe extern "system" fn Enabled<Identity: INetFwRemoteAdminSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -3102,7 +3102,7 @@ impl INetFwRemoteAdminSettings_Vtbl {
         unsafe extern "system" fn SetEnabled<Identity: INetFwRemoteAdminSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwRemoteAdminSettings_Impl::SetEnabled(this, core::mem::transmute_copy(&enabled)).into()
+                INetFwRemoteAdminSettings_Impl::SetEnabled(this, core::mem::transmute_copy(&enabled))
             }
         }
         Self {
@@ -3118,7 +3118,7 @@ impl INetFwRemoteAdminSettings_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwRemoteAdminSettings as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwRemoteAdminSettings as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3392,41 +3392,41 @@ pub struct INetFwRule_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait INetFwRule_Impl: super::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetName(&self, name: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetDescription(&self, desc: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetDescription(&self, desc: &windows_core::BSTR) -> windows_core::HRESULT;
     fn ApplicationName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetApplicationName(&self, imagefilename: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetApplicationName(&self, imagefilename: &windows_core::BSTR) -> windows_core::HRESULT;
     fn ServiceName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetServiceName(&self, servicename: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetServiceName(&self, servicename: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Protocol(&self) -> windows_core::Result<super::LONG>;
-    fn SetProtocol(&self, protocol: super::LONG) -> windows_core::Result<()>;
+    fn SetProtocol(&self, protocol: super::LONG) -> windows_core::HRESULT;
     fn LocalPorts(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetLocalPorts(&self, portnumbers: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetLocalPorts(&self, portnumbers: &windows_core::BSTR) -> windows_core::HRESULT;
     fn RemotePorts(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetRemotePorts(&self, portnumbers: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetRemotePorts(&self, portnumbers: &windows_core::BSTR) -> windows_core::HRESULT;
     fn LocalAddresses(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetLocalAddresses(&self, localaddrs: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetLocalAddresses(&self, localaddrs: &windows_core::BSTR) -> windows_core::HRESULT;
     fn RemoteAddresses(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetRemoteAddresses(&self, remoteaddrs: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetRemoteAddresses(&self, remoteaddrs: &windows_core::BSTR) -> windows_core::HRESULT;
     fn IcmpTypesAndCodes(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetIcmpTypesAndCodes(&self, icmptypesandcodes: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetIcmpTypesAndCodes(&self, icmptypesandcodes: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Direction(&self) -> windows_core::Result<super::NET_FW_RULE_DIRECTION>;
-    fn SetDirection(&self, dir: super::NET_FW_RULE_DIRECTION) -> windows_core::Result<()>;
+    fn SetDirection(&self, dir: super::NET_FW_RULE_DIRECTION) -> windows_core::HRESULT;
     fn Interfaces(&self) -> windows_core::Result<super::VARIANT>;
-    fn SetInterfaces(&self, interfaces: &super::VARIANT) -> windows_core::Result<()>;
+    fn SetInterfaces(&self, interfaces: &super::VARIANT) -> windows_core::HRESULT;
     fn InterfaceTypes(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetInterfaceTypes(&self, interfacetypes: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetInterfaceTypes(&self, interfacetypes: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Enabled(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetEnabled(&self, enabled: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetEnabled(&self, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn Grouping(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetGrouping(&self, context: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetGrouping(&self, context: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Profiles(&self) -> windows_core::Result<i32>;
-    fn SetProfiles(&self, profiletypesbitmask: i32) -> windows_core::Result<()>;
+    fn SetProfiles(&self, profiletypesbitmask: i32) -> windows_core::HRESULT;
     fn EdgeTraversal(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetEdgeTraversal(&self, enabled: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetEdgeTraversal(&self, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn Action(&self) -> windows_core::Result<super::NET_FW_ACTION>;
-    fn SetAction(&self, action: super::NET_FW_ACTION) -> windows_core::Result<()>;
+    fn SetAction(&self, action: super::NET_FW_ACTION) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl INetFwRule_Vtbl {
@@ -3449,7 +3449,7 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetName<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwRule_Impl::SetName(this, core::mem::transmute(&name)).into()
+                INetFwRule_Impl::SetName(this, core::mem::transmute(&name))
             }
         }
         unsafe extern "system" fn Description<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, desc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3470,7 +3470,7 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, desc: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwRule_Impl::SetDescription(this, core::mem::transmute(&desc)).into()
+                INetFwRule_Impl::SetDescription(this, core::mem::transmute(&desc))
             }
         }
         unsafe extern "system" fn ApplicationName<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imagefilename: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3491,7 +3491,7 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetApplicationName<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imagefilename: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwRule_Impl::SetApplicationName(this, core::mem::transmute(&imagefilename)).into()
+                INetFwRule_Impl::SetApplicationName(this, core::mem::transmute(&imagefilename))
             }
         }
         unsafe extern "system" fn ServiceName<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, servicename: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3512,7 +3512,7 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetServiceName<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, servicename: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwRule_Impl::SetServiceName(this, core::mem::transmute(&servicename)).into()
+                INetFwRule_Impl::SetServiceName(this, core::mem::transmute(&servicename))
             }
         }
         unsafe extern "system" fn Protocol<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, protocol: *mut super::LONG) -> windows_core::HRESULT {
@@ -3533,7 +3533,7 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetProtocol<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, protocol: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwRule_Impl::SetProtocol(this, core::mem::transmute_copy(&protocol)).into()
+                INetFwRule_Impl::SetProtocol(this, core::mem::transmute_copy(&protocol))
             }
         }
         unsafe extern "system" fn LocalPorts<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, portnumbers: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3554,7 +3554,7 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetLocalPorts<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, portnumbers: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwRule_Impl::SetLocalPorts(this, core::mem::transmute(&portnumbers)).into()
+                INetFwRule_Impl::SetLocalPorts(this, core::mem::transmute(&portnumbers))
             }
         }
         unsafe extern "system" fn RemotePorts<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, portnumbers: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3575,7 +3575,7 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetRemotePorts<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, portnumbers: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwRule_Impl::SetRemotePorts(this, core::mem::transmute(&portnumbers)).into()
+                INetFwRule_Impl::SetRemotePorts(this, core::mem::transmute(&portnumbers))
             }
         }
         unsafe extern "system" fn LocalAddresses<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, localaddrs: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3596,7 +3596,7 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetLocalAddresses<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, localaddrs: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwRule_Impl::SetLocalAddresses(this, core::mem::transmute(&localaddrs)).into()
+                INetFwRule_Impl::SetLocalAddresses(this, core::mem::transmute(&localaddrs))
             }
         }
         unsafe extern "system" fn RemoteAddresses<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remoteaddrs: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3617,7 +3617,7 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetRemoteAddresses<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remoteaddrs: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwRule_Impl::SetRemoteAddresses(this, core::mem::transmute(&remoteaddrs)).into()
+                INetFwRule_Impl::SetRemoteAddresses(this, core::mem::transmute(&remoteaddrs))
             }
         }
         unsafe extern "system" fn IcmpTypesAndCodes<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, icmptypesandcodes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3638,7 +3638,7 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetIcmpTypesAndCodes<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, icmptypesandcodes: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwRule_Impl::SetIcmpTypesAndCodes(this, core::mem::transmute(&icmptypesandcodes)).into()
+                INetFwRule_Impl::SetIcmpTypesAndCodes(this, core::mem::transmute(&icmptypesandcodes))
             }
         }
         unsafe extern "system" fn Direction<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dir: *mut super::NET_FW_RULE_DIRECTION) -> windows_core::HRESULT {
@@ -3659,7 +3659,7 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetDirection<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dir: super::NET_FW_RULE_DIRECTION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwRule_Impl::SetDirection(this, core::mem::transmute_copy(&dir)).into()
+                INetFwRule_Impl::SetDirection(this, core::mem::transmute_copy(&dir))
             }
         }
         unsafe extern "system" fn Interfaces<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaces: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -3680,7 +3680,7 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetInterfaces<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaces: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwRule_Impl::SetInterfaces(this, core::mem::transmute(&interfaces)).into()
+                INetFwRule_Impl::SetInterfaces(this, core::mem::transmute(&interfaces))
             }
         }
         unsafe extern "system" fn InterfaceTypes<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfacetypes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3701,7 +3701,7 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetInterfaceTypes<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfacetypes: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwRule_Impl::SetInterfaceTypes(this, core::mem::transmute(&interfacetypes)).into()
+                INetFwRule_Impl::SetInterfaceTypes(this, core::mem::transmute(&interfacetypes))
             }
         }
         unsafe extern "system" fn Enabled<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -3722,7 +3722,7 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetEnabled<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwRule_Impl::SetEnabled(this, core::mem::transmute_copy(&enabled)).into()
+                INetFwRule_Impl::SetEnabled(this, core::mem::transmute_copy(&enabled))
             }
         }
         unsafe extern "system" fn Grouping<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3743,7 +3743,7 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetGrouping<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwRule_Impl::SetGrouping(this, core::mem::transmute(&context)).into()
+                INetFwRule_Impl::SetGrouping(this, core::mem::transmute(&context))
             }
         }
         unsafe extern "system" fn Profiles<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletypesbitmask: *mut i32) -> windows_core::HRESULT {
@@ -3764,7 +3764,7 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetProfiles<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletypesbitmask: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwRule_Impl::SetProfiles(this, core::mem::transmute_copy(&profiletypesbitmask)).into()
+                INetFwRule_Impl::SetProfiles(this, core::mem::transmute_copy(&profiletypesbitmask))
             }
         }
         unsafe extern "system" fn EdgeTraversal<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -3785,7 +3785,7 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetEdgeTraversal<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwRule_Impl::SetEdgeTraversal(this, core::mem::transmute_copy(&enabled)).into()
+                INetFwRule_Impl::SetEdgeTraversal(this, core::mem::transmute_copy(&enabled))
             }
         }
         unsafe extern "system" fn Action<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, action: *mut super::NET_FW_ACTION) -> windows_core::HRESULT {
@@ -3806,7 +3806,7 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetAction<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, action: super::NET_FW_ACTION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwRule_Impl::SetAction(this, core::mem::transmute_copy(&action)).into()
+                INetFwRule_Impl::SetAction(this, core::mem::transmute_copy(&action))
             }
         }
         Self {
@@ -3850,7 +3850,7 @@ impl INetFwRule_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwRule as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwRule as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3889,7 +3889,7 @@ pub struct INetFwRule2_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait INetFwRule2_Impl: INetFwRule_Impl {
     fn EdgeTraversalOptions(&self) -> windows_core::Result<i32>;
-    fn SetEdgeTraversalOptions(&self, loptions: i32) -> windows_core::Result<()>;
+    fn SetEdgeTraversalOptions(&self, loptions: i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl INetFwRule2_Vtbl {
@@ -3912,7 +3912,7 @@ impl INetFwRule2_Vtbl {
         unsafe extern "system" fn SetEdgeTraversalOptions<Identity: INetFwRule2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, loptions: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwRule2_Impl::SetEdgeTraversalOptions(this, core::mem::transmute_copy(&loptions)).into()
+                INetFwRule2_Impl::SetEdgeTraversalOptions(this, core::mem::transmute_copy(&loptions))
             }
         }
         Self {
@@ -3922,7 +3922,7 @@ impl INetFwRule2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwRule2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<INetFwRule as windows_core::Interface>::IID
+        iid == &<INetFwRule2 as windows_core::Interface>::IID || INetFwRule_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4016,17 +4016,17 @@ pub struct INetFwRule3_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait INetFwRule3_Impl: INetFwRule2_Impl {
     fn LocalAppPackageId(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetLocalAppPackageId(&self, wszpackageid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetLocalAppPackageId(&self, wszpackageid: &windows_core::BSTR) -> windows_core::HRESULT;
     fn LocalUserOwner(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetLocalUserOwner(&self, wszuserowner: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetLocalUserOwner(&self, wszuserowner: &windows_core::BSTR) -> windows_core::HRESULT;
     fn LocalUserAuthorizedList(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetLocalUserAuthorizedList(&self, wszuserauthlist: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetLocalUserAuthorizedList(&self, wszuserauthlist: &windows_core::BSTR) -> windows_core::HRESULT;
     fn RemoteUserAuthorizedList(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetRemoteUserAuthorizedList(&self, wszuserauthlist: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetRemoteUserAuthorizedList(&self, wszuserauthlist: &windows_core::BSTR) -> windows_core::HRESULT;
     fn RemoteMachineAuthorizedList(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetRemoteMachineAuthorizedList(&self, wszuserauthlist: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetRemoteMachineAuthorizedList(&self, wszuserauthlist: &windows_core::BSTR) -> windows_core::HRESULT;
     fn SecureFlags(&self) -> windows_core::Result<i32>;
-    fn SetSecureFlags(&self, loptions: i32) -> windows_core::Result<()>;
+    fn SetSecureFlags(&self, loptions: i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl INetFwRule3_Vtbl {
@@ -4049,7 +4049,7 @@ impl INetFwRule3_Vtbl {
         unsafe extern "system" fn SetLocalAppPackageId<Identity: INetFwRule3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszpackageid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwRule3_Impl::SetLocalAppPackageId(this, core::mem::transmute(&wszpackageid)).into()
+                INetFwRule3_Impl::SetLocalAppPackageId(this, core::mem::transmute(&wszpackageid))
             }
         }
         unsafe extern "system" fn LocalUserOwner<Identity: INetFwRule3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszuserowner: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4070,7 +4070,7 @@ impl INetFwRule3_Vtbl {
         unsafe extern "system" fn SetLocalUserOwner<Identity: INetFwRule3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszuserowner: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwRule3_Impl::SetLocalUserOwner(this, core::mem::transmute(&wszuserowner)).into()
+                INetFwRule3_Impl::SetLocalUserOwner(this, core::mem::transmute(&wszuserowner))
             }
         }
         unsafe extern "system" fn LocalUserAuthorizedList<Identity: INetFwRule3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszuserauthlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4091,7 +4091,7 @@ impl INetFwRule3_Vtbl {
         unsafe extern "system" fn SetLocalUserAuthorizedList<Identity: INetFwRule3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszuserauthlist: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwRule3_Impl::SetLocalUserAuthorizedList(this, core::mem::transmute(&wszuserauthlist)).into()
+                INetFwRule3_Impl::SetLocalUserAuthorizedList(this, core::mem::transmute(&wszuserauthlist))
             }
         }
         unsafe extern "system" fn RemoteUserAuthorizedList<Identity: INetFwRule3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszuserauthlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4112,7 +4112,7 @@ impl INetFwRule3_Vtbl {
         unsafe extern "system" fn SetRemoteUserAuthorizedList<Identity: INetFwRule3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszuserauthlist: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwRule3_Impl::SetRemoteUserAuthorizedList(this, core::mem::transmute(&wszuserauthlist)).into()
+                INetFwRule3_Impl::SetRemoteUserAuthorizedList(this, core::mem::transmute(&wszuserauthlist))
             }
         }
         unsafe extern "system" fn RemoteMachineAuthorizedList<Identity: INetFwRule3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszuserauthlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4133,7 +4133,7 @@ impl INetFwRule3_Vtbl {
         unsafe extern "system" fn SetRemoteMachineAuthorizedList<Identity: INetFwRule3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszuserauthlist: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwRule3_Impl::SetRemoteMachineAuthorizedList(this, core::mem::transmute(&wszuserauthlist)).into()
+                INetFwRule3_Impl::SetRemoteMachineAuthorizedList(this, core::mem::transmute(&wszuserauthlist))
             }
         }
         unsafe extern "system" fn SecureFlags<Identity: INetFwRule3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, loptions: *mut i32) -> windows_core::HRESULT {
@@ -4154,7 +4154,7 @@ impl INetFwRule3_Vtbl {
         unsafe extern "system" fn SetSecureFlags<Identity: INetFwRule3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, loptions: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwRule3_Impl::SetSecureFlags(this, core::mem::transmute_copy(&loptions)).into()
+                INetFwRule3_Impl::SetSecureFlags(this, core::mem::transmute_copy(&loptions))
             }
         }
         Self {
@@ -4174,7 +4174,7 @@ impl INetFwRule3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwRule3 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<INetFwRule as windows_core::Interface>::IID || iid == &<INetFwRule2 as windows_core::Interface>::IID
+        iid == &<INetFwRule3 as windows_core::Interface>::IID || INetFwRule2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4234,8 +4234,8 @@ pub struct INetFwRules_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait INetFwRules_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
-    fn Add(&self, rule: windows_core::Ref<INetFwRule>) -> windows_core::Result<()>;
-    fn Remove(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Add(&self, rule: windows_core::Ref<INetFwRule>) -> windows_core::HRESULT;
+    fn Remove(&self, name: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Item(&self, name: &windows_core::BSTR) -> windows_core::Result<INetFwRule>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
@@ -4260,13 +4260,13 @@ impl INetFwRules_Vtbl {
         unsafe extern "system" fn Add<Identity: INetFwRules_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rule: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwRules_Impl::Add(this, core::mem::transmute_copy(&rule)).into()
+                INetFwRules_Impl::Add(this, core::mem::transmute_copy(&rule))
             }
         }
         unsafe extern "system" fn Remove<Identity: INetFwRules_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwRules_Impl::Remove(this, core::mem::transmute(&name)).into()
+                INetFwRules_Impl::Remove(this, core::mem::transmute(&name))
             }
         }
         unsafe extern "system" fn Item<Identity: INetFwRules_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, rule: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4309,7 +4309,7 @@ impl INetFwRules_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwRules as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwRules as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4444,13 +4444,13 @@ pub trait INetFwService_Impl: super::IDispatch_Impl {
     fn Type(&self) -> windows_core::Result<super::NET_FW_SERVICE_TYPE>;
     fn Customized(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn IpVersion(&self) -> windows_core::Result<super::NET_FW_IP_VERSION>;
-    fn SetIpVersion(&self, ipversion: super::NET_FW_IP_VERSION) -> windows_core::Result<()>;
+    fn SetIpVersion(&self, ipversion: super::NET_FW_IP_VERSION) -> windows_core::HRESULT;
     fn Scope(&self) -> windows_core::Result<super::NET_FW_SCOPE>;
-    fn SetScope(&self, scope: super::NET_FW_SCOPE) -> windows_core::Result<()>;
+    fn SetScope(&self, scope: super::NET_FW_SCOPE) -> windows_core::HRESULT;
     fn RemoteAddresses(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetRemoteAddresses(&self, remoteaddrs: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetRemoteAddresses(&self, remoteaddrs: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Enabled(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetEnabled(&self, enabled: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetEnabled(&self, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn GloballyOpenPorts(&self) -> windows_core::Result<INetFwOpenPorts>;
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4519,7 +4519,7 @@ impl INetFwService_Vtbl {
         unsafe extern "system" fn SetIpVersion<Identity: INetFwService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ipversion: super::NET_FW_IP_VERSION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwService_Impl::SetIpVersion(this, core::mem::transmute_copy(&ipversion)).into()
+                INetFwService_Impl::SetIpVersion(this, core::mem::transmute_copy(&ipversion))
             }
         }
         unsafe extern "system" fn Scope<Identity: INetFwService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: *mut super::NET_FW_SCOPE) -> windows_core::HRESULT {
@@ -4540,7 +4540,7 @@ impl INetFwService_Vtbl {
         unsafe extern "system" fn SetScope<Identity: INetFwService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: super::NET_FW_SCOPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwService_Impl::SetScope(this, core::mem::transmute_copy(&scope)).into()
+                INetFwService_Impl::SetScope(this, core::mem::transmute_copy(&scope))
             }
         }
         unsafe extern "system" fn RemoteAddresses<Identity: INetFwService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remoteaddrs: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4561,7 +4561,7 @@ impl INetFwService_Vtbl {
         unsafe extern "system" fn SetRemoteAddresses<Identity: INetFwService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remoteaddrs: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwService_Impl::SetRemoteAddresses(this, core::mem::transmute(&remoteaddrs)).into()
+                INetFwService_Impl::SetRemoteAddresses(this, core::mem::transmute(&remoteaddrs))
             }
         }
         unsafe extern "system" fn Enabled<Identity: INetFwService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -4582,7 +4582,7 @@ impl INetFwService_Vtbl {
         unsafe extern "system" fn SetEnabled<Identity: INetFwService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwService_Impl::SetEnabled(this, core::mem::transmute_copy(&enabled)).into()
+                INetFwService_Impl::SetEnabled(this, core::mem::transmute_copy(&enabled))
             }
         }
         unsafe extern "system" fn GloballyOpenPorts<Identity: INetFwService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, openports: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4617,7 +4617,7 @@ impl INetFwService_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwService as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwService as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4670,7 +4670,7 @@ pub struct INetFwServiceRestriction_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait INetFwServiceRestriction_Impl: super::IDispatch_Impl {
-    fn RestrictService(&self, servicename: &windows_core::BSTR, appname: &windows_core::BSTR, restrictservice: super::VARIANT_BOOL, servicesidrestricted: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn RestrictService(&self, servicename: &windows_core::BSTR, appname: &windows_core::BSTR, restrictservice: super::VARIANT_BOOL, servicesidrestricted: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn ServiceRestricted(&self, servicename: &windows_core::BSTR, appname: &windows_core::BSTR) -> windows_core::Result<super::VARIANT_BOOL>;
     fn Rules(&self) -> windows_core::Result<INetFwRules>;
 }
@@ -4680,7 +4680,7 @@ impl INetFwServiceRestriction_Vtbl {
         unsafe extern "system" fn RestrictService<Identity: INetFwServiceRestriction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, servicename: *mut core::ffi::c_void, appname: *mut core::ffi::c_void, restrictservice: super::VARIANT_BOOL, servicesidrestricted: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwServiceRestriction_Impl::RestrictService(this, core::mem::transmute(&servicename), core::mem::transmute(&appname), core::mem::transmute_copy(&restrictservice), core::mem::transmute_copy(&servicesidrestricted)).into()
+                INetFwServiceRestriction_Impl::RestrictService(this, core::mem::transmute(&servicename), core::mem::transmute(&appname), core::mem::transmute_copy(&restrictservice), core::mem::transmute_copy(&servicesidrestricted))
             }
         }
         unsafe extern "system" fn ServiceRestricted<Identity: INetFwServiceRestriction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, servicename: *mut core::ffi::c_void, appname: *mut core::ffi::c_void, servicerestricted: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -4721,7 +4721,7 @@ impl INetFwServiceRestriction_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwServiceRestriction as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwServiceRestriction as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4833,7 +4833,7 @@ impl INetFwServices_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetFwServices as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetFwServices as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "icftypes", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]

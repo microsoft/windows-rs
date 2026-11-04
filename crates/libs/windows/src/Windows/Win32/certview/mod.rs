@@ -129,13 +129,13 @@ pub struct ICertView_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertView_Impl: super::IDispatch_Impl {
-    fn OpenConnection(&self, strconfig: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn OpenConnection(&self, strconfig: &windows_core::BSTR) -> windows_core::HRESULT;
     fn EnumCertViewColumn(&self, fresultcolumn: super::LONG) -> windows_core::Result<IEnumCERTVIEWCOLUMN>;
     fn GetColumnCount(&self, fresultcolumn: super::LONG) -> windows_core::Result<super::LONG>;
     fn GetColumnIndex(&self, fresultcolumn: super::LONG, strcolumnname: &windows_core::BSTR) -> windows_core::Result<super::LONG>;
-    fn SetResultColumnCount(&self, cresultcolumn: super::LONG) -> windows_core::Result<()>;
-    fn SetResultColumn(&self, columnindex: super::LONG) -> windows_core::Result<()>;
-    fn SetRestriction(&self, columnindex: super::LONG, seekoperator: super::LONG, sortorder: super::LONG, pvarvalue: *const super::VARIANT) -> windows_core::Result<()>;
+    fn SetResultColumnCount(&self, cresultcolumn: super::LONG) -> windows_core::HRESULT;
+    fn SetResultColumn(&self, columnindex: super::LONG) -> windows_core::HRESULT;
+    fn SetRestriction(&self, columnindex: super::LONG, seekoperator: super::LONG, sortorder: super::LONG, pvarvalue: *const super::VARIANT) -> windows_core::HRESULT;
     fn OpenView(&self) -> windows_core::Result<IEnumCERTVIEWROW>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -144,7 +144,7 @@ impl ICertView_Vtbl {
         unsafe extern "system" fn OpenConnection<Identity: ICertView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertView_Impl::OpenConnection(this, core::mem::transmute(&strconfig)).into()
+                ICertView_Impl::OpenConnection(this, core::mem::transmute(&strconfig))
             }
         }
         unsafe extern "system" fn EnumCertViewColumn<Identity: ICertView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fresultcolumn: super::LONG, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -195,19 +195,19 @@ impl ICertView_Vtbl {
         unsafe extern "system" fn SetResultColumnCount<Identity: ICertView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cresultcolumn: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertView_Impl::SetResultColumnCount(this, core::mem::transmute_copy(&cresultcolumn)).into()
+                ICertView_Impl::SetResultColumnCount(this, core::mem::transmute_copy(&cresultcolumn))
             }
         }
         unsafe extern "system" fn SetResultColumn<Identity: ICertView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, columnindex: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertView_Impl::SetResultColumn(this, core::mem::transmute_copy(&columnindex)).into()
+                ICertView_Impl::SetResultColumn(this, core::mem::transmute_copy(&columnindex))
             }
         }
         unsafe extern "system" fn SetRestriction<Identity: ICertView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, columnindex: super::LONG, seekoperator: super::LONG, sortorder: super::LONG, pvarvalue: *const super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertView_Impl::SetRestriction(this, core::mem::transmute_copy(&columnindex), core::mem::transmute_copy(&seekoperator), core::mem::transmute_copy(&sortorder), core::mem::transmute_copy(&pvarvalue)).into()
+                ICertView_Impl::SetRestriction(this, core::mem::transmute_copy(&columnindex), core::mem::transmute_copy(&seekoperator), core::mem::transmute_copy(&sortorder), core::mem::transmute_copy(&pvarvalue))
             }
         }
         unsafe extern "system" fn OpenView<Identity: ICertView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -238,7 +238,7 @@ impl ICertView_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertView as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ICertView as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -273,7 +273,7 @@ pub struct ICertView2_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertView2_Impl: ICertView_Impl {
-    fn SetTable(&self, table: super::LONG) -> windows_core::Result<()>;
+    fn SetTable(&self, table: super::LONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertView2_Vtbl {
@@ -281,13 +281,13 @@ impl ICertView2_Vtbl {
         unsafe extern "system" fn SetTable<Identity: ICertView2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, table: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertView2_Impl::SetTable(this, core::mem::transmute_copy(&table)).into()
+                ICertView2_Impl::SetTable(this, core::mem::transmute_copy(&table))
             }
         }
         Self { base__: ICertView_Vtbl::new::<Identity, OFFSET>(), SetTable: SetTable::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertView2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ICertView as windows_core::Interface>::IID
+        iid == &<ICertView2 as windows_core::Interface>::IID || ICertView_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -361,8 +361,8 @@ pub trait IEnumCERTVIEWATTRIBUTE_Impl: super::IDispatch_Impl {
     fn Next(&self) -> windows_core::Result<super::LONG>;
     fn GetName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetValue(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Skip(&self, celt: super::LONG) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
+    fn Skip(&self, celt: super::LONG) -> windows_core::HRESULT;
+    fn Reset(&self) -> windows_core::HRESULT;
     fn Clone(&self) -> windows_core::Result<IEnumCERTVIEWATTRIBUTE>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -416,13 +416,13 @@ impl IEnumCERTVIEWATTRIBUTE_Vtbl {
         unsafe extern "system" fn Skip<Identity: IEnumCERTVIEWATTRIBUTE_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumCERTVIEWATTRIBUTE_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+                IEnumCERTVIEWATTRIBUTE_Impl::Skip(this, core::mem::transmute_copy(&celt))
             }
         }
         unsafe extern "system" fn Reset<Identity: IEnumCERTVIEWATTRIBUTE_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumCERTVIEWATTRIBUTE_Impl::Reset(this).into()
+                IEnumCERTVIEWATTRIBUTE_Impl::Reset(this)
             }
         }
         unsafe extern "system" fn Clone<Identity: IEnumCERTVIEWATTRIBUTE_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -451,7 +451,7 @@ impl IEnumCERTVIEWATTRIBUTE_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IEnumCERTVIEWATTRIBUTE as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IEnumCERTVIEWATTRIBUTE as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -573,8 +573,8 @@ pub trait IEnumCERTVIEWCOLUMN_Impl: super::IDispatch_Impl {
     fn IsIndexed(&self) -> windows_core::Result<super::LONG>;
     fn GetMaxLength(&self) -> windows_core::Result<super::LONG>;
     fn GetValue(&self, flags: super::LONG) -> windows_core::Result<super::VARIANT>;
-    fn Skip(&self, celt: super::LONG) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
+    fn Skip(&self, celt: super::LONG) -> windows_core::HRESULT;
+    fn Reset(&self) -> windows_core::HRESULT;
     fn Clone(&self) -> windows_core::Result<IEnumCERTVIEWCOLUMN>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -688,13 +688,13 @@ impl IEnumCERTVIEWCOLUMN_Vtbl {
         unsafe extern "system" fn Skip<Identity: IEnumCERTVIEWCOLUMN_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumCERTVIEWCOLUMN_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+                IEnumCERTVIEWCOLUMN_Impl::Skip(this, core::mem::transmute_copy(&celt))
             }
         }
         unsafe extern "system" fn Reset<Identity: IEnumCERTVIEWCOLUMN_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumCERTVIEWCOLUMN_Impl::Reset(this).into()
+                IEnumCERTVIEWCOLUMN_Impl::Reset(this)
             }
         }
         unsafe extern "system" fn Clone<Identity: IEnumCERTVIEWCOLUMN_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -727,7 +727,7 @@ impl IEnumCERTVIEWCOLUMN_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IEnumCERTVIEWCOLUMN as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IEnumCERTVIEWCOLUMN as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -817,8 +817,8 @@ pub trait IEnumCERTVIEWEXTENSION_Impl: super::IDispatch_Impl {
     fn GetName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetFlags(&self) -> windows_core::Result<super::LONG>;
     fn GetValue(&self, r#type: super::LONG, flags: super::LONG) -> windows_core::Result<super::VARIANT>;
-    fn Skip(&self, celt: super::LONG) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
+    fn Skip(&self, celt: super::LONG) -> windows_core::HRESULT;
+    fn Reset(&self) -> windows_core::HRESULT;
     fn Clone(&self) -> windows_core::Result<IEnumCERTVIEWEXTENSION>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -887,13 +887,13 @@ impl IEnumCERTVIEWEXTENSION_Vtbl {
         unsafe extern "system" fn Skip<Identity: IEnumCERTVIEWEXTENSION_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumCERTVIEWEXTENSION_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+                IEnumCERTVIEWEXTENSION_Impl::Skip(this, core::mem::transmute_copy(&celt))
             }
         }
         unsafe extern "system" fn Reset<Identity: IEnumCERTVIEWEXTENSION_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumCERTVIEWEXTENSION_Impl::Reset(this).into()
+                IEnumCERTVIEWEXTENSION_Impl::Reset(this)
             }
         }
         unsafe extern "system" fn Clone<Identity: IEnumCERTVIEWEXTENSION_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -923,7 +923,7 @@ impl IEnumCERTVIEWEXTENSION_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IEnumCERTVIEWEXTENSION as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IEnumCERTVIEWEXTENSION as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1024,8 +1024,8 @@ pub trait IEnumCERTVIEWROW_Impl: super::IDispatch_Impl {
     fn EnumCertViewColumn(&self) -> windows_core::Result<IEnumCERTVIEWCOLUMN>;
     fn EnumCertViewAttribute(&self, flags: super::LONG) -> windows_core::Result<IEnumCERTVIEWATTRIBUTE>;
     fn EnumCertViewExtension(&self, flags: super::LONG) -> windows_core::Result<IEnumCERTVIEWEXTENSION>;
-    fn Skip(&self, celt: super::LONG) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
+    fn Skip(&self, celt: super::LONG) -> windows_core::HRESULT;
+    fn Reset(&self) -> windows_core::HRESULT;
     fn Clone(&self) -> windows_core::Result<IEnumCERTVIEWROW>;
     fn GetMaxIndex(&self) -> windows_core::Result<super::LONG>;
 }
@@ -1095,13 +1095,13 @@ impl IEnumCERTVIEWROW_Vtbl {
         unsafe extern "system" fn Skip<Identity: IEnumCERTVIEWROW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumCERTVIEWROW_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+                IEnumCERTVIEWROW_Impl::Skip(this, core::mem::transmute_copy(&celt))
             }
         }
         unsafe extern "system" fn Reset<Identity: IEnumCERTVIEWROW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumCERTVIEWROW_Impl::Reset(this).into()
+                IEnumCERTVIEWROW_Impl::Reset(this)
             }
         }
         unsafe extern "system" fn Clone<Identity: IEnumCERTVIEWROW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1147,7 +1147,7 @@ impl IEnumCERTVIEWROW_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IEnumCERTVIEWROW as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IEnumCERTVIEWROW as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]

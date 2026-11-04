@@ -59,11 +59,11 @@ pub struct ICompositionDrawingSurfaceInterop_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
 pub trait ICompositionDrawingSurfaceInterop_Impl: windows_core::IUnknownImpl {
     fn BeginDraw(&self, updaterect: *const super::RECT, iid: *const super::IID, updateobject: *mut *mut core::ffi::c_void, updateoffset: *mut super::POINT) -> windows_core::Result<()>;
-    fn EndDraw(&self) -> windows_core::Result<()>;
-    fn Resize(&self, sizepixels: &super::SIZE) -> windows_core::Result<()>;
-    fn Scroll(&self, scrollrect: *const super::RECT, cliprect: *const super::RECT, offsetx: i32, offsety: i32) -> windows_core::Result<()>;
-    fn ResumeDraw(&self) -> windows_core::Result<()>;
-    fn SuspendDraw(&self) -> windows_core::Result<()>;
+    fn EndDraw(&self) -> windows_core::HRESULT;
+    fn Resize(&self, sizepixels: &super::SIZE) -> windows_core::HRESULT;
+    fn Scroll(&self, scrollrect: *const super::RECT, cliprect: *const super::RECT, offsetx: i32, offsety: i32) -> windows_core::HRESULT;
+    fn ResumeDraw(&self) -> windows_core::HRESULT;
+    fn SuspendDraw(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
 impl ICompositionDrawingSurfaceInterop_Vtbl {
@@ -77,31 +77,31 @@ impl ICompositionDrawingSurfaceInterop_Vtbl {
         unsafe extern "system" fn EndDraw<Identity: ICompositionDrawingSurfaceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICompositionDrawingSurfaceInterop_Impl::EndDraw(this).into()
+                ICompositionDrawingSurfaceInterop_Impl::EndDraw(this)
             }
         }
         unsafe extern "system" fn Resize<Identity: ICompositionDrawingSurfaceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sizepixels: super::SIZE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICompositionDrawingSurfaceInterop_Impl::Resize(this, core::mem::transmute(&sizepixels)).into()
+                ICompositionDrawingSurfaceInterop_Impl::Resize(this, core::mem::transmute(&sizepixels))
             }
         }
         unsafe extern "system" fn Scroll<Identity: ICompositionDrawingSurfaceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scrollrect: *const super::RECT, cliprect: *const super::RECT, offsetx: i32, offsety: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICompositionDrawingSurfaceInterop_Impl::Scroll(this, core::mem::transmute_copy(&scrollrect), core::mem::transmute_copy(&cliprect), core::mem::transmute_copy(&offsetx), core::mem::transmute_copy(&offsety)).into()
+                ICompositionDrawingSurfaceInterop_Impl::Scroll(this, core::mem::transmute_copy(&scrollrect), core::mem::transmute_copy(&cliprect), core::mem::transmute_copy(&offsetx), core::mem::transmute_copy(&offsety))
             }
         }
         unsafe extern "system" fn ResumeDraw<Identity: ICompositionDrawingSurfaceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICompositionDrawingSurfaceInterop_Impl::ResumeDraw(this).into()
+                ICompositionDrawingSurfaceInterop_Impl::ResumeDraw(this)
             }
         }
         unsafe extern "system" fn SuspendDraw<Identity: ICompositionDrawingSurfaceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICompositionDrawingSurfaceInterop_Impl::SuspendDraw(this).into()
+                ICompositionDrawingSurfaceInterop_Impl::SuspendDraw(this)
             }
         }
         Self {
@@ -148,7 +148,7 @@ pub struct ICompositionDrawingSurfaceInterop2_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
 pub trait ICompositionDrawingSurfaceInterop2_Impl: ICompositionDrawingSurfaceInterop_Impl {
-    fn CopySurface(&self, destinationresource: windows_core::Ref<windows_core::IUnknown>, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: *const super::RECT) -> windows_core::Result<()>;
+    fn CopySurface(&self, destinationresource: windows_core::Ref<windows_core::IUnknown>, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: *const super::RECT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
 impl ICompositionDrawingSurfaceInterop2_Vtbl {
@@ -156,13 +156,13 @@ impl ICompositionDrawingSurfaceInterop2_Vtbl {
         unsafe extern "system" fn CopySurface<Identity: ICompositionDrawingSurfaceInterop2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationresource: *mut core::ffi::c_void, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: *const super::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICompositionDrawingSurfaceInterop2_Impl::CopySurface(this, core::mem::transmute_copy(&destinationresource), core::mem::transmute_copy(&destinationoffsetx), core::mem::transmute_copy(&destinationoffsety), core::mem::transmute_copy(&sourcerectangle)).into()
+                ICompositionDrawingSurfaceInterop2_Impl::CopySurface(this, core::mem::transmute_copy(&destinationresource), core::mem::transmute_copy(&destinationoffsetx), core::mem::transmute_copy(&destinationoffsety), core::mem::transmute_copy(&sourcerectangle))
             }
         }
         Self { base__: ICompositionDrawingSurfaceInterop_Vtbl::new::<Identity, OFFSET>(), CopySurface: CopySurface::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICompositionDrawingSurfaceInterop2 as windows_core::Interface>::IID || iid == &<ICompositionDrawingSurfaceInterop as windows_core::Interface>::IID
+        iid == &<ICompositionDrawingSurfaceInterop2 as windows_core::Interface>::IID || ICompositionDrawingSurfaceInterop_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
@@ -192,7 +192,7 @@ pub struct ICompositionGraphicsDeviceInterop_Vtbl {
 }
 pub trait ICompositionGraphicsDeviceInterop_Impl: windows_core::IUnknownImpl {
     fn GetRenderingDevice(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn SetRenderingDevice(&self, value: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetRenderingDevice(&self, value: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
 }
 impl ICompositionGraphicsDeviceInterop_Vtbl {
     pub const fn new<Identity: ICompositionGraphicsDeviceInterop_Impl, const OFFSET: isize>() -> Self {
@@ -214,7 +214,7 @@ impl ICompositionGraphicsDeviceInterop_Vtbl {
         unsafe extern "system" fn SetRenderingDevice<Identity: ICompositionGraphicsDeviceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICompositionGraphicsDeviceInterop_Impl::SetRenderingDevice(this, core::mem::transmute_copy(&value)).into()
+                ICompositionGraphicsDeviceInterop_Impl::SetRenderingDevice(this, core::mem::transmute_copy(&value))
             }
         }
         Self {
@@ -247,7 +247,7 @@ pub struct ICompositionTextureInterop_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait ICompositionTextureInterop_Impl: windows_core::IUnknownImpl {
-    fn GetAvailableFence(&self, fencevalue: *mut super::UINT64, iid: *const super::IID, availablefence: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetAvailableFence(&self, fencevalue: *mut super::UINT64, iid: *const super::IID, availablefence: *mut *mut core::ffi::c_void) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 impl ICompositionTextureInterop_Vtbl {
@@ -255,7 +255,7 @@ impl ICompositionTextureInterop_Vtbl {
         unsafe extern "system" fn GetAvailableFence<Identity: ICompositionTextureInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fencevalue: *mut super::UINT64, iid: *const super::IID, availablefence: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICompositionTextureInterop_Impl::GetAvailableFence(this, core::mem::transmute_copy(&fencevalue), core::mem::transmute_copy(&iid), core::mem::transmute_copy(&availablefence)).into()
+                ICompositionTextureInterop_Impl::GetAvailableFence(this, core::mem::transmute_copy(&fencevalue), core::mem::transmute_copy(&iid), core::mem::transmute_copy(&availablefence))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetAvailableFence: GetAvailableFence::<Identity, OFFSET> }
@@ -334,7 +334,7 @@ pub struct IDesktopWindowTargetInterop_Vtbl {
 }
 #[cfg(feature = "windef")]
 pub trait IDesktopWindowTargetInterop_Impl: windows_core::IUnknownImpl {
-    fn get_Hwnd(&self, value: *mut super::HWND) -> windows_core::Result<()>;
+    fn get_Hwnd(&self, value: *mut super::HWND) -> windows_core::HRESULT;
 }
 #[cfg(feature = "windef")]
 impl IDesktopWindowTargetInterop_Vtbl {
@@ -342,7 +342,7 @@ impl IDesktopWindowTargetInterop_Vtbl {
         unsafe extern "system" fn get_Hwnd<Identity: IDesktopWindowTargetInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut super::HWND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDesktopWindowTargetInterop_Impl::get_Hwnd(this, core::mem::transmute_copy(&value)).into()
+                IDesktopWindowTargetInterop_Impl::get_Hwnd(this, core::mem::transmute_copy(&value))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), get_Hwnd: get_Hwnd::<Identity, OFFSET> }
@@ -372,7 +372,7 @@ pub struct IVisualInteractionSourceInterop_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub trait IVisualInteractionSourceInterop_Impl: windows_core::IUnknownImpl {
-    fn TryRedirectForManipulation(&self, pointerinfo: *const super::POINTER_INFO) -> windows_core::Result<()>;
+    fn TryRedirectForManipulation(&self, pointerinfo: *const super::POINTER_INFO) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl IVisualInteractionSourceInterop_Vtbl {
@@ -380,7 +380,7 @@ impl IVisualInteractionSourceInterop_Vtbl {
         unsafe extern "system" fn TryRedirectForManipulation<Identity: IVisualInteractionSourceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pointerinfo: *const super::POINTER_INFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVisualInteractionSourceInterop_Impl::TryRedirectForManipulation(this, core::mem::transmute_copy(&pointerinfo)).into()
+                IVisualInteractionSourceInterop_Impl::TryRedirectForManipulation(this, core::mem::transmute_copy(&pointerinfo))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), TryRedirectForManipulation: TryRedirectForManipulation::<Identity, OFFSET> }

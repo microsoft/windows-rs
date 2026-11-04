@@ -1,11 +1,6 @@
 #![doc = include_str!("../readme.md")]
 
-#[expect(
-    non_snake_case,
-    non_upper_case_globals,
-    non_camel_case_types,
-    clippy::upper_case_acronyms
-)]
+#[expect(non_snake_case, non_upper_case_globals, clippy::upper_case_acronyms)]
 mod bindings;
 mod dialog;
 mod filter;

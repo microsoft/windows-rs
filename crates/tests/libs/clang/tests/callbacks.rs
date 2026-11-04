@@ -5,6 +5,88 @@ use windows_metadata::{HasAttributes, Type, Value, reader};
 const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
 
 #[test]
+fn preserve_result_references() {
+    helpers::ensure_libclang();
+    let dir = std::path::Path::new(env!("OUT_DIR")).join("preserve_result_references");
+    std::fs::create_dir_all(&dir).unwrap();
+    let winmd = dir.join("reference.winmd");
+    for marked_reference in [false, true] {
+        let attribute = if marked_reference {
+            "#[preserve_sig]"
+        } else {
+            ""
+        };
+        windows_rdl::reader()
+            .input_text(&format!(
+                "#[win32] mod Reference {{
+                    {attribute} extern fn Callback(value: *mut i32) -> i32;
+                }}"
+            ))
+            .output(&winmd)
+            .write()
+            .unwrap();
+        let index = reader::Index::read(&winmd).unwrap();
+        let references = projection::References::new(&index);
+        let options = projection::Options {
+            references: Some(&references),
+            ..Default::default()
+        };
+        for declaration in [
+            "typedef _P int (__stdcall *Callback)(int *);",
+            "typedef _P int (__stdcall *Inner)(int *); typedef Inner Callback;",
+            "typedef _P int __stdcall Inner(int *); typedef Inner *Callback;",
+        ] {
+            for marked_header in [false, true] {
+                let attribute = if marked_header {
+                    "__attribute__((annotate(\"Win32Metadata.PreserveResult\")))"
+                } else {
+                    ""
+                };
+                let input = Input {
+                    name: "preserve_result_references.h".into(),
+                    source: format!(
+                        "#define _P {attribute}\n{declaration}\n\
+                         struct Holder {{ Callback callback; }};"
+                    ),
+                    roots: vec!["Holder".into()],
+                    ..Default::default()
+                };
+                let snapshots = capture(std::slice::from_ref(&input), &TARGETS).unwrap();
+                let result = projection::project_with_options(
+                    &merge(&snapshots).unwrap(),
+                    "Consumer",
+                    &options,
+                );
+                let partial = projection::project_partial_with_options(
+                    capture_partial(&[input], &TARGETS).unwrap(),
+                    "Consumer",
+                    &options,
+                )
+                .unwrap();
+                if marked_header && !marked_reference {
+                    let error = result.unwrap_err().to_string();
+                    assert!(error.contains("PreserveSig"), "{error}");
+                    assert!(
+                        partial
+                            .omissions
+                            .iter()
+                            .any(|error| error.contains("PreserveSig")),
+                        "{:?}",
+                        partial.omissions
+                    );
+                    assert_eq!(partial.output.records, 0);
+                } else {
+                    let output = result.unwrap();
+                    assert_eq!(output.records, 1);
+                    assert!(partial.omissions.is_empty(), "{:?}", partial.omissions);
+                    assert_eq!(output, partial.output);
+                }
+            }
+        }
+    }
+}
+
+#[test]
 fn callback_abi_reuse() {
     helpers::ensure_libclang();
     let mut input = selected_fixture(

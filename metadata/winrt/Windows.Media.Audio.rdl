@@ -1230,8 +1230,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(ISpatialAudioFormatSubtypeStatics2, 786432, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(ISpatialAudioFormatSubtypeStatics, 458752, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(ISpatialAudioFormatSubtypeStatics2, 786432, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SpatialAudioFormatSubtype {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]

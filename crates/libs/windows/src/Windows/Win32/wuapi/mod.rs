@@ -82,13 +82,13 @@ pub struct IAutomaticUpdates_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAutomaticUpdates_Impl: super::IDispatch_Impl {
-    fn DetectNow(&self) -> windows_core::Result<()>;
-    fn Pause(&self) -> windows_core::Result<()>;
-    fn Resume(&self) -> windows_core::Result<()>;
-    fn ShowSettingsDialog(&self) -> windows_core::Result<()>;
+    fn DetectNow(&self) -> windows_core::HRESULT;
+    fn Pause(&self) -> windows_core::HRESULT;
+    fn Resume(&self) -> windows_core::HRESULT;
+    fn ShowSettingsDialog(&self) -> windows_core::HRESULT;
     fn Settings(&self) -> windows_core::Result<IAutomaticUpdatesSettings>;
     fn ServiceEnabled(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn EnableService(&self) -> windows_core::Result<()>;
+    fn EnableService(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAutomaticUpdates_Vtbl {
@@ -96,25 +96,25 @@ impl IAutomaticUpdates_Vtbl {
         unsafe extern "system" fn DetectNow<Identity: IAutomaticUpdates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAutomaticUpdates_Impl::DetectNow(this).into()
+                IAutomaticUpdates_Impl::DetectNow(this)
             }
         }
         unsafe extern "system" fn Pause<Identity: IAutomaticUpdates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAutomaticUpdates_Impl::Pause(this).into()
+                IAutomaticUpdates_Impl::Pause(this)
             }
         }
         unsafe extern "system" fn Resume<Identity: IAutomaticUpdates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAutomaticUpdates_Impl::Resume(this).into()
+                IAutomaticUpdates_Impl::Resume(this)
             }
         }
         unsafe extern "system" fn ShowSettingsDialog<Identity: IAutomaticUpdates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAutomaticUpdates_Impl::ShowSettingsDialog(this).into()
+                IAutomaticUpdates_Impl::ShowSettingsDialog(this)
             }
         }
         unsafe extern "system" fn Settings<Identity: IAutomaticUpdates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -150,7 +150,7 @@ impl IAutomaticUpdates_Vtbl {
         unsafe extern "system" fn EnableService<Identity: IAutomaticUpdates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAutomaticUpdates_Impl::EnableService(this).into()
+                IAutomaticUpdates_Impl::EnableService(this)
             }
         }
         Self {
@@ -165,7 +165,7 @@ impl IAutomaticUpdates_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAutomaticUpdates as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IAutomaticUpdates as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -222,7 +222,7 @@ impl IAutomaticUpdates2_Vtbl {
         Self { base__: IAutomaticUpdates_Vtbl::new::<Identity, OFFSET>(), Results: Results::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAutomaticUpdates2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IAutomaticUpdates as windows_core::Interface>::IID
+        iid == &<IAutomaticUpdates2 as windows_core::Interface>::IID || IAutomaticUpdates_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -314,7 +314,7 @@ impl IAutomaticUpdatesResults_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAutomaticUpdatesResults as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IAutomaticUpdatesResults as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -413,15 +413,15 @@ pub struct IAutomaticUpdatesSettings_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAutomaticUpdatesSettings_Impl: super::IDispatch_Impl {
     fn NotificationLevel(&self) -> windows_core::Result<AutomaticUpdatesNotificationLevel>;
-    fn SetNotificationLevel(&self, value: AutomaticUpdatesNotificationLevel) -> windows_core::Result<()>;
+    fn SetNotificationLevel(&self, value: AutomaticUpdatesNotificationLevel) -> windows_core::HRESULT;
     fn ReadOnly(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn Required(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn ScheduledInstallationDay(&self) -> windows_core::Result<AutomaticUpdatesScheduledInstallationDay>;
-    fn SetScheduledInstallationDay(&self, value: AutomaticUpdatesScheduledInstallationDay) -> windows_core::Result<()>;
+    fn SetScheduledInstallationDay(&self, value: AutomaticUpdatesScheduledInstallationDay) -> windows_core::HRESULT;
     fn ScheduledInstallationTime(&self) -> windows_core::Result<super::LONG>;
-    fn SetScheduledInstallationTime(&self, value: super::LONG) -> windows_core::Result<()>;
-    fn Refresh(&self) -> windows_core::Result<()>;
-    fn Save(&self) -> windows_core::Result<()>;
+    fn SetScheduledInstallationTime(&self, value: super::LONG) -> windows_core::HRESULT;
+    fn Refresh(&self) -> windows_core::HRESULT;
+    fn Save(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAutomaticUpdatesSettings_Vtbl {
@@ -444,7 +444,7 @@ impl IAutomaticUpdatesSettings_Vtbl {
         unsafe extern "system" fn SetNotificationLevel<Identity: IAutomaticUpdatesSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: AutomaticUpdatesNotificationLevel) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAutomaticUpdatesSettings_Impl::SetNotificationLevel(this, core::mem::transmute_copy(&value)).into()
+                IAutomaticUpdatesSettings_Impl::SetNotificationLevel(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn ReadOnly<Identity: IAutomaticUpdatesSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -495,7 +495,7 @@ impl IAutomaticUpdatesSettings_Vtbl {
         unsafe extern "system" fn SetScheduledInstallationDay<Identity: IAutomaticUpdatesSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: AutomaticUpdatesScheduledInstallationDay) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAutomaticUpdatesSettings_Impl::SetScheduledInstallationDay(this, core::mem::transmute_copy(&value)).into()
+                IAutomaticUpdatesSettings_Impl::SetScheduledInstallationDay(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn ScheduledInstallationTime<Identity: IAutomaticUpdatesSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::LONG) -> windows_core::HRESULT {
@@ -516,19 +516,19 @@ impl IAutomaticUpdatesSettings_Vtbl {
         unsafe extern "system" fn SetScheduledInstallationTime<Identity: IAutomaticUpdatesSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAutomaticUpdatesSettings_Impl::SetScheduledInstallationTime(this, core::mem::transmute_copy(&value)).into()
+                IAutomaticUpdatesSettings_Impl::SetScheduledInstallationTime(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn Refresh<Identity: IAutomaticUpdatesSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAutomaticUpdatesSettings_Impl::Refresh(this).into()
+                IAutomaticUpdatesSettings_Impl::Refresh(this)
             }
         }
         unsafe extern "system" fn Save<Identity: IAutomaticUpdatesSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAutomaticUpdatesSettings_Impl::Save(this).into()
+                IAutomaticUpdatesSettings_Impl::Save(this)
             }
         }
         Self {
@@ -546,7 +546,7 @@ impl IAutomaticUpdatesSettings_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAutomaticUpdatesSettings as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IAutomaticUpdatesSettings as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -604,7 +604,7 @@ pub struct IAutomaticUpdatesSettings2_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAutomaticUpdatesSettings2_Impl: IAutomaticUpdatesSettings_Impl {
     fn IncludeRecommendedUpdates(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetIncludeRecommendedUpdates(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetIncludeRecommendedUpdates(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn CheckPermission(&self, usertype: AutomaticUpdatesUserType, permissiontype: AutomaticUpdatesPermissionType) -> windows_core::Result<super::VARIANT_BOOL>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -628,7 +628,7 @@ impl IAutomaticUpdatesSettings2_Vtbl {
         unsafe extern "system" fn SetIncludeRecommendedUpdates<Identity: IAutomaticUpdatesSettings2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAutomaticUpdatesSettings2_Impl::SetIncludeRecommendedUpdates(this, core::mem::transmute_copy(&value)).into()
+                IAutomaticUpdatesSettings2_Impl::SetIncludeRecommendedUpdates(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn CheckPermission<Identity: IAutomaticUpdatesSettings2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, usertype: AutomaticUpdatesUserType, permissiontype: AutomaticUpdatesPermissionType, userhaspermission: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -654,7 +654,7 @@ impl IAutomaticUpdatesSettings2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAutomaticUpdatesSettings2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IAutomaticUpdatesSettings as windows_core::Interface>::IID
+        iid == &<IAutomaticUpdatesSettings2 as windows_core::Interface>::IID || IAutomaticUpdatesSettings_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -720,9 +720,9 @@ pub struct IAutomaticUpdatesSettings3_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAutomaticUpdatesSettings3_Impl: IAutomaticUpdatesSettings2_Impl {
     fn NonAdministratorsElevated(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetNonAdministratorsElevated(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetNonAdministratorsElevated(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn FeaturedUpdatesEnabled(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetFeaturedUpdatesEnabled(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetFeaturedUpdatesEnabled(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAutomaticUpdatesSettings3_Vtbl {
@@ -745,7 +745,7 @@ impl IAutomaticUpdatesSettings3_Vtbl {
         unsafe extern "system" fn SetNonAdministratorsElevated<Identity: IAutomaticUpdatesSettings3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAutomaticUpdatesSettings3_Impl::SetNonAdministratorsElevated(this, core::mem::transmute_copy(&value)).into()
+                IAutomaticUpdatesSettings3_Impl::SetNonAdministratorsElevated(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn FeaturedUpdatesEnabled<Identity: IAutomaticUpdatesSettings3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -766,7 +766,7 @@ impl IAutomaticUpdatesSettings3_Vtbl {
         unsafe extern "system" fn SetFeaturedUpdatesEnabled<Identity: IAutomaticUpdatesSettings3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAutomaticUpdatesSettings3_Impl::SetFeaturedUpdatesEnabled(this, core::mem::transmute_copy(&value)).into()
+                IAutomaticUpdatesSettings3_Impl::SetFeaturedUpdatesEnabled(this, core::mem::transmute_copy(&value))
             }
         }
         Self {
@@ -778,7 +778,7 @@ impl IAutomaticUpdatesSettings3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAutomaticUpdatesSettings3 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IAutomaticUpdatesSettings as windows_core::Interface>::IID || iid == &<IAutomaticUpdatesSettings2 as windows_core::Interface>::IID
+        iid == &<IAutomaticUpdatesSettings3 as windows_core::Interface>::IID || IAutomaticUpdatesSettings2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1034,7 +1034,7 @@ impl ICategory_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICategory as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ICategory as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1150,7 +1150,7 @@ impl ICategoryCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICategoryCollection as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ICategoryCollection as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1178,7 +1178,7 @@ pub struct IDownloadCompletedCallback_Vtbl {
 }
 #[cfg(feature = "oaidl")]
 pub trait IDownloadCompletedCallback_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self, downloadjob: windows_core::Ref<IDownloadJob>, callbackargs: windows_core::Ref<IDownloadCompletedCallbackArgs>) -> windows_core::Result<()>;
+    fn Invoke(&self, downloadjob: windows_core::Ref<IDownloadJob>, callbackargs: windows_core::Ref<IDownloadCompletedCallbackArgs>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "oaidl")]
 impl IDownloadCompletedCallback_Vtbl {
@@ -1186,7 +1186,7 @@ impl IDownloadCompletedCallback_Vtbl {
         unsafe extern "system" fn Invoke<Identity: IDownloadCompletedCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, downloadjob: *mut core::ffi::c_void, callbackargs: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDownloadCompletedCallback_Impl::Invoke(this, core::mem::transmute_copy(&downloadjob), core::mem::transmute_copy(&callbackargs)).into()
+                IDownloadCompletedCallback_Impl::Invoke(this, core::mem::transmute_copy(&downloadjob), core::mem::transmute_copy(&callbackargs))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, OFFSET> }
@@ -1222,7 +1222,7 @@ impl IDownloadCompletedCallbackArgs_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDownloadCompletedCallbackArgs as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IDownloadCompletedCallbackArgs as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1296,9 +1296,9 @@ pub trait IDownloadJob_Impl: super::IDispatch_Impl {
     fn AsyncState(&self) -> windows_core::Result<super::VARIANT>;
     fn IsCompleted(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn Updates(&self) -> windows_core::Result<IUpdateCollection>;
-    fn CleanUp(&self) -> windows_core::Result<()>;
+    fn CleanUp(&self) -> windows_core::HRESULT;
     fn GetProgress(&self) -> windows_core::Result<IDownloadProgress>;
-    fn RequestAbort(&self) -> windows_core::Result<()>;
+    fn RequestAbort(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDownloadJob_Vtbl {
@@ -1351,7 +1351,7 @@ impl IDownloadJob_Vtbl {
         unsafe extern "system" fn CleanUp<Identity: IDownloadJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDownloadJob_Impl::CleanUp(this).into()
+                IDownloadJob_Impl::CleanUp(this)
             }
         }
         unsafe extern "system" fn GetProgress<Identity: IDownloadJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1372,7 +1372,7 @@ impl IDownloadJob_Vtbl {
         unsafe extern "system" fn RequestAbort<Identity: IDownloadJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDownloadJob_Impl::RequestAbort(this).into()
+                IDownloadJob_Impl::RequestAbort(this)
             }
         }
         Self {
@@ -1386,7 +1386,7 @@ impl IDownloadJob_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDownloadJob as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IDownloadJob as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1670,7 +1670,7 @@ impl IDownloadProgress_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDownloadProgress as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IDownloadProgress as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1698,7 +1698,7 @@ pub struct IDownloadProgressChangedCallback_Vtbl {
 }
 #[cfg(feature = "oaidl")]
 pub trait IDownloadProgressChangedCallback_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self, downloadjob: windows_core::Ref<IDownloadJob>, callbackargs: windows_core::Ref<IDownloadProgressChangedCallbackArgs>) -> windows_core::Result<()>;
+    fn Invoke(&self, downloadjob: windows_core::Ref<IDownloadJob>, callbackargs: windows_core::Ref<IDownloadProgressChangedCallbackArgs>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "oaidl")]
 impl IDownloadProgressChangedCallback_Vtbl {
@@ -1706,7 +1706,7 @@ impl IDownloadProgressChangedCallback_Vtbl {
         unsafe extern "system" fn Invoke<Identity: IDownloadProgressChangedCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, downloadjob: *mut core::ffi::c_void, callbackargs: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDownloadProgressChangedCallback_Impl::Invoke(this, core::mem::transmute_copy(&downloadjob), core::mem::transmute_copy(&callbackargs)).into()
+                IDownloadProgressChangedCallback_Impl::Invoke(this, core::mem::transmute_copy(&downloadjob), core::mem::transmute_copy(&callbackargs))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, OFFSET> }
@@ -1769,7 +1769,7 @@ impl IDownloadProgressChangedCallbackArgs_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), Progress: Progress::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDownloadProgressChangedCallbackArgs as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IDownloadProgressChangedCallbackArgs as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1885,7 +1885,7 @@ impl IDownloadResult_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDownloadResult as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IDownloadResult as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2103,7 +2103,7 @@ impl IImageInformation_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IImageInformation as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IImageInformation as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2141,7 +2141,7 @@ pub struct IInstallationAgent_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInstallationAgent_Impl: super::IDispatch_Impl {
-    fn RecordInstallationResult(&self, installationresultcookie: &windows_core::BSTR, hresult: super::LONG, extendedreportingdata: windows_core::Ref<IStringCollection>) -> windows_core::Result<()>;
+    fn RecordInstallationResult(&self, installationresultcookie: &windows_core::BSTR, hresult: super::LONG, extendedreportingdata: windows_core::Ref<IStringCollection>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInstallationAgent_Vtbl {
@@ -2149,13 +2149,13 @@ impl IInstallationAgent_Vtbl {
         unsafe extern "system" fn RecordInstallationResult<Identity: IInstallationAgent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, installationresultcookie: *mut core::ffi::c_void, hresult: super::LONG, extendedreportingdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInstallationAgent_Impl::RecordInstallationResult(this, core::mem::transmute(&installationresultcookie), core::mem::transmute_copy(&hresult), core::mem::transmute_copy(&extendedreportingdata)).into()
+                IInstallationAgent_Impl::RecordInstallationResult(this, core::mem::transmute(&installationresultcookie), core::mem::transmute_copy(&hresult), core::mem::transmute_copy(&extendedreportingdata))
             }
         }
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), RecordInstallationResult: RecordInstallationResult::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInstallationAgent as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInstallationAgent as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2295,7 +2295,7 @@ impl IInstallationBehavior_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInstallationBehavior as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInstallationBehavior as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2323,7 +2323,7 @@ pub struct IInstallationCompletedCallback_Vtbl {
 }
 #[cfg(feature = "oaidl")]
 pub trait IInstallationCompletedCallback_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self, installationjob: windows_core::Ref<IInstallationJob>, callbackargs: windows_core::Ref<IInstallationCompletedCallbackArgs>) -> windows_core::Result<()>;
+    fn Invoke(&self, installationjob: windows_core::Ref<IInstallationJob>, callbackargs: windows_core::Ref<IInstallationCompletedCallbackArgs>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "oaidl")]
 impl IInstallationCompletedCallback_Vtbl {
@@ -2331,7 +2331,7 @@ impl IInstallationCompletedCallback_Vtbl {
         unsafe extern "system" fn Invoke<Identity: IInstallationCompletedCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, installationjob: *mut core::ffi::c_void, callbackargs: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInstallationCompletedCallback_Impl::Invoke(this, core::mem::transmute_copy(&installationjob), core::mem::transmute_copy(&callbackargs)).into()
+                IInstallationCompletedCallback_Impl::Invoke(this, core::mem::transmute_copy(&installationjob), core::mem::transmute_copy(&callbackargs))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, OFFSET> }
@@ -2367,7 +2367,7 @@ impl IInstallationCompletedCallbackArgs_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInstallationCompletedCallbackArgs as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInstallationCompletedCallbackArgs as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2441,9 +2441,9 @@ pub trait IInstallationJob_Impl: super::IDispatch_Impl {
     fn AsyncState(&self) -> windows_core::Result<super::VARIANT>;
     fn IsCompleted(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn Updates(&self) -> windows_core::Result<IUpdateCollection>;
-    fn CleanUp(&self) -> windows_core::Result<()>;
+    fn CleanUp(&self) -> windows_core::HRESULT;
     fn GetProgress(&self) -> windows_core::Result<IInstallationProgress>;
-    fn RequestAbort(&self) -> windows_core::Result<()>;
+    fn RequestAbort(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInstallationJob_Vtbl {
@@ -2496,7 +2496,7 @@ impl IInstallationJob_Vtbl {
         unsafe extern "system" fn CleanUp<Identity: IInstallationJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInstallationJob_Impl::CleanUp(this).into()
+                IInstallationJob_Impl::CleanUp(this)
             }
         }
         unsafe extern "system" fn GetProgress<Identity: IInstallationJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2517,7 +2517,7 @@ impl IInstallationJob_Vtbl {
         unsafe extern "system" fn RequestAbort<Identity: IInstallationJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInstallationJob_Impl::RequestAbort(this).into()
+                IInstallationJob_Impl::RequestAbort(this)
             }
         }
         Self {
@@ -2531,7 +2531,7 @@ impl IInstallationJob_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInstallationJob as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInstallationJob as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2679,7 +2679,7 @@ impl IInstallationProgress_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInstallationProgress as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInstallationProgress as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2707,7 +2707,7 @@ pub struct IInstallationProgressChangedCallback_Vtbl {
 }
 #[cfg(feature = "oaidl")]
 pub trait IInstallationProgressChangedCallback_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self, installationjob: windows_core::Ref<IInstallationJob>, callbackargs: windows_core::Ref<IInstallationProgressChangedCallbackArgs>) -> windows_core::Result<()>;
+    fn Invoke(&self, installationjob: windows_core::Ref<IInstallationJob>, callbackargs: windows_core::Ref<IInstallationProgressChangedCallbackArgs>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "oaidl")]
 impl IInstallationProgressChangedCallback_Vtbl {
@@ -2715,7 +2715,7 @@ impl IInstallationProgressChangedCallback_Vtbl {
         unsafe extern "system" fn Invoke<Identity: IInstallationProgressChangedCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, installationjob: *mut core::ffi::c_void, callbackargs: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInstallationProgressChangedCallback_Impl::Invoke(this, core::mem::transmute_copy(&installationjob), core::mem::transmute_copy(&callbackargs)).into()
+                IInstallationProgressChangedCallback_Impl::Invoke(this, core::mem::transmute_copy(&installationjob), core::mem::transmute_copy(&callbackargs))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, OFFSET> }
@@ -2778,7 +2778,7 @@ impl IInstallationProgressChangedCallbackArgs_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), Progress: Progress::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInstallationProgressChangedCallbackArgs as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInstallationProgressChangedCallbackArgs as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2922,7 +2922,7 @@ impl IInstallationResult_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInstallationResult as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IInstallationResult as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2979,7 +2979,7 @@ impl IInvalidProductLicenseException_Vtbl {
         Self { base__: IUpdateException_Vtbl::new::<Identity, OFFSET>(), Product: Product::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInvalidProductLicenseException as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IUpdateException as windows_core::Interface>::IID
+        iid == &<IInvalidProductLicenseException as windows_core::Interface>::IID || IUpdateException_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3007,7 +3007,7 @@ pub struct ISearchCompletedCallback_Vtbl {
 }
 #[cfg(feature = "oaidl")]
 pub trait ISearchCompletedCallback_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self, searchjob: windows_core::Ref<ISearchJob>, callbackargs: windows_core::Ref<ISearchCompletedCallbackArgs>) -> windows_core::Result<()>;
+    fn Invoke(&self, searchjob: windows_core::Ref<ISearchJob>, callbackargs: windows_core::Ref<ISearchCompletedCallbackArgs>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "oaidl")]
 impl ISearchCompletedCallback_Vtbl {
@@ -3015,7 +3015,7 @@ impl ISearchCompletedCallback_Vtbl {
         unsafe extern "system" fn Invoke<Identity: ISearchCompletedCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, searchjob: *mut core::ffi::c_void, callbackargs: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISearchCompletedCallback_Impl::Invoke(this, core::mem::transmute_copy(&searchjob), core::mem::transmute_copy(&callbackargs)).into()
+                ISearchCompletedCallback_Impl::Invoke(this, core::mem::transmute_copy(&searchjob), core::mem::transmute_copy(&callbackargs))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, OFFSET> }
@@ -3051,7 +3051,7 @@ impl ISearchCompletedCallbackArgs_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISearchCompletedCallbackArgs as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISearchCompletedCallbackArgs as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3110,8 +3110,8 @@ pub struct ISearchJob_Vtbl {
 pub trait ISearchJob_Impl: super::IDispatch_Impl {
     fn AsyncState(&self) -> windows_core::Result<super::VARIANT>;
     fn IsCompleted(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn CleanUp(&self) -> windows_core::Result<()>;
-    fn RequestAbort(&self) -> windows_core::Result<()>;
+    fn CleanUp(&self) -> windows_core::HRESULT;
+    fn RequestAbort(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISearchJob_Vtbl {
@@ -3149,13 +3149,13 @@ impl ISearchJob_Vtbl {
         unsafe extern "system" fn CleanUp<Identity: ISearchJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISearchJob_Impl::CleanUp(this).into()
+                ISearchJob_Impl::CleanUp(this)
             }
         }
         unsafe extern "system" fn RequestAbort<Identity: ISearchJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISearchJob_Impl::RequestAbort(this).into()
+                ISearchJob_Impl::RequestAbort(this)
             }
         }
         Self {
@@ -3167,7 +3167,7 @@ impl ISearchJob_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISearchJob as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISearchJob as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3299,7 +3299,7 @@ impl ISearchResult_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISearchResult as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISearchResult as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3413,15 +3413,15 @@ pub struct IStringCollection_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IStringCollection_Impl: super::IDispatch_Impl {
     fn Item(&self, index: super::LONG) -> windows_core::Result<windows_core::BSTR>;
-    fn SetItem(&self, index: super::LONG, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetItem(&self, index: super::LONG, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Count(&self) -> windows_core::Result<super::LONG>;
     fn ReadOnly(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn Add(&self, value: &windows_core::BSTR) -> windows_core::Result<super::LONG>;
-    fn Clear(&self) -> windows_core::Result<()>;
+    fn Clear(&self) -> windows_core::HRESULT;
     fn Copy(&self) -> windows_core::Result<IStringCollection>;
-    fn Insert(&self, index: super::LONG, value: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn RemoveAt(&self, index: super::LONG) -> windows_core::Result<()>;
+    fn Insert(&self, index: super::LONG, value: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn RemoveAt(&self, index: super::LONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IStringCollection_Vtbl {
@@ -3444,7 +3444,7 @@ impl IStringCollection_Vtbl {
         unsafe extern "system" fn SetItem<Identity: IStringCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::LONG, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStringCollection_Impl::SetItem(this, core::mem::transmute_copy(&index), core::mem::transmute(&value)).into()
+                IStringCollection_Impl::SetItem(this, core::mem::transmute_copy(&index), core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn _NewEnum<Identity: IStringCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3510,7 +3510,7 @@ impl IStringCollection_Vtbl {
         unsafe extern "system" fn Clear<Identity: IStringCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStringCollection_Impl::Clear(this).into()
+                IStringCollection_Impl::Clear(this)
             }
         }
         unsafe extern "system" fn Copy<Identity: IStringCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3531,13 +3531,13 @@ impl IStringCollection_Vtbl {
         unsafe extern "system" fn Insert<Identity: IStringCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::LONG, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStringCollection_Impl::Insert(this, core::mem::transmute_copy(&index), core::mem::transmute(&value)).into()
+                IStringCollection_Impl::Insert(this, core::mem::transmute_copy(&index), core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn RemoveAt<Identity: IStringCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStringCollection_Impl::RemoveAt(this, core::mem::transmute_copy(&index)).into()
+                IStringCollection_Impl::RemoveAt(this, core::mem::transmute_copy(&index))
             }
         }
         Self {
@@ -3555,7 +3555,7 @@ impl IStringCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IStringCollection as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IStringCollection as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3643,7 +3643,7 @@ impl ISystemInformation_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISystemInformation as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISystemInformation as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4074,7 +4074,7 @@ pub trait IUpdate_Impl: super::IDispatch_Impl {
     fn IsBeta(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn IsDownloaded(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn IsHidden(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetIsHidden(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetIsHidden(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn IsInstalled(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn IsMandatory(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn IsUninstallable(&self) -> windows_core::Result<super::VARIANT_BOOL>;
@@ -4096,9 +4096,9 @@ pub trait IUpdate_Impl: super::IDispatch_Impl {
     fn UninstallationBehavior(&self) -> windows_core::Result<IInstallationBehavior>;
     fn UninstallationSteps(&self) -> windows_core::Result<IStringCollection>;
     fn KBArticleIDs(&self) -> windows_core::Result<IStringCollection>;
-    fn AcceptEula(&self) -> windows_core::Result<()>;
+    fn AcceptEula(&self) -> windows_core::HRESULT;
     fn DeploymentAction(&self) -> windows_core::Result<DeploymentAction>;
-    fn CopyFromCache(&self, path: &windows_core::BSTR, toextractcabfiles: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn CopyFromCache(&self, path: &windows_core::BSTR, toextractcabfiles: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn DownloadPriority(&self) -> windows_core::Result<DownloadPriority>;
     fn DownloadContents(&self) -> windows_core::Result<IUpdateDownloadContentCollection>;
 }
@@ -4378,7 +4378,7 @@ impl IUpdate_Vtbl {
         unsafe extern "system" fn SetIsHidden<Identity: IUpdate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdate_Impl::SetIsHidden(this, core::mem::transmute_copy(&value)).into()
+                IUpdate_Impl::SetIsHidden(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn IsInstalled<Identity: IUpdate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -4699,7 +4699,7 @@ impl IUpdate_Vtbl {
         unsafe extern "system" fn AcceptEula<Identity: IUpdate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdate_Impl::AcceptEula(this).into()
+                IUpdate_Impl::AcceptEula(this)
             }
         }
         unsafe extern "system" fn DeploymentAction<Identity: IUpdate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut DeploymentAction) -> windows_core::HRESULT {
@@ -4720,7 +4720,7 @@ impl IUpdate_Vtbl {
         unsafe extern "system" fn CopyFromCache<Identity: IUpdate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut core::ffi::c_void, toextractcabfiles: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdate_Impl::CopyFromCache(this, core::mem::transmute(&path), core::mem::transmute_copy(&toextractcabfiles)).into()
+                IUpdate_Impl::CopyFromCache(this, core::mem::transmute(&path), core::mem::transmute_copy(&toextractcabfiles))
             }
         }
         unsafe extern "system" fn DownloadPriority<Identity: IUpdate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut DownloadPriority) -> windows_core::HRESULT {
@@ -4803,7 +4803,7 @@ impl IUpdate_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdate as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IUpdate as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4869,7 +4869,7 @@ pub trait IUpdate2_Impl: IUpdate_Impl {
     fn RebootRequired(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn IsPresent(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn CveIDs(&self) -> windows_core::Result<IStringCollection>;
-    fn CopyToCache(&self, pfiles: windows_core::Ref<IStringCollection>) -> windows_core::Result<()>;
+    fn CopyToCache(&self, pfiles: windows_core::Ref<IStringCollection>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IUpdate2_Vtbl {
@@ -4922,7 +4922,7 @@ impl IUpdate2_Vtbl {
         unsafe extern "system" fn CopyToCache<Identity: IUpdate2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfiles: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdate2_Impl::CopyToCache(this, core::mem::transmute_copy(&pfiles)).into()
+                IUpdate2_Impl::CopyToCache(this, core::mem::transmute_copy(&pfiles))
             }
         }
         Self {
@@ -4934,7 +4934,7 @@ impl IUpdate2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdate2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IUpdate as windows_core::Interface>::IID
+        iid == &<IUpdate2 as windows_core::Interface>::IID || IUpdate_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4995,7 +4995,7 @@ impl IUpdate3_Vtbl {
         Self { base__: IUpdate2_Vtbl::new::<Identity, OFFSET>(), BrowseOnly: BrowseOnly::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdate3 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IUpdate as windows_core::Interface>::IID || iid == &<IUpdate2 as windows_core::Interface>::IID
+        iid == &<IUpdate3 as windows_core::Interface>::IID || IUpdate2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -5056,7 +5056,7 @@ impl IUpdate4_Vtbl {
         Self { base__: IUpdate3_Vtbl::new::<Identity, OFFSET>(), PerUser: PerUser::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdate4 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IUpdate as windows_core::Interface>::IID || iid == &<IUpdate2 as windows_core::Interface>::IID || iid == &<IUpdate3 as windows_core::Interface>::IID
+        iid == &<IUpdate4 as windows_core::Interface>::IID || IUpdate3_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -5140,7 +5140,7 @@ impl IUpdate5_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdate5 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IUpdate as windows_core::Interface>::IID || iid == &<IUpdate2 as windows_core::Interface>::IID || iid == &<IUpdate3 as windows_core::Interface>::IID || iid == &<IUpdate4 as windows_core::Interface>::IID
+        iid == &<IUpdate5 as windows_core::Interface>::IID || IUpdate4_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -5263,15 +5263,15 @@ pub struct IUpdateCollection_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUpdateCollection_Impl: super::IDispatch_Impl {
     fn Item(&self, index: super::LONG) -> windows_core::Result<IUpdate>;
-    fn SetItem(&self, index: super::LONG, value: windows_core::Ref<IUpdate>) -> windows_core::Result<()>;
+    fn SetItem(&self, index: super::LONG, value: windows_core::Ref<IUpdate>) -> windows_core::HRESULT;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Count(&self) -> windows_core::Result<super::LONG>;
     fn ReadOnly(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn Add(&self, value: windows_core::Ref<IUpdate>) -> windows_core::Result<super::LONG>;
-    fn Clear(&self) -> windows_core::Result<()>;
+    fn Clear(&self) -> windows_core::HRESULT;
     fn Copy(&self) -> windows_core::Result<IUpdateCollection>;
-    fn Insert(&self, index: super::LONG, value: windows_core::Ref<IUpdate>) -> windows_core::Result<()>;
-    fn RemoveAt(&self, index: super::LONG) -> windows_core::Result<()>;
+    fn Insert(&self, index: super::LONG, value: windows_core::Ref<IUpdate>) -> windows_core::HRESULT;
+    fn RemoveAt(&self, index: super::LONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IUpdateCollection_Vtbl {
@@ -5294,7 +5294,7 @@ impl IUpdateCollection_Vtbl {
         unsafe extern "system" fn SetItem<Identity: IUpdateCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::LONG, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateCollection_Impl::SetItem(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&value)).into()
+                IUpdateCollection_Impl::SetItem(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn _NewEnum<Identity: IUpdateCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5360,7 +5360,7 @@ impl IUpdateCollection_Vtbl {
         unsafe extern "system" fn Clear<Identity: IUpdateCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateCollection_Impl::Clear(this).into()
+                IUpdateCollection_Impl::Clear(this)
             }
         }
         unsafe extern "system" fn Copy<Identity: IUpdateCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5381,13 +5381,13 @@ impl IUpdateCollection_Vtbl {
         unsafe extern "system" fn Insert<Identity: IUpdateCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::LONG, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateCollection_Impl::Insert(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&value)).into()
+                IUpdateCollection_Impl::Insert(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn RemoveAt<Identity: IUpdateCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateCollection_Impl::RemoveAt(this, core::mem::transmute_copy(&index)).into()
+                IUpdateCollection_Impl::RemoveAt(this, core::mem::transmute_copy(&index))
             }
         }
         Self {
@@ -5405,7 +5405,7 @@ impl IUpdateCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdateCollection as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IUpdateCollection as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -5462,7 +5462,7 @@ impl IUpdateDownloadContent_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), DownloadUrl: DownloadUrl::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdateDownloadContent as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IUpdateDownloadContent as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -5523,7 +5523,7 @@ impl IUpdateDownloadContent2_Vtbl {
         Self { base__: IUpdateDownloadContent_Vtbl::new::<Identity, OFFSET>(), IsDeltaCompressedContent: IsDeltaCompressedContent::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdateDownloadContent2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IUpdateDownloadContent as windows_core::Interface>::IID
+        iid == &<IUpdateDownloadContent2 as windows_core::Interface>::IID || IUpdateDownloadContent_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -5639,7 +5639,7 @@ impl IUpdateDownloadContentCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdateDownloadContentCollection as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IUpdateDownloadContentCollection as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -5723,7 +5723,7 @@ impl IUpdateDownloadResult_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), HResult: HResult::<Identity, OFFSET>, ResultCode: ResultCode::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdateDownloadResult as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IUpdateDownloadResult as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -5838,13 +5838,13 @@ pub struct IUpdateDownloader_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUpdateDownloader_Impl: super::IDispatch_Impl {
     fn ClientApplicationID(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn IsForced(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetIsForced(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetIsForced(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn Priority(&self) -> windows_core::Result<DownloadPriority>;
-    fn SetPriority(&self, value: DownloadPriority) -> windows_core::Result<()>;
+    fn SetPriority(&self, value: DownloadPriority) -> windows_core::HRESULT;
     fn Updates(&self) -> windows_core::Result<IUpdateCollection>;
-    fn SetUpdates(&self, value: windows_core::Ref<IUpdateCollection>) -> windows_core::Result<()>;
+    fn SetUpdates(&self, value: windows_core::Ref<IUpdateCollection>) -> windows_core::HRESULT;
     fn BeginDownload(&self, onprogresschanged: windows_core::Ref<windows_core::IUnknown>, oncompleted: windows_core::Ref<windows_core::IUnknown>, state: &super::VARIANT) -> windows_core::Result<IDownloadJob>;
     fn Download(&self) -> windows_core::Result<IDownloadResult>;
     fn EndDownload(&self, value: windows_core::Ref<IDownloadJob>) -> windows_core::Result<IDownloadResult>;
@@ -5870,7 +5870,7 @@ impl IUpdateDownloader_Vtbl {
         unsafe extern "system" fn SetClientApplicationID<Identity: IUpdateDownloader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateDownloader_Impl::SetClientApplicationID(this, core::mem::transmute(&value)).into()
+                IUpdateDownloader_Impl::SetClientApplicationID(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn IsForced<Identity: IUpdateDownloader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -5891,7 +5891,7 @@ impl IUpdateDownloader_Vtbl {
         unsafe extern "system" fn SetIsForced<Identity: IUpdateDownloader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateDownloader_Impl::SetIsForced(this, core::mem::transmute_copy(&value)).into()
+                IUpdateDownloader_Impl::SetIsForced(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn Priority<Identity: IUpdateDownloader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut DownloadPriority) -> windows_core::HRESULT {
@@ -5912,7 +5912,7 @@ impl IUpdateDownloader_Vtbl {
         unsafe extern "system" fn SetPriority<Identity: IUpdateDownloader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: DownloadPriority) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateDownloader_Impl::SetPriority(this, core::mem::transmute_copy(&value)).into()
+                IUpdateDownloader_Impl::SetPriority(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn Updates<Identity: IUpdateDownloader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5933,7 +5933,7 @@ impl IUpdateDownloader_Vtbl {
         unsafe extern "system" fn SetUpdates<Identity: IUpdateDownloader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateDownloader_Impl::SetUpdates(this, core::mem::transmute_copy(&value)).into()
+                IUpdateDownloader_Impl::SetUpdates(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn BeginDownload<Identity: IUpdateDownloader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, onprogresschanged: *mut core::ffi::c_void, oncompleted: *mut core::ffi::c_void, state: super::VARIANT, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5997,7 +5997,7 @@ impl IUpdateDownloader_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdateDownloader as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IUpdateDownloader as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6089,7 +6089,7 @@ impl IUpdateDownloaderEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdateDownloaderEx as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IUpdateDownloader as windows_core::Interface>::IID
+        iid == &<IUpdateDownloaderEx as windows_core::Interface>::IID || IUpdateDownloader_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6181,7 +6181,7 @@ impl IUpdateEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdateEx as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IUpdate as windows_core::Interface>::IID || iid == &<IUpdate2 as windows_core::Interface>::IID || iid == &<IUpdate3 as windows_core::Interface>::IID || iid == &<IUpdate4 as windows_core::Interface>::IID || iid == &<IUpdate5 as windows_core::Interface>::IID
+        iid == &<IUpdateEx as windows_core::Interface>::IID || IUpdate5_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6293,7 +6293,7 @@ impl IUpdateException_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdateException as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IUpdateException as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6409,7 +6409,7 @@ impl IUpdateExceptionCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdateExceptionCollection as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IUpdateExceptionCollection as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6793,7 +6793,7 @@ impl IUpdateHistoryEntry_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdateHistoryEntry as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IUpdateHistoryEntry as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6850,7 +6850,7 @@ impl IUpdateHistoryEntry2_Vtbl {
         Self { base__: IUpdateHistoryEntry_Vtbl::new::<Identity, OFFSET>(), Categories: Categories::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdateHistoryEntry2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IUpdateHistoryEntry as windows_core::Interface>::IID
+        iid == &<IUpdateHistoryEntry2 as windows_core::Interface>::IID || IUpdateHistoryEntry_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6966,7 +6966,7 @@ impl IUpdateHistoryEntryCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdateHistoryEntryCollection as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IUpdateHistoryEntryCollection as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7054,7 +7054,7 @@ impl IUpdateIdentity_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdateIdentity as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IUpdateIdentity as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7170,7 +7170,7 @@ impl IUpdateInstallationResult_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdateInstallationResult as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IUpdateInstallationResult as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7387,15 +7387,15 @@ pub struct IUpdateInstaller_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUpdateInstaller_Impl: super::IDispatch_Impl {
     fn ClientApplicationID(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn IsForced(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetIsForced(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetIsForced(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn ParentHwnd(&self) -> windows_core::Result<super::HWND>;
-    fn SetParentHwnd(&self, value: super::HWND) -> windows_core::Result<()>;
-    fn SetParentWindow(&self, value: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetParentHwnd(&self, value: super::HWND) -> windows_core::HRESULT;
+    fn SetParentWindow(&self, value: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
     fn ParentWindow(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Updates(&self) -> windows_core::Result<IUpdateCollection>;
-    fn SetUpdates(&self, value: windows_core::Ref<IUpdateCollection>) -> windows_core::Result<()>;
+    fn SetUpdates(&self, value: windows_core::Ref<IUpdateCollection>) -> windows_core::HRESULT;
     fn BeginInstall(&self, onprogresschanged: windows_core::Ref<windows_core::IUnknown>, oncompleted: windows_core::Ref<windows_core::IUnknown>, state: &super::VARIANT) -> windows_core::Result<IInstallationJob>;
     fn BeginUninstall(&self, onprogresschanged: windows_core::Ref<windows_core::IUnknown>, oncompleted: windows_core::Ref<windows_core::IUnknown>, state: &super::VARIANT) -> windows_core::Result<IInstallationJob>;
     fn EndInstall(&self, value: windows_core::Ref<IInstallationJob>) -> windows_core::Result<IInstallationResult>;
@@ -7405,7 +7405,7 @@ pub trait IUpdateInstaller_Impl: super::IDispatch_Impl {
     fn IsBusy(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn Uninstall(&self) -> windows_core::Result<IInstallationResult>;
     fn AllowSourcePrompts(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetAllowSourcePrompts(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetAllowSourcePrompts(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn RebootRequiredBeforeInstallation(&self) -> windows_core::Result<super::VARIANT_BOOL>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7429,7 +7429,7 @@ impl IUpdateInstaller_Vtbl {
         unsafe extern "system" fn SetClientApplicationID<Identity: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateInstaller_Impl::SetClientApplicationID(this, core::mem::transmute(&value)).into()
+                IUpdateInstaller_Impl::SetClientApplicationID(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn IsForced<Identity: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -7450,7 +7450,7 @@ impl IUpdateInstaller_Vtbl {
         unsafe extern "system" fn SetIsForced<Identity: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateInstaller_Impl::SetIsForced(this, core::mem::transmute_copy(&value)).into()
+                IUpdateInstaller_Impl::SetIsForced(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn ParentHwnd<Identity: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::HWND) -> windows_core::HRESULT {
@@ -7471,13 +7471,13 @@ impl IUpdateInstaller_Vtbl {
         unsafe extern "system" fn SetParentHwnd<Identity: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::HWND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateInstaller_Impl::SetParentHwnd(this, core::mem::transmute_copy(&value)).into()
+                IUpdateInstaller_Impl::SetParentHwnd(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn SetParentWindow<Identity: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateInstaller_Impl::SetParentWindow(this, core::mem::transmute_copy(&value)).into()
+                IUpdateInstaller_Impl::SetParentWindow(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn ParentWindow<Identity: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7513,7 +7513,7 @@ impl IUpdateInstaller_Vtbl {
         unsafe extern "system" fn SetUpdates<Identity: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateInstaller_Impl::SetUpdates(this, core::mem::transmute_copy(&value)).into()
+                IUpdateInstaller_Impl::SetUpdates(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn BeginInstall<Identity: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, onprogresschanged: *mut core::ffi::c_void, oncompleted: *mut core::ffi::c_void, state: super::VARIANT, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7654,7 +7654,7 @@ impl IUpdateInstaller_Vtbl {
         unsafe extern "system" fn SetAllowSourcePrompts<Identity: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateInstaller_Impl::SetAllowSourcePrompts(this, core::mem::transmute_copy(&value)).into()
+                IUpdateInstaller_Impl::SetAllowSourcePrompts(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn RebootRequiredBeforeInstallation<Identity: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -7698,7 +7698,7 @@ impl IUpdateInstaller_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdateInstaller as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IUpdateInstaller as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7745,7 +7745,7 @@ pub struct IUpdateInstaller2_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUpdateInstaller2_Impl: IUpdateInstaller_Impl {
     fn ForceQuiet(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetForceQuiet(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetForceQuiet(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IUpdateInstaller2_Vtbl {
@@ -7768,7 +7768,7 @@ impl IUpdateInstaller2_Vtbl {
         unsafe extern "system" fn SetForceQuiet<Identity: IUpdateInstaller2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateInstaller2_Impl::SetForceQuiet(this, core::mem::transmute_copy(&value)).into()
+                IUpdateInstaller2_Impl::SetForceQuiet(this, core::mem::transmute_copy(&value))
             }
         }
         Self {
@@ -7778,7 +7778,7 @@ impl IUpdateInstaller2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdateInstaller2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IUpdateInstaller as windows_core::Interface>::IID
+        iid == &<IUpdateInstaller2 as windows_core::Interface>::IID || IUpdateInstaller_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7825,7 +7825,7 @@ pub struct IUpdateInstaller3_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUpdateInstaller3_Impl: IUpdateInstaller2_Impl {
     fn AttemptCloseAppsIfNecessary(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetAttemptCloseAppsIfNecessary(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetAttemptCloseAppsIfNecessary(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IUpdateInstaller3_Vtbl {
@@ -7848,7 +7848,7 @@ impl IUpdateInstaller3_Vtbl {
         unsafe extern "system" fn SetAttemptCloseAppsIfNecessary<Identity: IUpdateInstaller3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateInstaller3_Impl::SetAttemptCloseAppsIfNecessary(this, core::mem::transmute_copy(&value)).into()
+                IUpdateInstaller3_Impl::SetAttemptCloseAppsIfNecessary(this, core::mem::transmute_copy(&value))
             }
         }
         Self {
@@ -7858,7 +7858,7 @@ impl IUpdateInstaller3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdateInstaller3 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IUpdateInstaller as windows_core::Interface>::IID || iid == &<IUpdateInstaller2 as windows_core::Interface>::IID
+        iid == &<IUpdateInstaller3 as windows_core::Interface>::IID || IUpdateInstaller2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7893,7 +7893,7 @@ pub struct IUpdateInstaller4_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUpdateInstaller4_Impl: IUpdateInstaller3_Impl {
-    fn Commit(&self, dwflags: super::DWORD) -> windows_core::Result<()>;
+    fn Commit(&self, dwflags: super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IUpdateInstaller4_Vtbl {
@@ -7901,13 +7901,13 @@ impl IUpdateInstaller4_Vtbl {
         unsafe extern "system" fn Commit<Identity: IUpdateInstaller4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateInstaller4_Impl::Commit(this, core::mem::transmute_copy(&dwflags)).into()
+                IUpdateInstaller4_Impl::Commit(this, core::mem::transmute_copy(&dwflags))
             }
         }
         Self { base__: IUpdateInstaller3_Vtbl::new::<Identity, OFFSET>(), Commit: Commit::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdateInstaller4 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IUpdateInstaller as windows_core::Interface>::IID || iid == &<IUpdateInstaller2 as windows_core::Interface>::IID || iid == &<IUpdateInstaller3 as windows_core::Interface>::IID
+        iid == &<IUpdateInstaller4 as windows_core::Interface>::IID || IUpdateInstaller3_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -7931,7 +7931,7 @@ pub struct IUpdateLockdown_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IUpdateLockdown_Impl: windows_core::IUnknownImpl {
-    fn LockDown(&self, flags: super::LONG) -> windows_core::Result<()>;
+    fn LockDown(&self, flags: super::LONG) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IUpdateLockdown_Vtbl {
@@ -7939,7 +7939,7 @@ impl IUpdateLockdown_Vtbl {
         unsafe extern "system" fn LockDown<Identity: IUpdateLockdown_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateLockdown_Impl::LockDown(this, core::mem::transmute_copy(&flags)).into()
+                IUpdateLockdown_Impl::LockDown(this, core::mem::transmute_copy(&flags))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), LockDown: LockDown::<Identity, OFFSET> }
@@ -8123,23 +8123,23 @@ pub struct IUpdateSearcher_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUpdateSearcher_Impl: super::IDispatch_Impl {
     fn CanAutomaticallyUpgradeService(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetCanAutomaticallyUpgradeService(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetCanAutomaticallyUpgradeService(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn ClientApplicationID(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn IncludePotentiallySupersededUpdates(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetIncludePotentiallySupersededUpdates(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetIncludePotentiallySupersededUpdates(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn ServerSelection(&self) -> windows_core::Result<ServerSelection>;
-    fn SetServerSelection(&self, value: ServerSelection) -> windows_core::Result<()>;
+    fn SetServerSelection(&self, value: ServerSelection) -> windows_core::HRESULT;
     fn BeginSearch(&self, criteria: &windows_core::BSTR, oncompleted: windows_core::Ref<windows_core::IUnknown>, state: &super::VARIANT) -> windows_core::Result<ISearchJob>;
     fn EndSearch(&self, searchjob: windows_core::Ref<ISearchJob>) -> windows_core::Result<ISearchResult>;
     fn EscapeString(&self, unescaped: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
     fn QueryHistory(&self, startindex: super::LONG, count: super::LONG) -> windows_core::Result<IUpdateHistoryEntryCollection>;
     fn Search(&self, criteria: &windows_core::BSTR) -> windows_core::Result<ISearchResult>;
     fn Online(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetOnline(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetOnline(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn GetTotalHistoryCount(&self) -> windows_core::Result<super::LONG>;
     fn ServiceID(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetServiceID(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetServiceID(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IUpdateSearcher_Vtbl {
@@ -8162,7 +8162,7 @@ impl IUpdateSearcher_Vtbl {
         unsafe extern "system" fn SetCanAutomaticallyUpgradeService<Identity: IUpdateSearcher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateSearcher_Impl::SetCanAutomaticallyUpgradeService(this, core::mem::transmute_copy(&value)).into()
+                IUpdateSearcher_Impl::SetCanAutomaticallyUpgradeService(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn ClientApplicationID<Identity: IUpdateSearcher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8183,7 +8183,7 @@ impl IUpdateSearcher_Vtbl {
         unsafe extern "system" fn SetClientApplicationID<Identity: IUpdateSearcher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateSearcher_Impl::SetClientApplicationID(this, core::mem::transmute(&value)).into()
+                IUpdateSearcher_Impl::SetClientApplicationID(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn IncludePotentiallySupersededUpdates<Identity: IUpdateSearcher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -8204,7 +8204,7 @@ impl IUpdateSearcher_Vtbl {
         unsafe extern "system" fn SetIncludePotentiallySupersededUpdates<Identity: IUpdateSearcher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateSearcher_Impl::SetIncludePotentiallySupersededUpdates(this, core::mem::transmute_copy(&value)).into()
+                IUpdateSearcher_Impl::SetIncludePotentiallySupersededUpdates(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn ServerSelection<Identity: IUpdateSearcher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut ServerSelection) -> windows_core::HRESULT {
@@ -8225,7 +8225,7 @@ impl IUpdateSearcher_Vtbl {
         unsafe extern "system" fn SetServerSelection<Identity: IUpdateSearcher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: ServerSelection) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateSearcher_Impl::SetServerSelection(this, core::mem::transmute_copy(&value)).into()
+                IUpdateSearcher_Impl::SetServerSelection(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn BeginSearch<Identity: IUpdateSearcher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, criteria: *mut core::ffi::c_void, oncompleted: *mut core::ffi::c_void, state: super::VARIANT, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8321,7 +8321,7 @@ impl IUpdateSearcher_Vtbl {
         unsafe extern "system" fn SetOnline<Identity: IUpdateSearcher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateSearcher_Impl::SetOnline(this, core::mem::transmute_copy(&value)).into()
+                IUpdateSearcher_Impl::SetOnline(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn GetTotalHistoryCount<Identity: IUpdateSearcher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::LONG) -> windows_core::HRESULT {
@@ -8357,7 +8357,7 @@ impl IUpdateSearcher_Vtbl {
         unsafe extern "system" fn SetServiceID<Identity: IUpdateSearcher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateSearcher_Impl::SetServiceID(this, core::mem::transmute(&value)).into()
+                IUpdateSearcher_Impl::SetServiceID(this, core::mem::transmute(&value))
             }
         }
         Self {
@@ -8383,7 +8383,7 @@ impl IUpdateSearcher_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdateSearcher as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IUpdateSearcher as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -8430,7 +8430,7 @@ pub struct IUpdateSearcher2_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUpdateSearcher2_Impl: IUpdateSearcher_Impl {
     fn IgnoreDownloadPriority(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetIgnoreDownloadPriority(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetIgnoreDownloadPriority(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IUpdateSearcher2_Vtbl {
@@ -8453,7 +8453,7 @@ impl IUpdateSearcher2_Vtbl {
         unsafe extern "system" fn SetIgnoreDownloadPriority<Identity: IUpdateSearcher2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateSearcher2_Impl::SetIgnoreDownloadPriority(this, core::mem::transmute_copy(&value)).into()
+                IUpdateSearcher2_Impl::SetIgnoreDownloadPriority(this, core::mem::transmute_copy(&value))
             }
         }
         Self {
@@ -8463,7 +8463,7 @@ impl IUpdateSearcher2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdateSearcher2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IUpdateSearcher as windows_core::Interface>::IID
+        iid == &<IUpdateSearcher2 as windows_core::Interface>::IID || IUpdateSearcher_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -8502,7 +8502,7 @@ pub struct IUpdateSearcher3_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUpdateSearcher3_Impl: IUpdateSearcher2_Impl {
     fn SearchScope(&self) -> windows_core::Result<SearchScope>;
-    fn SetSearchScope(&self, value: SearchScope) -> windows_core::Result<()>;
+    fn SetSearchScope(&self, value: SearchScope) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IUpdateSearcher3_Vtbl {
@@ -8525,7 +8525,7 @@ impl IUpdateSearcher3_Vtbl {
         unsafe extern "system" fn SetSearchScope<Identity: IUpdateSearcher3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: SearchScope) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateSearcher3_Impl::SetSearchScope(this, core::mem::transmute_copy(&value)).into()
+                IUpdateSearcher3_Impl::SetSearchScope(this, core::mem::transmute_copy(&value))
             }
         }
         Self {
@@ -8535,7 +8535,7 @@ impl IUpdateSearcher3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdateSearcher3 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IUpdateSearcher as windows_core::Interface>::IID || iid == &<IUpdateSearcher2 as windows_core::Interface>::IID
+        iid == &<IUpdateSearcher3 as windows_core::Interface>::IID || IUpdateSearcher2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -8915,7 +8915,7 @@ impl IUpdateService_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdateService as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IUpdateService as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -8976,7 +8976,7 @@ impl IUpdateService2_Vtbl {
         Self { base__: IUpdateService_Vtbl::new::<Identity, OFFSET>(), IsDefaultAUService: IsDefaultAUService::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdateService2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IUpdateService as windows_core::Interface>::IID
+        iid == &<IUpdateService2 as windows_core::Interface>::IID || IUpdateService_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -9092,7 +9092,7 @@ impl IUpdateServiceCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdateServiceCollection as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IUpdateServiceCollection as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -9166,11 +9166,11 @@ pub struct IUpdateServiceManager_Vtbl {
 pub trait IUpdateServiceManager_Impl: super::IDispatch_Impl {
     fn Services(&self) -> windows_core::Result<IUpdateServiceCollection>;
     fn AddService(&self, serviceid: &windows_core::BSTR, authorizationcabpath: &windows_core::BSTR) -> windows_core::Result<IUpdateService>;
-    fn RegisterServiceWithAU(&self, serviceid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn RemoveService(&self, serviceid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn UnregisterServiceWithAU(&self, serviceid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn RegisterServiceWithAU(&self, serviceid: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn RemoveService(&self, serviceid: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn UnregisterServiceWithAU(&self, serviceid: &windows_core::BSTR) -> windows_core::HRESULT;
     fn AddScanPackageService(&self, servicename: &windows_core::BSTR, scanfilelocation: &windows_core::BSTR, flags: super::LONG) -> windows_core::Result<IUpdateService>;
-    fn SetOption(&self, optionname: &windows_core::BSTR, optionvalue: &super::VARIANT) -> windows_core::Result<()>;
+    fn SetOption(&self, optionname: &windows_core::BSTR, optionvalue: &super::VARIANT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IUpdateServiceManager_Vtbl {
@@ -9208,19 +9208,19 @@ impl IUpdateServiceManager_Vtbl {
         unsafe extern "system" fn RegisterServiceWithAU<Identity: IUpdateServiceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, serviceid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateServiceManager_Impl::RegisterServiceWithAU(this, core::mem::transmute(&serviceid)).into()
+                IUpdateServiceManager_Impl::RegisterServiceWithAU(this, core::mem::transmute(&serviceid))
             }
         }
         unsafe extern "system" fn RemoveService<Identity: IUpdateServiceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, serviceid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateServiceManager_Impl::RemoveService(this, core::mem::transmute(&serviceid)).into()
+                IUpdateServiceManager_Impl::RemoveService(this, core::mem::transmute(&serviceid))
             }
         }
         unsafe extern "system" fn UnregisterServiceWithAU<Identity: IUpdateServiceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, serviceid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateServiceManager_Impl::UnregisterServiceWithAU(this, core::mem::transmute(&serviceid)).into()
+                IUpdateServiceManager_Impl::UnregisterServiceWithAU(this, core::mem::transmute(&serviceid))
             }
         }
         unsafe extern "system" fn AddScanPackageService<Identity: IUpdateServiceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, servicename: *mut core::ffi::c_void, scanfilelocation: *mut core::ffi::c_void, flags: super::LONG, ppservice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9241,7 +9241,7 @@ impl IUpdateServiceManager_Vtbl {
         unsafe extern "system" fn SetOption<Identity: IUpdateServiceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, optionname: *mut core::ffi::c_void, optionvalue: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateServiceManager_Impl::SetOption(this, core::mem::transmute(&optionname), core::mem::transmute(&optionvalue)).into()
+                IUpdateServiceManager_Impl::SetOption(this, core::mem::transmute(&optionname), core::mem::transmute(&optionvalue))
             }
         }
         Self {
@@ -9256,7 +9256,7 @@ impl IUpdateServiceManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdateServiceManager as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IUpdateServiceManager as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -9313,7 +9313,7 @@ pub struct IUpdateServiceManager2_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUpdateServiceManager2_Impl: IUpdateServiceManager_Impl {
     fn ClientApplicationID(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn QueryServiceRegistration(&self, serviceid: &windows_core::BSTR) -> windows_core::Result<IUpdateServiceRegistration>;
     fn AddService2(&self, serviceid: &windows_core::BSTR, flags: super::LONG, authorizationcabpath: &windows_core::BSTR) -> windows_core::Result<IUpdateServiceRegistration>;
 }
@@ -9338,7 +9338,7 @@ impl IUpdateServiceManager2_Vtbl {
         unsafe extern "system" fn SetClientApplicationID<Identity: IUpdateServiceManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateServiceManager2_Impl::SetClientApplicationID(this, core::mem::transmute(&value)).into()
+                IUpdateServiceManager2_Impl::SetClientApplicationID(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn QueryServiceRegistration<Identity: IUpdateServiceManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, serviceid: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9380,7 +9380,7 @@ impl IUpdateServiceManager2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdateServiceManager2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IUpdateServiceManager as windows_core::Interface>::IID
+        iid == &<IUpdateServiceManager2 as windows_core::Interface>::IID || IUpdateServiceManager_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -9516,7 +9516,7 @@ impl IUpdateServiceRegistration_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdateServiceRegistration as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IUpdateServiceRegistration as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -9601,10 +9601,10 @@ pub struct IUpdateSession_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUpdateSession_Impl: super::IDispatch_Impl {
     fn ClientApplicationID(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn ReadOnly(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn WebProxy(&self) -> windows_core::Result<IWebProxy>;
-    fn SetWebProxy(&self, value: windows_core::Ref<IWebProxy>) -> windows_core::Result<()>;
+    fn SetWebProxy(&self, value: windows_core::Ref<IWebProxy>) -> windows_core::HRESULT;
     fn CreateUpdateSearcher(&self) -> windows_core::Result<IUpdateSearcher>;
     fn CreateUpdateDownloader(&self) -> windows_core::Result<IUpdateDownloader>;
     fn CreateUpdateInstaller(&self) -> windows_core::Result<IUpdateInstaller>;
@@ -9630,7 +9630,7 @@ impl IUpdateSession_Vtbl {
         unsafe extern "system" fn SetClientApplicationID<Identity: IUpdateSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateSession_Impl::SetClientApplicationID(this, core::mem::transmute(&value)).into()
+                IUpdateSession_Impl::SetClientApplicationID(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn ReadOnly<Identity: IUpdateSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -9666,7 +9666,7 @@ impl IUpdateSession_Vtbl {
         unsafe extern "system" fn SetWebProxy<Identity: IUpdateSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateSession_Impl::SetWebProxy(this, core::mem::transmute_copy(&value)).into()
+                IUpdateSession_Impl::SetWebProxy(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn CreateUpdateSearcher<Identity: IUpdateSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9727,7 +9727,7 @@ impl IUpdateSession_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdateSession as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IUpdateSession as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -9774,7 +9774,7 @@ pub struct IUpdateSession2_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IUpdateSession2_Impl: IUpdateSession_Impl {
     fn UserLocale(&self) -> windows_core::Result<super::LCID>;
-    fn SetUserLocale(&self, lcid: super::LCID) -> windows_core::Result<()>;
+    fn SetUserLocale(&self, lcid: super::LCID) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IUpdateSession2_Vtbl {
@@ -9797,7 +9797,7 @@ impl IUpdateSession2_Vtbl {
         unsafe extern "system" fn SetUserLocale<Identity: IUpdateSession2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lcid: super::LCID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateSession2_Impl::SetUserLocale(this, core::mem::transmute_copy(&lcid)).into()
+                IUpdateSession2_Impl::SetUserLocale(this, core::mem::transmute_copy(&lcid))
             }
         }
         Self {
@@ -9807,7 +9807,7 @@ impl IUpdateSession2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdateSession2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IUpdateSession as windows_core::Interface>::IID
+        iid == &<IUpdateSession2 as windows_core::Interface>::IID || IUpdateSession_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -9895,7 +9895,7 @@ impl IUpdateSession3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUpdateSession3 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IUpdateSession as windows_core::Interface>::IID || iid == &<IUpdateSession2 as windows_core::Interface>::IID
+        iid == &<IUpdateSession3 as windows_core::Interface>::IID || IUpdateSession2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -10027,19 +10027,19 @@ pub struct IWebProxy_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWebProxy_Impl: super::IDispatch_Impl {
     fn Address(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetAddress(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetAddress(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn BypassList(&self) -> windows_core::Result<IStringCollection>;
-    fn SetBypassList(&self, value: windows_core::Ref<IStringCollection>) -> windows_core::Result<()>;
+    fn SetBypassList(&self, value: windows_core::Ref<IStringCollection>) -> windows_core::HRESULT;
     fn BypassProxyOnLocal(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetBypassProxyOnLocal(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetBypassProxyOnLocal(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn ReadOnly(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn UserName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetUserName(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetPassword(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn PromptForCredentials(&self, parentwindow: windows_core::Ref<windows_core::IUnknown>, title: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn PromptForCredentialsFromHwnd(&self, parentwindow: super::HWND, title: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetUserName(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn SetPassword(&self, value: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn PromptForCredentials(&self, parentwindow: windows_core::Ref<windows_core::IUnknown>, title: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn PromptForCredentialsFromHwnd(&self, parentwindow: super::HWND, title: &windows_core::BSTR) -> windows_core::HRESULT;
     fn AutoDetect(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetAutoDetect(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetAutoDetect(&self, value: super::VARIANT_BOOL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWebProxy_Vtbl {
@@ -10062,7 +10062,7 @@ impl IWebProxy_Vtbl {
         unsafe extern "system" fn SetAddress<Identity: IWebProxy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWebProxy_Impl::SetAddress(this, core::mem::transmute(&value)).into()
+                IWebProxy_Impl::SetAddress(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn BypassList<Identity: IWebProxy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10083,7 +10083,7 @@ impl IWebProxy_Vtbl {
         unsafe extern "system" fn SetBypassList<Identity: IWebProxy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWebProxy_Impl::SetBypassList(this, core::mem::transmute_copy(&value)).into()
+                IWebProxy_Impl::SetBypassList(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn BypassProxyOnLocal<Identity: IWebProxy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -10104,7 +10104,7 @@ impl IWebProxy_Vtbl {
         unsafe extern "system" fn SetBypassProxyOnLocal<Identity: IWebProxy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWebProxy_Impl::SetBypassProxyOnLocal(this, core::mem::transmute_copy(&value)).into()
+                IWebProxy_Impl::SetBypassProxyOnLocal(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn ReadOnly<Identity: IWebProxy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -10140,25 +10140,25 @@ impl IWebProxy_Vtbl {
         unsafe extern "system" fn SetUserName<Identity: IWebProxy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWebProxy_Impl::SetUserName(this, core::mem::transmute(&value)).into()
+                IWebProxy_Impl::SetUserName(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn SetPassword<Identity: IWebProxy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWebProxy_Impl::SetPassword(this, core::mem::transmute(&value)).into()
+                IWebProxy_Impl::SetPassword(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn PromptForCredentials<Identity: IWebProxy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parentwindow: *mut core::ffi::c_void, title: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWebProxy_Impl::PromptForCredentials(this, core::mem::transmute_copy(&parentwindow), core::mem::transmute(&title)).into()
+                IWebProxy_Impl::PromptForCredentials(this, core::mem::transmute_copy(&parentwindow), core::mem::transmute(&title))
             }
         }
         unsafe extern "system" fn PromptForCredentialsFromHwnd<Identity: IWebProxy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parentwindow: super::HWND, title: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWebProxy_Impl::PromptForCredentialsFromHwnd(this, core::mem::transmute_copy(&parentwindow), core::mem::transmute(&title)).into()
+                IWebProxy_Impl::PromptForCredentialsFromHwnd(this, core::mem::transmute_copy(&parentwindow), core::mem::transmute(&title))
             }
         }
         unsafe extern "system" fn AutoDetect<Identity: IWebProxy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -10179,7 +10179,7 @@ impl IWebProxy_Vtbl {
         unsafe extern "system" fn SetAutoDetect<Identity: IWebProxy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWebProxy_Impl::SetAutoDetect(this, core::mem::transmute_copy(&value)).into()
+                IWebProxy_Impl::SetAutoDetect(this, core::mem::transmute_copy(&value))
             }
         }
         Self {
@@ -10201,7 +10201,7 @@ impl IWebProxy_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWebProxy as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IWebProxy as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -10441,7 +10441,7 @@ impl IWindowsDriverUpdate_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWindowsDriverUpdate as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IUpdate as windows_core::Interface>::IID
+        iid == &<IWindowsDriverUpdate as windows_core::Interface>::IID || IUpdate_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -10507,7 +10507,7 @@ pub trait IWindowsDriverUpdate2_Impl: IWindowsDriverUpdate_Impl {
     fn RebootRequired(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn IsPresent(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn CveIDs(&self) -> windows_core::Result<IStringCollection>;
-    fn CopyToCache(&self, pfiles: windows_core::Ref<IStringCollection>) -> windows_core::Result<()>;
+    fn CopyToCache(&self, pfiles: windows_core::Ref<IStringCollection>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWindowsDriverUpdate2_Vtbl {
@@ -10560,7 +10560,7 @@ impl IWindowsDriverUpdate2_Vtbl {
         unsafe extern "system" fn CopyToCache<Identity: IWindowsDriverUpdate2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfiles: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWindowsDriverUpdate2_Impl::CopyToCache(this, core::mem::transmute_copy(&pfiles)).into()
+                IWindowsDriverUpdate2_Impl::CopyToCache(this, core::mem::transmute_copy(&pfiles))
             }
         }
         Self {
@@ -10572,7 +10572,7 @@ impl IWindowsDriverUpdate2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWindowsDriverUpdate2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IUpdate as windows_core::Interface>::IID || iid == &<IWindowsDriverUpdate as windows_core::Interface>::IID
+        iid == &<IWindowsDriverUpdate2 as windows_core::Interface>::IID || IWindowsDriverUpdate_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -10633,7 +10633,7 @@ impl IWindowsDriverUpdate3_Vtbl {
         Self { base__: IWindowsDriverUpdate2_Vtbl::new::<Identity, OFFSET>(), BrowseOnly: BrowseOnly::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWindowsDriverUpdate3 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IUpdate as windows_core::Interface>::IID || iid == &<IWindowsDriverUpdate as windows_core::Interface>::IID || iid == &<IWindowsDriverUpdate2 as windows_core::Interface>::IID
+        iid == &<IWindowsDriverUpdate3 as windows_core::Interface>::IID || IWindowsDriverUpdate2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -10721,7 +10721,7 @@ impl IWindowsDriverUpdate4_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWindowsDriverUpdate4 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IUpdate as windows_core::Interface>::IID || iid == &<IWindowsDriverUpdate as windows_core::Interface>::IID || iid == &<IWindowsDriverUpdate2 as windows_core::Interface>::IID || iid == &<IWindowsDriverUpdate3 as windows_core::Interface>::IID
+        iid == &<IWindowsDriverUpdate4 as windows_core::Interface>::IID || IWindowsDriverUpdate3_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -10805,7 +10805,7 @@ impl IWindowsDriverUpdate5_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWindowsDriverUpdate5 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IUpdate as windows_core::Interface>::IID || iid == &<IWindowsDriverUpdate as windows_core::Interface>::IID || iid == &<IWindowsDriverUpdate2 as windows_core::Interface>::IID || iid == &<IWindowsDriverUpdate3 as windows_core::Interface>::IID || iid == &<IWindowsDriverUpdate4 as windows_core::Interface>::IID
+        iid == &<IWindowsDriverUpdate5 as windows_core::Interface>::IID || IWindowsDriverUpdate4_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -11045,7 +11045,7 @@ impl IWindowsDriverUpdateEntry_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWindowsDriverUpdateEntry as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IWindowsDriverUpdateEntry as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -11161,7 +11161,7 @@ impl IWindowsDriverUpdateEntryCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWindowsDriverUpdateEntryCollection as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IWindowsDriverUpdateEntryCollection as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -11222,7 +11222,7 @@ impl IWindowsUpdateAgentInfo_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), GetInfo: GetInfo::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWindowsUpdateAgentInfo as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IWindowsUpdateAgentInfo as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]

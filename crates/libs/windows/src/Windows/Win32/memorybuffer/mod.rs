@@ -17,7 +17,7 @@ pub struct IMemoryBufferByteAccess_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IMemoryBufferByteAccess_Impl: windows_core::IUnknownImpl {
-    fn GetBuffer(&self, value: *mut *mut super::BYTE, capacity: *mut super::UINT32) -> windows_core::Result<()>;
+    fn GetBuffer(&self, value: *mut *mut super::BYTE, capacity: *mut super::UINT32) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IMemoryBufferByteAccess_Vtbl {
@@ -25,7 +25,7 @@ impl IMemoryBufferByteAccess_Vtbl {
         unsafe extern "system" fn GetBuffer<Identity: IMemoryBufferByteAccess_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut *mut super::BYTE, capacity: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMemoryBufferByteAccess_Impl::GetBuffer(this, core::mem::transmute_copy(&value), core::mem::transmute_copy(&capacity)).into()
+                IMemoryBufferByteAccess_Impl::GetBuffer(this, core::mem::transmute_copy(&value), core::mem::transmute_copy(&capacity))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetBuffer: GetBuffer::<Identity, OFFSET> }

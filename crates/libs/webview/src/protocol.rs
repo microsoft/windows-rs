@@ -187,15 +187,18 @@ impl ICoreWebView2WebResourceRequestedEventHandler_Impl for WebResourceRequested
         &self,
         _sender: Ref<ICoreWebView2>,
         args: Ref<ICoreWebView2WebResourceRequestedEventArgs>,
-    ) -> Result<()> {
-        let args = args.ok()?;
-        let request = WebResourceRequest(unsafe { args.Request()? });
+    ) -> HRESULT {
+        args.ok()
+            .and_then(|args| {
+                let request = WebResourceRequest(unsafe { args.Request()? });
 
-        if let Some(response) = (*self.handler.borrow_mut())(request) {
-            let response = unsafe { response.into_response(&self.environment)? };
-            unsafe { args.SetResponse(&response).ok()? };
-        }
+                if let Some(response) = (*self.handler.borrow_mut())(request) {
+                    let response = unsafe { response.into_response(&self.environment)? };
+                    unsafe { args.SetResponse(&response).ok()? };
+                }
 
-        Ok(())
+                Ok(())
+            })
+            .into()
     }
 }

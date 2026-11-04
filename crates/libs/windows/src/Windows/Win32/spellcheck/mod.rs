@@ -319,15 +319,15 @@ pub trait ISpellChecker_Impl: windows_core::IUnknownImpl {
     fn LanguageTag(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn Check(&self, text: &windows_core::PCWSTR) -> windows_core::Result<IEnumSpellingError>;
     fn Suggest(&self, word: &windows_core::PCWSTR) -> windows_core::Result<super::IEnumString>;
-    fn Add(&self, word: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn Ignore(&self, word: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn AutoCorrect(&self, from: &windows_core::PCWSTR, to: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn Add(&self, word: &windows_core::PCWSTR) -> windows_core::HRESULT;
+    fn Ignore(&self, word: &windows_core::PCWSTR) -> windows_core::HRESULT;
+    fn AutoCorrect(&self, from: &windows_core::PCWSTR, to: &windows_core::PCWSTR) -> windows_core::HRESULT;
     fn GetOptionValue(&self, optionid: &windows_core::PCWSTR) -> windows_core::Result<super::BYTE>;
     fn OptionIds(&self) -> windows_core::Result<super::IEnumString>;
     fn Id(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn LocalizedName(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn add_SpellCheckerChanged(&self, handler: windows_core::Ref<ISpellCheckerChangedEventHandler>) -> windows_core::Result<super::DWORD>;
-    fn remove_SpellCheckerChanged(&self, eventcookie: super::DWORD) -> windows_core::Result<()>;
+    fn remove_SpellCheckerChanged(&self, eventcookie: super::DWORD) -> windows_core::HRESULT;
     fn GetOptionDescription(&self, optionid: &windows_core::PCWSTR) -> windows_core::Result<IOptionDescription>;
     fn ComprehensiveCheck(&self, text: &windows_core::PCWSTR) -> windows_core::Result<IEnumSpellingError>;
 }
@@ -382,19 +382,19 @@ impl ISpellChecker_Vtbl {
         unsafe extern "system" fn Add<Identity: ISpellChecker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, word: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpellChecker_Impl::Add(this, core::mem::transmute(&word)).into()
+                ISpellChecker_Impl::Add(this, core::mem::transmute(&word))
             }
         }
         unsafe extern "system" fn Ignore<Identity: ISpellChecker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, word: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpellChecker_Impl::Ignore(this, core::mem::transmute(&word)).into()
+                ISpellChecker_Impl::Ignore(this, core::mem::transmute(&word))
             }
         }
         unsafe extern "system" fn AutoCorrect<Identity: ISpellChecker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, from: windows_core::PCWSTR, to: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpellChecker_Impl::AutoCorrect(this, core::mem::transmute(&from), core::mem::transmute(&to)).into()
+                ISpellChecker_Impl::AutoCorrect(this, core::mem::transmute(&from), core::mem::transmute(&to))
             }
         }
         unsafe extern "system" fn GetOptionValue<Identity: ISpellChecker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, optionid: windows_core::PCWSTR, value: *mut super::BYTE) -> windows_core::HRESULT {
@@ -475,7 +475,7 @@ impl ISpellChecker_Vtbl {
         unsafe extern "system" fn remove_SpellCheckerChanged<Identity: ISpellChecker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventcookie: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpellChecker_Impl::remove_SpellCheckerChanged(this, core::mem::transmute_copy(&eventcookie)).into()
+                ISpellChecker_Impl::remove_SpellCheckerChanged(this, core::mem::transmute_copy(&eventcookie))
             }
         }
         unsafe extern "system" fn GetOptionDescription<Identity: ISpellChecker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, optionid: windows_core::PCWSTR, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -556,7 +556,7 @@ pub struct ISpellChecker2_Vtbl {
 }
 #[cfg(all(feature = "objidlbase", feature = "shared"))]
 pub trait ISpellChecker2_Impl: ISpellChecker_Impl {
-    fn Remove(&self, word: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn Remove(&self, word: &windows_core::PCWSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "objidlbase", feature = "shared"))]
 impl ISpellChecker2_Vtbl {
@@ -564,13 +564,13 @@ impl ISpellChecker2_Vtbl {
         unsafe extern "system" fn Remove<Identity: ISpellChecker2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, word: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpellChecker2_Impl::Remove(this, core::mem::transmute(&word)).into()
+                ISpellChecker2_Impl::Remove(this, core::mem::transmute(&word))
             }
         }
         Self { base__: ISpellChecker_Vtbl::new::<Identity, OFFSET>(), Remove: Remove::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpellChecker2 as windows_core::Interface>::IID || iid == &<ISpellChecker as windows_core::Interface>::IID
+        iid == &<ISpellChecker2 as windows_core::Interface>::IID || ISpellChecker_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "objidlbase", feature = "shared"))]
@@ -592,14 +592,14 @@ pub struct ISpellCheckerChangedEventHandler_Vtbl {
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISpellCheckerChangedEventHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self, sender: windows_core::Ref<ISpellChecker>) -> windows_core::Result<()>;
+    fn Invoke(&self, sender: windows_core::Ref<ISpellChecker>) -> windows_core::HRESULT;
 }
 impl ISpellCheckerChangedEventHandler_Vtbl {
     pub const fn new<Identity: ISpellCheckerChangedEventHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Invoke<Identity: ISpellCheckerChangedEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpellCheckerChangedEventHandler_Impl::Invoke(this, core::mem::transmute_copy(&sender)).into()
+                ISpellCheckerChangedEventHandler_Impl::Invoke(this, core::mem::transmute_copy(&sender))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, OFFSET> }
@@ -871,21 +871,21 @@ pub struct IUserDictionariesRegistrar_Vtbl {
     pub UnregisterUserDictionary: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait IUserDictionariesRegistrar_Impl: windows_core::IUnknownImpl {
-    fn RegisterUserDictionary(&self, dictionarypath: &windows_core::PCWSTR, languagetag: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn UnregisterUserDictionary(&self, dictionarypath: &windows_core::PCWSTR, languagetag: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn RegisterUserDictionary(&self, dictionarypath: &windows_core::PCWSTR, languagetag: &windows_core::PCWSTR) -> windows_core::HRESULT;
+    fn UnregisterUserDictionary(&self, dictionarypath: &windows_core::PCWSTR, languagetag: &windows_core::PCWSTR) -> windows_core::HRESULT;
 }
 impl IUserDictionariesRegistrar_Vtbl {
     pub const fn new<Identity: IUserDictionariesRegistrar_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RegisterUserDictionary<Identity: IUserDictionariesRegistrar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dictionarypath: windows_core::PCWSTR, languagetag: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUserDictionariesRegistrar_Impl::RegisterUserDictionary(this, core::mem::transmute(&dictionarypath), core::mem::transmute(&languagetag)).into()
+                IUserDictionariesRegistrar_Impl::RegisterUserDictionary(this, core::mem::transmute(&dictionarypath), core::mem::transmute(&languagetag))
             }
         }
         unsafe extern "system" fn UnregisterUserDictionary<Identity: IUserDictionariesRegistrar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dictionarypath: windows_core::PCWSTR, languagetag: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUserDictionariesRegistrar_Impl::UnregisterUserDictionary(this, core::mem::transmute(&dictionarypath), core::mem::transmute(&languagetag)).into()
+                IUserDictionariesRegistrar_Impl::UnregisterUserDictionary(this, core::mem::transmute(&dictionarypath), core::mem::transmute(&languagetag))
             }
         }
         Self {

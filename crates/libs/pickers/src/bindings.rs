@@ -60,7 +60,6 @@ pub struct IBindCtx_Vtbl {
     EnumObjectParam: usize,
     RevokeObjectParam: usize,
 }
-impl windows_core::RuntimeName for IBindCtx {}
 windows_core::imp::define_interface!(
     IFileDialog,
     IFileDialog_Vtbl,
@@ -267,7 +266,6 @@ pub struct IFileDialog_Vtbl {
     ClearClientData: usize,
     SetFilter: usize,
 }
-impl windows_core::RuntimeName for IFileDialog {}
 windows_core::imp::define_interface!(
     IFileOpenDialog,
     IFileOpenDialog_Vtbl,
@@ -306,7 +304,6 @@ pub struct IFileOpenDialog_Vtbl {
     ) -> windows_core::HRESULT,
     GetSelectedItems: usize,
 }
-impl windows_core::RuntimeName for IFileOpenDialog {}
 windows_core::imp::define_interface!(
     IFileSaveDialog,
     IFileSaveDialog_Vtbl,
@@ -333,7 +330,6 @@ pub struct IFileSaveDialog_Vtbl {
     GetProperties: usize,
     ApplyProperties: usize,
 }
-impl windows_core::RuntimeName for IFileSaveDialog {}
 pub type IID = windows_core::GUID;
 windows_core::imp::define_interface!(
     IModalWindow,
@@ -356,31 +352,6 @@ pub struct IModalWindow_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Show: unsafe extern "system" fn(*mut core::ffi::c_void, HWND) -> windows_core::HRESULT,
 }
-pub trait IModalWindow_Impl: windows_core::IUnknownImpl {
-    fn Show(&self, hwndowner: HWND) -> windows_core::Result<()>;
-}
-impl IModalWindow_Vtbl {
-    pub const fn new<Identity: IModalWindow_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Show<Identity: IModalWindow_Impl, const OFFSET: isize>(
-            this: *mut core::ffi::c_void,
-            hwndowner: HWND,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IModalWindow_Impl::Show(this, core::mem::transmute_copy(&hwndowner)).into()
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Show: Show::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IModalWindow as windows_core::Interface>::IID
-    }
-}
-impl windows_core::RuntimeName for IModalWindow {}
 windows_core::imp::define_interface!(
     IShellItem,
     IShellItem_Vtbl,
@@ -415,7 +386,6 @@ pub struct IShellItem_Vtbl {
     GetAttributes: usize,
     Compare: usize,
 }
-impl windows_core::RuntimeName for IShellItem {}
 windows_core::imp::define_interface!(
     IShellItemArray,
     IShellItemArray_Vtbl,
@@ -459,7 +429,6 @@ pub struct IShellItemArray_Vtbl {
     ) -> windows_core::HRESULT,
     EnumItems: usize,
 }
-impl windows_core::RuntimeName for IShellItemArray {}
 pub type KNOWNFOLDERID = windows_core::GUID;
 pub type LPVOID = *mut core::ffi::c_void;
 pub type SIGDN = i32;

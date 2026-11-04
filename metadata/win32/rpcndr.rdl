@@ -741,6 +741,7 @@ mod Windows {
         const TARGET_IS_NT63_OR_LATER: i32 = 1;
         const USER_CALL_IS_ASYNC: i32 = 256;
         const USER_CALL_NEW_CORRELATION_DESC: i32 = 512;
+        const USER_MARSHALUNMARSHAL_DONT_CLEANUP_UNMARSHALLED_OBJECT: i32 = 32768;
         #[packed(8)]
         struct USER_MARSHAL_CB {
             Flags: u32,

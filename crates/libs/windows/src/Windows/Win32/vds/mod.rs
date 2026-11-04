@@ -165,9 +165,9 @@ pub struct IEnumVdsObject_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IEnumVdsObject_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: super::ULONG, ppobjectarray: *mut Option<windows_core::IUnknown>, pcfetched: *mut super::ULONG) -> windows_core::Result<()>;
-    fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
+    fn Next(&self, celt: super::ULONG, ppobjectarray: *mut Option<windows_core::IUnknown>, pcfetched: *mut super::ULONG) -> windows_core::HRESULT;
+    fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT;
+    fn Reset(&self) -> windows_core::HRESULT;
     fn Clone(&self) -> windows_core::Result<IEnumVdsObject>;
 }
 #[cfg(feature = "shared")]
@@ -176,19 +176,19 @@ impl IEnumVdsObject_Vtbl {
         unsafe extern "system" fn Next<Identity: IEnumVdsObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG, ppobjectarray: *mut *mut core::ffi::c_void, pcfetched: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumVdsObject_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&ppobjectarray), core::mem::transmute_copy(&pcfetched)).into()
+                IEnumVdsObject_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&ppobjectarray), core::mem::transmute_copy(&pcfetched))
             }
         }
         unsafe extern "system" fn Skip<Identity: IEnumVdsObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumVdsObject_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+                IEnumVdsObject_Impl::Skip(this, core::mem::transmute_copy(&celt))
             }
         }
         unsafe extern "system" fn Reset<Identity: IEnumVdsObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumVdsObject_Impl::Reset(this).into()
+                IEnumVdsObject_Impl::Reset(this)
             }
         }
         unsafe extern "system" fn Clone<Identity: IEnumVdsObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -319,14 +319,14 @@ pub struct IVdsAdvancedDisk_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IVdsAdvancedDisk_Impl: windows_core::IUnknownImpl {
-    fn GetPartitionProperties(&self, ulloffset: super::ULONGLONG, ppartitionprop: *mut VDS_PARTITION_PROP) -> windows_core::Result<()>;
-    fn QueryPartitions(&self, pppartitionproparray: *mut *mut VDS_PARTITION_PROP, plnumberofpartitions: *mut super::LONG) -> windows_core::Result<()>;
+    fn GetPartitionProperties(&self, ulloffset: super::ULONGLONG, ppartitionprop: *mut VDS_PARTITION_PROP) -> windows_core::HRESULT;
+    fn QueryPartitions(&self, pppartitionproparray: *mut *mut VDS_PARTITION_PROP, plnumberofpartitions: *mut super::LONG) -> windows_core::HRESULT;
     fn CreatePartition(&self, ulloffset: super::ULONGLONG, ullsize: super::ULONGLONG, para: *const CREATE_PARTITION_PARAMETERS) -> windows_core::Result<IVdsAsync>;
-    fn DeletePartition(&self, ulloffset: super::ULONGLONG, bforce: windows_core::BOOL, bforceprotected: windows_core::BOOL) -> windows_core::Result<()>;
-    fn ChangeAttributes(&self, ulloffset: super::ULONGLONG, para: *const CHANGE_ATTRIBUTES_PARAMETERS) -> windows_core::Result<()>;
-    fn AssignDriveLetter(&self, ulloffset: super::ULONGLONG, wcletter: super::WCHAR) -> windows_core::Result<()>;
-    fn DeleteDriveLetter(&self, ulloffset: super::ULONGLONG, wcletter: super::WCHAR) -> windows_core::Result<()>;
-    fn GetDriveLetter(&self, ulloffset: super::ULONGLONG, pwcletter: *mut super::WCHAR) -> windows_core::Result<()>;
+    fn DeletePartition(&self, ulloffset: super::ULONGLONG, bforce: windows_core::BOOL, bforceprotected: windows_core::BOOL) -> windows_core::HRESULT;
+    fn ChangeAttributes(&self, ulloffset: super::ULONGLONG, para: *const CHANGE_ATTRIBUTES_PARAMETERS) -> windows_core::HRESULT;
+    fn AssignDriveLetter(&self, ulloffset: super::ULONGLONG, wcletter: super::WCHAR) -> windows_core::HRESULT;
+    fn DeleteDriveLetter(&self, ulloffset: super::ULONGLONG, wcletter: super::WCHAR) -> windows_core::HRESULT;
+    fn GetDriveLetter(&self, ulloffset: super::ULONGLONG, pwcletter: *mut super::WCHAR) -> windows_core::HRESULT;
     fn FormatPartition(&self, ulloffset: super::ULONGLONG, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: &windows_core::PCWSTR, dwunitallocationsize: super::DWORD, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL) -> windows_core::Result<IVdsAsync>;
     fn Clean(&self, bforce: windows_core::BOOL, bforceoem: windows_core::BOOL, bfullclean: windows_core::BOOL) -> windows_core::Result<IVdsAsync>;
 }
@@ -336,13 +336,13 @@ impl IVdsAdvancedDisk_Vtbl {
         unsafe extern "system" fn GetPartitionProperties<Identity: IVdsAdvancedDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffset: super::ULONGLONG, ppartitionprop: *mut VDS_PARTITION_PROP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsAdvancedDisk_Impl::GetPartitionProperties(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&ppartitionprop)).into()
+                IVdsAdvancedDisk_Impl::GetPartitionProperties(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&ppartitionprop))
             }
         }
         unsafe extern "system" fn QueryPartitions<Identity: IVdsAdvancedDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppartitionproparray: *mut *mut VDS_PARTITION_PROP, plnumberofpartitions: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsAdvancedDisk_Impl::QueryPartitions(this, core::mem::transmute_copy(&pppartitionproparray), core::mem::transmute_copy(&plnumberofpartitions)).into()
+                IVdsAdvancedDisk_Impl::QueryPartitions(this, core::mem::transmute_copy(&pppartitionproparray), core::mem::transmute_copy(&plnumberofpartitions))
             }
         }
         unsafe extern "system" fn CreatePartition<Identity: IVdsAdvancedDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffset: super::ULONGLONG, ullsize: super::ULONGLONG, para: *const CREATE_PARTITION_PARAMETERS, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -363,31 +363,31 @@ impl IVdsAdvancedDisk_Vtbl {
         unsafe extern "system" fn DeletePartition<Identity: IVdsAdvancedDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffset: super::ULONGLONG, bforce: windows_core::BOOL, bforceprotected: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsAdvancedDisk_Impl::DeletePartition(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bforceprotected)).into()
+                IVdsAdvancedDisk_Impl::DeletePartition(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bforceprotected))
             }
         }
         unsafe extern "system" fn ChangeAttributes<Identity: IVdsAdvancedDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffset: super::ULONGLONG, para: *const CHANGE_ATTRIBUTES_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsAdvancedDisk_Impl::ChangeAttributes(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&para)).into()
+                IVdsAdvancedDisk_Impl::ChangeAttributes(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&para))
             }
         }
         unsafe extern "system" fn AssignDriveLetter<Identity: IVdsAdvancedDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffset: super::ULONGLONG, wcletter: super::WCHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsAdvancedDisk_Impl::AssignDriveLetter(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&wcletter)).into()
+                IVdsAdvancedDisk_Impl::AssignDriveLetter(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&wcletter))
             }
         }
         unsafe extern "system" fn DeleteDriveLetter<Identity: IVdsAdvancedDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffset: super::ULONGLONG, wcletter: super::WCHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsAdvancedDisk_Impl::DeleteDriveLetter(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&wcletter)).into()
+                IVdsAdvancedDisk_Impl::DeleteDriveLetter(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&wcletter))
             }
         }
         unsafe extern "system" fn GetDriveLetter<Identity: IVdsAdvancedDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffset: super::ULONGLONG, pwcletter: *mut super::WCHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsAdvancedDisk_Impl::GetDriveLetter(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&pwcletter)).into()
+                IVdsAdvancedDisk_Impl::GetDriveLetter(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&pwcletter))
             }
         }
         unsafe extern "system" fn FormatPartition<Identity: IVdsAdvancedDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffset: super::ULONGLONG, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: windows_core::PCWSTR, dwunitallocationsize: super::DWORD, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -459,7 +459,7 @@ pub struct IVdsAdvancedDisk2_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IVdsAdvancedDisk2_Impl: windows_core::IUnknownImpl {
-    fn ChangePartitionType(&self, ulloffset: super::ULONGLONG, bforce: windows_core::BOOL, para: *const CHANGE_PARTITION_TYPE_PARAMETERS) -> windows_core::Result<()>;
+    fn ChangePartitionType(&self, ulloffset: super::ULONGLONG, bforce: windows_core::BOOL, para: *const CHANGE_PARTITION_TYPE_PARAMETERS) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IVdsAdvancedDisk2_Vtbl {
@@ -467,7 +467,7 @@ impl IVdsAdvancedDisk2_Vtbl {
         unsafe extern "system" fn ChangePartitionType<Identity: IVdsAdvancedDisk2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffset: super::ULONGLONG, bforce: windows_core::BOOL, para: *const CHANGE_PARTITION_TYPE_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsAdvancedDisk2_Impl::ChangePartitionType(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&para)).into()
+                IVdsAdvancedDisk2_Impl::ChangePartitionType(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&para))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ChangePartitionType: ChangePartitionType::<Identity, OFFSET> }
@@ -501,8 +501,8 @@ pub struct IVdsAdvancedDisk3_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "vdslun"))]
 pub trait IVdsAdvancedDisk3_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, padvdiskprop: *mut VDS_ADVANCEDDISK_PROP) -> windows_core::Result<()>;
-    fn GetUniqueId(&self, ppwszid: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetProperties(&self, padvdiskprop: *mut VDS_ADVANCEDDISK_PROP) -> windows_core::HRESULT;
+    fn GetUniqueId(&self, ppwszid: *mut windows_core::PWSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "vdslun"))]
 impl IVdsAdvancedDisk3_Vtbl {
@@ -510,13 +510,13 @@ impl IVdsAdvancedDisk3_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: IVdsAdvancedDisk3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, padvdiskprop: *mut VDS_ADVANCEDDISK_PROP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsAdvancedDisk3_Impl::GetProperties(this, core::mem::transmute_copy(&padvdiskprop)).into()
+                IVdsAdvancedDisk3_Impl::GetProperties(this, core::mem::transmute_copy(&padvdiskprop))
             }
         }
         unsafe extern "system" fn GetUniqueId<Identity: IVdsAdvancedDisk3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwszid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsAdvancedDisk3_Impl::GetUniqueId(this, core::mem::transmute_copy(&ppwszid)).into()
+                IVdsAdvancedDisk3_Impl::GetUniqueId(this, core::mem::transmute_copy(&ppwszid))
             }
         }
         Self {
@@ -550,7 +550,7 @@ pub struct IVdsAdviseSink_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IVdsAdviseSink_Impl: windows_core::IUnknownImpl {
-    fn OnNotify(&self, lnumberofnotifications: super::LONG, pnotificationarray: *const VDS_NOTIFICATION) -> windows_core::Result<()>;
+    fn OnNotify(&self, lnumberofnotifications: super::LONG, pnotificationarray: *const VDS_NOTIFICATION) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 impl IVdsAdviseSink_Vtbl {
@@ -558,7 +558,7 @@ impl IVdsAdviseSink_Vtbl {
         unsafe extern "system" fn OnNotify<Identity: IVdsAdviseSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lnumberofnotifications: super::LONG, pnotificationarray: *const VDS_NOTIFICATION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsAdviseSink_Impl::OnNotify(this, core::mem::transmute_copy(&lnumberofnotifications), core::mem::transmute_copy(&pnotificationarray)).into()
+                IVdsAdviseSink_Impl::OnNotify(this, core::mem::transmute_copy(&lnumberofnotifications), core::mem::transmute_copy(&pnotificationarray))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnNotify: OnNotify::<Identity, OFFSET> }
@@ -600,9 +600,9 @@ pub struct IVdsAsync_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IVdsAsync_Impl: windows_core::IUnknownImpl {
-    fn Cancel(&self) -> windows_core::Result<()>;
-    fn Wait(&self, phrresult: *mut windows_core::HRESULT, pasyncout: *mut VDS_ASYNC_OUTPUT) -> windows_core::Result<()>;
-    fn QueryStatus(&self, phrresult: *mut windows_core::HRESULT, pulpercentcompleted: *mut super::ULONG) -> windows_core::Result<()>;
+    fn Cancel(&self) -> windows_core::HRESULT;
+    fn Wait(&self, phrresult: *mut windows_core::HRESULT, pasyncout: *mut VDS_ASYNC_OUTPUT) -> windows_core::HRESULT;
+    fn QueryStatus(&self, phrresult: *mut windows_core::HRESULT, pulpercentcompleted: *mut super::ULONG) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IVdsAsync_Vtbl {
@@ -610,19 +610,19 @@ impl IVdsAsync_Vtbl {
         unsafe extern "system" fn Cancel<Identity: IVdsAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsAsync_Impl::Cancel(this).into()
+                IVdsAsync_Impl::Cancel(this)
             }
         }
         unsafe extern "system" fn Wait<Identity: IVdsAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phrresult: *mut windows_core::HRESULT, pasyncout: *mut VDS_ASYNC_OUTPUT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsAsync_Impl::Wait(this, core::mem::transmute_copy(&phrresult), core::mem::transmute_copy(&pasyncout)).into()
+                IVdsAsync_Impl::Wait(this, core::mem::transmute_copy(&phrresult), core::mem::transmute_copy(&pasyncout))
             }
         }
         unsafe extern "system" fn QueryStatus<Identity: IVdsAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phrresult: *mut windows_core::HRESULT, pulpercentcompleted: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsAsync_Impl::QueryStatus(this, core::mem::transmute_copy(&phrresult), core::mem::transmute_copy(&pulpercentcompleted)).into()
+                IVdsAsync_Impl::QueryStatus(this, core::mem::transmute_copy(&phrresult), core::mem::transmute_copy(&pulpercentcompleted))
             }
         }
         Self {
@@ -695,14 +695,14 @@ pub struct IVdsController_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IVdsController_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, pcontrollerprop: *mut VDS_CONTROLLER_PROP) -> windows_core::Result<()>;
+    fn GetProperties(&self, pcontrollerprop: *mut VDS_CONTROLLER_PROP) -> windows_core::HRESULT;
     fn GetSubSystem(&self) -> windows_core::Result<IVdsSubSystem>;
-    fn GetPortProperties(&self, sportnumber: super::SHORT, pportprop: *mut VDS_PORT_PROP) -> windows_core::Result<()>;
-    fn FlushCache(&self) -> windows_core::Result<()>;
-    fn InvalidateCache(&self) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
+    fn GetPortProperties(&self, sportnumber: super::SHORT, pportprop: *mut VDS_PORT_PROP) -> windows_core::HRESULT;
+    fn FlushCache(&self) -> windows_core::HRESULT;
+    fn InvalidateCache(&self) -> windows_core::HRESULT;
+    fn Reset(&self) -> windows_core::HRESULT;
     fn QueryAssociatedLuns(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn SetStatus(&self, status: VDS_CONTROLLER_STATUS) -> windows_core::Result<()>;
+    fn SetStatus(&self, status: VDS_CONTROLLER_STATUS) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IVdsController_Vtbl {
@@ -710,7 +710,7 @@ impl IVdsController_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: IVdsController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcontrollerprop: *mut VDS_CONTROLLER_PROP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsController_Impl::GetProperties(this, core::mem::transmute_copy(&pcontrollerprop)).into()
+                IVdsController_Impl::GetProperties(this, core::mem::transmute_copy(&pcontrollerprop))
             }
         }
         unsafe extern "system" fn GetSubSystem<Identity: IVdsController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsubsystem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -731,25 +731,25 @@ impl IVdsController_Vtbl {
         unsafe extern "system" fn GetPortProperties<Identity: IVdsController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sportnumber: super::SHORT, pportprop: *mut VDS_PORT_PROP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsController_Impl::GetPortProperties(this, core::mem::transmute_copy(&sportnumber), core::mem::transmute_copy(&pportprop)).into()
+                IVdsController_Impl::GetPortProperties(this, core::mem::transmute_copy(&sportnumber), core::mem::transmute_copy(&pportprop))
             }
         }
         unsafe extern "system" fn FlushCache<Identity: IVdsController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsController_Impl::FlushCache(this).into()
+                IVdsController_Impl::FlushCache(this)
             }
         }
         unsafe extern "system" fn InvalidateCache<Identity: IVdsController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsController_Impl::InvalidateCache(this).into()
+                IVdsController_Impl::InvalidateCache(this)
             }
         }
         unsafe extern "system" fn Reset<Identity: IVdsController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsController_Impl::Reset(this).into()
+                IVdsController_Impl::Reset(this)
             }
         }
         unsafe extern "system" fn QueryAssociatedLuns<Identity: IVdsController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -770,7 +770,7 @@ impl IVdsController_Vtbl {
         unsafe extern "system" fn SetStatus<Identity: IVdsController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, status: VDS_CONTROLLER_STATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsController_Impl::SetStatus(this, core::mem::transmute_copy(&status)).into()
+                IVdsController_Impl::SetStatus(this, core::mem::transmute_copy(&status))
             }
         }
         Self {
@@ -870,18 +870,18 @@ pub struct IVdsControllerPort_Vtbl {
     pub SetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, VDS_PORT_STATUS) -> windows_core::HRESULT,
 }
 pub trait IVdsControllerPort_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, pportprop: *mut VDS_PORT_PROP) -> windows_core::Result<()>;
+    fn GetProperties(&self, pportprop: *mut VDS_PORT_PROP) -> windows_core::HRESULT;
     fn GetController(&self) -> windows_core::Result<IVdsController>;
     fn QueryAssociatedLuns(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn SetStatus(&self, status: VDS_PORT_STATUS) -> windows_core::Result<()>;
+    fn Reset(&self) -> windows_core::HRESULT;
+    fn SetStatus(&self, status: VDS_PORT_STATUS) -> windows_core::HRESULT;
 }
 impl IVdsControllerPort_Vtbl {
     pub const fn new<Identity: IVdsControllerPort_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetProperties<Identity: IVdsControllerPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pportprop: *mut VDS_PORT_PROP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsControllerPort_Impl::GetProperties(this, core::mem::transmute_copy(&pportprop)).into()
+                IVdsControllerPort_Impl::GetProperties(this, core::mem::transmute_copy(&pportprop))
             }
         }
         unsafe extern "system" fn GetController<Identity: IVdsControllerPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcontroller: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -917,13 +917,13 @@ impl IVdsControllerPort_Vtbl {
         unsafe extern "system" fn Reset<Identity: IVdsControllerPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsControllerPort_Impl::Reset(this).into()
+                IVdsControllerPort_Impl::Reset(this)
             }
         }
         unsafe extern "system" fn SetStatus<Identity: IVdsControllerPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, status: VDS_PORT_STATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsControllerPort_Impl::SetStatus(this, core::mem::transmute_copy(&status)).into()
+                IVdsControllerPort_Impl::SetStatus(this, core::mem::transmute_copy(&status))
             }
         }
         Self {
@@ -1052,13 +1052,13 @@ pub struct IVdsDisk_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "vdslun"))]
 pub trait IVdsDisk_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, pdiskproperties: *mut VDS_DISK_PROP) -> windows_core::Result<()>;
+    fn GetProperties(&self, pdiskproperties: *mut VDS_DISK_PROP) -> windows_core::HRESULT;
     fn GetPack(&self) -> windows_core::Result<IVdsPack>;
-    fn GetIdentificationData(&self, pluninfo: *mut super::VDS_LUN_INFORMATION) -> windows_core::Result<()>;
-    fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DISK_EXTENT, plnumberofextents: *mut super::LONG) -> windows_core::Result<()>;
-    fn ConvertStyle(&self, newstyle: VDS_PARTITION_STYLE) -> windows_core::Result<()>;
-    fn SetFlags(&self, ulflags: super::ULONG) -> windows_core::Result<()>;
-    fn ClearFlags(&self, ulflags: super::ULONG) -> windows_core::Result<()>;
+    fn GetIdentificationData(&self, pluninfo: *mut super::VDS_LUN_INFORMATION) -> windows_core::HRESULT;
+    fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DISK_EXTENT, plnumberofextents: *mut super::LONG) -> windows_core::HRESULT;
+    fn ConvertStyle(&self, newstyle: VDS_PARTITION_STYLE) -> windows_core::HRESULT;
+    fn SetFlags(&self, ulflags: super::ULONG) -> windows_core::HRESULT;
+    fn ClearFlags(&self, ulflags: super::ULONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "vdslun"))]
 impl IVdsDisk_Vtbl {
@@ -1066,7 +1066,7 @@ impl IVdsDisk_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: IVdsDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdiskproperties: *mut VDS_DISK_PROP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsDisk_Impl::GetProperties(this, core::mem::transmute_copy(&pdiskproperties)).into()
+                IVdsDisk_Impl::GetProperties(this, core::mem::transmute_copy(&pdiskproperties))
             }
         }
         unsafe extern "system" fn GetPack<Identity: IVdsDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppack: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1087,31 +1087,31 @@ impl IVdsDisk_Vtbl {
         unsafe extern "system" fn GetIdentificationData<Identity: IVdsDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pluninfo: *mut super::VDS_LUN_INFORMATION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsDisk_Impl::GetIdentificationData(this, core::mem::transmute_copy(&pluninfo)).into()
+                IVdsDisk_Impl::GetIdentificationData(this, core::mem::transmute_copy(&pluninfo))
             }
         }
         unsafe extern "system" fn QueryExtents<Identity: IVdsDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppextentarray: *mut *mut VDS_DISK_EXTENT, plnumberofextents: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsDisk_Impl::QueryExtents(this, core::mem::transmute_copy(&ppextentarray), core::mem::transmute_copy(&plnumberofextents)).into()
+                IVdsDisk_Impl::QueryExtents(this, core::mem::transmute_copy(&ppextentarray), core::mem::transmute_copy(&plnumberofextents))
             }
         }
         unsafe extern "system" fn ConvertStyle<Identity: IVdsDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newstyle: VDS_PARTITION_STYLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsDisk_Impl::ConvertStyle(this, core::mem::transmute_copy(&newstyle)).into()
+                IVdsDisk_Impl::ConvertStyle(this, core::mem::transmute_copy(&newstyle))
             }
         }
         unsafe extern "system" fn SetFlags<Identity: IVdsDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulflags: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsDisk_Impl::SetFlags(this, core::mem::transmute_copy(&ulflags)).into()
+                IVdsDisk_Impl::SetFlags(this, core::mem::transmute_copy(&ulflags))
             }
         }
         unsafe extern "system" fn ClearFlags<Identity: IVdsDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulflags: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsDisk_Impl::ClearFlags(this, core::mem::transmute_copy(&ulflags)).into()
+                IVdsDisk_Impl::ClearFlags(this, core::mem::transmute_copy(&ulflags))
             }
         }
         Self {
@@ -1145,14 +1145,14 @@ pub struct IVdsDisk2_Vtbl {
     pub SetSANMode: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IVdsDisk2_Impl: windows_core::IUnknownImpl {
-    fn SetSANMode(&self, benable: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetSANMode(&self, benable: windows_core::BOOL) -> windows_core::HRESULT;
 }
 impl IVdsDisk2_Vtbl {
     pub const fn new<Identity: IVdsDisk2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetSANMode<Identity: IVdsDisk2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, benable: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsDisk2_Impl::SetSANMode(this, core::mem::transmute_copy(&benable)).into()
+                IVdsDisk2_Impl::SetSANMode(this, core::mem::transmute_copy(&benable))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetSANMode: SetSANMode::<Identity, OFFSET> }
@@ -1189,8 +1189,8 @@ pub struct IVdsDisk3_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "vdslun"))]
 pub trait IVdsDisk3_Impl: windows_core::IUnknownImpl {
-    fn GetProperties2(&self, pdiskproperties: *mut VDS_DISK_PROP2) -> windows_core::Result<()>;
-    fn QueryFreeExtents(&self, ulalign: super::ULONG, ppfreeextentarray: *mut *mut VDS_DISK_FREE_EXTENT, plnumberoffreeextents: *mut super::LONG) -> windows_core::Result<()>;
+    fn GetProperties2(&self, pdiskproperties: *mut VDS_DISK_PROP2) -> windows_core::HRESULT;
+    fn QueryFreeExtents(&self, ulalign: super::ULONG, ppfreeextentarray: *mut *mut VDS_DISK_FREE_EXTENT, plnumberoffreeextents: *mut super::LONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "vdslun"))]
 impl IVdsDisk3_Vtbl {
@@ -1198,13 +1198,13 @@ impl IVdsDisk3_Vtbl {
         unsafe extern "system" fn GetProperties2<Identity: IVdsDisk3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdiskproperties: *mut VDS_DISK_PROP2) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsDisk3_Impl::GetProperties2(this, core::mem::transmute_copy(&pdiskproperties)).into()
+                IVdsDisk3_Impl::GetProperties2(this, core::mem::transmute_copy(&pdiskproperties))
             }
         }
         unsafe extern "system" fn QueryFreeExtents<Identity: IVdsDisk3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulalign: super::ULONG, ppfreeextentarray: *mut *mut VDS_DISK_FREE_EXTENT, plnumberoffreeextents: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsDisk3_Impl::QueryFreeExtents(this, core::mem::transmute_copy(&ulalign), core::mem::transmute_copy(&ppfreeextentarray), core::mem::transmute_copy(&plnumberoffreeextents)).into()
+                IVdsDisk3_Impl::QueryFreeExtents(this, core::mem::transmute_copy(&ulalign), core::mem::transmute_copy(&ppfreeextentarray), core::mem::transmute_copy(&plnumberoffreeextents))
             }
         }
         Self {
@@ -1237,21 +1237,21 @@ pub struct IVdsDiskOnline_Vtbl {
     pub Offline: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsDiskOnline_Impl: windows_core::IUnknownImpl {
-    fn Online(&self) -> windows_core::Result<()>;
-    fn Offline(&self) -> windows_core::Result<()>;
+    fn Online(&self) -> windows_core::HRESULT;
+    fn Offline(&self) -> windows_core::HRESULT;
 }
 impl IVdsDiskOnline_Vtbl {
     pub const fn new<Identity: IVdsDiskOnline_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Online<Identity: IVdsDiskOnline_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsDiskOnline_Impl::Online(this).into()
+                IVdsDiskOnline_Impl::Online(this)
             }
         }
         unsafe extern "system" fn Offline<Identity: IVdsDiskOnline_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsDiskOnline_Impl::Offline(this).into()
+                IVdsDiskOnline_Impl::Offline(this)
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Online: Online::<Identity, OFFSET>, Offline: Offline::<Identity, OFFSET> }
@@ -1311,9 +1311,9 @@ pub struct IVdsDiskPartitionMF_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IVdsDiskPartitionMF_Impl: windows_core::IUnknownImpl {
-    fn GetPartitionFileSystemProperties(&self, ulloffset: super::ULONGLONG, pfilesystemprop: *mut VDS_FILE_SYSTEM_PROP) -> windows_core::Result<()>;
-    fn GetPartitionFileSystemTypeName(&self, ulloffset: super::ULONGLONG, ppwszfilesystemtypename: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn QueryPartitionFileSystemFormatSupport(&self, ulloffset: super::ULONGLONG, ppfilesystemsupportprops: *mut *mut VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP, plnumberoffilesystems: *mut super::LONG) -> windows_core::Result<()>;
+    fn GetPartitionFileSystemProperties(&self, ulloffset: super::ULONGLONG, pfilesystemprop: *mut VDS_FILE_SYSTEM_PROP) -> windows_core::HRESULT;
+    fn GetPartitionFileSystemTypeName(&self, ulloffset: super::ULONGLONG, ppwszfilesystemtypename: *mut windows_core::PWSTR) -> windows_core::HRESULT;
+    fn QueryPartitionFileSystemFormatSupport(&self, ulloffset: super::ULONGLONG, ppfilesystemsupportprops: *mut *mut VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP, plnumberoffilesystems: *mut super::LONG) -> windows_core::HRESULT;
     fn FormatPartitionEx(&self, ulloffset: super::ULONGLONG, pwszfilesystemtypename: &windows_core::PCWSTR, usfilesystemrevision: super::USHORT, uldesiredunitallocationsize: super::ULONG, pwszlabel: &windows_core::PCWSTR, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL) -> windows_core::Result<IVdsAsync>;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -1322,19 +1322,19 @@ impl IVdsDiskPartitionMF_Vtbl {
         unsafe extern "system" fn GetPartitionFileSystemProperties<Identity: IVdsDiskPartitionMF_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffset: super::ULONGLONG, pfilesystemprop: *mut VDS_FILE_SYSTEM_PROP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsDiskPartitionMF_Impl::GetPartitionFileSystemProperties(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&pfilesystemprop)).into()
+                IVdsDiskPartitionMF_Impl::GetPartitionFileSystemProperties(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&pfilesystemprop))
             }
         }
         unsafe extern "system" fn GetPartitionFileSystemTypeName<Identity: IVdsDiskPartitionMF_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffset: super::ULONGLONG, ppwszfilesystemtypename: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsDiskPartitionMF_Impl::GetPartitionFileSystemTypeName(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&ppwszfilesystemtypename)).into()
+                IVdsDiskPartitionMF_Impl::GetPartitionFileSystemTypeName(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&ppwszfilesystemtypename))
             }
         }
         unsafe extern "system" fn QueryPartitionFileSystemFormatSupport<Identity: IVdsDiskPartitionMF_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffset: super::ULONGLONG, ppfilesystemsupportprops: *mut *mut VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP, plnumberoffilesystems: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsDiskPartitionMF_Impl::QueryPartitionFileSystemFormatSupport(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&ppfilesystemsupportprops), core::mem::transmute_copy(&plnumberoffilesystems)).into()
+                IVdsDiskPartitionMF_Impl::QueryPartitionFileSystemFormatSupport(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&ppfilesystemsupportprops), core::mem::transmute_copy(&plnumberoffilesystems))
             }
         }
         unsafe extern "system" fn FormatPartitionEx<Identity: IVdsDiskPartitionMF_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffset: super::ULONGLONG, pwszfilesystemtypename: windows_core::PCWSTR, usfilesystemrevision: super::USHORT, uldesiredunitallocationsize: super::ULONG, pwszlabel: windows_core::PCWSTR, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1474,12 +1474,12 @@ pub struct IVdsDrive_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IVdsDrive_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, pdriveprop: *mut VDS_DRIVE_PROP) -> windows_core::Result<()>;
+    fn GetProperties(&self, pdriveprop: *mut VDS_DRIVE_PROP) -> windows_core::HRESULT;
     fn GetSubSystem(&self) -> windows_core::Result<IVdsSubSystem>;
-    fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DRIVE_EXTENT, plnumberofextents: *mut super::LONG) -> windows_core::Result<()>;
-    fn SetFlags(&self, ulflags: super::ULONG) -> windows_core::Result<()>;
-    fn ClearFlags(&self, ulflags: super::ULONG) -> windows_core::Result<()>;
-    fn SetStatus(&self, status: VDS_DRIVE_STATUS) -> windows_core::Result<()>;
+    fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DRIVE_EXTENT, plnumberofextents: *mut super::LONG) -> windows_core::HRESULT;
+    fn SetFlags(&self, ulflags: super::ULONG) -> windows_core::HRESULT;
+    fn ClearFlags(&self, ulflags: super::ULONG) -> windows_core::HRESULT;
+    fn SetStatus(&self, status: VDS_DRIVE_STATUS) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IVdsDrive_Vtbl {
@@ -1487,7 +1487,7 @@ impl IVdsDrive_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: IVdsDrive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdriveprop: *mut VDS_DRIVE_PROP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsDrive_Impl::GetProperties(this, core::mem::transmute_copy(&pdriveprop)).into()
+                IVdsDrive_Impl::GetProperties(this, core::mem::transmute_copy(&pdriveprop))
             }
         }
         unsafe extern "system" fn GetSubSystem<Identity: IVdsDrive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsubsystem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1508,25 +1508,25 @@ impl IVdsDrive_Vtbl {
         unsafe extern "system" fn QueryExtents<Identity: IVdsDrive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppextentarray: *mut *mut VDS_DRIVE_EXTENT, plnumberofextents: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsDrive_Impl::QueryExtents(this, core::mem::transmute_copy(&ppextentarray), core::mem::transmute_copy(&plnumberofextents)).into()
+                IVdsDrive_Impl::QueryExtents(this, core::mem::transmute_copy(&ppextentarray), core::mem::transmute_copy(&plnumberofextents))
             }
         }
         unsafe extern "system" fn SetFlags<Identity: IVdsDrive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulflags: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsDrive_Impl::SetFlags(this, core::mem::transmute_copy(&ulflags)).into()
+                IVdsDrive_Impl::SetFlags(this, core::mem::transmute_copy(&ulflags))
             }
         }
         unsafe extern "system" fn ClearFlags<Identity: IVdsDrive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulflags: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsDrive_Impl::ClearFlags(this, core::mem::transmute_copy(&ulflags)).into()
+                IVdsDrive_Impl::ClearFlags(this, core::mem::transmute_copy(&ulflags))
             }
         }
         unsafe extern "system" fn SetStatus<Identity: IVdsDrive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, status: VDS_DRIVE_STATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsDrive_Impl::SetStatus(this, core::mem::transmute_copy(&status)).into()
+                IVdsDrive_Impl::SetStatus(this, core::mem::transmute_copy(&status))
             }
         }
         Self {
@@ -1564,7 +1564,7 @@ pub struct IVdsDrive2_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "vdslun"))]
 pub trait IVdsDrive2_Impl: windows_core::IUnknownImpl {
-    fn GetProperties2(&self, pdriveprop2: *mut VDS_DRIVE_PROP2) -> windows_core::Result<()>;
+    fn GetProperties2(&self, pdriveprop2: *mut VDS_DRIVE_PROP2) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "vdslun"))]
 impl IVdsDrive2_Vtbl {
@@ -1572,7 +1572,7 @@ impl IVdsDrive2_Vtbl {
         unsafe extern "system" fn GetProperties2<Identity: IVdsDrive2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdriveprop2: *mut VDS_DRIVE_PROP2) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsDrive2_Impl::GetProperties2(this, core::mem::transmute_copy(&pdriveprop2)).into()
+                IVdsDrive2_Impl::GetProperties2(this, core::mem::transmute_copy(&pdriveprop2))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetProperties2: GetProperties2::<Identity, OFFSET> }
@@ -1606,8 +1606,8 @@ pub struct IVdsHbaPort_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IVdsHbaPort_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, phbaportprop: *mut VDS_HBAPORT_PROP) -> windows_core::Result<()>;
-    fn SetAllPathStatuses(&self, status: VDS_PATH_STATUS) -> windows_core::Result<()>;
+    fn GetProperties(&self, phbaportprop: *mut VDS_HBAPORT_PROP) -> windows_core::HRESULT;
+    fn SetAllPathStatuses(&self, status: VDS_PATH_STATUS) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IVdsHbaPort_Vtbl {
@@ -1615,13 +1615,13 @@ impl IVdsHbaPort_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: IVdsHbaPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phbaportprop: *mut VDS_HBAPORT_PROP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsHbaPort_Impl::GetProperties(this, core::mem::transmute_copy(&phbaportprop)).into()
+                IVdsHbaPort_Impl::GetProperties(this, core::mem::transmute_copy(&phbaportprop))
             }
         }
         unsafe extern "system" fn SetAllPathStatuses<Identity: IVdsHbaPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, status: VDS_PATH_STATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsHbaPort_Impl::SetAllPathStatuses(this, core::mem::transmute_copy(&status)).into()
+                IVdsHbaPort_Impl::SetAllPathStatuses(this, core::mem::transmute_copy(&status))
             }
         }
         Self {
@@ -1662,8 +1662,8 @@ pub struct IVdsHwProvider_Vtbl {
 }
 pub trait IVdsHwProvider_Impl: windows_core::IUnknownImpl {
     fn QuerySubSystems(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn Reenumerate(&self) -> windows_core::Result<()>;
-    fn Refresh(&self) -> windows_core::Result<()>;
+    fn Reenumerate(&self) -> windows_core::HRESULT;
+    fn Refresh(&self) -> windows_core::HRESULT;
 }
 impl IVdsHwProvider_Vtbl {
     pub const fn new<Identity: IVdsHwProvider_Impl, const OFFSET: isize>() -> Self {
@@ -1685,13 +1685,13 @@ impl IVdsHwProvider_Vtbl {
         unsafe extern "system" fn Reenumerate<Identity: IVdsHwProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsHwProvider_Impl::Reenumerate(this).into()
+                IVdsHwProvider_Impl::Reenumerate(this)
             }
         }
         unsafe extern "system" fn Refresh<Identity: IVdsHwProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsHwProvider_Impl::Refresh(this).into()
+                IVdsHwProvider_Impl::Refresh(this)
             }
         }
         Self {
@@ -1752,7 +1752,7 @@ pub struct IVdsHwProviderStoragePools_Vtbl {
 pub trait IVdsHwProviderStoragePools_Impl: windows_core::IUnknownImpl {
     fn QueryStoragePools(&self, ulflags: super::ULONG, ullremainingfreespace: super::ULONGLONG, ppoolattributes: *const VDS_POOL_ATTRIBUTES) -> windows_core::Result<IEnumVdsObject>;
     fn CreateLunInStoragePool(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: super::ULONGLONG, storagepoolid: &VDS_OBJECT_ID, pwszunmaskinglist: &windows_core::PCWSTR, phints2: *const VDS_HINTS2) -> windows_core::Result<IVdsAsync>;
-    fn QueryMaxLunCreateSizeInStoragePool(&self, r#type: VDS_LUN_TYPE, storagepoolid: &VDS_OBJECT_ID, phints2: *const VDS_HINTS2, pullmaxlunsize: *mut super::ULONGLONG) -> windows_core::Result<()>;
+    fn QueryMaxLunCreateSizeInStoragePool(&self, r#type: VDS_LUN_TYPE, storagepoolid: &VDS_OBJECT_ID, phints2: *const VDS_HINTS2, pullmaxlunsize: *mut super::ULONGLONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "vdslun"))]
 impl IVdsHwProviderStoragePools_Vtbl {
@@ -1790,7 +1790,7 @@ impl IVdsHwProviderStoragePools_Vtbl {
         unsafe extern "system" fn QueryMaxLunCreateSizeInStoragePool<Identity: IVdsHwProviderStoragePools_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: VDS_LUN_TYPE, storagepoolid: VDS_OBJECT_ID, phints2: *const VDS_HINTS2, pullmaxlunsize: *mut super::ULONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsHwProviderStoragePools_Impl::QueryMaxLunCreateSizeInStoragePool(this, core::mem::transmute_copy(&r#type), core::mem::transmute(&storagepoolid), core::mem::transmute_copy(&phints2), core::mem::transmute_copy(&pullmaxlunsize)).into()
+                IVdsHwProviderStoragePools_Impl::QueryMaxLunCreateSizeInStoragePool(this, core::mem::transmute_copy(&r#type), core::mem::transmute(&storagepoolid), core::mem::transmute_copy(&phints2), core::mem::transmute_copy(&pullmaxlunsize))
             }
         }
         Self {
@@ -1820,14 +1820,14 @@ pub struct IVdsHwProviderType_Vtbl {
     pub GetProviderType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_HWPROVIDER_TYPE) -> windows_core::HRESULT,
 }
 pub trait IVdsHwProviderType_Impl: windows_core::IUnknownImpl {
-    fn GetProviderType(&self, ptype: *mut VDS_HWPROVIDER_TYPE) -> windows_core::Result<()>;
+    fn GetProviderType(&self, ptype: *mut VDS_HWPROVIDER_TYPE) -> windows_core::HRESULT;
 }
 impl IVdsHwProviderType_Vtbl {
     pub const fn new<Identity: IVdsHwProviderType_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetProviderType<Identity: IVdsHwProviderType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptype: *mut VDS_HWPROVIDER_TYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsHwProviderType_Impl::GetProviderType(this, core::mem::transmute_copy(&ptype)).into()
+                IVdsHwProviderType_Impl::GetProviderType(this, core::mem::transmute_copy(&ptype))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetProviderType: GetProviderType::<Identity, OFFSET> }
@@ -1851,14 +1851,14 @@ pub struct IVdsHwProviderType2_Vtbl {
     pub GetProviderType2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_HWPROVIDER_TYPE) -> windows_core::HRESULT,
 }
 pub trait IVdsHwProviderType2_Impl: windows_core::IUnknownImpl {
-    fn GetProviderType2(&self, ptype: *mut VDS_HWPROVIDER_TYPE) -> windows_core::Result<()>;
+    fn GetProviderType2(&self, ptype: *mut VDS_HWPROVIDER_TYPE) -> windows_core::HRESULT;
 }
 impl IVdsHwProviderType2_Vtbl {
     pub const fn new<Identity: IVdsHwProviderType2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetProviderType2<Identity: IVdsHwProviderType2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptype: *mut VDS_HWPROVIDER_TYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsHwProviderType2_Impl::GetProviderType2(this, core::mem::transmute_copy(&ptype)).into()
+                IVdsHwProviderType2_Impl::GetProviderType2(this, core::mem::transmute_copy(&ptype))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetProviderType2: GetProviderType2::<Identity, OFFSET> }
@@ -1908,7 +1908,7 @@ pub struct IVdsIscsiInitiatorAdapter_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IVdsIscsiInitiatorAdapter_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, pinitiatoradapterprop: *mut VDS_ISCSI_INITIATOR_ADAPTER_PROP) -> windows_core::Result<()>;
+    fn GetProperties(&self, pinitiatoradapterprop: *mut VDS_ISCSI_INITIATOR_ADAPTER_PROP) -> windows_core::HRESULT;
     fn QueryInitiatorPortals(&self) -> windows_core::Result<IEnumVdsObject>;
     fn LoginToTarget(&self, logintype: VDS_ISCSI_LOGIN_TYPE, targetid: &VDS_OBJECT_ID, targetportalid: &VDS_OBJECT_ID, initiatorportalid: &VDS_OBJECT_ID, ulloginflags: super::ULONG, bheaderdigest: windows_core::BOOL, bdatadigest: windows_core::BOOL, authtype: VDS_ISCSI_AUTH_TYPE) -> windows_core::Result<IVdsAsync>;
     fn LogoutFromTarget(&self, targetid: &VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync>;
@@ -1919,7 +1919,7 @@ impl IVdsIscsiInitiatorAdapter_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: IVdsIscsiInitiatorAdapter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinitiatoradapterprop: *mut VDS_ISCSI_INITIATOR_ADAPTER_PROP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiInitiatorAdapter_Impl::GetProperties(this, core::mem::transmute_copy(&pinitiatoradapterprop)).into()
+                IVdsIscsiInitiatorAdapter_Impl::GetProperties(this, core::mem::transmute_copy(&pinitiatoradapterprop))
             }
         }
         unsafe extern "system" fn QueryInitiatorPortals<Identity: IVdsIscsiInitiatorAdapter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2031,11 +2031,11 @@ pub struct IVdsIscsiInitiatorPortal_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IVdsIscsiInitiatorPortal_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, pinitiatorportalprop: *mut VDS_ISCSI_INITIATOR_PORTAL_PROP) -> windows_core::Result<()>;
+    fn GetProperties(&self, pinitiatorportalprop: *mut VDS_ISCSI_INITIATOR_PORTAL_PROP) -> windows_core::HRESULT;
     fn GetInitiatorAdapter(&self) -> windows_core::Result<IVdsIscsiInitiatorAdapter>;
-    fn SetIpsecTunnelAddress(&self, ptunneladdress: *const VDS_IPADDRESS, pdestinationaddress: *const VDS_IPADDRESS) -> windows_core::Result<()>;
-    fn GetIpsecSecurity(&self, targetportalid: &VDS_OBJECT_ID, pullsecurityflags: *mut super::ULONGLONG) -> windows_core::Result<()>;
-    fn SetIpsecSecurity(&self, targetportalid: &VDS_OBJECT_ID, ullsecurityflags: super::ULONGLONG, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::Result<()>;
+    fn SetIpsecTunnelAddress(&self, ptunneladdress: *const VDS_IPADDRESS, pdestinationaddress: *const VDS_IPADDRESS) -> windows_core::HRESULT;
+    fn GetIpsecSecurity(&self, targetportalid: &VDS_OBJECT_ID, pullsecurityflags: *mut super::ULONGLONG) -> windows_core::HRESULT;
+    fn SetIpsecSecurity(&self, targetportalid: &VDS_OBJECT_ID, ullsecurityflags: super::ULONGLONG, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 impl IVdsIscsiInitiatorPortal_Vtbl {
@@ -2043,7 +2043,7 @@ impl IVdsIscsiInitiatorPortal_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: IVdsIscsiInitiatorPortal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinitiatorportalprop: *mut VDS_ISCSI_INITIATOR_PORTAL_PROP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiInitiatorPortal_Impl::GetProperties(this, core::mem::transmute_copy(&pinitiatorportalprop)).into()
+                IVdsIscsiInitiatorPortal_Impl::GetProperties(this, core::mem::transmute_copy(&pinitiatorportalprop))
             }
         }
         unsafe extern "system" fn GetInitiatorAdapter<Identity: IVdsIscsiInitiatorPortal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppinitiatoradapter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2064,19 +2064,19 @@ impl IVdsIscsiInitiatorPortal_Vtbl {
         unsafe extern "system" fn SetIpsecTunnelAddress<Identity: IVdsIscsiInitiatorPortal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptunneladdress: *const VDS_IPADDRESS, pdestinationaddress: *const VDS_IPADDRESS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiInitiatorPortal_Impl::SetIpsecTunnelAddress(this, core::mem::transmute_copy(&ptunneladdress), core::mem::transmute_copy(&pdestinationaddress)).into()
+                IVdsIscsiInitiatorPortal_Impl::SetIpsecTunnelAddress(this, core::mem::transmute_copy(&ptunneladdress), core::mem::transmute_copy(&pdestinationaddress))
             }
         }
         unsafe extern "system" fn GetIpsecSecurity<Identity: IVdsIscsiInitiatorPortal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetportalid: VDS_OBJECT_ID, pullsecurityflags: *mut super::ULONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiInitiatorPortal_Impl::GetIpsecSecurity(this, core::mem::transmute(&targetportalid), core::mem::transmute_copy(&pullsecurityflags)).into()
+                IVdsIscsiInitiatorPortal_Impl::GetIpsecSecurity(this, core::mem::transmute(&targetportalid), core::mem::transmute_copy(&pullsecurityflags))
             }
         }
         unsafe extern "system" fn SetIpsecSecurity<Identity: IVdsIscsiInitiatorPortal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetportalid: VDS_OBJECT_ID, ullsecurityflags: super::ULONGLONG, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiInitiatorPortal_Impl::SetIpsecSecurity(this, core::mem::transmute(&targetportalid), core::mem::transmute_copy(&ullsecurityflags), core::mem::transmute_copy(&pipseckey)).into()
+                IVdsIscsiInitiatorPortal_Impl::SetIpsecSecurity(this, core::mem::transmute(&targetportalid), core::mem::transmute_copy(&ullsecurityflags), core::mem::transmute_copy(&pipseckey))
             }
         }
         Self {
@@ -2155,13 +2155,13 @@ pub struct IVdsIscsiPortal_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IVdsIscsiPortal_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, pportalprop: *mut VDS_ISCSI_PORTAL_PROP) -> windows_core::Result<()>;
+    fn GetProperties(&self, pportalprop: *mut VDS_ISCSI_PORTAL_PROP) -> windows_core::HRESULT;
     fn GetSubSystem(&self) -> windows_core::Result<IVdsSubSystem>;
     fn QueryAssociatedPortalGroups(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn SetStatus(&self, status: VDS_ISCSI_PORTAL_STATUS) -> windows_core::Result<()>;
-    fn SetIpsecTunnelAddress(&self, ptunneladdress: *const VDS_IPADDRESS, pdestinationaddress: *const VDS_IPADDRESS) -> windows_core::Result<()>;
-    fn GetIpsecSecurity(&self, pinitiatorportaladdress: *const VDS_IPADDRESS, pullsecurityflags: *mut super::ULONGLONG) -> windows_core::Result<()>;
-    fn SetIpsecSecurity(&self, pinitiatorportaladdress: *const VDS_IPADDRESS, ullsecurityflags: super::ULONGLONG, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::Result<()>;
+    fn SetStatus(&self, status: VDS_ISCSI_PORTAL_STATUS) -> windows_core::HRESULT;
+    fn SetIpsecTunnelAddress(&self, ptunneladdress: *const VDS_IPADDRESS, pdestinationaddress: *const VDS_IPADDRESS) -> windows_core::HRESULT;
+    fn GetIpsecSecurity(&self, pinitiatorportaladdress: *const VDS_IPADDRESS, pullsecurityflags: *mut super::ULONGLONG) -> windows_core::HRESULT;
+    fn SetIpsecSecurity(&self, pinitiatorportaladdress: *const VDS_IPADDRESS, ullsecurityflags: super::ULONGLONG, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 impl IVdsIscsiPortal_Vtbl {
@@ -2169,7 +2169,7 @@ impl IVdsIscsiPortal_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: IVdsIscsiPortal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pportalprop: *mut VDS_ISCSI_PORTAL_PROP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiPortal_Impl::GetProperties(this, core::mem::transmute_copy(&pportalprop)).into()
+                IVdsIscsiPortal_Impl::GetProperties(this, core::mem::transmute_copy(&pportalprop))
             }
         }
         unsafe extern "system" fn GetSubSystem<Identity: IVdsIscsiPortal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsubsystem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2205,25 +2205,25 @@ impl IVdsIscsiPortal_Vtbl {
         unsafe extern "system" fn SetStatus<Identity: IVdsIscsiPortal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, status: VDS_ISCSI_PORTAL_STATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiPortal_Impl::SetStatus(this, core::mem::transmute_copy(&status)).into()
+                IVdsIscsiPortal_Impl::SetStatus(this, core::mem::transmute_copy(&status))
             }
         }
         unsafe extern "system" fn SetIpsecTunnelAddress<Identity: IVdsIscsiPortal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptunneladdress: *const VDS_IPADDRESS, pdestinationaddress: *const VDS_IPADDRESS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiPortal_Impl::SetIpsecTunnelAddress(this, core::mem::transmute_copy(&ptunneladdress), core::mem::transmute_copy(&pdestinationaddress)).into()
+                IVdsIscsiPortal_Impl::SetIpsecTunnelAddress(this, core::mem::transmute_copy(&ptunneladdress), core::mem::transmute_copy(&pdestinationaddress))
             }
         }
         unsafe extern "system" fn GetIpsecSecurity<Identity: IVdsIscsiPortal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinitiatorportaladdress: *const VDS_IPADDRESS, pullsecurityflags: *mut super::ULONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiPortal_Impl::GetIpsecSecurity(this, core::mem::transmute_copy(&pinitiatorportaladdress), core::mem::transmute_copy(&pullsecurityflags)).into()
+                IVdsIscsiPortal_Impl::GetIpsecSecurity(this, core::mem::transmute_copy(&pinitiatorportaladdress), core::mem::transmute_copy(&pullsecurityflags))
             }
         }
         unsafe extern "system" fn SetIpsecSecurity<Identity: IVdsIscsiPortal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinitiatorportaladdress: *const VDS_IPADDRESS, ullsecurityflags: super::ULONGLONG, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiPortal_Impl::SetIpsecSecurity(this, core::mem::transmute_copy(&pinitiatorportaladdress), core::mem::transmute_copy(&ullsecurityflags), core::mem::transmute_copy(&pipseckey)).into()
+                IVdsIscsiPortal_Impl::SetIpsecSecurity(this, core::mem::transmute_copy(&pinitiatorportaladdress), core::mem::transmute_copy(&ullsecurityflags), core::mem::transmute_copy(&pipseckey))
             }
         }
         Self {
@@ -2292,7 +2292,7 @@ pub struct IVdsIscsiPortalGroup_Vtbl {
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsIscsiPortalGroup_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, pportalgroupprop: *mut VDS_ISCSI_PORTALGROUP_PROP) -> windows_core::Result<()>;
+    fn GetProperties(&self, pportalgroupprop: *mut VDS_ISCSI_PORTALGROUP_PROP) -> windows_core::HRESULT;
     fn GetTarget(&self) -> windows_core::Result<IVdsIscsiTarget>;
     fn QueryAssociatedPortals(&self) -> windows_core::Result<IEnumVdsObject>;
     fn AddPortal(&self, portalid: &VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync>;
@@ -2304,7 +2304,7 @@ impl IVdsIscsiPortalGroup_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: IVdsIscsiPortalGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pportalgroupprop: *mut VDS_ISCSI_PORTALGROUP_PROP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiPortalGroup_Impl::GetProperties(this, core::mem::transmute_copy(&pportalgroupprop)).into()
+                IVdsIscsiPortalGroup_Impl::GetProperties(this, core::mem::transmute_copy(&pportalgroupprop))
             }
         }
         unsafe extern "system" fn GetTarget<Identity: IVdsIscsiPortalGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptarget: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2416,7 +2416,7 @@ pub struct IVdsIscsiPortalLocal_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IVdsIscsiPortalLocal_Impl: windows_core::IUnknownImpl {
-    fn SetIpsecSecurityLocal(&self, ullsecurityflags: super::ULONGLONG, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::Result<()>;
+    fn SetIpsecSecurityLocal(&self, ullsecurityflags: super::ULONGLONG, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IVdsIscsiPortalLocal_Vtbl {
@@ -2424,7 +2424,7 @@ impl IVdsIscsiPortalLocal_Vtbl {
         unsafe extern "system" fn SetIpsecSecurityLocal<Identity: IVdsIscsiPortalLocal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ullsecurityflags: super::ULONGLONG, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiPortalLocal_Impl::SetIpsecSecurityLocal(this, core::mem::transmute_copy(&ullsecurityflags), core::mem::transmute_copy(&pipseckey)).into()
+                IVdsIscsiPortalLocal_Impl::SetIpsecSecurityLocal(this, core::mem::transmute_copy(&ullsecurityflags), core::mem::transmute_copy(&pipseckey))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetIpsecSecurityLocal: SetIpsecSecurityLocal::<Identity, OFFSET> }
@@ -2522,16 +2522,16 @@ pub struct IVdsIscsiTarget_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IVdsIscsiTarget_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, ptargetprop: *mut VDS_ISCSI_TARGET_PROP) -> windows_core::Result<()>;
+    fn GetProperties(&self, ptargetprop: *mut VDS_ISCSI_TARGET_PROP) -> windows_core::HRESULT;
     fn GetSubSystem(&self) -> windows_core::Result<IVdsSubSystem>;
     fn QueryPortalGroups(&self) -> windows_core::Result<IEnumVdsObject>;
     fn QueryAssociatedLuns(&self) -> windows_core::Result<IEnumVdsObject>;
     fn CreatePortalGroup(&self) -> windows_core::Result<IVdsAsync>;
     fn Delete(&self) -> windows_core::Result<IVdsAsync>;
-    fn SetFriendlyName(&self, pwszfriendlyname: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetSharedSecret(&self, ptargetsharedsecret: *const VDS_ISCSI_SHARED_SECRET, pwszinitiatorname: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn RememberInitiatorSharedSecret(&self, pwszinitiatorname: &windows_core::PCWSTR, pinitiatorsharedsecret: *const VDS_ISCSI_SHARED_SECRET) -> windows_core::Result<()>;
-    fn GetConnectedInitiators(&self, pppwszinitiatorlist: *mut *mut windows_core::PWSTR, plnumberofinitiators: *mut super::LONG) -> windows_core::Result<()>;
+    fn SetFriendlyName(&self, pwszfriendlyname: &windows_core::PCWSTR) -> windows_core::HRESULT;
+    fn SetSharedSecret(&self, ptargetsharedsecret: *const VDS_ISCSI_SHARED_SECRET, pwszinitiatorname: &windows_core::PCWSTR) -> windows_core::HRESULT;
+    fn RememberInitiatorSharedSecret(&self, pwszinitiatorname: &windows_core::PCWSTR, pinitiatorsharedsecret: *const VDS_ISCSI_SHARED_SECRET) -> windows_core::HRESULT;
+    fn GetConnectedInitiators(&self, pppwszinitiatorlist: *mut *mut windows_core::PWSTR, plnumberofinitiators: *mut super::LONG) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IVdsIscsiTarget_Vtbl {
@@ -2539,7 +2539,7 @@ impl IVdsIscsiTarget_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: IVdsIscsiTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptargetprop: *mut VDS_ISCSI_TARGET_PROP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiTarget_Impl::GetProperties(this, core::mem::transmute_copy(&ptargetprop)).into()
+                IVdsIscsiTarget_Impl::GetProperties(this, core::mem::transmute_copy(&ptargetprop))
             }
         }
         unsafe extern "system" fn GetSubSystem<Identity: IVdsIscsiTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsubsystem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2620,25 +2620,25 @@ impl IVdsIscsiTarget_Vtbl {
         unsafe extern "system" fn SetFriendlyName<Identity: IVdsIscsiTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszfriendlyname: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiTarget_Impl::SetFriendlyName(this, core::mem::transmute(&pwszfriendlyname)).into()
+                IVdsIscsiTarget_Impl::SetFriendlyName(this, core::mem::transmute(&pwszfriendlyname))
             }
         }
         unsafe extern "system" fn SetSharedSecret<Identity: IVdsIscsiTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptargetsharedsecret: *const VDS_ISCSI_SHARED_SECRET, pwszinitiatorname: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiTarget_Impl::SetSharedSecret(this, core::mem::transmute_copy(&ptargetsharedsecret), core::mem::transmute(&pwszinitiatorname)).into()
+                IVdsIscsiTarget_Impl::SetSharedSecret(this, core::mem::transmute_copy(&ptargetsharedsecret), core::mem::transmute(&pwszinitiatorname))
             }
         }
         unsafe extern "system" fn RememberInitiatorSharedSecret<Identity: IVdsIscsiTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszinitiatorname: windows_core::PCWSTR, pinitiatorsharedsecret: *const VDS_ISCSI_SHARED_SECRET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiTarget_Impl::RememberInitiatorSharedSecret(this, core::mem::transmute(&pwszinitiatorname), core::mem::transmute_copy(&pinitiatorsharedsecret)).into()
+                IVdsIscsiTarget_Impl::RememberInitiatorSharedSecret(this, core::mem::transmute(&pwszinitiatorname), core::mem::transmute_copy(&pinitiatorsharedsecret))
             }
         }
         unsafe extern "system" fn GetConnectedInitiators<Identity: IVdsIscsiTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppwszinitiatorlist: *mut *mut windows_core::PWSTR, plnumberofinitiators: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiTarget_Impl::GetConnectedInitiators(this, core::mem::transmute_copy(&pppwszinitiatorlist), core::mem::transmute_copy(&plnumberofinitiators)).into()
+                IVdsIscsiTarget_Impl::GetConnectedInitiators(this, core::mem::transmute_copy(&pppwszinitiatorlist), core::mem::transmute_copy(&plnumberofinitiators))
             }
         }
         Self {
@@ -2799,9 +2799,9 @@ pub struct IVdsLun_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "vdslun"))]
 pub trait IVdsLun_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, plunprop: *mut VDS_LUN_PROP) -> windows_core::Result<()>;
+    fn GetProperties(&self, plunprop: *mut VDS_LUN_PROP) -> windows_core::HRESULT;
     fn GetSubSystem(&self) -> windows_core::Result<IVdsSubSystem>;
-    fn GetIdentificationData(&self, pluninfo: *mut super::VDS_LUN_INFORMATION) -> windows_core::Result<()>;
+    fn GetIdentificationData(&self, pluninfo: *mut super::VDS_LUN_INFORMATION) -> windows_core::HRESULT;
     fn QueryActiveControllers(&self) -> windows_core::Result<IEnumVdsObject>;
     fn Extend(&self, ullnumberofbytestoadd: super::ULONGLONG, pdriveidarray: *const VDS_OBJECT_ID, lnumberofdrives: super::LONG) -> windows_core::Result<IVdsAsync>;
     fn Shrink(&self, ullnumberofbytestoremove: super::ULONGLONG) -> windows_core::Result<IVdsAsync>;
@@ -2809,13 +2809,13 @@ pub trait IVdsLun_Impl: windows_core::IUnknownImpl {
     fn AddPlex(&self, lunid: &VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync>;
     fn RemovePlex(&self, plexid: &VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync>;
     fn Recover(&self) -> windows_core::Result<IVdsAsync>;
-    fn SetMask(&self, pwszunmaskinglist: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn Delete(&self) -> windows_core::Result<()>;
-    fn AssociateControllers(&self, pactivecontrolleridarray: *const VDS_OBJECT_ID, lnumberofactivecontrollers: super::LONG, pinactivecontrolleridarray: *const VDS_OBJECT_ID, lnumberofinactivecontrollers: super::LONG) -> windows_core::Result<()>;
-    fn QueryHints(&self, phints: *mut VDS_HINTS) -> windows_core::Result<()>;
-    fn ApplyHints(&self, phints: *const VDS_HINTS) -> windows_core::Result<()>;
-    fn SetStatus(&self, status: VDS_LUN_STATUS) -> windows_core::Result<()>;
-    fn QueryMaxLunExtendSize(&self, pdriveidarray: *const VDS_OBJECT_ID, lnumberofdrives: super::LONG, pullmaxbytestobeadded: *mut super::ULONGLONG) -> windows_core::Result<()>;
+    fn SetMask(&self, pwszunmaskinglist: &windows_core::PCWSTR) -> windows_core::HRESULT;
+    fn Delete(&self) -> windows_core::HRESULT;
+    fn AssociateControllers(&self, pactivecontrolleridarray: *const VDS_OBJECT_ID, lnumberofactivecontrollers: super::LONG, pinactivecontrolleridarray: *const VDS_OBJECT_ID, lnumberofinactivecontrollers: super::LONG) -> windows_core::HRESULT;
+    fn QueryHints(&self, phints: *mut VDS_HINTS) -> windows_core::HRESULT;
+    fn ApplyHints(&self, phints: *const VDS_HINTS) -> windows_core::HRESULT;
+    fn SetStatus(&self, status: VDS_LUN_STATUS) -> windows_core::HRESULT;
+    fn QueryMaxLunExtendSize(&self, pdriveidarray: *const VDS_OBJECT_ID, lnumberofdrives: super::LONG, pullmaxbytestobeadded: *mut super::ULONGLONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "vdslun"))]
 impl IVdsLun_Vtbl {
@@ -2823,7 +2823,7 @@ impl IVdsLun_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: IVdsLun_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plunprop: *mut VDS_LUN_PROP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLun_Impl::GetProperties(this, core::mem::transmute_copy(&plunprop)).into()
+                IVdsLun_Impl::GetProperties(this, core::mem::transmute_copy(&plunprop))
             }
         }
         unsafe extern "system" fn GetSubSystem<Identity: IVdsLun_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsubsystem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2844,7 +2844,7 @@ impl IVdsLun_Vtbl {
         unsafe extern "system" fn GetIdentificationData<Identity: IVdsLun_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pluninfo: *mut super::VDS_LUN_INFORMATION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLun_Impl::GetIdentificationData(this, core::mem::transmute_copy(&pluninfo)).into()
+                IVdsLun_Impl::GetIdentificationData(this, core::mem::transmute_copy(&pluninfo))
             }
         }
         unsafe extern "system" fn QueryActiveControllers<Identity: IVdsLun_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2955,43 +2955,43 @@ impl IVdsLun_Vtbl {
         unsafe extern "system" fn SetMask<Identity: IVdsLun_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszunmaskinglist: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLun_Impl::SetMask(this, core::mem::transmute(&pwszunmaskinglist)).into()
+                IVdsLun_Impl::SetMask(this, core::mem::transmute(&pwszunmaskinglist))
             }
         }
         unsafe extern "system" fn Delete<Identity: IVdsLun_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLun_Impl::Delete(this).into()
+                IVdsLun_Impl::Delete(this)
             }
         }
         unsafe extern "system" fn AssociateControllers<Identity: IVdsLun_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pactivecontrolleridarray: *const VDS_OBJECT_ID, lnumberofactivecontrollers: super::LONG, pinactivecontrolleridarray: *const VDS_OBJECT_ID, lnumberofinactivecontrollers: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLun_Impl::AssociateControllers(this, core::mem::transmute_copy(&pactivecontrolleridarray), core::mem::transmute_copy(&lnumberofactivecontrollers), core::mem::transmute_copy(&pinactivecontrolleridarray), core::mem::transmute_copy(&lnumberofinactivecontrollers)).into()
+                IVdsLun_Impl::AssociateControllers(this, core::mem::transmute_copy(&pactivecontrolleridarray), core::mem::transmute_copy(&lnumberofactivecontrollers), core::mem::transmute_copy(&pinactivecontrolleridarray), core::mem::transmute_copy(&lnumberofinactivecontrollers))
             }
         }
         unsafe extern "system" fn QueryHints<Identity: IVdsLun_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phints: *mut VDS_HINTS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLun_Impl::QueryHints(this, core::mem::transmute_copy(&phints)).into()
+                IVdsLun_Impl::QueryHints(this, core::mem::transmute_copy(&phints))
             }
         }
         unsafe extern "system" fn ApplyHints<Identity: IVdsLun_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phints: *const VDS_HINTS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLun_Impl::ApplyHints(this, core::mem::transmute_copy(&phints)).into()
+                IVdsLun_Impl::ApplyHints(this, core::mem::transmute_copy(&phints))
             }
         }
         unsafe extern "system" fn SetStatus<Identity: IVdsLun_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, status: VDS_LUN_STATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLun_Impl::SetStatus(this, core::mem::transmute_copy(&status)).into()
+                IVdsLun_Impl::SetStatus(this, core::mem::transmute_copy(&status))
             }
         }
         unsafe extern "system" fn QueryMaxLunExtendSize<Identity: IVdsLun_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdriveidarray: *const VDS_OBJECT_ID, lnumberofdrives: super::LONG, pullmaxbytestobeadded: *mut super::ULONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLun_Impl::QueryMaxLunExtendSize(this, core::mem::transmute_copy(&pdriveidarray), core::mem::transmute_copy(&lnumberofdrives), core::mem::transmute_copy(&pullmaxbytestobeadded)).into()
+                IVdsLun_Impl::QueryMaxLunExtendSize(this, core::mem::transmute_copy(&pdriveidarray), core::mem::transmute_copy(&lnumberofdrives), core::mem::transmute_copy(&pullmaxbytestobeadded))
             }
         }
         Self {
@@ -3048,8 +3048,8 @@ pub struct IVdsLun2_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "vdslun"))]
 pub trait IVdsLun2_Impl: windows_core::IUnknownImpl {
-    fn QueryHints2(&self, phints2: *mut VDS_HINTS2) -> windows_core::Result<()>;
-    fn ApplyHints2(&self, phints2: *const VDS_HINTS2) -> windows_core::Result<()>;
+    fn QueryHints2(&self, phints2: *mut VDS_HINTS2) -> windows_core::HRESULT;
+    fn ApplyHints2(&self, phints2: *const VDS_HINTS2) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "vdslun"))]
 impl IVdsLun2_Vtbl {
@@ -3057,13 +3057,13 @@ impl IVdsLun2_Vtbl {
         unsafe extern "system" fn QueryHints2<Identity: IVdsLun2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phints2: *mut VDS_HINTS2) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLun2_Impl::QueryHints2(this, core::mem::transmute_copy(&phints2)).into()
+                IVdsLun2_Impl::QueryHints2(this, core::mem::transmute_copy(&phints2))
             }
         }
         unsafe extern "system" fn ApplyHints2<Identity: IVdsLun2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phints2: *const VDS_HINTS2) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLun2_Impl::ApplyHints2(this, core::mem::transmute_copy(&phints2)).into()
+                IVdsLun2_Impl::ApplyHints2(this, core::mem::transmute_copy(&phints2))
             }
         }
         Self {
@@ -3104,7 +3104,7 @@ pub struct IVdsLunControllerPorts_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IVdsLunControllerPorts_Impl: windows_core::IUnknownImpl {
-    fn AssociateControllerPorts(&self, pactivecontrollerportidarray: *const VDS_OBJECT_ID, lnumberofactivecontrollerports: super::LONG, pinactivecontrollerportidarray: *const VDS_OBJECT_ID, lnumberofinactivecontrollerports: super::LONG) -> windows_core::Result<()>;
+    fn AssociateControllerPorts(&self, pactivecontrollerportidarray: *const VDS_OBJECT_ID, lnumberofactivecontrollerports: super::LONG, pinactivecontrollerportidarray: *const VDS_OBJECT_ID, lnumberofinactivecontrollerports: super::LONG) -> windows_core::HRESULT;
     fn QueryActiveControllerPorts(&self) -> windows_core::Result<IEnumVdsObject>;
 }
 #[cfg(feature = "shared")]
@@ -3113,7 +3113,7 @@ impl IVdsLunControllerPorts_Vtbl {
         unsafe extern "system" fn AssociateControllerPorts<Identity: IVdsLunControllerPorts_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pactivecontrollerportidarray: *const VDS_OBJECT_ID, lnumberofactivecontrollerports: super::LONG, pinactivecontrollerportidarray: *const VDS_OBJECT_ID, lnumberofinactivecontrollerports: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLunControllerPorts_Impl::AssociateControllerPorts(this, core::mem::transmute_copy(&pactivecontrollerportidarray), core::mem::transmute_copy(&lnumberofactivecontrollerports), core::mem::transmute_copy(&pinactivecontrollerportidarray), core::mem::transmute_copy(&lnumberofinactivecontrollerports)).into()
+                IVdsLunControllerPorts_Impl::AssociateControllerPorts(this, core::mem::transmute_copy(&pactivecontrollerportidarray), core::mem::transmute_copy(&lnumberofactivecontrollerports), core::mem::transmute_copy(&pinactivecontrollerportidarray), core::mem::transmute_copy(&lnumberofinactivecontrollerports))
             }
         }
         unsafe extern "system" fn QueryActiveControllerPorts<Identity: IVdsLunControllerPorts_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3169,7 +3169,7 @@ pub struct IVdsLunIscsi_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IVdsLunIscsi_Impl: windows_core::IUnknownImpl {
-    fn AssociateTargets(&self, ptargetidarray: *const VDS_OBJECT_ID, lnumberoftargets: super::LONG) -> windows_core::Result<()>;
+    fn AssociateTargets(&self, ptargetidarray: *const VDS_OBJECT_ID, lnumberoftargets: super::LONG) -> windows_core::HRESULT;
     fn QueryAssociatedTargets(&self) -> windows_core::Result<IEnumVdsObject>;
 }
 #[cfg(feature = "shared")]
@@ -3178,7 +3178,7 @@ impl IVdsLunIscsi_Vtbl {
         unsafe extern "system" fn AssociateTargets<Identity: IVdsLunIscsi_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptargetidarray: *const VDS_OBJECT_ID, lnumberoftargets: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLunIscsi_Impl::AssociateTargets(this, core::mem::transmute_copy(&ptargetidarray), core::mem::transmute_copy(&lnumberoftargets)).into()
+                IVdsLunIscsi_Impl::AssociateTargets(this, core::mem::transmute_copy(&ptargetidarray), core::mem::transmute_copy(&lnumberoftargets))
             }
         }
         unsafe extern "system" fn QueryAssociatedTargets<Identity: IVdsLunIscsi_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3251,10 +3251,10 @@ pub struct IVdsLunMpio_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IVdsLunMpio_Impl: windows_core::IUnknownImpl {
-    fn GetPathInfo(&self, pppaths: *mut *mut VDS_PATH_INFO, plnumberofpaths: *mut super::LONG) -> windows_core::Result<()>;
-    fn GetLoadBalancePolicy(&self, ppolicy: *mut VDS_LOADBALANCE_POLICY_ENUM, pppaths: *mut *mut VDS_PATH_POLICY, plnumberofpaths: *mut super::LONG) -> windows_core::Result<()>;
-    fn SetLoadBalancePolicy(&self, policy: VDS_LOADBALANCE_POLICY_ENUM, ppaths: *const VDS_PATH_POLICY, lnumberofpaths: super::LONG) -> windows_core::Result<()>;
-    fn GetSupportedLbPolicies(&self, pullbflags: *mut super::ULONG) -> windows_core::Result<()>;
+    fn GetPathInfo(&self, pppaths: *mut *mut VDS_PATH_INFO, plnumberofpaths: *mut super::LONG) -> windows_core::HRESULT;
+    fn GetLoadBalancePolicy(&self, ppolicy: *mut VDS_LOADBALANCE_POLICY_ENUM, pppaths: *mut *mut VDS_PATH_POLICY, plnumberofpaths: *mut super::LONG) -> windows_core::HRESULT;
+    fn SetLoadBalancePolicy(&self, policy: VDS_LOADBALANCE_POLICY_ENUM, ppaths: *const VDS_PATH_POLICY, lnumberofpaths: super::LONG) -> windows_core::HRESULT;
+    fn GetSupportedLbPolicies(&self, pullbflags: *mut super::ULONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 impl IVdsLunMpio_Vtbl {
@@ -3262,25 +3262,25 @@ impl IVdsLunMpio_Vtbl {
         unsafe extern "system" fn GetPathInfo<Identity: IVdsLunMpio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppaths: *mut *mut VDS_PATH_INFO, plnumberofpaths: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLunMpio_Impl::GetPathInfo(this, core::mem::transmute_copy(&pppaths), core::mem::transmute_copy(&plnumberofpaths)).into()
+                IVdsLunMpio_Impl::GetPathInfo(this, core::mem::transmute_copy(&pppaths), core::mem::transmute_copy(&plnumberofpaths))
             }
         }
         unsafe extern "system" fn GetLoadBalancePolicy<Identity: IVdsLunMpio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppolicy: *mut VDS_LOADBALANCE_POLICY_ENUM, pppaths: *mut *mut VDS_PATH_POLICY, plnumberofpaths: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLunMpio_Impl::GetLoadBalancePolicy(this, core::mem::transmute_copy(&ppolicy), core::mem::transmute_copy(&pppaths), core::mem::transmute_copy(&plnumberofpaths)).into()
+                IVdsLunMpio_Impl::GetLoadBalancePolicy(this, core::mem::transmute_copy(&ppolicy), core::mem::transmute_copy(&pppaths), core::mem::transmute_copy(&plnumberofpaths))
             }
         }
         unsafe extern "system" fn SetLoadBalancePolicy<Identity: IVdsLunMpio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, policy: VDS_LOADBALANCE_POLICY_ENUM, ppaths: *const VDS_PATH_POLICY, lnumberofpaths: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLunMpio_Impl::SetLoadBalancePolicy(this, core::mem::transmute_copy(&policy), core::mem::transmute_copy(&ppaths), core::mem::transmute_copy(&lnumberofpaths)).into()
+                IVdsLunMpio_Impl::SetLoadBalancePolicy(this, core::mem::transmute_copy(&policy), core::mem::transmute_copy(&ppaths), core::mem::transmute_copy(&lnumberofpaths))
             }
         }
         unsafe extern "system" fn GetSupportedLbPolicies<Identity: IVdsLunMpio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pullbflags: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLunMpio_Impl::GetSupportedLbPolicies(this, core::mem::transmute_copy(&pullbflags)).into()
+                IVdsLunMpio_Impl::GetSupportedLbPolicies(this, core::mem::transmute_copy(&pullbflags))
             }
         }
         Self {
@@ -3314,14 +3314,14 @@ pub struct IVdsLunNaming_Vtbl {
     pub SetFriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait IVdsLunNaming_Impl: windows_core::IUnknownImpl {
-    fn SetFriendlyName(&self, pwszfriendlyname: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetFriendlyName(&self, pwszfriendlyname: &windows_core::PCWSTR) -> windows_core::HRESULT;
 }
 impl IVdsLunNaming_Vtbl {
     pub const fn new<Identity: IVdsLunNaming_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetFriendlyName<Identity: IVdsLunNaming_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszfriendlyname: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLunNaming_Impl::SetFriendlyName(this, core::mem::transmute(&pwszfriendlyname)).into()
+                IVdsLunNaming_Impl::SetFriendlyName(this, core::mem::transmute(&pwszfriendlyname))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetFriendlyName: SetFriendlyName::<Identity, OFFSET> }
@@ -3350,7 +3350,7 @@ pub struct IVdsLunNumber_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IVdsLunNumber_Impl: windows_core::IUnknownImpl {
-    fn GetLunNumber(&self, pullunnumber: *mut super::ULONG) -> windows_core::Result<()>;
+    fn GetLunNumber(&self, pullunnumber: *mut super::ULONG) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IVdsLunNumber_Vtbl {
@@ -3358,7 +3358,7 @@ impl IVdsLunNumber_Vtbl {
         unsafe extern "system" fn GetLunNumber<Identity: IVdsLunNumber_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pullunnumber: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLunNumber_Impl::GetLunNumber(this, core::mem::transmute_copy(&pullunnumber)).into()
+                IVdsLunNumber_Impl::GetLunNumber(this, core::mem::transmute_copy(&pullunnumber))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetLunNumber: GetLunNumber::<Identity, OFFSET> }
@@ -3419,11 +3419,11 @@ pub struct IVdsLunPlex_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IVdsLunPlex_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, pplexprop: *mut VDS_LUN_PLEX_PROP) -> windows_core::Result<()>;
+    fn GetProperties(&self, pplexprop: *mut VDS_LUN_PLEX_PROP) -> windows_core::HRESULT;
     fn GetLun(&self) -> windows_core::Result<IVdsLun>;
-    fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DRIVE_EXTENT, plnumberofextents: *mut super::LONG) -> windows_core::Result<()>;
-    fn QueryHints(&self, phints: *mut VDS_HINTS) -> windows_core::Result<()>;
-    fn ApplyHints(&self, phints: *const VDS_HINTS) -> windows_core::Result<()>;
+    fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DRIVE_EXTENT, plnumberofextents: *mut super::LONG) -> windows_core::HRESULT;
+    fn QueryHints(&self, phints: *mut VDS_HINTS) -> windows_core::HRESULT;
+    fn ApplyHints(&self, phints: *const VDS_HINTS) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IVdsLunPlex_Vtbl {
@@ -3431,7 +3431,7 @@ impl IVdsLunPlex_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: IVdsLunPlex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pplexprop: *mut VDS_LUN_PLEX_PROP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLunPlex_Impl::GetProperties(this, core::mem::transmute_copy(&pplexprop)).into()
+                IVdsLunPlex_Impl::GetProperties(this, core::mem::transmute_copy(&pplexprop))
             }
         }
         unsafe extern "system" fn GetLun<Identity: IVdsLunPlex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pplun: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3452,19 +3452,19 @@ impl IVdsLunPlex_Vtbl {
         unsafe extern "system" fn QueryExtents<Identity: IVdsLunPlex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppextentarray: *mut *mut VDS_DRIVE_EXTENT, plnumberofextents: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLunPlex_Impl::QueryExtents(this, core::mem::transmute_copy(&ppextentarray), core::mem::transmute_copy(&plnumberofextents)).into()
+                IVdsLunPlex_Impl::QueryExtents(this, core::mem::transmute_copy(&ppextentarray), core::mem::transmute_copy(&plnumberofextents))
             }
         }
         unsafe extern "system" fn QueryHints<Identity: IVdsLunPlex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phints: *mut VDS_HINTS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLunPlex_Impl::QueryHints(this, core::mem::transmute_copy(&phints)).into()
+                IVdsLunPlex_Impl::QueryHints(this, core::mem::transmute_copy(&phints))
             }
         }
         unsafe extern "system" fn ApplyHints<Identity: IVdsLunPlex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phints: *const VDS_HINTS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLunPlex_Impl::ApplyHints(this, core::mem::transmute_copy(&phints)).into()
+                IVdsLunPlex_Impl::ApplyHints(this, core::mem::transmute_copy(&phints))
             }
         }
         Self {
@@ -3509,9 +3509,9 @@ pub struct IVdsMaintenance_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IVdsMaintenance_Impl: windows_core::IUnknownImpl {
-    fn StartMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION) -> windows_core::Result<()>;
-    fn StopMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION) -> windows_core::Result<()>;
-    fn PulseMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION, ulcount: super::ULONG) -> windows_core::Result<()>;
+    fn StartMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION) -> windows_core::HRESULT;
+    fn StopMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION) -> windows_core::HRESULT;
+    fn PulseMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION, ulcount: super::ULONG) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IVdsMaintenance_Vtbl {
@@ -3519,19 +3519,19 @@ impl IVdsMaintenance_Vtbl {
         unsafe extern "system" fn StartMaintenance<Identity: IVdsMaintenance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, operation: VDS_MAINTENANCE_OPERATION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsMaintenance_Impl::StartMaintenance(this, core::mem::transmute_copy(&operation)).into()
+                IVdsMaintenance_Impl::StartMaintenance(this, core::mem::transmute_copy(&operation))
             }
         }
         unsafe extern "system" fn StopMaintenance<Identity: IVdsMaintenance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, operation: VDS_MAINTENANCE_OPERATION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsMaintenance_Impl::StopMaintenance(this, core::mem::transmute_copy(&operation)).into()
+                IVdsMaintenance_Impl::StopMaintenance(this, core::mem::transmute_copy(&operation))
             }
         }
         unsafe extern "system" fn PulseMaintenance<Identity: IVdsMaintenance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, operation: VDS_MAINTENANCE_OPERATION, ulcount: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsMaintenance_Impl::PulseMaintenance(this, core::mem::transmute_copy(&operation), core::mem::transmute_copy(&ulcount)).into()
+                IVdsMaintenance_Impl::PulseMaintenance(this, core::mem::transmute_copy(&operation), core::mem::transmute_copy(&ulcount))
             }
         }
         Self {
@@ -3622,8 +3622,8 @@ pub struct IVdsOpenVDisk_Vtbl {
 #[cfg(all(feature = "shared", feature = "virtdisk"))]
 pub trait IVdsOpenVDisk_Impl: windows_core::IUnknownImpl {
     fn Attach(&self, pstringsecuritydescriptor: &windows_core::PCWSTR, flags: super::ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: super::ULONG, timeoutinms: super::ULONG) -> windows_core::Result<IVdsAsync>;
-    fn Detach(&self, flags: super::DETACH_VIRTUAL_DISK_FLAG, providerspecificflags: super::ULONG) -> windows_core::Result<()>;
-    fn DetachAndDelete(&self, flags: super::DETACH_VIRTUAL_DISK_FLAG, providerspecificflags: super::ULONG) -> windows_core::Result<()>;
+    fn Detach(&self, flags: super::DETACH_VIRTUAL_DISK_FLAG, providerspecificflags: super::ULONG) -> windows_core::HRESULT;
+    fn DetachAndDelete(&self, flags: super::DETACH_VIRTUAL_DISK_FLAG, providerspecificflags: super::ULONG) -> windows_core::HRESULT;
     fn Compact(&self, flags: super::COMPACT_VIRTUAL_DISK_FLAG, reserved: super::ULONG) -> windows_core::Result<IVdsAsync>;
     fn Merge(&self, flags: super::MERGE_VIRTUAL_DISK_FLAG, mergedepth: super::ULONG) -> windows_core::Result<IVdsAsync>;
     fn Expand(&self, flags: super::EXPAND_VIRTUAL_DISK_FLAG, newsize: super::ULONGLONG) -> windows_core::Result<IVdsAsync>;
@@ -3649,13 +3649,13 @@ impl IVdsOpenVDisk_Vtbl {
         unsafe extern "system" fn Detach<Identity: IVdsOpenVDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: super::DETACH_VIRTUAL_DISK_FLAG, providerspecificflags: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsOpenVDisk_Impl::Detach(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&providerspecificflags)).into()
+                IVdsOpenVDisk_Impl::Detach(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&providerspecificflags))
             }
         }
         unsafe extern "system" fn DetachAndDelete<Identity: IVdsOpenVDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: super::DETACH_VIRTUAL_DISK_FLAG, providerspecificflags: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsOpenVDisk_Impl::DetachAndDelete(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&providerspecificflags)).into()
+                IVdsOpenVDisk_Impl::DetachAndDelete(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&providerspecificflags))
             }
         }
         unsafe extern "system" fn Compact<Identity: IVdsOpenVDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: super::COMPACT_VIRTUAL_DISK_FLAG, reserved: super::ULONG, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3800,15 +3800,15 @@ pub struct IVdsPack_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IVdsPack_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, ppackprop: *mut VDS_PACK_PROP) -> windows_core::Result<()>;
+    fn GetProperties(&self, ppackprop: *mut VDS_PACK_PROP) -> windows_core::HRESULT;
     fn GetProvider(&self) -> windows_core::Result<IVdsProvider>;
     fn QueryVolumes(&self) -> windows_core::Result<IEnumVdsObject>;
     fn QueryDisks(&self) -> windows_core::Result<IEnumVdsObject>;
     fn CreateVolume(&self, r#type: VDS_VOLUME_TYPE, pinputdiskarray: *const VDS_INPUT_DISK, lnumberofdisks: super::LONG, ulstripesize: super::ULONG) -> windows_core::Result<IVdsAsync>;
-    fn AddDisk(&self, diskid: &VDS_OBJECT_ID, partitionstyle: VDS_PARTITION_STYLE, bashotspare: windows_core::BOOL) -> windows_core::Result<()>;
-    fn MigrateDisks(&self, pdiskarray: *const VDS_OBJECT_ID, lnumberofdisks: super::LONG, targetpack: &VDS_OBJECT_ID, bforce: windows_core::BOOL, bqueryonly: windows_core::BOOL, presults: *mut windows_core::HRESULT, pbrebootneeded: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn AddDisk(&self, diskid: &VDS_OBJECT_ID, partitionstyle: VDS_PARTITION_STYLE, bashotspare: windows_core::BOOL) -> windows_core::HRESULT;
+    fn MigrateDisks(&self, pdiskarray: *const VDS_OBJECT_ID, lnumberofdisks: super::LONG, targetpack: &VDS_OBJECT_ID, bforce: windows_core::BOOL, bqueryonly: windows_core::BOOL, presults: *mut windows_core::HRESULT, pbrebootneeded: *mut windows_core::BOOL) -> windows_core::HRESULT;
     fn ReplaceDisk(&self, olddiskid: &VDS_OBJECT_ID, newdiskid: &VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync>;
-    fn RemoveMissingDisk(&self, diskid: &VDS_OBJECT_ID) -> windows_core::Result<()>;
+    fn RemoveMissingDisk(&self, diskid: &VDS_OBJECT_ID) -> windows_core::HRESULT;
     fn Recover(&self) -> windows_core::Result<IVdsAsync>;
 }
 #[cfg(feature = "shared")]
@@ -3817,7 +3817,7 @@ impl IVdsPack_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: IVdsPack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppackprop: *mut VDS_PACK_PROP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsPack_Impl::GetProperties(this, core::mem::transmute_copy(&ppackprop)).into()
+                IVdsPack_Impl::GetProperties(this, core::mem::transmute_copy(&ppackprop))
             }
         }
         unsafe extern "system" fn GetProvider<Identity: IVdsPack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppprovider: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3883,13 +3883,13 @@ impl IVdsPack_Vtbl {
         unsafe extern "system" fn AddDisk<Identity: IVdsPack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, diskid: VDS_OBJECT_ID, partitionstyle: VDS_PARTITION_STYLE, bashotspare: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsPack_Impl::AddDisk(this, core::mem::transmute(&diskid), core::mem::transmute_copy(&partitionstyle), core::mem::transmute_copy(&bashotspare)).into()
+                IVdsPack_Impl::AddDisk(this, core::mem::transmute(&diskid), core::mem::transmute_copy(&partitionstyle), core::mem::transmute_copy(&bashotspare))
             }
         }
         unsafe extern "system" fn MigrateDisks<Identity: IVdsPack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdiskarray: *const VDS_OBJECT_ID, lnumberofdisks: super::LONG, targetpack: VDS_OBJECT_ID, bforce: windows_core::BOOL, bqueryonly: windows_core::BOOL, presults: *mut windows_core::HRESULT, pbrebootneeded: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsPack_Impl::MigrateDisks(this, core::mem::transmute_copy(&pdiskarray), core::mem::transmute_copy(&lnumberofdisks), core::mem::transmute(&targetpack), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bqueryonly), core::mem::transmute_copy(&presults), core::mem::transmute_copy(&pbrebootneeded)).into()
+                IVdsPack_Impl::MigrateDisks(this, core::mem::transmute_copy(&pdiskarray), core::mem::transmute_copy(&lnumberofdisks), core::mem::transmute(&targetpack), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bqueryonly), core::mem::transmute_copy(&presults), core::mem::transmute_copy(&pbrebootneeded))
             }
         }
         unsafe extern "system" fn ReplaceDisk<Identity: IVdsPack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, olddiskid: VDS_OBJECT_ID, newdiskid: VDS_OBJECT_ID, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3910,7 +3910,7 @@ impl IVdsPack_Vtbl {
         unsafe extern "system" fn RemoveMissingDisk<Identity: IVdsPack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, diskid: VDS_OBJECT_ID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsPack_Impl::RemoveMissingDisk(this, core::mem::transmute(&diskid)).into()
+                IVdsPack_Impl::RemoveMissingDisk(this, core::mem::transmute(&diskid))
             }
         }
         unsafe extern "system" fn Recover<Identity: IVdsPack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4017,7 +4017,7 @@ pub struct IVdsProvider_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IVdsProvider_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, pproviderprop: *mut VDS_PROVIDER_PROP) -> windows_core::Result<()>;
+    fn GetProperties(&self, pproviderprop: *mut VDS_PROVIDER_PROP) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IVdsProvider_Vtbl {
@@ -4025,7 +4025,7 @@ impl IVdsProvider_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: IVdsProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pproviderprop: *mut VDS_PROVIDER_PROP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsProvider_Impl::GetProperties(this, core::mem::transmute_copy(&pproviderprop)).into()
+                IVdsProvider_Impl::GetProperties(this, core::mem::transmute_copy(&pproviderprop))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetProperties: GetProperties::<Identity, OFFSET> }
@@ -4055,7 +4055,7 @@ pub struct IVdsProviderSupport_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IVdsProviderSupport_Impl: windows_core::IUnknownImpl {
-    fn GetVersionSupport(&self, ulversionsupport: *mut super::ULONG) -> windows_core::Result<()>;
+    fn GetVersionSupport(&self, ulversionsupport: *mut super::ULONG) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IVdsProviderSupport_Vtbl {
@@ -4063,7 +4063,7 @@ impl IVdsProviderSupport_Vtbl {
         unsafe extern "system" fn GetVersionSupport<Identity: IVdsProviderSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulversionsupport: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsProviderSupport_Impl::GetVersionSupport(this, core::mem::transmute_copy(&ulversionsupport)).into()
+                IVdsProviderSupport_Impl::GetVersionSupport(this, core::mem::transmute_copy(&ulversionsupport))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetVersionSupport: GetVersionSupport::<Identity, OFFSET> }
@@ -4092,21 +4092,21 @@ pub struct IVdsRemovable_Vtbl {
     pub Eject: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsRemovable_Impl: windows_core::IUnknownImpl {
-    fn QueryMedia(&self) -> windows_core::Result<()>;
-    fn Eject(&self) -> windows_core::Result<()>;
+    fn QueryMedia(&self) -> windows_core::HRESULT;
+    fn Eject(&self) -> windows_core::HRESULT;
 }
 impl IVdsRemovable_Vtbl {
     pub const fn new<Identity: IVdsRemovable_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryMedia<Identity: IVdsRemovable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsRemovable_Impl::QueryMedia(this).into()
+                IVdsRemovable_Impl::QueryMedia(this)
             }
         }
         unsafe extern "system" fn Eject<Identity: IVdsRemovable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsRemovable_Impl::Eject(this).into()
+                IVdsRemovable_Impl::Eject(this)
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), QueryMedia: QueryMedia::<Identity, OFFSET>, Eject: Eject::<Identity, OFFSET> }
@@ -4242,23 +4242,23 @@ pub struct IVdsService_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IVdsService_Impl: windows_core::IUnknownImpl {
-    fn IsServiceReady(&self) -> windows_core::Result<()>;
-    fn WaitForServiceReady(&self) -> windows_core::Result<()>;
-    fn GetProperties(&self, pserviceprop: *mut VDS_SERVICE_PROP) -> windows_core::Result<()>;
+    fn IsServiceReady(&self) -> windows_core::HRESULT;
+    fn WaitForServiceReady(&self) -> windows_core::HRESULT;
+    fn GetProperties(&self, pserviceprop: *mut VDS_SERVICE_PROP) -> windows_core::HRESULT;
     fn QueryProviders(&self, masks: super::DWORD) -> windows_core::Result<IEnumVdsObject>;
     fn QueryMaskedDisks(&self) -> windows_core::Result<IEnumVdsObject>;
     fn QueryUnallocatedDisks(&self) -> windows_core::Result<IEnumVdsObject>;
     fn GetObject(&self, objectid: &VDS_OBJECT_ID, r#type: VDS_OBJECT_TYPE) -> windows_core::Result<windows_core::IUnknown>;
-    fn QueryDriveLetters(&self, wcfirstletter: super::WCHAR, count: super::DWORD, pdriveletterproparray: *mut VDS_DRIVE_LETTER_PROP) -> windows_core::Result<()>;
-    fn QueryFileSystemTypes(&self, ppfilesystemtypeprops: *mut *mut VDS_FILE_SYSTEM_TYPE_PROP, plnumberoffilesystems: *mut super::LONG) -> windows_core::Result<()>;
-    fn Reenumerate(&self) -> windows_core::Result<()>;
-    fn Refresh(&self) -> windows_core::Result<()>;
-    fn CleanupObsoleteMountPoints(&self) -> windows_core::Result<()>;
-    fn Advise(&self, psink: windows_core::Ref<IVdsAdviseSink>, pdwcookie: *mut super::DWORD) -> windows_core::Result<()>;
-    fn Unadvise(&self, dwcookie: super::DWORD) -> windows_core::Result<()>;
-    fn Reboot(&self) -> windows_core::Result<()>;
-    fn SetFlags(&self, ulflags: super::ULONG) -> windows_core::Result<()>;
-    fn ClearFlags(&self, ulflags: super::ULONG) -> windows_core::Result<()>;
+    fn QueryDriveLetters(&self, wcfirstletter: super::WCHAR, count: super::DWORD, pdriveletterproparray: *mut VDS_DRIVE_LETTER_PROP) -> windows_core::HRESULT;
+    fn QueryFileSystemTypes(&self, ppfilesystemtypeprops: *mut *mut VDS_FILE_SYSTEM_TYPE_PROP, plnumberoffilesystems: *mut super::LONG) -> windows_core::HRESULT;
+    fn Reenumerate(&self) -> windows_core::HRESULT;
+    fn Refresh(&self) -> windows_core::HRESULT;
+    fn CleanupObsoleteMountPoints(&self) -> windows_core::HRESULT;
+    fn Advise(&self, psink: windows_core::Ref<IVdsAdviseSink>, pdwcookie: *mut super::DWORD) -> windows_core::HRESULT;
+    fn Unadvise(&self, dwcookie: super::DWORD) -> windows_core::HRESULT;
+    fn Reboot(&self) -> windows_core::HRESULT;
+    fn SetFlags(&self, ulflags: super::ULONG) -> windows_core::HRESULT;
+    fn ClearFlags(&self, ulflags: super::ULONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 impl IVdsService_Vtbl {
@@ -4266,19 +4266,19 @@ impl IVdsService_Vtbl {
         unsafe extern "system" fn IsServiceReady<Identity: IVdsService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsService_Impl::IsServiceReady(this).into()
+                IVdsService_Impl::IsServiceReady(this)
             }
         }
         unsafe extern "system" fn WaitForServiceReady<Identity: IVdsService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsService_Impl::WaitForServiceReady(this).into()
+                IVdsService_Impl::WaitForServiceReady(this)
             }
         }
         unsafe extern "system" fn GetProperties<Identity: IVdsService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pserviceprop: *mut VDS_SERVICE_PROP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsService_Impl::GetProperties(this, core::mem::transmute_copy(&pserviceprop)).into()
+                IVdsService_Impl::GetProperties(this, core::mem::transmute_copy(&pserviceprop))
             }
         }
         unsafe extern "system" fn QueryProviders<Identity: IVdsService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, masks: super::DWORD, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4344,61 +4344,61 @@ impl IVdsService_Vtbl {
         unsafe extern "system" fn QueryDriveLetters<Identity: IVdsService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wcfirstletter: super::WCHAR, count: super::DWORD, pdriveletterproparray: *mut VDS_DRIVE_LETTER_PROP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsService_Impl::QueryDriveLetters(this, core::mem::transmute_copy(&wcfirstletter), core::mem::transmute_copy(&count), core::mem::transmute_copy(&pdriveletterproparray)).into()
+                IVdsService_Impl::QueryDriveLetters(this, core::mem::transmute_copy(&wcfirstletter), core::mem::transmute_copy(&count), core::mem::transmute_copy(&pdriveletterproparray))
             }
         }
         unsafe extern "system" fn QueryFileSystemTypes<Identity: IVdsService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppfilesystemtypeprops: *mut *mut VDS_FILE_SYSTEM_TYPE_PROP, plnumberoffilesystems: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsService_Impl::QueryFileSystemTypes(this, core::mem::transmute_copy(&ppfilesystemtypeprops), core::mem::transmute_copy(&plnumberoffilesystems)).into()
+                IVdsService_Impl::QueryFileSystemTypes(this, core::mem::transmute_copy(&ppfilesystemtypeprops), core::mem::transmute_copy(&plnumberoffilesystems))
             }
         }
         unsafe extern "system" fn Reenumerate<Identity: IVdsService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsService_Impl::Reenumerate(this).into()
+                IVdsService_Impl::Reenumerate(this)
             }
         }
         unsafe extern "system" fn Refresh<Identity: IVdsService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsService_Impl::Refresh(this).into()
+                IVdsService_Impl::Refresh(this)
             }
         }
         unsafe extern "system" fn CleanupObsoleteMountPoints<Identity: IVdsService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsService_Impl::CleanupObsoleteMountPoints(this).into()
+                IVdsService_Impl::CleanupObsoleteMountPoints(this)
             }
         }
         unsafe extern "system" fn Advise<Identity: IVdsService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psink: *mut core::ffi::c_void, pdwcookie: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsService_Impl::Advise(this, core::mem::transmute_copy(&psink), core::mem::transmute_copy(&pdwcookie)).into()
+                IVdsService_Impl::Advise(this, core::mem::transmute_copy(&psink), core::mem::transmute_copy(&pdwcookie))
             }
         }
         unsafe extern "system" fn Unadvise<Identity: IVdsService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcookie: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsService_Impl::Unadvise(this, core::mem::transmute_copy(&dwcookie)).into()
+                IVdsService_Impl::Unadvise(this, core::mem::transmute_copy(&dwcookie))
             }
         }
         unsafe extern "system" fn Reboot<Identity: IVdsService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsService_Impl::Reboot(this).into()
+                IVdsService_Impl::Reboot(this)
             }
         }
         unsafe extern "system" fn SetFlags<Identity: IVdsService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulflags: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsService_Impl::SetFlags(this, core::mem::transmute_copy(&ulflags)).into()
+                IVdsService_Impl::SetFlags(this, core::mem::transmute_copy(&ulflags))
             }
         }
         unsafe extern "system" fn ClearFlags<Identity: IVdsService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulflags: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsService_Impl::ClearFlags(this, core::mem::transmute_copy(&ulflags)).into()
+                IVdsService_Impl::ClearFlags(this, core::mem::transmute_copy(&ulflags))
             }
         }
         Self {
@@ -4488,14 +4488,14 @@ pub struct IVdsServiceInitialization_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait IVdsServiceInitialization_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, pwszmachinename: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn Initialize(&self, pwszmachinename: &windows_core::PCWSTR) -> windows_core::HRESULT;
 }
 impl IVdsServiceInitialization_Vtbl {
     pub const fn new<Identity: IVdsServiceInitialization_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IVdsServiceInitialization_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszmachinename: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsServiceInitialization_Impl::Initialize(this, core::mem::transmute(&pwszmachinename)).into()
+                IVdsServiceInitialization_Impl::Initialize(this, core::mem::transmute(&pwszmachinename))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, OFFSET> }
@@ -4567,13 +4567,13 @@ pub struct IVdsServiceIscsi_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IVdsServiceIscsi_Impl: windows_core::IUnknownImpl {
-    fn GetInitiatorName(&self, ppwsziscsiname: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetInitiatorName(&self, ppwsziscsiname: *mut windows_core::PWSTR) -> windows_core::HRESULT;
     fn QueryInitiatorAdapters(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn SetIpsecGroupPresharedKey(&self, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::Result<()>;
-    fn SetAllIpsecTunnelAddresses(&self, ptunneladdress: *const VDS_IPADDRESS, pdestinationaddress: *const VDS_IPADDRESS) -> windows_core::Result<()>;
-    fn SetAllIpsecSecurity(&self, targetportalid: &VDS_OBJECT_ID, ullsecurityflags: super::ULONGLONG, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::Result<()>;
-    fn SetInitiatorSharedSecret(&self, pinitiatorsharedsecret: *const VDS_ISCSI_SHARED_SECRET, targetid: &VDS_OBJECT_ID) -> windows_core::Result<()>;
-    fn RememberTargetSharedSecret(&self, targetid: &VDS_OBJECT_ID, ptargetsharedsecret: *const VDS_ISCSI_SHARED_SECRET) -> windows_core::Result<()>;
+    fn SetIpsecGroupPresharedKey(&self, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::HRESULT;
+    fn SetAllIpsecTunnelAddresses(&self, ptunneladdress: *const VDS_IPADDRESS, pdestinationaddress: *const VDS_IPADDRESS) -> windows_core::HRESULT;
+    fn SetAllIpsecSecurity(&self, targetportalid: &VDS_OBJECT_ID, ullsecurityflags: super::ULONGLONG, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::HRESULT;
+    fn SetInitiatorSharedSecret(&self, pinitiatorsharedsecret: *const VDS_ISCSI_SHARED_SECRET, targetid: &VDS_OBJECT_ID) -> windows_core::HRESULT;
+    fn RememberTargetSharedSecret(&self, targetid: &VDS_OBJECT_ID, ptargetsharedsecret: *const VDS_ISCSI_SHARED_SECRET) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 impl IVdsServiceIscsi_Vtbl {
@@ -4581,7 +4581,7 @@ impl IVdsServiceIscsi_Vtbl {
         unsafe extern "system" fn GetInitiatorName<Identity: IVdsServiceIscsi_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwsziscsiname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsServiceIscsi_Impl::GetInitiatorName(this, core::mem::transmute_copy(&ppwsziscsiname)).into()
+                IVdsServiceIscsi_Impl::GetInitiatorName(this, core::mem::transmute_copy(&ppwsziscsiname))
             }
         }
         unsafe extern "system" fn QueryInitiatorAdapters<Identity: IVdsServiceIscsi_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4602,31 +4602,31 @@ impl IVdsServiceIscsi_Vtbl {
         unsafe extern "system" fn SetIpsecGroupPresharedKey<Identity: IVdsServiceIscsi_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsServiceIscsi_Impl::SetIpsecGroupPresharedKey(this, core::mem::transmute_copy(&pipseckey)).into()
+                IVdsServiceIscsi_Impl::SetIpsecGroupPresharedKey(this, core::mem::transmute_copy(&pipseckey))
             }
         }
         unsafe extern "system" fn SetAllIpsecTunnelAddresses<Identity: IVdsServiceIscsi_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptunneladdress: *const VDS_IPADDRESS, pdestinationaddress: *const VDS_IPADDRESS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsServiceIscsi_Impl::SetAllIpsecTunnelAddresses(this, core::mem::transmute_copy(&ptunneladdress), core::mem::transmute_copy(&pdestinationaddress)).into()
+                IVdsServiceIscsi_Impl::SetAllIpsecTunnelAddresses(this, core::mem::transmute_copy(&ptunneladdress), core::mem::transmute_copy(&pdestinationaddress))
             }
         }
         unsafe extern "system" fn SetAllIpsecSecurity<Identity: IVdsServiceIscsi_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetportalid: VDS_OBJECT_ID, ullsecurityflags: super::ULONGLONG, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsServiceIscsi_Impl::SetAllIpsecSecurity(this, core::mem::transmute(&targetportalid), core::mem::transmute_copy(&ullsecurityflags), core::mem::transmute_copy(&pipseckey)).into()
+                IVdsServiceIscsi_Impl::SetAllIpsecSecurity(this, core::mem::transmute(&targetportalid), core::mem::transmute_copy(&ullsecurityflags), core::mem::transmute_copy(&pipseckey))
             }
         }
         unsafe extern "system" fn SetInitiatorSharedSecret<Identity: IVdsServiceIscsi_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinitiatorsharedsecret: *const VDS_ISCSI_SHARED_SECRET, targetid: VDS_OBJECT_ID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsServiceIscsi_Impl::SetInitiatorSharedSecret(this, core::mem::transmute_copy(&pinitiatorsharedsecret), core::mem::transmute(&targetid)).into()
+                IVdsServiceIscsi_Impl::SetInitiatorSharedSecret(this, core::mem::transmute_copy(&pinitiatorsharedsecret), core::mem::transmute(&targetid))
             }
         }
         unsafe extern "system" fn RememberTargetSharedSecret<Identity: IVdsServiceIscsi_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetid: VDS_OBJECT_ID, ptargetsharedsecret: *const VDS_ISCSI_SHARED_SECRET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsServiceIscsi_Impl::RememberTargetSharedSecret(this, core::mem::transmute(&targetid), core::mem::transmute_copy(&ptargetsharedsecret)).into()
+                IVdsServiceIscsi_Impl::RememberTargetSharedSecret(this, core::mem::transmute(&targetid), core::mem::transmute_copy(&ptargetsharedsecret))
             }
         }
         Self {
@@ -4710,21 +4710,21 @@ pub struct IVdsServiceSAN_Vtbl {
     pub SetSANPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, VDS_SAN_POLICY) -> windows_core::HRESULT,
 }
 pub trait IVdsServiceSAN_Impl: windows_core::IUnknownImpl {
-    fn GetSANPolicy(&self, psanpolicy: *mut VDS_SAN_POLICY) -> windows_core::Result<()>;
-    fn SetSANPolicy(&self, sanpolicy: VDS_SAN_POLICY) -> windows_core::Result<()>;
+    fn GetSANPolicy(&self, psanpolicy: *mut VDS_SAN_POLICY) -> windows_core::HRESULT;
+    fn SetSANPolicy(&self, sanpolicy: VDS_SAN_POLICY) -> windows_core::HRESULT;
 }
 impl IVdsServiceSAN_Vtbl {
     pub const fn new<Identity: IVdsServiceSAN_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSANPolicy<Identity: IVdsServiceSAN_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psanpolicy: *mut VDS_SAN_POLICY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsServiceSAN_Impl::GetSANPolicy(this, core::mem::transmute_copy(&psanpolicy)).into()
+                IVdsServiceSAN_Impl::GetSANPolicy(this, core::mem::transmute_copy(&psanpolicy))
             }
         }
         unsafe extern "system" fn SetSANPolicy<Identity: IVdsServiceSAN_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sanpolicy: VDS_SAN_POLICY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsServiceSAN_Impl::SetSANPolicy(this, core::mem::transmute_copy(&sanpolicy)).into()
+                IVdsServiceSAN_Impl::SetSANPolicy(this, core::mem::transmute_copy(&sanpolicy))
             }
         }
         Self {
@@ -4811,8 +4811,8 @@ pub struct IVdsServiceUninstallDisk_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "vdslun"))]
 pub trait IVdsServiceUninstallDisk_Impl: windows_core::IUnknownImpl {
-    fn GetDiskIdFromLunInfo(&self, pluninfo: *const super::VDS_LUN_INFORMATION, pdiskid: *mut VDS_OBJECT_ID) -> windows_core::Result<()>;
-    fn UninstallDisks(&self, pdiskidarray: *const VDS_OBJECT_ID, ulcount: super::ULONG, bforce: super::BOOLEAN, pbreboot: *mut super::BOOLEAN, presults: *mut windows_core::HRESULT) -> windows_core::Result<()>;
+    fn GetDiskIdFromLunInfo(&self, pluninfo: *const super::VDS_LUN_INFORMATION, pdiskid: *mut VDS_OBJECT_ID) -> windows_core::HRESULT;
+    fn UninstallDisks(&self, pdiskidarray: *const VDS_OBJECT_ID, ulcount: super::ULONG, bforce: super::BOOLEAN, pbreboot: *mut super::BOOLEAN, presults: *mut windows_core::HRESULT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "vdslun"))]
 impl IVdsServiceUninstallDisk_Vtbl {
@@ -4820,13 +4820,13 @@ impl IVdsServiceUninstallDisk_Vtbl {
         unsafe extern "system" fn GetDiskIdFromLunInfo<Identity: IVdsServiceUninstallDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pluninfo: *const super::VDS_LUN_INFORMATION, pdiskid: *mut VDS_OBJECT_ID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsServiceUninstallDisk_Impl::GetDiskIdFromLunInfo(this, core::mem::transmute_copy(&pluninfo), core::mem::transmute_copy(&pdiskid)).into()
+                IVdsServiceUninstallDisk_Impl::GetDiskIdFromLunInfo(this, core::mem::transmute_copy(&pluninfo), core::mem::transmute_copy(&pdiskid))
             }
         }
         unsafe extern "system" fn UninstallDisks<Identity: IVdsServiceUninstallDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdiskidarray: *const VDS_OBJECT_ID, ulcount: super::ULONG, bforce: super::BOOLEAN, pbreboot: *mut super::BOOLEAN, presults: *mut windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsServiceUninstallDisk_Impl::UninstallDisks(this, core::mem::transmute_copy(&pdiskidarray), core::mem::transmute_copy(&ulcount), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&pbreboot), core::mem::transmute_copy(&presults)).into()
+                IVdsServiceUninstallDisk_Impl::UninstallDisks(this, core::mem::transmute_copy(&pdiskidarray), core::mem::transmute_copy(&ulcount), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&pbreboot), core::mem::transmute_copy(&presults))
             }
         }
         Self {
@@ -4898,9 +4898,9 @@ pub struct IVdsStoragePool_Vtbl {
 #[cfg(all(feature = "shared", feature = "vdslun"))]
 pub trait IVdsStoragePool_Impl: windows_core::IUnknownImpl {
     fn GetProvider(&self) -> windows_core::Result<IVdsProvider>;
-    fn GetProperties(&self, pstoragepoolprop: *mut VDS_STORAGE_POOL_PROP) -> windows_core::Result<()>;
-    fn GetAttributes(&self, pstoragepoolattributes: *mut VDS_POOL_ATTRIBUTES) -> windows_core::Result<()>;
-    fn QueryDriveExtents(&self, ppextentarray: *mut *mut VDS_STORAGE_POOL_DRIVE_EXTENT, plnumberofextents: *mut super::LONG) -> windows_core::Result<()>;
+    fn GetProperties(&self, pstoragepoolprop: *mut VDS_STORAGE_POOL_PROP) -> windows_core::HRESULT;
+    fn GetAttributes(&self, pstoragepoolattributes: *mut VDS_POOL_ATTRIBUTES) -> windows_core::HRESULT;
+    fn QueryDriveExtents(&self, ppextentarray: *mut *mut VDS_STORAGE_POOL_DRIVE_EXTENT, plnumberofextents: *mut super::LONG) -> windows_core::HRESULT;
     fn QueryAllocatedLuns(&self) -> windows_core::Result<IEnumVdsObject>;
     fn QueryAllocatedStoragePools(&self) -> windows_core::Result<IEnumVdsObject>;
 }
@@ -4925,19 +4925,19 @@ impl IVdsStoragePool_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: IVdsStoragePool_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstoragepoolprop: *mut VDS_STORAGE_POOL_PROP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsStoragePool_Impl::GetProperties(this, core::mem::transmute_copy(&pstoragepoolprop)).into()
+                IVdsStoragePool_Impl::GetProperties(this, core::mem::transmute_copy(&pstoragepoolprop))
             }
         }
         unsafe extern "system" fn GetAttributes<Identity: IVdsStoragePool_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstoragepoolattributes: *mut VDS_POOL_ATTRIBUTES) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsStoragePool_Impl::GetAttributes(this, core::mem::transmute_copy(&pstoragepoolattributes)).into()
+                IVdsStoragePool_Impl::GetAttributes(this, core::mem::transmute_copy(&pstoragepoolattributes))
             }
         }
         unsafe extern "system" fn QueryDriveExtents<Identity: IVdsStoragePool_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppextentarray: *mut *mut VDS_STORAGE_POOL_DRIVE_EXTENT, plnumberofextents: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsStoragePool_Impl::QueryDriveExtents(this, core::mem::transmute_copy(&ppextentarray), core::mem::transmute_copy(&plnumberofextents)).into()
+                IVdsStoragePool_Impl::QueryDriveExtents(this, core::mem::transmute_copy(&ppextentarray), core::mem::transmute_copy(&plnumberofextents))
             }
         }
         unsafe extern "system" fn QueryAllocatedLuns<Identity: IVdsStoragePool_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5086,18 +5086,18 @@ pub struct IVdsSubSystem_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IVdsSubSystem_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, psubsystemprop: *mut VDS_SUB_SYSTEM_PROP) -> windows_core::Result<()>;
+    fn GetProperties(&self, psubsystemprop: *mut VDS_SUB_SYSTEM_PROP) -> windows_core::HRESULT;
     fn GetProvider(&self) -> windows_core::Result<IVdsProvider>;
     fn QueryControllers(&self) -> windows_core::Result<IEnumVdsObject>;
     fn QueryLuns(&self) -> windows_core::Result<IEnumVdsObject>;
     fn QueryDrives(&self) -> windows_core::Result<IEnumVdsObject>;
     fn GetDrive(&self, sbusnumber: super::SHORT, sslotnumber: super::SHORT) -> windows_core::Result<IVdsDrive>;
-    fn Reenumerate(&self) -> windows_core::Result<()>;
-    fn SetControllerStatus(&self, ponlinecontrolleridarray: *const VDS_OBJECT_ID, lnumberofonlinecontrollers: super::LONG, pofflinecontrolleridarray: *const VDS_OBJECT_ID, lnumberofofflinecontrollers: super::LONG) -> windows_core::Result<()>;
+    fn Reenumerate(&self) -> windows_core::HRESULT;
+    fn SetControllerStatus(&self, ponlinecontrolleridarray: *const VDS_OBJECT_ID, lnumberofonlinecontrollers: super::LONG, pofflinecontrolleridarray: *const VDS_OBJECT_ID, lnumberofofflinecontrollers: super::LONG) -> windows_core::HRESULT;
     fn CreateLun(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: super::ULONGLONG, pdriveidarray: *const VDS_OBJECT_ID, lnumberofdrives: super::LONG, pwszunmaskinglist: &windows_core::PCWSTR, phints: *const VDS_HINTS) -> windows_core::Result<IVdsAsync>;
-    fn ReplaceDrive(&self, drivetobereplaced: &VDS_OBJECT_ID, replacementdrive: &VDS_OBJECT_ID) -> windows_core::Result<()>;
-    fn SetStatus(&self, status: VDS_SUB_SYSTEM_STATUS) -> windows_core::Result<()>;
-    fn QueryMaxLunCreateSize(&self, r#type: VDS_LUN_TYPE, pdriveidarray: *const VDS_OBJECT_ID, lnumberofdrives: super::LONG, phints: *const VDS_HINTS, pullmaxlunsize: *mut super::ULONGLONG) -> windows_core::Result<()>;
+    fn ReplaceDrive(&self, drivetobereplaced: &VDS_OBJECT_ID, replacementdrive: &VDS_OBJECT_ID) -> windows_core::HRESULT;
+    fn SetStatus(&self, status: VDS_SUB_SYSTEM_STATUS) -> windows_core::HRESULT;
+    fn QueryMaxLunCreateSize(&self, r#type: VDS_LUN_TYPE, pdriveidarray: *const VDS_OBJECT_ID, lnumberofdrives: super::LONG, phints: *const VDS_HINTS, pullmaxlunsize: *mut super::ULONGLONG) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IVdsSubSystem_Vtbl {
@@ -5105,7 +5105,7 @@ impl IVdsSubSystem_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: IVdsSubSystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psubsystemprop: *mut VDS_SUB_SYSTEM_PROP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsSubSystem_Impl::GetProperties(this, core::mem::transmute_copy(&psubsystemprop)).into()
+                IVdsSubSystem_Impl::GetProperties(this, core::mem::transmute_copy(&psubsystemprop))
             }
         }
         unsafe extern "system" fn GetProvider<Identity: IVdsSubSystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppprovider: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5186,13 +5186,13 @@ impl IVdsSubSystem_Vtbl {
         unsafe extern "system" fn Reenumerate<Identity: IVdsSubSystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsSubSystem_Impl::Reenumerate(this).into()
+                IVdsSubSystem_Impl::Reenumerate(this)
             }
         }
         unsafe extern "system" fn SetControllerStatus<Identity: IVdsSubSystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ponlinecontrolleridarray: *const VDS_OBJECT_ID, lnumberofonlinecontrollers: super::LONG, pofflinecontrolleridarray: *const VDS_OBJECT_ID, lnumberofofflinecontrollers: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsSubSystem_Impl::SetControllerStatus(this, core::mem::transmute_copy(&ponlinecontrolleridarray), core::mem::transmute_copy(&lnumberofonlinecontrollers), core::mem::transmute_copy(&pofflinecontrolleridarray), core::mem::transmute_copy(&lnumberofofflinecontrollers)).into()
+                IVdsSubSystem_Impl::SetControllerStatus(this, core::mem::transmute_copy(&ponlinecontrolleridarray), core::mem::transmute_copy(&lnumberofonlinecontrollers), core::mem::transmute_copy(&pofflinecontrolleridarray), core::mem::transmute_copy(&lnumberofofflinecontrollers))
             }
         }
         unsafe extern "system" fn CreateLun<Identity: IVdsSubSystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: VDS_LUN_TYPE, ullsizeinbytes: super::ULONGLONG, pdriveidarray: *const VDS_OBJECT_ID, lnumberofdrives: super::LONG, pwszunmaskinglist: windows_core::PCWSTR, phints: *const VDS_HINTS, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5213,19 +5213,19 @@ impl IVdsSubSystem_Vtbl {
         unsafe extern "system" fn ReplaceDrive<Identity: IVdsSubSystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, drivetobereplaced: VDS_OBJECT_ID, replacementdrive: VDS_OBJECT_ID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsSubSystem_Impl::ReplaceDrive(this, core::mem::transmute(&drivetobereplaced), core::mem::transmute(&replacementdrive)).into()
+                IVdsSubSystem_Impl::ReplaceDrive(this, core::mem::transmute(&drivetobereplaced), core::mem::transmute(&replacementdrive))
             }
         }
         unsafe extern "system" fn SetStatus<Identity: IVdsSubSystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, status: VDS_SUB_SYSTEM_STATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsSubSystem_Impl::SetStatus(this, core::mem::transmute_copy(&status)).into()
+                IVdsSubSystem_Impl::SetStatus(this, core::mem::transmute_copy(&status))
             }
         }
         unsafe extern "system" fn QueryMaxLunCreateSize<Identity: IVdsSubSystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: VDS_LUN_TYPE, pdriveidarray: *const VDS_OBJECT_ID, lnumberofdrives: super::LONG, phints: *const VDS_HINTS, pullmaxlunsize: *mut super::ULONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsSubSystem_Impl::QueryMaxLunCreateSize(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pdriveidarray), core::mem::transmute_copy(&lnumberofdrives), core::mem::transmute_copy(&phints), core::mem::transmute_copy(&pullmaxlunsize)).into()
+                IVdsSubSystem_Impl::QueryMaxLunCreateSize(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pdriveidarray), core::mem::transmute_copy(&lnumberofdrives), core::mem::transmute_copy(&phints), core::mem::transmute_copy(&pullmaxlunsize))
             }
         }
         Self {
@@ -5302,10 +5302,10 @@ pub struct IVdsSubSystem2_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "vdslun"))]
 pub trait IVdsSubSystem2_Impl: windows_core::IUnknownImpl {
-    fn GetProperties2(&self, psubsystemprop2: *mut VDS_SUB_SYSTEM_PROP2) -> windows_core::Result<()>;
+    fn GetProperties2(&self, psubsystemprop2: *mut VDS_SUB_SYSTEM_PROP2) -> windows_core::HRESULT;
     fn GetDrive2(&self, sbusnumber: super::SHORT, sslotnumber: super::SHORT, ulenclosurenumber: super::ULONG) -> windows_core::Result<IVdsDrive>;
     fn CreateLun2(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: super::ULONGLONG, pdriveidarray: *const VDS_OBJECT_ID, lnumberofdrives: super::LONG, pwszunmaskinglist: &windows_core::PCWSTR, phints2: *const VDS_HINTS2) -> windows_core::Result<IVdsAsync>;
-    fn QueryMaxLunCreateSize2(&self, r#type: VDS_LUN_TYPE, pdriveidarray: *const VDS_OBJECT_ID, lnumberofdrives: super::LONG, phints2: *const VDS_HINTS2, pullmaxlunsize: *mut super::ULONGLONG) -> windows_core::Result<()>;
+    fn QueryMaxLunCreateSize2(&self, r#type: VDS_LUN_TYPE, pdriveidarray: *const VDS_OBJECT_ID, lnumberofdrives: super::LONG, phints2: *const VDS_HINTS2, pullmaxlunsize: *mut super::ULONGLONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "vdslun"))]
 impl IVdsSubSystem2_Vtbl {
@@ -5313,7 +5313,7 @@ impl IVdsSubSystem2_Vtbl {
         unsafe extern "system" fn GetProperties2<Identity: IVdsSubSystem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psubsystemprop2: *mut VDS_SUB_SYSTEM_PROP2) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsSubSystem2_Impl::GetProperties2(this, core::mem::transmute_copy(&psubsystemprop2)).into()
+                IVdsSubSystem2_Impl::GetProperties2(this, core::mem::transmute_copy(&psubsystemprop2))
             }
         }
         unsafe extern "system" fn GetDrive2<Identity: IVdsSubSystem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sbusnumber: super::SHORT, sslotnumber: super::SHORT, ulenclosurenumber: super::ULONG, ppdrive: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5349,7 +5349,7 @@ impl IVdsSubSystem2_Vtbl {
         unsafe extern "system" fn QueryMaxLunCreateSize2<Identity: IVdsSubSystem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: VDS_LUN_TYPE, pdriveidarray: *const VDS_OBJECT_ID, lnumberofdrives: super::LONG, phints2: *const VDS_HINTS2, pullmaxlunsize: *mut super::ULONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsSubSystem2_Impl::QueryMaxLunCreateSize2(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pdriveidarray), core::mem::transmute_copy(&lnumberofdrives), core::mem::transmute_copy(&phints2), core::mem::transmute_copy(&pullmaxlunsize)).into()
+                IVdsSubSystem2_Impl::QueryMaxLunCreateSize2(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pdriveidarray), core::mem::transmute_copy(&lnumberofdrives), core::mem::transmute_copy(&phints2), core::mem::transmute_copy(&pullmaxlunsize))
             }
         }
         Self {
@@ -5387,21 +5387,21 @@ pub struct IVdsSubSystemImportTarget_Vtbl {
     pub SetImportTarget: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait IVdsSubSystemImportTarget_Impl: windows_core::IUnknownImpl {
-    fn GetImportTarget(&self, ppwsziscsiname: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn SetImportTarget(&self, pwsziscsiname: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn GetImportTarget(&self, ppwsziscsiname: *mut windows_core::PWSTR) -> windows_core::HRESULT;
+    fn SetImportTarget(&self, pwsziscsiname: &windows_core::PCWSTR) -> windows_core::HRESULT;
 }
 impl IVdsSubSystemImportTarget_Vtbl {
     pub const fn new<Identity: IVdsSubSystemImportTarget_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetImportTarget<Identity: IVdsSubSystemImportTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwsziscsiname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsSubSystemImportTarget_Impl::GetImportTarget(this, core::mem::transmute_copy(&ppwsziscsiname)).into()
+                IVdsSubSystemImportTarget_Impl::GetImportTarget(this, core::mem::transmute_copy(&ppwsziscsiname))
             }
         }
         unsafe extern "system" fn SetImportTarget<Identity: IVdsSubSystemImportTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwsziscsiname: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsSubSystemImportTarget_Impl::SetImportTarget(this, core::mem::transmute(&pwsziscsiname)).into()
+                IVdsSubSystemImportTarget_Impl::SetImportTarget(this, core::mem::transmute(&pwsziscsiname))
             }
         }
         Self {
@@ -5434,7 +5434,7 @@ pub struct IVdsSubSystemInterconnect_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IVdsSubSystemInterconnect_Impl: windows_core::IUnknownImpl {
-    fn GetSupportedInterconnects(&self, pulsupportedinterconnectsflag: *mut super::ULONG) -> windows_core::Result<()>;
+    fn GetSupportedInterconnects(&self, pulsupportedinterconnectsflag: *mut super::ULONG) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IVdsSubSystemInterconnect_Vtbl {
@@ -5442,7 +5442,7 @@ impl IVdsSubSystemInterconnect_Vtbl {
         unsafe extern "system" fn GetSupportedInterconnects<Identity: IVdsSubSystemInterconnect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulsupportedinterconnectsflag: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsSubSystemInterconnect_Impl::GetSupportedInterconnects(this, core::mem::transmute_copy(&pulsupportedinterconnectsflag)).into()
+                IVdsSubSystemInterconnect_Impl::GetSupportedInterconnects(this, core::mem::transmute_copy(&pulsupportedinterconnectsflag))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetSupportedInterconnects: GetSupportedInterconnects::<Identity, OFFSET> }
@@ -5500,7 +5500,7 @@ pub trait IVdsSubSystemIscsi_Impl: windows_core::IUnknownImpl {
     fn QueryTargets(&self) -> windows_core::Result<IEnumVdsObject>;
     fn QueryPortals(&self) -> windows_core::Result<IEnumVdsObject>;
     fn CreateTarget(&self, pwsziscsiname: &windows_core::PCWSTR, pwszfriendlyname: &windows_core::PCWSTR) -> windows_core::Result<IVdsAsync>;
-    fn SetIpsecGroupPresharedKey(&self, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::Result<()>;
+    fn SetIpsecGroupPresharedKey(&self, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IVdsSubSystemIscsi_Vtbl {
@@ -5553,7 +5553,7 @@ impl IVdsSubSystemIscsi_Vtbl {
         unsafe extern "system" fn SetIpsecGroupPresharedKey<Identity: IVdsSubSystemIscsi_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsSubSystemIscsi_Impl::SetIpsecGroupPresharedKey(this, core::mem::transmute_copy(&pipseckey)).into()
+                IVdsSubSystemIscsi_Impl::SetIpsecGroupPresharedKey(this, core::mem::transmute_copy(&pipseckey))
             }
         }
         Self {
@@ -5587,14 +5587,14 @@ pub struct IVdsSubSystemNaming_Vtbl {
     pub SetFriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait IVdsSubSystemNaming_Impl: windows_core::IUnknownImpl {
-    fn SetFriendlyName(&self, pwszfriendlyname: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetFriendlyName(&self, pwszfriendlyname: &windows_core::PCWSTR) -> windows_core::HRESULT;
 }
 impl IVdsSubSystemNaming_Vtbl {
     pub const fn new<Identity: IVdsSubSystemNaming_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetFriendlyName<Identity: IVdsSubSystemNaming_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszfriendlyname: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsSubSystemNaming_Impl::SetFriendlyName(this, core::mem::transmute(&pwszfriendlyname)).into()
+                IVdsSubSystemNaming_Impl::SetFriendlyName(this, core::mem::transmute(&pwszfriendlyname))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetFriendlyName: SetFriendlyName::<Identity, OFFSET> }
@@ -5716,9 +5716,9 @@ pub struct IVdsVDisk_Vtbl {
 #[cfg(all(feature = "shared", feature = "virtdisk", feature = "winioctl"))]
 pub trait IVdsVDisk_Impl: windows_core::IUnknownImpl {
     fn Open(&self, accessmask: super::VIRTUAL_DISK_ACCESS_MASK, flags: super::OPEN_VIRTUAL_DISK_FLAG, readwritedepth: super::ULONG) -> windows_core::Result<IVdsOpenVDisk>;
-    fn GetProperties(&self, pdiskproperties: PVDS_VDISK_PROPERTIES) -> windows_core::Result<()>;
+    fn GetProperties(&self, pdiskproperties: PVDS_VDISK_PROPERTIES) -> windows_core::HRESULT;
     fn GetHostVolume(&self) -> windows_core::Result<IVdsVolume>;
-    fn GetDeviceName(&self, ppdevicename: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetDeviceName(&self, ppdevicename: *mut windows_core::PWSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "virtdisk", feature = "winioctl"))]
 impl IVdsVDisk_Vtbl {
@@ -5741,7 +5741,7 @@ impl IVdsVDisk_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: IVdsVDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdiskproperties: PVDS_VDISK_PROPERTIES) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVDisk_Impl::GetProperties(this, core::mem::transmute_copy(&pdiskproperties)).into()
+                IVdsVDisk_Impl::GetProperties(this, core::mem::transmute_copy(&pdiskproperties))
             }
         }
         unsafe extern "system" fn GetHostVolume<Identity: IVdsVDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvolume: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5762,7 +5762,7 @@ impl IVdsVDisk_Vtbl {
         unsafe extern "system" fn GetDeviceName<Identity: IVdsVDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdevicename: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVDisk_Impl::GetDeviceName(this, core::mem::transmute_copy(&ppdevicename)).into()
+                IVdsVDisk_Impl::GetDeviceName(this, core::mem::transmute_copy(&ppdevicename))
             }
         }
         Self {
@@ -5841,8 +5841,8 @@ pub struct IVdsVdProvider_Vtbl {
 #[cfg(all(feature = "shared", feature = "virtdisk", feature = "winioctl"))]
 pub trait IVdsVdProvider_Impl: windows_core::IUnknownImpl {
     fn QueryVDisks(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn CreateVDisk(&self, virtualdevicetype: super::PVIRTUAL_STORAGE_TYPE, ppath: &windows_core::PCWSTR, pstringsecuritydescriptor: &windows_core::PCWSTR, flags: super::CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: super::ULONG, reserved: super::ULONG, pcreatediskparameters: PVDS_CREATE_VDISK_PARAMETERS, ppasync: *mut Option<IVdsAsync>) -> windows_core::Result<()>;
-    fn AddVDisk(&self, virtualdevicetype: super::PVIRTUAL_STORAGE_TYPE, ppath: &windows_core::PCWSTR, ppvdisk: *mut Option<IVdsVDisk>) -> windows_core::Result<()>;
+    fn CreateVDisk(&self, virtualdevicetype: super::PVIRTUAL_STORAGE_TYPE, ppath: &windows_core::PCWSTR, pstringsecuritydescriptor: &windows_core::PCWSTR, flags: super::CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: super::ULONG, reserved: super::ULONG, pcreatediskparameters: PVDS_CREATE_VDISK_PARAMETERS, ppasync: *mut Option<IVdsAsync>) -> windows_core::HRESULT;
+    fn AddVDisk(&self, virtualdevicetype: super::PVIRTUAL_STORAGE_TYPE, ppath: &windows_core::PCWSTR, ppvdisk: *mut Option<IVdsVDisk>) -> windows_core::HRESULT;
     fn GetDiskFromVDisk(&self, pvdisk: windows_core::Ref<IVdsVDisk>) -> windows_core::Result<IVdsDisk>;
     fn GetVDiskFromDisk(&self, pdisk: windows_core::Ref<IVdsDisk>) -> windows_core::Result<IVdsVDisk>;
 }
@@ -5867,13 +5867,13 @@ impl IVdsVdProvider_Vtbl {
         unsafe extern "system" fn CreateVDisk<Identity: IVdsVdProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, virtualdevicetype: super::PVIRTUAL_STORAGE_TYPE, ppath: windows_core::PCWSTR, pstringsecuritydescriptor: windows_core::PCWSTR, flags: super::CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: super::ULONG, reserved: super::ULONG, pcreatediskparameters: PVDS_CREATE_VDISK_PARAMETERS, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVdProvider_Impl::CreateVDisk(this, core::mem::transmute_copy(&virtualdevicetype), core::mem::transmute(&ppath), core::mem::transmute(&pstringsecuritydescriptor), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&providerspecificflags), core::mem::transmute_copy(&reserved), core::mem::transmute_copy(&pcreatediskparameters), core::mem::transmute_copy(&ppasync)).into()
+                IVdsVdProvider_Impl::CreateVDisk(this, core::mem::transmute_copy(&virtualdevicetype), core::mem::transmute(&ppath), core::mem::transmute(&pstringsecuritydescriptor), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&providerspecificflags), core::mem::transmute_copy(&reserved), core::mem::transmute_copy(&pcreatediskparameters), core::mem::transmute_copy(&ppasync))
             }
         }
         unsafe extern "system" fn AddVDisk<Identity: IVdsVdProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, virtualdevicetype: super::PVIRTUAL_STORAGE_TYPE, ppath: windows_core::PCWSTR, ppvdisk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVdProvider_Impl::AddVDisk(this, core::mem::transmute_copy(&virtualdevicetype), core::mem::transmute(&ppath), core::mem::transmute_copy(&ppvdisk)).into()
+                IVdsVdProvider_Impl::AddVDisk(this, core::mem::transmute_copy(&virtualdevicetype), core::mem::transmute(&ppath), core::mem::transmute_copy(&ppvdisk))
             }
         }
         unsafe extern "system" fn GetDiskFromVDisk<Identity: IVdsVdProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvdisk: *mut core::ffi::c_void, ppdisk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6017,7 +6017,7 @@ pub struct IVdsVolume_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IVdsVolume_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, pvolumeproperties: *mut VDS_VOLUME_PROP) -> windows_core::Result<()>;
+    fn GetProperties(&self, pvolumeproperties: *mut VDS_VOLUME_PROP) -> windows_core::HRESULT;
     fn GetPack(&self) -> windows_core::Result<IVdsPack>;
     fn QueryPlexes(&self) -> windows_core::Result<IEnumVdsObject>;
     fn Extend(&self, pinputdiskarray: *const VDS_INPUT_DISK, lnumberofdisks: super::LONG) -> windows_core::Result<IVdsAsync>;
@@ -6025,9 +6025,9 @@ pub trait IVdsVolume_Impl: windows_core::IUnknownImpl {
     fn AddPlex(&self, volumeid: &VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync>;
     fn BreakPlex(&self, plexid: &VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync>;
     fn RemovePlex(&self, plexid: &VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync>;
-    fn Delete(&self, bforce: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetFlags(&self, ulflags: super::ULONG, brevertonclose: windows_core::BOOL) -> windows_core::Result<()>;
-    fn ClearFlags(&self, ulflags: super::ULONG) -> windows_core::Result<()>;
+    fn Delete(&self, bforce: windows_core::BOOL) -> windows_core::HRESULT;
+    fn SetFlags(&self, ulflags: super::ULONG, brevertonclose: windows_core::BOOL) -> windows_core::HRESULT;
+    fn ClearFlags(&self, ulflags: super::ULONG) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IVdsVolume_Vtbl {
@@ -6035,7 +6035,7 @@ impl IVdsVolume_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: IVdsVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvolumeproperties: *mut VDS_VOLUME_PROP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolume_Impl::GetProperties(this, core::mem::transmute_copy(&pvolumeproperties)).into()
+                IVdsVolume_Impl::GetProperties(this, core::mem::transmute_copy(&pvolumeproperties))
             }
         }
         unsafe extern "system" fn GetPack<Identity: IVdsVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppack: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6146,19 +6146,19 @@ impl IVdsVolume_Vtbl {
         unsafe extern "system" fn Delete<Identity: IVdsVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bforce: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolume_Impl::Delete(this, core::mem::transmute_copy(&bforce)).into()
+                IVdsVolume_Impl::Delete(this, core::mem::transmute_copy(&bforce))
             }
         }
         unsafe extern "system" fn SetFlags<Identity: IVdsVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulflags: super::ULONG, brevertonclose: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolume_Impl::SetFlags(this, core::mem::transmute_copy(&ulflags), core::mem::transmute_copy(&brevertonclose)).into()
+                IVdsVolume_Impl::SetFlags(this, core::mem::transmute_copy(&ulflags), core::mem::transmute_copy(&brevertonclose))
             }
         }
         unsafe extern "system" fn ClearFlags<Identity: IVdsVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulflags: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolume_Impl::ClearFlags(this, core::mem::transmute_copy(&ulflags)).into()
+                IVdsVolume_Impl::ClearFlags(this, core::mem::transmute_copy(&ulflags))
             }
         }
         Self {
@@ -6201,7 +6201,7 @@ pub struct IVdsVolume2_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IVdsVolume2_Impl: windows_core::IUnknownImpl {
-    fn GetProperties2(&self, pvolumeproperties: *mut VDS_VOLUME_PROP2) -> windows_core::Result<()>;
+    fn GetProperties2(&self, pvolumeproperties: *mut VDS_VOLUME_PROP2) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IVdsVolume2_Vtbl {
@@ -6209,7 +6209,7 @@ impl IVdsVolume2_Vtbl {
         unsafe extern "system" fn GetProperties2<Identity: IVdsVolume2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvolumeproperties: *mut VDS_VOLUME_PROP2) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolume2_Impl::GetProperties2(this, core::mem::transmute_copy(&pvolumeproperties)).into()
+                IVdsVolume2_Impl::GetProperties2(this, core::mem::transmute_copy(&pvolumeproperties))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetProperties2: GetProperties2::<Identity, OFFSET> }
@@ -6301,16 +6301,16 @@ pub struct IVdsVolumeMF_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IVdsVolumeMF_Impl: windows_core::IUnknownImpl {
-    fn GetFileSystemProperties(&self, pfilesystemprop: *mut VDS_FILE_SYSTEM_PROP) -> windows_core::Result<()>;
+    fn GetFileSystemProperties(&self, pfilesystemprop: *mut VDS_FILE_SYSTEM_PROP) -> windows_core::HRESULT;
     fn Format(&self, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: &windows_core::PCWSTR, dwunitallocationsize: super::DWORD, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL) -> windows_core::Result<IVdsAsync>;
-    fn AddAccessPath(&self, pwszpath: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn QueryAccessPaths(&self, pwszpatharray: *mut *mut windows_core::PWSTR, plnumberofaccesspaths: *mut super::LONG) -> windows_core::Result<()>;
-    fn QueryReparsePoints(&self, ppreparsepointprops: *mut *mut VDS_REPARSE_POINT_PROP, plnumberofreparsepointprops: *mut super::LONG) -> windows_core::Result<()>;
-    fn DeleteAccessPath(&self, pwszpath: &windows_core::PCWSTR, bforce: windows_core::BOOL) -> windows_core::Result<()>;
-    fn Mount(&self) -> windows_core::Result<()>;
-    fn Dismount(&self, bforce: windows_core::BOOL, bpermanent: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetFileSystemFlags(&self, ulflags: super::ULONG) -> windows_core::Result<()>;
-    fn ClearFileSystemFlags(&self, ulflags: super::ULONG) -> windows_core::Result<()>;
+    fn AddAccessPath(&self, pwszpath: &windows_core::PCWSTR) -> windows_core::HRESULT;
+    fn QueryAccessPaths(&self, pwszpatharray: *mut *mut windows_core::PWSTR, plnumberofaccesspaths: *mut super::LONG) -> windows_core::HRESULT;
+    fn QueryReparsePoints(&self, ppreparsepointprops: *mut *mut VDS_REPARSE_POINT_PROP, plnumberofreparsepointprops: *mut super::LONG) -> windows_core::HRESULT;
+    fn DeleteAccessPath(&self, pwszpath: &windows_core::PCWSTR, bforce: windows_core::BOOL) -> windows_core::HRESULT;
+    fn Mount(&self) -> windows_core::HRESULT;
+    fn Dismount(&self, bforce: windows_core::BOOL, bpermanent: windows_core::BOOL) -> windows_core::HRESULT;
+    fn SetFileSystemFlags(&self, ulflags: super::ULONG) -> windows_core::HRESULT;
+    fn ClearFileSystemFlags(&self, ulflags: super::ULONG) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IVdsVolumeMF_Vtbl {
@@ -6318,7 +6318,7 @@ impl IVdsVolumeMF_Vtbl {
         unsafe extern "system" fn GetFileSystemProperties<Identity: IVdsVolumeMF_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfilesystemprop: *mut VDS_FILE_SYSTEM_PROP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolumeMF_Impl::GetFileSystemProperties(this, core::mem::transmute_copy(&pfilesystemprop)).into()
+                IVdsVolumeMF_Impl::GetFileSystemProperties(this, core::mem::transmute_copy(&pfilesystemprop))
             }
         }
         unsafe extern "system" fn Format<Identity: IVdsVolumeMF_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: windows_core::PCWSTR, dwunitallocationsize: super::DWORD, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6339,49 +6339,49 @@ impl IVdsVolumeMF_Vtbl {
         unsafe extern "system" fn AddAccessPath<Identity: IVdsVolumeMF_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszpath: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolumeMF_Impl::AddAccessPath(this, core::mem::transmute(&pwszpath)).into()
+                IVdsVolumeMF_Impl::AddAccessPath(this, core::mem::transmute(&pwszpath))
             }
         }
         unsafe extern "system" fn QueryAccessPaths<Identity: IVdsVolumeMF_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszpatharray: *mut *mut windows_core::PWSTR, plnumberofaccesspaths: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolumeMF_Impl::QueryAccessPaths(this, core::mem::transmute_copy(&pwszpatharray), core::mem::transmute_copy(&plnumberofaccesspaths)).into()
+                IVdsVolumeMF_Impl::QueryAccessPaths(this, core::mem::transmute_copy(&pwszpatharray), core::mem::transmute_copy(&plnumberofaccesspaths))
             }
         }
         unsafe extern "system" fn QueryReparsePoints<Identity: IVdsVolumeMF_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppreparsepointprops: *mut *mut VDS_REPARSE_POINT_PROP, plnumberofreparsepointprops: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolumeMF_Impl::QueryReparsePoints(this, core::mem::transmute_copy(&ppreparsepointprops), core::mem::transmute_copy(&plnumberofreparsepointprops)).into()
+                IVdsVolumeMF_Impl::QueryReparsePoints(this, core::mem::transmute_copy(&ppreparsepointprops), core::mem::transmute_copy(&plnumberofreparsepointprops))
             }
         }
         unsafe extern "system" fn DeleteAccessPath<Identity: IVdsVolumeMF_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszpath: windows_core::PCWSTR, bforce: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolumeMF_Impl::DeleteAccessPath(this, core::mem::transmute(&pwszpath), core::mem::transmute_copy(&bforce)).into()
+                IVdsVolumeMF_Impl::DeleteAccessPath(this, core::mem::transmute(&pwszpath), core::mem::transmute_copy(&bforce))
             }
         }
         unsafe extern "system" fn Mount<Identity: IVdsVolumeMF_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolumeMF_Impl::Mount(this).into()
+                IVdsVolumeMF_Impl::Mount(this)
             }
         }
         unsafe extern "system" fn Dismount<Identity: IVdsVolumeMF_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bforce: windows_core::BOOL, bpermanent: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolumeMF_Impl::Dismount(this, core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bpermanent)).into()
+                IVdsVolumeMF_Impl::Dismount(this, core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bpermanent))
             }
         }
         unsafe extern "system" fn SetFileSystemFlags<Identity: IVdsVolumeMF_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulflags: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolumeMF_Impl::SetFileSystemFlags(this, core::mem::transmute_copy(&ulflags)).into()
+                IVdsVolumeMF_Impl::SetFileSystemFlags(this, core::mem::transmute_copy(&ulflags))
             }
         }
         unsafe extern "system" fn ClearFileSystemFlags<Identity: IVdsVolumeMF_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulflags: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolumeMF_Impl::ClearFileSystemFlags(this, core::mem::transmute_copy(&ulflags)).into()
+                IVdsVolumeMF_Impl::ClearFileSystemFlags(this, core::mem::transmute_copy(&ulflags))
             }
         }
         Self {
@@ -6442,8 +6442,8 @@ pub struct IVdsVolumeMF2_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IVdsVolumeMF2_Impl: windows_core::IUnknownImpl {
-    fn GetFileSystemTypeName(&self, ppwszfilesystemtypename: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn QueryFileSystemFormatSupport(&self, ppfilesystemsupportprops: *mut *mut VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP, plnumberoffilesystems: *mut super::LONG) -> windows_core::Result<()>;
+    fn GetFileSystemTypeName(&self, ppwszfilesystemtypename: *mut windows_core::PWSTR) -> windows_core::HRESULT;
+    fn QueryFileSystemFormatSupport(&self, ppfilesystemsupportprops: *mut *mut VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP, plnumberoffilesystems: *mut super::LONG) -> windows_core::HRESULT;
     fn FormatEx(&self, pwszfilesystemtypename: &windows_core::PCWSTR, usfilesystemrevision: super::USHORT, uldesiredunitallocationsize: super::ULONG, pwszlabel: &windows_core::PCWSTR, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL) -> windows_core::Result<IVdsAsync>;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -6452,13 +6452,13 @@ impl IVdsVolumeMF2_Vtbl {
         unsafe extern "system" fn GetFileSystemTypeName<Identity: IVdsVolumeMF2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwszfilesystemtypename: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolumeMF2_Impl::GetFileSystemTypeName(this, core::mem::transmute_copy(&ppwszfilesystemtypename)).into()
+                IVdsVolumeMF2_Impl::GetFileSystemTypeName(this, core::mem::transmute_copy(&ppwszfilesystemtypename))
             }
         }
         unsafe extern "system" fn QueryFileSystemFormatSupport<Identity: IVdsVolumeMF2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppfilesystemsupportprops: *mut *mut VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP, plnumberoffilesystems: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolumeMF2_Impl::QueryFileSystemFormatSupport(this, core::mem::transmute_copy(&ppfilesystemsupportprops), core::mem::transmute_copy(&plnumberoffilesystems)).into()
+                IVdsVolumeMF2_Impl::QueryFileSystemFormatSupport(this, core::mem::transmute_copy(&ppfilesystemsupportprops), core::mem::transmute_copy(&plnumberoffilesystems))
             }
         }
         unsafe extern "system" fn FormatEx<Identity: IVdsVolumeMF2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszfilesystemtypename: windows_core::PCWSTR, usfilesystemrevision: super::USHORT, uldesiredunitallocationsize: super::ULONG, pwszlabel: windows_core::PCWSTR, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6527,9 +6527,9 @@ pub struct IVdsVolumeMF3_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IVdsVolumeMF3_Impl: windows_core::IUnknownImpl {
-    fn QueryVolumeGuidPathnames(&self, pwszpatharray: *mut *mut windows_core::PWSTR, pulnumberofpaths: *mut super::ULONG) -> windows_core::Result<()>;
+    fn QueryVolumeGuidPathnames(&self, pwszpatharray: *mut *mut windows_core::PWSTR, pulnumberofpaths: *mut super::ULONG) -> windows_core::HRESULT;
     fn FormatEx2(&self, pwszfilesystemtypename: &windows_core::PCWSTR, usfilesystemrevision: super::USHORT, uldesiredunitallocationsize: super::ULONG, pwszlabel: &windows_core::PCWSTR, options: super::DWORD) -> windows_core::Result<IVdsAsync>;
-    fn OfflineVolume(&self) -> windows_core::Result<()>;
+    fn OfflineVolume(&self) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IVdsVolumeMF3_Vtbl {
@@ -6537,7 +6537,7 @@ impl IVdsVolumeMF3_Vtbl {
         unsafe extern "system" fn QueryVolumeGuidPathnames<Identity: IVdsVolumeMF3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszpatharray: *mut *mut windows_core::PWSTR, pulnumberofpaths: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolumeMF3_Impl::QueryVolumeGuidPathnames(this, core::mem::transmute_copy(&pwszpatharray), core::mem::transmute_copy(&pulnumberofpaths)).into()
+                IVdsVolumeMF3_Impl::QueryVolumeGuidPathnames(this, core::mem::transmute_copy(&pwszpatharray), core::mem::transmute_copy(&pulnumberofpaths))
             }
         }
         unsafe extern "system" fn FormatEx2<Identity: IVdsVolumeMF3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszfilesystemtypename: windows_core::PCWSTR, usfilesystemrevision: super::USHORT, uldesiredunitallocationsize: super::ULONG, pwszlabel: windows_core::PCWSTR, options: super::DWORD, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6558,7 +6558,7 @@ impl IVdsVolumeMF3_Vtbl {
         unsafe extern "system" fn OfflineVolume<Identity: IVdsVolumeMF3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolumeMF3_Impl::OfflineVolume(this).into()
+                IVdsVolumeMF3_Impl::OfflineVolume(this)
             }
         }
         Self {
@@ -6588,14 +6588,14 @@ pub struct IVdsVolumeOnline_Vtbl {
     pub Online: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsVolumeOnline_Impl: windows_core::IUnknownImpl {
-    fn Online(&self) -> windows_core::Result<()>;
+    fn Online(&self) -> windows_core::HRESULT;
 }
 impl IVdsVolumeOnline_Vtbl {
     pub const fn new<Identity: IVdsVolumeOnline_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Online<Identity: IVdsVolumeOnline_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolumeOnline_Impl::Online(this).into()
+                IVdsVolumeOnline_Impl::Online(this)
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Online: Online::<Identity, OFFSET> }
@@ -6650,9 +6650,9 @@ pub struct IVdsVolumePlex_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IVdsVolumePlex_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, pplexproperties: *mut VDS_VOLUME_PLEX_PROP) -> windows_core::Result<()>;
+    fn GetProperties(&self, pplexproperties: *mut VDS_VOLUME_PLEX_PROP) -> windows_core::HRESULT;
     fn GetVolume(&self) -> windows_core::Result<IVdsVolume>;
-    fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DISK_EXTENT, plnumberofextents: *mut super::LONG) -> windows_core::Result<()>;
+    fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DISK_EXTENT, plnumberofextents: *mut super::LONG) -> windows_core::HRESULT;
     fn Repair(&self, pinputdiskarray: *const VDS_INPUT_DISK, lnumberofdisks: super::LONG) -> windows_core::Result<IVdsAsync>;
 }
 #[cfg(feature = "shared")]
@@ -6661,7 +6661,7 @@ impl IVdsVolumePlex_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: IVdsVolumePlex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pplexproperties: *mut VDS_VOLUME_PLEX_PROP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolumePlex_Impl::GetProperties(this, core::mem::transmute_copy(&pplexproperties)).into()
+                IVdsVolumePlex_Impl::GetProperties(this, core::mem::transmute_copy(&pplexproperties))
             }
         }
         unsafe extern "system" fn GetVolume<Identity: IVdsVolumePlex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvolume: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6682,7 +6682,7 @@ impl IVdsVolumePlex_Vtbl {
         unsafe extern "system" fn QueryExtents<Identity: IVdsVolumePlex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppextentarray: *mut *mut VDS_DISK_EXTENT, plnumberofextents: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolumePlex_Impl::QueryExtents(this, core::mem::transmute_copy(&ppextentarray), core::mem::transmute_copy(&plnumberofextents)).into()
+                IVdsVolumePlex_Impl::QueryExtents(this, core::mem::transmute_copy(&ppextentarray), core::mem::transmute_copy(&plnumberofextents))
             }
         }
         unsafe extern "system" fn Repair<Identity: IVdsVolumePlex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinputdiskarray: *const VDS_INPUT_DISK, lnumberofdisks: super::LONG, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6744,7 +6744,7 @@ pub struct IVdsVolumeShrink_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IVdsVolumeShrink_Impl: windows_core::IUnknownImpl {
-    fn QueryMaxReclaimableBytes(&self, pullmaxnumberofreclaimablebytes: *mut super::ULONGLONG) -> windows_core::Result<()>;
+    fn QueryMaxReclaimableBytes(&self, pullmaxnumberofreclaimablebytes: *mut super::ULONGLONG) -> windows_core::HRESULT;
     fn Shrink(&self, ulldesirednumberofreclaimablebytes: super::ULONGLONG, ullminnumberofreclaimablebytes: super::ULONGLONG) -> windows_core::Result<IVdsAsync>;
 }
 #[cfg(feature = "shared")]
@@ -6753,7 +6753,7 @@ impl IVdsVolumeShrink_Vtbl {
         unsafe extern "system" fn QueryMaxReclaimableBytes<Identity: IVdsVolumeShrink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pullmaxnumberofreclaimablebytes: *mut super::ULONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolumeShrink_Impl::QueryMaxReclaimableBytes(this, core::mem::transmute_copy(&pullmaxnumberofreclaimablebytes)).into()
+                IVdsVolumeShrink_Impl::QueryMaxReclaimableBytes(this, core::mem::transmute_copy(&pullmaxnumberofreclaimablebytes))
             }
         }
         unsafe extern "system" fn Shrink<Identity: IVdsVolumeShrink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulldesirednumberofreclaimablebytes: super::ULONGLONG, ullminnumberofreclaimablebytes: super::ULONGLONG, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {

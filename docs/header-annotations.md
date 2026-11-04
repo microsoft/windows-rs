@@ -8,8 +8,8 @@ the metadata into Rust. This catalog gives representative header spellings, RDL 
 The parameter, buffer, callable and layout tables describe implemented mappings. `-` means bindgen
 does not interpret the fact. Rust examples describe wrappers, not the raw ABI.
 
-`_Win32_SetLastError_`, `_Win32_ImportLibrary_`, `_Win32_Enum_`, `_Win32_FlagsEnum_` and
-`_Win32_AssociatedEnum_` are supported. The remaining
+`_Win32_SetLastError_`, `_Win32_ImportLibrary_`, `_Win32_Enum_`, `_Win32_FlagsEnum_`,
+`_Win32_AssociatedEnum_` and `_Win32_PreserveResult_` are supported. The remaining
 [`_Win32_*` proposals](#proposed-annotations) are design candidates, not supported syntax or an
 agreement with microsoft/win32metadata#2365.
 `windows-clang` rejects unknown `annotate` payloads.
@@ -254,11 +254,18 @@ Metadata facts do not by themselves authorize a wrapper transformation:
 | `buffer` | Keep native pointers and separate counts; block scalar-result and COM-query transformations on the buffer |
 | `incomplete` | Keep raw parameter storage, except borrowed interface values; block query or `retval` transformations on the parameter |
 | `retval` | Trailing output-only, non-optional, non-reserved pointer with no extent or `incomplete`; `HRESULT` becomes `Result<T>`, `void` becomes `T` |
+| `iid_is` | Output-only `void**` paired with an input-only `GUID*`, neither with an extent or `incomplete`; an `HRESULT` query can project to `Result<T>` without `retval` |
 | `opt` or `reserved` | Optional pointer/reference where the parameter projection supports it |
 
 Unspecified direction stays unspecified in metadata. Bindgen can still treat native types that
-expose no caller-writable storage as inputs. `HRESULT` calls without `retval` or query projection
-already return the raw status; COM implementation methods use `Result`.
+expose no caller-writable storage as inputs. Without eligible `retval` or query projection, both
+callers and native interface implementation methods return `HRESULT` and keep explicit output
+parameters. Implementations can return `S_FALSE` or write outputs on failure without result conversion.
+
+An eligible `iid_is` query acts as an implicit result. Callers get `Result<T>`, or `Result<()>` with
+explicit storage when that storage is optional. Implementations keep the IID and output pointer
+and return `Result<()>`, since the requested interface type is selected at runtime. In/out pointers,
+buffers and incomplete contracts do not qualify. WinRT result projection is unchanged.
 
 Interface results lifted from output parameters use `Result<T>`, including COM queries. A successful
 call that supplies a null interface becomes `Err(Error::empty())`, whose code is `S_OK`. Direct
@@ -271,6 +278,24 @@ and length of returned arrays. It happens after the call so inputs can alias the
 Explicit output parameters, in/out values and raw buffers remain implementation-managed. This is
 producer policy, not metadata or a guarantee about external implementations.
 
+### Exact results
+
+`_Win32_PreserveResult_` on a function, method or callback typedef emits `#[preserve_sig]`.
+Its transport is `__attribute__((annotate("Win32Metadata.PreserveResult")))`, with no arguments.
+RDL encodes the standard `MethodImplAttributes.PreserveSig` flag, on `Invoke` for callbacks.
+No custom metadata attribute is needed.
+
+Consumers can use the flag to keep status codes such as `S_FALSE` instead of converting them to
+exceptions or results. It does not change the native ABI or parameter contracts. It corresponds to
+.NET's
+[`PreserveSig`](https://learn.microsoft.com/dotnet/api/system.runtime.interopservices.preservesigattribute)
+semantics. CsWin32's
+[`UsePreserveSigForComMethod`](https://github.com/microsoft/CsWin32/blob/main/src/Microsoft.Windows.CsWin32/Generator.Com.cs)
+already checks this flag. End-to-end C# coverage is still separate from this repository's tests.
+
+`windows-bindgen` currently ignores this flag. Rust's `retval` and `iid_is` projection rules remain
+unchanged.
+
 ## Proposed annotations
 
 All rows below are **Proposed**. The RDL spellings, new metadata families and consumer effects need
@@ -279,7 +304,6 @@ replacements for them.
 
 | Fact | Header example | Proposed RDL | Intended consumer use |
 | --- | --- | --- | --- |
-| Exact result | `_Win32_PreserveResult_ HRESULT EnumAdapters1(...)` | `#[preserve_result]` | Keep raw status and output parameters instead of Rust `Result` or C# exception/result conversion |
 | Minimum OS | `_Win32_SupportedOS_19041_` | `#[supported_os("windows10.0.19041")]` | C# platform diagnostics |
 | Release | `_Out_ _Win32_RAIIFree_(WinHttpCloseHandle, 0) HINTERNET* session` | `#[invalid(0)] #[out] #[release(WinHttpCloseHandle)] session: *mut HINTERNET` | Rust owned handles or C# `SafeHandle`; requires an ownership-aware wrapper |
 | Retained | `_In_ _Win32_Retained_ OVERLAPPED* overlapped` | `#[in] #[retained] overlapped: *mut OVERLAPPED` | No call-scoped slice/reference/span wrapper; caller manages lifetime |
@@ -293,11 +317,6 @@ The proposed contracts require these checks:
 | Release | Resolve a declared cleanup function with a compatible parameter; invalid values are integer constants, one `invalid` each. `_Win32_RAIIFree_Handle_(F)` supplies `-1` and `0` |
 | Retained | The API uses the pointer after return; this does not describe when that use ends |
 | Minimum OS | Use platform version numbers, not marketing names; availability guards need separate evidence before becoming minimum-version claims |
-
-`preserve_result` would keep status codes such as `S_FALSE` or the failure code
-`DXGI_ERROR_NOT_FOUND` used to end enumeration. This is projection policy, not native ABI. C#'s
-[`DllImport.PreserveSig`](https://learn.microsoft.com/dotnet/api/system.runtime.interopservices.dllimportattribute.preservesig)
-defaults to `true` but can be `false`.
 
 ### Transport
 
@@ -374,6 +393,7 @@ language-neutral API facts.
 | `library("dll", import = "name")` | ImplMap `ImportScope` and `ImportName` |
 | `extern fn`, `extern "C" fn` | ImplMap calling-convention flags on imports; `System.Runtime.InteropServices.UnmanagedFunctionPointer` on named callbacks |
 | `special` | MethodDef flag `SpecialName` |
+| `preserve_sig` | MethodDef implementation flag `PreserveSig`; callback flag belongs to `Invoke` |
 | `override_slot(N)`, `base` | `NativeOverrideSlot` and cleared `NewSlot`; `NativeBase` |
 | `arch(...)` | `SupportedArchitecture` |
 | `guid(...)` | `Windows.Foundation.Metadata.Guid` |
@@ -384,7 +404,7 @@ language-neutral API facts.
 | `packed(N)`, `align(N)` | ClassLayout, `Alignment` |
 | Bitfield blocks, `anonymous(N)` | `NativeBitfield`, `NativeAnonymous` |
 | `library(..., last_error)` | ImplMap flag `SupportsLastError` |
-| **Proposed** `preserve_result`, `retained`, `interior_pointers` | `PreserveResult`, `Retained`, `InteriorPointers` |
+| **Proposed** `retained`, `interior_pointers` | `Retained`, `InteriorPointers` |
 | **Proposed** `release(F)`, `invalid(N)` | `Release`, `InvalidValue` |
 | **Proposed** `also_usable_for(T)` | `AlsoUsableFor` |
 | **Proposed** `supported_os("...")` | `System.Runtime.Versioning.SupportedOSPlatform` |

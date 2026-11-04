@@ -80,7 +80,7 @@ mod Windows {
             dataType: eAVEncVideoQPMapElementDataType,
             minValue: INT16,
             maxValue: INT16,
-            steps: UINT16,
+            step: UINT16,
         }
         struct MACROBLOCK_DATA {
             flags: UINT32,

@@ -6,9 +6,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
             #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
-            #[Windows::Foundation::Metadata::Static(IAccountsSettingsPaneStatics3, 393216, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Static(IAccountsSettingsPaneStatics2, 196608, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IAccountsSettingsPaneStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IAccountsSettingsPaneStatics2, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IAccountsSettingsPaneStatics3, 393216, "Windows.Foundation.UniversalApiContract")]
             class AccountsSettingsPane {
                 IAccountsSettingsPane,
             }

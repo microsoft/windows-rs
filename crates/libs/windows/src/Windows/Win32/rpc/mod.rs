@@ -5515,6 +5515,7 @@ pub const TRANSPORT_TYPE_LPC: i32 = 4;
 pub const TRANSPORT_TYPE_WMSG: i32 = 8;
 pub const USER_CALL_IS_ASYNC: i32 = 256;
 pub const USER_CALL_NEW_CORRELATION_DESC: i32 = 512;
+pub const USER_MARSHALUNMARSHAL_DONT_CLEANUP_UNMARSHALLED_OBJECT: i32 = 32768;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[derive(Clone, Copy, Default)]

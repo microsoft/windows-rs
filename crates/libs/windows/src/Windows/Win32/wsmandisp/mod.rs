@@ -128,7 +128,7 @@ impl IWSMan_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWSMan as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IWSMan as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -171,8 +171,8 @@ pub struct IWSManConnectionOptions_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWSManConnectionOptions_Impl: super::IDispatch_Impl {
     fn UserName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetUserName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetPassword(&self, password: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetUserName(&self, name: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn SetPassword(&self, password: &windows_core::BSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWSManConnectionOptions_Vtbl {
@@ -195,13 +195,13 @@ impl IWSManConnectionOptions_Vtbl {
         unsafe extern "system" fn SetUserName<Identity: IWSManConnectionOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWSManConnectionOptions_Impl::SetUserName(this, core::mem::transmute(&name)).into()
+                IWSManConnectionOptions_Impl::SetUserName(this, core::mem::transmute(&name))
             }
         }
         unsafe extern "system" fn SetPassword<Identity: IWSManConnectionOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, password: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWSManConnectionOptions_Impl::SetPassword(this, core::mem::transmute(&password)).into()
+                IWSManConnectionOptions_Impl::SetPassword(this, core::mem::transmute(&password))
             }
         }
         Self {
@@ -212,7 +212,7 @@ impl IWSManConnectionOptions_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWSManConnectionOptions as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IWSManConnectionOptions as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -251,7 +251,7 @@ pub struct IWSManConnectionOptionsEx_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWSManConnectionOptionsEx_Impl: IWSManConnectionOptions_Impl {
     fn CertificateThumbprint(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetCertificateThumbprint(&self, thumbprint: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetCertificateThumbprint(&self, thumbprint: &windows_core::BSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWSManConnectionOptionsEx_Vtbl {
@@ -274,7 +274,7 @@ impl IWSManConnectionOptionsEx_Vtbl {
         unsafe extern "system" fn SetCertificateThumbprint<Identity: IWSManConnectionOptionsEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, thumbprint: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWSManConnectionOptionsEx_Impl::SetCertificateThumbprint(this, core::mem::transmute(&thumbprint)).into()
+                IWSManConnectionOptionsEx_Impl::SetCertificateThumbprint(this, core::mem::transmute(&thumbprint))
             }
         }
         Self {
@@ -284,7 +284,7 @@ impl IWSManConnectionOptionsEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWSManConnectionOptionsEx as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IWSManConnectionOptions as windows_core::Interface>::IID
+        iid == &<IWSManConnectionOptionsEx as windows_core::Interface>::IID || IWSManConnectionOptions_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -364,7 +364,7 @@ pub struct IWSManConnectionOptionsEx2_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWSManConnectionOptionsEx2_Impl: IWSManConnectionOptionsEx_Impl {
-    fn SetProxy(&self, accesstype: i32, authenticationmechanism: i32, username: &windows_core::BSTR, password: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetProxy(&self, accesstype: i32, authenticationmechanism: i32, username: &windows_core::BSTR, password: &windows_core::BSTR) -> windows_core::HRESULT;
     fn ProxyIEConfig(&self) -> windows_core::Result<i32>;
     fn ProxyWinHttpConfig(&self) -> windows_core::Result<i32>;
     fn ProxyAutoDetect(&self) -> windows_core::Result<i32>;
@@ -379,7 +379,7 @@ impl IWSManConnectionOptionsEx2_Vtbl {
         unsafe extern "system" fn SetProxy<Identity: IWSManConnectionOptionsEx2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, accesstype: i32, authenticationmechanism: i32, username: *mut core::ffi::c_void, password: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWSManConnectionOptionsEx2_Impl::SetProxy(this, core::mem::transmute_copy(&accesstype), core::mem::transmute_copy(&authenticationmechanism), core::mem::transmute(&username), core::mem::transmute(&password)).into()
+                IWSManConnectionOptionsEx2_Impl::SetProxy(this, core::mem::transmute_copy(&accesstype), core::mem::transmute_copy(&authenticationmechanism), core::mem::transmute(&username), core::mem::transmute(&password))
             }
         }
         unsafe extern "system" fn ProxyIEConfig<Identity: IWSManConnectionOptionsEx2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut i32) -> windows_core::HRESULT {
@@ -500,7 +500,7 @@ impl IWSManConnectionOptionsEx2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWSManConnectionOptionsEx2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IWSManConnectionOptions as windows_core::Interface>::IID || iid == &<IWSManConnectionOptionsEx as windows_core::Interface>::IID
+        iid == &<IWSManConnectionOptionsEx2 as windows_core::Interface>::IID || IWSManConnectionOptionsEx_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -612,7 +612,7 @@ impl IWSManEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWSManEnumerator as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IWSManEnumerator as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1132,7 +1132,7 @@ impl IWSManEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWSManEx as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IWSMan as windows_core::Interface>::IID
+        iid == &<IWSManEx as windows_core::Interface>::IID || IWSMan_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1189,7 +1189,7 @@ impl IWSManEx2_Vtbl {
         Self { base__: IWSManEx_Vtbl::new::<Identity, OFFSET>(), SessionFlagUseClientCertificate: SessionFlagUseClientCertificate::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWSManEx2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IWSMan as windows_core::Interface>::IID || iid == &<IWSManEx as windows_core::Interface>::IID
+        iid == &<IWSManEx2 as windows_core::Interface>::IID || IWSManEx_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1393,7 +1393,7 @@ impl IWSManEx3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWSManEx3 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IWSMan as windows_core::Interface>::IID || iid == &<IWSManEx as windows_core::Interface>::IID || iid == &<IWSManEx2 as windows_core::Interface>::IID
+        iid == &<IWSManEx3 as windows_core::Interface>::IID || IWSManEx2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1457,7 +1457,7 @@ impl IWSManInternal_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), ConfigSDDL: ConfigSDDL::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWSManInternal as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IWSManInternal as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1559,18 +1559,18 @@ pub struct IWSManResourceLocator_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWSManResourceLocator_Impl: super::IDispatch_Impl {
-    fn SetResourceURI(&self, uri: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetResourceURI(&self, uri: &windows_core::BSTR) -> windows_core::HRESULT;
     fn ResourceURI(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn AddSelector(&self, resourceselname: &windows_core::BSTR, selvalue: &super::VARIANT) -> windows_core::Result<()>;
-    fn ClearSelectors(&self) -> windows_core::Result<()>;
+    fn AddSelector(&self, resourceselname: &windows_core::BSTR, selvalue: &super::VARIANT) -> windows_core::HRESULT;
+    fn ClearSelectors(&self) -> windows_core::HRESULT;
     fn FragmentPath(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetFragmentPath(&self, text: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetFragmentPath(&self, text: &windows_core::BSTR) -> windows_core::HRESULT;
     fn FragmentDialect(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetFragmentDialect(&self, text: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn AddOption(&self, optionname: &windows_core::BSTR, optionvalue: &super::VARIANT, mustcomply: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetMustUnderstandOptions(&self, mustunderstand: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetFragmentDialect(&self, text: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn AddOption(&self, optionname: &windows_core::BSTR, optionvalue: &super::VARIANT, mustcomply: windows_core::BOOL) -> windows_core::HRESULT;
+    fn SetMustUnderstandOptions(&self, mustunderstand: windows_core::BOOL) -> windows_core::HRESULT;
     fn MustUnderstandOptions(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn ClearOptions(&self) -> windows_core::Result<()>;
+    fn ClearOptions(&self) -> windows_core::HRESULT;
     fn Error(&self) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1579,7 +1579,7 @@ impl IWSManResourceLocator_Vtbl {
         unsafe extern "system" fn SetResourceURI<Identity: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWSManResourceLocator_Impl::SetResourceURI(this, core::mem::transmute(&uri)).into()
+                IWSManResourceLocator_Impl::SetResourceURI(this, core::mem::transmute(&uri))
             }
         }
         unsafe extern "system" fn ResourceURI<Identity: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1600,13 +1600,13 @@ impl IWSManResourceLocator_Vtbl {
         unsafe extern "system" fn AddSelector<Identity: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourceselname: *mut core::ffi::c_void, selvalue: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWSManResourceLocator_Impl::AddSelector(this, core::mem::transmute(&resourceselname), core::mem::transmute(&selvalue)).into()
+                IWSManResourceLocator_Impl::AddSelector(this, core::mem::transmute(&resourceselname), core::mem::transmute(&selvalue))
             }
         }
         unsafe extern "system" fn ClearSelectors<Identity: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWSManResourceLocator_Impl::ClearSelectors(this).into()
+                IWSManResourceLocator_Impl::ClearSelectors(this)
             }
         }
         unsafe extern "system" fn FragmentPath<Identity: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1627,7 +1627,7 @@ impl IWSManResourceLocator_Vtbl {
         unsafe extern "system" fn SetFragmentPath<Identity: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWSManResourceLocator_Impl::SetFragmentPath(this, core::mem::transmute(&text)).into()
+                IWSManResourceLocator_Impl::SetFragmentPath(this, core::mem::transmute(&text))
             }
         }
         unsafe extern "system" fn FragmentDialect<Identity: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1648,19 +1648,19 @@ impl IWSManResourceLocator_Vtbl {
         unsafe extern "system" fn SetFragmentDialect<Identity: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWSManResourceLocator_Impl::SetFragmentDialect(this, core::mem::transmute(&text)).into()
+                IWSManResourceLocator_Impl::SetFragmentDialect(this, core::mem::transmute(&text))
             }
         }
         unsafe extern "system" fn AddOption<Identity: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, optionname: *mut core::ffi::c_void, optionvalue: super::VARIANT, mustcomply: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWSManResourceLocator_Impl::AddOption(this, core::mem::transmute(&optionname), core::mem::transmute(&optionvalue), core::mem::transmute_copy(&mustcomply)).into()
+                IWSManResourceLocator_Impl::AddOption(this, core::mem::transmute(&optionname), core::mem::transmute(&optionvalue), core::mem::transmute_copy(&mustcomply))
             }
         }
         unsafe extern "system" fn SetMustUnderstandOptions<Identity: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mustunderstand: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWSManResourceLocator_Impl::SetMustUnderstandOptions(this, core::mem::transmute_copy(&mustunderstand)).into()
+                IWSManResourceLocator_Impl::SetMustUnderstandOptions(this, core::mem::transmute_copy(&mustunderstand))
             }
         }
         unsafe extern "system" fn MustUnderstandOptions<Identity: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mustunderstand: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -1681,7 +1681,7 @@ impl IWSManResourceLocator_Vtbl {
         unsafe extern "system" fn ClearOptions<Identity: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWSManResourceLocator_Impl::ClearOptions(this).into()
+                IWSManResourceLocator_Impl::ClearOptions(this)
             }
         }
         unsafe extern "system" fn Error<Identity: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1717,7 +1717,7 @@ impl IWSManResourceLocator_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWSManResourceLocator as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IWSManResourceLocator as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1863,15 +1863,15 @@ pub trait IWSManSession_Impl: super::IDispatch_Impl {
     fn Get(&self, resourceuri: &super::VARIANT, flags: i32) -> windows_core::Result<windows_core::BSTR>;
     fn Put(&self, resourceuri: &super::VARIANT, resource: &windows_core::BSTR, flags: i32) -> windows_core::Result<windows_core::BSTR>;
     fn Create(&self, resourceuri: &super::VARIANT, resource: &windows_core::BSTR, flags: i32) -> windows_core::Result<windows_core::BSTR>;
-    fn Delete(&self, resourceuri: &super::VARIANT, flags: i32) -> windows_core::Result<()>;
+    fn Delete(&self, resourceuri: &super::VARIANT, flags: i32) -> windows_core::HRESULT;
     fn Invoke(&self, actionuri: &windows_core::BSTR, resourceuri: &super::VARIANT, parameters: &windows_core::BSTR, flags: i32) -> windows_core::Result<windows_core::BSTR>;
     fn Enumerate(&self, resourceuri: &super::VARIANT, filter: &windows_core::BSTR, dialect: &windows_core::BSTR, flags: i32) -> windows_core::Result<super::IDispatch>;
     fn Identify(&self, flags: i32) -> windows_core::Result<windows_core::BSTR>;
     fn Error(&self) -> windows_core::Result<windows_core::BSTR>;
     fn BatchItems(&self) -> windows_core::Result<i32>;
-    fn SetBatchItems(&self, value: i32) -> windows_core::Result<()>;
+    fn SetBatchItems(&self, value: i32) -> windows_core::HRESULT;
     fn Timeout(&self) -> windows_core::Result<i32>;
-    fn SetTimeout(&self, value: i32) -> windows_core::Result<()>;
+    fn SetTimeout(&self, value: i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWSManSession_Vtbl {
@@ -1924,7 +1924,7 @@ impl IWSManSession_Vtbl {
         unsafe extern "system" fn Delete<Identity: IWSManSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourceuri: super::VARIANT, flags: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWSManSession_Impl::Delete(this, core::mem::transmute(&resourceuri), core::mem::transmute_copy(&flags)).into()
+                IWSManSession_Impl::Delete(this, core::mem::transmute(&resourceuri), core::mem::transmute_copy(&flags))
             }
         }
         unsafe extern "system" fn Invoke<Identity: IWSManSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, actionuri: *mut core::ffi::c_void, resourceuri: super::VARIANT, parameters: *mut core::ffi::c_void, flags: i32, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2005,7 +2005,7 @@ impl IWSManSession_Vtbl {
         unsafe extern "system" fn SetBatchItems<Identity: IWSManSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWSManSession_Impl::SetBatchItems(this, core::mem::transmute_copy(&value)).into()
+                IWSManSession_Impl::SetBatchItems(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn Timeout<Identity: IWSManSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut i32) -> windows_core::HRESULT {
@@ -2026,7 +2026,7 @@ impl IWSManSession_Vtbl {
         unsafe extern "system" fn SetTimeout<Identity: IWSManSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWSManSession_Impl::SetTimeout(this, core::mem::transmute_copy(&value)).into()
+                IWSManSession_Impl::SetTimeout(this, core::mem::transmute_copy(&value))
             }
         }
         Self {
@@ -2046,7 +2046,7 @@ impl IWSManSession_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWSManSession as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IWSManSession as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]

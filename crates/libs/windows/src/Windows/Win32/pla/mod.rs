@@ -145,21 +145,21 @@ pub struct IAlertDataCollector_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAlertDataCollector_Impl: IDataCollector_Impl {
     fn AlertThresholds(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
-    fn SetAlertThresholds(&self, alerts: *const super::SAFEARRAY) -> windows_core::Result<()>;
+    fn SetAlertThresholds(&self, alerts: *const super::SAFEARRAY) -> windows_core::HRESULT;
     fn EventLog(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetEventLog(&self, log: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetEventLog(&self, log: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn SampleInterval(&self) -> windows_core::Result<u32>;
-    fn SetSampleInterval(&self, interval: u32) -> windows_core::Result<()>;
+    fn SetSampleInterval(&self, interval: u32) -> windows_core::HRESULT;
     fn Task(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetTask(&self, task: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetTask(&self, task: &windows_core::BSTR) -> windows_core::HRESULT;
     fn TaskRunAsSelf(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetTaskRunAsSelf(&self, runasself: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetTaskRunAsSelf(&self, runasself: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn TaskArguments(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetTaskArguments(&self, task: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetTaskArguments(&self, task: &windows_core::BSTR) -> windows_core::HRESULT;
     fn TaskUserTextArguments(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetTaskUserTextArguments(&self, task: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetTaskUserTextArguments(&self, task: &windows_core::BSTR) -> windows_core::HRESULT;
     fn TriggerDataCollectorSet(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetTriggerDataCollectorSet(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetTriggerDataCollectorSet(&self, name: &windows_core::BSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAlertDataCollector_Vtbl {
@@ -182,7 +182,7 @@ impl IAlertDataCollector_Vtbl {
         unsafe extern "system" fn SetAlertThresholds<Identity: IAlertDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, alerts: *const super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAlertDataCollector_Impl::SetAlertThresholds(this, core::mem::transmute_copy(&alerts)).into()
+                IAlertDataCollector_Impl::SetAlertThresholds(this, core::mem::transmute_copy(&alerts))
             }
         }
         unsafe extern "system" fn EventLog<Identity: IAlertDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, log: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -203,7 +203,7 @@ impl IAlertDataCollector_Vtbl {
         unsafe extern "system" fn SetEventLog<Identity: IAlertDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, log: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAlertDataCollector_Impl::SetEventLog(this, core::mem::transmute_copy(&log)).into()
+                IAlertDataCollector_Impl::SetEventLog(this, core::mem::transmute_copy(&log))
             }
         }
         unsafe extern "system" fn SampleInterval<Identity: IAlertDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interval: *mut u32) -> windows_core::HRESULT {
@@ -224,7 +224,7 @@ impl IAlertDataCollector_Vtbl {
         unsafe extern "system" fn SetSampleInterval<Identity: IAlertDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interval: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAlertDataCollector_Impl::SetSampleInterval(this, core::mem::transmute_copy(&interval)).into()
+                IAlertDataCollector_Impl::SetSampleInterval(this, core::mem::transmute_copy(&interval))
             }
         }
         unsafe extern "system" fn Task<Identity: IAlertDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, task: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -245,7 +245,7 @@ impl IAlertDataCollector_Vtbl {
         unsafe extern "system" fn SetTask<Identity: IAlertDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, task: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAlertDataCollector_Impl::SetTask(this, core::mem::transmute(&task)).into()
+                IAlertDataCollector_Impl::SetTask(this, core::mem::transmute(&task))
             }
         }
         unsafe extern "system" fn TaskRunAsSelf<Identity: IAlertDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, runasself: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -266,7 +266,7 @@ impl IAlertDataCollector_Vtbl {
         unsafe extern "system" fn SetTaskRunAsSelf<Identity: IAlertDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, runasself: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAlertDataCollector_Impl::SetTaskRunAsSelf(this, core::mem::transmute_copy(&runasself)).into()
+                IAlertDataCollector_Impl::SetTaskRunAsSelf(this, core::mem::transmute_copy(&runasself))
             }
         }
         unsafe extern "system" fn TaskArguments<Identity: IAlertDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, task: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -287,7 +287,7 @@ impl IAlertDataCollector_Vtbl {
         unsafe extern "system" fn SetTaskArguments<Identity: IAlertDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, task: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAlertDataCollector_Impl::SetTaskArguments(this, core::mem::transmute(&task)).into()
+                IAlertDataCollector_Impl::SetTaskArguments(this, core::mem::transmute(&task))
             }
         }
         unsafe extern "system" fn TaskUserTextArguments<Identity: IAlertDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, task: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -308,7 +308,7 @@ impl IAlertDataCollector_Vtbl {
         unsafe extern "system" fn SetTaskUserTextArguments<Identity: IAlertDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, task: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAlertDataCollector_Impl::SetTaskUserTextArguments(this, core::mem::transmute(&task)).into()
+                IAlertDataCollector_Impl::SetTaskUserTextArguments(this, core::mem::transmute(&task))
             }
         }
         unsafe extern "system" fn TriggerDataCollectorSet<Identity: IAlertDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -329,7 +329,7 @@ impl IAlertDataCollector_Vtbl {
         unsafe extern "system" fn SetTriggerDataCollectorSet<Identity: IAlertDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAlertDataCollector_Impl::SetTriggerDataCollectorSet(this, core::mem::transmute(&name)).into()
+                IAlertDataCollector_Impl::SetTriggerDataCollectorSet(this, core::mem::transmute(&name))
             }
         }
         Self {
@@ -353,7 +353,7 @@ impl IAlertDataCollector_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAlertDataCollector as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IDataCollector as windows_core::Interface>::IID
+        iid == &<IAlertDataCollector as windows_core::Interface>::IID || IDataCollector_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -498,19 +498,19 @@ pub struct IApiTracingDataCollector_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IApiTracingDataCollector_Impl: IDataCollector_Impl {
     fn LogApiNamesOnly(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetLogApiNamesOnly(&self, logapinames: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetLogApiNamesOnly(&self, logapinames: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn LogApisRecursively(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetLogApisRecursively(&self, logrecursively: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetLogApisRecursively(&self, logrecursively: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn ExePath(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetExePath(&self, exepath: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetExePath(&self, exepath: &windows_core::BSTR) -> windows_core::HRESULT;
     fn LogFilePath(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetLogFilePath(&self, logfilepath: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetLogFilePath(&self, logfilepath: &windows_core::BSTR) -> windows_core::HRESULT;
     fn IncludeModules(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
-    fn SetIncludeModules(&self, includemodules: *const super::SAFEARRAY) -> windows_core::Result<()>;
+    fn SetIncludeModules(&self, includemodules: *const super::SAFEARRAY) -> windows_core::HRESULT;
     fn IncludeApis(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
-    fn SetIncludeApis(&self, includeapis: *const super::SAFEARRAY) -> windows_core::Result<()>;
+    fn SetIncludeApis(&self, includeapis: *const super::SAFEARRAY) -> windows_core::HRESULT;
     fn ExcludeApis(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
-    fn SetExcludeApis(&self, excludeapis: *const super::SAFEARRAY) -> windows_core::Result<()>;
+    fn SetExcludeApis(&self, excludeapis: *const super::SAFEARRAY) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IApiTracingDataCollector_Vtbl {
@@ -533,7 +533,7 @@ impl IApiTracingDataCollector_Vtbl {
         unsafe extern "system" fn SetLogApiNamesOnly<Identity: IApiTracingDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, logapinames: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IApiTracingDataCollector_Impl::SetLogApiNamesOnly(this, core::mem::transmute_copy(&logapinames)).into()
+                IApiTracingDataCollector_Impl::SetLogApiNamesOnly(this, core::mem::transmute_copy(&logapinames))
             }
         }
         unsafe extern "system" fn LogApisRecursively<Identity: IApiTracingDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, logrecursively: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -554,7 +554,7 @@ impl IApiTracingDataCollector_Vtbl {
         unsafe extern "system" fn SetLogApisRecursively<Identity: IApiTracingDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, logrecursively: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IApiTracingDataCollector_Impl::SetLogApisRecursively(this, core::mem::transmute_copy(&logrecursively)).into()
+                IApiTracingDataCollector_Impl::SetLogApisRecursively(this, core::mem::transmute_copy(&logrecursively))
             }
         }
         unsafe extern "system" fn ExePath<Identity: IApiTracingDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, exepath: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -575,7 +575,7 @@ impl IApiTracingDataCollector_Vtbl {
         unsafe extern "system" fn SetExePath<Identity: IApiTracingDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, exepath: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IApiTracingDataCollector_Impl::SetExePath(this, core::mem::transmute(&exepath)).into()
+                IApiTracingDataCollector_Impl::SetExePath(this, core::mem::transmute(&exepath))
             }
         }
         unsafe extern "system" fn LogFilePath<Identity: IApiTracingDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, logfilepath: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -596,7 +596,7 @@ impl IApiTracingDataCollector_Vtbl {
         unsafe extern "system" fn SetLogFilePath<Identity: IApiTracingDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, logfilepath: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IApiTracingDataCollector_Impl::SetLogFilePath(this, core::mem::transmute(&logfilepath)).into()
+                IApiTracingDataCollector_Impl::SetLogFilePath(this, core::mem::transmute(&logfilepath))
             }
         }
         unsafe extern "system" fn IncludeModules<Identity: IApiTracingDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, includemodules: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
@@ -617,7 +617,7 @@ impl IApiTracingDataCollector_Vtbl {
         unsafe extern "system" fn SetIncludeModules<Identity: IApiTracingDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, includemodules: *const super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IApiTracingDataCollector_Impl::SetIncludeModules(this, core::mem::transmute_copy(&includemodules)).into()
+                IApiTracingDataCollector_Impl::SetIncludeModules(this, core::mem::transmute_copy(&includemodules))
             }
         }
         unsafe extern "system" fn IncludeApis<Identity: IApiTracingDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, includeapis: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
@@ -638,7 +638,7 @@ impl IApiTracingDataCollector_Vtbl {
         unsafe extern "system" fn SetIncludeApis<Identity: IApiTracingDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, includeapis: *const super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IApiTracingDataCollector_Impl::SetIncludeApis(this, core::mem::transmute_copy(&includeapis)).into()
+                IApiTracingDataCollector_Impl::SetIncludeApis(this, core::mem::transmute_copy(&includeapis))
             }
         }
         unsafe extern "system" fn ExcludeApis<Identity: IApiTracingDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, excludeapis: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
@@ -659,7 +659,7 @@ impl IApiTracingDataCollector_Vtbl {
         unsafe extern "system" fn SetExcludeApis<Identity: IApiTracingDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, excludeapis: *const super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IApiTracingDataCollector_Impl::SetExcludeApis(this, core::mem::transmute_copy(&excludeapis)).into()
+                IApiTracingDataCollector_Impl::SetExcludeApis(this, core::mem::transmute_copy(&excludeapis))
             }
         }
         Self {
@@ -681,7 +681,7 @@ impl IApiTracingDataCollector_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IApiTracingDataCollector as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IDataCollector as windows_core::Interface>::IID
+        iid == &<IApiTracingDataCollector as windows_core::Interface>::IID || IDataCollector_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -840,23 +840,23 @@ pub struct IConfigurationDataCollector_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IConfigurationDataCollector_Impl: IDataCollector_Impl {
     fn FileMaxCount(&self) -> windows_core::Result<u32>;
-    fn SetFileMaxCount(&self, count: u32) -> windows_core::Result<()>;
+    fn SetFileMaxCount(&self, count: u32) -> windows_core::HRESULT;
     fn FileMaxRecursiveDepth(&self) -> windows_core::Result<u32>;
-    fn SetFileMaxRecursiveDepth(&self, depth: u32) -> windows_core::Result<()>;
+    fn SetFileMaxRecursiveDepth(&self, depth: u32) -> windows_core::HRESULT;
     fn FileMaxTotalSize(&self) -> windows_core::Result<u32>;
-    fn SetFileMaxTotalSize(&self, size: u32) -> windows_core::Result<()>;
+    fn SetFileMaxTotalSize(&self, size: u32) -> windows_core::HRESULT;
     fn Files(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
-    fn SetFiles(&self, files: *const super::SAFEARRAY) -> windows_core::Result<()>;
+    fn SetFiles(&self, files: *const super::SAFEARRAY) -> windows_core::HRESULT;
     fn ManagementQueries(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
-    fn SetManagementQueries(&self, queries: *const super::SAFEARRAY) -> windows_core::Result<()>;
+    fn SetManagementQueries(&self, queries: *const super::SAFEARRAY) -> windows_core::HRESULT;
     fn QueryNetworkAdapters(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetQueryNetworkAdapters(&self, network: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetQueryNetworkAdapters(&self, network: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn RegistryKeys(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
-    fn SetRegistryKeys(&self, query: *const super::SAFEARRAY) -> windows_core::Result<()>;
+    fn SetRegistryKeys(&self, query: *const super::SAFEARRAY) -> windows_core::HRESULT;
     fn RegistryMaxRecursiveDepth(&self) -> windows_core::Result<u32>;
-    fn SetRegistryMaxRecursiveDepth(&self, depth: u32) -> windows_core::Result<()>;
+    fn SetRegistryMaxRecursiveDepth(&self, depth: u32) -> windows_core::HRESULT;
     fn SystemStateFile(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetSystemStateFile(&self, filename: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetSystemStateFile(&self, filename: &windows_core::BSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IConfigurationDataCollector_Vtbl {
@@ -879,7 +879,7 @@ impl IConfigurationDataCollector_Vtbl {
         unsafe extern "system" fn SetFileMaxCount<Identity: IConfigurationDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IConfigurationDataCollector_Impl::SetFileMaxCount(this, core::mem::transmute_copy(&count)).into()
+                IConfigurationDataCollector_Impl::SetFileMaxCount(this, core::mem::transmute_copy(&count))
             }
         }
         unsafe extern "system" fn FileMaxRecursiveDepth<Identity: IConfigurationDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, depth: *mut u32) -> windows_core::HRESULT {
@@ -900,7 +900,7 @@ impl IConfigurationDataCollector_Vtbl {
         unsafe extern "system" fn SetFileMaxRecursiveDepth<Identity: IConfigurationDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, depth: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IConfigurationDataCollector_Impl::SetFileMaxRecursiveDepth(this, core::mem::transmute_copy(&depth)).into()
+                IConfigurationDataCollector_Impl::SetFileMaxRecursiveDepth(this, core::mem::transmute_copy(&depth))
             }
         }
         unsafe extern "system" fn FileMaxTotalSize<Identity: IConfigurationDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: *mut u32) -> windows_core::HRESULT {
@@ -921,7 +921,7 @@ impl IConfigurationDataCollector_Vtbl {
         unsafe extern "system" fn SetFileMaxTotalSize<Identity: IConfigurationDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IConfigurationDataCollector_Impl::SetFileMaxTotalSize(this, core::mem::transmute_copy(&size)).into()
+                IConfigurationDataCollector_Impl::SetFileMaxTotalSize(this, core::mem::transmute_copy(&size))
             }
         }
         unsafe extern "system" fn Files<Identity: IConfigurationDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, files: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
@@ -942,7 +942,7 @@ impl IConfigurationDataCollector_Vtbl {
         unsafe extern "system" fn SetFiles<Identity: IConfigurationDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, files: *const super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IConfigurationDataCollector_Impl::SetFiles(this, core::mem::transmute_copy(&files)).into()
+                IConfigurationDataCollector_Impl::SetFiles(this, core::mem::transmute_copy(&files))
             }
         }
         unsafe extern "system" fn ManagementQueries<Identity: IConfigurationDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, queries: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
@@ -963,7 +963,7 @@ impl IConfigurationDataCollector_Vtbl {
         unsafe extern "system" fn SetManagementQueries<Identity: IConfigurationDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, queries: *const super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IConfigurationDataCollector_Impl::SetManagementQueries(this, core::mem::transmute_copy(&queries)).into()
+                IConfigurationDataCollector_Impl::SetManagementQueries(this, core::mem::transmute_copy(&queries))
             }
         }
         unsafe extern "system" fn QueryNetworkAdapters<Identity: IConfigurationDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, network: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -984,7 +984,7 @@ impl IConfigurationDataCollector_Vtbl {
         unsafe extern "system" fn SetQueryNetworkAdapters<Identity: IConfigurationDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, network: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IConfigurationDataCollector_Impl::SetQueryNetworkAdapters(this, core::mem::transmute_copy(&network)).into()
+                IConfigurationDataCollector_Impl::SetQueryNetworkAdapters(this, core::mem::transmute_copy(&network))
             }
         }
         unsafe extern "system" fn RegistryKeys<Identity: IConfigurationDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, query: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
@@ -1005,7 +1005,7 @@ impl IConfigurationDataCollector_Vtbl {
         unsafe extern "system" fn SetRegistryKeys<Identity: IConfigurationDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, query: *const super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IConfigurationDataCollector_Impl::SetRegistryKeys(this, core::mem::transmute_copy(&query)).into()
+                IConfigurationDataCollector_Impl::SetRegistryKeys(this, core::mem::transmute_copy(&query))
             }
         }
         unsafe extern "system" fn RegistryMaxRecursiveDepth<Identity: IConfigurationDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, depth: *mut u32) -> windows_core::HRESULT {
@@ -1026,7 +1026,7 @@ impl IConfigurationDataCollector_Vtbl {
         unsafe extern "system" fn SetRegistryMaxRecursiveDepth<Identity: IConfigurationDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, depth: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IConfigurationDataCollector_Impl::SetRegistryMaxRecursiveDepth(this, core::mem::transmute_copy(&depth)).into()
+                IConfigurationDataCollector_Impl::SetRegistryMaxRecursiveDepth(this, core::mem::transmute_copy(&depth))
             }
         }
         unsafe extern "system" fn SystemStateFile<Identity: IConfigurationDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1047,7 +1047,7 @@ impl IConfigurationDataCollector_Vtbl {
         unsafe extern "system" fn SetSystemStateFile<Identity: IConfigurationDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IConfigurationDataCollector_Impl::SetSystemStateFile(this, core::mem::transmute(&filename)).into()
+                IConfigurationDataCollector_Impl::SetSystemStateFile(this, core::mem::transmute(&filename))
             }
         }
         Self {
@@ -1073,7 +1073,7 @@ impl IConfigurationDataCollector_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IConfigurationDataCollector as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IDataCollector as windows_core::Interface>::IID
+        iid == &<IConfigurationDataCollector as windows_core::Interface>::IID || IDataCollector_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1277,27 +1277,27 @@ pub struct IDataCollector_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDataCollector_Impl: super::IDispatch_Impl {
     fn DataCollectorSet(&self) -> windows_core::Result<IDataCollectorSet>;
-    fn SetDataCollectorSet(&self, group: windows_core::Ref<IDataCollectorSet>) -> windows_core::Result<()>;
+    fn SetDataCollectorSet(&self, group: windows_core::Ref<IDataCollectorSet>) -> windows_core::HRESULT;
     fn DataCollectorType(&self) -> windows_core::Result<DataCollectorType>;
     fn FileName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetFileName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetFileName(&self, name: &windows_core::BSTR) -> windows_core::HRESULT;
     fn FileNameFormat(&self) -> windows_core::Result<AutoPathFormat>;
-    fn SetFileNameFormat(&self, format: AutoPathFormat) -> windows_core::Result<()>;
+    fn SetFileNameFormat(&self, format: AutoPathFormat) -> windows_core::HRESULT;
     fn FileNameFormatPattern(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetFileNameFormatPattern(&self, pattern: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetFileNameFormatPattern(&self, pattern: &windows_core::BSTR) -> windows_core::HRESULT;
     fn LatestOutputLocation(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetLatestOutputLocation(&self, path: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetLatestOutputLocation(&self, path: &windows_core::BSTR) -> windows_core::HRESULT;
     fn LogAppend(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetLogAppend(&self, append: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetLogAppend(&self, append: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn LogCircular(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetLogCircular(&self, circular: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetLogCircular(&self, circular: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn LogOverwrite(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetLogOverwrite(&self, overwrite: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetLogOverwrite(&self, overwrite: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetName(&self, name: &windows_core::BSTR) -> windows_core::HRESULT;
     fn OutputLocation(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Index(&self) -> windows_core::Result<i32>;
-    fn SetIndex(&self, index: i32) -> windows_core::Result<()>;
+    fn SetIndex(&self, index: i32) -> windows_core::HRESULT;
     fn Xml(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetXml(&self, xml: &windows_core::BSTR) -> windows_core::Result<IValueMap>;
     fn CreateOutputLocation(&self, latest: super::VARIANT_BOOL) -> windows_core::Result<windows_core::BSTR>;
@@ -1323,7 +1323,7 @@ impl IDataCollector_Vtbl {
         unsafe extern "system" fn SetDataCollectorSet<Identity: IDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, group: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollector_Impl::SetDataCollectorSet(this, core::mem::transmute_copy(&group)).into()
+                IDataCollector_Impl::SetDataCollectorSet(this, core::mem::transmute_copy(&group))
             }
         }
         unsafe extern "system" fn DataCollectorType<Identity: IDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: *mut DataCollectorType) -> windows_core::HRESULT {
@@ -1359,7 +1359,7 @@ impl IDataCollector_Vtbl {
         unsafe extern "system" fn SetFileName<Identity: IDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollector_Impl::SetFileName(this, core::mem::transmute(&name)).into()
+                IDataCollector_Impl::SetFileName(this, core::mem::transmute(&name))
             }
         }
         unsafe extern "system" fn FileNameFormat<Identity: IDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: *mut AutoPathFormat) -> windows_core::HRESULT {
@@ -1380,7 +1380,7 @@ impl IDataCollector_Vtbl {
         unsafe extern "system" fn SetFileNameFormat<Identity: IDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: AutoPathFormat) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollector_Impl::SetFileNameFormat(this, core::mem::transmute_copy(&format)).into()
+                IDataCollector_Impl::SetFileNameFormat(this, core::mem::transmute_copy(&format))
             }
         }
         unsafe extern "system" fn FileNameFormatPattern<Identity: IDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pattern: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1401,7 +1401,7 @@ impl IDataCollector_Vtbl {
         unsafe extern "system" fn SetFileNameFormatPattern<Identity: IDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pattern: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollector_Impl::SetFileNameFormatPattern(this, core::mem::transmute(&pattern)).into()
+                IDataCollector_Impl::SetFileNameFormatPattern(this, core::mem::transmute(&pattern))
             }
         }
         unsafe extern "system" fn LatestOutputLocation<Identity: IDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1422,7 +1422,7 @@ impl IDataCollector_Vtbl {
         unsafe extern "system" fn SetLatestOutputLocation<Identity: IDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollector_Impl::SetLatestOutputLocation(this, core::mem::transmute(&path)).into()
+                IDataCollector_Impl::SetLatestOutputLocation(this, core::mem::transmute(&path))
             }
         }
         unsafe extern "system" fn LogAppend<Identity: IDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, append: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -1443,7 +1443,7 @@ impl IDataCollector_Vtbl {
         unsafe extern "system" fn SetLogAppend<Identity: IDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, append: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollector_Impl::SetLogAppend(this, core::mem::transmute_copy(&append)).into()
+                IDataCollector_Impl::SetLogAppend(this, core::mem::transmute_copy(&append))
             }
         }
         unsafe extern "system" fn LogCircular<Identity: IDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, circular: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -1464,7 +1464,7 @@ impl IDataCollector_Vtbl {
         unsafe extern "system" fn SetLogCircular<Identity: IDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, circular: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollector_Impl::SetLogCircular(this, core::mem::transmute_copy(&circular)).into()
+                IDataCollector_Impl::SetLogCircular(this, core::mem::transmute_copy(&circular))
             }
         }
         unsafe extern "system" fn LogOverwrite<Identity: IDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, overwrite: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -1485,7 +1485,7 @@ impl IDataCollector_Vtbl {
         unsafe extern "system" fn SetLogOverwrite<Identity: IDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, overwrite: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollector_Impl::SetLogOverwrite(this, core::mem::transmute_copy(&overwrite)).into()
+                IDataCollector_Impl::SetLogOverwrite(this, core::mem::transmute_copy(&overwrite))
             }
         }
         unsafe extern "system" fn Name<Identity: IDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1506,7 +1506,7 @@ impl IDataCollector_Vtbl {
         unsafe extern "system" fn SetName<Identity: IDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollector_Impl::SetName(this, core::mem::transmute(&name)).into()
+                IDataCollector_Impl::SetName(this, core::mem::transmute(&name))
             }
         }
         unsafe extern "system" fn OutputLocation<Identity: IDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1542,7 +1542,7 @@ impl IDataCollector_Vtbl {
         unsafe extern "system" fn SetIndex<Identity: IDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollector_Impl::SetIndex(this, core::mem::transmute_copy(&index)).into()
+                IDataCollector_Impl::SetIndex(this, core::mem::transmute_copy(&index))
             }
         }
         unsafe extern "system" fn Xml<Identity: IDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xml: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1620,7 +1620,7 @@ impl IDataCollector_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDataCollector as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IDataCollector as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1715,10 +1715,10 @@ pub trait IDataCollectorCollection_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn Item(&self, index: &super::VARIANT) -> windows_core::Result<IDataCollector>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Add(&self, collector: windows_core::Ref<IDataCollector>) -> windows_core::Result<()>;
-    fn Remove(&self, collector: &super::VARIANT) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
-    fn AddRange(&self, collectors: windows_core::Ref<IDataCollectorCollection>) -> windows_core::Result<()>;
+    fn Add(&self, collector: windows_core::Ref<IDataCollector>) -> windows_core::HRESULT;
+    fn Remove(&self, collector: &super::VARIANT) -> windows_core::HRESULT;
+    fn Clear(&self) -> windows_core::HRESULT;
+    fn AddRange(&self, collectors: windows_core::Ref<IDataCollectorCollection>) -> windows_core::HRESULT;
     fn CreateDataCollectorFromXml(&self, bstrxml: &windows_core::BSTR, pvalidation: windows_core::OutRef<IValueMap>) -> windows_core::Result<IDataCollector>;
     fn CreateDataCollector(&self, r#type: DataCollectorType) -> windows_core::Result<IDataCollector>;
 }
@@ -1773,25 +1773,25 @@ impl IDataCollectorCollection_Vtbl {
         unsafe extern "system" fn Add<Identity: IDataCollectorCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, collector: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorCollection_Impl::Add(this, core::mem::transmute_copy(&collector)).into()
+                IDataCollectorCollection_Impl::Add(this, core::mem::transmute_copy(&collector))
             }
         }
         unsafe extern "system" fn Remove<Identity: IDataCollectorCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, collector: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorCollection_Impl::Remove(this, core::mem::transmute(&collector)).into()
+                IDataCollectorCollection_Impl::Remove(this, core::mem::transmute(&collector))
             }
         }
         unsafe extern "system" fn Clear<Identity: IDataCollectorCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorCollection_Impl::Clear(this).into()
+                IDataCollectorCollection_Impl::Clear(this)
             }
         }
         unsafe extern "system" fn AddRange<Identity: IDataCollectorCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, collectors: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorCollection_Impl::AddRange(this, core::mem::transmute_copy(&collectors)).into()
+                IDataCollectorCollection_Impl::AddRange(this, core::mem::transmute_copy(&collectors))
             }
         }
         unsafe extern "system" fn CreateDataCollectorFromXml<Identity: IDataCollectorCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrxml: *mut core::ffi::c_void, pvalidation: *mut *mut core::ffi::c_void, pcollector: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1838,7 +1838,7 @@ impl IDataCollectorCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDataCollectorCollection as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IDataCollectorCollection as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2257,63 +2257,63 @@ pub struct IDataCollectorSet_Vtbl {
 pub trait IDataCollectorSet_Impl: super::IDispatch_Impl {
     fn DataCollectors(&self) -> windows_core::Result<IDataCollectorCollection>;
     fn Duration(&self) -> windows_core::Result<u32>;
-    fn SetDuration(&self, seconds: u32) -> windows_core::Result<()>;
+    fn SetDuration(&self, seconds: u32) -> windows_core::HRESULT;
     fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetDescription(&self, description: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetDescription(&self, description: &windows_core::BSTR) -> windows_core::HRESULT;
     fn DescriptionUnresolved(&self) -> windows_core::Result<windows_core::BSTR>;
     fn DisplayName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetDisplayName(&self, displayname: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetDisplayName(&self, displayname: &windows_core::BSTR) -> windows_core::HRESULT;
     fn DisplayNameUnresolved(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Keywords(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
-    fn SetKeywords(&self, keywords: *const super::SAFEARRAY) -> windows_core::Result<()>;
+    fn SetKeywords(&self, keywords: *const super::SAFEARRAY) -> windows_core::HRESULT;
     fn LatestOutputLocation(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetLatestOutputLocation(&self, path: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetLatestOutputLocation(&self, path: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn OutputLocation(&self) -> windows_core::Result<windows_core::BSTR>;
     fn RootPath(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetRootPath(&self, folder: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetRootPath(&self, folder: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Segment(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetSegment(&self, segment: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetSegment(&self, segment: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn SegmentMaxDuration(&self) -> windows_core::Result<u32>;
-    fn SetSegmentMaxDuration(&self, seconds: u32) -> windows_core::Result<()>;
+    fn SetSegmentMaxDuration(&self, seconds: u32) -> windows_core::HRESULT;
     fn SegmentMaxSize(&self) -> windows_core::Result<u32>;
-    fn SetSegmentMaxSize(&self, size: u32) -> windows_core::Result<()>;
+    fn SetSegmentMaxSize(&self, size: u32) -> windows_core::HRESULT;
     fn SerialNumber(&self) -> windows_core::Result<u32>;
-    fn SetSerialNumber(&self, index: u32) -> windows_core::Result<()>;
+    fn SetSerialNumber(&self, index: u32) -> windows_core::HRESULT;
     fn Server(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Status(&self) -> windows_core::Result<DataCollectorSetStatus>;
     fn Subdirectory(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetSubdirectory(&self, folder: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetSubdirectory(&self, folder: &windows_core::BSTR) -> windows_core::HRESULT;
     fn SubdirectoryFormat(&self) -> windows_core::Result<AutoPathFormat>;
-    fn SetSubdirectoryFormat(&self, format: AutoPathFormat) -> windows_core::Result<()>;
+    fn SetSubdirectoryFormat(&self, format: AutoPathFormat) -> windows_core::HRESULT;
     fn SubdirectoryFormatPattern(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetSubdirectoryFormatPattern(&self, pattern: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetSubdirectoryFormatPattern(&self, pattern: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Task(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetTask(&self, task: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetTask(&self, task: &windows_core::BSTR) -> windows_core::HRESULT;
     fn TaskRunAsSelf(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetTaskRunAsSelf(&self, runasself: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetTaskRunAsSelf(&self, runasself: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn TaskArguments(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetTaskArguments(&self, task: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetTaskArguments(&self, task: &windows_core::BSTR) -> windows_core::HRESULT;
     fn TaskUserTextArguments(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetTaskUserTextArguments(&self, usertext: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetTaskUserTextArguments(&self, usertext: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Schedules(&self) -> windows_core::Result<IScheduleCollection>;
     fn SchedulesEnabled(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetSchedulesEnabled(&self, enabled: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetSchedulesEnabled(&self, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn UserAccount(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Xml(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Security(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetSecurity(&self, bstrsecurity: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetSecurity(&self, bstrsecurity: &windows_core::BSTR) -> windows_core::HRESULT;
     fn StopOnCompletion(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetStopOnCompletion(&self, stop: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetStopOnCompletion(&self, stop: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn DataManager(&self) -> windows_core::Result<IDataManager>;
-    fn SetCredentials(&self, user: &windows_core::BSTR, password: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Query(&self, name: &windows_core::BSTR, server: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetCredentials(&self, user: &windows_core::BSTR, password: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn Query(&self, name: &windows_core::BSTR, server: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Commit(&self, name: &windows_core::BSTR, server: &windows_core::BSTR, mode: CommitMode) -> windows_core::Result<IValueMap>;
-    fn Delete(&self) -> windows_core::Result<()>;
-    fn Start(&self, synchronous: super::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn Stop(&self, synchronous: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn Delete(&self) -> windows_core::HRESULT;
+    fn Start(&self, synchronous: super::VARIANT_BOOL) -> windows_core::HRESULT;
+    fn Stop(&self, synchronous: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn SetXml(&self, xml: &windows_core::BSTR) -> windows_core::Result<IValueMap>;
-    fn SetValue(&self, key: &windows_core::BSTR, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetValue(&self, key: &windows_core::BSTR, value: &windows_core::BSTR) -> windows_core::HRESULT;
     fn GetValue(&self, key: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2352,7 +2352,7 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetDuration<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, seconds: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetDuration(this, core::mem::transmute_copy(&seconds)).into()
+                IDataCollectorSet_Impl::SetDuration(this, core::mem::transmute_copy(&seconds))
             }
         }
         unsafe extern "system" fn Description<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, description: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2373,7 +2373,7 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, description: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetDescription(this, core::mem::transmute(&description)).into()
+                IDataCollectorSet_Impl::SetDescription(this, core::mem::transmute(&description))
             }
         }
         unsafe extern "system" fn DescriptionUnresolved<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, descr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2409,7 +2409,7 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetDisplayName<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, displayname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetDisplayName(this, core::mem::transmute(&displayname)).into()
+                IDataCollectorSet_Impl::SetDisplayName(this, core::mem::transmute(&displayname))
             }
         }
         unsafe extern "system" fn DisplayNameUnresolved<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2445,7 +2445,7 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetKeywords<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, keywords: *const super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetKeywords(this, core::mem::transmute_copy(&keywords)).into()
+                IDataCollectorSet_Impl::SetKeywords(this, core::mem::transmute_copy(&keywords))
             }
         }
         unsafe extern "system" fn LatestOutputLocation<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2466,7 +2466,7 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetLatestOutputLocation<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetLatestOutputLocation(this, core::mem::transmute(&path)).into()
+                IDataCollectorSet_Impl::SetLatestOutputLocation(this, core::mem::transmute(&path))
             }
         }
         unsafe extern "system" fn Name<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2517,7 +2517,7 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetRootPath<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, folder: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetRootPath(this, core::mem::transmute(&folder)).into()
+                IDataCollectorSet_Impl::SetRootPath(this, core::mem::transmute(&folder))
             }
         }
         unsafe extern "system" fn Segment<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, segment: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2538,7 +2538,7 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetSegment<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, segment: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetSegment(this, core::mem::transmute_copy(&segment)).into()
+                IDataCollectorSet_Impl::SetSegment(this, core::mem::transmute_copy(&segment))
             }
         }
         unsafe extern "system" fn SegmentMaxDuration<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, seconds: *mut u32) -> windows_core::HRESULT {
@@ -2559,7 +2559,7 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetSegmentMaxDuration<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, seconds: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetSegmentMaxDuration(this, core::mem::transmute_copy(&seconds)).into()
+                IDataCollectorSet_Impl::SetSegmentMaxDuration(this, core::mem::transmute_copy(&seconds))
             }
         }
         unsafe extern "system" fn SegmentMaxSize<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: *mut u32) -> windows_core::HRESULT {
@@ -2580,7 +2580,7 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetSegmentMaxSize<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetSegmentMaxSize(this, core::mem::transmute_copy(&size)).into()
+                IDataCollectorSet_Impl::SetSegmentMaxSize(this, core::mem::transmute_copy(&size))
             }
         }
         unsafe extern "system" fn SerialNumber<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: *mut u32) -> windows_core::HRESULT {
@@ -2601,7 +2601,7 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetSerialNumber<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetSerialNumber(this, core::mem::transmute_copy(&index)).into()
+                IDataCollectorSet_Impl::SetSerialNumber(this, core::mem::transmute_copy(&index))
             }
         }
         unsafe extern "system" fn Server<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, server: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2652,7 +2652,7 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetSubdirectory<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, folder: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetSubdirectory(this, core::mem::transmute(&folder)).into()
+                IDataCollectorSet_Impl::SetSubdirectory(this, core::mem::transmute(&folder))
             }
         }
         unsafe extern "system" fn SubdirectoryFormat<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: *mut AutoPathFormat) -> windows_core::HRESULT {
@@ -2673,7 +2673,7 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetSubdirectoryFormat<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: AutoPathFormat) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetSubdirectoryFormat(this, core::mem::transmute_copy(&format)).into()
+                IDataCollectorSet_Impl::SetSubdirectoryFormat(this, core::mem::transmute_copy(&format))
             }
         }
         unsafe extern "system" fn SubdirectoryFormatPattern<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pattern: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2694,7 +2694,7 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetSubdirectoryFormatPattern<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pattern: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetSubdirectoryFormatPattern(this, core::mem::transmute(&pattern)).into()
+                IDataCollectorSet_Impl::SetSubdirectoryFormatPattern(this, core::mem::transmute(&pattern))
             }
         }
         unsafe extern "system" fn Task<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, task: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2715,7 +2715,7 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetTask<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, task: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetTask(this, core::mem::transmute(&task)).into()
+                IDataCollectorSet_Impl::SetTask(this, core::mem::transmute(&task))
             }
         }
         unsafe extern "system" fn TaskRunAsSelf<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, runasself: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2736,7 +2736,7 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetTaskRunAsSelf<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, runasself: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetTaskRunAsSelf(this, core::mem::transmute_copy(&runasself)).into()
+                IDataCollectorSet_Impl::SetTaskRunAsSelf(this, core::mem::transmute_copy(&runasself))
             }
         }
         unsafe extern "system" fn TaskArguments<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, task: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2757,7 +2757,7 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetTaskArguments<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, task: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetTaskArguments(this, core::mem::transmute(&task)).into()
+                IDataCollectorSet_Impl::SetTaskArguments(this, core::mem::transmute(&task))
             }
         }
         unsafe extern "system" fn TaskUserTextArguments<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, usertext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2778,7 +2778,7 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetTaskUserTextArguments<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, usertext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetTaskUserTextArguments(this, core::mem::transmute(&usertext)).into()
+                IDataCollectorSet_Impl::SetTaskUserTextArguments(this, core::mem::transmute(&usertext))
             }
         }
         unsafe extern "system" fn Schedules<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppschedules: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2814,7 +2814,7 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetSchedulesEnabled<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetSchedulesEnabled(this, core::mem::transmute_copy(&enabled)).into()
+                IDataCollectorSet_Impl::SetSchedulesEnabled(this, core::mem::transmute_copy(&enabled))
             }
         }
         unsafe extern "system" fn UserAccount<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, user: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2865,7 +2865,7 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetSecurity<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsecurity: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetSecurity(this, core::mem::transmute(&bstrsecurity)).into()
+                IDataCollectorSet_Impl::SetSecurity(this, core::mem::transmute(&bstrsecurity))
             }
         }
         unsafe extern "system" fn StopOnCompletion<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stop: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2886,7 +2886,7 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetStopOnCompletion<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stop: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetStopOnCompletion(this, core::mem::transmute_copy(&stop)).into()
+                IDataCollectorSet_Impl::SetStopOnCompletion(this, core::mem::transmute_copy(&stop))
             }
         }
         unsafe extern "system" fn DataManager<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, datamanager: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2907,13 +2907,13 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetCredentials<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, user: *mut core::ffi::c_void, password: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetCredentials(this, core::mem::transmute(&user), core::mem::transmute(&password)).into()
+                IDataCollectorSet_Impl::SetCredentials(this, core::mem::transmute(&user), core::mem::transmute(&password))
             }
         }
         unsafe extern "system" fn Query<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, server: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::Query(this, core::mem::transmute(&name), core::mem::transmute(&server)).into()
+                IDataCollectorSet_Impl::Query(this, core::mem::transmute(&name), core::mem::transmute(&server))
             }
         }
         unsafe extern "system" fn Commit<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, server: *mut core::ffi::c_void, mode: CommitMode, validation: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2934,19 +2934,19 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn Delete<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::Delete(this).into()
+                IDataCollectorSet_Impl::Delete(this)
             }
         }
         unsafe extern "system" fn Start<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, synchronous: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::Start(this, core::mem::transmute_copy(&synchronous)).into()
+                IDataCollectorSet_Impl::Start(this, core::mem::transmute_copy(&synchronous))
             }
         }
         unsafe extern "system" fn Stop<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, synchronous: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::Stop(this, core::mem::transmute_copy(&synchronous)).into()
+                IDataCollectorSet_Impl::Stop(this, core::mem::transmute_copy(&synchronous))
             }
         }
         unsafe extern "system" fn SetXml<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xml: *mut core::ffi::c_void, validation: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2967,7 +2967,7 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetValue<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetValue(this, core::mem::transmute(&key), core::mem::transmute(&value)).into()
+                IDataCollectorSet_Impl::SetValue(this, core::mem::transmute(&key), core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn GetValue<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3050,7 +3050,7 @@ impl IDataCollectorSet_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDataCollectorSet as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IDataCollectorSet as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3135,11 +3135,11 @@ pub trait IDataCollectorSetCollection_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn Item(&self, index: &super::VARIANT) -> windows_core::Result<IDataCollectorSet>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Add(&self, set: windows_core::Ref<IDataCollectorSet>) -> windows_core::Result<()>;
-    fn Remove(&self, set: &super::VARIANT) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
-    fn AddRange(&self, sets: windows_core::Ref<IDataCollectorSetCollection>) -> windows_core::Result<()>;
-    fn GetDataCollectorSets(&self, server: &windows_core::BSTR, filter: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Add(&self, set: windows_core::Ref<IDataCollectorSet>) -> windows_core::HRESULT;
+    fn Remove(&self, set: &super::VARIANT) -> windows_core::HRESULT;
+    fn Clear(&self) -> windows_core::HRESULT;
+    fn AddRange(&self, sets: windows_core::Ref<IDataCollectorSetCollection>) -> windows_core::HRESULT;
+    fn GetDataCollectorSets(&self, server: &windows_core::BSTR, filter: &windows_core::BSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDataCollectorSetCollection_Vtbl {
@@ -3192,31 +3192,31 @@ impl IDataCollectorSetCollection_Vtbl {
         unsafe extern "system" fn Add<Identity: IDataCollectorSetCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, set: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSetCollection_Impl::Add(this, core::mem::transmute_copy(&set)).into()
+                IDataCollectorSetCollection_Impl::Add(this, core::mem::transmute_copy(&set))
             }
         }
         unsafe extern "system" fn Remove<Identity: IDataCollectorSetCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, set: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSetCollection_Impl::Remove(this, core::mem::transmute(&set)).into()
+                IDataCollectorSetCollection_Impl::Remove(this, core::mem::transmute(&set))
             }
         }
         unsafe extern "system" fn Clear<Identity: IDataCollectorSetCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSetCollection_Impl::Clear(this).into()
+                IDataCollectorSetCollection_Impl::Clear(this)
             }
         }
         unsafe extern "system" fn AddRange<Identity: IDataCollectorSetCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sets: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSetCollection_Impl::AddRange(this, core::mem::transmute_copy(&sets)).into()
+                IDataCollectorSetCollection_Impl::AddRange(this, core::mem::transmute_copy(&sets))
             }
         }
         unsafe extern "system" fn GetDataCollectorSets<Identity: IDataCollectorSetCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, server: *mut core::ffi::c_void, filter: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSetCollection_Impl::GetDataCollectorSets(this, core::mem::transmute(&server), core::mem::transmute(&filter)).into()
+                IDataCollectorSetCollection_Impl::GetDataCollectorSets(this, core::mem::transmute(&server), core::mem::transmute(&filter))
             }
         }
         Self {
@@ -3232,7 +3232,7 @@ impl IDataCollectorSetCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDataCollectorSetCollection as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IDataCollectorSetCollection as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3439,30 +3439,30 @@ pub struct IDataManager_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDataManager_Impl: super::IDispatch_Impl {
     fn Enabled(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetEnabled(&self, fenabled: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetEnabled(&self, fenabled: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn CheckBeforeRunning(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetCheckBeforeRunning(&self, fcheck: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetCheckBeforeRunning(&self, fcheck: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn MinFreeDisk(&self) -> windows_core::Result<super::ULONG>;
-    fn SetMinFreeDisk(&self, minfreedisk: super::ULONG) -> windows_core::Result<()>;
+    fn SetMinFreeDisk(&self, minfreedisk: super::ULONG) -> windows_core::HRESULT;
     fn MaxSize(&self) -> windows_core::Result<super::ULONG>;
-    fn SetMaxSize(&self, ulmaxsize: super::ULONG) -> windows_core::Result<()>;
+    fn SetMaxSize(&self, ulmaxsize: super::ULONG) -> windows_core::HRESULT;
     fn MaxFolderCount(&self) -> windows_core::Result<super::ULONG>;
-    fn SetMaxFolderCount(&self, ulmaxfoldercount: super::ULONG) -> windows_core::Result<()>;
+    fn SetMaxFolderCount(&self, ulmaxfoldercount: super::ULONG) -> windows_core::HRESULT;
     fn ResourcePolicy(&self) -> windows_core::Result<ResourcePolicy>;
-    fn SetResourcePolicy(&self, policy: ResourcePolicy) -> windows_core::Result<()>;
+    fn SetResourcePolicy(&self, policy: ResourcePolicy) -> windows_core::HRESULT;
     fn FolderActions(&self) -> windows_core::Result<IFolderActionCollection>;
     fn ReportSchema(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetReportSchema(&self, reportschema: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetReportSchema(&self, reportschema: &windows_core::BSTR) -> windows_core::HRESULT;
     fn ReportFileName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetReportFileName(&self, pbstrfilename: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetReportFileName(&self, pbstrfilename: &windows_core::BSTR) -> windows_core::HRESULT;
     fn RuleTargetFileName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetRuleTargetFileName(&self, filename: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetRuleTargetFileName(&self, filename: &windows_core::BSTR) -> windows_core::HRESULT;
     fn EventsFileName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetEventsFileName(&self, pbstrfilename: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetEventsFileName(&self, pbstrfilename: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Rules(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetRules(&self, bstrxml: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetRules(&self, bstrxml: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Run(&self, steps: DataManagerSteps, bstrfolder: &windows_core::BSTR) -> windows_core::Result<IValueMap>;
-    fn Extract(&self, cabfilename: &windows_core::BSTR, destinationpath: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Extract(&self, cabfilename: &windows_core::BSTR, destinationpath: &windows_core::BSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDataManager_Vtbl {
@@ -3485,7 +3485,7 @@ impl IDataManager_Vtbl {
         unsafe extern "system" fn SetEnabled<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fenabled: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataManager_Impl::SetEnabled(this, core::mem::transmute_copy(&fenabled)).into()
+                IDataManager_Impl::SetEnabled(this, core::mem::transmute_copy(&fenabled))
             }
         }
         unsafe extern "system" fn CheckBeforeRunning<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfcheck: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -3506,7 +3506,7 @@ impl IDataManager_Vtbl {
         unsafe extern "system" fn SetCheckBeforeRunning<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fcheck: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataManager_Impl::SetCheckBeforeRunning(this, core::mem::transmute_copy(&fcheck)).into()
+                IDataManager_Impl::SetCheckBeforeRunning(this, core::mem::transmute_copy(&fcheck))
             }
         }
         unsafe extern "system" fn MinFreeDisk<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minfreedisk: *mut super::ULONG) -> windows_core::HRESULT {
@@ -3527,7 +3527,7 @@ impl IDataManager_Vtbl {
         unsafe extern "system" fn SetMinFreeDisk<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minfreedisk: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataManager_Impl::SetMinFreeDisk(this, core::mem::transmute_copy(&minfreedisk)).into()
+                IDataManager_Impl::SetMinFreeDisk(this, core::mem::transmute_copy(&minfreedisk))
             }
         }
         unsafe extern "system" fn MaxSize<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulmaxsize: *mut super::ULONG) -> windows_core::HRESULT {
@@ -3548,7 +3548,7 @@ impl IDataManager_Vtbl {
         unsafe extern "system" fn SetMaxSize<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulmaxsize: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataManager_Impl::SetMaxSize(this, core::mem::transmute_copy(&ulmaxsize)).into()
+                IDataManager_Impl::SetMaxSize(this, core::mem::transmute_copy(&ulmaxsize))
             }
         }
         unsafe extern "system" fn MaxFolderCount<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulmaxfoldercount: *mut super::ULONG) -> windows_core::HRESULT {
@@ -3569,7 +3569,7 @@ impl IDataManager_Vtbl {
         unsafe extern "system" fn SetMaxFolderCount<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulmaxfoldercount: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataManager_Impl::SetMaxFolderCount(this, core::mem::transmute_copy(&ulmaxfoldercount)).into()
+                IDataManager_Impl::SetMaxFolderCount(this, core::mem::transmute_copy(&ulmaxfoldercount))
             }
         }
         unsafe extern "system" fn ResourcePolicy<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppolicy: *mut ResourcePolicy) -> windows_core::HRESULT {
@@ -3590,7 +3590,7 @@ impl IDataManager_Vtbl {
         unsafe extern "system" fn SetResourcePolicy<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, policy: ResourcePolicy) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataManager_Impl::SetResourcePolicy(this, core::mem::transmute_copy(&policy)).into()
+                IDataManager_Impl::SetResourcePolicy(this, core::mem::transmute_copy(&policy))
             }
         }
         unsafe extern "system" fn FolderActions<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, actions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3626,7 +3626,7 @@ impl IDataManager_Vtbl {
         unsafe extern "system" fn SetReportSchema<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reportschema: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataManager_Impl::SetReportSchema(this, core::mem::transmute(&reportschema)).into()
+                IDataManager_Impl::SetReportSchema(this, core::mem::transmute(&reportschema))
             }
         }
         unsafe extern "system" fn ReportFileName<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrfilename: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3647,7 +3647,7 @@ impl IDataManager_Vtbl {
         unsafe extern "system" fn SetReportFileName<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrfilename: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataManager_Impl::SetReportFileName(this, core::mem::transmute(&pbstrfilename)).into()
+                IDataManager_Impl::SetReportFileName(this, core::mem::transmute(&pbstrfilename))
             }
         }
         unsafe extern "system" fn RuleTargetFileName<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3668,7 +3668,7 @@ impl IDataManager_Vtbl {
         unsafe extern "system" fn SetRuleTargetFileName<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataManager_Impl::SetRuleTargetFileName(this, core::mem::transmute(&filename)).into()
+                IDataManager_Impl::SetRuleTargetFileName(this, core::mem::transmute(&filename))
             }
         }
         unsafe extern "system" fn EventsFileName<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrfilename: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3689,7 +3689,7 @@ impl IDataManager_Vtbl {
         unsafe extern "system" fn SetEventsFileName<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrfilename: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataManager_Impl::SetEventsFileName(this, core::mem::transmute(&pbstrfilename)).into()
+                IDataManager_Impl::SetEventsFileName(this, core::mem::transmute(&pbstrfilename))
             }
         }
         unsafe extern "system" fn Rules<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrxml: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3710,7 +3710,7 @@ impl IDataManager_Vtbl {
         unsafe extern "system" fn SetRules<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrxml: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataManager_Impl::SetRules(this, core::mem::transmute(&bstrxml)).into()
+                IDataManager_Impl::SetRules(this, core::mem::transmute(&bstrxml))
             }
         }
         unsafe extern "system" fn Run<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, steps: DataManagerSteps, bstrfolder: *mut core::ffi::c_void, errors: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3731,7 +3731,7 @@ impl IDataManager_Vtbl {
         unsafe extern "system" fn Extract<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cabfilename: *mut core::ffi::c_void, destinationpath: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataManager_Impl::Extract(this, core::mem::transmute(&cabfilename), core::mem::transmute(&destinationpath)).into()
+                IDataManager_Impl::Extract(this, core::mem::transmute(&cabfilename), core::mem::transmute(&destinationpath))
             }
         }
         Self {
@@ -3764,7 +3764,7 @@ impl IDataManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDataManager as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IDataManager as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3852,13 +3852,13 @@ pub struct IFolderAction_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFolderAction_Impl: super::IDispatch_Impl {
     fn Age(&self) -> windows_core::Result<super::ULONG>;
-    fn SetAge(&self, ulage: super::ULONG) -> windows_core::Result<()>;
+    fn SetAge(&self, ulage: super::ULONG) -> windows_core::HRESULT;
     fn Size(&self) -> windows_core::Result<super::ULONG>;
-    fn SetSize(&self, ulage: super::ULONG) -> windows_core::Result<()>;
+    fn SetSize(&self, ulage: super::ULONG) -> windows_core::HRESULT;
     fn Actions(&self) -> windows_core::Result<FolderActionSteps>;
-    fn SetActions(&self, steps: FolderActionSteps) -> windows_core::Result<()>;
+    fn SetActions(&self, steps: FolderActionSteps) -> windows_core::HRESULT;
     fn SendCabTo(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetSendCabTo(&self, bstrdestination: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetSendCabTo(&self, bstrdestination: &windows_core::BSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFolderAction_Vtbl {
@@ -3881,7 +3881,7 @@ impl IFolderAction_Vtbl {
         unsafe extern "system" fn SetAge<Identity: IFolderAction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulage: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFolderAction_Impl::SetAge(this, core::mem::transmute_copy(&ulage)).into()
+                IFolderAction_Impl::SetAge(this, core::mem::transmute_copy(&ulage))
             }
         }
         unsafe extern "system" fn Size<Identity: IFolderAction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulage: *mut super::ULONG) -> windows_core::HRESULT {
@@ -3902,7 +3902,7 @@ impl IFolderAction_Vtbl {
         unsafe extern "system" fn SetSize<Identity: IFolderAction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulage: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFolderAction_Impl::SetSize(this, core::mem::transmute_copy(&ulage)).into()
+                IFolderAction_Impl::SetSize(this, core::mem::transmute_copy(&ulage))
             }
         }
         unsafe extern "system" fn Actions<Identity: IFolderAction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, steps: *mut FolderActionSteps) -> windows_core::HRESULT {
@@ -3923,7 +3923,7 @@ impl IFolderAction_Vtbl {
         unsafe extern "system" fn SetActions<Identity: IFolderAction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, steps: FolderActionSteps) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFolderAction_Impl::SetActions(this, core::mem::transmute_copy(&steps)).into()
+                IFolderAction_Impl::SetActions(this, core::mem::transmute_copy(&steps))
             }
         }
         unsafe extern "system" fn SendCabTo<Identity: IFolderAction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdestination: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3944,7 +3944,7 @@ impl IFolderAction_Vtbl {
         unsafe extern "system" fn SetSendCabTo<Identity: IFolderAction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdestination: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFolderAction_Impl::SetSendCabTo(this, core::mem::transmute(&bstrdestination)).into()
+                IFolderAction_Impl::SetSendCabTo(this, core::mem::transmute(&bstrdestination))
             }
         }
         Self {
@@ -3960,7 +3960,7 @@ impl IFolderAction_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFolderAction as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IFolderAction as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4052,10 +4052,10 @@ pub trait IFolderActionCollection_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<super::ULONG>;
     fn Item(&self, index: &super::VARIANT) -> windows_core::Result<IFolderAction>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Add(&self, action: windows_core::Ref<IFolderAction>) -> windows_core::Result<()>;
-    fn Remove(&self, index: &super::VARIANT) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
-    fn AddRange(&self, actions: windows_core::Ref<IFolderActionCollection>) -> windows_core::Result<()>;
+    fn Add(&self, action: windows_core::Ref<IFolderAction>) -> windows_core::HRESULT;
+    fn Remove(&self, index: &super::VARIANT) -> windows_core::HRESULT;
+    fn Clear(&self) -> windows_core::HRESULT;
+    fn AddRange(&self, actions: windows_core::Ref<IFolderActionCollection>) -> windows_core::HRESULT;
     fn CreateFolderAction(&self) -> windows_core::Result<IFolderAction>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4109,25 +4109,25 @@ impl IFolderActionCollection_Vtbl {
         unsafe extern "system" fn Add<Identity: IFolderActionCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, action: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFolderActionCollection_Impl::Add(this, core::mem::transmute_copy(&action)).into()
+                IFolderActionCollection_Impl::Add(this, core::mem::transmute_copy(&action))
             }
         }
         unsafe extern "system" fn Remove<Identity: IFolderActionCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFolderActionCollection_Impl::Remove(this, core::mem::transmute(&index)).into()
+                IFolderActionCollection_Impl::Remove(this, core::mem::transmute(&index))
             }
         }
         unsafe extern "system" fn Clear<Identity: IFolderActionCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFolderActionCollection_Impl::Clear(this).into()
+                IFolderActionCollection_Impl::Clear(this)
             }
         }
         unsafe extern "system" fn AddRange<Identity: IFolderActionCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, actions: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFolderActionCollection_Impl::AddRange(this, core::mem::transmute_copy(&actions)).into()
+                IFolderActionCollection_Impl::AddRange(this, core::mem::transmute_copy(&actions))
             }
         }
         unsafe extern "system" fn CreateFolderAction<Identity: IFolderActionCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, folderaction: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4158,7 +4158,7 @@ impl IFolderActionCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFolderActionCollection as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IFolderActionCollection as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4249,15 +4249,15 @@ pub struct IPerformanceCounterDataCollector_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPerformanceCounterDataCollector_Impl: IDataCollector_Impl {
     fn DataSourceName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetDataSourceName(&self, dsn: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetDataSourceName(&self, dsn: &windows_core::BSTR) -> windows_core::HRESULT;
     fn PerformanceCounters(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
-    fn SetPerformanceCounters(&self, counters: *const super::SAFEARRAY) -> windows_core::Result<()>;
+    fn SetPerformanceCounters(&self, counters: *const super::SAFEARRAY) -> windows_core::HRESULT;
     fn LogFileFormat(&self) -> windows_core::Result<FileFormat>;
-    fn SetLogFileFormat(&self, format: FileFormat) -> windows_core::Result<()>;
+    fn SetLogFileFormat(&self, format: FileFormat) -> windows_core::HRESULT;
     fn SampleInterval(&self) -> windows_core::Result<u32>;
-    fn SetSampleInterval(&self, interval: u32) -> windows_core::Result<()>;
+    fn SetSampleInterval(&self, interval: u32) -> windows_core::HRESULT;
     fn SegmentMaxRecords(&self) -> windows_core::Result<u32>;
-    fn SetSegmentMaxRecords(&self, records: u32) -> windows_core::Result<()>;
+    fn SetSegmentMaxRecords(&self, records: u32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPerformanceCounterDataCollector_Vtbl {
@@ -4280,7 +4280,7 @@ impl IPerformanceCounterDataCollector_Vtbl {
         unsafe extern "system" fn SetDataSourceName<Identity: IPerformanceCounterDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dsn: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPerformanceCounterDataCollector_Impl::SetDataSourceName(this, core::mem::transmute(&dsn)).into()
+                IPerformanceCounterDataCollector_Impl::SetDataSourceName(this, core::mem::transmute(&dsn))
             }
         }
         unsafe extern "system" fn PerformanceCounters<Identity: IPerformanceCounterDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, counters: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
@@ -4301,7 +4301,7 @@ impl IPerformanceCounterDataCollector_Vtbl {
         unsafe extern "system" fn SetPerformanceCounters<Identity: IPerformanceCounterDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, counters: *const super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPerformanceCounterDataCollector_Impl::SetPerformanceCounters(this, core::mem::transmute_copy(&counters)).into()
+                IPerformanceCounterDataCollector_Impl::SetPerformanceCounters(this, core::mem::transmute_copy(&counters))
             }
         }
         unsafe extern "system" fn LogFileFormat<Identity: IPerformanceCounterDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: *mut FileFormat) -> windows_core::HRESULT {
@@ -4322,7 +4322,7 @@ impl IPerformanceCounterDataCollector_Vtbl {
         unsafe extern "system" fn SetLogFileFormat<Identity: IPerformanceCounterDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: FileFormat) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPerformanceCounterDataCollector_Impl::SetLogFileFormat(this, core::mem::transmute_copy(&format)).into()
+                IPerformanceCounterDataCollector_Impl::SetLogFileFormat(this, core::mem::transmute_copy(&format))
             }
         }
         unsafe extern "system" fn SampleInterval<Identity: IPerformanceCounterDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interval: *mut u32) -> windows_core::HRESULT {
@@ -4343,7 +4343,7 @@ impl IPerformanceCounterDataCollector_Vtbl {
         unsafe extern "system" fn SetSampleInterval<Identity: IPerformanceCounterDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interval: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPerformanceCounterDataCollector_Impl::SetSampleInterval(this, core::mem::transmute_copy(&interval)).into()
+                IPerformanceCounterDataCollector_Impl::SetSampleInterval(this, core::mem::transmute_copy(&interval))
             }
         }
         unsafe extern "system" fn SegmentMaxRecords<Identity: IPerformanceCounterDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, records: *mut u32) -> windows_core::HRESULT {
@@ -4364,7 +4364,7 @@ impl IPerformanceCounterDataCollector_Vtbl {
         unsafe extern "system" fn SetSegmentMaxRecords<Identity: IPerformanceCounterDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, records: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPerformanceCounterDataCollector_Impl::SetSegmentMaxRecords(this, core::mem::transmute_copy(&records)).into()
+                IPerformanceCounterDataCollector_Impl::SetSegmentMaxRecords(this, core::mem::transmute_copy(&records))
             }
         }
         Self {
@@ -4382,7 +4382,7 @@ impl IPerformanceCounterDataCollector_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPerformanceCounterDataCollector as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IDataCollector as windows_core::Interface>::IID
+        iid == &<IPerformanceCounterDataCollector as windows_core::Interface>::IID || IDataCollector_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4478,13 +4478,13 @@ pub struct ISchedule_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISchedule_Impl: super::IDispatch_Impl {
     fn StartDate(&self) -> windows_core::Result<super::VARIANT>;
-    fn SetStartDate(&self, start: &super::VARIANT) -> windows_core::Result<()>;
+    fn SetStartDate(&self, start: &super::VARIANT) -> windows_core::HRESULT;
     fn EndDate(&self) -> windows_core::Result<super::VARIANT>;
-    fn SetEndDate(&self, end: &super::VARIANT) -> windows_core::Result<()>;
+    fn SetEndDate(&self, end: &super::VARIANT) -> windows_core::HRESULT;
     fn StartTime(&self) -> windows_core::Result<super::VARIANT>;
-    fn SetStartTime(&self, start: &super::VARIANT) -> windows_core::Result<()>;
+    fn SetStartTime(&self, start: &super::VARIANT) -> windows_core::HRESULT;
     fn Days(&self) -> windows_core::Result<WeekDays>;
-    fn SetDays(&self, days: WeekDays) -> windows_core::Result<()>;
+    fn SetDays(&self, days: WeekDays) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISchedule_Vtbl {
@@ -4507,7 +4507,7 @@ impl ISchedule_Vtbl {
         unsafe extern "system" fn SetStartDate<Identity: ISchedule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, start: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISchedule_Impl::SetStartDate(this, core::mem::transmute(&start)).into()
+                ISchedule_Impl::SetStartDate(this, core::mem::transmute(&start))
             }
         }
         unsafe extern "system" fn EndDate<Identity: ISchedule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, end: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -4528,7 +4528,7 @@ impl ISchedule_Vtbl {
         unsafe extern "system" fn SetEndDate<Identity: ISchedule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, end: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISchedule_Impl::SetEndDate(this, core::mem::transmute(&end)).into()
+                ISchedule_Impl::SetEndDate(this, core::mem::transmute(&end))
             }
         }
         unsafe extern "system" fn StartTime<Identity: ISchedule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, start: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -4549,7 +4549,7 @@ impl ISchedule_Vtbl {
         unsafe extern "system" fn SetStartTime<Identity: ISchedule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, start: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISchedule_Impl::SetStartTime(this, core::mem::transmute(&start)).into()
+                ISchedule_Impl::SetStartTime(this, core::mem::transmute(&start))
             }
         }
         unsafe extern "system" fn Days<Identity: ISchedule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, days: *mut WeekDays) -> windows_core::HRESULT {
@@ -4570,7 +4570,7 @@ impl ISchedule_Vtbl {
         unsafe extern "system" fn SetDays<Identity: ISchedule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, days: WeekDays) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISchedule_Impl::SetDays(this, core::mem::transmute_copy(&days)).into()
+                ISchedule_Impl::SetDays(this, core::mem::transmute_copy(&days))
             }
         }
         Self {
@@ -4586,7 +4586,7 @@ impl ISchedule_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISchedule as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ISchedule as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4674,10 +4674,10 @@ pub trait IScheduleCollection_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn Item(&self, index: &super::VARIANT) -> windows_core::Result<ISchedule>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Add(&self, pschedule: windows_core::Ref<ISchedule>) -> windows_core::Result<()>;
-    fn Remove(&self, vschedule: &super::VARIANT) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
-    fn AddRange(&self, pschedules: windows_core::Ref<IScheduleCollection>) -> windows_core::Result<()>;
+    fn Add(&self, pschedule: windows_core::Ref<ISchedule>) -> windows_core::HRESULT;
+    fn Remove(&self, vschedule: &super::VARIANT) -> windows_core::HRESULT;
+    fn Clear(&self) -> windows_core::HRESULT;
+    fn AddRange(&self, pschedules: windows_core::Ref<IScheduleCollection>) -> windows_core::HRESULT;
     fn CreateSchedule(&self) -> windows_core::Result<ISchedule>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4731,25 +4731,25 @@ impl IScheduleCollection_Vtbl {
         unsafe extern "system" fn Add<Identity: IScheduleCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pschedule: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IScheduleCollection_Impl::Add(this, core::mem::transmute_copy(&pschedule)).into()
+                IScheduleCollection_Impl::Add(this, core::mem::transmute_copy(&pschedule))
             }
         }
         unsafe extern "system" fn Remove<Identity: IScheduleCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vschedule: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IScheduleCollection_Impl::Remove(this, core::mem::transmute(&vschedule)).into()
+                IScheduleCollection_Impl::Remove(this, core::mem::transmute(&vschedule))
             }
         }
         unsafe extern "system" fn Clear<Identity: IScheduleCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IScheduleCollection_Impl::Clear(this).into()
+                IScheduleCollection_Impl::Clear(this)
             }
         }
         unsafe extern "system" fn AddRange<Identity: IScheduleCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pschedules: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IScheduleCollection_Impl::AddRange(this, core::mem::transmute_copy(&pschedules)).into()
+                IScheduleCollection_Impl::AddRange(this, core::mem::transmute_copy(&pschedules))
             }
         }
         unsafe extern "system" fn CreateSchedule<Identity: IScheduleCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, schedule: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4780,7 +4780,7 @@ impl IScheduleCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IScheduleCollection as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IScheduleCollection as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -5059,44 +5059,44 @@ pub struct ITraceDataCollector_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITraceDataCollector_Impl: IDataCollector_Impl {
     fn BufferSize(&self) -> windows_core::Result<u32>;
-    fn SetBufferSize(&self, size: u32) -> windows_core::Result<()>;
+    fn SetBufferSize(&self, size: u32) -> windows_core::HRESULT;
     fn BuffersLost(&self) -> windows_core::Result<u32>;
-    fn SetBuffersLost(&self, buffers: u32) -> windows_core::Result<()>;
+    fn SetBuffersLost(&self, buffers: u32) -> windows_core::HRESULT;
     fn BuffersWritten(&self) -> windows_core::Result<u32>;
-    fn SetBuffersWritten(&self, buffers: u32) -> windows_core::Result<()>;
+    fn SetBuffersWritten(&self, buffers: u32) -> windows_core::HRESULT;
     fn ClockType(&self) -> windows_core::Result<ClockType>;
-    fn SetClockType(&self, clock: ClockType) -> windows_core::Result<()>;
+    fn SetClockType(&self, clock: ClockType) -> windows_core::HRESULT;
     fn EventsLost(&self) -> windows_core::Result<u32>;
-    fn SetEventsLost(&self, events: u32) -> windows_core::Result<()>;
+    fn SetEventsLost(&self, events: u32) -> windows_core::HRESULT;
     fn ExtendedModes(&self) -> windows_core::Result<u32>;
-    fn SetExtendedModes(&self, mode: u32) -> windows_core::Result<()>;
+    fn SetExtendedModes(&self, mode: u32) -> windows_core::HRESULT;
     fn FlushTimer(&self) -> windows_core::Result<u32>;
-    fn SetFlushTimer(&self, seconds: u32) -> windows_core::Result<()>;
+    fn SetFlushTimer(&self, seconds: u32) -> windows_core::HRESULT;
     fn FreeBuffers(&self) -> windows_core::Result<u32>;
-    fn SetFreeBuffers(&self, buffers: u32) -> windows_core::Result<()>;
+    fn SetFreeBuffers(&self, buffers: u32) -> windows_core::HRESULT;
     fn Guid(&self) -> windows_core::Result<windows_core::GUID>;
-    fn SetGuid(&self, guid: &windows_core::GUID) -> windows_core::Result<()>;
+    fn SetGuid(&self, guid: &windows_core::GUID) -> windows_core::HRESULT;
     fn IsKernelTrace(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn MaximumBuffers(&self) -> windows_core::Result<u32>;
-    fn SetMaximumBuffers(&self, buffers: u32) -> windows_core::Result<()>;
+    fn SetMaximumBuffers(&self, buffers: u32) -> windows_core::HRESULT;
     fn MinimumBuffers(&self) -> windows_core::Result<u32>;
-    fn SetMinimumBuffers(&self, buffers: u32) -> windows_core::Result<()>;
+    fn SetMinimumBuffers(&self, buffers: u32) -> windows_core::HRESULT;
     fn NumberOfBuffers(&self) -> windows_core::Result<u32>;
-    fn SetNumberOfBuffers(&self, buffers: u32) -> windows_core::Result<()>;
+    fn SetNumberOfBuffers(&self, buffers: u32) -> windows_core::HRESULT;
     fn PreallocateFile(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetPreallocateFile(&self, allocate: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetPreallocateFile(&self, allocate: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn ProcessMode(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetProcessMode(&self, process: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetProcessMode(&self, process: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn RealTimeBuffersLost(&self) -> windows_core::Result<u32>;
-    fn SetRealTimeBuffersLost(&self, buffers: u32) -> windows_core::Result<()>;
+    fn SetRealTimeBuffersLost(&self, buffers: u32) -> windows_core::HRESULT;
     fn SessionId(&self) -> windows_core::Result<super::ULONG64>;
-    fn SetSessionId(&self, id: super::ULONG64) -> windows_core::Result<()>;
+    fn SetSessionId(&self, id: super::ULONG64) -> windows_core::HRESULT;
     fn SessionName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetSessionName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetSessionName(&self, name: &windows_core::BSTR) -> windows_core::HRESULT;
     fn SessionThreadId(&self) -> windows_core::Result<u32>;
-    fn SetSessionThreadId(&self, tid: u32) -> windows_core::Result<()>;
+    fn SetSessionThreadId(&self, tid: u32) -> windows_core::HRESULT;
     fn StreamMode(&self) -> windows_core::Result<StreamMode>;
-    fn SetStreamMode(&self, mode: StreamMode) -> windows_core::Result<()>;
+    fn SetStreamMode(&self, mode: StreamMode) -> windows_core::HRESULT;
     fn TraceDataProviders(&self) -> windows_core::Result<ITraceDataProviderCollection>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -5120,7 +5120,7 @@ impl ITraceDataCollector_Vtbl {
         unsafe extern "system" fn SetBufferSize<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataCollector_Impl::SetBufferSize(this, core::mem::transmute_copy(&size)).into()
+                ITraceDataCollector_Impl::SetBufferSize(this, core::mem::transmute_copy(&size))
             }
         }
         unsafe extern "system" fn BuffersLost<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffers: *mut u32) -> windows_core::HRESULT {
@@ -5141,7 +5141,7 @@ impl ITraceDataCollector_Vtbl {
         unsafe extern "system" fn SetBuffersLost<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffers: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataCollector_Impl::SetBuffersLost(this, core::mem::transmute_copy(&buffers)).into()
+                ITraceDataCollector_Impl::SetBuffersLost(this, core::mem::transmute_copy(&buffers))
             }
         }
         unsafe extern "system" fn BuffersWritten<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffers: *mut u32) -> windows_core::HRESULT {
@@ -5162,7 +5162,7 @@ impl ITraceDataCollector_Vtbl {
         unsafe extern "system" fn SetBuffersWritten<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffers: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataCollector_Impl::SetBuffersWritten(this, core::mem::transmute_copy(&buffers)).into()
+                ITraceDataCollector_Impl::SetBuffersWritten(this, core::mem::transmute_copy(&buffers))
             }
         }
         unsafe extern "system" fn ClockType<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clock: *mut ClockType) -> windows_core::HRESULT {
@@ -5183,7 +5183,7 @@ impl ITraceDataCollector_Vtbl {
         unsafe extern "system" fn SetClockType<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clock: ClockType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataCollector_Impl::SetClockType(this, core::mem::transmute_copy(&clock)).into()
+                ITraceDataCollector_Impl::SetClockType(this, core::mem::transmute_copy(&clock))
             }
         }
         unsafe extern "system" fn EventsLost<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, events: *mut u32) -> windows_core::HRESULT {
@@ -5204,7 +5204,7 @@ impl ITraceDataCollector_Vtbl {
         unsafe extern "system" fn SetEventsLost<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, events: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataCollector_Impl::SetEventsLost(this, core::mem::transmute_copy(&events)).into()
+                ITraceDataCollector_Impl::SetEventsLost(this, core::mem::transmute_copy(&events))
             }
         }
         unsafe extern "system" fn ExtendedModes<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: *mut u32) -> windows_core::HRESULT {
@@ -5225,7 +5225,7 @@ impl ITraceDataCollector_Vtbl {
         unsafe extern "system" fn SetExtendedModes<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataCollector_Impl::SetExtendedModes(this, core::mem::transmute_copy(&mode)).into()
+                ITraceDataCollector_Impl::SetExtendedModes(this, core::mem::transmute_copy(&mode))
             }
         }
         unsafe extern "system" fn FlushTimer<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, seconds: *mut u32) -> windows_core::HRESULT {
@@ -5246,7 +5246,7 @@ impl ITraceDataCollector_Vtbl {
         unsafe extern "system" fn SetFlushTimer<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, seconds: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataCollector_Impl::SetFlushTimer(this, core::mem::transmute_copy(&seconds)).into()
+                ITraceDataCollector_Impl::SetFlushTimer(this, core::mem::transmute_copy(&seconds))
             }
         }
         unsafe extern "system" fn FreeBuffers<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffers: *mut u32) -> windows_core::HRESULT {
@@ -5267,7 +5267,7 @@ impl ITraceDataCollector_Vtbl {
         unsafe extern "system" fn SetFreeBuffers<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffers: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataCollector_Impl::SetFreeBuffers(this, core::mem::transmute_copy(&buffers)).into()
+                ITraceDataCollector_Impl::SetFreeBuffers(this, core::mem::transmute_copy(&buffers))
             }
         }
         unsafe extern "system" fn Guid<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -5288,7 +5288,7 @@ impl ITraceDataCollector_Vtbl {
         unsafe extern "system" fn SetGuid<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataCollector_Impl::SetGuid(this, core::mem::transmute(&guid)).into()
+                ITraceDataCollector_Impl::SetGuid(this, core::mem::transmute(&guid))
             }
         }
         unsafe extern "system" fn IsKernelTrace<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, kernel: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -5324,7 +5324,7 @@ impl ITraceDataCollector_Vtbl {
         unsafe extern "system" fn SetMaximumBuffers<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffers: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataCollector_Impl::SetMaximumBuffers(this, core::mem::transmute_copy(&buffers)).into()
+                ITraceDataCollector_Impl::SetMaximumBuffers(this, core::mem::transmute_copy(&buffers))
             }
         }
         unsafe extern "system" fn MinimumBuffers<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffers: *mut u32) -> windows_core::HRESULT {
@@ -5345,7 +5345,7 @@ impl ITraceDataCollector_Vtbl {
         unsafe extern "system" fn SetMinimumBuffers<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffers: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataCollector_Impl::SetMinimumBuffers(this, core::mem::transmute_copy(&buffers)).into()
+                ITraceDataCollector_Impl::SetMinimumBuffers(this, core::mem::transmute_copy(&buffers))
             }
         }
         unsafe extern "system" fn NumberOfBuffers<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffers: *mut u32) -> windows_core::HRESULT {
@@ -5366,7 +5366,7 @@ impl ITraceDataCollector_Vtbl {
         unsafe extern "system" fn SetNumberOfBuffers<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffers: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataCollector_Impl::SetNumberOfBuffers(this, core::mem::transmute_copy(&buffers)).into()
+                ITraceDataCollector_Impl::SetNumberOfBuffers(this, core::mem::transmute_copy(&buffers))
             }
         }
         unsafe extern "system" fn PreallocateFile<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allocate: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -5387,7 +5387,7 @@ impl ITraceDataCollector_Vtbl {
         unsafe extern "system" fn SetPreallocateFile<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allocate: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataCollector_Impl::SetPreallocateFile(this, core::mem::transmute_copy(&allocate)).into()
+                ITraceDataCollector_Impl::SetPreallocateFile(this, core::mem::transmute_copy(&allocate))
             }
         }
         unsafe extern "system" fn ProcessMode<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, process: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -5408,7 +5408,7 @@ impl ITraceDataCollector_Vtbl {
         unsafe extern "system" fn SetProcessMode<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, process: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataCollector_Impl::SetProcessMode(this, core::mem::transmute_copy(&process)).into()
+                ITraceDataCollector_Impl::SetProcessMode(this, core::mem::transmute_copy(&process))
             }
         }
         unsafe extern "system" fn RealTimeBuffersLost<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffers: *mut u32) -> windows_core::HRESULT {
@@ -5429,7 +5429,7 @@ impl ITraceDataCollector_Vtbl {
         unsafe extern "system" fn SetRealTimeBuffersLost<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffers: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataCollector_Impl::SetRealTimeBuffersLost(this, core::mem::transmute_copy(&buffers)).into()
+                ITraceDataCollector_Impl::SetRealTimeBuffersLost(this, core::mem::transmute_copy(&buffers))
             }
         }
         unsafe extern "system" fn SessionId<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut super::ULONG64) -> windows_core::HRESULT {
@@ -5450,7 +5450,7 @@ impl ITraceDataCollector_Vtbl {
         unsafe extern "system" fn SetSessionId<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: super::ULONG64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataCollector_Impl::SetSessionId(this, core::mem::transmute_copy(&id)).into()
+                ITraceDataCollector_Impl::SetSessionId(this, core::mem::transmute_copy(&id))
             }
         }
         unsafe extern "system" fn SessionName<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5471,7 +5471,7 @@ impl ITraceDataCollector_Vtbl {
         unsafe extern "system" fn SetSessionName<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataCollector_Impl::SetSessionName(this, core::mem::transmute(&name)).into()
+                ITraceDataCollector_Impl::SetSessionName(this, core::mem::transmute(&name))
             }
         }
         unsafe extern "system" fn SessionThreadId<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tid: *mut u32) -> windows_core::HRESULT {
@@ -5492,7 +5492,7 @@ impl ITraceDataCollector_Vtbl {
         unsafe extern "system" fn SetSessionThreadId<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tid: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataCollector_Impl::SetSessionThreadId(this, core::mem::transmute_copy(&tid)).into()
+                ITraceDataCollector_Impl::SetSessionThreadId(this, core::mem::transmute_copy(&tid))
             }
         }
         unsafe extern "system" fn StreamMode<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: *mut StreamMode) -> windows_core::HRESULT {
@@ -5513,7 +5513,7 @@ impl ITraceDataCollector_Vtbl {
         unsafe extern "system" fn SetStreamMode<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: StreamMode) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataCollector_Impl::SetStreamMode(this, core::mem::transmute_copy(&mode)).into()
+                ITraceDataCollector_Impl::SetStreamMode(this, core::mem::transmute_copy(&mode))
             }
         }
         unsafe extern "system" fn TraceDataProviders<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, providers: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5576,7 +5576,7 @@ impl ITraceDataCollector_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITraceDataCollector as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IDataCollector as windows_core::Interface>::IID
+        iid == &<ITraceDataCollector as windows_core::Interface>::IID || IDataCollector_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -5744,22 +5744,22 @@ pub struct ITraceDataProvider_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITraceDataProvider_Impl: super::IDispatch_Impl {
     fn DisplayName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetDisplayName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetDisplayName(&self, name: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Guid(&self) -> windows_core::Result<windows_core::GUID>;
-    fn SetGuid(&self, guid: &windows_core::GUID) -> windows_core::Result<()>;
+    fn SetGuid(&self, guid: &windows_core::GUID) -> windows_core::HRESULT;
     fn Level(&self) -> windows_core::Result<IValueMap>;
     fn KeywordsAny(&self) -> windows_core::Result<IValueMap>;
     fn KeywordsAll(&self) -> windows_core::Result<IValueMap>;
     fn Properties(&self) -> windows_core::Result<IValueMap>;
     fn FilterEnabled(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetFilterEnabled(&self, filterenabled: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetFilterEnabled(&self, filterenabled: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn FilterType(&self) -> windows_core::Result<super::ULONG>;
-    fn SetFilterType(&self, ultype: super::ULONG) -> windows_core::Result<()>;
+    fn SetFilterType(&self, ultype: super::ULONG) -> windows_core::HRESULT;
     fn FilterData(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
-    fn SetFilterData(&self, pdata: *const super::SAFEARRAY) -> windows_core::Result<()>;
-    fn Query(&self, bstrname: &windows_core::BSTR, bstrserver: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Resolve(&self, pfrom: windows_core::Ref<super::IDispatch>) -> windows_core::Result<()>;
-    fn SetSecurity(&self, sddl: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetFilterData(&self, pdata: *const super::SAFEARRAY) -> windows_core::HRESULT;
+    fn Query(&self, bstrname: &windows_core::BSTR, bstrserver: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn Resolve(&self, pfrom: windows_core::Ref<super::IDispatch>) -> windows_core::HRESULT;
+    fn SetSecurity(&self, sddl: &windows_core::BSTR) -> windows_core::HRESULT;
     fn GetSecurity(&self, securityinfo: super::ULONG) -> windows_core::Result<windows_core::BSTR>;
     fn GetRegisteredProcesses(&self) -> windows_core::Result<IValueMap>;
 }
@@ -5784,7 +5784,7 @@ impl ITraceDataProvider_Vtbl {
         unsafe extern "system" fn SetDisplayName<Identity: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataProvider_Impl::SetDisplayName(this, core::mem::transmute(&name)).into()
+                ITraceDataProvider_Impl::SetDisplayName(this, core::mem::transmute(&name))
             }
         }
         unsafe extern "system" fn Guid<Identity: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -5805,7 +5805,7 @@ impl ITraceDataProvider_Vtbl {
         unsafe extern "system" fn SetGuid<Identity: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataProvider_Impl::SetGuid(this, core::mem::transmute(&guid)).into()
+                ITraceDataProvider_Impl::SetGuid(this, core::mem::transmute(&guid))
             }
         }
         unsafe extern "system" fn Level<Identity: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pplevel: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5886,7 +5886,7 @@ impl ITraceDataProvider_Vtbl {
         unsafe extern "system" fn SetFilterEnabled<Identity: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filterenabled: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataProvider_Impl::SetFilterEnabled(this, core::mem::transmute_copy(&filterenabled)).into()
+                ITraceDataProvider_Impl::SetFilterEnabled(this, core::mem::transmute_copy(&filterenabled))
             }
         }
         unsafe extern "system" fn FilterType<Identity: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pultype: *mut super::ULONG) -> windows_core::HRESULT {
@@ -5907,7 +5907,7 @@ impl ITraceDataProvider_Vtbl {
         unsafe extern "system" fn SetFilterType<Identity: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ultype: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataProvider_Impl::SetFilterType(this, core::mem::transmute_copy(&ultype)).into()
+                ITraceDataProvider_Impl::SetFilterType(this, core::mem::transmute_copy(&ultype))
             }
         }
         unsafe extern "system" fn FilterData<Identity: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdata: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
@@ -5928,25 +5928,25 @@ impl ITraceDataProvider_Vtbl {
         unsafe extern "system" fn SetFilterData<Identity: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdata: *const super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataProvider_Impl::SetFilterData(this, core::mem::transmute_copy(&pdata)).into()
+                ITraceDataProvider_Impl::SetFilterData(this, core::mem::transmute_copy(&pdata))
             }
         }
         unsafe extern "system" fn Query<Identity: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: *mut core::ffi::c_void, bstrserver: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataProvider_Impl::Query(this, core::mem::transmute(&bstrname), core::mem::transmute(&bstrserver)).into()
+                ITraceDataProvider_Impl::Query(this, core::mem::transmute(&bstrname), core::mem::transmute(&bstrserver))
             }
         }
         unsafe extern "system" fn Resolve<Identity: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfrom: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataProvider_Impl::Resolve(this, core::mem::transmute_copy(&pfrom)).into()
+                ITraceDataProvider_Impl::Resolve(this, core::mem::transmute_copy(&pfrom))
             }
         }
         unsafe extern "system" fn SetSecurity<Identity: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sddl: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataProvider_Impl::SetSecurity(this, core::mem::transmute(&sddl)).into()
+                ITraceDataProvider_Impl::SetSecurity(this, core::mem::transmute(&sddl))
             }
         }
         unsafe extern "system" fn GetSecurity<Identity: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, securityinfo: super::ULONG, sddl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6003,7 +6003,7 @@ impl ITraceDataProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITraceDataProvider as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ITraceDataProvider as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6103,13 +6103,13 @@ pub trait ITraceDataProviderCollection_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn Item(&self, index: &super::VARIANT) -> windows_core::Result<ITraceDataProvider>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Add(&self, pprovider: windows_core::Ref<ITraceDataProvider>) -> windows_core::Result<()>;
-    fn Remove(&self, vprovider: &super::VARIANT) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
-    fn AddRange(&self, providers: windows_core::Ref<ITraceDataProviderCollection>) -> windows_core::Result<()>;
+    fn Add(&self, pprovider: windows_core::Ref<ITraceDataProvider>) -> windows_core::HRESULT;
+    fn Remove(&self, vprovider: &super::VARIANT) -> windows_core::HRESULT;
+    fn Clear(&self) -> windows_core::HRESULT;
+    fn AddRange(&self, providers: windows_core::Ref<ITraceDataProviderCollection>) -> windows_core::HRESULT;
     fn CreateTraceDataProvider(&self) -> windows_core::Result<ITraceDataProvider>;
-    fn GetTraceDataProviders(&self, server: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetTraceDataProvidersByProcess(&self, server: &windows_core::BSTR, pid: super::ULONG) -> windows_core::Result<()>;
+    fn GetTraceDataProviders(&self, server: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn GetTraceDataProvidersByProcess(&self, server: &windows_core::BSTR, pid: super::ULONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ITraceDataProviderCollection_Vtbl {
@@ -6162,25 +6162,25 @@ impl ITraceDataProviderCollection_Vtbl {
         unsafe extern "system" fn Add<Identity: ITraceDataProviderCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprovider: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataProviderCollection_Impl::Add(this, core::mem::transmute_copy(&pprovider)).into()
+                ITraceDataProviderCollection_Impl::Add(this, core::mem::transmute_copy(&pprovider))
             }
         }
         unsafe extern "system" fn Remove<Identity: ITraceDataProviderCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vprovider: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataProviderCollection_Impl::Remove(this, core::mem::transmute(&vprovider)).into()
+                ITraceDataProviderCollection_Impl::Remove(this, core::mem::transmute(&vprovider))
             }
         }
         unsafe extern "system" fn Clear<Identity: ITraceDataProviderCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataProviderCollection_Impl::Clear(this).into()
+                ITraceDataProviderCollection_Impl::Clear(this)
             }
         }
         unsafe extern "system" fn AddRange<Identity: ITraceDataProviderCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, providers: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataProviderCollection_Impl::AddRange(this, core::mem::transmute_copy(&providers)).into()
+                ITraceDataProviderCollection_Impl::AddRange(this, core::mem::transmute_copy(&providers))
             }
         }
         unsafe extern "system" fn CreateTraceDataProvider<Identity: ITraceDataProviderCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, provider: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6201,13 +6201,13 @@ impl ITraceDataProviderCollection_Vtbl {
         unsafe extern "system" fn GetTraceDataProviders<Identity: ITraceDataProviderCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, server: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataProviderCollection_Impl::GetTraceDataProviders(this, core::mem::transmute(&server)).into()
+                ITraceDataProviderCollection_Impl::GetTraceDataProviders(this, core::mem::transmute(&server))
             }
         }
         unsafe extern "system" fn GetTraceDataProvidersByProcess<Identity: ITraceDataProviderCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, server: *mut core::ffi::c_void, pid: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataProviderCollection_Impl::GetTraceDataProvidersByProcess(this, core::mem::transmute(&server), core::mem::transmute_copy(&pid)).into()
+                ITraceDataProviderCollection_Impl::GetTraceDataProvidersByProcess(this, core::mem::transmute(&server), core::mem::transmute_copy(&pid))
             }
         }
         Self {
@@ -6225,7 +6225,7 @@ impl ITraceDataProviderCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITraceDataProviderCollection as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ITraceDataProviderCollection as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6356,15 +6356,15 @@ pub trait IValueMap_Impl: super::IDispatch_Impl {
     fn Item(&self, index: &super::VARIANT) -> windows_core::Result<IValueMapItem>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetDescription(&self, description: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetDescription(&self, description: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Value(&self) -> windows_core::Result<super::VARIANT>;
-    fn SetValue(&self, value: &super::VARIANT) -> windows_core::Result<()>;
+    fn SetValue(&self, value: &super::VARIANT) -> windows_core::HRESULT;
     fn ValueMapType(&self) -> windows_core::Result<ValueMapType>;
-    fn SetValueMapType(&self, r#type: ValueMapType) -> windows_core::Result<()>;
-    fn Add(&self, value: &super::VARIANT) -> windows_core::Result<()>;
-    fn Remove(&self, value: &super::VARIANT) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
-    fn AddRange(&self, map: windows_core::Ref<IValueMap>) -> windows_core::Result<()>;
+    fn SetValueMapType(&self, r#type: ValueMapType) -> windows_core::HRESULT;
+    fn Add(&self, value: &super::VARIANT) -> windows_core::HRESULT;
+    fn Remove(&self, value: &super::VARIANT) -> windows_core::HRESULT;
+    fn Clear(&self) -> windows_core::HRESULT;
+    fn AddRange(&self, map: windows_core::Ref<IValueMap>) -> windows_core::HRESULT;
     fn CreateValueMapItem(&self) -> windows_core::Result<IValueMapItem>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6433,7 +6433,7 @@ impl IValueMap_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: IValueMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, description: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IValueMap_Impl::SetDescription(this, core::mem::transmute(&description)).into()
+                IValueMap_Impl::SetDescription(this, core::mem::transmute(&description))
             }
         }
         unsafe extern "system" fn Value<Identity: IValueMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -6454,7 +6454,7 @@ impl IValueMap_Vtbl {
         unsafe extern "system" fn SetValue<Identity: IValueMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IValueMap_Impl::SetValue(this, core::mem::transmute(&value)).into()
+                IValueMap_Impl::SetValue(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn ValueMapType<Identity: IValueMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: *mut ValueMapType) -> windows_core::HRESULT {
@@ -6475,31 +6475,31 @@ impl IValueMap_Vtbl {
         unsafe extern "system" fn SetValueMapType<Identity: IValueMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: ValueMapType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IValueMap_Impl::SetValueMapType(this, core::mem::transmute_copy(&r#type)).into()
+                IValueMap_Impl::SetValueMapType(this, core::mem::transmute_copy(&r#type))
             }
         }
         unsafe extern "system" fn Add<Identity: IValueMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IValueMap_Impl::Add(this, core::mem::transmute(&value)).into()
+                IValueMap_Impl::Add(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn Remove<Identity: IValueMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IValueMap_Impl::Remove(this, core::mem::transmute(&value)).into()
+                IValueMap_Impl::Remove(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn Clear<Identity: IValueMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IValueMap_Impl::Clear(this).into()
+                IValueMap_Impl::Clear(this)
             }
         }
         unsafe extern "system" fn AddRange<Identity: IValueMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, map: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IValueMap_Impl::AddRange(this, core::mem::transmute_copy(&map)).into()
+                IValueMap_Impl::AddRange(this, core::mem::transmute_copy(&map))
             }
         }
         unsafe extern "system" fn CreateValueMapItem<Identity: IValueMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, item: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6536,7 +6536,7 @@ impl IValueMap_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IValueMap as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IValueMap as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6635,15 +6635,15 @@ pub struct IValueMapItem_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IValueMapItem_Impl: super::IDispatch_Impl {
     fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetDescription(&self, description: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetDescription(&self, description: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Enabled(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetEnabled(&self, enabled: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetEnabled(&self, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn Key(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetKey(&self, key: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetKey(&self, key: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Value(&self) -> windows_core::Result<super::VARIANT>;
-    fn SetValue(&self, value: &super::VARIANT) -> windows_core::Result<()>;
+    fn SetValue(&self, value: &super::VARIANT) -> windows_core::HRESULT;
     fn ValueMapType(&self) -> windows_core::Result<ValueMapType>;
-    fn SetValueMapType(&self, r#type: ValueMapType) -> windows_core::Result<()>;
+    fn SetValueMapType(&self, r#type: ValueMapType) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IValueMapItem_Vtbl {
@@ -6666,7 +6666,7 @@ impl IValueMapItem_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: IValueMapItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, description: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IValueMapItem_Impl::SetDescription(this, core::mem::transmute(&description)).into()
+                IValueMapItem_Impl::SetDescription(this, core::mem::transmute(&description))
             }
         }
         unsafe extern "system" fn Enabled<Identity: IValueMapItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -6687,7 +6687,7 @@ impl IValueMapItem_Vtbl {
         unsafe extern "system" fn SetEnabled<Identity: IValueMapItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IValueMapItem_Impl::SetEnabled(this, core::mem::transmute_copy(&enabled)).into()
+                IValueMapItem_Impl::SetEnabled(this, core::mem::transmute_copy(&enabled))
             }
         }
         unsafe extern "system" fn Key<Identity: IValueMapItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6708,7 +6708,7 @@ impl IValueMapItem_Vtbl {
         unsafe extern "system" fn SetKey<Identity: IValueMapItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IValueMapItem_Impl::SetKey(this, core::mem::transmute(&key)).into()
+                IValueMapItem_Impl::SetKey(this, core::mem::transmute(&key))
             }
         }
         unsafe extern "system" fn Value<Identity: IValueMapItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -6729,7 +6729,7 @@ impl IValueMapItem_Vtbl {
         unsafe extern "system" fn SetValue<Identity: IValueMapItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IValueMapItem_Impl::SetValue(this, core::mem::transmute(&value)).into()
+                IValueMapItem_Impl::SetValue(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn ValueMapType<Identity: IValueMapItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: *mut ValueMapType) -> windows_core::HRESULT {
@@ -6750,7 +6750,7 @@ impl IValueMapItem_Vtbl {
         unsafe extern "system" fn SetValueMapType<Identity: IValueMapItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: ValueMapType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IValueMapItem_Impl::SetValueMapType(this, core::mem::transmute_copy(&r#type)).into()
+                IValueMapItem_Impl::SetValueMapType(this, core::mem::transmute_copy(&r#type))
             }
         }
         Self {
@@ -6768,7 +6768,7 @@ impl IValueMapItem_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IValueMapItem as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IValueMapItem as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]

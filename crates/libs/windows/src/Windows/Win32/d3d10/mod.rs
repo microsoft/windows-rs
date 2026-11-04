@@ -2462,7 +2462,7 @@ pub struct ID3D10Asynchronous_Vtbl {
 pub trait ID3D10Asynchronous_Impl: ID3D10DeviceChild_Impl {
     fn Begin(&self);
     fn End(&self);
-    fn GetData(&self, pdata: *mut core::ffi::c_void, datasize: super::UINT, getdataflags: super::UINT) -> windows_core::Result<()>;
+    fn GetData(&self, pdata: *mut core::ffi::c_void, datasize: super::UINT, getdataflags: super::UINT) -> windows_core::HRESULT;
     fn GetDataSize(&self) -> super::UINT;
 }
 #[cfg(feature = "shared")]
@@ -2483,7 +2483,7 @@ impl ID3D10Asynchronous_Vtbl {
         unsafe extern "system" fn GetData<Identity: ID3D10Asynchronous_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdata: *mut core::ffi::c_void, datasize: super::UINT, getdataflags: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Asynchronous_Impl::GetData(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&datasize), core::mem::transmute_copy(&getdataflags)).into()
+                ID3D10Asynchronous_Impl::GetData(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&datasize), core::mem::transmute_copy(&getdataflags))
             }
         }
         unsafe extern "system" fn GetDataSize<Identity: ID3D10Asynchronous_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::UINT {
@@ -2501,7 +2501,7 @@ impl ID3D10Asynchronous_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D10Asynchronous as windows_core::Interface>::IID || iid == &<ID3D10DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D10Asynchronous as windows_core::Interface>::IID || ID3D10DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -2547,7 +2547,7 @@ impl ID3D10BlendState_Vtbl {
         Self { base__: ID3D10DeviceChild_Vtbl::new::<Identity, OFFSET>(), GetDesc: GetDesc::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D10BlendState as windows_core::Interface>::IID || iid == &<ID3D10DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D10BlendState as windows_core::Interface>::IID || ID3D10DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -2593,7 +2593,7 @@ impl ID3D10BlendState1_Vtbl {
         Self { base__: ID3D10BlendState_Vtbl::new::<Identity, OFFSET>(), GetDesc1: GetDesc1::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D10BlendState1 as windows_core::Interface>::IID || iid == &<ID3D10DeviceChild as windows_core::Interface>::IID || iid == &<ID3D10BlendState as windows_core::Interface>::IID
+        iid == &<ID3D10BlendState1 as windows_core::Interface>::IID || ID3D10BlendState_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -2639,7 +2639,7 @@ pub struct ID3D10Buffer_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ID3D10Buffer_Impl: ID3D10Resource_Impl {
-    fn Map(&self, maptype: D3D10_MAP, mapflags: super::UINT, ppdata: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn Map(&self, maptype: D3D10_MAP, mapflags: super::UINT, ppdata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT;
     fn Unmap(&self);
     fn GetDesc(&self, pdesc: *mut D3D10_BUFFER_DESC);
 }
@@ -2649,7 +2649,7 @@ impl ID3D10Buffer_Vtbl {
         unsafe extern "system" fn Map<Identity: ID3D10Buffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maptype: D3D10_MAP, mapflags: super::UINT, ppdata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Buffer_Impl::Map(this, core::mem::transmute_copy(&maptype), core::mem::transmute_copy(&mapflags), core::mem::transmute_copy(&ppdata)).into()
+                ID3D10Buffer_Impl::Map(this, core::mem::transmute_copy(&maptype), core::mem::transmute_copy(&mapflags), core::mem::transmute_copy(&ppdata))
             }
         }
         unsafe extern "system" fn Unmap<Identity: ID3D10Buffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
@@ -2672,7 +2672,7 @@ impl ID3D10Buffer_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D10Buffer as windows_core::Interface>::IID || iid == &<ID3D10DeviceChild as windows_core::Interface>::IID || iid == &<ID3D10Resource as windows_core::Interface>::IID
+        iid == &<ID3D10Buffer as windows_core::Interface>::IID || ID3D10Resource_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -2718,7 +2718,7 @@ impl ID3D10Counter_Vtbl {
         Self { base__: ID3D10Asynchronous_Vtbl::new::<Identity, OFFSET>(), GetDesc: GetDesc::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D10Counter as windows_core::Interface>::IID || iid == &<ID3D10DeviceChild as windows_core::Interface>::IID || iid == &<ID3D10Asynchronous as windows_core::Interface>::IID
+        iid == &<ID3D10Counter as windows_core::Interface>::IID || ID3D10Asynchronous_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -2789,13 +2789,13 @@ pub struct ID3D10Debug_Vtbl {
 }
 #[cfg(all(feature = "dxgi", feature = "shared"))]
 pub trait ID3D10Debug_Impl: windows_core::IUnknownImpl {
-    fn SetFeatureMask(&self, mask: super::UINT) -> windows_core::Result<()>;
+    fn SetFeatureMask(&self, mask: super::UINT) -> windows_core::HRESULT;
     fn GetFeatureMask(&self) -> super::UINT;
-    fn SetPresentPerRenderOpDelay(&self, milliseconds: super::UINT) -> windows_core::Result<()>;
+    fn SetPresentPerRenderOpDelay(&self, milliseconds: super::UINT) -> windows_core::HRESULT;
     fn GetPresentPerRenderOpDelay(&self) -> super::UINT;
-    fn SetSwapChain(&self, pswapchain: windows_core::Ref<super::IDXGISwapChain>) -> windows_core::Result<()>;
-    fn GetSwapChain(&self, ppswapchain: windows_core::OutRef<super::IDXGISwapChain>) -> windows_core::Result<()>;
-    fn Validate(&self) -> windows_core::Result<()>;
+    fn SetSwapChain(&self, pswapchain: windows_core::Ref<super::IDXGISwapChain>) -> windows_core::HRESULT;
+    fn GetSwapChain(&self, ppswapchain: windows_core::OutRef<super::IDXGISwapChain>) -> windows_core::HRESULT;
+    fn Validate(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "dxgi", feature = "shared"))]
 impl ID3D10Debug_Vtbl {
@@ -2803,7 +2803,7 @@ impl ID3D10Debug_Vtbl {
         unsafe extern "system" fn SetFeatureMask<Identity: ID3D10Debug_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mask: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Debug_Impl::SetFeatureMask(this, core::mem::transmute_copy(&mask)).into()
+                ID3D10Debug_Impl::SetFeatureMask(this, core::mem::transmute_copy(&mask))
             }
         }
         unsafe extern "system" fn GetFeatureMask<Identity: ID3D10Debug_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::UINT {
@@ -2815,7 +2815,7 @@ impl ID3D10Debug_Vtbl {
         unsafe extern "system" fn SetPresentPerRenderOpDelay<Identity: ID3D10Debug_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, milliseconds: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Debug_Impl::SetPresentPerRenderOpDelay(this, core::mem::transmute_copy(&milliseconds)).into()
+                ID3D10Debug_Impl::SetPresentPerRenderOpDelay(this, core::mem::transmute_copy(&milliseconds))
             }
         }
         unsafe extern "system" fn GetPresentPerRenderOpDelay<Identity: ID3D10Debug_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::UINT {
@@ -2827,19 +2827,19 @@ impl ID3D10Debug_Vtbl {
         unsafe extern "system" fn SetSwapChain<Identity: ID3D10Debug_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pswapchain: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Debug_Impl::SetSwapChain(this, core::mem::transmute_copy(&pswapchain)).into()
+                ID3D10Debug_Impl::SetSwapChain(this, core::mem::transmute_copy(&pswapchain))
             }
         }
         unsafe extern "system" fn GetSwapChain<Identity: ID3D10Debug_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppswapchain: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Debug_Impl::GetSwapChain(this, core::mem::transmute_copy(&ppswapchain)).into()
+                ID3D10Debug_Impl::GetSwapChain(this, core::mem::transmute_copy(&ppswapchain))
             }
         }
         unsafe extern "system" fn Validate<Identity: ID3D10Debug_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Debug_Impl::Validate(this).into()
+                ID3D10Debug_Impl::Validate(this)
             }
         }
         Self {
@@ -2900,7 +2900,7 @@ impl ID3D10DepthStencilState_Vtbl {
         Self { base__: ID3D10DeviceChild_Vtbl::new::<Identity, OFFSET>(), GetDesc: GetDesc::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D10DepthStencilState as windows_core::Interface>::IID || iid == &<ID3D10DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D10DepthStencilState as windows_core::Interface>::IID || ID3D10DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -2946,7 +2946,7 @@ impl ID3D10DepthStencilView_Vtbl {
         Self { base__: ID3D10View_Vtbl::new::<Identity, OFFSET>(), GetDesc: GetDesc::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D10DepthStencilView as windows_core::Interface>::IID || iid == &<ID3D10DeviceChild as windows_core::Interface>::IID || iid == &<ID3D10View as windows_core::Interface>::IID
+        iid == &<ID3D10DepthStencilView as windows_core::Interface>::IID || ID3D10View_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "dxgi", feature = "shared"))]
@@ -3902,39 +3902,39 @@ pub trait ID3D10Device_Impl: windows_core::IUnknownImpl {
     fn RSGetState(&self, pprasterizerstate: windows_core::OutRef<ID3D10RasterizerState>);
     fn RSGetViewports(&self, numviewports: *mut super::UINT, pviewports: *mut D3D10_VIEWPORT);
     fn RSGetScissorRects(&self, numrects: *mut super::UINT, prects: *mut D3D10_RECT);
-    fn GetDeviceRemovedReason(&self) -> windows_core::Result<()>;
-    fn SetExceptionMode(&self, raiseflags: super::UINT) -> windows_core::Result<()>;
+    fn GetDeviceRemovedReason(&self) -> windows_core::HRESULT;
+    fn SetExceptionMode(&self, raiseflags: super::UINT) -> windows_core::HRESULT;
     fn GetExceptionMode(&self) -> super::UINT;
-    fn GetPrivateData(&self, guid: *const windows_core::GUID, pdatasize: *mut super::UINT, pdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn SetPrivateData(&self, guid: *const windows_core::GUID, datasize: super::UINT, pdata: *const core::ffi::c_void) -> windows_core::Result<()>;
-    fn SetPrivateDataInterface(&self, guid: *const windows_core::GUID, pdata: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetPrivateData(&self, guid: *const windows_core::GUID, pdatasize: *mut super::UINT, pdata: *mut core::ffi::c_void) -> windows_core::HRESULT;
+    fn SetPrivateData(&self, guid: *const windows_core::GUID, datasize: super::UINT, pdata: *const core::ffi::c_void) -> windows_core::HRESULT;
+    fn SetPrivateDataInterface(&self, guid: *const windows_core::GUID, pdata: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
     fn ClearState(&self);
     fn Flush(&self);
-    fn CreateBuffer(&self, pdesc: *const D3D10_BUFFER_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA, ppbuffer: windows_core::OutRef<ID3D10Buffer>) -> windows_core::Result<()>;
-    fn CreateTexture1D(&self, pdesc: *const D3D10_TEXTURE1D_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA, pptexture1d: windows_core::OutRef<ID3D10Texture1D>) -> windows_core::Result<()>;
-    fn CreateTexture2D(&self, pdesc: *const D3D10_TEXTURE2D_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA, pptexture2d: windows_core::OutRef<ID3D10Texture2D>) -> windows_core::Result<()>;
-    fn CreateTexture3D(&self, pdesc: *const D3D10_TEXTURE3D_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA, pptexture3d: windows_core::OutRef<ID3D10Texture3D>) -> windows_core::Result<()>;
-    fn CreateShaderResourceView(&self, presource: windows_core::Ref<ID3D10Resource>, pdesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC, ppsrview: windows_core::OutRef<ID3D10ShaderResourceView>) -> windows_core::Result<()>;
-    fn CreateRenderTargetView(&self, presource: windows_core::Ref<ID3D10Resource>, pdesc: *const D3D10_RENDER_TARGET_VIEW_DESC, pprtview: windows_core::OutRef<ID3D10RenderTargetView>) -> windows_core::Result<()>;
-    fn CreateDepthStencilView(&self, presource: windows_core::Ref<ID3D10Resource>, pdesc: *const D3D10_DEPTH_STENCIL_VIEW_DESC, ppdepthstencilview: windows_core::OutRef<ID3D10DepthStencilView>) -> windows_core::Result<()>;
-    fn CreateInputLayout(&self, pinputelementdescs: *const D3D10_INPUT_ELEMENT_DESC, numelements: super::UINT, pshaderbytecodewithinputsignature: *const core::ffi::c_void, bytecodelength: super::SIZE_T, ppinputlayout: windows_core::OutRef<ID3D10InputLayout>) -> windows_core::Result<()>;
-    fn CreateVertexShader(&self, pshaderbytecode: *const core::ffi::c_void, bytecodelength: super::SIZE_T, ppvertexshader: windows_core::OutRef<ID3D10VertexShader>) -> windows_core::Result<()>;
-    fn CreateGeometryShader(&self, pshaderbytecode: *const core::ffi::c_void, bytecodelength: super::SIZE_T, ppgeometryshader: windows_core::OutRef<ID3D10GeometryShader>) -> windows_core::Result<()>;
-    fn CreateGeometryShaderWithStreamOutput(&self, pshaderbytecode: *const core::ffi::c_void, bytecodelength: super::SIZE_T, psodeclaration: *const D3D10_SO_DECLARATION_ENTRY, numentries: super::UINT, outputstreamstride: super::UINT, ppgeometryshader: windows_core::OutRef<ID3D10GeometryShader>) -> windows_core::Result<()>;
-    fn CreatePixelShader(&self, pshaderbytecode: *const core::ffi::c_void, bytecodelength: super::SIZE_T, pppixelshader: windows_core::OutRef<ID3D10PixelShader>) -> windows_core::Result<()>;
-    fn CreateBlendState(&self, pblendstatedesc: *const D3D10_BLEND_DESC, ppblendstate: windows_core::OutRef<ID3D10BlendState>) -> windows_core::Result<()>;
-    fn CreateDepthStencilState(&self, pdepthstencildesc: *const D3D10_DEPTH_STENCIL_DESC, ppdepthstencilstate: windows_core::OutRef<ID3D10DepthStencilState>) -> windows_core::Result<()>;
-    fn CreateRasterizerState(&self, prasterizerdesc: *const D3D10_RASTERIZER_DESC, pprasterizerstate: windows_core::OutRef<ID3D10RasterizerState>) -> windows_core::Result<()>;
-    fn CreateSamplerState(&self, psamplerdesc: *const D3D10_SAMPLER_DESC, ppsamplerstate: windows_core::OutRef<ID3D10SamplerState>) -> windows_core::Result<()>;
-    fn CreateQuery(&self, pquerydesc: *const D3D10_QUERY_DESC, ppquery: windows_core::OutRef<ID3D10Query>) -> windows_core::Result<()>;
-    fn CreatePredicate(&self, ppredicatedesc: *const D3D10_QUERY_DESC, pppredicate: windows_core::OutRef<ID3D10Predicate>) -> windows_core::Result<()>;
-    fn CreateCounter(&self, pcounterdesc: *const D3D10_COUNTER_DESC, ppcounter: windows_core::OutRef<ID3D10Counter>) -> windows_core::Result<()>;
-    fn CheckFormatSupport(&self, format: super::DXGI_FORMAT, pformatsupport: *mut super::UINT) -> windows_core::Result<()>;
-    fn CheckMultisampleQualityLevels(&self, format: super::DXGI_FORMAT, samplecount: super::UINT, pnumqualitylevels: *mut super::UINT) -> windows_core::Result<()>;
+    fn CreateBuffer(&self, pdesc: *const D3D10_BUFFER_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA, ppbuffer: windows_core::OutRef<ID3D10Buffer>) -> windows_core::HRESULT;
+    fn CreateTexture1D(&self, pdesc: *const D3D10_TEXTURE1D_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA, pptexture1d: windows_core::OutRef<ID3D10Texture1D>) -> windows_core::HRESULT;
+    fn CreateTexture2D(&self, pdesc: *const D3D10_TEXTURE2D_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA, pptexture2d: windows_core::OutRef<ID3D10Texture2D>) -> windows_core::HRESULT;
+    fn CreateTexture3D(&self, pdesc: *const D3D10_TEXTURE3D_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA, pptexture3d: windows_core::OutRef<ID3D10Texture3D>) -> windows_core::HRESULT;
+    fn CreateShaderResourceView(&self, presource: windows_core::Ref<ID3D10Resource>, pdesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC, ppsrview: windows_core::OutRef<ID3D10ShaderResourceView>) -> windows_core::HRESULT;
+    fn CreateRenderTargetView(&self, presource: windows_core::Ref<ID3D10Resource>, pdesc: *const D3D10_RENDER_TARGET_VIEW_DESC, pprtview: windows_core::OutRef<ID3D10RenderTargetView>) -> windows_core::HRESULT;
+    fn CreateDepthStencilView(&self, presource: windows_core::Ref<ID3D10Resource>, pdesc: *const D3D10_DEPTH_STENCIL_VIEW_DESC, ppdepthstencilview: windows_core::OutRef<ID3D10DepthStencilView>) -> windows_core::HRESULT;
+    fn CreateInputLayout(&self, pinputelementdescs: *const D3D10_INPUT_ELEMENT_DESC, numelements: super::UINT, pshaderbytecodewithinputsignature: *const core::ffi::c_void, bytecodelength: super::SIZE_T, ppinputlayout: windows_core::OutRef<ID3D10InputLayout>) -> windows_core::HRESULT;
+    fn CreateVertexShader(&self, pshaderbytecode: *const core::ffi::c_void, bytecodelength: super::SIZE_T, ppvertexshader: windows_core::OutRef<ID3D10VertexShader>) -> windows_core::HRESULT;
+    fn CreateGeometryShader(&self, pshaderbytecode: *const core::ffi::c_void, bytecodelength: super::SIZE_T, ppgeometryshader: windows_core::OutRef<ID3D10GeometryShader>) -> windows_core::HRESULT;
+    fn CreateGeometryShaderWithStreamOutput(&self, pshaderbytecode: *const core::ffi::c_void, bytecodelength: super::SIZE_T, psodeclaration: *const D3D10_SO_DECLARATION_ENTRY, numentries: super::UINT, outputstreamstride: super::UINT, ppgeometryshader: windows_core::OutRef<ID3D10GeometryShader>) -> windows_core::HRESULT;
+    fn CreatePixelShader(&self, pshaderbytecode: *const core::ffi::c_void, bytecodelength: super::SIZE_T, pppixelshader: windows_core::OutRef<ID3D10PixelShader>) -> windows_core::HRESULT;
+    fn CreateBlendState(&self, pblendstatedesc: *const D3D10_BLEND_DESC, ppblendstate: windows_core::OutRef<ID3D10BlendState>) -> windows_core::HRESULT;
+    fn CreateDepthStencilState(&self, pdepthstencildesc: *const D3D10_DEPTH_STENCIL_DESC, ppdepthstencilstate: windows_core::OutRef<ID3D10DepthStencilState>) -> windows_core::HRESULT;
+    fn CreateRasterizerState(&self, prasterizerdesc: *const D3D10_RASTERIZER_DESC, pprasterizerstate: windows_core::OutRef<ID3D10RasterizerState>) -> windows_core::HRESULT;
+    fn CreateSamplerState(&self, psamplerdesc: *const D3D10_SAMPLER_DESC, ppsamplerstate: windows_core::OutRef<ID3D10SamplerState>) -> windows_core::HRESULT;
+    fn CreateQuery(&self, pquerydesc: *const D3D10_QUERY_DESC, ppquery: windows_core::OutRef<ID3D10Query>) -> windows_core::HRESULT;
+    fn CreatePredicate(&self, ppredicatedesc: *const D3D10_QUERY_DESC, pppredicate: windows_core::OutRef<ID3D10Predicate>) -> windows_core::HRESULT;
+    fn CreateCounter(&self, pcounterdesc: *const D3D10_COUNTER_DESC, ppcounter: windows_core::OutRef<ID3D10Counter>) -> windows_core::HRESULT;
+    fn CheckFormatSupport(&self, format: super::DXGI_FORMAT, pformatsupport: *mut super::UINT) -> windows_core::HRESULT;
+    fn CheckMultisampleQualityLevels(&self, format: super::DXGI_FORMAT, samplecount: super::UINT, pnumqualitylevels: *mut super::UINT) -> windows_core::HRESULT;
     fn CheckCounterInfo(&self, pcounterinfo: *mut D3D10_COUNTER_INFO);
-    fn CheckCounter(&self, pdesc: *const D3D10_COUNTER_DESC, ptype: *mut D3D10_COUNTER_TYPE, pactivecounters: *mut super::UINT, szname: windows_core::PSTR, pnamelength: *mut super::UINT, szunits: windows_core::PSTR, punitslength: *mut super::UINT, szdescription: windows_core::PSTR, pdescriptionlength: *mut super::UINT) -> windows_core::Result<()>;
+    fn CheckCounter(&self, pdesc: *const D3D10_COUNTER_DESC, ptype: *mut D3D10_COUNTER_TYPE, pactivecounters: *mut super::UINT, szname: windows_core::PSTR, pnamelength: *mut super::UINT, szunits: windows_core::PSTR, punitslength: *mut super::UINT, szdescription: windows_core::PSTR, pdescriptionlength: *mut super::UINT) -> windows_core::HRESULT;
     fn GetCreationFlags(&self) -> super::UINT;
-    fn OpenSharedResource(&self, hresource: super::HANDLE, returnedinterface: *const super::IID, ppresource: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn OpenSharedResource(&self, hresource: super::HANDLE, returnedinterface: *const super::IID, ppresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT;
     fn SetTextFilterSize(&self, width: super::UINT, height: super::UINT);
     fn GetTextFilterSize(&self, pwidth: *mut super::UINT, pheight: *mut super::UINT);
 }
@@ -4304,13 +4304,13 @@ impl ID3D10Device_Vtbl {
         unsafe extern "system" fn GetDeviceRemovedReason<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::GetDeviceRemovedReason(this).into()
+                ID3D10Device_Impl::GetDeviceRemovedReason(this)
             }
         }
         unsafe extern "system" fn SetExceptionMode<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, raiseflags: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::SetExceptionMode(this, core::mem::transmute_copy(&raiseflags)).into()
+                ID3D10Device_Impl::SetExceptionMode(this, core::mem::transmute_copy(&raiseflags))
             }
         }
         unsafe extern "system" fn GetExceptionMode<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::UINT {
@@ -4322,19 +4322,19 @@ impl ID3D10Device_Vtbl {
         unsafe extern "system" fn GetPrivateData<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID, pdatasize: *mut super::UINT, pdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::GetPrivateData(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pdatasize), core::mem::transmute_copy(&pdata)).into()
+                ID3D10Device_Impl::GetPrivateData(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pdatasize), core::mem::transmute_copy(&pdata))
             }
         }
         unsafe extern "system" fn SetPrivateData<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID, datasize: super::UINT, pdata: *const core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::SetPrivateData(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&datasize), core::mem::transmute_copy(&pdata)).into()
+                ID3D10Device_Impl::SetPrivateData(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&datasize), core::mem::transmute_copy(&pdata))
             }
         }
         unsafe extern "system" fn SetPrivateDataInterface<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID, pdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::SetPrivateDataInterface(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pdata)).into()
+                ID3D10Device_Impl::SetPrivateDataInterface(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pdata))
             }
         }
         unsafe extern "system" fn ClearState<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
@@ -4352,127 +4352,127 @@ impl ID3D10Device_Vtbl {
         unsafe extern "system" fn CreateBuffer<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *const D3D10_BUFFER_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA, ppbuffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::CreateBuffer(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&pinitialdata), core::mem::transmute_copy(&ppbuffer)).into()
+                ID3D10Device_Impl::CreateBuffer(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&pinitialdata), core::mem::transmute_copy(&ppbuffer))
             }
         }
         unsafe extern "system" fn CreateTexture1D<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *const D3D10_TEXTURE1D_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA, pptexture1d: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::CreateTexture1D(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&pinitialdata), core::mem::transmute_copy(&pptexture1d)).into()
+                ID3D10Device_Impl::CreateTexture1D(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&pinitialdata), core::mem::transmute_copy(&pptexture1d))
             }
         }
         unsafe extern "system" fn CreateTexture2D<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *const D3D10_TEXTURE2D_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA, pptexture2d: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::CreateTexture2D(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&pinitialdata), core::mem::transmute_copy(&pptexture2d)).into()
+                ID3D10Device_Impl::CreateTexture2D(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&pinitialdata), core::mem::transmute_copy(&pptexture2d))
             }
         }
         unsafe extern "system" fn CreateTexture3D<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *const D3D10_TEXTURE3D_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA, pptexture3d: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::CreateTexture3D(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&pinitialdata), core::mem::transmute_copy(&pptexture3d)).into()
+                ID3D10Device_Impl::CreateTexture3D(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&pinitialdata), core::mem::transmute_copy(&pptexture3d))
             }
         }
         unsafe extern "system" fn CreateShaderResourceView<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, pdesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC, ppsrview: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::CreateShaderResourceView(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&ppsrview)).into()
+                ID3D10Device_Impl::CreateShaderResourceView(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&ppsrview))
             }
         }
         unsafe extern "system" fn CreateRenderTargetView<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, pdesc: *const D3D10_RENDER_TARGET_VIEW_DESC, pprtview: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::CreateRenderTargetView(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&pprtview)).into()
+                ID3D10Device_Impl::CreateRenderTargetView(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&pprtview))
             }
         }
         unsafe extern "system" fn CreateDepthStencilView<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, pdesc: *const D3D10_DEPTH_STENCIL_VIEW_DESC, ppdepthstencilview: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::CreateDepthStencilView(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&ppdepthstencilview)).into()
+                ID3D10Device_Impl::CreateDepthStencilView(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&ppdepthstencilview))
             }
         }
         unsafe extern "system" fn CreateInputLayout<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinputelementdescs: *const D3D10_INPUT_ELEMENT_DESC, numelements: super::UINT, pshaderbytecodewithinputsignature: *const core::ffi::c_void, bytecodelength: super::SIZE_T, ppinputlayout: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::CreateInputLayout(this, core::mem::transmute_copy(&pinputelementdescs), core::mem::transmute_copy(&numelements), core::mem::transmute_copy(&pshaderbytecodewithinputsignature), core::mem::transmute_copy(&bytecodelength), core::mem::transmute_copy(&ppinputlayout)).into()
+                ID3D10Device_Impl::CreateInputLayout(this, core::mem::transmute_copy(&pinputelementdescs), core::mem::transmute_copy(&numelements), core::mem::transmute_copy(&pshaderbytecodewithinputsignature), core::mem::transmute_copy(&bytecodelength), core::mem::transmute_copy(&ppinputlayout))
             }
         }
         unsafe extern "system" fn CreateVertexShader<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pshaderbytecode: *const core::ffi::c_void, bytecodelength: super::SIZE_T, ppvertexshader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::CreateVertexShader(this, core::mem::transmute_copy(&pshaderbytecode), core::mem::transmute_copy(&bytecodelength), core::mem::transmute_copy(&ppvertexshader)).into()
+                ID3D10Device_Impl::CreateVertexShader(this, core::mem::transmute_copy(&pshaderbytecode), core::mem::transmute_copy(&bytecodelength), core::mem::transmute_copy(&ppvertexshader))
             }
         }
         unsafe extern "system" fn CreateGeometryShader<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pshaderbytecode: *const core::ffi::c_void, bytecodelength: super::SIZE_T, ppgeometryshader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::CreateGeometryShader(this, core::mem::transmute_copy(&pshaderbytecode), core::mem::transmute_copy(&bytecodelength), core::mem::transmute_copy(&ppgeometryshader)).into()
+                ID3D10Device_Impl::CreateGeometryShader(this, core::mem::transmute_copy(&pshaderbytecode), core::mem::transmute_copy(&bytecodelength), core::mem::transmute_copy(&ppgeometryshader))
             }
         }
         unsafe extern "system" fn CreateGeometryShaderWithStreamOutput<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pshaderbytecode: *const core::ffi::c_void, bytecodelength: super::SIZE_T, psodeclaration: *const D3D10_SO_DECLARATION_ENTRY, numentries: super::UINT, outputstreamstride: super::UINT, ppgeometryshader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::CreateGeometryShaderWithStreamOutput(this, core::mem::transmute_copy(&pshaderbytecode), core::mem::transmute_copy(&bytecodelength), core::mem::transmute_copy(&psodeclaration), core::mem::transmute_copy(&numentries), core::mem::transmute_copy(&outputstreamstride), core::mem::transmute_copy(&ppgeometryshader)).into()
+                ID3D10Device_Impl::CreateGeometryShaderWithStreamOutput(this, core::mem::transmute_copy(&pshaderbytecode), core::mem::transmute_copy(&bytecodelength), core::mem::transmute_copy(&psodeclaration), core::mem::transmute_copy(&numentries), core::mem::transmute_copy(&outputstreamstride), core::mem::transmute_copy(&ppgeometryshader))
             }
         }
         unsafe extern "system" fn CreatePixelShader<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pshaderbytecode: *const core::ffi::c_void, bytecodelength: super::SIZE_T, pppixelshader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::CreatePixelShader(this, core::mem::transmute_copy(&pshaderbytecode), core::mem::transmute_copy(&bytecodelength), core::mem::transmute_copy(&pppixelshader)).into()
+                ID3D10Device_Impl::CreatePixelShader(this, core::mem::transmute_copy(&pshaderbytecode), core::mem::transmute_copy(&bytecodelength), core::mem::transmute_copy(&pppixelshader))
             }
         }
         unsafe extern "system" fn CreateBlendState<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pblendstatedesc: *const D3D10_BLEND_DESC, ppblendstate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::CreateBlendState(this, core::mem::transmute_copy(&pblendstatedesc), core::mem::transmute_copy(&ppblendstate)).into()
+                ID3D10Device_Impl::CreateBlendState(this, core::mem::transmute_copy(&pblendstatedesc), core::mem::transmute_copy(&ppblendstate))
             }
         }
         unsafe extern "system" fn CreateDepthStencilState<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdepthstencildesc: *const D3D10_DEPTH_STENCIL_DESC, ppdepthstencilstate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::CreateDepthStencilState(this, core::mem::transmute_copy(&pdepthstencildesc), core::mem::transmute_copy(&ppdepthstencilstate)).into()
+                ID3D10Device_Impl::CreateDepthStencilState(this, core::mem::transmute_copy(&pdepthstencildesc), core::mem::transmute_copy(&ppdepthstencilstate))
             }
         }
         unsafe extern "system" fn CreateRasterizerState<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prasterizerdesc: *const D3D10_RASTERIZER_DESC, pprasterizerstate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::CreateRasterizerState(this, core::mem::transmute_copy(&prasterizerdesc), core::mem::transmute_copy(&pprasterizerstate)).into()
+                ID3D10Device_Impl::CreateRasterizerState(this, core::mem::transmute_copy(&prasterizerdesc), core::mem::transmute_copy(&pprasterizerstate))
             }
         }
         unsafe extern "system" fn CreateSamplerState<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psamplerdesc: *const D3D10_SAMPLER_DESC, ppsamplerstate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::CreateSamplerState(this, core::mem::transmute_copy(&psamplerdesc), core::mem::transmute_copy(&ppsamplerstate)).into()
+                ID3D10Device_Impl::CreateSamplerState(this, core::mem::transmute_copy(&psamplerdesc), core::mem::transmute_copy(&ppsamplerstate))
             }
         }
         unsafe extern "system" fn CreateQuery<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pquerydesc: *const D3D10_QUERY_DESC, ppquery: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::CreateQuery(this, core::mem::transmute_copy(&pquerydesc), core::mem::transmute_copy(&ppquery)).into()
+                ID3D10Device_Impl::CreateQuery(this, core::mem::transmute_copy(&pquerydesc), core::mem::transmute_copy(&ppquery))
             }
         }
         unsafe extern "system" fn CreatePredicate<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppredicatedesc: *const D3D10_QUERY_DESC, pppredicate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::CreatePredicate(this, core::mem::transmute_copy(&ppredicatedesc), core::mem::transmute_copy(&pppredicate)).into()
+                ID3D10Device_Impl::CreatePredicate(this, core::mem::transmute_copy(&ppredicatedesc), core::mem::transmute_copy(&pppredicate))
             }
         }
         unsafe extern "system" fn CreateCounter<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcounterdesc: *const D3D10_COUNTER_DESC, ppcounter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::CreateCounter(this, core::mem::transmute_copy(&pcounterdesc), core::mem::transmute_copy(&ppcounter)).into()
+                ID3D10Device_Impl::CreateCounter(this, core::mem::transmute_copy(&pcounterdesc), core::mem::transmute_copy(&ppcounter))
             }
         }
         unsafe extern "system" fn CheckFormatSupport<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: super::DXGI_FORMAT, pformatsupport: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::CheckFormatSupport(this, core::mem::transmute_copy(&format), core::mem::transmute_copy(&pformatsupport)).into()
+                ID3D10Device_Impl::CheckFormatSupport(this, core::mem::transmute_copy(&format), core::mem::transmute_copy(&pformatsupport))
             }
         }
         unsafe extern "system" fn CheckMultisampleQualityLevels<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: super::DXGI_FORMAT, samplecount: super::UINT, pnumqualitylevels: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::CheckMultisampleQualityLevels(this, core::mem::transmute_copy(&format), core::mem::transmute_copy(&samplecount), core::mem::transmute_copy(&pnumqualitylevels)).into()
+                ID3D10Device_Impl::CheckMultisampleQualityLevels(this, core::mem::transmute_copy(&format), core::mem::transmute_copy(&samplecount), core::mem::transmute_copy(&pnumqualitylevels))
             }
         }
         unsafe extern "system" fn CheckCounterInfo<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcounterinfo: *mut D3D10_COUNTER_INFO) {
@@ -4484,7 +4484,7 @@ impl ID3D10Device_Vtbl {
         unsafe extern "system" fn CheckCounter<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *const D3D10_COUNTER_DESC, ptype: *mut D3D10_COUNTER_TYPE, pactivecounters: *mut super::UINT, szname: windows_core::PSTR, pnamelength: *mut super::UINT, szunits: windows_core::PSTR, punitslength: *mut super::UINT, szdescription: windows_core::PSTR, pdescriptionlength: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::CheckCounter(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pactivecounters), core::mem::transmute_copy(&szname), core::mem::transmute_copy(&pnamelength), core::mem::transmute_copy(&szunits), core::mem::transmute_copy(&punitslength), core::mem::transmute_copy(&szdescription), core::mem::transmute_copy(&pdescriptionlength)).into()
+                ID3D10Device_Impl::CheckCounter(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pactivecounters), core::mem::transmute_copy(&szname), core::mem::transmute_copy(&pnamelength), core::mem::transmute_copy(&szunits), core::mem::transmute_copy(&punitslength), core::mem::transmute_copy(&szdescription), core::mem::transmute_copy(&pdescriptionlength))
             }
         }
         unsafe extern "system" fn GetCreationFlags<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::UINT {
@@ -4496,7 +4496,7 @@ impl ID3D10Device_Vtbl {
         unsafe extern "system" fn OpenSharedResource<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hresource: super::HANDLE, returnedinterface: *const super::IID, ppresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::OpenSharedResource(this, core::mem::transmute_copy(&hresource), core::mem::transmute_copy(&returnedinterface), core::mem::transmute_copy(&ppresource)).into()
+                ID3D10Device_Impl::OpenSharedResource(this, core::mem::transmute_copy(&hresource), core::mem::transmute_copy(&returnedinterface), core::mem::transmute_copy(&ppresource))
             }
         }
         unsafe extern "system" fn SetTextFilterSize<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: super::UINT, height: super::UINT) {
@@ -4656,8 +4656,8 @@ pub struct ID3D10Device1_Vtbl {
 }
 #[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait ID3D10Device1_Impl: ID3D10Device_Impl {
-    fn CreateShaderResourceView1(&self, presource: windows_core::Ref<ID3D10Resource>, pdesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC1, ppsrview: windows_core::OutRef<ID3D10ShaderResourceView1>) -> windows_core::Result<()>;
-    fn CreateBlendState1(&self, pblendstatedesc: *const D3D10_BLEND_DESC1, ppblendstate: windows_core::OutRef<ID3D10BlendState1>) -> windows_core::Result<()>;
+    fn CreateShaderResourceView1(&self, presource: windows_core::Ref<ID3D10Resource>, pdesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC1, ppsrview: windows_core::OutRef<ID3D10ShaderResourceView1>) -> windows_core::HRESULT;
+    fn CreateBlendState1(&self, pblendstatedesc: *const D3D10_BLEND_DESC1, ppblendstate: windows_core::OutRef<ID3D10BlendState1>) -> windows_core::HRESULT;
     fn GetFeatureLevel(&self) -> D3D10_FEATURE_LEVEL1;
 }
 #[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
@@ -4666,13 +4666,13 @@ impl ID3D10Device1_Vtbl {
         unsafe extern "system" fn CreateShaderResourceView1<Identity: ID3D10Device1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, pdesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC1, ppsrview: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device1_Impl::CreateShaderResourceView1(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&ppsrview)).into()
+                ID3D10Device1_Impl::CreateShaderResourceView1(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&ppsrview))
             }
         }
         unsafe extern "system" fn CreateBlendState1<Identity: ID3D10Device1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pblendstatedesc: *const D3D10_BLEND_DESC1, ppblendstate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device1_Impl::CreateBlendState1(this, core::mem::transmute_copy(&pblendstatedesc), core::mem::transmute_copy(&ppblendstate)).into()
+                ID3D10Device1_Impl::CreateBlendState1(this, core::mem::transmute_copy(&pblendstatedesc), core::mem::transmute_copy(&ppblendstate))
             }
         }
         unsafe extern "system" fn GetFeatureLevel<Identity: ID3D10Device1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D3D10_FEATURE_LEVEL1 {
@@ -4689,7 +4689,7 @@ impl ID3D10Device1_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D10Device1 as windows_core::Interface>::IID || iid == &<ID3D10Device as windows_core::Interface>::IID
+        iid == &<ID3D10Device1 as windows_core::Interface>::IID || ID3D10Device_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
@@ -4735,9 +4735,9 @@ pub struct ID3D10DeviceChild_Vtbl {
 #[cfg(feature = "shared")]
 pub trait ID3D10DeviceChild_Impl: windows_core::IUnknownImpl {
     fn GetDevice(&self, ppdevice: windows_core::OutRef<ID3D10Device>);
-    fn GetPrivateData(&self, guid: *const windows_core::GUID, pdatasize: *mut super::UINT, pdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn SetPrivateData(&self, guid: *const windows_core::GUID, datasize: super::UINT, pdata: *const core::ffi::c_void) -> windows_core::Result<()>;
-    fn SetPrivateDataInterface(&self, guid: *const windows_core::GUID, pdata: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetPrivateData(&self, guid: *const windows_core::GUID, pdatasize: *mut super::UINT, pdata: *mut core::ffi::c_void) -> windows_core::HRESULT;
+    fn SetPrivateData(&self, guid: *const windows_core::GUID, datasize: super::UINT, pdata: *const core::ffi::c_void) -> windows_core::HRESULT;
+    fn SetPrivateDataInterface(&self, guid: *const windows_core::GUID, pdata: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ID3D10DeviceChild_Vtbl {
@@ -4751,19 +4751,19 @@ impl ID3D10DeviceChild_Vtbl {
         unsafe extern "system" fn GetPrivateData<Identity: ID3D10DeviceChild_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID, pdatasize: *mut super::UINT, pdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10DeviceChild_Impl::GetPrivateData(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pdatasize), core::mem::transmute_copy(&pdata)).into()
+                ID3D10DeviceChild_Impl::GetPrivateData(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pdatasize), core::mem::transmute_copy(&pdata))
             }
         }
         unsafe extern "system" fn SetPrivateData<Identity: ID3D10DeviceChild_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID, datasize: super::UINT, pdata: *const core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10DeviceChild_Impl::SetPrivateData(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&datasize), core::mem::transmute_copy(&pdata)).into()
+                ID3D10DeviceChild_Impl::SetPrivateData(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&datasize), core::mem::transmute_copy(&pdata))
             }
         }
         unsafe extern "system" fn SetPrivateDataInterface<Identity: ID3D10DeviceChild_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID, pdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10DeviceChild_Impl::SetPrivateDataInterface(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pdata)).into()
+                ID3D10DeviceChild_Impl::SetPrivateDataInterface(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pdata))
             }
         }
         Self {
@@ -4873,8 +4873,8 @@ pub struct ID3D10Effect_Vtbl {
 pub trait ID3D10Effect_Impl: windows_core::IUnknownImpl {
     fn IsValid(&self) -> windows_core::BOOL;
     fn IsPool(&self) -> windows_core::BOOL;
-    fn GetDevice(&self, ppdevice: windows_core::OutRef<ID3D10Device>) -> windows_core::Result<()>;
-    fn GetDesc(&self, pdesc: *mut D3D10_EFFECT_DESC) -> windows_core::Result<()>;
+    fn GetDevice(&self, ppdevice: windows_core::OutRef<ID3D10Device>) -> windows_core::HRESULT;
+    fn GetDesc(&self, pdesc: *mut D3D10_EFFECT_DESC) -> windows_core::HRESULT;
     fn GetConstantBufferByIndex(&self, index: super::UINT) -> Option<ID3D10EffectConstantBuffer>;
     fn GetConstantBufferByName(&self, name: &windows_core::PCSTR) -> Option<ID3D10EffectConstantBuffer>;
     fn GetVariableByIndex(&self, index: super::UINT) -> Option<ID3D10EffectVariable>;
@@ -4882,7 +4882,7 @@ pub trait ID3D10Effect_Impl: windows_core::IUnknownImpl {
     fn GetVariableBySemantic(&self, semantic: &windows_core::PCSTR) -> Option<ID3D10EffectVariable>;
     fn GetTechniqueByIndex(&self, index: super::UINT) -> Option<ID3D10EffectTechnique>;
     fn GetTechniqueByName(&self, name: &windows_core::PCSTR) -> Option<ID3D10EffectTechnique>;
-    fn Optimize(&self) -> windows_core::Result<()>;
+    fn Optimize(&self) -> windows_core::HRESULT;
     fn IsOptimized(&self) -> windows_core::BOOL;
 }
 #[cfg(feature = "shared")]
@@ -4903,13 +4903,13 @@ impl ID3D10Effect_Vtbl {
         unsafe extern "system" fn GetDevice<Identity: ID3D10Effect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Effect_Impl::GetDevice(this, core::mem::transmute_copy(&ppdevice)).into()
+                ID3D10Effect_Impl::GetDevice(this, core::mem::transmute_copy(&ppdevice))
             }
         }
         unsafe extern "system" fn GetDesc<Identity: ID3D10Effect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *mut D3D10_EFFECT_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Effect_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc)).into()
+                ID3D10Effect_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc))
             }
         }
         unsafe extern "system" fn GetConstantBufferByIndex<Identity: ID3D10Effect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT) -> Option<ID3D10EffectConstantBuffer> {
@@ -4957,7 +4957,7 @@ impl ID3D10Effect_Vtbl {
         unsafe extern "system" fn Optimize<Identity: ID3D10Effect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Effect_Impl::Optimize(this).into()
+                ID3D10Effect_Impl::Optimize(this)
             }
         }
         unsafe extern "system" fn IsOptimized<Identity: ID3D10Effect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
@@ -5022,8 +5022,8 @@ pub struct ID3D10EffectBlendVariable_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ID3D10EffectBlendVariable_Impl: ID3D10EffectVariable_Impl {
-    fn GetBlendState(&self, index: super::UINT, ppblendstate: *mut Option<ID3D10BlendState>) -> windows_core::Result<()>;
-    fn GetBackingStore(&self, index: super::UINT, pblenddesc: *mut D3D10_BLEND_DESC) -> windows_core::Result<()>;
+    fn GetBlendState(&self, index: super::UINT, ppblendstate: *mut Option<ID3D10BlendState>) -> windows_core::HRESULT;
+    fn GetBackingStore(&self, index: super::UINT, pblenddesc: *mut D3D10_BLEND_DESC) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ID3D10EffectBlendVariable_Vtbl {
@@ -5032,14 +5032,14 @@ impl ID3D10EffectBlendVariable_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectBlendVariable_Impl::GetBlendState(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&ppblendstate)).into()
+                ID3D10EffectBlendVariable_Impl::GetBlendState(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&ppblendstate))
             }
         }
         unsafe extern "system" fn GetBackingStore<Identity: ID3D10EffectBlendVariable_Impl>(this: *mut core::ffi::c_void, index: super::UINT, pblenddesc: *mut D3D10_BLEND_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectBlendVariable_Impl::GetBackingStore(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&pblenddesc)).into()
+                ID3D10EffectBlendVariable_Impl::GetBackingStore(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&pblenddesc))
             }
         }
         Self { base__: ID3D10EffectVariable_Vtbl::new::<Identity>(), GetBlendState: GetBlendState::<Identity>, GetBackingStore: GetBackingStore::<Identity> }
@@ -5098,10 +5098,10 @@ pub struct ID3D10EffectConstantBuffer_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ID3D10EffectConstantBuffer_Impl: ID3D10EffectVariable_Impl {
-    fn SetConstantBuffer(&self, pconstantbuffer: windows_core::Ref<ID3D10Buffer>) -> windows_core::Result<()>;
-    fn GetConstantBuffer(&self, ppconstantbuffer: windows_core::OutRef<ID3D10Buffer>) -> windows_core::Result<()>;
-    fn SetTextureBuffer(&self, ptexturebuffer: windows_core::Ref<ID3D10ShaderResourceView>) -> windows_core::Result<()>;
-    fn GetTextureBuffer(&self, pptexturebuffer: windows_core::OutRef<ID3D10ShaderResourceView>) -> windows_core::Result<()>;
+    fn SetConstantBuffer(&self, pconstantbuffer: windows_core::Ref<ID3D10Buffer>) -> windows_core::HRESULT;
+    fn GetConstantBuffer(&self, ppconstantbuffer: windows_core::OutRef<ID3D10Buffer>) -> windows_core::HRESULT;
+    fn SetTextureBuffer(&self, ptexturebuffer: windows_core::Ref<ID3D10ShaderResourceView>) -> windows_core::HRESULT;
+    fn GetTextureBuffer(&self, pptexturebuffer: windows_core::OutRef<ID3D10ShaderResourceView>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ID3D10EffectConstantBuffer_Vtbl {
@@ -5110,28 +5110,28 @@ impl ID3D10EffectConstantBuffer_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectConstantBuffer_Impl::SetConstantBuffer(this, core::mem::transmute_copy(&pconstantbuffer)).into()
+                ID3D10EffectConstantBuffer_Impl::SetConstantBuffer(this, core::mem::transmute_copy(&pconstantbuffer))
             }
         }
         unsafe extern "system" fn GetConstantBuffer<Identity: ID3D10EffectConstantBuffer_Impl>(this: *mut core::ffi::c_void, ppconstantbuffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectConstantBuffer_Impl::GetConstantBuffer(this, core::mem::transmute_copy(&ppconstantbuffer)).into()
+                ID3D10EffectConstantBuffer_Impl::GetConstantBuffer(this, core::mem::transmute_copy(&ppconstantbuffer))
             }
         }
         unsafe extern "system" fn SetTextureBuffer<Identity: ID3D10EffectConstantBuffer_Impl>(this: *mut core::ffi::c_void, ptexturebuffer: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectConstantBuffer_Impl::SetTextureBuffer(this, core::mem::transmute_copy(&ptexturebuffer)).into()
+                ID3D10EffectConstantBuffer_Impl::SetTextureBuffer(this, core::mem::transmute_copy(&ptexturebuffer))
             }
         }
         unsafe extern "system" fn GetTextureBuffer<Identity: ID3D10EffectConstantBuffer_Impl>(this: *mut core::ffi::c_void, pptexturebuffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectConstantBuffer_Impl::GetTextureBuffer(this, core::mem::transmute_copy(&pptexturebuffer)).into()
+                ID3D10EffectConstantBuffer_Impl::GetTextureBuffer(this, core::mem::transmute_copy(&pptexturebuffer))
             }
         }
         Self {
@@ -5190,8 +5190,8 @@ pub struct ID3D10EffectDepthStencilVariable_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ID3D10EffectDepthStencilVariable_Impl: ID3D10EffectVariable_Impl {
-    fn GetDepthStencilState(&self, index: super::UINT, ppdepthstencilstate: windows_core::OutRef<ID3D10DepthStencilState>) -> windows_core::Result<()>;
-    fn GetBackingStore(&self, index: super::UINT, pdepthstencildesc: *mut D3D10_DEPTH_STENCIL_DESC) -> windows_core::Result<()>;
+    fn GetDepthStencilState(&self, index: super::UINT, ppdepthstencilstate: windows_core::OutRef<ID3D10DepthStencilState>) -> windows_core::HRESULT;
+    fn GetBackingStore(&self, index: super::UINT, pdepthstencildesc: *mut D3D10_DEPTH_STENCIL_DESC) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ID3D10EffectDepthStencilVariable_Vtbl {
@@ -5200,14 +5200,14 @@ impl ID3D10EffectDepthStencilVariable_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectDepthStencilVariable_Impl::GetDepthStencilState(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&ppdepthstencilstate)).into()
+                ID3D10EffectDepthStencilVariable_Impl::GetDepthStencilState(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&ppdepthstencilstate))
             }
         }
         unsafe extern "system" fn GetBackingStore<Identity: ID3D10EffectDepthStencilVariable_Impl>(this: *mut core::ffi::c_void, index: super::UINT, pdepthstencildesc: *mut D3D10_DEPTH_STENCIL_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectDepthStencilVariable_Impl::GetBackingStore(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&pdepthstencildesc)).into()
+                ID3D10EffectDepthStencilVariable_Impl::GetBackingStore(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&pdepthstencildesc))
             }
         }
         Self {
@@ -5275,10 +5275,10 @@ pub struct ID3D10EffectDepthStencilViewVariable_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ID3D10EffectDepthStencilViewVariable_Impl: ID3D10EffectVariable_Impl {
-    fn SetDepthStencil(&self, presource: windows_core::Ref<ID3D10DepthStencilView>) -> windows_core::Result<()>;
-    fn GetDepthStencil(&self, ppresource: windows_core::OutRef<ID3D10DepthStencilView>) -> windows_core::Result<()>;
-    fn SetDepthStencilArray(&self, ppresources: *const Option<ID3D10DepthStencilView>, offset: super::UINT, count: super::UINT) -> windows_core::Result<()>;
-    fn GetDepthStencilArray(&self, ppresources: *mut Option<ID3D10DepthStencilView>, offset: super::UINT, count: super::UINT) -> windows_core::Result<()>;
+    fn SetDepthStencil(&self, presource: windows_core::Ref<ID3D10DepthStencilView>) -> windows_core::HRESULT;
+    fn GetDepthStencil(&self, ppresource: windows_core::OutRef<ID3D10DepthStencilView>) -> windows_core::HRESULT;
+    fn SetDepthStencilArray(&self, ppresources: *const Option<ID3D10DepthStencilView>, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT;
+    fn GetDepthStencilArray(&self, ppresources: *mut Option<ID3D10DepthStencilView>, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ID3D10EffectDepthStencilViewVariable_Vtbl {
@@ -5287,28 +5287,28 @@ impl ID3D10EffectDepthStencilViewVariable_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectDepthStencilViewVariable_Impl::SetDepthStencil(this, core::mem::transmute_copy(&presource)).into()
+                ID3D10EffectDepthStencilViewVariable_Impl::SetDepthStencil(this, core::mem::transmute_copy(&presource))
             }
         }
         unsafe extern "system" fn GetDepthStencil<Identity: ID3D10EffectDepthStencilViewVariable_Impl>(this: *mut core::ffi::c_void, ppresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectDepthStencilViewVariable_Impl::GetDepthStencil(this, core::mem::transmute_copy(&ppresource)).into()
+                ID3D10EffectDepthStencilViewVariable_Impl::GetDepthStencil(this, core::mem::transmute_copy(&ppresource))
             }
         }
         unsafe extern "system" fn SetDepthStencilArray<Identity: ID3D10EffectDepthStencilViewVariable_Impl>(this: *mut core::ffi::c_void, ppresources: *const *mut core::ffi::c_void, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectDepthStencilViewVariable_Impl::SetDepthStencilArray(this, core::mem::transmute_copy(&ppresources), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count)).into()
+                ID3D10EffectDepthStencilViewVariable_Impl::SetDepthStencilArray(this, core::mem::transmute_copy(&ppresources), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count))
             }
         }
         unsafe extern "system" fn GetDepthStencilArray<Identity: ID3D10EffectDepthStencilViewVariable_Impl>(this: *mut core::ffi::c_void, ppresources: *mut *mut core::ffi::c_void, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectDepthStencilViewVariable_Impl::GetDepthStencilArray(this, core::mem::transmute_copy(&ppresources), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count)).into()
+                ID3D10EffectDepthStencilViewVariable_Impl::GetDepthStencilArray(this, core::mem::transmute_copy(&ppresources), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count))
             }
         }
         Self {
@@ -5399,14 +5399,14 @@ pub struct ID3D10EffectMatrixVariable_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ID3D10EffectMatrixVariable_Impl: ID3D10EffectVariable_Impl {
-    fn SetMatrix(&self, pdata: *mut f32) -> windows_core::Result<()>;
-    fn GetMatrix(&self, pdata: *mut f32) -> windows_core::Result<()>;
-    fn SetMatrixArray(&self, pdata: *mut f32, offset: super::UINT, count: super::UINT) -> windows_core::Result<()>;
-    fn GetMatrixArray(&self, pdata: *mut f32, offset: super::UINT, count: super::UINT) -> windows_core::Result<()>;
-    fn SetMatrixTranspose(&self, pdata: *mut f32) -> windows_core::Result<()>;
-    fn GetMatrixTranspose(&self, pdata: *mut f32) -> windows_core::Result<()>;
-    fn SetMatrixTransposeArray(&self, pdata: *mut f32, offset: super::UINT, count: super::UINT) -> windows_core::Result<()>;
-    fn GetMatrixTransposeArray(&self, pdata: *mut f32, offset: super::UINT, count: super::UINT) -> windows_core::Result<()>;
+    fn SetMatrix(&self, pdata: *mut f32) -> windows_core::HRESULT;
+    fn GetMatrix(&self, pdata: *mut f32) -> windows_core::HRESULT;
+    fn SetMatrixArray(&self, pdata: *mut f32, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT;
+    fn GetMatrixArray(&self, pdata: *mut f32, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT;
+    fn SetMatrixTranspose(&self, pdata: *mut f32) -> windows_core::HRESULT;
+    fn GetMatrixTranspose(&self, pdata: *mut f32) -> windows_core::HRESULT;
+    fn SetMatrixTransposeArray(&self, pdata: *mut f32, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT;
+    fn GetMatrixTransposeArray(&self, pdata: *mut f32, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ID3D10EffectMatrixVariable_Vtbl {
@@ -5415,56 +5415,56 @@ impl ID3D10EffectMatrixVariable_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectMatrixVariable_Impl::SetMatrix(this, core::mem::transmute_copy(&pdata)).into()
+                ID3D10EffectMatrixVariable_Impl::SetMatrix(this, core::mem::transmute_copy(&pdata))
             }
         }
         unsafe extern "system" fn GetMatrix<Identity: ID3D10EffectMatrixVariable_Impl>(this: *mut core::ffi::c_void, pdata: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectMatrixVariable_Impl::GetMatrix(this, core::mem::transmute_copy(&pdata)).into()
+                ID3D10EffectMatrixVariable_Impl::GetMatrix(this, core::mem::transmute_copy(&pdata))
             }
         }
         unsafe extern "system" fn SetMatrixArray<Identity: ID3D10EffectMatrixVariable_Impl>(this: *mut core::ffi::c_void, pdata: *mut f32, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectMatrixVariable_Impl::SetMatrixArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count)).into()
+                ID3D10EffectMatrixVariable_Impl::SetMatrixArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count))
             }
         }
         unsafe extern "system" fn GetMatrixArray<Identity: ID3D10EffectMatrixVariable_Impl>(this: *mut core::ffi::c_void, pdata: *mut f32, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectMatrixVariable_Impl::GetMatrixArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count)).into()
+                ID3D10EffectMatrixVariable_Impl::GetMatrixArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count))
             }
         }
         unsafe extern "system" fn SetMatrixTranspose<Identity: ID3D10EffectMatrixVariable_Impl>(this: *mut core::ffi::c_void, pdata: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectMatrixVariable_Impl::SetMatrixTranspose(this, core::mem::transmute_copy(&pdata)).into()
+                ID3D10EffectMatrixVariable_Impl::SetMatrixTranspose(this, core::mem::transmute_copy(&pdata))
             }
         }
         unsafe extern "system" fn GetMatrixTranspose<Identity: ID3D10EffectMatrixVariable_Impl>(this: *mut core::ffi::c_void, pdata: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectMatrixVariable_Impl::GetMatrixTranspose(this, core::mem::transmute_copy(&pdata)).into()
+                ID3D10EffectMatrixVariable_Impl::GetMatrixTranspose(this, core::mem::transmute_copy(&pdata))
             }
         }
         unsafe extern "system" fn SetMatrixTransposeArray<Identity: ID3D10EffectMatrixVariable_Impl>(this: *mut core::ffi::c_void, pdata: *mut f32, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectMatrixVariable_Impl::SetMatrixTransposeArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count)).into()
+                ID3D10EffectMatrixVariable_Impl::SetMatrixTransposeArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count))
             }
         }
         unsafe extern "system" fn GetMatrixTransposeArray<Identity: ID3D10EffectMatrixVariable_Impl>(this: *mut core::ffi::c_void, pdata: *mut f32, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectMatrixVariable_Impl::GetMatrixTransposeArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count)).into()
+                ID3D10EffectMatrixVariable_Impl::GetMatrixTransposeArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count))
             }
         }
         Self {
@@ -5571,14 +5571,14 @@ pub struct ID3D10EffectPass_Vtbl {
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 pub trait ID3D10EffectPass_Impl {
     fn IsValid(&self) -> windows_core::BOOL;
-    fn GetDesc(&self, pdesc: *mut D3D10_PASS_DESC) -> windows_core::Result<()>;
-    fn GetVertexShaderDesc(&self, pdesc: *mut D3D10_PASS_SHADER_DESC) -> windows_core::Result<()>;
-    fn GetGeometryShaderDesc(&self, pdesc: *mut D3D10_PASS_SHADER_DESC) -> windows_core::Result<()>;
-    fn GetPixelShaderDesc(&self, pdesc: *mut D3D10_PASS_SHADER_DESC) -> windows_core::Result<()>;
+    fn GetDesc(&self, pdesc: *mut D3D10_PASS_DESC) -> windows_core::HRESULT;
+    fn GetVertexShaderDesc(&self, pdesc: *mut D3D10_PASS_SHADER_DESC) -> windows_core::HRESULT;
+    fn GetGeometryShaderDesc(&self, pdesc: *mut D3D10_PASS_SHADER_DESC) -> windows_core::HRESULT;
+    fn GetPixelShaderDesc(&self, pdesc: *mut D3D10_PASS_SHADER_DESC) -> windows_core::HRESULT;
     fn GetAnnotationByIndex(&self, index: super::UINT) -> Option<ID3D10EffectVariable>;
     fn GetAnnotationByName(&self, name: &windows_core::PCSTR) -> Option<ID3D10EffectVariable>;
-    fn Apply(&self, flags: super::UINT) -> windows_core::Result<()>;
-    fn ComputeStateBlockMask(&self, pstateblockmask: *mut D3D10_STATE_BLOCK_MASK) -> windows_core::Result<()>;
+    fn Apply(&self, flags: super::UINT) -> windows_core::HRESULT;
+    fn ComputeStateBlockMask(&self, pstateblockmask: *mut D3D10_STATE_BLOCK_MASK) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 impl ID3D10EffectPass_Vtbl {
@@ -5594,28 +5594,28 @@ impl ID3D10EffectPass_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectPass_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc)).into()
+                ID3D10EffectPass_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc))
             }
         }
         unsafe extern "system" fn GetVertexShaderDesc<Identity: ID3D10EffectPass_Impl>(this: *mut core::ffi::c_void, pdesc: *mut D3D10_PASS_SHADER_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectPass_Impl::GetVertexShaderDesc(this, core::mem::transmute_copy(&pdesc)).into()
+                ID3D10EffectPass_Impl::GetVertexShaderDesc(this, core::mem::transmute_copy(&pdesc))
             }
         }
         unsafe extern "system" fn GetGeometryShaderDesc<Identity: ID3D10EffectPass_Impl>(this: *mut core::ffi::c_void, pdesc: *mut D3D10_PASS_SHADER_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectPass_Impl::GetGeometryShaderDesc(this, core::mem::transmute_copy(&pdesc)).into()
+                ID3D10EffectPass_Impl::GetGeometryShaderDesc(this, core::mem::transmute_copy(&pdesc))
             }
         }
         unsafe extern "system" fn GetPixelShaderDesc<Identity: ID3D10EffectPass_Impl>(this: *mut core::ffi::c_void, pdesc: *mut D3D10_PASS_SHADER_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectPass_Impl::GetPixelShaderDesc(this, core::mem::transmute_copy(&pdesc)).into()
+                ID3D10EffectPass_Impl::GetPixelShaderDesc(this, core::mem::transmute_copy(&pdesc))
             }
         }
         unsafe extern "system" fn GetAnnotationByIndex<Identity: ID3D10EffectPass_Impl>(this: *mut core::ffi::c_void, index: super::UINT) -> Option<ID3D10EffectVariable> {
@@ -5636,14 +5636,14 @@ impl ID3D10EffectPass_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectPass_Impl::Apply(this, core::mem::transmute_copy(&flags)).into()
+                ID3D10EffectPass_Impl::Apply(this, core::mem::transmute_copy(&flags))
             }
         }
         unsafe extern "system" fn ComputeStateBlockMask<Identity: ID3D10EffectPass_Impl>(this: *mut core::ffi::c_void, pstateblockmask: *mut D3D10_STATE_BLOCK_MASK) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectPass_Impl::ComputeStateBlockMask(this, core::mem::transmute_copy(&pstateblockmask)).into()
+                ID3D10EffectPass_Impl::ComputeStateBlockMask(this, core::mem::transmute_copy(&pstateblockmask))
             }
         }
         Self {
@@ -5737,8 +5737,8 @@ pub struct ID3D10EffectRasterizerVariable_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 pub trait ID3D10EffectRasterizerVariable_Impl: ID3D10EffectVariable_Impl {
-    fn GetRasterizerState(&self, index: super::UINT, pprasterizerstate: windows_core::OutRef<ID3D10RasterizerState>) -> windows_core::Result<()>;
-    fn GetBackingStore(&self, index: super::UINT, prasterizerdesc: *mut D3D10_RASTERIZER_DESC) -> windows_core::Result<()>;
+    fn GetRasterizerState(&self, index: super::UINT, pprasterizerstate: windows_core::OutRef<ID3D10RasterizerState>) -> windows_core::HRESULT;
+    fn GetBackingStore(&self, index: super::UINT, prasterizerdesc: *mut D3D10_RASTERIZER_DESC) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 impl ID3D10EffectRasterizerVariable_Vtbl {
@@ -5747,14 +5747,14 @@ impl ID3D10EffectRasterizerVariable_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectRasterizerVariable_Impl::GetRasterizerState(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&pprasterizerstate)).into()
+                ID3D10EffectRasterizerVariable_Impl::GetRasterizerState(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&pprasterizerstate))
             }
         }
         unsafe extern "system" fn GetBackingStore<Identity: ID3D10EffectRasterizerVariable_Impl>(this: *mut core::ffi::c_void, index: super::UINT, prasterizerdesc: *mut D3D10_RASTERIZER_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectRasterizerVariable_Impl::GetBackingStore(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&prasterizerdesc)).into()
+                ID3D10EffectRasterizerVariable_Impl::GetBackingStore(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&prasterizerdesc))
             }
         }
         Self {
@@ -5822,10 +5822,10 @@ pub struct ID3D10EffectRenderTargetViewVariable_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ID3D10EffectRenderTargetViewVariable_Impl: ID3D10EffectVariable_Impl {
-    fn SetRenderTarget(&self, presource: windows_core::Ref<ID3D10RenderTargetView>) -> windows_core::Result<()>;
-    fn GetRenderTarget(&self, ppresource: windows_core::OutRef<ID3D10RenderTargetView>) -> windows_core::Result<()>;
-    fn SetRenderTargetArray(&self, ppresources: *const Option<ID3D10RenderTargetView>, offset: super::UINT, count: super::UINT) -> windows_core::Result<()>;
-    fn GetRenderTargetArray(&self, ppresources: *mut Option<ID3D10RenderTargetView>, offset: super::UINT, count: super::UINT) -> windows_core::Result<()>;
+    fn SetRenderTarget(&self, presource: windows_core::Ref<ID3D10RenderTargetView>) -> windows_core::HRESULT;
+    fn GetRenderTarget(&self, ppresource: windows_core::OutRef<ID3D10RenderTargetView>) -> windows_core::HRESULT;
+    fn SetRenderTargetArray(&self, ppresources: *const Option<ID3D10RenderTargetView>, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT;
+    fn GetRenderTargetArray(&self, ppresources: *mut Option<ID3D10RenderTargetView>, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ID3D10EffectRenderTargetViewVariable_Vtbl {
@@ -5834,28 +5834,28 @@ impl ID3D10EffectRenderTargetViewVariable_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectRenderTargetViewVariable_Impl::SetRenderTarget(this, core::mem::transmute_copy(&presource)).into()
+                ID3D10EffectRenderTargetViewVariable_Impl::SetRenderTarget(this, core::mem::transmute_copy(&presource))
             }
         }
         unsafe extern "system" fn GetRenderTarget<Identity: ID3D10EffectRenderTargetViewVariable_Impl>(this: *mut core::ffi::c_void, ppresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectRenderTargetViewVariable_Impl::GetRenderTarget(this, core::mem::transmute_copy(&ppresource)).into()
+                ID3D10EffectRenderTargetViewVariable_Impl::GetRenderTarget(this, core::mem::transmute_copy(&ppresource))
             }
         }
         unsafe extern "system" fn SetRenderTargetArray<Identity: ID3D10EffectRenderTargetViewVariable_Impl>(this: *mut core::ffi::c_void, ppresources: *const *mut core::ffi::c_void, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectRenderTargetViewVariable_Impl::SetRenderTargetArray(this, core::mem::transmute_copy(&ppresources), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count)).into()
+                ID3D10EffectRenderTargetViewVariable_Impl::SetRenderTargetArray(this, core::mem::transmute_copy(&ppresources), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count))
             }
         }
         unsafe extern "system" fn GetRenderTargetArray<Identity: ID3D10EffectRenderTargetViewVariable_Impl>(this: *mut core::ffi::c_void, ppresources: *mut *mut core::ffi::c_void, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectRenderTargetViewVariable_Impl::GetRenderTargetArray(this, core::mem::transmute_copy(&ppresources), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count)).into()
+                ID3D10EffectRenderTargetViewVariable_Impl::GetRenderTargetArray(this, core::mem::transmute_copy(&ppresources), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count))
             }
         }
         Self {
@@ -5914,8 +5914,8 @@ pub struct ID3D10EffectSamplerVariable_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 pub trait ID3D10EffectSamplerVariable_Impl: ID3D10EffectVariable_Impl {
-    fn GetSampler(&self, index: super::UINT, ppsampler: windows_core::OutRef<ID3D10SamplerState>) -> windows_core::Result<()>;
-    fn GetBackingStore(&self, index: super::UINT, psamplerdesc: *mut D3D10_SAMPLER_DESC) -> windows_core::Result<()>;
+    fn GetSampler(&self, index: super::UINT, ppsampler: windows_core::OutRef<ID3D10SamplerState>) -> windows_core::HRESULT;
+    fn GetBackingStore(&self, index: super::UINT, psamplerdesc: *mut D3D10_SAMPLER_DESC) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 impl ID3D10EffectSamplerVariable_Vtbl {
@@ -5924,14 +5924,14 @@ impl ID3D10EffectSamplerVariable_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectSamplerVariable_Impl::GetSampler(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&ppsampler)).into()
+                ID3D10EffectSamplerVariable_Impl::GetSampler(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&ppsampler))
             }
         }
         unsafe extern "system" fn GetBackingStore<Identity: ID3D10EffectSamplerVariable_Impl>(this: *mut core::ffi::c_void, index: super::UINT, psamplerdesc: *mut D3D10_SAMPLER_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectSamplerVariable_Impl::GetBackingStore(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&psamplerdesc)).into()
+                ID3D10EffectSamplerVariable_Impl::GetBackingStore(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&psamplerdesc))
             }
         }
         Self { base__: ID3D10EffectVariable_Vtbl::new::<Identity>(), GetSampler: GetSampler::<Identity>, GetBackingStore: GetBackingStore::<Identity> }
@@ -6040,18 +6040,18 @@ pub struct ID3D10EffectScalarVariable_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ID3D10EffectScalarVariable_Impl: ID3D10EffectVariable_Impl {
-    fn SetFloat(&self, value: f32) -> windows_core::Result<()>;
-    fn GetFloat(&self, pvalue: *mut f32) -> windows_core::Result<()>;
-    fn SetFloatArray(&self, pdata: *const f32, offset: super::UINT, count: super::UINT) -> windows_core::Result<()>;
-    fn GetFloatArray(&self, pdata: *mut f32, offset: super::UINT, count: super::UINT) -> windows_core::Result<()>;
-    fn SetInt(&self, value: i32) -> windows_core::Result<()>;
-    fn GetInt(&self, pvalue: *mut i32) -> windows_core::Result<()>;
-    fn SetIntArray(&self, pdata: *const i32, offset: super::UINT, count: super::UINT) -> windows_core::Result<()>;
-    fn GetIntArray(&self, pdata: *mut i32, offset: super::UINT, count: super::UINT) -> windows_core::Result<()>;
-    fn SetBool(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetBool(&self, pvalue: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetBoolArray(&self, pdata: *const windows_core::BOOL, offset: super::UINT, count: super::UINT) -> windows_core::Result<()>;
-    fn GetBoolArray(&self, pdata: *mut windows_core::BOOL, offset: super::UINT, count: super::UINT) -> windows_core::Result<()>;
+    fn SetFloat(&self, value: f32) -> windows_core::HRESULT;
+    fn GetFloat(&self, pvalue: *mut f32) -> windows_core::HRESULT;
+    fn SetFloatArray(&self, pdata: *const f32, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT;
+    fn GetFloatArray(&self, pdata: *mut f32, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT;
+    fn SetInt(&self, value: i32) -> windows_core::HRESULT;
+    fn GetInt(&self, pvalue: *mut i32) -> windows_core::HRESULT;
+    fn SetIntArray(&self, pdata: *const i32, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT;
+    fn GetIntArray(&self, pdata: *mut i32, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT;
+    fn SetBool(&self, value: windows_core::BOOL) -> windows_core::HRESULT;
+    fn GetBool(&self, pvalue: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn SetBoolArray(&self, pdata: *const windows_core::BOOL, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT;
+    fn GetBoolArray(&self, pdata: *mut windows_core::BOOL, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ID3D10EffectScalarVariable_Vtbl {
@@ -6060,84 +6060,84 @@ impl ID3D10EffectScalarVariable_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectScalarVariable_Impl::SetFloat(this, core::mem::transmute_copy(&value)).into()
+                ID3D10EffectScalarVariable_Impl::SetFloat(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn GetFloat<Identity: ID3D10EffectScalarVariable_Impl>(this: *mut core::ffi::c_void, pvalue: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectScalarVariable_Impl::GetFloat(this, core::mem::transmute_copy(&pvalue)).into()
+                ID3D10EffectScalarVariable_Impl::GetFloat(this, core::mem::transmute_copy(&pvalue))
             }
         }
         unsafe extern "system" fn SetFloatArray<Identity: ID3D10EffectScalarVariable_Impl>(this: *mut core::ffi::c_void, pdata: *const f32, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectScalarVariable_Impl::SetFloatArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count)).into()
+                ID3D10EffectScalarVariable_Impl::SetFloatArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count))
             }
         }
         unsafe extern "system" fn GetFloatArray<Identity: ID3D10EffectScalarVariable_Impl>(this: *mut core::ffi::c_void, pdata: *mut f32, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectScalarVariable_Impl::GetFloatArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count)).into()
+                ID3D10EffectScalarVariable_Impl::GetFloatArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count))
             }
         }
         unsafe extern "system" fn SetInt<Identity: ID3D10EffectScalarVariable_Impl>(this: *mut core::ffi::c_void, value: i32) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectScalarVariable_Impl::SetInt(this, core::mem::transmute_copy(&value)).into()
+                ID3D10EffectScalarVariable_Impl::SetInt(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn GetInt<Identity: ID3D10EffectScalarVariable_Impl>(this: *mut core::ffi::c_void, pvalue: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectScalarVariable_Impl::GetInt(this, core::mem::transmute_copy(&pvalue)).into()
+                ID3D10EffectScalarVariable_Impl::GetInt(this, core::mem::transmute_copy(&pvalue))
             }
         }
         unsafe extern "system" fn SetIntArray<Identity: ID3D10EffectScalarVariable_Impl>(this: *mut core::ffi::c_void, pdata: *const i32, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectScalarVariable_Impl::SetIntArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count)).into()
+                ID3D10EffectScalarVariable_Impl::SetIntArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count))
             }
         }
         unsafe extern "system" fn GetIntArray<Identity: ID3D10EffectScalarVariable_Impl>(this: *mut core::ffi::c_void, pdata: *mut i32, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectScalarVariable_Impl::GetIntArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count)).into()
+                ID3D10EffectScalarVariable_Impl::GetIntArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count))
             }
         }
         unsafe extern "system" fn SetBool<Identity: ID3D10EffectScalarVariable_Impl>(this: *mut core::ffi::c_void, value: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectScalarVariable_Impl::SetBool(this, core::mem::transmute_copy(&value)).into()
+                ID3D10EffectScalarVariable_Impl::SetBool(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn GetBool<Identity: ID3D10EffectScalarVariable_Impl>(this: *mut core::ffi::c_void, pvalue: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectScalarVariable_Impl::GetBool(this, core::mem::transmute_copy(&pvalue)).into()
+                ID3D10EffectScalarVariable_Impl::GetBool(this, core::mem::transmute_copy(&pvalue))
             }
         }
         unsafe extern "system" fn SetBoolArray<Identity: ID3D10EffectScalarVariable_Impl>(this: *mut core::ffi::c_void, pdata: *const windows_core::BOOL, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectScalarVariable_Impl::SetBoolArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count)).into()
+                ID3D10EffectScalarVariable_Impl::SetBoolArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count))
             }
         }
         unsafe extern "system" fn GetBoolArray<Identity: ID3D10EffectScalarVariable_Impl>(this: *mut core::ffi::c_void, pdata: *mut windows_core::BOOL, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectScalarVariable_Impl::GetBoolArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count)).into()
+                ID3D10EffectScalarVariable_Impl::GetBoolArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count))
             }
         }
         Self {
@@ -6215,10 +6215,10 @@ pub struct ID3D10EffectShaderResourceVariable_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ID3D10EffectShaderResourceVariable_Impl: ID3D10EffectVariable_Impl {
-    fn SetResource(&self, presource: windows_core::Ref<ID3D10ShaderResourceView>) -> windows_core::Result<()>;
-    fn GetResource(&self, ppresource: windows_core::OutRef<ID3D10ShaderResourceView>) -> windows_core::Result<()>;
-    fn SetResourceArray(&self, ppresources: *const Option<ID3D10ShaderResourceView>, offset: super::UINT, count: super::UINT) -> windows_core::Result<()>;
-    fn GetResourceArray(&self, ppresources: *mut Option<ID3D10ShaderResourceView>, offset: super::UINT, count: super::UINT) -> windows_core::Result<()>;
+    fn SetResource(&self, presource: windows_core::Ref<ID3D10ShaderResourceView>) -> windows_core::HRESULT;
+    fn GetResource(&self, ppresource: windows_core::OutRef<ID3D10ShaderResourceView>) -> windows_core::HRESULT;
+    fn SetResourceArray(&self, ppresources: *const Option<ID3D10ShaderResourceView>, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT;
+    fn GetResourceArray(&self, ppresources: *mut Option<ID3D10ShaderResourceView>, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ID3D10EffectShaderResourceVariable_Vtbl {
@@ -6227,28 +6227,28 @@ impl ID3D10EffectShaderResourceVariable_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectShaderResourceVariable_Impl::SetResource(this, core::mem::transmute_copy(&presource)).into()
+                ID3D10EffectShaderResourceVariable_Impl::SetResource(this, core::mem::transmute_copy(&presource))
             }
         }
         unsafe extern "system" fn GetResource<Identity: ID3D10EffectShaderResourceVariable_Impl>(this: *mut core::ffi::c_void, ppresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectShaderResourceVariable_Impl::GetResource(this, core::mem::transmute_copy(&ppresource)).into()
+                ID3D10EffectShaderResourceVariable_Impl::GetResource(this, core::mem::transmute_copy(&ppresource))
             }
         }
         unsafe extern "system" fn SetResourceArray<Identity: ID3D10EffectShaderResourceVariable_Impl>(this: *mut core::ffi::c_void, ppresources: *const *mut core::ffi::c_void, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectShaderResourceVariable_Impl::SetResourceArray(this, core::mem::transmute_copy(&ppresources), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count)).into()
+                ID3D10EffectShaderResourceVariable_Impl::SetResourceArray(this, core::mem::transmute_copy(&ppresources), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count))
             }
         }
         unsafe extern "system" fn GetResourceArray<Identity: ID3D10EffectShaderResourceVariable_Impl>(this: *mut core::ffi::c_void, ppresources: *mut *mut core::ffi::c_void, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectShaderResourceVariable_Impl::GetResourceArray(this, core::mem::transmute_copy(&ppresources), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count)).into()
+                ID3D10EffectShaderResourceVariable_Impl::GetResourceArray(this, core::mem::transmute_copy(&ppresources), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count))
             }
         }
         Self {
@@ -6339,12 +6339,12 @@ pub struct ID3D10EffectShaderVariable_Vtbl {
 }
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
 pub trait ID3D10EffectShaderVariable_Impl: ID3D10EffectVariable_Impl {
-    fn GetShaderDesc(&self, shaderindex: super::UINT, pdesc: *mut D3D10_EFFECT_SHADER_DESC) -> windows_core::Result<()>;
-    fn GetVertexShader(&self, shaderindex: super::UINT, ppvs: windows_core::OutRef<ID3D10VertexShader>) -> windows_core::Result<()>;
-    fn GetGeometryShader(&self, shaderindex: super::UINT, ppgs: windows_core::OutRef<ID3D10GeometryShader>) -> windows_core::Result<()>;
-    fn GetPixelShader(&self, shaderindex: super::UINT, ppps: windows_core::OutRef<ID3D10PixelShader>) -> windows_core::Result<()>;
-    fn GetInputSignatureElementDesc(&self, shaderindex: super::UINT, element: super::UINT, pdesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> windows_core::Result<()>;
-    fn GetOutputSignatureElementDesc(&self, shaderindex: super::UINT, element: super::UINT, pdesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> windows_core::Result<()>;
+    fn GetShaderDesc(&self, shaderindex: super::UINT, pdesc: *mut D3D10_EFFECT_SHADER_DESC) -> windows_core::HRESULT;
+    fn GetVertexShader(&self, shaderindex: super::UINT, ppvs: windows_core::OutRef<ID3D10VertexShader>) -> windows_core::HRESULT;
+    fn GetGeometryShader(&self, shaderindex: super::UINT, ppgs: windows_core::OutRef<ID3D10GeometryShader>) -> windows_core::HRESULT;
+    fn GetPixelShader(&self, shaderindex: super::UINT, ppps: windows_core::OutRef<ID3D10PixelShader>) -> windows_core::HRESULT;
+    fn GetInputSignatureElementDesc(&self, shaderindex: super::UINT, element: super::UINT, pdesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> windows_core::HRESULT;
+    fn GetOutputSignatureElementDesc(&self, shaderindex: super::UINT, element: super::UINT, pdesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
 impl ID3D10EffectShaderVariable_Vtbl {
@@ -6353,42 +6353,42 @@ impl ID3D10EffectShaderVariable_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectShaderVariable_Impl::GetShaderDesc(this, core::mem::transmute_copy(&shaderindex), core::mem::transmute_copy(&pdesc)).into()
+                ID3D10EffectShaderVariable_Impl::GetShaderDesc(this, core::mem::transmute_copy(&shaderindex), core::mem::transmute_copy(&pdesc))
             }
         }
         unsafe extern "system" fn GetVertexShader<Identity: ID3D10EffectShaderVariable_Impl>(this: *mut core::ffi::c_void, shaderindex: super::UINT, ppvs: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectShaderVariable_Impl::GetVertexShader(this, core::mem::transmute_copy(&shaderindex), core::mem::transmute_copy(&ppvs)).into()
+                ID3D10EffectShaderVariable_Impl::GetVertexShader(this, core::mem::transmute_copy(&shaderindex), core::mem::transmute_copy(&ppvs))
             }
         }
         unsafe extern "system" fn GetGeometryShader<Identity: ID3D10EffectShaderVariable_Impl>(this: *mut core::ffi::c_void, shaderindex: super::UINT, ppgs: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectShaderVariable_Impl::GetGeometryShader(this, core::mem::transmute_copy(&shaderindex), core::mem::transmute_copy(&ppgs)).into()
+                ID3D10EffectShaderVariable_Impl::GetGeometryShader(this, core::mem::transmute_copy(&shaderindex), core::mem::transmute_copy(&ppgs))
             }
         }
         unsafe extern "system" fn GetPixelShader<Identity: ID3D10EffectShaderVariable_Impl>(this: *mut core::ffi::c_void, shaderindex: super::UINT, ppps: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectShaderVariable_Impl::GetPixelShader(this, core::mem::transmute_copy(&shaderindex), core::mem::transmute_copy(&ppps)).into()
+                ID3D10EffectShaderVariable_Impl::GetPixelShader(this, core::mem::transmute_copy(&shaderindex), core::mem::transmute_copy(&ppps))
             }
         }
         unsafe extern "system" fn GetInputSignatureElementDesc<Identity: ID3D10EffectShaderVariable_Impl>(this: *mut core::ffi::c_void, shaderindex: super::UINT, element: super::UINT, pdesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectShaderVariable_Impl::GetInputSignatureElementDesc(this, core::mem::transmute_copy(&shaderindex), core::mem::transmute_copy(&element), core::mem::transmute_copy(&pdesc)).into()
+                ID3D10EffectShaderVariable_Impl::GetInputSignatureElementDesc(this, core::mem::transmute_copy(&shaderindex), core::mem::transmute_copy(&element), core::mem::transmute_copy(&pdesc))
             }
         }
         unsafe extern "system" fn GetOutputSignatureElementDesc<Identity: ID3D10EffectShaderVariable_Impl>(this: *mut core::ffi::c_void, shaderindex: super::UINT, element: super::UINT, pdesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectShaderVariable_Impl::GetOutputSignatureElementDesc(this, core::mem::transmute_copy(&shaderindex), core::mem::transmute_copy(&element), core::mem::transmute_copy(&pdesc)).into()
+                ID3D10EffectShaderVariable_Impl::GetOutputSignatureElementDesc(this, core::mem::transmute_copy(&shaderindex), core::mem::transmute_copy(&element), core::mem::transmute_copy(&pdesc))
             }
         }
         Self {
@@ -6445,8 +6445,8 @@ pub struct ID3D10EffectStringVariable_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ID3D10EffectStringVariable_Impl: ID3D10EffectVariable_Impl {
-    fn GetString(&self, ppstring: *mut windows_core::PCSTR) -> windows_core::Result<()>;
-    fn GetStringArray(&self, ppstrings: *mut windows_core::PCSTR, offset: super::UINT, count: super::UINT) -> windows_core::Result<()>;
+    fn GetString(&self, ppstring: *mut windows_core::PCSTR) -> windows_core::HRESULT;
+    fn GetStringArray(&self, ppstrings: *mut windows_core::PCSTR, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ID3D10EffectStringVariable_Vtbl {
@@ -6455,14 +6455,14 @@ impl ID3D10EffectStringVariable_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectStringVariable_Impl::GetString(this, core::mem::transmute_copy(&ppstring)).into()
+                ID3D10EffectStringVariable_Impl::GetString(this, core::mem::transmute_copy(&ppstring))
             }
         }
         unsafe extern "system" fn GetStringArray<Identity: ID3D10EffectStringVariable_Impl>(this: *mut core::ffi::c_void, ppstrings: *mut windows_core::PCSTR, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectStringVariable_Impl::GetStringArray(this, core::mem::transmute_copy(&ppstrings), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count)).into()
+                ID3D10EffectStringVariable_Impl::GetStringArray(this, core::mem::transmute_copy(&ppstrings), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count))
             }
         }
         Self { base__: ID3D10EffectVariable_Vtbl::new::<Identity>(), GetString: GetString::<Identity>, GetStringArray: GetStringArray::<Identity> }
@@ -6542,12 +6542,12 @@ pub struct ID3D10EffectTechnique_Vtbl {
 #[cfg(feature = "shared")]
 pub trait ID3D10EffectTechnique_Impl {
     fn IsValid(&self) -> windows_core::BOOL;
-    fn GetDesc(&self, pdesc: *mut D3D10_TECHNIQUE_DESC) -> windows_core::Result<()>;
+    fn GetDesc(&self, pdesc: *mut D3D10_TECHNIQUE_DESC) -> windows_core::HRESULT;
     fn GetAnnotationByIndex(&self, index: super::UINT) -> Option<ID3D10EffectVariable>;
     fn GetAnnotationByName(&self, name: &windows_core::PCSTR) -> Option<ID3D10EffectVariable>;
     fn GetPassByIndex(&self, index: super::UINT) -> Option<ID3D10EffectPass>;
     fn GetPassByName(&self, name: &windows_core::PCSTR) -> Option<ID3D10EffectPass>;
-    fn ComputeStateBlockMask(&self, pstateblockmask: *mut D3D10_STATE_BLOCK_MASK) -> windows_core::Result<()>;
+    fn ComputeStateBlockMask(&self, pstateblockmask: *mut D3D10_STATE_BLOCK_MASK) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ID3D10EffectTechnique_Vtbl {
@@ -6563,7 +6563,7 @@ impl ID3D10EffectTechnique_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectTechnique_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc)).into()
+                ID3D10EffectTechnique_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc))
             }
         }
         unsafe extern "system" fn GetAnnotationByIndex<Identity: ID3D10EffectTechnique_Impl>(this: *mut core::ffi::c_void, index: super::UINT) -> Option<ID3D10EffectVariable> {
@@ -6598,7 +6598,7 @@ impl ID3D10EffectTechnique_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectTechnique_Impl::ComputeStateBlockMask(this, core::mem::transmute_copy(&pstateblockmask)).into()
+                ID3D10EffectTechnique_Impl::ComputeStateBlockMask(this, core::mem::transmute_copy(&pstateblockmask))
             }
         }
         Self {
@@ -6686,7 +6686,7 @@ pub struct ID3D10EffectType_Vtbl {
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
 pub trait ID3D10EffectType_Impl {
     fn IsValid(&self) -> windows_core::BOOL;
-    fn GetDesc(&self, pdesc: *mut D3D10_EFFECT_TYPE_DESC) -> windows_core::Result<()>;
+    fn GetDesc(&self, pdesc: *mut D3D10_EFFECT_TYPE_DESC) -> windows_core::HRESULT;
     fn GetMemberTypeByIndex(&self, index: super::UINT) -> Option<ID3D10EffectType>;
     fn GetMemberTypeByName(&self, name: &windows_core::PCSTR) -> Option<ID3D10EffectType>;
     fn GetMemberTypeBySemantic(&self, semantic: &windows_core::PCSTR) -> Option<ID3D10EffectType>;
@@ -6707,7 +6707,7 @@ impl ID3D10EffectType_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectType_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc)).into()
+                ID3D10EffectType_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc))
             }
         }
         unsafe extern "system" fn GetMemberTypeByIndex<Identity: ID3D10EffectType_Impl>(this: *mut core::ffi::c_void, index: super::UINT) -> Option<ID3D10EffectType> {
@@ -6914,7 +6914,7 @@ pub struct ID3D10EffectVariable_Vtbl {
 pub trait ID3D10EffectVariable_Impl {
     fn IsValid(&self) -> windows_core::BOOL;
     fn GetType(&self) -> Option<ID3D10EffectType>;
-    fn GetDesc(&self, pdesc: *mut D3D10_EFFECT_VARIABLE_DESC) -> windows_core::Result<()>;
+    fn GetDesc(&self, pdesc: *mut D3D10_EFFECT_VARIABLE_DESC) -> windows_core::HRESULT;
     fn GetAnnotationByIndex(&self, index: super::UINT) -> Option<ID3D10EffectVariable>;
     fn GetAnnotationByName(&self, name: &windows_core::PCSTR) -> Option<ID3D10EffectVariable>;
     fn GetMemberByIndex(&self, index: super::UINT) -> Option<ID3D10EffectVariable>;
@@ -6935,8 +6935,8 @@ pub trait ID3D10EffectVariable_Impl {
     fn AsDepthStencil(&self) -> Option<ID3D10EffectDepthStencilVariable>;
     fn AsRasterizer(&self) -> Option<ID3D10EffectRasterizerVariable>;
     fn AsSampler(&self) -> Option<ID3D10EffectSamplerVariable>;
-    fn SetRawValue(&self, pdata: *const core::ffi::c_void, offset: super::UINT, bytecount: super::UINT) -> windows_core::Result<()>;
-    fn GetRawValue(&self, pdata: *mut core::ffi::c_void, offset: super::UINT, bytecount: super::UINT) -> windows_core::Result<()>;
+    fn SetRawValue(&self, pdata: *const core::ffi::c_void, offset: super::UINT, bytecount: super::UINT) -> windows_core::HRESULT;
+    fn GetRawValue(&self, pdata: *mut core::ffi::c_void, offset: super::UINT, bytecount: super::UINT) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ID3D10EffectVariable_Vtbl {
@@ -6959,7 +6959,7 @@ impl ID3D10EffectVariable_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectVariable_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc)).into()
+                ID3D10EffectVariable_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc))
             }
         }
         unsafe extern "system" fn GetAnnotationByIndex<Identity: ID3D10EffectVariable_Impl>(this: *mut core::ffi::c_void, index: super::UINT) -> Option<ID3D10EffectVariable> {
@@ -7106,14 +7106,14 @@ impl ID3D10EffectVariable_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectVariable_Impl::SetRawValue(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&bytecount)).into()
+                ID3D10EffectVariable_Impl::SetRawValue(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&bytecount))
             }
         }
         unsafe extern "system" fn GetRawValue<Identity: ID3D10EffectVariable_Impl>(this: *mut core::ffi::c_void, pdata: *mut core::ffi::c_void, offset: super::UINT, bytecount: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectVariable_Impl::GetRawValue(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&bytecount)).into()
+                ID3D10EffectVariable_Impl::GetRawValue(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&bytecount))
             }
         }
         Self {
@@ -7248,18 +7248,18 @@ pub struct ID3D10EffectVectorVariable_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ID3D10EffectVectorVariable_Impl: ID3D10EffectVariable_Impl {
-    fn SetBoolVector(&self, pdata: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetIntVector(&self, pdata: *mut i32) -> windows_core::Result<()>;
-    fn SetFloatVector(&self, pdata: *mut f32) -> windows_core::Result<()>;
-    fn GetBoolVector(&self, pdata: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetIntVector(&self, pdata: *mut i32) -> windows_core::Result<()>;
-    fn GetFloatVector(&self, pdata: *mut f32) -> windows_core::Result<()>;
-    fn SetBoolVectorArray(&self, pdata: *mut windows_core::BOOL, offset: super::UINT, count: super::UINT) -> windows_core::Result<()>;
-    fn SetIntVectorArray(&self, pdata: *mut i32, offset: super::UINT, count: super::UINT) -> windows_core::Result<()>;
-    fn SetFloatVectorArray(&self, pdata: *mut f32, offset: super::UINT, count: super::UINT) -> windows_core::Result<()>;
-    fn GetBoolVectorArray(&self, pdata: *mut windows_core::BOOL, offset: super::UINT, count: super::UINT) -> windows_core::Result<()>;
-    fn GetIntVectorArray(&self, pdata: *mut i32, offset: super::UINT, count: super::UINT) -> windows_core::Result<()>;
-    fn GetFloatVectorArray(&self, pdata: *mut f32, offset: super::UINT, count: super::UINT) -> windows_core::Result<()>;
+    fn SetBoolVector(&self, pdata: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn SetIntVector(&self, pdata: *mut i32) -> windows_core::HRESULT;
+    fn SetFloatVector(&self, pdata: *mut f32) -> windows_core::HRESULT;
+    fn GetBoolVector(&self, pdata: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn GetIntVector(&self, pdata: *mut i32) -> windows_core::HRESULT;
+    fn GetFloatVector(&self, pdata: *mut f32) -> windows_core::HRESULT;
+    fn SetBoolVectorArray(&self, pdata: *mut windows_core::BOOL, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT;
+    fn SetIntVectorArray(&self, pdata: *mut i32, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT;
+    fn SetFloatVectorArray(&self, pdata: *mut f32, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT;
+    fn GetBoolVectorArray(&self, pdata: *mut windows_core::BOOL, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT;
+    fn GetIntVectorArray(&self, pdata: *mut i32, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT;
+    fn GetFloatVectorArray(&self, pdata: *mut f32, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ID3D10EffectVectorVariable_Vtbl {
@@ -7268,84 +7268,84 @@ impl ID3D10EffectVectorVariable_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectVectorVariable_Impl::SetBoolVector(this, core::mem::transmute_copy(&pdata)).into()
+                ID3D10EffectVectorVariable_Impl::SetBoolVector(this, core::mem::transmute_copy(&pdata))
             }
         }
         unsafe extern "system" fn SetIntVector<Identity: ID3D10EffectVectorVariable_Impl>(this: *mut core::ffi::c_void, pdata: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectVectorVariable_Impl::SetIntVector(this, core::mem::transmute_copy(&pdata)).into()
+                ID3D10EffectVectorVariable_Impl::SetIntVector(this, core::mem::transmute_copy(&pdata))
             }
         }
         unsafe extern "system" fn SetFloatVector<Identity: ID3D10EffectVectorVariable_Impl>(this: *mut core::ffi::c_void, pdata: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectVectorVariable_Impl::SetFloatVector(this, core::mem::transmute_copy(&pdata)).into()
+                ID3D10EffectVectorVariable_Impl::SetFloatVector(this, core::mem::transmute_copy(&pdata))
             }
         }
         unsafe extern "system" fn GetBoolVector<Identity: ID3D10EffectVectorVariable_Impl>(this: *mut core::ffi::c_void, pdata: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectVectorVariable_Impl::GetBoolVector(this, core::mem::transmute_copy(&pdata)).into()
+                ID3D10EffectVectorVariable_Impl::GetBoolVector(this, core::mem::transmute_copy(&pdata))
             }
         }
         unsafe extern "system" fn GetIntVector<Identity: ID3D10EffectVectorVariable_Impl>(this: *mut core::ffi::c_void, pdata: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectVectorVariable_Impl::GetIntVector(this, core::mem::transmute_copy(&pdata)).into()
+                ID3D10EffectVectorVariable_Impl::GetIntVector(this, core::mem::transmute_copy(&pdata))
             }
         }
         unsafe extern "system" fn GetFloatVector<Identity: ID3D10EffectVectorVariable_Impl>(this: *mut core::ffi::c_void, pdata: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectVectorVariable_Impl::GetFloatVector(this, core::mem::transmute_copy(&pdata)).into()
+                ID3D10EffectVectorVariable_Impl::GetFloatVector(this, core::mem::transmute_copy(&pdata))
             }
         }
         unsafe extern "system" fn SetBoolVectorArray<Identity: ID3D10EffectVectorVariable_Impl>(this: *mut core::ffi::c_void, pdata: *mut windows_core::BOOL, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectVectorVariable_Impl::SetBoolVectorArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count)).into()
+                ID3D10EffectVectorVariable_Impl::SetBoolVectorArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count))
             }
         }
         unsafe extern "system" fn SetIntVectorArray<Identity: ID3D10EffectVectorVariable_Impl>(this: *mut core::ffi::c_void, pdata: *mut i32, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectVectorVariable_Impl::SetIntVectorArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count)).into()
+                ID3D10EffectVectorVariable_Impl::SetIntVectorArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count))
             }
         }
         unsafe extern "system" fn SetFloatVectorArray<Identity: ID3D10EffectVectorVariable_Impl>(this: *mut core::ffi::c_void, pdata: *mut f32, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectVectorVariable_Impl::SetFloatVectorArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count)).into()
+                ID3D10EffectVectorVariable_Impl::SetFloatVectorArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count))
             }
         }
         unsafe extern "system" fn GetBoolVectorArray<Identity: ID3D10EffectVectorVariable_Impl>(this: *mut core::ffi::c_void, pdata: *mut windows_core::BOOL, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectVectorVariable_Impl::GetBoolVectorArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count)).into()
+                ID3D10EffectVectorVariable_Impl::GetBoolVectorArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count))
             }
         }
         unsafe extern "system" fn GetIntVectorArray<Identity: ID3D10EffectVectorVariable_Impl>(this: *mut core::ffi::c_void, pdata: *mut i32, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectVectorVariable_Impl::GetIntVectorArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count)).into()
+                ID3D10EffectVectorVariable_Impl::GetIntVectorArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count))
             }
         }
         unsafe extern "system" fn GetFloatVectorArray<Identity: ID3D10EffectVectorVariable_Impl>(this: *mut core::ffi::c_void, pdata: *mut f32, offset: super::UINT, count: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectVectorVariable_Impl::GetFloatVectorArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count)).into()
+                ID3D10EffectVectorVariable_Impl::GetFloatVectorArray(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count))
             }
         }
         Self {
@@ -7400,7 +7400,7 @@ impl ID3D10GeometryShader_Vtbl {
         Self { base__: ID3D10DeviceChild_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D10GeometryShader as windows_core::Interface>::IID || iid == &<ID3D10DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D10GeometryShader as windows_core::Interface>::IID || ID3D10DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -7640,36 +7640,36 @@ pub struct ID3D10InfoQueue_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ID3D10InfoQueue_Impl: windows_core::IUnknownImpl {
-    fn SetMessageCountLimit(&self, messagecountlimit: super::UINT64) -> windows_core::Result<()>;
+    fn SetMessageCountLimit(&self, messagecountlimit: super::UINT64) -> windows_core::HRESULT;
     fn ClearStoredMessages(&self);
-    fn GetMessage(&self, messageindex: super::UINT64, pmessage: *mut D3D10_MESSAGE, pmessagebytelength: *mut super::SIZE_T) -> windows_core::Result<()>;
+    fn GetMessage(&self, messageindex: super::UINT64, pmessage: *mut D3D10_MESSAGE, pmessagebytelength: *mut super::SIZE_T) -> windows_core::HRESULT;
     fn GetNumMessagesAllowedByStorageFilter(&self) -> super::UINT64;
     fn GetNumMessagesDeniedByStorageFilter(&self) -> super::UINT64;
     fn GetNumStoredMessages(&self) -> super::UINT64;
     fn GetNumStoredMessagesAllowedByRetrievalFilter(&self) -> super::UINT64;
     fn GetNumMessagesDiscardedByMessageCountLimit(&self) -> super::UINT64;
     fn GetMessageCountLimit(&self) -> super::UINT64;
-    fn AddStorageFilterEntries(&self, pfilter: *const D3D10_INFO_QUEUE_FILTER) -> windows_core::Result<()>;
-    fn GetStorageFilter(&self, pfilter: *mut D3D10_INFO_QUEUE_FILTER, pfilterbytelength: *mut super::SIZE_T) -> windows_core::Result<()>;
+    fn AddStorageFilterEntries(&self, pfilter: *const D3D10_INFO_QUEUE_FILTER) -> windows_core::HRESULT;
+    fn GetStorageFilter(&self, pfilter: *mut D3D10_INFO_QUEUE_FILTER, pfilterbytelength: *mut super::SIZE_T) -> windows_core::HRESULT;
     fn ClearStorageFilter(&self);
-    fn PushEmptyStorageFilter(&self) -> windows_core::Result<()>;
-    fn PushCopyOfStorageFilter(&self) -> windows_core::Result<()>;
-    fn PushStorageFilter(&self, pfilter: *const D3D10_INFO_QUEUE_FILTER) -> windows_core::Result<()>;
+    fn PushEmptyStorageFilter(&self) -> windows_core::HRESULT;
+    fn PushCopyOfStorageFilter(&self) -> windows_core::HRESULT;
+    fn PushStorageFilter(&self, pfilter: *const D3D10_INFO_QUEUE_FILTER) -> windows_core::HRESULT;
     fn PopStorageFilter(&self);
     fn GetStorageFilterStackSize(&self) -> super::UINT;
-    fn AddRetrievalFilterEntries(&self, pfilter: *const D3D10_INFO_QUEUE_FILTER) -> windows_core::Result<()>;
-    fn GetRetrievalFilter(&self, pfilter: *mut D3D10_INFO_QUEUE_FILTER, pfilterbytelength: *mut super::SIZE_T) -> windows_core::Result<()>;
+    fn AddRetrievalFilterEntries(&self, pfilter: *const D3D10_INFO_QUEUE_FILTER) -> windows_core::HRESULT;
+    fn GetRetrievalFilter(&self, pfilter: *mut D3D10_INFO_QUEUE_FILTER, pfilterbytelength: *mut super::SIZE_T) -> windows_core::HRESULT;
     fn ClearRetrievalFilter(&self);
-    fn PushEmptyRetrievalFilter(&self) -> windows_core::Result<()>;
-    fn PushCopyOfRetrievalFilter(&self) -> windows_core::Result<()>;
-    fn PushRetrievalFilter(&self, pfilter: *const D3D10_INFO_QUEUE_FILTER) -> windows_core::Result<()>;
+    fn PushEmptyRetrievalFilter(&self) -> windows_core::HRESULT;
+    fn PushCopyOfRetrievalFilter(&self) -> windows_core::HRESULT;
+    fn PushRetrievalFilter(&self, pfilter: *const D3D10_INFO_QUEUE_FILTER) -> windows_core::HRESULT;
     fn PopRetrievalFilter(&self);
     fn GetRetrievalFilterStackSize(&self) -> super::UINT;
-    fn AddMessage(&self, category: D3D10_MESSAGE_CATEGORY, severity: D3D10_MESSAGE_SEVERITY, id: D3D10_MESSAGE_ID, pdescription: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn AddApplicationMessage(&self, severity: D3D10_MESSAGE_SEVERITY, pdescription: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn SetBreakOnCategory(&self, category: D3D10_MESSAGE_CATEGORY, benable: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetBreakOnSeverity(&self, severity: D3D10_MESSAGE_SEVERITY, benable: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetBreakOnID(&self, id: D3D10_MESSAGE_ID, benable: windows_core::BOOL) -> windows_core::Result<()>;
+    fn AddMessage(&self, category: D3D10_MESSAGE_CATEGORY, severity: D3D10_MESSAGE_SEVERITY, id: D3D10_MESSAGE_ID, pdescription: &windows_core::PCSTR) -> windows_core::HRESULT;
+    fn AddApplicationMessage(&self, severity: D3D10_MESSAGE_SEVERITY, pdescription: &windows_core::PCSTR) -> windows_core::HRESULT;
+    fn SetBreakOnCategory(&self, category: D3D10_MESSAGE_CATEGORY, benable: windows_core::BOOL) -> windows_core::HRESULT;
+    fn SetBreakOnSeverity(&self, severity: D3D10_MESSAGE_SEVERITY, benable: windows_core::BOOL) -> windows_core::HRESULT;
+    fn SetBreakOnID(&self, id: D3D10_MESSAGE_ID, benable: windows_core::BOOL) -> windows_core::HRESULT;
     fn GetBreakOnCategory(&self, category: D3D10_MESSAGE_CATEGORY) -> windows_core::BOOL;
     fn GetBreakOnSeverity(&self, severity: D3D10_MESSAGE_SEVERITY) -> windows_core::BOOL;
     fn GetBreakOnID(&self, id: D3D10_MESSAGE_ID) -> windows_core::BOOL;
@@ -7682,7 +7682,7 @@ impl ID3D10InfoQueue_Vtbl {
         unsafe extern "system" fn SetMessageCountLimit<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, messagecountlimit: super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10InfoQueue_Impl::SetMessageCountLimit(this, core::mem::transmute_copy(&messagecountlimit)).into()
+                ID3D10InfoQueue_Impl::SetMessageCountLimit(this, core::mem::transmute_copy(&messagecountlimit))
             }
         }
         unsafe extern "system" fn ClearStoredMessages<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
@@ -7694,7 +7694,7 @@ impl ID3D10InfoQueue_Vtbl {
         unsafe extern "system" fn GetMessage<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, messageindex: super::UINT64, pmessage: *mut D3D10_MESSAGE, pmessagebytelength: *mut super::SIZE_T) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10InfoQueue_Impl::GetMessage(this, core::mem::transmute_copy(&messageindex), core::mem::transmute_copy(&pmessage), core::mem::transmute_copy(&pmessagebytelength)).into()
+                ID3D10InfoQueue_Impl::GetMessage(this, core::mem::transmute_copy(&messageindex), core::mem::transmute_copy(&pmessage), core::mem::transmute_copy(&pmessagebytelength))
             }
         }
         unsafe extern "system" fn GetNumMessagesAllowedByStorageFilter<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::UINT64 {
@@ -7736,13 +7736,13 @@ impl ID3D10InfoQueue_Vtbl {
         unsafe extern "system" fn AddStorageFilterEntries<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfilter: *const D3D10_INFO_QUEUE_FILTER) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10InfoQueue_Impl::AddStorageFilterEntries(this, core::mem::transmute_copy(&pfilter)).into()
+                ID3D10InfoQueue_Impl::AddStorageFilterEntries(this, core::mem::transmute_copy(&pfilter))
             }
         }
         unsafe extern "system" fn GetStorageFilter<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfilter: *mut D3D10_INFO_QUEUE_FILTER, pfilterbytelength: *mut super::SIZE_T) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10InfoQueue_Impl::GetStorageFilter(this, core::mem::transmute_copy(&pfilter), core::mem::transmute_copy(&pfilterbytelength)).into()
+                ID3D10InfoQueue_Impl::GetStorageFilter(this, core::mem::transmute_copy(&pfilter), core::mem::transmute_copy(&pfilterbytelength))
             }
         }
         unsafe extern "system" fn ClearStorageFilter<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
@@ -7754,19 +7754,19 @@ impl ID3D10InfoQueue_Vtbl {
         unsafe extern "system" fn PushEmptyStorageFilter<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10InfoQueue_Impl::PushEmptyStorageFilter(this).into()
+                ID3D10InfoQueue_Impl::PushEmptyStorageFilter(this)
             }
         }
         unsafe extern "system" fn PushCopyOfStorageFilter<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10InfoQueue_Impl::PushCopyOfStorageFilter(this).into()
+                ID3D10InfoQueue_Impl::PushCopyOfStorageFilter(this)
             }
         }
         unsafe extern "system" fn PushStorageFilter<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfilter: *const D3D10_INFO_QUEUE_FILTER) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10InfoQueue_Impl::PushStorageFilter(this, core::mem::transmute_copy(&pfilter)).into()
+                ID3D10InfoQueue_Impl::PushStorageFilter(this, core::mem::transmute_copy(&pfilter))
             }
         }
         unsafe extern "system" fn PopStorageFilter<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
@@ -7784,13 +7784,13 @@ impl ID3D10InfoQueue_Vtbl {
         unsafe extern "system" fn AddRetrievalFilterEntries<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfilter: *const D3D10_INFO_QUEUE_FILTER) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10InfoQueue_Impl::AddRetrievalFilterEntries(this, core::mem::transmute_copy(&pfilter)).into()
+                ID3D10InfoQueue_Impl::AddRetrievalFilterEntries(this, core::mem::transmute_copy(&pfilter))
             }
         }
         unsafe extern "system" fn GetRetrievalFilter<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfilter: *mut D3D10_INFO_QUEUE_FILTER, pfilterbytelength: *mut super::SIZE_T) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10InfoQueue_Impl::GetRetrievalFilter(this, core::mem::transmute_copy(&pfilter), core::mem::transmute_copy(&pfilterbytelength)).into()
+                ID3D10InfoQueue_Impl::GetRetrievalFilter(this, core::mem::transmute_copy(&pfilter), core::mem::transmute_copy(&pfilterbytelength))
             }
         }
         unsafe extern "system" fn ClearRetrievalFilter<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
@@ -7802,19 +7802,19 @@ impl ID3D10InfoQueue_Vtbl {
         unsafe extern "system" fn PushEmptyRetrievalFilter<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10InfoQueue_Impl::PushEmptyRetrievalFilter(this).into()
+                ID3D10InfoQueue_Impl::PushEmptyRetrievalFilter(this)
             }
         }
         unsafe extern "system" fn PushCopyOfRetrievalFilter<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10InfoQueue_Impl::PushCopyOfRetrievalFilter(this).into()
+                ID3D10InfoQueue_Impl::PushCopyOfRetrievalFilter(this)
             }
         }
         unsafe extern "system" fn PushRetrievalFilter<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfilter: *const D3D10_INFO_QUEUE_FILTER) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10InfoQueue_Impl::PushRetrievalFilter(this, core::mem::transmute_copy(&pfilter)).into()
+                ID3D10InfoQueue_Impl::PushRetrievalFilter(this, core::mem::transmute_copy(&pfilter))
             }
         }
         unsafe extern "system" fn PopRetrievalFilter<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
@@ -7832,31 +7832,31 @@ impl ID3D10InfoQueue_Vtbl {
         unsafe extern "system" fn AddMessage<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: D3D10_MESSAGE_CATEGORY, severity: D3D10_MESSAGE_SEVERITY, id: D3D10_MESSAGE_ID, pdescription: windows_core::PCSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10InfoQueue_Impl::AddMessage(this, core::mem::transmute_copy(&category), core::mem::transmute_copy(&severity), core::mem::transmute_copy(&id), core::mem::transmute(&pdescription)).into()
+                ID3D10InfoQueue_Impl::AddMessage(this, core::mem::transmute_copy(&category), core::mem::transmute_copy(&severity), core::mem::transmute_copy(&id), core::mem::transmute(&pdescription))
             }
         }
         unsafe extern "system" fn AddApplicationMessage<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, severity: D3D10_MESSAGE_SEVERITY, pdescription: windows_core::PCSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10InfoQueue_Impl::AddApplicationMessage(this, core::mem::transmute_copy(&severity), core::mem::transmute(&pdescription)).into()
+                ID3D10InfoQueue_Impl::AddApplicationMessage(this, core::mem::transmute_copy(&severity), core::mem::transmute(&pdescription))
             }
         }
         unsafe extern "system" fn SetBreakOnCategory<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: D3D10_MESSAGE_CATEGORY, benable: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10InfoQueue_Impl::SetBreakOnCategory(this, core::mem::transmute_copy(&category), core::mem::transmute_copy(&benable)).into()
+                ID3D10InfoQueue_Impl::SetBreakOnCategory(this, core::mem::transmute_copy(&category), core::mem::transmute_copy(&benable))
             }
         }
         unsafe extern "system" fn SetBreakOnSeverity<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, severity: D3D10_MESSAGE_SEVERITY, benable: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10InfoQueue_Impl::SetBreakOnSeverity(this, core::mem::transmute_copy(&severity), core::mem::transmute_copy(&benable)).into()
+                ID3D10InfoQueue_Impl::SetBreakOnSeverity(this, core::mem::transmute_copy(&severity), core::mem::transmute_copy(&benable))
             }
         }
         unsafe extern "system" fn SetBreakOnID<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: D3D10_MESSAGE_ID, benable: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10InfoQueue_Impl::SetBreakOnID(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&benable)).into()
+                ID3D10InfoQueue_Impl::SetBreakOnID(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&benable))
             }
         }
         unsafe extern "system" fn GetBreakOnCategory<Identity: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: D3D10_MESSAGE_CATEGORY) -> windows_core::BOOL {
@@ -7955,7 +7955,7 @@ impl ID3D10InputLayout_Vtbl {
         Self { base__: ID3D10DeviceChild_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D10InputLayout as windows_core::Interface>::IID || iid == &<ID3D10DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D10InputLayout as windows_core::Interface>::IID || ID3D10DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -8055,7 +8055,7 @@ impl ID3D10PixelShader_Vtbl {
         Self { base__: ID3D10DeviceChild_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D10PixelShader as windows_core::Interface>::IID || iid == &<ID3D10DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D10PixelShader as windows_core::Interface>::IID || ID3D10DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -8081,7 +8081,7 @@ impl ID3D10Predicate_Vtbl {
         Self { base__: ID3D10Query_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D10Predicate as windows_core::Interface>::IID || iid == &<ID3D10DeviceChild as windows_core::Interface>::IID || iid == &<ID3D10Asynchronous as windows_core::Interface>::IID || iid == &<ID3D10Query as windows_core::Interface>::IID
+        iid == &<ID3D10Predicate as windows_core::Interface>::IID || ID3D10Query_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -8127,7 +8127,7 @@ impl ID3D10Query_Vtbl {
         Self { base__: ID3D10Asynchronous_Vtbl::new::<Identity, OFFSET>(), GetDesc: GetDesc::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D10Query as windows_core::Interface>::IID || iid == &<ID3D10DeviceChild as windows_core::Interface>::IID || iid == &<ID3D10Asynchronous as windows_core::Interface>::IID
+        iid == &<ID3D10Query as windows_core::Interface>::IID || ID3D10Asynchronous_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -8173,7 +8173,7 @@ impl ID3D10RasterizerState_Vtbl {
         Self { base__: ID3D10DeviceChild_Vtbl::new::<Identity, OFFSET>(), GetDesc: GetDesc::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D10RasterizerState as windows_core::Interface>::IID || iid == &<ID3D10DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D10RasterizerState as windows_core::Interface>::IID || ID3D10DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
@@ -8219,7 +8219,7 @@ impl ID3D10RenderTargetView_Vtbl {
         Self { base__: ID3D10View_Vtbl::new::<Identity, OFFSET>(), GetDesc: GetDesc::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D10RenderTargetView as windows_core::Interface>::IID || iid == &<ID3D10DeviceChild as windows_core::Interface>::IID || iid == &<ID3D10View as windows_core::Interface>::IID
+        iid == &<ID3D10RenderTargetView as windows_core::Interface>::IID || ID3D10View_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "dxgi", feature = "shared"))]
@@ -8298,7 +8298,7 @@ impl ID3D10Resource_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D10Resource as windows_core::Interface>::IID || iid == &<ID3D10DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D10Resource as windows_core::Interface>::IID || ID3D10DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -8344,7 +8344,7 @@ impl ID3D10SamplerState_Vtbl {
         Self { base__: ID3D10DeviceChild_Vtbl::new::<Identity, OFFSET>(), GetDesc: GetDesc::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D10SamplerState as windows_core::Interface>::IID || iid == &<ID3D10DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D10SamplerState as windows_core::Interface>::IID || ID3D10DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
@@ -8407,12 +8407,12 @@ pub struct ID3D10ShaderReflection_Vtbl {
 }
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
 pub trait ID3D10ShaderReflection_Impl: windows_core::IUnknownImpl {
-    fn GetDesc(&self, pdesc: *mut D3D10_SHADER_DESC) -> windows_core::Result<()>;
+    fn GetDesc(&self, pdesc: *mut D3D10_SHADER_DESC) -> windows_core::HRESULT;
     fn GetConstantBufferByIndex(&self, index: super::UINT) -> Option<ID3D10ShaderReflectionConstantBuffer>;
     fn GetConstantBufferByName(&self, name: &windows_core::PCSTR) -> Option<ID3D10ShaderReflectionConstantBuffer>;
-    fn GetResourceBindingDesc(&self, resourceindex: super::UINT, pdesc: *mut D3D10_SHADER_INPUT_BIND_DESC) -> windows_core::Result<()>;
-    fn GetInputParameterDesc(&self, parameterindex: super::UINT, pdesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> windows_core::Result<()>;
-    fn GetOutputParameterDesc(&self, parameterindex: super::UINT, pdesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> windows_core::Result<()>;
+    fn GetResourceBindingDesc(&self, resourceindex: super::UINT, pdesc: *mut D3D10_SHADER_INPUT_BIND_DESC) -> windows_core::HRESULT;
+    fn GetInputParameterDesc(&self, parameterindex: super::UINT, pdesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> windows_core::HRESULT;
+    fn GetOutputParameterDesc(&self, parameterindex: super::UINT, pdesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
 impl ID3D10ShaderReflection_Vtbl {
@@ -8420,7 +8420,7 @@ impl ID3D10ShaderReflection_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ID3D10ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *mut D3D10_SHADER_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10ShaderReflection_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc)).into()
+                ID3D10ShaderReflection_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc))
             }
         }
         unsafe extern "system" fn GetConstantBufferByIndex<Identity: ID3D10ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT) -> Option<ID3D10ShaderReflectionConstantBuffer> {
@@ -8438,19 +8438,19 @@ impl ID3D10ShaderReflection_Vtbl {
         unsafe extern "system" fn GetResourceBindingDesc<Identity: ID3D10ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourceindex: super::UINT, pdesc: *mut D3D10_SHADER_INPUT_BIND_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10ShaderReflection_Impl::GetResourceBindingDesc(this, core::mem::transmute_copy(&resourceindex), core::mem::transmute_copy(&pdesc)).into()
+                ID3D10ShaderReflection_Impl::GetResourceBindingDesc(this, core::mem::transmute_copy(&resourceindex), core::mem::transmute_copy(&pdesc))
             }
         }
         unsafe extern "system" fn GetInputParameterDesc<Identity: ID3D10ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parameterindex: super::UINT, pdesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10ShaderReflection_Impl::GetInputParameterDesc(this, core::mem::transmute_copy(&parameterindex), core::mem::transmute_copy(&pdesc)).into()
+                ID3D10ShaderReflection_Impl::GetInputParameterDesc(this, core::mem::transmute_copy(&parameterindex), core::mem::transmute_copy(&pdesc))
             }
         }
         unsafe extern "system" fn GetOutputParameterDesc<Identity: ID3D10ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parameterindex: super::UINT, pdesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10ShaderReflection_Impl::GetOutputParameterDesc(this, core::mem::transmute_copy(&parameterindex), core::mem::transmute_copy(&pdesc)).into()
+                ID3D10ShaderReflection_Impl::GetOutputParameterDesc(this, core::mem::transmute_copy(&parameterindex), core::mem::transmute_copy(&pdesc))
             }
         }
         Self {
@@ -8593,21 +8593,21 @@ pub struct ID3D10ShaderReflection1_Vtbl {
 }
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
 pub trait ID3D10ShaderReflection1_Impl: windows_core::IUnknownImpl {
-    fn GetDesc(&self, pdesc: *mut D3D10_SHADER_DESC) -> windows_core::Result<()>;
+    fn GetDesc(&self, pdesc: *mut D3D10_SHADER_DESC) -> windows_core::HRESULT;
     fn GetConstantBufferByIndex(&self, index: super::UINT) -> Option<ID3D10ShaderReflectionConstantBuffer>;
     fn GetConstantBufferByName(&self, name: &windows_core::PCSTR) -> Option<ID3D10ShaderReflectionConstantBuffer>;
-    fn GetResourceBindingDesc(&self, resourceindex: super::UINT, pdesc: *mut D3D10_SHADER_INPUT_BIND_DESC) -> windows_core::Result<()>;
-    fn GetInputParameterDesc(&self, parameterindex: super::UINT, pdesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> windows_core::Result<()>;
-    fn GetOutputParameterDesc(&self, parameterindex: super::UINT, pdesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> windows_core::Result<()>;
+    fn GetResourceBindingDesc(&self, resourceindex: super::UINT, pdesc: *mut D3D10_SHADER_INPUT_BIND_DESC) -> windows_core::HRESULT;
+    fn GetInputParameterDesc(&self, parameterindex: super::UINT, pdesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> windows_core::HRESULT;
+    fn GetOutputParameterDesc(&self, parameterindex: super::UINT, pdesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> windows_core::HRESULT;
     fn GetVariableByName(&self, name: &windows_core::PCSTR) -> Option<ID3D10ShaderReflectionVariable>;
-    fn GetResourceBindingDescByName(&self, name: &windows_core::PCSTR, pdesc: *mut D3D10_SHADER_INPUT_BIND_DESC) -> windows_core::Result<()>;
-    fn GetMovInstructionCount(&self, pcount: *mut super::UINT) -> windows_core::Result<()>;
-    fn GetMovcInstructionCount(&self, pcount: *mut super::UINT) -> windows_core::Result<()>;
-    fn GetConversionInstructionCount(&self, pcount: *mut super::UINT) -> windows_core::Result<()>;
-    fn GetBitwiseInstructionCount(&self, pcount: *mut super::UINT) -> windows_core::Result<()>;
-    fn GetGSInputPrimitive(&self, pprim: *mut D3D10_PRIMITIVE) -> windows_core::Result<()>;
-    fn IsLevel9Shader(&self, pblevel9shader: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn IsSampleFrequencyShader(&self, pbsamplefrequency: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetResourceBindingDescByName(&self, name: &windows_core::PCSTR, pdesc: *mut D3D10_SHADER_INPUT_BIND_DESC) -> windows_core::HRESULT;
+    fn GetMovInstructionCount(&self, pcount: *mut super::UINT) -> windows_core::HRESULT;
+    fn GetMovcInstructionCount(&self, pcount: *mut super::UINT) -> windows_core::HRESULT;
+    fn GetConversionInstructionCount(&self, pcount: *mut super::UINT) -> windows_core::HRESULT;
+    fn GetBitwiseInstructionCount(&self, pcount: *mut super::UINT) -> windows_core::HRESULT;
+    fn GetGSInputPrimitive(&self, pprim: *mut D3D10_PRIMITIVE) -> windows_core::HRESULT;
+    fn IsLevel9Shader(&self, pblevel9shader: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn IsSampleFrequencyShader(&self, pbsamplefrequency: *mut windows_core::BOOL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
 impl ID3D10ShaderReflection1_Vtbl {
@@ -8615,7 +8615,7 @@ impl ID3D10ShaderReflection1_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ID3D10ShaderReflection1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *mut D3D10_SHADER_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10ShaderReflection1_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc)).into()
+                ID3D10ShaderReflection1_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc))
             }
         }
         unsafe extern "system" fn GetConstantBufferByIndex<Identity: ID3D10ShaderReflection1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT) -> Option<ID3D10ShaderReflectionConstantBuffer> {
@@ -8633,19 +8633,19 @@ impl ID3D10ShaderReflection1_Vtbl {
         unsafe extern "system" fn GetResourceBindingDesc<Identity: ID3D10ShaderReflection1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourceindex: super::UINT, pdesc: *mut D3D10_SHADER_INPUT_BIND_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10ShaderReflection1_Impl::GetResourceBindingDesc(this, core::mem::transmute_copy(&resourceindex), core::mem::transmute_copy(&pdesc)).into()
+                ID3D10ShaderReflection1_Impl::GetResourceBindingDesc(this, core::mem::transmute_copy(&resourceindex), core::mem::transmute_copy(&pdesc))
             }
         }
         unsafe extern "system" fn GetInputParameterDesc<Identity: ID3D10ShaderReflection1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parameterindex: super::UINT, pdesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10ShaderReflection1_Impl::GetInputParameterDesc(this, core::mem::transmute_copy(&parameterindex), core::mem::transmute_copy(&pdesc)).into()
+                ID3D10ShaderReflection1_Impl::GetInputParameterDesc(this, core::mem::transmute_copy(&parameterindex), core::mem::transmute_copy(&pdesc))
             }
         }
         unsafe extern "system" fn GetOutputParameterDesc<Identity: ID3D10ShaderReflection1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parameterindex: super::UINT, pdesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10ShaderReflection1_Impl::GetOutputParameterDesc(this, core::mem::transmute_copy(&parameterindex), core::mem::transmute_copy(&pdesc)).into()
+                ID3D10ShaderReflection1_Impl::GetOutputParameterDesc(this, core::mem::transmute_copy(&parameterindex), core::mem::transmute_copy(&pdesc))
             }
         }
         unsafe extern "system" fn GetVariableByName<Identity: ID3D10ShaderReflection1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCSTR) -> Option<ID3D10ShaderReflectionVariable> {
@@ -8657,49 +8657,49 @@ impl ID3D10ShaderReflection1_Vtbl {
         unsafe extern "system" fn GetResourceBindingDescByName<Identity: ID3D10ShaderReflection1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCSTR, pdesc: *mut D3D10_SHADER_INPUT_BIND_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10ShaderReflection1_Impl::GetResourceBindingDescByName(this, core::mem::transmute(&name), core::mem::transmute_copy(&pdesc)).into()
+                ID3D10ShaderReflection1_Impl::GetResourceBindingDescByName(this, core::mem::transmute(&name), core::mem::transmute_copy(&pdesc))
             }
         }
         unsafe extern "system" fn GetMovInstructionCount<Identity: ID3D10ShaderReflection1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcount: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10ShaderReflection1_Impl::GetMovInstructionCount(this, core::mem::transmute_copy(&pcount)).into()
+                ID3D10ShaderReflection1_Impl::GetMovInstructionCount(this, core::mem::transmute_copy(&pcount))
             }
         }
         unsafe extern "system" fn GetMovcInstructionCount<Identity: ID3D10ShaderReflection1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcount: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10ShaderReflection1_Impl::GetMovcInstructionCount(this, core::mem::transmute_copy(&pcount)).into()
+                ID3D10ShaderReflection1_Impl::GetMovcInstructionCount(this, core::mem::transmute_copy(&pcount))
             }
         }
         unsafe extern "system" fn GetConversionInstructionCount<Identity: ID3D10ShaderReflection1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcount: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10ShaderReflection1_Impl::GetConversionInstructionCount(this, core::mem::transmute_copy(&pcount)).into()
+                ID3D10ShaderReflection1_Impl::GetConversionInstructionCount(this, core::mem::transmute_copy(&pcount))
             }
         }
         unsafe extern "system" fn GetBitwiseInstructionCount<Identity: ID3D10ShaderReflection1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcount: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10ShaderReflection1_Impl::GetBitwiseInstructionCount(this, core::mem::transmute_copy(&pcount)).into()
+                ID3D10ShaderReflection1_Impl::GetBitwiseInstructionCount(this, core::mem::transmute_copy(&pcount))
             }
         }
         unsafe extern "system" fn GetGSInputPrimitive<Identity: ID3D10ShaderReflection1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprim: *mut D3D10_PRIMITIVE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10ShaderReflection1_Impl::GetGSInputPrimitive(this, core::mem::transmute_copy(&pprim)).into()
+                ID3D10ShaderReflection1_Impl::GetGSInputPrimitive(this, core::mem::transmute_copy(&pprim))
             }
         }
         unsafe extern "system" fn IsLevel9Shader<Identity: ID3D10ShaderReflection1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pblevel9shader: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10ShaderReflection1_Impl::IsLevel9Shader(this, core::mem::transmute_copy(&pblevel9shader)).into()
+                ID3D10ShaderReflection1_Impl::IsLevel9Shader(this, core::mem::transmute_copy(&pblevel9shader))
             }
         }
         unsafe extern "system" fn IsSampleFrequencyShader<Identity: ID3D10ShaderReflection1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbsamplefrequency: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10ShaderReflection1_Impl::IsSampleFrequencyShader(this, core::mem::transmute_copy(&pbsamplefrequency)).into()
+                ID3D10ShaderReflection1_Impl::IsSampleFrequencyShader(this, core::mem::transmute_copy(&pbsamplefrequency))
             }
         }
         Self {
@@ -8759,7 +8759,7 @@ pub struct ID3D10ShaderReflectionConstantBuffer_Vtbl {
 }
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
 pub trait ID3D10ShaderReflectionConstantBuffer_Impl {
-    fn GetDesc(&self, pdesc: *mut D3D10_SHADER_BUFFER_DESC) -> windows_core::Result<()>;
+    fn GetDesc(&self, pdesc: *mut D3D10_SHADER_BUFFER_DESC) -> windows_core::HRESULT;
     fn GetVariableByIndex(&self, index: super::UINT) -> Option<ID3D10ShaderReflectionVariable>;
     fn GetVariableByName(&self, name: &windows_core::PCSTR) -> Option<ID3D10ShaderReflectionVariable>;
 }
@@ -8770,7 +8770,7 @@ impl ID3D10ShaderReflectionConstantBuffer_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10ShaderReflectionConstantBuffer_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc)).into()
+                ID3D10ShaderReflectionConstantBuffer_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc))
             }
         }
         unsafe extern "system" fn GetVariableByIndex<Identity: ID3D10ShaderReflectionConstantBuffer_Impl>(this: *mut core::ffi::c_void, index: super::UINT) -> Option<ID3D10ShaderReflectionVariable> {
@@ -8844,7 +8844,7 @@ pub struct ID3D10ShaderReflectionType_Vtbl {
 }
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
 pub trait ID3D10ShaderReflectionType_Impl {
-    fn GetDesc(&self, pdesc: *mut D3D10_SHADER_TYPE_DESC) -> windows_core::Result<()>;
+    fn GetDesc(&self, pdesc: *mut D3D10_SHADER_TYPE_DESC) -> windows_core::HRESULT;
     fn GetMemberTypeByIndex(&self, index: super::UINT) -> Option<ID3D10ShaderReflectionType>;
     fn GetMemberTypeByName(&self, name: &windows_core::PCSTR) -> Option<ID3D10ShaderReflectionType>;
     fn GetMemberTypeName(&self, index: super::UINT) -> windows_core::PCSTR;
@@ -8856,7 +8856,7 @@ impl ID3D10ShaderReflectionType_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10ShaderReflectionType_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc)).into()
+                ID3D10ShaderReflectionType_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc))
             }
         }
         unsafe extern "system" fn GetMemberTypeByIndex<Identity: ID3D10ShaderReflectionType_Impl>(this: *mut core::ffi::c_void, index: super::UINT) -> Option<ID3D10ShaderReflectionType> {
@@ -8923,7 +8923,7 @@ pub struct ID3D10ShaderReflectionVariable_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 pub trait ID3D10ShaderReflectionVariable_Impl {
-    fn GetDesc(&self, pdesc: *mut D3D10_SHADER_VARIABLE_DESC) -> windows_core::Result<()>;
+    fn GetDesc(&self, pdesc: *mut D3D10_SHADER_VARIABLE_DESC) -> windows_core::HRESULT;
     fn GetType(&self) -> Option<ID3D10ShaderReflectionType>;
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
@@ -8933,7 +8933,7 @@ impl ID3D10ShaderReflectionVariable_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10ShaderReflectionVariable_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc)).into()
+                ID3D10ShaderReflectionVariable_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc))
             }
         }
         unsafe extern "system" fn GetType<Identity: ID3D10ShaderReflectionVariable_Impl>(this: *mut core::ffi::c_void) -> Option<ID3D10ShaderReflectionType> {
@@ -9001,7 +9001,7 @@ impl ID3D10ShaderResourceView_Vtbl {
         Self { base__: ID3D10View_Vtbl::new::<Identity, OFFSET>(), GetDesc: GetDesc::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D10ShaderResourceView as windows_core::Interface>::IID || iid == &<ID3D10DeviceChild as windows_core::Interface>::IID || iid == &<ID3D10View as windows_core::Interface>::IID
+        iid == &<ID3D10ShaderResourceView as windows_core::Interface>::IID || ID3D10View_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "shared"))]
@@ -9047,7 +9047,7 @@ impl ID3D10ShaderResourceView1_Vtbl {
         Self { base__: ID3D10ShaderResourceView_Vtbl::new::<Identity, OFFSET>(), GetDesc1: GetDesc1::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D10ShaderResourceView1 as windows_core::Interface>::IID || iid == &<ID3D10DeviceChild as windows_core::Interface>::IID || iid == &<ID3D10View as windows_core::Interface>::IID || iid == &<ID3D10ShaderResourceView as windows_core::Interface>::IID
+        iid == &<ID3D10ShaderResourceView1 as windows_core::Interface>::IID || ID3D10ShaderResourceView_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "shared"))]
@@ -9078,35 +9078,35 @@ pub struct ID3D10StateBlock_Vtbl {
     pub GetDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ID3D10StateBlock_Impl: windows_core::IUnknownImpl {
-    fn Capture(&self) -> windows_core::Result<()>;
-    fn Apply(&self) -> windows_core::Result<()>;
-    fn ReleaseAllDeviceObjects(&self) -> windows_core::Result<()>;
-    fn GetDevice(&self, ppdevice: windows_core::OutRef<ID3D10Device>) -> windows_core::Result<()>;
+    fn Capture(&self) -> windows_core::HRESULT;
+    fn Apply(&self) -> windows_core::HRESULT;
+    fn ReleaseAllDeviceObjects(&self) -> windows_core::HRESULT;
+    fn GetDevice(&self, ppdevice: windows_core::OutRef<ID3D10Device>) -> windows_core::HRESULT;
 }
 impl ID3D10StateBlock_Vtbl {
     pub const fn new<Identity: ID3D10StateBlock_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Capture<Identity: ID3D10StateBlock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10StateBlock_Impl::Capture(this).into()
+                ID3D10StateBlock_Impl::Capture(this)
             }
         }
         unsafe extern "system" fn Apply<Identity: ID3D10StateBlock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10StateBlock_Impl::Apply(this).into()
+                ID3D10StateBlock_Impl::Apply(this)
             }
         }
         unsafe extern "system" fn ReleaseAllDeviceObjects<Identity: ID3D10StateBlock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10StateBlock_Impl::ReleaseAllDeviceObjects(this).into()
+                ID3D10StateBlock_Impl::ReleaseAllDeviceObjects(this)
             }
         }
         unsafe extern "system" fn GetDevice<Identity: ID3D10StateBlock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10StateBlock_Impl::GetDevice(this, core::mem::transmute_copy(&ppdevice)).into()
+                ID3D10StateBlock_Impl::GetDevice(this, core::mem::transmute_copy(&ppdevice))
             }
         }
         Self {
@@ -9213,7 +9213,7 @@ pub struct ID3D10Texture1D_Vtbl {
 }
 #[cfg(all(feature = "dxgi", feature = "shared"))]
 pub trait ID3D10Texture1D_Impl: ID3D10Resource_Impl {
-    fn Map(&self, subresource: super::UINT, maptype: D3D10_MAP, mapflags: super::UINT, ppdata: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn Map(&self, subresource: super::UINT, maptype: D3D10_MAP, mapflags: super::UINT, ppdata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT;
     fn Unmap(&self, subresource: super::UINT);
     fn GetDesc(&self, pdesc: *mut D3D10_TEXTURE1D_DESC);
 }
@@ -9223,7 +9223,7 @@ impl ID3D10Texture1D_Vtbl {
         unsafe extern "system" fn Map<Identity: ID3D10Texture1D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, subresource: super::UINT, maptype: D3D10_MAP, mapflags: super::UINT, ppdata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Texture1D_Impl::Map(this, core::mem::transmute_copy(&subresource), core::mem::transmute_copy(&maptype), core::mem::transmute_copy(&mapflags), core::mem::transmute_copy(&ppdata)).into()
+                ID3D10Texture1D_Impl::Map(this, core::mem::transmute_copy(&subresource), core::mem::transmute_copy(&maptype), core::mem::transmute_copy(&mapflags), core::mem::transmute_copy(&ppdata))
             }
         }
         unsafe extern "system" fn Unmap<Identity: ID3D10Texture1D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, subresource: super::UINT) {
@@ -9246,7 +9246,7 @@ impl ID3D10Texture1D_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D10Texture1D as windows_core::Interface>::IID || iid == &<ID3D10DeviceChild as windows_core::Interface>::IID || iid == &<ID3D10Resource as windows_core::Interface>::IID
+        iid == &<ID3D10Texture1D as windows_core::Interface>::IID || ID3D10Resource_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "dxgi", feature = "shared"))]
@@ -9296,7 +9296,7 @@ pub struct ID3D10Texture2D_Vtbl {
 }
 #[cfg(all(feature = "dxgi", feature = "shared"))]
 pub trait ID3D10Texture2D_Impl: ID3D10Resource_Impl {
-    fn Map(&self, subresource: super::UINT, maptype: D3D10_MAP, mapflags: super::UINT, pmappedtex2d: *mut D3D10_MAPPED_TEXTURE2D) -> windows_core::Result<()>;
+    fn Map(&self, subresource: super::UINT, maptype: D3D10_MAP, mapflags: super::UINT, pmappedtex2d: *mut D3D10_MAPPED_TEXTURE2D) -> windows_core::HRESULT;
     fn Unmap(&self, subresource: super::UINT);
     fn GetDesc(&self, pdesc: *mut D3D10_TEXTURE2D_DESC);
 }
@@ -9306,7 +9306,7 @@ impl ID3D10Texture2D_Vtbl {
         unsafe extern "system" fn Map<Identity: ID3D10Texture2D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, subresource: super::UINT, maptype: D3D10_MAP, mapflags: super::UINT, pmappedtex2d: *mut D3D10_MAPPED_TEXTURE2D) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Texture2D_Impl::Map(this, core::mem::transmute_copy(&subresource), core::mem::transmute_copy(&maptype), core::mem::transmute_copy(&mapflags), core::mem::transmute_copy(&pmappedtex2d)).into()
+                ID3D10Texture2D_Impl::Map(this, core::mem::transmute_copy(&subresource), core::mem::transmute_copy(&maptype), core::mem::transmute_copy(&mapflags), core::mem::transmute_copy(&pmappedtex2d))
             }
         }
         unsafe extern "system" fn Unmap<Identity: ID3D10Texture2D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, subresource: super::UINT) {
@@ -9329,7 +9329,7 @@ impl ID3D10Texture2D_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D10Texture2D as windows_core::Interface>::IID || iid == &<ID3D10DeviceChild as windows_core::Interface>::IID || iid == &<ID3D10Resource as windows_core::Interface>::IID
+        iid == &<ID3D10Texture2D as windows_core::Interface>::IID || ID3D10Resource_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "dxgi", feature = "shared"))]
@@ -9379,7 +9379,7 @@ pub struct ID3D10Texture3D_Vtbl {
 }
 #[cfg(all(feature = "dxgi", feature = "shared"))]
 pub trait ID3D10Texture3D_Impl: ID3D10Resource_Impl {
-    fn Map(&self, subresource: super::UINT, maptype: D3D10_MAP, mapflags: super::UINT, pmappedtex3d: *mut D3D10_MAPPED_TEXTURE3D) -> windows_core::Result<()>;
+    fn Map(&self, subresource: super::UINT, maptype: D3D10_MAP, mapflags: super::UINT, pmappedtex3d: *mut D3D10_MAPPED_TEXTURE3D) -> windows_core::HRESULT;
     fn Unmap(&self, subresource: super::UINT);
     fn GetDesc(&self, pdesc: *mut D3D10_TEXTURE3D_DESC);
 }
@@ -9389,7 +9389,7 @@ impl ID3D10Texture3D_Vtbl {
         unsafe extern "system" fn Map<Identity: ID3D10Texture3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, subresource: super::UINT, maptype: D3D10_MAP, mapflags: super::UINT, pmappedtex3d: *mut D3D10_MAPPED_TEXTURE3D) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Texture3D_Impl::Map(this, core::mem::transmute_copy(&subresource), core::mem::transmute_copy(&maptype), core::mem::transmute_copy(&mapflags), core::mem::transmute_copy(&pmappedtex3d)).into()
+                ID3D10Texture3D_Impl::Map(this, core::mem::transmute_copy(&subresource), core::mem::transmute_copy(&maptype), core::mem::transmute_copy(&mapflags), core::mem::transmute_copy(&pmappedtex3d))
             }
         }
         unsafe extern "system" fn Unmap<Identity: ID3D10Texture3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, subresource: super::UINT) {
@@ -9412,7 +9412,7 @@ impl ID3D10Texture3D_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D10Texture3D as windows_core::Interface>::IID || iid == &<ID3D10DeviceChild as windows_core::Interface>::IID || iid == &<ID3D10Resource as windows_core::Interface>::IID
+        iid == &<ID3D10Texture3D as windows_core::Interface>::IID || ID3D10Resource_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "dxgi", feature = "shared"))]
@@ -9438,7 +9438,7 @@ impl ID3D10VertexShader_Vtbl {
         Self { base__: ID3D10DeviceChild_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D10VertexShader as windows_core::Interface>::IID || iid == &<ID3D10DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D10VertexShader as windows_core::Interface>::IID || ID3D10DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -9480,7 +9480,7 @@ impl ID3D10View_Vtbl {
         Self { base__: ID3D10DeviceChild_Vtbl::new::<Identity, OFFSET>(), GetResource: GetResource::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D10View as windows_core::Interface>::IID || iid == &<ID3D10DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D10View as windows_core::Interface>::IID || ID3D10DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]

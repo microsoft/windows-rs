@@ -70,14 +70,14 @@ pub struct IActivateAudioInterfaceAsyncOperation_Vtbl {
     pub GetActivateResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IActivateAudioInterfaceAsyncOperation_Impl: windows_core::IUnknownImpl {
-    fn GetActivateResult(&self, activateresult: *mut windows_core::HRESULT, activatedinterface: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetActivateResult(&self, activateresult: *mut windows_core::HRESULT, activatedinterface: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
 }
 impl IActivateAudioInterfaceAsyncOperation_Vtbl {
     pub const fn new<Identity: IActivateAudioInterfaceAsyncOperation_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetActivateResult<Identity: IActivateAudioInterfaceAsyncOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, activateresult: *mut windows_core::HRESULT, activatedinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IActivateAudioInterfaceAsyncOperation_Impl::GetActivateResult(this, core::mem::transmute_copy(&activateresult), core::mem::transmute_copy(&activatedinterface)).into()
+                IActivateAudioInterfaceAsyncOperation_Impl::GetActivateResult(this, core::mem::transmute_copy(&activateresult), core::mem::transmute_copy(&activatedinterface))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetActivateResult: GetActivateResult::<Identity, OFFSET> }
@@ -104,14 +104,14 @@ pub struct IActivateAudioInterfaceCompletionHandler_Vtbl {
     pub ActivateCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IActivateAudioInterfaceCompletionHandler_Impl: windows_core::IUnknownImpl {
-    fn ActivateCompleted(&self, activateoperation: windows_core::Ref<IActivateAudioInterfaceAsyncOperation>) -> windows_core::Result<()>;
+    fn ActivateCompleted(&self, activateoperation: windows_core::Ref<IActivateAudioInterfaceAsyncOperation>) -> windows_core::HRESULT;
 }
 impl IActivateAudioInterfaceCompletionHandler_Vtbl {
     pub const fn new<Identity: IActivateAudioInterfaceCompletionHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ActivateCompleted<Identity: IActivateAudioInterfaceCompletionHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, activateoperation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IActivateAudioInterfaceCompletionHandler_Impl::ActivateCompleted(this, core::mem::transmute_copy(&activateoperation)).into()
+                IActivateAudioInterfaceCompletionHandler_Impl::ActivateCompleted(this, core::mem::transmute_copy(&activateoperation))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ActivateCompleted: ActivateCompleted::<Identity, OFFSET> }
@@ -140,7 +140,7 @@ pub struct IAudioSystemEffectsPropertyChangeNotificationClient_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "wtypes"))]
 pub trait IAudioSystemEffectsPropertyChangeNotificationClient_Impl: windows_core::IUnknownImpl {
-    fn OnPropertyChanged(&self, r#type: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE, key: &super::PROPERTYKEY) -> windows_core::Result<()>;
+    fn OnPropertyChanged(&self, r#type: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE, key: &super::PROPERTYKEY) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "wtypes"))]
 impl IAudioSystemEffectsPropertyChangeNotificationClient_Vtbl {
@@ -148,7 +148,7 @@ impl IAudioSystemEffectsPropertyChangeNotificationClient_Vtbl {
         unsafe extern "system" fn OnPropertyChanged<Identity: IAudioSystemEffectsPropertyChangeNotificationClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE, key: super::PROPERTYKEY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioSystemEffectsPropertyChangeNotificationClient_Impl::OnPropertyChanged(this, core::mem::transmute_copy(&r#type), core::mem::transmute(&key)).into()
+                IAudioSystemEffectsPropertyChangeNotificationClient_Impl::OnPropertyChanged(this, core::mem::transmute_copy(&r#type), core::mem::transmute(&key))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnPropertyChanged: OnPropertyChanged::<Identity, OFFSET> }
@@ -228,10 +228,10 @@ pub trait IAudioSystemEffectsPropertyStore_Impl: windows_core::IUnknownImpl {
     fn OpenDefaultPropertyStore(&self, stgmaccess: super::DWORD) -> windows_core::Result<super::IPropertyStore>;
     fn OpenUserPropertyStore(&self, stgmaccess: super::DWORD) -> windows_core::Result<super::IPropertyStore>;
     fn OpenVolatilePropertyStore(&self, stgmaccess: super::DWORD) -> windows_core::Result<super::IPropertyStore>;
-    fn ResetUserPropertyStore(&self) -> windows_core::Result<()>;
-    fn ResetVolatilePropertyStore(&self) -> windows_core::Result<()>;
-    fn RegisterPropertyChangeNotification(&self, callback: windows_core::Ref<IAudioSystemEffectsPropertyChangeNotificationClient>) -> windows_core::Result<()>;
-    fn UnregisterPropertyChangeNotification(&self, callback: windows_core::Ref<IAudioSystemEffectsPropertyChangeNotificationClient>) -> windows_core::Result<()>;
+    fn ResetUserPropertyStore(&self) -> windows_core::HRESULT;
+    fn ResetVolatilePropertyStore(&self) -> windows_core::HRESULT;
+    fn RegisterPropertyChangeNotification(&self, callback: windows_core::Ref<IAudioSystemEffectsPropertyChangeNotificationClient>) -> windows_core::HRESULT;
+    fn UnregisterPropertyChangeNotification(&self, callback: windows_core::Ref<IAudioSystemEffectsPropertyChangeNotificationClient>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "propsys", feature = "shared"))]
 impl IAudioSystemEffectsPropertyStore_Vtbl {
@@ -284,25 +284,25 @@ impl IAudioSystemEffectsPropertyStore_Vtbl {
         unsafe extern "system" fn ResetUserPropertyStore<Identity: IAudioSystemEffectsPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioSystemEffectsPropertyStore_Impl::ResetUserPropertyStore(this).into()
+                IAudioSystemEffectsPropertyStore_Impl::ResetUserPropertyStore(this)
             }
         }
         unsafe extern "system" fn ResetVolatilePropertyStore<Identity: IAudioSystemEffectsPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioSystemEffectsPropertyStore_Impl::ResetVolatilePropertyStore(this).into()
+                IAudioSystemEffectsPropertyStore_Impl::ResetVolatilePropertyStore(this)
             }
         }
         unsafe extern "system" fn RegisterPropertyChangeNotification<Identity: IAudioSystemEffectsPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioSystemEffectsPropertyStore_Impl::RegisterPropertyChangeNotification(this, core::mem::transmute_copy(&callback)).into()
+                IAudioSystemEffectsPropertyStore_Impl::RegisterPropertyChangeNotification(this, core::mem::transmute_copy(&callback))
             }
         }
         unsafe extern "system" fn UnregisterPropertyChangeNotification<Identity: IAudioSystemEffectsPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioSystemEffectsPropertyStore_Impl::UnregisterPropertyChangeNotification(this, core::mem::transmute_copy(&callback)).into()
+                IAudioSystemEffectsPropertyStore_Impl::UnregisterPropertyChangeNotification(this, core::mem::transmute_copy(&callback))
             }
         }
         Self {
@@ -366,9 +366,9 @@ pub struct IMMDevice_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "propsys", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMMDevice_Impl: windows_core::IUnknownImpl {
     fn Activate(&self, iid: *const super::IID, dwclsctx: super::DWORD, pactivationparams: *const super::PROPVARIANT, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn OpenPropertyStore(&self, stgmaccess: super::DWORD, ppproperties: windows_core::OutRef<super::IPropertyStore>) -> windows_core::Result<()>;
-    fn GetId(&self, ppstrid: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn GetState(&self, pdwstate: *mut super::DWORD) -> windows_core::Result<()>;
+    fn OpenPropertyStore(&self, stgmaccess: super::DWORD, ppproperties: windows_core::OutRef<super::IPropertyStore>) -> windows_core::HRESULT;
+    fn GetId(&self, ppstrid: *mut windows_core::PWSTR) -> windows_core::HRESULT;
+    fn GetState(&self, pdwstate: *mut super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "propsys", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMMDevice_Vtbl {
@@ -382,19 +382,19 @@ impl IMMDevice_Vtbl {
         unsafe extern "system" fn OpenPropertyStore<Identity: IMMDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stgmaccess: super::DWORD, ppproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMMDevice_Impl::OpenPropertyStore(this, core::mem::transmute_copy(&stgmaccess), core::mem::transmute_copy(&ppproperties)).into()
+                IMMDevice_Impl::OpenPropertyStore(this, core::mem::transmute_copy(&stgmaccess), core::mem::transmute_copy(&ppproperties))
             }
         }
         unsafe extern "system" fn GetId<Identity: IMMDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppstrid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMMDevice_Impl::GetId(this, core::mem::transmute_copy(&ppstrid)).into()
+                IMMDevice_Impl::GetId(this, core::mem::transmute_copy(&ppstrid))
             }
         }
         unsafe extern "system" fn GetState<Identity: IMMDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwstate: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMMDevice_Impl::GetState(this, core::mem::transmute_copy(&pdwstate)).into()
+                IMMDevice_Impl::GetState(this, core::mem::transmute_copy(&pdwstate))
             }
         }
         Self {
@@ -481,8 +481,8 @@ pub struct IMMDeviceCollection_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IMMDeviceCollection_Impl: windows_core::IUnknownImpl {
-    fn GetCount(&self, pcdevices: *mut super::UINT) -> windows_core::Result<()>;
-    fn Item(&self, ndevice: super::UINT, ppdevice: windows_core::OutRef<IMMDevice>) -> windows_core::Result<()>;
+    fn GetCount(&self, pcdevices: *mut super::UINT) -> windows_core::HRESULT;
+    fn Item(&self, ndevice: super::UINT, ppdevice: windows_core::OutRef<IMMDevice>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IMMDeviceCollection_Vtbl {
@@ -490,13 +490,13 @@ impl IMMDeviceCollection_Vtbl {
         unsafe extern "system" fn GetCount<Identity: IMMDeviceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcdevices: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMMDeviceCollection_Impl::GetCount(this, core::mem::transmute_copy(&pcdevices)).into()
+                IMMDeviceCollection_Impl::GetCount(this, core::mem::transmute_copy(&pcdevices))
             }
         }
         unsafe extern "system" fn Item<Identity: IMMDeviceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ndevice: super::UINT, ppdevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMMDeviceCollection_Impl::Item(this, core::mem::transmute_copy(&ndevice), core::mem::transmute_copy(&ppdevice)).into()
+                IMMDeviceCollection_Impl::Item(this, core::mem::transmute_copy(&ndevice), core::mem::transmute_copy(&ppdevice))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetCount: GetCount::<Identity, OFFSET>, Item: Item::<Identity, OFFSET> }
@@ -551,11 +551,11 @@ pub struct IMMDeviceEnumerator_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IMMDeviceEnumerator_Impl: windows_core::IUnknownImpl {
-    fn EnumAudioEndpoints(&self, dataflow: EDataFlow, dwstatemask: super::DWORD, ppdevices: windows_core::OutRef<IMMDeviceCollection>) -> windows_core::Result<()>;
-    fn GetDefaultAudioEndpoint(&self, dataflow: EDataFlow, role: ERole, ppendpoint: windows_core::OutRef<IMMDevice>) -> windows_core::Result<()>;
-    fn GetDevice(&self, pwstrid: &windows_core::PCWSTR, ppdevice: windows_core::OutRef<IMMDevice>) -> windows_core::Result<()>;
-    fn RegisterEndpointNotificationCallback(&self, pclient: windows_core::Ref<IMMNotificationClient>) -> windows_core::Result<()>;
-    fn UnregisterEndpointNotificationCallback(&self, pclient: windows_core::Ref<IMMNotificationClient>) -> windows_core::Result<()>;
+    fn EnumAudioEndpoints(&self, dataflow: EDataFlow, dwstatemask: super::DWORD, ppdevices: windows_core::OutRef<IMMDeviceCollection>) -> windows_core::HRESULT;
+    fn GetDefaultAudioEndpoint(&self, dataflow: EDataFlow, role: ERole, ppendpoint: windows_core::OutRef<IMMDevice>) -> windows_core::HRESULT;
+    fn GetDevice(&self, pwstrid: &windows_core::PCWSTR, ppdevice: windows_core::OutRef<IMMDevice>) -> windows_core::HRESULT;
+    fn RegisterEndpointNotificationCallback(&self, pclient: windows_core::Ref<IMMNotificationClient>) -> windows_core::HRESULT;
+    fn UnregisterEndpointNotificationCallback(&self, pclient: windows_core::Ref<IMMNotificationClient>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IMMDeviceEnumerator_Vtbl {
@@ -563,31 +563,31 @@ impl IMMDeviceEnumerator_Vtbl {
         unsafe extern "system" fn EnumAudioEndpoints<Identity: IMMDeviceEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dataflow: EDataFlow, dwstatemask: super::DWORD, ppdevices: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMMDeviceEnumerator_Impl::EnumAudioEndpoints(this, core::mem::transmute_copy(&dataflow), core::mem::transmute_copy(&dwstatemask), core::mem::transmute_copy(&ppdevices)).into()
+                IMMDeviceEnumerator_Impl::EnumAudioEndpoints(this, core::mem::transmute_copy(&dataflow), core::mem::transmute_copy(&dwstatemask), core::mem::transmute_copy(&ppdevices))
             }
         }
         unsafe extern "system" fn GetDefaultAudioEndpoint<Identity: IMMDeviceEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dataflow: EDataFlow, role: ERole, ppendpoint: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMMDeviceEnumerator_Impl::GetDefaultAudioEndpoint(this, core::mem::transmute_copy(&dataflow), core::mem::transmute_copy(&role), core::mem::transmute_copy(&ppendpoint)).into()
+                IMMDeviceEnumerator_Impl::GetDefaultAudioEndpoint(this, core::mem::transmute_copy(&dataflow), core::mem::transmute_copy(&role), core::mem::transmute_copy(&ppendpoint))
             }
         }
         unsafe extern "system" fn GetDevice<Identity: IMMDeviceEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwstrid: windows_core::PCWSTR, ppdevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMMDeviceEnumerator_Impl::GetDevice(this, core::mem::transmute(&pwstrid), core::mem::transmute_copy(&ppdevice)).into()
+                IMMDeviceEnumerator_Impl::GetDevice(this, core::mem::transmute(&pwstrid), core::mem::transmute_copy(&ppdevice))
             }
         }
         unsafe extern "system" fn RegisterEndpointNotificationCallback<Identity: IMMDeviceEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclient: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMMDeviceEnumerator_Impl::RegisterEndpointNotificationCallback(this, core::mem::transmute_copy(&pclient)).into()
+                IMMDeviceEnumerator_Impl::RegisterEndpointNotificationCallback(this, core::mem::transmute_copy(&pclient))
             }
         }
         unsafe extern "system" fn UnregisterEndpointNotificationCallback<Identity: IMMDeviceEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclient: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMMDeviceEnumerator_Impl::UnregisterEndpointNotificationCallback(this, core::mem::transmute_copy(&pclient)).into()
+                IMMDeviceEnumerator_Impl::UnregisterEndpointNotificationCallback(this, core::mem::transmute_copy(&pclient))
             }
         }
         Self {
@@ -619,14 +619,14 @@ pub struct IMMEndpoint_Vtbl {
     pub GetDataFlow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EDataFlow) -> windows_core::HRESULT,
 }
 pub trait IMMEndpoint_Impl: windows_core::IUnknownImpl {
-    fn GetDataFlow(&self, pdataflow: *mut EDataFlow) -> windows_core::Result<()>;
+    fn GetDataFlow(&self, pdataflow: *mut EDataFlow) -> windows_core::HRESULT;
 }
 impl IMMEndpoint_Vtbl {
     pub const fn new<Identity: IMMEndpoint_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDataFlow<Identity: IMMEndpoint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdataflow: *mut EDataFlow) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMMEndpoint_Impl::GetDataFlow(this, core::mem::transmute_copy(&pdataflow)).into()
+                IMMEndpoint_Impl::GetDataFlow(this, core::mem::transmute_copy(&pdataflow))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDataFlow: GetDataFlow::<Identity, OFFSET> }
@@ -690,11 +690,11 @@ pub struct IMMNotificationClient_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "wtypes"))]
 pub trait IMMNotificationClient_Impl: windows_core::IUnknownImpl {
-    fn OnDeviceStateChanged(&self, pwstrdeviceid: &windows_core::PCWSTR, dwnewstate: super::DWORD) -> windows_core::Result<()>;
-    fn OnDeviceAdded(&self, pwstrdeviceid: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn OnDeviceRemoved(&self, pwstrdeviceid: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn OnDefaultDeviceChanged(&self, flow: EDataFlow, role: ERole, pwstrdefaultdeviceid: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn OnPropertyValueChanged(&self, pwstrdeviceid: &windows_core::PCWSTR, key: &super::PROPERTYKEY) -> windows_core::Result<()>;
+    fn OnDeviceStateChanged(&self, pwstrdeviceid: &windows_core::PCWSTR, dwnewstate: super::DWORD) -> windows_core::HRESULT;
+    fn OnDeviceAdded(&self, pwstrdeviceid: &windows_core::PCWSTR) -> windows_core::HRESULT;
+    fn OnDeviceRemoved(&self, pwstrdeviceid: &windows_core::PCWSTR) -> windows_core::HRESULT;
+    fn OnDefaultDeviceChanged(&self, flow: EDataFlow, role: ERole, pwstrdefaultdeviceid: &windows_core::PCWSTR) -> windows_core::HRESULT;
+    fn OnPropertyValueChanged(&self, pwstrdeviceid: &windows_core::PCWSTR, key: &super::PROPERTYKEY) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "wtypes"))]
 impl IMMNotificationClient_Vtbl {
@@ -702,31 +702,31 @@ impl IMMNotificationClient_Vtbl {
         unsafe extern "system" fn OnDeviceStateChanged<Identity: IMMNotificationClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwstrdeviceid: windows_core::PCWSTR, dwnewstate: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMMNotificationClient_Impl::OnDeviceStateChanged(this, core::mem::transmute(&pwstrdeviceid), core::mem::transmute_copy(&dwnewstate)).into()
+                IMMNotificationClient_Impl::OnDeviceStateChanged(this, core::mem::transmute(&pwstrdeviceid), core::mem::transmute_copy(&dwnewstate))
             }
         }
         unsafe extern "system" fn OnDeviceAdded<Identity: IMMNotificationClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwstrdeviceid: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMMNotificationClient_Impl::OnDeviceAdded(this, core::mem::transmute(&pwstrdeviceid)).into()
+                IMMNotificationClient_Impl::OnDeviceAdded(this, core::mem::transmute(&pwstrdeviceid))
             }
         }
         unsafe extern "system" fn OnDeviceRemoved<Identity: IMMNotificationClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwstrdeviceid: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMMNotificationClient_Impl::OnDeviceRemoved(this, core::mem::transmute(&pwstrdeviceid)).into()
+                IMMNotificationClient_Impl::OnDeviceRemoved(this, core::mem::transmute(&pwstrdeviceid))
             }
         }
         unsafe extern "system" fn OnDefaultDeviceChanged<Identity: IMMNotificationClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flow: EDataFlow, role: ERole, pwstrdefaultdeviceid: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMMNotificationClient_Impl::OnDefaultDeviceChanged(this, core::mem::transmute_copy(&flow), core::mem::transmute_copy(&role), core::mem::transmute(&pwstrdefaultdeviceid)).into()
+                IMMNotificationClient_Impl::OnDefaultDeviceChanged(this, core::mem::transmute_copy(&flow), core::mem::transmute_copy(&role), core::mem::transmute(&pwstrdefaultdeviceid))
             }
         }
         unsafe extern "system" fn OnPropertyValueChanged<Identity: IMMNotificationClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwstrdeviceid: windows_core::PCWSTR, key: super::PROPERTYKEY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMMNotificationClient_Impl::OnPropertyValueChanged(this, core::mem::transmute(&pwstrdeviceid), core::mem::transmute(&key)).into()
+                IMMNotificationClient_Impl::OnPropertyValueChanged(this, core::mem::transmute(&pwstrdeviceid), core::mem::transmute(&key))
             }
         }
         Self {
@@ -779,6 +779,8 @@ pub const PKEY_AudioEndpoint_Max_VolumeInDb: super::PROPERTYKEY = super::PROPERT
 pub const PKEY_AudioEndpoint_Min_VolumeInDb: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 11 };
 #[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_AudioEndpoint_PhysicalSpeakers: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_AudioEndpoint_StableId: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 12 };
 #[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_AudioEndpoint_Supports_EventDriven_Mode: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 7 };
 #[cfg(all(feature = "shared", feature = "wtypes"))]

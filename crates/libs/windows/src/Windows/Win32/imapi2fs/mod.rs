@@ -34,7 +34,7 @@ pub struct DFileSystemImageEvents_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait DFileSystemImageEvents_Impl: super::IDispatch_Impl {
-    fn Update(&self, object: windows_core::Ref<super::IDispatch>, currentfile: &windows_core::BSTR, copiedsectors: super::LONG, totalsectors: super::LONG) -> windows_core::Result<()>;
+    fn Update(&self, object: windows_core::Ref<super::IDispatch>, currentfile: &windows_core::BSTR, copiedsectors: super::LONG, totalsectors: super::LONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl DFileSystemImageEvents_Vtbl {
@@ -42,13 +42,13 @@ impl DFileSystemImageEvents_Vtbl {
         unsafe extern "system" fn Update<Identity: DFileSystemImageEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, object: *mut core::ffi::c_void, currentfile: *mut core::ffi::c_void, copiedsectors: super::LONG, totalsectors: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                DFileSystemImageEvents_Impl::Update(this, core::mem::transmute_copy(&object), core::mem::transmute(&currentfile), core::mem::transmute_copy(&copiedsectors), core::mem::transmute_copy(&totalsectors)).into()
+                DFileSystemImageEvents_Impl::Update(this, core::mem::transmute_copy(&object), core::mem::transmute(&currentfile), core::mem::transmute_copy(&copiedsectors), core::mem::transmute_copy(&totalsectors))
             }
         }
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), Update: Update::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<DFileSystemImageEvents as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<DFileSystemImageEvents as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -86,7 +86,7 @@ pub struct DFileSystemImageImportEvents_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait DFileSystemImageImportEvents_Impl: super::IDispatch_Impl {
-    fn UpdateImport(&self, object: windows_core::Ref<super::IDispatch>, filesystem: FsiFileSystems, currentitem: &windows_core::BSTR, importeddirectoryitems: super::LONG, totaldirectoryitems: super::LONG, importedfileitems: super::LONG, totalfileitems: super::LONG) -> windows_core::Result<()>;
+    fn UpdateImport(&self, object: windows_core::Ref<super::IDispatch>, filesystem: FsiFileSystems, currentitem: &windows_core::BSTR, importeddirectoryitems: super::LONG, totaldirectoryitems: super::LONG, importedfileitems: super::LONG, totalfileitems: super::LONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl DFileSystemImageImportEvents_Vtbl {
@@ -94,13 +94,13 @@ impl DFileSystemImageImportEvents_Vtbl {
         unsafe extern "system" fn UpdateImport<Identity: DFileSystemImageImportEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, object: *mut core::ffi::c_void, filesystem: FsiFileSystems, currentitem: *mut core::ffi::c_void, importeddirectoryitems: super::LONG, totaldirectoryitems: super::LONG, importedfileitems: super::LONG, totalfileitems: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                DFileSystemImageImportEvents_Impl::UpdateImport(this, core::mem::transmute_copy(&object), core::mem::transmute_copy(&filesystem), core::mem::transmute(&currentitem), core::mem::transmute_copy(&importeddirectoryitems), core::mem::transmute_copy(&totaldirectoryitems), core::mem::transmute_copy(&importedfileitems), core::mem::transmute_copy(&totalfileitems)).into()
+                DFileSystemImageImportEvents_Impl::UpdateImport(this, core::mem::transmute_copy(&object), core::mem::transmute_copy(&filesystem), core::mem::transmute(&currentitem), core::mem::transmute_copy(&importeddirectoryitems), core::mem::transmute_copy(&totaldirectoryitems), core::mem::transmute_copy(&importedfileitems), core::mem::transmute_copy(&totalfileitems))
             }
         }
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), UpdateImport: UpdateImport::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<DFileSystemImageImportEvents as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<DFileSystemImageImportEvents as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -220,13 +220,13 @@ pub struct IBootOptions_Vtbl {
 pub trait IBootOptions_Impl: super::IDispatch_Impl {
     fn BootImage(&self) -> windows_core::Result<super::IStream>;
     fn Manufacturer(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetManufacturer(&self, newval: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetManufacturer(&self, newval: &windows_core::BSTR) -> windows_core::HRESULT;
     fn PlatformId(&self) -> windows_core::Result<PlatformId>;
-    fn SetPlatformId(&self, newval: PlatformId) -> windows_core::Result<()>;
+    fn SetPlatformId(&self, newval: PlatformId) -> windows_core::HRESULT;
     fn Emulation(&self) -> windows_core::Result<EmulationType>;
-    fn SetEmulation(&self, newval: EmulationType) -> windows_core::Result<()>;
+    fn SetEmulation(&self, newval: EmulationType) -> windows_core::HRESULT;
     fn ImageSize(&self) -> windows_core::Result<super::ULONG>;
-    fn AssignBootImage(&self, newval: windows_core::Ref<super::IStream>) -> windows_core::Result<()>;
+    fn AssignBootImage(&self, newval: windows_core::Ref<super::IStream>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IBootOptions_Vtbl {
@@ -264,7 +264,7 @@ impl IBootOptions_Vtbl {
         unsafe extern "system" fn SetManufacturer<Identity: IBootOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBootOptions_Impl::SetManufacturer(this, core::mem::transmute(&newval)).into()
+                IBootOptions_Impl::SetManufacturer(this, core::mem::transmute(&newval))
             }
         }
         unsafe extern "system" fn PlatformId<Identity: IBootOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut PlatformId) -> windows_core::HRESULT {
@@ -285,7 +285,7 @@ impl IBootOptions_Vtbl {
         unsafe extern "system" fn SetPlatformId<Identity: IBootOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: PlatformId) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBootOptions_Impl::SetPlatformId(this, core::mem::transmute_copy(&newval)).into()
+                IBootOptions_Impl::SetPlatformId(this, core::mem::transmute_copy(&newval))
             }
         }
         unsafe extern "system" fn Emulation<Identity: IBootOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut EmulationType) -> windows_core::HRESULT {
@@ -306,7 +306,7 @@ impl IBootOptions_Vtbl {
         unsafe extern "system" fn SetEmulation<Identity: IBootOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: EmulationType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBootOptions_Impl::SetEmulation(this, core::mem::transmute_copy(&newval)).into()
+                IBootOptions_Impl::SetEmulation(this, core::mem::transmute_copy(&newval))
             }
         }
         unsafe extern "system" fn ImageSize<Identity: IBootOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::ULONG) -> windows_core::HRESULT {
@@ -327,7 +327,7 @@ impl IBootOptions_Vtbl {
         unsafe extern "system" fn AssignBootImage<Identity: IBootOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBootOptions_Impl::AssignBootImage(this, core::mem::transmute_copy(&newval)).into()
+                IBootOptions_Impl::AssignBootImage(this, core::mem::transmute_copy(&newval))
             }
         }
         Self {
@@ -344,7 +344,7 @@ impl IBootOptions_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBootOptions as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IBootOptions as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -387,9 +387,9 @@ pub struct IEnumFsiItems_Vtbl {
 }
 #[cfg(all(feature = "oaidl", feature = "shared"))]
 pub trait IEnumFsiItems_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: super::ULONG, rgelt: windows_core::OutRef<IFsiItem>, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
-    fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
+    fn Next(&self, celt: super::ULONG, rgelt: windows_core::OutRef<IFsiItem>, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT;
+    fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT;
+    fn Reset(&self) -> windows_core::HRESULT;
     fn Clone(&self) -> windows_core::Result<IEnumFsiItems>;
 }
 #[cfg(all(feature = "oaidl", feature = "shared"))]
@@ -398,19 +398,19 @@ impl IEnumFsiItems_Vtbl {
         unsafe extern "system" fn Next<Identity: IEnumFsiItems_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG, rgelt: *mut *mut core::ffi::c_void, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumFsiItems_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
+                IEnumFsiItems_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched))
             }
         }
         unsafe extern "system" fn Skip<Identity: IEnumFsiItems_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumFsiItems_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+                IEnumFsiItems_Impl::Skip(this, core::mem::transmute_copy(&celt))
             }
         }
         unsafe extern "system" fn Reset<Identity: IEnumFsiItems_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumFsiItems_Impl::Reset(this).into()
+                IEnumFsiItems_Impl::Reset(this)
             }
         }
         unsafe extern "system" fn Clone<Identity: IEnumFsiItems_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -480,9 +480,9 @@ pub struct IEnumProgressItems_Vtbl {
 }
 #[cfg(all(feature = "oaidl", feature = "shared"))]
 pub trait IEnumProgressItems_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: super::ULONG, rgelt: windows_core::OutRef<IProgressItem>, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
-    fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
+    fn Next(&self, celt: super::ULONG, rgelt: windows_core::OutRef<IProgressItem>, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT;
+    fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT;
+    fn Reset(&self) -> windows_core::HRESULT;
     fn Clone(&self) -> windows_core::Result<IEnumProgressItems>;
 }
 #[cfg(all(feature = "oaidl", feature = "shared"))]
@@ -491,19 +491,19 @@ impl IEnumProgressItems_Vtbl {
         unsafe extern "system" fn Next<Identity: IEnumProgressItems_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG, rgelt: *mut *mut core::ffi::c_void, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumProgressItems_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
+                IEnumProgressItems_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched))
             }
         }
         unsafe extern "system" fn Skip<Identity: IEnumProgressItems_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumProgressItems_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+                IEnumProgressItems_Impl::Skip(this, core::mem::transmute_copy(&celt))
             }
         }
         unsafe extern "system" fn Reset<Identity: IEnumProgressItems_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumProgressItems_Impl::Reset(this).into()
+                IEnumProgressItems_Impl::Reset(this)
             }
         }
         unsafe extern "system" fn Clone<Identity: IEnumProgressItems_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -975,34 +975,34 @@ pub struct IFileSystemImage_Vtbl {
 pub trait IFileSystemImage_Impl: super::IDispatch_Impl {
     fn Root(&self) -> windows_core::Result<IFsiDirectoryItem>;
     fn SessionStartBlock(&self) -> windows_core::Result<super::LONG>;
-    fn SetSessionStartBlock(&self, newval: super::LONG) -> windows_core::Result<()>;
+    fn SetSessionStartBlock(&self, newval: super::LONG) -> windows_core::HRESULT;
     fn FreeMediaBlocks(&self) -> windows_core::Result<super::LONG>;
-    fn SetFreeMediaBlocks(&self, newval: super::LONG) -> windows_core::Result<()>;
-    fn SetMaxMediaBlocksFromDevice(&self, discrecorder: windows_core::Ref<super::IDiscRecorder2>) -> windows_core::Result<()>;
+    fn SetFreeMediaBlocks(&self, newval: super::LONG) -> windows_core::HRESULT;
+    fn SetMaxMediaBlocksFromDevice(&self, discrecorder: windows_core::Ref<super::IDiscRecorder2>) -> windows_core::HRESULT;
     fn UsedBlocks(&self) -> windows_core::Result<super::LONG>;
     fn VolumeName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetVolumeName(&self, newval: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetVolumeName(&self, newval: &windows_core::BSTR) -> windows_core::HRESULT;
     fn ImportedVolumeName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn BootImageOptions(&self) -> windows_core::Result<IBootOptions>;
-    fn SetBootImageOptions(&self, newval: windows_core::Ref<IBootOptions>) -> windows_core::Result<()>;
+    fn SetBootImageOptions(&self, newval: windows_core::Ref<IBootOptions>) -> windows_core::HRESULT;
     fn FileCount(&self) -> windows_core::Result<super::LONG>;
     fn DirectoryCount(&self) -> windows_core::Result<super::LONG>;
     fn WorkingDirectory(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetWorkingDirectory(&self, newval: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetWorkingDirectory(&self, newval: &windows_core::BSTR) -> windows_core::HRESULT;
     fn ChangePoint(&self) -> windows_core::Result<super::LONG>;
     fn StrictFileSystemCompliance(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetStrictFileSystemCompliance(&self, newval: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetStrictFileSystemCompliance(&self, newval: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn UseRestrictedCharacterSet(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetUseRestrictedCharacterSet(&self, newval: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetUseRestrictedCharacterSet(&self, newval: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn FileSystemsToCreate(&self) -> windows_core::Result<FsiFileSystems>;
-    fn SetFileSystemsToCreate(&self, newval: FsiFileSystems) -> windows_core::Result<()>;
+    fn SetFileSystemsToCreate(&self, newval: FsiFileSystems) -> windows_core::HRESULT;
     fn FileSystemsSupported(&self) -> windows_core::Result<FsiFileSystems>;
-    fn SetUDFRevision(&self, newval: super::LONG) -> windows_core::Result<()>;
+    fn SetUDFRevision(&self, newval: super::LONG) -> windows_core::HRESULT;
     fn UDFRevision(&self) -> windows_core::Result<super::LONG>;
     fn UDFRevisionsSupported(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
-    fn ChooseImageDefaults(&self, discrecorder: windows_core::Ref<super::IDiscRecorder2>) -> windows_core::Result<()>;
-    fn ChooseImageDefaultsForMediaType(&self, value: super::IMAPI_MEDIA_PHYSICAL_TYPE) -> windows_core::Result<()>;
-    fn SetISO9660InterchangeLevel(&self, newval: super::LONG) -> windows_core::Result<()>;
+    fn ChooseImageDefaults(&self, discrecorder: windows_core::Ref<super::IDiscRecorder2>) -> windows_core::HRESULT;
+    fn ChooseImageDefaultsForMediaType(&self, value: super::IMAPI_MEDIA_PHYSICAL_TYPE) -> windows_core::HRESULT;
+    fn SetISO9660InterchangeLevel(&self, newval: super::LONG) -> windows_core::HRESULT;
     fn ISO9660InterchangeLevel(&self) -> windows_core::Result<super::LONG>;
     fn ISO9660InterchangeLevelsSupported(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
     fn CreateResultImage(&self) -> windows_core::Result<IFileSystemImageResult>;
@@ -1011,18 +1011,18 @@ pub trait IFileSystemImage_Impl: super::IDispatch_Impl {
     fn IdentifyFileSystemsOnDisc(&self, discrecorder: windows_core::Ref<super::IDiscRecorder2>) -> windows_core::Result<FsiFileSystems>;
     fn GetDefaultFileSystemForImport(&self, filesystems: FsiFileSystems) -> windows_core::Result<FsiFileSystems>;
     fn ImportFileSystem(&self) -> windows_core::Result<FsiFileSystems>;
-    fn ImportSpecificFileSystem(&self, filesystemtouse: FsiFileSystems) -> windows_core::Result<()>;
-    fn RollbackToChangePoint(&self, changepoint: super::LONG) -> windows_core::Result<()>;
-    fn LockInChangePoint(&self) -> windows_core::Result<()>;
+    fn ImportSpecificFileSystem(&self, filesystemtouse: FsiFileSystems) -> windows_core::HRESULT;
+    fn RollbackToChangePoint(&self, changepoint: super::LONG) -> windows_core::HRESULT;
+    fn LockInChangePoint(&self) -> windows_core::HRESULT;
     fn CreateDirectoryItem(&self, name: &windows_core::BSTR) -> windows_core::Result<IFsiDirectoryItem>;
     fn CreateFileItem(&self, name: &windows_core::BSTR) -> windows_core::Result<IFsiFileItem>;
     fn VolumeNameUDF(&self) -> windows_core::Result<windows_core::BSTR>;
     fn VolumeNameJoliet(&self) -> windows_core::Result<windows_core::BSTR>;
     fn VolumeNameISO9660(&self) -> windows_core::Result<windows_core::BSTR>;
     fn StageFiles(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetStageFiles(&self, newval: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetStageFiles(&self, newval: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn MultisessionInterfaces(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
-    fn SetMultisessionInterfaces(&self, newval: *const super::SAFEARRAY) -> windows_core::Result<()>;
+    fn SetMultisessionInterfaces(&self, newval: *const super::SAFEARRAY) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "imapi2", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFileSystemImage_Vtbl {
@@ -1060,7 +1060,7 @@ impl IFileSystemImage_Vtbl {
         unsafe extern "system" fn SetSessionStartBlock<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileSystemImage_Impl::SetSessionStartBlock(this, core::mem::transmute_copy(&newval)).into()
+                IFileSystemImage_Impl::SetSessionStartBlock(this, core::mem::transmute_copy(&newval))
             }
         }
         unsafe extern "system" fn FreeMediaBlocks<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::LONG) -> windows_core::HRESULT {
@@ -1081,13 +1081,13 @@ impl IFileSystemImage_Vtbl {
         unsafe extern "system" fn SetFreeMediaBlocks<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileSystemImage_Impl::SetFreeMediaBlocks(this, core::mem::transmute_copy(&newval)).into()
+                IFileSystemImage_Impl::SetFreeMediaBlocks(this, core::mem::transmute_copy(&newval))
             }
         }
         unsafe extern "system" fn SetMaxMediaBlocksFromDevice<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, discrecorder: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileSystemImage_Impl::SetMaxMediaBlocksFromDevice(this, core::mem::transmute_copy(&discrecorder)).into()
+                IFileSystemImage_Impl::SetMaxMediaBlocksFromDevice(this, core::mem::transmute_copy(&discrecorder))
             }
         }
         unsafe extern "system" fn UsedBlocks<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::LONG) -> windows_core::HRESULT {
@@ -1123,7 +1123,7 @@ impl IFileSystemImage_Vtbl {
         unsafe extern "system" fn SetVolumeName<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileSystemImage_Impl::SetVolumeName(this, core::mem::transmute(&newval)).into()
+                IFileSystemImage_Impl::SetVolumeName(this, core::mem::transmute(&newval))
             }
         }
         unsafe extern "system" fn ImportedVolumeName<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1159,7 +1159,7 @@ impl IFileSystemImage_Vtbl {
         unsafe extern "system" fn SetBootImageOptions<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileSystemImage_Impl::SetBootImageOptions(this, core::mem::transmute_copy(&newval)).into()
+                IFileSystemImage_Impl::SetBootImageOptions(this, core::mem::transmute_copy(&newval))
             }
         }
         unsafe extern "system" fn FileCount<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::LONG) -> windows_core::HRESULT {
@@ -1210,7 +1210,7 @@ impl IFileSystemImage_Vtbl {
         unsafe extern "system" fn SetWorkingDirectory<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileSystemImage_Impl::SetWorkingDirectory(this, core::mem::transmute(&newval)).into()
+                IFileSystemImage_Impl::SetWorkingDirectory(this, core::mem::transmute(&newval))
             }
         }
         unsafe extern "system" fn ChangePoint<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::LONG) -> windows_core::HRESULT {
@@ -1246,7 +1246,7 @@ impl IFileSystemImage_Vtbl {
         unsafe extern "system" fn SetStrictFileSystemCompliance<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileSystemImage_Impl::SetStrictFileSystemCompliance(this, core::mem::transmute_copy(&newval)).into()
+                IFileSystemImage_Impl::SetStrictFileSystemCompliance(this, core::mem::transmute_copy(&newval))
             }
         }
         unsafe extern "system" fn UseRestrictedCharacterSet<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -1267,7 +1267,7 @@ impl IFileSystemImage_Vtbl {
         unsafe extern "system" fn SetUseRestrictedCharacterSet<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileSystemImage_Impl::SetUseRestrictedCharacterSet(this, core::mem::transmute_copy(&newval)).into()
+                IFileSystemImage_Impl::SetUseRestrictedCharacterSet(this, core::mem::transmute_copy(&newval))
             }
         }
         unsafe extern "system" fn FileSystemsToCreate<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut FsiFileSystems) -> windows_core::HRESULT {
@@ -1288,7 +1288,7 @@ impl IFileSystemImage_Vtbl {
         unsafe extern "system" fn SetFileSystemsToCreate<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: FsiFileSystems) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileSystemImage_Impl::SetFileSystemsToCreate(this, core::mem::transmute_copy(&newval)).into()
+                IFileSystemImage_Impl::SetFileSystemsToCreate(this, core::mem::transmute_copy(&newval))
             }
         }
         unsafe extern "system" fn FileSystemsSupported<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut FsiFileSystems) -> windows_core::HRESULT {
@@ -1309,7 +1309,7 @@ impl IFileSystemImage_Vtbl {
         unsafe extern "system" fn SetUDFRevision<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileSystemImage_Impl::SetUDFRevision(this, core::mem::transmute_copy(&newval)).into()
+                IFileSystemImage_Impl::SetUDFRevision(this, core::mem::transmute_copy(&newval))
             }
         }
         unsafe extern "system" fn UDFRevision<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::LONG) -> windows_core::HRESULT {
@@ -1345,19 +1345,19 @@ impl IFileSystemImage_Vtbl {
         unsafe extern "system" fn ChooseImageDefaults<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, discrecorder: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileSystemImage_Impl::ChooseImageDefaults(this, core::mem::transmute_copy(&discrecorder)).into()
+                IFileSystemImage_Impl::ChooseImageDefaults(this, core::mem::transmute_copy(&discrecorder))
             }
         }
         unsafe extern "system" fn ChooseImageDefaultsForMediaType<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::IMAPI_MEDIA_PHYSICAL_TYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileSystemImage_Impl::ChooseImageDefaultsForMediaType(this, core::mem::transmute_copy(&value)).into()
+                IFileSystemImage_Impl::ChooseImageDefaultsForMediaType(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn SetISO9660InterchangeLevel<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileSystemImage_Impl::SetISO9660InterchangeLevel(this, core::mem::transmute_copy(&newval)).into()
+                IFileSystemImage_Impl::SetISO9660InterchangeLevel(this, core::mem::transmute_copy(&newval))
             }
         }
         unsafe extern "system" fn ISO9660InterchangeLevel<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::LONG) -> windows_core::HRESULT {
@@ -1483,19 +1483,19 @@ impl IFileSystemImage_Vtbl {
         unsafe extern "system" fn ImportSpecificFileSystem<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filesystemtouse: FsiFileSystems) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileSystemImage_Impl::ImportSpecificFileSystem(this, core::mem::transmute_copy(&filesystemtouse)).into()
+                IFileSystemImage_Impl::ImportSpecificFileSystem(this, core::mem::transmute_copy(&filesystemtouse))
             }
         }
         unsafe extern "system" fn RollbackToChangePoint<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, changepoint: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileSystemImage_Impl::RollbackToChangePoint(this, core::mem::transmute_copy(&changepoint)).into()
+                IFileSystemImage_Impl::RollbackToChangePoint(this, core::mem::transmute_copy(&changepoint))
             }
         }
         unsafe extern "system" fn LockInChangePoint<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileSystemImage_Impl::LockInChangePoint(this).into()
+                IFileSystemImage_Impl::LockInChangePoint(this)
             }
         }
         unsafe extern "system" fn CreateDirectoryItem<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, newitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1591,7 +1591,7 @@ impl IFileSystemImage_Vtbl {
         unsafe extern "system" fn SetStageFiles<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileSystemImage_Impl::SetStageFiles(this, core::mem::transmute_copy(&newval)).into()
+                IFileSystemImage_Impl::SetStageFiles(this, core::mem::transmute_copy(&newval))
             }
         }
         unsafe extern "system" fn MultisessionInterfaces<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
@@ -1612,7 +1612,7 @@ impl IFileSystemImage_Vtbl {
         unsafe extern "system" fn SetMultisessionInterfaces<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: *const super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileSystemImage_Impl::SetMultisessionInterfaces(this, core::mem::transmute_copy(&newval)).into()
+                IFileSystemImage_Impl::SetMultisessionInterfaces(this, core::mem::transmute_copy(&newval))
             }
         }
         Self {
@@ -1670,7 +1670,7 @@ impl IFileSystemImage_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFileSystemImage as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IFileSystemImage as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "imapi2", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1717,7 +1717,7 @@ pub struct IFileSystemImage2_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "imapi2", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFileSystemImage2_Impl: IFileSystemImage_Impl {
     fn BootImageOptionsArray(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
-    fn SetBootImageOptionsArray(&self, newval: *const super::SAFEARRAY) -> windows_core::Result<()>;
+    fn SetBootImageOptionsArray(&self, newval: *const super::SAFEARRAY) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "imapi2", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFileSystemImage2_Vtbl {
@@ -1740,7 +1740,7 @@ impl IFileSystemImage2_Vtbl {
         unsafe extern "system" fn SetBootImageOptionsArray<Identity: IFileSystemImage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: *const super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileSystemImage2_Impl::SetBootImageOptionsArray(this, core::mem::transmute_copy(&newval)).into()
+                IFileSystemImage2_Impl::SetBootImageOptionsArray(this, core::mem::transmute_copy(&newval))
             }
         }
         Self {
@@ -1750,7 +1750,7 @@ impl IFileSystemImage2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFileSystemImage2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IFileSystemImage as windows_core::Interface>::IID
+        iid == &<IFileSystemImage2 as windows_core::Interface>::IID || IFileSystemImage_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "imapi2", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1808,7 +1808,7 @@ pub struct IFileSystemImage3_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "imapi2", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFileSystemImage3_Impl: IFileSystemImage2_Impl {
     fn CreateRedundantUdfMetadataFiles(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetCreateRedundantUdfMetadataFiles(&self, newval: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetCreateRedundantUdfMetadataFiles(&self, newval: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn ProbeSpecificFileSystem(&self, filesystemtoprobe: FsiFileSystems) -> windows_core::Result<super::VARIANT_BOOL>;
 }
 #[cfg(all(feature = "guiddef", feature = "imapi2", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1832,7 +1832,7 @@ impl IFileSystemImage3_Vtbl {
         unsafe extern "system" fn SetCreateRedundantUdfMetadataFiles<Identity: IFileSystemImage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileSystemImage3_Impl::SetCreateRedundantUdfMetadataFiles(this, core::mem::transmute_copy(&newval)).into()
+                IFileSystemImage3_Impl::SetCreateRedundantUdfMetadataFiles(this, core::mem::transmute_copy(&newval))
             }
         }
         unsafe extern "system" fn ProbeSpecificFileSystem<Identity: IFileSystemImage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filesystemtoprobe: FsiFileSystems, isappendable: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -1858,7 +1858,7 @@ impl IFileSystemImage3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFileSystemImage3 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IFileSystemImage as windows_core::Interface>::IID || iid == &<IFileSystemImage2 as windows_core::Interface>::IID
+        iid == &<IFileSystemImage3 as windows_core::Interface>::IID || IFileSystemImage2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "imapi2", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2026,7 +2026,7 @@ impl IFileSystemImageResult_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFileSystemImageResult as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IFileSystemImageResult as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2087,7 +2087,7 @@ impl IFileSystemImageResult2_Vtbl {
         Self { base__: IFileSystemImageResult_Vtbl::new::<Identity, OFFSET>(), ModifiedBlocks: ModifiedBlocks::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFileSystemImageResult2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IFileSystemImageResult as windows_core::Interface>::IID
+        iid == &<IFileSystemImageResult2 as windows_core::Interface>::IID || IFileSystemImageResult_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "imapi2", feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2188,12 +2188,12 @@ pub trait IFsiDirectoryItem_Impl: IFsiItem_Impl {
     fn Item(&self, path: &windows_core::BSTR) -> windows_core::Result<IFsiItem>;
     fn Count(&self) -> windows_core::Result<super::LONG>;
     fn EnumFsiItems(&self) -> windows_core::Result<IEnumFsiItems>;
-    fn AddDirectory(&self, path: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn AddFile(&self, path: &windows_core::BSTR, filedata: windows_core::Ref<super::IStream>) -> windows_core::Result<()>;
-    fn AddTree(&self, sourcedirectory: &windows_core::BSTR, includebasedirectory: super::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn Add(&self, item: windows_core::Ref<IFsiItem>) -> windows_core::Result<()>;
-    fn Remove(&self, path: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn RemoveTree(&self, path: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn AddDirectory(&self, path: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn AddFile(&self, path: &windows_core::BSTR, filedata: windows_core::Ref<super::IStream>) -> windows_core::HRESULT;
+    fn AddTree(&self, sourcedirectory: &windows_core::BSTR, includebasedirectory: super::VARIANT_BOOL) -> windows_core::HRESULT;
+    fn Add(&self, item: windows_core::Ref<IFsiItem>) -> windows_core::HRESULT;
+    fn Remove(&self, path: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn RemoveTree(&self, path: &windows_core::BSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsiDirectoryItem_Vtbl {
@@ -2261,37 +2261,37 @@ impl IFsiDirectoryItem_Vtbl {
         unsafe extern "system" fn AddDirectory<Identity: IFsiDirectoryItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsiDirectoryItem_Impl::AddDirectory(this, core::mem::transmute(&path)).into()
+                IFsiDirectoryItem_Impl::AddDirectory(this, core::mem::transmute(&path))
             }
         }
         unsafe extern "system" fn AddFile<Identity: IFsiDirectoryItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut core::ffi::c_void, filedata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsiDirectoryItem_Impl::AddFile(this, core::mem::transmute(&path), core::mem::transmute_copy(&filedata)).into()
+                IFsiDirectoryItem_Impl::AddFile(this, core::mem::transmute(&path), core::mem::transmute_copy(&filedata))
             }
         }
         unsafe extern "system" fn AddTree<Identity: IFsiDirectoryItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourcedirectory: *mut core::ffi::c_void, includebasedirectory: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsiDirectoryItem_Impl::AddTree(this, core::mem::transmute(&sourcedirectory), core::mem::transmute_copy(&includebasedirectory)).into()
+                IFsiDirectoryItem_Impl::AddTree(this, core::mem::transmute(&sourcedirectory), core::mem::transmute_copy(&includebasedirectory))
             }
         }
         unsafe extern "system" fn Add<Identity: IFsiDirectoryItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, item: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsiDirectoryItem_Impl::Add(this, core::mem::transmute_copy(&item)).into()
+                IFsiDirectoryItem_Impl::Add(this, core::mem::transmute_copy(&item))
             }
         }
         unsafe extern "system" fn Remove<Identity: IFsiDirectoryItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsiDirectoryItem_Impl::Remove(this, core::mem::transmute(&path)).into()
+                IFsiDirectoryItem_Impl::Remove(this, core::mem::transmute(&path))
             }
         }
         unsafe extern "system" fn RemoveTree<Identity: IFsiDirectoryItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsiDirectoryItem_Impl::RemoveTree(this, core::mem::transmute(&path)).into()
+                IFsiDirectoryItem_Impl::RemoveTree(this, core::mem::transmute(&path))
             }
         }
         Self {
@@ -2309,7 +2309,7 @@ impl IFsiDirectoryItem_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsiDirectoryItem as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IFsiItem as windows_core::Interface>::IID
+        iid == &<IFsiDirectoryItem as windows_core::Interface>::IID || IFsiItem_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2344,7 +2344,7 @@ pub struct IFsiDirectoryItem2_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsiDirectoryItem2_Impl: IFsiDirectoryItem_Impl {
-    fn AddTreeWithNamedStreams(&self, sourcedirectory: &windows_core::BSTR, includebasedirectory: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn AddTreeWithNamedStreams(&self, sourcedirectory: &windows_core::BSTR, includebasedirectory: super::VARIANT_BOOL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsiDirectoryItem2_Vtbl {
@@ -2352,13 +2352,13 @@ impl IFsiDirectoryItem2_Vtbl {
         unsafe extern "system" fn AddTreeWithNamedStreams<Identity: IFsiDirectoryItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourcedirectory: *mut core::ffi::c_void, includebasedirectory: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsiDirectoryItem2_Impl::AddTreeWithNamedStreams(this, core::mem::transmute(&sourcedirectory), core::mem::transmute_copy(&includebasedirectory)).into()
+                IFsiDirectoryItem2_Impl::AddTreeWithNamedStreams(this, core::mem::transmute(&sourcedirectory), core::mem::transmute_copy(&includebasedirectory))
             }
         }
         Self { base__: IFsiDirectoryItem_Vtbl::new::<Identity, OFFSET>(), AddTreeWithNamedStreams: AddTreeWithNamedStreams::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsiDirectoryItem2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IFsiItem as windows_core::Interface>::IID || iid == &<IFsiDirectoryItem as windows_core::Interface>::IID
+        iid == &<IFsiDirectoryItem2 as windows_core::Interface>::IID || IFsiDirectoryItem_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2444,7 +2444,7 @@ pub trait IFsiFileItem_Impl: IFsiItem_Impl {
     fn DataSize32BitLow(&self) -> windows_core::Result<super::LONG>;
     fn DataSize32BitHigh(&self) -> windows_core::Result<super::LONG>;
     fn Data(&self) -> windows_core::Result<super::IStream>;
-    fn SetData(&self, newval: windows_core::Ref<super::IStream>) -> windows_core::Result<()>;
+    fn SetData(&self, newval: windows_core::Ref<super::IStream>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsiFileItem_Vtbl {
@@ -2512,7 +2512,7 @@ impl IFsiFileItem_Vtbl {
         unsafe extern "system" fn SetData<Identity: IFsiFileItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsiFileItem_Impl::SetData(this, core::mem::transmute_copy(&newval)).into()
+                IFsiFileItem_Impl::SetData(this, core::mem::transmute_copy(&newval))
             }
         }
         Self {
@@ -2525,7 +2525,7 @@ impl IFsiFileItem_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsiFileItem as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IFsiItem as windows_core::Interface>::IID
+        iid == &<IFsiFileItem as windows_core::Interface>::IID || IFsiItem_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2606,10 +2606,10 @@ pub struct IFsiFileItem2_Vtbl {
 pub trait IFsiFileItem2_Impl: IFsiFileItem_Impl {
     fn FsiNamedStreams(&self) -> windows_core::Result<IFsiNamedStreams>;
     fn IsNamedStream(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn AddStream(&self, name: &windows_core::BSTR, streamdata: windows_core::Ref<super::IStream>) -> windows_core::Result<()>;
-    fn RemoveStream(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn AddStream(&self, name: &windows_core::BSTR, streamdata: windows_core::Ref<super::IStream>) -> windows_core::HRESULT;
+    fn RemoveStream(&self, name: &windows_core::BSTR) -> windows_core::HRESULT;
     fn IsRealTime(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetIsRealTime(&self, newval: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetIsRealTime(&self, newval: super::VARIANT_BOOL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsiFileItem2_Vtbl {
@@ -2647,13 +2647,13 @@ impl IFsiFileItem2_Vtbl {
         unsafe extern "system" fn AddStream<Identity: IFsiFileItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, streamdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsiFileItem2_Impl::AddStream(this, core::mem::transmute(&name), core::mem::transmute_copy(&streamdata)).into()
+                IFsiFileItem2_Impl::AddStream(this, core::mem::transmute(&name), core::mem::transmute_copy(&streamdata))
             }
         }
         unsafe extern "system" fn RemoveStream<Identity: IFsiFileItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsiFileItem2_Impl::RemoveStream(this, core::mem::transmute(&name)).into()
+                IFsiFileItem2_Impl::RemoveStream(this, core::mem::transmute(&name))
             }
         }
         unsafe extern "system" fn IsRealTime<Identity: IFsiFileItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2674,7 +2674,7 @@ impl IFsiFileItem2_Vtbl {
         unsafe extern "system" fn SetIsRealTime<Identity: IFsiFileItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsiFileItem2_Impl::SetIsRealTime(this, core::mem::transmute_copy(&newval)).into()
+                IFsiFileItem2_Impl::SetIsRealTime(this, core::mem::transmute_copy(&newval))
             }
         }
         Self {
@@ -2688,7 +2688,7 @@ impl IFsiFileItem2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsiFileItem2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IFsiItem as windows_core::Interface>::IID || iid == &<IFsiFileItem as windows_core::Interface>::IID
+        iid == &<IFsiFileItem2 as windows_core::Interface>::IID || IFsiFileItem_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2822,13 +2822,13 @@ pub trait IFsiItem_Impl: super::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn FullPath(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CreationTime(&self) -> windows_core::Result<super::DATE>;
-    fn SetCreationTime(&self, newval: super::DATE) -> windows_core::Result<()>;
+    fn SetCreationTime(&self, newval: super::DATE) -> windows_core::HRESULT;
     fn LastAccessedTime(&self) -> windows_core::Result<super::DATE>;
-    fn SetLastAccessedTime(&self, newval: super::DATE) -> windows_core::Result<()>;
+    fn SetLastAccessedTime(&self, newval: super::DATE) -> windows_core::HRESULT;
     fn LastModifiedTime(&self) -> windows_core::Result<super::DATE>;
-    fn SetLastModifiedTime(&self, newval: super::DATE) -> windows_core::Result<()>;
+    fn SetLastModifiedTime(&self, newval: super::DATE) -> windows_core::HRESULT;
     fn IsHidden(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetIsHidden(&self, newval: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetIsHidden(&self, newval: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn FileSystemName(&self, filesystem: FsiFileSystems) -> windows_core::Result<windows_core::BSTR>;
     fn FileSystemPath(&self, filesystem: FsiFileSystems) -> windows_core::Result<windows_core::BSTR>;
 }
@@ -2883,7 +2883,7 @@ impl IFsiItem_Vtbl {
         unsafe extern "system" fn SetCreationTime<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsiItem_Impl::SetCreationTime(this, core::mem::transmute_copy(&newval)).into()
+                IFsiItem_Impl::SetCreationTime(this, core::mem::transmute_copy(&newval))
             }
         }
         unsafe extern "system" fn LastAccessedTime<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::DATE) -> windows_core::HRESULT {
@@ -2904,7 +2904,7 @@ impl IFsiItem_Vtbl {
         unsafe extern "system" fn SetLastAccessedTime<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsiItem_Impl::SetLastAccessedTime(this, core::mem::transmute_copy(&newval)).into()
+                IFsiItem_Impl::SetLastAccessedTime(this, core::mem::transmute_copy(&newval))
             }
         }
         unsafe extern "system" fn LastModifiedTime<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::DATE) -> windows_core::HRESULT {
@@ -2925,7 +2925,7 @@ impl IFsiItem_Vtbl {
         unsafe extern "system" fn SetLastModifiedTime<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsiItem_Impl::SetLastModifiedTime(this, core::mem::transmute_copy(&newval)).into()
+                IFsiItem_Impl::SetLastModifiedTime(this, core::mem::transmute_copy(&newval))
             }
         }
         unsafe extern "system" fn IsHidden<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2946,7 +2946,7 @@ impl IFsiItem_Vtbl {
         unsafe extern "system" fn SetIsHidden<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsiItem_Impl::SetIsHidden(this, core::mem::transmute_copy(&newval)).into()
+                IFsiItem_Impl::SetIsHidden(this, core::mem::transmute_copy(&newval))
             }
         }
         unsafe extern "system" fn FileSystemName<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filesystem: FsiFileSystems, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2996,7 +2996,7 @@ impl IFsiItem_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsiItem as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IFsiItem as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3136,7 +3136,7 @@ impl IFsiNamedStreams_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsiNamedStreams as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IFsiNamedStreams as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3202,9 +3202,9 @@ pub struct IIsoImageManager_Vtbl {
 pub trait IIsoImageManager_Impl: super::IDispatch_Impl {
     fn Path(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Stream(&self) -> windows_core::Result<super::IStream>;
-    fn SetPath(&self, val: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetStream(&self, data: windows_core::Ref<super::IStream>) -> windows_core::Result<()>;
-    fn Validate(&self) -> windows_core::Result<()>;
+    fn SetPath(&self, val: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn SetStream(&self, data: windows_core::Ref<super::IStream>) -> windows_core::HRESULT;
+    fn Validate(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IIsoImageManager_Vtbl {
@@ -3242,19 +3242,19 @@ impl IIsoImageManager_Vtbl {
         unsafe extern "system" fn SetPath<Identity: IIsoImageManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, val: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IIsoImageManager_Impl::SetPath(this, core::mem::transmute(&val)).into()
+                IIsoImageManager_Impl::SetPath(this, core::mem::transmute(&val))
             }
         }
         unsafe extern "system" fn SetStream<Identity: IIsoImageManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IIsoImageManager_Impl::SetStream(this, core::mem::transmute_copy(&data)).into()
+                IIsoImageManager_Impl::SetStream(this, core::mem::transmute_copy(&data))
             }
         }
         unsafe extern "system" fn Validate<Identity: IIsoImageManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IIsoImageManager_Impl::Validate(this).into()
+                IIsoImageManager_Impl::Validate(this)
             }
         }
         Self {
@@ -3267,7 +3267,7 @@ impl IIsoImageManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IIsoImageManager as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IIsoImageManager as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3416,7 +3416,7 @@ impl IProgressItem_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IProgressItem as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IProgressItem as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3600,7 +3600,7 @@ impl IProgressItems_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IProgressItems as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IProgressItems as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]

@@ -28,7 +28,7 @@ pub struct IDesktopWindowXamlSourceNative_Vtbl {
 }
 #[cfg(feature = "windef")]
 pub trait IDesktopWindowXamlSourceNative_Impl: windows_core::IUnknownImpl {
-    fn AttachToWindow(&self, parentwnd: super::HWND) -> windows_core::Result<()>;
+    fn AttachToWindow(&self, parentwnd: super::HWND) -> windows_core::HRESULT;
     fn WindowHandle(&self) -> windows_core::Result<super::HWND>;
 }
 #[cfg(feature = "windef")]
@@ -37,7 +37,7 @@ impl IDesktopWindowXamlSourceNative_Vtbl {
         unsafe extern "system" fn AttachToWindow<Identity: IDesktopWindowXamlSourceNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parentwnd: super::HWND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDesktopWindowXamlSourceNative_Impl::AttachToWindow(this, core::mem::transmute_copy(&parentwnd)).into()
+                IDesktopWindowXamlSourceNative_Impl::AttachToWindow(this, core::mem::transmute_copy(&parentwnd))
             }
         }
         unsafe extern "system" fn WindowHandle<Identity: IDesktopWindowXamlSourceNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: *mut super::HWND) -> windows_core::HRESULT {
@@ -118,7 +118,7 @@ impl IDesktopWindowXamlSourceNative2_Vtbl {
         Self { base__: IDesktopWindowXamlSourceNative_Vtbl::new::<Identity, OFFSET>(), PreTranslateMessage: PreTranslateMessage::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDesktopWindowXamlSourceNative2 as windows_core::Interface>::IID || iid == &<IDesktopWindowXamlSourceNative as windows_core::Interface>::IID
+        iid == &<IDesktopWindowXamlSourceNative2 as windows_core::Interface>::IID || IDesktopWindowXamlSourceNative_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]

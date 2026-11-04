@@ -55,11 +55,11 @@ pub struct INSSBuffer_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait INSSBuffer_Impl: windows_core::IUnknownImpl {
-    fn GetLength(&self, pdwlength: *mut super::DWORD) -> windows_core::Result<()>;
-    fn SetLength(&self, dwlength: super::DWORD) -> windows_core::Result<()>;
-    fn GetMaxLength(&self, pdwlength: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetBuffer(&self, ppdwbuffer: *mut *mut super::BYTE) -> windows_core::Result<()>;
-    fn GetBufferAndLength(&self, ppdwbuffer: *mut *mut super::BYTE, pdwlength: *mut super::DWORD) -> windows_core::Result<()>;
+    fn GetLength(&self, pdwlength: *mut super::DWORD) -> windows_core::HRESULT;
+    fn SetLength(&self, dwlength: super::DWORD) -> windows_core::HRESULT;
+    fn GetMaxLength(&self, pdwlength: *mut super::DWORD) -> windows_core::HRESULT;
+    fn GetBuffer(&self, ppdwbuffer: *mut *mut super::BYTE) -> windows_core::HRESULT;
+    fn GetBufferAndLength(&self, ppdwbuffer: *mut *mut super::BYTE, pdwlength: *mut super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl INSSBuffer_Vtbl {
@@ -67,31 +67,31 @@ impl INSSBuffer_Vtbl {
         unsafe extern "system" fn GetLength<Identity: INSSBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwlength: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INSSBuffer_Impl::GetLength(this, core::mem::transmute_copy(&pdwlength)).into()
+                INSSBuffer_Impl::GetLength(this, core::mem::transmute_copy(&pdwlength))
             }
         }
         unsafe extern "system" fn SetLength<Identity: INSSBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwlength: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INSSBuffer_Impl::SetLength(this, core::mem::transmute_copy(&dwlength)).into()
+                INSSBuffer_Impl::SetLength(this, core::mem::transmute_copy(&dwlength))
             }
         }
         unsafe extern "system" fn GetMaxLength<Identity: INSSBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwlength: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INSSBuffer_Impl::GetMaxLength(this, core::mem::transmute_copy(&pdwlength)).into()
+                INSSBuffer_Impl::GetMaxLength(this, core::mem::transmute_copy(&pdwlength))
             }
         }
         unsafe extern "system" fn GetBuffer<Identity: INSSBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdwbuffer: *mut *mut super::BYTE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INSSBuffer_Impl::GetBuffer(this, core::mem::transmute_copy(&ppdwbuffer)).into()
+                INSSBuffer_Impl::GetBuffer(this, core::mem::transmute_copy(&ppdwbuffer))
             }
         }
         unsafe extern "system" fn GetBufferAndLength<Identity: INSSBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdwbuffer: *mut *mut super::BYTE, pdwlength: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INSSBuffer_Impl::GetBufferAndLength(this, core::mem::transmute_copy(&ppdwbuffer), core::mem::transmute_copy(&pdwlength)).into()
+                INSSBuffer_Impl::GetBufferAndLength(this, core::mem::transmute_copy(&ppdwbuffer), core::mem::transmute_copy(&pdwlength))
             }
         }
         Self {
@@ -142,8 +142,8 @@ pub struct INSSBuffer2_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait INSSBuffer2_Impl: INSSBuffer_Impl {
-    fn GetSampleProperties(&self, cbproperties: super::DWORD, pbproperties: *mut super::BYTE) -> windows_core::Result<()>;
-    fn SetSampleProperties(&self, cbproperties: super::DWORD, pbproperties: *const super::BYTE) -> windows_core::Result<()>;
+    fn GetSampleProperties(&self, cbproperties: super::DWORD, pbproperties: *mut super::BYTE) -> windows_core::HRESULT;
+    fn SetSampleProperties(&self, cbproperties: super::DWORD, pbproperties: *const super::BYTE) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl INSSBuffer2_Vtbl {
@@ -151,13 +151,13 @@ impl INSSBuffer2_Vtbl {
         unsafe extern "system" fn GetSampleProperties<Identity: INSSBuffer2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbproperties: super::DWORD, pbproperties: *mut super::BYTE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INSSBuffer2_Impl::GetSampleProperties(this, core::mem::transmute_copy(&cbproperties), core::mem::transmute_copy(&pbproperties)).into()
+                INSSBuffer2_Impl::GetSampleProperties(this, core::mem::transmute_copy(&cbproperties), core::mem::transmute_copy(&pbproperties))
             }
         }
         unsafe extern "system" fn SetSampleProperties<Identity: INSSBuffer2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbproperties: super::DWORD, pbproperties: *const super::BYTE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INSSBuffer2_Impl::SetSampleProperties(this, core::mem::transmute_copy(&cbproperties), core::mem::transmute_copy(&pbproperties)).into()
+                INSSBuffer2_Impl::SetSampleProperties(this, core::mem::transmute_copy(&cbproperties), core::mem::transmute_copy(&pbproperties))
             }
         }
         Self {
@@ -167,7 +167,7 @@ impl INSSBuffer2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INSSBuffer2 as windows_core::Interface>::IID || iid == &<INSSBuffer as windows_core::Interface>::IID
+        iid == &<INSSBuffer2 as windows_core::Interface>::IID || INSSBuffer_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -205,8 +205,8 @@ pub struct INSSBuffer3_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait INSSBuffer3_Impl: INSSBuffer2_Impl {
-    fn SetProperty(&self, guidbufferproperty: &windows_core::GUID, pvbufferproperty: *const core::ffi::c_void, dwbufferpropertysize: super::DWORD) -> windows_core::Result<()>;
-    fn GetProperty(&self, guidbufferproperty: &windows_core::GUID, pvbufferproperty: *mut core::ffi::c_void, pdwbufferpropertysize: *mut super::DWORD) -> windows_core::Result<()>;
+    fn SetProperty(&self, guidbufferproperty: &windows_core::GUID, pvbufferproperty: *const core::ffi::c_void, dwbufferpropertysize: super::DWORD) -> windows_core::HRESULT;
+    fn GetProperty(&self, guidbufferproperty: &windows_core::GUID, pvbufferproperty: *mut core::ffi::c_void, pdwbufferpropertysize: *mut super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl INSSBuffer3_Vtbl {
@@ -214,19 +214,19 @@ impl INSSBuffer3_Vtbl {
         unsafe extern "system" fn SetProperty<Identity: INSSBuffer3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidbufferproperty: windows_core::GUID, pvbufferproperty: *const core::ffi::c_void, dwbufferpropertysize: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INSSBuffer3_Impl::SetProperty(this, core::mem::transmute(&guidbufferproperty), core::mem::transmute_copy(&pvbufferproperty), core::mem::transmute_copy(&dwbufferpropertysize)).into()
+                INSSBuffer3_Impl::SetProperty(this, core::mem::transmute(&guidbufferproperty), core::mem::transmute_copy(&pvbufferproperty), core::mem::transmute_copy(&dwbufferpropertysize))
             }
         }
         unsafe extern "system" fn GetProperty<Identity: INSSBuffer3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidbufferproperty: windows_core::GUID, pvbufferproperty: *mut core::ffi::c_void, pdwbufferpropertysize: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INSSBuffer3_Impl::GetProperty(this, core::mem::transmute(&guidbufferproperty), core::mem::transmute_copy(&pvbufferproperty), core::mem::transmute_copy(&pdwbufferpropertysize)).into()
+                INSSBuffer3_Impl::GetProperty(this, core::mem::transmute(&guidbufferproperty), core::mem::transmute_copy(&pvbufferproperty), core::mem::transmute_copy(&pdwbufferpropertysize))
             }
         }
         Self { base__: INSSBuffer2_Vtbl::new::<Identity, OFFSET>(), SetProperty: SetProperty::<Identity, OFFSET>, GetProperty: GetProperty::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INSSBuffer3 as windows_core::Interface>::IID || iid == &<INSSBuffer as windows_core::Interface>::IID || iid == &<INSSBuffer2 as windows_core::Interface>::IID
+        iid == &<INSSBuffer3 as windows_core::Interface>::IID || INSSBuffer2_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -264,8 +264,8 @@ pub struct INSSBuffer4_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait INSSBuffer4_Impl: INSSBuffer3_Impl {
-    fn GetPropertyCount(&self, pcbufferproperties: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetPropertyByIndex(&self, dwbufferpropertyindex: super::DWORD, pguidbufferproperty: *mut windows_core::GUID, pvbufferproperty: *mut core::ffi::c_void, pdwbufferpropertysize: *mut super::DWORD) -> windows_core::Result<()>;
+    fn GetPropertyCount(&self, pcbufferproperties: *mut super::DWORD) -> windows_core::HRESULT;
+    fn GetPropertyByIndex(&self, dwbufferpropertyindex: super::DWORD, pguidbufferproperty: *mut windows_core::GUID, pvbufferproperty: *mut core::ffi::c_void, pdwbufferpropertysize: *mut super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl INSSBuffer4_Vtbl {
@@ -273,13 +273,13 @@ impl INSSBuffer4_Vtbl {
         unsafe extern "system" fn GetPropertyCount<Identity: INSSBuffer4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbufferproperties: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INSSBuffer4_Impl::GetPropertyCount(this, core::mem::transmute_copy(&pcbufferproperties)).into()
+                INSSBuffer4_Impl::GetPropertyCount(this, core::mem::transmute_copy(&pcbufferproperties))
             }
         }
         unsafe extern "system" fn GetPropertyByIndex<Identity: INSSBuffer4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwbufferpropertyindex: super::DWORD, pguidbufferproperty: *mut windows_core::GUID, pvbufferproperty: *mut core::ffi::c_void, pdwbufferpropertysize: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INSSBuffer4_Impl::GetPropertyByIndex(this, core::mem::transmute_copy(&dwbufferpropertyindex), core::mem::transmute_copy(&pguidbufferproperty), core::mem::transmute_copy(&pvbufferproperty), core::mem::transmute_copy(&pdwbufferpropertysize)).into()
+                INSSBuffer4_Impl::GetPropertyByIndex(this, core::mem::transmute_copy(&dwbufferpropertyindex), core::mem::transmute_copy(&pguidbufferproperty), core::mem::transmute_copy(&pvbufferproperty), core::mem::transmute_copy(&pdwbufferpropertysize))
             }
         }
         Self {
@@ -289,7 +289,7 @@ impl INSSBuffer4_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INSSBuffer4 as windows_core::Interface>::IID || iid == &<INSSBuffer as windows_core::Interface>::IID || iid == &<INSSBuffer2 as windows_core::Interface>::IID || iid == &<INSSBuffer3 as windows_core::Interface>::IID
+        iid == &<INSSBuffer4 as windows_core::Interface>::IID || INSSBuffer3_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -321,8 +321,8 @@ pub struct IWMSBufferAllocator_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IWMSBufferAllocator_Impl: windows_core::IUnknownImpl {
-    fn AllocateBuffer(&self, dwmaxbuffersize: super::DWORD, ppbuffer: windows_core::OutRef<INSSBuffer>) -> windows_core::Result<()>;
-    fn AllocatePageSizeBuffer(&self, dwmaxbuffersize: super::DWORD, ppbuffer: windows_core::OutRef<INSSBuffer>) -> windows_core::Result<()>;
+    fn AllocateBuffer(&self, dwmaxbuffersize: super::DWORD, ppbuffer: windows_core::OutRef<INSSBuffer>) -> windows_core::HRESULT;
+    fn AllocatePageSizeBuffer(&self, dwmaxbuffersize: super::DWORD, ppbuffer: windows_core::OutRef<INSSBuffer>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IWMSBufferAllocator_Vtbl {
@@ -330,13 +330,13 @@ impl IWMSBufferAllocator_Vtbl {
         unsafe extern "system" fn AllocateBuffer<Identity: IWMSBufferAllocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmaxbuffersize: super::DWORD, ppbuffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMSBufferAllocator_Impl::AllocateBuffer(this, core::mem::transmute_copy(&dwmaxbuffersize), core::mem::transmute_copy(&ppbuffer)).into()
+                IWMSBufferAllocator_Impl::AllocateBuffer(this, core::mem::transmute_copy(&dwmaxbuffersize), core::mem::transmute_copy(&ppbuffer))
             }
         }
         unsafe extern "system" fn AllocatePageSizeBuffer<Identity: IWMSBufferAllocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmaxbuffersize: super::DWORD, ppbuffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMSBufferAllocator_Impl::AllocatePageSizeBuffer(this, core::mem::transmute_copy(&dwmaxbuffersize), core::mem::transmute_copy(&ppbuffer)).into()
+                IWMSBufferAllocator_Impl::AllocatePageSizeBuffer(this, core::mem::transmute_copy(&dwmaxbuffersize), core::mem::transmute_copy(&ppbuffer))
             }
         }
         Self {

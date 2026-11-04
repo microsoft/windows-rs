@@ -3,8 +3,8 @@ mod Windows {
     mod Globalization {
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-        #[Windows::Foundation::Metadata::Static(IApplicationLanguagesStatics2, 393216, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Static(IApplicationLanguagesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(IApplicationLanguagesStatics2, 393216, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Threading(Both)]
         class ApplicationLanguages {}
         #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
@@ -23,8 +23,8 @@ mod Windows {
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-        #[Windows::Foundation::Metadata::Static(ICalendarIdentifiersStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Static(ICalendarIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(ICalendarIdentifiersStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Static(ICalendarIdentifiersStatics3, 196608, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Threading(Both)]
         class CalendarIdentifiers {}
@@ -45,8 +45,8 @@ mod Windows {
         #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::Static(ICurrencyIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-        #[Windows::Foundation::Metadata::Static(ICurrencyIdentifiersStatics3, 458752, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Static(ICurrencyIdentifiersStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(ICurrencyIdentifiersStatics3, 458752, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Threading(Both)]
         class CurrencyIdentifiers {}
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
@@ -911,8 +911,8 @@ mod Windows {
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-        #[Windows::Foundation::Metadata::Static(INumeralSystemIdentifiersStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Static(INumeralSystemIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(INumeralSystemIdentifiersStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Threading(Both)]
         class NumeralSystemIdentifiers {}
     }

@@ -46,10 +46,10 @@ pub struct ICertPolicy_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertPolicy_Impl: super::IDispatch_Impl {
-    fn Initialize(&self, strconfig: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Initialize(&self, strconfig: &windows_core::BSTR) -> windows_core::HRESULT;
     fn VerifyRequest(&self, strconfig: &windows_core::BSTR, context: super::LONG, bnewrequest: super::LONG, flags: super::LONG) -> windows_core::Result<super::LONG>;
     fn GetDescription(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn ShutDown(&self) -> windows_core::Result<()>;
+    fn ShutDown(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertPolicy_Vtbl {
@@ -57,7 +57,7 @@ impl ICertPolicy_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICertPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertPolicy_Impl::Initialize(this, core::mem::transmute(&strconfig)).into()
+                ICertPolicy_Impl::Initialize(this, core::mem::transmute(&strconfig))
             }
         }
         unsafe extern "system" fn VerifyRequest<Identity: ICertPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, context: super::LONG, bnewrequest: super::LONG, flags: super::LONG, pdisposition: *mut super::LONG) -> windows_core::HRESULT {
@@ -93,7 +93,7 @@ impl ICertPolicy_Vtbl {
         unsafe extern "system" fn ShutDown<Identity: ICertPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertPolicy_Impl::ShutDown(this).into()
+                ICertPolicy_Impl::ShutDown(this)
             }
         }
         Self {
@@ -105,7 +105,7 @@ impl ICertPolicy_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertPolicy as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ICertPolicy as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -166,7 +166,7 @@ impl ICertPolicy2_Vtbl {
         Self { base__: ICertPolicy_Vtbl::new::<Identity, OFFSET>(), GetManageModule: GetManageModule::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertPolicy2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ICertPolicy as windows_core::Interface>::IID
+        iid == &<ICertPolicy2 as windows_core::Interface>::IID || ICertPolicy_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "certmod", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -228,11 +228,11 @@ pub struct INDESPolicy_Vtbl {
 }
 #[cfg(all(feature = "certbase", feature = "shared"))]
 pub trait INDESPolicy_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self) -> windows_core::Result<()>;
-    fn Uninitialize(&self) -> windows_core::Result<()>;
+    fn Initialize(&self) -> windows_core::HRESULT;
+    fn Uninitialize(&self) -> windows_core::HRESULT;
     fn GenerateChallenge(&self, pwsztemplate: &windows_core::PCWSTR, pwszparams: &windows_core::PCWSTR) -> windows_core::Result<windows_core::PWSTR>;
     fn VerifyRequest(&self, pctbrequest: *const super::CERTTRANSBLOB, pctbsigningcertencoded: *const super::CERTTRANSBLOB, pwsztemplate: &windows_core::PCWSTR, pwsztransactionid: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>;
-    fn Notify(&self, pwszchallenge: &windows_core::PCWSTR, pwsztransactionid: &windows_core::PCWSTR, disposition: X509SCEPDisposition, lasthresult: super::LONG, pctbissuedcertencoded: *const super::CERTTRANSBLOB) -> windows_core::Result<()>;
+    fn Notify(&self, pwszchallenge: &windows_core::PCWSTR, pwsztransactionid: &windows_core::PCWSTR, disposition: X509SCEPDisposition, lasthresult: super::LONG, pctbissuedcertencoded: *const super::CERTTRANSBLOB) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "certbase", feature = "shared"))]
 impl INDESPolicy_Vtbl {
@@ -240,13 +240,13 @@ impl INDESPolicy_Vtbl {
         unsafe extern "system" fn Initialize<Identity: INDESPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INDESPolicy_Impl::Initialize(this).into()
+                INDESPolicy_Impl::Initialize(this)
             }
         }
         unsafe extern "system" fn Uninitialize<Identity: INDESPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INDESPolicy_Impl::Uninitialize(this).into()
+                INDESPolicy_Impl::Uninitialize(this)
             }
         }
         unsafe extern "system" fn GenerateChallenge<Identity: INDESPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwsztemplate: windows_core::PCWSTR, pwszparams: windows_core::PCWSTR, ppwszresponse: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -282,7 +282,7 @@ impl INDESPolicy_Vtbl {
         unsafe extern "system" fn Notify<Identity: INDESPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszchallenge: windows_core::PCWSTR, pwsztransactionid: windows_core::PCWSTR, disposition: X509SCEPDisposition, lasthresult: super::LONG, pctbissuedcertencoded: *const super::CERTTRANSBLOB) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INDESPolicy_Impl::Notify(this, core::mem::transmute(&pwszchallenge), core::mem::transmute(&pwsztransactionid), core::mem::transmute_copy(&disposition), core::mem::transmute_copy(&lasthresult), core::mem::transmute_copy(&pctbissuedcertencoded)).into()
+                INDESPolicy_Impl::Notify(this, core::mem::transmute(&pwszchallenge), core::mem::transmute(&pwsztransactionid), core::mem::transmute_copy(&disposition), core::mem::transmute_copy(&lasthresult), core::mem::transmute_copy(&pctbissuedcertencoded))
             }
         }
         Self {
@@ -316,6 +316,7 @@ pub const SCEPMessageClaimChallengeAnswer: X509SCEPMessageType = 41;
 pub const SCEPMessageGetCRL: X509SCEPMessageType = 22;
 pub const SCEPMessageGetCert: X509SCEPMessageType = 21;
 pub const SCEPMessageGetCertInitial: X509SCEPMessageType = 20;
+pub const SCEPMessageGetCertifier: X509SCEPMessageType = 198;
 pub const SCEPMessagePKCSRequest: X509SCEPMessageType = 19;
 pub const SCEPMessageUnknown: X509SCEPMessageType = -1;
 pub type X509SCEPDisposition = i32;

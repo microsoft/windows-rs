@@ -6,28 +6,28 @@ use windows::core::*;
 struct Test();
 
 impl IPersist_Impl for Test_Impl {
-    fn GetClassID(&self, class_id: *mut GUID) -> Result<()> {
+    fn GetClassID(&self, class_id: *mut GUID) -> HRESULT {
         unsafe { *class_id = GUID::zeroed() };
-        Ok(())
+        S_OK
     }
 }
 
 impl IPersistStream_Impl for Test_Impl {
-    fn IsDirty(&self) -> Result<()> {
-        Ok(())
+    fn IsDirty(&self) -> HRESULT {
+        S_OK
     }
 
-    fn Load(&self, _: Ref<IStream>) -> Result<()> {
-        Ok(())
+    fn Load(&self, _: Ref<IStream>) -> HRESULT {
+        S_OK
     }
 
-    fn Save(&self, _: Ref<IStream>, _: BOOL) -> Result<()> {
-        Ok(())
+    fn Save(&self, _: Ref<IStream>, _: BOOL) -> HRESULT {
+        S_OK
     }
 
-    fn GetSizeMax(&self, size: *mut ULARGE_INTEGER) -> Result<()> {
+    fn GetSizeMax(&self, size: *mut ULARGE_INTEGER) -> HRESULT {
         unsafe { *size = ULARGE_INTEGER { QuadPart: 0 } };
-        Ok(())
+        S_OK
     }
 }
 

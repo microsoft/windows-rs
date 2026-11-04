@@ -3,7 +3,7 @@ use crate::bindings::*;
 use std::cell::Cell;
 use std::sync::atomic::AtomicU32;
 use std::time::{Duration, Instant};
-use windows_core::{BOOL, Error, Interface, Ref, Result};
+use windows_core::{BOOL, Error, HRESULT, Interface, Ref, Result};
 
 #[derive(Clone)]
 pub struct Outcome {
@@ -126,33 +126,35 @@ struct Source {
 
 #[allow(non_snake_case)]
 impl IDropSource_Impl for Source_Impl {
-    fn QueryContinueDrag(&self, escape: BOOL, keys: u32) -> Result<()> {
-        // OLE uses positive HRESULTs to cancel, drop, and select its default cursor.
+    fn QueryContinueDrag(&self, escape: BOOL, keys: u32) -> HRESULT {
         if escape.as_bool()
             || self.cancelled.load(Ordering::Relaxed)
             || Instant::now() >= self.deadline
         {
-            Err(Error::from_hresult(DRAGDROP_S_CANCEL))
+            DRAGDROP_S_CANCEL
         } else if keys & MK_LBUTTON as u32 == 0 {
-            Err(Error::from_hresult(DRAGDROP_S_DROP))
+            DRAGDROP_S_DROP
         } else {
-            Ok(())
+            HRESULT(0)
         }
     }
 
-    fn GiveFeedback(&self, effect: u32) -> Result<()> {
+    fn GiveFeedback(&self, effect: u32) -> HRESULT {
         let effect = effect & !DROPEFFECT_SCROLL;
-        let operation = operation(effect)?;
+        let operation = match operation(effect) {
+            Ok(operation) => operation,
+            Err(error) => return error.into(),
+        };
         if self.feedback.replace(Some(effect)) != Some(effect)
             && !self
                 .completion
                 .clone()
                 .complete(Message::Feedback(operation))
         {
-            return Err(Error::new(E_ABORT, "drag fixture was removed"));
+            return Error::new(E_ABORT, "drag fixture was removed").into();
         }
 
-        Err(Error::from_hresult(DRAGDROP_S_USEDEFAULTCURSORS))
+        DRAGDROP_S_USEDEFAULTCURSORS
     }
 }
 
@@ -221,8 +223,11 @@ fn format() -> FORMATETC {
 
 #[allow(non_snake_case)]
 impl IDataObject_Impl for TextData_Impl {
-    fn GetData(&self, requested: *const FORMATETC, output: *mut STGMEDIUM) -> Result<()> {
-        self.QueryGetData(requested)?;
+    fn GetData(&self, requested: *const FORMATETC, output: *mut STGMEDIUM) -> HRESULT {
+        let status = self.QueryGetData(requested);
+        if status.is_err() {
+            return status;
+        }
         let text: Vec<u16> = "Reactor native drag text"
             .encode_utf16()
             .chain([0])
@@ -230,16 +235,16 @@ impl IDataObject_Impl for TextData_Impl {
         unsafe {
             let memory = GlobalMemory(GlobalAlloc(GMEM_MOVEABLE as u32, text.len() * 2));
             if memory.0.is_null() {
-                return Err(Error::from_thread());
+                return Error::from_thread().into();
             }
             let data = GlobalLock(memory.0).cast::<u16>();
             if data.is_null() {
-                return Err(Error::from_thread());
+                return Error::from_thread().into();
             }
             std::ptr::copy_nonoverlapping(text.as_ptr(), data, text.len());
             SetLastError(0);
             if !GlobalUnlock(memory.0).as_bool() && GetLastError() != 0 {
-                return Err(Error::from_thread());
+                return Error::from_thread().into();
             }
             let medium = STGMEDIUM {
                 tymed: TYMED_HGLOBAL as u32,
@@ -249,35 +254,38 @@ impl IDataObject_Impl for TextData_Impl {
             std::mem::forget(memory);
             output.write(medium);
             self.reads.fetch_add(1, Ordering::Relaxed);
-            Ok(())
+            HRESULT(0)
         }
     }
 
-    fn QueryGetData(&self, requested: *const FORMATETC) -> Result<()> {
-        let requested =
-            unsafe { requested.as_ref() }.ok_or_else(|| Error::from_hresult(E_POINTER))?;
+    fn QueryGetData(&self, requested: *const FORMATETC) -> HRESULT {
+        let Some(requested) = (unsafe { requested.as_ref() }) else {
+            return E_POINTER;
+        };
         if requested.cfFormat != CF_UNICODETEXT as u16
             || requested.dwAspect != DVASPECT_CONTENT as u32
             || requested.lindex != -1
             || requested.tymed & TYMED_HGLOBAL as u32 == 0
         {
-            return Err(Error::from_hresult(DV_E_FORMATETC));
+            return DV_E_FORMATETC;
         }
-        Ok(())
+        HRESULT(0)
     }
 
-    fn GetDataHere(&self, _: *const FORMATETC, _: *mut STGMEDIUM) -> Result<()> {
-        Err(Error::from_hresult(E_NOTIMPL))
+    fn GetDataHere(&self, _: *const FORMATETC, _: *mut STGMEDIUM) -> HRESULT {
+        E_NOTIMPL
     }
 
-    fn GetCanonicalFormatEtc(&self, _: *const FORMATETC, output: *mut FORMATETC) -> Result<()> {
-        let output = unsafe { output.as_mut() }.ok_or_else(|| Error::from_hresult(E_POINTER))?;
+    fn GetCanonicalFormatEtc(&self, _: *const FORMATETC, output: *mut FORMATETC) -> HRESULT {
+        let Some(output) = (unsafe { output.as_mut() }) else {
+            return E_POINTER;
+        };
         output.ptd = std::ptr::null_mut();
-        Err(Error::from_hresult(DATA_S_SAMEFORMATETC))
+        DATA_S_SAMEFORMATETC
     }
 
-    fn SetData(&self, _: *const FORMATETC, _: *const STGMEDIUM, _: BOOL) -> Result<()> {
-        Err(Error::from_hresult(E_NOTIMPL))
+    fn SetData(&self, _: *const FORMATETC, _: *const STGMEDIUM, _: BOOL) -> HRESULT {
+        E_NOTIMPL
     }
 
     fn EnumFormatEtc(&self, direction: u32) -> Result<IEnumFORMATETC> {
@@ -291,12 +299,12 @@ impl IDataObject_Impl for TextData_Impl {
         }
     }
 
-    fn DAdvise(&self, _: *const FORMATETC, _: u32, _: Ref<IAdviseSink>, _: *mut u32) -> Result<()> {
-        Err(Error::from_hresult(OLE_E_ADVISENOTSUPPORTED))
+    fn DAdvise(&self, _: *const FORMATETC, _: u32, _: Ref<IAdviseSink>, _: *mut u32) -> HRESULT {
+        OLE_E_ADVISENOTSUPPORTED
     }
 
-    fn DUnadvise(&self, _: u32) -> Result<()> {
-        Err(Error::from_hresult(OLE_E_ADVISENOTSUPPORTED))
+    fn DUnadvise(&self, _: u32) -> HRESULT {
+        OLE_E_ADVISENOTSUPPORTED
     }
 
     fn EnumDAdvise(&self) -> Result<IEnumSTATDATA> {

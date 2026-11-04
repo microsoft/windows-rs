@@ -716,6 +716,12 @@ pub unsafe fn CreateSyntheticPointerDevice(pointertype: POINTER_INPUT_TYPE, maxc
     windows_core::link!("user32.dll" "system" fn CreateSyntheticPointerDevice(pointertype : POINTER_INPUT_TYPE, maxcount : super::ULONG, mode : POINTER_FEEDBACK_MODE) -> HSYNTHETICPOINTERDEVICE);
     unsafe { CreateSyntheticPointerDevice(pointertype, maxcount, mode) }
 }
+#[cfg(all(feature = "shared", feature = "windef"))]
+#[inline]
+pub unsafe fn CreateSyntheticPointerDevice2(pparams: *const SYNTHETIC_DEVICE_CREATION_PARAMS) -> HSYNTHETICPOINTERDEVICE {
+    windows_core::link!("user32.dll" "system" fn CreateSyntheticPointerDevice2(pparams : *const SYNTHETIC_DEVICE_CREATION_PARAMS) -> HSYNTHETICPOINTERDEVICE);
+    unsafe { CreateSyntheticPointerDevice2(pparams) }
+}
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
 pub unsafe fn CreateWindowExA<P1, P2>(dwexstyle: super::DWORD, lpclassname: P1, lpwindowname: P2, dwstyle: super::DWORD, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: Option<super::HWND>, hmenu: Option<super::HMENU>, hinstance: Option<super::HINSTANCE>, lpparam: Option<super::LPVOID>) -> super::HWND
@@ -2092,6 +2098,18 @@ pub unsafe fn GetPointerFrameTouchInfoHistory(pointerid: super::UINT32, entriesc
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
+pub unsafe fn GetPointerFrameTouchpadInfo(pointerid: super::UINT32, pointercount: *mut super::UINT32, touchpadinfo: Option<*mut POINTER_TOUCH_INFO>) -> windows_core::BOOL {
+    windows_core::link!("user32.dll" "system" fn GetPointerFrameTouchpadInfo(pointerid : super::UINT32, pointercount : *mut super::UINT32, touchpadinfo : *mut POINTER_TOUCH_INFO) -> windows_core::BOOL);
+    unsafe { GetPointerFrameTouchpadInfo(pointerid, pointercount as _, touchpadinfo.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+#[inline]
+pub unsafe fn GetPointerFrameTouchpadInfoHistory(pointerid: super::UINT32, entriescount: *mut super::UINT32, pointercount: *mut super::UINT32, touchpadinfo: Option<*mut POINTER_TOUCH_INFO>) -> windows_core::BOOL {
+    windows_core::link!("user32.dll" "system" fn GetPointerFrameTouchpadInfoHistory(pointerid : super::UINT32, entriescount : *mut super::UINT32, pointercount : *mut super::UINT32, touchpadinfo : *mut POINTER_TOUCH_INFO) -> windows_core::BOOL);
+    unsafe { GetPointerFrameTouchpadInfoHistory(pointerid, entriescount as _, pointercount as _, touchpadinfo.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+#[inline]
 pub unsafe fn GetPointerInfo(pointerid: super::UINT32, pointerinfo: *mut POINTER_INFO) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn GetPointerInfo(pointerid : super::UINT32, pointerinfo : *mut POINTER_INFO) -> windows_core::BOOL);
     unsafe { GetPointerInfo(pointerid, pointerinfo as _) }
@@ -2131,6 +2149,18 @@ pub unsafe fn GetPointerTouchInfo(pointerid: super::UINT32, touchinfo: *mut POIN
 pub unsafe fn GetPointerTouchInfoHistory(pointerid: super::UINT32, entriescount: *mut super::UINT32, touchinfo: Option<*mut POINTER_TOUCH_INFO>) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn GetPointerTouchInfoHistory(pointerid : super::UINT32, entriescount : *mut super::UINT32, touchinfo : *mut POINTER_TOUCH_INFO) -> windows_core::BOOL);
     unsafe { GetPointerTouchInfoHistory(pointerid, entriescount as _, touchinfo.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+#[inline]
+pub unsafe fn GetPointerTouchpadInfo(pointerid: super::UINT32, touchpadinfo: *mut POINTER_TOUCH_INFO) -> windows_core::BOOL {
+    windows_core::link!("user32.dll" "system" fn GetPointerTouchpadInfo(pointerid : super::UINT32, touchpadinfo : *mut POINTER_TOUCH_INFO) -> windows_core::BOOL);
+    unsafe { GetPointerTouchpadInfo(pointerid, touchpadinfo as _) }
+}
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+#[inline]
+pub unsafe fn GetPointerTouchpadInfoHistory(pointerid: super::UINT32, entriescount: *mut super::UINT32, touchpadinfo: Option<*mut POINTER_TOUCH_INFO>) -> windows_core::BOOL {
+    windows_core::link!("user32.dll" "system" fn GetPointerTouchpadInfoHistory(pointerid : super::UINT32, entriescount : *mut super::UINT32, touchpadinfo : *mut POINTER_TOUCH_INFO) -> windows_core::BOOL);
+    unsafe { GetPointerTouchpadInfoHistory(pointerid, entriescount as _, touchpadinfo.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -2607,6 +2637,11 @@ pub unsafe fn InjectSyntheticPointerInput(device: HSYNTHETICPOINTERDEVICE, point
 pub unsafe fn InjectTouchInput(count: super::UINT32, contacts: *const POINTER_TOUCH_INFO) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn InjectTouchInput(count : super::UINT32, contacts : *const POINTER_TOUCH_INFO) -> windows_core::BOOL);
     unsafe { InjectTouchInput(count, contacts) }
+}
+#[inline]
+pub unsafe fn InjectTouchpadAction(hdevice: HSYNTHETICPOINTERDEVICE, action: TOUCHPAD_ACTION) -> windows_core::BOOL {
+    windows_core::link!("user32.dll" "system" fn InjectTouchpadAction(hdevice : HSYNTHETICPOINTERDEVICE, action : TOUCHPAD_ACTION) -> windows_core::BOOL);
+    unsafe { InjectTouchpadAction(hdevice as _, action) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
@@ -3581,6 +3616,17 @@ pub unsafe fn RegisterTouchWindow(hwnd: super::HWND, ulflags: super::ULONG) -> w
     windows_core::link!("user32.dll" "system" fn RegisterTouchWindow(hwnd : super::HWND, ulflags : super::ULONG) -> windows_core::BOOL);
     unsafe { RegisterTouchWindow(hwnd, ulflags) }
 }
+#[inline]
+pub unsafe fn RegisterTouchpadCapableThread(fenable: bool) -> windows_core::BOOL {
+    windows_core::link!("user32.dll" "system" fn RegisterTouchpadCapableThread(fenable : windows_core::BOOL) -> windows_core::BOOL);
+    unsafe { RegisterTouchpadCapableThread(fenable.into()) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn RegisterTouchpadCapableWindow(hwnd: super::HWND, fenable: bool) -> windows_core::BOOL {
+    windows_core::link!("user32.dll" "system" fn RegisterTouchpadCapableWindow(hwnd : super::HWND, fenable : windows_core::BOOL) -> windows_core::BOOL);
+    unsafe { RegisterTouchpadCapableWindow(hwnd, fenable.into()) }
+}
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn RegisterWindowMessageA<P0>(lpstring: P0) -> super::UINT
@@ -3645,6 +3691,12 @@ where
 pub unsafe fn ReplyMessage(lresult: super::LRESULT) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn ReplyMessage(lresult : super::LRESULT) -> windows_core::BOOL);
     unsafe { ReplyMessage(lresult) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn ReportWindowContentInertia(hwnd: super::HWND, bstartinertia: bool) -> windows_core::BOOL {
+    windows_core::link!("user32.dll" "system" fn ReportWindowContentInertia(hwnd : super::HWND, bstartinertia : windows_core::BOOL) -> windows_core::BOOL);
+    unsafe { ReportWindowContentInertia(hwnd as _, bstartinertia.into()) }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
@@ -3934,6 +3986,11 @@ pub unsafe fn SetLastErrorEx(dwerrcode: super::DWORD, dwtype: super::DWORD) {
 pub unsafe fn SetLayeredWindowAttributes(hwnd: super::HWND, crkey: super::COLORREF, balpha: super::BYTE, dwflags: super::DWORD) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn SetLayeredWindowAttributes(hwnd : super::HWND, crkey : super::COLORREF, balpha : super::BYTE, dwflags : super::DWORD) -> windows_core::BOOL);
     unsafe { SetLayeredWindowAttributes(hwnd, crkey, balpha, dwflags) }
+}
+#[inline]
+pub unsafe fn SetMaxTouchpadSensitivity(maxsensitivity: bool) -> windows_core::BOOL {
+    windows_core::link!("user32.dll" "system" fn SetMaxTouchpadSensitivity(maxsensitivity : windows_core::BOOL) -> windows_core::BOOL);
+    unsafe { SetMaxTouchpadSensitivity(maxsensitivity.into()) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -8467,6 +8524,9 @@ pub const SC_SIZE: i32 = 61440;
 pub const SC_TASKLIST: i32 = 61744;
 pub const SC_VSCROLL: i32 = 61552;
 pub const SC_ZOOM: i32 = 61488;
+pub const SDCO_NONE: SYNTHETIC_DEVICE_CREATION_OPTIONS = 0;
+pub const SDCO_PHYSICAL_SIZE: SYNTHETIC_DEVICE_CREATION_OPTIONS = 1;
+pub const SDCO_TOUCHPAD_GESTURE_ONLY: SYNTHETIC_DEVICE_CREATION_OPTIONS = 2;
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type SENDASYNCPROC = Option<unsafe extern "system" fn(param0: super::HWND, param1: super::UINT, param2: super::ULONG_PTR, param3: super::LRESULT)>;
 #[cfg(feature = "shared")]
@@ -9098,6 +9158,30 @@ pub const SW_SHOWNA: i32 = 8;
 pub const SW_SHOWNOACTIVATE: i32 = 4;
 pub const SW_SHOWNORMAL: i32 = 1;
 pub const SW_SMOOTHSCROLL: i32 = 16;
+pub type SYNTHETIC_DEVICE_CREATION_OPTIONS = i32;
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "windef"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SYNTHETIC_DEVICE_CREATION_PARAMS {
+    pub pointerType: POINTER_INPUT_TYPE,
+    pub maxCount: super::ULONG,
+    pub feedbackMode: POINTER_FEEDBACK_MODE,
+    pub hMonitor: super::HMONITOR,
+    pub deviceWidth: super::ULONG,
+    pub deviceHeight: super::ULONG,
+    pub options: SYNTHETIC_DEVICE_CREATION_OPTIONS,
+}
+pub const TA_3FINGER_PRESS: TOUCHPAD_ACTION = 1;
+pub const TA_3FINGER_RELEASE: TOUCHPAD_ACTION = 2;
+pub const TA_3FINGER_TAP: TOUCHPAD_ACTION = 0;
+pub const TA_4FINGER_PRESS: TOUCHPAD_ACTION = 4;
+pub const TA_4FINGER_RELEASE: TOUCHPAD_ACTION = 5;
+pub const TA_4FINGER_TAP: TOUCHPAD_ACTION = 3;
+pub const TA_5FINGER_PRESS: TOUCHPAD_ACTION = 7;
+pub const TA_5FINGER_RELEASE: TOUCHPAD_ACTION = 8;
+pub const TA_5FINGER_TAP: TOUCHPAD_ACTION = 6;
+pub const TA_INERTIA_END: TOUCHPAD_ACTION = 10;
+pub const TA_INERTIA_STOP: TOUCHPAD_ACTION = 9;
 pub const TDF_REGISTER: TOOLTIP_DISMISS_FLAGS = 1;
 pub const TDF_UNREGISTER: TOOLTIP_DISMISS_FLAGS = 2;
 #[cfg(all(feature = "shared", feature = "windef"))]
@@ -9180,6 +9264,7 @@ pub struct TOUCHINPUT {
 pub const TOUCHINPUTMASKF_CONTACTAREA: i32 = 4;
 pub const TOUCHINPUTMASKF_EXTRAINFO: i32 = 2;
 pub const TOUCHINPUTMASKF_TIMEFROMSYSTEM: i32 = 1;
+pub type TOUCHPAD_ACTION = i32;
 #[repr(C)]
 #[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9895,6 +9980,7 @@ pub const WM_DWMSENDICONICLIVEPREVIEWBITMAP: i32 = 806;
 pub const WM_DWMSENDICONICTHUMBNAIL: i32 = 803;
 pub const WM_DWMWINDOWMAXIMIZEDCHANGE: i32 = 801;
 pub const WM_ENABLE: i32 = 10;
+pub const WM_ENDINERTIA: i32 = 572;
 pub const WM_ENDSESSION: i32 = 22;
 pub const WM_ENTERIDLE: i32 = 289;
 pub const WM_ENTERMENULOOP: i32 = 529;
@@ -10065,6 +10151,7 @@ pub const WM_SIZE: i32 = 5;
 pub const WM_SIZECLIPBOARD: i32 = 779;
 pub const WM_SIZING: i32 = 532;
 pub const WM_SPOOLERSTATUS: i32 = 42;
+pub const WM_STOPINERTIA: i32 = 571;
 pub const WM_STYLECHANGED: i32 = 125;
 pub const WM_STYLECHANGING: i32 = 124;
 pub const WM_SYNCPAINT: i32 = 136;

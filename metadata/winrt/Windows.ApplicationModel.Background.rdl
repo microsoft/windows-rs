@@ -94,9 +94,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(65536)]
             struct BackgroundAlarmApplicationContract {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Static(IBackgroundExecutionManagerStatics3, 851968, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IBackgroundExecutionManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IBackgroundExecutionManagerStatics2, 393216, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IBackgroundExecutionManagerStatics3, 851968, "Windows.Foundation.UniversalApiContract")]
             class BackgroundExecutionManager {}
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -170,8 +170,8 @@ mod Windows {
             delegate fn BackgroundTaskProgressEventHandler(#[in] sender: BackgroundTaskRegistration, #[in] args: BackgroundTaskProgressEventArgs);
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(IBackgroundTaskRegistrationStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IBackgroundTaskRegistrationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IBackgroundTaskRegistrationStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class BackgroundTaskRegistration {
                 IBackgroundTaskRegistration,
@@ -278,8 +278,8 @@ mod Windows {
                 IContactStoreNotificationTrigger,
                 IBackgroundTrigger,
             }
-            #[Windows::Foundation::Metadata::Activatable(IContentPrefetchTriggerFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(IContentPrefetchTriggerFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
             #[Windows::Foundation::Metadata::Threading(MTA)]
@@ -1312,8 +1312,8 @@ mod Windows {
                 IPhoneTrigger,
                 IBackgroundTrigger,
             }
-            #[Windows::Foundation::Metadata::Activatable(IPushNotificationTriggerFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(IPushNotificationTriggerFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(MTA)]

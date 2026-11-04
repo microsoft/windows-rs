@@ -29,7 +29,7 @@ pub struct IObjectArray_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait IObjectArray_Impl: windows_core::IUnknownImpl {
-    fn GetCount(&self, pcobjects: *mut super::UINT) -> windows_core::Result<()>;
+    fn GetCount(&self, pcobjects: *mut super::UINT) -> windows_core::HRESULT;
     fn GetAt(&self, uiindex: super::UINT, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
@@ -38,7 +38,7 @@ impl IObjectArray_Vtbl {
         unsafe extern "system" fn GetCount<Identity: IObjectArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcobjects: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IObjectArray_Impl::GetCount(this, core::mem::transmute_copy(&pcobjects)).into()
+                IObjectArray_Impl::GetCount(this, core::mem::transmute_copy(&pcobjects))
             }
         }
         unsafe extern "system" fn GetAt<Identity: IObjectArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uiindex: super::UINT, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -98,10 +98,10 @@ pub struct IObjectCollection_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait IObjectCollection_Impl: IObjectArray_Impl {
-    fn AddObject(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn AddFromArray(&self, poasource: windows_core::Ref<IObjectArray>) -> windows_core::Result<()>;
-    fn RemoveObjectAt(&self, uiindex: super::UINT) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
+    fn AddObject(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn AddFromArray(&self, poasource: windows_core::Ref<IObjectArray>) -> windows_core::HRESULT;
+    fn RemoveObjectAt(&self, uiindex: super::UINT) -> windows_core::HRESULT;
+    fn Clear(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 impl IObjectCollection_Vtbl {
@@ -109,25 +109,25 @@ impl IObjectCollection_Vtbl {
         unsafe extern "system" fn AddObject<Identity: IObjectCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IObjectCollection_Impl::AddObject(this, core::mem::transmute_copy(&punk)).into()
+                IObjectCollection_Impl::AddObject(this, core::mem::transmute_copy(&punk))
             }
         }
         unsafe extern "system" fn AddFromArray<Identity: IObjectCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, poasource: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IObjectCollection_Impl::AddFromArray(this, core::mem::transmute_copy(&poasource)).into()
+                IObjectCollection_Impl::AddFromArray(this, core::mem::transmute_copy(&poasource))
             }
         }
         unsafe extern "system" fn RemoveObjectAt<Identity: IObjectCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uiindex: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IObjectCollection_Impl::RemoveObjectAt(this, core::mem::transmute_copy(&uiindex)).into()
+                IObjectCollection_Impl::RemoveObjectAt(this, core::mem::transmute_copy(&uiindex))
             }
         }
         unsafe extern "system" fn Clear<Identity: IObjectCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IObjectCollection_Impl::Clear(this).into()
+                IObjectCollection_Impl::Clear(this)
             }
         }
         Self {
@@ -139,7 +139,7 @@ impl IObjectCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IObjectCollection as windows_core::Interface>::IID || iid == &<IObjectArray as windows_core::Interface>::IID
+        iid == &<IObjectCollection as windows_core::Interface>::IID || IObjectArray_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]

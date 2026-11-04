@@ -162,7 +162,7 @@ pub trait IFunctionDiscovery_Impl: windows_core::IUnknownImpl {
     fn CreateInstanceCollectionQuery(&self, pszcategory: *const super::WCHAR, pszsubcategory: *const super::WCHAR, fincludeallsubcategories: windows_core::BOOL, pifunctiondiscoverynotification: windows_core::Ref<IFunctionDiscoveryNotification>, pfdqcquerycontext: *mut FDQUERYCONTEXT) -> windows_core::Result<IFunctionInstanceCollectionQuery>;
     fn CreateInstanceQuery(&self, pszfunctioninstanceidentity: *const super::WCHAR, pifunctiondiscoverynotification: windows_core::Ref<IFunctionDiscoveryNotification>, pfdqcquerycontext: *mut FDQUERYCONTEXT) -> windows_core::Result<IFunctionInstanceQuery>;
     fn AddInstance(&self, enumsystemvisibility: SystemVisibilityFlags, pszcategory: *const super::WCHAR, pszsubcategory: *const super::WCHAR, pszcategoryidentity: *const super::WCHAR) -> windows_core::Result<IFunctionInstance>;
-    fn RemoveInstance(&self, enumsystemvisibility: SystemVisibilityFlags, pszcategory: *const super::WCHAR, pszsubcategory: *const super::WCHAR, pszcategoryidentity: *const super::WCHAR) -> windows_core::Result<()>;
+    fn RemoveInstance(&self, enumsystemvisibility: SystemVisibilityFlags, pszcategory: *const super::WCHAR, pszsubcategory: *const super::WCHAR, pszcategoryidentity: *const super::WCHAR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "servprov", feature = "winnt"))]
 impl IFunctionDiscovery_Vtbl {
@@ -245,7 +245,7 @@ impl IFunctionDiscovery_Vtbl {
         unsafe extern "system" fn RemoveInstance<Identity: IFunctionDiscovery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumsystemvisibility: SystemVisibilityFlags, pszcategory: *const super::WCHAR, pszsubcategory: *const super::WCHAR, pszcategoryidentity: *const super::WCHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFunctionDiscovery_Impl::RemoveInstance(this, core::mem::transmute_copy(&enumsystemvisibility), core::mem::transmute_copy(&pszcategory), core::mem::transmute_copy(&pszsubcategory), core::mem::transmute_copy(&pszcategoryidentity)).into()
+                IFunctionDiscovery_Impl::RemoveInstance(this, core::mem::transmute_copy(&enumsystemvisibility), core::mem::transmute_copy(&pszcategory), core::mem::transmute_copy(&pszsubcategory), core::mem::transmute_copy(&pszcategoryidentity))
             }
         }
         Self {
@@ -302,9 +302,9 @@ pub struct IFunctionDiscoveryNotification_Vtbl {
 }
 #[cfg(all(feature = "servprov", feature = "shared", feature = "winnt"))]
 pub trait IFunctionDiscoveryNotification_Impl: windows_core::IUnknownImpl {
-    fn OnUpdate(&self, enumqueryupdateaction: QueryUpdateAction, fdqcquerycontext: FDQUERYCONTEXT, pifunctioninstance: windows_core::Ref<IFunctionInstance>) -> windows_core::Result<()>;
-    fn OnError(&self, hr: windows_core::HRESULT, fdqcquerycontext: FDQUERYCONTEXT, pszprovider: *const super::WCHAR) -> windows_core::Result<()>;
-    fn OnEvent(&self, dweventid: super::DWORD, fdqcquerycontext: FDQUERYCONTEXT, pszprovider: *const super::WCHAR) -> windows_core::Result<()>;
+    fn OnUpdate(&self, enumqueryupdateaction: QueryUpdateAction, fdqcquerycontext: FDQUERYCONTEXT, pifunctioninstance: windows_core::Ref<IFunctionInstance>) -> windows_core::HRESULT;
+    fn OnError(&self, hr: windows_core::HRESULT, fdqcquerycontext: FDQUERYCONTEXT, pszprovider: *const super::WCHAR) -> windows_core::HRESULT;
+    fn OnEvent(&self, dweventid: super::DWORD, fdqcquerycontext: FDQUERYCONTEXT, pszprovider: *const super::WCHAR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "servprov", feature = "shared", feature = "winnt"))]
 impl IFunctionDiscoveryNotification_Vtbl {
@@ -312,19 +312,19 @@ impl IFunctionDiscoveryNotification_Vtbl {
         unsafe extern "system" fn OnUpdate<Identity: IFunctionDiscoveryNotification_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumqueryupdateaction: QueryUpdateAction, fdqcquerycontext: FDQUERYCONTEXT, pifunctioninstance: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFunctionDiscoveryNotification_Impl::OnUpdate(this, core::mem::transmute_copy(&enumqueryupdateaction), core::mem::transmute_copy(&fdqcquerycontext), core::mem::transmute_copy(&pifunctioninstance)).into()
+                IFunctionDiscoveryNotification_Impl::OnUpdate(this, core::mem::transmute_copy(&enumqueryupdateaction), core::mem::transmute_copy(&fdqcquerycontext), core::mem::transmute_copy(&pifunctioninstance))
             }
         }
         unsafe extern "system" fn OnError<Identity: IFunctionDiscoveryNotification_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hr: windows_core::HRESULT, fdqcquerycontext: FDQUERYCONTEXT, pszprovider: *const super::WCHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFunctionDiscoveryNotification_Impl::OnError(this, core::mem::transmute_copy(&hr), core::mem::transmute_copy(&fdqcquerycontext), core::mem::transmute_copy(&pszprovider)).into()
+                IFunctionDiscoveryNotification_Impl::OnError(this, core::mem::transmute_copy(&hr), core::mem::transmute_copy(&fdqcquerycontext), core::mem::transmute_copy(&pszprovider))
             }
         }
         unsafe extern "system" fn OnEvent<Identity: IFunctionDiscoveryNotification_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dweventid: super::DWORD, fdqcquerycontext: FDQUERYCONTEXT, pszprovider: *const super::WCHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFunctionDiscoveryNotification_Impl::OnEvent(this, core::mem::transmute_copy(&dweventid), core::mem::transmute_copy(&fdqcquerycontext), core::mem::transmute_copy(&pszprovider)).into()
+                IFunctionDiscoveryNotification_Impl::OnEvent(this, core::mem::transmute_copy(&dweventid), core::mem::transmute_copy(&fdqcquerycontext), core::mem::transmute_copy(&pszprovider))
             }
         }
         Self {
@@ -400,10 +400,10 @@ pub struct IFunctionInstance_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "propsys", feature = "servprov", feature = "shared", feature = "winnt"))]
 pub trait IFunctionInstance_Impl: super::IServiceProvider_Impl {
-    fn GetID(&self, ppszcomemidentity: *mut *mut super::WCHAR) -> windows_core::Result<()>;
-    fn GetProviderInstanceID(&self, ppszcomemproviderinstanceidentity: *mut *mut super::WCHAR) -> windows_core::Result<()>;
+    fn GetID(&self, ppszcomemidentity: *mut *mut super::WCHAR) -> windows_core::HRESULT;
+    fn GetProviderInstanceID(&self, ppszcomemproviderinstanceidentity: *mut *mut super::WCHAR) -> windows_core::HRESULT;
     fn OpenPropertyStore(&self, dwstgaccess: super::DWORD) -> windows_core::Result<super::IPropertyStore>;
-    fn GetCategory(&self, ppszcomemcategory: *mut *mut super::WCHAR, ppszcomemsubcategory: *mut *mut super::WCHAR) -> windows_core::Result<()>;
+    fn GetCategory(&self, ppszcomemcategory: *mut *mut super::WCHAR, ppszcomemsubcategory: *mut *mut super::WCHAR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "propsys", feature = "servprov", feature = "shared", feature = "winnt"))]
 impl IFunctionInstance_Vtbl {
@@ -411,13 +411,13 @@ impl IFunctionInstance_Vtbl {
         unsafe extern "system" fn GetID<Identity: IFunctionInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszcomemidentity: *mut *mut super::WCHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFunctionInstance_Impl::GetID(this, core::mem::transmute_copy(&ppszcomemidentity)).into()
+                IFunctionInstance_Impl::GetID(this, core::mem::transmute_copy(&ppszcomemidentity))
             }
         }
         unsafe extern "system" fn GetProviderInstanceID<Identity: IFunctionInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszcomemproviderinstanceidentity: *mut *mut super::WCHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFunctionInstance_Impl::GetProviderInstanceID(this, core::mem::transmute_copy(&ppszcomemproviderinstanceidentity)).into()
+                IFunctionInstance_Impl::GetProviderInstanceID(this, core::mem::transmute_copy(&ppszcomemproviderinstanceidentity))
             }
         }
         unsafe extern "system" fn OpenPropertyStore<Identity: IFunctionInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstgaccess: super::DWORD, ppipropertystore: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -438,7 +438,7 @@ impl IFunctionInstance_Vtbl {
         unsafe extern "system" fn GetCategory<Identity: IFunctionInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszcomemcategory: *mut *mut super::WCHAR, ppszcomemsubcategory: *mut *mut super::WCHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFunctionInstance_Impl::GetCategory(this, core::mem::transmute_copy(&ppszcomemcategory), core::mem::transmute_copy(&ppszcomemsubcategory)).into()
+                IFunctionInstance_Impl::GetCategory(this, core::mem::transmute_copy(&ppszcomemcategory), core::mem::transmute_copy(&ppszcomemsubcategory))
             }
         }
         Self {
@@ -450,7 +450,7 @@ impl IFunctionInstance_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFunctionInstance as windows_core::Interface>::IID || iid == &<super::IServiceProvider as windows_core::Interface>::IID
+        iid == &<IFunctionInstance as windows_core::Interface>::IID || super::IServiceProvider_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "propsys", feature = "servprov", feature = "shared", feature = "winnt"))]
@@ -536,10 +536,10 @@ pub trait IFunctionInstanceCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<super::DWORD>;
     fn Get(&self, pszinstanceidentity: *const super::WCHAR, pdwindex: *mut super::DWORD) -> windows_core::Result<IFunctionInstance>;
     fn Item(&self, dwindex: super::DWORD) -> windows_core::Result<IFunctionInstance>;
-    fn Add(&self, pifunctioninstance: windows_core::Ref<IFunctionInstance>) -> windows_core::Result<()>;
+    fn Add(&self, pifunctioninstance: windows_core::Ref<IFunctionInstance>) -> windows_core::HRESULT;
     fn Remove(&self, dwindex: super::DWORD) -> windows_core::Result<IFunctionInstance>;
-    fn Delete(&self, dwindex: super::DWORD) -> windows_core::Result<()>;
-    fn DeleteAll(&self) -> windows_core::Result<()>;
+    fn Delete(&self, dwindex: super::DWORD) -> windows_core::HRESULT;
+    fn DeleteAll(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "servprov", feature = "shared", feature = "winnt"))]
 impl IFunctionInstanceCollection_Vtbl {
@@ -592,7 +592,7 @@ impl IFunctionInstanceCollection_Vtbl {
         unsafe extern "system" fn Add<Identity: IFunctionInstanceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pifunctioninstance: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFunctionInstanceCollection_Impl::Add(this, core::mem::transmute_copy(&pifunctioninstance)).into()
+                IFunctionInstanceCollection_Impl::Add(this, core::mem::transmute_copy(&pifunctioninstance))
             }
         }
         unsafe extern "system" fn Remove<Identity: IFunctionInstanceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: super::DWORD, ppifunctioninstance: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -613,13 +613,13 @@ impl IFunctionInstanceCollection_Vtbl {
         unsafe extern "system" fn Delete<Identity: IFunctionInstanceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFunctionInstanceCollection_Impl::Delete(this, core::mem::transmute_copy(&dwindex)).into()
+                IFunctionInstanceCollection_Impl::Delete(this, core::mem::transmute_copy(&dwindex))
             }
         }
         unsafe extern "system" fn DeleteAll<Identity: IFunctionInstanceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFunctionInstanceCollection_Impl::DeleteAll(this).into()
+                IFunctionInstanceCollection_Impl::DeleteAll(this)
             }
         }
         Self {
@@ -673,8 +673,8 @@ pub struct IFunctionInstanceCollectionQuery_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFunctionInstanceCollectionQuery_Impl: windows_core::IUnknownImpl {
-    fn AddQueryConstraint(&self, pszconstraintname: *const super::WCHAR, pszconstraintvalue: *const super::WCHAR) -> windows_core::Result<()>;
-    fn AddPropertyConstraint(&self, key: *const super::PROPERTYKEY, pv: *const super::PROPVARIANT, enumpropertyconstraint: PropertyConstraint) -> windows_core::Result<()>;
+    fn AddQueryConstraint(&self, pszconstraintname: *const super::WCHAR, pszconstraintvalue: *const super::WCHAR) -> windows_core::HRESULT;
+    fn AddPropertyConstraint(&self, key: *const super::PROPERTYKEY, pv: *const super::PROPVARIANT, enumpropertyconstraint: PropertyConstraint) -> windows_core::HRESULT;
     fn Execute(&self) -> windows_core::Result<IFunctionInstanceCollection>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -683,13 +683,13 @@ impl IFunctionInstanceCollectionQuery_Vtbl {
         unsafe extern "system" fn AddQueryConstraint<Identity: IFunctionInstanceCollectionQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszconstraintname: *const super::WCHAR, pszconstraintvalue: *const super::WCHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFunctionInstanceCollectionQuery_Impl::AddQueryConstraint(this, core::mem::transmute_copy(&pszconstraintname), core::mem::transmute_copy(&pszconstraintvalue)).into()
+                IFunctionInstanceCollectionQuery_Impl::AddQueryConstraint(this, core::mem::transmute_copy(&pszconstraintname), core::mem::transmute_copy(&pszconstraintvalue))
             }
         }
         unsafe extern "system" fn AddPropertyConstraint<Identity: IFunctionInstanceCollectionQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::PROPERTYKEY, pv: *const super::PROPVARIANT, enumpropertyconstraint: PropertyConstraint) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFunctionInstanceCollectionQuery_Impl::AddPropertyConstraint(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&pv), core::mem::transmute_copy(&enumpropertyconstraint)).into()
+                IFunctionInstanceCollectionQuery_Impl::AddPropertyConstraint(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&pv), core::mem::transmute_copy(&enumpropertyconstraint))
             }
         }
         unsafe extern "system" fn Execute<Identity: IFunctionInstanceCollectionQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppifunctioninstancecollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -860,10 +860,10 @@ pub trait IPropertyStoreCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn Get(&self, pszinstanceidentity: *const super::WCHAR, pdwindex: super::LPDWORD) -> windows_core::Result<super::IPropertyStore>;
     fn Item(&self, dwindex: super::DWORD) -> windows_core::Result<super::IPropertyStore>;
-    fn Add(&self, pipropertystore: windows_core::Ref<super::IPropertyStore>) -> windows_core::Result<()>;
+    fn Add(&self, pipropertystore: windows_core::Ref<super::IPropertyStore>) -> windows_core::HRESULT;
     fn Remove(&self, dwindex: super::DWORD) -> windows_core::Result<super::IPropertyStore>;
-    fn Delete(&self, dwindex: super::DWORD) -> windows_core::Result<()>;
-    fn DeleteAll(&self) -> windows_core::Result<()>;
+    fn Delete(&self, dwindex: super::DWORD) -> windows_core::HRESULT;
+    fn DeleteAll(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "propsys", feature = "shared", feature = "winnt"))]
 impl IPropertyStoreCollection_Vtbl {
@@ -916,7 +916,7 @@ impl IPropertyStoreCollection_Vtbl {
         unsafe extern "system" fn Add<Identity: IPropertyStoreCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipropertystore: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPropertyStoreCollection_Impl::Add(this, core::mem::transmute_copy(&pipropertystore)).into()
+                IPropertyStoreCollection_Impl::Add(this, core::mem::transmute_copy(&pipropertystore))
             }
         }
         unsafe extern "system" fn Remove<Identity: IPropertyStoreCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: super::DWORD, pipropertystore: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -937,13 +937,13 @@ impl IPropertyStoreCollection_Vtbl {
         unsafe extern "system" fn Delete<Identity: IPropertyStoreCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPropertyStoreCollection_Impl::Delete(this, core::mem::transmute_copy(&dwindex)).into()
+                IPropertyStoreCollection_Impl::Delete(this, core::mem::transmute_copy(&dwindex))
             }
         }
         unsafe extern "system" fn DeleteAll<Identity: IPropertyStoreCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPropertyStoreCollection_Impl::DeleteAll(this).into()
+                IPropertyStoreCollection_Impl::DeleteAll(this)
             }
         }
         Self {

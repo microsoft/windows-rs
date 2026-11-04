@@ -29,9 +29,9 @@ pub struct IVssAsync_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IVssAsync_Impl: windows_core::IUnknownImpl {
-    fn Cancel(&self) -> windows_core::Result<()>;
-    fn Wait(&self, dwmilliseconds: super::DWORD) -> windows_core::Result<()>;
-    fn QueryStatus(&self, phrresult: *mut windows_core::HRESULT, preserved: *mut super::INT) -> windows_core::Result<()>;
+    fn Cancel(&self) -> windows_core::HRESULT;
+    fn Wait(&self, dwmilliseconds: super::DWORD) -> windows_core::HRESULT;
+    fn QueryStatus(&self, phrresult: *mut windows_core::HRESULT, preserved: *mut super::INT) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IVssAsync_Vtbl {
@@ -39,19 +39,19 @@ impl IVssAsync_Vtbl {
         unsafe extern "system" fn Cancel<Identity: IVssAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVssAsync_Impl::Cancel(this).into()
+                IVssAsync_Impl::Cancel(this)
             }
         }
         unsafe extern "system" fn Wait<Identity: IVssAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmilliseconds: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVssAsync_Impl::Wait(this, core::mem::transmute_copy(&dwmilliseconds)).into()
+                IVssAsync_Impl::Wait(this, core::mem::transmute_copy(&dwmilliseconds))
             }
         }
         unsafe extern "system" fn QueryStatus<Identity: IVssAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phrresult: *mut windows_core::HRESULT, preserved: *mut super::INT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVssAsync_Impl::QueryStatus(this, core::mem::transmute_copy(&phrresult), core::mem::transmute_copy(&preserved)).into()
+                IVssAsync_Impl::QueryStatus(this, core::mem::transmute_copy(&phrresult), core::mem::transmute_copy(&preserved))
             }
         }
         Self {
@@ -102,10 +102,10 @@ pub struct IVssEnumObject_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait IVssEnumObject_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: super::ULONG, rgelt: *mut VSS_OBJECT_PROP, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
-    fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self, ppenum: *mut Option<IVssEnumObject>) -> windows_core::Result<()>;
+    fn Next(&self, celt: super::ULONG, rgelt: *mut VSS_OBJECT_PROP, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT;
+    fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT;
+    fn Reset(&self) -> windows_core::HRESULT;
+    fn Clone(&self, ppenum: *mut Option<IVssEnumObject>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 impl IVssEnumObject_Vtbl {
@@ -113,25 +113,25 @@ impl IVssEnumObject_Vtbl {
         unsafe extern "system" fn Next<Identity: IVssEnumObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG, rgelt: *mut VSS_OBJECT_PROP, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVssEnumObject_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
+                IVssEnumObject_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched))
             }
         }
         unsafe extern "system" fn Skip<Identity: IVssEnumObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVssEnumObject_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+                IVssEnumObject_Impl::Skip(this, core::mem::transmute_copy(&celt))
             }
         }
         unsafe extern "system" fn Reset<Identity: IVssEnumObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVssEnumObject_Impl::Reset(this).into()
+                IVssEnumObject_Impl::Reset(this)
             }
         }
         unsafe extern "system" fn Clone<Identity: IVssEnumObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVssEnumObject_Impl::Clone(this, core::mem::transmute_copy(&ppenum)).into()
+                IVssEnumObject_Impl::Clone(this, core::mem::transmute_copy(&ppenum))
             }
         }
         Self {

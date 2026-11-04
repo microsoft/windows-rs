@@ -208,8 +208,8 @@ pub struct IAmsiStream_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IAmsiStream_Impl: windows_core::IUnknownImpl {
-    fn GetAttribute(&self, attribute: AMSI_ATTRIBUTE, datasize: super::ULONG, data: *mut u8, retdata: *mut super::ULONG) -> windows_core::Result<()>;
-    fn Read(&self, position: super::ULONGLONG, size: super::ULONG, buffer: *mut u8, readsize: *mut super::ULONG) -> windows_core::Result<()>;
+    fn GetAttribute(&self, attribute: AMSI_ATTRIBUTE, datasize: super::ULONG, data: *mut u8, retdata: *mut super::ULONG) -> windows_core::HRESULT;
+    fn Read(&self, position: super::ULONGLONG, size: super::ULONG, buffer: *mut u8, readsize: *mut super::ULONG) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IAmsiStream_Vtbl {
@@ -217,13 +217,13 @@ impl IAmsiStream_Vtbl {
         unsafe extern "system" fn GetAttribute<Identity: IAmsiStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attribute: AMSI_ATTRIBUTE, datasize: super::ULONG, data: *mut u8, retdata: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAmsiStream_Impl::GetAttribute(this, core::mem::transmute_copy(&attribute), core::mem::transmute_copy(&datasize), core::mem::transmute_copy(&data), core::mem::transmute_copy(&retdata)).into()
+                IAmsiStream_Impl::GetAttribute(this, core::mem::transmute_copy(&attribute), core::mem::transmute_copy(&datasize), core::mem::transmute_copy(&data), core::mem::transmute_copy(&retdata))
             }
         }
         unsafe extern "system" fn Read<Identity: IAmsiStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, position: super::ULONGLONG, size: super::ULONG, buffer: *mut u8, readsize: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAmsiStream_Impl::Read(this, core::mem::transmute_copy(&position), core::mem::transmute_copy(&size), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&readsize)).into()
+                IAmsiStream_Impl::Read(this, core::mem::transmute_copy(&position), core::mem::transmute_copy(&size), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&readsize))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetAttribute: GetAttribute::<Identity, OFFSET>, Read: Read::<Identity, OFFSET> }
@@ -262,7 +262,7 @@ pub struct IAntimalware_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IAntimalware_Impl: windows_core::IUnknownImpl {
-    fn Scan(&self, stream: windows_core::Ref<IAmsiStream>, result: *mut AMSI_RESULT, provider: windows_core::OutRef<IAntimalwareProvider>) -> windows_core::Result<()>;
+    fn Scan(&self, stream: windows_core::Ref<IAmsiStream>, result: *mut AMSI_RESULT, provider: windows_core::OutRef<IAntimalwareProvider>) -> windows_core::HRESULT;
     fn CloseSession(&self, session: super::ULONGLONG);
 }
 #[cfg(feature = "shared")]
@@ -271,7 +271,7 @@ impl IAntimalware_Vtbl {
         unsafe extern "system" fn Scan<Identity: IAntimalware_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut core::ffi::c_void, result: *mut AMSI_RESULT, provider: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAntimalware_Impl::Scan(this, core::mem::transmute_copy(&stream), core::mem::transmute_copy(&result), core::mem::transmute_copy(&provider)).into()
+                IAntimalware_Impl::Scan(this, core::mem::transmute_copy(&stream), core::mem::transmute_copy(&result), core::mem::transmute_copy(&provider))
             }
         }
         unsafe extern "system" fn CloseSession<Identity: IAntimalware_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, session: super::ULONGLONG) {
@@ -317,7 +317,7 @@ pub struct IAntimalware2_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IAntimalware2_Impl: IAntimalware_Impl {
-    fn Notify(&self, buffer: super::PVOID, length: super::ULONG, contentname: &windows_core::PCWSTR, appname: &windows_core::PCWSTR, presult: *mut AMSI_RESULT) -> windows_core::Result<()>;
+    fn Notify(&self, buffer: super::PVOID, length: super::ULONG, contentname: &windows_core::PCWSTR, appname: &windows_core::PCWSTR, presult: *mut AMSI_RESULT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 impl IAntimalware2_Vtbl {
@@ -325,13 +325,13 @@ impl IAntimalware2_Vtbl {
         unsafe extern "system" fn Notify<Identity: IAntimalware2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: super::PVOID, length: super::ULONG, contentname: windows_core::PCWSTR, appname: windows_core::PCWSTR, presult: *mut AMSI_RESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAntimalware2_Impl::Notify(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&length), core::mem::transmute(&contentname), core::mem::transmute(&appname), core::mem::transmute_copy(&presult)).into()
+                IAntimalware2_Impl::Notify(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&length), core::mem::transmute(&contentname), core::mem::transmute(&appname), core::mem::transmute_copy(&presult))
             }
         }
         Self { base__: IAntimalware_Vtbl::new::<Identity, OFFSET>(), Notify: Notify::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAntimalware2 as windows_core::Interface>::IID || iid == &<IAntimalware as windows_core::Interface>::IID
+        iid == &<IAntimalware2 as windows_core::Interface>::IID || IAntimalware_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -368,9 +368,9 @@ pub struct IAntimalwareProvider_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IAntimalwareProvider_Impl: windows_core::IUnknownImpl {
-    fn Scan(&self, stream: windows_core::Ref<IAmsiStream>, result: *mut AMSI_RESULT) -> windows_core::Result<()>;
+    fn Scan(&self, stream: windows_core::Ref<IAmsiStream>, result: *mut AMSI_RESULT) -> windows_core::HRESULT;
     fn CloseSession(&self, session: super::ULONGLONG);
-    fn DisplayName(&self, displayname: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn DisplayName(&self, displayname: *mut windows_core::PWSTR) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IAntimalwareProvider_Vtbl {
@@ -378,7 +378,7 @@ impl IAntimalwareProvider_Vtbl {
         unsafe extern "system" fn Scan<Identity: IAntimalwareProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut core::ffi::c_void, result: *mut AMSI_RESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAntimalwareProvider_Impl::Scan(this, core::mem::transmute_copy(&stream), core::mem::transmute_copy(&result)).into()
+                IAntimalwareProvider_Impl::Scan(this, core::mem::transmute_copy(&stream), core::mem::transmute_copy(&result))
             }
         }
         unsafe extern "system" fn CloseSession<Identity: IAntimalwareProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, session: super::ULONGLONG) {
@@ -390,7 +390,7 @@ impl IAntimalwareProvider_Vtbl {
         unsafe extern "system" fn DisplayName<Identity: IAntimalwareProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, displayname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAntimalwareProvider_Impl::DisplayName(this, core::mem::transmute_copy(&displayname)).into()
+                IAntimalwareProvider_Impl::DisplayName(this, core::mem::transmute_copy(&displayname))
             }
         }
         Self {
@@ -435,7 +435,7 @@ pub struct IAntimalwareProvider2_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IAntimalwareProvider2_Impl: IAntimalwareProvider_Impl {
-    fn Notify(&self, buffer: super::PVOID, length: super::ULONG, contentname: &windows_core::PCWSTR, appname: &windows_core::PCWSTR, presult: *mut AMSI_RESULT) -> windows_core::Result<()>;
+    fn Notify(&self, buffer: super::PVOID, length: super::ULONG, contentname: &windows_core::PCWSTR, appname: &windows_core::PCWSTR, presult: *mut AMSI_RESULT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 impl IAntimalwareProvider2_Vtbl {
@@ -443,13 +443,13 @@ impl IAntimalwareProvider2_Vtbl {
         unsafe extern "system" fn Notify<Identity: IAntimalwareProvider2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: super::PVOID, length: super::ULONG, contentname: windows_core::PCWSTR, appname: windows_core::PCWSTR, presult: *mut AMSI_RESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAntimalwareProvider2_Impl::Notify(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&length), core::mem::transmute(&contentname), core::mem::transmute(&appname), core::mem::transmute_copy(&presult)).into()
+                IAntimalwareProvider2_Impl::Notify(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&length), core::mem::transmute(&contentname), core::mem::transmute(&appname), core::mem::transmute_copy(&presult))
             }
         }
         Self { base__: IAntimalwareProvider_Vtbl::new::<Identity, OFFSET>(), Notify: Notify::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAntimalwareProvider2 as windows_core::Interface>::IID || iid == &<IAntimalwareProvider as windows_core::Interface>::IID
+        iid == &<IAntimalwareProvider2 as windows_core::Interface>::IID || IAntimalwareProvider_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -477,8 +477,8 @@ pub struct IAntimalwareUacProvider_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IAntimalwareUacProvider_Impl: windows_core::IUnknownImpl {
-    fn UacScan(&self, context: LPAMSI_UAC_REQUEST_CONTEXT, result: *mut AMSI_RESULT) -> windows_core::Result<()>;
-    fn DisplayName(&self, displayname: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn UacScan(&self, context: LPAMSI_UAC_REQUEST_CONTEXT, result: *mut AMSI_RESULT) -> windows_core::HRESULT;
+    fn DisplayName(&self, displayname: *mut windows_core::PWSTR) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IAntimalwareUacProvider_Vtbl {
@@ -486,13 +486,13 @@ impl IAntimalwareUacProvider_Vtbl {
         unsafe extern "system" fn UacScan<Identity: IAntimalwareUacProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: LPAMSI_UAC_REQUEST_CONTEXT, result: *mut AMSI_RESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAntimalwareUacProvider_Impl::UacScan(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&result)).into()
+                IAntimalwareUacProvider_Impl::UacScan(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&result))
             }
         }
         unsafe extern "system" fn DisplayName<Identity: IAntimalwareUacProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, displayname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAntimalwareUacProvider_Impl::DisplayName(this, core::mem::transmute_copy(&displayname)).into()
+                IAntimalwareUacProvider_Impl::DisplayName(this, core::mem::transmute_copy(&displayname))
             }
         }
         Self {

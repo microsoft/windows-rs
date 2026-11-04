@@ -804,14 +804,20 @@ impl CppStruct {
             .filter(|field| !field.flags().contains(FieldAttributes::Literal))
             .enumerate()
         {
-            let bitfields: Vec<_> = field
+            let mut bitfields: Vec<_> = field
                 .attributes()
                 .filter(|attr| attr.name() == "NativeBitfieldAttribute")
+                .map(|attr| attr.value())
                 .collect();
 
             if bitfields.is_empty() {
                 continue;
             }
+
+            bitfields.sort_by_key(|values| match values.get(1) {
+                Some((_, Value::I64(offset))) => *offset,
+                _ => panic!("invalid NativeBitfieldAttribute on `{}`", field.name()),
+            });
 
             let field_ident = to_ident(field.name());
             let storage = field.field_type(Some(self), config.reader);
@@ -841,8 +847,7 @@ impl CppStruct {
                 read = quote! { #read.0 };
             }
 
-            for attr in bitfields {
-                let values = attr.value();
+            for values in bitfields {
                 let (
                     Some((_, Value::Utf8(member))),
                     Some((_, Value::I64(offset))),

@@ -740,8 +740,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
             #[Windows::Foundation::Metadata::Static(IStandardPrintTaskOptionsStatic, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Static(IStandardPrintTaskOptionsStatic3, 393216, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IStandardPrintTaskOptionsStatic2, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IStandardPrintTaskOptionsStatic3, 393216, "Windows.Foundation.UniversalApiContract")]
             class StandardPrintTaskOptions {}
         }
     }

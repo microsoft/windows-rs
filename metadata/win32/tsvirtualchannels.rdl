@@ -17,7 +17,7 @@ mod Windows {
         const IID_IWTSVirtualChannel: GUID = 0xa1230207_d6a7_11d8_b9fd_000bdbd1f198;
         const IID_IWTSVirtualChannelCallback: GUID = 0xa1230204_d6a7_11d8_b9fd_000bdbd1f198;
         const IID_IWTSVirtualChannelManager: GUID = 0xa1230205_d6a7_11d8_b9fd_000bdbd1f198;
-        const IID_IWTSWindowChangedCallback: GUID = 0xe8a47fd3_1af5_4d7f_8e15_515ccae1c00c;
+        const IID_IWTSWindowChangedCallback: GUID = 0xe8a47fd3_1af6_4d7f_8e15_515ccae1c00c;
         const IID_IWTSWindowInfoService: GUID = 0x2a002c7b_0120_4d04_bfb1_3c73110c8581;
         #[guid(0xea326091_05fe_40c1_b49c_3d2ef4626a0e)]
         interface IWTSBitmapRenderService: IUnknown {

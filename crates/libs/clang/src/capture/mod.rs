@@ -1214,6 +1214,7 @@ impl Capture<'_> {
                 let attribute = self.attribute(child, cursor)?;
                 let name = match &attribute.kind {
                     AttributeKind::SetLastError => Some("SetLastError"),
+                    AttributeKind::PreserveResult => Some("PreserveResult"),
                     AttributeKind::ImportLibrary(_) => Some("ImportLibrary"),
                     AttributeKind::EnumGroup(_) => Some("enum group"),
                     AttributeKind::AssociatedEnum(_) => Some("AssociatedEnum"),

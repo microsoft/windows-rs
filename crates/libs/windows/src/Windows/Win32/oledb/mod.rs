@@ -1902,10 +1902,10 @@ pub struct IAccessor_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "oaidl", feature = "shared"))]
 pub trait IAccessor_Impl: windows_core::IUnknownImpl {
-    fn AddRefAccessor(&self, haccessor: HACCESSOR, pcrefcount: *mut DBREFCOUNT) -> windows_core::Result<()>;
-    fn CreateAccessor(&self, dwaccessorflags: DBACCESSORFLAGS, cbindings: DBCOUNTITEM, rgbindings: *const DBBINDING, cbrowsize: DBLENGTH, phaccessor: *mut HACCESSOR, rgstatus: *mut DBBINDSTATUS) -> windows_core::Result<()>;
-    fn GetBindings(&self, haccessor: HACCESSOR, pdwaccessorflags: *mut DBACCESSORFLAGS, pcbindings: *mut DBCOUNTITEM, prgbindings: *mut *mut DBBINDING) -> windows_core::Result<()>;
-    fn ReleaseAccessor(&self, haccessor: HACCESSOR, pcrefcount: *mut DBREFCOUNT) -> windows_core::Result<()>;
+    fn AddRefAccessor(&self, haccessor: HACCESSOR, pcrefcount: *mut DBREFCOUNT) -> windows_core::HRESULT;
+    fn CreateAccessor(&self, dwaccessorflags: DBACCESSORFLAGS, cbindings: DBCOUNTITEM, rgbindings: *const DBBINDING, cbrowsize: DBLENGTH, phaccessor: *mut HACCESSOR, rgstatus: *mut DBBINDSTATUS) -> windows_core::HRESULT;
+    fn GetBindings(&self, haccessor: HACCESSOR, pdwaccessorflags: *mut DBACCESSORFLAGS, pcbindings: *mut DBCOUNTITEM, prgbindings: *mut *mut DBBINDING) -> windows_core::HRESULT;
+    fn ReleaseAccessor(&self, haccessor: HACCESSOR, pcrefcount: *mut DBREFCOUNT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "oaidl", feature = "shared"))]
 impl IAccessor_Vtbl {
@@ -1913,25 +1913,25 @@ impl IAccessor_Vtbl {
         unsafe extern "system" fn AddRefAccessor<Identity: IAccessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, haccessor: HACCESSOR, pcrefcount: *mut DBREFCOUNT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccessor_Impl::AddRefAccessor(this, core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&pcrefcount)).into()
+                IAccessor_Impl::AddRefAccessor(this, core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&pcrefcount))
             }
         }
         unsafe extern "system" fn CreateAccessor<Identity: IAccessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwaccessorflags: DBACCESSORFLAGS, cbindings: DBCOUNTITEM, rgbindings: *const DBBINDING, cbrowsize: DBLENGTH, phaccessor: *mut HACCESSOR, rgstatus: *mut DBBINDSTATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccessor_Impl::CreateAccessor(this, core::mem::transmute_copy(&dwaccessorflags), core::mem::transmute_copy(&cbindings), core::mem::transmute_copy(&rgbindings), core::mem::transmute_copy(&cbrowsize), core::mem::transmute_copy(&phaccessor), core::mem::transmute_copy(&rgstatus)).into()
+                IAccessor_Impl::CreateAccessor(this, core::mem::transmute_copy(&dwaccessorflags), core::mem::transmute_copy(&cbindings), core::mem::transmute_copy(&rgbindings), core::mem::transmute_copy(&cbrowsize), core::mem::transmute_copy(&phaccessor), core::mem::transmute_copy(&rgstatus))
             }
         }
         unsafe extern "system" fn GetBindings<Identity: IAccessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, haccessor: HACCESSOR, pdwaccessorflags: *mut DBACCESSORFLAGS, pcbindings: *mut DBCOUNTITEM, prgbindings: *mut *mut DBBINDING) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccessor_Impl::GetBindings(this, core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&pdwaccessorflags), core::mem::transmute_copy(&pcbindings), core::mem::transmute_copy(&prgbindings)).into()
+                IAccessor_Impl::GetBindings(this, core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&pdwaccessorflags), core::mem::transmute_copy(&pcbindings), core::mem::transmute_copy(&prgbindings))
             }
         }
         unsafe extern "system" fn ReleaseAccessor<Identity: IAccessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, haccessor: HACCESSOR, pcrefcount: *mut DBREFCOUNT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccessor_Impl::ReleaseAccessor(this, core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&pcrefcount)).into()
+                IAccessor_Impl::ReleaseAccessor(this, core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&pcrefcount))
             }
         }
         Self {
@@ -1967,7 +1967,7 @@ pub struct IAlterIndex_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAlterIndex_Impl: windows_core::IUnknownImpl {
-    fn AlterIndex(&self, ptableid: *const DBID, pindexid: *const DBID, pnewindexid: *const DBID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::Result<()>;
+    fn AlterIndex(&self, ptableid: *const DBID, pindexid: *const DBID, pnewindexid: *const DBID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAlterIndex_Vtbl {
@@ -1975,7 +1975,7 @@ impl IAlterIndex_Vtbl {
         unsafe extern "system" fn AlterIndex<Identity: IAlterIndex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptableid: *const DBID, pindexid: *const DBID, pnewindexid: *const DBID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAlterIndex_Impl::AlterIndex(this, core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pindexid), core::mem::transmute_copy(&pnewindexid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets)).into()
+                IAlterIndex_Impl::AlterIndex(this, core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pindexid), core::mem::transmute_copy(&pnewindexid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AlterIndex: AlterIndex::<Identity, OFFSET> }
@@ -2013,8 +2013,8 @@ pub struct IAlterTable_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAlterTable_Impl: windows_core::IUnknownImpl {
-    fn AlterColumn(&self, ptableid: *const DBID, pcolumnid: *const DBID, dwcolumndescflags: DBCOLUMNDESCFLAGS, pcolumndesc: *const DBCOLUMNDESC) -> windows_core::Result<()>;
-    fn AlterTable(&self, ptableid: *const DBID, pnewtableid: *const DBID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::Result<()>;
+    fn AlterColumn(&self, ptableid: *const DBID, pcolumnid: *const DBID, dwcolumndescflags: DBCOLUMNDESCFLAGS, pcolumndesc: *const DBCOLUMNDESC) -> windows_core::HRESULT;
+    fn AlterTable(&self, ptableid: *const DBID, pnewtableid: *const DBID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAlterTable_Vtbl {
@@ -2022,13 +2022,13 @@ impl IAlterTable_Vtbl {
         unsafe extern "system" fn AlterColumn<Identity: IAlterTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptableid: *const DBID, pcolumnid: *const DBID, dwcolumndescflags: DBCOLUMNDESCFLAGS, pcolumndesc: *const DBCOLUMNDESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAlterTable_Impl::AlterColumn(this, core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pcolumnid), core::mem::transmute_copy(&dwcolumndescflags), core::mem::transmute_copy(&pcolumndesc)).into()
+                IAlterTable_Impl::AlterColumn(this, core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pcolumnid), core::mem::transmute_copy(&dwcolumndescflags), core::mem::transmute_copy(&pcolumndesc))
             }
         }
         unsafe extern "system" fn AlterTable<Identity: IAlterTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptableid: *const DBID, pnewtableid: *const DBID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAlterTable_Impl::AlterTable(this, core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pnewtableid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets)).into()
+                IAlterTable_Impl::AlterTable(this, core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pnewtableid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets))
             }
         }
         Self {
@@ -2066,7 +2066,7 @@ pub struct IBindResource_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "urlmon", feature = "wtypesbase"))]
 pub trait IBindResource_Impl: windows_core::IUnknownImpl {
-    fn Bind(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, pwszurl: super::LPCOLESTR, dwbindurlflags: DBBINDURLFLAG, rguid: *const windows_core::GUID, riid: *const super::IID, pauthenticate: windows_core::Ref<super::IAuthenticate>, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut DBBINDURLSTATUS, ppunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Bind(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, pwszurl: super::LPCOLESTR, dwbindurlflags: DBBINDURLFLAG, rguid: *const windows_core::GUID, riid: *const super::IID, pauthenticate: windows_core::Ref<super::IAuthenticate>, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut DBBINDURLSTATUS, ppunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "urlmon", feature = "wtypesbase"))]
 impl IBindResource_Vtbl {
@@ -2074,7 +2074,7 @@ impl IBindResource_Vtbl {
         unsafe extern "system" fn Bind<Identity: IBindResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, pwszurl: super::LPCOLESTR, dwbindurlflags: DBBINDURLFLAG, rguid: *const windows_core::GUID, riid: *const super::IID, pauthenticate: *mut core::ffi::c_void, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut DBBINDURLSTATUS, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBindResource_Impl::Bind(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&pwszurl), core::mem::transmute_copy(&dwbindurlflags), core::mem::transmute_copy(&rguid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pauthenticate), core::mem::transmute_copy(&pimplsession), core::mem::transmute_copy(&pdwbindstatus), core::mem::transmute_copy(&ppunk)).into()
+                IBindResource_Impl::Bind(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&pwszurl), core::mem::transmute_copy(&dwbindurlflags), core::mem::transmute_copy(&rguid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pauthenticate), core::mem::transmute_copy(&pimplsession), core::mem::transmute_copy(&pdwbindstatus), core::mem::transmute_copy(&ppunk))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Bind: Bind::<Identity, OFFSET> }
@@ -2103,21 +2103,21 @@ pub struct IChapteredRowset_Vtbl {
     pub ReleaseChapter: unsafe extern "system" fn(*mut core::ffi::c_void, HCHAPTER, *mut DBREFCOUNT) -> windows_core::HRESULT,
 }
 pub trait IChapteredRowset_Impl: windows_core::IUnknownImpl {
-    fn AddRefChapter(&self, hchapter: HCHAPTER, pcrefcount: *mut DBREFCOUNT) -> windows_core::Result<()>;
-    fn ReleaseChapter(&self, hchapter: HCHAPTER, pcrefcount: *mut DBREFCOUNT) -> windows_core::Result<()>;
+    fn AddRefChapter(&self, hchapter: HCHAPTER, pcrefcount: *mut DBREFCOUNT) -> windows_core::HRESULT;
+    fn ReleaseChapter(&self, hchapter: HCHAPTER, pcrefcount: *mut DBREFCOUNT) -> windows_core::HRESULT;
 }
 impl IChapteredRowset_Vtbl {
     pub const fn new<Identity: IChapteredRowset_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddRefChapter<Identity: IChapteredRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hchapter: HCHAPTER, pcrefcount: *mut DBREFCOUNT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IChapteredRowset_Impl::AddRefChapter(this, core::mem::transmute_copy(&hchapter), core::mem::transmute_copy(&pcrefcount)).into()
+                IChapteredRowset_Impl::AddRefChapter(this, core::mem::transmute_copy(&hchapter), core::mem::transmute_copy(&pcrefcount))
             }
         }
         unsafe extern "system" fn ReleaseChapter<Identity: IChapteredRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hchapter: HCHAPTER, pcrefcount: *mut DBREFCOUNT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IChapteredRowset_Impl::ReleaseChapter(this, core::mem::transmute_copy(&hchapter), core::mem::transmute_copy(&pcrefcount)).into()
+                IChapteredRowset_Impl::ReleaseChapter(this, core::mem::transmute_copy(&hchapter), core::mem::transmute_copy(&pcrefcount))
             }
         }
         Self {
@@ -2158,8 +2158,8 @@ pub struct IColumnsInfo_Vtbl {
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
 pub trait IColumnsInfo_Impl: windows_core::IUnknownImpl {
-    fn GetColumnInfo(&self, pccolumns: *mut DBORDINAL, prginfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut super::OLECHAR) -> windows_core::Result<()>;
-    fn MapColumnIDs(&self, ccolumnids: DBORDINAL, rgcolumnids: *const DBID, rgcolumns: *mut DBORDINAL) -> windows_core::Result<()>;
+    fn GetColumnInfo(&self, pccolumns: *mut DBORDINAL, prginfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT;
+    fn MapColumnIDs(&self, ccolumnids: DBORDINAL, rgcolumnids: *const DBID, rgcolumns: *mut DBORDINAL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
 impl IColumnsInfo_Vtbl {
@@ -2167,13 +2167,13 @@ impl IColumnsInfo_Vtbl {
         unsafe extern "system" fn GetColumnInfo<Identity: IColumnsInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pccolumns: *mut DBORDINAL, prginfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IColumnsInfo_Impl::GetColumnInfo(this, core::mem::transmute_copy(&pccolumns), core::mem::transmute_copy(&prginfo), core::mem::transmute_copy(&ppstringsbuffer)).into()
+                IColumnsInfo_Impl::GetColumnInfo(this, core::mem::transmute_copy(&pccolumns), core::mem::transmute_copy(&prginfo), core::mem::transmute_copy(&ppstringsbuffer))
             }
         }
         unsafe extern "system" fn MapColumnIDs<Identity: IColumnsInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ccolumnids: DBORDINAL, rgcolumnids: *const DBID, rgcolumns: *mut DBORDINAL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IColumnsInfo_Impl::MapColumnIDs(this, core::mem::transmute_copy(&ccolumnids), core::mem::transmute_copy(&rgcolumnids), core::mem::transmute_copy(&rgcolumns)).into()
+                IColumnsInfo_Impl::MapColumnIDs(this, core::mem::transmute_copy(&ccolumnids), core::mem::transmute_copy(&rgcolumnids), core::mem::transmute_copy(&rgcolumns))
             }
         }
         Self {
@@ -2213,7 +2213,7 @@ pub struct IColumnsInfo2_Vtbl {
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
 pub trait IColumnsInfo2_Impl: IColumnsInfo_Impl {
-    fn GetRestrictedColumnInfo(&self, ccolumnidmasks: DBORDINAL, rgcolumnidmasks: *const DBID, dwflags: super::DWORD, pccolumns: *mut DBORDINAL, prgcolumnids: *mut *mut DBID, prgcolumninfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut super::OLECHAR) -> windows_core::Result<()>;
+    fn GetRestrictedColumnInfo(&self, ccolumnidmasks: DBORDINAL, rgcolumnidmasks: *const DBID, dwflags: super::DWORD, pccolumns: *mut DBORDINAL, prgcolumnids: *mut *mut DBID, prgcolumninfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
 impl IColumnsInfo2_Vtbl {
@@ -2221,13 +2221,13 @@ impl IColumnsInfo2_Vtbl {
         unsafe extern "system" fn GetRestrictedColumnInfo<Identity: IColumnsInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ccolumnidmasks: DBORDINAL, rgcolumnidmasks: *const DBID, dwflags: super::DWORD, pccolumns: *mut DBORDINAL, prgcolumnids: *mut *mut DBID, prgcolumninfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IColumnsInfo2_Impl::GetRestrictedColumnInfo(this, core::mem::transmute_copy(&ccolumnidmasks), core::mem::transmute_copy(&rgcolumnidmasks), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pccolumns), core::mem::transmute_copy(&prgcolumnids), core::mem::transmute_copy(&prgcolumninfo), core::mem::transmute_copy(&ppstringsbuffer)).into()
+                IColumnsInfo2_Impl::GetRestrictedColumnInfo(this, core::mem::transmute_copy(&ccolumnidmasks), core::mem::transmute_copy(&rgcolumnidmasks), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pccolumns), core::mem::transmute_copy(&prgcolumnids), core::mem::transmute_copy(&prgcolumninfo), core::mem::transmute_copy(&ppstringsbuffer))
             }
         }
         Self { base__: IColumnsInfo_Vtbl::new::<Identity, OFFSET>(), GetRestrictedColumnInfo: GetRestrictedColumnInfo::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IColumnsInfo2 as windows_core::Interface>::IID || iid == &<IColumnsInfo as windows_core::Interface>::IID
+        iid == &<IColumnsInfo2 as windows_core::Interface>::IID || IColumnsInfo_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
@@ -2262,8 +2262,8 @@ pub struct IColumnsRowset_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IColumnsRowset_Impl: windows_core::IUnknownImpl {
-    fn GetAvailableColumns(&self, pcoptcolumns: *mut DBORDINAL, prgoptcolumns: *mut *mut DBID) -> windows_core::Result<()>;
-    fn GetColumnsRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, coptcolumns: DBORDINAL, rgoptcolumns: *const DBID, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, ppcolrowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetAvailableColumns(&self, pcoptcolumns: *mut DBORDINAL, prgoptcolumns: *mut *mut DBID) -> windows_core::HRESULT;
+    fn GetColumnsRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, coptcolumns: DBORDINAL, rgoptcolumns: *const DBID, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, ppcolrowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IColumnsRowset_Vtbl {
@@ -2271,13 +2271,13 @@ impl IColumnsRowset_Vtbl {
         unsafe extern "system" fn GetAvailableColumns<Identity: IColumnsRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcoptcolumns: *mut DBORDINAL, prgoptcolumns: *mut *mut DBID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IColumnsRowset_Impl::GetAvailableColumns(this, core::mem::transmute_copy(&pcoptcolumns), core::mem::transmute_copy(&prgoptcolumns)).into()
+                IColumnsRowset_Impl::GetAvailableColumns(this, core::mem::transmute_copy(&pcoptcolumns), core::mem::transmute_copy(&prgoptcolumns))
             }
         }
         unsafe extern "system" fn GetColumnsRowset<Identity: IColumnsRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, coptcolumns: DBORDINAL, rgoptcolumns: *const DBID, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, ppcolrowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IColumnsRowset_Impl::GetColumnsRowset(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&coptcolumns), core::mem::transmute_copy(&rgoptcolumns), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets), core::mem::transmute_copy(&ppcolrowset)).into()
+                IColumnsRowset_Impl::GetColumnsRowset(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&coptcolumns), core::mem::transmute_copy(&rgoptcolumns), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets), core::mem::transmute_copy(&ppcolrowset))
             }
         }
         Self {
@@ -2326,9 +2326,9 @@ pub struct ICommand_Vtbl {
 }
 #[cfg(feature = "guiddef")]
 pub trait ICommand_Impl: windows_core::IUnknownImpl {
-    fn Cancel(&self) -> windows_core::Result<()>;
-    fn Execute(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const super::IID, pparams: *mut DBPARAMS, pcrowsaffected: *mut DBROWCOUNT, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn GetDBSession(&self, riid: *const super::IID, ppsession: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Cancel(&self) -> windows_core::HRESULT;
+    fn Execute(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const super::IID, pparams: *mut DBPARAMS, pcrowsaffected: *mut DBROWCOUNT, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn GetDBSession(&self, riid: *const super::IID, ppsession: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "guiddef")]
 impl ICommand_Vtbl {
@@ -2336,19 +2336,19 @@ impl ICommand_Vtbl {
         unsafe extern "system" fn Cancel<Identity: ICommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICommand_Impl::Cancel(this).into()
+                ICommand_Impl::Cancel(this)
             }
         }
         unsafe extern "system" fn Execute<Identity: ICommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, riid: *const super::IID, pparams: *mut DBPARAMS, pcrowsaffected: *mut DBROWCOUNT, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICommand_Impl::Execute(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pparams), core::mem::transmute_copy(&pcrowsaffected), core::mem::transmute_copy(&pprowset)).into()
+                ICommand_Impl::Execute(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pparams), core::mem::transmute_copy(&pcrowsaffected), core::mem::transmute_copy(&pprowset))
             }
         }
         unsafe extern "system" fn GetDBSession<Identity: ICommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, ppsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICommand_Impl::GetDBSession(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppsession)).into()
+                ICommand_Impl::GetDBSession(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppsession))
             }
         }
         Self {
@@ -2407,10 +2407,10 @@ pub struct ICommandPersist_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
 pub trait ICommandPersist_Impl: windows_core::IUnknownImpl {
-    fn DeleteCommand(&self, pcommandid: *const DBID) -> windows_core::Result<()>;
-    fn GetCurrentCommand(&self, ppcommandid: *mut *mut DBID) -> windows_core::Result<()>;
-    fn LoadCommand(&self, pcommandid: *const DBID, dwflags: super::DWORD) -> windows_core::Result<()>;
-    fn SaveCommand(&self, pcommandid: *const DBID, dwflags: super::DWORD) -> windows_core::Result<()>;
+    fn DeleteCommand(&self, pcommandid: *const DBID) -> windows_core::HRESULT;
+    fn GetCurrentCommand(&self, ppcommandid: *mut *mut DBID) -> windows_core::HRESULT;
+    fn LoadCommand(&self, pcommandid: *const DBID, dwflags: super::DWORD) -> windows_core::HRESULT;
+    fn SaveCommand(&self, pcommandid: *const DBID, dwflags: super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
 impl ICommandPersist_Vtbl {
@@ -2418,25 +2418,25 @@ impl ICommandPersist_Vtbl {
         unsafe extern "system" fn DeleteCommand<Identity: ICommandPersist_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcommandid: *const DBID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICommandPersist_Impl::DeleteCommand(this, core::mem::transmute_copy(&pcommandid)).into()
+                ICommandPersist_Impl::DeleteCommand(this, core::mem::transmute_copy(&pcommandid))
             }
         }
         unsafe extern "system" fn GetCurrentCommand<Identity: ICommandPersist_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcommandid: *mut *mut DBID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICommandPersist_Impl::GetCurrentCommand(this, core::mem::transmute_copy(&ppcommandid)).into()
+                ICommandPersist_Impl::GetCurrentCommand(this, core::mem::transmute_copy(&ppcommandid))
             }
         }
         unsafe extern "system" fn LoadCommand<Identity: ICommandPersist_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcommandid: *const DBID, dwflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICommandPersist_Impl::LoadCommand(this, core::mem::transmute_copy(&pcommandid), core::mem::transmute_copy(&dwflags)).into()
+                ICommandPersist_Impl::LoadCommand(this, core::mem::transmute_copy(&pcommandid), core::mem::transmute_copy(&dwflags))
             }
         }
         unsafe extern "system" fn SaveCommand<Identity: ICommandPersist_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcommandid: *const DBID, dwflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICommandPersist_Impl::SaveCommand(this, core::mem::transmute_copy(&pcommandid), core::mem::transmute_copy(&dwflags)).into()
+                ICommandPersist_Impl::SaveCommand(this, core::mem::transmute_copy(&pcommandid), core::mem::transmute_copy(&dwflags))
             }
         }
         Self {
@@ -2476,8 +2476,8 @@ pub struct ICommandPrepare_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ICommandPrepare_Impl: windows_core::IUnknownImpl {
-    fn Prepare(&self, cexpectedruns: super::ULONG) -> windows_core::Result<()>;
-    fn Unprepare(&self) -> windows_core::Result<()>;
+    fn Prepare(&self, cexpectedruns: super::ULONG) -> windows_core::HRESULT;
+    fn Unprepare(&self) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ICommandPrepare_Vtbl {
@@ -2485,13 +2485,13 @@ impl ICommandPrepare_Vtbl {
         unsafe extern "system" fn Prepare<Identity: ICommandPrepare_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cexpectedruns: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICommandPrepare_Impl::Prepare(this, core::mem::transmute_copy(&cexpectedruns)).into()
+                ICommandPrepare_Impl::Prepare(this, core::mem::transmute_copy(&cexpectedruns))
             }
         }
         unsafe extern "system" fn Unprepare<Identity: ICommandPrepare_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICommandPrepare_Impl::Unprepare(this).into()
+                ICommandPrepare_Impl::Unprepare(this)
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Prepare: Prepare::<Identity, OFFSET>, Unprepare: Unprepare::<Identity, OFFSET> }
@@ -2529,8 +2529,8 @@ pub struct ICommandProperties_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICommandProperties_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::Result<()>;
-    fn SetProperties(&self, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::Result<()>;
+    fn GetProperties(&self, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT;
+    fn SetProperties(&self, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICommandProperties_Vtbl {
@@ -2538,13 +2538,13 @@ impl ICommandProperties_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: ICommandProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICommandProperties_Impl::GetProperties(this, core::mem::transmute_copy(&cpropertyidsets), core::mem::transmute_copy(&rgpropertyidsets), core::mem::transmute_copy(&pcpropertysets), core::mem::transmute_copy(&prgpropertysets)).into()
+                ICommandProperties_Impl::GetProperties(this, core::mem::transmute_copy(&cpropertyidsets), core::mem::transmute_copy(&rgpropertyidsets), core::mem::transmute_copy(&pcpropertysets), core::mem::transmute_copy(&prgpropertysets))
             }
         }
         unsafe extern "system" fn SetProperties<Identity: ICommandProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICommandProperties_Impl::SetProperties(this, core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets)).into()
+                ICommandProperties_Impl::SetProperties(this, core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets))
             }
         }
         Self {
@@ -2589,8 +2589,8 @@ pub struct ICommandStream_Vtbl {
 }
 #[cfg(feature = "guiddef")]
 pub trait ICommandStream_Impl: windows_core::IUnknownImpl {
-    fn GetCommandStream(&self, piid: *mut super::IID, pguiddialect: *mut windows_core::GUID, ppcommandstream: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn SetCommandStream(&self, riid: *const super::IID, rguiddialect: *const windows_core::GUID, pcommandstream: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetCommandStream(&self, piid: *mut super::IID, pguiddialect: *mut windows_core::GUID, ppcommandstream: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn SetCommandStream(&self, riid: *const super::IID, rguiddialect: *const windows_core::GUID, pcommandstream: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "guiddef")]
 impl ICommandStream_Vtbl {
@@ -2598,13 +2598,13 @@ impl ICommandStream_Vtbl {
         unsafe extern "system" fn GetCommandStream<Identity: ICommandStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piid: *mut super::IID, pguiddialect: *mut windows_core::GUID, ppcommandstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICommandStream_Impl::GetCommandStream(this, core::mem::transmute_copy(&piid), core::mem::transmute_copy(&pguiddialect), core::mem::transmute_copy(&ppcommandstream)).into()
+                ICommandStream_Impl::GetCommandStream(this, core::mem::transmute_copy(&piid), core::mem::transmute_copy(&pguiddialect), core::mem::transmute_copy(&ppcommandstream))
             }
         }
         unsafe extern "system" fn SetCommandStream<Identity: ICommandStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, rguiddialect: *const windows_core::GUID, pcommandstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICommandStream_Impl::SetCommandStream(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&rguiddialect), core::mem::transmute_copy(&pcommandstream)).into()
+                ICommandStream_Impl::SetCommandStream(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&rguiddialect), core::mem::transmute_copy(&pcommandstream))
             }
         }
         Self {
@@ -2652,8 +2652,8 @@ pub struct ICommandText_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
 pub trait ICommandText_Impl: ICommand_Impl {
-    fn GetCommandText(&self, pguiddialect: *mut windows_core::GUID, ppwszcommand: *mut super::LPOLESTR) -> windows_core::Result<()>;
-    fn SetCommandText(&self, rguiddialect: *const windows_core::GUID, pwszcommand: super::LPCOLESTR) -> windows_core::Result<()>;
+    fn GetCommandText(&self, pguiddialect: *mut windows_core::GUID, ppwszcommand: *mut super::LPOLESTR) -> windows_core::HRESULT;
+    fn SetCommandText(&self, rguiddialect: *const windows_core::GUID, pwszcommand: super::LPCOLESTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
 impl ICommandText_Vtbl {
@@ -2661,13 +2661,13 @@ impl ICommandText_Vtbl {
         unsafe extern "system" fn GetCommandText<Identity: ICommandText_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguiddialect: *mut windows_core::GUID, ppwszcommand: *mut super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICommandText_Impl::GetCommandText(this, core::mem::transmute_copy(&pguiddialect), core::mem::transmute_copy(&ppwszcommand)).into()
+                ICommandText_Impl::GetCommandText(this, core::mem::transmute_copy(&pguiddialect), core::mem::transmute_copy(&ppwszcommand))
             }
         }
         unsafe extern "system" fn SetCommandText<Identity: ICommandText_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rguiddialect: *const windows_core::GUID, pwszcommand: super::LPCOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICommandText_Impl::SetCommandText(this, core::mem::transmute_copy(&rguiddialect), core::mem::transmute_copy(&pwszcommand)).into()
+                ICommandText_Impl::SetCommandText(this, core::mem::transmute_copy(&rguiddialect), core::mem::transmute_copy(&pwszcommand))
             }
         }
         Self {
@@ -2677,7 +2677,7 @@ impl ICommandText_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICommandText as windows_core::Interface>::IID || iid == &<ICommand as windows_core::Interface>::IID
+        iid == &<ICommandText as windows_core::Interface>::IID || ICommand_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
@@ -2713,9 +2713,9 @@ pub struct ICommandWithParameters_Vtbl {
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
 pub trait ICommandWithParameters_Impl: windows_core::IUnknownImpl {
-    fn GetParameterInfo(&self, pcparams: *mut DB_UPARAMS, prgparaminfo: *mut *mut DBPARAMINFO, ppnamesbuffer: *mut *mut super::OLECHAR) -> windows_core::Result<()>;
-    fn MapParameterNames(&self, cparamnames: DB_UPARAMS, rgparamnames: *const windows_core::PCWSTR, rgparamordinals: *mut DB_LPARAMS) -> windows_core::Result<()>;
-    fn SetParameterInfo(&self, cparams: DB_UPARAMS, rgparamordinals: *const DB_UPARAMS, rgparambindinfo: *const DBPARAMBINDINFO) -> windows_core::Result<()>;
+    fn GetParameterInfo(&self, pcparams: *mut DB_UPARAMS, prgparaminfo: *mut *mut DBPARAMINFO, ppnamesbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT;
+    fn MapParameterNames(&self, cparamnames: DB_UPARAMS, rgparamnames: *const windows_core::PCWSTR, rgparamordinals: *mut DB_LPARAMS) -> windows_core::HRESULT;
+    fn SetParameterInfo(&self, cparams: DB_UPARAMS, rgparamordinals: *const DB_UPARAMS, rgparambindinfo: *const DBPARAMBINDINFO) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
 impl ICommandWithParameters_Vtbl {
@@ -2723,19 +2723,19 @@ impl ICommandWithParameters_Vtbl {
         unsafe extern "system" fn GetParameterInfo<Identity: ICommandWithParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcparams: *mut DB_UPARAMS, prgparaminfo: *mut *mut DBPARAMINFO, ppnamesbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICommandWithParameters_Impl::GetParameterInfo(this, core::mem::transmute_copy(&pcparams), core::mem::transmute_copy(&prgparaminfo), core::mem::transmute_copy(&ppnamesbuffer)).into()
+                ICommandWithParameters_Impl::GetParameterInfo(this, core::mem::transmute_copy(&pcparams), core::mem::transmute_copy(&prgparaminfo), core::mem::transmute_copy(&ppnamesbuffer))
             }
         }
         unsafe extern "system" fn MapParameterNames<Identity: ICommandWithParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cparamnames: DB_UPARAMS, rgparamnames: *const windows_core::PCWSTR, rgparamordinals: *mut DB_LPARAMS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICommandWithParameters_Impl::MapParameterNames(this, core::mem::transmute_copy(&cparamnames), core::mem::transmute_copy(&rgparamnames), core::mem::transmute_copy(&rgparamordinals)).into()
+                ICommandWithParameters_Impl::MapParameterNames(this, core::mem::transmute_copy(&cparamnames), core::mem::transmute_copy(&rgparamnames), core::mem::transmute_copy(&rgparamordinals))
             }
         }
         unsafe extern "system" fn SetParameterInfo<Identity: ICommandWithParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cparams: DB_UPARAMS, rgparamordinals: *const DB_UPARAMS, rgparambindinfo: *const DBPARAMBINDINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICommandWithParameters_Impl::SetParameterInfo(this, core::mem::transmute_copy(&cparams), core::mem::transmute_copy(&rgparamordinals), core::mem::transmute_copy(&rgparambindinfo)).into()
+                ICommandWithParameters_Impl::SetParameterInfo(this, core::mem::transmute_copy(&cparams), core::mem::transmute_copy(&rgparamordinals), core::mem::transmute_copy(&rgparambindinfo))
             }
         }
         Self {
@@ -2765,14 +2765,14 @@ pub struct IConvertType_Vtbl {
     pub CanConvert: unsafe extern "system" fn(*mut core::ffi::c_void, DBTYPE, DBTYPE, DBCONVERTFLAGS) -> windows_core::HRESULT,
 }
 pub trait IConvertType_Impl: windows_core::IUnknownImpl {
-    fn CanConvert(&self, wfromtype: DBTYPE, wtotype: DBTYPE, dwconvertflags: DBCONVERTFLAGS) -> windows_core::Result<()>;
+    fn CanConvert(&self, wfromtype: DBTYPE, wtotype: DBTYPE, dwconvertflags: DBCONVERTFLAGS) -> windows_core::HRESULT;
 }
 impl IConvertType_Vtbl {
     pub const fn new<Identity: IConvertType_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CanConvert<Identity: IConvertType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wfromtype: DBTYPE, wtotype: DBTYPE, dwconvertflags: DBCONVERTFLAGS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IConvertType_Impl::CanConvert(this, core::mem::transmute_copy(&wfromtype), core::mem::transmute_copy(&wtotype), core::mem::transmute_copy(&dwconvertflags)).into()
+                IConvertType_Impl::CanConvert(this, core::mem::transmute_copy(&wfromtype), core::mem::transmute_copy(&wtotype), core::mem::transmute_copy(&dwconvertflags))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CanConvert: CanConvert::<Identity, OFFSET> }
@@ -2805,7 +2805,7 @@ pub struct ICreateRow_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "urlmon", feature = "wtypesbase"))]
 pub trait ICreateRow_Impl: windows_core::IUnknownImpl {
-    fn CreateRow(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, pwszurl: super::LPCOLESTR, dwbindurlflags: DBBINDURLFLAG, rguid: *const windows_core::GUID, riid: *const super::IID, pauthenticate: windows_core::Ref<super::IAuthenticate>, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut DBBINDURLSTATUS, ppwsznewurl: *mut super::LPOLESTR, ppunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateRow(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, pwszurl: super::LPCOLESTR, dwbindurlflags: DBBINDURLFLAG, rguid: *const windows_core::GUID, riid: *const super::IID, pauthenticate: windows_core::Ref<super::IAuthenticate>, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut DBBINDURLSTATUS, ppwsznewurl: *mut super::LPOLESTR, ppunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "urlmon", feature = "wtypesbase"))]
 impl ICreateRow_Vtbl {
@@ -2813,7 +2813,7 @@ impl ICreateRow_Vtbl {
         unsafe extern "system" fn CreateRow<Identity: ICreateRow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, pwszurl: super::LPCOLESTR, dwbindurlflags: DBBINDURLFLAG, rguid: *const windows_core::GUID, riid: *const super::IID, pauthenticate: *mut core::ffi::c_void, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut DBBINDURLSTATUS, ppwsznewurl: *mut super::LPOLESTR, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateRow_Impl::CreateRow(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&pwszurl), core::mem::transmute_copy(&dwbindurlflags), core::mem::transmute_copy(&rguid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pauthenticate), core::mem::transmute_copy(&pimplsession), core::mem::transmute_copy(&pdwbindstatus), core::mem::transmute_copy(&ppwsznewurl), core::mem::transmute_copy(&ppunk)).into()
+                ICreateRow_Impl::CreateRow(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&pwszurl), core::mem::transmute_copy(&dwbindurlflags), core::mem::transmute_copy(&rguid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pauthenticate), core::mem::transmute_copy(&pimplsession), core::mem::transmute_copy(&pdwbindstatus), core::mem::transmute_copy(&ppwsznewurl), core::mem::transmute_copy(&ppunk))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateRow: CreateRow::<Identity, OFFSET> }
@@ -2855,9 +2855,9 @@ pub struct IDBAsynchNotify_Vtbl {
 }
 #[cfg(feature = "wtypesbase")]
 pub trait IDBAsynchNotify_Impl: windows_core::IUnknownImpl {
-    fn OnLowResource(&self, dwreserved: DB_DWRESERVE) -> windows_core::Result<()>;
-    fn OnProgress(&self, hchapter: HCHAPTER, eoperation: DBASYNCHOP, ulprogress: DBCOUNTITEM, ulprogressmax: DBCOUNTITEM, easynchphase: DBASYNCHPHASE, pwszstatustext: super::LPOLESTR) -> windows_core::Result<()>;
-    fn OnStop(&self, hchapter: HCHAPTER, eoperation: DBASYNCHOP, hrstatus: windows_core::HRESULT, pwszstatustext: super::LPOLESTR) -> windows_core::Result<()>;
+    fn OnLowResource(&self, dwreserved: DB_DWRESERVE) -> windows_core::HRESULT;
+    fn OnProgress(&self, hchapter: HCHAPTER, eoperation: DBASYNCHOP, ulprogress: DBCOUNTITEM, ulprogressmax: DBCOUNTITEM, easynchphase: DBASYNCHPHASE, pwszstatustext: super::LPOLESTR) -> windows_core::HRESULT;
+    fn OnStop(&self, hchapter: HCHAPTER, eoperation: DBASYNCHOP, hrstatus: windows_core::HRESULT, pwszstatustext: super::LPOLESTR) -> windows_core::HRESULT;
 }
 #[cfg(feature = "wtypesbase")]
 impl IDBAsynchNotify_Vtbl {
@@ -2865,19 +2865,19 @@ impl IDBAsynchNotify_Vtbl {
         unsafe extern "system" fn OnLowResource<Identity: IDBAsynchNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwreserved: DB_DWRESERVE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDBAsynchNotify_Impl::OnLowResource(this, core::mem::transmute_copy(&dwreserved)).into()
+                IDBAsynchNotify_Impl::OnLowResource(this, core::mem::transmute_copy(&dwreserved))
             }
         }
         unsafe extern "system" fn OnProgress<Identity: IDBAsynchNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hchapter: HCHAPTER, eoperation: DBASYNCHOP, ulprogress: DBCOUNTITEM, ulprogressmax: DBCOUNTITEM, easynchphase: DBASYNCHPHASE, pwszstatustext: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDBAsynchNotify_Impl::OnProgress(this, core::mem::transmute_copy(&hchapter), core::mem::transmute_copy(&eoperation), core::mem::transmute_copy(&ulprogress), core::mem::transmute_copy(&ulprogressmax), core::mem::transmute_copy(&easynchphase), core::mem::transmute_copy(&pwszstatustext)).into()
+                IDBAsynchNotify_Impl::OnProgress(this, core::mem::transmute_copy(&hchapter), core::mem::transmute_copy(&eoperation), core::mem::transmute_copy(&ulprogress), core::mem::transmute_copy(&ulprogressmax), core::mem::transmute_copy(&easynchphase), core::mem::transmute_copy(&pwszstatustext))
             }
         }
         unsafe extern "system" fn OnStop<Identity: IDBAsynchNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hchapter: HCHAPTER, eoperation: DBASYNCHOP, hrstatus: windows_core::HRESULT, pwszstatustext: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDBAsynchNotify_Impl::OnStop(this, core::mem::transmute_copy(&hchapter), core::mem::transmute_copy(&eoperation), core::mem::transmute_copy(&hrstatus), core::mem::transmute_copy(&pwszstatustext)).into()
+                IDBAsynchNotify_Impl::OnStop(this, core::mem::transmute_copy(&hchapter), core::mem::transmute_copy(&eoperation), core::mem::transmute_copy(&hrstatus), core::mem::transmute_copy(&pwszstatustext))
             }
         }
         Self {
@@ -2916,8 +2916,8 @@ pub struct IDBAsynchStatus_Vtbl {
 }
 #[cfg(feature = "wtypesbase")]
 pub trait IDBAsynchStatus_Impl: windows_core::IUnknownImpl {
-    fn Abort(&self, hchapter: HCHAPTER, eoperation: DBASYNCHOP) -> windows_core::Result<()>;
-    fn GetStatus(&self, hchapter: HCHAPTER, eoperation: DBASYNCHOP, pulprogress: *mut DBCOUNTITEM, pulprogressmax: *mut DBCOUNTITEM, peasynchphase: *mut DBASYNCHPHASE, ppwszstatustext: *mut super::LPOLESTR) -> windows_core::Result<()>;
+    fn Abort(&self, hchapter: HCHAPTER, eoperation: DBASYNCHOP) -> windows_core::HRESULT;
+    fn GetStatus(&self, hchapter: HCHAPTER, eoperation: DBASYNCHOP, pulprogress: *mut DBCOUNTITEM, pulprogressmax: *mut DBCOUNTITEM, peasynchphase: *mut DBASYNCHPHASE, ppwszstatustext: *mut super::LPOLESTR) -> windows_core::HRESULT;
 }
 #[cfg(feature = "wtypesbase")]
 impl IDBAsynchStatus_Vtbl {
@@ -2925,13 +2925,13 @@ impl IDBAsynchStatus_Vtbl {
         unsafe extern "system" fn Abort<Identity: IDBAsynchStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hchapter: HCHAPTER, eoperation: DBASYNCHOP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDBAsynchStatus_Impl::Abort(this, core::mem::transmute_copy(&hchapter), core::mem::transmute_copy(&eoperation)).into()
+                IDBAsynchStatus_Impl::Abort(this, core::mem::transmute_copy(&hchapter), core::mem::transmute_copy(&eoperation))
             }
         }
         unsafe extern "system" fn GetStatus<Identity: IDBAsynchStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hchapter: HCHAPTER, eoperation: DBASYNCHOP, pulprogress: *mut DBCOUNTITEM, pulprogressmax: *mut DBCOUNTITEM, peasynchphase: *mut DBASYNCHPHASE, ppwszstatustext: *mut super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDBAsynchStatus_Impl::GetStatus(this, core::mem::transmute_copy(&hchapter), core::mem::transmute_copy(&eoperation), core::mem::transmute_copy(&pulprogress), core::mem::transmute_copy(&pulprogressmax), core::mem::transmute_copy(&peasynchphase), core::mem::transmute_copy(&ppwszstatustext)).into()
+                IDBAsynchStatus_Impl::GetStatus(this, core::mem::transmute_copy(&hchapter), core::mem::transmute_copy(&eoperation), core::mem::transmute_copy(&pulprogress), core::mem::transmute_copy(&pulprogressmax), core::mem::transmute_copy(&peasynchphase), core::mem::transmute_copy(&ppwszstatustext))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Abort: Abort::<Identity, OFFSET>, GetStatus: GetStatus::<Identity, OFFSET> }
@@ -2963,7 +2963,7 @@ pub struct IDBBinderProperties_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDBBinderProperties_Impl: IDBProperties_Impl {
-    fn Reset(&self) -> windows_core::Result<()>;
+    fn Reset(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDBBinderProperties_Vtbl {
@@ -2971,13 +2971,13 @@ impl IDBBinderProperties_Vtbl {
         unsafe extern "system" fn Reset<Identity: IDBBinderProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDBBinderProperties_Impl::Reset(this).into()
+                IDBBinderProperties_Impl::Reset(this)
             }
         }
         Self { base__: IDBProperties_Vtbl::new::<Identity, OFFSET>(), Reset: Reset::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDBBinderProperties as windows_core::Interface>::IID || iid == &<IDBProperties as windows_core::Interface>::IID
+        iid == &<IDBBinderProperties as windows_core::Interface>::IID || IDBProperties_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3004,7 +3004,7 @@ pub struct IDBCreateCommand_Vtbl {
 }
 #[cfg(feature = "guiddef")]
 pub trait IDBCreateCommand_Impl: windows_core::IUnknownImpl {
-    fn CreateCommand(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const super::IID, ppcommand: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateCommand(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const super::IID, ppcommand: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "guiddef")]
 impl IDBCreateCommand_Vtbl {
@@ -3012,7 +3012,7 @@ impl IDBCreateCommand_Vtbl {
         unsafe extern "system" fn CreateCommand<Identity: IDBCreateCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, riid: *const super::IID, ppcommand: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDBCreateCommand_Impl::CreateCommand(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppcommand)).into()
+                IDBCreateCommand_Impl::CreateCommand(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppcommand))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateCommand: CreateCommand::<Identity, OFFSET> }
@@ -3045,7 +3045,7 @@ pub struct IDBCreateSession_Vtbl {
 }
 #[cfg(feature = "guiddef")]
 pub trait IDBCreateSession_Impl: windows_core::IUnknownImpl {
-    fn CreateSession(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const super::IID, ppdbsession: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateSession(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const super::IID, ppdbsession: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "guiddef")]
 impl IDBCreateSession_Vtbl {
@@ -3053,7 +3053,7 @@ impl IDBCreateSession_Vtbl {
         unsafe extern "system" fn CreateSession<Identity: IDBCreateSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, riid: *const super::IID, ppdbsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDBCreateSession_Impl::CreateSession(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppdbsession)).into()
+                IDBCreateSession_Impl::CreateSession(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppdbsession))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateSession: CreateSession::<Identity, OFFSET> }
@@ -3106,10 +3106,10 @@ pub struct IDBDataSourceAdmin_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDBDataSourceAdmin_Impl: windows_core::IUnknownImpl {
-    fn CreateDataSource(&self, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const super::IID, ppdbsession: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn DestroyDataSource(&self) -> windows_core::Result<()>;
-    fn GetCreationProperties(&self, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertyinfosets: *mut super::ULONG, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: *mut *mut super::OLECHAR) -> windows_core::Result<()>;
-    fn ModifyDataSource(&self, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::Result<()>;
+    fn CreateDataSource(&self, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const super::IID, ppdbsession: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn DestroyDataSource(&self) -> windows_core::HRESULT;
+    fn GetCreationProperties(&self, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertyinfosets: *mut super::ULONG, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT;
+    fn ModifyDataSource(&self, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDBDataSourceAdmin_Vtbl {
@@ -3117,25 +3117,25 @@ impl IDBDataSourceAdmin_Vtbl {
         unsafe extern "system" fn CreateDataSource<Identity: IDBDataSourceAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, punkouter: *mut core::ffi::c_void, riid: *const super::IID, ppdbsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDBDataSourceAdmin_Impl::CreateDataSource(this, core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets), core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppdbsession)).into()
+                IDBDataSourceAdmin_Impl::CreateDataSource(this, core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets), core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppdbsession))
             }
         }
         unsafe extern "system" fn DestroyDataSource<Identity: IDBDataSourceAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDBDataSourceAdmin_Impl::DestroyDataSource(this).into()
+                IDBDataSourceAdmin_Impl::DestroyDataSource(this)
             }
         }
         unsafe extern "system" fn GetCreationProperties<Identity: IDBDataSourceAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertyinfosets: *mut super::ULONG, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDBDataSourceAdmin_Impl::GetCreationProperties(this, core::mem::transmute_copy(&cpropertyidsets), core::mem::transmute_copy(&rgpropertyidsets), core::mem::transmute_copy(&pcpropertyinfosets), core::mem::transmute_copy(&prgpropertyinfosets), core::mem::transmute_copy(&ppdescbuffer)).into()
+                IDBDataSourceAdmin_Impl::GetCreationProperties(this, core::mem::transmute_copy(&cpropertyidsets), core::mem::transmute_copy(&rgpropertyidsets), core::mem::transmute_copy(&pcpropertyinfosets), core::mem::transmute_copy(&prgpropertyinfosets), core::mem::transmute_copy(&ppdescbuffer))
             }
         }
         unsafe extern "system" fn ModifyDataSource<Identity: IDBDataSourceAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDBDataSourceAdmin_Impl::ModifyDataSource(this, core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets)).into()
+                IDBDataSourceAdmin_Impl::ModifyDataSource(this, core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets))
             }
         }
         Self {
@@ -3179,8 +3179,8 @@ pub struct IDBInfo_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
 pub trait IDBInfo_Impl: windows_core::IUnknownImpl {
-    fn GetKeywords(&self, ppwszkeywords: *mut super::LPOLESTR) -> windows_core::Result<()>;
-    fn GetLiteralInfo(&self, cliterals: super::ULONG, rgliterals: *const DBLITERAL, pcliteralinfo: *mut super::ULONG, prgliteralinfo: *mut *mut DBLITERALINFO, ppcharbuffer: *mut *mut super::OLECHAR) -> windows_core::Result<()>;
+    fn GetKeywords(&self, ppwszkeywords: *mut super::LPOLESTR) -> windows_core::HRESULT;
+    fn GetLiteralInfo(&self, cliterals: super::ULONG, rgliterals: *const DBLITERAL, pcliteralinfo: *mut super::ULONG, prgliteralinfo: *mut *mut DBLITERALINFO, ppcharbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
 impl IDBInfo_Vtbl {
@@ -3188,13 +3188,13 @@ impl IDBInfo_Vtbl {
         unsafe extern "system" fn GetKeywords<Identity: IDBInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwszkeywords: *mut super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDBInfo_Impl::GetKeywords(this, core::mem::transmute_copy(&ppwszkeywords)).into()
+                IDBInfo_Impl::GetKeywords(this, core::mem::transmute_copy(&ppwszkeywords))
             }
         }
         unsafe extern "system" fn GetLiteralInfo<Identity: IDBInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cliterals: super::ULONG, rgliterals: *const DBLITERAL, pcliteralinfo: *mut super::ULONG, prgliteralinfo: *mut *mut DBLITERALINFO, ppcharbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDBInfo_Impl::GetLiteralInfo(this, core::mem::transmute_copy(&cliterals), core::mem::transmute_copy(&rgliterals), core::mem::transmute_copy(&pcliteralinfo), core::mem::transmute_copy(&prgliteralinfo), core::mem::transmute_copy(&ppcharbuffer)).into()
+                IDBInfo_Impl::GetLiteralInfo(this, core::mem::transmute_copy(&cliterals), core::mem::transmute_copy(&rgliterals), core::mem::transmute_copy(&pcliteralinfo), core::mem::transmute_copy(&prgliteralinfo), core::mem::transmute_copy(&ppcharbuffer))
             }
         }
         Self {
@@ -3227,21 +3227,21 @@ pub struct IDBInitialize_Vtbl {
     pub Uninitialize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDBInitialize_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self) -> windows_core::Result<()>;
-    fn Uninitialize(&self) -> windows_core::Result<()>;
+    fn Initialize(&self) -> windows_core::HRESULT;
+    fn Uninitialize(&self) -> windows_core::HRESULT;
 }
 impl IDBInitialize_Vtbl {
     pub const fn new<Identity: IDBInitialize_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IDBInitialize_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDBInitialize_Impl::Initialize(this).into()
+                IDBInitialize_Impl::Initialize(this)
             }
         }
         unsafe extern "system" fn Uninitialize<Identity: IDBInitialize_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDBInitialize_Impl::Uninitialize(this).into()
+                IDBInitialize_Impl::Uninitialize(this)
             }
         }
         Self {
@@ -3290,9 +3290,9 @@ pub struct IDBProperties_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDBProperties_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::Result<()>;
-    fn GetPropertyInfo(&self, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertyinfosets: *mut super::ULONG, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: *mut *mut super::OLECHAR) -> windows_core::Result<()>;
-    fn SetProperties(&self, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::Result<()>;
+    fn GetProperties(&self, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT;
+    fn GetPropertyInfo(&self, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertyinfosets: *mut super::ULONG, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT;
+    fn SetProperties(&self, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDBProperties_Vtbl {
@@ -3300,19 +3300,19 @@ impl IDBProperties_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: IDBProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDBProperties_Impl::GetProperties(this, core::mem::transmute_copy(&cpropertyidsets), core::mem::transmute_copy(&rgpropertyidsets), core::mem::transmute_copy(&pcpropertysets), core::mem::transmute_copy(&prgpropertysets)).into()
+                IDBProperties_Impl::GetProperties(this, core::mem::transmute_copy(&cpropertyidsets), core::mem::transmute_copy(&rgpropertyidsets), core::mem::transmute_copy(&pcpropertysets), core::mem::transmute_copy(&prgpropertysets))
             }
         }
         unsafe extern "system" fn GetPropertyInfo<Identity: IDBProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertyinfosets: *mut super::ULONG, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDBProperties_Impl::GetPropertyInfo(this, core::mem::transmute_copy(&cpropertyidsets), core::mem::transmute_copy(&rgpropertyidsets), core::mem::transmute_copy(&pcpropertyinfosets), core::mem::transmute_copy(&prgpropertyinfosets), core::mem::transmute_copy(&ppdescbuffer)).into()
+                IDBProperties_Impl::GetPropertyInfo(this, core::mem::transmute_copy(&cpropertyidsets), core::mem::transmute_copy(&rgpropertyidsets), core::mem::transmute_copy(&pcpropertyinfosets), core::mem::transmute_copy(&prgpropertyinfosets), core::mem::transmute_copy(&ppdescbuffer))
             }
         }
         unsafe extern "system" fn SetProperties<Identity: IDBProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDBProperties_Impl::SetProperties(this, core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets)).into()
+                IDBProperties_Impl::SetProperties(this, core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets))
             }
         }
         Self {
@@ -3358,8 +3358,8 @@ pub struct IDBSchemaRowset_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDBSchemaRowset_Impl: windows_core::IUnknownImpl {
-    fn GetRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, rguidschema: *const windows_core::GUID, crestrictions: super::ULONG, rgrestrictions: *const super::VARIANT, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn GetSchemas(&self, pcschemas: *mut super::ULONG, prgschemas: *mut *mut windows_core::GUID, prgrestrictionsupport: *mut *mut super::ULONG) -> windows_core::Result<()>;
+    fn GetRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, rguidschema: *const windows_core::GUID, crestrictions: super::ULONG, rgrestrictions: *const super::VARIANT, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn GetSchemas(&self, pcschemas: *mut super::ULONG, prgschemas: *mut *mut windows_core::GUID, prgrestrictionsupport: *mut *mut super::ULONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDBSchemaRowset_Vtbl {
@@ -3367,13 +3367,13 @@ impl IDBSchemaRowset_Vtbl {
         unsafe extern "system" fn GetRowset<Identity: IDBSchemaRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, rguidschema: *const windows_core::GUID, crestrictions: super::ULONG, rgrestrictions: *const super::VARIANT, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDBSchemaRowset_Impl::GetRowset(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&rguidschema), core::mem::transmute_copy(&crestrictions), core::mem::transmute_copy(&rgrestrictions), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets), core::mem::transmute_copy(&pprowset)).into()
+                IDBSchemaRowset_Impl::GetRowset(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&rguidschema), core::mem::transmute_copy(&crestrictions), core::mem::transmute_copy(&rgrestrictions), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets), core::mem::transmute_copy(&pprowset))
             }
         }
         unsafe extern "system" fn GetSchemas<Identity: IDBSchemaRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcschemas: *mut super::ULONG, prgschemas: *mut *mut windows_core::GUID, prgrestrictionsupport: *mut *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDBSchemaRowset_Impl::GetSchemas(this, core::mem::transmute_copy(&pcschemas), core::mem::transmute_copy(&prgschemas), core::mem::transmute_copy(&prgrestrictionsupport)).into()
+                IDBSchemaRowset_Impl::GetSchemas(this, core::mem::transmute_copy(&pcschemas), core::mem::transmute_copy(&prgschemas), core::mem::transmute_copy(&prgrestrictionsupport))
             }
         }
         Self {
@@ -3425,9 +3425,9 @@ pub struct IErrorLookup_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IErrorLookup_Impl: windows_core::IUnknownImpl {
-    fn GetErrorDescription(&self, hrerror: windows_core::HRESULT, dwlookupid: super::DWORD, pdispparams: *const super::DISPPARAMS, lcid: super::LCID, pbstrsource: *mut windows_core::BSTR, pbstrdescription: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetHelpInfo(&self, hrerror: windows_core::HRESULT, dwlookupid: super::DWORD, lcid: super::LCID, pbstrhelpfile: *mut windows_core::BSTR, pdwhelpcontext: *mut super::DWORD) -> windows_core::Result<()>;
-    fn ReleaseErrors(&self, dwdynamicerrorid: super::DWORD) -> windows_core::Result<()>;
+    fn GetErrorDescription(&self, hrerror: windows_core::HRESULT, dwlookupid: super::DWORD, pdispparams: *const super::DISPPARAMS, lcid: super::LCID, pbstrsource: *mut windows_core::BSTR, pbstrdescription: *mut windows_core::BSTR) -> windows_core::HRESULT;
+    fn GetHelpInfo(&self, hrerror: windows_core::HRESULT, dwlookupid: super::DWORD, lcid: super::LCID, pbstrhelpfile: *mut windows_core::BSTR, pdwhelpcontext: *mut super::DWORD) -> windows_core::HRESULT;
+    fn ReleaseErrors(&self, dwdynamicerrorid: super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IErrorLookup_Vtbl {
@@ -3435,19 +3435,19 @@ impl IErrorLookup_Vtbl {
         unsafe extern "system" fn GetErrorDescription<Identity: IErrorLookup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrerror: windows_core::HRESULT, dwlookupid: super::DWORD, pdispparams: *const super::DISPPARAMS, lcid: super::LCID, pbstrsource: *mut *mut core::ffi::c_void, pbstrdescription: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IErrorLookup_Impl::GetErrorDescription(this, core::mem::transmute_copy(&hrerror), core::mem::transmute_copy(&dwlookupid), core::mem::transmute_copy(&pdispparams), core::mem::transmute_copy(&lcid), core::mem::transmute_copy(&pbstrsource), core::mem::transmute_copy(&pbstrdescription)).into()
+                IErrorLookup_Impl::GetErrorDescription(this, core::mem::transmute_copy(&hrerror), core::mem::transmute_copy(&dwlookupid), core::mem::transmute_copy(&pdispparams), core::mem::transmute_copy(&lcid), core::mem::transmute_copy(&pbstrsource), core::mem::transmute_copy(&pbstrdescription))
             }
         }
         unsafe extern "system" fn GetHelpInfo<Identity: IErrorLookup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrerror: windows_core::HRESULT, dwlookupid: super::DWORD, lcid: super::LCID, pbstrhelpfile: *mut *mut core::ffi::c_void, pdwhelpcontext: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IErrorLookup_Impl::GetHelpInfo(this, core::mem::transmute_copy(&hrerror), core::mem::transmute_copy(&dwlookupid), core::mem::transmute_copy(&lcid), core::mem::transmute_copy(&pbstrhelpfile), core::mem::transmute_copy(&pdwhelpcontext)).into()
+                IErrorLookup_Impl::GetHelpInfo(this, core::mem::transmute_copy(&hrerror), core::mem::transmute_copy(&dwlookupid), core::mem::transmute_copy(&lcid), core::mem::transmute_copy(&pbstrhelpfile), core::mem::transmute_copy(&pdwhelpcontext))
             }
         }
         unsafe extern "system" fn ReleaseErrors<Identity: IErrorLookup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwdynamicerrorid: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IErrorLookup_Impl::ReleaseErrors(this, core::mem::transmute_copy(&dwdynamicerrorid)).into()
+                IErrorLookup_Impl::ReleaseErrors(this, core::mem::transmute_copy(&dwdynamicerrorid))
             }
         }
         Self {
@@ -3528,12 +3528,12 @@ pub struct IErrorRecords_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IErrorRecords_Impl: windows_core::IUnknownImpl {
-    fn AddErrorRecord(&self, perrorinfo: *const ERRORINFO, dwlookupid: super::DWORD, pdispparams: *const super::DISPPARAMS, punkcustomerror: windows_core::Ref<windows_core::IUnknown>, dwdynamicerrorid: super::DWORD) -> windows_core::Result<()>;
-    fn GetBasicErrorInfo(&self, ulrecordnum: super::ULONG, perrorinfo: *mut ERRORINFO) -> windows_core::Result<()>;
-    fn GetCustomErrorObject(&self, ulrecordnum: super::ULONG, riid: *const super::IID, ppobject: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn AddErrorRecord(&self, perrorinfo: *const ERRORINFO, dwlookupid: super::DWORD, pdispparams: *const super::DISPPARAMS, punkcustomerror: windows_core::Ref<windows_core::IUnknown>, dwdynamicerrorid: super::DWORD) -> windows_core::HRESULT;
+    fn GetBasicErrorInfo(&self, ulrecordnum: super::ULONG, perrorinfo: *mut ERRORINFO) -> windows_core::HRESULT;
+    fn GetCustomErrorObject(&self, ulrecordnum: super::ULONG, riid: *const super::IID, ppobject: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
     fn GetErrorInfo(&self, ulrecordnum: super::ULONG, lcid: super::LCID) -> windows_core::Result<super::IErrorInfo>;
-    fn GetErrorParameters(&self, ulrecordnum: super::ULONG, pdispparams: *mut super::DISPPARAMS) -> windows_core::Result<()>;
-    fn GetRecordCount(&self, pcrecords: *mut super::ULONG) -> windows_core::Result<()>;
+    fn GetErrorParameters(&self, ulrecordnum: super::ULONG, pdispparams: *mut super::DISPPARAMS) -> windows_core::HRESULT;
+    fn GetRecordCount(&self, pcrecords: *mut super::ULONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IErrorRecords_Vtbl {
@@ -3541,19 +3541,19 @@ impl IErrorRecords_Vtbl {
         unsafe extern "system" fn AddErrorRecord<Identity: IErrorRecords_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, perrorinfo: *const ERRORINFO, dwlookupid: super::DWORD, pdispparams: *const super::DISPPARAMS, punkcustomerror: *mut core::ffi::c_void, dwdynamicerrorid: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IErrorRecords_Impl::AddErrorRecord(this, core::mem::transmute_copy(&perrorinfo), core::mem::transmute_copy(&dwlookupid), core::mem::transmute_copy(&pdispparams), core::mem::transmute_copy(&punkcustomerror), core::mem::transmute_copy(&dwdynamicerrorid)).into()
+                IErrorRecords_Impl::AddErrorRecord(this, core::mem::transmute_copy(&perrorinfo), core::mem::transmute_copy(&dwlookupid), core::mem::transmute_copy(&pdispparams), core::mem::transmute_copy(&punkcustomerror), core::mem::transmute_copy(&dwdynamicerrorid))
             }
         }
         unsafe extern "system" fn GetBasicErrorInfo<Identity: IErrorRecords_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulrecordnum: super::ULONG, perrorinfo: *mut ERRORINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IErrorRecords_Impl::GetBasicErrorInfo(this, core::mem::transmute_copy(&ulrecordnum), core::mem::transmute_copy(&perrorinfo)).into()
+                IErrorRecords_Impl::GetBasicErrorInfo(this, core::mem::transmute_copy(&ulrecordnum), core::mem::transmute_copy(&perrorinfo))
             }
         }
         unsafe extern "system" fn GetCustomErrorObject<Identity: IErrorRecords_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulrecordnum: super::ULONG, riid: *const super::IID, ppobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IErrorRecords_Impl::GetCustomErrorObject(this, core::mem::transmute_copy(&ulrecordnum), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppobject)).into()
+                IErrorRecords_Impl::GetCustomErrorObject(this, core::mem::transmute_copy(&ulrecordnum), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppobject))
             }
         }
         unsafe extern "system" fn GetErrorInfo<Identity: IErrorRecords_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulrecordnum: super::ULONG, lcid: super::LCID, pperrorinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3574,13 +3574,13 @@ impl IErrorRecords_Vtbl {
         unsafe extern "system" fn GetErrorParameters<Identity: IErrorRecords_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulrecordnum: super::ULONG, pdispparams: *mut super::DISPPARAMS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IErrorRecords_Impl::GetErrorParameters(this, core::mem::transmute_copy(&ulrecordnum), core::mem::transmute_copy(&pdispparams)).into()
+                IErrorRecords_Impl::GetErrorParameters(this, core::mem::transmute_copy(&ulrecordnum), core::mem::transmute_copy(&pdispparams))
             }
         }
         unsafe extern "system" fn GetRecordCount<Identity: IErrorRecords_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcrecords: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IErrorRecords_Impl::GetRecordCount(this, core::mem::transmute_copy(&pcrecords)).into()
+                IErrorRecords_Impl::GetRecordCount(this, core::mem::transmute_copy(&pcrecords))
             }
         }
         Self {
@@ -3618,7 +3618,7 @@ pub struct IGetDataSource_Vtbl {
 }
 #[cfg(feature = "guiddef")]
 pub trait IGetDataSource_Impl: windows_core::IUnknownImpl {
-    fn GetDataSource(&self, riid: *const super::IID, ppdatasource: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetDataSource(&self, riid: *const super::IID, ppdatasource: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "guiddef")]
 impl IGetDataSource_Vtbl {
@@ -3626,7 +3626,7 @@ impl IGetDataSource_Vtbl {
         unsafe extern "system" fn GetDataSource<Identity: IGetDataSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, ppdatasource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGetDataSource_Impl::GetDataSource(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppdatasource)).into()
+                IGetDataSource_Impl::GetDataSource(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppdatasource))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDataSource: GetDataSource::<Identity, OFFSET> }
@@ -3667,8 +3667,8 @@ pub struct IGetRow_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
 pub trait IGetRow_Impl: windows_core::IUnknownImpl {
-    fn GetRowFromHROW(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, hrow: HROW, riid: *const super::IID, ppunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn GetURLFromHROW(&self, hrow: HROW, ppwszurl: *mut super::LPOLESTR) -> windows_core::Result<()>;
+    fn GetRowFromHROW(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, hrow: HROW, riid: *const super::IID, ppunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn GetURLFromHROW(&self, hrow: HROW, ppwszurl: *mut super::LPOLESTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
 impl IGetRow_Vtbl {
@@ -3676,13 +3676,13 @@ impl IGetRow_Vtbl {
         unsafe extern "system" fn GetRowFromHROW<Identity: IGetRow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, hrow: HROW, riid: *const super::IID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGetRow_Impl::GetRowFromHROW(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&hrow), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppunk)).into()
+                IGetRow_Impl::GetRowFromHROW(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&hrow), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppunk))
             }
         }
         unsafe extern "system" fn GetURLFromHROW<Identity: IGetRow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrow: HROW, ppwszurl: *mut super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGetRow_Impl::GetURLFromHROW(this, core::mem::transmute_copy(&hrow), core::mem::transmute_copy(&ppwszurl)).into()
+                IGetRow_Impl::GetURLFromHROW(this, core::mem::transmute_copy(&hrow), core::mem::transmute_copy(&ppwszurl))
             }
         }
         Self {
@@ -3716,7 +3716,7 @@ pub struct IGetSession_Vtbl {
 }
 #[cfg(feature = "guiddef")]
 pub trait IGetSession_Impl: windows_core::IUnknownImpl {
-    fn GetSession(&self, riid: *const super::IID, ppsession: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetSession(&self, riid: *const super::IID, ppsession: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "guiddef")]
 impl IGetSession_Vtbl {
@@ -3724,7 +3724,7 @@ impl IGetSession_Vtbl {
         unsafe extern "system" fn GetSession<Identity: IGetSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, ppsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGetSession_Impl::GetSession(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppsession)).into()
+                IGetSession_Impl::GetSession(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppsession))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetSession: GetSession::<Identity, OFFSET> }
@@ -3754,7 +3754,7 @@ pub struct IGetSourceRow_Vtbl {
 }
 #[cfg(feature = "guiddef")]
 pub trait IGetSourceRow_Impl: windows_core::IUnknownImpl {
-    fn GetSourceRow(&self, riid: *const super::IID, pprow: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetSourceRow(&self, riid: *const super::IID, pprow: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "guiddef")]
 impl IGetSourceRow_Vtbl {
@@ -3762,7 +3762,7 @@ impl IGetSourceRow_Vtbl {
         unsafe extern "system" fn GetSourceRow<Identity: IGetSourceRow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, pprow: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGetSourceRow_Impl::GetSourceRow(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pprow)).into()
+                IGetSourceRow_Impl::GetSourceRow(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pprow))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetSourceRow: GetSourceRow::<Identity, OFFSET> }
@@ -3800,8 +3800,8 @@ pub struct IIndexDefinition_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IIndexDefinition_Impl: windows_core::IUnknownImpl {
-    fn CreateIndex(&self, ptableid: *const DBID, pindexid: *const DBID, cindexcolumndescs: DBORDINAL, rgindexcolumndescs: *const DBINDEXCOLUMNDESC, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, ppindexid: *mut *mut DBID) -> windows_core::Result<()>;
-    fn DropIndex(&self, ptableid: *const DBID, pindexid: *const DBID) -> windows_core::Result<()>;
+    fn CreateIndex(&self, ptableid: *const DBID, pindexid: *const DBID, cindexcolumndescs: DBORDINAL, rgindexcolumndescs: *const DBINDEXCOLUMNDESC, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, ppindexid: *mut *mut DBID) -> windows_core::HRESULT;
+    fn DropIndex(&self, ptableid: *const DBID, pindexid: *const DBID) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IIndexDefinition_Vtbl {
@@ -3809,13 +3809,13 @@ impl IIndexDefinition_Vtbl {
         unsafe extern "system" fn CreateIndex<Identity: IIndexDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptableid: *const DBID, pindexid: *const DBID, cindexcolumndescs: DBORDINAL, rgindexcolumndescs: *const DBINDEXCOLUMNDESC, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, ppindexid: *mut *mut DBID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IIndexDefinition_Impl::CreateIndex(this, core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pindexid), core::mem::transmute_copy(&cindexcolumndescs), core::mem::transmute_copy(&rgindexcolumndescs), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets), core::mem::transmute_copy(&ppindexid)).into()
+                IIndexDefinition_Impl::CreateIndex(this, core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pindexid), core::mem::transmute_copy(&cindexcolumndescs), core::mem::transmute_copy(&rgindexcolumndescs), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets), core::mem::transmute_copy(&ppindexid))
             }
         }
         unsafe extern "system" fn DropIndex<Identity: IIndexDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptableid: *const DBID, pindexid: *const DBID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IIndexDefinition_Impl::DropIndex(this, core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pindexid)).into()
+                IIndexDefinition_Impl::DropIndex(this, core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pindexid))
             }
         }
         Self {
@@ -3880,11 +3880,11 @@ pub struct IMDDataset_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMDDataset_Impl: windows_core::IUnknownImpl {
-    fn FreeAxisInfo(&self, caxes: DBCOUNTITEM, rgaxisinfo: *const MDAXISINFO) -> windows_core::Result<()>;
-    fn GetAxisInfo(&self, pcaxes: *mut DBCOUNTITEM, prgaxisinfo: *mut *mut MDAXISINFO) -> windows_core::Result<()>;
-    fn GetAxisRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, iaxis: DBCOUNTITEM, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn GetCellData(&self, haccessor: HACCESSOR, ulstartcell: DBORDINAL, ulendcell: DBORDINAL, pdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetSpecification(&self, riid: *const super::IID, ppspecification: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn FreeAxisInfo(&self, caxes: DBCOUNTITEM, rgaxisinfo: *const MDAXISINFO) -> windows_core::HRESULT;
+    fn GetAxisInfo(&self, pcaxes: *mut DBCOUNTITEM, prgaxisinfo: *mut *mut MDAXISINFO) -> windows_core::HRESULT;
+    fn GetAxisRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, iaxis: DBCOUNTITEM, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn GetCellData(&self, haccessor: HACCESSOR, ulstartcell: DBORDINAL, ulendcell: DBORDINAL, pdata: *mut core::ffi::c_void) -> windows_core::HRESULT;
+    fn GetSpecification(&self, riid: *const super::IID, ppspecification: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMDDataset_Vtbl {
@@ -3892,31 +3892,31 @@ impl IMDDataset_Vtbl {
         unsafe extern "system" fn FreeAxisInfo<Identity: IMDDataset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, caxes: DBCOUNTITEM, rgaxisinfo: *const MDAXISINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMDDataset_Impl::FreeAxisInfo(this, core::mem::transmute_copy(&caxes), core::mem::transmute_copy(&rgaxisinfo)).into()
+                IMDDataset_Impl::FreeAxisInfo(this, core::mem::transmute_copy(&caxes), core::mem::transmute_copy(&rgaxisinfo))
             }
         }
         unsafe extern "system" fn GetAxisInfo<Identity: IMDDataset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcaxes: *mut DBCOUNTITEM, prgaxisinfo: *mut *mut MDAXISINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMDDataset_Impl::GetAxisInfo(this, core::mem::transmute_copy(&pcaxes), core::mem::transmute_copy(&prgaxisinfo)).into()
+                IMDDataset_Impl::GetAxisInfo(this, core::mem::transmute_copy(&pcaxes), core::mem::transmute_copy(&prgaxisinfo))
             }
         }
         unsafe extern "system" fn GetAxisRowset<Identity: IMDDataset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, iaxis: DBCOUNTITEM, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMDDataset_Impl::GetAxisRowset(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&iaxis), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets), core::mem::transmute_copy(&pprowset)).into()
+                IMDDataset_Impl::GetAxisRowset(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&iaxis), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets), core::mem::transmute_copy(&pprowset))
             }
         }
         unsafe extern "system" fn GetCellData<Identity: IMDDataset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, haccessor: HACCESSOR, ulstartcell: DBORDINAL, ulendcell: DBORDINAL, pdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMDDataset_Impl::GetCellData(this, core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&ulstartcell), core::mem::transmute_copy(&ulendcell), core::mem::transmute_copy(&pdata)).into()
+                IMDDataset_Impl::GetCellData(this, core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&ulstartcell), core::mem::transmute_copy(&ulendcell), core::mem::transmute_copy(&pdata))
             }
         }
         unsafe extern "system" fn GetSpecification<Identity: IMDDataset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, ppspecification: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMDDataset_Impl::GetSpecification(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppspecification)).into()
+                IMDDataset_Impl::GetSpecification(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppspecification))
             }
         }
         Self {
@@ -3961,8 +3961,8 @@ pub struct IMDFind_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
 pub trait IMDFind_Impl: windows_core::IUnknownImpl {
-    fn FindCell(&self, ulstartingordinal: DBORDINAL, cmembers: DBCOUNTITEM, rgpwszmember: *const super::LPCOLESTR, pulcellordinal: *mut DBORDINAL) -> windows_core::Result<()>;
-    fn FindTuple(&self, ulaxisidentifier: super::ULONG, ulstartingordinal: DBORDINAL, cmembers: DBCOUNTITEM, rgpwszmember: *const super::LPCOLESTR, pultupleordinal: *mut super::ULONG) -> windows_core::Result<()>;
+    fn FindCell(&self, ulstartingordinal: DBORDINAL, cmembers: DBCOUNTITEM, rgpwszmember: *const super::LPCOLESTR, pulcellordinal: *mut DBORDINAL) -> windows_core::HRESULT;
+    fn FindTuple(&self, ulaxisidentifier: super::ULONG, ulstartingordinal: DBORDINAL, cmembers: DBCOUNTITEM, rgpwszmember: *const super::LPCOLESTR, pultupleordinal: *mut super::ULONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
 impl IMDFind_Vtbl {
@@ -3970,13 +3970,13 @@ impl IMDFind_Vtbl {
         unsafe extern "system" fn FindCell<Identity: IMDFind_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulstartingordinal: DBORDINAL, cmembers: DBCOUNTITEM, rgpwszmember: *const super::LPCOLESTR, pulcellordinal: *mut DBORDINAL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMDFind_Impl::FindCell(this, core::mem::transmute_copy(&ulstartingordinal), core::mem::transmute_copy(&cmembers), core::mem::transmute_copy(&rgpwszmember), core::mem::transmute_copy(&pulcellordinal)).into()
+                IMDFind_Impl::FindCell(this, core::mem::transmute_copy(&ulstartingordinal), core::mem::transmute_copy(&cmembers), core::mem::transmute_copy(&rgpwszmember), core::mem::transmute_copy(&pulcellordinal))
             }
         }
         unsafe extern "system" fn FindTuple<Identity: IMDFind_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulaxisidentifier: super::ULONG, ulstartingordinal: DBORDINAL, cmembers: DBCOUNTITEM, rgpwszmember: *const super::LPCOLESTR, pultupleordinal: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMDFind_Impl::FindTuple(this, core::mem::transmute_copy(&ulaxisidentifier), core::mem::transmute_copy(&ulstartingordinal), core::mem::transmute_copy(&cmembers), core::mem::transmute_copy(&rgpwszmember), core::mem::transmute_copy(&pultupleordinal)).into()
+                IMDFind_Impl::FindTuple(this, core::mem::transmute_copy(&ulaxisidentifier), core::mem::transmute_copy(&ulstartingordinal), core::mem::transmute_copy(&cmembers), core::mem::transmute_copy(&rgpwszmember), core::mem::transmute_copy(&pultupleordinal))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), FindCell: FindCell::<Identity, OFFSET>, FindTuple: FindTuple::<Identity, OFFSET> }
@@ -4009,7 +4009,7 @@ pub struct IMDRangeRowset_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMDRangeRowset_Impl: windows_core::IUnknownImpl {
-    fn GetRangeRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, ulstartcell: DBORDINAL, ulendcell: DBORDINAL, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetRangeRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, ulstartcell: DBORDINAL, ulendcell: DBORDINAL, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMDRangeRowset_Vtbl {
@@ -4017,7 +4017,7 @@ impl IMDRangeRowset_Vtbl {
         unsafe extern "system" fn GetRangeRowset<Identity: IMDRangeRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, ulstartcell: DBORDINAL, ulendcell: DBORDINAL, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMDRangeRowset_Impl::GetRangeRowset(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&ulstartcell), core::mem::transmute_copy(&ulendcell), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets), core::mem::transmute_copy(&pprowset)).into()
+                IMDRangeRowset_Impl::GetRangeRowset(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&ulstartcell), core::mem::transmute_copy(&ulendcell), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets), core::mem::transmute_copy(&pprowset))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetRangeRowset: GetRangeRowset::<Identity, OFFSET> }
@@ -4050,7 +4050,7 @@ pub struct IMultipleResults_Vtbl {
 }
 #[cfg(feature = "guiddef")]
 pub trait IMultipleResults_Impl: windows_core::IUnknownImpl {
-    fn GetResult(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, lresultflag: DBRESULTFLAG, riid: *const super::IID, pcrowsaffected: *mut DBROWCOUNT, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetResult(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, lresultflag: DBRESULTFLAG, riid: *const super::IID, pcrowsaffected: *mut DBROWCOUNT, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "guiddef")]
 impl IMultipleResults_Vtbl {
@@ -4058,7 +4058,7 @@ impl IMultipleResults_Vtbl {
         unsafe extern "system" fn GetResult<Identity: IMultipleResults_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, lresultflag: DBRESULTFLAG, riid: *const super::IID, pcrowsaffected: *mut DBROWCOUNT, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMultipleResults_Impl::GetResult(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&lresultflag), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pcrowsaffected), core::mem::transmute_copy(&pprowset)).into()
+                IMultipleResults_Impl::GetResult(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&lresultflag), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pcrowsaffected), core::mem::transmute_copy(&pprowset))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetResult: GetResult::<Identity, OFFSET> }
@@ -4120,11 +4120,11 @@ pub struct IObjectAccessControl_Vtbl {
 }
 #[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 pub trait IObjectAccessControl_Impl: windows_core::IUnknownImpl {
-    fn GetObjectAccessRights(&self, pobject: *const SEC_OBJECT, pcaccessentries: *mut super::ULONG, prgaccessentries: *mut *mut super::EXPLICIT_ACCESS_W) -> windows_core::Result<()>;
-    fn GetObjectOwner(&self, pobject: *const SEC_OBJECT, ppowner: *mut *mut super::TRUSTEE_W) -> windows_core::Result<()>;
-    fn IsObjectAccessAllowed(&self, pobject: *const SEC_OBJECT, paccessentry: *const super::EXPLICIT_ACCESS_W, pfresult: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetObjectAccessRights(&self, pobject: *const SEC_OBJECT, caccessentries: super::ULONG, prgaccessentries: *mut super::EXPLICIT_ACCESS_W) -> windows_core::Result<()>;
-    fn SetObjectOwner(&self, pobject: *const SEC_OBJECT, powner: *const super::TRUSTEE_W) -> windows_core::Result<()>;
+    fn GetObjectAccessRights(&self, pobject: *const SEC_OBJECT, pcaccessentries: *mut super::ULONG, prgaccessentries: *mut *mut super::EXPLICIT_ACCESS_W) -> windows_core::HRESULT;
+    fn GetObjectOwner(&self, pobject: *const SEC_OBJECT, ppowner: *mut *mut super::TRUSTEE_W) -> windows_core::HRESULT;
+    fn IsObjectAccessAllowed(&self, pobject: *const SEC_OBJECT, paccessentry: *const super::EXPLICIT_ACCESS_W, pfresult: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn SetObjectAccessRights(&self, pobject: *const SEC_OBJECT, caccessentries: super::ULONG, prgaccessentries: *mut super::EXPLICIT_ACCESS_W) -> windows_core::HRESULT;
+    fn SetObjectOwner(&self, pobject: *const SEC_OBJECT, powner: *const super::TRUSTEE_W) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 impl IObjectAccessControl_Vtbl {
@@ -4132,31 +4132,31 @@ impl IObjectAccessControl_Vtbl {
         unsafe extern "system" fn GetObjectAccessRights<Identity: IObjectAccessControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobject: *const SEC_OBJECT, pcaccessentries: *mut super::ULONG, prgaccessentries: *mut *mut super::EXPLICIT_ACCESS_W) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IObjectAccessControl_Impl::GetObjectAccessRights(this, core::mem::transmute_copy(&pobject), core::mem::transmute_copy(&pcaccessentries), core::mem::transmute_copy(&prgaccessentries)).into()
+                IObjectAccessControl_Impl::GetObjectAccessRights(this, core::mem::transmute_copy(&pobject), core::mem::transmute_copy(&pcaccessentries), core::mem::transmute_copy(&prgaccessentries))
             }
         }
         unsafe extern "system" fn GetObjectOwner<Identity: IObjectAccessControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobject: *const SEC_OBJECT, ppowner: *mut *mut super::TRUSTEE_W) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IObjectAccessControl_Impl::GetObjectOwner(this, core::mem::transmute_copy(&pobject), core::mem::transmute_copy(&ppowner)).into()
+                IObjectAccessControl_Impl::GetObjectOwner(this, core::mem::transmute_copy(&pobject), core::mem::transmute_copy(&ppowner))
             }
         }
         unsafe extern "system" fn IsObjectAccessAllowed<Identity: IObjectAccessControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobject: *const SEC_OBJECT, paccessentry: *const super::EXPLICIT_ACCESS_W, pfresult: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IObjectAccessControl_Impl::IsObjectAccessAllowed(this, core::mem::transmute_copy(&pobject), core::mem::transmute_copy(&paccessentry), core::mem::transmute_copy(&pfresult)).into()
+                IObjectAccessControl_Impl::IsObjectAccessAllowed(this, core::mem::transmute_copy(&pobject), core::mem::transmute_copy(&paccessentry), core::mem::transmute_copy(&pfresult))
             }
         }
         unsafe extern "system" fn SetObjectAccessRights<Identity: IObjectAccessControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobject: *const SEC_OBJECT, caccessentries: super::ULONG, prgaccessentries: *mut super::EXPLICIT_ACCESS_W) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IObjectAccessControl_Impl::SetObjectAccessRights(this, core::mem::transmute_copy(&pobject), core::mem::transmute_copy(&caccessentries), core::mem::transmute_copy(&prgaccessentries)).into()
+                IObjectAccessControl_Impl::SetObjectAccessRights(this, core::mem::transmute_copy(&pobject), core::mem::transmute_copy(&caccessentries), core::mem::transmute_copy(&prgaccessentries))
             }
         }
         unsafe extern "system" fn SetObjectOwner<Identity: IObjectAccessControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobject: *const SEC_OBJECT, powner: *const super::TRUSTEE_W) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IObjectAccessControl_Impl::SetObjectOwner(this, core::mem::transmute_copy(&pobject), core::mem::transmute_copy(&powner)).into()
+                IObjectAccessControl_Impl::SetObjectOwner(this, core::mem::transmute_copy(&pobject), core::mem::transmute_copy(&powner))
             }
         }
         Self {
@@ -4196,7 +4196,7 @@ pub struct IOpenRowset_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IOpenRowset_Impl: windows_core::IUnknownImpl {
-    fn OpenRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, ptableid: *const DBID, pindexid: *const DBID, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn OpenRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, ptableid: *const DBID, pindexid: *const DBID, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IOpenRowset_Vtbl {
@@ -4204,7 +4204,7 @@ impl IOpenRowset_Vtbl {
         unsafe extern "system" fn OpenRowset<Identity: IOpenRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, ptableid: *const DBID, pindexid: *const DBID, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOpenRowset_Impl::OpenRowset(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pindexid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets), core::mem::transmute_copy(&pprowset)).into()
+                IOpenRowset_Impl::OpenRowset(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pindexid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets), core::mem::transmute_copy(&pprowset))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OpenRowset: OpenRowset::<Identity, OFFSET> }
@@ -4237,7 +4237,7 @@ pub struct IParentRowset_Vtbl {
 }
 #[cfg(feature = "guiddef")]
 pub trait IParentRowset_Impl: windows_core::IUnknownImpl {
-    fn GetChildRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, iordinal: DBORDINAL, riid: *const super::IID, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetChildRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, iordinal: DBORDINAL, riid: *const super::IID, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "guiddef")]
 impl IParentRowset_Vtbl {
@@ -4245,7 +4245,7 @@ impl IParentRowset_Vtbl {
         unsafe extern "system" fn GetChildRowset<Identity: IParentRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, iordinal: DBORDINAL, riid: *const super::IID, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IParentRowset_Impl::GetChildRowset(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&iordinal), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pprowset)).into()
+                IParentRowset_Impl::GetChildRowset(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&iordinal), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pprowset))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetChildRowset: GetChildRowset::<Identity, OFFSET> }
@@ -4291,9 +4291,9 @@ pub struct IRegisterProvider_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
 pub trait IRegisterProvider_Impl: windows_core::IUnknownImpl {
-    fn GetURLMapping(&self, pwszurl: super::LPCOLESTR, dwreserved: DB_DWRESERVE, pclsidprovider: *mut super::CLSID) -> windows_core::Result<()>;
-    fn SetURLMapping(&self, pwszurl: super::LPCOLESTR, dwreserved: DB_DWRESERVE, rclsidprovider: *const super::IID) -> windows_core::Result<()>;
-    fn UnregisterProvider(&self, pwszurl: super::LPCOLESTR, dwreserved: DB_DWRESERVE, rclsidprovider: *const super::IID) -> windows_core::Result<()>;
+    fn GetURLMapping(&self, pwszurl: super::LPCOLESTR, dwreserved: DB_DWRESERVE, pclsidprovider: *mut super::CLSID) -> windows_core::HRESULT;
+    fn SetURLMapping(&self, pwszurl: super::LPCOLESTR, dwreserved: DB_DWRESERVE, rclsidprovider: *const super::IID) -> windows_core::HRESULT;
+    fn UnregisterProvider(&self, pwszurl: super::LPCOLESTR, dwreserved: DB_DWRESERVE, rclsidprovider: *const super::IID) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
 impl IRegisterProvider_Vtbl {
@@ -4301,19 +4301,19 @@ impl IRegisterProvider_Vtbl {
         unsafe extern "system" fn GetURLMapping<Identity: IRegisterProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszurl: super::LPCOLESTR, dwreserved: DB_DWRESERVE, pclsidprovider: *mut super::CLSID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRegisterProvider_Impl::GetURLMapping(this, core::mem::transmute_copy(&pwszurl), core::mem::transmute_copy(&dwreserved), core::mem::transmute_copy(&pclsidprovider)).into()
+                IRegisterProvider_Impl::GetURLMapping(this, core::mem::transmute_copy(&pwszurl), core::mem::transmute_copy(&dwreserved), core::mem::transmute_copy(&pclsidprovider))
             }
         }
         unsafe extern "system" fn SetURLMapping<Identity: IRegisterProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszurl: super::LPCOLESTR, dwreserved: DB_DWRESERVE, rclsidprovider: *const super::IID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRegisterProvider_Impl::SetURLMapping(this, core::mem::transmute_copy(&pwszurl), core::mem::transmute_copy(&dwreserved), core::mem::transmute_copy(&rclsidprovider)).into()
+                IRegisterProvider_Impl::SetURLMapping(this, core::mem::transmute_copy(&pwszurl), core::mem::transmute_copy(&dwreserved), core::mem::transmute_copy(&rclsidprovider))
             }
         }
         unsafe extern "system" fn UnregisterProvider<Identity: IRegisterProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszurl: super::LPCOLESTR, dwreserved: DB_DWRESERVE, rclsidprovider: *const super::IID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRegisterProvider_Impl::UnregisterProvider(this, core::mem::transmute_copy(&pwszurl), core::mem::transmute_copy(&dwreserved), core::mem::transmute_copy(&rclsidprovider)).into()
+                IRegisterProvider_Impl::UnregisterProvider(this, core::mem::transmute_copy(&pwszurl), core::mem::transmute_copy(&dwreserved), core::mem::transmute_copy(&rclsidprovider))
             }
         }
         Self {
@@ -4367,9 +4367,9 @@ pub struct IRow_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "wtypesbase"))]
 pub trait IRow_Impl: windows_core::IUnknownImpl {
-    fn GetColumns(&self, ccolumns: DBORDINAL, rgcolumns: *mut DBCOLUMNACCESS) -> windows_core::Result<()>;
-    fn GetSourceRowset(&self, riid: *const super::IID, pprowset: windows_core::OutRef<windows_core::IUnknown>, phrow: *mut HROW) -> windows_core::Result<()>;
-    fn Open(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, pcolumnid: *const DBID, rguidcolumntype: *const windows_core::GUID, dwbindflags: super::DWORD, riid: *const super::IID, ppunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetColumns(&self, ccolumns: DBORDINAL, rgcolumns: *mut DBCOLUMNACCESS) -> windows_core::HRESULT;
+    fn GetSourceRowset(&self, riid: *const super::IID, pprowset: windows_core::OutRef<windows_core::IUnknown>, phrow: *mut HROW) -> windows_core::HRESULT;
+    fn Open(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, pcolumnid: *const DBID, rguidcolumntype: *const windows_core::GUID, dwbindflags: super::DWORD, riid: *const super::IID, ppunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "wtypesbase"))]
 impl IRow_Vtbl {
@@ -4377,19 +4377,19 @@ impl IRow_Vtbl {
         unsafe extern "system" fn GetColumns<Identity: IRow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ccolumns: DBORDINAL, rgcolumns: *mut DBCOLUMNACCESS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRow_Impl::GetColumns(this, core::mem::transmute_copy(&ccolumns), core::mem::transmute_copy(&rgcolumns)).into()
+                IRow_Impl::GetColumns(this, core::mem::transmute_copy(&ccolumns), core::mem::transmute_copy(&rgcolumns))
             }
         }
         unsafe extern "system" fn GetSourceRowset<Identity: IRow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, pprowset: *mut *mut core::ffi::c_void, phrow: *mut HROW) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRow_Impl::GetSourceRowset(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pprowset), core::mem::transmute_copy(&phrow)).into()
+                IRow_Impl::GetSourceRowset(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pprowset), core::mem::transmute_copy(&phrow))
             }
         }
         unsafe extern "system" fn Open<Identity: IRow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, pcolumnid: *const DBID, rguidcolumntype: *const windows_core::GUID, dwbindflags: super::DWORD, riid: *const super::IID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRow_Impl::Open(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&pcolumnid), core::mem::transmute_copy(&rguidcolumntype), core::mem::transmute_copy(&dwbindflags), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppunk)).into()
+                IRow_Impl::Open(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&pcolumnid), core::mem::transmute_copy(&rguidcolumntype), core::mem::transmute_copy(&dwbindflags), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppunk))
             }
         }
         Self {
@@ -4424,7 +4424,7 @@ pub struct IRowChange_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
 pub trait IRowChange_Impl: windows_core::IUnknownImpl {
-    fn SetColumns(&self, ccolumns: DBORDINAL, rgcolumns: *mut DBCOLUMNACCESS) -> windows_core::Result<()>;
+    fn SetColumns(&self, ccolumns: DBORDINAL, rgcolumns: *mut DBCOLUMNACCESS) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
 impl IRowChange_Vtbl {
@@ -4432,7 +4432,7 @@ impl IRowChange_Vtbl {
         unsafe extern "system" fn SetColumns<Identity: IRowChange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ccolumns: DBORDINAL, rgcolumns: *mut DBCOLUMNACCESS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowChange_Impl::SetColumns(this, core::mem::transmute_copy(&ccolumns), core::mem::transmute_copy(&rgcolumns)).into()
+                IRowChange_Impl::SetColumns(this, core::mem::transmute_copy(&ccolumns), core::mem::transmute_copy(&rgcolumns))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetColumns: SetColumns::<Identity, OFFSET> }
@@ -4481,11 +4481,11 @@ pub struct IRowPosition_Vtbl {
 }
 #[cfg(feature = "guiddef")]
 pub trait IRowPosition_Impl: windows_core::IUnknownImpl {
-    fn ClearRowPosition(&self) -> windows_core::Result<()>;
-    fn GetRowPosition(&self, phchapter: *mut HCHAPTER, phrow: *mut HROW, pdwpositionflags: *mut DBPOSITIONFLAGS) -> windows_core::Result<()>;
-    fn GetRowset(&self, riid: *const super::IID, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn Initialize(&self, prowset: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn SetRowPosition(&self, hchapter: HCHAPTER, hrow: HROW, dwpositionflags: DBPOSITIONFLAGS) -> windows_core::Result<()>;
+    fn ClearRowPosition(&self) -> windows_core::HRESULT;
+    fn GetRowPosition(&self, phchapter: *mut HCHAPTER, phrow: *mut HROW, pdwpositionflags: *mut DBPOSITIONFLAGS) -> windows_core::HRESULT;
+    fn GetRowset(&self, riid: *const super::IID, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn Initialize(&self, prowset: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn SetRowPosition(&self, hchapter: HCHAPTER, hrow: HROW, dwpositionflags: DBPOSITIONFLAGS) -> windows_core::HRESULT;
 }
 #[cfg(feature = "guiddef")]
 impl IRowPosition_Vtbl {
@@ -4493,31 +4493,31 @@ impl IRowPosition_Vtbl {
         unsafe extern "system" fn ClearRowPosition<Identity: IRowPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowPosition_Impl::ClearRowPosition(this).into()
+                IRowPosition_Impl::ClearRowPosition(this)
             }
         }
         unsafe extern "system" fn GetRowPosition<Identity: IRowPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phchapter: *mut HCHAPTER, phrow: *mut HROW, pdwpositionflags: *mut DBPOSITIONFLAGS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowPosition_Impl::GetRowPosition(this, core::mem::transmute_copy(&phchapter), core::mem::transmute_copy(&phrow), core::mem::transmute_copy(&pdwpositionflags)).into()
+                IRowPosition_Impl::GetRowPosition(this, core::mem::transmute_copy(&phchapter), core::mem::transmute_copy(&phrow), core::mem::transmute_copy(&pdwpositionflags))
             }
         }
         unsafe extern "system" fn GetRowset<Identity: IRowPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowPosition_Impl::GetRowset(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pprowset)).into()
+                IRowPosition_Impl::GetRowset(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pprowset))
             }
         }
         unsafe extern "system" fn Initialize<Identity: IRowPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prowset: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowPosition_Impl::Initialize(this, core::mem::transmute_copy(&prowset)).into()
+                IRowPosition_Impl::Initialize(this, core::mem::transmute_copy(&prowset))
             }
         }
         unsafe extern "system" fn SetRowPosition<Identity: IRowPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hchapter: HCHAPTER, hrow: HROW, dwpositionflags: DBPOSITIONFLAGS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowPosition_Impl::SetRowPosition(this, core::mem::transmute_copy(&hchapter), core::mem::transmute_copy(&hrow), core::mem::transmute_copy(&dwpositionflags)).into()
+                IRowPosition_Impl::SetRowPosition(this, core::mem::transmute_copy(&hchapter), core::mem::transmute_copy(&hrow), core::mem::transmute_copy(&dwpositionflags))
             }
         }
         Self {
@@ -4549,14 +4549,14 @@ pub struct IRowPositionChange_Vtbl {
     pub OnRowPositionChange: unsafe extern "system" fn(*mut core::ffi::c_void, DBREASON, DBEVENTPHASE, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IRowPositionChange_Impl: windows_core::IUnknownImpl {
-    fn OnRowPositionChange(&self, ereason: DBREASON, ephase: DBEVENTPHASE, fcantdeny: windows_core::BOOL) -> windows_core::Result<()>;
+    fn OnRowPositionChange(&self, ereason: DBREASON, ephase: DBEVENTPHASE, fcantdeny: windows_core::BOOL) -> windows_core::HRESULT;
 }
 impl IRowPositionChange_Vtbl {
     pub const fn new<Identity: IRowPositionChange_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnRowPositionChange<Identity: IRowPositionChange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ereason: DBREASON, ephase: DBEVENTPHASE, fcantdeny: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowPositionChange_Impl::OnRowPositionChange(this, core::mem::transmute_copy(&ereason), core::mem::transmute_copy(&ephase), core::mem::transmute_copy(&fcantdeny)).into()
+                IRowPositionChange_Impl::OnRowPositionChange(this, core::mem::transmute_copy(&ereason), core::mem::transmute_copy(&ephase), core::mem::transmute_copy(&fcantdeny))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnRowPositionChange: OnRowPositionChange::<Identity, OFFSET> }
@@ -4599,8 +4599,8 @@ pub struct IRowSchemaChange_Vtbl {
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
 pub trait IRowSchemaChange_Impl: IRowChange_Impl {
-    fn DeleteColumns(&self, ccolumns: DBORDINAL, rgcolumnids: *const DBID, rgdwstatus: *mut DBSTATUS) -> windows_core::Result<()>;
-    fn AddColumns(&self, ccolumns: DBORDINAL, rgnewcolumninfo: *const DBCOLUMNINFO, rgcolumns: *mut DBCOLUMNACCESS) -> windows_core::Result<()>;
+    fn DeleteColumns(&self, ccolumns: DBORDINAL, rgcolumnids: *const DBID, rgdwstatus: *mut DBSTATUS) -> windows_core::HRESULT;
+    fn AddColumns(&self, ccolumns: DBORDINAL, rgnewcolumninfo: *const DBCOLUMNINFO, rgcolumns: *mut DBCOLUMNACCESS) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
 impl IRowSchemaChange_Vtbl {
@@ -4608,19 +4608,19 @@ impl IRowSchemaChange_Vtbl {
         unsafe extern "system" fn DeleteColumns<Identity: IRowSchemaChange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ccolumns: DBORDINAL, rgcolumnids: *const DBID, rgdwstatus: *mut DBSTATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowSchemaChange_Impl::DeleteColumns(this, core::mem::transmute_copy(&ccolumns), core::mem::transmute_copy(&rgcolumnids), core::mem::transmute_copy(&rgdwstatus)).into()
+                IRowSchemaChange_Impl::DeleteColumns(this, core::mem::transmute_copy(&ccolumns), core::mem::transmute_copy(&rgcolumnids), core::mem::transmute_copy(&rgdwstatus))
             }
         }
         unsafe extern "system" fn AddColumns<Identity: IRowSchemaChange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ccolumns: DBORDINAL, rgnewcolumninfo: *const DBCOLUMNINFO, rgcolumns: *mut DBCOLUMNACCESS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowSchemaChange_Impl::AddColumns(this, core::mem::transmute_copy(&ccolumns), core::mem::transmute_copy(&rgnewcolumninfo), core::mem::transmute_copy(&rgcolumns)).into()
+                IRowSchemaChange_Impl::AddColumns(this, core::mem::transmute_copy(&ccolumns), core::mem::transmute_copy(&rgnewcolumninfo), core::mem::transmute_copy(&rgcolumns))
             }
         }
         Self { base__: IRowChange_Vtbl::new::<Identity, OFFSET>(), DeleteColumns: DeleteColumns::<Identity, OFFSET>, AddColumns: AddColumns::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRowSchemaChange as windows_core::Interface>::IID || iid == &<IRowChange as windows_core::Interface>::IID
+        iid == &<IRowSchemaChange as windows_core::Interface>::IID || IRowChange_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
@@ -4655,42 +4655,42 @@ pub struct IRowset_Vtbl {
     pub RestartPosition: unsafe extern "system" fn(*mut core::ffi::c_void, HCHAPTER) -> windows_core::HRESULT,
 }
 pub trait IRowset_Impl: windows_core::IUnknownImpl {
-    fn AddRefRows(&self, crows: DBCOUNTITEM, rghrows: *const HROW, rgrefcounts: *mut DBREFCOUNT, rgrowstatus: *mut DBROWSTATUS) -> windows_core::Result<()>;
-    fn GetData(&self, hrow: HROW, haccessor: HACCESSOR, pdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetNextRows(&self, hreserved: HCHAPTER, lrowsoffset: DBROWOFFSET, crows: DBROWCOUNT, pcrowsobtained: *mut DBCOUNTITEM, prghrows: *mut *mut HROW) -> windows_core::Result<()>;
-    fn ReleaseRows(&self, crows: DBCOUNTITEM, rghrows: *const HROW, rgrowoptions: *const DBROWOPTIONS, rgrefcounts: *mut DBREFCOUNT, rgrowstatus: *mut DBROWSTATUS) -> windows_core::Result<()>;
-    fn RestartPosition(&self, hreserved: HCHAPTER) -> windows_core::Result<()>;
+    fn AddRefRows(&self, crows: DBCOUNTITEM, rghrows: *const HROW, rgrefcounts: *mut DBREFCOUNT, rgrowstatus: *mut DBROWSTATUS) -> windows_core::HRESULT;
+    fn GetData(&self, hrow: HROW, haccessor: HACCESSOR, pdata: *mut core::ffi::c_void) -> windows_core::HRESULT;
+    fn GetNextRows(&self, hreserved: HCHAPTER, lrowsoffset: DBROWOFFSET, crows: DBROWCOUNT, pcrowsobtained: *mut DBCOUNTITEM, prghrows: *mut *mut HROW) -> windows_core::HRESULT;
+    fn ReleaseRows(&self, crows: DBCOUNTITEM, rghrows: *const HROW, rgrowoptions: *const DBROWOPTIONS, rgrefcounts: *mut DBREFCOUNT, rgrowstatus: *mut DBROWSTATUS) -> windows_core::HRESULT;
+    fn RestartPosition(&self, hreserved: HCHAPTER) -> windows_core::HRESULT;
 }
 impl IRowset_Vtbl {
     pub const fn new<Identity: IRowset_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddRefRows<Identity: IRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, crows: DBCOUNTITEM, rghrows: *const HROW, rgrefcounts: *mut DBREFCOUNT, rgrowstatus: *mut DBROWSTATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowset_Impl::AddRefRows(this, core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rghrows), core::mem::transmute_copy(&rgrefcounts), core::mem::transmute_copy(&rgrowstatus)).into()
+                IRowset_Impl::AddRefRows(this, core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rghrows), core::mem::transmute_copy(&rgrefcounts), core::mem::transmute_copy(&rgrowstatus))
             }
         }
         unsafe extern "system" fn GetData<Identity: IRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrow: HROW, haccessor: HACCESSOR, pdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowset_Impl::GetData(this, core::mem::transmute_copy(&hrow), core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&pdata)).into()
+                IRowset_Impl::GetData(this, core::mem::transmute_copy(&hrow), core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&pdata))
             }
         }
         unsafe extern "system" fn GetNextRows<Identity: IRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hreserved: HCHAPTER, lrowsoffset: DBROWOFFSET, crows: DBROWCOUNT, pcrowsobtained: *mut DBCOUNTITEM, prghrows: *mut *mut HROW) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowset_Impl::GetNextRows(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&lrowsoffset), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&pcrowsobtained), core::mem::transmute_copy(&prghrows)).into()
+                IRowset_Impl::GetNextRows(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&lrowsoffset), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&pcrowsobtained), core::mem::transmute_copy(&prghrows))
             }
         }
         unsafe extern "system" fn ReleaseRows<Identity: IRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, crows: DBCOUNTITEM, rghrows: *const HROW, rgrowoptions: *const DBROWOPTIONS, rgrefcounts: *mut DBREFCOUNT, rgrowstatus: *mut DBROWSTATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowset_Impl::ReleaseRows(this, core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rghrows), core::mem::transmute_copy(&rgrowoptions), core::mem::transmute_copy(&rgrefcounts), core::mem::transmute_copy(&rgrowstatus)).into()
+                IRowset_Impl::ReleaseRows(this, core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rghrows), core::mem::transmute_copy(&rgrowoptions), core::mem::transmute_copy(&rgrefcounts), core::mem::transmute_copy(&rgrowstatus))
             }
         }
         unsafe extern "system" fn RestartPosition<Identity: IRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hreserved: HCHAPTER) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowset_Impl::RestartPosition(this, core::mem::transmute_copy(&hreserved)).into()
+                IRowset_Impl::RestartPosition(this, core::mem::transmute_copy(&hreserved))
             }
         }
         Self {
@@ -4726,7 +4726,7 @@ pub struct IRowsetBookmark_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IRowsetBookmark_Impl: windows_core::IUnknownImpl {
-    fn PositionOnBookmark(&self, hchapter: HCHAPTER, cbbookmark: DBBKMARK, pbookmark: *const super::BYTE) -> windows_core::Result<()>;
+    fn PositionOnBookmark(&self, hchapter: HCHAPTER, cbbookmark: DBBKMARK, pbookmark: *const super::BYTE) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IRowsetBookmark_Vtbl {
@@ -4734,7 +4734,7 @@ impl IRowsetBookmark_Vtbl {
         unsafe extern "system" fn PositionOnBookmark<Identity: IRowsetBookmark_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hchapter: HCHAPTER, cbbookmark: DBBKMARK, pbookmark: *const super::BYTE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetBookmark_Impl::PositionOnBookmark(this, core::mem::transmute_copy(&hchapter), core::mem::transmute_copy(&cbbookmark), core::mem::transmute_copy(&pbookmark)).into()
+                IRowsetBookmark_Impl::PositionOnBookmark(this, core::mem::transmute_copy(&hchapter), core::mem::transmute_copy(&cbbookmark), core::mem::transmute_copy(&pbookmark))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), PositionOnBookmark: PositionOnBookmark::<Identity, OFFSET> }
@@ -4767,28 +4767,28 @@ pub struct IRowsetChange_Vtbl {
     pub InsertRow: unsafe extern "system" fn(*mut core::ffi::c_void, HCHAPTER, HACCESSOR, *const core::ffi::c_void, *mut HROW) -> windows_core::HRESULT,
 }
 pub trait IRowsetChange_Impl: windows_core::IUnknownImpl {
-    fn DeleteRows(&self, hreserved: HCHAPTER, crows: DBCOUNTITEM, rghrows: *const HROW, rgrowstatus: *mut DBROWSTATUS) -> windows_core::Result<()>;
-    fn SetData(&self, hrow: HROW, haccessor: HACCESSOR, pdata: *const core::ffi::c_void) -> windows_core::Result<()>;
-    fn InsertRow(&self, hreserved: HCHAPTER, haccessor: HACCESSOR, pdata: *const core::ffi::c_void, phrow: *mut HROW) -> windows_core::Result<()>;
+    fn DeleteRows(&self, hreserved: HCHAPTER, crows: DBCOUNTITEM, rghrows: *const HROW, rgrowstatus: *mut DBROWSTATUS) -> windows_core::HRESULT;
+    fn SetData(&self, hrow: HROW, haccessor: HACCESSOR, pdata: *const core::ffi::c_void) -> windows_core::HRESULT;
+    fn InsertRow(&self, hreserved: HCHAPTER, haccessor: HACCESSOR, pdata: *const core::ffi::c_void, phrow: *mut HROW) -> windows_core::HRESULT;
 }
 impl IRowsetChange_Vtbl {
     pub const fn new<Identity: IRowsetChange_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DeleteRows<Identity: IRowsetChange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hreserved: HCHAPTER, crows: DBCOUNTITEM, rghrows: *const HROW, rgrowstatus: *mut DBROWSTATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetChange_Impl::DeleteRows(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rghrows), core::mem::transmute_copy(&rgrowstatus)).into()
+                IRowsetChange_Impl::DeleteRows(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rghrows), core::mem::transmute_copy(&rgrowstatus))
             }
         }
         unsafe extern "system" fn SetData<Identity: IRowsetChange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrow: HROW, haccessor: HACCESSOR, pdata: *const core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetChange_Impl::SetData(this, core::mem::transmute_copy(&hrow), core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&pdata)).into()
+                IRowsetChange_Impl::SetData(this, core::mem::transmute_copy(&hrow), core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&pdata))
             }
         }
         unsafe extern "system" fn InsertRow<Identity: IRowsetChange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hreserved: HCHAPTER, haccessor: HACCESSOR, pdata: *const core::ffi::c_void, phrow: *mut HROW) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetChange_Impl::InsertRow(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&phrow)).into()
+                IRowsetChange_Impl::InsertRow(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&phrow))
             }
         }
         Self {
@@ -4817,14 +4817,14 @@ pub struct IRowsetChapterMember_Vtbl {
     pub IsRowInChapter: unsafe extern "system" fn(*mut core::ffi::c_void, HCHAPTER, HROW) -> windows_core::HRESULT,
 }
 pub trait IRowsetChapterMember_Impl: windows_core::IUnknownImpl {
-    fn IsRowInChapter(&self, hchapter: HCHAPTER, hrow: HROW) -> windows_core::Result<()>;
+    fn IsRowInChapter(&self, hchapter: HCHAPTER, hrow: HROW) -> windows_core::HRESULT;
 }
 impl IRowsetChapterMember_Vtbl {
     pub const fn new<Identity: IRowsetChapterMember_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsRowInChapter<Identity: IRowsetChapterMember_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hchapter: HCHAPTER, hrow: HROW) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetChapterMember_Impl::IsRowInChapter(this, core::mem::transmute_copy(&hchapter), core::mem::transmute_copy(&hrow)).into()
+                IRowsetChapterMember_Impl::IsRowInChapter(this, core::mem::transmute_copy(&hchapter), core::mem::transmute_copy(&hrow))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsRowInChapter: IsRowInChapter::<Identity, OFFSET> }
@@ -4867,8 +4867,8 @@ pub struct IRowsetCurrentIndex_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IRowsetCurrentIndex_Impl: IRowsetIndex_Impl {
-    fn GetIndex(&self, ppindexid: *mut *mut DBID) -> windows_core::Result<()>;
-    fn SetIndex(&self, pindexid: *const DBID) -> windows_core::Result<()>;
+    fn GetIndex(&self, ppindexid: *mut *mut DBID) -> windows_core::HRESULT;
+    fn SetIndex(&self, pindexid: *const DBID) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IRowsetCurrentIndex_Vtbl {
@@ -4876,19 +4876,19 @@ impl IRowsetCurrentIndex_Vtbl {
         unsafe extern "system" fn GetIndex<Identity: IRowsetCurrentIndex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppindexid: *mut *mut DBID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetCurrentIndex_Impl::GetIndex(this, core::mem::transmute_copy(&ppindexid)).into()
+                IRowsetCurrentIndex_Impl::GetIndex(this, core::mem::transmute_copy(&ppindexid))
             }
         }
         unsafe extern "system" fn SetIndex<Identity: IRowsetCurrentIndex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pindexid: *const DBID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetCurrentIndex_Impl::SetIndex(this, core::mem::transmute_copy(&pindexid)).into()
+                IRowsetCurrentIndex_Impl::SetIndex(this, core::mem::transmute_copy(&pindexid))
             }
         }
         Self { base__: IRowsetIndex_Vtbl::new::<Identity, OFFSET>(), GetIndex: GetIndex::<Identity, OFFSET>, SetIndex: SetIndex::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRowsetCurrentIndex as windows_core::Interface>::IID || iid == &<IRowsetIndex as windows_core::Interface>::IID
+        iid == &<IRowsetCurrentIndex as windows_core::Interface>::IID || IRowsetIndex_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4915,7 +4915,7 @@ pub struct IRowsetFind_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IRowsetFind_Impl: windows_core::IUnknownImpl {
-    fn FindNextRow(&self, hchapter: HCHAPTER, haccessor: HACCESSOR, pfindvalue: *const core::ffi::c_void, compareop: DBCOMPAREOP, cbbookmark: DBBKMARK, pbookmark: *const super::BYTE, lrowsoffset: DBROWOFFSET, crows: DBROWCOUNT, pcrowsobtained: *mut DBCOUNTITEM, prghrows: *mut *mut HROW) -> windows_core::Result<()>;
+    fn FindNextRow(&self, hchapter: HCHAPTER, haccessor: HACCESSOR, pfindvalue: *const core::ffi::c_void, compareop: DBCOMPAREOP, cbbookmark: DBBKMARK, pbookmark: *const super::BYTE, lrowsoffset: DBROWOFFSET, crows: DBROWCOUNT, pcrowsobtained: *mut DBCOUNTITEM, prghrows: *mut *mut HROW) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IRowsetFind_Vtbl {
@@ -4923,7 +4923,7 @@ impl IRowsetFind_Vtbl {
         unsafe extern "system" fn FindNextRow<Identity: IRowsetFind_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hchapter: HCHAPTER, haccessor: HACCESSOR, pfindvalue: *const core::ffi::c_void, compareop: DBCOMPAREOP, cbbookmark: DBBKMARK, pbookmark: *const super::BYTE, lrowsoffset: DBROWOFFSET, crows: DBROWCOUNT, pcrowsobtained: *mut DBCOUNTITEM, prghrows: *mut *mut HROW) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetFind_Impl::FindNextRow(this, core::mem::transmute_copy(&hchapter), core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&pfindvalue), core::mem::transmute_copy(&compareop), core::mem::transmute_copy(&cbbookmark), core::mem::transmute_copy(&pbookmark), core::mem::transmute_copy(&lrowsoffset), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&pcrowsobtained), core::mem::transmute_copy(&prghrows)).into()
+                IRowsetFind_Impl::FindNextRow(this, core::mem::transmute_copy(&hchapter), core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&pfindvalue), core::mem::transmute_copy(&compareop), core::mem::transmute_copy(&cbbookmark), core::mem::transmute_copy(&pbookmark), core::mem::transmute_copy(&lrowsoffset), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&pcrowsobtained), core::mem::transmute_copy(&prghrows))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), FindNextRow: FindNextRow::<Identity, OFFSET> }
@@ -4948,14 +4948,14 @@ pub struct IRowsetIdentity_Vtbl {
     pub IsSameRow: unsafe extern "system" fn(*mut core::ffi::c_void, HROW, HROW) -> windows_core::HRESULT,
 }
 pub trait IRowsetIdentity_Impl: windows_core::IUnknownImpl {
-    fn IsSameRow(&self, hthisrow: HROW, hthatrow: HROW) -> windows_core::Result<()>;
+    fn IsSameRow(&self, hthisrow: HROW, hthatrow: HROW) -> windows_core::HRESULT;
 }
 impl IRowsetIdentity_Vtbl {
     pub const fn new<Identity: IRowsetIdentity_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsSameRow<Identity: IRowsetIdentity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hthisrow: HROW, hthatrow: HROW) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetIdentity_Impl::IsSameRow(this, core::mem::transmute_copy(&hthisrow), core::mem::transmute_copy(&hthatrow)).into()
+                IRowsetIdentity_Impl::IsSameRow(this, core::mem::transmute_copy(&hthisrow), core::mem::transmute_copy(&hthatrow))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsSameRow: IsSameRow::<Identity, OFFSET> }
@@ -4992,9 +4992,9 @@ pub struct IRowsetIndex_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IRowsetIndex_Impl: windows_core::IUnknownImpl {
-    fn GetIndexInfo(&self, pckeycolumns: *mut DBORDINAL, prgindexcolumndesc: *mut *mut DBINDEXCOLUMNDESC, pcindexpropertysets: *mut super::ULONG, prgindexpropertysets: *mut *mut DBPROPSET) -> windows_core::Result<()>;
-    fn Seek(&self, haccessor: HACCESSOR, ckeyvalues: DBORDINAL, pdata: *const core::ffi::c_void, dwseekoptions: DBSEEK) -> windows_core::Result<()>;
-    fn SetRange(&self, haccessor: HACCESSOR, cstartkeycolumns: DBORDINAL, pstartdata: *const core::ffi::c_void, cendkeycolumns: DBORDINAL, penddata: *const core::ffi::c_void, dwrangeoptions: DBRANGE) -> windows_core::Result<()>;
+    fn GetIndexInfo(&self, pckeycolumns: *mut DBORDINAL, prgindexcolumndesc: *mut *mut DBINDEXCOLUMNDESC, pcindexpropertysets: *mut super::ULONG, prgindexpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT;
+    fn Seek(&self, haccessor: HACCESSOR, ckeyvalues: DBORDINAL, pdata: *const core::ffi::c_void, dwseekoptions: DBSEEK) -> windows_core::HRESULT;
+    fn SetRange(&self, haccessor: HACCESSOR, cstartkeycolumns: DBORDINAL, pstartdata: *const core::ffi::c_void, cendkeycolumns: DBORDINAL, penddata: *const core::ffi::c_void, dwrangeoptions: DBRANGE) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IRowsetIndex_Vtbl {
@@ -5002,19 +5002,19 @@ impl IRowsetIndex_Vtbl {
         unsafe extern "system" fn GetIndexInfo<Identity: IRowsetIndex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pckeycolumns: *mut DBORDINAL, prgindexcolumndesc: *mut *mut DBINDEXCOLUMNDESC, pcindexpropertysets: *mut super::ULONG, prgindexpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetIndex_Impl::GetIndexInfo(this, core::mem::transmute_copy(&pckeycolumns), core::mem::transmute_copy(&prgindexcolumndesc), core::mem::transmute_copy(&pcindexpropertysets), core::mem::transmute_copy(&prgindexpropertysets)).into()
+                IRowsetIndex_Impl::GetIndexInfo(this, core::mem::transmute_copy(&pckeycolumns), core::mem::transmute_copy(&prgindexcolumndesc), core::mem::transmute_copy(&pcindexpropertysets), core::mem::transmute_copy(&prgindexpropertysets))
             }
         }
         unsafe extern "system" fn Seek<Identity: IRowsetIndex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, haccessor: HACCESSOR, ckeyvalues: DBORDINAL, pdata: *const core::ffi::c_void, dwseekoptions: DBSEEK) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetIndex_Impl::Seek(this, core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&ckeyvalues), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&dwseekoptions)).into()
+                IRowsetIndex_Impl::Seek(this, core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&ckeyvalues), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&dwseekoptions))
             }
         }
         unsafe extern "system" fn SetRange<Identity: IRowsetIndex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, haccessor: HACCESSOR, cstartkeycolumns: DBORDINAL, pstartdata: *const core::ffi::c_void, cendkeycolumns: DBORDINAL, penddata: *const core::ffi::c_void, dwrangeoptions: DBRANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetIndex_Impl::SetRange(this, core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&cstartkeycolumns), core::mem::transmute_copy(&pstartdata), core::mem::transmute_copy(&cendkeycolumns), core::mem::transmute_copy(&penddata), core::mem::transmute_copy(&dwrangeoptions)).into()
+                IRowsetIndex_Impl::SetRange(this, core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&cstartkeycolumns), core::mem::transmute_copy(&pstartdata), core::mem::transmute_copy(&cendkeycolumns), core::mem::transmute_copy(&penddata), core::mem::transmute_copy(&dwrangeoptions))
             }
         }
         Self {
@@ -5065,9 +5065,9 @@ pub struct IRowsetInfo_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IRowsetInfo_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::Result<()>;
-    fn GetReferencedRowset(&self, iordinal: DBORDINAL, riid: *const super::IID, ppreferencedrowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn GetSpecification(&self, riid: *const super::IID, ppspecification: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetProperties(&self, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT;
+    fn GetReferencedRowset(&self, iordinal: DBORDINAL, riid: *const super::IID, ppreferencedrowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn GetSpecification(&self, riid: *const super::IID, ppspecification: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IRowsetInfo_Vtbl {
@@ -5075,19 +5075,19 @@ impl IRowsetInfo_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: IRowsetInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetInfo_Impl::GetProperties(this, core::mem::transmute_copy(&cpropertyidsets), core::mem::transmute_copy(&rgpropertyidsets), core::mem::transmute_copy(&pcpropertysets), core::mem::transmute_copy(&prgpropertysets)).into()
+                IRowsetInfo_Impl::GetProperties(this, core::mem::transmute_copy(&cpropertyidsets), core::mem::transmute_copy(&rgpropertyidsets), core::mem::transmute_copy(&pcpropertysets), core::mem::transmute_copy(&prgpropertysets))
             }
         }
         unsafe extern "system" fn GetReferencedRowset<Identity: IRowsetInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iordinal: DBORDINAL, riid: *const super::IID, ppreferencedrowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetInfo_Impl::GetReferencedRowset(this, core::mem::transmute_copy(&iordinal), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppreferencedrowset)).into()
+                IRowsetInfo_Impl::GetReferencedRowset(this, core::mem::transmute_copy(&iordinal), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppreferencedrowset))
             }
         }
         unsafe extern "system" fn GetSpecification<Identity: IRowsetInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, ppspecification: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetInfo_Impl::GetSpecification(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppspecification)).into()
+                IRowsetInfo_Impl::GetSpecification(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppspecification))
             }
         }
         Self {
@@ -5152,10 +5152,10 @@ pub struct IRowsetLocate_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IRowsetLocate_Impl: IRowset_Impl {
-    fn Compare(&self, hreserved: HCHAPTER, cbbookmark1: DBBKMARK, pbookmark1: *const super::BYTE, cbbookmark2: DBBKMARK, pbookmark2: *const super::BYTE, pcomparison: *mut DBCOMPARE) -> windows_core::Result<()>;
-    fn GetRowsAt(&self, hreserved1: HWATCHREGION, hreserved2: HCHAPTER, cbbookmark: DBBKMARK, pbookmark: *const super::BYTE, lrowsoffset: DBROWOFFSET, crows: DBROWCOUNT, pcrowsobtained: *mut DBCOUNTITEM, prghrows: *mut *mut HROW) -> windows_core::Result<()>;
-    fn GetRowsByBookmark(&self, hreserved: HCHAPTER, crows: DBCOUNTITEM, rgcbbookmarks: *const DBBKMARK, rgpbookmarks: *const *const super::BYTE, rghrows: *mut HROW, rgrowstatus: *mut DBROWSTATUS) -> windows_core::Result<()>;
-    fn Hash(&self, hreserved: HCHAPTER, cbookmarks: DBBKMARK, rgcbbookmarks: *const DBBKMARK, rgpbookmarks: *const *const super::BYTE, rghashedvalues: *mut DBHASHVALUE, rgbookmarkstatus: *mut DBROWSTATUS) -> windows_core::Result<()>;
+    fn Compare(&self, hreserved: HCHAPTER, cbbookmark1: DBBKMARK, pbookmark1: *const super::BYTE, cbbookmark2: DBBKMARK, pbookmark2: *const super::BYTE, pcomparison: *mut DBCOMPARE) -> windows_core::HRESULT;
+    fn GetRowsAt(&self, hreserved1: HWATCHREGION, hreserved2: HCHAPTER, cbbookmark: DBBKMARK, pbookmark: *const super::BYTE, lrowsoffset: DBROWOFFSET, crows: DBROWCOUNT, pcrowsobtained: *mut DBCOUNTITEM, prghrows: *mut *mut HROW) -> windows_core::HRESULT;
+    fn GetRowsByBookmark(&self, hreserved: HCHAPTER, crows: DBCOUNTITEM, rgcbbookmarks: *const DBBKMARK, rgpbookmarks: *const *const super::BYTE, rghrows: *mut HROW, rgrowstatus: *mut DBROWSTATUS) -> windows_core::HRESULT;
+    fn Hash(&self, hreserved: HCHAPTER, cbookmarks: DBBKMARK, rgcbbookmarks: *const DBBKMARK, rgpbookmarks: *const *const super::BYTE, rghashedvalues: *mut DBHASHVALUE, rgbookmarkstatus: *mut DBROWSTATUS) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IRowsetLocate_Vtbl {
@@ -5163,25 +5163,25 @@ impl IRowsetLocate_Vtbl {
         unsafe extern "system" fn Compare<Identity: IRowsetLocate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hreserved: HCHAPTER, cbbookmark1: DBBKMARK, pbookmark1: *const super::BYTE, cbbookmark2: DBBKMARK, pbookmark2: *const super::BYTE, pcomparison: *mut DBCOMPARE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetLocate_Impl::Compare(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&cbbookmark1), core::mem::transmute_copy(&pbookmark1), core::mem::transmute_copy(&cbbookmark2), core::mem::transmute_copy(&pbookmark2), core::mem::transmute_copy(&pcomparison)).into()
+                IRowsetLocate_Impl::Compare(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&cbbookmark1), core::mem::transmute_copy(&pbookmark1), core::mem::transmute_copy(&cbbookmark2), core::mem::transmute_copy(&pbookmark2), core::mem::transmute_copy(&pcomparison))
             }
         }
         unsafe extern "system" fn GetRowsAt<Identity: IRowsetLocate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hreserved1: HWATCHREGION, hreserved2: HCHAPTER, cbbookmark: DBBKMARK, pbookmark: *const super::BYTE, lrowsoffset: DBROWOFFSET, crows: DBROWCOUNT, pcrowsobtained: *mut DBCOUNTITEM, prghrows: *mut *mut HROW) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetLocate_Impl::GetRowsAt(this, core::mem::transmute_copy(&hreserved1), core::mem::transmute_copy(&hreserved2), core::mem::transmute_copy(&cbbookmark), core::mem::transmute_copy(&pbookmark), core::mem::transmute_copy(&lrowsoffset), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&pcrowsobtained), core::mem::transmute_copy(&prghrows)).into()
+                IRowsetLocate_Impl::GetRowsAt(this, core::mem::transmute_copy(&hreserved1), core::mem::transmute_copy(&hreserved2), core::mem::transmute_copy(&cbbookmark), core::mem::transmute_copy(&pbookmark), core::mem::transmute_copy(&lrowsoffset), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&pcrowsobtained), core::mem::transmute_copy(&prghrows))
             }
         }
         unsafe extern "system" fn GetRowsByBookmark<Identity: IRowsetLocate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hreserved: HCHAPTER, crows: DBCOUNTITEM, rgcbbookmarks: *const DBBKMARK, rgpbookmarks: *const *const super::BYTE, rghrows: *mut HROW, rgrowstatus: *mut DBROWSTATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetLocate_Impl::GetRowsByBookmark(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rgcbbookmarks), core::mem::transmute_copy(&rgpbookmarks), core::mem::transmute_copy(&rghrows), core::mem::transmute_copy(&rgrowstatus)).into()
+                IRowsetLocate_Impl::GetRowsByBookmark(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rgcbbookmarks), core::mem::transmute_copy(&rgpbookmarks), core::mem::transmute_copy(&rghrows), core::mem::transmute_copy(&rgrowstatus))
             }
         }
         unsafe extern "system" fn Hash<Identity: IRowsetLocate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hreserved: HCHAPTER, cbookmarks: DBBKMARK, rgcbbookmarks: *const DBBKMARK, rgpbookmarks: *const *const super::BYTE, rghashedvalues: *mut DBHASHVALUE, rgbookmarkstatus: *mut DBROWSTATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetLocate_Impl::Hash(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&cbookmarks), core::mem::transmute_copy(&rgcbbookmarks), core::mem::transmute_copy(&rgpbookmarks), core::mem::transmute_copy(&rghashedvalues), core::mem::transmute_copy(&rgbookmarkstatus)).into()
+                IRowsetLocate_Impl::Hash(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&cbookmarks), core::mem::transmute_copy(&rgcbbookmarks), core::mem::transmute_copy(&rgpbookmarks), core::mem::transmute_copy(&rghashedvalues), core::mem::transmute_copy(&rgbookmarkstatus))
             }
         }
         Self {
@@ -5193,7 +5193,7 @@ impl IRowsetLocate_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRowsetLocate as windows_core::Interface>::IID || iid == &<IRowset as windows_core::Interface>::IID
+        iid == &<IRowsetLocate as windows_core::Interface>::IID || IRowset_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -5229,28 +5229,28 @@ pub struct IRowsetNotify_Vtbl {
     pub OnRowsetChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, DBREASON, DBEVENTPHASE, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IRowsetNotify_Impl: windows_core::IUnknownImpl {
-    fn OnFieldChange(&self, prowset: windows_core::Ref<IRowset>, hrow: HROW, ccolumns: DBORDINAL, rgcolumns: *const DBORDINAL, ereason: DBREASON, ephase: DBEVENTPHASE, fcantdeny: windows_core::BOOL) -> windows_core::Result<()>;
-    fn OnRowChange(&self, prowset: windows_core::Ref<IRowset>, crows: DBCOUNTITEM, rghrows: *const HROW, ereason: DBREASON, ephase: DBEVENTPHASE, fcantdeny: windows_core::BOOL) -> windows_core::Result<()>;
-    fn OnRowsetChange(&self, prowset: windows_core::Ref<IRowset>, ereason: DBREASON, ephase: DBEVENTPHASE, fcantdeny: windows_core::BOOL) -> windows_core::Result<()>;
+    fn OnFieldChange(&self, prowset: windows_core::Ref<IRowset>, hrow: HROW, ccolumns: DBORDINAL, rgcolumns: *const DBORDINAL, ereason: DBREASON, ephase: DBEVENTPHASE, fcantdeny: windows_core::BOOL) -> windows_core::HRESULT;
+    fn OnRowChange(&self, prowset: windows_core::Ref<IRowset>, crows: DBCOUNTITEM, rghrows: *const HROW, ereason: DBREASON, ephase: DBEVENTPHASE, fcantdeny: windows_core::BOOL) -> windows_core::HRESULT;
+    fn OnRowsetChange(&self, prowset: windows_core::Ref<IRowset>, ereason: DBREASON, ephase: DBEVENTPHASE, fcantdeny: windows_core::BOOL) -> windows_core::HRESULT;
 }
 impl IRowsetNotify_Vtbl {
     pub const fn new<Identity: IRowsetNotify_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnFieldChange<Identity: IRowsetNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prowset: *mut core::ffi::c_void, hrow: HROW, ccolumns: DBORDINAL, rgcolumns: *const DBORDINAL, ereason: DBREASON, ephase: DBEVENTPHASE, fcantdeny: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetNotify_Impl::OnFieldChange(this, core::mem::transmute_copy(&prowset), core::mem::transmute_copy(&hrow), core::mem::transmute_copy(&ccolumns), core::mem::transmute_copy(&rgcolumns), core::mem::transmute_copy(&ereason), core::mem::transmute_copy(&ephase), core::mem::transmute_copy(&fcantdeny)).into()
+                IRowsetNotify_Impl::OnFieldChange(this, core::mem::transmute_copy(&prowset), core::mem::transmute_copy(&hrow), core::mem::transmute_copy(&ccolumns), core::mem::transmute_copy(&rgcolumns), core::mem::transmute_copy(&ereason), core::mem::transmute_copy(&ephase), core::mem::transmute_copy(&fcantdeny))
             }
         }
         unsafe extern "system" fn OnRowChange<Identity: IRowsetNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prowset: *mut core::ffi::c_void, crows: DBCOUNTITEM, rghrows: *const HROW, ereason: DBREASON, ephase: DBEVENTPHASE, fcantdeny: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetNotify_Impl::OnRowChange(this, core::mem::transmute_copy(&prowset), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rghrows), core::mem::transmute_copy(&ereason), core::mem::transmute_copy(&ephase), core::mem::transmute_copy(&fcantdeny)).into()
+                IRowsetNotify_Impl::OnRowChange(this, core::mem::transmute_copy(&prowset), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rghrows), core::mem::transmute_copy(&ereason), core::mem::transmute_copy(&ephase), core::mem::transmute_copy(&fcantdeny))
             }
         }
         unsafe extern "system" fn OnRowsetChange<Identity: IRowsetNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prowset: *mut core::ffi::c_void, ereason: DBREASON, ephase: DBEVENTPHASE, fcantdeny: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetNotify_Impl::OnRowsetChange(this, core::mem::transmute_copy(&prowset), core::mem::transmute_copy(&ereason), core::mem::transmute_copy(&ephase), core::mem::transmute_copy(&fcantdeny)).into()
+                IRowsetNotify_Impl::OnRowsetChange(this, core::mem::transmute_copy(&prowset), core::mem::transmute_copy(&ereason), core::mem::transmute_copy(&ephase), core::mem::transmute_copy(&fcantdeny))
             }
         }
         Self {
@@ -5283,21 +5283,21 @@ pub struct IRowsetRefresh_Vtbl {
     pub GetLastVisibleData: unsafe extern "system" fn(*mut core::ffi::c_void, HROW, HACCESSOR, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRowsetRefresh_Impl: windows_core::IUnknownImpl {
-    fn RefreshVisibleData(&self, hchapter: HCHAPTER, crows: DBCOUNTITEM, rghrows: *const HROW, foverwrite: windows_core::BOOL, pcrowsrefreshed: *mut DBCOUNTITEM, prghrowsrefreshed: *mut *mut HROW, prgrowstatus: *mut *mut DBROWSTATUS) -> windows_core::Result<()>;
-    fn GetLastVisibleData(&self, hrow: HROW, haccessor: HACCESSOR, pdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn RefreshVisibleData(&self, hchapter: HCHAPTER, crows: DBCOUNTITEM, rghrows: *const HROW, foverwrite: windows_core::BOOL, pcrowsrefreshed: *mut DBCOUNTITEM, prghrowsrefreshed: *mut *mut HROW, prgrowstatus: *mut *mut DBROWSTATUS) -> windows_core::HRESULT;
+    fn GetLastVisibleData(&self, hrow: HROW, haccessor: HACCESSOR, pdata: *mut core::ffi::c_void) -> windows_core::HRESULT;
 }
 impl IRowsetRefresh_Vtbl {
     pub const fn new<Identity: IRowsetRefresh_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RefreshVisibleData<Identity: IRowsetRefresh_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hchapter: HCHAPTER, crows: DBCOUNTITEM, rghrows: *const HROW, foverwrite: windows_core::BOOL, pcrowsrefreshed: *mut DBCOUNTITEM, prghrowsrefreshed: *mut *mut HROW, prgrowstatus: *mut *mut DBROWSTATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetRefresh_Impl::RefreshVisibleData(this, core::mem::transmute_copy(&hchapter), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rghrows), core::mem::transmute_copy(&foverwrite), core::mem::transmute_copy(&pcrowsrefreshed), core::mem::transmute_copy(&prghrowsrefreshed), core::mem::transmute_copy(&prgrowstatus)).into()
+                IRowsetRefresh_Impl::RefreshVisibleData(this, core::mem::transmute_copy(&hchapter), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rghrows), core::mem::transmute_copy(&foverwrite), core::mem::transmute_copy(&pcrowsrefreshed), core::mem::transmute_copy(&prghrowsrefreshed), core::mem::transmute_copy(&prgrowstatus))
             }
         }
         unsafe extern "system" fn GetLastVisibleData<Identity: IRowsetRefresh_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrow: HROW, haccessor: HACCESSOR, pdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetRefresh_Impl::GetLastVisibleData(this, core::mem::transmute_copy(&hrow), core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&pdata)).into()
+                IRowsetRefresh_Impl::GetLastVisibleData(this, core::mem::transmute_copy(&hrow), core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&pdata))
             }
         }
         Self {
@@ -5329,21 +5329,21 @@ pub struct IRowsetResynch_Vtbl {
     pub ResynchRows: unsafe extern "system" fn(*mut core::ffi::c_void, DBCOUNTITEM, *const HROW, *mut DBCOUNTITEM, *mut *mut HROW, *mut *mut DBROWSTATUS) -> windows_core::HRESULT,
 }
 pub trait IRowsetResynch_Impl: windows_core::IUnknownImpl {
-    fn GetVisibleData(&self, hrow: HROW, haccessor: HACCESSOR, pdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn ResynchRows(&self, crows: DBCOUNTITEM, rghrows: *const HROW, pcrowsresynched: *mut DBCOUNTITEM, prghrowsresynched: *mut *mut HROW, prgrowstatus: *mut *mut DBROWSTATUS) -> windows_core::Result<()>;
+    fn GetVisibleData(&self, hrow: HROW, haccessor: HACCESSOR, pdata: *mut core::ffi::c_void) -> windows_core::HRESULT;
+    fn ResynchRows(&self, crows: DBCOUNTITEM, rghrows: *const HROW, pcrowsresynched: *mut DBCOUNTITEM, prghrowsresynched: *mut *mut HROW, prgrowstatus: *mut *mut DBROWSTATUS) -> windows_core::HRESULT;
 }
 impl IRowsetResynch_Vtbl {
     pub const fn new<Identity: IRowsetResynch_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetVisibleData<Identity: IRowsetResynch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrow: HROW, haccessor: HACCESSOR, pdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetResynch_Impl::GetVisibleData(this, core::mem::transmute_copy(&hrow), core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&pdata)).into()
+                IRowsetResynch_Impl::GetVisibleData(this, core::mem::transmute_copy(&hrow), core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&pdata))
             }
         }
         unsafe extern "system" fn ResynchRows<Identity: IRowsetResynch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, crows: DBCOUNTITEM, rghrows: *const HROW, pcrowsresynched: *mut DBCOUNTITEM, prghrowsresynched: *mut *mut HROW, prgrowstatus: *mut *mut DBROWSTATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetResynch_Impl::ResynchRows(this, core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rghrows), core::mem::transmute_copy(&pcrowsresynched), core::mem::transmute_copy(&prghrowsresynched), core::mem::transmute_copy(&prgrowstatus)).into()
+                IRowsetResynch_Impl::ResynchRows(this, core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rghrows), core::mem::transmute_copy(&pcrowsresynched), core::mem::transmute_copy(&prghrowsresynched), core::mem::transmute_copy(&prgrowstatus))
             }
         }
         Self {
@@ -5386,8 +5386,8 @@ pub struct IRowsetScroll_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IRowsetScroll_Impl: IRowsetLocate_Impl {
-    fn GetApproximatePosition(&self, hreserved: HCHAPTER, cbbookmark: DBBKMARK, pbookmark: *const super::BYTE, pulposition: *mut DBCOUNTITEM, pcrows: *mut DBCOUNTITEM) -> windows_core::Result<()>;
-    fn GetRowsAtRatio(&self, hreserved1: HWATCHREGION, hreserved2: HCHAPTER, ulnumerator: DBCOUNTITEM, uldenominator: DBCOUNTITEM, crows: DBROWCOUNT, pcrowsobtained: *mut DBCOUNTITEM, prghrows: *mut *mut HROW) -> windows_core::Result<()>;
+    fn GetApproximatePosition(&self, hreserved: HCHAPTER, cbbookmark: DBBKMARK, pbookmark: *const super::BYTE, pulposition: *mut DBCOUNTITEM, pcrows: *mut DBCOUNTITEM) -> windows_core::HRESULT;
+    fn GetRowsAtRatio(&self, hreserved1: HWATCHREGION, hreserved2: HCHAPTER, ulnumerator: DBCOUNTITEM, uldenominator: DBCOUNTITEM, crows: DBROWCOUNT, pcrowsobtained: *mut DBCOUNTITEM, prghrows: *mut *mut HROW) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IRowsetScroll_Vtbl {
@@ -5395,13 +5395,13 @@ impl IRowsetScroll_Vtbl {
         unsafe extern "system" fn GetApproximatePosition<Identity: IRowsetScroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hreserved: HCHAPTER, cbbookmark: DBBKMARK, pbookmark: *const super::BYTE, pulposition: *mut DBCOUNTITEM, pcrows: *mut DBCOUNTITEM) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetScroll_Impl::GetApproximatePosition(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&cbbookmark), core::mem::transmute_copy(&pbookmark), core::mem::transmute_copy(&pulposition), core::mem::transmute_copy(&pcrows)).into()
+                IRowsetScroll_Impl::GetApproximatePosition(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&cbbookmark), core::mem::transmute_copy(&pbookmark), core::mem::transmute_copy(&pulposition), core::mem::transmute_copy(&pcrows))
             }
         }
         unsafe extern "system" fn GetRowsAtRatio<Identity: IRowsetScroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hreserved1: HWATCHREGION, hreserved2: HCHAPTER, ulnumerator: DBCOUNTITEM, uldenominator: DBCOUNTITEM, crows: DBROWCOUNT, pcrowsobtained: *mut DBCOUNTITEM, prghrows: *mut *mut HROW) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetScroll_Impl::GetRowsAtRatio(this, core::mem::transmute_copy(&hreserved1), core::mem::transmute_copy(&hreserved2), core::mem::transmute_copy(&ulnumerator), core::mem::transmute_copy(&uldenominator), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&pcrowsobtained), core::mem::transmute_copy(&prghrows)).into()
+                IRowsetScroll_Impl::GetRowsAtRatio(this, core::mem::transmute_copy(&hreserved1), core::mem::transmute_copy(&hreserved2), core::mem::transmute_copy(&ulnumerator), core::mem::transmute_copy(&uldenominator), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&pcrowsobtained), core::mem::transmute_copy(&prghrows))
             }
         }
         Self {
@@ -5411,7 +5411,7 @@ impl IRowsetScroll_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRowsetScroll as windows_core::Interface>::IID || iid == &<IRowset as windows_core::Interface>::IID || iid == &<IRowsetLocate as windows_core::Interface>::IID
+        iid == &<IRowsetScroll as windows_core::Interface>::IID || IRowsetLocate_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -5452,42 +5452,42 @@ pub struct IRowsetUpdate_Vtbl {
     pub Update: unsafe extern "system" fn(*mut core::ffi::c_void, HCHAPTER, DBCOUNTITEM, *const HROW, *mut DBCOUNTITEM, *mut *mut HROW, *mut *mut DBROWSTATUS) -> windows_core::HRESULT,
 }
 pub trait IRowsetUpdate_Impl: IRowsetChange_Impl {
-    fn GetOriginalData(&self, hrow: HROW, haccessor: HACCESSOR, pdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetPendingRows(&self, hreserved: HCHAPTER, dwrowstatus: DBPENDINGSTATUS, pcpendingrows: *mut DBCOUNTITEM, prgpendingrows: *mut *mut HROW, prgpendingstatus: *mut *mut DBPENDINGSTATUS) -> windows_core::Result<()>;
-    fn GetRowStatus(&self, hreserved: HCHAPTER, crows: DBCOUNTITEM, rghrows: *const HROW, rgpendingstatus: *mut DBPENDINGSTATUS) -> windows_core::Result<()>;
-    fn Undo(&self, hreserved: HCHAPTER, crows: DBCOUNTITEM, rghrows: *const HROW, pcrowsundone: *mut DBCOUNTITEM, prgrowsundone: *mut *mut HROW, prgrowstatus: *mut *mut DBROWSTATUS) -> windows_core::Result<()>;
-    fn Update(&self, hreserved: HCHAPTER, crows: DBCOUNTITEM, rghrows: *const HROW, pcrows: *mut DBCOUNTITEM, prgrows: *mut *mut HROW, prgrowstatus: *mut *mut DBROWSTATUS) -> windows_core::Result<()>;
+    fn GetOriginalData(&self, hrow: HROW, haccessor: HACCESSOR, pdata: *mut core::ffi::c_void) -> windows_core::HRESULT;
+    fn GetPendingRows(&self, hreserved: HCHAPTER, dwrowstatus: DBPENDINGSTATUS, pcpendingrows: *mut DBCOUNTITEM, prgpendingrows: *mut *mut HROW, prgpendingstatus: *mut *mut DBPENDINGSTATUS) -> windows_core::HRESULT;
+    fn GetRowStatus(&self, hreserved: HCHAPTER, crows: DBCOUNTITEM, rghrows: *const HROW, rgpendingstatus: *mut DBPENDINGSTATUS) -> windows_core::HRESULT;
+    fn Undo(&self, hreserved: HCHAPTER, crows: DBCOUNTITEM, rghrows: *const HROW, pcrowsundone: *mut DBCOUNTITEM, prgrowsundone: *mut *mut HROW, prgrowstatus: *mut *mut DBROWSTATUS) -> windows_core::HRESULT;
+    fn Update(&self, hreserved: HCHAPTER, crows: DBCOUNTITEM, rghrows: *const HROW, pcrows: *mut DBCOUNTITEM, prgrows: *mut *mut HROW, prgrowstatus: *mut *mut DBROWSTATUS) -> windows_core::HRESULT;
 }
 impl IRowsetUpdate_Vtbl {
     pub const fn new<Identity: IRowsetUpdate_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOriginalData<Identity: IRowsetUpdate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrow: HROW, haccessor: HACCESSOR, pdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetUpdate_Impl::GetOriginalData(this, core::mem::transmute_copy(&hrow), core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&pdata)).into()
+                IRowsetUpdate_Impl::GetOriginalData(this, core::mem::transmute_copy(&hrow), core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&pdata))
             }
         }
         unsafe extern "system" fn GetPendingRows<Identity: IRowsetUpdate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hreserved: HCHAPTER, dwrowstatus: DBPENDINGSTATUS, pcpendingrows: *mut DBCOUNTITEM, prgpendingrows: *mut *mut HROW, prgpendingstatus: *mut *mut DBPENDINGSTATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetUpdate_Impl::GetPendingRows(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&dwrowstatus), core::mem::transmute_copy(&pcpendingrows), core::mem::transmute_copy(&prgpendingrows), core::mem::transmute_copy(&prgpendingstatus)).into()
+                IRowsetUpdate_Impl::GetPendingRows(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&dwrowstatus), core::mem::transmute_copy(&pcpendingrows), core::mem::transmute_copy(&prgpendingrows), core::mem::transmute_copy(&prgpendingstatus))
             }
         }
         unsafe extern "system" fn GetRowStatus<Identity: IRowsetUpdate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hreserved: HCHAPTER, crows: DBCOUNTITEM, rghrows: *const HROW, rgpendingstatus: *mut DBPENDINGSTATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetUpdate_Impl::GetRowStatus(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rghrows), core::mem::transmute_copy(&rgpendingstatus)).into()
+                IRowsetUpdate_Impl::GetRowStatus(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rghrows), core::mem::transmute_copy(&rgpendingstatus))
             }
         }
         unsafe extern "system" fn Undo<Identity: IRowsetUpdate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hreserved: HCHAPTER, crows: DBCOUNTITEM, rghrows: *const HROW, pcrowsundone: *mut DBCOUNTITEM, prgrowsundone: *mut *mut HROW, prgrowstatus: *mut *mut DBROWSTATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetUpdate_Impl::Undo(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rghrows), core::mem::transmute_copy(&pcrowsundone), core::mem::transmute_copy(&prgrowsundone), core::mem::transmute_copy(&prgrowstatus)).into()
+                IRowsetUpdate_Impl::Undo(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rghrows), core::mem::transmute_copy(&pcrowsundone), core::mem::transmute_copy(&prgrowsundone), core::mem::transmute_copy(&prgrowstatus))
             }
         }
         unsafe extern "system" fn Update<Identity: IRowsetUpdate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hreserved: HCHAPTER, crows: DBCOUNTITEM, rghrows: *const HROW, pcrows: *mut DBCOUNTITEM, prgrows: *mut *mut HROW, prgrowstatus: *mut *mut DBROWSTATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetUpdate_Impl::Update(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rghrows), core::mem::transmute_copy(&pcrows), core::mem::transmute_copy(&prgrows), core::mem::transmute_copy(&prgrowstatus)).into()
+                IRowsetUpdate_Impl::Update(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rghrows), core::mem::transmute_copy(&pcrows), core::mem::transmute_copy(&prgrows), core::mem::transmute_copy(&prgrowstatus))
             }
         }
         Self {
@@ -5500,7 +5500,7 @@ impl IRowsetUpdate_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRowsetUpdate as windows_core::Interface>::IID || iid == &<IRowsetChange as windows_core::Interface>::IID
+        iid == &<IRowsetUpdate as windows_core::Interface>::IID || IRowsetChange_Vtbl::matches(iid)
     }
 }
 impl windows_core::RuntimeName for IRowsetUpdate {}
@@ -5534,8 +5534,8 @@ pub struct IRowsetView_Vtbl {
 }
 #[cfg(feature = "guiddef")]
 pub trait IRowsetView_Impl: windows_core::IUnknownImpl {
-    fn CreateView(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const super::IID, ppview: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn GetView(&self, hchapter: HCHAPTER, riid: *const super::IID, phchaptersource: *mut HCHAPTER, ppview: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateView(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const super::IID, ppview: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn GetView(&self, hchapter: HCHAPTER, riid: *const super::IID, phchaptersource: *mut HCHAPTER, ppview: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "guiddef")]
 impl IRowsetView_Vtbl {
@@ -5543,13 +5543,13 @@ impl IRowsetView_Vtbl {
         unsafe extern "system" fn CreateView<Identity: IRowsetView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, riid: *const super::IID, ppview: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetView_Impl::CreateView(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppview)).into()
+                IRowsetView_Impl::CreateView(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppview))
             }
         }
         unsafe extern "system" fn GetView<Identity: IRowsetView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hchapter: HCHAPTER, riid: *const super::IID, phchaptersource: *mut HCHAPTER, ppview: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetView_Impl::GetView(this, core::mem::transmute_copy(&hchapter), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&phchaptersource), core::mem::transmute_copy(&ppview)).into()
+                IRowsetView_Impl::GetView(this, core::mem::transmute_copy(&hchapter), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&phchaptersource), core::mem::transmute_copy(&ppview))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateView: CreateView::<Identity, OFFSET>, GetView: GetView::<Identity, OFFSET> }
@@ -5579,7 +5579,7 @@ pub struct ISQLErrorInfo_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ISQLErrorInfo_Impl: windows_core::IUnknownImpl {
-    fn GetSQLInfo(&self, pbstrsqlstate: *mut windows_core::BSTR, plnativeerror: *mut super::LONG) -> windows_core::Result<()>;
+    fn GetSQLInfo(&self, pbstrsqlstate: *mut windows_core::BSTR, plnativeerror: *mut super::LONG) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ISQLErrorInfo_Vtbl {
@@ -5587,7 +5587,7 @@ impl ISQLErrorInfo_Vtbl {
         unsafe extern "system" fn GetSQLInfo<Identity: ISQLErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsqlstate: *mut *mut core::ffi::c_void, plnativeerror: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISQLErrorInfo_Impl::GetSQLInfo(this, core::mem::transmute_copy(&pbstrsqlstate), core::mem::transmute_copy(&plnativeerror)).into()
+                ISQLErrorInfo_Impl::GetSQLInfo(this, core::mem::transmute_copy(&pbstrsqlstate), core::mem::transmute_copy(&plnativeerror))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetSQLInfo: GetSQLInfo::<Identity, OFFSET> }
@@ -5656,10 +5656,10 @@ pub struct IScopedOperations_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "urlmon", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IScopedOperations_Impl: IBindResource_Impl {
-    fn Copy(&self, crows: DBCOUNTITEM, rgpwszsourceurls: *const super::LPCOLESTR, rgpwszdesturls: *const super::LPCOLESTR, dwcopyflags: super::DWORD, pauthenticate: windows_core::Ref<super::IAuthenticate>, rgdwstatus: *mut DBSTATUS, rgpwsznewurls: *mut super::LPOLESTR, ppstringsbuffer: *mut *mut super::OLECHAR) -> windows_core::Result<()>;
-    fn Move(&self, crows: DBCOUNTITEM, rgpwszsourceurls: *const super::LPCOLESTR, rgpwszdesturls: *const super::LPCOLESTR, dwmoveflags: super::DWORD, pauthenticate: windows_core::Ref<super::IAuthenticate>, rgdwstatus: *mut DBSTATUS, rgpwsznewurls: *mut super::LPOLESTR, ppstringsbuffer: *mut *mut super::OLECHAR) -> windows_core::Result<()>;
-    fn Delete(&self, crows: DBCOUNTITEM, rgpwszurls: *const super::LPCOLESTR, dwdeleteflags: super::DWORD, rgdwstatus: *mut DBSTATUS) -> windows_core::Result<()>;
-    fn OpenRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, ptableid: *const DBID, pindexid: *const DBID, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Copy(&self, crows: DBCOUNTITEM, rgpwszsourceurls: *const super::LPCOLESTR, rgpwszdesturls: *const super::LPCOLESTR, dwcopyflags: super::DWORD, pauthenticate: windows_core::Ref<super::IAuthenticate>, rgdwstatus: *mut DBSTATUS, rgpwsznewurls: *mut super::LPOLESTR, ppstringsbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT;
+    fn Move(&self, crows: DBCOUNTITEM, rgpwszsourceurls: *const super::LPCOLESTR, rgpwszdesturls: *const super::LPCOLESTR, dwmoveflags: super::DWORD, pauthenticate: windows_core::Ref<super::IAuthenticate>, rgdwstatus: *mut DBSTATUS, rgpwsznewurls: *mut super::LPOLESTR, ppstringsbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT;
+    fn Delete(&self, crows: DBCOUNTITEM, rgpwszurls: *const super::LPCOLESTR, dwdeleteflags: super::DWORD, rgdwstatus: *mut DBSTATUS) -> windows_core::HRESULT;
+    fn OpenRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, ptableid: *const DBID, pindexid: *const DBID, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "urlmon", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IScopedOperations_Vtbl {
@@ -5667,25 +5667,25 @@ impl IScopedOperations_Vtbl {
         unsafe extern "system" fn Copy<Identity: IScopedOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, crows: DBCOUNTITEM, rgpwszsourceurls: *const super::LPCOLESTR, rgpwszdesturls: *const super::LPCOLESTR, dwcopyflags: super::DWORD, pauthenticate: *mut core::ffi::c_void, rgdwstatus: *mut DBSTATUS, rgpwsznewurls: *mut super::LPOLESTR, ppstringsbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IScopedOperations_Impl::Copy(this, core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rgpwszsourceurls), core::mem::transmute_copy(&rgpwszdesturls), core::mem::transmute_copy(&dwcopyflags), core::mem::transmute_copy(&pauthenticate), core::mem::transmute_copy(&rgdwstatus), core::mem::transmute_copy(&rgpwsznewurls), core::mem::transmute_copy(&ppstringsbuffer)).into()
+                IScopedOperations_Impl::Copy(this, core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rgpwszsourceurls), core::mem::transmute_copy(&rgpwszdesturls), core::mem::transmute_copy(&dwcopyflags), core::mem::transmute_copy(&pauthenticate), core::mem::transmute_copy(&rgdwstatus), core::mem::transmute_copy(&rgpwsznewurls), core::mem::transmute_copy(&ppstringsbuffer))
             }
         }
         unsafe extern "system" fn Move<Identity: IScopedOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, crows: DBCOUNTITEM, rgpwszsourceurls: *const super::LPCOLESTR, rgpwszdesturls: *const super::LPCOLESTR, dwmoveflags: super::DWORD, pauthenticate: *mut core::ffi::c_void, rgdwstatus: *mut DBSTATUS, rgpwsznewurls: *mut super::LPOLESTR, ppstringsbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IScopedOperations_Impl::Move(this, core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rgpwszsourceurls), core::mem::transmute_copy(&rgpwszdesturls), core::mem::transmute_copy(&dwmoveflags), core::mem::transmute_copy(&pauthenticate), core::mem::transmute_copy(&rgdwstatus), core::mem::transmute_copy(&rgpwsznewurls), core::mem::transmute_copy(&ppstringsbuffer)).into()
+                IScopedOperations_Impl::Move(this, core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rgpwszsourceurls), core::mem::transmute_copy(&rgpwszdesturls), core::mem::transmute_copy(&dwmoveflags), core::mem::transmute_copy(&pauthenticate), core::mem::transmute_copy(&rgdwstatus), core::mem::transmute_copy(&rgpwsznewurls), core::mem::transmute_copy(&ppstringsbuffer))
             }
         }
         unsafe extern "system" fn Delete<Identity: IScopedOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, crows: DBCOUNTITEM, rgpwszurls: *const super::LPCOLESTR, dwdeleteflags: super::DWORD, rgdwstatus: *mut DBSTATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IScopedOperations_Impl::Delete(this, core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rgpwszurls), core::mem::transmute_copy(&dwdeleteflags), core::mem::transmute_copy(&rgdwstatus)).into()
+                IScopedOperations_Impl::Delete(this, core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rgpwszurls), core::mem::transmute_copy(&dwdeleteflags), core::mem::transmute_copy(&rgdwstatus))
             }
         }
         unsafe extern "system" fn OpenRowset<Identity: IScopedOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, ptableid: *const DBID, pindexid: *const DBID, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IScopedOperations_Impl::OpenRowset(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pindexid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets), core::mem::transmute_copy(&pprowset)).into()
+                IScopedOperations_Impl::OpenRowset(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pindexid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets), core::mem::transmute_copy(&pprowset))
             }
         }
         Self {
@@ -5697,7 +5697,7 @@ impl IScopedOperations_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IScopedOperations as windows_core::Interface>::IID || iid == &<IBindResource as windows_core::Interface>::IID
+        iid == &<IScopedOperations as windows_core::Interface>::IID || IBindResource_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "urlmon", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -5737,9 +5737,9 @@ pub struct ISecurityInfo_Vtbl {
 }
 #[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt"))]
 pub trait ISecurityInfo_Impl: windows_core::IUnknownImpl {
-    fn GetCurrentTrustee(&self, pptrustee: *mut *mut super::TRUSTEE_W) -> windows_core::Result<()>;
-    fn GetObjectTypes(&self, cobjecttypes: *mut super::ULONG, rgobjecttypes: *mut *mut windows_core::GUID) -> windows_core::Result<()>;
-    fn GetPermissions(&self, objecttype: &windows_core::GUID, ppermissions: *mut super::ACCESS_MASK) -> windows_core::Result<()>;
+    fn GetCurrentTrustee(&self, pptrustee: *mut *mut super::TRUSTEE_W) -> windows_core::HRESULT;
+    fn GetObjectTypes(&self, cobjecttypes: *mut super::ULONG, rgobjecttypes: *mut *mut windows_core::GUID) -> windows_core::HRESULT;
+    fn GetPermissions(&self, objecttype: &windows_core::GUID, ppermissions: *mut super::ACCESS_MASK) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt"))]
 impl ISecurityInfo_Vtbl {
@@ -5747,19 +5747,19 @@ impl ISecurityInfo_Vtbl {
         unsafe extern "system" fn GetCurrentTrustee<Identity: ISecurityInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptrustee: *mut *mut super::TRUSTEE_W) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISecurityInfo_Impl::GetCurrentTrustee(this, core::mem::transmute_copy(&pptrustee)).into()
+                ISecurityInfo_Impl::GetCurrentTrustee(this, core::mem::transmute_copy(&pptrustee))
             }
         }
         unsafe extern "system" fn GetObjectTypes<Identity: ISecurityInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cobjecttypes: *mut super::ULONG, rgobjecttypes: *mut *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISecurityInfo_Impl::GetObjectTypes(this, core::mem::transmute_copy(&cobjecttypes), core::mem::transmute_copy(&rgobjecttypes)).into()
+                ISecurityInfo_Impl::GetObjectTypes(this, core::mem::transmute_copy(&cobjecttypes), core::mem::transmute_copy(&rgobjecttypes))
             }
         }
         unsafe extern "system" fn GetPermissions<Identity: ISecurityInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objecttype: windows_core::GUID, ppermissions: *mut super::ACCESS_MASK) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISecurityInfo_Impl::GetPermissions(this, core::mem::transmute(&objecttype), core::mem::transmute_copy(&ppermissions)).into()
+                ISecurityInfo_Impl::GetPermissions(this, core::mem::transmute(&objecttype), core::mem::transmute_copy(&ppermissions))
             }
         }
         Self {
@@ -5802,8 +5802,8 @@ pub struct ISessionProperties_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISessionProperties_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::Result<()>;
-    fn SetProperties(&self, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::Result<()>;
+    fn GetProperties(&self, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT;
+    fn SetProperties(&self, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISessionProperties_Vtbl {
@@ -5811,13 +5811,13 @@ impl ISessionProperties_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: ISessionProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISessionProperties_Impl::GetProperties(this, core::mem::transmute_copy(&cpropertyidsets), core::mem::transmute_copy(&rgpropertyidsets), core::mem::transmute_copy(&pcpropertysets), core::mem::transmute_copy(&prgpropertysets)).into()
+                ISessionProperties_Impl::GetProperties(this, core::mem::transmute_copy(&cpropertyidsets), core::mem::transmute_copy(&rgpropertyidsets), core::mem::transmute_copy(&pcpropertysets), core::mem::transmute_copy(&prgpropertysets))
             }
         }
         unsafe extern "system" fn SetProperties<Identity: ISessionProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISessionProperties_Impl::SetProperties(this, core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets)).into()
+                ISessionProperties_Impl::SetProperties(this, core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets))
             }
         }
         Self {
@@ -5854,7 +5854,7 @@ pub struct ISourcesRowset_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISourcesRowset_Impl: windows_core::IUnknownImpl {
-    fn GetSourcesRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const super::IID, cpropertysets: super::ULONG, rgproperties: *mut DBPROPSET, ppsourcesrowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetSourcesRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const super::IID, cpropertysets: super::ULONG, rgproperties: *mut DBPROPSET, ppsourcesrowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISourcesRowset_Vtbl {
@@ -5862,7 +5862,7 @@ impl ISourcesRowset_Vtbl {
         unsafe extern "system" fn GetSourcesRowset<Identity: ISourcesRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, riid: *const super::IID, cpropertysets: super::ULONG, rgproperties: *mut DBPROPSET, ppsourcesrowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISourcesRowset_Impl::GetSourcesRowset(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgproperties), core::mem::transmute_copy(&ppsourcesrowset)).into()
+                ISourcesRowset_Impl::GetSourcesRowset(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgproperties), core::mem::transmute_copy(&ppsourcesrowset))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetSourcesRowset: GetSourcesRowset::<Identity, OFFSET> }
@@ -5898,7 +5898,7 @@ pub struct ITableCreation_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITableCreation_Impl: ITableDefinition_Impl {
-    fn GetTableDefinition(&self, ptableid: *const DBID, pccolumndescs: *mut DBORDINAL, prgcolumndescs: *mut *mut DBCOLUMNDESC, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET, pcconstraintdescs: *mut super::ULONG, prgconstraintdescs: *mut *mut DBCONSTRAINTDESC, ppwszstringbuffer: *mut *mut super::OLECHAR) -> windows_core::Result<()>;
+    fn GetTableDefinition(&self, ptableid: *const DBID, pccolumndescs: *mut DBORDINAL, prgcolumndescs: *mut *mut DBCOLUMNDESC, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET, pcconstraintdescs: *mut super::ULONG, prgconstraintdescs: *mut *mut DBCONSTRAINTDESC, ppwszstringbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ITableCreation_Vtbl {
@@ -5906,13 +5906,13 @@ impl ITableCreation_Vtbl {
         unsafe extern "system" fn GetTableDefinition<Identity: ITableCreation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptableid: *const DBID, pccolumndescs: *mut DBORDINAL, prgcolumndescs: *mut *mut DBCOLUMNDESC, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET, pcconstraintdescs: *mut super::ULONG, prgconstraintdescs: *mut *mut DBCONSTRAINTDESC, ppwszstringbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITableCreation_Impl::GetTableDefinition(this, core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pccolumndescs), core::mem::transmute_copy(&prgcolumndescs), core::mem::transmute_copy(&pcpropertysets), core::mem::transmute_copy(&prgpropertysets), core::mem::transmute_copy(&pcconstraintdescs), core::mem::transmute_copy(&prgconstraintdescs), core::mem::transmute_copy(&ppwszstringbuffer)).into()
+                ITableCreation_Impl::GetTableDefinition(this, core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pccolumndescs), core::mem::transmute_copy(&prgcolumndescs), core::mem::transmute_copy(&pcpropertysets), core::mem::transmute_copy(&prgpropertysets), core::mem::transmute_copy(&pcconstraintdescs), core::mem::transmute_copy(&prgconstraintdescs), core::mem::transmute_copy(&ppwszstringbuffer))
             }
         }
         Self { base__: ITableDefinition_Vtbl::new::<Identity, OFFSET>(), GetTableDefinition: GetTableDefinition::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITableCreation as windows_core::Interface>::IID || iid == &<ITableDefinition as windows_core::Interface>::IID
+        iid == &<ITableCreation as windows_core::Interface>::IID || ITableDefinition_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -5963,10 +5963,10 @@ pub struct ITableDefinition_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITableDefinition_Impl: windows_core::IUnknownImpl {
-    fn CreateTable(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, ptableid: *const DBID, ccolumndescs: DBORDINAL, rgcolumndescs: *const DBCOLUMNDESC, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut DBID, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn DropTable(&self, ptableid: *const DBID) -> windows_core::Result<()>;
-    fn AddColumn(&self, ptableid: *const DBID, pcolumndesc: *mut DBCOLUMNDESC, ppcolumnid: *mut *mut DBID) -> windows_core::Result<()>;
-    fn DropColumn(&self, ptableid: *const DBID, pcolumnid: *const DBID) -> windows_core::Result<()>;
+    fn CreateTable(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, ptableid: *const DBID, ccolumndescs: DBORDINAL, rgcolumndescs: *const DBCOLUMNDESC, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut DBID, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn DropTable(&self, ptableid: *const DBID) -> windows_core::HRESULT;
+    fn AddColumn(&self, ptableid: *const DBID, pcolumndesc: *mut DBCOLUMNDESC, ppcolumnid: *mut *mut DBID) -> windows_core::HRESULT;
+    fn DropColumn(&self, ptableid: *const DBID, pcolumnid: *const DBID) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ITableDefinition_Vtbl {
@@ -5974,25 +5974,25 @@ impl ITableDefinition_Vtbl {
         unsafe extern "system" fn CreateTable<Identity: ITableDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, ptableid: *const DBID, ccolumndescs: DBORDINAL, rgcolumndescs: *const DBCOLUMNDESC, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut DBID, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITableDefinition_Impl::CreateTable(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&ccolumndescs), core::mem::transmute_copy(&rgcolumndescs), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets), core::mem::transmute_copy(&pptableid), core::mem::transmute_copy(&pprowset)).into()
+                ITableDefinition_Impl::CreateTable(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&ccolumndescs), core::mem::transmute_copy(&rgcolumndescs), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets), core::mem::transmute_copy(&pptableid), core::mem::transmute_copy(&pprowset))
             }
         }
         unsafe extern "system" fn DropTable<Identity: ITableDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptableid: *const DBID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITableDefinition_Impl::DropTable(this, core::mem::transmute_copy(&ptableid)).into()
+                ITableDefinition_Impl::DropTable(this, core::mem::transmute_copy(&ptableid))
             }
         }
         unsafe extern "system" fn AddColumn<Identity: ITableDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptableid: *const DBID, pcolumndesc: *mut DBCOLUMNDESC, ppcolumnid: *mut *mut DBID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITableDefinition_Impl::AddColumn(this, core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pcolumndesc), core::mem::transmute_copy(&ppcolumnid)).into()
+                ITableDefinition_Impl::AddColumn(this, core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pcolumndesc), core::mem::transmute_copy(&ppcolumnid))
             }
         }
         unsafe extern "system" fn DropColumn<Identity: ITableDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptableid: *const DBID, pcolumnid: *const DBID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITableDefinition_Impl::DropColumn(this, core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pcolumnid)).into()
+                ITableDefinition_Impl::DropColumn(this, core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pcolumnid))
             }
         }
         Self {
@@ -6053,9 +6053,9 @@ pub struct ITableDefinitionWithConstraints_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITableDefinitionWithConstraints_Impl: ITableCreation_Impl {
-    fn AddConstraint(&self, ptableid: *const DBID, pconstraintdesc: *const DBCONSTRAINTDESC) -> windows_core::Result<()>;
-    fn CreateTableWithConstraints(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, ptableid: *const DBID, ccolumndescs: DBORDINAL, rgcolumndescs: *mut DBCOLUMNDESC, cconstraintdescs: super::ULONG, rgconstraintdescs: *const DBCONSTRAINTDESC, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut DBID, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn DropConstraint(&self, ptableid: *const DBID, pconstraintid: *const DBID) -> windows_core::Result<()>;
+    fn AddConstraint(&self, ptableid: *const DBID, pconstraintdesc: *const DBCONSTRAINTDESC) -> windows_core::HRESULT;
+    fn CreateTableWithConstraints(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, ptableid: *const DBID, ccolumndescs: DBORDINAL, rgcolumndescs: *mut DBCOLUMNDESC, cconstraintdescs: super::ULONG, rgconstraintdescs: *const DBCONSTRAINTDESC, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut DBID, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn DropConstraint(&self, ptableid: *const DBID, pconstraintid: *const DBID) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ITableDefinitionWithConstraints_Vtbl {
@@ -6063,19 +6063,19 @@ impl ITableDefinitionWithConstraints_Vtbl {
         unsafe extern "system" fn AddConstraint<Identity: ITableDefinitionWithConstraints_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptableid: *const DBID, pconstraintdesc: *const DBCONSTRAINTDESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITableDefinitionWithConstraints_Impl::AddConstraint(this, core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pconstraintdesc)).into()
+                ITableDefinitionWithConstraints_Impl::AddConstraint(this, core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pconstraintdesc))
             }
         }
         unsafe extern "system" fn CreateTableWithConstraints<Identity: ITableDefinitionWithConstraints_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, ptableid: *const DBID, ccolumndescs: DBORDINAL, rgcolumndescs: *mut DBCOLUMNDESC, cconstraintdescs: super::ULONG, rgconstraintdescs: *const DBCONSTRAINTDESC, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut DBID, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITableDefinitionWithConstraints_Impl::CreateTableWithConstraints(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&ccolumndescs), core::mem::transmute_copy(&rgcolumndescs), core::mem::transmute_copy(&cconstraintdescs), core::mem::transmute_copy(&rgconstraintdescs), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets), core::mem::transmute_copy(&pptableid), core::mem::transmute_copy(&pprowset)).into()
+                ITableDefinitionWithConstraints_Impl::CreateTableWithConstraints(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&ccolumndescs), core::mem::transmute_copy(&rgcolumndescs), core::mem::transmute_copy(&cconstraintdescs), core::mem::transmute_copy(&rgconstraintdescs), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets), core::mem::transmute_copy(&pptableid), core::mem::transmute_copy(&pprowset))
             }
         }
         unsafe extern "system" fn DropConstraint<Identity: ITableDefinitionWithConstraints_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptableid: *const DBID, pconstraintid: *const DBID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITableDefinitionWithConstraints_Impl::DropConstraint(this, core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pconstraintid)).into()
+                ITableDefinitionWithConstraints_Impl::DropConstraint(this, core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pconstraintid))
             }
         }
         Self {
@@ -6086,7 +6086,7 @@ impl ITableDefinitionWithConstraints_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITableDefinitionWithConstraints as windows_core::Interface>::IID || iid == &<ITableDefinition as windows_core::Interface>::IID || iid == &<ITableCreation as windows_core::Interface>::IID
+        iid == &<ITableDefinitionWithConstraints as windows_core::Interface>::IID || ITableCreation_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6126,7 +6126,7 @@ pub struct ITransactionJoin_Vtbl {
 #[cfg(all(feature = "shared", feature = "transact"))]
 pub trait ITransactionJoin_Impl: windows_core::IUnknownImpl {
     fn GetOptionsObject(&self) -> windows_core::Result<super::ITransactionOptions>;
-    fn JoinTransaction(&self, punktransactioncoord: windows_core::Ref<windows_core::IUnknown>, isolevel: super::ISOLEVEL, isoflags: super::ULONG, potheroptions: windows_core::Ref<super::ITransactionOptions>) -> windows_core::Result<()>;
+    fn JoinTransaction(&self, punktransactioncoord: windows_core::Ref<windows_core::IUnknown>, isolevel: super::ISOLEVEL, isoflags: super::ULONG, potheroptions: windows_core::Ref<super::ITransactionOptions>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "transact"))]
 impl ITransactionJoin_Vtbl {
@@ -6149,7 +6149,7 @@ impl ITransactionJoin_Vtbl {
         unsafe extern "system" fn JoinTransaction<Identity: ITransactionJoin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punktransactioncoord: *mut core::ffi::c_void, isolevel: super::ISOLEVEL, isoflags: super::ULONG, potheroptions: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionJoin_Impl::JoinTransaction(this, core::mem::transmute_copy(&punktransactioncoord), core::mem::transmute_copy(&isolevel), core::mem::transmute_copy(&isoflags), core::mem::transmute_copy(&potheroptions)).into()
+                ITransactionJoin_Impl::JoinTransaction(this, core::mem::transmute_copy(&punktransactioncoord), core::mem::transmute_copy(&isolevel), core::mem::transmute_copy(&isoflags), core::mem::transmute_copy(&potheroptions))
             }
         }
         Self {
@@ -6205,7 +6205,7 @@ pub struct ITransactionLocal_Vtbl {
 #[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
 pub trait ITransactionLocal_Impl: super::ITransaction_Impl {
     fn GetOptionsObject(&self) -> windows_core::Result<super::ITransactionOptions>;
-    fn StartTransaction(&self, isolevel: super::ISOLEVEL, isoflags: super::ULONG, potheroptions: windows_core::Ref<super::ITransactionOptions>, pultransactionlevel: *mut super::ULONG) -> windows_core::Result<()>;
+    fn StartTransaction(&self, isolevel: super::ISOLEVEL, isoflags: super::ULONG, potheroptions: windows_core::Ref<super::ITransactionOptions>, pultransactionlevel: *mut super::ULONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
 impl ITransactionLocal_Vtbl {
@@ -6228,7 +6228,7 @@ impl ITransactionLocal_Vtbl {
         unsafe extern "system" fn StartTransaction<Identity: ITransactionLocal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isolevel: super::ISOLEVEL, isoflags: super::ULONG, potheroptions: *mut core::ffi::c_void, pultransactionlevel: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionLocal_Impl::StartTransaction(this, core::mem::transmute_copy(&isolevel), core::mem::transmute_copy(&isoflags), core::mem::transmute_copy(&potheroptions), core::mem::transmute_copy(&pultransactionlevel)).into()
+                ITransactionLocal_Impl::StartTransaction(this, core::mem::transmute_copy(&isolevel), core::mem::transmute_copy(&isoflags), core::mem::transmute_copy(&potheroptions), core::mem::transmute_copy(&pultransactionlevel))
             }
         }
         Self {
@@ -6238,7 +6238,7 @@ impl ITransactionLocal_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITransactionLocal as windows_core::Interface>::IID || iid == &<super::ITransaction as windows_core::Interface>::IID
+        iid == &<ITransactionLocal as windows_core::Interface>::IID || super::ITransaction_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
@@ -6344,11 +6344,11 @@ pub struct ITrusteeAdmin_Vtbl {
 }
 #[cfg(all(feature = "accctrl", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITrusteeAdmin_Impl: windows_core::IUnknownImpl {
-    fn CompareTrustees(&self, ptrustee1: *const super::TRUSTEE_W, ptrustee2: *const super::TRUSTEE_W) -> windows_core::Result<()>;
-    fn CreateTrustee(&self, ptrustee: *const super::TRUSTEE_W, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::Result<()>;
-    fn DeleteTrustee(&self, ptrustee: *const super::TRUSTEE_W) -> windows_core::Result<()>;
-    fn SetTrusteeProperties(&self, ptrustee: *const super::TRUSTEE_W, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::Result<()>;
-    fn GetTrusteeProperties(&self, ptrustee: *const super::TRUSTEE_W, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::Result<()>;
+    fn CompareTrustees(&self, ptrustee1: *const super::TRUSTEE_W, ptrustee2: *const super::TRUSTEE_W) -> windows_core::HRESULT;
+    fn CreateTrustee(&self, ptrustee: *const super::TRUSTEE_W, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT;
+    fn DeleteTrustee(&self, ptrustee: *const super::TRUSTEE_W) -> windows_core::HRESULT;
+    fn SetTrusteeProperties(&self, ptrustee: *const super::TRUSTEE_W, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT;
+    fn GetTrusteeProperties(&self, ptrustee: *const super::TRUSTEE_W, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "accctrl", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ITrusteeAdmin_Vtbl {
@@ -6356,31 +6356,31 @@ impl ITrusteeAdmin_Vtbl {
         unsafe extern "system" fn CompareTrustees<Identity: ITrusteeAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptrustee1: *const super::TRUSTEE_W, ptrustee2: *const super::TRUSTEE_W) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITrusteeAdmin_Impl::CompareTrustees(this, core::mem::transmute_copy(&ptrustee1), core::mem::transmute_copy(&ptrustee2)).into()
+                ITrusteeAdmin_Impl::CompareTrustees(this, core::mem::transmute_copy(&ptrustee1), core::mem::transmute_copy(&ptrustee2))
             }
         }
         unsafe extern "system" fn CreateTrustee<Identity: ITrusteeAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptrustee: *const super::TRUSTEE_W, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITrusteeAdmin_Impl::CreateTrustee(this, core::mem::transmute_copy(&ptrustee), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets)).into()
+                ITrusteeAdmin_Impl::CreateTrustee(this, core::mem::transmute_copy(&ptrustee), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets))
             }
         }
         unsafe extern "system" fn DeleteTrustee<Identity: ITrusteeAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptrustee: *const super::TRUSTEE_W) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITrusteeAdmin_Impl::DeleteTrustee(this, core::mem::transmute_copy(&ptrustee)).into()
+                ITrusteeAdmin_Impl::DeleteTrustee(this, core::mem::transmute_copy(&ptrustee))
             }
         }
         unsafe extern "system" fn SetTrusteeProperties<Identity: ITrusteeAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptrustee: *const super::TRUSTEE_W, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITrusteeAdmin_Impl::SetTrusteeProperties(this, core::mem::transmute_copy(&ptrustee), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets)).into()
+                ITrusteeAdmin_Impl::SetTrusteeProperties(this, core::mem::transmute_copy(&ptrustee), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets))
             }
         }
         unsafe extern "system" fn GetTrusteeProperties<Identity: ITrusteeAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptrustee: *const super::TRUSTEE_W, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITrusteeAdmin_Impl::GetTrusteeProperties(this, core::mem::transmute_copy(&ptrustee), core::mem::transmute_copy(&cpropertyidsets), core::mem::transmute_copy(&rgpropertyidsets), core::mem::transmute_copy(&pcpropertysets), core::mem::transmute_copy(&prgpropertysets)).into()
+                ITrusteeAdmin_Impl::GetTrusteeProperties(this, core::mem::transmute_copy(&ptrustee), core::mem::transmute_copy(&cpropertyidsets), core::mem::transmute_copy(&rgpropertyidsets), core::mem::transmute_copy(&pcpropertysets), core::mem::transmute_copy(&prgpropertysets))
             }
         }
         Self {
@@ -6449,11 +6449,11 @@ pub struct ITrusteeGroupAdmin_Vtbl {
 }
 #[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt"))]
 pub trait ITrusteeGroupAdmin_Impl: windows_core::IUnknownImpl {
-    fn AddMember(&self, pmembershiptrustee: *const super::TRUSTEE_W, pmembertrustee: *const super::TRUSTEE_W) -> windows_core::Result<()>;
-    fn DeleteMember(&self, pmembershiptrustee: *const super::TRUSTEE_W, pmembertrustee: *const super::TRUSTEE_W) -> windows_core::Result<()>;
-    fn IsMember(&self, pmembershiptrustee: *const super::TRUSTEE_W, pmembertrustee: *const super::TRUSTEE_W, pfstatus: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetMembers(&self, pmembershiptrustee: *const super::TRUSTEE_W, pcmembers: *mut super::ULONG, prgmembers: *mut *mut super::TRUSTEE_W) -> windows_core::Result<()>;
-    fn GetMemberships(&self, ptrustee: *const super::TRUSTEE_W, pcmemberships: *mut super::ULONG, prgmemberships: *mut *mut super::TRUSTEE_W) -> windows_core::Result<()>;
+    fn AddMember(&self, pmembershiptrustee: *const super::TRUSTEE_W, pmembertrustee: *const super::TRUSTEE_W) -> windows_core::HRESULT;
+    fn DeleteMember(&self, pmembershiptrustee: *const super::TRUSTEE_W, pmembertrustee: *const super::TRUSTEE_W) -> windows_core::HRESULT;
+    fn IsMember(&self, pmembershiptrustee: *const super::TRUSTEE_W, pmembertrustee: *const super::TRUSTEE_W, pfstatus: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn GetMembers(&self, pmembershiptrustee: *const super::TRUSTEE_W, pcmembers: *mut super::ULONG, prgmembers: *mut *mut super::TRUSTEE_W) -> windows_core::HRESULT;
+    fn GetMemberships(&self, ptrustee: *const super::TRUSTEE_W, pcmemberships: *mut super::ULONG, prgmemberships: *mut *mut super::TRUSTEE_W) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt"))]
 impl ITrusteeGroupAdmin_Vtbl {
@@ -6461,31 +6461,31 @@ impl ITrusteeGroupAdmin_Vtbl {
         unsafe extern "system" fn AddMember<Identity: ITrusteeGroupAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmembershiptrustee: *const super::TRUSTEE_W, pmembertrustee: *const super::TRUSTEE_W) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITrusteeGroupAdmin_Impl::AddMember(this, core::mem::transmute_copy(&pmembershiptrustee), core::mem::transmute_copy(&pmembertrustee)).into()
+                ITrusteeGroupAdmin_Impl::AddMember(this, core::mem::transmute_copy(&pmembershiptrustee), core::mem::transmute_copy(&pmembertrustee))
             }
         }
         unsafe extern "system" fn DeleteMember<Identity: ITrusteeGroupAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmembershiptrustee: *const super::TRUSTEE_W, pmembertrustee: *const super::TRUSTEE_W) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITrusteeGroupAdmin_Impl::DeleteMember(this, core::mem::transmute_copy(&pmembershiptrustee), core::mem::transmute_copy(&pmembertrustee)).into()
+                ITrusteeGroupAdmin_Impl::DeleteMember(this, core::mem::transmute_copy(&pmembershiptrustee), core::mem::transmute_copy(&pmembertrustee))
             }
         }
         unsafe extern "system" fn IsMember<Identity: ITrusteeGroupAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmembershiptrustee: *const super::TRUSTEE_W, pmembertrustee: *const super::TRUSTEE_W, pfstatus: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITrusteeGroupAdmin_Impl::IsMember(this, core::mem::transmute_copy(&pmembershiptrustee), core::mem::transmute_copy(&pmembertrustee), core::mem::transmute_copy(&pfstatus)).into()
+                ITrusteeGroupAdmin_Impl::IsMember(this, core::mem::transmute_copy(&pmembershiptrustee), core::mem::transmute_copy(&pmembertrustee), core::mem::transmute_copy(&pfstatus))
             }
         }
         unsafe extern "system" fn GetMembers<Identity: ITrusteeGroupAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmembershiptrustee: *const super::TRUSTEE_W, pcmembers: *mut super::ULONG, prgmembers: *mut *mut super::TRUSTEE_W) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITrusteeGroupAdmin_Impl::GetMembers(this, core::mem::transmute_copy(&pmembershiptrustee), core::mem::transmute_copy(&pcmembers), core::mem::transmute_copy(&prgmembers)).into()
+                ITrusteeGroupAdmin_Impl::GetMembers(this, core::mem::transmute_copy(&pmembershiptrustee), core::mem::transmute_copy(&pcmembers), core::mem::transmute_copy(&prgmembers))
             }
         }
         unsafe extern "system" fn GetMemberships<Identity: ITrusteeGroupAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptrustee: *const super::TRUSTEE_W, pcmemberships: *mut super::ULONG, prgmemberships: *mut *mut super::TRUSTEE_W) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITrusteeGroupAdmin_Impl::GetMemberships(this, core::mem::transmute_copy(&ptrustee), core::mem::transmute_copy(&pcmemberships), core::mem::transmute_copy(&prgmemberships)).into()
+                ITrusteeGroupAdmin_Impl::GetMemberships(this, core::mem::transmute_copy(&ptrustee), core::mem::transmute_copy(&pcmemberships), core::mem::transmute_copy(&prgmemberships))
             }
         }
         Self {
@@ -6526,8 +6526,8 @@ pub struct IViewChapter_Vtbl {
 }
 #[cfg(feature = "guiddef")]
 pub trait IViewChapter_Impl: windows_core::IUnknownImpl {
-    fn GetSpecification(&self, riid: *const super::IID, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn OpenViewChapter(&self, hsource: HCHAPTER, phviewchapter: *mut HCHAPTER) -> windows_core::Result<()>;
+    fn GetSpecification(&self, riid: *const super::IID, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn OpenViewChapter(&self, hsource: HCHAPTER, phviewchapter: *mut HCHAPTER) -> windows_core::HRESULT;
 }
 #[cfg(feature = "guiddef")]
 impl IViewChapter_Vtbl {
@@ -6535,13 +6535,13 @@ impl IViewChapter_Vtbl {
         unsafe extern "system" fn GetSpecification<Identity: IViewChapter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IViewChapter_Impl::GetSpecification(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pprowset)).into()
+                IViewChapter_Impl::GetSpecification(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pprowset))
             }
         }
         unsafe extern "system" fn OpenViewChapter<Identity: IViewChapter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hsource: HCHAPTER, phviewchapter: *mut HCHAPTER) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IViewChapter_Impl::OpenViewChapter(this, core::mem::transmute_copy(&hsource), core::mem::transmute_copy(&phviewchapter)).into()
+                IViewChapter_Impl::OpenViewChapter(this, core::mem::transmute_copy(&hsource), core::mem::transmute_copy(&phviewchapter))
             }
         }
         Self {
@@ -6583,9 +6583,9 @@ pub struct IViewFilter_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "oaidl", feature = "shared"))]
 pub trait IViewFilter_Impl: windows_core::IUnknownImpl {
-    fn GetFilter(&self, haccessor: HACCESSOR, pcrows: *mut DBCOUNTITEM, pcompareops: *mut *mut DBCOMPAREOP, pcriteriadata: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetFilterBindings(&self, pcbindings: *mut DBCOUNTITEM, prgbindings: *mut *mut DBBINDING) -> windows_core::Result<()>;
-    fn SetFilter(&self, haccessor: HACCESSOR, crows: DBCOUNTITEM, compareops: *const DBCOMPAREOP, pcriteriadata: *const core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetFilter(&self, haccessor: HACCESSOR, pcrows: *mut DBCOUNTITEM, pcompareops: *mut *mut DBCOMPAREOP, pcriteriadata: *mut core::ffi::c_void) -> windows_core::HRESULT;
+    fn GetFilterBindings(&self, pcbindings: *mut DBCOUNTITEM, prgbindings: *mut *mut DBBINDING) -> windows_core::HRESULT;
+    fn SetFilter(&self, haccessor: HACCESSOR, crows: DBCOUNTITEM, compareops: *const DBCOMPAREOP, pcriteriadata: *const core::ffi::c_void) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "oaidl", feature = "shared"))]
 impl IViewFilter_Vtbl {
@@ -6593,19 +6593,19 @@ impl IViewFilter_Vtbl {
         unsafe extern "system" fn GetFilter<Identity: IViewFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, haccessor: HACCESSOR, pcrows: *mut DBCOUNTITEM, pcompareops: *mut *mut DBCOMPAREOP, pcriteriadata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IViewFilter_Impl::GetFilter(this, core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&pcrows), core::mem::transmute_copy(&pcompareops), core::mem::transmute_copy(&pcriteriadata)).into()
+                IViewFilter_Impl::GetFilter(this, core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&pcrows), core::mem::transmute_copy(&pcompareops), core::mem::transmute_copy(&pcriteriadata))
             }
         }
         unsafe extern "system" fn GetFilterBindings<Identity: IViewFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbindings: *mut DBCOUNTITEM, prgbindings: *mut *mut DBBINDING) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IViewFilter_Impl::GetFilterBindings(this, core::mem::transmute_copy(&pcbindings), core::mem::transmute_copy(&prgbindings)).into()
+                IViewFilter_Impl::GetFilterBindings(this, core::mem::transmute_copy(&pcbindings), core::mem::transmute_copy(&prgbindings))
             }
         }
         unsafe extern "system" fn SetFilter<Identity: IViewFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, haccessor: HACCESSOR, crows: DBCOUNTITEM, compareops: *const DBCOMPAREOP, pcriteriadata: *const core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IViewFilter_Impl::SetFilter(this, core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&compareops), core::mem::transmute_copy(&pcriteriadata)).into()
+                IViewFilter_Impl::SetFilter(this, core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&compareops), core::mem::transmute_copy(&pcriteriadata))
             }
         }
         Self {
@@ -6651,8 +6651,8 @@ pub struct IViewRowset_Vtbl {
 }
 #[cfg(feature = "guiddef")]
 pub trait IViewRowset_Impl: windows_core::IUnknownImpl {
-    fn GetSpecification(&self, riid: *const super::IID, ppobject: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn OpenViewRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const super::IID, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetSpecification(&self, riid: *const super::IID, ppobject: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn OpenViewRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const super::IID, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "guiddef")]
 impl IViewRowset_Vtbl {
@@ -6660,13 +6660,13 @@ impl IViewRowset_Vtbl {
         unsafe extern "system" fn GetSpecification<Identity: IViewRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, ppobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IViewRowset_Impl::GetSpecification(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppobject)).into()
+                IViewRowset_Impl::GetSpecification(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppobject))
             }
         }
         unsafe extern "system" fn OpenViewRowset<Identity: IViewRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, riid: *const super::IID, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IViewRowset_Impl::OpenViewRowset(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pprowset)).into()
+                IViewRowset_Impl::OpenViewRowset(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pprowset))
             }
         }
         Self {
@@ -6699,21 +6699,21 @@ pub struct IViewSort_Vtbl {
     pub SetSortOrder: unsafe extern "system" fn(*mut core::ffi::c_void, DBORDINAL, *const DBORDINAL, *const DBSORT) -> windows_core::HRESULT,
 }
 pub trait IViewSort_Impl: windows_core::IUnknownImpl {
-    fn GetSortOrder(&self, pcvalues: *mut DBORDINAL, prgcolumns: *mut *mut DBORDINAL, prgorders: *mut *mut DBSORT) -> windows_core::Result<()>;
-    fn SetSortOrder(&self, cvalues: DBORDINAL, rgcolumns: *const DBORDINAL, rgorders: *const DBSORT) -> windows_core::Result<()>;
+    fn GetSortOrder(&self, pcvalues: *mut DBORDINAL, prgcolumns: *mut *mut DBORDINAL, prgorders: *mut *mut DBSORT) -> windows_core::HRESULT;
+    fn SetSortOrder(&self, cvalues: DBORDINAL, rgcolumns: *const DBORDINAL, rgorders: *const DBSORT) -> windows_core::HRESULT;
 }
 impl IViewSort_Vtbl {
     pub const fn new<Identity: IViewSort_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSortOrder<Identity: IViewSort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcvalues: *mut DBORDINAL, prgcolumns: *mut *mut DBORDINAL, prgorders: *mut *mut DBSORT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IViewSort_Impl::GetSortOrder(this, core::mem::transmute_copy(&pcvalues), core::mem::transmute_copy(&prgcolumns), core::mem::transmute_copy(&prgorders)).into()
+                IViewSort_Impl::GetSortOrder(this, core::mem::transmute_copy(&pcvalues), core::mem::transmute_copy(&prgcolumns), core::mem::transmute_copy(&prgorders))
             }
         }
         unsafe extern "system" fn SetSortOrder<Identity: IViewSort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cvalues: DBORDINAL, rgcolumns: *const DBORDINAL, rgorders: *const DBSORT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IViewSort_Impl::SetSortOrder(this, core::mem::transmute_copy(&cvalues), core::mem::transmute_copy(&rgcolumns), core::mem::transmute_copy(&rgorders)).into()
+                IViewSort_Impl::SetSortOrder(this, core::mem::transmute_copy(&cvalues), core::mem::transmute_copy(&rgcolumns), core::mem::transmute_copy(&rgorders))
             }
         }
         Self {

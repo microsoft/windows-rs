@@ -1127,6 +1127,8 @@ pub const PKEY_Devices_TextMessages: super::PROPERTYKEY = super::PROPERTYKEY { f
 #[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Devices_Voicemail: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x49cd1f76_5626_4b17_a4e8_18b4aa1a2213), pid: 6 };
 #[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_Devices_WiFiAware_IsSupported: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x9d2e9e67_70d4_4d1a_aefd_113cf6a7dfca), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Devices_WiFiDirectServices_AdvertisementId: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9), pid: 5 };
 #[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Devices_WiFiDirectServices_RequestServiceInformation: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9), pid: 7 };

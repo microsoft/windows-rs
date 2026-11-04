@@ -18,9 +18,9 @@ impl IClassFactory_Impl for Factory_Impl {
         }
     }
 
-    fn LockServer(&self, lock: BOOL) -> Result<()> {
+    fn LockServer(&self, lock: BOOL) -> HRESULT {
         assert!(lock.as_bool());
-        Ok(())
+        S_OK
     }
 }
 

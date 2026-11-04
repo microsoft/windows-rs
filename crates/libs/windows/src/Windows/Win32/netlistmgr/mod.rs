@@ -55,9 +55,9 @@ pub struct IEnumNetworkConnections_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IEnumNetworkConnections_Impl: super::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<super::IEnumVARIANT>;
-    fn Next(&self, celt: super::ULONG, rgelt: *mut Option<INetworkConnection>, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
-    fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
+    fn Next(&self, celt: super::ULONG, rgelt: *mut Option<INetworkConnection>, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT;
+    fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT;
+    fn Reset(&self) -> windows_core::HRESULT;
     fn Clone(&self) -> windows_core::Result<IEnumNetworkConnections>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -81,19 +81,19 @@ impl IEnumNetworkConnections_Vtbl {
         unsafe extern "system" fn Next<Identity: IEnumNetworkConnections_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG, rgelt: *mut *mut core::ffi::c_void, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumNetworkConnections_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
+                IEnumNetworkConnections_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched))
             }
         }
         unsafe extern "system" fn Skip<Identity: IEnumNetworkConnections_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumNetworkConnections_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+                IEnumNetworkConnections_Impl::Skip(this, core::mem::transmute_copy(&celt))
             }
         }
         unsafe extern "system" fn Reset<Identity: IEnumNetworkConnections_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumNetworkConnections_Impl::Reset(this).into()
+                IEnumNetworkConnections_Impl::Reset(this)
             }
         }
         unsafe extern "system" fn Clone<Identity: IEnumNetworkConnections_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumnetwork: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -121,7 +121,7 @@ impl IEnumNetworkConnections_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IEnumNetworkConnections as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IEnumNetworkConnections as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -183,9 +183,9 @@ pub struct IEnumNetworks_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IEnumNetworks_Impl: super::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<super::IEnumVARIANT>;
-    fn Next(&self, celt: super::ULONG, rgelt: *mut Option<INetwork>, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
-    fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
+    fn Next(&self, celt: super::ULONG, rgelt: *mut Option<INetwork>, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT;
+    fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT;
+    fn Reset(&self) -> windows_core::HRESULT;
     fn Clone(&self) -> windows_core::Result<IEnumNetworks>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -209,19 +209,19 @@ impl IEnumNetworks_Vtbl {
         unsafe extern "system" fn Next<Identity: IEnumNetworks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG, rgelt: *mut *mut core::ffi::c_void, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumNetworks_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
+                IEnumNetworks_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched))
             }
         }
         unsafe extern "system" fn Skip<Identity: IEnumNetworks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumNetworks_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+                IEnumNetworks_Impl::Skip(this, core::mem::transmute_copy(&celt))
             }
         }
         unsafe extern "system" fn Reset<Identity: IEnumNetworks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumNetworks_Impl::Reset(this).into()
+                IEnumNetworks_Impl::Reset(this)
             }
         }
         unsafe extern "system" fn Clone<Identity: IEnumNetworks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumnetwork: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -249,7 +249,7 @@ impl IEnumNetworks_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IEnumNetworks as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IEnumNetworks as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -361,19 +361,19 @@ pub struct INetwork_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait INetwork_Impl: super::IDispatch_Impl {
-    fn GetName(&self, psznetworkname: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetName(&self, sznetworknewname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetDescription(&self, pszdescription: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetDescription(&self, szdescription: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn GetName(&self, psznetworkname: *mut windows_core::BSTR) -> windows_core::HRESULT;
+    fn SetName(&self, sznetworknewname: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn GetDescription(&self, pszdescription: *mut windows_core::BSTR) -> windows_core::HRESULT;
+    fn SetDescription(&self, szdescription: &windows_core::BSTR) -> windows_core::HRESULT;
     fn GetNetworkId(&self) -> windows_core::Result<windows_core::GUID>;
     fn GetDomainType(&self) -> windows_core::Result<NLM_DOMAIN_TYPE>;
     fn GetNetworkConnections(&self) -> windows_core::Result<IEnumNetworkConnections>;
-    fn GetTimeCreatedAndConnected(&self, pdwlowdatetimecreated: *mut super::DWORD, pdwhighdatetimecreated: *mut super::DWORD, pdwlowdatetimeconnected: *mut super::DWORD, pdwhighdatetimeconnected: *mut super::DWORD) -> windows_core::Result<()>;
+    fn GetTimeCreatedAndConnected(&self, pdwlowdatetimecreated: *mut super::DWORD, pdwhighdatetimecreated: *mut super::DWORD, pdwlowdatetimeconnected: *mut super::DWORD, pdwhighdatetimeconnected: *mut super::DWORD) -> windows_core::HRESULT;
     fn IsConnectedToInternet(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn IsConnected(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn GetConnectivity(&self) -> windows_core::Result<NLM_CONNECTIVITY>;
     fn GetCategory(&self) -> windows_core::Result<NLM_NETWORK_CATEGORY>;
-    fn SetCategory(&self, newcategory: NLM_NETWORK_CATEGORY) -> windows_core::Result<()>;
+    fn SetCategory(&self, newcategory: NLM_NETWORK_CATEGORY) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl INetwork_Vtbl {
@@ -381,25 +381,25 @@ impl INetwork_Vtbl {
         unsafe extern "system" fn GetName<Identity: INetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psznetworkname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetwork_Impl::GetName(this, core::mem::transmute_copy(&psznetworkname)).into()
+                INetwork_Impl::GetName(this, core::mem::transmute_copy(&psznetworkname))
             }
         }
         unsafe extern "system" fn SetName<Identity: INetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sznetworknewname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetwork_Impl::SetName(this, core::mem::transmute(&sznetworknewname)).into()
+                INetwork_Impl::SetName(this, core::mem::transmute(&sznetworknewname))
             }
         }
         unsafe extern "system" fn GetDescription<Identity: INetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszdescription: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetwork_Impl::GetDescription(this, core::mem::transmute_copy(&pszdescription)).into()
+                INetwork_Impl::GetDescription(this, core::mem::transmute_copy(&pszdescription))
             }
         }
         unsafe extern "system" fn SetDescription<Identity: INetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szdescription: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetwork_Impl::SetDescription(this, core::mem::transmute(&szdescription)).into()
+                INetwork_Impl::SetDescription(this, core::mem::transmute(&szdescription))
             }
         }
         unsafe extern "system" fn GetNetworkId<Identity: INetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pgdguidnetworkid: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -450,7 +450,7 @@ impl INetwork_Vtbl {
         unsafe extern "system" fn GetTimeCreatedAndConnected<Identity: INetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwlowdatetimecreated: *mut super::DWORD, pdwhighdatetimecreated: *mut super::DWORD, pdwlowdatetimeconnected: *mut super::DWORD, pdwhighdatetimeconnected: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetwork_Impl::GetTimeCreatedAndConnected(this, core::mem::transmute_copy(&pdwlowdatetimecreated), core::mem::transmute_copy(&pdwhighdatetimecreated), core::mem::transmute_copy(&pdwlowdatetimeconnected), core::mem::transmute_copy(&pdwhighdatetimeconnected)).into()
+                INetwork_Impl::GetTimeCreatedAndConnected(this, core::mem::transmute_copy(&pdwlowdatetimecreated), core::mem::transmute_copy(&pdwhighdatetimecreated), core::mem::transmute_copy(&pdwlowdatetimeconnected), core::mem::transmute_copy(&pdwhighdatetimeconnected))
             }
         }
         unsafe extern "system" fn IsConnectedToInternet<Identity: INetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbisconnected: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -516,7 +516,7 @@ impl INetwork_Vtbl {
         unsafe extern "system" fn SetCategory<Identity: INetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newcategory: NLM_NETWORK_CATEGORY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetwork_Impl::SetCategory(this, core::mem::transmute_copy(&newcategory)).into()
+                INetwork_Impl::SetCategory(this, core::mem::transmute_copy(&newcategory))
             }
         }
         Self {
@@ -537,7 +537,7 @@ impl INetwork_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetwork as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetwork as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -594,7 +594,7 @@ impl INetwork2_Vtbl {
         Self { base__: INetwork_Vtbl::new::<Identity, OFFSET>(), IsDomainAuthenticatedBy: IsDomainAuthenticatedBy::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetwork2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<INetwork as windows_core::Interface>::IID
+        iid == &<INetwork2 as windows_core::Interface>::IID || INetwork_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -806,7 +806,7 @@ impl INetworkConnection_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetworkConnection as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetworkConnection as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -863,7 +863,7 @@ impl INetworkConnection2_Vtbl {
         Self { base__: INetworkConnection_Vtbl::new::<Identity, OFFSET>(), IsDomainAuthenticatedBy: IsDomainAuthenticatedBy::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetworkConnection2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<INetworkConnection as windows_core::Interface>::IID
+        iid == &<INetworkConnection2 as windows_core::Interface>::IID || INetworkConnection_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -895,8 +895,8 @@ pub struct INetworkConnectionCost_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 pub trait INetworkConnectionCost_Impl: windows_core::IUnknownImpl {
-    fn GetCost(&self, pcost: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetDataPlanStatus(&self, pdataplanstatus: *mut NLM_DATAPLAN_STATUS) -> windows_core::Result<()>;
+    fn GetCost(&self, pcost: *mut super::DWORD) -> windows_core::HRESULT;
+    fn GetDataPlanStatus(&self, pdataplanstatus: *mut NLM_DATAPLAN_STATUS) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 impl INetworkConnectionCost_Vtbl {
@@ -904,13 +904,13 @@ impl INetworkConnectionCost_Vtbl {
         unsafe extern "system" fn GetCost<Identity: INetworkConnectionCost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcost: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetworkConnectionCost_Impl::GetCost(this, core::mem::transmute_copy(&pcost)).into()
+                INetworkConnectionCost_Impl::GetCost(this, core::mem::transmute_copy(&pcost))
             }
         }
         unsafe extern "system" fn GetDataPlanStatus<Identity: INetworkConnectionCost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdataplanstatus: *mut NLM_DATAPLAN_STATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetworkConnectionCost_Impl::GetDataPlanStatus(this, core::mem::transmute_copy(&pdataplanstatus)).into()
+                INetworkConnectionCost_Impl::GetDataPlanStatus(this, core::mem::transmute_copy(&pdataplanstatus))
             }
         }
         Self {
@@ -948,8 +948,8 @@ pub struct INetworkConnectionCostEvents_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait INetworkConnectionCostEvents_Impl: windows_core::IUnknownImpl {
-    fn ConnectionCostChanged(&self, connectionid: &windows_core::GUID, newcost: super::DWORD) -> windows_core::Result<()>;
-    fn ConnectionDataPlanStatusChanged(&self, connectionid: &windows_core::GUID) -> windows_core::Result<()>;
+    fn ConnectionCostChanged(&self, connectionid: &windows_core::GUID, newcost: super::DWORD) -> windows_core::HRESULT;
+    fn ConnectionDataPlanStatusChanged(&self, connectionid: &windows_core::GUID) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl INetworkConnectionCostEvents_Vtbl {
@@ -957,13 +957,13 @@ impl INetworkConnectionCostEvents_Vtbl {
         unsafe extern "system" fn ConnectionCostChanged<Identity: INetworkConnectionCostEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, connectionid: windows_core::GUID, newcost: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetworkConnectionCostEvents_Impl::ConnectionCostChanged(this, core::mem::transmute(&connectionid), core::mem::transmute_copy(&newcost)).into()
+                INetworkConnectionCostEvents_Impl::ConnectionCostChanged(this, core::mem::transmute(&connectionid), core::mem::transmute_copy(&newcost))
             }
         }
         unsafe extern "system" fn ConnectionDataPlanStatusChanged<Identity: INetworkConnectionCostEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, connectionid: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetworkConnectionCostEvents_Impl::ConnectionDataPlanStatusChanged(this, core::mem::transmute(&connectionid)).into()
+                INetworkConnectionCostEvents_Impl::ConnectionDataPlanStatusChanged(this, core::mem::transmute(&connectionid))
             }
         }
         Self {
@@ -996,21 +996,21 @@ pub struct INetworkConnectionEvents_Vtbl {
     pub NetworkConnectionPropertyChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, NLM_CONNECTION_PROPERTY_CHANGE) -> windows_core::HRESULT,
 }
 pub trait INetworkConnectionEvents_Impl: windows_core::IUnknownImpl {
-    fn NetworkConnectionConnectivityChanged(&self, connectionid: &windows_core::GUID, newconnectivity: NLM_CONNECTIVITY) -> windows_core::Result<()>;
-    fn NetworkConnectionPropertyChanged(&self, connectionid: &windows_core::GUID, flags: NLM_CONNECTION_PROPERTY_CHANGE) -> windows_core::Result<()>;
+    fn NetworkConnectionConnectivityChanged(&self, connectionid: &windows_core::GUID, newconnectivity: NLM_CONNECTIVITY) -> windows_core::HRESULT;
+    fn NetworkConnectionPropertyChanged(&self, connectionid: &windows_core::GUID, flags: NLM_CONNECTION_PROPERTY_CHANGE) -> windows_core::HRESULT;
 }
 impl INetworkConnectionEvents_Vtbl {
     pub const fn new<Identity: INetworkConnectionEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn NetworkConnectionConnectivityChanged<Identity: INetworkConnectionEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, connectionid: windows_core::GUID, newconnectivity: NLM_CONNECTIVITY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetworkConnectionEvents_Impl::NetworkConnectionConnectivityChanged(this, core::mem::transmute(&connectionid), core::mem::transmute_copy(&newconnectivity)).into()
+                INetworkConnectionEvents_Impl::NetworkConnectionConnectivityChanged(this, core::mem::transmute(&connectionid), core::mem::transmute_copy(&newconnectivity))
             }
         }
         unsafe extern "system" fn NetworkConnectionPropertyChanged<Identity: INetworkConnectionEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, connectionid: windows_core::GUID, flags: NLM_CONNECTION_PROPERTY_CHANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetworkConnectionEvents_Impl::NetworkConnectionPropertyChanged(this, core::mem::transmute(&connectionid), core::mem::transmute_copy(&flags)).into()
+                INetworkConnectionEvents_Impl::NetworkConnectionPropertyChanged(this, core::mem::transmute(&connectionid), core::mem::transmute_copy(&flags))
             }
         }
         Self {
@@ -1059,9 +1059,9 @@ pub struct INetworkCostManager_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "wtypes"))]
 pub trait INetworkCostManager_Impl: windows_core::IUnknownImpl {
-    fn GetCost(&self, pcost: *mut super::DWORD, pdestipaddr: *const NLM_SOCKADDR) -> windows_core::Result<()>;
-    fn GetDataPlanStatus(&self, pdataplanstatus: *mut NLM_DATAPLAN_STATUS, pdestipaddr: *const NLM_SOCKADDR) -> windows_core::Result<()>;
-    fn SetDestinationAddresses(&self, length: super::UINT32, pdestipaddrlist: *const NLM_SOCKADDR, bappend: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn GetCost(&self, pcost: *mut super::DWORD, pdestipaddr: *const NLM_SOCKADDR) -> windows_core::HRESULT;
+    fn GetDataPlanStatus(&self, pdataplanstatus: *mut NLM_DATAPLAN_STATUS, pdestipaddr: *const NLM_SOCKADDR) -> windows_core::HRESULT;
+    fn SetDestinationAddresses(&self, length: super::UINT32, pdestipaddrlist: *const NLM_SOCKADDR, bappend: super::VARIANT_BOOL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "wtypes"))]
 impl INetworkCostManager_Vtbl {
@@ -1069,19 +1069,19 @@ impl INetworkCostManager_Vtbl {
         unsafe extern "system" fn GetCost<Identity: INetworkCostManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcost: *mut super::DWORD, pdestipaddr: *const NLM_SOCKADDR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetworkCostManager_Impl::GetCost(this, core::mem::transmute_copy(&pcost), core::mem::transmute_copy(&pdestipaddr)).into()
+                INetworkCostManager_Impl::GetCost(this, core::mem::transmute_copy(&pcost), core::mem::transmute_copy(&pdestipaddr))
             }
         }
         unsafe extern "system" fn GetDataPlanStatus<Identity: INetworkCostManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdataplanstatus: *mut NLM_DATAPLAN_STATUS, pdestipaddr: *const NLM_SOCKADDR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetworkCostManager_Impl::GetDataPlanStatus(this, core::mem::transmute_copy(&pdataplanstatus), core::mem::transmute_copy(&pdestipaddr)).into()
+                INetworkCostManager_Impl::GetDataPlanStatus(this, core::mem::transmute_copy(&pdataplanstatus), core::mem::transmute_copy(&pdestipaddr))
             }
         }
         unsafe extern "system" fn SetDestinationAddresses<Identity: INetworkCostManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: super::UINT32, pdestipaddrlist: *const NLM_SOCKADDR, bappend: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetworkCostManager_Impl::SetDestinationAddresses(this, core::mem::transmute_copy(&length), core::mem::transmute_copy(&pdestipaddrlist), core::mem::transmute_copy(&bappend)).into()
+                INetworkCostManager_Impl::SetDestinationAddresses(this, core::mem::transmute_copy(&length), core::mem::transmute_copy(&pdestipaddrlist), core::mem::transmute_copy(&bappend))
             }
         }
         Self {
@@ -1124,8 +1124,8 @@ pub struct INetworkCostManagerEvents_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait INetworkCostManagerEvents_Impl: windows_core::IUnknownImpl {
-    fn CostChanged(&self, newcost: super::DWORD, pdestaddr: *const NLM_SOCKADDR) -> windows_core::Result<()>;
-    fn DataPlanStatusChanged(&self, pdestaddr: *const NLM_SOCKADDR) -> windows_core::Result<()>;
+    fn CostChanged(&self, newcost: super::DWORD, pdestaddr: *const NLM_SOCKADDR) -> windows_core::HRESULT;
+    fn DataPlanStatusChanged(&self, pdestaddr: *const NLM_SOCKADDR) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl INetworkCostManagerEvents_Vtbl {
@@ -1133,13 +1133,13 @@ impl INetworkCostManagerEvents_Vtbl {
         unsafe extern "system" fn CostChanged<Identity: INetworkCostManagerEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newcost: super::DWORD, pdestaddr: *const NLM_SOCKADDR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetworkCostManagerEvents_Impl::CostChanged(this, core::mem::transmute_copy(&newcost), core::mem::transmute_copy(&pdestaddr)).into()
+                INetworkCostManagerEvents_Impl::CostChanged(this, core::mem::transmute_copy(&newcost), core::mem::transmute_copy(&pdestaddr))
             }
         }
         unsafe extern "system" fn DataPlanStatusChanged<Identity: INetworkCostManagerEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdestaddr: *const NLM_SOCKADDR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetworkCostManagerEvents_Impl::DataPlanStatusChanged(this, core::mem::transmute_copy(&pdestaddr)).into()
+                INetworkCostManagerEvents_Impl::DataPlanStatusChanged(this, core::mem::transmute_copy(&pdestaddr))
             }
         }
         Self {
@@ -1180,35 +1180,35 @@ pub struct INetworkEvents_Vtbl {
     pub NetworkPropertyChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, NLM_NETWORK_PROPERTY_CHANGE) -> windows_core::HRESULT,
 }
 pub trait INetworkEvents_Impl: windows_core::IUnknownImpl {
-    fn NetworkAdded(&self, networkid: &windows_core::GUID) -> windows_core::Result<()>;
-    fn NetworkDeleted(&self, networkid: &windows_core::GUID) -> windows_core::Result<()>;
-    fn NetworkConnectivityChanged(&self, networkid: &windows_core::GUID, newconnectivity: NLM_CONNECTIVITY) -> windows_core::Result<()>;
-    fn NetworkPropertyChanged(&self, networkid: &windows_core::GUID, flags: NLM_NETWORK_PROPERTY_CHANGE) -> windows_core::Result<()>;
+    fn NetworkAdded(&self, networkid: &windows_core::GUID) -> windows_core::HRESULT;
+    fn NetworkDeleted(&self, networkid: &windows_core::GUID) -> windows_core::HRESULT;
+    fn NetworkConnectivityChanged(&self, networkid: &windows_core::GUID, newconnectivity: NLM_CONNECTIVITY) -> windows_core::HRESULT;
+    fn NetworkPropertyChanged(&self, networkid: &windows_core::GUID, flags: NLM_NETWORK_PROPERTY_CHANGE) -> windows_core::HRESULT;
 }
 impl INetworkEvents_Vtbl {
     pub const fn new<Identity: INetworkEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn NetworkAdded<Identity: INetworkEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, networkid: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetworkEvents_Impl::NetworkAdded(this, core::mem::transmute(&networkid)).into()
+                INetworkEvents_Impl::NetworkAdded(this, core::mem::transmute(&networkid))
             }
         }
         unsafe extern "system" fn NetworkDeleted<Identity: INetworkEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, networkid: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetworkEvents_Impl::NetworkDeleted(this, core::mem::transmute(&networkid)).into()
+                INetworkEvents_Impl::NetworkDeleted(this, core::mem::transmute(&networkid))
             }
         }
         unsafe extern "system" fn NetworkConnectivityChanged<Identity: INetworkEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, networkid: windows_core::GUID, newconnectivity: NLM_CONNECTIVITY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetworkEvents_Impl::NetworkConnectivityChanged(this, core::mem::transmute(&networkid), core::mem::transmute_copy(&newconnectivity)).into()
+                INetworkEvents_Impl::NetworkConnectivityChanged(this, core::mem::transmute(&networkid), core::mem::transmute_copy(&newconnectivity))
             }
         }
         unsafe extern "system" fn NetworkPropertyChanged<Identity: INetworkEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, networkid: windows_core::GUID, flags: NLM_NETWORK_PROPERTY_CHANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetworkEvents_Impl::NetworkPropertyChanged(this, core::mem::transmute(&networkid), core::mem::transmute_copy(&flags)).into()
+                INetworkEvents_Impl::NetworkPropertyChanged(this, core::mem::transmute(&networkid), core::mem::transmute_copy(&flags))
             }
         }
         Self {
@@ -1322,8 +1322,8 @@ pub trait INetworkListManager_Impl: super::IDispatch_Impl {
     fn IsConnectedToInternet(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn IsConnected(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn GetConnectivity(&self) -> windows_core::Result<NLM_CONNECTIVITY>;
-    fn SetSimulatedProfileInfo(&self, psimulatedinfo: *const NLM_SIMULATED_PROFILE_INFO) -> windows_core::Result<()>;
-    fn ClearSimulatedProfileInfo(&self) -> windows_core::Result<()>;
+    fn SetSimulatedProfileInfo(&self, psimulatedinfo: *const NLM_SIMULATED_PROFILE_INFO) -> windows_core::HRESULT;
+    fn ClearSimulatedProfileInfo(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl INetworkListManager_Vtbl {
@@ -1436,13 +1436,13 @@ impl INetworkListManager_Vtbl {
         unsafe extern "system" fn SetSimulatedProfileInfo<Identity: INetworkListManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psimulatedinfo: *const NLM_SIMULATED_PROFILE_INFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetworkListManager_Impl::SetSimulatedProfileInfo(this, core::mem::transmute_copy(&psimulatedinfo)).into()
+                INetworkListManager_Impl::SetSimulatedProfileInfo(this, core::mem::transmute_copy(&psimulatedinfo))
             }
         }
         unsafe extern "system" fn ClearSimulatedProfileInfo<Identity: INetworkListManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetworkListManager_Impl::ClearSimulatedProfileInfo(this).into()
+                INetworkListManager_Impl::ClearSimulatedProfileInfo(this)
             }
         }
         Self {
@@ -1459,7 +1459,7 @@ impl INetworkListManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetworkListManager as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<INetworkListManager as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1478,14 +1478,14 @@ pub struct INetworkListManagerEvents_Vtbl {
     pub ConnectivityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, NLM_CONNECTIVITY) -> windows_core::HRESULT,
 }
 pub trait INetworkListManagerEvents_Impl: windows_core::IUnknownImpl {
-    fn ConnectivityChanged(&self, newconnectivity: NLM_CONNECTIVITY) -> windows_core::Result<()>;
+    fn ConnectivityChanged(&self, newconnectivity: NLM_CONNECTIVITY) -> windows_core::HRESULT;
 }
 impl INetworkListManagerEvents_Vtbl {
     pub const fn new<Identity: INetworkListManagerEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ConnectivityChanged<Identity: INetworkListManagerEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newconnectivity: NLM_CONNECTIVITY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetworkListManagerEvents_Impl::ConnectivityChanged(this, core::mem::transmute_copy(&newconnectivity)).into()
+                INetworkListManagerEvents_Impl::ConnectivityChanged(this, core::mem::transmute_copy(&newconnectivity))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ConnectivityChanged: ConnectivityChanged::<Identity, OFFSET> }

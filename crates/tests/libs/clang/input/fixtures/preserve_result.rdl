@@ -1,0 +1,32 @@
+#[win32]
+mod Fixture {
+    #[preserve_sig]
+    extern fn Callback(#[out] value: *mut u32) -> HRESULT;
+    #[preserve_sig]
+    extern fn CallbackAgain(#[out] value: *mut u32) -> HRESULT;
+    #[preserve_sig]
+    extern fn CallbackAlias(#[out] value: *mut u32) -> HRESULT;
+    #[preserve_sig]
+    extern fn CallbackFunction(#[out] value: *mut u32) -> HRESULT;
+    #[preserve_sig]
+    extern fn CallbackPointer(#[out] value: *mut u32) -> HRESULT;
+    struct Callbacks {
+        direct: Callback,
+        alias: CallbackAlias,
+        marked_alias: CallbackAgain,
+        function: CallbackPointer,
+    }
+    type HRESULT = i32;
+    #[library("fixture.dll")]
+    #[preserve_sig]
+    extern fn ReadValue(#[out] #[retval] value: *mut u32) -> HRESULT;
+    #[guid(0x10000000_0000_0000_0000_000000000001)]
+    interface Results {
+        #[preserve_sig]
+        fn Status(&self) -> HRESULT;
+        #[preserve_sig]
+        fn Read(&self, #[out] #[retval] value: *mut u32) -> HRESULT;
+    }
+    #[library("fixture.dll")]
+    extern fn UseCallback(callback: CallbackAlias);
+}

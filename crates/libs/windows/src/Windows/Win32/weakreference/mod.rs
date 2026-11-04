@@ -17,7 +17,7 @@ pub struct IWeakReference_Vtbl {
 }
 #[cfg(feature = "guiddef")]
 pub trait IWeakReference_Impl: windows_core::IUnknownImpl {
-    fn Resolve(&self, riid: *const super::IID, objectreference: windows_core::OutRef<windows_core::IInspectable>) -> windows_core::Result<()>;
+    fn Resolve(&self, riid: *const super::IID, objectreference: windows_core::OutRef<windows_core::IInspectable>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "guiddef")]
 impl IWeakReference_Vtbl {
@@ -25,7 +25,7 @@ impl IWeakReference_Vtbl {
         unsafe extern "system" fn Resolve<Identity: IWeakReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, objectreference: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWeakReference_Impl::Resolve(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&objectreference)).into()
+                IWeakReference_Impl::Resolve(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&objectreference))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Resolve: Resolve::<Identity, OFFSET> }

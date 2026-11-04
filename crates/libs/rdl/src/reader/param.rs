@@ -135,10 +135,7 @@ impl Encoder<'_> {
                 param.attributes,
             );
 
-            // Emit parameter pseudo-attributes in the fixed table order so the winmd
-            // custom-attribute layout is stable regardless of the source attribute order (the
-            // clang scrape and the winmd -> RDL writer place them differently). The generic
-            // `encode_attrs` pass below then skips them.
+            // The generic `encode_attrs` pass below skips these pseudo-attributes.
             self.reject_repeated_pseudo_attributes(&param.attrs)?;
             for pseudo in PSEUDO_ATTRS {
                 if let Some(attr) = param.attrs.iter().find(|a| a.path().is_ident(pseudo.short)) {

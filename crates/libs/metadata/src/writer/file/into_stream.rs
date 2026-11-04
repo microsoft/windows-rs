@@ -41,6 +41,39 @@ impl File {
     pub fn into_stream(mut self) -> Vec<u8> {
         self.records.Constant.extend(self.Constant.values());
 
+        let type_names: HashMap<_, _> = self
+            .TypeRef
+            .iter()
+            .flat_map(|(namespace, types)| {
+                types.iter().map(move |(name, id)| (*id, (namespace, name)))
+            })
+            .collect();
+        let constructors: Vec<_> = self
+            .records
+            .MemberRef
+            .iter()
+            .zip(&self.member_ref_signatures)
+            .map(|(member, signature)| {
+                let MemberRefParent::TypeRef(parent) = member.Parent;
+                (
+                    type_names[&parent],
+                    self.strings.get(member.Name),
+                    signature,
+                )
+            })
+            .collect();
+
+        // Row IDs and heap offsets depend on insertion order; compare their contents instead.
+        for attributes in self.Attribute.values_mut() {
+            attributes.sort_by_key(|attribute| {
+                let AttributeType::MemberRef(ctor) = attribute.Type;
+                (
+                    constructors[ctor.0 as usize],
+                    self.blobs.get(attribute.Value),
+                )
+            });
+        }
+
         self.records
             .Attribute
             .extend(self.Attribute.values().flatten());

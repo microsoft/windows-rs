@@ -57,7 +57,7 @@ pub struct ICertExit_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertExit_Impl: super::IDispatch_Impl {
     fn Initialize(&self, strconfig: &windows_core::BSTR) -> windows_core::Result<super::LONG>;
-    fn Notify(&self, exitevent: super::LONG, context: super::LONG) -> windows_core::Result<()>;
+    fn Notify(&self, exitevent: super::LONG, context: super::LONG) -> windows_core::HRESULT;
     fn GetDescription(&self) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -81,7 +81,7 @@ impl ICertExit_Vtbl {
         unsafe extern "system" fn Notify<Identity: ICertExit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, exitevent: super::LONG, context: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertExit_Impl::Notify(this, core::mem::transmute_copy(&exitevent), core::mem::transmute_copy(&context)).into()
+                ICertExit_Impl::Notify(this, core::mem::transmute_copy(&exitevent), core::mem::transmute_copy(&context))
             }
         }
         unsafe extern "system" fn GetDescription<Identity: ICertExit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrdescription: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -107,7 +107,7 @@ impl ICertExit_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertExit as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<ICertExit as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -168,7 +168,7 @@ impl ICertExit2_Vtbl {
         Self { base__: ICertExit_Vtbl::new::<Identity, OFFSET>(), GetManageModule: GetManageModule::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertExit2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ICertExit as windows_core::Interface>::IID
+        iid == &<ICertExit2 as windows_core::Interface>::IID || ICertExit_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "certmod", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]

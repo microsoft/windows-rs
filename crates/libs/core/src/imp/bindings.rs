@@ -54,18 +54,6 @@ windows_core::imp::interface_hierarchy!(IAgileObject, windows_core::IUnknown);
 pub struct IAgileObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
 }
-pub trait IAgileObject_Impl: windows_core::IUnknownImpl {}
-impl IAgileObject_Vtbl {
-    pub const fn new<Identity: IAgileObject_Impl, const OFFSET: isize>() -> Self {
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAgileObject as windows_core::Interface>::IID
-    }
-}
-impl windows_core::RuntimeName for IAgileObject {}
 windows_core::imp::define_interface!(
     IAgileReference,
     IAgileReference_Vtbl,
@@ -97,41 +85,6 @@ pub struct IAgileReference_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait IAgileReference_Impl: windows_core::IUnknownImpl {
-    fn Resolve(
-        &self,
-        riid: *const IID,
-        ppvobjectreference: *mut *mut core::ffi::c_void,
-    ) -> windows_core::Result<()>;
-}
-impl IAgileReference_Vtbl {
-    pub const fn new<Identity: IAgileReference_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Resolve<Identity: IAgileReference_Impl, const OFFSET: isize>(
-            this: *mut core::ffi::c_void,
-            riid: *const IID,
-            ppvobjectreference: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAgileReference_Impl::Resolve(
-                    this,
-                    core::mem::transmute_copy(&riid),
-                    core::mem::transmute_copy(&ppvobjectreference),
-                )
-                .into()
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Resolve: Resolve::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAgileReference as windows_core::Interface>::IID
-    }
-}
-impl windows_core::RuntimeName for IAgileReference {}
 pub type IID = windows_core::GUID;
 #[allow(dead_code)]
 pub type INT_PTR = isize;
@@ -165,41 +118,6 @@ pub struct IWeakReference_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait IWeakReference_Impl: windows_core::IUnknownImpl {
-    fn Resolve(
-        &self,
-        riid: *const IID,
-        objectreference: windows_core::OutRef<windows_core::IInspectable>,
-    ) -> windows_core::Result<()>;
-}
-impl IWeakReference_Vtbl {
-    pub const fn new<Identity: IWeakReference_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Resolve<Identity: IWeakReference_Impl, const OFFSET: isize>(
-            this: *mut core::ffi::c_void,
-            riid: *const IID,
-            objectreference: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWeakReference_Impl::Resolve(
-                    this,
-                    core::mem::transmute_copy(&riid),
-                    core::mem::transmute_copy(&objectreference),
-                )
-                .into()
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Resolve: Resolve::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWeakReference as windows_core::Interface>::IID
-    }
-}
-impl windows_core::RuntimeName for IWeakReference {}
 windows_core::imp::define_interface!(
     IWeakReferenceSource,
     IWeakReferenceSource_Vtbl,
@@ -226,43 +144,6 @@ pub struct IWeakReferenceSource_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait IWeakReferenceSource_Impl: windows_core::IUnknownImpl {
-    fn GetWeakReference(&self) -> windows_core::Result<IWeakReference>;
-}
-impl IWeakReferenceSource_Vtbl {
-    pub const fn new<Identity: IWeakReferenceSource_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetWeakReference<
-            Identity: IWeakReferenceSource_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            weakreference: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWeakReferenceSource_Impl::GetWeakReference(this) {
-                    Ok(ok__) => {
-                        weakreference.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        weakreference.write_bytes(0, 1);
-                        err.into()
-                    }
-                }
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            GetWeakReference: GetWeakReference::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWeakReferenceSource as windows_core::Interface>::IID
-    }
-}
-impl windows_core::RuntimeName for IWeakReferenceSource {}
 pub const JSCRIPT_E_CANTEXECUTE: windows_core::HRESULT = windows_core::HRESULT(0x89020001_u32 as _);
 pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: i32 = 4096;
 pub type LPVOID = *mut core::ffi::c_void;
