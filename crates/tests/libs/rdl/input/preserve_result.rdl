@@ -1,0 +1,15 @@
+#[win32]
+mod Test {
+    #[preserve_result]
+    extern fn Callback(#[out] value: *mut u32) -> HRESULT;
+    #[library("test.dll")]
+    #[preserve_result]
+    extern fn Read(#[out] #[retval] value: *mut u32) -> HRESULT;
+    interface Results {
+        #[preserve_result]
+        fn Status(&self) -> HRESULT;
+        #[preserve_result]
+        fn Read(&self, #[out] #[retval] value: *mut u32) -> HRESULT;
+        fn Unmarked(&self, #[out] #[retval] value: *mut u32) -> HRESULT;
+    }
+}

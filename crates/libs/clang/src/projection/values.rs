@@ -144,6 +144,7 @@ impl Projector<'_, '_> {
                         AttributeKind::DllImport
                             | AttributeKind::DllExport
                             | AttributeKind::SetLastError
+                            | AttributeKind::PreserveResult
                             | AttributeKind::ImportLibrary(_)
                             | AttributeKind::AssociatedEnum(_)
                             | AttributeKind::Sal(_)

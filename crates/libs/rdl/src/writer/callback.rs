@@ -14,6 +14,7 @@ pub fn write_callback(item: &metadata::reader::TypeDef) -> Result<TokenStream, E
     let params = write_params(namespace, &method, signature.types)?;
 
     let arch_attr = write_arch_attr(item.arches());
+    let preserve = write_preserve_result(&method);
     let custom_attrs = write_custom_attributes_except(
         item.attributes(),
         namespace,
@@ -38,6 +39,7 @@ pub fn write_callback(item: &metadata::reader::TypeDef) -> Result<TokenStream, E
 
     Ok(quote! {
         #arch_attr
+        #preserve
         #(#custom_attrs)*
         extern #abi fn #name (#(#params),*) #return_type;
     })

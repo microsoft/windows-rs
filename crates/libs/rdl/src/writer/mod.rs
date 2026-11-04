@@ -715,6 +715,17 @@ fn write_params(
         .collect()
 }
 
+fn write_preserve_result(method: &metadata::reader::MethodDef) -> TokenStream {
+    if method
+        .impl_flags()
+        .contains(metadata::MethodImplAttributes::PreserveSig)
+    {
+        quote! { #[preserve_result] }
+    } else {
+        quote! {}
+    }
+}
+
 fn write_return_type(
     namespace: &str,
     method: &metadata::reader::MethodDef,

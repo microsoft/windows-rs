@@ -642,6 +642,30 @@ impl Encoder<'_> {
         }
     }
 
+    fn read_method_impl_flags(
+        &self,
+        attrs: &[syn::Attribute],
+        winrt: bool,
+    ) -> Result<metadata::MethodImplAttributes, Error> {
+        let mut flags = metadata::MethodImplAttributes::default();
+        for attr in attrs
+            .iter()
+            .filter(|attr| attr.path().is_ident("preserve_result"))
+        {
+            if winrt {
+                return self.err(attr, "preserve_result requires a Win32 callable");
+            }
+            if !matches!(attr.meta, syn::Meta::Path(_)) {
+                return self.err(attr, "preserve_result does not accept arguments");
+            }
+            if flags.contains(metadata::MethodImplAttributes::PreserveSig) {
+                return self.err(attr, "duplicate `preserve_result` attribute");
+            }
+            flags |= metadata::MethodImplAttributes::PreserveSig;
+        }
+        Ok(flags)
+    }
+
     /// Resolves unqualified attribute-argument type names in the attribute's namespace first.
     fn encode_type_in_attr_ns(
         &self,

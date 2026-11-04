@@ -3,6 +3,79 @@ use windows_clang::*;
 const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
 
 #[test]
+fn preserve_result_validation() {
+    helpers::ensure_libclang();
+    for (declaration, message) in [
+        ("_P _P int F();", "duplicate PreserveResult"),
+        ("typedef _P int Scalar;", "requires a function"),
+        ("typedef _P int (**Callback)();", "requires a function"),
+        ("struct _P Record {};", "requires a function"),
+        ("struct Record { _P int field; };", "requires a function"),
+        ("int F(_P int parameter);", "requires a function"),
+        (
+            "__attribute__((annotate(\"Win32Metadata.PreserveResult\", 1))) int F();",
+            "takes no arguments",
+        ),
+    ] {
+        let input = Input {
+            name: "preserve_result_invalid.h".into(),
+            source: format!(
+                "#define _P __attribute__((annotate(\"Win32Metadata.PreserveResult\")))\n{declaration}"
+            ),
+            ..Default::default()
+        };
+        let error = capture(std::slice::from_ref(&input), &TARGETS).unwrap_err();
+        assert!(error.to_string().contains(message), "{error}");
+        let partial = projection::generate_partial(&[input], "Fixture").unwrap();
+        assert!(
+            partial
+                .omissions
+                .iter()
+                .any(|error| error.contains(message)),
+            "{:?}",
+            partial.omissions
+        );
+    }
+}
+
+#[test]
+fn preserve_result_reconciliation() {
+    helpers::ensure_libclang();
+    for declaration in [
+        "extern \"C\" _P int F();",
+        "typedef _P int (*Callback)();",
+        "struct Record { _P virtual int __stdcall F() = 0; };",
+    ] {
+        let mut inputs = ["annotated.h", "plain.h"].map(|name| Input {
+            name: name.into(),
+            source: format!(
+                "#define _P __attribute__((annotate(\"Win32Metadata.PreserveResult\")))\n{}",
+                if name == "annotated.h" {
+                    declaration.to_string()
+                } else {
+                    declaration.replace("_P ", "")
+                }
+            ),
+            ..Default::default()
+        });
+        for _ in 0..2 {
+            let snapshots = capture(&inputs, &TARGETS).unwrap();
+            assert!(
+                merge(&snapshots)
+                    .and_then(|merged| projection::project(&merged, "Fixture"))
+                    .is_err(),
+                "{declaration}"
+            );
+            assert!(
+                projection::generate_partial(&inputs, "Fixture").is_err(),
+                "{declaration}"
+            );
+            inputs.reverse();
+        }
+    }
+}
+
+#[test]
 fn import_annotation_validation() {
     helpers::ensure_libclang();
     for arguments in [

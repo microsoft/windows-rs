@@ -172,6 +172,28 @@ impl Projector<'_, '_> {
             .ok_or_else(|| fail("has no native pointer prototype"))?;
         let written = written_function(snapshot, observation.underlying)?;
         let expected = callback_signature(metadata)?;
+        let preserves_result = annotations::callback_owners(
+            self.resolution,
+            snapshot,
+            observation.underlying,
+            &observation.attributes,
+        )?
+        .iter()
+        .any(|(attributes, _)| {
+            attributes
+                .iter()
+                .any(|attribute| attribute.kind == AttributeKind::PreserveResult)
+        });
+        if preserves_result
+            && !metadata.methods().any(|method| {
+                method.name() == "Invoke"
+                    && method
+                        .impl_flags()
+                        .contains(windows_metadata::MethodImplAttributes::PreserveSig)
+            })
+        {
+            return Err(fail("requires PreserveSig on metadata Invoke"));
+        }
         // Expand without ABI normalization so nested C and stdcall contracts stay visible.
         let published = self.type_callback_abis(&expand_type(
             MetadataType::FnPtr(Box::new(expected.clone())),

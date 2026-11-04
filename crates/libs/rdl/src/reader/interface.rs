@@ -292,11 +292,12 @@ impl Encoder<'_> {
                         flags |= metadata::MethodAttributes::SpecialName;
                     }
 
+                    let impl_flags = self.read_method_impl_flags(&method.attrs, item.winrt)?;
                     let method_def = self.output.MethodDef(
                         &method.sig.ident.to_string(),
                         &signature,
                         flags,
-                        Default::default(),
+                        impl_flags,
                     );
 
                     // Explicit WinRT accessors belong to their property or event just like the
@@ -325,7 +326,7 @@ impl Encoder<'_> {
                     self.encode_attrs(
                         metadata::writer::HasAttribute::MethodDef(method_def),
                         &method.attrs,
-                        &["special"],
+                        &["special", "preserve_result"],
                     )?;
 
                     let arch = self.read_arch(&item.attrs)?.unwrap_or(-1)

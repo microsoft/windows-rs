@@ -5,6 +5,114 @@ use windows_metadata::HasAttributes;
 const METADATA_NAMESPACE: &str = "Windows.Win32.Metadata";
 
 #[test]
+fn preserve_result_flags_roundtrip() {
+    let dir = scratch("preserve_result");
+    let first = dir.join("first.winmd");
+    let rdl = dir.join("roundtrip.rdl");
+    let second = dir.join("second.winmd");
+    windows_rdl::reader()
+        .input("input/preserve_result.rdl")
+        .output(&first)
+        .write()
+        .unwrap();
+    windows_rdl::writer()
+        .input(&first)
+        .output(&rdl)
+        .write()
+        .unwrap();
+    windows_rdl::reader()
+        .input(&rdl)
+        .output(&second)
+        .write()
+        .unwrap();
+    let merged = dir.join("merged.winmd");
+    let remapped = dir.join("remapped.winmd");
+    metadata::merge()
+        .input(&first)
+        .output(&merged)
+        .merge()
+        .unwrap();
+    metadata::remap()
+        .input(&merged)
+        .source("Test")
+        .fallback("Moved")
+        .output(&remapped)
+        .remap()
+        .unwrap();
+    for (path, namespace) in [
+        (first, "Test"),
+        (second, "Test"),
+        (merged, "Test"),
+        (remapped, "Moved"),
+    ] {
+        let index = metadata::reader::Index::read(path).unwrap();
+        for name in ["Apis", "Results", "Callback"] {
+            let def = index.expect(namespace, name);
+            assert!(
+                def.attributes()
+                    .next()
+                    .is_none_or(|attr| attr.name() == "UnmanagedFunctionPointerAttribute")
+            );
+            for method in def.methods() {
+                assert_eq!(
+                    method
+                        .impl_flags()
+                        .contains(metadata::MethodImplAttributes::PreserveSig),
+                    method.name() != "Unmarked",
+                );
+                assert!(method.attributes().next().is_none());
+                if method.name() == "Read" || method.name() == "Unmarked" {
+                    let param = method.params().next().unwrap();
+                    assert!(param.flags().contains(metadata::ParamAttributes::Out));
+                    assert!(param.has_attribute("RetValAttribute"));
+                }
+            }
+        }
+    }
+}
+
+#[test]
+fn preserve_result_invalid_owners_and_arguments() {
+    let dir = scratch("preserve_result_invalid");
+    for declaration in [
+        "#[preserve_result] struct Record { value: u32 }",
+        "struct Record { #[preserve_result] value: u32 }",
+        "struct Record { #[preserve_result] const Value: u32 = 1; }",
+        "#[preserve_result] const Value: u32 = 1;",
+        "#[repr(u32)] #[preserve_result] enum Values { First = 1 }",
+        "#[preserve_result] type Scalar = u32;",
+        "#[preserve_result] interface I {}",
+        "extern fn Callback(#[preserve_result] value: u32);",
+        "extern fn Callback() -> #[preserve_result] i32;",
+        "#[preserve_result(1)] extern fn Callback();",
+        "#[preserve_result] #[preserve_result] extern fn Callback();",
+        "#[preserve_result] #[preserve_result] #[library(\"test.dll\")] extern fn F();",
+        "interface I { #[preserve_result] #[preserve_result] fn F(&self); }",
+    ] {
+        let source = format!("#[win32] mod Test {{ {declaration} }}");
+        let error = windows_rdl::reader()
+            .input_text(&source)
+            .output(dir.join("invalid.winmd"))
+            .write()
+            .unwrap_err();
+        assert!(error.to_string().contains("preserve_result"), "{error}");
+    }
+    let error = windows_rdl::reader()
+        .input_text(
+            "#[winrt] mod Test { #[guid(auto)] interface I { #[preserve_result] fn F(&self); } }",
+        )
+        .output(dir.join("winrt.winmd"))
+        .write()
+        .unwrap_err();
+    assert!(
+        error
+            .to_string()
+            .contains("preserve_result requires a Win32 callable"),
+        "{error}"
+    );
+}
+
+#[test]
 fn last_error_import_flags_roundtrip() {
     let dir = scratch("last_error");
     let first = dir.join("first.winmd");
