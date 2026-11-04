@@ -18677,6 +18677,33 @@ pub struct ITitleBar_Vtbl {
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
+    ITitleBar2,
+    ITitleBar2_Vtbl,
+    0x55533ac5_80bf_5b29_8be9_4fadb734db0a
+);
+impl windows_core::RuntimeType for ITitleBar2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl ITitleBar2 {
+    pub(crate) fn SetAutoRefreshDragRegions(&self, value: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetAutoRefreshDragRegions)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct ITitleBar2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    AutoRefreshDragRegions: usize,
+    pub SetAutoRefreshDragRegions:
+        unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
     ITitleBarFactory,
     ITitleBarFactory_Vtbl,
     0xc4452799_4606_59ef_9392_a0548d48b82e

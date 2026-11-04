@@ -94,6 +94,106 @@ impl Component for WindowFixture {
     }
 }
 
+pub(super) struct TitleBarFixture {
+    shown: bool,
+    shifted: bool,
+    value: f64,
+}
+
+#[derive(Clone, Copy)]
+pub(super) enum TitleBarMessage {
+    Show(bool),
+    Move,
+    Value(f64),
+}
+
+impl Component for TitleBarFixture {
+    type Input = bool;
+    type Message = TitleBarMessage;
+
+    fn create(initial: &bool, _: &ComponentContext<Self>) -> Self {
+        Self {
+            shown: *initial,
+            shifted: false,
+            value: 50.0,
+        }
+    }
+
+    fn update(&mut self, message: TitleBarMessage, _: &ComponentContext<Self>) {
+        match message {
+            TitleBarMessage::Show(shown) => {
+                self.shown = shown;
+                self.value = 50.0;
+            }
+            TitleBarMessage::Move => {
+                self.shifted = !self.shifted;
+                self.value = 50.0;
+            }
+            TitleBarMessage::Value(value) => self.value = value,
+        }
+    }
+
+    fn view(&self, initial: &bool, context: &mut ViewContext<Self>) -> View {
+        let fixture = if *initial {
+            "window-titlebar-initial"
+        } else {
+            "window-titlebar-dynamic"
+        };
+        context.window_visuals(WindowVisuals::new().client_size(800.0, 320.0));
+        let alignment = if self.shifted {
+            HorizontalAlignment::Right
+        } else {
+            HorizontalAlignment::Left
+        };
+        let content: View = if self.shown {
+            Slider::new()
+                .automation_id("slider")
+                .width(120.0)
+                .horizontal_alignment(alignment)
+                .value(self.value)
+                .maximum(100.0)
+                .on_value_changed(context.callback(TitleBarMessage::Value))
+                .into()
+        } else {
+            TextBlock::new()
+                .automation_id("drag-region")
+                .width(120.0)
+                .horizontal_alignment(alignment)
+                .text("Drag here")
+                .into()
+        };
+        Grid::new()
+            .rows([GridLength::Auto, GridLength::Star(1.0)])
+            .children((
+                TitleBar::new()
+                    .title(format!("Reactor UI fixture: {fixture}"))
+                    .content(Grid::new().width(300.0).height(32.0).children([content])),
+                StackPanel::new()
+                    .grid_row(1)
+                    .margin(20.0)
+                    .spacing(12.0)
+                    .children((
+                        Button::new()
+                            .automation_id("show")
+                            .content("Add slider")
+                            .on_click(context.message(TitleBarMessage::Show(true))),
+                        Button::new()
+                            .automation_id("move")
+                            .content("Move slider")
+                            .on_click(context.message(TitleBarMessage::Move)),
+                        Button::new()
+                            .automation_id("hide")
+                            .content("Remove slider")
+                            .on_click(context.message(TitleBarMessage::Show(false))),
+                        TextBlock::new()
+                            .automation_id("slider-value")
+                            .text(format!("{:.0}", self.value)),
+                    )),
+            ))
+            .into()
+    }
+}
+
 pub(super) struct PlacementFixture {
     changed: bool,
     observed: Option<WindowPlacement>,
