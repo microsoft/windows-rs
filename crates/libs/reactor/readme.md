@@ -113,8 +113,13 @@ cargo run -p reactor-stacker
 | Start and stop a subscription | `use_effect` | [Effects][effects] |
 | Add windows or a tray icon | `App::run_application` | [Notification icon][notifyicon] |
 | Remember window placement | `initial_placement` and `on_window_placement` | [Window placement][placement] |
+| Configure a window before showing it | `create_window`, `run_window`, and `show_window` | [Window creation][window-creation] |
 
 Updates and rendering run on the UI thread, so keep `update` and `view` quick.
+
+For native setup before first presentation, use [`ComponentContext::run_window`][run-window] during
+the window's initial mount. Use [`ApplicationContext::create_window`][create-window] to create a hidden
+instance and `show_window` to present it later. Hidden windows keep the app alive until closed.
 
 ## Ship the app
 
@@ -130,3 +135,6 @@ staged runtime files alongside the executable.
 [async]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/async-state
 [notifyicon]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/notifyicon
 [placement]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/window-placement-registry
+[run-window]: https://docs.rs/windows-reactor/latest/windows_reactor/struct.ComponentContext.html#method.run_window
+[create-window]: https://docs.rs/windows-reactor/latest/windows_reactor/struct.ApplicationContext.html#method.create_window
+[window-creation]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/window-creation

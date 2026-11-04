@@ -58,6 +58,14 @@ impl<C: Component> ComponentContext<C> {
         self.ui_services.close_window()
     }
 
+    /// Runs native work on the UI thread. Returns whether the request was accepted.
+    ///
+    /// Work queued during the window's initial mount, such as from [`Component::create`], runs after
+    /// initial configuration and before first presentation, without waiting for layout. Returned
+    /// messages and later requests do not delay presentation. Hidden windows also receive completion
+    /// messages.
+    ///
+    /// Closing the window cancels pending native work; it never transfers to a reopened instance.
     #[must_use]
     pub fn run_window(
         &self,

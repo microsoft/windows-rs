@@ -44,3 +44,28 @@ fn replacing_the_last_window_keeps_the_application_alive() -> Result<()> {
 fn exit_with_open_window_returns() -> Result<()> {
     process::run_to_exit("exit-with-window")
 }
+
+#[test]
+fn initial_native_work_precedes_first_presentation() -> Result<()> {
+    process::run_to_exit("hosting-normal")
+}
+
+#[test]
+fn initial_maximized_placement_preserves_restored_bounds() -> Result<()> {
+    process::run_to_exit("hosting-maximized")
+}
+
+#[test]
+fn initial_close_cancels_native_work_and_presentation() -> Result<()> {
+    process::run_to_exit("hosting-close")
+}
+
+#[test]
+fn hidden_window_show_and_reopen_preserve_instance_lifetimes() -> Result<()> {
+    process::run_to_exit("hosting-hidden")
+}
+
+#[test]
+fn initial_native_work_preserves_other_window_progress_and_yields() -> Result<()> {
+    process::run_to_exit("hosting-queued")
+}

@@ -21,6 +21,8 @@ const COMPONENT_DRAIN_BUDGET: usize = 64;
 const WINDOW_WORK_BUDGET: usize = 16;
 const WINDOW_WORK_CAPACITY: usize = 4_096;
 
+type StartupResult = Rc<RefCell<windows_core::Result<()>>>;
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ScreenPoint {
     pub x: i32,
@@ -224,14 +226,41 @@ struct ComponentWindowState {
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 enum ComponentWindowLifecycle {
+    Initializing { show: bool },
     Open,
     Closing,
     Closed,
 }
 
 impl ComponentWindowLifecycle {
+    fn is_live(self) -> bool {
+        matches!(self, Self::Initializing { .. } | Self::Open)
+    }
+
+    fn request_activation(&mut self) -> bool {
+        match self {
+            Self::Initializing { show } => {
+                *show = true;
+                false
+            }
+            Self::Open => true,
+            Self::Closing | Self::Closed => false,
+        }
+    }
+
+    fn finish_initialization(&mut self) -> Option<bool> {
+        match *self {
+            Self::Initializing { show } => {
+                *self = Self::Open;
+                Some(show)
+            }
+            Self::Closing | Self::Closed => None,
+            Self::Open => panic!("window initialization finished twice"),
+        }
+    }
+
     fn begin_close(&mut self) -> bool {
-        if *self != Self::Open {
+        if !self.is_live() {
             return false;
         }
         *self = Self::Closing;
@@ -256,6 +285,10 @@ impl ComponentWindow {
 }
 
 enum WindowWork {
+    FinishInitialization {
+        window: u64,
+        startup: Option<StartupResult>,
+    },
     Activate(u64),
     Close(u64),
     Closed(u64),
@@ -584,8 +617,26 @@ impl LiveApplication {
         }
     }
 
-    fn open(&self, root: ComponentNode, policy: WindowPolicy) -> windows_core::Result<()> {
-        open_component_window(&self.state, &self.services, root, policy).map(|_| ())
+    fn open(
+        &self,
+        root: ComponentNode,
+        policy: WindowPolicy,
+        startup: StartupResult,
+    ) -> windows_core::Result<()> {
+        self.services
+            .dispatch
+            .run(|| {
+                open_component_window(
+                    &self.state,
+                    &self.services,
+                    root,
+                    policy,
+                    true,
+                    Some(startup),
+                )
+                .map(|_| ())
+            })
+            .unwrap()
     }
 }
 
@@ -617,9 +668,9 @@ impl App {
         input: C::Input,
         policy: WindowPolicy,
     ) -> windows_core::Result<()> {
-        run(move |dispatcher| {
+        run(move |dispatcher, startup| {
             let application = LiveApplication::new(dispatcher, true);
-            application.open(component::<C>("root", input), policy)?;
+            application.open(component::<C>("root", input), policy, startup)?;
             Ok(application)
         })
     }
@@ -630,7 +681,7 @@ impl App {
 /// `startup` creates the host that owns the application's windows. The host is dropped before
 /// the remaining dispatcher registrations and the WinUI application object.
 fn run<T: 'static>(
-    startup: impl FnOnce(&DispatcherQueue) -> windows_core::Result<T> + 'static,
+    startup: impl FnOnce(&DispatcherQueue, StartupResult) -> windows_core::Result<T> + 'static,
 ) -> windows_core::Result<()> {
     bootstrap_runtime()?;
     initialize_ui_thread()?;
@@ -655,7 +706,7 @@ fn run<T: 'static>(
                     .SetDispatcherShutdownMode(DispatcherShutdownMode::OnExplicitShutdown)?;
                 let dispatcher = DispatcherQueue::GetForCurrentThread()?;
                 let startup = launch_startup.borrow_mut().take().unwrap();
-                let host = startup(&dispatcher)?;
+                let host = startup(&dispatcher, Rc::clone(&launch_result))?;
                 *launch_lifetime.borrow_mut() = Some((host, application));
                 Ok(())
             })();
@@ -725,6 +776,8 @@ fn open_component_window(
     services: &Rc<LiveWindowServices>,
     root: ComponentNode,
     policy: WindowPolicy,
+    show: bool,
+    startup: Option<StartupResult>,
 ) -> windows_core::Result<u64> {
     let id = {
         let mut application = application.borrow_mut();
@@ -750,6 +803,10 @@ fn open_component_window(
     let drain_state = Rc::clone(&state);
     let changed_application = Rc::downgrade(application);
     let drain = services.dispatch.callback(&dispatcher, move || {
+        if drain_state.borrow().as_ref().unwrap().lifecycle.get() != ComponentWindowLifecycle::Open
+        {
+            return;
+        }
         let mut drain = drain_state
             .borrow_mut()
             .as_mut()
@@ -819,7 +876,7 @@ fn open_component_window(
         }
     };
     let close_services = Rc::clone(services);
-    let lifecycle = Rc::new(Cell::new(ComponentWindowLifecycle::Open));
+    let lifecycle = Rc::new(Cell::new(ComponentWindowLifecycle::Initializing { show }));
     let closed_lifecycle = Rc::clone(&lifecycle);
     if let Err(error) = window.set_closed(move || {
         let mut lifecycle = closed_lifecycle.get();
@@ -860,14 +917,36 @@ fn open_component_window(
             .insert(id, ComponentWindow { drain, state },)
             .is_none()
     );
-    if let Err(error) = native.activate() {
-        if let Some(window) = application.borrow_mut().windows.remove(&id) {
-            window.dispose();
-        }
-        native.close().unwrap();
-        return Err(error.into());
-    }
+    // Later requests cannot extend the pre-show phase.
+    assert!(services.push_critical(WindowWork::FinishInitialization {
+        window: id,
+        startup
+    }));
     Ok(id)
+}
+
+fn finish_window_initialization(
+    application: &Rc<RefCell<LiveApplicationState>>,
+    id: u64,
+) -> windows_core::Result<()> {
+    let pending = {
+        let application = application.borrow();
+        application.windows.get(&id).and_then(|window| {
+            let state = window.state.borrow();
+            let state = state.as_ref()?;
+            let mut lifecycle = state.lifecycle.get();
+            let show = lifecycle.finish_initialization();
+            state.lifecycle.set(lifecycle);
+            show.map(|show| (state.window.clone(), window.drain.clone(), show))
+        })
+    };
+    if let Some((window, drain, show)) = pending {
+        if show {
+            window.activate()?;
+        }
+        drain.wake();
+    }
+    Ok(())
 }
 
 fn apply_component_window_publication(
@@ -930,14 +1009,28 @@ fn drain_window_requests(
             break;
         };
         match work {
+            WindowWork::FinishInitialization { window, startup } => {
+                let result = finish_window_initialization(application, window);
+                if let Some(startup) = startup {
+                    if let Err(error) = result {
+                        *startup.borrow_mut() = Err(error);
+                        queue_exit(&application.borrow().dispatcher);
+                        return;
+                    }
+                } else {
+                    result.unwrap();
+                }
+            }
             WindowWork::Activate(id) => {
                 let window = {
                     let application = application.borrow();
                     application.windows.get(&id).and_then(|window| {
                         let state = window.state.borrow();
                         let state = state.as_ref()?;
-                        (state.lifecycle.get() == ComponentWindowLifecycle::Open)
-                            .then(|| state.window.clone())
+                        let mut lifecycle = state.lifecycle.get();
+                        let activate = lifecycle.request_activation();
+                        state.lifecycle.set(lifecycle);
+                        activate.then(|| state.window.clone())
                     })
                 };
                 if let Some(window) = window {
@@ -968,7 +1061,7 @@ fn drain_window_requests(
                 if let Some(window) = application.windows.get(&window) {
                     let mut state = window.state.borrow_mut();
                     if let Some(state) = state.as_mut()
-                        && state.lifecycle.get() == ComponentWindowLifecycle::Open
+                        && state.lifecycle.get().is_live()
                     {
                         state.host.update_root(root);
                     }
@@ -980,7 +1073,10 @@ fn drain_window_requests(
                     application.windows.get(&window).and_then(|window| {
                         let state = window.state.borrow();
                         let state = state.as_ref()?;
-                        (state.lifecycle.get() == ComponentWindowLifecycle::Open)
+                        state
+                            .lifecycle
+                            .get()
+                            .is_live()
                             .then(|| state.window.clone())
                     })
                 };
@@ -1000,7 +1096,7 @@ fn drain_window_requests(
                 let Some(state) = state.as_mut() else {
                     continue;
                 };
-                if state.lifecycle.get() != ComponentWindowLifecycle::Open {
+                if !state.lifecycle.get().is_live() {
                     continue;
                 }
                 apply_component_window_publication(state, services, window, publication, false)
@@ -1016,7 +1112,10 @@ fn drain_window_requests(
                     application.windows.get(&window).and_then(|window| {
                         let state = window.state.borrow();
                         let state = state.as_ref()?;
-                        (state.lifecycle.get() == ComponentWindowLifecycle::Open)
+                        state
+                            .lifecycle
+                            .get()
+                            .is_live()
                             .then(|| state.host.window_color_scheme_callback(generation))
                             .flatten()
                     })
@@ -1035,7 +1134,10 @@ fn drain_window_requests(
                     application.windows.get(&window).and_then(|window| {
                         let state = window.state.borrow();
                         let state = state.as_ref()?;
-                        (state.lifecycle.get() == ComponentWindowLifecycle::Open)
+                        state
+                            .lifecycle
+                            .get()
+                            .is_live()
                             .then(|| state.host.window_size_callback(generation))
                             .flatten()
                     })
@@ -1054,7 +1156,10 @@ fn drain_window_requests(
                     application.windows.get(&window).and_then(|window| {
                         let state = window.state.borrow();
                         let state = state.as_ref()?;
-                        (state.lifecycle.get() == ComponentWindowLifecycle::Open)
+                        state
+                            .lifecycle
+                            .get()
+                            .is_live()
                             .then(|| state.host.window_placement_callback(generation))
                             .flatten()
                     })
@@ -1064,7 +1169,7 @@ fn drain_window_requests(
                 }
             }
             WindowWork::Open { policy, root } => {
-                open_component_window(application, services, root, policy).unwrap();
+                open_component_window(application, services, root, policy, true, None).unwrap();
             }
         }
     }

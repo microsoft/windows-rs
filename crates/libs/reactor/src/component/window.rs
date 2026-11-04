@@ -1,5 +1,6 @@
 use super::*;
 
+/// A borrowed native window handle supplied to [`ComponentContext::run_window`].
 pub struct WindowHandle<'a> {
     raw: *mut core::ffi::c_void,
     marker: PhantomData<(&'a mut (), Rc<()>)>,
@@ -13,6 +14,9 @@ impl WindowHandle<'_> {
         }
     }
 
+    /// Returns the borrowed `HWND` for use on the callback's thread.
+    ///
+    /// Do not retain it after the callback. Native changes bypass Reactor's reconciliation.
     pub fn as_raw(&self) -> *mut core::ffi::c_void {
         self.raw
     }

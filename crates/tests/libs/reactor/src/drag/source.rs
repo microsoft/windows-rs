@@ -1,20 +1,9 @@
 use super::*;
+use crate::bindings::*;
 use std::cell::Cell;
 use std::sync::atomic::AtomicU32;
 use std::time::{Duration, Instant};
 use windows_core::{BOOL, Error, Interface, Ref, Result};
-
-#[allow(
-    dead_code,
-    non_camel_case_types,
-    non_snake_case,
-    non_upper_case_globals,
-    clippy::all
-)]
-mod bindings {
-    include!(concat!(env!("OUT_DIR"), "\\bindings.rs"));
-}
-use bindings::*;
 
 #[derive(Clone)]
 pub struct Outcome {

@@ -379,6 +379,42 @@ fn placement_observations_coalesce_by_window_and_subscription() {
 }
 
 #[test]
+fn initial_activation_waits_for_the_boundary_and_close_cancels_it() {
+    for show in [false, true] {
+        let mut lifecycle = ComponentWindowLifecycle::Initializing { show };
+        assert!(lifecycle.is_live());
+        assert!(!lifecycle.request_activation());
+        let mut closing = lifecycle;
+        assert_eq!(lifecycle.finish_initialization(), Some(true));
+        assert!(lifecycle.request_activation());
+        assert!(closing.begin_close());
+        assert!(!closing.is_live());
+        assert!(!closing.request_activation());
+        assert_eq!(closing.finish_initialization(), None);
+        closing.mark_closed();
+        assert_eq!(closing.finish_initialization(), None);
+    }
+    let mut hidden = ComponentWindowLifecycle::Initializing { show: false };
+    assert_eq!(hidden.finish_initialization(), Some(false));
+    assert!(hidden.request_activation());
+}
+
+#[test]
+fn shared_window_dispatch_rejects_nested_driver_entry() {
+    let dispatch = WindowDispatch::default();
+    let calls = Cell::new(0);
+    dispatch
+        .run(|| {
+            assert!(dispatch.run(|| calls.set(100)).is_none());
+            calls.set(calls.get() + 1);
+        })
+        .unwrap();
+    assert_eq!(calls.get(), 1);
+    dispatch.run(|| calls.set(calls.get() + 1)).unwrap();
+    assert_eq!(calls.get(), 2);
+}
+
+#[test]
 fn canceled_queued_ui_callback_is_ignored() {
     let id = NEXT_UI_CALLBACK.fetch_add(1, Ordering::Relaxed);
     let invoked = Rc::new(Cell::new(false));
@@ -498,8 +534,12 @@ fn durable_window_work_survives_routine_queue_saturation() {
     for scheme in [ColorScheme::Light, ColorScheme::Dark] {
         assert!(services.color_scheme(11, scheme, 7));
     }
+    assert!(services.push_critical(WindowWork::FinishInitialization {
+        window: 7,
+        startup: None,
+    }));
 
-    assert_eq!(services.pending.borrow().len(), WINDOW_WORK_CAPACITY + 3);
+    assert_eq!(services.pending.borrow().len(), WINDOW_WORK_CAPACITY + 4);
     for _ in 0..WINDOW_WORK_CAPACITY {
         assert!(matches!(services.pop(), Some(WindowWork::Activate(_))));
     }
@@ -528,6 +568,10 @@ fn durable_window_work_survives_routine_queue_saturation() {
             scheme: ColorScheme::Dark,
             window: 7,
         })
+    ));
+    assert!(matches!(
+        services.pop(),
+        Some(WindowWork::FinishInitialization { window: 7, .. })
     ));
     assert!(services.pop().is_none());
 }

@@ -20,7 +20,7 @@ pub struct ApplicationContext<A: Application> {
 }
 
 pub(crate) enum ApplicationCommand {
-    Show(Key),
+    Window { key: Key, show: bool },
     Exit,
 }
 
@@ -49,13 +49,27 @@ impl<A: Application> ApplicationContext<A> {
     /// Requests are applied after the next application declaration is committed. An unknown key
     /// is an application error. A request during closure reopens after the old instance closes.
     pub fn show_window(&self, key: impl Into<Key>) {
-        let key = key.into();
+        self.request_window(key.into(), true);
+    }
+
+    /// Creates a hidden instance of the declared window.
+    ///
+    /// Uses the declaration and reopening rules of [`Self::show_window`], but leaves existing
+    /// instances unchanged. Hidden instances keep the application alive until closed.
+    /// If creation and showing are requested together, showing takes precedence.
+    pub fn create_window(&self, key: impl Into<Key>) {
+        self.request_window(key.into(), false);
+    }
+
+    fn request_window(&self, key: Key, show: bool) {
         let mut commands = self.commands.borrow_mut();
-        if !commands
-            .iter()
-            .any(|command| matches!(command, ApplicationCommand::Show(current) if *current == key))
+        if let Some(ApplicationCommand::Window { show: pending, .. }) = commands
+            .iter_mut()
+            .find(|command| matches!(command, ApplicationCommand::Window { key: current, .. } if *current == key))
         {
-            commands.push(ApplicationCommand::Show(key));
+            *pending |= show;
+        } else {
+            commands.push(ApplicationCommand::Window { key, show });
         }
     }
 
@@ -232,17 +246,25 @@ mod tests {
             commands: RefCell::new(Vec::new()),
         };
         context.show_window("main");
-        context.show_window("other");
+        context.create_window("other");
+        context.create_window("main");
         context.show_window("main");
+        context.create_window("third");
+        context.show_window("third");
         context.exit();
         context.exit();
         let commands = context.commands.borrow();
-        assert_eq!(commands.len(), 3);
-        assert!(matches!(&commands[0], ApplicationCommand::Show(key) if *key == Key::from("main")));
+        assert_eq!(commands.len(), 4);
         assert!(
-            matches!(&commands[1], ApplicationCommand::Show(key) if *key == Key::from("other"))
+            matches!(&commands[0], ApplicationCommand::Window { key, show: true } if *key == Key::from("main"))
         );
-        assert!(matches!(&commands[2], ApplicationCommand::Exit));
+        assert!(
+            matches!(&commands[1], ApplicationCommand::Window { key, show: false } if *key == Key::from("other"))
+        );
+        assert!(
+            matches!(&commands[2], ApplicationCommand::Window { key, show: true } if *key == Key::from("third"))
+        );
+        assert!(matches!(&commands[3], ApplicationCommand::Exit));
     }
 
     #[test]

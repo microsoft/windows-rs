@@ -16,7 +16,7 @@ struct ApplicationState<A: Application> {
     application: LiveApplication,
     windows: HashMap<Key, WindowSlot>,
     icons: HashMap<Key, IconSlot>,
-    pending_show: Vec<Key>,
+    pending_windows: Vec<(Key, bool)>,
     events: Rc<RefCell<VecDeque<IconEvent>>>,
     next_generation: u64,
     menu_host: Option<TransientMenuHost>,
@@ -47,7 +47,7 @@ impl App {
     /// Window declarations are reopenable slots, not open windows. The application exits when
     /// no user windows or notification icons remain, after pending lifecycle work has settled.
     pub fn run_application<A: Application>(input: A::Input) -> windows_core::Result<()> {
-        run(move |dispatcher| Ok(ApplicationHost::<A>::new(dispatcher, input)))
+        run(move |dispatcher, _| Ok(ApplicationHost::<A>::new(dispatcher, input)))
     }
 }
 
@@ -80,7 +80,7 @@ impl<A: Application> ApplicationHost<A> {
             application,
             windows: HashMap::new(),
             icons: HashMap::new(),
-            pending_show: Vec::new(),
+            pending_windows: Vec::new(),
             events: Rc::new(RefCell::new(VecDeque::new())),
             next_generation: 1,
             menu_host: None,
@@ -142,7 +142,7 @@ impl<A: Application> ApplicationState<A> {
             .collect();
         for key in removed {
             let slot = self.windows.remove(&key).unwrap();
-            self.pending_show.retain(|pending| pending != &key);
+            self.pending_windows.retain(|(pending, _)| pending != &key);
             if let Some(id) = slot.instance {
                 self.application
                     .services
@@ -335,18 +335,24 @@ impl<A: Application> ApplicationState<A> {
             return;
         }
         for command in commands {
-            if let ApplicationCommand::Show(key) = command {
+            if let ApplicationCommand::Window { key, show } = command {
                 assert!(
                     self.windows.contains_key(&key),
                     "application window key {key:?} is not declared"
                 );
-                if !self.pending_show.contains(&key) {
-                    self.pending_show.push(key);
+                if let Some((_, pending)) = self
+                    .pending_windows
+                    .iter_mut()
+                    .find(|(pending, _)| pending == &key)
+                {
+                    *pending |= show;
+                } else {
+                    self.pending_windows.push((key, show));
                 }
             }
         }
-        let pending = self.pending_show.clone();
-        for key in pending {
+        let pending = self.pending_windows.clone();
+        for (key, show) in pending {
             let slot = self.windows.get_mut(&key).unwrap();
             if slot.instance.is_some_and(|id| {
                 self.application
@@ -380,8 +386,10 @@ impl<A: Application> ApplicationState<A> {
             });
             match instance {
                 Some((ComponentWindowLifecycle::Open, window, false)) => {
-                    window.restore_and_activate().unwrap();
-                    self.pending_show.retain(|pending| pending != &key);
+                    if show {
+                        window.restore_and_activate().unwrap();
+                    }
+                    self.pending_windows.retain(|(pending, _)| pending != &key);
                 }
                 Some(_) => {}
                 None => {
@@ -391,10 +399,12 @@ impl<A: Application> ApplicationState<A> {
                             &self.application.services,
                             slot.root.clone(),
                             WindowPolicy::new(),
+                            show,
+                            None,
                         )
                         .unwrap(),
                     );
-                    self.pending_show.retain(|pending| pending != &key);
+                    self.pending_windows.retain(|(pending, _)| pending != &key);
                 }
             }
         }
@@ -408,7 +418,7 @@ impl<A: Application> ApplicationState<A> {
                 .unwrap()
                 .wake();
         } else if self.icons.is_empty()
-            && self.pending_show.is_empty()
+            && self.pending_windows.is_empty()
             && !self.application.services.has_pending()
             && self.application.state.borrow().windows.is_empty()
         {
