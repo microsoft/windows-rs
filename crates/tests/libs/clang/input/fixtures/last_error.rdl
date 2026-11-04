@@ -1,0 +1,7 @@
+#[win32]
+mod Fixture {
+    #[library("fixture.dll", last_error)]
+    extern fn CaptureError(value: i32) -> i32;
+    #[library("fixture.dll")]
+    extern fn Plain(value: i32) -> i32;
+}

@@ -257,6 +257,8 @@ pub enum AttributeKind {
     NoVTable,
     DllImport,
     DllExport,
+    SetLastError,
+    ImportLibrary(Box<ImportLibrary>),
     NoThrow,
     Cxx11NoReturn,
     SelectAny,
@@ -283,6 +285,12 @@ pub enum AlignmentKind {
 pub struct Attribute {
     pub kind: AttributeKind,
     pub location: Option<Location>,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub struct ImportLibrary {
+    pub library: String,
+    pub name: Option<String>,
 }
 
 /// SAL source-hook evidence, including macro substitutions at the declaration site.
@@ -703,12 +711,18 @@ impl Snapshot {
                         | AttributeKind::NoVTable
                         | AttributeKind::DllImport
                         | AttributeKind::DllExport
+                        | AttributeKind::SetLastError
                         | AttributeKind::NoThrow
                         | AttributeKind::Cxx11NoReturn
                         | AttributeKind::SelectAny
                         | AttributeKind::MaxFieldAlignment { .. }
                         | AttributeKind::Aligned { .. } => 0,
                         AttributeKind::Unresolved(kind) => kind.capacity(),
+                        AttributeKind::ImportLibrary(value) => {
+                            size_of::<ImportLibrary>()
+                                + value.library.capacity()
+                                + value.name.as_ref().map_or(0, String::capacity)
+                        }
                         AttributeKind::Sal(value) => {
                             size_of::<SalAnnotation>()
                                 + value.version.capacity()

@@ -49,7 +49,7 @@ pub struct Output {
     pub interfaces: usize,
 }
 
-/// DLL/export ownership is publication input, not a property inferred from a header or C symbol.
+/// DLL/export ownership supplied by the caller, used when a declaration has no explicit override.
 #[derive(Clone, Debug)]
 pub struct Import {
     pub library: String,
@@ -58,7 +58,7 @@ pub struct Import {
 
 #[derive(Clone, Debug, Default)]
 pub struct Imports {
-    /// Explicit public-name mappings take precedence on every target.
+    /// Public-name mappings take precedence over scanned imports on every target.
     pub functions: BTreeMap<String, Import>,
     /// SDK mappings use exact compiler linker symbols within each target.
     pub symbols: BTreeMap<Target, BTreeMap<String, Import>>,

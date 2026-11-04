@@ -2,7 +2,8 @@ use super::*;
 
 #[derive(Clone, Copy)]
 pub(super) struct FunctionImport<'a> {
-    import: &'a Import,
+    library: &'a str,
+    name: &'a str,
     written: TypeId,
 }
 
@@ -47,8 +48,8 @@ impl Projector<'_, '_> {
     pub(super) fn import<'a>(
         &self,
         snapshot: usize,
-        observation: &ValueObservation,
-        name: &str,
+        observation: &'a ValueObservation,
+        name: &'a str,
         imports: &'a Imports,
     ) -> Result<Option<FunctionImport<'a>>, Error> {
         let ValueKind::Function {
@@ -75,35 +76,46 @@ impl Projector<'_, '_> {
                 candidate.written,
             ))
         });
-        let Some((import, written)) = native_import
+        let fallback = native_import
             .map(|import| (import, observation.written))
-            .or(alternative)
-        else {
+            .or(alternative);
+        let annotation = resolve::import_library(&observation.attributes);
+        if annotation.is_none() && fallback.is_none() {
             return Ok(None);
-        };
+        }
+        let library = annotation
+            .map(|value| value.library.as_str())
+            .or_else(|| fallback.map(|(import, _)| import.library.as_str()))
+            .unwrap();
+        let export = annotation
+            .and_then(|value| value.name.as_deref())
+            .or_else(|| fallback.and_then(|(import, _)| import.name.as_deref()))
+            .unwrap_or(public_name(native_name));
+        let written = fallback.map_or(observation.written, |(_, written)| written);
         if alias.is_some()
+            && annotation.is_none()
             && imports.functions.get(name).is_some_and(|explicit| {
-                !explicit.library.eq_ignore_ascii_case(&import.library)
-                    || explicit.name.as_deref().unwrap_or(public_name(name))
-                        != import.name.as_deref().unwrap_or(public_name(native_name))
+                !explicit.library.eq_ignore_ascii_case(library)
+                    || explicit.name.as_deref().unwrap_or(public_name(name)) != export
             })
         {
             return Err(Error(format!(
                 "function alias `{name}` changes native import ownership"
             )));
         }
-        if import.library.is_empty() || import.name.as_ref().is_some_and(String::is_empty) {
+        if library.is_empty() || export.is_empty() {
             return Err(Error(format!("empty DLL/export ownership for `{name}`")));
         }
-        if let Some(ordinal) = import
-            .name
-            .as_deref()
-            .and_then(|name| name.strip_prefix('#'))
+        if let Some(ordinal) = export.strip_prefix('#')
             && ordinal.parse::<u16>().is_err()
         {
             return Err(Error(format!("invalid import ordinal for `{name}`")));
         }
-        Ok(Some(FunctionImport { import, written }))
+        Ok(Some(FunctionImport {
+            library,
+            name: export,
+            written,
+        }))
     }
 
     // Without an import, a function body checks contracts but cannot be published.
@@ -117,7 +129,6 @@ impl Projector<'_, '_> {
     ) -> Result<Body, Error> {
         match &observation.kind {
             ValueKind::Function {
-                alias,
                 language,
                 convention_origin,
                 ..
@@ -132,6 +143,8 @@ impl Projector<'_, '_> {
                         attribute.kind,
                         AttributeKind::DllImport
                             | AttributeKind::DllExport
+                            | AttributeKind::SetLastError
+                            | AttributeKind::ImportLibrary(_)
                             | AttributeKind::Sal(_)
                             | AttributeKind::Deprecated(_)
                             | AttributeKind::NoThrow
@@ -144,16 +157,16 @@ impl Projector<'_, '_> {
                     )));
                 }
                 let library = import.map(|resolved| {
-                    let native_name = alias.as_ref().map_or(name, |alias| alias.name.as_str());
-                    let library = &resolved.import.library;
-                    let export = resolved
-                        .import
-                        .name
-                        .as_deref()
-                        .unwrap_or(public_name(native_name));
+                    let library = resolved.library;
+                    let export = resolved.name;
                     let import_name =
                         (export != public_name(name)).then(|| quote! { , import = #export });
-                    quote! { #[library(#library #import_name)] }
+                    let last_error = observation
+                        .attributes
+                        .iter()
+                        .any(|attribute| attribute.kind == AttributeKind::SetLastError)
+                        .then(|| quote! { , last_error });
+                    quote! { #[library(#library #import_name #last_error)] }
                 });
                 let (parameters, result, native) = self.callable(snapshot, observation, true)?;
                 let written = import.map_or(observation.written, |resolved| resolved.written);

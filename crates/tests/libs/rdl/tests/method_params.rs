@@ -5,6 +5,82 @@ use windows_metadata::HasAttributes;
 const METADATA_NAMESPACE: &str = "Windows.Win32.Metadata";
 
 #[test]
+fn last_error_import_flags_roundtrip() {
+    let dir = scratch("last_error");
+    let first = dir.join("first.winmd");
+    let rdl = dir.join("roundtrip.rdl");
+    let second = dir.join("second.winmd");
+    windows_rdl::reader()
+        .input_text(
+            r##"
+#[win32]
+mod Test {
+    #[library("example.dll")]
+    extern fn Plain() -> i32;
+    #[library("example.dll", import = "Entry", last_error)]
+    extern fn Marked() -> i32;
+    #[library("example.dll", last_error, import = "#17")]
+    extern "C" fn Ordinal() -> i32;
+}
+"##,
+        )
+        .output(&first)
+        .write()
+        .unwrap();
+    windows_rdl::writer()
+        .input(&first)
+        .output(&rdl)
+        .write()
+        .unwrap();
+    windows_rdl::reader()
+        .input(&rdl)
+        .output(&second)
+        .write()
+        .unwrap();
+    for path in [first, second] {
+        let index = metadata::reader::Index::read(path).unwrap();
+        for method in index.expect("Test", "Apis").methods() {
+            let map = method.impl_map().unwrap();
+            let (entry, flags) = match method.name() {
+                "Plain" => ("Plain", metadata::PInvokeAttributes::CallConvPlatformapi),
+                "Marked" => (
+                    "Entry",
+                    metadata::PInvokeAttributes::CallConvPlatformapi
+                        | metadata::PInvokeAttributes::SupportsLastError,
+                ),
+                "Ordinal" => (
+                    "#17",
+                    metadata::PInvokeAttributes::CallConvCdecl
+                        | metadata::PInvokeAttributes::SupportsLastError,
+                ),
+                _ => panic!("unexpected method"),
+            };
+            assert_eq!(map.import_scope().name(), "example.dll");
+            assert_eq!(map.import_name(), entry);
+            assert_eq!(map.flags(), flags | metadata::PInvokeAttributes::NoMangle);
+        }
+    }
+    for options in [
+        "last_error, last_error",
+        "last_error = true",
+        "last_error(1)",
+        "last_error, unknown",
+    ] {
+        let text = format!(
+            "#[win32] mod Test {{ #[library(\"example.dll\", {options})] extern fn F(); }}"
+        );
+        assert!(
+            windows_rdl::reader()
+                .input_text(&text)
+                .output(dir.join("invalid.winmd"))
+                .write()
+                .is_err(),
+            "{options}"
+        );
+    }
+}
+
+#[test]
 fn winrt_delegates_have_instance_signatures() {
     let dir = scratch("delegate_instance");
     let first = dir.join("first.winmd");

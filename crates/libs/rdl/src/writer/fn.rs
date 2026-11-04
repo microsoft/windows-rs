@@ -48,6 +48,9 @@ pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> Result<T
     if import != item.name() {
         library_opts.extend(quote! { , import = #import });
     }
+    if flags.contains(metadata::PInvokeAttributes::SupportsLastError) {
+        library_opts.extend(quote! { , last_error });
+    }
     let library_attr = quote! { #[library(#library #library_opts)] };
 
     Ok(quote! {

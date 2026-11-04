@@ -159,7 +159,7 @@ static WindowsClangStatus functionInfo(clang::QualType value, WindowsClangFuncti
 }
 
 unsigned windows_clang_getABIVersion(void) {
-    return 22;
+    return 23;
 }
 
 WindowsClangStatus windows_clang_getRecordInfo(
@@ -555,6 +555,26 @@ const char* windows_clang_getTypeAttributeKindName(CXType type) {
     }
     auto attribute = llvm::dyn_cast<clang::AttributedType>(value.getTypePtr());
     return attribute ? attributeName(attribute->getAttrKind()) : nullptr;
+}
+
+WindowsClangStatus windows_clang_getStringLiteral(CXCursor cursor, CXString* value) {
+    if (!value) {
+        return WindowsClangInvalidArgument;
+    }
+    auto expression = cursorExpr(cursor);
+    if (!expression) {
+        return WindowsClangWrongKind;
+    }
+    expression = expression->IgnoreParenImpCasts();
+    if (auto constant = llvm::dyn_cast<clang::ConstantExpr>(expression)) {
+        expression = constant->getSubExpr()->IgnoreParenImpCasts();
+    }
+    auto literal = llvm::dyn_cast<clang::StringLiteral>(expression);
+    if (!literal || !literal->isOrdinary() || literal->getBytes().contains('\0')) {
+        return WindowsClangWrongKind;
+    }
+    *value = makeString(literal->getBytes());
+    return WindowsClangSuccess;
 }
 
 static unsigned qualifierFlags(clang::Qualifiers native) {

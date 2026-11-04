@@ -85,28 +85,37 @@ impl Encoder<'_> {
             return self.err(&item.sig, "`library` attribute not found");
         };
 
-        let (library, import) = attribute
+        let (library, import, last_error) = attribute
             .parse_args_with(
-                |input: syn::parse::ParseStream| -> syn::Result<(syn::LitStr, Option<String>)> {
+                |input: syn::parse::ParseStream| -> syn::Result<(syn::LitStr, Option<String>, bool)> {
                     let library: syn::LitStr = input.parse()?;
                     let mut import = None;
+                    let mut last_error = false;
                     while input.peek(syn::Token![,]) {
                         input.parse::<syn::Token![,]>()?;
                         let ident: syn::Ident = input.parse()?;
-                        input.parse::<syn::Token![=]>()?;
                         if ident == "import" {
+                            input.parse::<syn::Token![=]>()?;
                             let value: syn::LitStr = input.parse()?;
                             import = Some(value.value());
+                        } else if ident == "last_error" {
+                            if last_error {
+                                return Err(syn::Error::new(ident.span(), "duplicate last_error option"));
+                            }
+                            last_error = true;
                         } else {
                             return Err(syn::Error::new(ident.span(), "unknown library option"));
                         }
                     }
-                    Ok((library, import))
+                    Ok((library, import, last_error))
                 },
             )
-            .or_else(|_| self.err(attribute.span(), "`library` name missing"))?;
+            .map_err(|error| self.error(error.span(), &error.to_string()))?;
 
         let mut flags = metadata::PInvokeAttributes::NoMangle;
+        if last_error {
+            flags |= metadata::PInvokeAttributes::SupportsLastError;
+        }
 
         if let Some(abi) = &item.abi {
             match abi.value().as_str() {

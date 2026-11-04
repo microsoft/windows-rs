@@ -610,6 +610,15 @@ the matching direction attributes in generated RDL. Supported SAL macros include
 `_Inout_`, `_In_opt_`, `_Out_opt_`, `_Inout_opt_`, `_Outptr_`, `_COM_Outptr_`, `_In_reads_`,
 `_Out_writes_`, and their opt, z, and bytes variants.
 
+Imported functions accept `#[library("example.dll", last_error)]`, optionally combined with
+`import = "EntryPoint"`. The bare `last_error` option sets the ECMA-335 ImplMap `SupportsLastError`
+flag, which requests native last-error capture for C# P/Invoke. It does not describe failure,
+change the calling convention or alter Rust bindings.
+
+The `import` option also accepts an ordinal as a string, such as `import = "#42"`. This preserves
+the entry point through metadata round trips; bindgen excludes ordinal imports, which it does not
+support.
+
 Raw pointer chains preserve constness at each depth. `*mut *const T` points to a mutable pointer
 whose pointee is const; `*const *mut T` points to a const pointer whose pointee is mutable.
 These distinctions survive RDL/WinMD round trips, including chains inside references and fixed

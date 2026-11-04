@@ -422,6 +422,7 @@ pub(crate) fn abi_attributes_equal(a: &[Attribute], b: &[Attribute]) -> bool {
         && default_type_visibility(a) == default_type_visibility(b)
         && deprecations(a) == deprecations(b)
         && uuid(a) == uuid(b)
+        && import_library(a) == import_library(b)
         && no_trivial_auto_var_init(a) == no_trivial_auto_var_init(b)
         && a.iter()
             .any(|value| value.kind == AttributeKind::MSAllocator)
@@ -433,6 +434,10 @@ pub(crate) fn abi_attributes_equal(a: &[Attribute], b: &[Attribute]) -> bool {
             == b.iter().any(|value| value.kind == AttributeKind::DllImport)
         && a.iter().any(|value| value.kind == AttributeKind::DllExport)
             == b.iter().any(|value| value.kind == AttributeKind::DllExport)
+        && a.iter()
+            .any(|value| value.kind == AttributeKind::SetLastError)
+            == b.iter()
+                .any(|value| value.kind == AttributeKind::SetLastError)
         && a.iter().any(|value| value.kind == AttributeKind::NoThrow)
             == b.iter().any(|value| value.kind == AttributeKind::NoThrow)
         && a.iter()
@@ -443,6 +448,15 @@ pub(crate) fn abi_attributes_equal(a: &[Attribute], b: &[Attribute]) -> bool {
 
 pub(crate) fn attributes_equal(a: &[Attribute], b: &[Attribute]) -> bool {
     abi_attributes_equal(a, b) && sal(a) == sal(b)
+}
+
+pub(crate) fn import_library(attributes: &[Attribute]) -> Option<&ImportLibrary> {
+    attributes
+        .iter()
+        .find_map(|attribute| match &attribute.kind {
+            AttributeKind::ImportLibrary(value) => Some(value.as_ref()),
+            _ => None,
+        })
 }
 
 pub(crate) fn field_attributes_equal(

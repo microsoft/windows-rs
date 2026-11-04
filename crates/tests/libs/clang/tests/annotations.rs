@@ -3,6 +3,243 @@ use windows_clang::*;
 const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
 
 #[test]
+fn import_annotation_validation() {
+    helpers::ensure_libclang();
+    for arguments in [
+        "",
+        ", 1",
+        ", L\"a.dll\"",
+        ", u8\"a.dll\"",
+        ", \"a\\0.dll\"",
+        ", \"\"",
+        ", \"a/b.dll\"",
+        ", \"a\\\\b.dll\"",
+        ", \"C:example.dll\"",
+        ", \"a.dll\", \"\"",
+        ", \"a.dll\", -1",
+        ", \"a.dll\", 0",
+        ", \"a.dll\", 65536",
+        ", \"a.dll\", static_cast<char16_t>(0)",
+        ", \"a.dll\", static_cast<char32_t>(65536)",
+        ", \"a.dll\", true",
+        ", \"a.dll\", 1.0",
+        ", \"a.dll\", \"#0\"",
+        ", \"a.dll\", \"#65536\"",
+        ", \"a.dll\", \"#+1\"",
+        ", \"a.dll\", \"Entry\\n\"",
+        ", \"a.dll\", \"Entry\\0Suffix\"",
+        ", \"a.dll\", \"Entry\", 1",
+    ] {
+        let input = Input {
+            name: "invalid_import.h".into(),
+            source: format!(
+                "extern \"C\" __attribute__((annotate(\"Win32Metadata.ImportLibrary\"{arguments}))) int F();"
+            ),
+            ..Default::default()
+        };
+        let error = capture(std::slice::from_ref(&input), &TARGETS).unwrap_err();
+        assert!(error.to_string().contains("ImportLibrary"), "{error}");
+        let output = projection::generate_partial(&[input], "Fixture").unwrap();
+        assert!(output.output.partitions.is_empty(), "{arguments}");
+        assert!(
+            output
+                .omissions
+                .iter()
+                .any(|error| error.contains("ImportLibrary"))
+        );
+    }
+    for declaration in [
+        "_I _I int F();",
+        "int F(_I int value);",
+        "typedef _I int Callback();",
+        "struct S { _I virtual int F() = 0; };",
+    ] {
+        let input = Input {
+            name: "invalid_owner.h".into(),
+            source: format!(
+                "#define _I __attribute__((annotate(\"Win32Metadata.ImportLibrary\", \"a.dll\")))\nextern \"C\" {{ {declaration} }}"
+            ),
+            ..Default::default()
+        };
+        assert!(capture(&[input], &TARGETS).is_err(), "{declaration}");
+    }
+}
+
+#[test]
+fn import_annotation_reconciliation() {
+    helpers::ensure_libclang();
+    let input = |name: &str, annotation: &str| Input {
+        name: name.into(),
+        source: format!("extern \"C\" {annotation} int F();"),
+        ..Default::default()
+    };
+    let first = "__attribute__((annotate(\"Win32Metadata.ImportLibrary\", \"a.dll\", \"Entry\")))";
+    for second in [
+        "",
+        "__attribute__((annotate(\"Win32Metadata.ImportLibrary\", \"b.dll\", \"Entry\")))",
+        "__attribute__((annotate(\"Win32Metadata.ImportLibrary\", \"a.dll\", \"Other\")))",
+    ] {
+        let mut inputs = [input("a.h", first), input("b.h", second)];
+        for _ in 0..2 {
+            let snapshots = capture(&inputs, &TARGETS).unwrap();
+            assert!(merge(&snapshots).is_err());
+            assert!(projection::generate_partial(&inputs, "Fixture").is_err());
+            inputs.reverse();
+        }
+    }
+}
+
+#[test]
+fn last_error_validation() {
+    helpers::ensure_libclang();
+    for (source, message) in [
+        (
+            "extern \"C\" __attribute__((annotate(\"Win32Metadata.SetLastError\", 1))) int F();",
+            "takes no arguments",
+        ),
+        (
+            "extern \"C\" __attribute__((annotate(\"Win32Metadata.SetLastError(1)\"))) int F();",
+            "Win32Metadata.SetLastError(1)",
+        ),
+        (
+            "extern \"C\" __attribute__((annotate(\"Win32Metadata.SetLastError\"), annotate(\"Win32Metadata.SetLastError\"))) int F();",
+            "duplicate SetLastError",
+        ),
+        (
+            "struct __attribute__((annotate(\"Win32Metadata.SetLastError\"))) Record {};",
+            "requires a free function",
+        ),
+        (
+            "typedef __attribute__((annotate(\"Win32Metadata.SetLastError\"))) int (*Callback)();",
+            "requires a free function",
+        ),
+        (
+            "struct Record { __attribute__((annotate(\"Win32Metadata.SetLastError\"))) virtual int F() = 0; };",
+            "requires a free function",
+        ),
+        (
+            "extern \"C\" int F(__attribute__((annotate(\"Win32Metadata.SetLastError\"))) int value);",
+            "requires a free function",
+        ),
+    ] {
+        let input = Input {
+            name: "last_error.h".into(),
+            source: source.into(),
+            ..Default::default()
+        };
+        let error = capture(std::slice::from_ref(&input), &TARGETS)
+            .and_then(|snapshots| merge(&snapshots).map(|_| ()))
+            .unwrap_err();
+        assert!(error.to_string().contains(message), "{error}");
+        let partial = projection::generate_partial(&[input], "Fixture").unwrap();
+        assert!(partial.output.partitions.is_empty());
+        assert!(
+            partial
+                .omissions
+                .iter()
+                .any(|error| error.contains(message)),
+            "{:?}",
+            partial.omissions
+        );
+    }
+}
+
+#[test]
+fn last_error_reconciliation() {
+    helpers::ensure_libclang();
+    let source =
+        std::fs::read_to_string(test_clang::input_dir().join("fixtures/last_error.h")).unwrap();
+    let mut inputs = [
+        Input {
+            name: "annotated.h".into(),
+            source: source.clone(),
+            ..Default::default()
+        },
+        Input {
+            name: "unannotated.h".into(),
+            source: source.replace("_Win32_SetLastError_ int", "int"),
+            ..Default::default()
+        },
+    ];
+    for _ in 0..2 {
+        let snapshots = capture(&inputs, &TARGETS).unwrap();
+        assert!(merge(&snapshots).is_err());
+        assert!(projection::generate_partial(&inputs, "Fixture").is_err());
+        inputs.reverse();
+    }
+}
+
+#[test]
+fn last_error_metadata_and_rust() {
+    helpers::ensure_libclang();
+    let source =
+        std::fs::read_to_string(test_clang::input_dir().join("fixtures/last_error.h")).unwrap();
+    let imports = ["CaptureError", "Plain"]
+        .into_iter()
+        .map(|name| {
+            (
+                name.into(),
+                projection::Import {
+                    library: "fixture.dll".into(),
+                    name: None,
+                },
+            )
+        })
+        .collect();
+    let mut bindings = None;
+    for enabled in [false, true] {
+        let input = Input {
+            name: "last_error.h".into(),
+            source: if enabled {
+                source.clone()
+            } else {
+                source.replace("_Win32_SetLastError_ int", "int")
+            },
+            ..Default::default()
+        };
+        let snapshots = capture(&[input], &TARGETS).unwrap();
+        let output =
+            projection::project_with_imports(&merge(&snapshots).unwrap(), "Fixture", &imports)
+                .unwrap();
+        let text: String = output
+            .partitions
+            .values()
+            .map(|part| part.rdl.as_str())
+            .collect();
+        let winmd =
+            std::path::Path::new(env!("OUT_DIR")).join(format!("last-error-{enabled}.winmd"));
+        let rust = winmd.with_extension("rs");
+        windows_rdl::reader()
+            .input_text(&text)
+            .output(&winmd)
+            .write()
+            .unwrap();
+        let index = windows_metadata::reader::Index::read(&winmd).unwrap();
+        for method in index.expect("Fixture", "Apis").methods() {
+            assert_eq!(
+                method
+                    .impl_map()
+                    .unwrap()
+                    .flags()
+                    .contains(windows_metadata::PInvokeAttributes::SupportsLastError),
+                enabled && method.name() == "CaptureError",
+            );
+        }
+        windows_bindgen::Bindgen::new()
+            .input(&winmd)
+            .output(&rust)
+            .filter("Fixture")
+            .write();
+        let generated = std::fs::read_to_string(&rust).unwrap();
+        if let Some(bindings) = &bindings {
+            assert_eq!(&generated, bindings);
+        } else {
+            bindings = Some(generated);
+        }
+    }
+}
+
+#[test]
 fn alias_annotation_reconciliation() {
     helpers::ensure_libclang();
     let input = |contract| {
