@@ -400,8 +400,7 @@ fn encoded_stream(value: &EncodedImage) -> Result<native::IRandomAccessStream, W
     // Populate the stream without yielding: SetSourceAsync must start while the consumer is live.
     unsafe {
         let bytes = value.as_bytes();
-        let stream = native::SHCreateMemStream(bytes.as_ptr(), bytes.len() as u32)
-            .ok_or_else(|| windows_core::Error::from_hresult(native::E_OUTOFMEMORY))?;
+        let stream = native::SHCreateMemStream(bytes.as_ptr(), bytes.len() as u32).unwrap();
         let mut result = std::ptr::null_mut();
         native::CreateRandomAccessStreamOverStream(
             stream.as_raw(),

@@ -173,7 +173,7 @@ impl OptionsObject {
 
 impl ICoreWebView2EnvironmentOptions_Impl for OptionsObject_Impl {
     fn AdditionalBrowserArguments(&self) -> Result<PWSTR> {
-        unsafe { string::allocate(&self.additional_browser_arguments) }
+        Ok(unsafe { string::allocate(&self.additional_browser_arguments) })
     }
 
     fn SetAdditionalBrowserArguments(&self, _value: &PCWSTR) -> Result<()> {
@@ -181,7 +181,7 @@ impl ICoreWebView2EnvironmentOptions_Impl for OptionsObject_Impl {
     }
 
     fn Language(&self) -> Result<PWSTR> {
-        unsafe { string::allocate(&self.language) }
+        Ok(unsafe { string::allocate(&self.language) })
     }
 
     fn SetLanguage(&self, _value: &PCWSTR) -> Result<()> {
@@ -189,7 +189,7 @@ impl ICoreWebView2EnvironmentOptions_Impl for OptionsObject_Impl {
     }
 
     fn TargetCompatibleBrowserVersion(&self) -> Result<PWSTR> {
-        unsafe { string::allocate(&self.target_compatible_browser_version) }
+        Ok(unsafe { string::allocate(&self.target_compatible_browser_version) })
     }
 
     fn SetTargetCompatibleBrowserVersion(&self, _value: &PCWSTR) -> Result<()> {

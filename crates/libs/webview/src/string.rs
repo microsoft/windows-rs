@@ -26,24 +26,22 @@ pub(crate) unsafe fn take(value: PWSTR) -> String {
 /// transferring ownership to the caller (WebView2). Used to return strings from
 /// `[out]` getters of COM interfaces the crate implements, where WebView2 frees
 /// the buffer with `CoTaskMemFree`.
-pub(crate) unsafe fn allocate(value: &str) -> Result<PWSTR> {
+pub(crate) unsafe fn allocate(value: &str) -> PWSTR {
     let encoded: Vec<u16> = value.encode_utf16().chain(std::iter::once(0)).collect();
     let bytes = encoded.len() * size_of::<u16>();
 
-    let buffer = unsafe { CoTaskMemAlloc(bytes) } as *mut u16;
-
-    if buffer.is_null() {
-        return Err(Error::from_hresult(E_OUTOFMEMORY));
-    }
+    let buffer = std::ptr::NonNull::new(unsafe { CoTaskMemAlloc(bytes) }.cast::<u16>())
+        .unwrap()
+        .as_ptr();
 
     unsafe { std::ptr::copy_nonoverlapping(encoded.as_ptr(), buffer, encoded.len()) };
-    Ok(PWSTR(buffer))
+    PWSTR(buffer)
 }
 
 #[test]
 fn allocated_strings_roundtrip() {
     for value in ["", "WebView2", "\u{03bb}\u{1f600}"] {
-        let buffer = unsafe { allocate(value).unwrap() };
+        let buffer = unsafe { allocate(value) };
         assert!(!buffer.is_null());
         assert_eq!(unsafe { take(buffer) }, value);
     }
