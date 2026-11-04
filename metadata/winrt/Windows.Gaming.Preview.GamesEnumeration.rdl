@@ -5,8 +5,8 @@ mod Windows {
             mod GamesEnumeration {
                 #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::Static(IGameListStatics2, 131072, "Windows.Gaming.Preview.GamesEnumerationContract")]
                 #[Windows::Foundation::Metadata::Static(IGameListStatics, 65536, "Windows.Gaming.Preview.GamesEnumerationContract")]
+                #[Windows::Foundation::Metadata::Static(IGameListStatics2, 131072, "Windows.Gaming.Preview.GamesEnumerationContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class GameList {}
                 #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 65536)]

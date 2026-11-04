@@ -57,8 +57,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(IFileProtectionManagerStatics2, 131072, "Windows.Security.EnterpriseData.EnterpriseDataContract")]
             #[Windows::Foundation::Metadata::Static(IFileProtectionManagerStatics, 65536, "Windows.Security.EnterpriseData.EnterpriseDataContract")]
+            #[Windows::Foundation::Metadata::Static(IFileProtectionManagerStatics2, 131072, "Windows.Security.EnterpriseData.EnterpriseDataContract")]
             #[Windows::Foundation::Metadata::Static(IFileProtectionManagerStatics3, 262144, "Windows.Security.EnterpriseData.EnterpriseDataContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class FileProtectionManager {}
@@ -505,10 +505,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(IProtectionPolicyManagerStatics4, 262144, "Windows.Security.EnterpriseData.EnterpriseDataContract")]
-            #[Windows::Foundation::Metadata::Static(IProtectionPolicyManagerStatics2, 131072, "Windows.Security.EnterpriseData.EnterpriseDataContract")]
             #[Windows::Foundation::Metadata::Static(IProtectionPolicyManagerStatics, 65536, "Windows.Security.EnterpriseData.EnterpriseDataContract")]
+            #[Windows::Foundation::Metadata::Static(IProtectionPolicyManagerStatics2, 131072, "Windows.Security.EnterpriseData.EnterpriseDataContract")]
             #[Windows::Foundation::Metadata::Static(IProtectionPolicyManagerStatics3, 196608, "Windows.Security.EnterpriseData.EnterpriseDataContract")]
+            #[Windows::Foundation::Metadata::Static(IProtectionPolicyManagerStatics4, 262144, "Windows.Security.EnterpriseData.EnterpriseDataContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ProtectionPolicyManager {
                 IProtectionPolicyManager,

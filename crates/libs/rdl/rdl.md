@@ -58,6 +58,9 @@ mod Contoso {
 Generated RDL sorts attributes alphabetically by their full names, using case-sensitive ordering.
 Repeated attributes with the same name retain their relative order; their arguments are not sorted.
 The shared formatter applies this rule to declarations, parameters, fields, and return types.
+When writing WinMD, the metadata writer canonicalizes each owner's attributes by type, constructor
+signature, and encoded argument values. It preserves duplicates and the arguments within each
+attribute. RDL generated from that WinMD therefore has a repeatable order for repeated attributes.
 
 #### `#[winrt]`
 

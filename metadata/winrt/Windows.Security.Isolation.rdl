@@ -719,8 +719,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsHostMessenger is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(IIsolatedWindowsHostMessengerStatics2, 131072, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
             #[Windows::Foundation::Metadata::Static(IIsolatedWindowsHostMessengerStatics, 65536, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::Static(IIsolatedWindowsHostMessengerStatics2, 131072, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class IsolatedWindowsHostMessenger {}
             #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]

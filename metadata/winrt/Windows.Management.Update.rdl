@@ -962,8 +962,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion("Windows.Management.Update.WindowsUpdateContract", 131072)]
                 IWindowsUpdateManager2,
             }
-            #[Windows::Foundation::Metadata::Activatable(IWindowsUpdateManagerScanOptionsFactory, 131072, "Windows.Management.Update.WindowsUpdateContract")]
             #[Windows::Foundation::Metadata::Activatable(131072, "Windows.Management.Update.WindowsUpdateContract")]
+            #[Windows::Foundation::Metadata::Activatable(IWindowsUpdateManagerScanOptionsFactory, 131072, "Windows.Management.Update.WindowsUpdateContract")]
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 131072)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]

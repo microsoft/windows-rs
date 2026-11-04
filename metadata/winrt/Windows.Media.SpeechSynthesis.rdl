@@ -112,8 +112,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(IInstalledVoicesStatic2, 327680, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IInstalledVoicesStatic, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IInstalledVoicesStatic2, 327680, "Windows.Foundation.UniversalApiContract")]
             class SpeechSynthesizer {
                 ISpeechSynthesizer,
                 super::super::Foundation::IClosable,

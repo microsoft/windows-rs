@@ -25,6 +25,7 @@ pub struct File {
     AssemblyRef: HashMap<String, AssemblyRef>,
     ModuleRef: HashMap<String, ModuleRef>,
     MemberRef: HashMap<rec::MemberRef, MemberRef>,
+    member_ref_signatures: Vec<Signature>,
 
     // Sorted staging keeps deferred tables reproducible.
     Constant: BTreeMap<HasConstant, rec::Constant>,
@@ -262,11 +263,10 @@ impl File {
         signature: &Signature,
         parent: MemberRefParent,
     ) -> MemberRef {
-        let signature = self.MethodDefSig(signature);
-
+        let encoded_signature = self.MethodDefSig(signature);
         let record = rec::MemberRef {
             Name: self.strings.insert(name),
-            Signature: signature,
+            Signature: encoded_signature,
             Parent: parent,
         };
 
@@ -275,6 +275,7 @@ impl File {
         }
 
         let pos = MemberRef(self.records.MemberRef.push_pos(record));
+        self.member_ref_signatures.push(signature.clone());
         self.MemberRef.insert(record, pos);
         pos
     }

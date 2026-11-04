@@ -15,6 +15,24 @@ impl Default for Blobs {
 }
 
 impl Blobs {
+    pub fn get(&self, id: BlobId) -> &[u8] {
+        let bytes = &self.stream[id.0 as usize..];
+        let (len, prefix) = if bytes[0] & 0x80 == 0 {
+            (bytes[0] as usize, 1)
+        } else if bytes[0] & 0xC0 == 0x80 {
+            (((bytes[0] & 0x3F) as usize) << 8 | bytes[1] as usize, 2)
+        } else {
+            (
+                ((bytes[0] & 0x1F) as usize) << 24
+                    | (bytes[1] as usize) << 16
+                    | (bytes[2] as usize) << 8
+                    | bytes[3] as usize,
+                4,
+            )
+        };
+        &bytes[prefix..prefix + len]
+    }
+
     pub fn insert(&mut self, value: &[u8]) -> BlobId {
         if value.is_empty() {
             return BlobId(0);

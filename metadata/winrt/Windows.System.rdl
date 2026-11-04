@@ -11,8 +11,8 @@ mod Windows {
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-        #[Windows::Foundation::Metadata::Static(IAppDiagnosticInfoStatics2, 327680, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Static(IAppDiagnosticInfoStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(IAppDiagnosticInfoStatics2, 327680, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Threading(Both)]
         class AppDiagnosticInfo {
             IAppDiagnosticInfo,
@@ -150,8 +150,8 @@ mod Windows {
         class AppResourceGroupStateReport {
             IAppResourceGroupStateReport,
         }
-        #[Windows::Foundation::Metadata::Activatable(IAppUriHandlerHostFactory, 458752, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Activatable(458752, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Activatable(IAppUriHandlerHostFactory, 458752, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 458752)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::Threading(Both)]
@@ -1035,8 +1035,8 @@ mod Windows {
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-        #[Windows::Foundation::Metadata::Static(IKnownUserPropertiesStatics2, 917504, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Static(IKnownUserPropertiesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(IKnownUserPropertiesStatics2, 917504, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Threading(Both)]
         class KnownUserProperties {}
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
@@ -1079,8 +1079,8 @@ mod Windows {
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
         #[Windows::Foundation::Metadata::Static(ILauncherStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-        #[Windows::Foundation::Metadata::Static(ILauncherStatics3, 65536, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Static(ILauncherStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(ILauncherStatics3, 65536, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Static(ILauncherStatics4, 196608, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Static(ILauncherStatics5, 458752, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Threading(Both)]
@@ -1105,9 +1105,9 @@ mod Windows {
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Static(IMemoryManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Static(IMemoryManagerStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Static(IMemoryManagerStatics3, 131072, "Windows.Foundation.UniversalApiContract")]
-        #[Windows::Foundation::Metadata::Static(IMemoryManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Static(IMemoryManagerStatics4, 327680, "Windows.Foundation.UniversalApiContract")]
         class MemoryManager {}
         #[Windows::Foundation::Metadata::ContractVersion(SystemManagementContract, 196608)]
@@ -1206,8 +1206,8 @@ mod Windows {
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-        #[Windows::Foundation::Metadata::Static(IUserStatics2, 720896, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Static(IUserStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(IUserStatics2, 720896, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Threading(Both)]
         class User {
             IUser,

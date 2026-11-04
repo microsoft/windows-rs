@@ -502,8 +502,8 @@ mod Windows {
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::Static(ISpatialInteractionManagerStatics2, 524288, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Static(ISpatialInteractionManagerStatics, 131072, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(ISpatialInteractionManagerStatics2, 524288, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class SpatialInteractionManager {
                     ISpatialInteractionManager,

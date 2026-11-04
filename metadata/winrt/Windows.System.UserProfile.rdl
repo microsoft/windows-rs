@@ -12,8 +12,8 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
-            #[Windows::Foundation::Metadata::Static(IAdvertisingManagerStatics2, 196608, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IAdvertisingManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IAdvertisingManagerStatics2, 196608, "Windows.Foundation.UniversalApiContract")]
             class AdvertisingManager {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
@@ -257,8 +257,8 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::ContractVersion(UserProfileLockScreenContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
-            #[Windows::Foundation::Metadata::Static(ILockScreenImageFeedStatics, 65536, "Windows.System.UserProfile.UserProfileLockScreenContract")]
             #[Windows::Foundation::Metadata::Static(ILockScreenStatics, 65536, "Windows.System.UserProfile.UserProfileLockScreenContract")]
+            #[Windows::Foundation::Metadata::Static(ILockScreenImageFeedStatics, 65536, "Windows.System.UserProfile.UserProfileLockScreenContract")]
             class LockScreen {}
             #[Windows::Foundation::Metadata::ContractVersion(UserProfileContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("Use User instead of UserInformation. For more info, see MSDN.", Deprecate, 131072, "Windows.System.UserProfile.UserProfileContract")]
