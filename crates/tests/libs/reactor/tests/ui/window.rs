@@ -92,10 +92,25 @@ fn title_bar_refreshes_hit_testing_after_content_changes() -> Result<()> {
             let window = ui.window_handle()? as HWND;
             let mut before = RECT::default();
             unsafe { GetWindowRect(window, &mut before).ok()? };
+            let thread = unsafe { GetWindowThreadProcessId(window, std::ptr::null_mut()) };
             ui.pointer_move_to(&empty, "drag-region", 0.5, 0.5)?;
             ui.pointer_button(true)?;
+            ui.wait(
+                "title-bar press enters the native window-move loop",
+                || unsafe {
+                    let mut info = GUITHREADINFO {
+                        cbSize: size_of::<GUITHREADINFO>() as u32,
+                        ..Default::default()
+                    };
+                    GetGUIThreadInfo(thread, &mut info).ok()?;
+                    Ok((info.flags, info.hwndMoveSize))
+                },
+                |(flags, moving)| flags & GUI_INMOVESIZE as u32 != 0 && *moving == window,
+            )?;
             ui.pointer_move_to(&empty, "drag-region", 0.8, 0.5)?;
-            let moved = ui.wait(
+            ui.pointer_button(false)?;
+            // Outline-only window dragging commits the new bounds on mouse release.
+            ui.wait(
                 "removed slider leaves a draggable title-bar region",
                 || unsafe {
                     let mut rect = RECT::default();
@@ -103,9 +118,7 @@ fn title_bar_refreshes_hit_testing_after_content_changes() -> Result<()> {
                     Ok((rect.left, rect.top))
                 },
                 |position| *position != (before.left, before.top),
-            );
-            ui.pointer_button(false)?;
-            moved?;
+            )?;
         }
         Ok(())
     })

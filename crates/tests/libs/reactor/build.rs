@@ -38,6 +38,8 @@ fn main() {
             "VT_I4",
             "VariantClear",
             "GetWindowThreadProcessId",
+            "GetGUIThreadInfo",
+            "GUI_INMOVESIZE",
             "GetForegroundWindow",
             "SetForegroundWindow",
             "GetAsyncKeyState",
