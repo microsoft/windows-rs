@@ -15,6 +15,12 @@ impl Default for Strings {
 }
 
 impl Strings {
+    pub fn get(&self, id: StringId) -> &str {
+        let bytes = &self.stream[id.0 as usize..];
+        let len = bytes.iter().position(|byte| *byte == 0).unwrap();
+        std::str::from_utf8(&bytes[..len]).unwrap()
+    }
+
     pub fn insert(&mut self, value: &str) -> StringId {
         if value.is_empty() {
             return StringId(0);

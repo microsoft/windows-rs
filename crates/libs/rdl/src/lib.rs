@@ -36,7 +36,7 @@ pub(crate) struct PseudoAttr {
     pub metadata: &'static str,
 }
 
-/// Pseudo-attribute table; order is metadata-significant for parameters.
+/// Pseudo-attribute spellings and their metadata names.
 pub(crate) const PSEUDO_ATTRS: &[PseudoAttr] = &[
     PseudoAttr {
         short: "associated_enum",

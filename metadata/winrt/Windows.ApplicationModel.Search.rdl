@@ -246,8 +246,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::Deprecated("SearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
             #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
-            #[Windows::Foundation::Metadata::Static(ISearchPaneStaticsWithHideThisApplication, 65536, "Windows.ApplicationModel.Search.SearchContract")]
             #[Windows::Foundation::Metadata::Static(ISearchPaneStatics, 65536, "Windows.ApplicationModel.Search.SearchContract")]
+            #[Windows::Foundation::Metadata::Static(ISearchPaneStaticsWithHideThisApplication, 65536, "Windows.ApplicationModel.Search.SearchContract")]
             class SearchPane {
                 ISearchPane,
             }

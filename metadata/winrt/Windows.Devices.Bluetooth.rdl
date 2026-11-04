@@ -47,8 +47,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(IBluetoothDeviceStatics2, 131072, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IBluetoothDeviceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IBluetoothDeviceStatics2, 131072, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class BluetoothDevice {
                 IBluetoothDevice,
@@ -128,8 +128,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(IBluetoothLEDeviceStatics2, 131072, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IBluetoothLEDeviceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IBluetoothLEDeviceStatics2, 131072, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class BluetoothLEDevice {
                 IBluetoothLEDevice,

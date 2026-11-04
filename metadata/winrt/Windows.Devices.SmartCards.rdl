@@ -666,8 +666,8 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::ContractVersion(SmartCardEmulatorContract, 131072)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(ISmartCardCryptogramGeneratorStatics2, 327680, "Windows.Devices.SmartCards.SmartCardEmulatorContract")]
             #[Windows::Foundation::Metadata::Static(ISmartCardCryptogramGeneratorStatics, 131072, "Windows.Devices.SmartCards.SmartCardEmulatorContract")]
+            #[Windows::Foundation::Metadata::Static(ISmartCardCryptogramGeneratorStatics2, 327680, "Windows.Devices.SmartCards.SmartCardEmulatorContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SmartCardCryptogramGenerator {
                 ISmartCardCryptogramGenerator,
@@ -834,9 +834,9 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::ContractVersion(SmartCardEmulatorContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(ISmartCardEmulatorStatics3, 327680, "Windows.Devices.SmartCards.SmartCardEmulatorContract")]
             #[Windows::Foundation::Metadata::Static(ISmartCardEmulatorStatics, 65536, "Windows.Devices.SmartCards.SmartCardEmulatorContract")]
             #[Windows::Foundation::Metadata::Static(ISmartCardEmulatorStatics2, 65536, "Windows.Devices.SmartCards.SmartCardEmulatorContract")]
+            #[Windows::Foundation::Metadata::Static(ISmartCardEmulatorStatics3, 327680, "Windows.Devices.SmartCards.SmartCardEmulatorContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SmartCardEmulator {
                 ISmartCardEmulator,
@@ -925,8 +925,8 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(ISmartCardProvisioningStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(ISmartCardProvisioningStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(ISmartCardProvisioningStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SmartCardProvisioning {
                 ISmartCardProvisioning,

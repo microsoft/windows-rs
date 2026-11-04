@@ -774,8 +774,8 @@ mod Windows {
             class StoreProductResult {
                 IStoreProductResult,
             }
-            #[Windows::Foundation::Metadata::Activatable(IStorePurchasePropertiesFactory, 65536, "Windows.Services.Store.StoreContract")]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Services.Store.StoreContract")]
+            #[Windows::Foundation::Metadata::Activatable(IStorePurchasePropertiesFactory, 65536, "Windows.Services.Store.StoreContract")]
             #[Windows::Foundation::Metadata::ContractVersion(StoreContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]

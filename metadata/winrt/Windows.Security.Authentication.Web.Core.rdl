@@ -287,11 +287,11 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Static(IWebAuthenticationCoreManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IWebAuthenticationCoreManagerStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::Static(IWebAuthenticationCoreManagerStatics3, 196608, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::Static(IWebAuthenticationCoreManagerStatics4, 393216, "Windows.Foundation.UniversalApiContract")]
-                    #[Windows::Foundation::Metadata::Static(IWebAuthenticationCoreManagerStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::Static(IWebAuthenticationCoreManagerStatics5, 983040, "Windows.Foundation.UniversalApiContract")]
-                    #[Windows::Foundation::Metadata::Static(IWebAuthenticationCoreManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::Threading(Both)]
                     class WebAuthenticationCoreManager {}
                     #[Windows::Foundation::Metadata::Activatable(IWebAuthenticationTransferTokenRequestFactory, 983040, "Windows.Foundation.UniversalApiContract")]

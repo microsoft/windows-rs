@@ -4,8 +4,8 @@ mod Windows {
         mod Profile {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(IAnalyticsInfoStatics2, 393216, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IAnalyticsInfoStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IAnalyticsInfoStatics2, 393216, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class AnalyticsInfo {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -290,8 +290,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(ProfileSharedModeContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(ISharedModeSettingsStatics2, 131072, "Windows.System.Profile.ProfileSharedModeContract")]
             #[Windows::Foundation::Metadata::Static(ISharedModeSettingsStatics, 65536, "Windows.System.Profile.ProfileSharedModeContract")]
+            #[Windows::Foundation::Metadata::Static(ISharedModeSettingsStatics2, 131072, "Windows.System.Profile.ProfileSharedModeContract")]
             class SharedModeSettings {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]

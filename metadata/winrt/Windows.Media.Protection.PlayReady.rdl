@@ -867,8 +867,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Static(IPlayReadyStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Static(IPlayReadyStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Static(IPlayReadyStatics3, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Static(IPlayReadyStatics5, 458752, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Static(IPlayReadyStatics4, 196608, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IPlayReadyStatics5, 458752, "Windows.Foundation.UniversalApiContract")]
                 class PlayReadyStatics {}
             }
         }

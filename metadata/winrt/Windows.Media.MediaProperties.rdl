@@ -621,8 +621,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(IImageEncodingPropertiesStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IImageEncodingPropertiesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IImageEncodingPropertiesStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IImageEncodingPropertiesStatics3, 458752, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ImageEncodingProperties {
@@ -635,10 +635,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(IMediaEncodingProfileStatics4, 983040, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Static(IMediaEncodingProfileStatics3, 262144, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Static(IMediaEncodingProfileStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IMediaEncodingProfileStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IMediaEncodingProfileStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IMediaEncodingProfileStatics3, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IMediaEncodingProfileStatics4, 983040, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(MTA)]
             class MediaEncodingProfile {
                 IMediaEncodingProfile,
@@ -649,13 +649,13 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(IMediaEncodingSubtypesStatics3, 262144, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Static(IMediaEncodingSubtypesStatics5, 458752, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Static(IMediaEncodingSubtypesStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Static(IMediaEncodingSubtypesStatics7, 983040, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Static(IMediaEncodingSubtypesStatics4, 393216, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Static(IMediaEncodingSubtypesStatics6, 655360, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IMediaEncodingSubtypesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IMediaEncodingSubtypesStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IMediaEncodingSubtypesStatics3, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IMediaEncodingSubtypesStatics4, 393216, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IMediaEncodingSubtypesStatics5, 458752, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IMediaEncodingSubtypesStatics6, 655360, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IMediaEncodingSubtypesStatics7, 983040, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class MediaEncodingSubtypes {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

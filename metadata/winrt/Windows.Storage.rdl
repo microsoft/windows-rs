@@ -11,8 +11,8 @@ mod Windows {
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-        #[Windows::Foundation::Metadata::Static(IApplicationDataStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Static(IApplicationDataStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(IApplicationDataStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Threading(MTA)]
         class ApplicationData {
             IApplicationData,
@@ -83,8 +83,8 @@ mod Windows {
             OpenIfExists = 3,
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
-        #[Windows::Foundation::Metadata::Static(IDownloadsFolderStatics2, 131072, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Static(IDownloadsFolderStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(IDownloadsFolderStatics2, 131072, "Windows.Foundation.UniversalApiContract")]
         class DownloadsFolder {}
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[repr(i32)]
@@ -1006,13 +1006,13 @@ mod Windows {
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-        #[Windows::Foundation::Metadata::Static(IKnownFoldersSavedPicturesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-        #[Windows::Foundation::Metadata::Static(IKnownFoldersStatics3, 131072, "Windows.Foundation.UniversalApiContract")]
-        #[Windows::Foundation::Metadata::Static(IKnownFoldersStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Static(IKnownFoldersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(IKnownFoldersStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(IKnownFoldersStatics3, 131072, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(IKnownFoldersStatics4, 655360, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Static(IKnownFoldersPlaylistsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Static(IKnownFoldersCameraRollStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-        #[Windows::Foundation::Metadata::Static(IKnownFoldersStatics4, 655360, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(IKnownFoldersSavedPicturesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
         class KnownFolders {}
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 655360)]
         #[repr(i32)]
@@ -1065,8 +1065,8 @@ mod Windows {
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
-        #[Windows::Foundation::Metadata::Static(IStorageFileStatics2, 655360, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Static(IStorageFileStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(IStorageFileStatics2, 655360, "Windows.Foundation.UniversalApiContract")]
         class StorageFile {
             IStorageFile,
             Streams::IInputStreamReference,
@@ -1085,8 +1085,8 @@ mod Windows {
             IStorageFile2,
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
-        #[Windows::Foundation::Metadata::Static(IStorageFolderStatics2, 655360, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Static(IStorageFolderStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(IStorageFolderStatics2, 655360, "Windows.Foundation.UniversalApiContract")]
         class StorageFolder {
             IStorageFolder,
             IStorageItem,

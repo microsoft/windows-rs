@@ -103,8 +103,8 @@ mod Windows {
                 AppAndSystem = 1,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Static(IStorageApplicationPermissionsStatics2, 524288, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IStorageApplicationPermissionsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IStorageApplicationPermissionsStatics2, 524288, "Windows.Foundation.UniversalApiContract")]
             class StorageApplicationPermissions {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class StorageItemAccessList {

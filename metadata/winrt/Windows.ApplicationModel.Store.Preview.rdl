@@ -175,11 +175,11 @@ mod Windows {
                     fn RequestTokenWithUIElementHostingAsync(&self, #[in] request: super::super::super::Security::Authentication::Web::Core::WebTokenRequest, #[in] webAccount: super::super::super::Security::Credentials::WebAccount, #[in] uiElement: super::super::super::UI::Xaml::UIElement) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>;
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::Static(IStoreConfigurationStatics3, 196608, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Static(IStoreConfigurationStatics5, 458752, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Static(IStoreConfigurationStatics2, 131072, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Static(IStoreConfigurationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IStoreConfigurationStatics2, 131072, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IStoreConfigurationStatics3, 196608, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Static(IStoreConfigurationStatics4, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IStoreConfigurationStatics5, 458752, "Windows.Foundation.UniversalApiContract")]
                 class StoreConfiguration {}
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]

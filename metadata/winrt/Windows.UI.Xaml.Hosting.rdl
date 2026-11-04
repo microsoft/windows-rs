@@ -318,8 +318,8 @@ mod Windows {
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::Static(IXamlUIPresenterStatics2, 65536, "Windows.UI.Xaml.Hosting.HostingContract")]
                 #[Windows::Foundation::Metadata::Static(IXamlUIPresenterStatics, 65536, "Windows.UI.Xaml.Hosting.HostingContract")]
+                #[Windows::Foundation::Metadata::Static(IXamlUIPresenterStatics2, 65536, "Windows.UI.Xaml.Hosting.HostingContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 class XamlUIPresenter {

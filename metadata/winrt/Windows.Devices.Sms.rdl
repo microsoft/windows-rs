@@ -529,8 +529,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(LegacySmsApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("SmsDevice may be altered or unavailable for releases after Windows 10. Instead, use SmsDevice2.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
-            #[Windows::Foundation::Metadata::Static(ISmsDeviceStatics2, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
             #[Windows::Foundation::Metadata::Static(ISmsDeviceStatics, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
+            #[Windows::Foundation::Metadata::Static(ISmsDeviceStatics2, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SmsDevice {
                 ISmsDevice,

@@ -620,8 +620,8 @@ mod Windows {
                 ZeroToOne = 1,
                 MinusOneToOne = 2,
             }
-            #[Windows::Foundation::Metadata::Activatable(ILearningModelSessionFactory2, 131072, "Windows.AI.MachineLearning.MachineLearningContract")]
             #[Windows::Foundation::Metadata::Activatable(ILearningModelSessionFactory, 65536, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::Activatable(ILearningModelSessionFactory2, 131072, "Windows.AI.MachineLearning.MachineLearningContract")]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -662,8 +662,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(ITensorBooleanStatics2, 131072, "Windows.AI.MachineLearning.MachineLearningContract")]
             #[Windows::Foundation::Metadata::Static(ITensorBooleanStatics, 65536, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::Static(ITensorBooleanStatics2, 131072, "Windows.AI.MachineLearning.MachineLearningContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class TensorBoolean {
                 ITensorBoolean,
@@ -714,8 +714,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(ITensorFloat16BitStatics2, 131072, "Windows.AI.MachineLearning.MachineLearningContract")]
             #[Windows::Foundation::Metadata::Static(ITensorFloat16BitStatics, 65536, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::Static(ITensorFloat16BitStatics2, 131072, "Windows.AI.MachineLearning.MachineLearningContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class TensorFloat16Bit {
                 ITensorFloat16Bit,
@@ -774,8 +774,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(ITensorInt8BitStatics2, 131072, "Windows.AI.MachineLearning.MachineLearningContract")]
             #[Windows::Foundation::Metadata::Static(ITensorInt8BitStatics, 65536, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::Static(ITensorInt8BitStatics2, 131072, "Windows.AI.MachineLearning.MachineLearningContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class TensorInt8Bit {
                 ITensorInt8Bit,
@@ -869,8 +869,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(ITensorUInt8BitStatics2, 131072, "Windows.AI.MachineLearning.MachineLearningContract")]
             #[Windows::Foundation::Metadata::Static(ITensorUInt8BitStatics, 65536, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::Static(ITensorUInt8BitStatics2, 131072, "Windows.AI.MachineLearning.MachineLearningContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class TensorUInt8Bit {
                 ITensorUInt8Bit,
