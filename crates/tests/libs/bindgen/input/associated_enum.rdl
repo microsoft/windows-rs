@@ -1,0 +1,43 @@
+//! --filter Test --flat
+#[win32]
+mod Windows {
+    mod Win32 {
+        mod Metadata {
+            attribute AssociatedEnumAttribute {
+                fn(#[in] enumType: Type);
+            }
+        }
+    }
+}
+#[win32]
+mod Test {
+    #[repr(u32)]
+    #[flags]
+    enum Options {
+        CloseSource = 1,
+        SameAccess = 2,
+        HighBit = 2147483648,
+    }
+    #[repr(u16)]
+    enum Family {
+        Inet = 2,
+    }
+    #[repr(i16)]
+    enum Signed {
+        Negative = -100,
+    }
+    #[library("fixture.dll")]
+    extern "C" fn Duplicate(#[associated_enum(Options)] options: u32);
+    #[library("fixture.dll")]
+    extern "C" fn Socket(#[associated_enum(Family)] family: i32);
+    #[library("fixture.dll")]
+    extern "C" fn GetFamily() -> #[associated_enum(Family)] i32;
+    extern "C" fn Callback(#[associated_enum(Options)] options: u32);
+    struct Arguments {
+        #[associated_enum(Family)]
+        family: u16,
+    }
+    interface IOptions {
+        fn Apply(&self, #[associated_enum(Options)] options: u32);
+    }
+}

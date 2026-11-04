@@ -135,7 +135,7 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
     let mut work = Work::default();
     let mut types = Vec::new();
     records::definitions(&snapshots, &membership, pending, &mut work, &mut types)?;
-    let aliases = alias_groups(&snapshots);
+    let aliases = alias_groups(&snapshots, &mut types)?;
     // Record edges refer to groups whose definitions all have independent obligations above.
     // No recursive assumption is published unless the entire worklist succeeds.
     let (enums, enum_groups) = enums::resolve(&snapshots, &mut work)?;
@@ -211,7 +211,10 @@ fn validate_observation_attributes(snapshots: &[&Snapshot]) -> Result<(), Error>
     Ok(())
 }
 
-fn alias_groups(snapshots: &[&Snapshot]) -> Vec<AliasGroup> {
+fn alias_groups(
+    snapshots: &[&Snapshot],
+    types: &mut Vec<TypeCheck>,
+) -> Result<Vec<AliasGroup>, Error> {
     let mut aliases: BTreeMap<&str, Vec<AliasObservationRef>> = BTreeMap::new();
     for (snapshot, value) in snapshots.iter().enumerate() {
         for (id, alias) in value.aliases.iter().enumerate() {
@@ -228,6 +231,34 @@ fn alias_groups(snapshots: &[&Snapshot]) -> Vec<AliasGroup> {
     }
     let mut alias_groups = Vec::new();
     for (name, mut observations) in aliases {
+        let mut group = None;
+        for reference in &observations {
+            let observation = &snapshots[reference.snapshot].aliases[reference.alias.0]
+                .observations[reference.observation];
+            if let Some(annotation) = enum_annotation(&observation.attributes) {
+                if group.is_some_and(|previous| previous != annotation) {
+                    return Err(Error(format!("conflicting enum groups for `{name}`")));
+                }
+                group = Some(annotation);
+            }
+        }
+        if group.is_some() {
+            let first = observations[0];
+            let first_type = snapshots[first.snapshot].aliases[first.alias.0].observations
+                [first.observation]
+                .canonical;
+            for &other in observations.iter().skip(1) {
+                let other_type = snapshots[other.snapshot].aliases[other.alias.0].observations
+                    [other.observation]
+                    .canonical;
+                types.push((
+                    (first.snapshot, first_type),
+                    (other.snapshot, other_type),
+                    Owner::Alias(first),
+                    Owner::Alias(other),
+                ));
+            }
+        }
         observations.sort_by_key(|reference| {
             let snapshot = snapshots[reference.snapshot];
             let location =
@@ -243,7 +274,7 @@ fn alias_groups(snapshots: &[&Snapshot]) -> Vec<AliasGroup> {
             observations,
         });
     }
-    alias_groups
+    Ok(alias_groups)
 }
 
 /// Record relations supply independent definition checks; a failed comparison invalidates the pass.
@@ -423,6 +454,8 @@ pub(crate) fn abi_attributes_equal(a: &[Attribute], b: &[Attribute]) -> bool {
         && deprecations(a) == deprecations(b)
         && uuid(a) == uuid(b)
         && import_library(a) == import_library(b)
+        && associated_enum(a).map(|value| (&value.name, value.typedef))
+            == associated_enum(b).map(|value| (&value.name, value.typedef))
         && no_trivial_auto_var_init(a) == no_trivial_auto_var_init(b)
         && a.iter()
             .any(|value| value.kind == AttributeKind::MSAllocator)
@@ -455,6 +488,24 @@ pub(crate) fn import_library(attributes: &[Attribute]) -> Option<&ImportLibrary>
         .iter()
         .find_map(|attribute| match &attribute.kind {
             AttributeKind::ImportLibrary(value) => Some(value.as_ref()),
+            _ => None,
+        })
+}
+
+pub(crate) fn enum_annotation(attributes: &[Attribute]) -> Option<&EnumAnnotation> {
+    attributes
+        .iter()
+        .find_map(|attribute| match &attribute.kind {
+            AttributeKind::EnumGroup(value) => Some(value.as_ref()),
+            _ => None,
+        })
+}
+
+pub(crate) fn associated_enum(attributes: &[Attribute]) -> Option<&AssociatedEnum> {
+    attributes
+        .iter()
+        .find_map(|attribute| match &attribute.kind {
+            AttributeKind::AssociatedEnum(value) => Some(value.as_ref()),
             _ => None,
         })
 }

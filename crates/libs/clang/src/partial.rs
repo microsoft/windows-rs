@@ -78,6 +78,20 @@ impl Issues {
 pub(crate) fn prune(snapshots: &mut [Snapshot], issues: &mut Issues) {
     let mut dependents: HashMap<Key, BTreeSet<Key>> = HashMap::new();
     for snapshot in snapshots.iter() {
+        for alias in &snapshot.aliases {
+            for observation in &alias.observations {
+                if let Some(group) = resolve::enum_annotation(&observation.attributes) {
+                    for member in &group.members {
+                        if let Some(name) = &member.native {
+                            dependents
+                                .entry(Key::Value(name.clone()))
+                                .or_default()
+                                .insert(Key::Alias(alias.name.clone()));
+                        }
+                    }
+                }
+            }
+        }
         for value in &snapshot.values {
             for observation in &value.observations {
                 if let ValueKind::Function {
@@ -121,10 +135,13 @@ pub(crate) fn prune(snapshots: &mut [Snapshot], issues: &mut Issues) {
             }
         }
         let types = type_dependencies(snapshot);
-        let mut edge = |owner: &Key, ty: TypeId| {
-            for &dependency in &types[ty.0] {
+        let mut edge = |owner: &Key, ty: TypeId, attributes: &[Attribute]| {
+            for dependency in std::iter::once(ty)
+                .chain(resolve::associated_enum(attributes).map(|value| value.ty))
+                .flat_map(|ty| &types[ty.0])
+            {
                 dependents
-                    .entry(Key::of(snapshot, dependency))
+                    .entry(Key::of(snapshot, *dependency))
                     .or_default()
                     .insert(owner.clone());
             }
@@ -133,24 +150,40 @@ pub(crate) fn prune(snapshots: &mut [Snapshot], issues: &mut Issues) {
             if let Some(definition) = &observation.definition {
                 for field in &definition.fields {
                     let key = Key::of(snapshot, DeclarationId::Record(observation.record));
-                    edge(&key, field.written);
-                    edge(&key, field.canonical);
+                    edge(&key, field.written, &field.attributes);
+                    edge(&key, field.canonical, &[]);
                 }
             }
         }
         for alias in &snapshot.aliases {
             for observation in &alias.observations {
-                edge(&Key::Alias(alias.name.clone()), observation.underlying);
-                edge(&Key::Alias(alias.name.clone()), observation.canonical);
+                edge(
+                    &Key::Alias(alias.name.clone()),
+                    observation.underlying,
+                    &observation.attributes,
+                );
+                edge(&Key::Alias(alias.name.clone()), observation.canonical, &[]);
                 for parameter in observation.parameters.iter().flatten() {
-                    edge(&Key::Alias(alias.name.clone()), parameter.written);
+                    edge(
+                        &Key::Alias(alias.name.clone()),
+                        parameter.written,
+                        &parameter.attributes,
+                    );
                 }
             }
         }
         for enumeration in &snapshot.enums {
             for observation in &enumeration.observations {
-                edge(&Key::Tag(enumeration.name.clone()), observation.underlying);
-                edge(&Key::Tag(enumeration.name.clone()), observation.canonical);
+                edge(
+                    &Key::Tag(enumeration.name.clone()),
+                    observation.underlying,
+                    &[],
+                );
+                edge(
+                    &Key::Tag(enumeration.name.clone()),
+                    observation.canonical,
+                    &[],
+                );
             }
         }
         let values = snapshot.values.iter().enumerate().flat_map(|(id, value)| {
@@ -171,8 +204,8 @@ pub(crate) fn prune(snapshots: &mut [Snapshot], issues: &mut Issues) {
             })
         });
         for (key, observation) in values.chain(methods) {
-            edge(&key, observation.written);
-            edge(&key, observation.canonical);
+            edge(&key, observation.written, &observation.attributes);
+            edge(&key, observation.canonical, &[]);
             if let ValueKind::Function {
                 parameters,
                 stdcall_candidate,
@@ -180,11 +213,11 @@ pub(crate) fn prune(snapshots: &mut [Snapshot], issues: &mut Issues) {
             } = &observation.kind
             {
                 if let Some(candidate) = stdcall_candidate {
-                    edge(&key, candidate.written);
-                    edge(&key, candidate.canonical);
+                    edge(&key, candidate.written, &[]);
+                    edge(&key, candidate.canonical, &[]);
                 }
                 for parameter in parameters {
-                    edge(&key, parameter.written);
+                    edge(&key, parameter.written, &parameter.attributes);
                 }
             }
         }
@@ -346,9 +379,11 @@ fn compact(snapshot: &mut Snapshot, excluded: &BTreeMap<Key, String>, reachable:
     }
     for alias in &mut snapshot.aliases {
         for observation in &mut alias.observations {
+            remap_attributes(&mut observation.attributes, &types);
             observation.underlying.0 = types[observation.underlying.0].unwrap();
             observation.canonical.0 = types[observation.canonical.0].unwrap();
             for parameter in observation.parameters.iter_mut().flatten() {
+                remap_attributes(&mut parameter.attributes, &types);
                 parameter.written.0 = types[parameter.written.0].unwrap();
             }
         }
@@ -366,6 +401,7 @@ fn compact(snapshot: &mut Snapshot, excluded: &BTreeMap<Key, String>, reachable:
                 remap_value(&mut method.observation, &types);
             }
             for field in &mut definition.fields {
+                remap_attributes(&mut field.attributes, &types);
                 field.written.0 = types[field.written.0].unwrap();
                 field.canonical.0 = types[field.canonical.0].unwrap();
             }
@@ -417,6 +453,7 @@ fn compact(snapshot: &mut Snapshot, excluded: &BTreeMap<Key, String>, reachable:
 }
 
 fn remap_value(value: &mut ValueObservation, types: &[Option<usize>]) {
+    remap_attributes(&mut value.attributes, types);
     value.written.0 = types[value.written.0].unwrap();
     value.canonical.0 = types[value.canonical.0].unwrap();
     if let ValueKind::Function {
@@ -430,7 +467,16 @@ fn remap_value(value: &mut ValueObservation, types: &[Option<usize>]) {
             candidate.canonical.0 = types[candidate.canonical.0].unwrap();
         }
         for parameter in parameters {
+            remap_attributes(&mut parameter.attributes, types);
             parameter.written.0 = types[parameter.written.0].unwrap();
+        }
+    }
+}
+
+fn remap_attributes(attributes: &mut [Attribute], types: &[Option<usize>]) {
+    for attribute in attributes {
+        if let AttributeKind::AssociatedEnum(value) = &mut attribute.kind {
+            value.ty.0 = types[value.ty.0].unwrap();
         }
     }
 }

@@ -17,6 +17,23 @@ pub enum Item {
 }
 
 impl Item {
+    pub fn attrs(&self) -> &[syn::Attribute] {
+        match self {
+            Self::Attribute(Attribute { attrs, .. })
+            | Self::Callback(Callback { attrs, .. })
+            | Self::Class(Class { attrs, .. })
+            | Self::Const(Const { attrs, .. })
+            | Self::Delegate(Delegate { attrs, .. })
+            | Self::Enum(Enum { attrs, .. })
+            | Self::Fn(Fn { attrs, .. })
+            | Self::Interface(Interface { attrs, .. })
+            | Self::Module(Module { attrs, .. })
+            | Self::Struct(Struct { attrs, .. })
+            | Self::Typedef(Typedef { attrs, .. })
+            | Self::Union(Union { attrs, .. }) => attrs,
+        }
+    }
+
     fn replace_attrs(&mut self, new: Vec<syn::Attribute>) -> Vec<syn::Attribute> {
         match self {
             Self::Attribute(Attribute { attrs, .. })

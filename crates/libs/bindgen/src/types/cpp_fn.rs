@@ -140,6 +140,9 @@ impl CppFn {
         for ty in signature.types() {
             ty.combine_sys(dependencies, reader);
         }
+        for ty in self.method.associated_enums(reader) {
+            ty.combine_sys(dependencies, reader);
+        }
 
         if let Some(dependency) = self.window_long_dependency(reader) {
             reader
@@ -363,6 +366,9 @@ impl CppFn {
 
 impl Dependencies for CppFn {
     fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
+        for ty in self.method.associated_enums(reader) {
+            ty.combine(dependencies, reader);
+        }
         self.method
             .method_signature(&[], reader)
             .combine(dependencies, reader);

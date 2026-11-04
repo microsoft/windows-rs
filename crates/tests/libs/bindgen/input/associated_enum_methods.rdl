@@ -1,0 +1,30 @@
+//! --filter Windows.Win32
+#[win32]
+mod Windows {
+    mod Win32 {
+        mod Metadata {
+            attribute AssociatedEnumAttribute {
+                fn(#[in] enumType: Type);
+            }
+        }
+    }
+}
+
+#[win32]
+mod Windows {
+    mod Win32 {
+        mod Values {
+            #[repr(u32)]
+            enum Options {
+                One = 1,
+            }
+        }
+
+        mod Api {
+            interface I {
+                fn Plain(&self);
+                fn Annotated(&self, #[associated_enum(Windows::Win32::Values::Options)] value: u32);
+            }
+        }
+    }
+}

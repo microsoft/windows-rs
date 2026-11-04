@@ -342,7 +342,9 @@ impl Projector<'_, '_> {
                 if matches!(snapshot.types[inner.0].kind, TypeKind::Record(record)
                     if self.interface_record(snapshot_id, record)));
             let attributes = annotations::field(snapshot, field, &definition.fields, interface)?;
-            fields.push(quote! { #attributes #field_name: #ty #members, });
+            let association =
+                self.associated_enum(snapshot_id, &field.attributes, field.written)?;
+            fields.push(quote! { #attributes #association #field_name: #ty #members, });
         }
         alignment = alignment.max(u64::from(forced.unwrap_or(1)));
         if definition.layout
@@ -504,6 +506,7 @@ impl Projector<'_, '_> {
                     AttributeKind::Sal(_)
                         | AttributeKind::Deprecated(_)
                         | AttributeKind::Aligned { .. }
+                        | AttributeKind::AssociatedEnum(_)
                 )
             }) || native.qualifiers.constant
                 || field.bit_width.is_some() && !field.attributes.is_empty()

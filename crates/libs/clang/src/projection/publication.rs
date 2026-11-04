@@ -10,6 +10,18 @@ pub(super) fn values<'a>(
 ) -> Result<HashSet<&'a str>, Error> {
     let resolution = projector.resolution;
     let mut unpublished_values = HashSet::new();
+    let grouped: HashMap<_, _> = projector
+        .enum_groups
+        .iter()
+        .flat_map(|(name, group)| {
+            group.members.iter().map(move |member| {
+                (
+                    member.native.clone().unwrap_or_else(|| member.name.clone()),
+                    (*name, member),
+                )
+            })
+        })
+        .collect();
     let native_values: HashMap<_, _> = resolution
         .values
         .iter()
@@ -172,6 +184,17 @@ pub(super) fn values<'a>(
             }
             Ok((bodies, false)) => {
                 let mut body = bodies.into_iter().next().unwrap();
+                if let Some((group, member)) = grouped.get(&value.name) {
+                    if definition != Some(&ConstantValue::Integer(member.value))
+                        || !matches!(&snapshot.types[observation.canonical.0].kind, TypeKind::Scalar(scalar) if *scalar == member.scalar)
+                    {
+                        return Err(Error(format!(
+                            "enum group `{group}` member `{}` disagrees with its native definition",
+                            value.name
+                        )));
+                    }
+                    continue;
+                }
                 if let Some(item) = projector.external.values.get(&value.name) {
                     if let windows_metadata::reader::Item::Fn(method) = item {
                         let convention = match method.calling_convention() {
@@ -658,7 +681,11 @@ pub(super) fn aliases<'a>(
                 body,
                 header,
                 keys,
-                PublishedKind::Alias,
+                if projector.enum_groups.contains_key(alias.name.as_str()) {
+                    PublishedKind::Enum
+                } else {
+                    PublishedKind::Alias
+                },
             )?,
             Err(error) => reject(rejected, keys, error)?,
         }

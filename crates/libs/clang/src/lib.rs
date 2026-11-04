@@ -259,6 +259,8 @@ pub enum AttributeKind {
     DllExport,
     SetLastError,
     ImportLibrary(Box<ImportLibrary>),
+    EnumGroup(Box<EnumAnnotation>),
+    AssociatedEnum(Box<AssociatedEnum>),
     NoThrow,
     Cxx11NoReturn,
     SelectAny,
@@ -291,6 +293,27 @@ pub struct Attribute {
 pub struct ImportLibrary {
     pub library: String,
     pub name: Option<String>,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub struct EnumAnnotation {
+    pub flags: bool,
+    pub members: Vec<EnumGroupMember>,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub struct EnumGroupMember {
+    pub name: String,
+    pub native: Option<String>,
+    pub scalar: Scalar,
+    pub value: EnumValue,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub struct AssociatedEnum {
+    pub name: String,
+    pub typedef: bool,
+    pub ty: TypeId,
 }
 
 /// SAL source-hook evidence, including macro substitutions at the declaration site.
@@ -722,6 +745,21 @@ impl Snapshot {
                             size_of::<ImportLibrary>()
                                 + value.library.capacity()
                                 + value.name.as_ref().map_or(0, String::capacity)
+                        }
+                        AttributeKind::EnumGroup(value) => {
+                            size_of::<EnumAnnotation>()
+                                + vector_bytes(&value.members)
+                                + value
+                                    .members
+                                    .iter()
+                                    .map(|member| {
+                                        member.name.capacity()
+                                            + member.native.as_ref().map_or(0, String::capacity)
+                                    })
+                                    .sum::<usize>()
+                        }
+                        AttributeKind::AssociatedEnum(value) => {
+                            size_of::<AssociatedEnum>() + value.name.capacity()
                         }
                         AttributeKind::Sal(value) => {
                             size_of::<SalAnnotation>()

@@ -34,7 +34,10 @@ pub enum ParamHint {
 impl CppMethod {
     pub fn new(def: MethodDef, reader: &Reader) -> Self {
         let signature = def.method_signature(&[], reader);
-        let dependencies = signature.dependencies(reader);
+        let mut dependencies = signature.dependencies(reader);
+        for ty in def.associated_enums(reader) {
+            ty.combine(&mut dependencies, reader);
+        }
         let mut param_hints = vec![ParamHint::None; signature.params.len()];
 
         for (position, hint) in param_hints.iter_mut().enumerate() {

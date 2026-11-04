@@ -219,6 +219,7 @@ impl Encoder<'_> {
                     mt
                 }
             };
+            self.validate_associated_enum_storage(&field.attrs, &mt, effective_arch.unwrap_or(-1))?;
             let field_id = self
                 .output
                 .Field(&field_name, &mt, metadata::FieldAttributes::Public);

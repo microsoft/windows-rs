@@ -1,4 +1,94 @@
 #[test]
+fn associated_enum_method_features() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("associated-enum-method-features");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let winmd = scratch.join("input.winmd");
+    windows_rdl::reader()
+        .input("input/associated_enum_methods.rdl")
+        .output(&winmd)
+        .write()
+        .unwrap();
+    let core = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\libs\\core");
+    for style in ["rich", "minimal"] {
+        let output = scratch.join(style);
+        std::fs::create_dir_all(output.join("src")).unwrap();
+        let manifest = output.join("Cargo.toml");
+        std::fs::write(
+            &manifest,
+            format!(
+                "[package]\nname = \"associated-enum-method-features\"\nversion = \"0.0.0\"\n\
+                 edition = \"2024\"\n[workspace]\n[dependencies]\n\
+                 windows-core = {{ path = '{}' }}\n\
+                 [lints.rust]\nwarnings = \"deny\"\nnonstandard_style = \"allow\"\n\
+                 [features]\n# generated features\n",
+                core.display()
+            ),
+        )
+        .unwrap();
+        let mut builder = windows_bindgen::builder();
+        builder
+            .input(&winmd)
+            .filter("Windows.Win32")
+            .package()
+            .output(&output);
+        if style == "minimal" {
+            builder.minimal();
+        }
+        builder.write();
+        std::fs::write(
+            output.join("src\\lib.rs"),
+            r#"
+pub mod Windows;
+use Windows::Win32::Api::{I, I_Vtbl};
+
+const _: [(); 2 * core::mem::size_of::<usize>()] = [(); core::mem::size_of::<I_Vtbl>()];
+
+pub unsafe fn plain(value: &I) {
+    unsafe { value.Plain() };
+}
+
+#[cfg(feature = "Values")]
+pub unsafe fn annotated(value: &I) {
+    unsafe { value.Annotated(Windows::Win32::Values::One) };
+}
+
+#[cfg(feature = "Values")]
+pub struct Implementation;
+#[cfg(feature = "Values")]
+impl Windows::Win32::Api::I_Impl for Implementation {
+    fn Plain(&self) {}
+    fn Annotated(&self, _: u32) {}
+}
+#[cfg(feature = "Values")]
+pub const VTABLE: I_Vtbl = I_Vtbl::new::<Implementation>();
+"#,
+        )
+        .unwrap();
+        for features in ["Api", "Api,Values"] {
+            let result = std::process::Command::new("cargo")
+                .args([
+                    "check",
+                    "--quiet",
+                    "--offline",
+                    "--features",
+                    features,
+                    "--manifest-path",
+                ])
+                .arg(&manifest)
+                .arg("--target-dir")
+                .arg(scratch.join("build"))
+                .output()
+                .unwrap();
+            assert!(
+                result.status.success(),
+                "{style} {features}: {}",
+                String::from_utf8_lossy(&result.stderr)
+            );
+        }
+    }
+}
+
+#[test]
 fn package_architecture_host() {
     run(&[None]);
 }

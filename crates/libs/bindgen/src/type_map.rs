@@ -18,6 +18,46 @@ pub trait Dependencies {
     }
 }
 
+pub fn associated_enums<'a>(row: impl HasAttributes<'a>, reader: &Reader) -> Vec<Type> {
+    let mut result = Vec::new();
+    for attribute in row.attributes().filter(|attribute| {
+        attribute.name() == "AssociatedEnumAttribute"
+            && attribute.ctor().parent().namespace() == "Windows.Win32.Metadata"
+    }) {
+        let values = attribute.value();
+        let [(_, Value::TypeName(name))] = values.as_slice() else {
+            panic!("AssociatedEnumAttribute requires one System.Type argument");
+        };
+        let types: Vec<_> = reader.with_full_name(&name.namespace, &name.name).collect();
+        assert!(
+            !types.is_empty() && types.iter().all(|ty| matches!(ty, Type::CppEnum(_))),
+            "AssociatedEnumAttribute target `{}.{}` must be a Win32 enum",
+            name.namespace,
+            name.name
+        );
+        for ty in &types {
+            let Type::CppEnum(enumeration) = ty else {
+                unreachable!()
+            };
+            if !enumeration.def.has_attribute("ScopedEnumAttribute") {
+                for field in enumeration
+                    .def
+                    .fields()
+                    .filter(|field| field.flags().contains(FieldAttributes::Literal))
+                {
+                    result.extend(
+                        reader
+                            .with_full_name(&name.namespace, field.name())
+                            .filter(|ty| matches!(ty, Type::CppConst(_))),
+                    );
+                }
+            }
+        }
+        result.extend(types);
+    }
+    result
+}
+
 impl std::ops::Deref for TypeMap {
     type Target = HashMap<TypeName, HashSet<Type>>;
 

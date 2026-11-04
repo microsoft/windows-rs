@@ -4,9 +4,16 @@ pub trait MethodDefExt {
     fn import_name(&self) -> Option<&'static str>;
     fn module_name(&self) -> String;
     fn method_signature(&self, generics: &[Type], reader: &Reader) -> Signature;
+    fn associated_enums(&self, reader: &Reader) -> Vec<Type>;
 }
 
 impl MethodDefExt for MethodDef {
+    fn associated_enums(&self, reader: &Reader) -> Vec<Type> {
+        self.params()
+            .flat_map(|param| associated_enums(param, reader))
+            .collect()
+    }
+
     fn import_name(&self) -> Option<&'static str> {
         self.impl_map().and_then(|map| {
             let import_name = map.import_name();

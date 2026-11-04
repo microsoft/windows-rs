@@ -1,0 +1,2 @@
+error: associated_enum requires a parameter, return value, or field, not a constant
+ --> errors/input/associated_enum_record_integer.rdl:20:9

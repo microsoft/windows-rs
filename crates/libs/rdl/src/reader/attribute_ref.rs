@@ -496,6 +496,44 @@ impl Encoder<'_> {
         if pseudo.short == "anonymous" {
             return self.err(attr, "anonymous provenance requires a nested Win32 record");
         }
+        if pseudo.short == "associated_enum" {
+            if !matches!(
+                target,
+                metadata::writer::HasAttribute::Param(_) | metadata::writer::HasAttribute::Field(_)
+            ) {
+                return self.err(
+                    attr,
+                    "associated_enum requires a parameter, return value, or field",
+                );
+            }
+            let attr_ref = self.resolve_pseudo_attr_ref(attr, pseudo)?;
+            let [(_, metadata::Value::TypeName(name))] = attr_ref.args.as_slice() else {
+                return self.err(attr, "associated_enum requires one enum type");
+            };
+            let valid = if let Some(variants) = self
+                .index
+                .namespaces
+                .get(&name.namespace)
+                .and_then(|namespace| namespace.types.get(&name.name))
+            {
+                variants
+                    .iter()
+                    .all(|(_, item)| matches!(item, Item::Enum(_)))
+            } else {
+                self.output.reference().is_some_and(|index| {
+                    let variants: Vec<_> = index.get(&name.namespace, &name.name).collect();
+                    !variants.is_empty()
+                        && variants
+                            .iter()
+                            .all(|ty| ty.category() == metadata::reader::TypeCategory::Enum)
+                })
+            };
+            if !valid {
+                return self.err(attr, "associated_enum target must be an enum");
+            }
+            self.encode_named_attribute(target, &attr_ref);
+            return Ok(());
+        }
         let attr_ref = if matches!(attr.meta, syn::Meta::Path(_)) {
             AttributeRef {
                 type_name: metadata::TypeName::named(METADATA_NAMESPACE, pseudo.metadata),
@@ -756,6 +794,119 @@ impl Encoder<'_> {
             }
         }
         Some(ty)
+    }
+
+    pub fn validate_associated_enum_storage(
+        &mut self,
+        attrs: &[syn::Attribute],
+        ty: &metadata::Type,
+        arch: i32,
+    ) -> Result<(), Error> {
+        let Some(attr) = attrs
+            .iter()
+            .find(|attr| attr.path().is_ident("associated_enum"))
+        else {
+            return Ok(());
+        };
+        let invalid = "associated_enum requires integer storage, not an already enum-typed use";
+        let arch = arch & self.read_arch(attrs)?.unwrap_or(-1);
+        let mut pending = vec![(ty.clone(), HashSet::new(), arch)];
+        while let Some((ty, mut seen, arch)) = pending.pop() {
+            match ty {
+                metadata::Type::I8
+                | metadata::Type::U8
+                | metadata::Type::I16
+                | metadata::Type::U16
+                | metadata::Type::I32
+                | metadata::Type::U32
+                | metadata::Type::I64
+                | metadata::Type::U64
+                | metadata::Type::ISize
+                | metadata::Type::USize => {}
+                metadata::Type::PtrMut(inner, _)
+                | metadata::Type::PtrConst(inner, _)
+                | metadata::Type::Ptr64(inner, _)
+                | metadata::Type::RefMut(inner)
+                | metadata::Type::RefConst(inner)
+                | metadata::Type::ArrayFixed(inner, _)
+                | metadata::Type::Array(inner) => pending.push((*inner, seen, arch)),
+                metadata::Type::ValueName(name) => {
+                    if !seen.insert((name.namespace.clone(), name.name.clone())) {
+                        return self.err(attr, "associated_enum storage is cyclic");
+                    }
+                    let source = self
+                        .index
+                        .namespaces
+                        .get(&name.namespace)
+                        .and_then(|namespace| namespace.types.get(&name.name))
+                        .cloned()
+                        .unwrap_or_default();
+                    let mut found = false;
+                    if !source.is_empty() {
+                        for (file, item) in source {
+                            let arch = arch & self.read_arch(item.attrs())?.unwrap_or(-1);
+                            if arch == 0 {
+                                continue;
+                            }
+                            found = true;
+                            let Item::Typedef(alias) = item else {
+                                return self.err(attr, invalid);
+                            };
+                            let ty = Encoder {
+                                output: self.output,
+                                index: self.index,
+                                file,
+                                namespace: &name.namespace,
+                                name: &name.name,
+                                generics: Vec::new(),
+                            }
+                            .encode_type(&alias.ty)?;
+                            pending.push((ty, seen.clone(), arch));
+                        }
+                    } else {
+                        let definitions: Vec<_> = self
+                            .output
+                            .reference()
+                            .into_iter()
+                            .flat_map(|index| index.get(&name.namespace, &name.name))
+                            .collect();
+                        if definitions.is_empty() {
+                            return self.err(attr, "associated_enum storage cannot be resolved");
+                        }
+                        for definition in definitions {
+                            let supported = metadata::HasAttributes::arches(&definition);
+                            let arch = if supported == 0 {
+                                arch
+                            } else {
+                                arch & supported
+                            };
+                            if arch == 0 {
+                                continue;
+                            }
+                            found = true;
+                            if !metadata::HasAttributes::has_attribute(
+                                &definition,
+                                "NativeTypedefAttribute",
+                            ) {
+                                return self.err(attr, invalid);
+                            }
+                            let ty = definition
+                                .underlying_type()
+                                .ok_or_else(|| self.error(attr, invalid))?;
+                            pending.push((ty, seen.clone(), arch));
+                        }
+                    }
+                    if !found {
+                        return self.err(
+                            attr,
+                            "associated_enum storage unavailable for the owner's architecture",
+                        );
+                    }
+                }
+                _ => return self.err(attr, invalid),
+            }
+        }
+        Ok(())
     }
 
     /// Short spellings name single-valued contracts, so a repeat is an error rather than a merge.

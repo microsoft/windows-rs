@@ -77,6 +77,9 @@ impl CppDelegate {
 
 impl Dependencies for CppDelegate {
     fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
+        for ty in self.method().associated_enums(reader) {
+            ty.combine(dependencies, reader);
+        }
         self.method()
             .method_signature(&[], reader)
             .combine(dependencies, reader);
