@@ -549,6 +549,9 @@ impl WinUiAdapter {
         }
         let element = self.ui_element(object)?;
         element.SetIsTabStop(false)?;
+        element
+            .cast::<native::ITitleBar2>()?
+            .SetAutoRefreshDragRegions(true)?;
         state.window.SetExtendsContentIntoTitleBar(true)?;
         state.window.SetTitleBar(&element)?;
         state

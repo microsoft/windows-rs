@@ -341,6 +341,8 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "tray" => App::run_application::<tray::TrayFixture>(())?,
         "window" => App::run_component::<window::WindowFixture>(window::WindowMode::Native)?,
         "window-placement" => App::run_component::<window::PlacementFixture>(())?,
+        "window-titlebar-initial" => App::run_component::<window::TitleBarFixture>(true)?,
+        "window-titlebar-dynamic" => App::run_component::<window::TitleBarFixture>(false)?,
         "window-frame" => App::run_component::<window::WindowFixture>(window::WindowMode::Custom)?,
         "window-frame-policy" => App::run_component_with_policy::<window::WindowFixture>(
             window::WindowMode::CustomPolicy,
