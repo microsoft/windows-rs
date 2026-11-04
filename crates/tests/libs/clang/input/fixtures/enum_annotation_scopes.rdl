@@ -1,0 +1,35 @@
+#[win32]
+mod Fixture {
+    #[repr(i32)]
+    enum First {
+        FirstValue = 0,
+    }
+    struct GlobalArguments {
+        #[associated_enum(First)]
+        first: i32,
+        #[associated_enum(Second)]
+        second: i32,
+        #[associated_enum(First)]
+        again: i32,
+    }
+    #[repr(i32)]
+    enum Local {
+        LocalValue = 0,
+    }
+    struct LocalArguments {
+        #[associated_enum(Local)]
+        local: i32,
+        #[associated_enum(First)]
+        global: i32,
+        #[associated_enum(Second)]
+        other: i32,
+    }
+    #[library("fixture.dll")]
+    extern "C" fn Read(#[associated_enum(Second)] second: i32, #[associated_enum(Local)] local: i32) -> #[associated_enum(First)] i32;
+    #[repr(i32)]
+    enum Second {
+        SecondValue = 0,
+    }
+    #[library("fixture.dll")]
+    extern "C" fn Select(#[associated_enum(Local)] local: i32, #[associated_enum(First)] first: i32, #[associated_enum(Second)] second: i32);
+}

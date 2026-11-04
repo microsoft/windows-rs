@@ -242,6 +242,9 @@ impl Type {
                 for ty in signature.types() {
                     ty.combine_sys(dependencies, reader);
                 }
+                for ty in ty.method().associated_enums(reader) {
+                    ty.combine_sys(dependencies, reader);
+                }
             }
             Self::CppFn(ty) => ty.combine_sys(dependencies, reader),
             Self::CppStruct(ty) => {

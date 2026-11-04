@@ -145,6 +145,7 @@ impl Projector<'_, '_> {
                             | AttributeKind::DllExport
                             | AttributeKind::SetLastError
                             | AttributeKind::ImportLibrary(_)
+                            | AttributeKind::AssociatedEnum(_)
                             | AttributeKind::Sal(_)
                             | AttributeKind::Deprecated(_)
                             | AttributeKind::NoThrow
@@ -476,11 +477,16 @@ impl Projector<'_, '_> {
         } else {
             self.comparison_type(result)?
         };
+        let association = self.associated_enum(
+            snapshot_id,
+            &observation.attributes,
+            written.prototype.result,
+        )?;
         let result = if result == MetadataType::Void {
             TokenStream::new()
         } else {
             let result = write_type(self.namespace, &result);
-            quote! { -> #result }
+            quote! { -> #association #result }
         };
         Ok((parameters, result, attributes))
     }
@@ -553,8 +559,10 @@ impl Projector<'_, '_> {
                     size.incomplete,
                 )?;
                 let size = size.attributes;
+                let association =
+                    self.associated_enum(snapshot_id, &parameter.attributes, parameter.written)?;
                 let ty = write_type(self.namespace, &ty);
-                Ok(quote! { #attributes #size #name: #ty })
+                Ok(quote! { #attributes #size #association #name: #ty })
             })
             .collect()
     }

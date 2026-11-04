@@ -59,7 +59,45 @@ impl Projector<'_, '_> {
                     let snapshot = self.resolution.snapshots[reference.snapshot];
                     let observation =
                         &snapshot.aliases[reference.alias.0].observations[reference.observation];
-                    if metadata.has_attribute("NativeTypedefAttribute") {
+                    if let Some(group) = self.enum_groups.get(alias.name.as_str()) {
+                        self.logical_enum(
+                            reference.snapshot,
+                            observation,
+                            &alias.name,
+                            group,
+                            &observation.attributes,
+                        )?;
+                        if metadata.category() != TypeCategory::Enum
+                            || metadata.underlying_type()
+                                != Some(self.ty(reference.snapshot, observation.canonical)?)
+                            || metadata.has_attribute("ScopedEnumAttribute")
+                            || metadata.has_attribute("FlagsAttribute") != group.flags
+                        {
+                            return Err(Error(format!(
+                                "external enum group `{}` storage, scope, or flags differ from metadata",
+                                alias.name
+                            )));
+                        }
+                        let members: HashMap<_, _> = metadata
+                            .fields()
+                            .filter_map(|field| {
+                                field.constant().map(|value| (field.name(), value.value()))
+                            })
+                            .collect();
+                        for member in &group.members {
+                            if members
+                                .get(member.name.as_str())
+                                .and_then(native_enum_value)
+                                .map(enum_annotations::integer)
+                                != Some(enum_annotations::integer(member.value))
+                            {
+                                return Err(Error(format!(
+                                    "external enum group `{}` member `{}` differs from metadata",
+                                    alias.name, member.name
+                                )));
+                            }
+                        }
+                    } else if metadata.has_attribute("NativeTypedefAttribute") {
                         let expected = metadata.underlying_type().ok_or_else(|| {
                             Error(format!(
                                 "external alias `{}` has no underlying type",

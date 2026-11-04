@@ -156,8 +156,9 @@ impl Encoder<'_> {
             metadata::MethodImplAttributes::Runtime,
         );
 
-        self.encode_return_attrs(&item.return_attrs)?;
-        self.encode_params(&params)?;
+        let arch = self.read_arch(&item.attrs)?.unwrap_or(-1);
+        self.encode_return_attrs(&item.return_attrs, &signature.return_type, arch)?;
+        self.encode_params(&params, arch)?;
 
         Ok(())
     }

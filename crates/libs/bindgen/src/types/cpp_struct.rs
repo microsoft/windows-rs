@@ -55,6 +55,11 @@ impl CppStruct {
             .map(|field| field.field_type(Some(self), reader))
             .collect();
         types.extend(self.bitfield_types(reader));
+        types.extend(
+            self.def
+                .fields()
+                .flat_map(|field| associated_enums(field, reader)),
+        );
         if self.has_mixed_layout(reader) {
             types.push(Type::UnalignedHelper);
         }

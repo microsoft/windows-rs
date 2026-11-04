@@ -53,6 +53,9 @@ impl TypeClosure {
                     }
                     for method in iface.def.methods() {
                         if method_included_by_set(method, method_set) {
+                            for dependency in method.associated_enums(reader) {
+                                dependency.combine_root(&mut types, reader, references, style);
+                            }
                             let sig = method.method_signature(&[], reader);
                             for dep_ty in sig.types() {
                                 dep_ty.combine_root(&mut types, reader, references, style);
@@ -318,6 +321,9 @@ impl CombineClosure for Type {
             Self::CppDelegate(d) => {
                 for method in d.def.methods() {
                     if method.name() == "Invoke" {
+                        for dependency in method.associated_enums(reader) {
+                            dependency.combine_closure(types, reader, references, style, arches);
+                        }
                         let sig = method.method_signature(&[], reader);
                         for dep_ty in sig.types() {
                             dep_ty.combine_closure(types, reader, references, style, arches);
@@ -336,6 +342,9 @@ impl CombineClosure for Type {
                 Self::IUnknown.combine_closure(types, reader, references, style, arches);
             }
             Self::CppFn(f) => {
+                for dependency in f.method.associated_enums(reader) {
+                    dependency.combine_closure(types, reader, references, style, arches);
+                }
                 let sig = f.method.method_signature(&[], reader);
                 sig.return_type
                     .combine_closure(types, reader, references, style, arches);

@@ -89,7 +89,13 @@ impl Encoder<'_> {
         })
     }
 
-    pub fn encode_return_attrs(&mut self, return_attrs: &[syn::Attribute]) -> Result<(), Error> {
+    pub fn encode_return_attrs(
+        &mut self,
+        return_attrs: &[syn::Attribute],
+        ty: &metadata::Type,
+        arch: i32,
+    ) -> Result<(), Error> {
+        self.validate_associated_enum_storage(return_attrs, ty, arch)?;
         if !return_attrs.is_empty() {
             let param_id = self
                 .output
@@ -110,7 +116,7 @@ impl Encoder<'_> {
         Ok(())
     }
 
-    pub fn encode_params(&mut self, params: &[Param]) -> Result<(), Error> {
+    pub fn encode_params(&mut self, params: &[Param], arch: i32) -> Result<(), Error> {
         let names: Vec<_> = params.iter().map(|param| param.name.as_str()).collect();
         let types: Vec<_> = params.iter().map(|param| param.ty.clone()).collect();
         let optional: Vec<_> = params
@@ -122,6 +128,7 @@ impl Encoder<'_> {
             })
             .collect();
         for (sequence, param) in params.iter().enumerate() {
+            self.validate_associated_enum_storage(&param.attrs, &param.ty, arch)?;
             let param_id = self.output.Param(
                 &param.name,
                 (sequence + 1).try_into().unwrap(),

@@ -619,6 +619,19 @@ The `import` option also accepts an ordinal as a string, such as `import = "#42"
 the entry point through metadata round trips; bindgen excludes ordinal imports, which it does not
 support.
 
+`#[associated_enum(Options)]` associates integer parameter, return or field storage with a named
+enum. It encodes `Windows.Win32.Metadata.AssociatedEnumAttribute` with a `System.Type` argument;
+it does not replace the storage type. Pointers and arrays keep their depth and element type.
+The target must be an enum, and applying it to an already enum-typed use is an error. For example:
+
+```rust
+#[library("example.dll")]
+extern fn SetOptions(#[associated_enum(Options)] options: u32);
+```
+
+Bindgen includes the enum and its constants when selecting the annotated API, without retyping
+the signature.
+
 Raw pointer chains preserve constness at each depth. `*mut *const T` points to a mutable pointer
 whose pointee is const; `*const *mut T` points to a const pointer whose pointee is mutable.
 These distinctions survive RDL/WinMD round trips, including chains inside references and fixed
