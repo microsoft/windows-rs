@@ -2523,7 +2523,7 @@ impl IDirectInput2A_Vtbl {
         Self { base__: IDirectInputA_Vtbl::new::<Identity, OFFSET>(), FindDevice: FindDevice::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirectInput2A as windows_core::Interface>::IID || iid == &<IDirectInputA as windows_core::Interface>::IID
+        iid == &<IDirectInput2A as windows_core::Interface>::IID || IDirectInputA_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef"))]
@@ -2570,7 +2570,7 @@ impl IDirectInput2W_Vtbl {
         Self { base__: IDirectInputW_Vtbl::new::<Identity, OFFSET>(), FindDevice: FindDevice::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirectInput2W as windows_core::Interface>::IID || iid == &<IDirectInputW as windows_core::Interface>::IID
+        iid == &<IDirectInput2W as windows_core::Interface>::IID || IDirectInputW_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "winnt"))]
@@ -2617,7 +2617,7 @@ impl IDirectInput7A_Vtbl {
         Self { base__: IDirectInput2A_Vtbl::new::<Identity, OFFSET>(), CreateDeviceEx: CreateDeviceEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirectInput7A as windows_core::Interface>::IID || iid == &<IDirectInputA as windows_core::Interface>::IID || iid == &<IDirectInput2A as windows_core::Interface>::IID
+        iid == &<IDirectInput7A as windows_core::Interface>::IID || IDirectInput2A_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef"))]
@@ -2664,7 +2664,7 @@ impl IDirectInput7W_Vtbl {
         Self { base__: IDirectInput2W_Vtbl::new::<Identity, OFFSET>(), CreateDeviceEx: CreateDeviceEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirectInput7W as windows_core::Interface>::IID || iid == &<IDirectInputW as windows_core::Interface>::IID || iid == &<IDirectInput2W as windows_core::Interface>::IID
+        iid == &<IDirectInput7W as windows_core::Interface>::IID || IDirectInput2W_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "winnt"))]
@@ -3258,7 +3258,7 @@ impl IDirectInputDevice2A_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirectInputDevice2A as windows_core::Interface>::IID || iid == &<IDirectInputDeviceA as windows_core::Interface>::IID
+        iid == &<IDirectInputDevice2A as windows_core::Interface>::IID || IDirectInputDeviceA_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "winnt"))]
@@ -3432,7 +3432,7 @@ impl IDirectInputDevice2W_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirectInputDevice2W as windows_core::Interface>::IID || iid == &<IDirectInputDeviceW as windows_core::Interface>::IID
+        iid == &<IDirectInputDevice2W as windows_core::Interface>::IID || IDirectInputDeviceW_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "winnt"))]
@@ -3501,7 +3501,7 @@ impl IDirectInputDevice7A_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirectInputDevice7A as windows_core::Interface>::IID || iid == &<IDirectInputDeviceA as windows_core::Interface>::IID || iid == &<IDirectInputDevice2A as windows_core::Interface>::IID
+        iid == &<IDirectInputDevice7A as windows_core::Interface>::IID || IDirectInputDevice2A_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "winnt"))]
@@ -3570,7 +3570,7 @@ impl IDirectInputDevice7W_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirectInputDevice7W as windows_core::Interface>::IID || iid == &<IDirectInputDeviceW as windows_core::Interface>::IID || iid == &<IDirectInputDevice2W as windows_core::Interface>::IID
+        iid == &<IDirectInputDevice7W as windows_core::Interface>::IID || IDirectInputDevice2W_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "winnt"))]

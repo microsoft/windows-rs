@@ -2446,7 +2446,7 @@ impl IRawElementProviderSimple2_Vtbl {
         Self { base__: IRawElementProviderSimple_Vtbl::new::<Identity, OFFSET>(), ShowContextMenu: ShowContextMenu::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRawElementProviderSimple2 as windows_core::Interface>::IID || iid == &<IRawElementProviderSimple as windows_core::Interface>::IID
+        iid == &<IRawElementProviderSimple2 as windows_core::Interface>::IID || IRawElementProviderSimple_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2502,7 +2502,7 @@ impl IRawElementProviderSimple3_Vtbl {
         Self { base__: IRawElementProviderSimple2_Vtbl::new::<Identity, OFFSET>(), GetMetadataValue: GetMetadataValue::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRawElementProviderSimple3 as windows_core::Interface>::IID || iid == &<IRawElementProviderSimple as windows_core::Interface>::IID || iid == &<IRawElementProviderSimple2 as windows_core::Interface>::IID
+        iid == &<IRawElementProviderSimple3 as windows_core::Interface>::IID || IRawElementProviderSimple2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3134,7 +3134,7 @@ impl ISelectionProvider2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISelectionProvider2 as windows_core::Interface>::IID || iid == &<ISelectionProvider as windows_core::Interface>::IID
+        iid == &<ISelectionProvider2 as windows_core::Interface>::IID || ISelectionProvider_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
@@ -3856,7 +3856,7 @@ impl ITextEditProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITextEditProvider as windows_core::Interface>::IID || iid == &<ITextProvider as windows_core::Interface>::IID
+        iid == &<ITextEditProvider as windows_core::Interface>::IID || ITextProvider_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
@@ -4118,7 +4118,7 @@ impl ITextProvider2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITextProvider2 as windows_core::Interface>::IID || iid == &<ITextProvider as windows_core::Interface>::IID
+        iid == &<ITextProvider2 as windows_core::Interface>::IID || ITextProvider_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
@@ -4568,7 +4568,7 @@ impl ITextRangeProvider2_Vtbl {
         Self { base__: ITextRangeProvider_Vtbl::new::<Identity, OFFSET>(), ShowContextMenu: ShowContextMenu::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITextRangeProvider2 as windows_core::Interface>::IID || iid == &<ITextRangeProvider as windows_core::Interface>::IID
+        iid == &<ITextRangeProvider2 as windows_core::Interface>::IID || ITextRangeProvider_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4901,7 +4901,7 @@ impl ITransformProvider2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITransformProvider2 as windows_core::Interface>::IID || iid == &<ITransformProvider as windows_core::Interface>::IID
+        iid == &<ITransformProvider2 as windows_core::Interface>::IID || ITransformProvider_Vtbl::matches(iid)
     }
 }
 impl windows_core::RuntimeName for ITransformProvider2 {}

@@ -504,7 +504,7 @@ impl IMFDeviceTransform2_Vtbl {
         Self { base__: IMFDeviceTransform_Vtbl::new::<Identity, OFFSET>(), GetTransformAttributes: GetTransformAttributes::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFDeviceTransform2 as windows_core::Interface>::IID || iid == &<IMFDeviceTransform as windows_core::Interface>::IID
+        iid == &<IMFDeviceTransform2 as windows_core::Interface>::IID || IMFDeviceTransform_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]

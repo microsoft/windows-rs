@@ -691,7 +691,7 @@ impl IImageList2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IImageList2 as windows_core::Interface>::IID || iid == &<IImageList as windows_core::Interface>::IID
+        iid == &<IImageList2 as windows_core::Interface>::IID || IImageList_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "commctrl", feature = "guiddef", feature = "shared", feature = "windef"))]

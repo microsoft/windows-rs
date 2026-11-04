@@ -715,7 +715,7 @@ impl IOleCache2_Vtbl {
         Self { base__: IOleCache_Vtbl::new::<Identity, OFFSET>(), UpdateCache: UpdateCache::<Identity, OFFSET>, DiscardCache: DiscardCache::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOleCache2 as windows_core::Interface>::IID || iid == &<IOleCache as windows_core::Interface>::IID
+        iid == &<IOleCache2 as windows_core::Interface>::IID || IOleCache_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
@@ -963,7 +963,7 @@ impl IOleContainer_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOleContainer as windows_core::Interface>::IID || iid == &<IParseDisplayName as windows_core::Interface>::IID
+        iid == &<IOleContainer as windows_core::Interface>::IID || IParseDisplayName_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "objidl", feature = "objidlbase", feature = "shared", feature = "wtypesbase"))]
@@ -1065,7 +1065,7 @@ impl IOleInPlaceActiveObject_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOleInPlaceActiveObject as windows_core::Interface>::IID || iid == &<IOleWindow as windows_core::Interface>::IID
+        iid == &<IOleInPlaceActiveObject as windows_core::Interface>::IID || IOleWindow_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
@@ -1188,7 +1188,7 @@ impl IOleInPlaceFrame_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOleInPlaceFrame as windows_core::Interface>::IID || iid == &<IOleWindow as windows_core::Interface>::IID || iid == &<IOleInPlaceUIWindow as windows_core::Interface>::IID
+        iid == &<IOleInPlaceFrame as windows_core::Interface>::IID || IOleInPlaceUIWindow_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser", feature = "wtypesbase"))]
@@ -1271,7 +1271,7 @@ impl IOleInPlaceObject_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOleInPlaceObject as windows_core::Interface>::IID || iid == &<IOleWindow as windows_core::Interface>::IID
+        iid == &<IOleInPlaceObject as windows_core::Interface>::IID || IOleWindow_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
@@ -1434,7 +1434,7 @@ impl IOleInPlaceSite_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOleInPlaceSite as windows_core::Interface>::IID || iid == &<IOleWindow as windows_core::Interface>::IID
+        iid == &<IOleInPlaceSite as windows_core::Interface>::IID || IOleWindow_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
@@ -1532,7 +1532,7 @@ impl IOleInPlaceUIWindow_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOleInPlaceUIWindow as windows_core::Interface>::IID || iid == &<IOleWindow as windows_core::Interface>::IID
+        iid == &<IOleInPlaceUIWindow as windows_core::Interface>::IID || IOleWindow_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "wtypesbase"))]
@@ -1621,7 +1621,7 @@ impl IOleItemContainer_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOleItemContainer as windows_core::Interface>::IID || iid == &<IParseDisplayName as windows_core::Interface>::IID || iid == &<IOleContainer as windows_core::Interface>::IID
+        iid == &<IOleItemContainer as windows_core::Interface>::IID || IOleContainer_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "wtypesbase"))]
@@ -2545,7 +2545,7 @@ impl IViewObject2_Vtbl {
         Self { base__: IViewObject_Vtbl::new::<Identity, OFFSET>(), GetExtent: GetExtent::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IViewObject2 as windows_core::Interface>::IID || iid == &<IViewObject as windows_core::Interface>::IID
+        iid == &<IViewObject2 as windows_core::Interface>::IID || IViewObject_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "httpext", feature = "objidl", feature = "shared", feature = "windef", feature = "wingdi"))]

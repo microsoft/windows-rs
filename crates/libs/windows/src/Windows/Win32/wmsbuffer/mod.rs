@@ -167,7 +167,7 @@ impl INSSBuffer2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INSSBuffer2 as windows_core::Interface>::IID || iid == &<INSSBuffer as windows_core::Interface>::IID
+        iid == &<INSSBuffer2 as windows_core::Interface>::IID || INSSBuffer_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -226,7 +226,7 @@ impl INSSBuffer3_Vtbl {
         Self { base__: INSSBuffer2_Vtbl::new::<Identity, OFFSET>(), SetProperty: SetProperty::<Identity, OFFSET>, GetProperty: GetProperty::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INSSBuffer3 as windows_core::Interface>::IID || iid == &<INSSBuffer as windows_core::Interface>::IID || iid == &<INSSBuffer2 as windows_core::Interface>::IID
+        iid == &<INSSBuffer3 as windows_core::Interface>::IID || INSSBuffer2_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -289,7 +289,7 @@ impl INSSBuffer4_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INSSBuffer4 as windows_core::Interface>::IID || iid == &<INSSBuffer as windows_core::Interface>::IID || iid == &<INSSBuffer2 as windows_core::Interface>::IID || iid == &<INSSBuffer3 as windows_core::Interface>::IID
+        iid == &<INSSBuffer4 as windows_core::Interface>::IID || INSSBuffer3_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]

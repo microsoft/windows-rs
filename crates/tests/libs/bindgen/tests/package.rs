@@ -32,7 +32,7 @@ fn associated_enum_method_features() {
             .package()
             .output(&output);
         if style == "minimal" {
-            builder.minimal();
+            builder.minimal().implement("Windows.Win32.Api.I");
         }
         builder.write();
         std::fs::write(

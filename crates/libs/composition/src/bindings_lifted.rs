@@ -978,24 +978,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl windows_core::RuntimeName for ICompositionAnimationBase {
-    const NAME: &'static str = "Microsoft.UI.Composition.ICompositionAnimationBase";
-}
-pub trait ICompositionAnimationBase_Impl: windows_core::IUnknownImpl {}
-impl ICompositionAnimationBase_Vtbl {
-    pub const fn new<Identity: ICompositionAnimationBase_Impl, const OFFSET: isize>() -> Self {
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<
-                Identity,
-                ICompositionAnimationBase,
-                OFFSET,
-            >(),
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICompositionAnimationBase as windows_core::Interface>::IID
-    }
-}
 #[repr(C)]
 pub struct ICompositionAnimationBase_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1605,20 +1587,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl windows_core::RuntimeName for ICompositionSurface {
-    const NAME: &'static str = "Microsoft.UI.Composition.ICompositionSurface";
-}
-pub trait ICompositionSurface_Impl: windows_core::IUnknownImpl {}
-impl ICompositionSurface_Vtbl {
-    pub const fn new<Identity: ICompositionSurface_Impl, const OFFSET: isize>() -> Self {
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, ICompositionSurface, OFFSET>(),
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICompositionSurface as windows_core::Interface>::IID
-    }
-}
 #[repr(C)]
 pub struct ICompositionSurface_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -2242,7 +2210,6 @@ pub struct IMicrosoftCompositionDrawingSurfaceInterop_Vtbl {
     ResumeDraw: usize,
     SuspendDraw: usize,
 }
-impl windows_core::RuntimeName for IMicrosoftCompositionDrawingSurfaceInterop {}
 windows_core::imp::define_interface!(
     IMicrosoftCompositionGraphicsDeviceInterop,
     IMicrosoftCompositionGraphicsDeviceInterop_Vtbl,
@@ -2274,7 +2241,6 @@ pub struct IMicrosoftCompositionGraphicsDeviceInterop_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-impl windows_core::RuntimeName for IMicrosoftCompositionGraphicsDeviceInterop {}
 windows_core::imp::define_interface!(
     IMicrosoftCompositorInterop,
     IMicrosoftCompositorInterop_Vtbl,
@@ -2308,43 +2274,6 @@ pub struct IMicrosoftCompositorInterop_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait IMicrosoftCompositorInterop_Impl: windows_core::IUnknownImpl {
-    fn CreateGraphicsDevice(
-        &self,
-        renderingdevice: windows_core::Ref<windows_core::IUnknown>,
-        result: *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT;
-}
-impl IMicrosoftCompositorInterop_Vtbl {
-    pub const fn new<Identity: IMicrosoftCompositorInterop_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateGraphicsDevice<
-            Identity: IMicrosoftCompositorInterop_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            renderingdevice: *mut core::ffi::c_void,
-            result: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMicrosoftCompositorInterop_Impl::CreateGraphicsDevice(
-                    this,
-                    core::mem::transmute_copy(&renderingdevice),
-                    core::mem::transmute_copy(&result),
-                )
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            CreateGraphicsDevice: CreateGraphicsDevice::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMicrosoftCompositorInterop as windows_core::Interface>::IID
-    }
-}
-impl windows_core::RuntimeName for IMicrosoftCompositorInterop {}
 windows_core::imp::define_interface!(
     IScalarKeyFrameAnimation,
     IScalarKeyFrameAnimation_Vtbl,

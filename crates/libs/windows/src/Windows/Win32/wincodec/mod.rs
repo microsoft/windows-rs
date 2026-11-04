@@ -281,7 +281,7 @@ impl IWICBitmap_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWICBitmap as windows_core::Interface>::IID || iid == &<IWICBitmapSource as windows_core::Interface>::IID
+        iid == &<IWICBitmap as windows_core::Interface>::IID || IWICBitmapSource_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -328,7 +328,7 @@ impl IWICBitmapClipper_Vtbl {
         Self { base__: IWICBitmapSource_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWICBitmapClipper as windows_core::Interface>::IID || iid == &<IWICBitmapSource as windows_core::Interface>::IID
+        iid == &<IWICBitmapClipper as windows_core::Interface>::IID || IWICBitmapSource_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -530,7 +530,7 @@ impl IWICBitmapCodecInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWICBitmapCodecInfo as windows_core::Interface>::IID || iid == &<IWICComponentInfo as windows_core::Interface>::IID
+        iid == &<IWICBitmapCodecInfo as windows_core::Interface>::IID || IWICComponentInfo_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
@@ -904,7 +904,7 @@ impl IWICBitmapDecoderInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWICBitmapDecoderInfo as windows_core::Interface>::IID || iid == &<IWICComponentInfo as windows_core::Interface>::IID || iid == &<IWICBitmapCodecInfo as windows_core::Interface>::IID
+        iid == &<IWICBitmapDecoderInfo as windows_core::Interface>::IID || IWICBitmapCodecInfo_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "objidlbase", feature = "shared", feature = "winnt"))]
@@ -1149,7 +1149,7 @@ impl IWICBitmapEncoderInfo_Vtbl {
         Self { base__: IWICBitmapCodecInfo_Vtbl::new::<Identity, OFFSET>(), CreateInstance: CreateInstance::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWICBitmapEncoderInfo as windows_core::Interface>::IID || iid == &<IWICComponentInfo as windows_core::Interface>::IID || iid == &<IWICBitmapCodecInfo as windows_core::Interface>::IID
+        iid == &<IWICBitmapEncoderInfo as windows_core::Interface>::IID || IWICBitmapCodecInfo_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
@@ -1192,7 +1192,7 @@ impl IWICBitmapFlipRotator_Vtbl {
         Self { base__: IWICBitmapSource_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWICBitmapFlipRotator as windows_core::Interface>::IID || iid == &<IWICBitmapSource as windows_core::Interface>::IID
+        iid == &<IWICBitmapFlipRotator as windows_core::Interface>::IID || IWICBitmapSource_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -1409,7 +1409,7 @@ impl IWICBitmapFrameDecode_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWICBitmapFrameDecode as windows_core::Interface>::IID || iid == &<IWICBitmapSource as windows_core::Interface>::IID
+        iid == &<IWICBitmapFrameDecode as windows_core::Interface>::IID || IWICBitmapSource_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -1742,7 +1742,7 @@ impl IWICBitmapScaler_Vtbl {
         Self { base__: IWICBitmapSource_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWICBitmapScaler as windows_core::Interface>::IID || iid == &<IWICBitmapSource as windows_core::Interface>::IID
+        iid == &<IWICBitmapScaler as windows_core::Interface>::IID || IWICBitmapSource_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -1966,7 +1966,7 @@ impl IWICBitmapSourceTransform2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWICBitmapSourceTransform2 as windows_core::Interface>::IID || iid == &<IWICBitmapSourceTransform as windows_core::Interface>::IID
+        iid == &<IWICBitmapSourceTransform2 as windows_core::Interface>::IID || IWICBitmapSourceTransform_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -2031,7 +2031,7 @@ impl IWICBitmapToneMapper_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWICBitmapToneMapper as windows_core::Interface>::IID || iid == &<IWICBitmapSource as windows_core::Interface>::IID
+        iid == &<IWICBitmapToneMapper as windows_core::Interface>::IID || IWICBitmapSource_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
@@ -2192,7 +2192,7 @@ impl IWICColorTransform_Vtbl {
         Self { base__: IWICBitmapSource_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWICColorTransform as windows_core::Interface>::IID || iid == &<IWICBitmapSource as windows_core::Interface>::IID
+        iid == &<IWICColorTransform as windows_core::Interface>::IID || IWICBitmapSource_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -3130,7 +3130,7 @@ impl IWICDevelopRaw_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWICDevelopRaw as windows_core::Interface>::IID || iid == &<IWICBitmapSource as windows_core::Interface>::IID || iid == &<IWICBitmapFrameDecode as windows_core::Interface>::IID
+        iid == &<IWICDevelopRaw as windows_core::Interface>::IID || IWICBitmapFrameDecode_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "ocidl", feature = "shared"))]
@@ -3372,7 +3372,7 @@ impl IWICDisplayAdaptationControl2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWICDisplayAdaptationControl2 as windows_core::Interface>::IID || iid == &<IWICDisplayAdaptationControl as windows_core::Interface>::IID
+        iid == &<IWICDisplayAdaptationControl2 as windows_core::Interface>::IID || IWICDisplayAdaptationControl_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "minwindef")]
@@ -3578,7 +3578,7 @@ impl IWICFormatConverter_Vtbl {
         Self { base__: IWICBitmapSource_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, OFFSET>, CanConvert: CanConvert::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWICFormatConverter as windows_core::Interface>::IID || iid == &<IWICBitmapSource as windows_core::Interface>::IID
+        iid == &<IWICFormatConverter as windows_core::Interface>::IID || IWICBitmapSource_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -3649,7 +3649,7 @@ impl IWICFormatConverterInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWICFormatConverterInfo as windows_core::Interface>::IID || iid == &<IWICComponentInfo as windows_core::Interface>::IID
+        iid == &<IWICFormatConverterInfo as windows_core::Interface>::IID || IWICComponentInfo_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
@@ -4471,7 +4471,7 @@ impl IWICImagingFactory2_Vtbl {
         Self { base__: IWICImagingFactory_Vtbl::new::<Identity, OFFSET>(), CreateImageEncoder: CreateImageEncoder::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWICImagingFactory2 as windows_core::Interface>::IID || iid == &<IWICImagingFactory as windows_core::Interface>::IID
+        iid == &<IWICImagingFactory2 as windows_core::Interface>::IID || IWICImagingFactory_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "d2d", feature = "guiddef", feature = "objidlbase", feature = "shared", feature = "windef"))]
@@ -4523,7 +4523,7 @@ impl IWICImagingFactory3_Vtbl {
         Self { base__: IWICImagingFactory2_Vtbl::new::<Identity, OFFSET>(), CreateBitmapToneMapper: CreateBitmapToneMapper::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWICImagingFactory3 as windows_core::Interface>::IID || iid == &<IWICImagingFactory as windows_core::Interface>::IID || iid == &<IWICImagingFactory2 as windows_core::Interface>::IID
+        iid == &<IWICImagingFactory3 as windows_core::Interface>::IID || IWICImagingFactory2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "d2d", feature = "guiddef", feature = "objidlbase", feature = "shared", feature = "windef"))]
@@ -4954,7 +4954,7 @@ impl IWICMetadataQueryWriter_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWICMetadataQueryWriter as windows_core::Interface>::IID || iid == &<IWICMetadataQueryReader as windows_core::Interface>::IID
+        iid == &<IWICMetadataQueryWriter as windows_core::Interface>::IID || IWICMetadataQueryReader_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -5236,7 +5236,7 @@ impl IWICPixelFormatInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWICPixelFormatInfo as windows_core::Interface>::IID || iid == &<IWICComponentInfo as windows_core::Interface>::IID
+        iid == &<IWICPixelFormatInfo as windows_core::Interface>::IID || IWICComponentInfo_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
@@ -5291,7 +5291,7 @@ impl IWICPixelFormatInfo2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWICPixelFormatInfo2 as windows_core::Interface>::IID || iid == &<IWICComponentInfo as windows_core::Interface>::IID || iid == &<IWICPixelFormatInfo as windows_core::Interface>::IID
+        iid == &<IWICPixelFormatInfo2 as windows_core::Interface>::IID || IWICPixelFormatInfo_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
@@ -5467,7 +5467,7 @@ impl IWICPlanarFormatConverter_Vtbl {
         Self { base__: IWICBitmapSource_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, OFFSET>, CanConvert: CanConvert::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWICPlanarFormatConverter as windows_core::Interface>::IID || iid == &<IWICBitmapSource as windows_core::Interface>::IID
+        iid == &<IWICPlanarFormatConverter as windows_core::Interface>::IID || IWICBitmapSource_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -5707,7 +5707,7 @@ impl IWICStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWICStream as windows_core::Interface>::IID || iid == &<super::ISequentialStream as windows_core::Interface>::IID || iid == &<super::IStream as windows_core::Interface>::IID
+        iid == &<IWICStream as windows_core::Interface>::IID || super::IStream_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]

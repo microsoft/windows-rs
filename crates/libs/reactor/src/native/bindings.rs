@@ -5753,7 +5753,7 @@ pub trait IApplicationOverrides_Impl: windows_core::IUnknownImpl {
     ) -> windows_core::Result<()>;
 }
 impl IApplicationOverrides_Vtbl {
-    pub const fn new<Identity: IApplicationOverrides_Impl, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: IApplicationOverrides_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnLaunched<
             Identity: IApplicationOverrides_Impl,
             const OFFSET: isize,
@@ -5774,7 +5774,7 @@ impl IApplicationOverrides_Vtbl {
             OnLaunched: OnLaunched::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IApplicationOverrides as windows_core::Interface>::IID
     }
 }
@@ -9574,7 +9574,7 @@ pub trait IElementFactory_Impl: windows_core::IUnknownImpl {
     ) -> windows_core::Result<()>;
 }
 impl IElementFactory_Vtbl {
-    pub const fn new<Identity: IElementFactory_Impl, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: IElementFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetElement<
             Identity: IElementFactory_Impl,
             const OFFSET: isize,
@@ -9618,7 +9618,7 @@ impl IElementFactory_Vtbl {
             RecycleElement: RecycleElement::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IElementFactory as windows_core::Interface>::IID
     }
 }
@@ -11693,7 +11693,7 @@ pub trait IKeyIndexMapping_Impl: windows_core::IUnknownImpl {
     fn IndexFromKey(&self, key: &windows_core::HSTRING) -> windows_core::Result<i32>;
 }
 impl IKeyIndexMapping_Vtbl {
-    pub const fn new<Identity: IKeyIndexMapping_Impl, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: IKeyIndexMapping_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn KeyFromIndex<
             Identity: IKeyIndexMapping_Impl,
             const OFFSET: isize,
@@ -11747,7 +11747,7 @@ impl IKeyIndexMapping_Vtbl {
             IndexFromKey: IndexFromKey::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IKeyIndexMapping as windows_core::Interface>::IID
     }
 }
@@ -21368,7 +21368,7 @@ pub trait IXamlMetadataProvider_Impl: windows_core::IUnknownImpl {
     fn GetXmlnsDefinitions(&self) -> windows_core::Result<windows_core::Array<XmlnsDefinition>>;
 }
 impl IXamlMetadataProvider_Vtbl {
-    pub const fn new<Identity: IXamlMetadataProvider_Impl, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: IXamlMetadataProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetXamlType<
             Identity: IXamlMetadataProvider_Impl,
             const OFFSET: isize,
@@ -21454,7 +21454,7 @@ impl IXamlMetadataProvider_Vtbl {
             GetXmlnsDefinitions: GetXmlnsDefinitions::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXamlMetadataProvider as windows_core::Interface>::IID
     }
 }

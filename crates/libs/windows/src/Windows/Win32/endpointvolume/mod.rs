@@ -389,7 +389,7 @@ impl IAudioEndpointVolumeEx_Vtbl {
         Self { base__: IAudioEndpointVolume_Vtbl::new::<Identity, OFFSET>(), GetVolumeRangeChannel: GetVolumeRangeChannel::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAudioEndpointVolumeEx as windows_core::Interface>::IID || iid == &<IAudioEndpointVolume as windows_core::Interface>::IID
+        iid == &<IAudioEndpointVolumeEx as windows_core::Interface>::IID || IAudioEndpointVolume_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]

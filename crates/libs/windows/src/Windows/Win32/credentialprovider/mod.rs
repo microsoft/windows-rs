@@ -125,7 +125,7 @@ impl IConnectableCredentialProviderCredential_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IConnectableCredentialProviderCredential as windows_core::Interface>::IID || iid == &<ICredentialProviderCredential as windows_core::Interface>::IID
+        iid == &<IConnectableCredentialProviderCredential as windows_core::Interface>::IID || ICredentialProviderCredential_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "rpc", feature = "shared", feature = "shobjidl_core", feature = "windef"))]
@@ -612,7 +612,7 @@ impl ICredentialProviderCredential2_Vtbl {
         Self { base__: ICredentialProviderCredential_Vtbl::new::<Identity, OFFSET>(), GetUserSid: GetUserSid::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICredentialProviderCredential2 as windows_core::Interface>::IID || iid == &<ICredentialProviderCredential as windows_core::Interface>::IID
+        iid == &<ICredentialProviderCredential2 as windows_core::Interface>::IID || ICredentialProviderCredential_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "rpc", feature = "shared", feature = "windef"))]
@@ -901,7 +901,7 @@ impl ICredentialProviderCredentialEvents2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICredentialProviderCredentialEvents2 as windows_core::Interface>::IID || iid == &<ICredentialProviderCredentialEvents as windows_core::Interface>::IID
+        iid == &<ICredentialProviderCredentialEvents2 as windows_core::Interface>::IID || ICredentialProviderCredentialEvents_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
@@ -1290,7 +1290,7 @@ impl IQueryContinueWithStatus_Vtbl {
         Self { base__: super::IQueryContinue_Vtbl::new::<Identity, OFFSET>(), SetStatusMessage: SetStatusMessage::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IQueryContinueWithStatus as windows_core::Interface>::IID || iid == &<super::IQueryContinue as windows_core::Interface>::IID
+        iid == &<IQueryContinueWithStatus as windows_core::Interface>::IID || super::IQueryContinue_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shobjidl_core")]

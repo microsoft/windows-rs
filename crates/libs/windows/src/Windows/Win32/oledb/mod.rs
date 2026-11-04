@@ -2227,7 +2227,7 @@ impl IColumnsInfo2_Vtbl {
         Self { base__: IColumnsInfo_Vtbl::new::<Identity, OFFSET>(), GetRestrictedColumnInfo: GetRestrictedColumnInfo::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IColumnsInfo2 as windows_core::Interface>::IID || iid == &<IColumnsInfo as windows_core::Interface>::IID
+        iid == &<IColumnsInfo2 as windows_core::Interface>::IID || IColumnsInfo_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
@@ -2677,7 +2677,7 @@ impl ICommandText_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICommandText as windows_core::Interface>::IID || iid == &<ICommand as windows_core::Interface>::IID
+        iid == &<ICommandText as windows_core::Interface>::IID || ICommand_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
@@ -2977,7 +2977,7 @@ impl IDBBinderProperties_Vtbl {
         Self { base__: IDBProperties_Vtbl::new::<Identity, OFFSET>(), Reset: Reset::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDBBinderProperties as windows_core::Interface>::IID || iid == &<IDBProperties as windows_core::Interface>::IID
+        iid == &<IDBBinderProperties as windows_core::Interface>::IID || IDBProperties_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -4620,7 +4620,7 @@ impl IRowSchemaChange_Vtbl {
         Self { base__: IRowChange_Vtbl::new::<Identity, OFFSET>(), DeleteColumns: DeleteColumns::<Identity, OFFSET>, AddColumns: AddColumns::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRowSchemaChange as windows_core::Interface>::IID || iid == &<IRowChange as windows_core::Interface>::IID
+        iid == &<IRowSchemaChange as windows_core::Interface>::IID || IRowChange_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
@@ -4888,7 +4888,7 @@ impl IRowsetCurrentIndex_Vtbl {
         Self { base__: IRowsetIndex_Vtbl::new::<Identity, OFFSET>(), GetIndex: GetIndex::<Identity, OFFSET>, SetIndex: SetIndex::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRowsetCurrentIndex as windows_core::Interface>::IID || iid == &<IRowsetIndex as windows_core::Interface>::IID
+        iid == &<IRowsetCurrentIndex as windows_core::Interface>::IID || IRowsetIndex_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -5193,7 +5193,7 @@ impl IRowsetLocate_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRowsetLocate as windows_core::Interface>::IID || iid == &<IRowset as windows_core::Interface>::IID
+        iid == &<IRowsetLocate as windows_core::Interface>::IID || IRowset_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -5411,7 +5411,7 @@ impl IRowsetScroll_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRowsetScroll as windows_core::Interface>::IID || iid == &<IRowset as windows_core::Interface>::IID || iid == &<IRowsetLocate as windows_core::Interface>::IID
+        iid == &<IRowsetScroll as windows_core::Interface>::IID || IRowsetLocate_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -5500,7 +5500,7 @@ impl IRowsetUpdate_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRowsetUpdate as windows_core::Interface>::IID || iid == &<IRowsetChange as windows_core::Interface>::IID
+        iid == &<IRowsetUpdate as windows_core::Interface>::IID || IRowsetChange_Vtbl::matches(iid)
     }
 }
 impl windows_core::RuntimeName for IRowsetUpdate {}
@@ -5697,7 +5697,7 @@ impl IScopedOperations_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IScopedOperations as windows_core::Interface>::IID || iid == &<IBindResource as windows_core::Interface>::IID
+        iid == &<IScopedOperations as windows_core::Interface>::IID || IBindResource_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "urlmon", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -5912,7 +5912,7 @@ impl ITableCreation_Vtbl {
         Self { base__: ITableDefinition_Vtbl::new::<Identity, OFFSET>(), GetTableDefinition: GetTableDefinition::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITableCreation as windows_core::Interface>::IID || iid == &<ITableDefinition as windows_core::Interface>::IID
+        iid == &<ITableCreation as windows_core::Interface>::IID || ITableDefinition_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6086,7 +6086,7 @@ impl ITableDefinitionWithConstraints_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITableDefinitionWithConstraints as windows_core::Interface>::IID || iid == &<ITableDefinition as windows_core::Interface>::IID || iid == &<ITableCreation as windows_core::Interface>::IID
+        iid == &<ITableDefinitionWithConstraints as windows_core::Interface>::IID || ITableCreation_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6238,7 +6238,7 @@ impl ITransactionLocal_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITransactionLocal as windows_core::Interface>::IID || iid == &<super::ITransaction as windows_core::Interface>::IID
+        iid == &<ITransactionLocal as windows_core::Interface>::IID || super::ITransaction_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]

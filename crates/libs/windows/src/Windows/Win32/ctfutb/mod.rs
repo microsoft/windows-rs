@@ -363,7 +363,7 @@ impl ITfLangBarItemBalloon_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfLangBarItemBalloon as windows_core::Interface>::IID || iid == &<ITfLangBarItem as windows_core::Interface>::IID
+        iid == &<ITfLangBarItemBalloon as windows_core::Interface>::IID || ITfLangBarItem_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winnt"))]
@@ -442,7 +442,7 @@ impl ITfLangBarItemBitmap_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfLangBarItemBitmap as windows_core::Interface>::IID || iid == &<ITfLangBarItem as windows_core::Interface>::IID
+        iid == &<ITfLangBarItemBitmap as windows_core::Interface>::IID || ITfLangBarItem_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winnt"))]
@@ -564,7 +564,7 @@ impl ITfLangBarItemBitmapButton_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfLangBarItemBitmapButton as windows_core::Interface>::IID || iid == &<ITfLangBarItem as windows_core::Interface>::IID
+        iid == &<ITfLangBarItemBitmapButton as windows_core::Interface>::IID || ITfLangBarItem_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winnt"))]
@@ -670,7 +670,7 @@ impl ITfLangBarItemButton_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfLangBarItemButton as windows_core::Interface>::IID || iid == &<ITfLangBarItem as windows_core::Interface>::IID
+        iid == &<ITfLangBarItemButton as windows_core::Interface>::IID || ITfLangBarItem_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winnt"))]

@@ -389,7 +389,7 @@ impl IWICComponentFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWICComponentFactory as windows_core::Interface>::IID || iid == &<super::IWICImagingFactory as windows_core::Interface>::IID
+        iid == &<IWICComponentFactory as windows_core::Interface>::IID || super::IWICImagingFactory_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "objidlbase", feature = "ocidl", feature = "shared", feature = "wincodec", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
@@ -622,7 +622,7 @@ impl IWICMetadataBlockWriter_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWICMetadataBlockWriter as windows_core::Interface>::IID || iid == &<IWICMetadataBlockReader as windows_core::Interface>::IID
+        iid == &<IWICMetadataBlockWriter as windows_core::Interface>::IID || IWICMetadataBlockReader_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "objidlbase", feature = "shared"))]
@@ -754,7 +754,7 @@ impl IWICMetadataHandlerInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWICMetadataHandlerInfo as windows_core::Interface>::IID || iid == &<super::IWICComponentInfo as windows_core::Interface>::IID
+        iid == &<IWICMetadataHandlerInfo as windows_core::Interface>::IID || super::IWICComponentInfo_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "wincodec", feature = "winnt"))]
@@ -990,7 +990,7 @@ impl IWICMetadataReaderInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWICMetadataReaderInfo as windows_core::Interface>::IID || iid == &<super::IWICComponentInfo as windows_core::Interface>::IID || iid == &<IWICMetadataHandlerInfo as windows_core::Interface>::IID
+        iid == &<IWICMetadataReaderInfo as windows_core::Interface>::IID || IWICMetadataHandlerInfo_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "objidlbase", feature = "shared", feature = "wincodec", feature = "winnt"))]
@@ -1085,7 +1085,7 @@ impl IWICMetadataWriter_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWICMetadataWriter as windows_core::Interface>::IID || iid == &<IWICMetadataReader as windows_core::Interface>::IID
+        iid == &<IWICMetadataWriter as windows_core::Interface>::IID || IWICMetadataReader_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "wincodec", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1161,7 +1161,7 @@ impl IWICMetadataWriterInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWICMetadataWriterInfo as windows_core::Interface>::IID || iid == &<super::IWICComponentInfo as windows_core::Interface>::IID || iid == &<IWICMetadataHandlerInfo as windows_core::Interface>::IID
+        iid == &<IWICMetadataWriterInfo as windows_core::Interface>::IID || IWICMetadataHandlerInfo_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "wincodec", feature = "winnt"))]
@@ -1231,7 +1231,7 @@ impl IWICPersistStream_Vtbl {
         Self { base__: super::IPersistStream_Vtbl::new::<Identity, OFFSET>(), LoadEx: LoadEx::<Identity, OFFSET>, SaveEx: SaveEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWICPersistStream as windows_core::Interface>::IID || iid == &<super::IPersist as windows_core::Interface>::IID || iid == &<super::IPersistStream as windows_core::Interface>::IID
+        iid == &<IWICPersistStream as windows_core::Interface>::IID || super::IPersistStream_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "winnt"))]

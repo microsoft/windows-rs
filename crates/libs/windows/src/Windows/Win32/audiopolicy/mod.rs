@@ -256,7 +256,7 @@ impl IAudioSessionControl2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAudioSessionControl2 as windows_core::Interface>::IID || iid == &<IAudioSessionControl as windows_core::Interface>::IID
+        iid == &<IAudioSessionControl2 as windows_core::Interface>::IID || IAudioSessionControl_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "shared"))]
@@ -638,7 +638,7 @@ impl IAudioSessionManager2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAudioSessionManager2 as windows_core::Interface>::IID || iid == &<IAudioSessionManager as windows_core::Interface>::IID
+        iid == &<IAudioSessionManager2 as windows_core::Interface>::IID || IAudioSessionManager_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "audioclient", feature = "guiddef", feature = "shared"))]

@@ -135,7 +135,7 @@ impl ILoadFilterWithPrivateComActivation_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ILoadFilterWithPrivateComActivation as windows_core::Interface>::IID || iid == &<ILoadFilter as windows_core::Interface>::IID
+        iid == &<ILoadFilterWithPrivateComActivation as windows_core::Interface>::IID || ILoadFilter_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "filter", feature = "guiddef", feature = "objidl", feature = "objidlbase", feature = "winnt"))]

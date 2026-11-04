@@ -4,6 +4,12 @@ fn main() {
 
     windows_bindgen::builder()
         .output(std::path::Path::new(&std::env::var_os("OUT_DIR").unwrap()).join("bindings.rs"))
+        .implements([
+            "Windows.Win32.IDataObject",
+            "Windows.Win32.IDropSource",
+            "Windows.Win32.IUIAutomationEventHandler",
+            "Windows.Win32.IUIAutomationNotificationEventHandler",
+        ])
         .filters([
             "CoCreateInstance",
             "CoInitializeEx",

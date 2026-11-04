@@ -963,7 +963,7 @@ impl IDirectXVideoDecoderService_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirectXVideoDecoderService as windows_core::Interface>::IID || iid == &<IDirectXVideoAccelerationService as windows_core::Interface>::IID
+        iid == &<IDirectXVideoDecoderService as windows_core::Interface>::IID || IDirectXVideoAccelerationService_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "d3d9", feature = "shared", feature = "winnt"))]
@@ -1315,7 +1315,7 @@ impl IDirectXVideoProcessorService_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirectXVideoProcessorService as windows_core::Interface>::IID || iid == &<IDirectXVideoAccelerationService as windows_core::Interface>::IID
+        iid == &<IDirectXVideoProcessorService as windows_core::Interface>::IID || IDirectXVideoAccelerationService_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "d3d9", feature = "shared", feature = "winnt"))]

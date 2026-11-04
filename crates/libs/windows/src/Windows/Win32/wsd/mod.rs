@@ -1382,7 +1382,7 @@ impl IWSDHttpAddress_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWSDHttpAddress as windows_core::Interface>::IID || iid == &<IWSDAddress as windows_core::Interface>::IID || iid == &<IWSDTransportAddress as windows_core::Interface>::IID
+        iid == &<IWSDHttpAddress as windows_core::Interface>::IID || IWSDTransportAddress_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -1596,7 +1596,7 @@ impl IWSDHttpMessageParameters_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWSDHttpMessageParameters as windows_core::Interface>::IID || iid == &<IWSDMessageParameters as windows_core::Interface>::IID
+        iid == &<IWSDHttpMessageParameters as windows_core::Interface>::IID || IWSDMessageParameters_Vtbl::matches(iid)
     }
 }
 impl windows_core::RuntimeName for IWSDHttpMessageParameters {}
@@ -1650,7 +1650,7 @@ impl IWSDInboundAttachment_Vtbl {
         Self { base__: IWSDAttachment_Vtbl::new::<Identity, OFFSET>(), Read: Read::<Identity, OFFSET>, Close: Close::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWSDInboundAttachment as windows_core::Interface>::IID || iid == &<IWSDAttachment as windows_core::Interface>::IID
+        iid == &<IWSDInboundAttachment as windows_core::Interface>::IID || IWSDAttachment_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
@@ -1883,7 +1883,7 @@ impl IWSDOutboundAttachment_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWSDOutboundAttachment as windows_core::Interface>::IID || iid == &<IWSDAttachment as windows_core::Interface>::IID
+        iid == &<IWSDOutboundAttachment as windows_core::Interface>::IID || IWSDAttachment_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
@@ -2217,7 +2217,7 @@ impl IWSDServiceProxy_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWSDServiceProxy as windows_core::Interface>::IID || iid == &<IWSDMetadataExchange as windows_core::Interface>::IID
+        iid == &<IWSDServiceProxy as windows_core::Interface>::IID || IWSDMetadataExchange_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -2520,7 +2520,7 @@ impl IWSDServiceProxyEventing_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWSDServiceProxyEventing as windows_core::Interface>::IID || iid == &<IWSDMetadataExchange as windows_core::Interface>::IID || iid == &<IWSDServiceProxy as windows_core::Interface>::IID
+        iid == &<IWSDServiceProxyEventing as windows_core::Interface>::IID || IWSDServiceProxy_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -2719,7 +2719,7 @@ impl IWSDTransportAddress_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWSDTransportAddress as windows_core::Interface>::IID || iid == &<IWSDAddress as windows_core::Interface>::IID
+        iid == &<IWSDTransportAddress as windows_core::Interface>::IID || IWSDAddress_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -2886,7 +2886,7 @@ impl IWSDUdpAddress_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWSDUdpAddress as windows_core::Interface>::IID || iid == &<IWSDAddress as windows_core::Interface>::IID || iid == &<IWSDTransportAddress as windows_core::Interface>::IID
+        iid == &<IWSDUdpAddress as windows_core::Interface>::IID || IWSDTransportAddress_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "ws2"))]
@@ -2949,7 +2949,7 @@ impl IWSDUdpMessageParameters_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWSDUdpMessageParameters as windows_core::Interface>::IID || iid == &<IWSDMessageParameters as windows_core::Interface>::IID
+        iid == &<IWSDUdpMessageParameters as windows_core::Interface>::IID || IWSDMessageParameters_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]

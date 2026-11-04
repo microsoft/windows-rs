@@ -1513,7 +1513,7 @@ impl IResourceManager2_Vtbl {
         Self { base__: super::IResourceManager_Vtbl::new::<Identity, OFFSET>(), Enlist2: Enlist2::<Identity, OFFSET>, Reenlist2: Reenlist2::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IResourceManager2 as windows_core::Interface>::IID || iid == &<super::IResourceManager as windows_core::Interface>::IID
+        iid == &<IResourceManager2 as windows_core::Interface>::IID || super::IResourceManager_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "rpc", feature = "shared", feature = "strmif", feature = "transact", feature = "txcoord"))]
@@ -1615,7 +1615,7 @@ impl IResourceManagerFactory2_Vtbl {
         Self { base__: IResourceManagerFactory_Vtbl::new::<Identity, OFFSET>(), CreateEx: CreateEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IResourceManagerFactory2 as windows_core::Interface>::IID || iid == &<IResourceManagerFactory as windows_core::Interface>::IID
+        iid == &<IResourceManagerFactory2 as windows_core::Interface>::IID || IResourceManagerFactory_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "strmif"))]
@@ -1664,7 +1664,7 @@ impl IResourceManagerRejoinable_Vtbl {
         Self { base__: IResourceManager2_Vtbl::new::<Identity, OFFSET>(), Rejoin: Rejoin::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IResourceManagerRejoinable as windows_core::Interface>::IID || iid == &<super::IResourceManager as windows_core::Interface>::IID || iid == &<IResourceManager2 as windows_core::Interface>::IID
+        iid == &<IResourceManagerRejoinable as windows_core::Interface>::IID || IResourceManager2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "rpc", feature = "shared", feature = "strmif", feature = "transact", feature = "txcoord"))]
@@ -2312,7 +2312,7 @@ impl ITransactionVoterNotifyAsync2_Vtbl {
         Self { base__: super::ITransactionOutcomeEvents_Vtbl::new::<Identity, OFFSET>(), VoteRequest: VoteRequest::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITransactionVoterNotifyAsync2 as windows_core::Interface>::IID || iid == &<super::ITransactionOutcomeEvents as windows_core::Interface>::IID
+        iid == &<ITransactionVoterNotifyAsync2 as windows_core::Interface>::IID || super::ITransactionOutcomeEvents_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]

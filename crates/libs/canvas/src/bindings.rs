@@ -386,7 +386,6 @@ pub struct ID2D1Bitmap_Vtbl {
     CopyFromRenderTarget: usize,
     CopyFromMemory: usize,
 }
-impl windows_core::RuntimeName for ID2D1Bitmap {}
 windows_core::imp::define_interface!(
     ID2D1Bitmap1,
     ID2D1Bitmap1_Vtbl,
@@ -438,7 +437,6 @@ pub struct ID2D1Bitmap1_Vtbl {
     ) -> windows_core::HRESULT,
     pub Unmap: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-impl windows_core::RuntimeName for ID2D1Bitmap1 {}
 windows_core::imp::define_interface!(
     ID2D1Brush,
     ID2D1Brush_Vtbl,
@@ -459,7 +457,6 @@ pub struct ID2D1Brush_Vtbl {
     GetOpacity: usize,
     GetTransform: usize,
 }
-impl windows_core::RuntimeName for ID2D1Brush {}
 windows_core::imp::define_interface!(
     ID2D1ColorContext,
     ID2D1ColorContext_Vtbl,
@@ -479,7 +476,6 @@ pub struct ID2D1ColorContext_Vtbl {
     GetProfileSize: usize,
     GetProfile: usize,
 }
-impl windows_core::RuntimeName for ID2D1ColorContext {}
 windows_core::imp::define_interface!(
     ID2D1Device,
     ID2D1Device_Vtbl,
@@ -521,7 +517,6 @@ pub struct ID2D1Device_Vtbl {
     GetMaximumTextureMemory: usize,
     ClearResources: usize,
 }
-impl windows_core::RuntimeName for ID2D1Device {}
 windows_core::imp::define_interface!(
     ID2D1DeviceContext,
     ID2D1DeviceContext_Vtbl,
@@ -751,7 +746,6 @@ pub struct ID2D1DeviceContext_Vtbl {
     GetEffectRequiredInputRectangles: usize,
     FillOpacityMask: usize,
 }
-impl windows_core::RuntimeName for ID2D1DeviceContext {}
 windows_core::imp::define_interface!(
     ID2D1Effect,
     ID2D1Effect_Vtbl,
@@ -801,7 +795,6 @@ pub struct ID2D1Effect_Vtbl {
     GetInputCount: usize,
     pub GetOutput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
 }
-impl windows_core::RuntimeName for ID2D1Effect {}
 windows_core::imp::define_interface!(
     ID2D1Factory,
     ID2D1Factory_Vtbl,
@@ -826,7 +819,6 @@ pub struct ID2D1Factory_Vtbl {
     CreateDxgiSurfaceRenderTarget: usize,
     CreateDCRenderTarget: usize,
 }
-impl windows_core::RuntimeName for ID2D1Factory {}
 windows_core::imp::define_interface!(
     ID2D1Factory1,
     ID2D1Factory1_Vtbl,
@@ -913,7 +905,6 @@ pub struct ID2D1Factory1_Vtbl {
     GetRegisteredEffects: usize,
     GetEffectProperties: usize,
 }
-impl windows_core::RuntimeName for ID2D1Factory1 {}
 windows_core::imp::define_interface!(
     ID2D1Geometry,
     ID2D1Geometry_Vtbl,
@@ -1017,7 +1008,6 @@ pub struct ID2D1Geometry_Vtbl {
     ComputePointAtLength: usize,
     Widen: usize,
 }
-impl windows_core::RuntimeName for ID2D1Geometry {}
 windows_core::imp::define_interface!(
     ID2D1GeometrySink,
     ID2D1GeometrySink_Vtbl,
@@ -1061,7 +1051,6 @@ pub struct ID2D1GeometrySink_Vtbl {
     AddQuadraticBeziers: usize,
     AddArc: usize,
 }
-impl windows_core::RuntimeName for ID2D1GeometrySink {}
 windows_core::imp::define_interface!(
     ID2D1GradientStopCollection,
     ID2D1GradientStopCollection_Vtbl,
@@ -1086,7 +1075,6 @@ pub struct ID2D1GradientStopCollection_Vtbl {
     GetColorInterpolationGamma: usize,
     GetExtendMode: usize,
 }
-impl windows_core::RuntimeName for ID2D1GradientStopCollection {}
 windows_core::imp::define_interface!(
     ID2D1Image,
     ID2D1Image_Vtbl,
@@ -1103,7 +1091,6 @@ windows_core::imp::interface_hierarchy!(ID2D1Image, windows_core::IUnknown, ID2D
 pub struct ID2D1Image_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
 }
-impl windows_core::RuntimeName for ID2D1Image {}
 windows_core::imp::define_interface!(
     ID2D1LinearGradientBrush,
     ID2D1LinearGradientBrush_Vtbl,
@@ -1130,7 +1117,6 @@ pub struct ID2D1LinearGradientBrush_Vtbl {
     GetEndPoint: usize,
     GetGradientStopCollection: usize,
 }
-impl windows_core::RuntimeName for ID2D1LinearGradientBrush {}
 windows_core::imp::define_interface!(
     ID2D1PathGeometry,
     ID2D1PathGeometry_Vtbl,
@@ -1171,7 +1157,6 @@ pub struct ID2D1PathGeometry_Vtbl {
     GetSegmentCount: usize,
     GetFigureCount: usize,
 }
-impl windows_core::RuntimeName for ID2D1PathGeometry {}
 windows_core::imp::define_interface!(
     ID2D1PathGeometry1,
     ID2D1PathGeometry1_Vtbl,
@@ -1195,7 +1180,6 @@ pub struct ID2D1PathGeometry1_Vtbl {
     pub base__: ID2D1PathGeometry_Vtbl,
     ComputePointAndSegmentAtLength: usize,
 }
-impl windows_core::RuntimeName for ID2D1PathGeometry1 {}
 windows_core::imp::define_interface!(
     ID2D1Properties,
     ID2D1Properties_Vtbl,
@@ -1217,7 +1201,6 @@ pub struct ID2D1Properties_Vtbl {
     GetValueSize: usize,
     GetSubProperties: usize,
 }
-impl windows_core::RuntimeName for ID2D1Properties {}
 windows_core::imp::define_interface!(
     ID2D1RadialGradientBrush,
     ID2D1RadialGradientBrush_Vtbl,
@@ -1248,7 +1231,6 @@ pub struct ID2D1RadialGradientBrush_Vtbl {
     GetRadiusY: usize,
     GetGradientStopCollection: usize,
 }
-impl windows_core::RuntimeName for ID2D1RadialGradientBrush {}
 windows_core::imp::define_interface!(
     ID2D1RenderTarget,
     ID2D1RenderTarget_Vtbl,
@@ -1766,7 +1748,6 @@ pub struct ID2D1RenderTarget_Vtbl {
     GetMaximumBitmapSize: usize,
     IsSupported: usize,
 }
-impl windows_core::RuntimeName for ID2D1RenderTarget {}
 windows_core::imp::define_interface!(
     ID2D1Resource,
     ID2D1Resource_Vtbl,
@@ -1778,7 +1759,6 @@ pub struct ID2D1Resource_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     GetFactory: usize,
 }
-impl windows_core::RuntimeName for ID2D1Resource {}
 windows_core::imp::define_interface!(
     ID2D1SimplifiedGeometrySink,
     ID2D1SimplifiedGeometrySink_Vtbl,
@@ -1828,7 +1808,6 @@ pub struct ID2D1SimplifiedGeometrySink_Vtbl {
     pub EndFigure: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_FIGURE_END),
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-impl windows_core::RuntimeName for ID2D1SimplifiedGeometrySink {}
 windows_core::imp::define_interface!(
     ID2D1SolidColorBrush,
     ID2D1SolidColorBrush_Vtbl,
@@ -1862,7 +1841,6 @@ pub struct ID2D1SolidColorBrush_Vtbl {
     pub SetColor: unsafe extern "system" fn(*mut core::ffi::c_void, *const D2D1_COLOR_F),
     GetColor: usize,
 }
-impl windows_core::RuntimeName for ID2D1SolidColorBrush {}
 windows_core::imp::define_interface!(
     ID2D1StrokeStyle,
     ID2D1StrokeStyle_Vtbl,
@@ -1888,7 +1866,6 @@ pub struct ID2D1StrokeStyle_Vtbl {
     GetDashesCount: usize,
     GetDashes: usize,
 }
-impl windows_core::RuntimeName for ID2D1StrokeStyle {}
 windows_core::imp::define_interface!(
     ID2D1StrokeStyle1,
     ID2D1StrokeStyle1_Vtbl,
@@ -1911,7 +1888,6 @@ pub struct ID2D1StrokeStyle1_Vtbl {
     pub base__: ID2D1StrokeStyle_Vtbl,
     GetStrokeTransformType: usize,
 }
-impl windows_core::RuntimeName for ID2D1StrokeStyle1 {}
 windows_core::imp::define_interface!(
     ID3D11Device,
     ID3D11Device_Vtbl,
@@ -1962,7 +1938,6 @@ pub struct ID3D11Device_Vtbl {
     SetExceptionMode: usize,
     GetExceptionMode: usize,
 }
-impl windows_core::RuntimeName for ID3D11Device {}
 windows_core::imp::define_interface!(
     ID3D11DeviceChild,
     ID3D11DeviceChild_Vtbl,
@@ -1977,7 +1952,6 @@ pub struct ID3D11DeviceChild_Vtbl {
     SetPrivateData: usize,
     SetPrivateDataInterface: usize,
 }
-impl windows_core::RuntimeName for ID3D11DeviceChild {}
 windows_core::imp::define_interface!(
     ID3D11DeviceContext,
     ID3D11DeviceContext_Vtbl,
@@ -2106,7 +2080,6 @@ pub struct ID3D11DeviceContext_Vtbl {
     GetContextFlags: usize,
     FinishCommandList: usize,
 }
-impl windows_core::RuntimeName for ID3D11DeviceContext {}
 windows_core::imp::define_interface!(
     IDWriteFactory,
     IDWriteFactory_Vtbl,
@@ -2212,7 +2185,6 @@ pub struct IDWriteFactory_Vtbl {
     CreateNumberSubstitution: usize,
     CreateGlyphRunAnalysis: usize,
 }
-impl windows_core::RuntimeName for IDWriteFactory {}
 windows_core::imp::define_interface!(
     IDWriteFontCollection,
     IDWriteFontCollection_Vtbl,
@@ -2227,7 +2199,6 @@ pub struct IDWriteFontCollection_Vtbl {
     FindFamilyName: usize,
     GetFontFromFontFace: usize,
 }
-impl windows_core::RuntimeName for IDWriteFontCollection {}
 windows_core::imp::define_interface!(
     IDWriteTextFormat,
     IDWriteTextFormat_Vtbl,
@@ -2307,7 +2278,6 @@ pub struct IDWriteTextFormat_Vtbl {
     GetLocaleNameLength: usize,
     GetLocaleName: usize,
 }
-impl windows_core::RuntimeName for IDWriteTextFormat {}
 windows_core::imp::define_interface!(
     IDWriteTextLayout,
     IDWriteTextLayout_Vtbl,
@@ -2467,7 +2437,6 @@ pub struct IDWriteTextLayout_Vtbl {
     ) -> windows_core::HRESULT,
     HitTestTextRange: usize,
 }
-impl windows_core::RuntimeName for IDWriteTextLayout {}
 windows_core::imp::define_interface!(
     IDXGIAdapter,
     IDXGIAdapter_Vtbl,
@@ -2487,7 +2456,6 @@ pub struct IDXGIAdapter_Vtbl {
     GetDesc: usize,
     CheckInterfaceSupport: usize,
 }
-impl windows_core::RuntimeName for IDXGIAdapter {}
 windows_core::imp::define_interface!(
     IDXGIDevice,
     IDXGIDevice_Vtbl,
@@ -2524,7 +2492,6 @@ pub struct IDXGIDevice_Vtbl {
     SetGPUThreadPriority: usize,
     GetGPUThreadPriority: usize,
 }
-impl windows_core::RuntimeName for IDXGIDevice {}
 windows_core::imp::define_interface!(
     IDXGIDeviceSubObject,
     IDXGIDeviceSubObject_Vtbl,
@@ -2542,7 +2509,6 @@ pub struct IDXGIDeviceSubObject_Vtbl {
     pub base__: IDXGIObject_Vtbl,
     GetDevice: usize,
 }
-impl windows_core::RuntimeName for IDXGIDeviceSubObject {}
 windows_core::imp::define_interface!(
     IDXGIFactory,
     IDXGIFactory_Vtbl,
@@ -2564,7 +2530,6 @@ pub struct IDXGIFactory_Vtbl {
     CreateSwapChain: usize,
     CreateSoftwareAdapter: usize,
 }
-impl windows_core::RuntimeName for IDXGIFactory {}
 windows_core::imp::define_interface!(
     IDXGIFactory1,
     IDXGIFactory1_Vtbl,
@@ -2588,7 +2553,6 @@ pub struct IDXGIFactory1_Vtbl {
     EnumAdapters1: usize,
     IsCurrent: usize,
 }
-impl windows_core::RuntimeName for IDXGIFactory1 {}
 windows_core::imp::define_interface!(
     IDXGIFactory2,
     IDXGIFactory2_Vtbl,
@@ -2686,7 +2650,6 @@ pub struct IDXGIFactory2_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-impl windows_core::RuntimeName for IDXGIFactory2 {}
 windows_core::imp::define_interface!(
     IDXGIObject,
     IDXGIObject_Vtbl,
@@ -2721,7 +2684,6 @@ pub struct IDXGIObject_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-impl windows_core::RuntimeName for IDXGIObject {}
 windows_core::imp::define_interface!(
     IDXGIOutput,
     IDXGIOutput_Vtbl,
@@ -2750,7 +2712,6 @@ pub struct IDXGIOutput_Vtbl {
     GetDisplaySurfaceData: usize,
     GetFrameStatistics: usize,
 }
-impl windows_core::RuntimeName for IDXGIOutput {}
 windows_core::imp::define_interface!(
     IDXGISurface,
     IDXGISurface_Vtbl,
@@ -2775,7 +2736,6 @@ pub struct IDXGISurface_Vtbl {
     Map: usize,
     Unmap: usize,
 }
-impl windows_core::RuntimeName for IDXGISurface {}
 windows_core::imp::define_interface!(
     IDXGISwapChain,
     IDXGISwapChain_Vtbl,
@@ -2865,7 +2825,6 @@ pub struct IDXGISwapChain_Vtbl {
     GetFrameStatistics: usize,
     GetLastPresentCount: usize,
 }
-impl windows_core::RuntimeName for IDXGISwapChain {}
 windows_core::imp::define_interface!(
     IDXGISwapChain1,
     IDXGISwapChain1_Vtbl,
@@ -2899,7 +2858,6 @@ pub struct IDXGISwapChain1_Vtbl {
     SetRotation: usize,
     GetRotation: usize,
 }
-impl windows_core::RuntimeName for IDXGISwapChain1 {}
 windows_core::imp::define_interface!(
     IDXGISwapChain2,
     IDXGISwapChain2_Vtbl,
@@ -2946,7 +2904,6 @@ pub struct IDXGISwapChain2_Vtbl {
     ) -> windows_core::HRESULT,
     GetMatrixTransform: usize,
 }
-impl windows_core::RuntimeName for IDXGISwapChain2 {}
 pub type IID = windows_core::GUID;
 windows_core::imp::define_interface!(
     IWICBitmapDecoder,
@@ -2989,7 +2946,6 @@ pub struct IWICBitmapDecoder_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-impl windows_core::RuntimeName for IWICBitmapDecoder {}
 windows_core::imp::define_interface!(
     IWICBitmapFrameDecode,
     IWICBitmapFrameDecode_Vtbl,
@@ -3013,7 +2969,6 @@ pub struct IWICBitmapFrameDecode_Vtbl {
     GetColorContexts: usize,
     GetThumbnail: usize,
 }
-impl windows_core::RuntimeName for IWICBitmapFrameDecode {}
 windows_core::imp::define_interface!(
     IWICBitmapSource,
     IWICBitmapSource_Vtbl,
@@ -3029,7 +2984,6 @@ pub struct IWICBitmapSource_Vtbl {
     CopyPalette: usize,
     CopyPixels: usize,
 }
-impl windows_core::RuntimeName for IWICBitmapSource {}
 windows_core::imp::define_interface!(
     IWICFormatConverter,
     IWICFormatConverter_Vtbl,
@@ -3087,7 +3041,6 @@ pub struct IWICFormatConverter_Vtbl {
     ) -> windows_core::HRESULT,
     CanConvert: usize,
 }
-impl windows_core::RuntimeName for IWICFormatConverter {}
 windows_core::imp::define_interface!(
     IWICImagingFactory,
     IWICImagingFactory_Vtbl,
@@ -3168,7 +3121,6 @@ pub struct IWICImagingFactory_Vtbl {
     CreateQueryWriter: usize,
     CreateQueryWriterFromReader: usize,
 }
-impl windows_core::RuntimeName for IWICImagingFactory {}
 windows_core::imp::define_interface!(
     IWICPalette,
     IWICPalette_Vtbl,
@@ -3189,7 +3141,6 @@ pub struct IWICPalette_Vtbl {
     IsGrayscale: usize,
     HasAlpha: usize,
 }
-impl windows_core::RuntimeName for IWICPalette {}
 pub type UINT = u32;
 pub type UINT32 = u32;
 pub type WCHAR = u16;

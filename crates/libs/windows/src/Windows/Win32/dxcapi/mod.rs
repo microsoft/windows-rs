@@ -285,7 +285,7 @@ impl IDxcBlobEncoding_Vtbl {
         Self { base__: IDxcBlob_Vtbl::new::<Identity, OFFSET>(), GetEncoding: GetEncoding::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDxcBlobEncoding as windows_core::Interface>::IID || iid == &<IDxcBlob as windows_core::Interface>::IID
+        iid == &<IDxcBlobEncoding as windows_core::Interface>::IID || IDxcBlob_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
@@ -345,7 +345,7 @@ impl IDxcBlobUtf8_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDxcBlobUtf8 as windows_core::Interface>::IID || iid == &<IDxcBlob as windows_core::Interface>::IID || iid == &<IDxcBlobEncoding as windows_core::Interface>::IID
+        iid == &<IDxcBlobUtf8 as windows_core::Interface>::IID || IDxcBlobEncoding_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
@@ -404,7 +404,7 @@ impl IDxcBlobWide_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDxcBlobWide as windows_core::Interface>::IID || iid == &<IDxcBlob as windows_core::Interface>::IID || iid == &<IDxcBlobEncoding as windows_core::Interface>::IID
+        iid == &<IDxcBlobWide as windows_core::Interface>::IID || IDxcBlobEncoding_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
@@ -575,7 +575,7 @@ impl IDxcCompiler2_Vtbl {
         Self { base__: IDxcCompiler_Vtbl::new::<Identity, OFFSET>(), CompileWithDebug: CompileWithDebug::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDxcCompiler2 as windows_core::Interface>::IID || iid == &<IDxcCompiler as windows_core::Interface>::IID
+        iid == &<IDxcCompiler2 as windows_core::Interface>::IID || IDxcCompiler_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -2573,7 +2573,7 @@ impl IDxcValidator2_Vtbl {
         Self { base__: IDxcValidator_Vtbl::new::<Identity, OFFSET>(), ValidateWithDebug: ValidateWithDebug::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDxcValidator2 as windows_core::Interface>::IID || iid == &<IDxcValidator as windows_core::Interface>::IID
+        iid == &<IDxcValidator2 as windows_core::Interface>::IID || IDxcValidator_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -2674,7 +2674,7 @@ impl IDxcVersionInfo2_Vtbl {
         Self { base__: IDxcVersionInfo_Vtbl::new::<Identity, OFFSET>(), GetCommitInfo: GetCommitInfo::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDxcVersionInfo2 as windows_core::Interface>::IID || iid == &<IDxcVersionInfo as windows_core::Interface>::IID
+        iid == &<IDxcVersionInfo2 as windows_core::Interface>::IID || IDxcVersionInfo_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]

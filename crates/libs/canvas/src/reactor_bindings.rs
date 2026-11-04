@@ -147,7 +147,6 @@ pub struct ISurfaceImageSourceNativeWithD2D_Vtbl {
     SuspendDraw: usize,
     ResumeDraw: usize,
 }
-impl windows_core::RuntimeName for ISurfaceImageSourceNativeWithD2D {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ImageSource(windows_core::IUnknown);

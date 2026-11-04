@@ -1738,7 +1738,7 @@ impl IApplicationDesignModeSettings2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IApplicationDesignModeSettings2 as windows_core::Interface>::IID || iid == &<IApplicationDesignModeSettings as windows_core::Interface>::IID
+        iid == &<IApplicationDesignModeSettings2 as windows_core::Interface>::IID || IApplicationDesignModeSettings_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "shtypes", feature = "windef"))]
@@ -2300,7 +2300,7 @@ impl IAttachmentExecute2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAttachmentExecute2 as windows_core::Interface>::IID || iid == &<IAttachmentExecute as windows_core::Interface>::IID
+        iid == &<IAttachmentExecute2 as windows_core::Interface>::IID || IAttachmentExecute_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
@@ -3016,7 +3016,7 @@ impl ICommDlgBrowser2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICommDlgBrowser2 as windows_core::Interface>::IID || iid == &<ICommDlgBrowser as windows_core::Interface>::IID
+        iid == &<ICommDlgBrowser2 as windows_core::Interface>::IID || ICommDlgBrowser_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "oleidl", feature = "shared", feature = "shtypes"))]
@@ -3174,7 +3174,7 @@ impl IContextMenu2_Vtbl {
         Self { base__: IContextMenu_Vtbl::new::<Identity, OFFSET>(), HandleMenuMsg: HandleMenuMsg::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IContextMenu2 as windows_core::Interface>::IID || iid == &<IContextMenu as windows_core::Interface>::IID
+        iid == &<IContextMenu2 as windows_core::Interface>::IID || IContextMenu_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
@@ -3218,7 +3218,7 @@ impl IContextMenu3_Vtbl {
         Self { base__: IContextMenu2_Vtbl::new::<Identity, OFFSET>(), HandleMenuMsg2: HandleMenuMsg2::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IContextMenu3 as windows_core::Interface>::IID || iid == &<IContextMenu as windows_core::Interface>::IID || iid == &<IContextMenu2 as windows_core::Interface>::IID
+        iid == &<IContextMenu3 as windows_core::Interface>::IID || IContextMenu2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
@@ -3497,7 +3497,7 @@ impl ICurrentItem_Vtbl {
         Self { base__: IRelatedItem_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICurrentItem as windows_core::Interface>::IID || iid == &<IRelatedItem as windows_core::Interface>::IID
+        iid == &<ICurrentItem as windows_core::Interface>::IID || IRelatedItem_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "shtypes"))]
@@ -4070,7 +4070,7 @@ impl IDelegateItem_Vtbl {
         Self { base__: IRelatedItem_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDelegateItem as windows_core::Interface>::IID || iid == &<IRelatedItem as windows_core::Interface>::IID
+        iid == &<IDelegateItem as windows_core::Interface>::IID || IRelatedItem_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "shtypes"))]
@@ -4119,7 +4119,7 @@ impl IDeskBand_Vtbl {
         Self { base__: IDockingWindow_Vtbl::new::<Identity, OFFSET>(), GetBandInfo: GetBandInfo::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDeskBand as windows_core::Interface>::IID || iid == &<super::IOleWindow as windows_core::Interface>::IID || iid == &<IDockingWindow as windows_core::Interface>::IID
+        iid == &<IDeskBand as windows_core::Interface>::IID || IDockingWindow_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "oleidl", feature = "shared", feature = "windef", feature = "winnt"))]
@@ -4248,7 +4248,7 @@ impl IDeskBar_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDeskBar as windows_core::Interface>::IID || iid == &<super::IOleWindow as windows_core::Interface>::IID
+        iid == &<IDeskBar as windows_core::Interface>::IID || super::IOleWindow_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "oleidl", feature = "shared", feature = "windef"))]
@@ -4597,7 +4597,7 @@ impl IDisplayItem_Vtbl {
         Self { base__: IRelatedItem_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDisplayItem as windows_core::Interface>::IID || iid == &<IRelatedItem as windows_core::Interface>::IID
+        iid == &<IDisplayItem as windows_core::Interface>::IID || IRelatedItem_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "shtypes"))]
@@ -4680,7 +4680,7 @@ impl IDockingWindow_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDockingWindow as windows_core::Interface>::IID || iid == &<super::IOleWindow as windows_core::Interface>::IID
+        iid == &<IDockingWindow as windows_core::Interface>::IID || super::IOleWindow_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "oleidl", feature = "shared", feature = "windef"))]
@@ -6467,7 +6467,7 @@ impl IExtractImage2_Vtbl {
         Self { base__: IExtractImage_Vtbl::new::<Identity, OFFSET>(), GetDateStamp: GetDateStamp::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IExtractImage2 as windows_core::Interface>::IID || iid == &<IExtractImage as windows_core::Interface>::IID
+        iid == &<IExtractImage2 as windows_core::Interface>::IID || IExtractImage_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
@@ -6860,7 +6860,7 @@ impl IFileDialog_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFileDialog as windows_core::Interface>::IID || iid == &<IModalWindow as windows_core::Interface>::IID
+        iid == &<IFileDialog as windows_core::Interface>::IID || IModalWindow_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "shtypes", feature = "windef"))]
@@ -7645,7 +7645,7 @@ impl IFileOpenDialog_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFileOpenDialog as windows_core::Interface>::IID || iid == &<IModalWindow as windows_core::Interface>::IID || iid == &<IFileDialog as windows_core::Interface>::IID
+        iid == &<IFileOpenDialog as windows_core::Interface>::IID || IFileDialog_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "shtypes", feature = "windef"))]
@@ -8034,7 +8034,7 @@ impl IFileOperation2_Vtbl {
         Self { base__: IFileOperation_Vtbl::new::<Identity, OFFSET>(), SetOperationFlags2: SetOperationFlags2::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFileOperation2 as windows_core::Interface>::IID || iid == &<IFileOperation as windows_core::Interface>::IID
+        iid == &<IFileOperation2 as windows_core::Interface>::IID || IFileOperation_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "propsys", feature = "shared", feature = "windef"))]
@@ -8476,7 +8476,7 @@ impl IFileSaveDialog_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFileSaveDialog as windows_core::Interface>::IID || iid == &<IModalWindow as windows_core::Interface>::IID || iid == &<IFileDialog as windows_core::Interface>::IID
+        iid == &<IFileSaveDialog as windows_core::Interface>::IID || IFileDialog_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "propsys", feature = "shared", feature = "shtypes", feature = "windef"))]
@@ -8700,7 +8700,7 @@ impl IFileSystemBindData2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFileSystemBindData2 as windows_core::Interface>::IID || iid == &<IFileSystemBindData as windows_core::Interface>::IID
+        iid == &<IFileSystemBindData2 as windows_core::Interface>::IID || IFileSystemBindData_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
@@ -9457,7 +9457,7 @@ impl IFolderView2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFolderView2 as windows_core::Interface>::IID || iid == &<IFolderView as windows_core::Interface>::IID
+        iid == &<IFolderView2 as windows_core::Interface>::IID || IFolderView_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "shtypes", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -9931,7 +9931,7 @@ impl IHandlerInfo2_Vtbl {
         Self { base__: IHandlerInfo_Vtbl::new::<Identity, OFFSET>(), GetApplicationId: GetApplicationId::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IHandlerInfo2 as windows_core::Interface>::IID || iid == &<IHandlerInfo as windows_core::Interface>::IID
+        iid == &<IHandlerInfo2 as windows_core::Interface>::IID || IHandlerInfo_Vtbl::matches(iid)
     }
 }
 impl windows_core::RuntimeName for IHandlerInfo2 {}
@@ -10066,7 +10066,7 @@ impl IIdentityName_Vtbl {
         Self { base__: IRelatedItem_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IIdentityName as windows_core::Interface>::IID || iid == &<IRelatedItem as windows_core::Interface>::IID
+        iid == &<IIdentityName as windows_core::Interface>::IID || IRelatedItem_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "shtypes"))]
@@ -10424,7 +10424,7 @@ impl IInputObject2_Vtbl {
         Self { base__: IInputObject_Vtbl::new::<Identity, OFFSET>(), TranslateAcceleratorGlobal: TranslateAcceleratorGlobal::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInputObject2 as windows_core::Interface>::IID || iid == &<IInputObject as windows_core::Interface>::IID
+        iid == &<IInputObject2 as windows_core::Interface>::IID || IInputObject_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
@@ -11293,7 +11293,7 @@ impl IMenuPopup_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMenuPopup as windows_core::Interface>::IID || iid == &<super::IOleWindow as windows_core::Interface>::IID || iid == &<IDeskBar as windows_core::Interface>::IID
+        iid == &<IMenuPopup as windows_core::Interface>::IID || IDeskBar_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "oleidl", feature = "shared", feature = "windef"))]
@@ -11916,7 +11916,7 @@ impl INamespaceWalkCB2_Vtbl {
         Self { base__: INamespaceWalkCB_Vtbl::new::<Identity, OFFSET>(), WalkComplete: WalkComplete::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INamespaceWalkCB2 as windows_core::Interface>::IID || iid == &<INamespaceWalkCB as windows_core::Interface>::IID
+        iid == &<INamespaceWalkCB2 as windows_core::Interface>::IID || INamespaceWalkCB_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "shtypes"))]
@@ -13032,7 +13032,7 @@ impl IPackageDebugSettings2_Vtbl {
         Self { base__: IPackageDebugSettings_Vtbl::new::<Identity, OFFSET>(), EnumerateApps: EnumerateApps::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPackageDebugSettings2 as windows_core::Interface>::IID || iid == &<IPackageDebugSettings as windows_core::Interface>::IID
+        iid == &<IPackageDebugSettings2 as windows_core::Interface>::IID || IPackageDebugSettings_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
@@ -13231,7 +13231,7 @@ impl IPersistFolder_Vtbl {
         Self { base__: super::IPersist_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPersistFolder as windows_core::Interface>::IID || iid == &<super::IPersist as windows_core::Interface>::IID
+        iid == &<IPersistFolder as windows_core::Interface>::IID || super::IPersist_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "objidl", feature = "shared", feature = "shtypes"))]
@@ -13280,7 +13280,7 @@ impl IPersistFolder2_Vtbl {
         Self { base__: IPersistFolder_Vtbl::new::<Identity, OFFSET>(), GetCurFolder: GetCurFolder::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPersistFolder2 as windows_core::Interface>::IID || iid == &<super::IPersist as windows_core::Interface>::IID || iid == &<IPersistFolder as windows_core::Interface>::IID
+        iid == &<IPersistFolder2 as windows_core::Interface>::IID || IPersistFolder_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "objidl", feature = "shared", feature = "shtypes"))]
@@ -13351,7 +13351,7 @@ impl IPersistFolder3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPersistFolder3 as windows_core::Interface>::IID || iid == &<super::IPersist as windows_core::Interface>::IID || iid == &<IPersistFolder as windows_core::Interface>::IID || iid == &<IPersistFolder2 as windows_core::Interface>::IID
+        iid == &<IPersistFolder3 as windows_core::Interface>::IID || IPersistFolder2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "objidl", feature = "shared", feature = "shtypes", feature = "winnt"))]
@@ -13415,7 +13415,7 @@ impl IPersistIDList_Vtbl {
         Self { base__: super::IPersist_Vtbl::new::<Identity, OFFSET>(), SetIDList: SetIDList::<Identity, OFFSET>, GetIDList: GetIDList::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPersistIDList as windows_core::Interface>::IID || iid == &<super::IPersist as windows_core::Interface>::IID
+        iid == &<IPersistIDList as windows_core::Interface>::IID || super::IPersist_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "objidl", feature = "shared", feature = "shtypes"))]
@@ -13696,7 +13696,7 @@ impl IPreviewItem_Vtbl {
         Self { base__: IRelatedItem_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPreviewItem as windows_core::Interface>::IID || iid == &<IRelatedItem as windows_core::Interface>::IID
+        iid == &<IPreviewItem as windows_core::Interface>::IID || IRelatedItem_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "shtypes"))]
@@ -14916,7 +14916,7 @@ impl IShellBrowser_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellBrowser as windows_core::Interface>::IID || iid == &<super::IOleWindow as windows_core::Interface>::IID
+        iid == &<IShellBrowser as windows_core::Interface>::IID || super::IOleWindow_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "commctrl", feature = "minwindef", feature = "objidlbase", feature = "oleidl", feature = "shared", feature = "shtypes", feature = "windef", feature = "winuser"))]
@@ -15326,7 +15326,7 @@ impl IShellFolder2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellFolder2 as windows_core::Interface>::IID || iid == &<IShellFolder as windows_core::Interface>::IID
+        iid == &<IShellFolder2 as windows_core::Interface>::IID || IShellFolder_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "shtypes", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -15804,7 +15804,7 @@ impl IShellItem2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellItem2 as windows_core::Interface>::IID || iid == &<IShellItem as windows_core::Interface>::IID
+        iid == &<IShellItem2 as windows_core::Interface>::IID || IShellItem_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "propsys", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -17825,7 +17825,7 @@ impl IShellView_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellView as windows_core::Interface>::IID || iid == &<super::IOleWindow as windows_core::Interface>::IID
+        iid == &<IShellView as windows_core::Interface>::IID || super::IOleWindow_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oleidl", feature = "prsht", feature = "shared", feature = "shtypes", feature = "windef", feature = "winuser"))]
@@ -17925,7 +17925,7 @@ impl IShellView2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellView2 as windows_core::Interface>::IID || iid == &<super::IOleWindow as windows_core::Interface>::IID || iid == &<IShellView as windows_core::Interface>::IID
+        iid == &<IShellView2 as windows_core::Interface>::IID || IShellView_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oleidl", feature = "prsht", feature = "shared", feature = "shtypes", feature = "windef", feature = "winuser"))]
@@ -18261,7 +18261,7 @@ impl ITaskbarList2_Vtbl {
         Self { base__: ITaskbarList_Vtbl::new::<Identity, OFFSET>(), MarkFullscreenWindow: MarkFullscreenWindow::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITaskbarList2 as windows_core::Interface>::IID || iid == &<ITaskbarList as windows_core::Interface>::IID
+        iid == &<ITaskbarList2 as windows_core::Interface>::IID || ITaskbarList_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "windef")]
@@ -18490,7 +18490,7 @@ impl ITaskbarList3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITaskbarList3 as windows_core::Interface>::IID || iid == &<ITaskbarList as windows_core::Interface>::IID || iid == &<ITaskbarList2 as windows_core::Interface>::IID
+        iid == &<ITaskbarList3 as windows_core::Interface>::IID || ITaskbarList2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "commctrl", feature = "shared", feature = "windef", feature = "winnt"))]
@@ -18534,7 +18534,7 @@ impl ITaskbarList4_Vtbl {
         Self { base__: ITaskbarList3_Vtbl::new::<Identity, OFFSET>(), SetTabProperties: SetTabProperties::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITaskbarList4 as windows_core::Interface>::IID || iid == &<ITaskbarList as windows_core::Interface>::IID || iid == &<ITaskbarList2 as windows_core::Interface>::IID || iid == &<ITaskbarList3 as windows_core::Interface>::IID
+        iid == &<ITaskbarList4 as windows_core::Interface>::IID || ITaskbarList3_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "commctrl", feature = "shared", feature = "windef", feature = "winnt"))]
@@ -18824,7 +18824,7 @@ impl ITransferMediumItem_Vtbl {
         Self { base__: IRelatedItem_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITransferMediumItem as windows_core::Interface>::IID || iid == &<IRelatedItem as windows_core::Interface>::IID
+        iid == &<ITransferMediumItem as windows_core::Interface>::IID || IRelatedItem_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "shtypes"))]
@@ -19307,7 +19307,7 @@ impl IViewStateIdentityItem_Vtbl {
         Self { base__: IRelatedItem_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IViewStateIdentityItem as windows_core::Interface>::IID || iid == &<IRelatedItem as windows_core::Interface>::IID
+        iid == &<IViewStateIdentityItem as windows_core::Interface>::IID || IRelatedItem_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "shtypes"))]

@@ -545,7 +545,7 @@ impl ICommDlgBrowser3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICommDlgBrowser3 as windows_core::Interface>::IID || iid == &<super::ICommDlgBrowser as windows_core::Interface>::IID || iid == &<super::ICommDlgBrowser2 as windows_core::Interface>::IID
+        iid == &<ICommDlgBrowser3 as windows_core::Interface>::IID || super::ICommDlgBrowser2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "oleidl", feature = "shared", feature = "shobjidl_core", feature = "shtypes"))]
@@ -653,7 +653,7 @@ impl IDeskBand2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDeskBand2 as windows_core::Interface>::IID || iid == &<super::IOleWindow as windows_core::Interface>::IID || iid == &<super::IDockingWindow as windows_core::Interface>::IID || iid == &<super::IDeskBand as windows_core::Interface>::IID
+        iid == &<IDeskBand2 as windows_core::Interface>::IID || super::IDeskBand_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "oleidl", feature = "shared", feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
@@ -736,7 +736,7 @@ impl IDragSourceHelper2_Vtbl {
         Self { base__: super::IDragSourceHelper_Vtbl::new::<Identity, OFFSET>(), SetFlags: SetFlags::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDragSourceHelper2 as windows_core::Interface>::IID || iid == &<super::IDragSourceHelper as windows_core::Interface>::IID
+        iid == &<IDragSourceHelper2 as windows_core::Interface>::IID || super::IDragSourceHelper_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "objidl", feature = "shared", feature = "shobjidl_core", feature = "windef"))]
@@ -943,7 +943,7 @@ impl IFileDialog2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFileDialog2 as windows_core::Interface>::IID || iid == &<super::IModalWindow as windows_core::Interface>::IID || iid == &<super::IFileDialog as windows_core::Interface>::IID
+        iid == &<IFileDialog2 as windows_core::Interface>::IID || super::IFileDialog_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
@@ -1330,7 +1330,7 @@ impl IHWEventHandler2_Vtbl {
         Self { base__: IHWEventHandler_Vtbl::new::<Identity, OFFSET>(), HandleEventWithHWND: HandleEventWithHWND::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IHWEventHandler2 as windows_core::Interface>::IID || iid == &<IHWEventHandler as windows_core::Interface>::IID
+        iid == &<IHWEventHandler2 as windows_core::Interface>::IID || IHWEventHandler_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "objidl", feature = "windef"))]
@@ -1591,7 +1591,7 @@ impl INameSpaceTreeControl2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INameSpaceTreeControl2 as windows_core::Interface>::IID || iid == &<super::INameSpaceTreeControl as windows_core::Interface>::IID
+        iid == &<INameSpaceTreeControl2 as windows_core::Interface>::IID || super::INameSpaceTreeControl_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "shobjidl_core", feature = "windef"))]
@@ -2294,7 +2294,7 @@ impl IPublishingWizard_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPublishingWizard as windows_core::Interface>::IID || iid == &<IWizardExtension as windows_core::Interface>::IID
+        iid == &<IPublishingWizard as windows_core::Interface>::IID || IWizardExtension_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "msxml", feature = "oaidl", feature = "objidl", feature = "prsht", feature = "shared"))]
@@ -2644,7 +2644,7 @@ impl IShellView3_Vtbl {
         Self { base__: super::IShellView2_Vtbl::new::<Identity, OFFSET>(), CreateViewWindow3: CreateViewWindow3::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellView3 as windows_core::Interface>::IID || iid == &<super::IOleWindow as windows_core::Interface>::IID || iid == &<super::IShellView as windows_core::Interface>::IID || iid == &<super::IShellView2 as windows_core::Interface>::IID
+        iid == &<IShellView3 as windows_core::Interface>::IID || super::IShellView2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oleidl", feature = "prsht", feature = "shared", feature = "shobjidl_core", feature = "shtypes", feature = "windef", feature = "winuser"))]
@@ -2909,7 +2909,7 @@ impl IStreamAsync_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IStreamAsync as windows_core::Interface>::IID || iid == &<super::ISequentialStream as windows_core::Interface>::IID || iid == &<super::IStream as windows_core::Interface>::IID
+        iid == &<IStreamAsync as windows_core::Interface>::IID || super::IStream_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
@@ -3062,7 +3062,7 @@ impl IUseToBrowseItem_Vtbl {
         Self { base__: super::IRelatedItem_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUseToBrowseItem as windows_core::Interface>::IID || iid == &<super::IRelatedItem as windows_core::Interface>::IID
+        iid == &<IUseToBrowseItem as windows_core::Interface>::IID || super::IRelatedItem_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "shobjidl_core", feature = "shtypes"))]
@@ -3490,7 +3490,7 @@ impl IWebWizardExtension_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWebWizardExtension as windows_core::Interface>::IID || iid == &<IWizardExtension as windows_core::Interface>::IID
+        iid == &<IWebWizardExtension as windows_core::Interface>::IID || IWizardExtension_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "prsht", feature = "shared"))]

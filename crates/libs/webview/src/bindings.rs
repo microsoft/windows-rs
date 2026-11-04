@@ -872,7 +872,7 @@ pub trait ICoreWebView2AcceleratorKeyPressedEventHandler_Impl: windows_core::IUn
     ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2AcceleratorKeyPressedEventHandler_Vtbl {
-    pub const fn new<
+    pub(crate) const fn new<
         Identity: ICoreWebView2AcceleratorKeyPressedEventHandler_Impl,
         const OFFSET: isize,
     >() -> Self {
@@ -899,7 +899,7 @@ impl ICoreWebView2AcceleratorKeyPressedEventHandler_Vtbl {
             Invoke: Invoke::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICoreWebView2AcceleratorKeyPressedEventHandler as windows_core::Interface>::IID
     }
 }
@@ -932,7 +932,7 @@ pub trait ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Impl:
     ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl {
-    pub const fn new<
+    pub(crate) const fn new<
         Identity: ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Impl,
         const OFFSET: isize,
     >() -> Self {
@@ -959,7 +959,7 @@ impl ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl {
             Invoke: Invoke::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == & < ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler as windows_core::Interface >::IID
     }
 }
@@ -993,7 +993,7 @@ pub trait ICoreWebView2BytesReceivedChangedEventHandler_Impl: windows_core::IUnk
     ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2BytesReceivedChangedEventHandler_Vtbl {
-    pub const fn new<
+    pub(crate) const fn new<
         Identity: ICoreWebView2BytesReceivedChangedEventHandler_Impl,
         const OFFSET: isize,
     >() -> Self {
@@ -1020,7 +1020,7 @@ impl ICoreWebView2BytesReceivedChangedEventHandler_Vtbl {
             Invoke: Invoke::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICoreWebView2BytesReceivedChangedEventHandler as windows_core::Interface>::IID
     }
 }
@@ -1053,7 +1053,7 @@ pub trait ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Impl:
     ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Vtbl {
-    pub const fn new<
+    pub(crate) const fn new<
         Identity: ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Impl,
         const OFFSET: isize,
     >() -> Self {
@@ -1080,7 +1080,7 @@ impl ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Vtbl {
             Invoke: Invoke::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == & < ICoreWebView2CallDevToolsProtocolMethodCompletedHandler as windows_core::Interface >::IID
     }
 }
@@ -1106,7 +1106,7 @@ pub trait ICoreWebView2ClearBrowsingDataCompletedHandler_Impl: windows_core::IUn
     fn Invoke(&self, errorcode: windows_core::HRESULT) -> windows_core::HRESULT;
 }
 impl ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl {
-    pub const fn new<
+    pub(crate) const fn new<
         Identity: ICoreWebView2ClearBrowsingDataCompletedHandler_Impl,
         const OFFSET: isize,
     >() -> Self {
@@ -1131,7 +1131,7 @@ impl ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl {
             Invoke: Invoke::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICoreWebView2ClearBrowsingDataCompletedHandler as windows_core::Interface>::IID
     }
 }
@@ -1164,7 +1164,7 @@ pub trait ICoreWebView2ContainsFullScreenElementChangedEventHandler_Impl:
     ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2ContainsFullScreenElementChangedEventHandler_Vtbl {
-    pub const fn new<
+    pub(crate) const fn new<
         Identity: ICoreWebView2ContainsFullScreenElementChangedEventHandler_Impl,
         const OFFSET: isize,
     >() -> Self {
@@ -1191,7 +1191,7 @@ impl ICoreWebView2ContainsFullScreenElementChangedEventHandler_Vtbl {
             Invoke: Invoke::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == & < ICoreWebView2ContainsFullScreenElementChangedEventHandler as windows_core::Interface >::IID
     }
 }
@@ -1263,7 +1263,7 @@ pub trait ICoreWebView2ContentLoadingEventHandler_Impl: windows_core::IUnknownIm
     ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2ContentLoadingEventHandler_Vtbl {
-    pub const fn new<
+    pub(crate) const fn new<
         Identity: ICoreWebView2ContentLoadingEventHandler_Impl,
         const OFFSET: isize,
     >() -> Self {
@@ -1290,7 +1290,7 @@ impl ICoreWebView2ContentLoadingEventHandler_Vtbl {
             Invoke: Invoke::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICoreWebView2ContentLoadingEventHandler as windows_core::Interface>::IID
     }
 }
@@ -2220,7 +2220,7 @@ pub trait ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Impl:
     ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Vtbl {
-    pub const fn new<
+    pub(crate) const fn new<
         Identity: ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Impl,
         const OFFSET: isize,
     >() -> Self {
@@ -2247,7 +2247,7 @@ impl ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Vtbl {
             Invoke: Invoke::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == & < ICoreWebView2CreateCoreWebView2ControllerCompletedHandler as windows_core::Interface >::IID
     }
 }
@@ -2280,7 +2280,7 @@ pub trait ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Impl:
     ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Vtbl {
-    pub const fn new<
+    pub(crate) const fn new<
         Identity: ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Impl,
         const OFFSET: isize,
     >() -> Self {
@@ -2307,7 +2307,7 @@ impl ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Vtbl {
             Invoke: Invoke::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == & < ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler as windows_core::Interface >::IID
     }
 }
@@ -2387,7 +2387,7 @@ pub trait ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Impl:
     ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Vtbl {
-    pub const fn new<
+    pub(crate) const fn new<
         Identity: ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Impl,
         const OFFSET: isize,
     >() -> Self {
@@ -2414,7 +2414,7 @@ impl ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Vtbl {
             Invoke: Invoke::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == & < ICoreWebView2DevToolsProtocolEventReceivedEventHandler as windows_core::Interface >::IID
     }
 }
@@ -2497,7 +2497,7 @@ pub trait ICoreWebView2DocumentTitleChangedEventHandler_Impl: windows_core::IUnk
     ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2DocumentTitleChangedEventHandler_Vtbl {
-    pub const fn new<
+    pub(crate) const fn new<
         Identity: ICoreWebView2DocumentTitleChangedEventHandler_Impl,
         const OFFSET: isize,
     >() -> Self {
@@ -2524,7 +2524,7 @@ impl ICoreWebView2DocumentTitleChangedEventHandler_Vtbl {
             Invoke: Invoke::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICoreWebView2DocumentTitleChangedEventHandler as windows_core::Interface>::IID
     }
 }
@@ -2910,7 +2910,7 @@ pub trait ICoreWebView2DownloadStartingEventHandler_Impl: windows_core::IUnknown
     ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2DownloadStartingEventHandler_Vtbl {
-    pub const fn new<
+    pub(crate) const fn new<
         Identity: ICoreWebView2DownloadStartingEventHandler_Impl,
         const OFFSET: isize,
     >() -> Self {
@@ -2937,7 +2937,7 @@ impl ICoreWebView2DownloadStartingEventHandler_Vtbl {
             Invoke: Invoke::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICoreWebView2DownloadStartingEventHandler as windows_core::Interface>::IID
     }
 }
@@ -3381,8 +3381,8 @@ pub trait ICoreWebView2EnvironmentOptions_Impl: windows_core::IUnknownImpl {
     ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2EnvironmentOptions_Vtbl {
-    pub const fn new<Identity: ICoreWebView2EnvironmentOptions_Impl, const OFFSET: isize>() -> Self
-    {
+    pub(crate) const fn new<Identity: ICoreWebView2EnvironmentOptions_Impl, const OFFSET: isize>()
+    -> Self {
         unsafe extern "system" fn AdditionalBrowserArguments<
             Identity: ICoreWebView2EnvironmentOptions_Impl,
             const OFFSET: isize,
@@ -3555,7 +3555,7 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
             >,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICoreWebView2EnvironmentOptions as windows_core::Interface>::IID
     }
 }
@@ -3583,8 +3583,10 @@ pub trait ICoreWebView2EnvironmentOptions6_Impl: windows_core::IUnknownImpl {
     fn SetAreBrowserExtensionsEnabled(&self, value: windows_core::BOOL) -> windows_core::HRESULT;
 }
 impl ICoreWebView2EnvironmentOptions6_Vtbl {
-    pub const fn new<Identity: ICoreWebView2EnvironmentOptions6_Impl, const OFFSET: isize>() -> Self
-    {
+    pub(crate) const fn new<
+        Identity: ICoreWebView2EnvironmentOptions6_Impl,
+        const OFFSET: isize,
+    >() -> Self {
         unsafe extern "system" fn AreBrowserExtensionsEnabled<
             Identity: ICoreWebView2EnvironmentOptions6_Impl,
             const OFFSET: isize,
@@ -3629,7 +3631,7 @@ impl ICoreWebView2EnvironmentOptions6_Vtbl {
             SetAreBrowserExtensionsEnabled: SetAreBrowserExtensionsEnabled::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICoreWebView2EnvironmentOptions6 as windows_core::Interface>::IID
     }
 }
@@ -3657,8 +3659,10 @@ pub trait ICoreWebView2EnvironmentOptions8_Impl: windows_core::IUnknownImpl {
     fn SetScrollBarStyle(&self, value: COREWEBVIEW2_SCROLLBAR_STYLE) -> windows_core::HRESULT;
 }
 impl ICoreWebView2EnvironmentOptions8_Vtbl {
-    pub const fn new<Identity: ICoreWebView2EnvironmentOptions8_Impl, const OFFSET: isize>() -> Self
-    {
+    pub(crate) const fn new<
+        Identity: ICoreWebView2EnvironmentOptions8_Impl,
+        const OFFSET: isize,
+    >() -> Self {
         unsafe extern "system" fn ScrollBarStyle<
             Identity: ICoreWebView2EnvironmentOptions8_Impl,
             const OFFSET: isize,
@@ -3703,7 +3707,7 @@ impl ICoreWebView2EnvironmentOptions8_Vtbl {
             SetScrollBarStyle: SetScrollBarStyle::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICoreWebView2EnvironmentOptions8 as windows_core::Interface>::IID
     }
 }
@@ -3734,7 +3738,7 @@ pub trait ICoreWebView2ExecuteScriptCompletedHandler_Impl: windows_core::IUnknow
     ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2ExecuteScriptCompletedHandler_Vtbl {
-    pub const fn new<
+    pub(crate) const fn new<
         Identity: ICoreWebView2ExecuteScriptCompletedHandler_Impl,
         const OFFSET: isize,
     >() -> Self {
@@ -3761,7 +3765,7 @@ impl ICoreWebView2ExecuteScriptCompletedHandler_Vtbl {
             Invoke: Invoke::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICoreWebView2ExecuteScriptCompletedHandler as windows_core::Interface>::IID
     }
 }
@@ -3792,8 +3796,10 @@ pub trait ICoreWebView2FocusChangedEventHandler_Impl: windows_core::IUnknownImpl
     ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2FocusChangedEventHandler_Vtbl {
-    pub const fn new<Identity: ICoreWebView2FocusChangedEventHandler_Impl, const OFFSET: isize>()
-    -> Self {
+    pub(crate) const fn new<
+        Identity: ICoreWebView2FocusChangedEventHandler_Impl,
+        const OFFSET: isize,
+    >() -> Self {
         unsafe extern "system" fn Invoke<
             Identity: ICoreWebView2FocusChangedEventHandler_Impl,
             const OFFSET: isize,
@@ -3817,7 +3823,7 @@ impl ICoreWebView2FocusChangedEventHandler_Vtbl {
             Invoke: Invoke::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICoreWebView2FocusChangedEventHandler as windows_core::Interface>::IID
     }
 }
@@ -3848,7 +3854,7 @@ pub trait ICoreWebView2GetCookiesCompletedHandler_Impl: windows_core::IUnknownIm
     ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2GetCookiesCompletedHandler_Vtbl {
-    pub const fn new<
+    pub(crate) const fn new<
         Identity: ICoreWebView2GetCookiesCompletedHandler_Impl,
         const OFFSET: isize,
     >() -> Self {
@@ -3875,7 +3881,7 @@ impl ICoreWebView2GetCookiesCompletedHandler_Vtbl {
             Invoke: Invoke::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICoreWebView2GetCookiesCompletedHandler as windows_core::Interface>::IID
     }
 }
@@ -4081,7 +4087,7 @@ pub trait ICoreWebView2MoveFocusRequestedEventHandler_Impl: windows_core::IUnkno
     ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2MoveFocusRequestedEventHandler_Vtbl {
-    pub const fn new<
+    pub(crate) const fn new<
         Identity: ICoreWebView2MoveFocusRequestedEventHandler_Impl,
         const OFFSET: isize,
     >() -> Self {
@@ -4108,7 +4114,7 @@ impl ICoreWebView2MoveFocusRequestedEventHandler_Vtbl {
             Invoke: Invoke::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICoreWebView2MoveFocusRequestedEventHandler as windows_core::Interface>::IID
     }
 }
@@ -4181,7 +4187,7 @@ pub trait ICoreWebView2NavigationCompletedEventHandler_Impl: windows_core::IUnkn
     ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2NavigationCompletedEventHandler_Vtbl {
-    pub const fn new<
+    pub(crate) const fn new<
         Identity: ICoreWebView2NavigationCompletedEventHandler_Impl,
         const OFFSET: isize,
     >() -> Self {
@@ -4208,7 +4214,7 @@ impl ICoreWebView2NavigationCompletedEventHandler_Vtbl {
             Invoke: Invoke::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICoreWebView2NavigationCompletedEventHandler as windows_core::Interface>::IID
     }
 }
@@ -4335,7 +4341,7 @@ pub trait ICoreWebView2NavigationStartingEventHandler_Impl: windows_core::IUnkno
     ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2NavigationStartingEventHandler_Vtbl {
-    pub const fn new<
+    pub(crate) const fn new<
         Identity: ICoreWebView2NavigationStartingEventHandler_Impl,
         const OFFSET: isize,
     >() -> Self {
@@ -4362,7 +4368,7 @@ impl ICoreWebView2NavigationStartingEventHandler_Vtbl {
             Invoke: Invoke::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICoreWebView2NavigationStartingEventHandler as windows_core::Interface>::IID
     }
 }
@@ -4493,7 +4499,7 @@ pub trait ICoreWebView2NewWindowRequestedEventHandler_Impl: windows_core::IUnkno
     ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2NewWindowRequestedEventHandler_Vtbl {
-    pub const fn new<
+    pub(crate) const fn new<
         Identity: ICoreWebView2NewWindowRequestedEventHandler_Impl,
         const OFFSET: isize,
     >() -> Self {
@@ -4520,7 +4526,7 @@ impl ICoreWebView2NewWindowRequestedEventHandler_Vtbl {
             Invoke: Invoke::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICoreWebView2NewWindowRequestedEventHandler as windows_core::Interface>::IID
     }
 }
@@ -4653,7 +4659,7 @@ pub trait ICoreWebView2PermissionRequestedEventHandler_Impl: windows_core::IUnkn
     ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2PermissionRequestedEventHandler_Vtbl {
-    pub const fn new<
+    pub(crate) const fn new<
         Identity: ICoreWebView2PermissionRequestedEventHandler_Impl,
         const OFFSET: isize,
     >() -> Self {
@@ -4680,7 +4686,7 @@ impl ICoreWebView2PermissionRequestedEventHandler_Vtbl {
             Invoke: Invoke::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICoreWebView2PermissionRequestedEventHandler as windows_core::Interface>::IID
     }
 }
@@ -4742,8 +4748,10 @@ pub trait ICoreWebView2ProcessFailedEventHandler_Impl: windows_core::IUnknownImp
     ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2ProcessFailedEventHandler_Vtbl {
-    pub const fn new<Identity: ICoreWebView2ProcessFailedEventHandler_Impl, const OFFSET: isize>()
-    -> Self {
+    pub(crate) const fn new<
+        Identity: ICoreWebView2ProcessFailedEventHandler_Impl,
+        const OFFSET: isize,
+    >() -> Self {
         unsafe extern "system" fn Invoke<
             Identity: ICoreWebView2ProcessFailedEventHandler_Impl,
             const OFFSET: isize,
@@ -4767,7 +4775,7 @@ impl ICoreWebView2ProcessFailedEventHandler_Vtbl {
             Invoke: Invoke::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICoreWebView2ProcessFailedEventHandler as windows_core::Interface>::IID
     }
 }
@@ -5629,8 +5637,10 @@ pub trait ICoreWebView2StateChangedEventHandler_Impl: windows_core::IUnknownImpl
     ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2StateChangedEventHandler_Vtbl {
-    pub const fn new<Identity: ICoreWebView2StateChangedEventHandler_Impl, const OFFSET: isize>()
-    -> Self {
+    pub(crate) const fn new<
+        Identity: ICoreWebView2StateChangedEventHandler_Impl,
+        const OFFSET: isize,
+    >() -> Self {
         unsafe extern "system" fn Invoke<
             Identity: ICoreWebView2StateChangedEventHandler_Impl,
             const OFFSET: isize,
@@ -5654,7 +5664,7 @@ impl ICoreWebView2StateChangedEventHandler_Vtbl {
             Invoke: Invoke::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICoreWebView2StateChangedEventHandler as windows_core::Interface>::IID
     }
 }
@@ -5744,7 +5754,7 @@ pub trait ICoreWebView2WebMessageReceivedEventHandler_Impl: windows_core::IUnkno
     ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2WebMessageReceivedEventHandler_Vtbl {
-    pub const fn new<
+    pub(crate) const fn new<
         Identity: ICoreWebView2WebMessageReceivedEventHandler_Impl,
         const OFFSET: isize,
     >() -> Self {
@@ -5771,7 +5781,7 @@ impl ICoreWebView2WebMessageReceivedEventHandler_Vtbl {
             Invoke: Invoke::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICoreWebView2WebMessageReceivedEventHandler as windows_core::Interface>::IID
     }
 }
@@ -5907,7 +5917,7 @@ pub trait ICoreWebView2WebResourceRequestedEventHandler_Impl: windows_core::IUnk
     ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2WebResourceRequestedEventHandler_Vtbl {
-    pub const fn new<
+    pub(crate) const fn new<
         Identity: ICoreWebView2WebResourceRequestedEventHandler_Impl,
         const OFFSET: isize,
     >() -> Self {
@@ -5934,7 +5944,7 @@ impl ICoreWebView2WebResourceRequestedEventHandler_Vtbl {
             Invoke: Invoke::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICoreWebView2WebResourceRequestedEventHandler as windows_core::Interface>::IID
     }
 }
@@ -5982,7 +5992,7 @@ pub trait ICoreWebView2WindowCloseRequestedEventHandler_Impl: windows_core::IUnk
     ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2WindowCloseRequestedEventHandler_Vtbl {
-    pub const fn new<
+    pub(crate) const fn new<
         Identity: ICoreWebView2WindowCloseRequestedEventHandler_Impl,
         const OFFSET: isize,
     >() -> Self {
@@ -6009,7 +6019,7 @@ impl ICoreWebView2WindowCloseRequestedEventHandler_Vtbl {
             Invoke: Invoke::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICoreWebView2WindowCloseRequestedEventHandler as windows_core::Interface>::IID
     }
 }

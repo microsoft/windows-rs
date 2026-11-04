@@ -14,17 +14,17 @@ impl Implements {
     }
 
     pub fn matches(&self, name: TypeName) -> bool {
-        self.0
-            .iter()
-            .any(|rule| match_type_name(rule, name.namespace(), name.name()))
+        self.matches_str(name.namespace(), name.name())
     }
 
     /// Like `matches`, but operating on plain string slices. Used during
     /// filter validation where interned `TypeName`s aren't available.
     pub fn matches_str(&self, namespace: &str, name: &str) -> bool {
-        self.0
-            .iter()
-            .any(|rule| match_type_name(rule, namespace, name))
+        self.is_empty()
+            || self
+                .0
+                .iter()
+                .any(|rule| match_type_name(rule, namespace, name))
     }
 }
 

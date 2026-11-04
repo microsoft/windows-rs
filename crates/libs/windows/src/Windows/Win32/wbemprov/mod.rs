@@ -62,7 +62,7 @@ impl IWbemDecoupledBasicEventProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWbemDecoupledBasicEventProvider as windows_core::Interface>::IID || iid == &<IWbemDecoupledRegistrar as windows_core::Interface>::IID
+        iid == &<IWbemDecoupledBasicEventProvider as windows_core::Interface>::IID || IWbemDecoupledRegistrar_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "wbemcli")]
@@ -408,7 +408,7 @@ impl IWbemEventSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWbemEventSink as windows_core::Interface>::IID || iid == &<super::IWbemObjectSink as windows_core::Interface>::IID
+        iid == &<IWbemEventSink as windows_core::Interface>::IID || super::IWbemObjectSink_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "wbemcli"))]

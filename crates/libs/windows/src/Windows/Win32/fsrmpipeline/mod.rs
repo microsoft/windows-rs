@@ -677,7 +677,7 @@ impl IFsrmClassificationManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsrmClassificationManager as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IFsrmClassificationManager as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -726,7 +726,7 @@ impl IFsrmClassificationManager2_Vtbl {
         Self { base__: IFsrmClassificationManager_Vtbl::new::<Identity, OFFSET>(), ClassifyFiles: ClassifyFiles::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsrmClassificationManager2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmClassificationManager as windows_core::Interface>::IID
+        iid == &<IFsrmClassificationManager2 as windows_core::Interface>::IID || IFsrmClassificationManager_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -878,7 +878,7 @@ impl IFsrmClassificationRule_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsrmClassificationRule as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<super::IFsrmObject as windows_core::Interface>::IID || iid == &<IFsrmRule as windows_core::Interface>::IID
+        iid == &<IFsrmClassificationRule as windows_core::Interface>::IID || IFsrmRule_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1046,7 +1046,7 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsrmClassifierModuleDefinition as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<super::IFsrmObject as windows_core::Interface>::IID || iid == &<IFsrmPipelineModuleDefinition as windows_core::Interface>::IID
+        iid == &<IFsrmClassifierModuleDefinition as windows_core::Interface>::IID || IFsrmPipelineModuleDefinition_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1193,7 +1193,7 @@ impl IFsrmClassifierModuleImplementation_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsrmClassifierModuleImplementation as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmPipelineModuleImplementation as windows_core::Interface>::IID
+        iid == &<IFsrmClassifierModuleImplementation as windows_core::Interface>::IID || IFsrmPipelineModuleImplementation_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1345,7 +1345,7 @@ impl IFsrmPipelineModuleConnector_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsrmPipelineModuleConnector as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IFsrmPipelineModuleConnector as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "fsrm", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1773,7 +1773,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsrmPipelineModuleDefinition as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<super::IFsrmObject as windows_core::Interface>::IID
+        iid == &<IFsrmPipelineModuleDefinition as windows_core::Interface>::IID || super::IFsrmObject_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1848,7 +1848,7 @@ impl IFsrmPipelineModuleImplementation_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), OnLoad: OnLoad::<Identity, OFFSET>, OnUnload: OnUnload::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsrmPipelineModuleImplementation as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IFsrmPipelineModuleImplementation as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "fsrm", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1984,7 +1984,7 @@ impl IFsrmProperty_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsrmProperty as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IFsrmProperty as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2540,7 +2540,7 @@ impl IFsrmPropertyBag_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsrmPropertyBag as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IFsrmPropertyBag as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2632,7 +2632,7 @@ impl IFsrmPropertyBag2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsrmPropertyBag2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmPropertyBag as windows_core::Interface>::IID
+        iid == &<IFsrmPropertyBag2 as windows_core::Interface>::IID || IFsrmPropertyBag_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2880,7 +2880,7 @@ impl IFsrmPropertyDefinition_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsrmPropertyDefinition as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<super::IFsrmObject as windows_core::Interface>::IID
+        iid == &<IFsrmPropertyDefinition as windows_core::Interface>::IID || super::IFsrmObject_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3024,7 +3024,7 @@ impl IFsrmPropertyDefinition2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsrmPropertyDefinition2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<super::IFsrmObject as windows_core::Interface>::IID || iid == &<IFsrmPropertyDefinition as windows_core::Interface>::IID
+        iid == &<IFsrmPropertyDefinition2 as windows_core::Interface>::IID || IFsrmPropertyDefinition_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3156,7 +3156,7 @@ impl IFsrmPropertyDefinitionValue_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsrmPropertyDefinitionValue as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IFsrmPropertyDefinitionValue as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3444,7 +3444,7 @@ impl IFsrmRule_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsrmRule as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<super::IFsrmObject as windows_core::Interface>::IID
+        iid == &<IFsrmRule as windows_core::Interface>::IID || super::IFsrmObject_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3612,7 +3612,7 @@ impl IFsrmStorageModuleDefinition_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsrmStorageModuleDefinition as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<super::IFsrmObject as windows_core::Interface>::IID || iid == &<IFsrmPipelineModuleDefinition as windows_core::Interface>::IID
+        iid == &<IFsrmStorageModuleDefinition as windows_core::Interface>::IID || IFsrmPipelineModuleDefinition_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3697,7 +3697,7 @@ impl IFsrmStorageModuleImplementation_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFsrmStorageModuleImplementation as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmPipelineModuleImplementation as windows_core::Interface>::IID
+        iid == &<IFsrmStorageModuleImplementation as windows_core::Interface>::IID || IFsrmPipelineModuleImplementation_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "fsrm", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]

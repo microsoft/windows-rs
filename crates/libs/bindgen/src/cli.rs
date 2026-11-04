@@ -25,7 +25,7 @@ use super::*;
 /// - `--sys`: Generates raw bindings that depend only on `windows-link`.
 /// - `--extern`: Uses extern declarations with `--sys`.
 /// - `--minimal`: Omits class wrappers, inherited forwarders, and handle wrappers.
-/// - `--implement`: Emits implementation traits for selected WinRT interfaces.
+/// - `--implement`: Emits implementation traits for selected native and WinRT interfaces.
 /// - `--compose`: Selects minimal-mode WinRT class composition targets.
 /// - `--dead-code`: Emits `pub(crate)` items for dead-code analysis.
 /// - `--etc`: Reads arguments from command files.

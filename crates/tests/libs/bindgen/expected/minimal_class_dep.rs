@@ -24,43 +24,6 @@ impl Factory {
         }
     }
 }
-impl windows_core::RuntimeName for Factory {
-    const NAME: &'static str = "Test.Factory";
-}
-pub trait Factory_Impl: windows_core::IUnknownImpl {
-    fn Create(&self) -> windows_core::Result<Widget>;
-}
-impl Factory_Vtbl {
-    pub const fn new<Identity: Factory_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Create<Identity: Factory_Impl, const OFFSET: isize>(
-            this: *mut core::ffi::c_void,
-            result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match Factory_Impl::Create(this) {
-                    Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        result__.write_bytes(0, 1);
-                        err.into()
-                    }
-                }
-            }
-        }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, Factory, OFFSET>(),
-            Create: Create::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<Factory as windows_core::Interface>::IID
-    }
-}
 #[repr(C)]
 pub struct Factory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

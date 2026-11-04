@@ -450,7 +450,7 @@ impl IFunctionInstance_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFunctionInstance as windows_core::Interface>::IID || iid == &<super::IServiceProvider as windows_core::Interface>::IID
+        iid == &<IFunctionInstance as windows_core::Interface>::IID || super::IServiceProvider_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "propsys", feature = "servprov", feature = "shared", feature = "winnt"))]

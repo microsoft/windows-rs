@@ -79,55 +79,6 @@ impl ISource {
         }
     }
 }
-impl windows_core::RuntimeName for ISource {
-    const NAME: &'static str = "Test.ISource";
-}
-pub trait ISource_Impl: windows_core::IUnknownImpl {
-    fn Changed(&self, handler: windows_core::Ref<Handler>) -> windows_core::Result<i64>;
-    fn RemoveChanged(&self, token: i64) -> windows_core::Result<()>;
-}
-impl ISource_Vtbl {
-    pub const fn new<Identity: ISource_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Changed<Identity: ISource_Impl, const OFFSET: isize>(
-            this: *mut core::ffi::c_void,
-            handler: *mut core::ffi::c_void,
-            result__: *mut i64,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISource_Impl::Changed(this, core::mem::transmute_copy(&handler)) {
-                    Ok(ok__) => {
-                        result__.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        result__.write_bytes(0, 1);
-                        err.into()
-                    }
-                }
-            }
-        }
-        unsafe extern "system" fn RemoveChanged<Identity: ISource_Impl, const OFFSET: isize>(
-            this: *mut core::ffi::c_void,
-            token: i64,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISource_Impl::RemoveChanged(this, token).into()
-            }
-        }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, ISource, OFFSET>(),
-            Changed: Changed::<Identity, OFFSET>,
-            RemoveChanged: RemoveChanged::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISource as windows_core::Interface>::IID
-    }
-}
 #[repr(C)]
 pub struct ISource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

@@ -286,7 +286,7 @@ impl AsyncIAdviseSink2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<AsyncIAdviseSink2 as windows_core::Interface>::IID || iid == &<AsyncIAdviseSink as windows_core::Interface>::IID
+        iid == &<AsyncIAdviseSink2 as windows_core::Interface>::IID || AsyncIAdviseSink_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "shared", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
@@ -549,7 +549,7 @@ impl IAdviseSink2_Vtbl {
         Self { base__: IAdviseSink_Vtbl::new::<Identity, OFFSET>(), OnLinkSrcChange: OnLinkSrcChange::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAdviseSink2 as windows_core::Interface>::IID || iid == &<IAdviseSink as windows_core::Interface>::IID
+        iid == &<IAdviseSink2 as windows_core::Interface>::IID || IAdviseSink_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "shared", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
@@ -2730,7 +2730,7 @@ impl IMoniker_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMoniker as windows_core::Interface>::IID || iid == &<IPersist as windows_core::Interface>::IID || iid == &<IPersistStream as windows_core::Interface>::IID
+        iid == &<IMoniker as windows_core::Interface>::IID || IPersistStream_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
@@ -2950,7 +2950,7 @@ impl IPersistFile_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPersistFile as windows_core::Interface>::IID || iid == &<IPersist as windows_core::Interface>::IID
+        iid == &<IPersistFile as windows_core::Interface>::IID || IPersist_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "wtypesbase"))]
@@ -3065,7 +3065,7 @@ impl IPersistStorage_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPersistStorage as windows_core::Interface>::IID || iid == &<IPersist as windows_core::Interface>::IID
+        iid == &<IPersistStorage as windows_core::Interface>::IID || IPersist_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "guiddef")]
@@ -3162,7 +3162,7 @@ impl IPersistStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPersistStream as windows_core::Interface>::IID || iid == &<IPersist as windows_core::Interface>::IID
+        iid == &<IPersistStream as windows_core::Interface>::IID || IPersist_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "objidlbase", feature = "shared", feature = "winnt"))]

@@ -135,6 +135,7 @@ impl CppInterface {
 
     pub fn write(&self, config: &Config) -> TokenStream {
         let methods = self.get_methods(config);
+        let vis = config.item_vis();
 
         let base_interfaces = self.base_interfaces(config.reader);
         let has_unknown_base = matches!(base_interfaces.first(), Some(Type::IUnknown));
@@ -234,9 +235,10 @@ impl CppInterface {
                 });
             }
 
-            // Minimal implemented interfaces are exposed through `_Impl`, not caller wrappers.
+            // Implementation-only interfaces need ABI slots and `_Impl`, not caller wrappers.
             let suppress_methods = config.bindgen.style.is_minimal()
-                && config.should_implement(self.def.type_name(), false);
+                && config.should_implement(self.def.type_name(), false)
+                && matches!(config.filter.type_role(self.type_name()), TypeRole::Shell);
 
             let mut methods_tokens = quote! {};
 
@@ -394,11 +396,11 @@ impl CppInterface {
                     }
                 } else {
                     result.combine( if has_unknown_base {
-                let matches = base_interfaces.iter().filter_map(|ty|{
+                let matches = base_interfaces.last().and_then(|ty|{
                     match ty {
                         Type::CppInterface(ty) => {
-                            let name = ty.write_name(config);
-                            Some(quote! { || iid == &<#name as windows_core::Interface>::IID })
+                            let name = ty.write_vtbl_name(config);
+                            Some(quote! { || #name::matches(iid) })
                         }
                         _ => None,
                     }
@@ -411,15 +413,15 @@ impl CppInterface {
                     }
                     #cfg
                     impl #vtbl_name {
-                        pub const fn new<Identity: #impl_name, const OFFSET: isize>() -> Self {
+                        #vis const fn new<Identity: #impl_name, const OFFSET: isize>() -> Self {
                             #(#impl_methods)*
                             Self {
                                 #field_base
                                 #(#field_methods)*
                             }
                         }
-                        pub fn matches(iid: &windows_core::GUID) -> bool {
-                            iid == &<#name as windows_core::Interface>::IID #(#matches)*
+                        #vis fn matches(iid: &windows_core::GUID) -> bool {
+                            iid == &<#name as windows_core::Interface>::IID #matches
                         }
                     }
                     #cfg
@@ -435,7 +437,7 @@ impl CppInterface {
                     }
                     #cfg
                     impl #vtbl_name {
-                        pub const fn new<Identity: #impl_name>() -> Self {
+                        #vis const fn new<Identity: #impl_name>() -> Self {
                             #(#impl_methods)*
                             Self{
                                 #field_base
@@ -451,7 +453,7 @@ impl CppInterface {
                     }
                     #cfg
                     impl #name {
-                        pub fn new<'a, T: #impl_name>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
+                        #vis fn new<'a, T: #impl_name>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
                             let this = windows_core::ScopedHeap { vtable: &#implvtbl_ident::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
                             let this = windows_core::imp::box_into_raw(windows_core::imp::box_new(this));
                             unsafe { windows_core::ScopedInterface::new(core::mem::transmute(this)) }

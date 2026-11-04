@@ -5004,7 +5004,7 @@ impl ID3D11Asynchronous_Vtbl {
         Self { base__: ID3D11DeviceChild_Vtbl::new::<Identity, OFFSET>(), GetDataSize: GetDataSize::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11Asynchronous as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D11Asynchronous as windows_core::Interface>::IID || ID3D11DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -5085,7 +5085,7 @@ impl ID3D11AuthenticatedChannel_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11AuthenticatedChannel as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D11AuthenticatedChannel as windows_core::Interface>::IID || ID3D11DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -5131,7 +5131,7 @@ impl ID3D11BlendState_Vtbl {
         Self { base__: ID3D11DeviceChild_Vtbl::new::<Identity, OFFSET>(), GetDesc: GetDesc::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11BlendState as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D11BlendState as windows_core::Interface>::IID || ID3D11DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -5177,7 +5177,7 @@ impl ID3D11BlendState1_Vtbl {
         Self { base__: ID3D11BlendState_Vtbl::new::<Identity, OFFSET>(), GetDesc1: GetDesc1::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11BlendState1 as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11BlendState as windows_core::Interface>::IID
+        iid == &<ID3D11BlendState1 as windows_core::Interface>::IID || ID3D11BlendState_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -5223,7 +5223,7 @@ impl ID3D11Buffer_Vtbl {
         Self { base__: ID3D11Resource_Vtbl::new::<Identity, OFFSET>(), GetDesc: GetDesc::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11Buffer as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11Resource as windows_core::Interface>::IID
+        iid == &<ID3D11Buffer as windows_core::Interface>::IID || ID3D11Resource_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -5322,7 +5322,7 @@ impl ID3D11ClassInstance_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11ClassInstance as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D11ClassInstance as windows_core::Interface>::IID || ID3D11DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -5415,7 +5415,7 @@ impl ID3D11ClassLinkage_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11ClassLinkage as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D11ClassLinkage as windows_core::Interface>::IID || ID3D11DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -5459,7 +5459,7 @@ impl ID3D11CommandList_Vtbl {
         Self { base__: ID3D11DeviceChild_Vtbl::new::<Identity, OFFSET>(), GetContextFlags: GetContextFlags::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11CommandList as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D11CommandList as windows_core::Interface>::IID || ID3D11DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -5485,7 +5485,7 @@ impl ID3D11ComputeShader_Vtbl {
         Self { base__: ID3D11DeviceChild_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11ComputeShader as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D11ComputeShader as windows_core::Interface>::IID || ID3D11DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -5531,7 +5531,7 @@ impl ID3D11Counter_Vtbl {
         Self { base__: ID3D11Asynchronous_Vtbl::new::<Identity, OFFSET>(), GetDesc: GetDesc::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11Counter as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11Asynchronous as windows_core::Interface>::IID
+        iid == &<ID3D11Counter as windows_core::Interface>::IID || ID3D11Asynchronous_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -5640,7 +5640,7 @@ impl ID3D11CryptoSession_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11CryptoSession as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D11CryptoSession as windows_core::Interface>::IID || ID3D11DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -5852,7 +5852,7 @@ impl ID3D11DepthStencilState_Vtbl {
         Self { base__: ID3D11DeviceChild_Vtbl::new::<Identity, OFFSET>(), GetDesc: GetDesc::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11DepthStencilState as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D11DepthStencilState as windows_core::Interface>::IID || ID3D11DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -5898,7 +5898,7 @@ impl ID3D11DepthStencilView_Vtbl {
         Self { base__: ID3D11View_Vtbl::new::<Identity, OFFSET>(), GetDesc: GetDesc::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11DepthStencilView as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11View as windows_core::Interface>::IID
+        iid == &<ID3D11DepthStencilView as windows_core::Interface>::IID || ID3D11View_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "dxgi", feature = "shared"))]
@@ -6752,7 +6752,7 @@ impl ID3D11Device1_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11Device1 as windows_core::Interface>::IID || iid == &<ID3D11Device as windows_core::Interface>::IID
+        iid == &<ID3D11Device1 as windows_core::Interface>::IID || ID3D11Device_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt"))]
@@ -6850,7 +6850,7 @@ impl ID3D11Device2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11Device2 as windows_core::Interface>::IID || iid == &<ID3D11Device as windows_core::Interface>::IID || iid == &<ID3D11Device1 as windows_core::Interface>::IID
+        iid == &<ID3D11Device2 as windows_core::Interface>::IID || ID3D11Device1_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt"))]
@@ -7074,7 +7074,7 @@ impl ID3D11Device3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11Device3 as windows_core::Interface>::IID || iid == &<ID3D11Device as windows_core::Interface>::IID || iid == &<ID3D11Device1 as windows_core::Interface>::IID || iid == &<ID3D11Device2 as windows_core::Interface>::IID
+        iid == &<ID3D11Device3 as windows_core::Interface>::IID || ID3D11Device2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt"))]
@@ -7139,7 +7139,7 @@ impl ID3D11Device4_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11Device4 as windows_core::Interface>::IID || iid == &<ID3D11Device as windows_core::Interface>::IID || iid == &<ID3D11Device1 as windows_core::Interface>::IID || iid == &<ID3D11Device2 as windows_core::Interface>::IID || iid == &<ID3D11Device3 as windows_core::Interface>::IID
+        iid == &<ID3D11Device4 as windows_core::Interface>::IID || ID3D11Device3_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt"))]
@@ -7208,7 +7208,7 @@ impl ID3D11Device5_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11Device5 as windows_core::Interface>::IID || iid == &<ID3D11Device as windows_core::Interface>::IID || iid == &<ID3D11Device1 as windows_core::Interface>::IID || iid == &<ID3D11Device2 as windows_core::Interface>::IID || iid == &<ID3D11Device3 as windows_core::Interface>::IID || iid == &<ID3D11Device4 as windows_core::Interface>::IID
+        iid == &<ID3D11Device5 as windows_core::Interface>::IID || ID3D11Device4_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt"))]
@@ -9302,7 +9302,7 @@ impl ID3D11DeviceContext_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11DeviceContext as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D11DeviceContext as windows_core::Interface>::IID || ID3D11DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "minwindef", feature = "shared", feature = "windef"))]
@@ -9685,7 +9685,7 @@ impl ID3D11DeviceContext1_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11DeviceContext1 as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11DeviceContext as windows_core::Interface>::IID
+        iid == &<ID3D11DeviceContext1 as windows_core::Interface>::IID || ID3D11DeviceContext_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "minwindef", feature = "shared", feature = "windef"))]
@@ -9904,7 +9904,7 @@ impl ID3D11DeviceContext2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11DeviceContext2 as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11DeviceContext as windows_core::Interface>::IID || iid == &<ID3D11DeviceContext1 as windows_core::Interface>::IID
+        iid == &<ID3D11DeviceContext2 as windows_core::Interface>::IID || ID3D11DeviceContext1_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "minwindef", feature = "shared", feature = "windef"))]
@@ -9981,7 +9981,7 @@ impl ID3D11DeviceContext3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11DeviceContext3 as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11DeviceContext as windows_core::Interface>::IID || iid == &<ID3D11DeviceContext1 as windows_core::Interface>::IID || iid == &<ID3D11DeviceContext2 as windows_core::Interface>::IID
+        iid == &<ID3D11DeviceContext3 as windows_core::Interface>::IID || ID3D11DeviceContext2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
@@ -10046,7 +10046,7 @@ impl ID3D11DeviceContext4_Vtbl {
         Self { base__: ID3D11DeviceContext3_Vtbl::new::<Identity, OFFSET>(), Signal: Signal::<Identity, OFFSET>, Wait: Wait::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11DeviceContext4 as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11DeviceContext as windows_core::Interface>::IID || iid == &<ID3D11DeviceContext1 as windows_core::Interface>::IID || iid == &<ID3D11DeviceContext2 as windows_core::Interface>::IID || iid == &<ID3D11DeviceContext3 as windows_core::Interface>::IID
+        iid == &<ID3D11DeviceContext4 as windows_core::Interface>::IID || ID3D11DeviceContext3_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
@@ -10072,7 +10072,7 @@ impl ID3D11DomainShader_Vtbl {
         Self { base__: ID3D11DeviceChild_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11DomainShader as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D11DomainShader as windows_core::Interface>::IID || ID3D11DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -10154,7 +10154,7 @@ impl ID3D11Fence_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11Fence as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D11Fence as windows_core::Interface>::IID || ID3D11DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
@@ -10589,7 +10589,7 @@ impl ID3D11GeometryShader_Vtbl {
         Self { base__: ID3D11DeviceChild_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11GeometryShader as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D11GeometryShader as windows_core::Interface>::IID || ID3D11DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -10615,7 +10615,7 @@ impl ID3D11HullShader_Vtbl {
         Self { base__: ID3D11DeviceChild_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11HullShader as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D11HullShader as windows_core::Interface>::IID || ID3D11DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -11168,7 +11168,7 @@ impl ID3D11InputLayout_Vtbl {
         Self { base__: ID3D11DeviceChild_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11InputLayout as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D11InputLayout as windows_core::Interface>::IID || ID3D11DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -11768,7 +11768,7 @@ impl ID3D11On12Device1_Vtbl {
         Self { base__: ID3D11On12Device_Vtbl::new::<Identity, OFFSET>(), GetD3D12Device: GetD3D12Device::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11On12Device1 as windows_core::Interface>::IID || iid == &<ID3D11On12Device as windows_core::Interface>::IID
+        iid == &<ID3D11On12Device1 as windows_core::Interface>::IID || ID3D11On12Device_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "d3d12", feature = "guiddef", feature = "shared"))]
@@ -11840,7 +11840,7 @@ impl ID3D11On12Device2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11On12Device2 as windows_core::Interface>::IID || iid == &<ID3D11On12Device as windows_core::Interface>::IID || iid == &<ID3D11On12Device1 as windows_core::Interface>::IID
+        iid == &<ID3D11On12Device2 as windows_core::Interface>::IID || ID3D11On12Device1_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "d3d12", feature = "guiddef", feature = "shared"))]
@@ -11866,7 +11866,7 @@ impl ID3D11PixelShader_Vtbl {
         Self { base__: ID3D11DeviceChild_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11PixelShader as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D11PixelShader as windows_core::Interface>::IID || ID3D11DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -11892,7 +11892,7 @@ impl ID3D11Predicate_Vtbl {
         Self { base__: ID3D11Query_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11Predicate as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11Asynchronous as windows_core::Interface>::IID || iid == &<ID3D11Query as windows_core::Interface>::IID
+        iid == &<ID3D11Predicate as windows_core::Interface>::IID || ID3D11Query_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -11938,7 +11938,7 @@ impl ID3D11Query_Vtbl {
         Self { base__: ID3D11Asynchronous_Vtbl::new::<Identity, OFFSET>(), GetDesc: GetDesc::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11Query as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11Asynchronous as windows_core::Interface>::IID
+        iid == &<ID3D11Query as windows_core::Interface>::IID || ID3D11Asynchronous_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -11984,7 +11984,7 @@ impl ID3D11Query1_Vtbl {
         Self { base__: ID3D11Query_Vtbl::new::<Identity, OFFSET>(), GetDesc1: GetDesc1::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11Query1 as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11Asynchronous as windows_core::Interface>::IID || iid == &<ID3D11Query as windows_core::Interface>::IID
+        iid == &<ID3D11Query1 as windows_core::Interface>::IID || ID3D11Query_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -12030,7 +12030,7 @@ impl ID3D11RasterizerState_Vtbl {
         Self { base__: ID3D11DeviceChild_Vtbl::new::<Identity, OFFSET>(), GetDesc: GetDesc::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11RasterizerState as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D11RasterizerState as windows_core::Interface>::IID || ID3D11DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
@@ -12076,7 +12076,7 @@ impl ID3D11RasterizerState1_Vtbl {
         Self { base__: ID3D11RasterizerState_Vtbl::new::<Identity, OFFSET>(), GetDesc1: GetDesc1::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11RasterizerState1 as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11RasterizerState as windows_core::Interface>::IID
+        iid == &<ID3D11RasterizerState1 as windows_core::Interface>::IID || ID3D11RasterizerState_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
@@ -12122,7 +12122,7 @@ impl ID3D11RasterizerState2_Vtbl {
         Self { base__: ID3D11RasterizerState1_Vtbl::new::<Identity, OFFSET>(), GetDesc2: GetDesc2::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11RasterizerState2 as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11RasterizerState as windows_core::Interface>::IID || iid == &<ID3D11RasterizerState1 as windows_core::Interface>::IID
+        iid == &<ID3D11RasterizerState2 as windows_core::Interface>::IID || ID3D11RasterizerState1_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
@@ -12244,7 +12244,7 @@ impl ID3D11RenderTargetView_Vtbl {
         Self { base__: ID3D11View_Vtbl::new::<Identity, OFFSET>(), GetDesc: GetDesc::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11RenderTargetView as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11View as windows_core::Interface>::IID
+        iid == &<ID3D11RenderTargetView as windows_core::Interface>::IID || ID3D11View_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "dxgi", feature = "shared"))]
@@ -12290,7 +12290,7 @@ impl ID3D11RenderTargetView1_Vtbl {
         Self { base__: ID3D11RenderTargetView_Vtbl::new::<Identity, OFFSET>(), GetDesc1: GetDesc1::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11RenderTargetView1 as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11View as windows_core::Interface>::IID || iid == &<ID3D11RenderTargetView as windows_core::Interface>::IID
+        iid == &<ID3D11RenderTargetView1 as windows_core::Interface>::IID || ID3D11RenderTargetView_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "dxgi", feature = "shared"))]
@@ -12369,7 +12369,7 @@ impl ID3D11Resource_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11Resource as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D11Resource as windows_core::Interface>::IID || ID3D11DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -12415,7 +12415,7 @@ impl ID3D11SamplerState_Vtbl {
         Self { base__: ID3D11DeviceChild_Vtbl::new::<Identity, OFFSET>(), GetDesc: GetDesc::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11SamplerState as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D11SamplerState as windows_core::Interface>::IID || ID3D11DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
@@ -13156,7 +13156,7 @@ impl ID3D11ShaderResourceView_Vtbl {
         Self { base__: ID3D11View_Vtbl::new::<Identity, OFFSET>(), GetDesc: GetDesc::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11ShaderResourceView as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11View as windows_core::Interface>::IID
+        iid == &<ID3D11ShaderResourceView as windows_core::Interface>::IID || ID3D11View_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "shared"))]
@@ -13202,7 +13202,7 @@ impl ID3D11ShaderResourceView1_Vtbl {
         Self { base__: ID3D11ShaderResourceView_Vtbl::new::<Identity, OFFSET>(), GetDesc1: GetDesc1::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11ShaderResourceView1 as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11View as windows_core::Interface>::IID || iid == &<ID3D11ShaderResourceView as windows_core::Interface>::IID
+        iid == &<ID3D11ShaderResourceView1 as windows_core::Interface>::IID || ID3D11ShaderResourceView_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "shared"))]
@@ -13498,7 +13498,7 @@ impl ID3D11Texture1D_Vtbl {
         Self { base__: ID3D11Resource_Vtbl::new::<Identity, OFFSET>(), GetDesc: GetDesc::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11Texture1D as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11Resource as windows_core::Interface>::IID
+        iid == &<ID3D11Texture1D as windows_core::Interface>::IID || ID3D11Resource_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "dxgi", feature = "shared"))]
@@ -13544,7 +13544,7 @@ impl ID3D11Texture2D_Vtbl {
         Self { base__: ID3D11Resource_Vtbl::new::<Identity, OFFSET>(), GetDesc: GetDesc::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11Texture2D as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11Resource as windows_core::Interface>::IID
+        iid == &<ID3D11Texture2D as windows_core::Interface>::IID || ID3D11Resource_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "dxgi", feature = "shared"))]
@@ -13590,7 +13590,7 @@ impl ID3D11Texture2D1_Vtbl {
         Self { base__: ID3D11Texture2D_Vtbl::new::<Identity, OFFSET>(), GetDesc1: GetDesc1::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11Texture2D1 as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11Resource as windows_core::Interface>::IID || iid == &<ID3D11Texture2D as windows_core::Interface>::IID
+        iid == &<ID3D11Texture2D1 as windows_core::Interface>::IID || ID3D11Texture2D_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "dxgi", feature = "shared"))]
@@ -13636,7 +13636,7 @@ impl ID3D11Texture3D_Vtbl {
         Self { base__: ID3D11Resource_Vtbl::new::<Identity, OFFSET>(), GetDesc: GetDesc::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11Texture3D as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11Resource as windows_core::Interface>::IID
+        iid == &<ID3D11Texture3D as windows_core::Interface>::IID || ID3D11Resource_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "dxgi", feature = "shared"))]
@@ -13682,7 +13682,7 @@ impl ID3D11Texture3D1_Vtbl {
         Self { base__: ID3D11Texture3D_Vtbl::new::<Identity, OFFSET>(), GetDesc1: GetDesc1::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11Texture3D1 as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11Resource as windows_core::Interface>::IID || iid == &<ID3D11Texture3D as windows_core::Interface>::IID
+        iid == &<ID3D11Texture3D1 as windows_core::Interface>::IID || ID3D11Texture3D_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "dxgi", feature = "shared"))]
@@ -13788,7 +13788,7 @@ impl ID3D11UnorderedAccessView_Vtbl {
         Self { base__: ID3D11View_Vtbl::new::<Identity, OFFSET>(), GetDesc: GetDesc::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11UnorderedAccessView as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11View as windows_core::Interface>::IID
+        iid == &<ID3D11UnorderedAccessView as windows_core::Interface>::IID || ID3D11View_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "dxgi", feature = "shared"))]
@@ -13834,7 +13834,7 @@ impl ID3D11UnorderedAccessView1_Vtbl {
         Self { base__: ID3D11UnorderedAccessView_Vtbl::new::<Identity, OFFSET>(), GetDesc1: GetDesc1::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11UnorderedAccessView1 as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11View as windows_core::Interface>::IID || iid == &<ID3D11UnorderedAccessView as windows_core::Interface>::IID
+        iid == &<ID3D11UnorderedAccessView1 as windows_core::Interface>::IID || ID3D11UnorderedAccessView_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "dxgi", feature = "shared"))]
@@ -13860,7 +13860,7 @@ impl ID3D11VertexShader_Vtbl {
         Self { base__: ID3D11DeviceChild_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11VertexShader as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D11VertexShader as windows_core::Interface>::IID || ID3D11DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -15055,7 +15055,7 @@ impl ID3D11VideoContext_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11VideoContext as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D11VideoContext as windows_core::Interface>::IID || ID3D11DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "dxgi", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
@@ -15356,7 +15356,7 @@ impl ID3D11VideoContext1_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11VideoContext1 as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11VideoContext as windows_core::Interface>::IID
+        iid == &<ID3D11VideoContext1 as windows_core::Interface>::IID || ID3D11VideoContext_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "dxgi", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
@@ -15471,7 +15471,7 @@ impl ID3D11VideoContext2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11VideoContext2 as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11VideoContext as windows_core::Interface>::IID || iid == &<ID3D11VideoContext1 as windows_core::Interface>::IID
+        iid == &<ID3D11VideoContext2 as windows_core::Interface>::IID || ID3D11VideoContext1_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "dxgi", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
@@ -15541,7 +15541,7 @@ impl ID3D11VideoContext3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11VideoContext3 as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11VideoContext as windows_core::Interface>::IID || iid == &<ID3D11VideoContext1 as windows_core::Interface>::IID || iid == &<ID3D11VideoContext2 as windows_core::Interface>::IID
+        iid == &<ID3D11VideoContext3 as windows_core::Interface>::IID || ID3D11VideoContext2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "dxgi", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
@@ -15604,7 +15604,7 @@ impl ID3D11VideoDecoder_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11VideoDecoder as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D11VideoDecoder as windows_core::Interface>::IID || ID3D11DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "dxgi", feature = "shared", feature = "winnt"))]
@@ -15650,7 +15650,7 @@ impl ID3D11VideoDecoderOutputView_Vtbl {
         Self { base__: ID3D11View_Vtbl::new::<Identity, OFFSET>(), GetDesc: GetDesc::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11VideoDecoderOutputView as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11View as windows_core::Interface>::IID
+        iid == &<ID3D11VideoDecoderOutputView as windows_core::Interface>::IID || ID3D11View_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -16107,7 +16107,7 @@ impl ID3D11VideoDevice1_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11VideoDevice1 as windows_core::Interface>::IID || iid == &<ID3D11VideoDevice as windows_core::Interface>::IID
+        iid == &<ID3D11VideoDevice1 as windows_core::Interface>::IID || ID3D11VideoDevice_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "dxgi", feature = "shared"))]
@@ -16173,7 +16173,7 @@ impl ID3D11VideoDevice2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11VideoDevice2 as windows_core::Interface>::IID || iid == &<ID3D11VideoDevice as windows_core::Interface>::IID || iid == &<ID3D11VideoDevice1 as windows_core::Interface>::IID
+        iid == &<ID3D11VideoDevice2 as windows_core::Interface>::IID || ID3D11VideoDevice1_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "dxgi", feature = "shared"))]
@@ -16240,7 +16240,7 @@ impl ID3D11VideoProcessor_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11VideoProcessor as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D11VideoProcessor as windows_core::Interface>::IID || ID3D11DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "dxgi", feature = "shared"))]
@@ -16363,7 +16363,7 @@ impl ID3D11VideoProcessorEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11VideoProcessorEnumerator as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D11VideoProcessorEnumerator as windows_core::Interface>::IID || ID3D11DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "dxgi", feature = "shared"))]
@@ -16410,7 +16410,7 @@ impl ID3D11VideoProcessorEnumerator1_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11VideoProcessorEnumerator1 as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11VideoProcessorEnumerator as windows_core::Interface>::IID
+        iid == &<ID3D11VideoProcessorEnumerator1 as windows_core::Interface>::IID || ID3D11VideoProcessorEnumerator_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "dxgi", feature = "shared"))]
@@ -16456,7 +16456,7 @@ impl ID3D11VideoProcessorInputView_Vtbl {
         Self { base__: ID3D11View_Vtbl::new::<Identity, OFFSET>(), GetDesc: GetDesc::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11VideoProcessorInputView as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11View as windows_core::Interface>::IID
+        iid == &<ID3D11VideoProcessorInputView as windows_core::Interface>::IID || ID3D11View_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -16502,7 +16502,7 @@ impl ID3D11VideoProcessorOutputView_Vtbl {
         Self { base__: ID3D11View_Vtbl::new::<Identity, OFFSET>(), GetDesc: GetDesc::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11VideoProcessorOutputView as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID || iid == &<ID3D11View as windows_core::Interface>::IID
+        iid == &<ID3D11VideoProcessorOutputView as windows_core::Interface>::IID || ID3D11View_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -16544,7 +16544,7 @@ impl ID3D11View_Vtbl {
         Self { base__: ID3D11DeviceChild_Vtbl::new::<Identity, OFFSET>(), GetResource: GetResource::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11View as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D11View as windows_core::Interface>::IID || ID3D11DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]
@@ -16570,7 +16570,7 @@ impl ID3DDeviceContextState_Vtbl {
         Self { base__: ID3D11DeviceChild_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3DDeviceContextState as windows_core::Interface>::IID || iid == &<ID3D11DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3DDeviceContextState as windows_core::Interface>::IID || ID3D11DeviceChild_Vtbl::matches(iid)
     }
 }
 #[cfg(feature = "shared")]

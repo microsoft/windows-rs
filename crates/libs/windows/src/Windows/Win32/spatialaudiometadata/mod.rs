@@ -596,7 +596,7 @@ impl ISpatialAudioObjectForMetadataCommands_Vtbl {
         Self { base__: super::ISpatialAudioObjectBase_Vtbl::new::<Identity, OFFSET>(), WriteNextMetadataCommand: WriteNextMetadataCommand::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpatialAudioObjectForMetadataCommands as windows_core::Interface>::IID || iid == &<super::ISpatialAudioObjectBase as windows_core::Interface>::IID
+        iid == &<ISpatialAudioObjectForMetadataCommands as windows_core::Interface>::IID || super::ISpatialAudioObjectBase_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "spatialaudioclient"))]
@@ -656,7 +656,7 @@ impl ISpatialAudioObjectForMetadataItems_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpatialAudioObjectForMetadataItems as windows_core::Interface>::IID || iid == &<super::ISpatialAudioObjectBase as windows_core::Interface>::IID
+        iid == &<ISpatialAudioObjectForMetadataItems as windows_core::Interface>::IID || super::ISpatialAudioObjectBase_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "shared", feature = "spatialaudioclient"))]
@@ -740,7 +740,7 @@ impl ISpatialAudioObjectRenderStreamForMetadata_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpatialAudioObjectRenderStreamForMetadata as windows_core::Interface>::IID || iid == &<super::ISpatialAudioObjectRenderStreamBase as windows_core::Interface>::IID
+        iid == &<ISpatialAudioObjectRenderStreamForMetadata as windows_core::Interface>::IID || super::ISpatialAudioObjectRenderStreamBase_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "spatialaudioclient"))]

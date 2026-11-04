@@ -197,7 +197,7 @@ impl IAdviseSinkEx_Vtbl {
         Self { base__: super::IAdviseSink_Vtbl::new::<Identity, OFFSET>(), OnViewStatusChange: OnViewStatusChange::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAdviseSinkEx as windows_core::Interface>::IID || iid == &<super::IAdviseSink as windows_core::Interface>::IID
+        iid == &<IAdviseSinkEx as windows_core::Interface>::IID || super::IAdviseSink_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
@@ -287,7 +287,7 @@ impl IClassFactory2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IClassFactory2 as windows_core::Interface>::IID || iid == &<super::IClassFactory as windows_core::Interface>::IID
+        iid == &<IClassFactory2 as windows_core::Interface>::IID || super::IClassFactory_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "unknwnbase", feature = "winnt"))]
@@ -1173,7 +1173,7 @@ impl IFontDisp_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFontDisp as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IFontDisp as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1203,7 +1203,7 @@ impl IFontEventsDisp_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFontEventsDisp as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IFontEventsDisp as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1553,7 +1553,7 @@ impl IOleInPlaceObjectWindowless_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOleInPlaceObjectWindowless as windows_core::Interface>::IID || iid == &<super::IOleWindow as windows_core::Interface>::IID || iid == &<super::IOleInPlaceObject as windows_core::Interface>::IID
+        iid == &<IOleInPlaceObjectWindowless as windows_core::Interface>::IID || super::IOleInPlaceObject_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shared", feature = "windef"))]
@@ -1629,7 +1629,7 @@ impl IOleInPlaceSiteEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOleInPlaceSiteEx as windows_core::Interface>::IID || iid == &<super::IOleWindow as windows_core::Interface>::IID || iid == &<super::IOleInPlaceSite as windows_core::Interface>::IID
+        iid == &<IOleInPlaceSiteEx as windows_core::Interface>::IID || super::IOleInPlaceSite_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "oleidl", feature = "shared", feature = "windef"))]
@@ -1837,7 +1837,7 @@ impl IOleInPlaceSiteWindowless_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOleInPlaceSiteWindowless as windows_core::Interface>::IID || iid == &<super::IOleWindow as windows_core::Interface>::IID || iid == &<super::IOleInPlaceSite as windows_core::Interface>::IID || iid == &<IOleInPlaceSiteEx as windows_core::Interface>::IID
+        iid == &<IOleInPlaceSiteWindowless as windows_core::Interface>::IID || IOleInPlaceSiteEx_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shared", feature = "windef"))]
@@ -1944,7 +1944,7 @@ impl IOleParentUndoUnit_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOleParentUndoUnit as windows_core::Interface>::IID || iid == &<IOleUndoUnit as windows_core::Interface>::IID
+        iid == &<IOleParentUndoUnit as windows_core::Interface>::IID || IOleUndoUnit_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
@@ -2436,7 +2436,7 @@ impl IPersistMemory_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPersistMemory as windows_core::Interface>::IID || iid == &<super::IPersist as windows_core::Interface>::IID
+        iid == &<IPersistMemory as windows_core::Interface>::IID || super::IPersist_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "objidl", feature = "shared"))]
@@ -2523,7 +2523,7 @@ impl IPersistPropertyBag_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPersistPropertyBag as windows_core::Interface>::IID || iid == &<super::IPersist as windows_core::Interface>::IID
+        iid == &<IPersistPropertyBag as windows_core::Interface>::IID || super::IPersist_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "oaidl", feature = "objidl"))]
@@ -2618,7 +2618,7 @@ impl IPersistPropertyBag2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPersistPropertyBag2 as windows_core::Interface>::IID || iid == &<super::IPersist as windows_core::Interface>::IID
+        iid == &<IPersistPropertyBag2 as windows_core::Interface>::IID || super::IPersist_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "oaidl", feature = "objidl"))]
@@ -2732,7 +2732,7 @@ impl IPersistStreamInit_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPersistStreamInit as windows_core::Interface>::IID || iid == &<super::IPersist as windows_core::Interface>::IID
+        iid == &<IPersistStreamInit as windows_core::Interface>::IID || super::IPersist_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "winnt"))]
@@ -3202,7 +3202,7 @@ impl IPictureDisp_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPictureDisp as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
+        iid == &<IPictureDisp as windows_core::Interface>::IID || super::IDispatch_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3676,7 +3676,7 @@ impl IPropertyPage2_Vtbl {
         Self { base__: IPropertyPage_Vtbl::new::<Identity, OFFSET>(), EditProperty: EditProperty::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPropertyPage2 as windows_core::Interface>::IID || iid == &<IPropertyPage as windows_core::Interface>::IID
+        iid == &<IPropertyPage2 as windows_core::Interface>::IID || IPropertyPage_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser", feature = "wtypesbase"))]
@@ -3867,7 +3867,7 @@ impl IProvideClassInfo2_Vtbl {
         Self { base__: IProvideClassInfo_Vtbl::new::<Identity, OFFSET>(), GetGUID: GetGUID::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IProvideClassInfo2 as windows_core::Interface>::IID || iid == &<IProvideClassInfo as windows_core::Interface>::IID
+        iid == &<IProvideClassInfo2 as windows_core::Interface>::IID || IProvideClassInfo_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "oaidl", feature = "shared"))]
@@ -3930,7 +3930,7 @@ impl IProvideMultipleClassInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IProvideMultipleClassInfo as windows_core::Interface>::IID || iid == &<IProvideClassInfo as windows_core::Interface>::IID || iid == &<IProvideClassInfo2 as windows_core::Interface>::IID
+        iid == &<IProvideMultipleClassInfo as windows_core::Interface>::IID || IProvideClassInfo2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "oaidl", feature = "shared"))]
@@ -4214,7 +4214,7 @@ impl IViewObjectEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IViewObjectEx as windows_core::Interface>::IID || iid == &<super::IViewObject as windows_core::Interface>::IID || iid == &<super::IViewObject2 as windows_core::Interface>::IID
+        iid == &<IViewObjectEx as windows_core::Interface>::IID || super::IViewObject2_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "httpext", feature = "objidl", feature = "oleidl", feature = "shared", feature = "windef", feature = "wingdi"))]

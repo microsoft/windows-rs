@@ -508,7 +508,7 @@ impl IDXCoreAdapter1_Vtbl {
         Self { base__: IDXCoreAdapter_Vtbl::new::<Identity, OFFSET>(), GetPropertyWithInput: GetPropertyWithInput::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDXCoreAdapter1 as windows_core::Interface>::IID || iid == &<IDXCoreAdapter as windows_core::Interface>::IID
+        iid == &<IDXCoreAdapter1 as windows_core::Interface>::IID || IDXCoreAdapter_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
@@ -668,7 +668,7 @@ impl IDXCoreAdapterFactory1_Vtbl {
         Self { base__: IDXCoreAdapterFactory_Vtbl::new::<Identity, OFFSET>(), CreateAdapterListByWorkload: CreateAdapterListByWorkload::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDXCoreAdapterFactory1 as windows_core::Interface>::IID || iid == &<IDXCoreAdapterFactory as windows_core::Interface>::IID
+        iid == &<IDXCoreAdapterFactory1 as windows_core::Interface>::IID || IDXCoreAdapterFactory_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "stdint", feature = "winnt"))]

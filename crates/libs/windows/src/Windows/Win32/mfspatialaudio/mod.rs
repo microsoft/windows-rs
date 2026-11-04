@@ -121,7 +121,7 @@ impl IMFSpatialAudioObjectBuffer_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFSpatialAudioObjectBuffer as windows_core::Interface>::IID || iid == &<super::IMFMediaBuffer as windows_core::Interface>::IID
+        iid == &<IMFSpatialAudioObjectBuffer as windows_core::Interface>::IID || super::IMFMediaBuffer_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "mfobjects", feature = "shared", feature = "spatialaudioclient", feature = "spatialaudiometadata"))]
@@ -216,7 +216,7 @@ impl IMFSpatialAudioSample_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMFSpatialAudioSample as windows_core::Interface>::IID || iid == &<super::IMFAttributes as windows_core::Interface>::IID || iid == &<super::IMFSample as windows_core::Interface>::IID
+        iid == &<IMFSpatialAudioSample as windows_core::Interface>::IID || super::IMFSample_Vtbl::matches(iid)
     }
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
