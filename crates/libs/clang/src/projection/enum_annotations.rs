@@ -165,7 +165,7 @@ impl Projector<'_, '_> {
                             "AssociatedEnum is redundant on an enum-group-typed use".into(),
                         ));
                     }
-                    subject = snapshot.aliases[id.0].observations[0].canonical;
+                    subject = snapshot.aliases[id.0].observations[0].underlying;
                 }
                 TypeKind::Pointer(inner)
                 | TypeKind::Pointer64(inner)

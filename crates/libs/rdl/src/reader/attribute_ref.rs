@@ -800,6 +800,7 @@ impl Encoder<'_> {
         &self,
         attrs: &[syn::Attribute],
         ty: &metadata::Type,
+        arch: i32,
     ) -> Result<(), Error> {
         let Some(attr) = attrs
             .iter()
@@ -808,8 +809,9 @@ impl Encoder<'_> {
             return Ok(());
         };
         let invalid = "associated_enum requires integer storage, not an already enum-typed use";
-        let mut pending = vec![(ty.clone(), HashSet::new())];
-        while let Some((ty, mut seen)) = pending.pop() {
+        let arch = arch & self.read_arch(attrs)?.unwrap_or(-1);
+        let mut pending = vec![(ty.clone(), HashSet::new(), arch)];
+        while let Some((ty, mut seen, arch)) = pending.pop() {
             match ty {
                 metadata::Type::I8
                 | metadata::Type::U8
@@ -827,20 +829,27 @@ impl Encoder<'_> {
                 | metadata::Type::RefMut(inner)
                 | metadata::Type::RefConst(inner)
                 | metadata::Type::ArrayFixed(inner, _)
-                | metadata::Type::Array(inner) => pending.push((*inner, seen)),
+                | metadata::Type::Array(inner) => pending.push((*inner, seen, arch)),
                 metadata::Type::ValueName(name) => {
                     if !seen.insert((name.namespace.clone(), name.name.clone())) {
                         return self.err(attr, "associated_enum storage is cyclic");
                     }
                     let source: Vec<_> = self.index.get(&name.namespace, &name.name).collect();
+                    let mut found = false;
                     if !source.is_empty() {
                         for item in source {
+                            let arch = arch & self.read_arch(item.attrs())?.unwrap_or(-1);
+                            if arch == 0 {
+                                continue;
+                            }
+                            found = true;
                             let Item::Typedef(alias) = item else {
                                 return self.err(attr, invalid);
                             };
                             pending.push((
                                 self.encode_type_in_attr_ns(&name.namespace, &alias.ty)?,
                                 seen.clone(),
+                                arch,
                             ));
                         }
                     } else {
@@ -854,6 +863,16 @@ impl Encoder<'_> {
                             return self.err(attr, "associated_enum storage cannot be resolved");
                         }
                         for definition in definitions {
+                            let supported = metadata::HasAttributes::arches(&definition);
+                            let arch = if supported == 0 {
+                                arch
+                            } else {
+                                arch & supported
+                            };
+                            if arch == 0 {
+                                continue;
+                            }
+                            found = true;
                             if !metadata::HasAttributes::has_attribute(
                                 &definition,
                                 "NativeTypedefAttribute",
@@ -863,8 +882,14 @@ impl Encoder<'_> {
                             let ty = definition
                                 .underlying_type()
                                 .ok_or_else(|| self.error(attr, invalid))?;
-                            pending.push((ty, seen.clone()));
+                            pending.push((ty, seen.clone(), arch));
                         }
+                    }
+                    if !found {
+                        return self.err(
+                            attr,
+                            "associated_enum storage unavailable for the owner's architecture",
+                        );
                     }
                 }
                 _ => return self.err(attr, invalid),

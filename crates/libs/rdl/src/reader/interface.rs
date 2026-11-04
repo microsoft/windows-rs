@@ -328,8 +328,10 @@ impl Encoder<'_> {
                         &["special"],
                     )?;
 
-                    self.encode_return_attrs(&method.return_attrs, &signature.return_type)?;
-                    self.encode_params(&params)?;
+                    let arch = self.read_arch(&item.attrs)?.unwrap_or(-1)
+                        & self.read_arch(&method.attrs)?.unwrap_or(-1);
+                    self.encode_return_attrs(&method.return_attrs, &signature.return_type, arch)?;
+                    self.encode_params(&params, arch)?;
                 }
 
                 InterfaceMember::Property(prop) => {

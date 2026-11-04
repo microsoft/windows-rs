@@ -148,9 +148,9 @@ fn group(
                 if declaration.kind == CXCursor_VarDecl
                     && text(unsafe { clang_getCursorSpelling(declaration) }) == name
                 {
-                    if !capture
-                        .declarations
-                        .contains_key(&Cursor(unsafe { clang_getCanonicalCursor(declaration) }))
+                    let key = Cursor(unsafe { clang_getCanonicalCursor(declaration) });
+                    if !capture.declarations.contains_key(&key)
+                        && !capture.values.contains_key(&key)
                     {
                         return Err(unsupported(
                             argument,

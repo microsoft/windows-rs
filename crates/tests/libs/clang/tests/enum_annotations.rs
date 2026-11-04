@@ -283,6 +283,72 @@ fn external_enum_group_ownership() {
 }
 
 #[test]
+fn grouping_is_independent_of_capture_order() {
+    helpers::ensure_libclang();
+    for roots in [["G", "A"], ["A", "G"]] {
+        let mut source = input("const int A = 1; GROUP(G, int, A);");
+        source.roots = roots.map(str::to_string).into();
+        let output = projection::generate(&[source], "Fixture").unwrap();
+        assert_eq!(output.enums, 1);
+        assert_eq!(output.constants, 0);
+    }
+}
+
+#[test]
+fn associated_enum_rejects_group_alias_storage() {
+    helpers::ensure_libclang();
+    let path = std::path::Path::new(env!("OUT_DIR")).join("external-enum-alias.winmd");
+    windows_rdl::reader()
+        .input_text("#[win32] mod Shared { #[repr(u16)] enum G { A = 1 } }")
+        .output(&path)
+        .write()
+        .unwrap();
+    let index = windows_metadata::reader::Index::read(&path).unwrap();
+    let references = projection::References::new(&index);
+    for alias in ["typedef G Alias;", "typedef G* Alias;"] {
+        let source = input(&format!(
+            "#define A 1\nGROUP(G, unsigned short, A);
+            {alias}
+            extern \"C\" IMPORT void Bad(ASSOC(G) Alias value);
+            extern \"C\" IMPORT void Good(ASSOC(G) int value);"
+        ));
+        let captured = capture_partial(&[source], &TARGETS).unwrap();
+        let output = projection::project_partial_with_options(
+            captured,
+            "Fixture",
+            &projection::Options {
+                references: Some(&references),
+                ..Default::default()
+            },
+        )
+        .unwrap();
+        assert!(
+            output
+                .omissions
+                .iter()
+                .any(|message| message.contains("enum-group-typed")),
+            "{:?}",
+            output.omissions
+        );
+        let text: String = output
+            .output
+            .partitions
+            .values()
+            .map(|part| part.rdl.as_str())
+            .collect();
+        assert!(!text.contains("fn Bad("), "{text}");
+        assert!(text.contains("fn Good("), "{text}");
+        windows_rdl::reader()
+            .input("..\\..\\..\\..\\metadata\\metadata.rdl")
+            .reference(&path)
+            .input_text(&text)
+            .output(path.with_extension("output.winmd"))
+            .write()
+            .unwrap();
+    }
+}
+
+#[test]
 fn native_constant_contracts_survive_grouping() {
     helpers::ensure_libclang();
     let source = r#"
