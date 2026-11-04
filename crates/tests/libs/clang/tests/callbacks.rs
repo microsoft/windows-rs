@@ -12,7 +12,7 @@ fn preserve_result_references() {
     let winmd = dir.join("reference.winmd");
     for marked_reference in [false, true] {
         let attribute = if marked_reference {
-            "#[preserve_result]"
+            "#[preserve_sig]"
         } else {
             ""
         };

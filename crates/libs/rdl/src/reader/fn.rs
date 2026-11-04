@@ -142,7 +142,7 @@ impl Encoder<'_> {
         self.encode_attrs(
             metadata::writer::HasAttribute::MethodDef(method_def),
             &item.attrs,
-            &["library", "preserve_result"],
+            &["library", "preserve_sig"],
         )?;
 
         Ok(())

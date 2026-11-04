@@ -326,7 +326,7 @@ impl Encoder<'_> {
                     self.encode_attrs(
                         metadata::writer::HasAttribute::MethodDef(method_def),
                         &method.attrs,
-                        &["special", "preserve_result"],
+                        &["special", "preserve_sig"],
                     )?;
 
                     let arch = self.read_arch(&item.attrs)?.unwrap_or(-1)

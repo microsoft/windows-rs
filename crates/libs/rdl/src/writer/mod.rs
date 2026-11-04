@@ -715,12 +715,12 @@ fn write_params(
         .collect()
 }
 
-fn write_preserve_result(method: &metadata::reader::MethodDef) -> TokenStream {
+fn write_preserve_sig(method: &metadata::reader::MethodDef) -> TokenStream {
     if method
         .impl_flags()
         .contains(metadata::MethodImplAttributes::PreserveSig)
     {
-        quote! { #[preserve_result] }
+        quote! { #[preserve_sig] }
     } else {
         quote! {}
     }

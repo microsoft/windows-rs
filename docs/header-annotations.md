@@ -280,7 +280,7 @@ producer policy, not metadata or a guarantee about external implementations.
 
 ### Exact results
 
-`_Win32_PreserveResult_` on a function, method or callback typedef emits `#[preserve_result]`.
+`_Win32_PreserveResult_` on a function, method or callback typedef emits `#[preserve_sig]`.
 Its transport is `__attribute__((annotate("Win32Metadata.PreserveResult")))`, with no arguments.
 RDL encodes the standard `MethodImplAttributes.PreserveSig` flag, on `Invoke` for callbacks.
 No custom metadata attribute is needed.
@@ -393,7 +393,7 @@ language-neutral API facts.
 | `library("dll", import = "name")` | ImplMap `ImportScope` and `ImportName` |
 | `extern fn`, `extern "C" fn` | ImplMap calling-convention flags on imports; `System.Runtime.InteropServices.UnmanagedFunctionPointer` on named callbacks |
 | `special` | MethodDef flag `SpecialName` |
-| `preserve_result` | MethodDef implementation flag `PreserveSig`; callback flag belongs to `Invoke` |
+| `preserve_sig` | MethodDef implementation flag `PreserveSig`; callback flag belongs to `Invoke` |
 | `override_slot(N)`, `base` | `NativeOverrideSlot` and cleared `NewSlot`; `NativeBase` |
 | `arch(...)` | `SupportedArchitecture` |
 | `guid(...)` | `Windows.Foundation.Metadata.Guid` |

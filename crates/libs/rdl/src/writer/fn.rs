@@ -36,7 +36,7 @@ pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> Result<T
     };
 
     let arch_attr = write_arch_attr(item.arches());
-    let preserve = write_preserve_result(item);
+    let preserve = write_preserve_sig(item);
     let custom_attrs = write_custom_attributes_except(
         item.attributes(),
         namespace,

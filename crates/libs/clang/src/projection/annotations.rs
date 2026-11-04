@@ -29,7 +29,7 @@ pub(super) fn write(attributes: &[Attribute]) -> Result<TokenStream, Error> {
     let preserve = attributes
         .iter()
         .any(|attribute| attribute.kind == AttributeKind::PreserveResult)
-        .then(|| quote! { #[preserve_result] });
+        .then(|| quote! { #[preserve_sig] });
     Ok(quote! { #native #preserve })
 }
 
@@ -395,7 +395,7 @@ pub(super) fn write_callback(
         attributes.extend(write_owned(owner, typedef)?);
     }
     let result = must_use.then(|| quote! { #[must_use] });
-    let preserve = preserve.then(|| quote! { #[preserve_result] });
+    let preserve = preserve.then(|| quote! { #[preserve_sig] });
     Ok(quote! { #attributes #result #preserve })
 }
 

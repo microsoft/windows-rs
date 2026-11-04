@@ -650,16 +650,16 @@ impl Encoder<'_> {
         let mut flags = metadata::MethodImplAttributes::default();
         for attr in attrs
             .iter()
-            .filter(|attr| attr.path().is_ident("preserve_result"))
+            .filter(|attr| attr.path().is_ident("preserve_sig"))
         {
             if winrt {
-                return self.err(attr, "preserve_result requires a Win32 callable");
+                return self.err(attr, "preserve_sig requires a Win32 callable");
             }
             if !matches!(attr.meta, syn::Meta::Path(_)) {
-                return self.err(attr, "preserve_result does not accept arguments");
+                return self.err(attr, "preserve_sig does not accept arguments");
             }
             if flags.contains(metadata::MethodImplAttributes::PreserveSig) {
-                return self.err(attr, "duplicate `preserve_result` attribute");
+                return self.err(attr, "duplicate `preserve_sig` attribute");
             }
             flags |= metadata::MethodImplAttributes::PreserveSig;
         }

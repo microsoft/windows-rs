@@ -64,7 +64,7 @@ impl Encoder<'_> {
         self.encode_attrs(
             metadata::writer::HasAttribute::TypeDef(callback),
             &item.attrs,
-            &["preserve_result"],
+            &["preserve_sig"],
         )?;
 
         if let Some(arch_bits) = self.read_arch(&item.attrs)? {

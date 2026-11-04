@@ -208,7 +208,7 @@ fn write_method(
         .collect::<Result<Vec<_>, Error>>()?;
 
     let method_attrs = write_custom_attributes(item.attributes(), namespace, item.index())?;
-    let preserve = write_preserve_result(item);
+    let preserve = write_preserve_sig(item);
 
     // Preserve property/event methods with the built-in `#[special]` pseudo.
     let special_attr = if item

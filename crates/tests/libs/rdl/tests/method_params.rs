@@ -5,13 +5,13 @@ use windows_metadata::HasAttributes;
 const METADATA_NAMESPACE: &str = "Windows.Win32.Metadata";
 
 #[test]
-fn preserve_result_flags_roundtrip() {
-    let dir = scratch("preserve_result");
+fn preserve_sig_flags_roundtrip() {
+    let dir = scratch("preserve_sig");
     let first = dir.join("first.winmd");
     let rdl = dir.join("roundtrip.rdl");
     let second = dir.join("second.winmd");
     windows_rdl::reader()
-        .input("input/preserve_result.rdl")
+        .input("input/preserve_sig.rdl")
         .output(&first)
         .write()
         .unwrap();
@@ -72,22 +72,22 @@ fn preserve_result_flags_roundtrip() {
 }
 
 #[test]
-fn preserve_result_invalid_owners_and_arguments() {
-    let dir = scratch("preserve_result_invalid");
+fn preserve_sig_invalid_owners_and_arguments() {
+    let dir = scratch("preserve_sig_invalid");
     for declaration in [
-        "#[preserve_result] struct Record { value: u32 }",
-        "struct Record { #[preserve_result] value: u32 }",
-        "struct Record { #[preserve_result] const Value: u32 = 1; }",
-        "#[preserve_result] const Value: u32 = 1;",
-        "#[repr(u32)] #[preserve_result] enum Values { First = 1 }",
-        "#[preserve_result] type Scalar = u32;",
-        "#[preserve_result] interface I {}",
-        "extern fn Callback(#[preserve_result] value: u32);",
-        "extern fn Callback() -> #[preserve_result] i32;",
-        "#[preserve_result(1)] extern fn Callback();",
-        "#[preserve_result] #[preserve_result] extern fn Callback();",
-        "#[preserve_result] #[preserve_result] #[library(\"test.dll\")] extern fn F();",
-        "interface I { #[preserve_result] #[preserve_result] fn F(&self); }",
+        "#[preserve_sig] struct Record { value: u32 }",
+        "struct Record { #[preserve_sig] value: u32 }",
+        "struct Record { #[preserve_sig] const Value: u32 = 1; }",
+        "#[preserve_sig] const Value: u32 = 1;",
+        "#[repr(u32)] #[preserve_sig] enum Values { First = 1 }",
+        "#[preserve_sig] type Scalar = u32;",
+        "#[preserve_sig] interface I {}",
+        "extern fn Callback(#[preserve_sig] value: u32);",
+        "extern fn Callback() -> #[preserve_sig] i32;",
+        "#[preserve_sig(1)] extern fn Callback();",
+        "#[preserve_sig] #[preserve_sig] extern fn Callback();",
+        "#[preserve_sig] #[preserve_sig] #[library(\"test.dll\")] extern fn F();",
+        "interface I { #[preserve_sig] #[preserve_sig] fn F(&self); }",
     ] {
         let source = format!("#[win32] mod Test {{ {declaration} }}");
         let error = windows_rdl::reader()
@@ -95,11 +95,11 @@ fn preserve_result_invalid_owners_and_arguments() {
             .output(dir.join("invalid.winmd"))
             .write()
             .unwrap_err();
-        assert!(error.to_string().contains("preserve_result"), "{error}");
+        assert!(error.to_string().contains("preserve_sig"), "{error}");
     }
     let error = windows_rdl::reader()
         .input_text(
-            "#[winrt] mod Test { #[guid(auto)] interface I { #[preserve_result] fn F(&self); } }",
+            "#[winrt] mod Test { #[guid(auto)] interface I { #[preserve_sig] fn F(&self); } }",
         )
         .output(dir.join("winrt.winmd"))
         .write()
@@ -107,7 +107,7 @@ fn preserve_result_invalid_owners_and_arguments() {
     assert!(
         error
             .to_string()
-            .contains("preserve_result requires a Win32 callable"),
+            .contains("preserve_sig requires a Win32 callable"),
         "{error}"
     );
 }

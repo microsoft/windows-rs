@@ -615,7 +615,7 @@ Imported functions accept `#[library("example.dll", last_error)]`, optionally co
 flag, which requests native last-error capture for C# P/Invoke. It does not describe failure,
 change the calling convention or alter Rust bindings.
 
-`#[preserve_result]` on a Win32 function, interface method or callback sets the ECMA-335
+`#[preserve_sig]` on a Win32 function, interface method or callback sets the ECMA-335
 `MethodImplAttributes.PreserveSig` flag. For callbacks the flag belongs to `Invoke`, not the
 delegate type. It takes no arguments. Consumers can use it to suppress HRESULT-to-exception or
 result conversion. It does not change the native ABI. `windows-bindgen` currently ignores the flag.
