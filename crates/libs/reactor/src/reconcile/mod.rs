@@ -103,7 +103,7 @@ pub enum Mutation {
     },
     SetVirtualSource {
         object: ObjectId,
-        item_count: usize,
+        keys: Arc<Vec<u64>>,
         source_revision: u64,
     },
     Realize {
@@ -212,6 +212,13 @@ pub struct RealizationLease {
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum RealizationRequest {
+    /// A native item can outlive the source revision that requested its shell.
+    RealizeKey {
+        collection: ObjectId,
+        container: RealizedContainer,
+        index: usize,
+        token: u64,
+    },
     Realize {
         collection: ObjectId,
         container: RealizedContainer,
@@ -401,6 +408,8 @@ struct RetainedVirtualItems {
     owner: Option<ComponentId>,
     items: VirtualItems,
     keys: Rc<Vec<Key>>,
+    tokens: Arc<Vec<u64>>,
+    next_token: u64,
     source_revision: u64,
     lease_revision: u64,
     active: HashMap<Key, (u64, RealizedContainer)>,

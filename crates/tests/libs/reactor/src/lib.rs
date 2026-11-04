@@ -327,6 +327,11 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "repeater_layout_pivot" => {
             App::run_component::<repeater::RepeaterLayoutFixture>(repeater::Selector::Pivot)?;
         }
+        "repeater_layout_keyed_reset" => {
+            App::run_component::<repeater::RepeaterLayoutFixture>(
+                repeater::Selector::FlipViewBeforeReset,
+            )?;
+        }
         "retirement" => App::run_component::<retirement::RetirementFixture>(())?,
         "selection" => App::run_component::<selection::SelectionFixture>(())?,
         "selection-index" => App::run_component::<selection::IndexSelectionFixture>(())?,

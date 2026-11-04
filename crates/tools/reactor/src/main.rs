@@ -676,6 +676,7 @@ fn main() {
         .input_default()
         .output(workspace_path(BINDINGS_OUTPUT))
         .implements([
+            "Microsoft.UI.Xaml.Controls.IKeyIndexMapping",
             "Microsoft.UI.Xaml.IApplicationOverrides",
             "Microsoft.UI.Xaml.IElementFactory",
             "Microsoft.UI.Xaml.Markup.IXamlMetadataProvider",

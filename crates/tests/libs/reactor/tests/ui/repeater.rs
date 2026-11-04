@@ -28,6 +28,104 @@ fn repeater_updates_preserve_realized_component_state() -> Result<()> {
 }
 
 #[test]
+fn repeater_reorder_preserves_realized_state_and_focus() -> Result<()> {
+    const SPACE: i32 = 0x20;
+    process::run("repeater", |ui| {
+        let original = ui.element("row-0")?;
+        let moved = ui.element("row-1")?;
+        ui.invoke("row-0")?;
+        ui.name("row-0", "Row 0; value 0; clicks 1")?;
+        for revision in 1..=3 {
+            // Row 1 requests the swap itself, without moving focus to an external trigger.
+            ui.press_keys("row-1", &[SPACE])?;
+            ui.name("revision", &format!("Revision {revision}"))?;
+            ui.name("row-0", "Row 0; value 0; clicks 1")?;
+            ui.name("row-1", &format!("Row 1; value 0; clicks {revision}"))?;
+            for (id, before) in [("row-0", &original), ("row-1", &moved)] {
+                unsafe {
+                    assert!(
+                        ui.client
+                            .CompareElements(before, &ui.element(id)?)?
+                            .as_bool(),
+                        "reordering replaced {id}"
+                    );
+                }
+            }
+            ui.wait(
+                "rows take their new positions",
+                || unsafe {
+                    Ok((
+                        original.CurrentBoundingRectangle()?.top,
+                        moved.CurrentBoundingRectangle()?.top,
+                    ))
+                },
+                |(first, second)| {
+                    if revision % 2 == 1 {
+                        second < first
+                    } else {
+                        first < second
+                    }
+                },
+            )?;
+            ui.focused("row-1")?;
+        }
+        Ok(())
+    })
+}
+
+#[test]
+fn repeater_removal_retires_only_removed_rows() -> Result<()> {
+    process::run("repeater", |ui| {
+        let removed = ui.element("row-0")?;
+        let retained = ui.element("row-1")?;
+        ui.invoke("row-0")?;
+        ui.name("row-0", "Row 0; value 0; clicks 1")?;
+        ui.invoke("row-1")?;
+        ui.name("row-1", "Row 1; value 0; clicks 1")?;
+
+        ui.invoke("toggle-first")?;
+        ui.gone("row-0")?;
+        ui.invoke("rerender")?;
+        ui.name("drops", "Clicked row 0 drops 1")?;
+        ui.name("row-1", "Row 1; value 0; clicks 1")?;
+        ui.invoke("toggle-first")?;
+        ui.name("row-0", "Row 0; value 0; clicks 0")?;
+        ui.name("row-1", "Row 1; value 0; clicks 1")?;
+        unsafe {
+            assert!(
+                !ui.client
+                    .CompareElements(&removed, &ui.element("row-0")?)?
+                    .as_bool()
+            );
+            assert!(
+                ui.client
+                    .CompareElements(&retained, &ui.element("row-1")?)?
+                    .as_bool()
+            );
+        }
+
+        ui.invoke("row-0")?;
+        ui.name("row-0", "Row 0; value 0; clicks 1")?;
+        ui.invoke("toggle-empty")?;
+        ui.gone("row-0")?;
+        ui.gone("row-1")?;
+        ui.invoke("rerender")?;
+        ui.name("drops", "Clicked row 0 drops 2")?;
+        ui.invoke("toggle-empty")?;
+        ui.name("row-0", "Row 0; value 0; clicks 0")?;
+        ui.name("row-1", "Row 1; value 0; clicks 0")?;
+        unsafe {
+            assert!(
+                !ui.client
+                    .CompareElements(&retained, &ui.element("row-1")?)?
+                    .as_bool()
+            );
+        }
+        Ok(())
+    })
+}
+
+#[test]
 fn repeater_scrolling_realizes_only_nearby_rows() -> Result<()> {
     const SCROLL_PATTERN: i32 = 10004;
     const NO_SCROLL: f64 = -1.0;
@@ -59,6 +157,29 @@ fn repeater_realizes_rows_requested_by_a_flip_view_selection() -> Result<()> {
 #[test]
 fn repeater_realizes_rows_requested_by_a_pivot_selection() -> Result<()> {
     rows_requested_during_an_update("repeater_layout_pivot")
+}
+
+#[test]
+fn repeater_keyed_reset_preserves_pending_realizations() -> Result<()> {
+    process::run("repeater_layout_keyed_reset", |ui| {
+        ui.invoke("load")?;
+        ui.name("row-5", "Row 5; value 0; clicks 0")?;
+        ui.name("row-4", "Row 4; value 0; clicks 0")?;
+        let first = ui.element("row-5")?;
+        let second = ui.element("row-4")?;
+        ui.wait(
+            "pending rows take their keyed positions",
+            || unsafe {
+                Ok((
+                    first.CurrentBoundingRectangle()?.top,
+                    second.CurrentBoundingRectangle()?.top,
+                ))
+            },
+            |(first, second)| first < second,
+        )?;
+        ui.invoke("row-5")?;
+        ui.name("row-5", "Row 5; value 0; clicks 1")
+    })
 }
 
 fn rows_requested_during_an_update(fixture: &'static str) -> Result<()> {

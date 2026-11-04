@@ -11670,6 +11670,102 @@ pub struct IItemsRepeaterFactory_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
+    IKeyIndexMapping,
+    IKeyIndexMapping_Vtbl,
+    0xb1f3bba0_108e_560d_9681_26391b4bc30d
+);
+impl windows_core::RuntimeType for IKeyIndexMapping {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Microsoft.UI.Xaml.Controls.IKeyIndexMapping");
+}
+windows_core::imp::interface_hierarchy!(
+    IKeyIndexMapping,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl windows_core::RuntimeName for IKeyIndexMapping {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.IKeyIndexMapping";
+}
+pub trait IKeyIndexMapping_Impl: windows_core::IUnknownImpl {
+    fn KeyFromIndex(&self, index: i32) -> windows_core::Result<windows_core::HSTRING>;
+    fn IndexFromKey(&self, key: &windows_core::HSTRING) -> windows_core::Result<i32>;
+}
+impl IKeyIndexMapping_Vtbl {
+    pub const fn new<Identity: IKeyIndexMapping_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn KeyFromIndex<
+            Identity: IKeyIndexMapping_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            index: i32,
+            result__: *mut *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IKeyIndexMapping_Impl::KeyFromIndex(this, index) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
+                }
+            }
+        }
+        unsafe extern "system" fn IndexFromKey<
+            Identity: IKeyIndexMapping_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            key: *mut core::ffi::c_void,
+            result__: *mut i32,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IKeyIndexMapping_Impl::IndexFromKey(this, core::mem::transmute(&key)) {
+                    Ok(ok__) => {
+                        result__.write(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
+                }
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IKeyIndexMapping, OFFSET>(),
+            KeyFromIndex: KeyFromIndex::<Identity, OFFSET>,
+            IndexFromKey: IndexFromKey::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IKeyIndexMapping as windows_core::Interface>::IID
+    }
+}
+#[repr(C)]
+pub struct IKeyIndexMapping_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub KeyFromIndex: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        i32,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub IndexFromKey: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i32,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
     IKeyRoutedEventArgs,
     IKeyRoutedEventArgs_Vtbl,
     0xee357007_a2d6_5c75_9431_05fd66ec7915

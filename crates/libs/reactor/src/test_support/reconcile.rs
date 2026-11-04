@@ -123,6 +123,7 @@ impl NativeEvent {
             Self::Retirement(completion) => completion.root,
             Self::Realization(
                 RealizationRequest::Realize { collection, .. }
+                | RealizationRequest::RealizeKey { collection, .. }
                 | RealizationRequest::Recycle { collection, .. }
                 | RealizationRequest::Cancel { collection, .. },
             ) => *collection,

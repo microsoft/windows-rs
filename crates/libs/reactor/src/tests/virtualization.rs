@@ -288,6 +288,125 @@ fn virtual_items_preserve_keyed_child_across_reorder() {
             .unwrap(),
         &[before[1], before[0]]
     );
+    for (index, child) in before.iter().enumerate() {
+        assert_eq!(
+            runtime
+                .graph()
+                .virtual_realization(collection, RealizedContainer(index as u64)),
+            Some(*child),
+            "a retained key must keep its native shell"
+        );
+    }
+}
+
+#[test]
+fn virtual_items_acknowledge_recycle_after_source_reset() {
+    let mut runtime = Runtime::new(RecordingAdapter::new());
+    runtime.update(ItemsRepeater::new().item("a", TextBlock::new().text("a")));
+    let collection = runtime.graph().root().unwrap();
+    let container = RealizedContainer(1);
+    runtime
+        .adapter_mut()
+        .queue_realization(RealizationRequest::Realize {
+            collection,
+            container,
+            index: 0,
+            source_revision: 0,
+        });
+    runtime.dispatch_native_events();
+    runtime.update(ItemsRepeater::new());
+    runtime
+        .adapter_mut()
+        .queue_realization(RealizationRequest::Recycle {
+            collection,
+            container,
+            source_revision: 0,
+        });
+    let Some(NativeWork::Virtual(VirtualWork::Cancel {
+        collection: owner,
+        relation,
+        container: recycled,
+    })) = runtime.next_native_work()
+    else {
+        panic!("native recycling must be acknowledged after logical removal");
+    };
+    assert_eq!(owner, collection);
+    assert_eq!(recycled, container);
+    let batch = runtime.plan_cancel_virtual(owner, relation, recycled);
+    assert!(matches!(
+        batch.mutations(),
+        [Mutation::Recycle { child: None, .. }]
+    ));
+}
+
+#[test]
+fn virtual_items_resolve_native_keys_without_reviving_removed_rows() {
+    let view = |keys: &[Key]| {
+        let mut view = ItemsRepeater::new();
+        for key in keys {
+            view = view.item(key.clone(), TextBlock::new().text("row"));
+        }
+        view
+    };
+    let mut runtime = Runtime::new(RecordingAdapter::new());
+    let keys = [Key::from(1u64), Key::from("1"), Key::from("a\0b")];
+    let update = runtime.update(view(&keys));
+    let collection = runtime.graph().root().unwrap();
+    let tokens = update
+        .into_iter()
+        .find_map(|mutation| match mutation {
+            Mutation::SetVirtualSource { keys, .. } => Some(keys),
+            _ => None,
+        })
+        .unwrap();
+    assert_ne!(tokens[0], tokens[1]);
+    assert_ne!(tokens[1], tokens[2]);
+
+    runtime.update(view(&[keys[2].clone(), keys[0].clone()]));
+    let current = runtime
+        .update(view(&[keys[2].clone(), keys[1].clone(), keys[0].clone()]))
+        .into_iter()
+        .find_map(|mutation| match mutation {
+            Mutation::SetVirtualSource { keys, .. } => Some(keys),
+            _ => None,
+        })
+        .unwrap();
+    assert_eq!(current[0], tokens[2]);
+    assert_eq!(current[2], tokens[0]);
+    assert_ne!(current[1], tokens[1]);
+
+    runtime
+        .adapter_mut()
+        .queue_realization(RealizationRequest::RealizeKey {
+            collection,
+            container: RealizedContainer(1),
+            index: 2,
+            token: tokens[2],
+        });
+    let Some(NativeWork::Virtual(VirtualWork::Realize {
+        lease, index, view, ..
+    })) = runtime.next_native_work()
+    else {
+        panic!("a surviving native key must realize at its new index");
+    };
+    assert_eq!(index, 0);
+    assert_eq!(lease.key, keys[2]);
+    runtime.realize_virtual(&lease, index, *view);
+
+    runtime
+        .adapter_mut()
+        .queue_realization(RealizationRequest::RealizeKey {
+            collection,
+            container: RealizedContainer(2),
+            index: 1,
+            token: tokens[1],
+        });
+    assert!(matches!(
+        runtime.next_native_work(),
+        Some(NativeWork::Maintenance)
+    ));
+    assert!(runtime.next_native_work().is_none());
+    assert_eq!(runtime.adapter().realized_count(collection), 1);
 }
 
 #[test]
