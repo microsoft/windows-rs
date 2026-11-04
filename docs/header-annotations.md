@@ -8,9 +8,11 @@ the metadata into Rust. This catalog gives representative header spellings, RDL 
 The parameter, buffer, callable and layout tables describe implemented mappings. `-` means bindgen
 does not interpret the fact. Rust examples describe wrappers, not the raw ABI.
 
-The [`_Win32_*` proposals](#proposed-annotations) are design candidates, not supported syntax
-or an agreement with microsoft/win32metadata#2365. `windows-clang` currently rejects their
-`annotate` payloads. [C# consumption](#c-consumption) is a separate integration boundary.
+`_Win32_SetLastError_` and `_Win32_ImportLibrary_` are supported. The other
+[`_Win32_*` proposals](#proposed-annotations) are design candidates, not supported syntax or an
+agreement with microsoft/win32metadata#2365.
+`windows-clang` rejects unknown `annotate` payloads.
+[C# consumption](#c-consumption) is a separate integration boundary.
 
 ## Example
 
@@ -156,10 +158,35 @@ Bindgen uses it to select narrow string constants. It specifies neither terminat
 | Never returns | `__declspec(noreturn) void Fail()`; `[[noreturn]]` | `#[noreturn]` | `-> !` |
 | Calling convention | `void __cdecl Log()` | `extern "C" fn Log()`; `extern fn` is system | `extern "C"` or `extern "system"` |
 | Import library | Import library maps `Read` to `ReadEntry` | `#[library("example.dll", import = "ReadEntry")]` | `link!` target |
+| Import override | `_Win32_ImportLibrary_("example.dll", "ReadEntry")` | `#[library("example.dll", import = "ReadEntry")]` | `link!` target for named exports |
+| Last error | `_Win32_SetLastError_` on a free function | `#[library("example.dll", last_error)]` | No change |
 | Property accessor | MIDL `[propget] HRESULT Name(...)` | `#[special]` | Accessor names |
 | Vtable slot | C++ override of an inherited virtual | `#[override_slot(3)]` | Slot validation |
 | Deprecation | `[[deprecated("use Next")]]` | `#[deprecated("use Next")]` | - |
 | Architecture | Declared only for x64 and Arm64 | `#[arch(X64 \| Arm64)]` | `cfg` gating |
+
+`_Win32_SetLastError_` expands to `__attribute__((annotate("Win32Metadata.SetLastError")))`
+with the upstream helper and `WIN32METADATA` enabled. It accepts no arguments and belongs on a
+free function, not a method, callback, type or parameter. Duplicate markers fail, and its presence
+must agree across native observations. It does not supply DLL ownership.
+
+The marker requests last-error capture by consumers such as C# P/Invoke. It does not specify when
+the function fails. Rust signatures and error handling are unchanged.
+
+`_Win32_ImportLibrary_` is authoritative DLL/export evidence on a free function. It overrides
+caller-supplied mappings and scanned import libraries, and can supply ownership when neither is
+available. Its DLL argument is an ordinary narrow string literal, not a path. An optional second
+argument names the export or supplies an integral constant ordinal from 1 through 65535.
+Strings are read from the compiler AST; ordinals are compiler-evaluated. Empty strings, control
+characters, embedded nulls, invalid owners and duplicate annotations fail.
+
+Omitting the entry point preserves the normally resolved export, or the native declaration name
+when no mapping exists. Import overrides do not rename the declaration or establish a calling
+convention. Native ABI checks and target-specific convention evidence still apply. Conflicting
+annotations fail reconciliation before publication.
+
+Ordinals encode as `#[library("example.dll", import = "#42")]` and survive RDL/WinMD round trips.
+Bindgen does not support ordinal linking and excludes these imports from generated Rust bindings.
 
 ## Types and layout
 
@@ -214,8 +241,6 @@ replacements for them.
 
 | Fact | Header example | Proposed RDL | Intended consumer use |
 | --- | --- | --- | --- |
-| Import override | `_Win32_ImportLibrary_("example.dll", "ReadEntry")` | `#[library("example.dll", import = "ReadEntry")]` (existing) | Rust link target; C# DLL and entry point |
-| Last error | `_Win32_SetLastError_` | `#[library("kernel32.dll", last_error)]` | C# `SetLastError = true`; not an error predicate |
 | Exact result | `_Win32_PreserveResult_ HRESULT EnumAdapters1(...)` | `#[preserve_result]` | Keep raw status and output parameters instead of Rust `Result` or C# exception/result conversion |
 | Minimum OS | `_Win32_SupportedOS_19041_` | `#[supported_os("windows10.0.19041")]` | C# platform diagnostics |
 | Release | `_Out_ _Win32_RAIIFree_(WinHttpCloseHandle, 0) HINTERNET* session` | `#[invalid(0)] #[out] #[release(WinHttpCloseHandle)] session: *mut HINTERNET` | Rust owned handles or C# `SafeHandle`; requires an ownership-aware wrapper |
@@ -230,7 +255,6 @@ The proposed contracts require these checks:
 
 | Contract | Rule |
 | --- | --- |
-| Import override | Checked against the native symbol and target; replaces an explicit entry in [import_policy.rs](../crates/tools/win32/src/import_policy.rs), not native ABI evidence |
 | Release | Resolve a declared cleanup function with a compatible parameter; invalid values are integer constants, one `invalid` each. `_Win32_RAIIFree_Handle_(F)` supplies `-1` and `0` |
 | Logical enum names | Member names come from the macro arguments and values from the compiler; members replace the loose constants of the same name |
 | Enum use | Resolve the name after the whole capture; require exactly one enum with compatible storage |
@@ -247,35 +271,30 @@ defaults to `true` but can be `false`.
 The proposed transport is `__attribute__((annotate("Win32Metadata.Name", args...)))` on the
 declaration it describes. Each macro needs an owner and argument schema; unknown names, bad
 arguments, wrong owners and duplicates should fail. Values are compiler-evaluated and declaration
-names must resolve. The PR's mixed string and proxy-declaration encodings do not yet meet this design.
+names must resolve. Each remaining annotation family needs its own validated argument schema.
 
 `_Win32_SupportedOS_BEGIN_(os)` and `_Win32_SupportedOS_END_()` are region forms in the PR.
 Their Clang pragma covers functions, records, enums and typedefs, including included declarations;
 nested annotations accumulate rather than override.
 
-In IDL, a macro goes in MIDL's `annotation` attribute on the method, parameter or field, which MIDL
-copies into the generated header:
+MIDL's `annotation("...")` replaces generated SAL rather than adding to it. It is not a general
+additive transport for these macros. The upstream proposal uses owned `Win32Metadata:` comments
+emitted with `cpp_quote` for IDL; that transport is not implemented here.
 
-```idl
-[annotation("_Win32_PreserveResult_")]
-HRESULT EnumAdapters1([in] UINT index, [out, annotation("_COM_Outptr_")] IDXGIAdapter1** adapter);
-```
+### Other unimplemented forms
 
-The generated header must see the macro definitions. Passthrough is not payload support.
+These forms from microsoft/win32metadata#2365 need separate contract or transport decisions.
+Related SAL/MIDL forms do not establish that the custom forms are interchangeable or unnecessary.
 
-### Forms not adopted
-
-These forms from microsoft/win32metadata#2365 duplicate existing facts or add a second transport:
-
-| Form | Use instead |
+| Form | Current position |
 | --- | --- |
 | `_Win32_Optional_` | `_opt_` SAL forms, MIDL `[optional]` |
 | `_Win32_Reserved_` | `_Reserved_` |
 | `_Win32_ComOutPtr_` | `_COM_Outptr_`, MIDL `[iid_is]` |
-| `_Win32_Retval_` | MIDL `[retval]` |
-| `_Win32_Flags_` | `[[clang::flag_enum]]` |
-| `_Win32_AssociatedConstant_` | A constant belongs to one enum or none |
-| `/* Win32Metadata: ... */` comments | MIDL `annotation` |
+| `_Win32_Retval_` | MIDL `[retval]` is supported; hand-written C++ needs a separate spelling |
+| `_Win32_Flags_` | `[[clang::flag_enum]]` is supported but also affects compiler diagnostics |
+| `_Win32_AssociatedConstant_` | No published association between a global constant and multiple enum groups |
+| `/* Win32Metadata: ... */` comments | Owned comment transport is not implemented |
 
 Unknown `annotate` payloads are rejected today. Arbitrary comments are not directives and are
 ignored; only the recognized MIDL bracket comments carry contracts.
@@ -329,7 +348,7 @@ language-neutral API facts.
 | `*const T`, `ptr64<T>` | `System.Runtime.CompilerServices.IsConst` and `NativePointer64` modifiers |
 | `packed(N)`, `align(N)` | ClassLayout, `Alignment` |
 | Bitfield blocks, `anonymous(N)` | `NativeBitfield`, `NativeAnonymous` |
-| **Proposed** `library(..., last_error)` | ImplMap flag `SupportsLastError` |
+| `library(..., last_error)` | ImplMap flag `SupportsLastError` |
 | **Proposed** `preserve_result`, `retained`, `interior_pointers` | `PreserveResult`, `Retained`, `InteriorPointers` |
 | **Proposed** `release(F)`, `invalid(N)` | `Release`, `InvalidValue` |
 | **Proposed** `associated_enum(T)`, `also_usable_for(T)` | `AssociatedEnum`, `AlsoUsableFor` |

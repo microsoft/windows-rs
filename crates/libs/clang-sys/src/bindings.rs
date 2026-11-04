@@ -2429,6 +2429,8 @@ pub(crate) struct Functions {
         info: *mut WindowsClangRecordInfo,
     ) -> WindowsClangStatus,
     pub windows_clang_getRuntimeIdentity: unsafe extern "C" fn() -> *const core::ffi::c_void,
+    pub windows_clang_getStringLiteral:
+        unsafe extern "C" fn(cursor: CXCursor, value: *mut CXString) -> WindowsClangStatus,
     pub windows_clang_getTypeAttributeKindName: unsafe extern "C" fn(r#type: CXType) -> *const i8,
     pub windows_clang_getTypeOfOperand:
         unsafe extern "C" fn(cursor: CXCursor, expression: *mut CXCursor) -> WindowsClangStatus,
@@ -5042,6 +5044,13 @@ impl Functions {
                         format!("{}: {error}", stringify!(windows_clang_getRuntimeIdentity))
                     })?
             },
+            windows_clang_getStringLiteral: unsafe {
+                *extension
+                    .get(b"windows_clang_getStringLiteral\0")
+                    .map_err(|error| {
+                        format!("{}: {error}", stringify!(windows_clang_getStringLiteral))
+                    })?
+            },
             windows_clang_getTypeAttributeKindName: unsafe {
                 *extension
                     .get(b"windows_clang_getTypeAttributeKindName\0")
@@ -6949,6 +6958,12 @@ pub unsafe fn windows_clang_getRecordInfo(
 }
 pub unsafe fn windows_clang_getRuntimeIdentity() -> *const core::ffi::c_void {
     unsafe { (crate::functions().windows_clang_getRuntimeIdentity)() }
+}
+pub unsafe fn windows_clang_getStringLiteral(
+    cursor: CXCursor,
+    value: *mut CXString,
+) -> WindowsClangStatus {
+    unsafe { (crate::functions().windows_clang_getStringLiteral)(cursor, value) }
 }
 pub unsafe fn windows_clang_getTypeAttributeKindName(r#type: CXType) -> *const i8 {
     unsafe { (crate::functions().windows_clang_getTypeAttributeKindName)(r#type) }

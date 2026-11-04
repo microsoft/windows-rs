@@ -329,7 +329,7 @@ impl Capture<'_> {
         for child in children(cursor) {
             let kind = unsafe { clang_getCursorKind(child) };
             if unsafe { clang_isAttribute(kind) } != 0 {
-                attributes.push(self.attribute(child)?);
+                attributes.push(self.attribute(child, cursor)?);
             } else if !matches!(kind, CXCursor_TypeRef | CXCursor_NamespaceRef)
                 && unsafe { clang_isExpression(kind) } == 0
             {

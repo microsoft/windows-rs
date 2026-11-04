@@ -3,6 +3,174 @@ use windows_clang::*;
 const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
 
 #[test]
+fn import_annotation_precedence() {
+    helpers::ensure_libclang();
+    let input = Input {
+        name: "import_library.h".into(),
+        source: std::fs::read_to_string(test_clang::input_dir().join("fixtures/import_library.h"))
+            .unwrap(),
+        ..Default::default()
+    };
+    let snapshots = capture(std::slice::from_ref(&input), &TARGETS).unwrap();
+    let merged = merge(&snapshots).unwrap();
+    for fallback in [false, true] {
+        let mut imports = projection::Imports::default();
+        if fallback {
+            for snapshot in &snapshots {
+                for value in &snapshot.values {
+                    for observation in &value.observations {
+                        let ValueKind::Function { mangling, .. } = &observation.kind else {
+                            panic!()
+                        };
+                        imports.symbols.entry(snapshot.target).or_default().insert(
+                            mangling.clone(),
+                            projection::Import {
+                                library: "scanned.dll".into(),
+                                name: Some("ScannedEntry".into()),
+                            },
+                        );
+                    }
+                }
+            }
+        }
+        let output = projection::project_with_imports(&merged, "Fixture", &imports).unwrap();
+        assert_eq!(output.functions, 5);
+        let text: String = output
+            .partitions
+            .values()
+            .map(|part| part.rdl.as_str())
+            .collect();
+        let winmd = std::path::Path::new(env!("OUT_DIR")).join(format!("import-{fallback}.winmd"));
+        windows_rdl::reader()
+            .input_text(&text)
+            .output(&winmd)
+            .write()
+            .unwrap();
+        let index = windows_metadata::reader::Index::read(&winmd).unwrap();
+        for method in index.expect("Fixture", "Apis").methods() {
+            let import = method.impl_map().unwrap();
+            assert_eq!(import.import_scope().name(), "actual.dll");
+            let entry = match method.name() {
+                "Named" => "NativeEntry",
+                "Ordinal" => "#42",
+                "StringOrdinal" => "#65535",
+                name => {
+                    if fallback {
+                        "ScannedEntry"
+                    } else {
+                        name
+                    }
+                }
+            };
+            assert_eq!(import.import_name(), entry);
+            assert_eq!(
+                import
+                    .flags()
+                    .contains(windows_metadata::PInvokeAttributes::SupportsLastError),
+                method.name() == "DllOnly"
+            );
+            assert_eq!(
+                import
+                    .flags()
+                    .contains(windows_metadata::PInvokeAttributes::CallConvCdecl),
+                method.name() == "DefaultConvention"
+            );
+        }
+    }
+    let mut imports = projection::Imports::default();
+    let x86 = snapshots
+        .iter()
+        .find(|snapshot| snapshot.target == Target::X86)
+        .unwrap();
+    let function = x86
+        .values
+        .iter()
+        .find(|value| value.name == "DefaultConvention")
+        .unwrap();
+    let ValueKind::Function {
+        stdcall_candidate: Some(candidate),
+        ..
+    } = &function.observations[0].kind
+    else {
+        panic!()
+    };
+    imports
+        .default_stdcall
+        .entry(Target::X86)
+        .or_default()
+        .insert(
+            candidate.mangling.clone(),
+            projection::Import {
+                library: "scanned.dll".into(),
+                name: None,
+            },
+        );
+    let output = projection::project_with_imports(&merged, "Fixture", &imports).unwrap();
+    let text: String = output
+        .partitions
+        .values()
+        .map(|part| part.rdl.as_str())
+        .collect();
+    assert!(text.contains("extern fn DefaultConvention("));
+    let output = projection::generate_partial(&[input], "Fixture").unwrap();
+    assert!(output.omissions.is_empty());
+    assert_eq!(output.output.functions, 5);
+}
+
+#[test]
+fn import_annotation_rust() {
+    helpers::ensure_libclang();
+    let input = Input {
+        name: "import_library.h".into(),
+        source: std::fs::read_to_string(test_clang::input_dir().join("fixtures/import_library.h"))
+            .unwrap(),
+        ..Default::default()
+    };
+    let output = projection::generate(&[input], "Fixture").unwrap();
+    let text: String = output
+        .partitions
+        .values()
+        .map(|part| part.rdl.as_str())
+        .collect();
+    let winmd = std::path::Path::new(env!("OUT_DIR")).join("import-rust.winmd");
+    let rust = winmd.with_extension("rs");
+    windows_rdl::reader()
+        .input_text(&text)
+        .output(&winmd)
+        .write()
+        .unwrap();
+    windows_bindgen::Bindgen::new()
+        .input(&winmd)
+        .output(&rust)
+        .filter("Fixture")
+        .write();
+    let generated = std::fs::read_to_string(&rust).unwrap();
+    assert!(generated.contains("\"actual.dll\" \"system\" \"NativeEntry\""));
+    assert!(!generated.contains("fn Ordinal("));
+    assert!(!generated.contains("fn StringOrdinal("));
+}
+
+#[test]
+fn import_annotation_function_alias() {
+    helpers::ensure_libclang();
+    let input = Input {
+        name: "import_alias.h".into(),
+        source: "extern \"C\" __attribute__((annotate(\"Win32Metadata.ImportLibrary\", \"actual.dll\"))) int Native();\n#define Public Native\n".into(),
+        macros: vec!["Public".into()],
+        ..Default::default()
+    };
+    let output = projection::generate(&[input], "Fixture").unwrap();
+    assert_eq!(output.functions, 2);
+    let text: String = output
+        .partitions
+        .values()
+        .map(|part| part.rdl.as_str())
+        .collect();
+    assert!(text.contains("#[library(\"actual.dll\", import = \"Native\")]"));
+    assert!(text.contains("fn Public("));
+}
+
+#[test]
 fn variant_order_survives_metadata_roundtrip() {
     helpers::ensure_libclang();
     let snapshots = capture(

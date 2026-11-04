@@ -2,6 +2,10 @@
 struct PackOne { char value; };
 #pragma pack(pop)
 
+__attribute__((annotate("strings", "name" ".dll", ("parenthesized"), R"(raw)",
+    L"wide", u8"utf8", "embedded\0null", 42)))
+void NativeAnnotationStrings();
+
 struct RecordPlain { int value; };
 struct RecordConstructed { int value; RecordConstructed() : value(0) {} };
 struct RecordDefaulted { int value; RecordDefaulted() = default; };

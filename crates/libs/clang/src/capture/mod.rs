@@ -582,12 +582,12 @@ impl Capture<'_> {
         for child in children(cursor) {
             let kind = unsafe { clang_getCursorKind(child) };
             if unsafe { clang_isAttribute(kind) } != 0 {
-                attributes.push(self.attribute(child)?);
+                attributes.push(self.attribute(child, cursor)?);
             } else if kind == CXCursor_EnumConstantDecl {
                 let mut attributes = Vec::new();
                 for attribute in children(child) {
                     if unsafe { clang_isAttribute(clang_getCursorKind(attribute)) } != 0 {
-                        attributes.push(self.attribute(attribute)?);
+                        attributes.push(self.attribute(attribute, child)?);
                     }
                 }
                 members.push(EnumMember {
@@ -782,7 +782,7 @@ impl Capture<'_> {
             for child in children(cursor) {
                 let kind = unsafe { clang_getCursorKind(child) };
                 if unsafe { clang_isAttribute(kind) } != 0 {
-                    attributes.push(self.attribute(child)?);
+                    attributes.push(self.attribute(child, cursor)?);
                     continue;
                 }
                 if external && kind != CXCursor_CXXBaseSpecifier {
@@ -1056,7 +1056,7 @@ impl Capture<'_> {
         Ok(())
     }
 
-    fn attribute(&mut self, cursor: CXCursor) -> Result<Attribute, Error> {
+    fn attribute(&mut self, cursor: CXCursor, owner: CXCursor) -> Result<Attribute, Error> {
         let (file, _, _, _) = source(cursor);
         let name = unsafe { windows_clang_getAttributeKindName(cursor) };
         if name.is_null() {
@@ -1074,7 +1074,7 @@ impl Capture<'_> {
             "NoThrow" => AttributeKind::NoThrow,
             "CXX11NoReturn" => AttributeKind::Cxx11NoReturn,
             "SelectAny" => AttributeKind::SelectAny,
-            "Annotate" => annotations::read(cursor)?,
+            "Annotate" => annotations::read(cursor, owner)?,
             "Deprecated" => {
                 let mut message = CXString::default();
                 let mut replacement = CXString::default();
@@ -1190,7 +1190,21 @@ impl Capture<'_> {
         for child in children(cursor) {
             let kind = unsafe { clang_getCursorKind(child) };
             if unsafe { clang_isAttribute(kind) } != 0 {
-                result.push(self.attribute(child)?);
+                let attribute = self.attribute(child, cursor)?;
+                let name = match &attribute.kind {
+                    AttributeKind::SetLastError => Some("SetLastError"),
+                    AttributeKind::ImportLibrary(_) => Some("ImportLibrary"),
+                    _ => None,
+                };
+                if let Some(name) = name
+                    && result.iter().any(|other: &Attribute| {
+                        std::mem::discriminant(&other.kind)
+                            == std::mem::discriminant(&attribute.kind)
+                    })
+                {
+                    return Err(unsupported(child, &format!("duplicate {name} annotation")));
+                }
+                result.push(attribute);
             } else if kind == CXCursor_ParmDecl {
                 if !parameters
                     && !matches!(

@@ -20,6 +20,39 @@ fn native_semantics() {
                 .find(|cursor| text(unsafe { clang_getCursorSpelling(**cursor) }) == name)
                 .unwrap()
         };
+        let annotation = children(find("NativeAnnotationStrings"))
+            .into_iter()
+            .find(|cursor| (unsafe { clang_getCursorKind(*cursor) }) == CXCursor_AnnotateAttr)
+            .unwrap();
+        let arguments = children(annotation);
+        assert_eq!(arguments.len(), 7);
+        for (argument, expected) in arguments.iter().zip([
+            Some("name.dll"),
+            Some("parenthesized"),
+            Some("raw"),
+            None,
+            None,
+            None,
+            None,
+        ]) {
+            let mut value = CXString::default();
+            let status = unsafe { windows_clang_getStringLiteral(*argument, &raw mut value) };
+            if let Some(expected) = expected {
+                assert_eq!(status, WindowsClangSuccess);
+                assert_eq!(text(value), expected);
+            } else {
+                assert_eq!(status, WindowsClangWrongKind);
+            }
+        }
+        assert_eq!(
+            unsafe { windows_clang_getStringLiteral(arguments[0], std::ptr::null_mut()) },
+            WindowsClangInvalidArgument,
+        );
+        let mut value = CXString::default();
+        assert_eq!(
+            unsafe { windows_clang_getStringLiteral(clang_getNullCursor(), &raw mut value) },
+            WindowsClangWrongKind,
+        );
         for (name, expected) in [
             ("RecordPlain", [1, 0, 0, 0, 0, 0]),
             ("RecordConstructed", [1, 0, 0, 0, 1, 0]),
@@ -1040,7 +1073,7 @@ fn native_semantics() {
     std::thread::scope(|scope| {
         for _ in 0..3 {
             scope.spawn(|| {
-                assert_eq!(unsafe { windows_clang_getABIVersion() }, 22);
+                assert_eq!(unsafe { windows_clang_getABIVersion() }, 23);
                 assert_eq!(
                     native_name(unsafe { windows_clang_getLLVMVersion() }),
                     LIBCLANG_VERSION

@@ -1,0 +1,13 @@
+#[win32]
+mod Fixture {
+    #[library("actual.dll")]
+    extern "C" fn DefaultConvention(value: i32) -> i32;
+    #[library("actual.dll", last_error)]
+    extern fn DllOnly(value: i32) -> i32;
+    #[library("actual.dll", import = "NativeEntry")]
+    extern fn Named(value: i32) -> i32;
+    #[library("actual.dll", import = "#42")]
+    extern fn Ordinal(value: i32) -> i32;
+    #[library("actual.dll", import = "#65535")]
+    extern fn StringOrdinal(value: i32) -> i32;
+}

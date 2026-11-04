@@ -60,8 +60,9 @@ Set `Input.source` to header text or an include directive, with include paths an
 | `macros` | Select object-like macros for evaluation. |
 | `macro_headers` | Discover object-like macros owned by selected headers. |
 
-Function publication also needs DLL/export ownership through `projection::Imports`; it cannot be
-inferred from a header. Use `projection::References` when existing metadata owns shared definitions.
+Function publication needs DLL/export ownership. An explicit `_Win32_ImportLibrary_` annotation is
+authoritative; `projection::Imports` supplies the fallback. Neither changes the native ABI.
+Use `projection::References` when existing metadata owns shared definitions.
 
 Strict generation fails on unsupported reachable declarations. `generate_partial` returns
 supported output plus omissions. Inspect those omissions before using the result: partial output

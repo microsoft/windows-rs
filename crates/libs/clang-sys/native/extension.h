@@ -126,6 +126,10 @@ WINDOWS_CLANG_API const void* windows_clang_getRuntimeIdentity(void);
 // Names are static strings owned by the library; non-attribute inputs return null.
 WINDOWS_CLANG_API const char* windows_clang_getAttributeKindName(CXCursor cursor);
 WINDOWS_CLANG_API const char* windows_clang_getTypeAttributeKindName(CXType type);
+// Ordinary narrow string literal after implicit conversions, with no embedded null bytes.
+// The caller disposes the returned string. Does not accept references to string variables.
+WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getStringLiteral(
+    CXCursor cursor, CXString* value);
 // Includes qualifiers inherited through typedefs; OtherQualifiers requires further decoding.
 WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getTypeQualifiers(
     CXType type, unsigned* qualifiers);
