@@ -665,6 +665,15 @@ pub const D3D12_CPU_PAGE_PROPERTY_NOT_AVAILABLE: D3D12_CPU_PAGE_PROPERTY = 1;
 pub const D3D12_CPU_PAGE_PROPERTY_UNKNOWN: D3D12_CPU_PAGE_PROPERTY = 0;
 pub const D3D12_CPU_PAGE_PROPERTY_WRITE_BACK: D3D12_CPU_PAGE_PROPERTY = 3;
 pub const D3D12_CPU_PAGE_PROPERTY_WRITE_COMBINE: D3D12_CPU_PAGE_PROPERTY = 2;
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D12_CREATE_STATE_OBJECT_STATISTICS {
+    pub NumCreated: super::UINT,
+    pub NumPSDBCacheMissed: super::UINT,
+    pub NumTotalCacheMissed: super::UINT,
+    pub NumCacheUnknown: super::UINT,
+}
 pub type D3D12_CROSS_NODE_SHARING_TIER = i32;
 pub const D3D12_CROSS_NODE_SHARING_TIER_1: D3D12_CROSS_NODE_SHARING_TIER = 2;
 pub const D3D12_CROSS_NODE_SHARING_TIER_1_EMULATED: D3D12_CROSS_NODE_SHARING_TIER = 1;
@@ -6242,6 +6251,14 @@ pub const D3D12_STATE_OBJECT_FLAG_ALLOW_EXTERNAL_DEPENDENCIES_ON_LOCAL_DEFINITIO
 pub const D3D12_STATE_OBJECT_FLAG_ALLOW_LOCAL_DEPENDENCIES_ON_EXTERNAL_DEFINITIONS: D3D12_STATE_OBJECT_FLAGS = 1;
 pub const D3D12_STATE_OBJECT_FLAG_ALLOW_STATE_OBJECT_ADDITIONS: D3D12_STATE_OBJECT_FLAGS = 4;
 pub const D3D12_STATE_OBJECT_FLAG_NONE: D3D12_STATE_OBJECT_FLAGS = 0;
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D12_STATE_OBJECT_STATISTICS {
+    pub DefaultPSDBRegistered: windows_core::BOOL,
+    pub PipelineStateObjectStatistics: D3D12_CREATE_STATE_OBJECT_STATISTICS,
+    pub StateObjectStatistics: D3D12_CREATE_STATE_OBJECT_STATISTICS,
+}
 pub type D3D12_STATE_OBJECT_TYPE = i32;
 pub const D3D12_STATE_OBJECT_TYPE_COLLECTION: D3D12_STATE_OBJECT_TYPE = 0;
 pub const D3D12_STATE_OBJECT_TYPE_EXECUTABLE: D3D12_STATE_OBJECT_TYPE = 4;
@@ -13683,6 +13700,44 @@ impl ID3D12DeviceRemovedExtendedDataSettings2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12DeviceRemovedExtendedDataSettings2 {}
+windows_core::imp::define_interface!(ID3D12DeviceStatistics, ID3D12DeviceStatistics_Vtbl, 0x3d5ca1a8_a39e_4619_95e0_f9b0a40340f5);
+windows_core::imp::interface_hierarchy!(ID3D12DeviceStatistics, windows_core::IUnknown);
+impl ID3D12DeviceStatistics {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetStateObjectStatistics(&self, pstatistics: *mut D3D12_STATE_OBJECT_STATISTICS) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetStateObjectStatistics)(windows_core::Interface::as_raw(self), pstatistics as _) }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12DeviceStatistics_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    #[cfg(feature = "shared")]
+    pub GetStateObjectStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_STATE_OBJECT_STATISTICS) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetStateObjectStatistics: usize,
+}
+#[cfg(feature = "shared")]
+pub trait ID3D12DeviceStatistics_Impl: windows_core::IUnknownImpl {
+    fn GetStateObjectStatistics(&self, pstatistics: *mut D3D12_STATE_OBJECT_STATISTICS) -> windows_core::HRESULT;
+}
+#[cfg(feature = "shared")]
+impl ID3D12DeviceStatistics_Vtbl {
+    pub const fn new<Identity: ID3D12DeviceStatistics_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetStateObjectStatistics<Identity: ID3D12DeviceStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstatistics: *mut D3D12_STATE_OBJECT_STATISTICS) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12DeviceStatistics_Impl::GetStateObjectStatistics(this, core::mem::transmute_copy(&pstatistics))
+            }
+        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetStateObjectStatistics: GetStateObjectStatistics::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12DeviceStatistics as windows_core::Interface>::IID
+    }
+}
+#[cfg(feature = "shared")]
+impl windows_core::RuntimeName for ID3D12DeviceStatistics {}
 windows_core::imp::define_interface!(ID3D12DeviceTools, ID3D12DeviceTools_Vtbl, 0x2ea68e9c_19c3_4e47_a109_6cdadff0aca9);
 windows_core::imp::interface_hierarchy!(ID3D12DeviceTools, windows_core::IUnknown);
 impl ID3D12DeviceTools {
@@ -22502,6 +22557,7 @@ pub const IID_ID3D12DeviceRemovedExtendedData2: windows_core::GUID = windows_cor
 pub const IID_ID3D12DeviceRemovedExtendedDataSettings: windows_core::GUID = windows_core::GUID::from_u128(0x82bc481c_6b9b_4030_aedb_7ee3d1df1e63);
 pub const IID_ID3D12DeviceRemovedExtendedDataSettings1: windows_core::GUID = windows_core::GUID::from_u128(0xdbd5ae51_3317_4f0a_adf9_1d7cedcaae0b);
 pub const IID_ID3D12DeviceRemovedExtendedDataSettings2: windows_core::GUID = windows_core::GUID::from_u128(0x61552388_01ab_4008_a436_83db189566ea);
+pub const IID_ID3D12DeviceStatistics: windows_core::GUID = windows_core::GUID::from_u128(0x3d5ca1a8_a39e_4619_95e0_f9b0a40340f5);
 pub const IID_ID3D12DeviceTools: windows_core::GUID = windows_core::GUID::from_u128(0x2ea68e9c_19c3_4e47_a109_6cdadff0aca9);
 pub const IID_ID3D12DeviceTools1: windows_core::GUID = windows_core::GUID::from_u128(0xe30e9fc7_e641_4d6e_8a81_9dd9206ec47a);
 pub const IID_ID3D12Fence: windows_core::GUID = windows_core::GUID::from_u128(0x0a753dcf_c4d8_4b91_adf6_be5a60d95a76);

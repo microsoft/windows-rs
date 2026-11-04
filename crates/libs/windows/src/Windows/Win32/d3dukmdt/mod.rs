@@ -2302,6 +2302,136 @@ impl D3DDDI_SEGMENTPREFERENCE_0_0 {
         self._bitfield = (self._bitfield & !(3 << 30)) | ((value & 3) << 30);
     }
 }
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct D3DDDI_SEGMENTPREFERENCE2 {
+    pub Anonymous: D3DDDI_SEGMENTPREFERENCE2_0,
+}
+#[cfg(feature = "shared")]
+impl Default for D3DDDI_SEGMENTPREFERENCE2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union D3DDDI_SEGMENTPREFERENCE2_0 {
+    pub Anonymous: D3DDDI_SEGMENTPREFERENCE2_0_0,
+    pub Value: super::UINT,
+}
+#[cfg(feature = "shared")]
+impl Default for D3DDDI_SEGMENTPREFERENCE2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DDDI_SEGMENTPREFERENCE2_0_0 {
+    pub _bitfield: u32,
+}
+#[cfg(feature = "shared")]
+impl D3DDDI_SEGMENTPREFERENCE2_0_0 {
+    pub fn SegmentId0(&self) -> super::UINT {
+        (self._bitfield) & 15
+    }
+    pub fn set_SegmentId0(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn PagePreference0(&self) -> super::UINT {
+        (self._bitfield >> 4) & 1
+    }
+    pub fn set_PagePreference0(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
+    }
+    pub fn Direction0(&self) -> super::UINT {
+        (self._bitfield >> 5) & 1
+    }
+    pub fn set_Direction0(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
+    }
+    pub fn SegmentId1(&self) -> super::UINT {
+        (self._bitfield >> 6) & 15
+    }
+    pub fn set_SegmentId1(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(15 << 6)) | ((value & 15) << 6);
+    }
+    pub fn PagePreference1(&self) -> super::UINT {
+        (self._bitfield >> 10) & 1
+    }
+    pub fn set_PagePreference1(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value & 1) << 10);
+    }
+    pub fn Direction1(&self) -> super::UINT {
+        (self._bitfield >> 11) & 1
+    }
+    pub fn set_Direction1(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value & 1) << 11);
+    }
+    pub fn SegmentId2(&self) -> super::UINT {
+        (self._bitfield >> 12) & 15
+    }
+    pub fn set_SegmentId2(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(15 << 12)) | ((value & 15) << 12);
+    }
+    pub fn PagePreference2(&self) -> super::UINT {
+        (self._bitfield >> 16) & 1
+    }
+    pub fn set_PagePreference2(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 16)) | ((value & 1) << 16);
+    }
+    pub fn Direction2(&self) -> super::UINT {
+        (self._bitfield >> 17) & 1
+    }
+    pub fn set_Direction2(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 17)) | ((value & 1) << 17);
+    }
+    pub fn SegmentId3(&self) -> super::UINT {
+        (self._bitfield >> 18) & 15
+    }
+    pub fn set_SegmentId3(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(15 << 18)) | ((value & 15) << 18);
+    }
+    pub fn PagePreference3(&self) -> super::UINT {
+        (self._bitfield >> 22) & 1
+    }
+    pub fn set_PagePreference3(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 22)) | ((value & 1) << 22);
+    }
+    pub fn Direction3(&self) -> super::UINT {
+        (self._bitfield >> 23) & 1
+    }
+    pub fn set_Direction3(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 23)) | ((value & 1) << 23);
+    }
+    pub fn SegmentId4(&self) -> super::UINT {
+        (self._bitfield >> 24) & 15
+    }
+    pub fn set_SegmentId4(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(15 << 24)) | ((value & 15) << 24);
+    }
+    pub fn PagePreference4(&self) -> super::UINT {
+        (self._bitfield >> 28) & 1
+    }
+    pub fn set_PagePreference4(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 28)) | ((value & 1) << 28);
+    }
+    pub fn Direction4(&self) -> super::UINT {
+        (self._bitfield >> 29) & 1
+    }
+    pub fn set_Direction4(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 29)) | ((value & 1) << 29);
+    }
+    pub fn Reserved(&self) -> super::UINT {
+        self._bitfield >> 30
+    }
+    pub fn set_Reserved(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(3 << 30)) | ((value & 3) << 30);
+    }
+}
 pub const D3DDDI_SEMAPHORE: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = 2;
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -3219,14 +3349,18 @@ pub const DXGK_DRIVER_FEATURE_GPUPV_PRESENT_HWQUEUE: DXGK_DRIVER_FEATURE = 35;
 pub const DXGK_DRIVER_FEATURE_GPUVAIOMMU: DXGK_DRIVER_FEATURE = 36;
 pub const DXGK_DRIVER_FEATURE_HWFLIPQUEUE: DXGK_DRIVER_FEATURE = 1;
 pub const DXGK_DRIVER_FEATURE_HWSCH: DXGK_DRIVER_FEATURE = 0;
+pub const DXGK_DRIVER_FEATURE_INTELLIGENT_CARVEOUT: DXGK_DRIVER_FEATURE = 48;
 pub const DXGK_DRIVER_FEATURE_KERNEL_MODE_TESTING: DXGK_DRIVER_FEATURE = 33;
 pub const DXGK_DRIVER_FEATURE_KMD_SIGNAL_CPU_EVENT: DXGK_DRIVER_FEATURE = 3;
 pub const DXGK_DRIVER_FEATURE_LDA_GPUPV: DXGK_DRIVER_FEATURE = 2;
-pub const DXGK_DRIVER_FEATURE_MAX: DXGK_DRIVER_FEATURE = 47;
+pub const DXGK_DRIVER_FEATURE_MAX: DXGK_DRIVER_FEATURE = 54;
+pub const DXGK_DRIVER_FEATURE_MAX_VALUE: i32 = 54;
 pub const DXGK_DRIVER_FEATURE_NATIVE_FENCE: DXGK_DRIVER_FEATURE = 37;
 pub const DXGK_DRIVER_FEATURE_NOTIFY_RESIDENCY2: DXGK_DRIVER_FEATURE = 43;
 pub const DXGK_DRIVER_FEATURE_PAGE_BASED_MEMORY_MANAGER: DXGK_DRIVER_FEATURE = 32;
+pub const DXGK_DRIVER_FEATURE_PAGING_INTENT: DXGK_DRIVER_FEATURE = 52;
 pub const DXGK_DRIVER_FEATURE_PANEL_BUFFER_CONTROL: DXGK_DRIVER_FEATURE = 46;
+pub const DXGK_DRIVER_FEATURE_PARTITION_SEGMENT: DXGK_DRIVER_FEATURE = 51;
 pub const DXGK_DRIVER_FEATURE_PROCESS_DEBUG_BLOB_COLLECTION: DXGK_DRIVER_FEATURE = 45;
 pub const DXGK_DRIVER_FEATURE_RESERVED_1: DXGK_DRIVER_FEATURE = 6;
 pub const DXGK_DRIVER_FEATURE_RESERVED_10: DXGK_DRIVER_FEATURE = 15;
@@ -3257,9 +3391,12 @@ pub const DXGK_DRIVER_FEATURE_SAMPLE: DXGK_DRIVER_FEATURE = 31;
 pub const DXGK_DRIVER_FEATURE_SHARE_BACKING_STORE_WITH_KMD: DXGK_DRIVER_FEATURE = 5;
 pub const DXGK_DRIVER_FEATURE_SINGLE_ADAPTER_HYBRID_MODE: DXGK_DRIVER_FEATURE = 40;
 pub const DXGK_DRIVER_FEATURE_SYNC_PRESENT_RENDER_HWQ_ONLY: DXGK_DRIVER_FEATURE = 41;
+pub const DXGK_DRIVER_FEATURE_SYSMEM_PAGING: DXGK_DRIVER_FEATURE = 53;
+pub const DXGK_DRIVER_FEATURE_TARGET_PROPERTY_MAP: DXGK_DRIVER_FEATURE = 49;
 pub const DXGK_DRIVER_FEATURE_UNIFIED_SCHEDULING_MODEL: DXGK_DRIVER_FEATURE = 42;
 pub const DXGK_DRIVER_FEATURE_USER_MODE_SUBMISSION: DXGK_DRIVER_FEATURE = 4;
 pub const DXGK_FEATURE_64K_PT_DEMOTION_FIX: DXGK_FEATURE_ID = 34;
+pub const DXGK_FEATURE_64K_PT_DEMOTION_FIX_VERSION: i32 = 0;
 pub type DXGK_FEATURE_CATEGORY = i32;
 pub const DXGK_FEATURE_CATEGORY_BUGFIX: DXGK_FEATURE_CATEGORY = 2;
 pub const DXGK_FEATURE_CATEGORY_DRIVER: DXGK_FEATURE_CATEGORY = 0;
@@ -3285,35 +3422,72 @@ pub const DXGK_FEATURE_FAULT_AND_STALL: DXGK_FEATURE_ID = 39;
 pub const DXGK_FEATURE_FEATURE_INTERFACE_EXTENSIONS: DXGK_FEATURE_ID = 268435461;
 pub const DXGK_FEATURE_FENCE_SIGNAL_FROM_SWS_NODE: DXGK_FEATURE_ID = 268435459;
 pub const DXGK_FEATURE_GPUPV_PRESENT_HWQUEUE: DXGK_FEATURE_ID = 35;
+pub const DXGK_FEATURE_GPUPV_PRESENT_HWQUEUE_VERSION: i32 = 0;
 pub const DXGK_FEATURE_GPUVAIOMMU: DXGK_FEATURE_ID = 36;
+pub const DXGK_FEATURE_GPUVAIOMMU_VERSION: i32 = 0;
 pub const DXGK_FEATURE_HWFLIPQUEUE: DXGK_FEATURE_ID = 1;
+pub const DXGK_FEATURE_HWFLIPQUEUE_VERSION: i32 = 0;
 pub const DXGK_FEATURE_HWSCH: DXGK_FEATURE_ID = 0;
+pub const DXGK_FEATURE_HWSCH_VERSION: i32 = 0;
 pub type DXGK_FEATURE_ID = i32;
 pub const DXGK_FEATURE_ID_CATEGORY_BITS: i32 = 4;
 pub const DXGK_FEATURE_ID_CATEGORY_SHIFT: i32 = 28;
 pub const DXGK_FEATURE_ID_FEATURE_BITS: i32 = 28;
 pub const DXGK_FEATURE_ID_MASK: i32 = 268435455;
+pub const DXGK_FEATURE_INTELLIGENT_CARVEOUT: DXGK_FEATURE_ID = 48;
+pub const DXGK_FEATURE_INTELLIGENT_CARVEOUT_OS: DXGK_FEATURE_ID = 268435467;
+pub const DXGK_FEATURE_INTELLIGENT_CARVEOUT_OS_VERSION: i32 = 1;
+pub const DXGK_FEATURE_INTELLIGENT_CARVEOUT_OS_VERSION_INITIAL: i32 = 1;
+pub const DXGK_FEATURE_INTELLIGENT_CARVEOUT_VERSION: i32 = 2;
+pub const DXGK_FEATURE_INTELLIGENT_CARVEOUT_VERSION_2: i32 = 2;
+pub const DXGK_FEATURE_INTELLIGENT_CARVEOUT_VERSION_INITIAL: i32 = 1;
+pub const DXGK_FEATURE_IOMMU_ATS_SUPPORT: DXGK_FEATURE_ID = 268435464;
 pub const DXGK_FEATURE_KERNEL_MODE_TESTING: DXGK_FEATURE_ID = 33;
+pub const DXGK_FEATURE_KERNEL_MODE_TESTING_VERSION: i32 = 0;
 pub const DXGK_FEATURE_KMD_SIGNAL_CPU_EVENT: DXGK_FEATURE_ID = 3;
+pub const DXGK_FEATURE_KMD_SIGNAL_CPU_EVENT_VERSION: i32 = 0;
 pub const DXGK_FEATURE_LDA_GPUPV: DXGK_FEATURE_ID = 2;
-pub const DXGK_FEATURE_MAX: DXGK_DRIVER_FEATURE = 47;
+pub const DXGK_FEATURE_LDA_GPUPV_VERSION: i32 = 0;
+pub const DXGK_FEATURE_MAX: DXGK_DRIVER_FEATURE = 54;
 pub const DXGK_FEATURE_NATIVE_FENCE: DXGK_FEATURE_ID = 37;
+pub const DXGK_FEATURE_NATIVE_FENCE_VERSION: i32 = 1;
+pub const DXGK_FEATURE_NATIVE_FENCE_VERSION_INITIAL: i32 = 1;
 pub const DXGK_FEATURE_NOTIFY_RESIDENCY2: DXGK_FEATURE_ID = 43;
 pub const DXGK_FEATURE_OPPORTUNISTIC_64KB_PAGES: DXGK_FEATURE_ID = 268435463;
 pub const DXGK_FEATURE_PAGE_BASED_MEMORY_MANAGER: DXGK_FEATURE_ID = 32;
+pub const DXGK_FEATURE_PAGING_INTENT: DXGK_FEATURE_ID = 52;
+pub const DXGK_FEATURE_PAGING_INTENT_VERSION: i32 = 1;
+pub const DXGK_FEATURE_PAGING_INTENT_VERSION_INITIAL: i32 = 1;
 pub const DXGK_FEATURE_PANEL_BUFFER_CONTROL: DXGK_FEATURE_ID = 46;
+pub const DXGK_FEATURE_PANEL_BUFFER_CONTROL_VERSION: i32 = 0;
+pub const DXGK_FEATURE_PARTITION_SEGMENT: DXGK_FEATURE_ID = 51;
+pub const DXGK_FEATURE_PARTITION_SEGMENT_VERSION: i32 = 1;
+pub const DXGK_FEATURE_PARTITION_SEGMENT_VERSION_INITIAL: i32 = 1;
 pub const DXGK_FEATURE_PER_PTE_PAGE_SIZE: DXGK_FEATURE_ID = 268435458;
 pub const DXGK_FEATURE_PROCESS_DEBUG_BLOB_COLLECTION: DXGK_FEATURE_ID = 45;
+pub const DXGK_FEATURE_PROCESS_DEBUG_BLOB_COLLECTION_VERSION: i32 = 0;
 pub const DXGK_FEATURE_QUERYSTATISTICS_EXTENSIONS: DXGK_FEATURE_ID = 268435456;
 pub const DXGK_FEATURE_READONLY_EXISTINGSYSMEM: DXGK_FEATURE_ID = 268435462;
 pub const DXGK_FEATURE_RESERVE_GPUVA_ZERO_BASE_ADDRESS: DXGK_FEATURE_ID = 268435457;
 pub const DXGK_FEATURE_SAMPLE: DXGK_FEATURE_ID = 31;
+pub const DXGK_FEATURE_SAMPLE_VERSION: i32 = 5;
+pub const DXGK_FEATURE_SAMPLE_VERSION_ADD_SUBTRACT: i32 = 5;
 pub const DXGK_FEATURE_SHARE_BACKING_STORE_WITH_KMD: DXGK_FEATURE_ID = 5;
+pub const DXGK_FEATURE_SHARE_BACKING_STORE_WITH_KMD_VERSION: i32 = 0;
 pub const DXGK_FEATURE_SINGLE_ADAPTER_HYBRID_MODE: DXGK_FEATURE_ID = 40;
 pub const DXGK_FEATURE_SUPPRESSVSYNC_INTERRUPTS: DXGK_FEATURE_ID = 268435460;
 pub const DXGK_FEATURE_SYNC_PRESENT_RENDER_HWQ_ONLY: DXGK_FEATURE_ID = 41;
+pub const DXGK_FEATURE_SYNC_PRESENT_RENDER_HWQ_ONLY_VERSION: i32 = 0;
+pub const DXGK_FEATURE_SYSMEM_PAGING: DXGK_FEATURE_ID = 53;
+pub const DXGK_FEATURE_SYSMEM_PAGING_VERSION: i32 = 1;
+pub const DXGK_FEATURE_SYSMEM_PAGING_VERSION_INITIAL: i32 = 1;
+pub const DXGK_FEATURE_TARGET_PROPERTY_MAP: DXGK_FEATURE_ID = 49;
+pub const DXGK_FEATURE_TARGET_PROPERTY_MAP_VERSION: i32 = 1;
+pub const DXGK_FEATURE_TARGET_PROPERTY_MAP_VERSION_INITIAL: i32 = 1;
 pub const DXGK_FEATURE_UNIFIED_SCHEDULING_MODEL: DXGK_FEATURE_ID = 42;
 pub const DXGK_FEATURE_USER_MODE_SUBMISSION: DXGK_FEATURE_ID = 4;
+pub const DXGK_FEATURE_USER_MODE_SUBMISSION_VERSION: i32 = 1;
+pub const DXGK_FEATURE_USER_MODE_SUBMISSION_VERSION_INITIAL: i32 = 1;
 pub type DXGK_FEATURE_VERSION = u16;
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -3521,7 +3695,9 @@ pub const DXGK_NATIVE_FENCE_LOG_TYPE_WAITS: DXGK_NATIVE_FENCE_LOG_TYPE = 1;
 pub type DXGK_OS_FEATURE = i32;
 pub const DXGK_OS_FEATURE_FEATURE_INTERFACE_EXTENSIONS: DXGK_OS_FEATURE = 5;
 pub const DXGK_OS_FEATURE_FENCE_SIGNAL_FROM_SWS_NODE: DXGK_OS_FEATURE = 3;
-pub const DXGK_OS_FEATURE_MAX: DXGK_OS_FEATURE = 8;
+pub const DXGK_OS_FEATURE_INTELLIGENT_CARVEOUT_OS: DXGK_OS_FEATURE = 11;
+pub const DXGK_OS_FEATURE_IOMMU_ATS_SUPPORT: DXGK_OS_FEATURE = 8;
+pub const DXGK_OS_FEATURE_MAX: DXGK_OS_FEATURE = 12;
 pub const DXGK_OS_FEATURE_OPPORTUNISTIC_64KB_PAGES: DXGK_OS_FEATURE = 7;
 pub const DXGK_OS_FEATURE_PER_PTE_PAGE_SIZE: DXGK_OS_FEATURE = 2;
 pub const DXGK_OS_FEATURE_QUERYSTATISTICS_EXTENSIONS: DXGK_OS_FEATURE = 0;
@@ -3655,6 +3831,8 @@ pub const DXGK_PTE_BLOCK_ACCESS_WRITE: DXGK_PTE_BLOCK_ACCESS_MODE = 1;
 pub type DXGK_PTE_PAGE_SIZE = i32;
 pub const DXGK_PTE_PAGE_TABLE_PAGE_4KB: DXGK_PTE_PAGE_SIZE = 0;
 pub const DXGK_PTE_PAGE_TABLE_PAGE_64KB: DXGK_PTE_PAGE_SIZE = 1;
+pub const DXGK_QUERYFEATURESUPPORT2_VERSION: i32 = 0;
+pub const DXGK_SEGMENTPREFERENCE_PAGEPREFERENCE_LARGE: i32 = 16;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

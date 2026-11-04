@@ -190,6 +190,8 @@ windows_link::link!("user32.dll" "system" fn CreateMenu() -> super::HMENU);
 windows_link::link!("user32.dll" "system" fn CreatePopupMenu() -> super::HMENU);
 #[cfg(feature = "shared")]
 windows_link::link!("user32.dll" "system" fn CreateSyntheticPointerDevice(pointertype : POINTER_INPUT_TYPE, maxcount : super::ULONG, mode : POINTER_FEEDBACK_MODE) -> HSYNTHETICPOINTERDEVICE);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn CreateSyntheticPointerDevice2(pparams : *const SYNTHETIC_DEVICE_CREATION_PARAMS) -> HSYNTHETICPOINTERDEVICE);
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn CreateWindowExA(dwexstyle : super::DWORD, lpclassname : windows_sys::core::PCSTR, lpwindowname : windows_sys::core::PCSTR, dwstyle : super::DWORD, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::HWND, hmenu : super::HMENU, hinstance : super::HINSTANCE, lpparam : super::LPVOID) -> super::HWND);
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
@@ -619,6 +621,10 @@ windows_link::link!("user32.dll" "system" fn GetPointerFrameTouchInfo(pointerid 
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn GetPointerFrameTouchInfoHistory(pointerid : super::UINT32, entriescount : *mut super::UINT32, pointercount : *mut super::UINT32, touchinfo : *mut POINTER_TOUCH_INFO) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn GetPointerFrameTouchpadInfo(pointerid : super::UINT32, pointercount : *mut super::UINT32, touchpadinfo : *mut POINTER_TOUCH_INFO) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn GetPointerFrameTouchpadInfoHistory(pointerid : super::UINT32, entriescount : *mut super::UINT32, pointercount : *mut super::UINT32, touchpadinfo : *mut POINTER_TOUCH_INFO) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn GetPointerInfo(pointerid : super::UINT32, pointerinfo : *mut POINTER_INFO) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn GetPointerInfoHistory(pointerid : super::UINT32, entriescount : *mut super::UINT32, pointerinfo : *mut POINTER_INFO) -> windows_sys::core::BOOL);
@@ -632,6 +638,10 @@ windows_link::link!("user32.dll" "system" fn GetPointerPenInfoHistory(pointerid 
 windows_link::link!("user32.dll" "system" fn GetPointerTouchInfo(pointerid : super::UINT32, touchinfo : *mut POINTER_TOUCH_INFO) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn GetPointerTouchInfoHistory(pointerid : super::UINT32, entriescount : *mut super::UINT32, touchinfo : *mut POINTER_TOUCH_INFO) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn GetPointerTouchpadInfo(pointerid : super::UINT32, touchpadinfo : *mut POINTER_TOUCH_INFO) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn GetPointerTouchpadInfoHistory(pointerid : super::UINT32, entriescount : *mut super::UINT32, touchpadinfo : *mut POINTER_TOUCH_INFO) -> windows_sys::core::BOOL);
 #[cfg(feature = "shared")]
 windows_link::link!("user32.dll" "system" fn GetPointerType(pointerid : super::UINT32, pointertype : *mut POINTER_INPUT_TYPE) -> windows_sys::core::BOOL);
 #[cfg(feature = "shared")]
@@ -790,6 +800,7 @@ windows_link::link!("user32.dll" "system" fn InitializeTouchInjection(maxcount :
 windows_link::link!("user32.dll" "system" fn InjectSyntheticPointerInput(device : HSYNTHETICPOINTERDEVICE, pointerinfo : *const POINTER_TYPE_INFO, count : super::UINT32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn InjectTouchInput(count : super::UINT32, contacts : *const POINTER_TOUCH_INFO) -> windows_sys::core::BOOL);
+windows_link::link!("user32.dll" "system" fn InjectTouchpadAction(hdevice : HSYNTHETICPOINTERDEVICE, action : TOUCHPAD_ACTION) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn InsertMenuA(hmenu : super::HMENU, uposition : super::UINT, uflags : super::UINT, uidnewitem : super::UINT_PTR, lpnewitem : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "shared", feature = "windef"))]
@@ -1071,6 +1082,9 @@ windows_link::link!("user32.dll" "system" fn RegisterSuspendResumeNotification(h
 windows_link::link!("user32.dll" "system" fn RegisterTouchHitTestingWindow(hwnd : super::HWND, value : super::ULONG) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn RegisterTouchWindow(hwnd : super::HWND, ulflags : super::ULONG) -> windows_sys::core::BOOL);
+windows_link::link!("user32.dll" "system" fn RegisterTouchpadCapableThread(fenable : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+#[cfg(feature = "windef")]
+windows_link::link!("user32.dll" "system" fn RegisterTouchpadCapableWindow(hwnd : super::HWND, fenable : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(feature = "shared")]
 windows_link::link!("user32.dll" "system" fn RegisterWindowMessageA(lpstring : windows_sys::core::PCSTR) -> super::UINT);
 #[cfg(feature = "shared")]
@@ -1088,6 +1102,8 @@ windows_link::link!("user32.dll" "system" fn RemovePropA(hwnd : super::HWND, lps
 windows_link::link!("user32.dll" "system" fn RemovePropW(hwnd : super::HWND, lpstring : windows_sys::core::PCWSTR) -> super::HANDLE);
 #[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn ReplyMessage(lresult : super::LRESULT) -> windows_sys::core::BOOL);
+#[cfg(feature = "windef")]
+windows_link::link!("user32.dll" "system" fn ReportWindowContentInertia(hwnd : super::HWND, bstartinertia : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn ScreenToClient(hwnd : super::HWND, lppoint : super::LPPOINT) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
@@ -1183,6 +1199,7 @@ windows_link::link!("user32.dll" "system" fn SetKeyboardState(lpkeystate : super
 windows_link::link!("user32.dll" "system" fn SetLastErrorEx(dwerrcode : super::DWORD, dwtype : super::DWORD));
 #[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn SetLayeredWindowAttributes(hwnd : super::HWND, crkey : super::COLORREF, balpha : super::BYTE, dwflags : super::DWORD) -> windows_sys::core::BOOL);
+windows_link::link!("user32.dll" "system" fn SetMaxTouchpadSensitivity(maxsensitivity : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetMenu(hwnd : super::HWND, hmenu : super::HMENU) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "shared", feature = "windef"))]
@@ -5187,6 +5204,9 @@ pub const SC_SIZE: i32 = 61440;
 pub const SC_TASKLIST: i32 = 61744;
 pub const SC_VSCROLL: i32 = 61552;
 pub const SC_ZOOM: i32 = 61488;
+pub const SDCO_NONE: SYNTHETIC_DEVICE_CREATION_OPTIONS = 0;
+pub const SDCO_PHYSICAL_SIZE: SYNTHETIC_DEVICE_CREATION_OPTIONS = 1;
+pub const SDCO_TOUCHPAD_GESTURE_ONLY: SYNTHETIC_DEVICE_CREATION_OPTIONS = 2;
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type SENDASYNCPROC = Option<unsafe extern "system" fn(param0: super::HWND, param1: super::UINT, param2: super::ULONG_PTR, param3: super::LRESULT)>;
 #[cfg(feature = "shared")]
@@ -5818,6 +5838,30 @@ pub const SW_SHOWNA: i32 = 8;
 pub const SW_SHOWNOACTIVATE: i32 = 4;
 pub const SW_SHOWNORMAL: i32 = 1;
 pub const SW_SMOOTHSCROLL: i32 = 16;
+pub type SYNTHETIC_DEVICE_CREATION_OPTIONS = i32;
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "windef"))]
+#[derive(Clone, Copy, Default)]
+pub struct SYNTHETIC_DEVICE_CREATION_PARAMS {
+    pub pointerType: POINTER_INPUT_TYPE,
+    pub maxCount: super::ULONG,
+    pub feedbackMode: POINTER_FEEDBACK_MODE,
+    pub hMonitor: super::HMONITOR,
+    pub deviceWidth: super::ULONG,
+    pub deviceHeight: super::ULONG,
+    pub options: SYNTHETIC_DEVICE_CREATION_OPTIONS,
+}
+pub const TA_3FINGER_PRESS: TOUCHPAD_ACTION = 1;
+pub const TA_3FINGER_RELEASE: TOUCHPAD_ACTION = 2;
+pub const TA_3FINGER_TAP: TOUCHPAD_ACTION = 0;
+pub const TA_4FINGER_PRESS: TOUCHPAD_ACTION = 4;
+pub const TA_4FINGER_RELEASE: TOUCHPAD_ACTION = 5;
+pub const TA_4FINGER_TAP: TOUCHPAD_ACTION = 3;
+pub const TA_5FINGER_PRESS: TOUCHPAD_ACTION = 7;
+pub const TA_5FINGER_RELEASE: TOUCHPAD_ACTION = 8;
+pub const TA_5FINGER_TAP: TOUCHPAD_ACTION = 6;
+pub const TA_INERTIA_END: TOUCHPAD_ACTION = 10;
+pub const TA_INERTIA_STOP: TOUCHPAD_ACTION = 9;
 pub const TDF_REGISTER: TOOLTIP_DISMISS_FLAGS = 1;
 pub const TDF_UNREGISTER: TOOLTIP_DISMISS_FLAGS = 2;
 #[cfg(all(feature = "shared", feature = "windef"))]
@@ -5900,6 +5944,7 @@ pub struct TOUCHINPUT {
 pub const TOUCHINPUTMASKF_CONTACTAREA: i32 = 4;
 pub const TOUCHINPUTMASKF_EXTRAINFO: i32 = 2;
 pub const TOUCHINPUTMASKF_TIMEFROMSYSTEM: i32 = 1;
+pub type TOUCHPAD_ACTION = i32;
 #[repr(C)]
 #[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
@@ -6471,6 +6516,7 @@ pub const WM_DWMSENDICONICLIVEPREVIEWBITMAP: i32 = 806;
 pub const WM_DWMSENDICONICTHUMBNAIL: i32 = 803;
 pub const WM_DWMWINDOWMAXIMIZEDCHANGE: i32 = 801;
 pub const WM_ENABLE: i32 = 10;
+pub const WM_ENDINERTIA: i32 = 572;
 pub const WM_ENDSESSION: i32 = 22;
 pub const WM_ENTERIDLE: i32 = 289;
 pub const WM_ENTERMENULOOP: i32 = 529;
@@ -6641,6 +6687,7 @@ pub const WM_SIZE: i32 = 5;
 pub const WM_SIZECLIPBOARD: i32 = 779;
 pub const WM_SIZING: i32 = 532;
 pub const WM_SPOOLERSTATUS: i32 = 42;
+pub const WM_STOPINERTIA: i32 = 571;
 pub const WM_STYLECHANGED: i32 = 125;
 pub const WM_STYLECHANGING: i32 = 124;
 pub const WM_SYNCPAINT: i32 = 136;

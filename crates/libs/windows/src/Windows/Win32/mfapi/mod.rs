@@ -1112,7 +1112,7 @@ pub struct InputQPSettings {
     pub dataType: eAVEncVideoQPMapElementDataType,
     pub minValue: super::INT16,
     pub maxValue: super::INT16,
-    pub steps: super::UINT16,
+    pub step: super::UINT16,
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

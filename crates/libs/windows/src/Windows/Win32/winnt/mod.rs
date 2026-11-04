@@ -7567,6 +7567,8 @@ pub type LPOSVERSIONINFOEXW = *mut _OSVERSIONINFOEXW;
 pub type LPOSVERSIONINFOW = *mut _OSVERSIONINFOW;
 #[cfg(feature = "shared")]
 pub type LPSECURITY_CAPABILITIES = *mut SECURITY_CAPABILITIES;
+#[cfg(feature = "shared")]
+pub type LPSECURITY_CONTAINMENT_CONFIGURATION = *mut SECURITY_CONTAINMENT_CONFIGURATION;
 pub type LPTCH = *mut i8;
 pub type LPTSTR = *mut i8;
 pub type LPUTSTR = *mut i8;
@@ -11434,6 +11436,8 @@ pub type PSECURE_MEMORY_CACHE_CALLBACK = Option<unsafe extern "system" fn(addr: 
 pub type PSECURITY_ATTRIBUTES_OPAQUE = *mut core::ffi::c_void;
 #[cfg(feature = "shared")]
 pub type PSECURITY_CAPABILITIES = *mut SECURITY_CAPABILITIES;
+#[cfg(feature = "shared")]
+pub type PSECURITY_CONTAINMENT_CONFIGURATION = *mut SECURITY_CONTAINMENT_CONFIGURATION;
 pub type PSECURITY_CONTEXT_TRACKING_MODE = *mut u8;
 pub type PSECURITY_DESCRIPTOR = *mut core::ffi::c_void;
 pub type PSECURITY_DESCRIPTOR_CONTROL = *mut u16;
@@ -12441,6 +12445,56 @@ pub const SECURITY_CHILD_PACKAGE_RID_COUNT: i32 = 12;
 pub const SECURITY_CLOUD_INFRASTRUCTURE_SERVICES_ID_BASE_RID: i32 = 85;
 pub const SECURITY_CLOUD_INFRASTRUCTURE_SERVICES_ID_RID_COUNT: i32 = 6;
 pub const SECURITY_COM_ID_BASE_RID: i32 = 89;
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct SECURITY_CONTAINMENT_CONFIGURATION {
+    pub Size: super::DWORD,
+    pub Anonymous: SECURITY_CONTAINMENT_CONFIGURATION_0,
+    pub ExistingTokenHandle: HANDLE,
+    pub SecurityCapabilities: SECURITY_CAPABILITIES,
+    pub AppContainerIntegrityLevel: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for SECURITY_CONTAINMENT_CONFIGURATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union SECURITY_CONTAINMENT_CONFIGURATION_0 {
+    pub Flags: super::DWORD,
+    pub Anonymous: SECURITY_CONTAINMENT_CONFIGURATION_0_0,
+}
+#[cfg(feature = "shared")]
+impl Default for SECURITY_CONTAINMENT_CONFIGURATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SECURITY_CONTAINMENT_CONFIGURATION_0_0 {
+    pub _bitfield: u32,
+}
+#[cfg(feature = "shared")]
+impl SECURITY_CONTAINMENT_CONFIGURATION_0_0 {
+    pub fn UseDefaultIntegrityLevel(&self) -> super::DWORD {
+        (self._bitfield) & 1
+    }
+    pub fn set_UseDefaultIntegrityLevel(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
+    }
+    pub fn Reserved(&self) -> super::DWORD {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
+}
 pub type SECURITY_CONTEXT_TRACKING_MODE = u8;
 pub const SECURITY_CREATOR_GROUP_RID: i32 = 1;
 pub const SECURITY_CREATOR_GROUP_SERVER_RID: i32 = 3;

@@ -154,6 +154,8 @@ mod Windows {
         #[guid(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e)]
         const PKEY_AudioEndpoint_PhysicalSpeakers: PROPERTYKEY = 3;
         #[guid(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e)]
+        const PKEY_AudioEndpoint_StableId: PROPERTYKEY = 12;
+        #[guid(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e)]
         const PKEY_AudioEndpoint_Supports_EventDriven_Mode: PROPERTYKEY = 7;
         #[guid(0xf19f064d_082c_4e27_bc73_6882a1bb8e4c)]
         const PKEY_AudioEngine_DeviceFormat: PROPERTYKEY = 0;

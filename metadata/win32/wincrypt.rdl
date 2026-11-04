@@ -5191,6 +5191,8 @@ mod Windows {
         #[encoding("ansi")]
         const szOID_CERTSRV_PREVIOUS_CERT_HASH: String = "1.3.6.1.4.1.311.21.2";
         #[encoding("ansi")]
+        const szOID_CERTSRV_V2_ATTESTATION_VERIFIED: String = "1.3.6.1.4.1.311.21.49";
+        #[encoding("ansi")]
         const szOID_CERT_DISALLOWED_CA_FILETIME_PROP_ID: String = "1.3.6.1.4.1.311.10.11.128";
         #[encoding("ansi")]
         const szOID_CERT_DISALLOWED_FILETIME_PROP_ID: String = "1.3.6.1.4.1.311.10.11.104";
@@ -5506,6 +5508,16 @@ mod Windows {
         const szOID_ENROLL_SCEP_SERVER_STATE: String = "1.3.6.1.4.1.311.21.34";
         #[encoding("ansi")]
         const szOID_ENROLL_SCEP_SIGNER_HASH: String = "1.3.6.1.4.1.311.21.42";
+        #[encoding("ansi")]
+        const szOID_ENROLL_V2_AIK_INFO: String = "1.3.6.1.4.1.311.21.47";
+        #[encoding("ansi")]
+        const szOID_ENROLL_V2_ATTESTATION_STATEMENT: String = "1.3.6.1.4.1.311.21.48";
+        #[encoding("ansi")]
+        const szOID_ENROLL_V2_CONTAINER_NAME: String = "1.3.6.1.4.1.311.21.44";
+        #[encoding("ansi")]
+        const szOID_ENROLL_V2_EK_ALGORITHM: String = "1.3.6.1.4.1.311.21.45";
+        #[encoding("ansi")]
+        const szOID_ENROLL_V2_EK_PARAMETER: String = "1.3.6.1.4.1.311.21.46";
         #[encoding("ansi")]
         const szOID_ENTERPRISE_OID_ROOT: String = "1.3.6.1.4.1.311.21.8";
         #[encoding("ansi")]

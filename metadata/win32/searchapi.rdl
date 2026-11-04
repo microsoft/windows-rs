@@ -20,6 +20,7 @@ mod Windows {
             CLUSIONREASON_DEFAULT = 1,
             CLUSIONREASON_USER = 2,
             CLUSIONREASON_GROUPPOLICY = 3,
+            CLUSIONREASON_USAGE = 4,
         }
         const CSearchLanguageSupport: GUID = 0x6a68cc80_4337_4dbc_bd27_fbfb1053820b;
         const CSearchManager: GUID = 0x7d096c5f_ac08_4f1f_beb7_5c22c517ce39;

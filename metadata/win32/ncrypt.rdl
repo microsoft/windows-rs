@@ -139,6 +139,14 @@ mod Windows {
         const NCRYPT_CLAIM_WEB_AUTH_SUBJECT_ONLY: i32 = 258;
         const NCRYPT_CLAIM_WEB_AUTH_SUBJECT_ONLY_V2: i32 = 259;
         #[encoding("utf-16")]
+        const NCRYPT_COMPOSITE_MLDSA_ALGORITHM: String = "Composite-ML-DSA";
+        #[encoding("utf-16")]
+        const NCRYPT_COMPOSITE_MLDSA_ALGORITHM_GROUP: String = "CompositeMLDSA";
+        #[encoding("utf-16")]
+        const NCRYPT_COMPOSITE_MLKEM_ALGORITHM: String = "Composite-ML-KEM";
+        #[encoding("utf-16")]
+        const NCRYPT_COMPOSITE_MLKEM_ALGORITHM_GROUP: String = "CompositeMLKEM";
+        #[encoding("utf-16")]
         const NCRYPT_DESX_ALGORITHM: String = "DESX";
         #[encoding("utf-16")]
         const NCRYPT_DES_ALGORITHM: String = "DES";
@@ -309,6 +317,7 @@ mod Windows {
         const NCRYPT_MLDSA_ALGORITHM: String = "ML-DSA";
         #[encoding("utf-16")]
         const NCRYPT_MLDSA_ALGORITHM_GROUP: String = "MLDSA";
+        const NCRYPT_MLDSA_EXTERNAL_MU_FLAG: i32 = 128;
         #[encoding("utf-16")]
         const NCRYPT_MLKEM_ALGORITHM: String = "ML-KEM";
         #[encoding("utf-16")]

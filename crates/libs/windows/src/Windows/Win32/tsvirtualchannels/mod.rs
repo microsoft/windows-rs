@@ -18,7 +18,7 @@ pub const IID_IWTSPluginServiceProvider: windows_core::GUID = windows_core::GUID
 pub const IID_IWTSVirtualChannel: windows_core::GUID = windows_core::GUID::from_u128(0xa1230207_d6a7_11d8_b9fd_000bdbd1f198);
 pub const IID_IWTSVirtualChannelCallback: windows_core::GUID = windows_core::GUID::from_u128(0xa1230204_d6a7_11d8_b9fd_000bdbd1f198);
 pub const IID_IWTSVirtualChannelManager: windows_core::GUID = windows_core::GUID::from_u128(0xa1230205_d6a7_11d8_b9fd_000bdbd1f198);
-pub const IID_IWTSWindowChangedCallback: windows_core::GUID = windows_core::GUID::from_u128(0xe8a47fd3_1af5_4d7f_8e15_515ccae1c00c);
+pub const IID_IWTSWindowChangedCallback: windows_core::GUID = windows_core::GUID::from_u128(0xe8a47fd3_1af6_4d7f_8e15_515ccae1c00c);
 pub const IID_IWTSWindowInfoService: windows_core::GUID = windows_core::GUID::from_u128(0x2a002c7b_0120_4d04_bfb1_3c73110c8581);
 windows_core::imp::define_interface!(IWTSBitmapRenderService, IWTSBitmapRenderService_Vtbl, 0xea326091_05fe_40c1_b49c_3d2ef4626a0e);
 windows_core::imp::interface_hierarchy!(IWTSBitmapRenderService, windows_core::IUnknown);

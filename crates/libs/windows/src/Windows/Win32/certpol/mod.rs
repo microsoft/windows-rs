@@ -316,6 +316,7 @@ pub const SCEPMessageClaimChallengeAnswer: X509SCEPMessageType = 41;
 pub const SCEPMessageGetCRL: X509SCEPMessageType = 22;
 pub const SCEPMessageGetCert: X509SCEPMessageType = 21;
 pub const SCEPMessageGetCertInitial: X509SCEPMessageType = 20;
+pub const SCEPMessageGetCertifier: X509SCEPMessageType = 198;
 pub const SCEPMessagePKCSRequest: X509SCEPMessageType = 19;
 pub const SCEPMessageUnknown: X509SCEPMessageType = -1;
 pub type X509SCEPDisposition = i32;
