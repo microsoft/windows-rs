@@ -1,6 +1,64 @@
 include!(concat!(env!("OUT_DIR"), "/generated_tests.rs"));
 
 #[test]
+fn associated_enum_method_filtering() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("associated_enum_method_filtering");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let winmd = scratch.join("input.winmd");
+    windows_rdl::reader()
+        .input("input/associated_enum_methods.rdl")
+        .output(&winmd)
+        .write()
+        .unwrap();
+    for style in ["default", "minimal", "sys"] {
+        for root in [
+            "Windows.Win32",
+            "Windows.Win32.Api.I",
+            "Windows.Win32.Api.I::Plain",
+        ] {
+            let output = scratch.join(format!("{style}-{}.rs", root.replace("::", "-")));
+            let mut builder = windows_bindgen::builder();
+            builder.input(&winmd).filter(root).flat().output(&output);
+            if root == "Windows.Win32" {
+                builder.filter("!Windows.Win32.Values.Options");
+            }
+            match style {
+                "minimal" => {
+                    builder.minimal();
+                }
+                "sys" => {
+                    builder.sys();
+                }
+                _ => {}
+            }
+            builder.write();
+            let source = std::fs::read_to_string(output).unwrap();
+            assert!(
+                source.contains("pub struct I_Vtbl"),
+                "{style} {root}: {source}"
+            );
+            assert!(source.contains("pub Plain:"), "{style} {root}: {source}");
+            let annotated = root == "Windows.Win32.Api.I";
+            assert_eq!(
+                source.contains("pub Annotated:"),
+                annotated,
+                "{style} {root}: {source}"
+            );
+            assert_eq!(
+                source.contains("pub type Options"),
+                annotated,
+                "{style} {root}: {source}"
+            );
+            assert_eq!(
+                source.contains("pub const One:"),
+                annotated,
+                "{style} {root}: {source}"
+            );
+        }
+    }
+}
+
+#[test]
 fn associated_enum_dependencies() {
     let scratch = std::path::Path::new(env!("OUT_DIR")).join("associated_enum_dependencies");
     std::fs::create_dir_all(&scratch).unwrap();

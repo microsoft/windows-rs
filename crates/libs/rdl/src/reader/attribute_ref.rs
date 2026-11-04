@@ -797,7 +797,7 @@ impl Encoder<'_> {
     }
 
     pub fn validate_associated_enum_storage(
-        &self,
+        &mut self,
         attrs: &[syn::Attribute],
         ty: &metadata::Type,
         arch: i32,
@@ -834,10 +834,16 @@ impl Encoder<'_> {
                     if !seen.insert((name.namespace.clone(), name.name.clone())) {
                         return self.err(attr, "associated_enum storage is cyclic");
                     }
-                    let source: Vec<_> = self.index.get(&name.namespace, &name.name).collect();
+                    let source = self
+                        .index
+                        .namespaces
+                        .get(&name.namespace)
+                        .and_then(|namespace| namespace.types.get(&name.name))
+                        .cloned()
+                        .unwrap_or_default();
                     let mut found = false;
                     if !source.is_empty() {
-                        for item in source {
+                        for (file, item) in source {
                             let arch = arch & self.read_arch(item.attrs())?.unwrap_or(-1);
                             if arch == 0 {
                                 continue;
@@ -846,11 +852,16 @@ impl Encoder<'_> {
                             let Item::Typedef(alias) = item else {
                                 return self.err(attr, invalid);
                             };
-                            pending.push((
-                                self.encode_type_in_attr_ns(&name.namespace, &alias.ty)?,
-                                seen.clone(),
-                                arch,
-                            ));
+                            let ty = Encoder {
+                                output: self.output,
+                                index: self.index,
+                                file,
+                                namespace: &name.namespace,
+                                name: &name.name,
+                                generics: Vec::new(),
+                            }
+                            .encode_type(&alias.ty)?;
+                            pending.push((ty, seen.clone(), arch));
                         }
                     } else {
                         let definitions: Vec<_> = self

@@ -7,6 +7,57 @@ const SCHEMA: &str = r#"
 "#;
 
 #[test]
+fn associated_enum_alias_scope() {
+    let winmd = std::path::Path::new(env!("OUT_DIR")).join("associated-enum-alias-scope.winmd");
+    for imported in [false, true] {
+        for nested in ["Word", "*mut Word", "[Word; 2]", "&Word"] {
+            for (storage, shadow, valid) in [("u32", "f32", true), ("f32", "u32", false)] {
+                let aliases = if imported {
+                    format!(
+                        "use Storage::*;
+                        #[win32] mod Storage {{ type Word = {storage}; }}
+                        #[win32] mod Types {{ type Alias = {nested}; }}"
+                    )
+                } else {
+                    format!(
+                        "#[win32] mod Types {{
+                        type Word = {storage}; type Alias = {nested};
+                    }}"
+                    )
+                };
+                let caller = if imported {
+                    format!("use Shadow::*; #[win32] mod Shadow {{ type Word = {shadow}; }}")
+                } else {
+                    format!("#[win32] mod Api {{ type Word = {shadow}; }}")
+                };
+                let result = windows_rdl::reader()
+                    .input_text(SCHEMA)
+                    .input_text(&aliases)
+                    .input_text(&format!(
+                        "{caller}
+                        #[win32] mod Api {{
+                            #[repr(u32)] enum E {{ One = 1 }}
+                            #[library(\"test.dll\")]
+                            extern fn F(#[associated_enum(E)] value: Types::Alias);
+                        }}"
+                    ))
+                    .output(&winmd)
+                    .write();
+                if valid {
+                    result.unwrap_or_else(|error| panic!("{imported} {nested}: {error}"));
+                } else {
+                    let error = result.unwrap_err().to_string();
+                    assert!(
+                        error.contains("requires integer storage"),
+                        "{imported} {nested}: {error}"
+                    );
+                }
+            }
+        }
+    }
+}
+
+#[test]
 fn associated_enum_preserves_storage_and_remaps_references() {
     let output = std::path::Path::new(env!("OUT_DIR"));
     let winmd = output.join("associated-enum.winmd");

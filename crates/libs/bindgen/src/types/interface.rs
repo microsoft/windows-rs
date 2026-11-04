@@ -18,7 +18,7 @@ pub enum MethodOrName<M> {
     Name(MethodDef),
 }
 
-// Demote methods when filtered out or when direct signature types are unavailable.
+// Demote methods when filtered out or when direct dependencies are unavailable.
 pub fn method_is_skipped(
     def: MethodDef,
     type_name: TypeName,
@@ -28,6 +28,9 @@ pub fn method_is_skipped(
     let mut direct = TypeMap::new();
     for ty in signature.types() {
         direct.insert(ty.clone());
+    }
+    for ty in def.associated_enums(config.reader) {
+        direct.insert(ty);
     }
     !direct.included(config) || !config.includes_method(type_name, def)
 }

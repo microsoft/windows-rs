@@ -16,10 +16,7 @@ pub(super) fn values<'a>(
         .flat_map(|(name, group)| {
             group.members.iter().map(move |member| {
                 (
-                    member
-                        .native
-                        .clone()
-                        .unwrap_or_else(|| enum_annotations::member_name(name, &member.name)),
+                    member.native.clone().unwrap_or_else(|| member.name.clone()),
                     (*name, member),
                 )
             })

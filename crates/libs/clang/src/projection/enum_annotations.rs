@@ -17,10 +17,7 @@ pub(super) fn groups<'a>(
         };
         groups.insert(alias.name.as_str(), group);
         for member in &group.members {
-            let native = member
-                .native
-                .clone()
-                .unwrap_or_else(|| member_name(&alias.name, &member.name));
+            let native = member.native.clone().unwrap_or_else(|| member.name.clone());
             if members.insert(member.name.as_str(), native).is_some() {
                 return Err(Error(format!(
                     "constant `{}` belongs to multiple enum groups",
@@ -65,13 +62,6 @@ pub(super) fn integer(value: EnumValue) -> i128 {
         EnumValue::Signed(value) => i128::from(value),
         EnumValue::Unsigned(value) => i128::from(value),
     }
-}
-
-pub(super) fn member_name(group: &str, member: &str) -> String {
-    group.rsplit_once("::").map_or_else(
-        || member.into(),
-        |(namespace, _)| format!("{namespace}::{member}"),
-    )
 }
 
 impl Projector<'_, '_> {

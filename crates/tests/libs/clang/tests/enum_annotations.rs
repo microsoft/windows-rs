@@ -19,6 +19,37 @@ fn input(source: &str) -> Input {
 }
 
 #[test]
+fn namespaced_enum_members() {
+    helpers::ensure_libclang();
+    for (source, macros) in [
+        (
+            "#define A 1\nnamespace N { GROUP(G, int, A); }",
+            vec!["A".into()],
+        ),
+        ("namespace N { const int A = 1; GROUP(G, int, A); }", vec![]),
+    ] {
+        let mut source = input(source);
+        source.macros = macros;
+        let output = projection::generate(&[source], "Fixture").unwrap();
+        assert_eq!(output.enums, 1);
+        assert_eq!(output.constants, 0);
+        let text: String = output
+            .partitions
+            .values()
+            .map(|part| part.rdl.as_str())
+            .collect();
+        assert!(text.contains("enum G"), "{text}");
+        assert!(text.contains("A = 1"), "{text}");
+        windows_rdl::reader()
+            .input("..\\..\\..\\..\\metadata\\metadata.rdl")
+            .input_text(&text)
+            .output(std::path::Path::new(env!("OUT_DIR")).join("namespaced-enum-members.winmd"))
+            .write()
+            .unwrap();
+    }
+}
+
+#[test]
 fn rejected_enum_contracts() {
     helpers::ensure_libclang();
     for (source, expected) in [
@@ -33,6 +64,15 @@ fn rejected_enum_contracts() {
         (
             "#define A 1\nGROUP(G, int, A); GROUP(H, int, A);",
             "multiple enum groups",
+        ),
+        (
+            "namespace N { const int A = 1; GROUP(G, int, A); }
+             namespace Other { const int A = 2; }",
+            "collides with native declaration",
+        ),
+        (
+            "namespace Other { const int A = 2; }\n#define A 1\nnamespace N { GROUP(G, int, A); }",
+            "collides with native declaration",
         ),
         (
             "#define A 1\nGROUP(G, int, A); extern \"C\" IMPORT void Bad(ASSOC(G) G value);",
