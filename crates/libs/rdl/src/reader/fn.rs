@@ -70,9 +70,8 @@ impl Encoder<'_> {
 
         let name = item.sig.ident.unraw_to_string();
 
-        let method_def = self
-            .output
-            .MethodDef(&name, &signature, flags, Default::default());
+        let impl_flags = self.read_method_impl_flags(&item.attrs, false)?;
+        let method_def = self.output.MethodDef(&name, &signature, flags, impl_flags);
 
         let arch = self.read_arch(&item.attrs)?.unwrap_or(-1);
         self.encode_return_attrs(&item.return_attrs, &signature.return_type, arch)?;
@@ -143,7 +142,7 @@ impl Encoder<'_> {
         self.encode_attrs(
             metadata::writer::HasAttribute::MethodDef(method_def),
             &item.attrs,
-            &["library"],
+            &["library", "preserve_sig"],
         )?;
 
         Ok(())

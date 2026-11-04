@@ -952,6 +952,12 @@ impl Encoder<'_> {
             if path.is_ident("buffer") {
                 return self.err(attr, "buffer requires a parameter owner");
             }
+            if path.is_ident("preserve_sig") {
+                return self.err(
+                    attr,
+                    "preserve_sig requires a Win32 function, method, or callback",
+                );
+            }
             if path.is_ident("null_terminated") || path.is_ident("null_null_terminated") {
                 self.emit_null_terminated(has_attribute, attr)?;
                 continue;

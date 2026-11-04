@@ -258,6 +258,7 @@ pub enum AttributeKind {
     DllImport,
     DllExport,
     SetLastError,
+    PreserveResult,
     ImportLibrary(Box<ImportLibrary>),
     EnumGroup(Box<EnumAnnotation>),
     AssociatedEnum(Box<AssociatedEnum>),
@@ -735,6 +736,7 @@ impl Snapshot {
                         | AttributeKind::DllImport
                         | AttributeKind::DllExport
                         | AttributeKind::SetLastError
+                        | AttributeKind::PreserveResult
                         | AttributeKind::NoThrow
                         | AttributeKind::Cxx11NoReturn
                         | AttributeKind::SelectAny

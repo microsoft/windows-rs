@@ -25,7 +25,12 @@ pub(super) fn covering<'a>(
 }
 
 pub(super) fn write(attributes: &[Attribute]) -> Result<TokenStream, Error> {
-    write_owned(attributes, None)
+    let native = write_owned(attributes, None)?;
+    let preserve = attributes
+        .iter()
+        .any(|attribute| attribute.kind == AttributeKind::PreserveResult)
+        .then(|| quote! { #[preserve_sig] });
+    Ok(quote! { #native #preserve })
 }
 
 pub(super) fn write_callable(attributes: &[Attribute]) -> Result<TokenStream, Error> {
@@ -312,6 +317,7 @@ pub(super) fn callable(attributes: &[Attribute]) -> bool {
                 | AttributeKind::NoThrow
                 | AttributeKind::Cxx11NoReturn
                 | AttributeKind::MSAllocator
+                | AttributeKind::PreserveResult
                 | AttributeKind::AssociatedEnum(_)
         )
     })
@@ -339,12 +345,12 @@ fn typedef_attributes<'a>(
     )
 }
 
-pub(super) fn write_callback(
-    resolution: &Resolution<'_>,
-    snapshot: &Snapshot,
+pub(super) fn callback_owners<'a>(
+    resolution: &'a Resolution<'_>,
+    snapshot: &'a Snapshot,
     mut written: TypeId,
-    attributes: &[Attribute],
-) -> Result<TokenStream, Error> {
+    attributes: &'a [Attribute],
+) -> Result<Vec<(&'a [Attribute], Option<&'a str>)>, Error> {
     let mut owners = vec![(attributes, None)];
     loop {
         match snapshot.types[written.0].kind {
@@ -368,14 +374,29 @@ pub(super) fn write_callback(
             _ => break,
         }
     }
+    Ok(owners)
+}
+
+pub(super) fn write_callback(
+    resolution: &Resolution<'_>,
+    snapshot: &Snapshot,
+    written: TypeId,
+    attributes: &[Attribute],
+) -> Result<TokenStream, Error> {
+    let owners = callback_owners(resolution, snapshot, written, attributes)?;
     let mut must_use = false;
+    let mut preserve = false;
     let mut attributes = TokenStream::new();
     for (owner, typedef) in owners {
         must_use |= resolve::sal(owner).iter().any(result_check);
+        preserve |= owner
+            .iter()
+            .any(|attribute| attribute.kind == AttributeKind::PreserveResult);
         attributes.extend(write_owned(owner, typedef)?);
     }
     let result = must_use.then(|| quote! { #[must_use] });
-    Ok(quote! { #attributes #result })
+    let preserve = preserve.then(|| quote! { #[preserve_sig] });
+    Ok(quote! { #attributes #result #preserve })
 }
 
 fn write_owned(attributes: &[Attribute], typedef: Option<&str>) -> Result<TokenStream, Error> {
