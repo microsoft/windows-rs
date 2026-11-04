@@ -13,7 +13,7 @@ pub struct IBase_Vtbl {
     pub BaseMethod: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IBase_Impl {
-    fn BaseMethod(&self) -> windows_core::Result<()>;
+    fn BaseMethod(&self) -> windows_core::HRESULT;
 }
 impl IBase_Vtbl {
     pub const fn new<Identity: IBase_Impl>() -> Self {
@@ -23,7 +23,7 @@ impl IBase_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                IBase_Impl::BaseMethod(this).into()
+                IBase_Impl::BaseMethod(this)
             }
         }
         Self {
@@ -66,7 +66,7 @@ pub struct IInterface_Vtbl {
     pub Method: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IInterface_Impl: IBase_Impl {
-    fn Method(&self) -> windows_core::Result<()>;
+    fn Method(&self) -> windows_core::HRESULT;
 }
 impl IInterface_Vtbl {
     pub const fn new<Identity: IInterface_Impl>() -> Self {
@@ -76,7 +76,7 @@ impl IInterface_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                IInterface_Impl::Method(this).into()
+                IInterface_Impl::Method(this)
             }
         }
         Self {

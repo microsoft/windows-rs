@@ -170,7 +170,7 @@ pub trait IWeakReference_Impl: windows_core::IUnknownImpl {
         &self,
         riid: *const IID,
         objectreference: windows_core::OutRef<windows_core::IInspectable>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
 }
 impl IWeakReference_Vtbl {
     pub const fn new<Identity: IWeakReference_Impl, const OFFSET: isize>() -> Self {
@@ -187,7 +187,6 @@ impl IWeakReference_Vtbl {
                     core::mem::transmute_copy(&riid),
                     core::mem::transmute_copy(&objectreference),
                 )
-                .into()
             }
         }
         Self {

@@ -16,14 +16,14 @@ pub struct ISurfaceImageSourceManagerNative_Vtbl {
     pub FlushAllSurfacesWithDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISurfaceImageSourceManagerNative_Impl: windows_core::IUnknownImpl {
-    fn FlushAllSurfacesWithDevice(&self, device: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn FlushAllSurfacesWithDevice(&self, device: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
 }
 impl ISurfaceImageSourceManagerNative_Vtbl {
     pub const fn new<Identity: ISurfaceImageSourceManagerNative_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn FlushAllSurfacesWithDevice<Identity: ISurfaceImageSourceManagerNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, device: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISurfaceImageSourceManagerNative_Impl::FlushAllSurfacesWithDevice(this, core::mem::transmute_copy(&device)).into()
+                ISurfaceImageSourceManagerNative_Impl::FlushAllSurfacesWithDevice(this, core::mem::transmute_copy(&device))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), FlushAllSurfacesWithDevice: FlushAllSurfacesWithDevice::<Identity, OFFSET> }
@@ -67,9 +67,9 @@ pub struct ISurfaceImageSourceNative_Vtbl {
 }
 #[cfg(all(feature = "dxgi", feature = "shared", feature = "windef"))]
 pub trait ISurfaceImageSourceNative_Impl: windows_core::IUnknownImpl {
-    fn SetDevice(&self, device: windows_core::Ref<super::IDXGIDevice>) -> windows_core::Result<()>;
-    fn BeginDraw(&self, updaterect: &super::RECT, surface: windows_core::OutRef<super::IDXGISurface>, offset: *mut super::POINT) -> windows_core::Result<()>;
-    fn EndDraw(&self) -> windows_core::Result<()>;
+    fn SetDevice(&self, device: windows_core::Ref<super::IDXGIDevice>) -> windows_core::HRESULT;
+    fn BeginDraw(&self, updaterect: &super::RECT, surface: windows_core::OutRef<super::IDXGISurface>, offset: *mut super::POINT) -> windows_core::HRESULT;
+    fn EndDraw(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "dxgi", feature = "shared", feature = "windef"))]
 impl ISurfaceImageSourceNative_Vtbl {
@@ -77,19 +77,19 @@ impl ISurfaceImageSourceNative_Vtbl {
         unsafe extern "system" fn SetDevice<Identity: ISurfaceImageSourceNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, device: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISurfaceImageSourceNative_Impl::SetDevice(this, core::mem::transmute_copy(&device)).into()
+                ISurfaceImageSourceNative_Impl::SetDevice(this, core::mem::transmute_copy(&device))
             }
         }
         unsafe extern "system" fn BeginDraw<Identity: ISurfaceImageSourceNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, updaterect: super::RECT, surface: *mut *mut core::ffi::c_void, offset: *mut super::POINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISurfaceImageSourceNative_Impl::BeginDraw(this, core::mem::transmute(&updaterect), core::mem::transmute_copy(&surface), core::mem::transmute_copy(&offset)).into()
+                ISurfaceImageSourceNative_Impl::BeginDraw(this, core::mem::transmute(&updaterect), core::mem::transmute_copy(&surface), core::mem::transmute_copy(&offset))
             }
         }
         unsafe extern "system" fn EndDraw<Identity: ISurfaceImageSourceNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISurfaceImageSourceNative_Impl::EndDraw(this).into()
+                ISurfaceImageSourceNative_Impl::EndDraw(this)
             }
         }
         Self {
@@ -147,11 +147,11 @@ pub struct ISurfaceImageSourceNativeWithD2D_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
 pub trait ISurfaceImageSourceNativeWithD2D_Impl: windows_core::IUnknownImpl {
-    fn SetDevice(&self, device: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetDevice(&self, device: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
     fn BeginDraw(&self, updaterect: *const super::RECT, iid: *const super::IID, updateobject: *mut *mut core::ffi::c_void, offset: *mut super::POINT) -> windows_core::Result<()>;
-    fn EndDraw(&self) -> windows_core::Result<()>;
-    fn SuspendDraw(&self) -> windows_core::Result<()>;
-    fn ResumeDraw(&self) -> windows_core::Result<()>;
+    fn EndDraw(&self) -> windows_core::HRESULT;
+    fn SuspendDraw(&self) -> windows_core::HRESULT;
+    fn ResumeDraw(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
 impl ISurfaceImageSourceNativeWithD2D_Vtbl {
@@ -159,7 +159,7 @@ impl ISurfaceImageSourceNativeWithD2D_Vtbl {
         unsafe extern "system" fn SetDevice<Identity: ISurfaceImageSourceNativeWithD2D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, device: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISurfaceImageSourceNativeWithD2D_Impl::SetDevice(this, core::mem::transmute_copy(&device)).into()
+                ISurfaceImageSourceNativeWithD2D_Impl::SetDevice(this, core::mem::transmute_copy(&device))
             }
         }
         unsafe extern "system" fn BeginDraw<Identity: ISurfaceImageSourceNativeWithD2D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, updaterect: *const super::RECT, iid: *const super::IID, updateobject: *mut *mut core::ffi::c_void, offset: *mut super::POINT) -> windows_core::HRESULT {
@@ -171,19 +171,19 @@ impl ISurfaceImageSourceNativeWithD2D_Vtbl {
         unsafe extern "system" fn EndDraw<Identity: ISurfaceImageSourceNativeWithD2D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISurfaceImageSourceNativeWithD2D_Impl::EndDraw(this).into()
+                ISurfaceImageSourceNativeWithD2D_Impl::EndDraw(this)
             }
         }
         unsafe extern "system" fn SuspendDraw<Identity: ISurfaceImageSourceNativeWithD2D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISurfaceImageSourceNativeWithD2D_Impl::SuspendDraw(this).into()
+                ISurfaceImageSourceNativeWithD2D_Impl::SuspendDraw(this)
             }
         }
         unsafe extern "system" fn ResumeDraw<Identity: ISurfaceImageSourceNativeWithD2D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISurfaceImageSourceNativeWithD2D_Impl::ResumeDraw(this).into()
+                ISurfaceImageSourceNativeWithD2D_Impl::ResumeDraw(this)
             }
         }
         Self {
@@ -223,7 +223,7 @@ pub struct ISwapChainBackgroundPanelNative_Vtbl {
 }
 #[cfg(feature = "dxgi")]
 pub trait ISwapChainBackgroundPanelNative_Impl: windows_core::IUnknownImpl {
-    fn SetSwapChain(&self, swapchain: windows_core::Ref<super::IDXGISwapChain>) -> windows_core::Result<()>;
+    fn SetSwapChain(&self, swapchain: windows_core::Ref<super::IDXGISwapChain>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "dxgi")]
 impl ISwapChainBackgroundPanelNative_Vtbl {
@@ -231,7 +231,7 @@ impl ISwapChainBackgroundPanelNative_Vtbl {
         unsafe extern "system" fn SetSwapChain<Identity: ISwapChainBackgroundPanelNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, swapchain: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISwapChainBackgroundPanelNative_Impl::SetSwapChain(this, core::mem::transmute_copy(&swapchain)).into()
+                ISwapChainBackgroundPanelNative_Impl::SetSwapChain(this, core::mem::transmute_copy(&swapchain))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetSwapChain: SetSwapChain::<Identity, OFFSET> }
@@ -264,7 +264,7 @@ pub struct ISwapChainPanelNative_Vtbl {
 }
 #[cfg(feature = "dxgi")]
 pub trait ISwapChainPanelNative_Impl: windows_core::IUnknownImpl {
-    fn SetSwapChain(&self, swapchain: windows_core::Ref<super::IDXGISwapChain>) -> windows_core::Result<()>;
+    fn SetSwapChain(&self, swapchain: windows_core::Ref<super::IDXGISwapChain>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "dxgi")]
 impl ISwapChainPanelNative_Vtbl {
@@ -272,7 +272,7 @@ impl ISwapChainPanelNative_Vtbl {
         unsafe extern "system" fn SetSwapChain<Identity: ISwapChainPanelNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, swapchain: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISwapChainPanelNative_Impl::SetSwapChain(this, core::mem::transmute_copy(&swapchain)).into()
+                ISwapChainPanelNative_Impl::SetSwapChain(this, core::mem::transmute_copy(&swapchain))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetSwapChain: SetSwapChain::<Identity, OFFSET> }
@@ -308,7 +308,7 @@ pub struct ISwapChainPanelNative2_Vtbl {
 }
 #[cfg(all(feature = "dxgi", feature = "winnt"))]
 pub trait ISwapChainPanelNative2_Impl: ISwapChainPanelNative_Impl {
-    fn SetSwapChainHandle(&self, swapchainhandle: super::HANDLE) -> windows_core::Result<()>;
+    fn SetSwapChainHandle(&self, swapchainhandle: super::HANDLE) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "dxgi", feature = "winnt"))]
 impl ISwapChainPanelNative2_Vtbl {
@@ -316,7 +316,7 @@ impl ISwapChainPanelNative2_Vtbl {
         unsafe extern "system" fn SetSwapChainHandle<Identity: ISwapChainPanelNative2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, swapchainhandle: super::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISwapChainPanelNative2_Impl::SetSwapChainHandle(this, core::mem::transmute_copy(&swapchainhandle)).into()
+                ISwapChainPanelNative2_Impl::SetSwapChainHandle(this, core::mem::transmute_copy(&swapchainhandle))
             }
         }
         Self { base__: ISwapChainPanelNative_Vtbl::new::<Identity, OFFSET>(), SetSwapChainHandle: SetSwapChainHandle::<Identity, OFFSET> }
@@ -391,12 +391,12 @@ pub struct IVirtualSurfaceImageSourceNative_Vtbl {
 }
 #[cfg(all(feature = "dxgi", feature = "shared", feature = "windef"))]
 pub trait IVirtualSurfaceImageSourceNative_Impl: ISurfaceImageSourceNative_Impl {
-    fn Invalidate(&self, updaterect: &super::RECT) -> windows_core::Result<()>;
-    fn GetUpdateRectCount(&self, count: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetUpdateRects(&self, updates: *mut super::RECT, count: super::DWORD) -> windows_core::Result<()>;
-    fn GetVisibleBounds(&self, bounds: *mut super::RECT) -> windows_core::Result<()>;
-    fn RegisterForUpdatesNeeded(&self, callback: windows_core::Ref<IVirtualSurfaceUpdatesCallbackNative>) -> windows_core::Result<()>;
-    fn Resize(&self, newwidth: super::INT, newheight: super::INT) -> windows_core::Result<()>;
+    fn Invalidate(&self, updaterect: &super::RECT) -> windows_core::HRESULT;
+    fn GetUpdateRectCount(&self, count: *mut super::DWORD) -> windows_core::HRESULT;
+    fn GetUpdateRects(&self, updates: *mut super::RECT, count: super::DWORD) -> windows_core::HRESULT;
+    fn GetVisibleBounds(&self, bounds: *mut super::RECT) -> windows_core::HRESULT;
+    fn RegisterForUpdatesNeeded(&self, callback: windows_core::Ref<IVirtualSurfaceUpdatesCallbackNative>) -> windows_core::HRESULT;
+    fn Resize(&self, newwidth: super::INT, newheight: super::INT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "dxgi", feature = "shared", feature = "windef"))]
 impl IVirtualSurfaceImageSourceNative_Vtbl {
@@ -404,37 +404,37 @@ impl IVirtualSurfaceImageSourceNative_Vtbl {
         unsafe extern "system" fn Invalidate<Identity: IVirtualSurfaceImageSourceNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, updaterect: super::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVirtualSurfaceImageSourceNative_Impl::Invalidate(this, core::mem::transmute(&updaterect)).into()
+                IVirtualSurfaceImageSourceNative_Impl::Invalidate(this, core::mem::transmute(&updaterect))
             }
         }
         unsafe extern "system" fn GetUpdateRectCount<Identity: IVirtualSurfaceImageSourceNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVirtualSurfaceImageSourceNative_Impl::GetUpdateRectCount(this, core::mem::transmute_copy(&count)).into()
+                IVirtualSurfaceImageSourceNative_Impl::GetUpdateRectCount(this, core::mem::transmute_copy(&count))
             }
         }
         unsafe extern "system" fn GetUpdateRects<Identity: IVirtualSurfaceImageSourceNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, updates: *mut super::RECT, count: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVirtualSurfaceImageSourceNative_Impl::GetUpdateRects(this, core::mem::transmute_copy(&updates), core::mem::transmute_copy(&count)).into()
+                IVirtualSurfaceImageSourceNative_Impl::GetUpdateRects(this, core::mem::transmute_copy(&updates), core::mem::transmute_copy(&count))
             }
         }
         unsafe extern "system" fn GetVisibleBounds<Identity: IVirtualSurfaceImageSourceNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bounds: *mut super::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVirtualSurfaceImageSourceNative_Impl::GetVisibleBounds(this, core::mem::transmute_copy(&bounds)).into()
+                IVirtualSurfaceImageSourceNative_Impl::GetVisibleBounds(this, core::mem::transmute_copy(&bounds))
             }
         }
         unsafe extern "system" fn RegisterForUpdatesNeeded<Identity: IVirtualSurfaceImageSourceNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVirtualSurfaceImageSourceNative_Impl::RegisterForUpdatesNeeded(this, core::mem::transmute_copy(&callback)).into()
+                IVirtualSurfaceImageSourceNative_Impl::RegisterForUpdatesNeeded(this, core::mem::transmute_copy(&callback))
             }
         }
         unsafe extern "system" fn Resize<Identity: IVirtualSurfaceImageSourceNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newwidth: super::INT, newheight: super::INT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVirtualSurfaceImageSourceNative_Impl::Resize(this, core::mem::transmute_copy(&newwidth), core::mem::transmute_copy(&newheight)).into()
+                IVirtualSurfaceImageSourceNative_Impl::Resize(this, core::mem::transmute_copy(&newwidth), core::mem::transmute_copy(&newheight))
             }
         }
         Self {
@@ -467,14 +467,14 @@ pub struct IVirtualSurfaceUpdatesCallbackNative_Vtbl {
     pub UpdatesNeeded: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVirtualSurfaceUpdatesCallbackNative_Impl: windows_core::IUnknownImpl {
-    fn UpdatesNeeded(&self) -> windows_core::Result<()>;
+    fn UpdatesNeeded(&self) -> windows_core::HRESULT;
 }
 impl IVirtualSurfaceUpdatesCallbackNative_Vtbl {
     pub const fn new<Identity: IVirtualSurfaceUpdatesCallbackNative_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn UpdatesNeeded<Identity: IVirtualSurfaceUpdatesCallbackNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVirtualSurfaceUpdatesCallbackNative_Impl::UpdatesNeeded(this).into()
+                IVirtualSurfaceUpdatesCallbackNative_Impl::UpdatesNeeded(this)
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), UpdatesNeeded: UpdatesNeeded::<Identity, OFFSET> }

@@ -1504,7 +1504,7 @@ pub struct IDWriteAsyncResult_Vtbl {
 #[cfg(feature = "winnt")]
 pub trait IDWriteAsyncResult_Impl: windows_core::IUnknownImpl {
     fn GetWaitHandle(&self) -> super::HANDLE;
-    fn GetResult(&self) -> windows_core::Result<()>;
+    fn GetResult(&self) -> windows_core::HRESULT;
 }
 #[cfg(feature = "winnt")]
 impl IDWriteAsyncResult_Vtbl {
@@ -1518,7 +1518,7 @@ impl IDWriteAsyncResult_Vtbl {
         unsafe extern "system" fn GetResult<Identity: IDWriteAsyncResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteAsyncResult_Impl::GetResult(this).into()
+                IDWriteAsyncResult_Impl::GetResult(this)
             }
         }
         Self {
@@ -1611,14 +1611,14 @@ pub struct IDWriteBitmapRenderTarget_Vtbl {
 }
 #[cfg(all(feature = "dcommon", feature = "minwindef", feature = "shared", feature = "windef"))]
 pub trait IDWriteBitmapRenderTarget_Impl: windows_core::IUnknownImpl {
-    fn DrawGlyphRun(&self, baselineoriginx: super::FLOAT, baselineoriginy: super::FLOAT, measuringmode: super::DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, renderingparams: windows_core::Ref<IDWriteRenderingParams>, textcolor: super::COLORREF, blackboxrect: *mut super::RECT) -> windows_core::Result<()>;
+    fn DrawGlyphRun(&self, baselineoriginx: super::FLOAT, baselineoriginy: super::FLOAT, measuringmode: super::DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, renderingparams: windows_core::Ref<IDWriteRenderingParams>, textcolor: super::COLORREF, blackboxrect: *mut super::RECT) -> windows_core::HRESULT;
     fn GetMemoryDC(&self) -> super::HDC;
     fn GetPixelsPerDip(&self) -> super::FLOAT;
-    fn SetPixelsPerDip(&self, pixelsperdip: super::FLOAT) -> windows_core::Result<()>;
-    fn GetCurrentTransform(&self, transform: *mut DWRITE_MATRIX) -> windows_core::Result<()>;
-    fn SetCurrentTransform(&self, transform: *const DWRITE_MATRIX) -> windows_core::Result<()>;
-    fn GetSize(&self, size: *mut super::SIZE) -> windows_core::Result<()>;
-    fn Resize(&self, width: super::UINT32, height: super::UINT32) -> windows_core::Result<()>;
+    fn SetPixelsPerDip(&self, pixelsperdip: super::FLOAT) -> windows_core::HRESULT;
+    fn GetCurrentTransform(&self, transform: *mut DWRITE_MATRIX) -> windows_core::HRESULT;
+    fn SetCurrentTransform(&self, transform: *const DWRITE_MATRIX) -> windows_core::HRESULT;
+    fn GetSize(&self, size: *mut super::SIZE) -> windows_core::HRESULT;
+    fn Resize(&self, width: super::UINT32, height: super::UINT32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "dcommon", feature = "minwindef", feature = "shared", feature = "windef"))]
 impl IDWriteBitmapRenderTarget_Vtbl {
@@ -1626,7 +1626,7 @@ impl IDWriteBitmapRenderTarget_Vtbl {
         unsafe extern "system" fn DrawGlyphRun<Identity: IDWriteBitmapRenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, baselineoriginx: super::FLOAT, baselineoriginy: super::FLOAT, measuringmode: super::DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, renderingparams: *mut core::ffi::c_void, textcolor: super::COLORREF, blackboxrect: *mut super::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteBitmapRenderTarget_Impl::DrawGlyphRun(this, core::mem::transmute_copy(&baselineoriginx), core::mem::transmute_copy(&baselineoriginy), core::mem::transmute_copy(&measuringmode), core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&renderingparams), core::mem::transmute_copy(&textcolor), core::mem::transmute_copy(&blackboxrect)).into()
+                IDWriteBitmapRenderTarget_Impl::DrawGlyphRun(this, core::mem::transmute_copy(&baselineoriginx), core::mem::transmute_copy(&baselineoriginy), core::mem::transmute_copy(&measuringmode), core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&renderingparams), core::mem::transmute_copy(&textcolor), core::mem::transmute_copy(&blackboxrect))
             }
         }
         unsafe extern "system" fn GetMemoryDC<Identity: IDWriteBitmapRenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::HDC {
@@ -1644,31 +1644,31 @@ impl IDWriteBitmapRenderTarget_Vtbl {
         unsafe extern "system" fn SetPixelsPerDip<Identity: IDWriteBitmapRenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pixelsperdip: super::FLOAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteBitmapRenderTarget_Impl::SetPixelsPerDip(this, core::mem::transmute_copy(&pixelsperdip)).into()
+                IDWriteBitmapRenderTarget_Impl::SetPixelsPerDip(this, core::mem::transmute_copy(&pixelsperdip))
             }
         }
         unsafe extern "system" fn GetCurrentTransform<Identity: IDWriteBitmapRenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transform: *mut DWRITE_MATRIX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteBitmapRenderTarget_Impl::GetCurrentTransform(this, core::mem::transmute_copy(&transform)).into()
+                IDWriteBitmapRenderTarget_Impl::GetCurrentTransform(this, core::mem::transmute_copy(&transform))
             }
         }
         unsafe extern "system" fn SetCurrentTransform<Identity: IDWriteBitmapRenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transform: *const DWRITE_MATRIX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteBitmapRenderTarget_Impl::SetCurrentTransform(this, core::mem::transmute_copy(&transform)).into()
+                IDWriteBitmapRenderTarget_Impl::SetCurrentTransform(this, core::mem::transmute_copy(&transform))
             }
         }
         unsafe extern "system" fn GetSize<Identity: IDWriteBitmapRenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: *mut super::SIZE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteBitmapRenderTarget_Impl::GetSize(this, core::mem::transmute_copy(&size)).into()
+                IDWriteBitmapRenderTarget_Impl::GetSize(this, core::mem::transmute_copy(&size))
             }
         }
         unsafe extern "system" fn Resize<Identity: IDWriteBitmapRenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: super::UINT32, height: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteBitmapRenderTarget_Impl::Resize(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height)).into()
+                IDWriteBitmapRenderTarget_Impl::Resize(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height))
             }
         }
         Self {
@@ -1715,7 +1715,7 @@ pub struct IDWriteBitmapRenderTarget1_Vtbl {
 #[cfg(all(feature = "dcommon", feature = "minwindef", feature = "shared", feature = "windef"))]
 pub trait IDWriteBitmapRenderTarget1_Impl: IDWriteBitmapRenderTarget_Impl {
     fn GetTextAntialiasMode(&self) -> DWRITE_TEXT_ANTIALIAS_MODE;
-    fn SetTextAntialiasMode(&self, antialiasmode: DWRITE_TEXT_ANTIALIAS_MODE) -> windows_core::Result<()>;
+    fn SetTextAntialiasMode(&self, antialiasmode: DWRITE_TEXT_ANTIALIAS_MODE) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "dcommon", feature = "minwindef", feature = "shared", feature = "windef"))]
 impl IDWriteBitmapRenderTarget1_Vtbl {
@@ -1729,7 +1729,7 @@ impl IDWriteBitmapRenderTarget1_Vtbl {
         unsafe extern "system" fn SetTextAntialiasMode<Identity: IDWriteBitmapRenderTarget1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, antialiasmode: DWRITE_TEXT_ANTIALIAS_MODE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteBitmapRenderTarget1_Impl::SetTextAntialiasMode(this, core::mem::transmute_copy(&antialiasmode)).into()
+                IDWriteBitmapRenderTarget1_Impl::SetTextAntialiasMode(this, core::mem::transmute_copy(&antialiasmode))
             }
         }
         Self {
@@ -1769,7 +1769,7 @@ pub struct IDWriteBitmapRenderTarget2_Vtbl {
 }
 #[cfg(all(feature = "dcommon", feature = "minwindef", feature = "shared", feature = "windef"))]
 pub trait IDWriteBitmapRenderTarget2_Impl: IDWriteBitmapRenderTarget1_Impl {
-    fn GetBitmapData(&self, bitmapdata: *mut DWRITE_BITMAP_DATA_BGRA32) -> windows_core::Result<()>;
+    fn GetBitmapData(&self, bitmapdata: *mut DWRITE_BITMAP_DATA_BGRA32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "dcommon", feature = "minwindef", feature = "shared", feature = "windef"))]
 impl IDWriteBitmapRenderTarget2_Vtbl {
@@ -1777,7 +1777,7 @@ impl IDWriteBitmapRenderTarget2_Vtbl {
         unsafe extern "system" fn GetBitmapData<Identity: IDWriteBitmapRenderTarget2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmapdata: *mut DWRITE_BITMAP_DATA_BGRA32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteBitmapRenderTarget2_Impl::GetBitmapData(this, core::mem::transmute_copy(&bitmapdata)).into()
+                IDWriteBitmapRenderTarget2_Impl::GetBitmapData(this, core::mem::transmute_copy(&bitmapdata))
             }
         }
         Self { base__: IDWriteBitmapRenderTarget1_Vtbl::new::<Identity, OFFSET>(), GetBitmapData: GetBitmapData::<Identity, OFFSET> }
@@ -1829,8 +1829,8 @@ pub struct IDWriteBitmapRenderTarget3_Vtbl {
 #[cfg(all(feature = "dcommon", feature = "minwindef", feature = "shared", feature = "windef"))]
 pub trait IDWriteBitmapRenderTarget3_Impl: IDWriteBitmapRenderTarget2_Impl {
     fn GetPaintFeatureLevel(&self) -> DWRITE_PAINT_FEATURE_LEVEL;
-    fn DrawPaintGlyphRun(&self, baselineoriginx: super::FLOAT, baselineoriginy: super::FLOAT, measuringmode: super::DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphimageformat: super::DWRITE_GLYPH_IMAGE_FORMATS, textcolor: super::COLORREF, colorpaletteindex: super::UINT32, blackboxrect: *mut super::RECT) -> windows_core::Result<()>;
-    fn DrawGlyphRunWithColorSupport(&self, baselineoriginx: super::FLOAT, baselineoriginy: super::FLOAT, measuringmode: super::DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, renderingparams: windows_core::Ref<IDWriteRenderingParams>, textcolor: super::COLORREF, colorpaletteindex: super::UINT32, blackboxrect: *mut super::RECT) -> windows_core::Result<()>;
+    fn DrawPaintGlyphRun(&self, baselineoriginx: super::FLOAT, baselineoriginy: super::FLOAT, measuringmode: super::DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphimageformat: super::DWRITE_GLYPH_IMAGE_FORMATS, textcolor: super::COLORREF, colorpaletteindex: super::UINT32, blackboxrect: *mut super::RECT) -> windows_core::HRESULT;
+    fn DrawGlyphRunWithColorSupport(&self, baselineoriginx: super::FLOAT, baselineoriginy: super::FLOAT, measuringmode: super::DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, renderingparams: windows_core::Ref<IDWriteRenderingParams>, textcolor: super::COLORREF, colorpaletteindex: super::UINT32, blackboxrect: *mut super::RECT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "dcommon", feature = "minwindef", feature = "shared", feature = "windef"))]
 impl IDWriteBitmapRenderTarget3_Vtbl {
@@ -1844,13 +1844,13 @@ impl IDWriteBitmapRenderTarget3_Vtbl {
         unsafe extern "system" fn DrawPaintGlyphRun<Identity: IDWriteBitmapRenderTarget3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, baselineoriginx: super::FLOAT, baselineoriginy: super::FLOAT, measuringmode: super::DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphimageformat: super::DWRITE_GLYPH_IMAGE_FORMATS, textcolor: super::COLORREF, colorpaletteindex: super::UINT32, blackboxrect: *mut super::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteBitmapRenderTarget3_Impl::DrawPaintGlyphRun(this, core::mem::transmute_copy(&baselineoriginx), core::mem::transmute_copy(&baselineoriginy), core::mem::transmute_copy(&measuringmode), core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&glyphimageformat), core::mem::transmute_copy(&textcolor), core::mem::transmute_copy(&colorpaletteindex), core::mem::transmute_copy(&blackboxrect)).into()
+                IDWriteBitmapRenderTarget3_Impl::DrawPaintGlyphRun(this, core::mem::transmute_copy(&baselineoriginx), core::mem::transmute_copy(&baselineoriginy), core::mem::transmute_copy(&measuringmode), core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&glyphimageformat), core::mem::transmute_copy(&textcolor), core::mem::transmute_copy(&colorpaletteindex), core::mem::transmute_copy(&blackboxrect))
             }
         }
         unsafe extern "system" fn DrawGlyphRunWithColorSupport<Identity: IDWriteBitmapRenderTarget3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, baselineoriginx: super::FLOAT, baselineoriginy: super::FLOAT, measuringmode: super::DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, renderingparams: *mut core::ffi::c_void, textcolor: super::COLORREF, colorpaletteindex: super::UINT32, blackboxrect: *mut super::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteBitmapRenderTarget3_Impl::DrawGlyphRunWithColorSupport(this, core::mem::transmute_copy(&baselineoriginx), core::mem::transmute_copy(&baselineoriginy), core::mem::transmute_copy(&measuringmode), core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&renderingparams), core::mem::transmute_copy(&textcolor), core::mem::transmute_copy(&colorpaletteindex), core::mem::transmute_copy(&blackboxrect)).into()
+                IDWriteBitmapRenderTarget3_Impl::DrawGlyphRunWithColorSupport(this, core::mem::transmute_copy(&baselineoriginx), core::mem::transmute_copy(&baselineoriginy), core::mem::transmute_copy(&measuringmode), core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&renderingparams), core::mem::transmute_copy(&textcolor), core::mem::transmute_copy(&colorpaletteindex), core::mem::transmute_copy(&blackboxrect))
             }
         }
         Self {
@@ -1889,8 +1889,8 @@ pub struct IDWriteColorGlyphRunEnumerator_Vtbl {
 }
 #[cfg(all(feature = "dxgi", feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub trait IDWriteColorGlyphRunEnumerator_Impl: windows_core::IUnknownImpl {
-    fn MoveNext(&self, hasrun: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetCurrentRun(&self, colorglyphrun: *mut *const DWRITE_COLOR_GLYPH_RUN) -> windows_core::Result<()>;
+    fn MoveNext(&self, hasrun: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn GetCurrentRun(&self, colorglyphrun: *mut *const DWRITE_COLOR_GLYPH_RUN) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "dxgi", feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl IDWriteColorGlyphRunEnumerator_Vtbl {
@@ -1898,13 +1898,13 @@ impl IDWriteColorGlyphRunEnumerator_Vtbl {
         unsafe extern "system" fn MoveNext<Identity: IDWriteColorGlyphRunEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasrun: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteColorGlyphRunEnumerator_Impl::MoveNext(this, core::mem::transmute_copy(&hasrun)).into()
+                IDWriteColorGlyphRunEnumerator_Impl::MoveNext(this, core::mem::transmute_copy(&hasrun))
             }
         }
         unsafe extern "system" fn GetCurrentRun<Identity: IDWriteColorGlyphRunEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, colorglyphrun: *mut *const DWRITE_COLOR_GLYPH_RUN) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteColorGlyphRunEnumerator_Impl::GetCurrentRun(this, core::mem::transmute_copy(&colorglyphrun)).into()
+                IDWriteColorGlyphRunEnumerator_Impl::GetCurrentRun(this, core::mem::transmute_copy(&colorglyphrun))
             }
         }
         Self {
@@ -1944,7 +1944,7 @@ pub struct IDWriteColorGlyphRunEnumerator1_Vtbl {
 }
 #[cfg(all(feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub trait IDWriteColorGlyphRunEnumerator1_Impl: IDWriteColorGlyphRunEnumerator_Impl {
-    fn GetCurrentRun(&self, colorglyphrun: *mut *const DWRITE_COLOR_GLYPH_RUN1) -> windows_core::Result<()>;
+    fn GetCurrentRun(&self, colorglyphrun: *mut *const DWRITE_COLOR_GLYPH_RUN1) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl IDWriteColorGlyphRunEnumerator1_Vtbl {
@@ -1952,7 +1952,7 @@ impl IDWriteColorGlyphRunEnumerator1_Vtbl {
         unsafe extern "system" fn GetCurrentRun<Identity: IDWriteColorGlyphRunEnumerator1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, colorglyphrun: *mut *const DWRITE_COLOR_GLYPH_RUN1) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteColorGlyphRunEnumerator1_Impl::GetCurrentRun(this, core::mem::transmute_copy(&colorglyphrun)).into()
+                IDWriteColorGlyphRunEnumerator1_Impl::GetCurrentRun(this, core::mem::transmute_copy(&colorglyphrun))
             }
         }
         Self { base__: IDWriteColorGlyphRunEnumerator_Vtbl::new::<Identity, OFFSET>(), GetCurrentRun: GetCurrentRun::<Identity, OFFSET> }
@@ -2180,18 +2180,18 @@ pub struct IDWriteFactory_Vtbl {
 }
 #[cfg(all(feature = "dcommon", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IDWriteFactory_Impl: windows_core::IUnknownImpl {
-    fn GetSystemFontCollection(&self, fontcollection: windows_core::OutRef<IDWriteFontCollection>, checkforupdates: windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetSystemFontCollection(&self, fontcollection: windows_core::OutRef<IDWriteFontCollection>, checkforupdates: windows_core::BOOL) -> windows_core::HRESULT;
     fn CreateCustomFontCollection(&self, collectionloader: windows_core::Ref<IDWriteFontCollectionLoader>, collectionkey: *const core::ffi::c_void, collectionkeysize: super::UINT32) -> windows_core::Result<IDWriteFontCollection>;
-    fn RegisterFontCollectionLoader(&self, fontcollectionloader: windows_core::Ref<IDWriteFontCollectionLoader>) -> windows_core::Result<()>;
-    fn UnregisterFontCollectionLoader(&self, fontcollectionloader: windows_core::Ref<IDWriteFontCollectionLoader>) -> windows_core::Result<()>;
+    fn RegisterFontCollectionLoader(&self, fontcollectionloader: windows_core::Ref<IDWriteFontCollectionLoader>) -> windows_core::HRESULT;
+    fn UnregisterFontCollectionLoader(&self, fontcollectionloader: windows_core::Ref<IDWriteFontCollectionLoader>) -> windows_core::HRESULT;
     fn CreateFontFileReference(&self, filepath: *const super::WCHAR, lastwritetime: *const super::FILETIME) -> windows_core::Result<IDWriteFontFile>;
     fn CreateCustomFontFileReference(&self, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: super::UINT32, fontfileloader: windows_core::Ref<IDWriteFontFileLoader>) -> windows_core::Result<IDWriteFontFile>;
     fn CreateFontFace(&self, fontfacetype: DWRITE_FONT_FACE_TYPE, numberoffiles: super::UINT32, fontfiles: *const Option<IDWriteFontFile>, faceindex: super::UINT32, fontfacesimulationflags: DWRITE_FONT_SIMULATIONS) -> windows_core::Result<IDWriteFontFace>;
     fn CreateRenderingParams(&self) -> windows_core::Result<IDWriteRenderingParams>;
     fn CreateMonitorRenderingParams(&self, monitor: super::HMONITOR) -> windows_core::Result<IDWriteRenderingParams>;
     fn CreateCustomRenderingParams(&self, gamma: super::FLOAT, enhancedcontrast: super::FLOAT, cleartypelevel: super::FLOAT, pixelgeometry: DWRITE_PIXEL_GEOMETRY, renderingmode: DWRITE_RENDERING_MODE) -> windows_core::Result<IDWriteRenderingParams>;
-    fn RegisterFontFileLoader(&self, fontfileloader: windows_core::Ref<IDWriteFontFileLoader>) -> windows_core::Result<()>;
-    fn UnregisterFontFileLoader(&self, fontfileloader: windows_core::Ref<IDWriteFontFileLoader>) -> windows_core::Result<()>;
+    fn RegisterFontFileLoader(&self, fontfileloader: windows_core::Ref<IDWriteFontFileLoader>) -> windows_core::HRESULT;
+    fn UnregisterFontFileLoader(&self, fontfileloader: windows_core::Ref<IDWriteFontFileLoader>) -> windows_core::HRESULT;
     fn CreateTextFormat(&self, fontfamilyname: *const super::WCHAR, fontcollection: windows_core::Ref<IDWriteFontCollection>, fontweight: DWRITE_FONT_WEIGHT, fontstyle: DWRITE_FONT_STYLE, fontstretch: DWRITE_FONT_STRETCH, fontsize: super::FLOAT, localename: *const super::WCHAR) -> windows_core::Result<IDWriteTextFormat>;
     fn CreateTypography(&self) -> windows_core::Result<IDWriteTypography>;
     fn GetGdiInterop(&self) -> windows_core::Result<IDWriteGdiInterop>;
@@ -2208,7 +2208,7 @@ impl IDWriteFactory_Vtbl {
         unsafe extern "system" fn GetSystemFontCollection<Identity: IDWriteFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontcollection: *mut *mut core::ffi::c_void, checkforupdates: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFactory_Impl::GetSystemFontCollection(this, core::mem::transmute_copy(&fontcollection), core::mem::transmute_copy(&checkforupdates)).into()
+                IDWriteFactory_Impl::GetSystemFontCollection(this, core::mem::transmute_copy(&fontcollection), core::mem::transmute_copy(&checkforupdates))
             }
         }
         unsafe extern "system" fn CreateCustomFontCollection<Identity: IDWriteFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, collectionloader: *mut core::ffi::c_void, collectionkey: *const core::ffi::c_void, collectionkeysize: super::UINT32, fontcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2229,13 +2229,13 @@ impl IDWriteFactory_Vtbl {
         unsafe extern "system" fn RegisterFontCollectionLoader<Identity: IDWriteFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontcollectionloader: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFactory_Impl::RegisterFontCollectionLoader(this, core::mem::transmute_copy(&fontcollectionloader)).into()
+                IDWriteFactory_Impl::RegisterFontCollectionLoader(this, core::mem::transmute_copy(&fontcollectionloader))
             }
         }
         unsafe extern "system" fn UnregisterFontCollectionLoader<Identity: IDWriteFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontcollectionloader: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFactory_Impl::UnregisterFontCollectionLoader(this, core::mem::transmute_copy(&fontcollectionloader)).into()
+                IDWriteFactory_Impl::UnregisterFontCollectionLoader(this, core::mem::transmute_copy(&fontcollectionloader))
             }
         }
         unsafe extern "system" fn CreateFontFileReference<Identity: IDWriteFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: *const super::WCHAR, lastwritetime: *const super::FILETIME, fontfile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2331,13 +2331,13 @@ impl IDWriteFactory_Vtbl {
         unsafe extern "system" fn RegisterFontFileLoader<Identity: IDWriteFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontfileloader: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFactory_Impl::RegisterFontFileLoader(this, core::mem::transmute_copy(&fontfileloader)).into()
+                IDWriteFactory_Impl::RegisterFontFileLoader(this, core::mem::transmute_copy(&fontfileloader))
             }
         }
         unsafe extern "system" fn UnregisterFontFileLoader<Identity: IDWriteFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontfileloader: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFactory_Impl::UnregisterFontFileLoader(this, core::mem::transmute_copy(&fontfileloader)).into()
+                IDWriteFactory_Impl::UnregisterFontFileLoader(this, core::mem::transmute_copy(&fontfileloader))
             }
         }
         unsafe extern "system" fn CreateTextFormat<Identity: IDWriteFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontfamilyname: *const super::WCHAR, fontcollection: *mut core::ffi::c_void, fontweight: DWRITE_FONT_WEIGHT, fontstyle: DWRITE_FONT_STYLE, fontstretch: DWRITE_FONT_STRETCH, fontsize: super::FLOAT, localename: *const super::WCHAR, textformat: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2538,7 +2538,7 @@ pub struct IDWriteFactory1_Vtbl {
 }
 #[cfg(all(feature = "dcommon", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IDWriteFactory1_Impl: IDWriteFactory_Impl {
-    fn GetEudcFontCollection(&self, fontcollection: windows_core::OutRef<IDWriteFontCollection>, checkforupdates: windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetEudcFontCollection(&self, fontcollection: windows_core::OutRef<IDWriteFontCollection>, checkforupdates: windows_core::BOOL) -> windows_core::HRESULT;
     fn CreateCustomRenderingParams(&self, gamma: super::FLOAT, enhancedcontrast: super::FLOAT, enhancedcontrastgrayscale: super::FLOAT, cleartypelevel: super::FLOAT, pixelgeometry: DWRITE_PIXEL_GEOMETRY, renderingmode: DWRITE_RENDERING_MODE) -> windows_core::Result<IDWriteRenderingParams1>;
 }
 #[cfg(all(feature = "dcommon", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
@@ -2547,7 +2547,7 @@ impl IDWriteFactory1_Vtbl {
         unsafe extern "system" fn GetEudcFontCollection<Identity: IDWriteFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontcollection: *mut *mut core::ffi::c_void, checkforupdates: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFactory1_Impl::GetEudcFontCollection(this, core::mem::transmute_copy(&fontcollection), core::mem::transmute_copy(&checkforupdates)).into()
+                IDWriteFactory1_Impl::GetEudcFontCollection(this, core::mem::transmute_copy(&fontcollection), core::mem::transmute_copy(&checkforupdates))
             }
         }
         unsafe extern "system" fn CreateCustomRenderingParams<Identity: IDWriteFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gamma: super::FLOAT, enhancedcontrast: super::FLOAT, enhancedcontrastgrayscale: super::FLOAT, cleartypelevel: super::FLOAT, pixelgeometry: DWRITE_PIXEL_GEOMETRY, renderingmode: DWRITE_RENDERING_MODE, renderingparams: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2846,7 +2846,7 @@ pub trait IDWriteFactory3_Impl: IDWriteFactory2_Impl {
     fn GetSystemFontSet(&self) -> windows_core::Result<IDWriteFontSet>;
     fn CreateFontSetBuilder(&self) -> windows_core::Result<IDWriteFontSetBuilder>;
     fn CreateFontCollectionFromFontSet(&self, fontset: windows_core::Ref<IDWriteFontSet>) -> windows_core::Result<IDWriteFontCollection1>;
-    fn GetSystemFontCollection(&self, includedownloadablefonts: windows_core::BOOL, fontcollection: windows_core::OutRef<IDWriteFontCollection1>, checkforupdates: windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetSystemFontCollection(&self, includedownloadablefonts: windows_core::BOOL, fontcollection: windows_core::OutRef<IDWriteFontCollection1>, checkforupdates: windows_core::BOOL) -> windows_core::HRESULT;
     fn GetFontDownloadQueue(&self) -> windows_core::Result<IDWriteFontDownloadQueue>;
 }
 #[cfg(all(feature = "dcommon", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
@@ -2960,7 +2960,7 @@ impl IDWriteFactory3_Vtbl {
         unsafe extern "system" fn GetSystemFontCollection<Identity: IDWriteFactory3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, includedownloadablefonts: windows_core::BOOL, fontcollection: *mut *mut core::ffi::c_void, checkforupdates: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFactory3_Impl::GetSystemFontCollection(this, core::mem::transmute_copy(&includedownloadablefonts), core::mem::transmute_copy(&fontcollection), core::mem::transmute_copy(&checkforupdates)).into()
+                IDWriteFactory3_Impl::GetSystemFontCollection(this, core::mem::transmute_copy(&includedownloadablefonts), core::mem::transmute_copy(&fontcollection), core::mem::transmute_copy(&checkforupdates))
             }
         }
         unsafe extern "system" fn GetFontDownloadQueue<Identity: IDWriteFactory3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontdownloadqueue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3042,8 +3042,8 @@ pub struct IDWriteFactory4_Vtbl {
 #[cfg(all(feature = "dcommon", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IDWriteFactory4_Impl: IDWriteFactory3_Impl {
     fn TranslateColorGlyphRun(&self, baselineorigin: &windows_numerics::Vector2, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, desiredglyphimageformats: super::DWRITE_GLYPH_IMAGE_FORMATS, measuringmode: super::DWRITE_MEASURING_MODE, worldanddpitransform: *const DWRITE_MATRIX, colorpaletteindex: super::UINT32) -> windows_core::Result<IDWriteColorGlyphRunEnumerator1>;
-    fn ComputeGlyphOrigins(&self, glyphrun: *const DWRITE_GLYPH_RUN, baselineorigin: &windows_numerics::Vector2, glyphorigins: *mut windows_numerics::Vector2) -> windows_core::Result<()>;
-    fn ComputeGlyphOrigins2(&self, glyphrun: *const DWRITE_GLYPH_RUN, measuringmode: super::DWRITE_MEASURING_MODE, baselineorigin: &windows_numerics::Vector2, worldanddpitransform: *const DWRITE_MATRIX, glyphorigins: *mut windows_numerics::Vector2) -> windows_core::Result<()>;
+    fn ComputeGlyphOrigins(&self, glyphrun: *const DWRITE_GLYPH_RUN, baselineorigin: &windows_numerics::Vector2, glyphorigins: *mut windows_numerics::Vector2) -> windows_core::HRESULT;
+    fn ComputeGlyphOrigins2(&self, glyphrun: *const DWRITE_GLYPH_RUN, measuringmode: super::DWRITE_MEASURING_MODE, baselineorigin: &windows_numerics::Vector2, worldanddpitransform: *const DWRITE_MATRIX, glyphorigins: *mut windows_numerics::Vector2) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "dcommon", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl IDWriteFactory4_Vtbl {
@@ -3066,13 +3066,13 @@ impl IDWriteFactory4_Vtbl {
         unsafe extern "system" fn ComputeGlyphOrigins<Identity: IDWriteFactory4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, glyphrun: *const DWRITE_GLYPH_RUN, baselineorigin: windows_numerics::Vector2, glyphorigins: *mut windows_numerics::Vector2) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFactory4_Impl::ComputeGlyphOrigins(this, core::mem::transmute_copy(&glyphrun), core::mem::transmute(&baselineorigin), core::mem::transmute_copy(&glyphorigins)).into()
+                IDWriteFactory4_Impl::ComputeGlyphOrigins(this, core::mem::transmute_copy(&glyphrun), core::mem::transmute(&baselineorigin), core::mem::transmute_copy(&glyphorigins))
             }
         }
         unsafe extern "system" fn ComputeGlyphOrigins2<Identity: IDWriteFactory4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, glyphrun: *const DWRITE_GLYPH_RUN, measuringmode: super::DWRITE_MEASURING_MODE, baselineorigin: windows_numerics::Vector2, worldanddpitransform: *const DWRITE_MATRIX, glyphorigins: *mut windows_numerics::Vector2) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFactory4_Impl::ComputeGlyphOrigins2(this, core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&measuringmode), core::mem::transmute(&baselineorigin), core::mem::transmute_copy(&worldanddpitransform), core::mem::transmute_copy(&glyphorigins)).into()
+                IDWriteFactory4_Impl::ComputeGlyphOrigins2(this, core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&measuringmode), core::mem::transmute(&baselineorigin), core::mem::transmute_copy(&worldanddpitransform), core::mem::transmute_copy(&glyphorigins))
             }
         }
         Self {
@@ -3673,10 +3673,10 @@ pub trait IDWriteFont_Impl: windows_core::IUnknownImpl {
     fn GetStyle(&self) -> DWRITE_FONT_STYLE;
     fn IsSymbolFont(&self) -> windows_core::BOOL;
     fn GetFaceNames(&self) -> windows_core::Result<IDWriteLocalizedStrings>;
-    fn GetInformationalStrings(&self, informationalstringid: DWRITE_INFORMATIONAL_STRING_ID, informationalstrings: windows_core::OutRef<IDWriteLocalizedStrings>, exists: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetInformationalStrings(&self, informationalstringid: DWRITE_INFORMATIONAL_STRING_ID, informationalstrings: windows_core::OutRef<IDWriteLocalizedStrings>, exists: *mut windows_core::BOOL) -> windows_core::HRESULT;
     fn GetSimulations(&self) -> DWRITE_FONT_SIMULATIONS;
     fn GetMetrics(&self, fontmetrics: *mut DWRITE_FONT_METRICS);
-    fn HasCharacter(&self, unicodevalue: super::UINT32, exists: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn HasCharacter(&self, unicodevalue: super::UINT32, exists: *mut windows_core::BOOL) -> windows_core::HRESULT;
     fn CreateFontFace(&self) -> windows_core::Result<IDWriteFontFace>;
 }
 #[cfg(feature = "shared")]
@@ -3739,7 +3739,7 @@ impl IDWriteFont_Vtbl {
         unsafe extern "system" fn GetInformationalStrings<Identity: IDWriteFont_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, informationalstringid: DWRITE_INFORMATIONAL_STRING_ID, informationalstrings: *mut *mut core::ffi::c_void, exists: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFont_Impl::GetInformationalStrings(this, core::mem::transmute_copy(&informationalstringid), core::mem::transmute_copy(&informationalstrings), core::mem::transmute_copy(&exists)).into()
+                IDWriteFont_Impl::GetInformationalStrings(this, core::mem::transmute_copy(&informationalstringid), core::mem::transmute_copy(&informationalstrings), core::mem::transmute_copy(&exists))
             }
         }
         unsafe extern "system" fn GetSimulations<Identity: IDWriteFont_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> DWRITE_FONT_SIMULATIONS {
@@ -3757,7 +3757,7 @@ impl IDWriteFont_Vtbl {
         unsafe extern "system" fn HasCharacter<Identity: IDWriteFont_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unicodevalue: super::UINT32, exists: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFont_Impl::HasCharacter(this, core::mem::transmute_copy(&unicodevalue), core::mem::transmute_copy(&exists)).into()
+                IDWriteFont_Impl::HasCharacter(this, core::mem::transmute_copy(&unicodevalue), core::mem::transmute_copy(&exists))
             }
         }
         unsafe extern "system" fn CreateFontFace<Identity: IDWriteFont_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3847,7 +3847,7 @@ pub struct IDWriteFont1_Vtbl {
 pub trait IDWriteFont1_Impl: IDWriteFont_Impl {
     fn GetMetrics(&self, fontmetrics: *mut DWRITE_FONT_METRICS1);
     fn GetPanose(&self, panose: *mut DWRITE_PANOSE);
-    fn GetUnicodeRanges(&self, maxrangecount: super::UINT32, unicoderanges: *mut DWRITE_UNICODE_RANGE, actualrangecount: *mut super::UINT32) -> windows_core::Result<()>;
+    fn GetUnicodeRanges(&self, maxrangecount: super::UINT32, unicoderanges: *mut DWRITE_UNICODE_RANGE, actualrangecount: *mut super::UINT32) -> windows_core::HRESULT;
     fn IsMonospacedFont(&self) -> windows_core::BOOL;
 }
 #[cfg(feature = "shared")]
@@ -3868,7 +3868,7 @@ impl IDWriteFont1_Vtbl {
         unsafe extern "system" fn GetUnicodeRanges<Identity: IDWriteFont1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxrangecount: super::UINT32, unicoderanges: *mut DWRITE_UNICODE_RANGE, actualrangecount: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFont1_Impl::GetUnicodeRanges(this, core::mem::transmute_copy(&maxrangecount), core::mem::transmute_copy(&unicoderanges), core::mem::transmute_copy(&actualrangecount)).into()
+                IDWriteFont1_Impl::GetUnicodeRanges(this, core::mem::transmute_copy(&maxrangecount), core::mem::transmute_copy(&unicoderanges), core::mem::transmute_copy(&actualrangecount))
             }
         }
         unsafe extern "system" fn IsMonospacedFont<Identity: IDWriteFont1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
@@ -4103,7 +4103,7 @@ pub struct IDWriteFontCollection_Vtbl {
 pub trait IDWriteFontCollection_Impl: windows_core::IUnknownImpl {
     fn GetFontFamilyCount(&self) -> super::UINT32;
     fn GetFontFamily(&self, index: super::UINT32) -> windows_core::Result<IDWriteFontFamily>;
-    fn FindFamilyName(&self, familyname: *const super::WCHAR, index: *mut super::UINT32, exists: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn FindFamilyName(&self, familyname: *const super::WCHAR, index: *mut super::UINT32, exists: *mut windows_core::BOOL) -> windows_core::HRESULT;
     fn GetFontFromFontFace(&self, fontface: windows_core::Ref<IDWriteFontFace>) -> windows_core::Result<IDWriteFont>;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -4133,7 +4133,7 @@ impl IDWriteFontCollection_Vtbl {
         unsafe extern "system" fn FindFamilyName<Identity: IDWriteFontCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, familyname: *const super::WCHAR, index: *mut super::UINT32, exists: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontCollection_Impl::FindFamilyName(this, core::mem::transmute_copy(&familyname), core::mem::transmute_copy(&index), core::mem::transmute_copy(&exists)).into()
+                IDWriteFontCollection_Impl::FindFamilyName(this, core::mem::transmute_copy(&familyname), core::mem::transmute_copy(&index), core::mem::transmute_copy(&exists))
             }
         }
         unsafe extern "system" fn GetFontFromFontFace<Identity: IDWriteFontCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontface: *mut core::ffi::c_void, font: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4558,11 +4558,11 @@ pub struct IDWriteFontDownloadQueue_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IDWriteFontDownloadQueue_Impl: windows_core::IUnknownImpl {
-    fn AddListener(&self, listener: windows_core::Ref<IDWriteFontDownloadListener>, token: *mut super::UINT32) -> windows_core::Result<()>;
-    fn RemoveListener(&self, token: super::UINT32) -> windows_core::Result<()>;
+    fn AddListener(&self, listener: windows_core::Ref<IDWriteFontDownloadListener>, token: *mut super::UINT32) -> windows_core::HRESULT;
+    fn RemoveListener(&self, token: super::UINT32) -> windows_core::HRESULT;
     fn IsEmpty(&self) -> windows_core::BOOL;
-    fn BeginDownload(&self, context: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn CancelDownload(&self) -> windows_core::Result<()>;
+    fn BeginDownload(&self, context: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn CancelDownload(&self) -> windows_core::HRESULT;
     fn GetGenerationCount(&self) -> super::UINT64;
 }
 #[cfg(feature = "shared")]
@@ -4571,13 +4571,13 @@ impl IDWriteFontDownloadQueue_Vtbl {
         unsafe extern "system" fn AddListener<Identity: IDWriteFontDownloadQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, listener: *mut core::ffi::c_void, token: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontDownloadQueue_Impl::AddListener(this, core::mem::transmute_copy(&listener), core::mem::transmute_copy(&token)).into()
+                IDWriteFontDownloadQueue_Impl::AddListener(this, core::mem::transmute_copy(&listener), core::mem::transmute_copy(&token))
             }
         }
         unsafe extern "system" fn RemoveListener<Identity: IDWriteFontDownloadQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontDownloadQueue_Impl::RemoveListener(this, core::mem::transmute_copy(&token)).into()
+                IDWriteFontDownloadQueue_Impl::RemoveListener(this, core::mem::transmute_copy(&token))
             }
         }
         unsafe extern "system" fn IsEmpty<Identity: IDWriteFontDownloadQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
@@ -4589,13 +4589,13 @@ impl IDWriteFontDownloadQueue_Vtbl {
         unsafe extern "system" fn BeginDownload<Identity: IDWriteFontDownloadQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontDownloadQueue_Impl::BeginDownload(this, core::mem::transmute_copy(&context)).into()
+                IDWriteFontDownloadQueue_Impl::BeginDownload(this, core::mem::transmute_copy(&context))
             }
         }
         unsafe extern "system" fn CancelDownload<Identity: IDWriteFontDownloadQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontDownloadQueue_Impl::CancelDownload(this).into()
+                IDWriteFontDownloadQueue_Impl::CancelDownload(this)
             }
         }
         unsafe extern "system" fn GetGenerationCount<Identity: IDWriteFontDownloadQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::UINT64 {
@@ -4746,20 +4746,20 @@ pub struct IDWriteFontFace_Vtbl {
 #[cfg(all(feature = "d2d", feature = "dcommon", feature = "minwindef", feature = "shared"))]
 pub trait IDWriteFontFace_Impl: windows_core::IUnknownImpl {
     fn GetType(&self) -> DWRITE_FONT_FACE_TYPE;
-    fn GetFiles(&self, numberoffiles: *mut super::UINT32, fontfiles: *mut Option<IDWriteFontFile>) -> windows_core::Result<()>;
+    fn GetFiles(&self, numberoffiles: *mut super::UINT32, fontfiles: *mut Option<IDWriteFontFile>) -> windows_core::HRESULT;
     fn GetIndex(&self) -> super::UINT32;
     fn GetSimulations(&self) -> DWRITE_FONT_SIMULATIONS;
     fn IsSymbolFont(&self) -> windows_core::BOOL;
     fn GetMetrics(&self, fontfacemetrics: *mut DWRITE_FONT_METRICS);
     fn GetGlyphCount(&self) -> super::UINT16;
-    fn GetDesignGlyphMetrics(&self, glyphindices: *const super::UINT16, glyphcount: super::UINT32, glyphmetrics: *mut DWRITE_GLYPH_METRICS, issideways: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetGlyphIndices(&self, codepoints: *const super::UINT32, codepointcount: super::UINT32, glyphindices: *mut super::UINT16) -> windows_core::Result<()>;
-    fn TryGetFontTable(&self, opentypetabletag: super::UINT32, tabledata: *mut *const core::ffi::c_void, tablesize: *mut super::UINT32, tablecontext: *mut *mut core::ffi::c_void, exists: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetDesignGlyphMetrics(&self, glyphindices: *const super::UINT16, glyphcount: super::UINT32, glyphmetrics: *mut DWRITE_GLYPH_METRICS, issideways: windows_core::BOOL) -> windows_core::HRESULT;
+    fn GetGlyphIndices(&self, codepoints: *const super::UINT32, codepointcount: super::UINT32, glyphindices: *mut super::UINT16) -> windows_core::HRESULT;
+    fn TryGetFontTable(&self, opentypetabletag: super::UINT32, tabledata: *mut *const core::ffi::c_void, tablesize: *mut super::UINT32, tablecontext: *mut *mut core::ffi::c_void, exists: *mut windows_core::BOOL) -> windows_core::HRESULT;
     fn ReleaseFontTable(&self, tablecontext: *const core::ffi::c_void);
-    fn GetGlyphRunOutline(&self, emsize: super::FLOAT, glyphindices: *const super::UINT16, glyphadvances: *const super::FLOAT, glyphoffsets: *const DWRITE_GLYPH_OFFSET, glyphcount: super::UINT32, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, geometrysink: windows_core::Ref<super::ID2D1SimplifiedGeometrySink>) -> windows_core::Result<()>;
-    fn GetRecommendedRenderingMode(&self, emsize: super::FLOAT, pixelsperdip: super::FLOAT, measuringmode: super::DWRITE_MEASURING_MODE, renderingparams: windows_core::Ref<IDWriteRenderingParams>, renderingmode: *mut DWRITE_RENDERING_MODE) -> windows_core::Result<()>;
-    fn GetGdiCompatibleMetrics(&self, emsize: super::FLOAT, pixelsperdip: super::FLOAT, transform: *const DWRITE_MATRIX, fontfacemetrics: *mut DWRITE_FONT_METRICS) -> windows_core::Result<()>;
-    fn GetGdiCompatibleGlyphMetrics(&self, emsize: super::FLOAT, pixelsperdip: super::FLOAT, transform: *const DWRITE_MATRIX, usegdinatural: windows_core::BOOL, glyphindices: *const super::UINT16, glyphcount: super::UINT32, glyphmetrics: *mut DWRITE_GLYPH_METRICS, issideways: windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetGlyphRunOutline(&self, emsize: super::FLOAT, glyphindices: *const super::UINT16, glyphadvances: *const super::FLOAT, glyphoffsets: *const DWRITE_GLYPH_OFFSET, glyphcount: super::UINT32, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, geometrysink: windows_core::Ref<super::ID2D1SimplifiedGeometrySink>) -> windows_core::HRESULT;
+    fn GetRecommendedRenderingMode(&self, emsize: super::FLOAT, pixelsperdip: super::FLOAT, measuringmode: super::DWRITE_MEASURING_MODE, renderingparams: windows_core::Ref<IDWriteRenderingParams>, renderingmode: *mut DWRITE_RENDERING_MODE) -> windows_core::HRESULT;
+    fn GetGdiCompatibleMetrics(&self, emsize: super::FLOAT, pixelsperdip: super::FLOAT, transform: *const DWRITE_MATRIX, fontfacemetrics: *mut DWRITE_FONT_METRICS) -> windows_core::HRESULT;
+    fn GetGdiCompatibleGlyphMetrics(&self, emsize: super::FLOAT, pixelsperdip: super::FLOAT, transform: *const DWRITE_MATRIX, usegdinatural: windows_core::BOOL, glyphindices: *const super::UINT16, glyphcount: super::UINT32, glyphmetrics: *mut DWRITE_GLYPH_METRICS, issideways: windows_core::BOOL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "d2d", feature = "dcommon", feature = "minwindef", feature = "shared"))]
 impl IDWriteFontFace_Vtbl {
@@ -4773,7 +4773,7 @@ impl IDWriteFontFace_Vtbl {
         unsafe extern "system" fn GetFiles<Identity: IDWriteFontFace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numberoffiles: *mut super::UINT32, fontfiles: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFace_Impl::GetFiles(this, core::mem::transmute_copy(&numberoffiles), core::mem::transmute_copy(&fontfiles)).into()
+                IDWriteFontFace_Impl::GetFiles(this, core::mem::transmute_copy(&numberoffiles), core::mem::transmute_copy(&fontfiles))
             }
         }
         unsafe extern "system" fn GetIndex<Identity: IDWriteFontFace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::UINT32 {
@@ -4809,19 +4809,19 @@ impl IDWriteFontFace_Vtbl {
         unsafe extern "system" fn GetDesignGlyphMetrics<Identity: IDWriteFontFace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, glyphindices: *const super::UINT16, glyphcount: super::UINT32, glyphmetrics: *mut DWRITE_GLYPH_METRICS, issideways: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFace_Impl::GetDesignGlyphMetrics(this, core::mem::transmute_copy(&glyphindices), core::mem::transmute_copy(&glyphcount), core::mem::transmute_copy(&glyphmetrics), core::mem::transmute_copy(&issideways)).into()
+                IDWriteFontFace_Impl::GetDesignGlyphMetrics(this, core::mem::transmute_copy(&glyphindices), core::mem::transmute_copy(&glyphcount), core::mem::transmute_copy(&glyphmetrics), core::mem::transmute_copy(&issideways))
             }
         }
         unsafe extern "system" fn GetGlyphIndices<Identity: IDWriteFontFace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, codepoints: *const super::UINT32, codepointcount: super::UINT32, glyphindices: *mut super::UINT16) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFace_Impl::GetGlyphIndices(this, core::mem::transmute_copy(&codepoints), core::mem::transmute_copy(&codepointcount), core::mem::transmute_copy(&glyphindices)).into()
+                IDWriteFontFace_Impl::GetGlyphIndices(this, core::mem::transmute_copy(&codepoints), core::mem::transmute_copy(&codepointcount), core::mem::transmute_copy(&glyphindices))
             }
         }
         unsafe extern "system" fn TryGetFontTable<Identity: IDWriteFontFace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, opentypetabletag: super::UINT32, tabledata: *mut *const core::ffi::c_void, tablesize: *mut super::UINT32, tablecontext: *mut *mut core::ffi::c_void, exists: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFace_Impl::TryGetFontTable(this, core::mem::transmute_copy(&opentypetabletag), core::mem::transmute_copy(&tabledata), core::mem::transmute_copy(&tablesize), core::mem::transmute_copy(&tablecontext), core::mem::transmute_copy(&exists)).into()
+                IDWriteFontFace_Impl::TryGetFontTable(this, core::mem::transmute_copy(&opentypetabletag), core::mem::transmute_copy(&tabledata), core::mem::transmute_copy(&tablesize), core::mem::transmute_copy(&tablecontext), core::mem::transmute_copy(&exists))
             }
         }
         unsafe extern "system" fn ReleaseFontTable<Identity: IDWriteFontFace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tablecontext: *const core::ffi::c_void) {
@@ -4833,25 +4833,25 @@ impl IDWriteFontFace_Vtbl {
         unsafe extern "system" fn GetGlyphRunOutline<Identity: IDWriteFontFace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, emsize: super::FLOAT, glyphindices: *const super::UINT16, glyphadvances: *const super::FLOAT, glyphoffsets: *const DWRITE_GLYPH_OFFSET, glyphcount: super::UINT32, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, geometrysink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFace_Impl::GetGlyphRunOutline(this, core::mem::transmute_copy(&emsize), core::mem::transmute_copy(&glyphindices), core::mem::transmute_copy(&glyphadvances), core::mem::transmute_copy(&glyphoffsets), core::mem::transmute_copy(&glyphcount), core::mem::transmute_copy(&issideways), core::mem::transmute_copy(&isrighttoleft), core::mem::transmute_copy(&geometrysink)).into()
+                IDWriteFontFace_Impl::GetGlyphRunOutline(this, core::mem::transmute_copy(&emsize), core::mem::transmute_copy(&glyphindices), core::mem::transmute_copy(&glyphadvances), core::mem::transmute_copy(&glyphoffsets), core::mem::transmute_copy(&glyphcount), core::mem::transmute_copy(&issideways), core::mem::transmute_copy(&isrighttoleft), core::mem::transmute_copy(&geometrysink))
             }
         }
         unsafe extern "system" fn GetRecommendedRenderingMode<Identity: IDWriteFontFace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, emsize: super::FLOAT, pixelsperdip: super::FLOAT, measuringmode: super::DWRITE_MEASURING_MODE, renderingparams: *mut core::ffi::c_void, renderingmode: *mut DWRITE_RENDERING_MODE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFace_Impl::GetRecommendedRenderingMode(this, core::mem::transmute_copy(&emsize), core::mem::transmute_copy(&pixelsperdip), core::mem::transmute_copy(&measuringmode), core::mem::transmute_copy(&renderingparams), core::mem::transmute_copy(&renderingmode)).into()
+                IDWriteFontFace_Impl::GetRecommendedRenderingMode(this, core::mem::transmute_copy(&emsize), core::mem::transmute_copy(&pixelsperdip), core::mem::transmute_copy(&measuringmode), core::mem::transmute_copy(&renderingparams), core::mem::transmute_copy(&renderingmode))
             }
         }
         unsafe extern "system" fn GetGdiCompatibleMetrics<Identity: IDWriteFontFace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, emsize: super::FLOAT, pixelsperdip: super::FLOAT, transform: *const DWRITE_MATRIX, fontfacemetrics: *mut DWRITE_FONT_METRICS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFace_Impl::GetGdiCompatibleMetrics(this, core::mem::transmute_copy(&emsize), core::mem::transmute_copy(&pixelsperdip), core::mem::transmute_copy(&transform), core::mem::transmute_copy(&fontfacemetrics)).into()
+                IDWriteFontFace_Impl::GetGdiCompatibleMetrics(this, core::mem::transmute_copy(&emsize), core::mem::transmute_copy(&pixelsperdip), core::mem::transmute_copy(&transform), core::mem::transmute_copy(&fontfacemetrics))
             }
         }
         unsafe extern "system" fn GetGdiCompatibleGlyphMetrics<Identity: IDWriteFontFace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, emsize: super::FLOAT, pixelsperdip: super::FLOAT, transform: *const DWRITE_MATRIX, usegdinatural: windows_core::BOOL, glyphindices: *const super::UINT16, glyphcount: super::UINT32, glyphmetrics: *mut DWRITE_GLYPH_METRICS, issideways: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFace_Impl::GetGdiCompatibleGlyphMetrics(this, core::mem::transmute_copy(&emsize), core::mem::transmute_copy(&pixelsperdip), core::mem::transmute_copy(&transform), core::mem::transmute_copy(&usegdinatural), core::mem::transmute_copy(&glyphindices), core::mem::transmute_copy(&glyphcount), core::mem::transmute_copy(&glyphmetrics), core::mem::transmute_copy(&issideways)).into()
+                IDWriteFontFace_Impl::GetGdiCompatibleGlyphMetrics(this, core::mem::transmute_copy(&emsize), core::mem::transmute_copy(&pixelsperdip), core::mem::transmute_copy(&transform), core::mem::transmute_copy(&usegdinatural), core::mem::transmute_copy(&glyphindices), core::mem::transmute_copy(&glyphcount), core::mem::transmute_copy(&glyphmetrics), core::mem::transmute_copy(&issideways))
             }
         }
         Self {
@@ -4985,16 +4985,16 @@ pub struct IDWriteFontFace1_Vtbl {
 #[cfg(all(feature = "d2d", feature = "dcommon", feature = "minwindef", feature = "shared"))]
 pub trait IDWriteFontFace1_Impl: IDWriteFontFace_Impl {
     fn GetMetrics(&self, fontmetrics: *mut DWRITE_FONT_METRICS1);
-    fn GetGdiCompatibleMetrics(&self, emsize: super::FLOAT, pixelsperdip: super::FLOAT, transform: *const DWRITE_MATRIX, fontmetrics: *mut DWRITE_FONT_METRICS1) -> windows_core::Result<()>;
+    fn GetGdiCompatibleMetrics(&self, emsize: super::FLOAT, pixelsperdip: super::FLOAT, transform: *const DWRITE_MATRIX, fontmetrics: *mut DWRITE_FONT_METRICS1) -> windows_core::HRESULT;
     fn GetCaretMetrics(&self, caretmetrics: *mut DWRITE_CARET_METRICS);
-    fn GetUnicodeRanges(&self, maxrangecount: super::UINT32, unicoderanges: *mut DWRITE_UNICODE_RANGE, actualrangecount: *mut super::UINT32) -> windows_core::Result<()>;
+    fn GetUnicodeRanges(&self, maxrangecount: super::UINT32, unicoderanges: *mut DWRITE_UNICODE_RANGE, actualrangecount: *mut super::UINT32) -> windows_core::HRESULT;
     fn IsMonospacedFont(&self) -> windows_core::BOOL;
-    fn GetDesignGlyphAdvances(&self, glyphcount: super::UINT32, glyphindices: *const super::UINT16, glyphadvances: *mut super::INT32, issideways: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetGdiCompatibleGlyphAdvances(&self, emsize: super::FLOAT, pixelsperdip: super::FLOAT, transform: *const DWRITE_MATRIX, usegdinatural: windows_core::BOOL, issideways: windows_core::BOOL, glyphcount: super::UINT32, glyphindices: *const super::UINT16, glyphadvances: *mut super::INT32) -> windows_core::Result<()>;
-    fn GetKerningPairAdjustments(&self, glyphcount: super::UINT32, glyphindices: *const super::UINT16, glyphadvanceadjustments: *mut super::INT32) -> windows_core::Result<()>;
+    fn GetDesignGlyphAdvances(&self, glyphcount: super::UINT32, glyphindices: *const super::UINT16, glyphadvances: *mut super::INT32, issideways: windows_core::BOOL) -> windows_core::HRESULT;
+    fn GetGdiCompatibleGlyphAdvances(&self, emsize: super::FLOAT, pixelsperdip: super::FLOAT, transform: *const DWRITE_MATRIX, usegdinatural: windows_core::BOOL, issideways: windows_core::BOOL, glyphcount: super::UINT32, glyphindices: *const super::UINT16, glyphadvances: *mut super::INT32) -> windows_core::HRESULT;
+    fn GetKerningPairAdjustments(&self, glyphcount: super::UINT32, glyphindices: *const super::UINT16, glyphadvanceadjustments: *mut super::INT32) -> windows_core::HRESULT;
     fn HasKerningPairs(&self) -> windows_core::BOOL;
-    fn GetRecommendedRenderingMode(&self, fontemsize: super::FLOAT, dpix: super::FLOAT, dpiy: super::FLOAT, transform: *const DWRITE_MATRIX, issideways: windows_core::BOOL, outlinethreshold: DWRITE_OUTLINE_THRESHOLD, measuringmode: super::DWRITE_MEASURING_MODE, renderingmode: *mut DWRITE_RENDERING_MODE) -> windows_core::Result<()>;
-    fn GetVerticalGlyphVariants(&self, glyphcount: super::UINT32, nominalglyphindices: *const super::UINT16, verticalglyphindices: *mut super::UINT16) -> windows_core::Result<()>;
+    fn GetRecommendedRenderingMode(&self, fontemsize: super::FLOAT, dpix: super::FLOAT, dpiy: super::FLOAT, transform: *const DWRITE_MATRIX, issideways: windows_core::BOOL, outlinethreshold: DWRITE_OUTLINE_THRESHOLD, measuringmode: super::DWRITE_MEASURING_MODE, renderingmode: *mut DWRITE_RENDERING_MODE) -> windows_core::HRESULT;
+    fn GetVerticalGlyphVariants(&self, glyphcount: super::UINT32, nominalglyphindices: *const super::UINT16, verticalglyphindices: *mut super::UINT16) -> windows_core::HRESULT;
     fn HasVerticalGlyphVariants(&self) -> windows_core::BOOL;
 }
 #[cfg(all(feature = "d2d", feature = "dcommon", feature = "minwindef", feature = "shared"))]
@@ -5009,7 +5009,7 @@ impl IDWriteFontFace1_Vtbl {
         unsafe extern "system" fn GetGdiCompatibleMetrics<Identity: IDWriteFontFace1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, emsize: super::FLOAT, pixelsperdip: super::FLOAT, transform: *const DWRITE_MATRIX, fontmetrics: *mut DWRITE_FONT_METRICS1) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFace1_Impl::GetGdiCompatibleMetrics(this, core::mem::transmute_copy(&emsize), core::mem::transmute_copy(&pixelsperdip), core::mem::transmute_copy(&transform), core::mem::transmute_copy(&fontmetrics)).into()
+                IDWriteFontFace1_Impl::GetGdiCompatibleMetrics(this, core::mem::transmute_copy(&emsize), core::mem::transmute_copy(&pixelsperdip), core::mem::transmute_copy(&transform), core::mem::transmute_copy(&fontmetrics))
             }
         }
         unsafe extern "system" fn GetCaretMetrics<Identity: IDWriteFontFace1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, caretmetrics: *mut DWRITE_CARET_METRICS) {
@@ -5021,7 +5021,7 @@ impl IDWriteFontFace1_Vtbl {
         unsafe extern "system" fn GetUnicodeRanges<Identity: IDWriteFontFace1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxrangecount: super::UINT32, unicoderanges: *mut DWRITE_UNICODE_RANGE, actualrangecount: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFace1_Impl::GetUnicodeRanges(this, core::mem::transmute_copy(&maxrangecount), core::mem::transmute_copy(&unicoderanges), core::mem::transmute_copy(&actualrangecount)).into()
+                IDWriteFontFace1_Impl::GetUnicodeRanges(this, core::mem::transmute_copy(&maxrangecount), core::mem::transmute_copy(&unicoderanges), core::mem::transmute_copy(&actualrangecount))
             }
         }
         unsafe extern "system" fn IsMonospacedFont<Identity: IDWriteFontFace1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
@@ -5033,19 +5033,19 @@ impl IDWriteFontFace1_Vtbl {
         unsafe extern "system" fn GetDesignGlyphAdvances<Identity: IDWriteFontFace1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, glyphcount: super::UINT32, glyphindices: *const super::UINT16, glyphadvances: *mut super::INT32, issideways: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFace1_Impl::GetDesignGlyphAdvances(this, core::mem::transmute_copy(&glyphcount), core::mem::transmute_copy(&glyphindices), core::mem::transmute_copy(&glyphadvances), core::mem::transmute_copy(&issideways)).into()
+                IDWriteFontFace1_Impl::GetDesignGlyphAdvances(this, core::mem::transmute_copy(&glyphcount), core::mem::transmute_copy(&glyphindices), core::mem::transmute_copy(&glyphadvances), core::mem::transmute_copy(&issideways))
             }
         }
         unsafe extern "system" fn GetGdiCompatibleGlyphAdvances<Identity: IDWriteFontFace1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, emsize: super::FLOAT, pixelsperdip: super::FLOAT, transform: *const DWRITE_MATRIX, usegdinatural: windows_core::BOOL, issideways: windows_core::BOOL, glyphcount: super::UINT32, glyphindices: *const super::UINT16, glyphadvances: *mut super::INT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFace1_Impl::GetGdiCompatibleGlyphAdvances(this, core::mem::transmute_copy(&emsize), core::mem::transmute_copy(&pixelsperdip), core::mem::transmute_copy(&transform), core::mem::transmute_copy(&usegdinatural), core::mem::transmute_copy(&issideways), core::mem::transmute_copy(&glyphcount), core::mem::transmute_copy(&glyphindices), core::mem::transmute_copy(&glyphadvances)).into()
+                IDWriteFontFace1_Impl::GetGdiCompatibleGlyphAdvances(this, core::mem::transmute_copy(&emsize), core::mem::transmute_copy(&pixelsperdip), core::mem::transmute_copy(&transform), core::mem::transmute_copy(&usegdinatural), core::mem::transmute_copy(&issideways), core::mem::transmute_copy(&glyphcount), core::mem::transmute_copy(&glyphindices), core::mem::transmute_copy(&glyphadvances))
             }
         }
         unsafe extern "system" fn GetKerningPairAdjustments<Identity: IDWriteFontFace1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, glyphcount: super::UINT32, glyphindices: *const super::UINT16, glyphadvanceadjustments: *mut super::INT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFace1_Impl::GetKerningPairAdjustments(this, core::mem::transmute_copy(&glyphcount), core::mem::transmute_copy(&glyphindices), core::mem::transmute_copy(&glyphadvanceadjustments)).into()
+                IDWriteFontFace1_Impl::GetKerningPairAdjustments(this, core::mem::transmute_copy(&glyphcount), core::mem::transmute_copy(&glyphindices), core::mem::transmute_copy(&glyphadvanceadjustments))
             }
         }
         unsafe extern "system" fn HasKerningPairs<Identity: IDWriteFontFace1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
@@ -5057,13 +5057,13 @@ impl IDWriteFontFace1_Vtbl {
         unsafe extern "system" fn GetRecommendedRenderingMode<Identity: IDWriteFontFace1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontemsize: super::FLOAT, dpix: super::FLOAT, dpiy: super::FLOAT, transform: *const DWRITE_MATRIX, issideways: windows_core::BOOL, outlinethreshold: DWRITE_OUTLINE_THRESHOLD, measuringmode: super::DWRITE_MEASURING_MODE, renderingmode: *mut DWRITE_RENDERING_MODE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFace1_Impl::GetRecommendedRenderingMode(this, core::mem::transmute_copy(&fontemsize), core::mem::transmute_copy(&dpix), core::mem::transmute_copy(&dpiy), core::mem::transmute_copy(&transform), core::mem::transmute_copy(&issideways), core::mem::transmute_copy(&outlinethreshold), core::mem::transmute_copy(&measuringmode), core::mem::transmute_copy(&renderingmode)).into()
+                IDWriteFontFace1_Impl::GetRecommendedRenderingMode(this, core::mem::transmute_copy(&fontemsize), core::mem::transmute_copy(&dpix), core::mem::transmute_copy(&dpiy), core::mem::transmute_copy(&transform), core::mem::transmute_copy(&issideways), core::mem::transmute_copy(&outlinethreshold), core::mem::transmute_copy(&measuringmode), core::mem::transmute_copy(&renderingmode))
             }
         }
         unsafe extern "system" fn GetVerticalGlyphVariants<Identity: IDWriteFontFace1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, glyphcount: super::UINT32, nominalglyphindices: *const super::UINT16, verticalglyphindices: *mut super::UINT16) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFace1_Impl::GetVerticalGlyphVariants(this, core::mem::transmute_copy(&glyphcount), core::mem::transmute_copy(&nominalglyphindices), core::mem::transmute_copy(&verticalglyphindices)).into()
+                IDWriteFontFace1_Impl::GetVerticalGlyphVariants(this, core::mem::transmute_copy(&glyphcount), core::mem::transmute_copy(&nominalglyphindices), core::mem::transmute_copy(&verticalglyphindices))
             }
         }
         unsafe extern "system" fn HasVerticalGlyphVariants<Identity: IDWriteFontFace1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
@@ -5153,8 +5153,8 @@ pub trait IDWriteFontFace2_Impl: IDWriteFontFace1_Impl {
     fn IsColorFont(&self) -> windows_core::BOOL;
     fn GetColorPaletteCount(&self) -> super::UINT32;
     fn GetPaletteEntryCount(&self) -> super::UINT32;
-    fn GetPaletteEntries(&self, colorpaletteindex: super::UINT32, firstentryindex: super::UINT32, entrycount: super::UINT32, paletteentries: *mut DWRITE_COLOR_F) -> windows_core::Result<()>;
-    fn GetRecommendedRenderingMode(&self, fontemsize: super::FLOAT, dpix: super::FLOAT, dpiy: super::FLOAT, transform: *const DWRITE_MATRIX, issideways: windows_core::BOOL, outlinethreshold: DWRITE_OUTLINE_THRESHOLD, measuringmode: super::DWRITE_MEASURING_MODE, renderingparams: windows_core::Ref<IDWriteRenderingParams>, renderingmode: *mut DWRITE_RENDERING_MODE, gridfitmode: *mut DWRITE_GRID_FIT_MODE) -> windows_core::Result<()>;
+    fn GetPaletteEntries(&self, colorpaletteindex: super::UINT32, firstentryindex: super::UINT32, entrycount: super::UINT32, paletteentries: *mut DWRITE_COLOR_F) -> windows_core::HRESULT;
+    fn GetRecommendedRenderingMode(&self, fontemsize: super::FLOAT, dpix: super::FLOAT, dpiy: super::FLOAT, transform: *const DWRITE_MATRIX, issideways: windows_core::BOOL, outlinethreshold: DWRITE_OUTLINE_THRESHOLD, measuringmode: super::DWRITE_MEASURING_MODE, renderingparams: windows_core::Ref<IDWriteRenderingParams>, renderingmode: *mut DWRITE_RENDERING_MODE, gridfitmode: *mut DWRITE_GRID_FIT_MODE) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared"))]
 impl IDWriteFontFace2_Vtbl {
@@ -5180,13 +5180,13 @@ impl IDWriteFontFace2_Vtbl {
         unsafe extern "system" fn GetPaletteEntries<Identity: IDWriteFontFace2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, colorpaletteindex: super::UINT32, firstentryindex: super::UINT32, entrycount: super::UINT32, paletteentries: *mut DWRITE_COLOR_F) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFace2_Impl::GetPaletteEntries(this, core::mem::transmute_copy(&colorpaletteindex), core::mem::transmute_copy(&firstentryindex), core::mem::transmute_copy(&entrycount), core::mem::transmute_copy(&paletteentries)).into()
+                IDWriteFontFace2_Impl::GetPaletteEntries(this, core::mem::transmute_copy(&colorpaletteindex), core::mem::transmute_copy(&firstentryindex), core::mem::transmute_copy(&entrycount), core::mem::transmute_copy(&paletteentries))
             }
         }
         unsafe extern "system" fn GetRecommendedRenderingMode<Identity: IDWriteFontFace2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontemsize: super::FLOAT, dpix: super::FLOAT, dpiy: super::FLOAT, transform: *const DWRITE_MATRIX, issideways: windows_core::BOOL, outlinethreshold: DWRITE_OUTLINE_THRESHOLD, measuringmode: super::DWRITE_MEASURING_MODE, renderingparams: *mut core::ffi::c_void, renderingmode: *mut DWRITE_RENDERING_MODE, gridfitmode: *mut DWRITE_GRID_FIT_MODE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFace2_Impl::GetRecommendedRenderingMode(this, core::mem::transmute_copy(&fontemsize), core::mem::transmute_copy(&dpix), core::mem::transmute_copy(&dpiy), core::mem::transmute_copy(&transform), core::mem::transmute_copy(&issideways), core::mem::transmute_copy(&outlinethreshold), core::mem::transmute_copy(&measuringmode), core::mem::transmute_copy(&renderingparams), core::mem::transmute_copy(&renderingmode), core::mem::transmute_copy(&gridfitmode)).into()
+                IDWriteFontFace2_Impl::GetRecommendedRenderingMode(this, core::mem::transmute_copy(&fontemsize), core::mem::transmute_copy(&dpix), core::mem::transmute_copy(&dpiy), core::mem::transmute_copy(&transform), core::mem::transmute_copy(&issideways), core::mem::transmute_copy(&outlinethreshold), core::mem::transmute_copy(&measuringmode), core::mem::transmute_copy(&renderingparams), core::mem::transmute_copy(&renderingmode), core::mem::transmute_copy(&gridfitmode))
             }
         }
         Self {
@@ -5326,13 +5326,13 @@ pub trait IDWriteFontFace3_Impl: IDWriteFontFace2_Impl {
     fn GetStyle(&self) -> DWRITE_FONT_STYLE;
     fn GetFamilyNames(&self) -> windows_core::Result<IDWriteLocalizedStrings>;
     fn GetFaceNames(&self) -> windows_core::Result<IDWriteLocalizedStrings>;
-    fn GetInformationalStrings(&self, informationalstringid: DWRITE_INFORMATIONAL_STRING_ID, informationalstrings: windows_core::OutRef<IDWriteLocalizedStrings>, exists: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetInformationalStrings(&self, informationalstringid: DWRITE_INFORMATIONAL_STRING_ID, informationalstrings: windows_core::OutRef<IDWriteLocalizedStrings>, exists: *mut windows_core::BOOL) -> windows_core::HRESULT;
     fn HasCharacter(&self, unicodevalue: super::UINT32) -> windows_core::BOOL;
-    fn GetRecommendedRenderingMode(&self, fontemsize: super::FLOAT, dpix: super::FLOAT, dpiy: super::FLOAT, transform: *const DWRITE_MATRIX, issideways: windows_core::BOOL, outlinethreshold: DWRITE_OUTLINE_THRESHOLD, measuringmode: super::DWRITE_MEASURING_MODE, renderingparams: windows_core::Ref<IDWriteRenderingParams>, renderingmode: *mut DWRITE_RENDERING_MODE1, gridfitmode: *mut DWRITE_GRID_FIT_MODE) -> windows_core::Result<()>;
+    fn GetRecommendedRenderingMode(&self, fontemsize: super::FLOAT, dpix: super::FLOAT, dpiy: super::FLOAT, transform: *const DWRITE_MATRIX, issideways: windows_core::BOOL, outlinethreshold: DWRITE_OUTLINE_THRESHOLD, measuringmode: super::DWRITE_MEASURING_MODE, renderingparams: windows_core::Ref<IDWriteRenderingParams>, renderingmode: *mut DWRITE_RENDERING_MODE1, gridfitmode: *mut DWRITE_GRID_FIT_MODE) -> windows_core::HRESULT;
     fn IsCharacterLocal(&self, unicodevalue: super::UINT32) -> windows_core::BOOL;
     fn IsGlyphLocal(&self, glyphid: super::UINT16) -> windows_core::BOOL;
-    fn AreCharactersLocal(&self, characters: *const super::WCHAR, charactercount: super::UINT32, enqueueifnotlocal: windows_core::BOOL, islocal: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn AreGlyphsLocal(&self, glyphindices: *const super::UINT16, glyphcount: super::UINT32, enqueueifnotlocal: windows_core::BOOL, islocal: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn AreCharactersLocal(&self, characters: *const super::WCHAR, charactercount: super::UINT32, enqueueifnotlocal: windows_core::BOOL, islocal: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn AreGlyphsLocal(&self, glyphindices: *const super::UINT16, glyphcount: super::UINT32, enqueueifnotlocal: windows_core::BOOL, islocal: *mut windows_core::BOOL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl IDWriteFontFace3_Vtbl {
@@ -5409,7 +5409,7 @@ impl IDWriteFontFace3_Vtbl {
         unsafe extern "system" fn GetInformationalStrings<Identity: IDWriteFontFace3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, informationalstringid: DWRITE_INFORMATIONAL_STRING_ID, informationalstrings: *mut *mut core::ffi::c_void, exists: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFace3_Impl::GetInformationalStrings(this, core::mem::transmute_copy(&informationalstringid), core::mem::transmute_copy(&informationalstrings), core::mem::transmute_copy(&exists)).into()
+                IDWriteFontFace3_Impl::GetInformationalStrings(this, core::mem::transmute_copy(&informationalstringid), core::mem::transmute_copy(&informationalstrings), core::mem::transmute_copy(&exists))
             }
         }
         unsafe extern "system" fn HasCharacter<Identity: IDWriteFontFace3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unicodevalue: super::UINT32) -> windows_core::BOOL {
@@ -5421,7 +5421,7 @@ impl IDWriteFontFace3_Vtbl {
         unsafe extern "system" fn GetRecommendedRenderingMode<Identity: IDWriteFontFace3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontemsize: super::FLOAT, dpix: super::FLOAT, dpiy: super::FLOAT, transform: *const DWRITE_MATRIX, issideways: windows_core::BOOL, outlinethreshold: DWRITE_OUTLINE_THRESHOLD, measuringmode: super::DWRITE_MEASURING_MODE, renderingparams: *mut core::ffi::c_void, renderingmode: *mut DWRITE_RENDERING_MODE1, gridfitmode: *mut DWRITE_GRID_FIT_MODE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFace3_Impl::GetRecommendedRenderingMode(this, core::mem::transmute_copy(&fontemsize), core::mem::transmute_copy(&dpix), core::mem::transmute_copy(&dpiy), core::mem::transmute_copy(&transform), core::mem::transmute_copy(&issideways), core::mem::transmute_copy(&outlinethreshold), core::mem::transmute_copy(&measuringmode), core::mem::transmute_copy(&renderingparams), core::mem::transmute_copy(&renderingmode), core::mem::transmute_copy(&gridfitmode)).into()
+                IDWriteFontFace3_Impl::GetRecommendedRenderingMode(this, core::mem::transmute_copy(&fontemsize), core::mem::transmute_copy(&dpix), core::mem::transmute_copy(&dpiy), core::mem::transmute_copy(&transform), core::mem::transmute_copy(&issideways), core::mem::transmute_copy(&outlinethreshold), core::mem::transmute_copy(&measuringmode), core::mem::transmute_copy(&renderingparams), core::mem::transmute_copy(&renderingmode), core::mem::transmute_copy(&gridfitmode))
             }
         }
         unsafe extern "system" fn IsCharacterLocal<Identity: IDWriteFontFace3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unicodevalue: super::UINT32) -> windows_core::BOOL {
@@ -5439,13 +5439,13 @@ impl IDWriteFontFace3_Vtbl {
         unsafe extern "system" fn AreCharactersLocal<Identity: IDWriteFontFace3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, characters: *const super::WCHAR, charactercount: super::UINT32, enqueueifnotlocal: windows_core::BOOL, islocal: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFace3_Impl::AreCharactersLocal(this, core::mem::transmute_copy(&characters), core::mem::transmute_copy(&charactercount), core::mem::transmute_copy(&enqueueifnotlocal), core::mem::transmute_copy(&islocal)).into()
+                IDWriteFontFace3_Impl::AreCharactersLocal(this, core::mem::transmute_copy(&characters), core::mem::transmute_copy(&charactercount), core::mem::transmute_copy(&enqueueifnotlocal), core::mem::transmute_copy(&islocal))
             }
         }
         unsafe extern "system" fn AreGlyphsLocal<Identity: IDWriteFontFace3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, glyphindices: *const super::UINT16, glyphcount: super::UINT32, enqueueifnotlocal: windows_core::BOOL, islocal: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFace3_Impl::AreGlyphsLocal(this, core::mem::transmute_copy(&glyphindices), core::mem::transmute_copy(&glyphcount), core::mem::transmute_copy(&enqueueifnotlocal), core::mem::transmute_copy(&islocal)).into()
+                IDWriteFontFace3_Impl::AreGlyphsLocal(this, core::mem::transmute_copy(&glyphindices), core::mem::transmute_copy(&glyphcount), core::mem::transmute_copy(&enqueueifnotlocal), core::mem::transmute_copy(&islocal))
             }
         }
         Self {
@@ -5519,9 +5519,9 @@ pub struct IDWriteFontFace4_Vtbl {
 }
 #[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IDWriteFontFace4_Impl: IDWriteFontFace3_Impl {
-    fn GetGlyphImageFormats(&self, glyphid: super::UINT16, pixelsperemfirst: super::UINT32, pixelsperemlast: super::UINT32, glyphimageformats: *mut super::DWRITE_GLYPH_IMAGE_FORMATS) -> windows_core::Result<()>;
+    fn GetGlyphImageFormats(&self, glyphid: super::UINT16, pixelsperemfirst: super::UINT32, pixelsperemlast: super::UINT32, glyphimageformats: *mut super::DWRITE_GLYPH_IMAGE_FORMATS) -> windows_core::HRESULT;
     fn GetGlyphImageFormats2(&self) -> super::DWRITE_GLYPH_IMAGE_FORMATS;
-    fn GetGlyphImageData(&self, glyphid: super::UINT16, pixelsperem: super::UINT32, glyphimageformat: super::DWRITE_GLYPH_IMAGE_FORMATS, glyphdata: *mut DWRITE_GLYPH_IMAGE_DATA, glyphdatacontext: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetGlyphImageData(&self, glyphid: super::UINT16, pixelsperem: super::UINT32, glyphimageformat: super::DWRITE_GLYPH_IMAGE_FORMATS, glyphdata: *mut DWRITE_GLYPH_IMAGE_DATA, glyphdatacontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT;
     fn ReleaseGlyphImageData(&self, glyphdatacontext: *mut core::ffi::c_void);
 }
 #[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
@@ -5530,7 +5530,7 @@ impl IDWriteFontFace4_Vtbl {
         unsafe extern "system" fn GetGlyphImageFormats<Identity: IDWriteFontFace4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, glyphid: super::UINT16, pixelsperemfirst: super::UINT32, pixelsperemlast: super::UINT32, glyphimageformats: *mut super::DWRITE_GLYPH_IMAGE_FORMATS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFace4_Impl::GetGlyphImageFormats(this, core::mem::transmute_copy(&glyphid), core::mem::transmute_copy(&pixelsperemfirst), core::mem::transmute_copy(&pixelsperemlast), core::mem::transmute_copy(&glyphimageformats)).into()
+                IDWriteFontFace4_Impl::GetGlyphImageFormats(this, core::mem::transmute_copy(&glyphid), core::mem::transmute_copy(&pixelsperemfirst), core::mem::transmute_copy(&pixelsperemlast), core::mem::transmute_copy(&glyphimageformats))
             }
         }
         unsafe extern "system" fn GetGlyphImageFormats2<Identity: IDWriteFontFace4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::DWRITE_GLYPH_IMAGE_FORMATS {
@@ -5542,7 +5542,7 @@ impl IDWriteFontFace4_Vtbl {
         unsafe extern "system" fn GetGlyphImageData<Identity: IDWriteFontFace4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, glyphid: super::UINT16, pixelsperem: super::UINT32, glyphimageformat: super::DWRITE_GLYPH_IMAGE_FORMATS, glyphdata: *mut DWRITE_GLYPH_IMAGE_DATA, glyphdatacontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFace4_Impl::GetGlyphImageData(this, core::mem::transmute_copy(&glyphid), core::mem::transmute_copy(&pixelsperem), core::mem::transmute_copy(&glyphimageformat), core::mem::transmute_copy(&glyphdata), core::mem::transmute_copy(&glyphdatacontext)).into()
+                IDWriteFontFace4_Impl::GetGlyphImageData(this, core::mem::transmute_copy(&glyphid), core::mem::transmute_copy(&pixelsperem), core::mem::transmute_copy(&glyphimageformat), core::mem::transmute_copy(&glyphdata), core::mem::transmute_copy(&glyphdatacontext))
             }
         }
         unsafe extern "system" fn ReleaseGlyphImageData<Identity: IDWriteFontFace4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, glyphdatacontext: *mut core::ffi::c_void) {
@@ -5617,7 +5617,7 @@ pub struct IDWriteFontFace5_Vtbl {
 #[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IDWriteFontFace5_Impl: IDWriteFontFace4_Impl {
     fn GetFontAxisValueCount(&self) -> super::UINT32;
-    fn GetFontAxisValues(&self, fontaxisvalues: *mut DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32) -> windows_core::Result<()>;
+    fn GetFontAxisValues(&self, fontaxisvalues: *mut DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32) -> windows_core::HRESULT;
     fn HasVariations(&self) -> windows_core::BOOL;
     fn GetFontResource(&self) -> windows_core::Result<IDWriteFontResource>;
     fn Equals(&self, fontface: windows_core::Ref<IDWriteFontFace>) -> windows_core::BOOL;
@@ -5634,7 +5634,7 @@ impl IDWriteFontFace5_Vtbl {
         unsafe extern "system" fn GetFontAxisValues<Identity: IDWriteFontFace5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontaxisvalues: *mut DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFace5_Impl::GetFontAxisValues(this, core::mem::transmute_copy(&fontaxisvalues), core::mem::transmute_copy(&fontaxisvaluecount)).into()
+                IDWriteFontFace5_Impl::GetFontAxisValues(this, core::mem::transmute_copy(&fontaxisvalues), core::mem::transmute_copy(&fontaxisvaluecount))
             }
         }
         unsafe extern "system" fn HasVariations<Identity: IDWriteFontFace5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
@@ -5948,12 +5948,12 @@ pub trait IDWriteFontFaceReference_Impl: windows_core::IUnknownImpl {
     fn GetFontFile(&self) -> windows_core::Result<IDWriteFontFile>;
     fn GetLocalFileSize(&self) -> super::UINT64;
     fn GetFileSize(&self) -> super::UINT64;
-    fn GetFileTime(&self, lastwritetime: *mut super::FILETIME) -> windows_core::Result<()>;
+    fn GetFileTime(&self, lastwritetime: *mut super::FILETIME) -> windows_core::HRESULT;
     fn GetLocality(&self) -> DWRITE_LOCALITY;
-    fn EnqueueFontDownloadRequest(&self) -> windows_core::Result<()>;
-    fn EnqueueCharacterDownloadRequest(&self, characters: *const super::WCHAR, charactercount: super::UINT32) -> windows_core::Result<()>;
-    fn EnqueueGlyphDownloadRequest(&self, glyphindices: *const super::UINT16, glyphcount: super::UINT32) -> windows_core::Result<()>;
-    fn EnqueueFileFragmentDownloadRequest(&self, fileoffset: super::UINT64, fragmentsize: super::UINT64) -> windows_core::Result<()>;
+    fn EnqueueFontDownloadRequest(&self) -> windows_core::HRESULT;
+    fn EnqueueCharacterDownloadRequest(&self, characters: *const super::WCHAR, charactercount: super::UINT32) -> windows_core::HRESULT;
+    fn EnqueueGlyphDownloadRequest(&self, glyphindices: *const super::UINT16, glyphcount: super::UINT32) -> windows_core::HRESULT;
+    fn EnqueueFileFragmentDownloadRequest(&self, fileoffset: super::UINT64, fragmentsize: super::UINT64) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl IDWriteFontFaceReference_Vtbl {
@@ -6036,7 +6036,7 @@ impl IDWriteFontFaceReference_Vtbl {
         unsafe extern "system" fn GetFileTime<Identity: IDWriteFontFaceReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lastwritetime: *mut super::FILETIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFaceReference_Impl::GetFileTime(this, core::mem::transmute_copy(&lastwritetime)).into()
+                IDWriteFontFaceReference_Impl::GetFileTime(this, core::mem::transmute_copy(&lastwritetime))
             }
         }
         unsafe extern "system" fn GetLocality<Identity: IDWriteFontFaceReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> DWRITE_LOCALITY {
@@ -6048,25 +6048,25 @@ impl IDWriteFontFaceReference_Vtbl {
         unsafe extern "system" fn EnqueueFontDownloadRequest<Identity: IDWriteFontFaceReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFaceReference_Impl::EnqueueFontDownloadRequest(this).into()
+                IDWriteFontFaceReference_Impl::EnqueueFontDownloadRequest(this)
             }
         }
         unsafe extern "system" fn EnqueueCharacterDownloadRequest<Identity: IDWriteFontFaceReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, characters: *const super::WCHAR, charactercount: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFaceReference_Impl::EnqueueCharacterDownloadRequest(this, core::mem::transmute_copy(&characters), core::mem::transmute_copy(&charactercount)).into()
+                IDWriteFontFaceReference_Impl::EnqueueCharacterDownloadRequest(this, core::mem::transmute_copy(&characters), core::mem::transmute_copy(&charactercount))
             }
         }
         unsafe extern "system" fn EnqueueGlyphDownloadRequest<Identity: IDWriteFontFaceReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, glyphindices: *const super::UINT16, glyphcount: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFaceReference_Impl::EnqueueGlyphDownloadRequest(this, core::mem::transmute_copy(&glyphindices), core::mem::transmute_copy(&glyphcount)).into()
+                IDWriteFontFaceReference_Impl::EnqueueGlyphDownloadRequest(this, core::mem::transmute_copy(&glyphindices), core::mem::transmute_copy(&glyphcount))
             }
         }
         unsafe extern "system" fn EnqueueFileFragmentDownloadRequest<Identity: IDWriteFontFaceReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fileoffset: super::UINT64, fragmentsize: super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFaceReference_Impl::EnqueueFileFragmentDownloadRequest(this, core::mem::transmute_copy(&fileoffset), core::mem::transmute_copy(&fragmentsize)).into()
+                IDWriteFontFaceReference_Impl::EnqueueFileFragmentDownloadRequest(this, core::mem::transmute_copy(&fileoffset), core::mem::transmute_copy(&fragmentsize))
             }
         }
         Self {
@@ -6135,7 +6135,7 @@ pub struct IDWriteFontFaceReference1_Vtbl {
 pub trait IDWriteFontFaceReference1_Impl: IDWriteFontFaceReference_Impl {
     fn CreateFontFace(&self) -> windows_core::Result<IDWriteFontFace5>;
     fn GetFontAxisValueCount(&self) -> super::UINT32;
-    fn GetFontAxisValues(&self, fontaxisvalues: *mut DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32) -> windows_core::Result<()>;
+    fn GetFontAxisValues(&self, fontaxisvalues: *mut DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl IDWriteFontFaceReference1_Vtbl {
@@ -6164,7 +6164,7 @@ impl IDWriteFontFaceReference1_Vtbl {
         unsafe extern "system" fn GetFontAxisValues<Identity: IDWriteFontFaceReference1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontaxisvalues: *mut DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFaceReference1_Impl::GetFontAxisValues(this, core::mem::transmute_copy(&fontaxisvalues), core::mem::transmute_copy(&fontaxisvaluecount)).into()
+                IDWriteFontFaceReference1_Impl::GetFontAxisValues(this, core::mem::transmute_copy(&fontaxisvalues), core::mem::transmute_copy(&fontaxisvaluecount))
             }
         }
         Self {
@@ -6203,7 +6203,7 @@ pub struct IDWriteFontFallback_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 pub trait IDWriteFontFallback_Impl: windows_core::IUnknownImpl {
-    fn MapCharacters(&self, analysissource: windows_core::Ref<IDWriteTextAnalysisSource>, textposition: super::UINT32, textlength: super::UINT32, basefontcollection: windows_core::Ref<IDWriteFontCollection>, basefamilyname: *const u16, baseweight: DWRITE_FONT_WEIGHT, basestyle: DWRITE_FONT_STYLE, basestretch: DWRITE_FONT_STRETCH, mappedlength: *mut super::UINT32, mappedfont: windows_core::OutRef<IDWriteFont>, scale: *mut super::FLOAT) -> windows_core::Result<()>;
+    fn MapCharacters(&self, analysissource: windows_core::Ref<IDWriteTextAnalysisSource>, textposition: super::UINT32, textlength: super::UINT32, basefontcollection: windows_core::Ref<IDWriteFontCollection>, basefamilyname: *const u16, baseweight: DWRITE_FONT_WEIGHT, basestyle: DWRITE_FONT_STYLE, basestretch: DWRITE_FONT_STRETCH, mappedlength: *mut super::UINT32, mappedfont: windows_core::OutRef<IDWriteFont>, scale: *mut super::FLOAT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 impl IDWriteFontFallback_Vtbl {
@@ -6211,7 +6211,7 @@ impl IDWriteFontFallback_Vtbl {
         unsafe extern "system" fn MapCharacters<Identity: IDWriteFontFallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, analysissource: *mut core::ffi::c_void, textposition: super::UINT32, textlength: super::UINT32, basefontcollection: *mut core::ffi::c_void, basefamilyname: *const u16, baseweight: DWRITE_FONT_WEIGHT, basestyle: DWRITE_FONT_STYLE, basestretch: DWRITE_FONT_STRETCH, mappedlength: *mut super::UINT32, mappedfont: *mut *mut core::ffi::c_void, scale: *mut super::FLOAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFallback_Impl::MapCharacters(this, core::mem::transmute_copy(&analysissource), core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&basefontcollection), core::mem::transmute_copy(&basefamilyname), core::mem::transmute_copy(&baseweight), core::mem::transmute_copy(&basestyle), core::mem::transmute_copy(&basestretch), core::mem::transmute_copy(&mappedlength), core::mem::transmute_copy(&mappedfont), core::mem::transmute_copy(&scale)).into()
+                IDWriteFontFallback_Impl::MapCharacters(this, core::mem::transmute_copy(&analysissource), core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&basefontcollection), core::mem::transmute_copy(&basefamilyname), core::mem::transmute_copy(&baseweight), core::mem::transmute_copy(&basestyle), core::mem::transmute_copy(&basestretch), core::mem::transmute_copy(&mappedlength), core::mem::transmute_copy(&mappedfont), core::mem::transmute_copy(&scale))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), MapCharacters: MapCharacters::<Identity, OFFSET> }
@@ -6318,8 +6318,8 @@ pub struct IDWriteFontFallbackBuilder_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub trait IDWriteFontFallbackBuilder_Impl: windows_core::IUnknownImpl {
-    fn AddMapping(&self, ranges: *const DWRITE_UNICODE_RANGE, rangescount: super::UINT32, targetfamilynames: *const *const super::WCHAR, targetfamilynamescount: super::UINT32, fontcollection: windows_core::Ref<IDWriteFontCollection>, localename: *const super::WCHAR, basefamilyname: *const super::WCHAR, scale: super::FLOAT) -> windows_core::Result<()>;
-    fn AddMappings(&self, fontfallback: windows_core::Ref<IDWriteFontFallback>) -> windows_core::Result<()>;
+    fn AddMapping(&self, ranges: *const DWRITE_UNICODE_RANGE, rangescount: super::UINT32, targetfamilynames: *const *const super::WCHAR, targetfamilynamescount: super::UINT32, fontcollection: windows_core::Ref<IDWriteFontCollection>, localename: *const super::WCHAR, basefamilyname: *const super::WCHAR, scale: super::FLOAT) -> windows_core::HRESULT;
+    fn AddMappings(&self, fontfallback: windows_core::Ref<IDWriteFontFallback>) -> windows_core::HRESULT;
     fn CreateFontFallback(&self) -> windows_core::Result<IDWriteFontFallback>;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
@@ -6328,13 +6328,13 @@ impl IDWriteFontFallbackBuilder_Vtbl {
         unsafe extern "system" fn AddMapping<Identity: IDWriteFontFallbackBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ranges: *const DWRITE_UNICODE_RANGE, rangescount: super::UINT32, targetfamilynames: *const *const super::WCHAR, targetfamilynamescount: super::UINT32, fontcollection: *mut core::ffi::c_void, localename: *const super::WCHAR, basefamilyname: *const super::WCHAR, scale: super::FLOAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFallbackBuilder_Impl::AddMapping(this, core::mem::transmute_copy(&ranges), core::mem::transmute_copy(&rangescount), core::mem::transmute_copy(&targetfamilynames), core::mem::transmute_copy(&targetfamilynamescount), core::mem::transmute_copy(&fontcollection), core::mem::transmute_copy(&localename), core::mem::transmute_copy(&basefamilyname), core::mem::transmute_copy(&scale)).into()
+                IDWriteFontFallbackBuilder_Impl::AddMapping(this, core::mem::transmute_copy(&ranges), core::mem::transmute_copy(&rangescount), core::mem::transmute_copy(&targetfamilynames), core::mem::transmute_copy(&targetfamilynamescount), core::mem::transmute_copy(&fontcollection), core::mem::transmute_copy(&localename), core::mem::transmute_copy(&basefamilyname), core::mem::transmute_copy(&scale))
             }
         }
         unsafe extern "system" fn AddMappings<Identity: IDWriteFontFallbackBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontfallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFallbackBuilder_Impl::AddMappings(this, core::mem::transmute_copy(&fontfallback)).into()
+                IDWriteFontFallbackBuilder_Impl::AddMappings(this, core::mem::transmute_copy(&fontfallback))
             }
         }
         unsafe extern "system" fn CreateFontFallback<Identity: IDWriteFontFallbackBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontfallback: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6688,9 +6688,9 @@ pub struct IDWriteFontFile_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IDWriteFontFile_Impl: windows_core::IUnknownImpl {
-    fn GetReferenceKey(&self, fontfilereferencekey: *mut *const core::ffi::c_void, fontfilereferencekeysize: *mut super::UINT32) -> windows_core::Result<()>;
+    fn GetReferenceKey(&self, fontfilereferencekey: *mut *const core::ffi::c_void, fontfilereferencekeysize: *mut super::UINT32) -> windows_core::HRESULT;
     fn GetLoader(&self) -> windows_core::Result<IDWriteFontFileLoader>;
-    fn Analyze(&self, issupportedfonttype: *mut windows_core::BOOL, fontfiletype: *mut DWRITE_FONT_FILE_TYPE, fontfacetype: *mut DWRITE_FONT_FACE_TYPE, numberoffaces: *mut super::UINT32) -> windows_core::Result<()>;
+    fn Analyze(&self, issupportedfonttype: *mut windows_core::BOOL, fontfiletype: *mut DWRITE_FONT_FILE_TYPE, fontfacetype: *mut DWRITE_FONT_FACE_TYPE, numberoffaces: *mut super::UINT32) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IDWriteFontFile_Vtbl {
@@ -6698,7 +6698,7 @@ impl IDWriteFontFile_Vtbl {
         unsafe extern "system" fn GetReferenceKey<Identity: IDWriteFontFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontfilereferencekey: *mut *const core::ffi::c_void, fontfilereferencekeysize: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFile_Impl::GetReferenceKey(this, core::mem::transmute_copy(&fontfilereferencekey), core::mem::transmute_copy(&fontfilereferencekeysize)).into()
+                IDWriteFontFile_Impl::GetReferenceKey(this, core::mem::transmute_copy(&fontfilereferencekey), core::mem::transmute_copy(&fontfilereferencekeysize))
             }
         }
         unsafe extern "system" fn GetLoader<Identity: IDWriteFontFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontfileloader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6719,7 +6719,7 @@ impl IDWriteFontFile_Vtbl {
         unsafe extern "system" fn Analyze<Identity: IDWriteFontFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, issupportedfonttype: *mut windows_core::BOOL, fontfiletype: *mut DWRITE_FONT_FILE_TYPE, fontfacetype: *mut DWRITE_FONT_FACE_TYPE, numberoffaces: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFile_Impl::Analyze(this, core::mem::transmute_copy(&issupportedfonttype), core::mem::transmute_copy(&fontfiletype), core::mem::transmute_copy(&fontfacetype), core::mem::transmute_copy(&numberoffaces)).into()
+                IDWriteFontFile_Impl::Analyze(this, core::mem::transmute_copy(&issupportedfonttype), core::mem::transmute_copy(&fontfiletype), core::mem::transmute_copy(&fontfacetype), core::mem::transmute_copy(&numberoffaces))
             }
         }
         Self {
@@ -6756,7 +6756,7 @@ pub struct IDWriteFontFileEnumerator_Vtbl {
     pub GetCurrentFontFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDWriteFontFileEnumerator_Impl: windows_core::IUnknownImpl {
-    fn MoveNext(&self, hascurrentfile: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn MoveNext(&self, hascurrentfile: *mut windows_core::BOOL) -> windows_core::HRESULT;
     fn GetCurrentFontFile(&self) -> windows_core::Result<IDWriteFontFile>;
 }
 impl IDWriteFontFileEnumerator_Vtbl {
@@ -6764,7 +6764,7 @@ impl IDWriteFontFileEnumerator_Vtbl {
         unsafe extern "system" fn MoveNext<Identity: IDWriteFontFileEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrentfile: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFileEnumerator_Impl::MoveNext(this, core::mem::transmute_copy(&hascurrentfile)).into()
+                IDWriteFontFileEnumerator_Impl::MoveNext(this, core::mem::transmute_copy(&hascurrentfile))
             }
         }
         unsafe extern "system" fn GetCurrentFontFile<Identity: IDWriteFontFileEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontfile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6884,10 +6884,10 @@ pub struct IDWriteFontFileStream_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IDWriteFontFileStream_Impl: windows_core::IUnknownImpl {
-    fn ReadFileFragment(&self, fragmentstart: *mut *const core::ffi::c_void, fileoffset: super::UINT64, fragmentsize: super::UINT64, fragmentcontext: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn ReadFileFragment(&self, fragmentstart: *mut *const core::ffi::c_void, fileoffset: super::UINT64, fragmentsize: super::UINT64, fragmentcontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT;
     fn ReleaseFileFragment(&self, fragmentcontext: *mut core::ffi::c_void);
-    fn GetFileSize(&self, filesize: *mut super::UINT64) -> windows_core::Result<()>;
-    fn GetLastWriteTime(&self, lastwritetime: *mut super::UINT64) -> windows_core::Result<()>;
+    fn GetFileSize(&self, filesize: *mut super::UINT64) -> windows_core::HRESULT;
+    fn GetLastWriteTime(&self, lastwritetime: *mut super::UINT64) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IDWriteFontFileStream_Vtbl {
@@ -6895,7 +6895,7 @@ impl IDWriteFontFileStream_Vtbl {
         unsafe extern "system" fn ReadFileFragment<Identity: IDWriteFontFileStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fragmentstart: *mut *const core::ffi::c_void, fileoffset: super::UINT64, fragmentsize: super::UINT64, fragmentcontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFileStream_Impl::ReadFileFragment(this, core::mem::transmute_copy(&fragmentstart), core::mem::transmute_copy(&fileoffset), core::mem::transmute_copy(&fragmentsize), core::mem::transmute_copy(&fragmentcontext)).into()
+                IDWriteFontFileStream_Impl::ReadFileFragment(this, core::mem::transmute_copy(&fragmentstart), core::mem::transmute_copy(&fileoffset), core::mem::transmute_copy(&fragmentsize), core::mem::transmute_copy(&fragmentcontext))
             }
         }
         unsafe extern "system" fn ReleaseFileFragment<Identity: IDWriteFontFileStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fragmentcontext: *mut core::ffi::c_void) {
@@ -6907,13 +6907,13 @@ impl IDWriteFontFileStream_Vtbl {
         unsafe extern "system" fn GetFileSize<Identity: IDWriteFontFileStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filesize: *mut super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFileStream_Impl::GetFileSize(this, core::mem::transmute_copy(&filesize)).into()
+                IDWriteFontFileStream_Impl::GetFileSize(this, core::mem::transmute_copy(&filesize))
             }
         }
         unsafe extern "system" fn GetLastWriteTime<Identity: IDWriteFontFileStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lastwritetime: *mut super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontFileStream_Impl::GetLastWriteTime(this, core::mem::transmute_copy(&lastwritetime)).into()
+                IDWriteFontFileStream_Impl::GetLastWriteTime(this, core::mem::transmute_copy(&lastwritetime))
             }
         }
         Self {
@@ -7295,8 +7295,8 @@ pub trait IDWriteFontResource_Impl: windows_core::IUnknownImpl {
     fn GetFontFile(&self) -> windows_core::Result<IDWriteFontFile>;
     fn GetFontFaceIndex(&self) -> super::UINT32;
     fn GetFontAxisCount(&self) -> super::UINT32;
-    fn GetDefaultFontAxisValues(&self, fontaxisvalues: *mut DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32) -> windows_core::Result<()>;
-    fn GetFontAxisRanges(&self, fontaxisranges: *mut DWRITE_FONT_AXIS_RANGE, fontaxisrangecount: super::UINT32) -> windows_core::Result<()>;
+    fn GetDefaultFontAxisValues(&self, fontaxisvalues: *mut DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32) -> windows_core::HRESULT;
+    fn GetFontAxisRanges(&self, fontaxisranges: *mut DWRITE_FONT_AXIS_RANGE, fontaxisrangecount: super::UINT32) -> windows_core::HRESULT;
     fn GetFontAxisAttributes(&self, axisindex: super::UINT32) -> DWRITE_FONT_AXIS_ATTRIBUTES;
     fn GetAxisNames(&self, axisindex: super::UINT32) -> windows_core::Result<IDWriteLocalizedStrings>;
     fn GetAxisValueNameCount(&self, axisindex: super::UINT32) -> super::UINT32;
@@ -7338,13 +7338,13 @@ impl IDWriteFontResource_Vtbl {
         unsafe extern "system" fn GetDefaultFontAxisValues<Identity: IDWriteFontResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontaxisvalues: *mut DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontResource_Impl::GetDefaultFontAxisValues(this, core::mem::transmute_copy(&fontaxisvalues), core::mem::transmute_copy(&fontaxisvaluecount)).into()
+                IDWriteFontResource_Impl::GetDefaultFontAxisValues(this, core::mem::transmute_copy(&fontaxisvalues), core::mem::transmute_copy(&fontaxisvaluecount))
             }
         }
         unsafe extern "system" fn GetFontAxisRanges<Identity: IDWriteFontResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontaxisranges: *mut DWRITE_FONT_AXIS_RANGE, fontaxisrangecount: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontResource_Impl::GetFontAxisRanges(this, core::mem::transmute_copy(&fontaxisranges), core::mem::transmute_copy(&fontaxisrangecount)).into()
+                IDWriteFontResource_Impl::GetFontAxisRanges(this, core::mem::transmute_copy(&fontaxisranges), core::mem::transmute_copy(&fontaxisrangecount))
             }
         }
         unsafe extern "system" fn GetFontAxisAttributes<Identity: IDWriteFontResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, axisindex: super::UINT32) -> DWRITE_FONT_AXIS_ATTRIBUTES {
@@ -7557,12 +7557,12 @@ pub struct IDWriteFontSet_Vtbl {
 pub trait IDWriteFontSet_Impl: windows_core::IUnknownImpl {
     fn GetFontCount(&self) -> super::UINT32;
     fn GetFontFaceReference(&self, listindex: super::UINT32) -> windows_core::Result<IDWriteFontFaceReference>;
-    fn FindFontFaceReference(&self, fontfacereference: windows_core::Ref<IDWriteFontFaceReference>, listindex: *mut super::UINT32, exists: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn FindFontFace(&self, fontface: windows_core::Ref<IDWriteFontFace>, listindex: *mut super::UINT32, exists: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn FindFontFaceReference(&self, fontfacereference: windows_core::Ref<IDWriteFontFaceReference>, listindex: *mut super::UINT32, exists: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn FindFontFace(&self, fontface: windows_core::Ref<IDWriteFontFace>, listindex: *mut super::UINT32, exists: *mut windows_core::BOOL) -> windows_core::HRESULT;
     fn GetPropertyValues(&self, propertyid: DWRITE_FONT_PROPERTY_ID) -> windows_core::Result<IDWriteStringList>;
     fn GetPropertyValues2(&self, propertyid: DWRITE_FONT_PROPERTY_ID, preferredlocalenames: *const super::WCHAR) -> windows_core::Result<IDWriteStringList>;
-    fn GetPropertyValues3(&self, listindex: super::UINT32, propertyid: DWRITE_FONT_PROPERTY_ID, exists: *mut windows_core::BOOL, values: windows_core::OutRef<IDWriteLocalizedStrings>) -> windows_core::Result<()>;
-    fn GetPropertyOccurrenceCount(&self, property: *const DWRITE_FONT_PROPERTY, propertyoccurrencecount: *mut super::UINT32) -> windows_core::Result<()>;
+    fn GetPropertyValues3(&self, listindex: super::UINT32, propertyid: DWRITE_FONT_PROPERTY_ID, exists: *mut windows_core::BOOL, values: windows_core::OutRef<IDWriteLocalizedStrings>) -> windows_core::HRESULT;
+    fn GetPropertyOccurrenceCount(&self, property: *const DWRITE_FONT_PROPERTY, propertyoccurrencecount: *mut super::UINT32) -> windows_core::HRESULT;
     fn GetMatchingFonts(&self, familyname: *const super::WCHAR, fontweight: DWRITE_FONT_WEIGHT, fontstretch: DWRITE_FONT_STRETCH, fontstyle: DWRITE_FONT_STYLE) -> windows_core::Result<IDWriteFontSet>;
     fn GetMatchingFonts2(&self, properties: *const DWRITE_FONT_PROPERTY, propertycount: super::UINT32) -> windows_core::Result<IDWriteFontSet>;
 }
@@ -7593,13 +7593,13 @@ impl IDWriteFontSet_Vtbl {
         unsafe extern "system" fn FindFontFaceReference<Identity: IDWriteFontSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontfacereference: *mut core::ffi::c_void, listindex: *mut super::UINT32, exists: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontSet_Impl::FindFontFaceReference(this, core::mem::transmute_copy(&fontfacereference), core::mem::transmute_copy(&listindex), core::mem::transmute_copy(&exists)).into()
+                IDWriteFontSet_Impl::FindFontFaceReference(this, core::mem::transmute_copy(&fontfacereference), core::mem::transmute_copy(&listindex), core::mem::transmute_copy(&exists))
             }
         }
         unsafe extern "system" fn FindFontFace<Identity: IDWriteFontSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontface: *mut core::ffi::c_void, listindex: *mut super::UINT32, exists: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontSet_Impl::FindFontFace(this, core::mem::transmute_copy(&fontface), core::mem::transmute_copy(&listindex), core::mem::transmute_copy(&exists)).into()
+                IDWriteFontSet_Impl::FindFontFace(this, core::mem::transmute_copy(&fontface), core::mem::transmute_copy(&listindex), core::mem::transmute_copy(&exists))
             }
         }
         unsafe extern "system" fn GetPropertyValues<Identity: IDWriteFontSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: DWRITE_FONT_PROPERTY_ID, values: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7635,13 +7635,13 @@ impl IDWriteFontSet_Vtbl {
         unsafe extern "system" fn GetPropertyValues3<Identity: IDWriteFontSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, listindex: super::UINT32, propertyid: DWRITE_FONT_PROPERTY_ID, exists: *mut windows_core::BOOL, values: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontSet_Impl::GetPropertyValues3(this, core::mem::transmute_copy(&listindex), core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&exists), core::mem::transmute_copy(&values)).into()
+                IDWriteFontSet_Impl::GetPropertyValues3(this, core::mem::transmute_copy(&listindex), core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&exists), core::mem::transmute_copy(&values))
             }
         }
         unsafe extern "system" fn GetPropertyOccurrenceCount<Identity: IDWriteFontSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: *const DWRITE_FONT_PROPERTY, propertyoccurrencecount: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontSet_Impl::GetPropertyOccurrenceCount(this, core::mem::transmute_copy(&property), core::mem::transmute_copy(&propertyoccurrencecount)).into()
+                IDWriteFontSet_Impl::GetPropertyOccurrenceCount(this, core::mem::transmute_copy(&property), core::mem::transmute_copy(&propertyoccurrencecount))
             }
         }
         unsafe extern "system" fn GetMatchingFonts<Identity: IDWriteFontSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, familyname: *const super::WCHAR, fontweight: DWRITE_FONT_WEIGHT, fontstretch: DWRITE_FONT_STRETCH, fontstyle: DWRITE_FONT_STYLE, filteredset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7840,10 +7840,10 @@ pub trait IDWriteFontSet1_Impl: IDWriteFontSet_Impl {
     fn GetFilteredFonts(&self, indices: *const super::UINT32, indexcount: super::UINT32) -> windows_core::Result<IDWriteFontSet1>;
     fn GetFilteredFonts2(&self, fontaxisranges: *const DWRITE_FONT_AXIS_RANGE, fontaxisrangecount: super::UINT32, selectanyrange: windows_core::BOOL) -> windows_core::Result<IDWriteFontSet1>;
     fn GetFilteredFonts3(&self, properties: *const DWRITE_FONT_PROPERTY, propertycount: super::UINT32, selectanyproperty: windows_core::BOOL) -> windows_core::Result<IDWriteFontSet1>;
-    fn GetFilteredFontIndices(&self, fontaxisranges: *const DWRITE_FONT_AXIS_RANGE, fontaxisrangecount: super::UINT32, selectanyrange: windows_core::BOOL, indices: *mut super::UINT32, maxindexcount: super::UINT32, actualindexcount: *mut super::UINT32) -> windows_core::Result<()>;
-    fn GetFilteredFontIndices2(&self, properties: *const DWRITE_FONT_PROPERTY, propertycount: super::UINT32, selectanyproperty: windows_core::BOOL, indices: *mut super::UINT32, maxindexcount: super::UINT32, actualindexcount: *mut super::UINT32) -> windows_core::Result<()>;
-    fn GetFontAxisRanges(&self, listindex: super::UINT32, fontaxisranges: *mut DWRITE_FONT_AXIS_RANGE, maxfontaxisrangecount: super::UINT32, actualfontaxisrangecount: *mut super::UINT32) -> windows_core::Result<()>;
-    fn GetFontAxisRanges2(&self, fontaxisranges: *mut DWRITE_FONT_AXIS_RANGE, maxfontaxisrangecount: super::UINT32, actualfontaxisrangecount: *mut super::UINT32) -> windows_core::Result<()>;
+    fn GetFilteredFontIndices(&self, fontaxisranges: *const DWRITE_FONT_AXIS_RANGE, fontaxisrangecount: super::UINT32, selectanyrange: windows_core::BOOL, indices: *mut super::UINT32, maxindexcount: super::UINT32, actualindexcount: *mut super::UINT32) -> windows_core::HRESULT;
+    fn GetFilteredFontIndices2(&self, properties: *const DWRITE_FONT_PROPERTY, propertycount: super::UINT32, selectanyproperty: windows_core::BOOL, indices: *mut super::UINT32, maxindexcount: super::UINT32, actualindexcount: *mut super::UINT32) -> windows_core::HRESULT;
+    fn GetFontAxisRanges(&self, listindex: super::UINT32, fontaxisranges: *mut DWRITE_FONT_AXIS_RANGE, maxfontaxisrangecount: super::UINT32, actualfontaxisrangecount: *mut super::UINT32) -> windows_core::HRESULT;
+    fn GetFontAxisRanges2(&self, fontaxisranges: *mut DWRITE_FONT_AXIS_RANGE, maxfontaxisrangecount: super::UINT32, actualfontaxisrangecount: *mut super::UINT32) -> windows_core::HRESULT;
     fn GetFontFaceReference(&self, listindex: super::UINT32) -> windows_core::Result<IDWriteFontFaceReference1>;
     fn CreateFontResource(&self, listindex: super::UINT32) -> windows_core::Result<IDWriteFontResource>;
     fn CreateFontFace(&self, listindex: super::UINT32) -> windows_core::Result<IDWriteFontFace5>;
@@ -7930,25 +7930,25 @@ impl IDWriteFontSet1_Vtbl {
         unsafe extern "system" fn GetFilteredFontIndices<Identity: IDWriteFontSet1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontaxisranges: *const DWRITE_FONT_AXIS_RANGE, fontaxisrangecount: super::UINT32, selectanyrange: windows_core::BOOL, indices: *mut super::UINT32, maxindexcount: super::UINT32, actualindexcount: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontSet1_Impl::GetFilteredFontIndices(this, core::mem::transmute_copy(&fontaxisranges), core::mem::transmute_copy(&fontaxisrangecount), core::mem::transmute_copy(&selectanyrange), core::mem::transmute_copy(&indices), core::mem::transmute_copy(&maxindexcount), core::mem::transmute_copy(&actualindexcount)).into()
+                IDWriteFontSet1_Impl::GetFilteredFontIndices(this, core::mem::transmute_copy(&fontaxisranges), core::mem::transmute_copy(&fontaxisrangecount), core::mem::transmute_copy(&selectanyrange), core::mem::transmute_copy(&indices), core::mem::transmute_copy(&maxindexcount), core::mem::transmute_copy(&actualindexcount))
             }
         }
         unsafe extern "system" fn GetFilteredFontIndices2<Identity: IDWriteFontSet1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, properties: *const DWRITE_FONT_PROPERTY, propertycount: super::UINT32, selectanyproperty: windows_core::BOOL, indices: *mut super::UINT32, maxindexcount: super::UINT32, actualindexcount: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontSet1_Impl::GetFilteredFontIndices2(this, core::mem::transmute_copy(&properties), core::mem::transmute_copy(&propertycount), core::mem::transmute_copy(&selectanyproperty), core::mem::transmute_copy(&indices), core::mem::transmute_copy(&maxindexcount), core::mem::transmute_copy(&actualindexcount)).into()
+                IDWriteFontSet1_Impl::GetFilteredFontIndices2(this, core::mem::transmute_copy(&properties), core::mem::transmute_copy(&propertycount), core::mem::transmute_copy(&selectanyproperty), core::mem::transmute_copy(&indices), core::mem::transmute_copy(&maxindexcount), core::mem::transmute_copy(&actualindexcount))
             }
         }
         unsafe extern "system" fn GetFontAxisRanges<Identity: IDWriteFontSet1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, listindex: super::UINT32, fontaxisranges: *mut DWRITE_FONT_AXIS_RANGE, maxfontaxisrangecount: super::UINT32, actualfontaxisrangecount: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontSet1_Impl::GetFontAxisRanges(this, core::mem::transmute_copy(&listindex), core::mem::transmute_copy(&fontaxisranges), core::mem::transmute_copy(&maxfontaxisrangecount), core::mem::transmute_copy(&actualfontaxisrangecount)).into()
+                IDWriteFontSet1_Impl::GetFontAxisRanges(this, core::mem::transmute_copy(&listindex), core::mem::transmute_copy(&fontaxisranges), core::mem::transmute_copy(&maxfontaxisrangecount), core::mem::transmute_copy(&actualfontaxisrangecount))
             }
         }
         unsafe extern "system" fn GetFontAxisRanges2<Identity: IDWriteFontSet1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontaxisranges: *mut DWRITE_FONT_AXIS_RANGE, maxfontaxisrangecount: super::UINT32, actualfontaxisrangecount: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontSet1_Impl::GetFontAxisRanges2(this, core::mem::transmute_copy(&fontaxisranges), core::mem::transmute_copy(&maxfontaxisrangecount), core::mem::transmute_copy(&actualfontaxisrangecount)).into()
+                IDWriteFontSet1_Impl::GetFontAxisRanges2(this, core::mem::transmute_copy(&fontaxisranges), core::mem::transmute_copy(&maxfontaxisrangecount), core::mem::transmute_copy(&actualfontaxisrangecount))
             }
         }
         unsafe extern "system" fn GetFontFaceReference<Identity: IDWriteFontSet1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, listindex: super::UINT32, fontfacereference: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8112,7 +8112,7 @@ pub struct IDWriteFontSet3_Vtbl {
 pub trait IDWriteFontSet3_Impl: IDWriteFontSet2_Impl {
     fn GetFontSourceType(&self, fontindex: super::UINT32) -> DWRITE_FONT_SOURCE_TYPE;
     fn GetFontSourceNameLength(&self, listindex: super::UINT32) -> super::UINT32;
-    fn GetFontSourceName(&self, listindex: super::UINT32, stringbuffer: *mut super::WCHAR, stringbuffersize: super::UINT32) -> windows_core::Result<()>;
+    fn GetFontSourceName(&self, listindex: super::UINT32, stringbuffer: *mut super::WCHAR, stringbuffersize: super::UINT32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl IDWriteFontSet3_Vtbl {
@@ -8132,7 +8132,7 @@ impl IDWriteFontSet3_Vtbl {
         unsafe extern "system" fn GetFontSourceName<Identity: IDWriteFontSet3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, listindex: super::UINT32, stringbuffer: *mut super::WCHAR, stringbuffersize: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontSet3_Impl::GetFontSourceName(this, core::mem::transmute_copy(&listindex), core::mem::transmute_copy(&stringbuffer), core::mem::transmute_copy(&stringbuffersize)).into()
+                IDWriteFontSet3_Impl::GetFontSourceName(this, core::mem::transmute_copy(&listindex), core::mem::transmute_copy(&stringbuffer), core::mem::transmute_copy(&stringbuffersize))
             }
         }
         Self {
@@ -8266,9 +8266,9 @@ pub struct IDWriteFontSetBuilder_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IDWriteFontSetBuilder_Impl: windows_core::IUnknownImpl {
-    fn AddFontFaceReference(&self, fontfacereference: windows_core::Ref<IDWriteFontFaceReference>, properties: *const DWRITE_FONT_PROPERTY, propertycount: super::UINT32) -> windows_core::Result<()>;
-    fn AddFontFaceReference2(&self, fontfacereference: windows_core::Ref<IDWriteFontFaceReference>) -> windows_core::Result<()>;
-    fn AddFontSet(&self, fontset: windows_core::Ref<IDWriteFontSet>) -> windows_core::Result<()>;
+    fn AddFontFaceReference(&self, fontfacereference: windows_core::Ref<IDWriteFontFaceReference>, properties: *const DWRITE_FONT_PROPERTY, propertycount: super::UINT32) -> windows_core::HRESULT;
+    fn AddFontFaceReference2(&self, fontfacereference: windows_core::Ref<IDWriteFontFaceReference>) -> windows_core::HRESULT;
+    fn AddFontSet(&self, fontset: windows_core::Ref<IDWriteFontSet>) -> windows_core::HRESULT;
     fn CreateFontSet(&self) -> windows_core::Result<IDWriteFontSet>;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -8277,19 +8277,19 @@ impl IDWriteFontSetBuilder_Vtbl {
         unsafe extern "system" fn AddFontFaceReference<Identity: IDWriteFontSetBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontfacereference: *mut core::ffi::c_void, properties: *const DWRITE_FONT_PROPERTY, propertycount: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontSetBuilder_Impl::AddFontFaceReference(this, core::mem::transmute_copy(&fontfacereference), core::mem::transmute_copy(&properties), core::mem::transmute_copy(&propertycount)).into()
+                IDWriteFontSetBuilder_Impl::AddFontFaceReference(this, core::mem::transmute_copy(&fontfacereference), core::mem::transmute_copy(&properties), core::mem::transmute_copy(&propertycount))
             }
         }
         unsafe extern "system" fn AddFontFaceReference2<Identity: IDWriteFontSetBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontfacereference: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontSetBuilder_Impl::AddFontFaceReference2(this, core::mem::transmute_copy(&fontfacereference)).into()
+                IDWriteFontSetBuilder_Impl::AddFontFaceReference2(this, core::mem::transmute_copy(&fontfacereference))
             }
         }
         unsafe extern "system" fn AddFontSet<Identity: IDWriteFontSetBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontset: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontSetBuilder_Impl::AddFontSet(this, core::mem::transmute_copy(&fontset)).into()
+                IDWriteFontSetBuilder_Impl::AddFontSet(this, core::mem::transmute_copy(&fontset))
             }
         }
         unsafe extern "system" fn CreateFontSet<Identity: IDWriteFontSetBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8345,7 +8345,7 @@ pub struct IDWriteFontSetBuilder1_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IDWriteFontSetBuilder1_Impl: IDWriteFontSetBuilder_Impl {
-    fn AddFontFile(&self, fontfile: windows_core::Ref<IDWriteFontFile>) -> windows_core::Result<()>;
+    fn AddFontFile(&self, fontfile: windows_core::Ref<IDWriteFontFile>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 impl IDWriteFontSetBuilder1_Vtbl {
@@ -8353,7 +8353,7 @@ impl IDWriteFontSetBuilder1_Vtbl {
         unsafe extern "system" fn AddFontFile<Identity: IDWriteFontSetBuilder1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontfile: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontSetBuilder1_Impl::AddFontFile(this, core::mem::transmute_copy(&fontfile)).into()
+                IDWriteFontSetBuilder1_Impl::AddFontFile(this, core::mem::transmute_copy(&fontfile))
             }
         }
         Self { base__: IDWriteFontSetBuilder_Vtbl::new::<Identity, OFFSET>(), AddFontFile: AddFontFile::<Identity, OFFSET> }
@@ -8400,8 +8400,8 @@ pub struct IDWriteFontSetBuilder2_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub trait IDWriteFontSetBuilder2_Impl: IDWriteFontSetBuilder1_Impl {
-    fn AddFont(&self, fontfile: windows_core::Ref<IDWriteFontFile>, fontfaceindex: super::UINT32, fontsimulations: DWRITE_FONT_SIMULATIONS, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32, fontaxisranges: *const DWRITE_FONT_AXIS_RANGE, fontaxisrangecount: super::UINT32, properties: *const DWRITE_FONT_PROPERTY, propertycount: super::UINT32) -> windows_core::Result<()>;
-    fn AddFontFile(&self, filepath: *const super::WCHAR) -> windows_core::Result<()>;
+    fn AddFont(&self, fontfile: windows_core::Ref<IDWriteFontFile>, fontfaceindex: super::UINT32, fontsimulations: DWRITE_FONT_SIMULATIONS, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32, fontaxisranges: *const DWRITE_FONT_AXIS_RANGE, fontaxisrangecount: super::UINT32, properties: *const DWRITE_FONT_PROPERTY, propertycount: super::UINT32) -> windows_core::HRESULT;
+    fn AddFontFile(&self, filepath: *const super::WCHAR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl IDWriteFontSetBuilder2_Vtbl {
@@ -8409,13 +8409,13 @@ impl IDWriteFontSetBuilder2_Vtbl {
         unsafe extern "system" fn AddFont<Identity: IDWriteFontSetBuilder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontfile: *mut core::ffi::c_void, fontfaceindex: super::UINT32, fontsimulations: DWRITE_FONT_SIMULATIONS, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32, fontaxisranges: *const DWRITE_FONT_AXIS_RANGE, fontaxisrangecount: super::UINT32, properties: *const DWRITE_FONT_PROPERTY, propertycount: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontSetBuilder2_Impl::AddFont(this, core::mem::transmute_copy(&fontfile), core::mem::transmute_copy(&fontfaceindex), core::mem::transmute_copy(&fontsimulations), core::mem::transmute_copy(&fontaxisvalues), core::mem::transmute_copy(&fontaxisvaluecount), core::mem::transmute_copy(&fontaxisranges), core::mem::transmute_copy(&fontaxisrangecount), core::mem::transmute_copy(&properties), core::mem::transmute_copy(&propertycount)).into()
+                IDWriteFontSetBuilder2_Impl::AddFont(this, core::mem::transmute_copy(&fontfile), core::mem::transmute_copy(&fontfaceindex), core::mem::transmute_copy(&fontsimulations), core::mem::transmute_copy(&fontaxisvalues), core::mem::transmute_copy(&fontaxisvaluecount), core::mem::transmute_copy(&fontaxisranges), core::mem::transmute_copy(&fontaxisrangecount), core::mem::transmute_copy(&properties), core::mem::transmute_copy(&propertycount))
             }
         }
         unsafe extern "system" fn AddFontFile<Identity: IDWriteFontSetBuilder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: *const super::WCHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteFontSetBuilder2_Impl::AddFontFile(this, core::mem::transmute_copy(&filepath)).into()
+                IDWriteFontSetBuilder2_Impl::AddFontFile(this, core::mem::transmute_copy(&filepath))
             }
         }
         Self {
@@ -8497,8 +8497,8 @@ pub struct IDWriteGdiInterop_Vtbl {
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
 pub trait IDWriteGdiInterop_Impl: windows_core::IUnknownImpl {
     fn CreateFontFromLOGFONT(&self, logfont: *const super::LOGFONTW) -> windows_core::Result<IDWriteFont>;
-    fn ConvertFontToLOGFONT(&self, font: windows_core::Ref<IDWriteFont>, logfont: *mut super::LOGFONTW, issystemfont: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn ConvertFontFaceToLOGFONT(&self, font: windows_core::Ref<IDWriteFontFace>, logfont: *mut super::LOGFONTW) -> windows_core::Result<()>;
+    fn ConvertFontToLOGFONT(&self, font: windows_core::Ref<IDWriteFont>, logfont: *mut super::LOGFONTW, issystemfont: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn ConvertFontFaceToLOGFONT(&self, font: windows_core::Ref<IDWriteFontFace>, logfont: *mut super::LOGFONTW) -> windows_core::HRESULT;
     fn CreateFontFaceFromHdc(&self, hdc: super::HDC) -> windows_core::Result<IDWriteFontFace>;
     fn CreateBitmapRenderTarget(&self, hdc: super::HDC, width: super::UINT32, height: super::UINT32) -> windows_core::Result<IDWriteBitmapRenderTarget>;
 }
@@ -8523,13 +8523,13 @@ impl IDWriteGdiInterop_Vtbl {
         unsafe extern "system" fn ConvertFontToLOGFONT<Identity: IDWriteGdiInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, font: *mut core::ffi::c_void, logfont: *mut super::LOGFONTW, issystemfont: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteGdiInterop_Impl::ConvertFontToLOGFONT(this, core::mem::transmute_copy(&font), core::mem::transmute_copy(&logfont), core::mem::transmute_copy(&issystemfont)).into()
+                IDWriteGdiInterop_Impl::ConvertFontToLOGFONT(this, core::mem::transmute_copy(&font), core::mem::transmute_copy(&logfont), core::mem::transmute_copy(&issystemfont))
             }
         }
         unsafe extern "system" fn ConvertFontFaceToLOGFONT<Identity: IDWriteGdiInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, font: *mut core::ffi::c_void, logfont: *mut super::LOGFONTW) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteGdiInterop_Impl::ConvertFontFaceToLOGFONT(this, core::mem::transmute_copy(&font), core::mem::transmute_copy(&logfont)).into()
+                IDWriteGdiInterop_Impl::ConvertFontFaceToLOGFONT(this, core::mem::transmute_copy(&font), core::mem::transmute_copy(&logfont))
             }
         }
         unsafe extern "system" fn CreateFontFaceFromHdc<Identity: IDWriteGdiInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdc: super::HDC, fontface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8645,8 +8645,8 @@ pub struct IDWriteGdiInterop1_Vtbl {
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
 pub trait IDWriteGdiInterop1_Impl: IDWriteGdiInterop_Impl {
     fn CreateFontFromLOGFONT(&self, logfont: *const super::LOGFONTW, fontcollection: windows_core::Ref<IDWriteFontCollection>) -> windows_core::Result<IDWriteFont>;
-    fn GetFontSignature(&self, fontface: windows_core::Ref<IDWriteFontFace>, fontsignature: *mut super::FONTSIGNATURE) -> windows_core::Result<()>;
-    fn GetFontSignature2(&self, font: windows_core::Ref<IDWriteFont>, fontsignature: *mut super::FONTSIGNATURE) -> windows_core::Result<()>;
+    fn GetFontSignature(&self, fontface: windows_core::Ref<IDWriteFontFace>, fontsignature: *mut super::FONTSIGNATURE) -> windows_core::HRESULT;
+    fn GetFontSignature2(&self, font: windows_core::Ref<IDWriteFont>, fontsignature: *mut super::FONTSIGNATURE) -> windows_core::HRESULT;
     fn GetMatchingFontsByLOGFONT(&self, logfont: *const super::LOGFONT, fontset: windows_core::Ref<IDWriteFontSet>) -> windows_core::Result<IDWriteFontSet>;
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
@@ -8670,13 +8670,13 @@ impl IDWriteGdiInterop1_Vtbl {
         unsafe extern "system" fn GetFontSignature<Identity: IDWriteGdiInterop1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontface: *mut core::ffi::c_void, fontsignature: *mut super::FONTSIGNATURE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteGdiInterop1_Impl::GetFontSignature(this, core::mem::transmute_copy(&fontface), core::mem::transmute_copy(&fontsignature)).into()
+                IDWriteGdiInterop1_Impl::GetFontSignature(this, core::mem::transmute_copy(&fontface), core::mem::transmute_copy(&fontsignature))
             }
         }
         unsafe extern "system" fn GetFontSignature2<Identity: IDWriteGdiInterop1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, font: *mut core::ffi::c_void, fontsignature: *mut super::FONTSIGNATURE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteGdiInterop1_Impl::GetFontSignature2(this, core::mem::transmute_copy(&font), core::mem::transmute_copy(&fontsignature)).into()
+                IDWriteGdiInterop1_Impl::GetFontSignature2(this, core::mem::transmute_copy(&font), core::mem::transmute_copy(&fontsignature))
             }
         }
         unsafe extern "system" fn GetMatchingFontsByLOGFONT<Identity: IDWriteGdiInterop1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, logfont: *const super::LOGFONT, fontset: *mut core::ffi::c_void, filteredset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8748,9 +8748,9 @@ pub struct IDWriteGlyphRunAnalysis_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub trait IDWriteGlyphRunAnalysis_Impl: windows_core::IUnknownImpl {
-    fn GetAlphaTextureBounds(&self, texturetype: DWRITE_TEXTURE_TYPE, texturebounds: *mut super::RECT) -> windows_core::Result<()>;
-    fn CreateAlphaTexture(&self, texturetype: DWRITE_TEXTURE_TYPE, texturebounds: *const super::RECT, alphavalues: *mut super::BYTE, buffersize: super::UINT32) -> windows_core::Result<()>;
-    fn GetAlphaBlendParams(&self, renderingparams: windows_core::Ref<IDWriteRenderingParams>, blendgamma: *mut super::FLOAT, blendenhancedcontrast: *mut super::FLOAT, blendcleartypelevel: *mut super::FLOAT) -> windows_core::Result<()>;
+    fn GetAlphaTextureBounds(&self, texturetype: DWRITE_TEXTURE_TYPE, texturebounds: *mut super::RECT) -> windows_core::HRESULT;
+    fn CreateAlphaTexture(&self, texturetype: DWRITE_TEXTURE_TYPE, texturebounds: *const super::RECT, alphavalues: *mut super::BYTE, buffersize: super::UINT32) -> windows_core::HRESULT;
+    fn GetAlphaBlendParams(&self, renderingparams: windows_core::Ref<IDWriteRenderingParams>, blendgamma: *mut super::FLOAT, blendenhancedcontrast: *mut super::FLOAT, blendcleartypelevel: *mut super::FLOAT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 impl IDWriteGlyphRunAnalysis_Vtbl {
@@ -8758,19 +8758,19 @@ impl IDWriteGlyphRunAnalysis_Vtbl {
         unsafe extern "system" fn GetAlphaTextureBounds<Identity: IDWriteGlyphRunAnalysis_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, texturetype: DWRITE_TEXTURE_TYPE, texturebounds: *mut super::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteGlyphRunAnalysis_Impl::GetAlphaTextureBounds(this, core::mem::transmute_copy(&texturetype), core::mem::transmute_copy(&texturebounds)).into()
+                IDWriteGlyphRunAnalysis_Impl::GetAlphaTextureBounds(this, core::mem::transmute_copy(&texturetype), core::mem::transmute_copy(&texturebounds))
             }
         }
         unsafe extern "system" fn CreateAlphaTexture<Identity: IDWriteGlyphRunAnalysis_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, texturetype: DWRITE_TEXTURE_TYPE, texturebounds: *const super::RECT, alphavalues: *mut super::BYTE, buffersize: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteGlyphRunAnalysis_Impl::CreateAlphaTexture(this, core::mem::transmute_copy(&texturetype), core::mem::transmute_copy(&texturebounds), core::mem::transmute_copy(&alphavalues), core::mem::transmute_copy(&buffersize)).into()
+                IDWriteGlyphRunAnalysis_Impl::CreateAlphaTexture(this, core::mem::transmute_copy(&texturetype), core::mem::transmute_copy(&texturebounds), core::mem::transmute_copy(&alphavalues), core::mem::transmute_copy(&buffersize))
             }
         }
         unsafe extern "system" fn GetAlphaBlendParams<Identity: IDWriteGlyphRunAnalysis_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, renderingparams: *mut core::ffi::c_void, blendgamma: *mut super::FLOAT, blendenhancedcontrast: *mut super::FLOAT, blendcleartypelevel: *mut super::FLOAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteGlyphRunAnalysis_Impl::GetAlphaBlendParams(this, core::mem::transmute_copy(&renderingparams), core::mem::transmute_copy(&blendgamma), core::mem::transmute_copy(&blendenhancedcontrast), core::mem::transmute_copy(&blendcleartypelevel)).into()
+                IDWriteGlyphRunAnalysis_Impl::GetAlphaBlendParams(this, core::mem::transmute_copy(&renderingparams), core::mem::transmute_copy(&blendgamma), core::mem::transmute_copy(&blendenhancedcontrast), core::mem::transmute_copy(&blendcleartypelevel))
             }
         }
         Self {
@@ -8908,10 +8908,10 @@ pub struct IDWriteInlineObject_Vtbl {
 }
 #[cfg(feature = "minwindef")]
 pub trait IDWriteInlineObject_Impl: windows_core::IUnknownImpl {
-    fn Draw(&self, clientdrawingcontext: *const core::ffi::c_void, renderer: windows_core::Ref<IDWriteTextRenderer>, originx: super::FLOAT, originy: super::FLOAT, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn GetMetrics(&self, metrics: *mut DWRITE_INLINE_OBJECT_METRICS) -> windows_core::Result<()>;
-    fn GetOverhangMetrics(&self, overhangs: *mut DWRITE_OVERHANG_METRICS) -> windows_core::Result<()>;
-    fn GetBreakConditions(&self, breakconditionbefore: *mut DWRITE_BREAK_CONDITION, breakconditionafter: *mut DWRITE_BREAK_CONDITION) -> windows_core::Result<()>;
+    fn Draw(&self, clientdrawingcontext: *const core::ffi::c_void, renderer: windows_core::Ref<IDWriteTextRenderer>, originx: super::FLOAT, originy: super::FLOAT, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn GetMetrics(&self, metrics: *mut DWRITE_INLINE_OBJECT_METRICS) -> windows_core::HRESULT;
+    fn GetOverhangMetrics(&self, overhangs: *mut DWRITE_OVERHANG_METRICS) -> windows_core::HRESULT;
+    fn GetBreakConditions(&self, breakconditionbefore: *mut DWRITE_BREAK_CONDITION, breakconditionafter: *mut DWRITE_BREAK_CONDITION) -> windows_core::HRESULT;
 }
 #[cfg(feature = "minwindef")]
 impl IDWriteInlineObject_Vtbl {
@@ -8919,25 +8919,25 @@ impl IDWriteInlineObject_Vtbl {
         unsafe extern "system" fn Draw<Identity: IDWriteInlineObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clientdrawingcontext: *const core::ffi::c_void, renderer: *mut core::ffi::c_void, originx: super::FLOAT, originy: super::FLOAT, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, clientdrawingeffect: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteInlineObject_Impl::Draw(this, core::mem::transmute_copy(&clientdrawingcontext), core::mem::transmute_copy(&renderer), core::mem::transmute_copy(&originx), core::mem::transmute_copy(&originy), core::mem::transmute_copy(&issideways), core::mem::transmute_copy(&isrighttoleft), core::mem::transmute_copy(&clientdrawingeffect)).into()
+                IDWriteInlineObject_Impl::Draw(this, core::mem::transmute_copy(&clientdrawingcontext), core::mem::transmute_copy(&renderer), core::mem::transmute_copy(&originx), core::mem::transmute_copy(&originy), core::mem::transmute_copy(&issideways), core::mem::transmute_copy(&isrighttoleft), core::mem::transmute_copy(&clientdrawingeffect))
             }
         }
         unsafe extern "system" fn GetMetrics<Identity: IDWriteInlineObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, metrics: *mut DWRITE_INLINE_OBJECT_METRICS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteInlineObject_Impl::GetMetrics(this, core::mem::transmute_copy(&metrics)).into()
+                IDWriteInlineObject_Impl::GetMetrics(this, core::mem::transmute_copy(&metrics))
             }
         }
         unsafe extern "system" fn GetOverhangMetrics<Identity: IDWriteInlineObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, overhangs: *mut DWRITE_OVERHANG_METRICS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteInlineObject_Impl::GetOverhangMetrics(this, core::mem::transmute_copy(&overhangs)).into()
+                IDWriteInlineObject_Impl::GetOverhangMetrics(this, core::mem::transmute_copy(&overhangs))
             }
         }
         unsafe extern "system" fn GetBreakConditions<Identity: IDWriteInlineObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, breakconditionbefore: *mut DWRITE_BREAK_CONDITION, breakconditionafter: *mut DWRITE_BREAK_CONDITION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteInlineObject_Impl::GetBreakConditions(this, core::mem::transmute_copy(&breakconditionbefore), core::mem::transmute_copy(&breakconditionafter)).into()
+                IDWriteInlineObject_Impl::GetBreakConditions(this, core::mem::transmute_copy(&breakconditionbefore), core::mem::transmute_copy(&breakconditionafter))
             }
         }
         Self {
@@ -8995,9 +8995,9 @@ pub struct IDWriteLocalFontFileLoader_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub trait IDWriteLocalFontFileLoader_Impl: IDWriteFontFileLoader_Impl {
-    fn GetFilePathLengthFromKey(&self, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: super::UINT32, filepathlength: *mut super::UINT32) -> windows_core::Result<()>;
-    fn GetFilePathFromKey(&self, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: super::UINT32, filepath: *mut super::WCHAR, filepathsize: super::UINT32) -> windows_core::Result<()>;
-    fn GetLastWriteTimeFromKey(&self, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: super::UINT32, lastwritetime: *mut super::FILETIME) -> windows_core::Result<()>;
+    fn GetFilePathLengthFromKey(&self, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: super::UINT32, filepathlength: *mut super::UINT32) -> windows_core::HRESULT;
+    fn GetFilePathFromKey(&self, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: super::UINT32, filepath: *mut super::WCHAR, filepathsize: super::UINT32) -> windows_core::HRESULT;
+    fn GetLastWriteTimeFromKey(&self, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: super::UINT32, lastwritetime: *mut super::FILETIME) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl IDWriteLocalFontFileLoader_Vtbl {
@@ -9005,19 +9005,19 @@ impl IDWriteLocalFontFileLoader_Vtbl {
         unsafe extern "system" fn GetFilePathLengthFromKey<Identity: IDWriteLocalFontFileLoader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: super::UINT32, filepathlength: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteLocalFontFileLoader_Impl::GetFilePathLengthFromKey(this, core::mem::transmute_copy(&fontfilereferencekey), core::mem::transmute_copy(&fontfilereferencekeysize), core::mem::transmute_copy(&filepathlength)).into()
+                IDWriteLocalFontFileLoader_Impl::GetFilePathLengthFromKey(this, core::mem::transmute_copy(&fontfilereferencekey), core::mem::transmute_copy(&fontfilereferencekeysize), core::mem::transmute_copy(&filepathlength))
             }
         }
         unsafe extern "system" fn GetFilePathFromKey<Identity: IDWriteLocalFontFileLoader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: super::UINT32, filepath: *mut super::WCHAR, filepathsize: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteLocalFontFileLoader_Impl::GetFilePathFromKey(this, core::mem::transmute_copy(&fontfilereferencekey), core::mem::transmute_copy(&fontfilereferencekeysize), core::mem::transmute_copy(&filepath), core::mem::transmute_copy(&filepathsize)).into()
+                IDWriteLocalFontFileLoader_Impl::GetFilePathFromKey(this, core::mem::transmute_copy(&fontfilereferencekey), core::mem::transmute_copy(&fontfilereferencekeysize), core::mem::transmute_copy(&filepath), core::mem::transmute_copy(&filepathsize))
             }
         }
         unsafe extern "system" fn GetLastWriteTimeFromKey<Identity: IDWriteLocalFontFileLoader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: super::UINT32, lastwritetime: *mut super::FILETIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteLocalFontFileLoader_Impl::GetLastWriteTimeFromKey(this, core::mem::transmute_copy(&fontfilereferencekey), core::mem::transmute_copy(&fontfilereferencekeysize), core::mem::transmute_copy(&lastwritetime)).into()
+                IDWriteLocalFontFileLoader_Impl::GetLastWriteTimeFromKey(this, core::mem::transmute_copy(&fontfilereferencekey), core::mem::transmute_copy(&fontfilereferencekeysize), core::mem::transmute_copy(&lastwritetime))
             }
         }
         Self {
@@ -9093,11 +9093,11 @@ pub struct IDWriteLocalizedStrings_Vtbl {
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IDWriteLocalizedStrings_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> super::UINT32;
-    fn FindLocaleName(&self, localename: *const super::WCHAR, index: *mut super::UINT32, exists: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetLocaleNameLength(&self, index: super::UINT32, length: *mut super::UINT32) -> windows_core::Result<()>;
-    fn GetLocaleName(&self, index: super::UINT32, localename: *mut super::WCHAR, size: super::UINT32) -> windows_core::Result<()>;
-    fn GetStringLength(&self, index: super::UINT32, length: *mut super::UINT32) -> windows_core::Result<()>;
-    fn GetString(&self, index: super::UINT32, stringbuffer: *mut super::WCHAR, size: super::UINT32) -> windows_core::Result<()>;
+    fn FindLocaleName(&self, localename: *const super::WCHAR, index: *mut super::UINT32, exists: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn GetLocaleNameLength(&self, index: super::UINT32, length: *mut super::UINT32) -> windows_core::HRESULT;
+    fn GetLocaleName(&self, index: super::UINT32, localename: *mut super::WCHAR, size: super::UINT32) -> windows_core::HRESULT;
+    fn GetStringLength(&self, index: super::UINT32, length: *mut super::UINT32) -> windows_core::HRESULT;
+    fn GetString(&self, index: super::UINT32, stringbuffer: *mut super::WCHAR, size: super::UINT32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 impl IDWriteLocalizedStrings_Vtbl {
@@ -9111,31 +9111,31 @@ impl IDWriteLocalizedStrings_Vtbl {
         unsafe extern "system" fn FindLocaleName<Identity: IDWriteLocalizedStrings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, localename: *const super::WCHAR, index: *mut super::UINT32, exists: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteLocalizedStrings_Impl::FindLocaleName(this, core::mem::transmute_copy(&localename), core::mem::transmute_copy(&index), core::mem::transmute_copy(&exists)).into()
+                IDWriteLocalizedStrings_Impl::FindLocaleName(this, core::mem::transmute_copy(&localename), core::mem::transmute_copy(&index), core::mem::transmute_copy(&exists))
             }
         }
         unsafe extern "system" fn GetLocaleNameLength<Identity: IDWriteLocalizedStrings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT32, length: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteLocalizedStrings_Impl::GetLocaleNameLength(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&length)).into()
+                IDWriteLocalizedStrings_Impl::GetLocaleNameLength(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&length))
             }
         }
         unsafe extern "system" fn GetLocaleName<Identity: IDWriteLocalizedStrings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT32, localename: *mut super::WCHAR, size: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteLocalizedStrings_Impl::GetLocaleName(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&localename), core::mem::transmute_copy(&size)).into()
+                IDWriteLocalizedStrings_Impl::GetLocaleName(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&localename), core::mem::transmute_copy(&size))
             }
         }
         unsafe extern "system" fn GetStringLength<Identity: IDWriteLocalizedStrings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT32, length: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteLocalizedStrings_Impl::GetStringLength(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&length)).into()
+                IDWriteLocalizedStrings_Impl::GetStringLength(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&length))
             }
         }
         unsafe extern "system" fn GetString<Identity: IDWriteLocalizedStrings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT32, stringbuffer: *mut super::WCHAR, size: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteLocalizedStrings_Impl::GetString(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&stringbuffer), core::mem::transmute_copy(&size)).into()
+                IDWriteLocalizedStrings_Impl::GetString(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&stringbuffer), core::mem::transmute_copy(&size))
             }
         }
         Self {
@@ -9250,15 +9250,15 @@ pub struct IDWritePaintReader_Vtbl {
 }
 #[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared"))]
 pub trait IDWritePaintReader_Impl: windows_core::IUnknownImpl {
-    fn SetCurrentGlyph(&self, glyphindex: super::UINT32, paintelement: *mut DWRITE_PAINT_ELEMENT, structsize: super::UINT32, clipbox: *mut super::D2D_RECT_F, glyphattributes: *mut DWRITE_PAINT_ATTRIBUTES) -> windows_core::Result<()>;
-    fn SetTextColor(&self, textcolor: *const DWRITE_COLOR_F) -> windows_core::Result<()>;
-    fn SetColorPaletteIndex(&self, colorpaletteindex: super::UINT32) -> windows_core::Result<()>;
-    fn SetCustomColorPalette(&self, paletteentries: *const DWRITE_COLOR_F, paletteentrycount: super::UINT32) -> windows_core::Result<()>;
-    fn MoveToFirstChild(&self, paintelement: *mut DWRITE_PAINT_ELEMENT, structsize: super::UINT32) -> windows_core::Result<()>;
-    fn MoveToNextSibling(&self, paintelement: *mut DWRITE_PAINT_ELEMENT, structsize: super::UINT32) -> windows_core::Result<()>;
-    fn MoveToParent(&self) -> windows_core::Result<()>;
-    fn GetGradientStops(&self, firstgradientstopindex: super::UINT32, gradientstopcount: super::UINT32, gradientstops: *mut super::D2D1_GRADIENT_STOP) -> windows_core::Result<()>;
-    fn GetGradientStopColors(&self, firstgradientstopindex: super::UINT32, gradientstopcount: super::UINT32, gradientstopcolors: *mut DWRITE_PAINT_COLOR) -> windows_core::Result<()>;
+    fn SetCurrentGlyph(&self, glyphindex: super::UINT32, paintelement: *mut DWRITE_PAINT_ELEMENT, structsize: super::UINT32, clipbox: *mut super::D2D_RECT_F, glyphattributes: *mut DWRITE_PAINT_ATTRIBUTES) -> windows_core::HRESULT;
+    fn SetTextColor(&self, textcolor: *const DWRITE_COLOR_F) -> windows_core::HRESULT;
+    fn SetColorPaletteIndex(&self, colorpaletteindex: super::UINT32) -> windows_core::HRESULT;
+    fn SetCustomColorPalette(&self, paletteentries: *const DWRITE_COLOR_F, paletteentrycount: super::UINT32) -> windows_core::HRESULT;
+    fn MoveToFirstChild(&self, paintelement: *mut DWRITE_PAINT_ELEMENT, structsize: super::UINT32) -> windows_core::HRESULT;
+    fn MoveToNextSibling(&self, paintelement: *mut DWRITE_PAINT_ELEMENT, structsize: super::UINT32) -> windows_core::HRESULT;
+    fn MoveToParent(&self) -> windows_core::HRESULT;
+    fn GetGradientStops(&self, firstgradientstopindex: super::UINT32, gradientstopcount: super::UINT32, gradientstops: *mut super::D2D1_GRADIENT_STOP) -> windows_core::HRESULT;
+    fn GetGradientStopColors(&self, firstgradientstopindex: super::UINT32, gradientstopcount: super::UINT32, gradientstopcolors: *mut DWRITE_PAINT_COLOR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared"))]
 impl IDWritePaintReader_Vtbl {
@@ -9266,55 +9266,55 @@ impl IDWritePaintReader_Vtbl {
         unsafe extern "system" fn SetCurrentGlyph<Identity: IDWritePaintReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, glyphindex: super::UINT32, paintelement: *mut DWRITE_PAINT_ELEMENT, structsize: super::UINT32, clipbox: *mut super::D2D_RECT_F, glyphattributes: *mut DWRITE_PAINT_ATTRIBUTES) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWritePaintReader_Impl::SetCurrentGlyph(this, core::mem::transmute_copy(&glyphindex), core::mem::transmute_copy(&paintelement), core::mem::transmute_copy(&structsize), core::mem::transmute_copy(&clipbox), core::mem::transmute_copy(&glyphattributes)).into()
+                IDWritePaintReader_Impl::SetCurrentGlyph(this, core::mem::transmute_copy(&glyphindex), core::mem::transmute_copy(&paintelement), core::mem::transmute_copy(&structsize), core::mem::transmute_copy(&clipbox), core::mem::transmute_copy(&glyphattributes))
             }
         }
         unsafe extern "system" fn SetTextColor<Identity: IDWritePaintReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, textcolor: *const DWRITE_COLOR_F) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWritePaintReader_Impl::SetTextColor(this, core::mem::transmute_copy(&textcolor)).into()
+                IDWritePaintReader_Impl::SetTextColor(this, core::mem::transmute_copy(&textcolor))
             }
         }
         unsafe extern "system" fn SetColorPaletteIndex<Identity: IDWritePaintReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, colorpaletteindex: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWritePaintReader_Impl::SetColorPaletteIndex(this, core::mem::transmute_copy(&colorpaletteindex)).into()
+                IDWritePaintReader_Impl::SetColorPaletteIndex(this, core::mem::transmute_copy(&colorpaletteindex))
             }
         }
         unsafe extern "system" fn SetCustomColorPalette<Identity: IDWritePaintReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paletteentries: *const DWRITE_COLOR_F, paletteentrycount: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWritePaintReader_Impl::SetCustomColorPalette(this, core::mem::transmute_copy(&paletteentries), core::mem::transmute_copy(&paletteentrycount)).into()
+                IDWritePaintReader_Impl::SetCustomColorPalette(this, core::mem::transmute_copy(&paletteentries), core::mem::transmute_copy(&paletteentrycount))
             }
         }
         unsafe extern "system" fn MoveToFirstChild<Identity: IDWritePaintReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paintelement: *mut DWRITE_PAINT_ELEMENT, structsize: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWritePaintReader_Impl::MoveToFirstChild(this, core::mem::transmute_copy(&paintelement), core::mem::transmute_copy(&structsize)).into()
+                IDWritePaintReader_Impl::MoveToFirstChild(this, core::mem::transmute_copy(&paintelement), core::mem::transmute_copy(&structsize))
             }
         }
         unsafe extern "system" fn MoveToNextSibling<Identity: IDWritePaintReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paintelement: *mut DWRITE_PAINT_ELEMENT, structsize: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWritePaintReader_Impl::MoveToNextSibling(this, core::mem::transmute_copy(&paintelement), core::mem::transmute_copy(&structsize)).into()
+                IDWritePaintReader_Impl::MoveToNextSibling(this, core::mem::transmute_copy(&paintelement), core::mem::transmute_copy(&structsize))
             }
         }
         unsafe extern "system" fn MoveToParent<Identity: IDWritePaintReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWritePaintReader_Impl::MoveToParent(this).into()
+                IDWritePaintReader_Impl::MoveToParent(this)
             }
         }
         unsafe extern "system" fn GetGradientStops<Identity: IDWritePaintReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, firstgradientstopindex: super::UINT32, gradientstopcount: super::UINT32, gradientstops: *mut super::D2D1_GRADIENT_STOP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWritePaintReader_Impl::GetGradientStops(this, core::mem::transmute_copy(&firstgradientstopindex), core::mem::transmute_copy(&gradientstopcount), core::mem::transmute_copy(&gradientstops)).into()
+                IDWritePaintReader_Impl::GetGradientStops(this, core::mem::transmute_copy(&firstgradientstopindex), core::mem::transmute_copy(&gradientstopcount), core::mem::transmute_copy(&gradientstops))
             }
         }
         unsafe extern "system" fn GetGradientStopColors<Identity: IDWritePaintReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, firstgradientstopindex: super::UINT32, gradientstopcount: super::UINT32, gradientstopcolors: *mut DWRITE_PAINT_COLOR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWritePaintReader_Impl::GetGradientStopColors(this, core::mem::transmute_copy(&firstgradientstopindex), core::mem::transmute_copy(&gradientstopcount), core::mem::transmute_copy(&gradientstopcolors)).into()
+                IDWritePaintReader_Impl::GetGradientStopColors(this, core::mem::transmute_copy(&firstgradientstopindex), core::mem::transmute_copy(&gradientstopcount), core::mem::transmute_copy(&gradientstopcolors))
             }
         }
         Self {
@@ -9367,9 +9367,9 @@ pub struct IDWritePixelSnapping_Vtbl {
 }
 #[cfg(feature = "minwindef")]
 pub trait IDWritePixelSnapping_Impl: windows_core::IUnknownImpl {
-    fn IsPixelSnappingDisabled(&self, clientdrawingcontext: *const core::ffi::c_void, isdisabled: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetCurrentTransform(&self, clientdrawingcontext: *const core::ffi::c_void, transform: *mut DWRITE_MATRIX) -> windows_core::Result<()>;
-    fn GetPixelsPerDip(&self, clientdrawingcontext: *const core::ffi::c_void, pixelsperdip: *mut super::FLOAT) -> windows_core::Result<()>;
+    fn IsPixelSnappingDisabled(&self, clientdrawingcontext: *const core::ffi::c_void, isdisabled: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn GetCurrentTransform(&self, clientdrawingcontext: *const core::ffi::c_void, transform: *mut DWRITE_MATRIX) -> windows_core::HRESULT;
+    fn GetPixelsPerDip(&self, clientdrawingcontext: *const core::ffi::c_void, pixelsperdip: *mut super::FLOAT) -> windows_core::HRESULT;
 }
 #[cfg(feature = "minwindef")]
 impl IDWritePixelSnapping_Vtbl {
@@ -9377,19 +9377,19 @@ impl IDWritePixelSnapping_Vtbl {
         unsafe extern "system" fn IsPixelSnappingDisabled<Identity: IDWritePixelSnapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clientdrawingcontext: *const core::ffi::c_void, isdisabled: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWritePixelSnapping_Impl::IsPixelSnappingDisabled(this, core::mem::transmute_copy(&clientdrawingcontext), core::mem::transmute_copy(&isdisabled)).into()
+                IDWritePixelSnapping_Impl::IsPixelSnappingDisabled(this, core::mem::transmute_copy(&clientdrawingcontext), core::mem::transmute_copy(&isdisabled))
             }
         }
         unsafe extern "system" fn GetCurrentTransform<Identity: IDWritePixelSnapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clientdrawingcontext: *const core::ffi::c_void, transform: *mut DWRITE_MATRIX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWritePixelSnapping_Impl::GetCurrentTransform(this, core::mem::transmute_copy(&clientdrawingcontext), core::mem::transmute_copy(&transform)).into()
+                IDWritePixelSnapping_Impl::GetCurrentTransform(this, core::mem::transmute_copy(&clientdrawingcontext), core::mem::transmute_copy(&transform))
             }
         }
         unsafe extern "system" fn GetPixelsPerDip<Identity: IDWritePixelSnapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clientdrawingcontext: *const core::ffi::c_void, pixelsperdip: *mut super::FLOAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWritePixelSnapping_Impl::GetPixelsPerDip(this, core::mem::transmute_copy(&clientdrawingcontext), core::mem::transmute_copy(&pixelsperdip)).into()
+                IDWritePixelSnapping_Impl::GetPixelsPerDip(this, core::mem::transmute_copy(&clientdrawingcontext), core::mem::transmute_copy(&pixelsperdip))
             }
         }
         Self {
@@ -9456,7 +9456,7 @@ pub struct IDWriteRemoteFontFileLoader_Vtbl {
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IDWriteRemoteFontFileLoader_Impl: IDWriteFontFileLoader_Impl {
     fn CreateRemoteStreamFromKey(&self, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: super::UINT32) -> windows_core::Result<IDWriteRemoteFontFileStream>;
-    fn GetLocalityFromKey(&self, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: super::UINT32, locality: *mut DWRITE_LOCALITY) -> windows_core::Result<()>;
+    fn GetLocalityFromKey(&self, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: super::UINT32, locality: *mut DWRITE_LOCALITY) -> windows_core::HRESULT;
     fn CreateFontFileReferenceFromUrl(&self, factory: windows_core::Ref<IDWriteFactory>, baseurl: *const super::WCHAR, fontfileurl: *const super::WCHAR) -> windows_core::Result<IDWriteFontFile>;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -9480,7 +9480,7 @@ impl IDWriteRemoteFontFileLoader_Vtbl {
         unsafe extern "system" fn GetLocalityFromKey<Identity: IDWriteRemoteFontFileLoader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: super::UINT32, locality: *mut DWRITE_LOCALITY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteRemoteFontFileLoader_Impl::GetLocalityFromKey(this, core::mem::transmute_copy(&fontfilereferencekey), core::mem::transmute_copy(&fontfilereferencekeysize), core::mem::transmute_copy(&locality)).into()
+                IDWriteRemoteFontFileLoader_Impl::GetLocalityFromKey(this, core::mem::transmute_copy(&fontfilereferencekey), core::mem::transmute_copy(&fontfilereferencekeysize), core::mem::transmute_copy(&locality))
             }
         }
         unsafe extern "system" fn CreateFontFileReferenceFromUrl<Identity: IDWriteRemoteFontFileLoader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, factory: *mut core::ffi::c_void, baseurl: *const super::WCHAR, fontfileurl: *const super::WCHAR, fontfile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9556,10 +9556,10 @@ pub struct IDWriteRemoteFontFileStream_Vtbl {
 }
 #[cfg(all(feature = "rpc", feature = "shared"))]
 pub trait IDWriteRemoteFontFileStream_Impl: IDWriteFontFileStream_Impl {
-    fn GetLocalFileSize(&self, localfilesize: *mut super::UINT64) -> windows_core::Result<()>;
-    fn GetFileFragmentLocality(&self, fileoffset: super::UINT64, fragmentsize: super::UINT64, islocal: *mut windows_core::BOOL, partialsize: *mut super::UINT64) -> windows_core::Result<()>;
+    fn GetLocalFileSize(&self, localfilesize: *mut super::UINT64) -> windows_core::HRESULT;
+    fn GetFileFragmentLocality(&self, fileoffset: super::UINT64, fragmentsize: super::UINT64, islocal: *mut windows_core::BOOL, partialsize: *mut super::UINT64) -> windows_core::HRESULT;
     fn GetLocality(&self) -> DWRITE_LOCALITY;
-    fn BeginDownload(&self, downloadoperationid: *const super::UUID, filefragments: *const DWRITE_FILE_FRAGMENT, fragmentcount: super::UINT32, asyncresult: windows_core::OutRef<IDWriteAsyncResult>) -> windows_core::Result<()>;
+    fn BeginDownload(&self, downloadoperationid: *const super::UUID, filefragments: *const DWRITE_FILE_FRAGMENT, fragmentcount: super::UINT32, asyncresult: windows_core::OutRef<IDWriteAsyncResult>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "rpc", feature = "shared"))]
 impl IDWriteRemoteFontFileStream_Vtbl {
@@ -9567,13 +9567,13 @@ impl IDWriteRemoteFontFileStream_Vtbl {
         unsafe extern "system" fn GetLocalFileSize<Identity: IDWriteRemoteFontFileStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, localfilesize: *mut super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteRemoteFontFileStream_Impl::GetLocalFileSize(this, core::mem::transmute_copy(&localfilesize)).into()
+                IDWriteRemoteFontFileStream_Impl::GetLocalFileSize(this, core::mem::transmute_copy(&localfilesize))
             }
         }
         unsafe extern "system" fn GetFileFragmentLocality<Identity: IDWriteRemoteFontFileStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fileoffset: super::UINT64, fragmentsize: super::UINT64, islocal: *mut windows_core::BOOL, partialsize: *mut super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteRemoteFontFileStream_Impl::GetFileFragmentLocality(this, core::mem::transmute_copy(&fileoffset), core::mem::transmute_copy(&fragmentsize), core::mem::transmute_copy(&islocal), core::mem::transmute_copy(&partialsize)).into()
+                IDWriteRemoteFontFileStream_Impl::GetFileFragmentLocality(this, core::mem::transmute_copy(&fileoffset), core::mem::transmute_copy(&fragmentsize), core::mem::transmute_copy(&islocal), core::mem::transmute_copy(&partialsize))
             }
         }
         unsafe extern "system" fn GetLocality<Identity: IDWriteRemoteFontFileStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> DWRITE_LOCALITY {
@@ -9585,7 +9585,7 @@ impl IDWriteRemoteFontFileStream_Vtbl {
         unsafe extern "system" fn BeginDownload<Identity: IDWriteRemoteFontFileStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, downloadoperationid: *const super::UUID, filefragments: *const DWRITE_FILE_FRAGMENT, fragmentcount: super::UINT32, asyncresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteRemoteFontFileStream_Impl::BeginDownload(this, core::mem::transmute_copy(&downloadoperationid), core::mem::transmute_copy(&filefragments), core::mem::transmute_copy(&fragmentcount), core::mem::transmute_copy(&asyncresult)).into()
+                IDWriteRemoteFontFileStream_Impl::BeginDownload(this, core::mem::transmute_copy(&downloadoperationid), core::mem::transmute_copy(&filefragments), core::mem::transmute_copy(&fragmentcount), core::mem::transmute_copy(&asyncresult))
             }
         }
         Self {
@@ -9875,10 +9875,10 @@ pub struct IDWriteStringList_Vtbl {
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IDWriteStringList_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> super::UINT32;
-    fn GetLocaleNameLength(&self, listindex: super::UINT32, length: *mut super::UINT32) -> windows_core::Result<()>;
-    fn GetLocaleName(&self, listindex: super::UINT32, localename: *mut super::WCHAR, size: super::UINT32) -> windows_core::Result<()>;
-    fn GetStringLength(&self, listindex: super::UINT32, length: *mut super::UINT32) -> windows_core::Result<()>;
-    fn GetString(&self, listindex: super::UINT32, stringbuffer: *mut super::WCHAR, stringbuffersize: super::UINT32) -> windows_core::Result<()>;
+    fn GetLocaleNameLength(&self, listindex: super::UINT32, length: *mut super::UINT32) -> windows_core::HRESULT;
+    fn GetLocaleName(&self, listindex: super::UINT32, localename: *mut super::WCHAR, size: super::UINT32) -> windows_core::HRESULT;
+    fn GetStringLength(&self, listindex: super::UINT32, length: *mut super::UINT32) -> windows_core::HRESULT;
+    fn GetString(&self, listindex: super::UINT32, stringbuffer: *mut super::WCHAR, stringbuffersize: super::UINT32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 impl IDWriteStringList_Vtbl {
@@ -9892,25 +9892,25 @@ impl IDWriteStringList_Vtbl {
         unsafe extern "system" fn GetLocaleNameLength<Identity: IDWriteStringList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, listindex: super::UINT32, length: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteStringList_Impl::GetLocaleNameLength(this, core::mem::transmute_copy(&listindex), core::mem::transmute_copy(&length)).into()
+                IDWriteStringList_Impl::GetLocaleNameLength(this, core::mem::transmute_copy(&listindex), core::mem::transmute_copy(&length))
             }
         }
         unsafe extern "system" fn GetLocaleName<Identity: IDWriteStringList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, listindex: super::UINT32, localename: *mut super::WCHAR, size: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteStringList_Impl::GetLocaleName(this, core::mem::transmute_copy(&listindex), core::mem::transmute_copy(&localename), core::mem::transmute_copy(&size)).into()
+                IDWriteStringList_Impl::GetLocaleName(this, core::mem::transmute_copy(&listindex), core::mem::transmute_copy(&localename), core::mem::transmute_copy(&size))
             }
         }
         unsafe extern "system" fn GetStringLength<Identity: IDWriteStringList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, listindex: super::UINT32, length: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteStringList_Impl::GetStringLength(this, core::mem::transmute_copy(&listindex), core::mem::transmute_copy(&length)).into()
+                IDWriteStringList_Impl::GetStringLength(this, core::mem::transmute_copy(&listindex), core::mem::transmute_copy(&length))
             }
         }
         unsafe extern "system" fn GetString<Identity: IDWriteStringList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, listindex: super::UINT32, stringbuffer: *mut super::WCHAR, stringbuffersize: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteStringList_Impl::GetString(this, core::mem::transmute_copy(&listindex), core::mem::transmute_copy(&stringbuffer), core::mem::transmute_copy(&stringbuffersize)).into()
+                IDWriteStringList_Impl::GetString(this, core::mem::transmute_copy(&listindex), core::mem::transmute_copy(&stringbuffer), core::mem::transmute_copy(&stringbuffersize))
             }
         }
         Self {
@@ -9974,10 +9974,10 @@ pub struct IDWriteTextAnalysisSink_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IDWriteTextAnalysisSink_Impl: windows_core::IUnknownImpl {
-    fn SetScriptAnalysis(&self, textposition: super::UINT32, textlength: super::UINT32, scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS) -> windows_core::Result<()>;
-    fn SetLineBreakpoints(&self, textposition: super::UINT32, textlength: super::UINT32, linebreakpoints: *const DWRITE_LINE_BREAKPOINT) -> windows_core::Result<()>;
-    fn SetBidiLevel(&self, textposition: super::UINT32, textlength: super::UINT32, explicitlevel: super::UINT8, resolvedlevel: super::UINT8) -> windows_core::Result<()>;
-    fn SetNumberSubstitution(&self, textposition: super::UINT32, textlength: super::UINT32, numbersubstitution: windows_core::Ref<IDWriteNumberSubstitution>) -> windows_core::Result<()>;
+    fn SetScriptAnalysis(&self, textposition: super::UINT32, textlength: super::UINT32, scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS) -> windows_core::HRESULT;
+    fn SetLineBreakpoints(&self, textposition: super::UINT32, textlength: super::UINT32, linebreakpoints: *const DWRITE_LINE_BREAKPOINT) -> windows_core::HRESULT;
+    fn SetBidiLevel(&self, textposition: super::UINT32, textlength: super::UINT32, explicitlevel: super::UINT8, resolvedlevel: super::UINT8) -> windows_core::HRESULT;
+    fn SetNumberSubstitution(&self, textposition: super::UINT32, textlength: super::UINT32, numbersubstitution: windows_core::Ref<IDWriteNumberSubstitution>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IDWriteTextAnalysisSink_Vtbl {
@@ -9985,25 +9985,25 @@ impl IDWriteTextAnalysisSink_Vtbl {
         unsafe extern "system" fn SetScriptAnalysis<Identity: IDWriteTextAnalysisSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, textposition: super::UINT32, textlength: super::UINT32, scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextAnalysisSink_Impl::SetScriptAnalysis(this, core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&scriptanalysis)).into()
+                IDWriteTextAnalysisSink_Impl::SetScriptAnalysis(this, core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&scriptanalysis))
             }
         }
         unsafe extern "system" fn SetLineBreakpoints<Identity: IDWriteTextAnalysisSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, textposition: super::UINT32, textlength: super::UINT32, linebreakpoints: *const DWRITE_LINE_BREAKPOINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextAnalysisSink_Impl::SetLineBreakpoints(this, core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&linebreakpoints)).into()
+                IDWriteTextAnalysisSink_Impl::SetLineBreakpoints(this, core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&linebreakpoints))
             }
         }
         unsafe extern "system" fn SetBidiLevel<Identity: IDWriteTextAnalysisSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, textposition: super::UINT32, textlength: super::UINT32, explicitlevel: super::UINT8, resolvedlevel: super::UINT8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextAnalysisSink_Impl::SetBidiLevel(this, core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&explicitlevel), core::mem::transmute_copy(&resolvedlevel)).into()
+                IDWriteTextAnalysisSink_Impl::SetBidiLevel(this, core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&explicitlevel), core::mem::transmute_copy(&resolvedlevel))
             }
         }
         unsafe extern "system" fn SetNumberSubstitution<Identity: IDWriteTextAnalysisSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, textposition: super::UINT32, textlength: super::UINT32, numbersubstitution: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextAnalysisSink_Impl::SetNumberSubstitution(this, core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&numbersubstitution)).into()
+                IDWriteTextAnalysisSink_Impl::SetNumberSubstitution(this, core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&numbersubstitution))
             }
         }
         Self {
@@ -10045,7 +10045,7 @@ pub struct IDWriteTextAnalysisSink1_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IDWriteTextAnalysisSink1_Impl: IDWriteTextAnalysisSink_Impl {
-    fn SetGlyphOrientation(&self, textposition: super::UINT32, textlength: super::UINT32, glyphorientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, adjustedbidilevel: super::UINT8, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetGlyphOrientation(&self, textposition: super::UINT32, textlength: super::UINT32, glyphorientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, adjustedbidilevel: super::UINT8, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IDWriteTextAnalysisSink1_Vtbl {
@@ -10053,7 +10053,7 @@ impl IDWriteTextAnalysisSink1_Vtbl {
         unsafe extern "system" fn SetGlyphOrientation<Identity: IDWriteTextAnalysisSink1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, textposition: super::UINT32, textlength: super::UINT32, glyphorientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, adjustedbidilevel: super::UINT8, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextAnalysisSink1_Impl::SetGlyphOrientation(this, core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&glyphorientationangle), core::mem::transmute_copy(&adjustedbidilevel), core::mem::transmute_copy(&issideways), core::mem::transmute_copy(&isrighttoleft)).into()
+                IDWriteTextAnalysisSink1_Impl::SetGlyphOrientation(this, core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&glyphorientationangle), core::mem::transmute_copy(&adjustedbidilevel), core::mem::transmute_copy(&issideways), core::mem::transmute_copy(&isrighttoleft))
             }
         }
         Self { base__: IDWriteTextAnalysisSink_Vtbl::new::<Identity, OFFSET>(), SetGlyphOrientation: SetGlyphOrientation::<Identity, OFFSET> }
@@ -10114,10 +10114,10 @@ pub struct IDWriteTextAnalysisSource_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IDWriteTextAnalysisSource_Impl: windows_core::IUnknownImpl {
-    fn GetTextAtPosition(&self, textposition: super::UINT32, textstring: *mut *const super::WCHAR, textlength: *mut super::UINT32) -> windows_core::Result<()>;
-    fn GetTextBeforePosition(&self, textposition: super::UINT32, textstring: *mut *const super::WCHAR, textlength: *mut super::UINT32) -> windows_core::Result<()>;
+    fn GetTextAtPosition(&self, textposition: super::UINT32, textstring: *mut *const super::WCHAR, textlength: *mut super::UINT32) -> windows_core::HRESULT;
+    fn GetTextBeforePosition(&self, textposition: super::UINT32, textstring: *mut *const super::WCHAR, textlength: *mut super::UINT32) -> windows_core::HRESULT;
     fn GetParagraphReadingDirection(&self) -> DWRITE_READING_DIRECTION;
-    fn GetLocaleName(&self, textposition: super::UINT32, textlength: *mut super::UINT32, localename: *mut *const super::WCHAR) -> windows_core::Result<()>;
+    fn GetLocaleName(&self, textposition: super::UINT32, textlength: *mut super::UINT32, localename: *mut *const super::WCHAR) -> windows_core::HRESULT;
     fn GetNumberSubstitution(&self, textposition: super::UINT32, textlength: *mut super::UINT32) -> windows_core::Result<IDWriteNumberSubstitution>;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -10126,13 +10126,13 @@ impl IDWriteTextAnalysisSource_Vtbl {
         unsafe extern "system" fn GetTextAtPosition<Identity: IDWriteTextAnalysisSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, textposition: super::UINT32, textstring: *mut *const super::WCHAR, textlength: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextAnalysisSource_Impl::GetTextAtPosition(this, core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&textstring), core::mem::transmute_copy(&textlength)).into()
+                IDWriteTextAnalysisSource_Impl::GetTextAtPosition(this, core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&textstring), core::mem::transmute_copy(&textlength))
             }
         }
         unsafe extern "system" fn GetTextBeforePosition<Identity: IDWriteTextAnalysisSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, textposition: super::UINT32, textstring: *mut *const super::WCHAR, textlength: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextAnalysisSource_Impl::GetTextBeforePosition(this, core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&textstring), core::mem::transmute_copy(&textlength)).into()
+                IDWriteTextAnalysisSource_Impl::GetTextBeforePosition(this, core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&textstring), core::mem::transmute_copy(&textlength))
             }
         }
         unsafe extern "system" fn GetParagraphReadingDirection<Identity: IDWriteTextAnalysisSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> DWRITE_READING_DIRECTION {
@@ -10144,7 +10144,7 @@ impl IDWriteTextAnalysisSource_Vtbl {
         unsafe extern "system" fn GetLocaleName<Identity: IDWriteTextAnalysisSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, textposition: super::UINT32, textlength: *mut super::UINT32, localename: *mut *const super::WCHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextAnalysisSource_Impl::GetLocaleName(this, core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&localename)).into()
+                IDWriteTextAnalysisSource_Impl::GetLocaleName(this, core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&localename))
             }
         }
         unsafe extern "system" fn GetNumberSubstitution<Identity: IDWriteTextAnalysisSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, textposition: super::UINT32, textlength: *mut super::UINT32, numbersubstitution: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10202,7 +10202,7 @@ pub struct IDWriteTextAnalysisSource1_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IDWriteTextAnalysisSource1_Impl: IDWriteTextAnalysisSource_Impl {
-    fn GetVerticalGlyphOrientation(&self, textposition: super::UINT32, textlength: *mut super::UINT32, glyphorientation: *mut DWRITE_VERTICAL_GLYPH_ORIENTATION, bidilevel: *mut super::UINT8) -> windows_core::Result<()>;
+    fn GetVerticalGlyphOrientation(&self, textposition: super::UINT32, textlength: *mut super::UINT32, glyphorientation: *mut DWRITE_VERTICAL_GLYPH_ORIENTATION, bidilevel: *mut super::UINT8) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 impl IDWriteTextAnalysisSource1_Vtbl {
@@ -10210,7 +10210,7 @@ impl IDWriteTextAnalysisSource1_Vtbl {
         unsafe extern "system" fn GetVerticalGlyphOrientation<Identity: IDWriteTextAnalysisSource1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, textposition: super::UINT32, textlength: *mut super::UINT32, glyphorientation: *mut DWRITE_VERTICAL_GLYPH_ORIENTATION, bidilevel: *mut super::UINT8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextAnalysisSource1_Impl::GetVerticalGlyphOrientation(this, core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&glyphorientation), core::mem::transmute_copy(&bidilevel)).into()
+                IDWriteTextAnalysisSource1_Impl::GetVerticalGlyphOrientation(this, core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&glyphorientation), core::mem::transmute_copy(&bidilevel))
             }
         }
         Self { base__: IDWriteTextAnalysisSource_Vtbl::new::<Identity, OFFSET>(), GetVerticalGlyphOrientation: GetVerticalGlyphOrientation::<Identity, OFFSET> }
@@ -10362,12 +10362,12 @@ pub struct IDWriteTextAnalyzer_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub trait IDWriteTextAnalyzer_Impl: windows_core::IUnknownImpl {
-    fn AnalyzeScript(&self, analysissource: windows_core::Ref<IDWriteTextAnalysisSource>, textposition: super::UINT32, textlength: super::UINT32, analysissink: windows_core::Ref<IDWriteTextAnalysisSink>) -> windows_core::Result<()>;
-    fn AnalyzeBidi(&self, analysissource: windows_core::Ref<IDWriteTextAnalysisSource>, textposition: super::UINT32, textlength: super::UINT32, analysissink: windows_core::Ref<IDWriteTextAnalysisSink>) -> windows_core::Result<()>;
-    fn AnalyzeNumberSubstitution(&self, analysissource: windows_core::Ref<IDWriteTextAnalysisSource>, textposition: super::UINT32, textlength: super::UINT32, analysissink: windows_core::Ref<IDWriteTextAnalysisSink>) -> windows_core::Result<()>;
-    fn AnalyzeLineBreakpoints(&self, analysissource: windows_core::Ref<IDWriteTextAnalysisSource>, textposition: super::UINT32, textlength: super::UINT32, analysissink: windows_core::Ref<IDWriteTextAnalysisSink>) -> windows_core::Result<()>;
-    fn GetGlyphs(&self, textstring: *const super::WCHAR, textlength: super::UINT32, fontface: windows_core::Ref<IDWriteFontFace>, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS, localename: *const super::WCHAR, numbersubstitution: windows_core::Ref<IDWriteNumberSubstitution>, features: *const *const DWRITE_TYPOGRAPHIC_FEATURES, featurerangelengths: *const super::UINT32, featureranges: super::UINT32, maxglyphcount: super::UINT32, clustermap: *mut super::UINT16, textprops: *mut DWRITE_SHAPING_TEXT_PROPERTIES, glyphindices: *mut super::UINT16, glyphprops: *mut DWRITE_SHAPING_GLYPH_PROPERTIES, actualglyphcount: *mut super::UINT32) -> windows_core::Result<()>;
-    fn GetGlyphPlacements(&self, textstring: *const super::WCHAR, clustermap: *const super::UINT16, textprops: *mut DWRITE_SHAPING_TEXT_PROPERTIES, textlength: super::UINT32, glyphindices: *const super::UINT16, glyphprops: *const DWRITE_SHAPING_GLYPH_PROPERTIES, glyphcount: super::UINT32, fontface: windows_core::Ref<IDWriteFontFace>, fontemsize: super::FLOAT, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS, localename: *const super::WCHAR, features: *const *const DWRITE_TYPOGRAPHIC_FEATURES, featurerangelengths: *const super::UINT32, featureranges: super::UINT32, glyphadvances: *mut super::FLOAT, glyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> windows_core::Result<()>;
+    fn AnalyzeScript(&self, analysissource: windows_core::Ref<IDWriteTextAnalysisSource>, textposition: super::UINT32, textlength: super::UINT32, analysissink: windows_core::Ref<IDWriteTextAnalysisSink>) -> windows_core::HRESULT;
+    fn AnalyzeBidi(&self, analysissource: windows_core::Ref<IDWriteTextAnalysisSource>, textposition: super::UINT32, textlength: super::UINT32, analysissink: windows_core::Ref<IDWriteTextAnalysisSink>) -> windows_core::HRESULT;
+    fn AnalyzeNumberSubstitution(&self, analysissource: windows_core::Ref<IDWriteTextAnalysisSource>, textposition: super::UINT32, textlength: super::UINT32, analysissink: windows_core::Ref<IDWriteTextAnalysisSink>) -> windows_core::HRESULT;
+    fn AnalyzeLineBreakpoints(&self, analysissource: windows_core::Ref<IDWriteTextAnalysisSource>, textposition: super::UINT32, textlength: super::UINT32, analysissink: windows_core::Ref<IDWriteTextAnalysisSink>) -> windows_core::HRESULT;
+    fn GetGlyphs(&self, textstring: *const super::WCHAR, textlength: super::UINT32, fontface: windows_core::Ref<IDWriteFontFace>, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS, localename: *const super::WCHAR, numbersubstitution: windows_core::Ref<IDWriteNumberSubstitution>, features: *const *const DWRITE_TYPOGRAPHIC_FEATURES, featurerangelengths: *const super::UINT32, featureranges: super::UINT32, maxglyphcount: super::UINT32, clustermap: *mut super::UINT16, textprops: *mut DWRITE_SHAPING_TEXT_PROPERTIES, glyphindices: *mut super::UINT16, glyphprops: *mut DWRITE_SHAPING_GLYPH_PROPERTIES, actualglyphcount: *mut super::UINT32) -> windows_core::HRESULT;
+    fn GetGlyphPlacements(&self, textstring: *const super::WCHAR, clustermap: *const super::UINT16, textprops: *mut DWRITE_SHAPING_TEXT_PROPERTIES, textlength: super::UINT32, glyphindices: *const super::UINT16, glyphprops: *const DWRITE_SHAPING_GLYPH_PROPERTIES, glyphcount: super::UINT32, fontface: windows_core::Ref<IDWriteFontFace>, fontemsize: super::FLOAT, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS, localename: *const super::WCHAR, features: *const *const DWRITE_TYPOGRAPHIC_FEATURES, featurerangelengths: *const super::UINT32, featureranges: super::UINT32, glyphadvances: *mut super::FLOAT, glyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> windows_core::HRESULT;
     fn GetGdiCompatibleGlyphPlacements(
         &self,
         textstring: *const super::WCHAR,
@@ -10391,7 +10391,7 @@ pub trait IDWriteTextAnalyzer_Impl: windows_core::IUnknownImpl {
         featureranges: super::UINT32,
         glyphadvances: *mut super::FLOAT,
         glyphoffsets: *mut DWRITE_GLYPH_OFFSET,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl IDWriteTextAnalyzer_Vtbl {
@@ -10399,25 +10399,25 @@ impl IDWriteTextAnalyzer_Vtbl {
         unsafe extern "system" fn AnalyzeScript<Identity: IDWriteTextAnalyzer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, analysissource: *mut core::ffi::c_void, textposition: super::UINT32, textlength: super::UINT32, analysissink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextAnalyzer_Impl::AnalyzeScript(this, core::mem::transmute_copy(&analysissource), core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&analysissink)).into()
+                IDWriteTextAnalyzer_Impl::AnalyzeScript(this, core::mem::transmute_copy(&analysissource), core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&analysissink))
             }
         }
         unsafe extern "system" fn AnalyzeBidi<Identity: IDWriteTextAnalyzer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, analysissource: *mut core::ffi::c_void, textposition: super::UINT32, textlength: super::UINT32, analysissink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextAnalyzer_Impl::AnalyzeBidi(this, core::mem::transmute_copy(&analysissource), core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&analysissink)).into()
+                IDWriteTextAnalyzer_Impl::AnalyzeBidi(this, core::mem::transmute_copy(&analysissource), core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&analysissink))
             }
         }
         unsafe extern "system" fn AnalyzeNumberSubstitution<Identity: IDWriteTextAnalyzer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, analysissource: *mut core::ffi::c_void, textposition: super::UINT32, textlength: super::UINT32, analysissink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextAnalyzer_Impl::AnalyzeNumberSubstitution(this, core::mem::transmute_copy(&analysissource), core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&analysissink)).into()
+                IDWriteTextAnalyzer_Impl::AnalyzeNumberSubstitution(this, core::mem::transmute_copy(&analysissource), core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&analysissink))
             }
         }
         unsafe extern "system" fn AnalyzeLineBreakpoints<Identity: IDWriteTextAnalyzer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, analysissource: *mut core::ffi::c_void, textposition: super::UINT32, textlength: super::UINT32, analysissink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextAnalyzer_Impl::AnalyzeLineBreakpoints(this, core::mem::transmute_copy(&analysissource), core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&analysissink)).into()
+                IDWriteTextAnalyzer_Impl::AnalyzeLineBreakpoints(this, core::mem::transmute_copy(&analysissource), core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&analysissink))
             }
         }
         unsafe extern "system" fn GetGlyphs<Identity: IDWriteTextAnalyzer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, textstring: *const super::WCHAR, textlength: super::UINT32, fontface: *mut core::ffi::c_void, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS, localename: *const super::WCHAR, numbersubstitution: *mut core::ffi::c_void, features: *const *const DWRITE_TYPOGRAPHIC_FEATURES, featurerangelengths: *const super::UINT32, featureranges: super::UINT32, maxglyphcount: super::UINT32, clustermap: *mut super::UINT16, textprops: *mut DWRITE_SHAPING_TEXT_PROPERTIES, glyphindices: *mut super::UINT16, glyphprops: *mut DWRITE_SHAPING_GLYPH_PROPERTIES, actualglyphcount: *mut super::UINT32) -> windows_core::HRESULT {
@@ -10443,7 +10443,6 @@ impl IDWriteTextAnalyzer_Vtbl {
                     core::mem::transmute_copy(&glyphprops),
                     core::mem::transmute_copy(&actualglyphcount),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn GetGlyphPlacements<Identity: IDWriteTextAnalyzer_Impl, const OFFSET: isize>(
@@ -10490,7 +10489,6 @@ impl IDWriteTextAnalyzer_Vtbl {
                     core::mem::transmute_copy(&glyphadvances),
                     core::mem::transmute_copy(&glyphoffsets),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn GetGdiCompatibleGlyphPlacements<Identity: IDWriteTextAnalyzer_Impl, const OFFSET: isize>(
@@ -10543,7 +10541,6 @@ impl IDWriteTextAnalyzer_Vtbl {
                     core::mem::transmute_copy(&glyphadvances),
                     core::mem::transmute_copy(&glyphoffsets),
                 )
-                .into()
             }
         }
         Self {
@@ -10668,15 +10665,15 @@ pub struct IDWriteTextAnalyzer1_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub trait IDWriteTextAnalyzer1_Impl: IDWriteTextAnalyzer_Impl {
-    fn ApplyCharacterSpacing(&self, leadingspacing: super::FLOAT, trailingspacing: super::FLOAT, minimumadvancewidth: super::FLOAT, textlength: super::UINT32, glyphcount: super::UINT32, clustermap: *const super::UINT16, glyphadvances: *const super::FLOAT, glyphoffsets: *const DWRITE_GLYPH_OFFSET, glyphproperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, modifiedglyphadvances: *mut super::FLOAT, modifiedglyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> windows_core::Result<()>;
-    fn GetBaseline(&self, fontface: windows_core::Ref<IDWriteFontFace>, baseline: DWRITE_BASELINE, isvertical: windows_core::BOOL, issimulationallowed: windows_core::BOOL, scriptanalysis: &DWRITE_SCRIPT_ANALYSIS, localename: *const super::WCHAR, baselinecoordinate: *mut super::INT32, exists: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn AnalyzeVerticalGlyphOrientation(&self, analysissource: windows_core::Ref<IDWriteTextAnalysisSource1>, textposition: super::UINT32, textlength: super::UINT32, analysissink: windows_core::Ref<IDWriteTextAnalysisSink1>) -> windows_core::Result<()>;
-    fn GetGlyphOrientationTransform(&self, glyphorientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, issideways: windows_core::BOOL, transform: *mut DWRITE_MATRIX) -> windows_core::Result<()>;
-    fn GetScriptProperties(&self, scriptanalysis: &DWRITE_SCRIPT_ANALYSIS, scriptproperties: *mut DWRITE_SCRIPT_PROPERTIES) -> windows_core::Result<()>;
-    fn GetTextComplexity(&self, textstring: *const super::WCHAR, textlength: super::UINT32, fontface: windows_core::Ref<IDWriteFontFace>, istextsimple: *mut windows_core::BOOL, textlengthread: *mut super::UINT32, glyphindices: *mut super::UINT16) -> windows_core::Result<()>;
-    fn GetJustificationOpportunities(&self, fontface: windows_core::Ref<IDWriteFontFace>, fontemsize: super::FLOAT, scriptanalysis: &DWRITE_SCRIPT_ANALYSIS, textlength: super::UINT32, glyphcount: super::UINT32, textstring: *const super::WCHAR, clustermap: *const super::UINT16, glyphproperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, justificationopportunities: *mut DWRITE_JUSTIFICATION_OPPORTUNITY) -> windows_core::Result<()>;
-    fn JustifyGlyphAdvances(&self, linewidth: super::FLOAT, glyphcount: super::UINT32, justificationopportunities: *const DWRITE_JUSTIFICATION_OPPORTUNITY, glyphadvances: *const super::FLOAT, glyphoffsets: *const DWRITE_GLYPH_OFFSET, justifiedglyphadvances: *mut super::FLOAT, justifiedglyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> windows_core::Result<()>;
-    fn GetJustifiedGlyphs(&self, fontface: windows_core::Ref<IDWriteFontFace>, fontemsize: super::FLOAT, scriptanalysis: &DWRITE_SCRIPT_ANALYSIS, textlength: super::UINT32, glyphcount: super::UINT32, maxglyphcount: super::UINT32, clustermap: *const super::UINT16, glyphindices: *const super::UINT16, glyphadvances: *const super::FLOAT, justifiedglyphadvances: *const super::FLOAT, justifiedglyphoffsets: *const DWRITE_GLYPH_OFFSET, glyphproperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, actualglyphcount: *mut super::UINT32, modifiedclustermap: *mut super::UINT16, modifiedglyphindices: *mut super::UINT16, modifiedglyphadvances: *mut super::FLOAT, modifiedglyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> windows_core::Result<()>;
+    fn ApplyCharacterSpacing(&self, leadingspacing: super::FLOAT, trailingspacing: super::FLOAT, minimumadvancewidth: super::FLOAT, textlength: super::UINT32, glyphcount: super::UINT32, clustermap: *const super::UINT16, glyphadvances: *const super::FLOAT, glyphoffsets: *const DWRITE_GLYPH_OFFSET, glyphproperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, modifiedglyphadvances: *mut super::FLOAT, modifiedglyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> windows_core::HRESULT;
+    fn GetBaseline(&self, fontface: windows_core::Ref<IDWriteFontFace>, baseline: DWRITE_BASELINE, isvertical: windows_core::BOOL, issimulationallowed: windows_core::BOOL, scriptanalysis: &DWRITE_SCRIPT_ANALYSIS, localename: *const super::WCHAR, baselinecoordinate: *mut super::INT32, exists: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn AnalyzeVerticalGlyphOrientation(&self, analysissource: windows_core::Ref<IDWriteTextAnalysisSource1>, textposition: super::UINT32, textlength: super::UINT32, analysissink: windows_core::Ref<IDWriteTextAnalysisSink1>) -> windows_core::HRESULT;
+    fn GetGlyphOrientationTransform(&self, glyphorientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, issideways: windows_core::BOOL, transform: *mut DWRITE_MATRIX) -> windows_core::HRESULT;
+    fn GetScriptProperties(&self, scriptanalysis: &DWRITE_SCRIPT_ANALYSIS, scriptproperties: *mut DWRITE_SCRIPT_PROPERTIES) -> windows_core::HRESULT;
+    fn GetTextComplexity(&self, textstring: *const super::WCHAR, textlength: super::UINT32, fontface: windows_core::Ref<IDWriteFontFace>, istextsimple: *mut windows_core::BOOL, textlengthread: *mut super::UINT32, glyphindices: *mut super::UINT16) -> windows_core::HRESULT;
+    fn GetJustificationOpportunities(&self, fontface: windows_core::Ref<IDWriteFontFace>, fontemsize: super::FLOAT, scriptanalysis: &DWRITE_SCRIPT_ANALYSIS, textlength: super::UINT32, glyphcount: super::UINT32, textstring: *const super::WCHAR, clustermap: *const super::UINT16, glyphproperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, justificationopportunities: *mut DWRITE_JUSTIFICATION_OPPORTUNITY) -> windows_core::HRESULT;
+    fn JustifyGlyphAdvances(&self, linewidth: super::FLOAT, glyphcount: super::UINT32, justificationopportunities: *const DWRITE_JUSTIFICATION_OPPORTUNITY, glyphadvances: *const super::FLOAT, glyphoffsets: *const DWRITE_GLYPH_OFFSET, justifiedglyphadvances: *mut super::FLOAT, justifiedglyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> windows_core::HRESULT;
+    fn GetJustifiedGlyphs(&self, fontface: windows_core::Ref<IDWriteFontFace>, fontemsize: super::FLOAT, scriptanalysis: &DWRITE_SCRIPT_ANALYSIS, textlength: super::UINT32, glyphcount: super::UINT32, maxglyphcount: super::UINT32, clustermap: *const super::UINT16, glyphindices: *const super::UINT16, glyphadvances: *const super::FLOAT, justifiedglyphadvances: *const super::FLOAT, justifiedglyphoffsets: *const DWRITE_GLYPH_OFFSET, glyphproperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, actualglyphcount: *mut super::UINT32, modifiedclustermap: *mut super::UINT16, modifiedglyphindices: *mut super::UINT16, modifiedglyphadvances: *mut super::FLOAT, modifiedglyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl IDWriteTextAnalyzer1_Vtbl {
@@ -10698,49 +10695,48 @@ impl IDWriteTextAnalyzer1_Vtbl {
                     core::mem::transmute_copy(&modifiedglyphadvances),
                     core::mem::transmute_copy(&modifiedglyphoffsets),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn GetBaseline<Identity: IDWriteTextAnalyzer1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontface: *mut core::ffi::c_void, baseline: DWRITE_BASELINE, isvertical: windows_core::BOOL, issimulationallowed: windows_core::BOOL, scriptanalysis: DWRITE_SCRIPT_ANALYSIS, localename: *const super::WCHAR, baselinecoordinate: *mut super::INT32, exists: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextAnalyzer1_Impl::GetBaseline(this, core::mem::transmute_copy(&fontface), core::mem::transmute_copy(&baseline), core::mem::transmute_copy(&isvertical), core::mem::transmute_copy(&issimulationallowed), core::mem::transmute(&scriptanalysis), core::mem::transmute_copy(&localename), core::mem::transmute_copy(&baselinecoordinate), core::mem::transmute_copy(&exists)).into()
+                IDWriteTextAnalyzer1_Impl::GetBaseline(this, core::mem::transmute_copy(&fontface), core::mem::transmute_copy(&baseline), core::mem::transmute_copy(&isvertical), core::mem::transmute_copy(&issimulationallowed), core::mem::transmute(&scriptanalysis), core::mem::transmute_copy(&localename), core::mem::transmute_copy(&baselinecoordinate), core::mem::transmute_copy(&exists))
             }
         }
         unsafe extern "system" fn AnalyzeVerticalGlyphOrientation<Identity: IDWriteTextAnalyzer1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, analysissource: *mut core::ffi::c_void, textposition: super::UINT32, textlength: super::UINT32, analysissink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextAnalyzer1_Impl::AnalyzeVerticalGlyphOrientation(this, core::mem::transmute_copy(&analysissource), core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&analysissink)).into()
+                IDWriteTextAnalyzer1_Impl::AnalyzeVerticalGlyphOrientation(this, core::mem::transmute_copy(&analysissource), core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&analysissink))
             }
         }
         unsafe extern "system" fn GetGlyphOrientationTransform<Identity: IDWriteTextAnalyzer1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, glyphorientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, issideways: windows_core::BOOL, transform: *mut DWRITE_MATRIX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextAnalyzer1_Impl::GetGlyphOrientationTransform(this, core::mem::transmute_copy(&glyphorientationangle), core::mem::transmute_copy(&issideways), core::mem::transmute_copy(&transform)).into()
+                IDWriteTextAnalyzer1_Impl::GetGlyphOrientationTransform(this, core::mem::transmute_copy(&glyphorientationangle), core::mem::transmute_copy(&issideways), core::mem::transmute_copy(&transform))
             }
         }
         unsafe extern "system" fn GetScriptProperties<Identity: IDWriteTextAnalyzer1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scriptanalysis: DWRITE_SCRIPT_ANALYSIS, scriptproperties: *mut DWRITE_SCRIPT_PROPERTIES) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextAnalyzer1_Impl::GetScriptProperties(this, core::mem::transmute(&scriptanalysis), core::mem::transmute_copy(&scriptproperties)).into()
+                IDWriteTextAnalyzer1_Impl::GetScriptProperties(this, core::mem::transmute(&scriptanalysis), core::mem::transmute_copy(&scriptproperties))
             }
         }
         unsafe extern "system" fn GetTextComplexity<Identity: IDWriteTextAnalyzer1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, textstring: *const super::WCHAR, textlength: super::UINT32, fontface: *mut core::ffi::c_void, istextsimple: *mut windows_core::BOOL, textlengthread: *mut super::UINT32, glyphindices: *mut super::UINT16) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextAnalyzer1_Impl::GetTextComplexity(this, core::mem::transmute_copy(&textstring), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&fontface), core::mem::transmute_copy(&istextsimple), core::mem::transmute_copy(&textlengthread), core::mem::transmute_copy(&glyphindices)).into()
+                IDWriteTextAnalyzer1_Impl::GetTextComplexity(this, core::mem::transmute_copy(&textstring), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&fontface), core::mem::transmute_copy(&istextsimple), core::mem::transmute_copy(&textlengthread), core::mem::transmute_copy(&glyphindices))
             }
         }
         unsafe extern "system" fn GetJustificationOpportunities<Identity: IDWriteTextAnalyzer1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontface: *mut core::ffi::c_void, fontemsize: super::FLOAT, scriptanalysis: DWRITE_SCRIPT_ANALYSIS, textlength: super::UINT32, glyphcount: super::UINT32, textstring: *const super::WCHAR, clustermap: *const super::UINT16, glyphproperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, justificationopportunities: *mut DWRITE_JUSTIFICATION_OPPORTUNITY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextAnalyzer1_Impl::GetJustificationOpportunities(this, core::mem::transmute_copy(&fontface), core::mem::transmute_copy(&fontemsize), core::mem::transmute(&scriptanalysis), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&glyphcount), core::mem::transmute_copy(&textstring), core::mem::transmute_copy(&clustermap), core::mem::transmute_copy(&glyphproperties), core::mem::transmute_copy(&justificationopportunities)).into()
+                IDWriteTextAnalyzer1_Impl::GetJustificationOpportunities(this, core::mem::transmute_copy(&fontface), core::mem::transmute_copy(&fontemsize), core::mem::transmute(&scriptanalysis), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&glyphcount), core::mem::transmute_copy(&textstring), core::mem::transmute_copy(&clustermap), core::mem::transmute_copy(&glyphproperties), core::mem::transmute_copy(&justificationopportunities))
             }
         }
         unsafe extern "system" fn JustifyGlyphAdvances<Identity: IDWriteTextAnalyzer1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, linewidth: super::FLOAT, glyphcount: super::UINT32, justificationopportunities: *const DWRITE_JUSTIFICATION_OPPORTUNITY, glyphadvances: *const super::FLOAT, glyphoffsets: *const DWRITE_GLYPH_OFFSET, justifiedglyphadvances: *mut super::FLOAT, justifiedglyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextAnalyzer1_Impl::JustifyGlyphAdvances(this, core::mem::transmute_copy(&linewidth), core::mem::transmute_copy(&glyphcount), core::mem::transmute_copy(&justificationopportunities), core::mem::transmute_copy(&glyphadvances), core::mem::transmute_copy(&glyphoffsets), core::mem::transmute_copy(&justifiedglyphadvances), core::mem::transmute_copy(&justifiedglyphoffsets)).into()
+                IDWriteTextAnalyzer1_Impl::JustifyGlyphAdvances(this, core::mem::transmute_copy(&linewidth), core::mem::transmute_copy(&glyphcount), core::mem::transmute_copy(&justificationopportunities), core::mem::transmute_copy(&glyphadvances), core::mem::transmute_copy(&glyphoffsets), core::mem::transmute_copy(&justifiedglyphadvances), core::mem::transmute_copy(&justifiedglyphoffsets))
             }
         }
         unsafe extern "system" fn GetJustifiedGlyphs<Identity: IDWriteTextAnalyzer1_Impl, const OFFSET: isize>(
@@ -10785,7 +10781,6 @@ impl IDWriteTextAnalyzer1_Vtbl {
                     core::mem::transmute_copy(&modifiedglyphadvances),
                     core::mem::transmute_copy(&modifiedglyphoffsets),
                 )
-                .into()
             }
         }
         Self {
@@ -10854,9 +10849,9 @@ pub struct IDWriteTextAnalyzer2_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub trait IDWriteTextAnalyzer2_Impl: IDWriteTextAnalyzer1_Impl {
-    fn GetGlyphOrientationTransform(&self, glyphorientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, issideways: windows_core::BOOL, originx: super::FLOAT, originy: super::FLOAT, transform: *mut DWRITE_MATRIX) -> windows_core::Result<()>;
-    fn GetTypographicFeatures(&self, fontface: windows_core::Ref<IDWriteFontFace>, scriptanalysis: &DWRITE_SCRIPT_ANALYSIS, localename: *const super::WCHAR, maxtagcount: super::UINT32, actualtagcount: *mut super::UINT32, tags: *mut DWRITE_FONT_FEATURE_TAG) -> windows_core::Result<()>;
-    fn CheckTypographicFeature(&self, fontface: windows_core::Ref<IDWriteFontFace>, scriptanalysis: &DWRITE_SCRIPT_ANALYSIS, localename: *const super::WCHAR, featuretag: DWRITE_FONT_FEATURE_TAG, glyphcount: super::UINT32, glyphindices: *const super::UINT16, featureapplies: *mut super::UINT8) -> windows_core::Result<()>;
+    fn GetGlyphOrientationTransform(&self, glyphorientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, issideways: windows_core::BOOL, originx: super::FLOAT, originy: super::FLOAT, transform: *mut DWRITE_MATRIX) -> windows_core::HRESULT;
+    fn GetTypographicFeatures(&self, fontface: windows_core::Ref<IDWriteFontFace>, scriptanalysis: &DWRITE_SCRIPT_ANALYSIS, localename: *const super::WCHAR, maxtagcount: super::UINT32, actualtagcount: *mut super::UINT32, tags: *mut DWRITE_FONT_FEATURE_TAG) -> windows_core::HRESULT;
+    fn CheckTypographicFeature(&self, fontface: windows_core::Ref<IDWriteFontFace>, scriptanalysis: &DWRITE_SCRIPT_ANALYSIS, localename: *const super::WCHAR, featuretag: DWRITE_FONT_FEATURE_TAG, glyphcount: super::UINT32, glyphindices: *const super::UINT16, featureapplies: *mut super::UINT8) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl IDWriteTextAnalyzer2_Vtbl {
@@ -10864,19 +10859,19 @@ impl IDWriteTextAnalyzer2_Vtbl {
         unsafe extern "system" fn GetGlyphOrientationTransform<Identity: IDWriteTextAnalyzer2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, glyphorientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, issideways: windows_core::BOOL, originx: super::FLOAT, originy: super::FLOAT, transform: *mut DWRITE_MATRIX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextAnalyzer2_Impl::GetGlyphOrientationTransform(this, core::mem::transmute_copy(&glyphorientationangle), core::mem::transmute_copy(&issideways), core::mem::transmute_copy(&originx), core::mem::transmute_copy(&originy), core::mem::transmute_copy(&transform)).into()
+                IDWriteTextAnalyzer2_Impl::GetGlyphOrientationTransform(this, core::mem::transmute_copy(&glyphorientationangle), core::mem::transmute_copy(&issideways), core::mem::transmute_copy(&originx), core::mem::transmute_copy(&originy), core::mem::transmute_copy(&transform))
             }
         }
         unsafe extern "system" fn GetTypographicFeatures<Identity: IDWriteTextAnalyzer2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontface: *mut core::ffi::c_void, scriptanalysis: DWRITE_SCRIPT_ANALYSIS, localename: *const super::WCHAR, maxtagcount: super::UINT32, actualtagcount: *mut super::UINT32, tags: *mut DWRITE_FONT_FEATURE_TAG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextAnalyzer2_Impl::GetTypographicFeatures(this, core::mem::transmute_copy(&fontface), core::mem::transmute(&scriptanalysis), core::mem::transmute_copy(&localename), core::mem::transmute_copy(&maxtagcount), core::mem::transmute_copy(&actualtagcount), core::mem::transmute_copy(&tags)).into()
+                IDWriteTextAnalyzer2_Impl::GetTypographicFeatures(this, core::mem::transmute_copy(&fontface), core::mem::transmute(&scriptanalysis), core::mem::transmute_copy(&localename), core::mem::transmute_copy(&maxtagcount), core::mem::transmute_copy(&actualtagcount), core::mem::transmute_copy(&tags))
             }
         }
         unsafe extern "system" fn CheckTypographicFeature<Identity: IDWriteTextAnalyzer2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontface: *mut core::ffi::c_void, scriptanalysis: DWRITE_SCRIPT_ANALYSIS, localename: *const super::WCHAR, featuretag: DWRITE_FONT_FEATURE_TAG, glyphcount: super::UINT32, glyphindices: *const super::UINT16, featureapplies: *mut super::UINT8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextAnalyzer2_Impl::CheckTypographicFeature(this, core::mem::transmute_copy(&fontface), core::mem::transmute(&scriptanalysis), core::mem::transmute_copy(&localename), core::mem::transmute_copy(&featuretag), core::mem::transmute_copy(&glyphcount), core::mem::transmute_copy(&glyphindices), core::mem::transmute_copy(&featureapplies)).into()
+                IDWriteTextAnalyzer2_Impl::CheckTypographicFeature(this, core::mem::transmute_copy(&fontface), core::mem::transmute(&scriptanalysis), core::mem::transmute_copy(&localename), core::mem::transmute_copy(&featuretag), core::mem::transmute_copy(&glyphcount), core::mem::transmute_copy(&glyphindices), core::mem::transmute_copy(&featureapplies))
             }
         }
         Self {
@@ -11056,14 +11051,14 @@ pub struct IDWriteTextFormat_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub trait IDWriteTextFormat_Impl: windows_core::IUnknownImpl {
-    fn SetTextAlignment(&self, textalignment: DWRITE_TEXT_ALIGNMENT) -> windows_core::Result<()>;
-    fn SetParagraphAlignment(&self, paragraphalignment: DWRITE_PARAGRAPH_ALIGNMENT) -> windows_core::Result<()>;
-    fn SetWordWrapping(&self, wordwrapping: DWRITE_WORD_WRAPPING) -> windows_core::Result<()>;
-    fn SetReadingDirection(&self, readingdirection: DWRITE_READING_DIRECTION) -> windows_core::Result<()>;
-    fn SetFlowDirection(&self, flowdirection: DWRITE_FLOW_DIRECTION) -> windows_core::Result<()>;
-    fn SetIncrementalTabStop(&self, incrementaltabstop: super::FLOAT) -> windows_core::Result<()>;
-    fn SetTrimming(&self, trimmingoptions: *const DWRITE_TRIMMING, trimmingsign: windows_core::Ref<IDWriteInlineObject>) -> windows_core::Result<()>;
-    fn SetLineSpacing(&self, linespacingmethod: DWRITE_LINE_SPACING_METHOD, linespacing: super::FLOAT, baseline: super::FLOAT) -> windows_core::Result<()>;
+    fn SetTextAlignment(&self, textalignment: DWRITE_TEXT_ALIGNMENT) -> windows_core::HRESULT;
+    fn SetParagraphAlignment(&self, paragraphalignment: DWRITE_PARAGRAPH_ALIGNMENT) -> windows_core::HRESULT;
+    fn SetWordWrapping(&self, wordwrapping: DWRITE_WORD_WRAPPING) -> windows_core::HRESULT;
+    fn SetReadingDirection(&self, readingdirection: DWRITE_READING_DIRECTION) -> windows_core::HRESULT;
+    fn SetFlowDirection(&self, flowdirection: DWRITE_FLOW_DIRECTION) -> windows_core::HRESULT;
+    fn SetIncrementalTabStop(&self, incrementaltabstop: super::FLOAT) -> windows_core::HRESULT;
+    fn SetTrimming(&self, trimmingoptions: *const DWRITE_TRIMMING, trimmingsign: windows_core::Ref<IDWriteInlineObject>) -> windows_core::HRESULT;
+    fn SetLineSpacing(&self, linespacingmethod: DWRITE_LINE_SPACING_METHOD, linespacing: super::FLOAT, baseline: super::FLOAT) -> windows_core::HRESULT;
     fn GetTextAlignment(&self) -> DWRITE_TEXT_ALIGNMENT;
     fn GetParagraphAlignment(&self) -> DWRITE_PARAGRAPH_ALIGNMENT;
     fn GetWordWrapping(&self) -> DWRITE_WORD_WRAPPING;
@@ -11071,16 +11066,16 @@ pub trait IDWriteTextFormat_Impl: windows_core::IUnknownImpl {
     fn GetFlowDirection(&self) -> DWRITE_FLOW_DIRECTION;
     fn GetIncrementalTabStop(&self) -> super::FLOAT;
     fn GetTrimming(&self, trimmingoptions: *mut DWRITE_TRIMMING) -> windows_core::Result<IDWriteInlineObject>;
-    fn GetLineSpacing(&self, linespacingmethod: *mut DWRITE_LINE_SPACING_METHOD, linespacing: *mut super::FLOAT, baseline: *mut super::FLOAT) -> windows_core::Result<()>;
+    fn GetLineSpacing(&self, linespacingmethod: *mut DWRITE_LINE_SPACING_METHOD, linespacing: *mut super::FLOAT, baseline: *mut super::FLOAT) -> windows_core::HRESULT;
     fn GetFontCollection(&self) -> windows_core::Result<IDWriteFontCollection>;
     fn GetFontFamilyNameLength(&self) -> super::UINT32;
-    fn GetFontFamilyName(&self, fontfamilyname: *mut super::WCHAR, namesize: super::UINT32) -> windows_core::Result<()>;
+    fn GetFontFamilyName(&self, fontfamilyname: *mut super::WCHAR, namesize: super::UINT32) -> windows_core::HRESULT;
     fn GetFontWeight(&self) -> DWRITE_FONT_WEIGHT;
     fn GetFontStyle(&self) -> DWRITE_FONT_STYLE;
     fn GetFontStretch(&self) -> DWRITE_FONT_STRETCH;
     fn GetFontSize(&self) -> super::FLOAT;
     fn GetLocaleNameLength(&self) -> super::UINT32;
-    fn GetLocaleName(&self, localename: *mut super::WCHAR, namesize: super::UINT32) -> windows_core::Result<()>;
+    fn GetLocaleName(&self, localename: *mut super::WCHAR, namesize: super::UINT32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl IDWriteTextFormat_Vtbl {
@@ -11088,49 +11083,49 @@ impl IDWriteTextFormat_Vtbl {
         unsafe extern "system" fn SetTextAlignment<Identity: IDWriteTextFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, textalignment: DWRITE_TEXT_ALIGNMENT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextFormat_Impl::SetTextAlignment(this, core::mem::transmute_copy(&textalignment)).into()
+                IDWriteTextFormat_Impl::SetTextAlignment(this, core::mem::transmute_copy(&textalignment))
             }
         }
         unsafe extern "system" fn SetParagraphAlignment<Identity: IDWriteTextFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paragraphalignment: DWRITE_PARAGRAPH_ALIGNMENT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextFormat_Impl::SetParagraphAlignment(this, core::mem::transmute_copy(&paragraphalignment)).into()
+                IDWriteTextFormat_Impl::SetParagraphAlignment(this, core::mem::transmute_copy(&paragraphalignment))
             }
         }
         unsafe extern "system" fn SetWordWrapping<Identity: IDWriteTextFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wordwrapping: DWRITE_WORD_WRAPPING) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextFormat_Impl::SetWordWrapping(this, core::mem::transmute_copy(&wordwrapping)).into()
+                IDWriteTextFormat_Impl::SetWordWrapping(this, core::mem::transmute_copy(&wordwrapping))
             }
         }
         unsafe extern "system" fn SetReadingDirection<Identity: IDWriteTextFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, readingdirection: DWRITE_READING_DIRECTION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextFormat_Impl::SetReadingDirection(this, core::mem::transmute_copy(&readingdirection)).into()
+                IDWriteTextFormat_Impl::SetReadingDirection(this, core::mem::transmute_copy(&readingdirection))
             }
         }
         unsafe extern "system" fn SetFlowDirection<Identity: IDWriteTextFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flowdirection: DWRITE_FLOW_DIRECTION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextFormat_Impl::SetFlowDirection(this, core::mem::transmute_copy(&flowdirection)).into()
+                IDWriteTextFormat_Impl::SetFlowDirection(this, core::mem::transmute_copy(&flowdirection))
             }
         }
         unsafe extern "system" fn SetIncrementalTabStop<Identity: IDWriteTextFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, incrementaltabstop: super::FLOAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextFormat_Impl::SetIncrementalTabStop(this, core::mem::transmute_copy(&incrementaltabstop)).into()
+                IDWriteTextFormat_Impl::SetIncrementalTabStop(this, core::mem::transmute_copy(&incrementaltabstop))
             }
         }
         unsafe extern "system" fn SetTrimming<Identity: IDWriteTextFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, trimmingoptions: *const DWRITE_TRIMMING, trimmingsign: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextFormat_Impl::SetTrimming(this, core::mem::transmute_copy(&trimmingoptions), core::mem::transmute_copy(&trimmingsign)).into()
+                IDWriteTextFormat_Impl::SetTrimming(this, core::mem::transmute_copy(&trimmingoptions), core::mem::transmute_copy(&trimmingsign))
             }
         }
         unsafe extern "system" fn SetLineSpacing<Identity: IDWriteTextFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, linespacingmethod: DWRITE_LINE_SPACING_METHOD, linespacing: super::FLOAT, baseline: super::FLOAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextFormat_Impl::SetLineSpacing(this, core::mem::transmute_copy(&linespacingmethod), core::mem::transmute_copy(&linespacing), core::mem::transmute_copy(&baseline)).into()
+                IDWriteTextFormat_Impl::SetLineSpacing(this, core::mem::transmute_copy(&linespacingmethod), core::mem::transmute_copy(&linespacing), core::mem::transmute_copy(&baseline))
             }
         }
         unsafe extern "system" fn GetTextAlignment<Identity: IDWriteTextFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> DWRITE_TEXT_ALIGNMENT {
@@ -11187,7 +11182,7 @@ impl IDWriteTextFormat_Vtbl {
         unsafe extern "system" fn GetLineSpacing<Identity: IDWriteTextFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, linespacingmethod: *mut DWRITE_LINE_SPACING_METHOD, linespacing: *mut super::FLOAT, baseline: *mut super::FLOAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextFormat_Impl::GetLineSpacing(this, core::mem::transmute_copy(&linespacingmethod), core::mem::transmute_copy(&linespacing), core::mem::transmute_copy(&baseline)).into()
+                IDWriteTextFormat_Impl::GetLineSpacing(this, core::mem::transmute_copy(&linespacingmethod), core::mem::transmute_copy(&linespacing), core::mem::transmute_copy(&baseline))
             }
         }
         unsafe extern "system" fn GetFontCollection<Identity: IDWriteTextFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11214,7 +11209,7 @@ impl IDWriteTextFormat_Vtbl {
         unsafe extern "system" fn GetFontFamilyName<Identity: IDWriteTextFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontfamilyname: *mut super::WCHAR, namesize: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextFormat_Impl::GetFontFamilyName(this, core::mem::transmute_copy(&fontfamilyname), core::mem::transmute_copy(&namesize)).into()
+                IDWriteTextFormat_Impl::GetFontFamilyName(this, core::mem::transmute_copy(&fontfamilyname), core::mem::transmute_copy(&namesize))
             }
         }
         unsafe extern "system" fn GetFontWeight<Identity: IDWriteTextFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> DWRITE_FONT_WEIGHT {
@@ -11250,7 +11245,7 @@ impl IDWriteTextFormat_Vtbl {
         unsafe extern "system" fn GetLocaleName<Identity: IDWriteTextFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, localename: *mut super::WCHAR, namesize: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextFormat_Impl::GetLocaleName(this, core::mem::transmute_copy(&localename), core::mem::transmute_copy(&namesize)).into()
+                IDWriteTextFormat_Impl::GetLocaleName(this, core::mem::transmute_copy(&localename), core::mem::transmute_copy(&namesize))
             }
         }
         Self {
@@ -11340,14 +11335,14 @@ pub struct IDWriteTextFormat1_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub trait IDWriteTextFormat1_Impl: IDWriteTextFormat_Impl {
-    fn SetVerticalGlyphOrientation(&self, glyphorientation: DWRITE_VERTICAL_GLYPH_ORIENTATION) -> windows_core::Result<()>;
+    fn SetVerticalGlyphOrientation(&self, glyphorientation: DWRITE_VERTICAL_GLYPH_ORIENTATION) -> windows_core::HRESULT;
     fn GetVerticalGlyphOrientation(&self) -> DWRITE_VERTICAL_GLYPH_ORIENTATION;
-    fn SetLastLineWrapping(&self, islastlinewrappingenabled: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetLastLineWrapping(&self, islastlinewrappingenabled: windows_core::BOOL) -> windows_core::HRESULT;
     fn GetLastLineWrapping(&self) -> windows_core::BOOL;
-    fn SetOpticalAlignment(&self, opticalalignment: DWRITE_OPTICAL_ALIGNMENT) -> windows_core::Result<()>;
+    fn SetOpticalAlignment(&self, opticalalignment: DWRITE_OPTICAL_ALIGNMENT) -> windows_core::HRESULT;
     fn GetOpticalAlignment(&self) -> DWRITE_OPTICAL_ALIGNMENT;
-    fn SetFontFallback(&self, fontfallback: windows_core::Ref<IDWriteFontFallback>) -> windows_core::Result<()>;
-    fn GetFontFallback(&self, fontfallback: windows_core::OutRef<IDWriteFontFallback>) -> windows_core::Result<()>;
+    fn SetFontFallback(&self, fontfallback: windows_core::Ref<IDWriteFontFallback>) -> windows_core::HRESULT;
+    fn GetFontFallback(&self, fontfallback: windows_core::OutRef<IDWriteFontFallback>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl IDWriteTextFormat1_Vtbl {
@@ -11355,7 +11350,7 @@ impl IDWriteTextFormat1_Vtbl {
         unsafe extern "system" fn SetVerticalGlyphOrientation<Identity: IDWriteTextFormat1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, glyphorientation: DWRITE_VERTICAL_GLYPH_ORIENTATION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextFormat1_Impl::SetVerticalGlyphOrientation(this, core::mem::transmute_copy(&glyphorientation)).into()
+                IDWriteTextFormat1_Impl::SetVerticalGlyphOrientation(this, core::mem::transmute_copy(&glyphorientation))
             }
         }
         unsafe extern "system" fn GetVerticalGlyphOrientation<Identity: IDWriteTextFormat1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> DWRITE_VERTICAL_GLYPH_ORIENTATION {
@@ -11367,7 +11362,7 @@ impl IDWriteTextFormat1_Vtbl {
         unsafe extern "system" fn SetLastLineWrapping<Identity: IDWriteTextFormat1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, islastlinewrappingenabled: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextFormat1_Impl::SetLastLineWrapping(this, core::mem::transmute_copy(&islastlinewrappingenabled)).into()
+                IDWriteTextFormat1_Impl::SetLastLineWrapping(this, core::mem::transmute_copy(&islastlinewrappingenabled))
             }
         }
         unsafe extern "system" fn GetLastLineWrapping<Identity: IDWriteTextFormat1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
@@ -11379,7 +11374,7 @@ impl IDWriteTextFormat1_Vtbl {
         unsafe extern "system" fn SetOpticalAlignment<Identity: IDWriteTextFormat1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, opticalalignment: DWRITE_OPTICAL_ALIGNMENT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextFormat1_Impl::SetOpticalAlignment(this, core::mem::transmute_copy(&opticalalignment)).into()
+                IDWriteTextFormat1_Impl::SetOpticalAlignment(this, core::mem::transmute_copy(&opticalalignment))
             }
         }
         unsafe extern "system" fn GetOpticalAlignment<Identity: IDWriteTextFormat1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> DWRITE_OPTICAL_ALIGNMENT {
@@ -11391,13 +11386,13 @@ impl IDWriteTextFormat1_Vtbl {
         unsafe extern "system" fn SetFontFallback<Identity: IDWriteTextFormat1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontfallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextFormat1_Impl::SetFontFallback(this, core::mem::transmute_copy(&fontfallback)).into()
+                IDWriteTextFormat1_Impl::SetFontFallback(this, core::mem::transmute_copy(&fontfallback))
             }
         }
         unsafe extern "system" fn GetFontFallback<Identity: IDWriteTextFormat1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontfallback: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextFormat1_Impl::GetFontFallback(this, core::mem::transmute_copy(&fontfallback)).into()
+                IDWriteTextFormat1_Impl::GetFontFallback(this, core::mem::transmute_copy(&fontfallback))
             }
         }
         Self {
@@ -11451,8 +11446,8 @@ pub struct IDWriteTextFormat2_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub trait IDWriteTextFormat2_Impl: IDWriteTextFormat1_Impl {
-    fn SetLineSpacing(&self, linespacingoptions: *const DWRITE_LINE_SPACING) -> windows_core::Result<()>;
-    fn GetLineSpacing(&self, linespacingoptions: *mut DWRITE_LINE_SPACING) -> windows_core::Result<()>;
+    fn SetLineSpacing(&self, linespacingoptions: *const DWRITE_LINE_SPACING) -> windows_core::HRESULT;
+    fn GetLineSpacing(&self, linespacingoptions: *mut DWRITE_LINE_SPACING) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl IDWriteTextFormat2_Vtbl {
@@ -11460,13 +11455,13 @@ impl IDWriteTextFormat2_Vtbl {
         unsafe extern "system" fn SetLineSpacing<Identity: IDWriteTextFormat2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, linespacingoptions: *const DWRITE_LINE_SPACING) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextFormat2_Impl::SetLineSpacing(this, core::mem::transmute_copy(&linespacingoptions)).into()
+                IDWriteTextFormat2_Impl::SetLineSpacing(this, core::mem::transmute_copy(&linespacingoptions))
             }
         }
         unsafe extern "system" fn GetLineSpacing<Identity: IDWriteTextFormat2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, linespacingoptions: *mut DWRITE_LINE_SPACING) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextFormat2_Impl::GetLineSpacing(this, core::mem::transmute_copy(&linespacingoptions)).into()
+                IDWriteTextFormat2_Impl::GetLineSpacing(this, core::mem::transmute_copy(&linespacingoptions))
             }
         }
         Self {
@@ -11530,11 +11525,11 @@ pub struct IDWriteTextFormat3_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub trait IDWriteTextFormat3_Impl: IDWriteTextFormat2_Impl {
-    fn SetFontAxisValues(&self, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32) -> windows_core::Result<()>;
+    fn SetFontAxisValues(&self, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32) -> windows_core::HRESULT;
     fn GetFontAxisValueCount(&self) -> super::UINT32;
-    fn GetFontAxisValues(&self, fontaxisvalues: *mut DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32) -> windows_core::Result<()>;
+    fn GetFontAxisValues(&self, fontaxisvalues: *mut DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32) -> windows_core::HRESULT;
     fn GetAutomaticFontAxes(&self) -> DWRITE_AUTOMATIC_FONT_AXES;
-    fn SetAutomaticFontAxes(&self, automaticfontaxes: DWRITE_AUTOMATIC_FONT_AXES) -> windows_core::Result<()>;
+    fn SetAutomaticFontAxes(&self, automaticfontaxes: DWRITE_AUTOMATIC_FONT_AXES) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl IDWriteTextFormat3_Vtbl {
@@ -11542,7 +11537,7 @@ impl IDWriteTextFormat3_Vtbl {
         unsafe extern "system" fn SetFontAxisValues<Identity: IDWriteTextFormat3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextFormat3_Impl::SetFontAxisValues(this, core::mem::transmute_copy(&fontaxisvalues), core::mem::transmute_copy(&fontaxisvaluecount)).into()
+                IDWriteTextFormat3_Impl::SetFontAxisValues(this, core::mem::transmute_copy(&fontaxisvalues), core::mem::transmute_copy(&fontaxisvaluecount))
             }
         }
         unsafe extern "system" fn GetFontAxisValueCount<Identity: IDWriteTextFormat3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::UINT32 {
@@ -11554,7 +11549,7 @@ impl IDWriteTextFormat3_Vtbl {
         unsafe extern "system" fn GetFontAxisValues<Identity: IDWriteTextFormat3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontaxisvalues: *mut DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextFormat3_Impl::GetFontAxisValues(this, core::mem::transmute_copy(&fontaxisvalues), core::mem::transmute_copy(&fontaxisvaluecount)).into()
+                IDWriteTextFormat3_Impl::GetFontAxisValues(this, core::mem::transmute_copy(&fontaxisvalues), core::mem::transmute_copy(&fontaxisvaluecount))
             }
         }
         unsafe extern "system" fn GetAutomaticFontAxes<Identity: IDWriteTextFormat3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> DWRITE_AUTOMATIC_FONT_AXES {
@@ -11566,7 +11561,7 @@ impl IDWriteTextFormat3_Vtbl {
         unsafe extern "system" fn SetAutomaticFontAxes<Identity: IDWriteTextFormat3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, automaticfontaxes: DWRITE_AUTOMATIC_FONT_AXES) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextFormat3_Impl::SetAutomaticFontAxes(this, core::mem::transmute_copy(&automaticfontaxes)).into()
+                IDWriteTextFormat3_Impl::SetAutomaticFontAxes(this, core::mem::transmute_copy(&automaticfontaxes))
             }
         }
         Self {
@@ -11928,45 +11923,45 @@ pub struct IDWriteTextLayout_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub trait IDWriteTextLayout_Impl: IDWriteTextFormat_Impl {
-    fn SetMaxWidth(&self, maxwidth: super::FLOAT) -> windows_core::Result<()>;
-    fn SetMaxHeight(&self, maxheight: super::FLOAT) -> windows_core::Result<()>;
-    fn SetFontCollection(&self, fontcollection: windows_core::Ref<IDWriteFontCollection>, textrange: &DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn SetFontFamilyName(&self, fontfamilyname: *const super::WCHAR, textrange: &DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn SetFontWeight(&self, fontweight: DWRITE_FONT_WEIGHT, textrange: &DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn SetFontStyle(&self, fontstyle: DWRITE_FONT_STYLE, textrange: &DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn SetFontStretch(&self, fontstretch: DWRITE_FONT_STRETCH, textrange: &DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn SetFontSize(&self, fontsize: super::FLOAT, textrange: &DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn SetUnderline(&self, hasunderline: windows_core::BOOL, textrange: &DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn SetStrikethrough(&self, hasstrikethrough: windows_core::BOOL, textrange: &DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn SetDrawingEffect(&self, drawingeffect: windows_core::Ref<windows_core::IUnknown>, textrange: &DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn SetInlineObject(&self, inlineobject: windows_core::Ref<IDWriteInlineObject>, textrange: &DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn SetTypography(&self, typography: windows_core::Ref<IDWriteTypography>, textrange: &DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn SetLocaleName(&self, localename: *const super::WCHAR, textrange: &DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
+    fn SetMaxWidth(&self, maxwidth: super::FLOAT) -> windows_core::HRESULT;
+    fn SetMaxHeight(&self, maxheight: super::FLOAT) -> windows_core::HRESULT;
+    fn SetFontCollection(&self, fontcollection: windows_core::Ref<IDWriteFontCollection>, textrange: &DWRITE_TEXT_RANGE) -> windows_core::HRESULT;
+    fn SetFontFamilyName(&self, fontfamilyname: *const super::WCHAR, textrange: &DWRITE_TEXT_RANGE) -> windows_core::HRESULT;
+    fn SetFontWeight(&self, fontweight: DWRITE_FONT_WEIGHT, textrange: &DWRITE_TEXT_RANGE) -> windows_core::HRESULT;
+    fn SetFontStyle(&self, fontstyle: DWRITE_FONT_STYLE, textrange: &DWRITE_TEXT_RANGE) -> windows_core::HRESULT;
+    fn SetFontStretch(&self, fontstretch: DWRITE_FONT_STRETCH, textrange: &DWRITE_TEXT_RANGE) -> windows_core::HRESULT;
+    fn SetFontSize(&self, fontsize: super::FLOAT, textrange: &DWRITE_TEXT_RANGE) -> windows_core::HRESULT;
+    fn SetUnderline(&self, hasunderline: windows_core::BOOL, textrange: &DWRITE_TEXT_RANGE) -> windows_core::HRESULT;
+    fn SetStrikethrough(&self, hasstrikethrough: windows_core::BOOL, textrange: &DWRITE_TEXT_RANGE) -> windows_core::HRESULT;
+    fn SetDrawingEffect(&self, drawingeffect: windows_core::Ref<windows_core::IUnknown>, textrange: &DWRITE_TEXT_RANGE) -> windows_core::HRESULT;
+    fn SetInlineObject(&self, inlineobject: windows_core::Ref<IDWriteInlineObject>, textrange: &DWRITE_TEXT_RANGE) -> windows_core::HRESULT;
+    fn SetTypography(&self, typography: windows_core::Ref<IDWriteTypography>, textrange: &DWRITE_TEXT_RANGE) -> windows_core::HRESULT;
+    fn SetLocaleName(&self, localename: *const super::WCHAR, textrange: &DWRITE_TEXT_RANGE) -> windows_core::HRESULT;
     fn GetMaxWidth(&self) -> super::FLOAT;
     fn GetMaxHeight(&self) -> super::FLOAT;
-    fn GetFontCollection(&self, currentposition: super::UINT32, fontcollection: windows_core::OutRef<IDWriteFontCollection>, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn GetFontFamilyNameLength(&self, currentposition: super::UINT32, namelength: *mut super::UINT32, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn GetFontFamilyName(&self, currentposition: super::UINT32, fontfamilyname: *mut super::WCHAR, namesize: super::UINT32, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn GetFontWeight(&self, currentposition: super::UINT32, fontweight: *mut DWRITE_FONT_WEIGHT, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn GetFontStyle(&self, currentposition: super::UINT32, fontstyle: *mut DWRITE_FONT_STYLE, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn GetFontStretch(&self, currentposition: super::UINT32, fontstretch: *mut DWRITE_FONT_STRETCH, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn GetFontSize(&self, currentposition: super::UINT32, fontsize: *mut super::FLOAT, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn GetUnderline(&self, currentposition: super::UINT32, hasunderline: *mut windows_core::BOOL, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn GetStrikethrough(&self, currentposition: super::UINT32, hasstrikethrough: *mut windows_core::BOOL, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn GetDrawingEffect(&self, currentposition: super::UINT32, drawingeffect: windows_core::OutRef<windows_core::IUnknown>, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn GetInlineObject(&self, currentposition: super::UINT32, inlineobject: windows_core::OutRef<IDWriteInlineObject>, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn GetTypography(&self, currentposition: super::UINT32, typography: windows_core::OutRef<IDWriteTypography>, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn GetLocaleNameLength(&self, currentposition: super::UINT32, namelength: *mut super::UINT32, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn GetLocaleName(&self, currentposition: super::UINT32, localename: *mut super::WCHAR, namesize: super::UINT32, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn Draw(&self, clientdrawingcontext: *const core::ffi::c_void, renderer: windows_core::Ref<IDWriteTextRenderer>, originx: super::FLOAT, originy: super::FLOAT) -> windows_core::Result<()>;
-    fn GetLineMetrics(&self, linemetrics: *mut DWRITE_LINE_METRICS, maxlinecount: super::UINT32, actuallinecount: *mut super::UINT32) -> windows_core::Result<()>;
-    fn GetMetrics(&self, textmetrics: *mut DWRITE_TEXT_METRICS) -> windows_core::Result<()>;
-    fn GetOverhangMetrics(&self, overhangs: *mut DWRITE_OVERHANG_METRICS) -> windows_core::Result<()>;
-    fn GetClusterMetrics(&self, clustermetrics: *mut DWRITE_CLUSTER_METRICS, maxclustercount: super::UINT32, actualclustercount: *mut super::UINT32) -> windows_core::Result<()>;
-    fn DetermineMinWidth(&self, minwidth: *mut super::FLOAT) -> windows_core::Result<()>;
-    fn HitTestPoint(&self, pointx: super::FLOAT, pointy: super::FLOAT, istrailinghit: *mut windows_core::BOOL, isinside: *mut windows_core::BOOL, hittestmetrics: *mut DWRITE_HIT_TEST_METRICS) -> windows_core::Result<()>;
-    fn HitTestTextPosition(&self, textposition: super::UINT32, istrailinghit: windows_core::BOOL, pointx: *mut super::FLOAT, pointy: *mut super::FLOAT, hittestmetrics: *mut DWRITE_HIT_TEST_METRICS) -> windows_core::Result<()>;
-    fn HitTestTextRange(&self, textposition: super::UINT32, textlength: super::UINT32, originx: super::FLOAT, originy: super::FLOAT, hittestmetrics: *mut DWRITE_HIT_TEST_METRICS, maxhittestmetricscount: super::UINT32, actualhittestmetricscount: *mut super::UINT32) -> windows_core::Result<()>;
+    fn GetFontCollection(&self, currentposition: super::UINT32, fontcollection: windows_core::OutRef<IDWriteFontCollection>, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT;
+    fn GetFontFamilyNameLength(&self, currentposition: super::UINT32, namelength: *mut super::UINT32, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT;
+    fn GetFontFamilyName(&self, currentposition: super::UINT32, fontfamilyname: *mut super::WCHAR, namesize: super::UINT32, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT;
+    fn GetFontWeight(&self, currentposition: super::UINT32, fontweight: *mut DWRITE_FONT_WEIGHT, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT;
+    fn GetFontStyle(&self, currentposition: super::UINT32, fontstyle: *mut DWRITE_FONT_STYLE, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT;
+    fn GetFontStretch(&self, currentposition: super::UINT32, fontstretch: *mut DWRITE_FONT_STRETCH, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT;
+    fn GetFontSize(&self, currentposition: super::UINT32, fontsize: *mut super::FLOAT, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT;
+    fn GetUnderline(&self, currentposition: super::UINT32, hasunderline: *mut windows_core::BOOL, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT;
+    fn GetStrikethrough(&self, currentposition: super::UINT32, hasstrikethrough: *mut windows_core::BOOL, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT;
+    fn GetDrawingEffect(&self, currentposition: super::UINT32, drawingeffect: windows_core::OutRef<windows_core::IUnknown>, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT;
+    fn GetInlineObject(&self, currentposition: super::UINT32, inlineobject: windows_core::OutRef<IDWriteInlineObject>, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT;
+    fn GetTypography(&self, currentposition: super::UINT32, typography: windows_core::OutRef<IDWriteTypography>, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT;
+    fn GetLocaleNameLength(&self, currentposition: super::UINT32, namelength: *mut super::UINT32, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT;
+    fn GetLocaleName(&self, currentposition: super::UINT32, localename: *mut super::WCHAR, namesize: super::UINT32, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT;
+    fn Draw(&self, clientdrawingcontext: *const core::ffi::c_void, renderer: windows_core::Ref<IDWriteTextRenderer>, originx: super::FLOAT, originy: super::FLOAT) -> windows_core::HRESULT;
+    fn GetLineMetrics(&self, linemetrics: *mut DWRITE_LINE_METRICS, maxlinecount: super::UINT32, actuallinecount: *mut super::UINT32) -> windows_core::HRESULT;
+    fn GetMetrics(&self, textmetrics: *mut DWRITE_TEXT_METRICS) -> windows_core::HRESULT;
+    fn GetOverhangMetrics(&self, overhangs: *mut DWRITE_OVERHANG_METRICS) -> windows_core::HRESULT;
+    fn GetClusterMetrics(&self, clustermetrics: *mut DWRITE_CLUSTER_METRICS, maxclustercount: super::UINT32, actualclustercount: *mut super::UINT32) -> windows_core::HRESULT;
+    fn DetermineMinWidth(&self, minwidth: *mut super::FLOAT) -> windows_core::HRESULT;
+    fn HitTestPoint(&self, pointx: super::FLOAT, pointy: super::FLOAT, istrailinghit: *mut windows_core::BOOL, isinside: *mut windows_core::BOOL, hittestmetrics: *mut DWRITE_HIT_TEST_METRICS) -> windows_core::HRESULT;
+    fn HitTestTextPosition(&self, textposition: super::UINT32, istrailinghit: windows_core::BOOL, pointx: *mut super::FLOAT, pointy: *mut super::FLOAT, hittestmetrics: *mut DWRITE_HIT_TEST_METRICS) -> windows_core::HRESULT;
+    fn HitTestTextRange(&self, textposition: super::UINT32, textlength: super::UINT32, originx: super::FLOAT, originy: super::FLOAT, hittestmetrics: *mut DWRITE_HIT_TEST_METRICS, maxhittestmetricscount: super::UINT32, actualhittestmetricscount: *mut super::UINT32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl IDWriteTextLayout_Vtbl {
@@ -11974,85 +11969,85 @@ impl IDWriteTextLayout_Vtbl {
         unsafe extern "system" fn SetMaxWidth<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxwidth: super::FLOAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::SetMaxWidth(this, core::mem::transmute_copy(&maxwidth)).into()
+                IDWriteTextLayout_Impl::SetMaxWidth(this, core::mem::transmute_copy(&maxwidth))
             }
         }
         unsafe extern "system" fn SetMaxHeight<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxheight: super::FLOAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::SetMaxHeight(this, core::mem::transmute_copy(&maxheight)).into()
+                IDWriteTextLayout_Impl::SetMaxHeight(this, core::mem::transmute_copy(&maxheight))
             }
         }
         unsafe extern "system" fn SetFontCollection<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontcollection: *mut core::ffi::c_void, textrange: DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::SetFontCollection(this, core::mem::transmute_copy(&fontcollection), core::mem::transmute(&textrange)).into()
+                IDWriteTextLayout_Impl::SetFontCollection(this, core::mem::transmute_copy(&fontcollection), core::mem::transmute(&textrange))
             }
         }
         unsafe extern "system" fn SetFontFamilyName<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontfamilyname: *const super::WCHAR, textrange: DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::SetFontFamilyName(this, core::mem::transmute_copy(&fontfamilyname), core::mem::transmute(&textrange)).into()
+                IDWriteTextLayout_Impl::SetFontFamilyName(this, core::mem::transmute_copy(&fontfamilyname), core::mem::transmute(&textrange))
             }
         }
         unsafe extern "system" fn SetFontWeight<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontweight: DWRITE_FONT_WEIGHT, textrange: DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::SetFontWeight(this, core::mem::transmute_copy(&fontweight), core::mem::transmute(&textrange)).into()
+                IDWriteTextLayout_Impl::SetFontWeight(this, core::mem::transmute_copy(&fontweight), core::mem::transmute(&textrange))
             }
         }
         unsafe extern "system" fn SetFontStyle<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontstyle: DWRITE_FONT_STYLE, textrange: DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::SetFontStyle(this, core::mem::transmute_copy(&fontstyle), core::mem::transmute(&textrange)).into()
+                IDWriteTextLayout_Impl::SetFontStyle(this, core::mem::transmute_copy(&fontstyle), core::mem::transmute(&textrange))
             }
         }
         unsafe extern "system" fn SetFontStretch<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontstretch: DWRITE_FONT_STRETCH, textrange: DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::SetFontStretch(this, core::mem::transmute_copy(&fontstretch), core::mem::transmute(&textrange)).into()
+                IDWriteTextLayout_Impl::SetFontStretch(this, core::mem::transmute_copy(&fontstretch), core::mem::transmute(&textrange))
             }
         }
         unsafe extern "system" fn SetFontSize<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontsize: super::FLOAT, textrange: DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::SetFontSize(this, core::mem::transmute_copy(&fontsize), core::mem::transmute(&textrange)).into()
+                IDWriteTextLayout_Impl::SetFontSize(this, core::mem::transmute_copy(&fontsize), core::mem::transmute(&textrange))
             }
         }
         unsafe extern "system" fn SetUnderline<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasunderline: windows_core::BOOL, textrange: DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::SetUnderline(this, core::mem::transmute_copy(&hasunderline), core::mem::transmute(&textrange)).into()
+                IDWriteTextLayout_Impl::SetUnderline(this, core::mem::transmute_copy(&hasunderline), core::mem::transmute(&textrange))
             }
         }
         unsafe extern "system" fn SetStrikethrough<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasstrikethrough: windows_core::BOOL, textrange: DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::SetStrikethrough(this, core::mem::transmute_copy(&hasstrikethrough), core::mem::transmute(&textrange)).into()
+                IDWriteTextLayout_Impl::SetStrikethrough(this, core::mem::transmute_copy(&hasstrikethrough), core::mem::transmute(&textrange))
             }
         }
         unsafe extern "system" fn SetDrawingEffect<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, drawingeffect: *mut core::ffi::c_void, textrange: DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::SetDrawingEffect(this, core::mem::transmute_copy(&drawingeffect), core::mem::transmute(&textrange)).into()
+                IDWriteTextLayout_Impl::SetDrawingEffect(this, core::mem::transmute_copy(&drawingeffect), core::mem::transmute(&textrange))
             }
         }
         unsafe extern "system" fn SetInlineObject<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inlineobject: *mut core::ffi::c_void, textrange: DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::SetInlineObject(this, core::mem::transmute_copy(&inlineobject), core::mem::transmute(&textrange)).into()
+                IDWriteTextLayout_Impl::SetInlineObject(this, core::mem::transmute_copy(&inlineobject), core::mem::transmute(&textrange))
             }
         }
         unsafe extern "system" fn SetTypography<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, typography: *mut core::ffi::c_void, textrange: DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::SetTypography(this, core::mem::transmute_copy(&typography), core::mem::transmute(&textrange)).into()
+                IDWriteTextLayout_Impl::SetTypography(this, core::mem::transmute_copy(&typography), core::mem::transmute(&textrange))
             }
         }
         unsafe extern "system" fn SetLocaleName<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, localename: *const super::WCHAR, textrange: DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::SetLocaleName(this, core::mem::transmute_copy(&localename), core::mem::transmute(&textrange)).into()
+                IDWriteTextLayout_Impl::SetLocaleName(this, core::mem::transmute_copy(&localename), core::mem::transmute(&textrange))
             }
         }
         unsafe extern "system" fn GetMaxWidth<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::FLOAT {
@@ -12070,139 +12065,139 @@ impl IDWriteTextLayout_Vtbl {
         unsafe extern "system" fn GetFontCollection<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentposition: super::UINT32, fontcollection: *mut *mut core::ffi::c_void, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::GetFontCollection(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&fontcollection), core::mem::transmute_copy(&textrange)).into()
+                IDWriteTextLayout_Impl::GetFontCollection(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&fontcollection), core::mem::transmute_copy(&textrange))
             }
         }
         unsafe extern "system" fn GetFontFamilyNameLength<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentposition: super::UINT32, namelength: *mut super::UINT32, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::GetFontFamilyNameLength(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&namelength), core::mem::transmute_copy(&textrange)).into()
+                IDWriteTextLayout_Impl::GetFontFamilyNameLength(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&namelength), core::mem::transmute_copy(&textrange))
             }
         }
         unsafe extern "system" fn GetFontFamilyName<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentposition: super::UINT32, fontfamilyname: *mut super::WCHAR, namesize: super::UINT32, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::GetFontFamilyName(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&fontfamilyname), core::mem::transmute_copy(&namesize), core::mem::transmute_copy(&textrange)).into()
+                IDWriteTextLayout_Impl::GetFontFamilyName(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&fontfamilyname), core::mem::transmute_copy(&namesize), core::mem::transmute_copy(&textrange))
             }
         }
         unsafe extern "system" fn GetFontWeight<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentposition: super::UINT32, fontweight: *mut DWRITE_FONT_WEIGHT, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::GetFontWeight(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&fontweight), core::mem::transmute_copy(&textrange)).into()
+                IDWriteTextLayout_Impl::GetFontWeight(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&fontweight), core::mem::transmute_copy(&textrange))
             }
         }
         unsafe extern "system" fn GetFontStyle<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentposition: super::UINT32, fontstyle: *mut DWRITE_FONT_STYLE, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::GetFontStyle(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&fontstyle), core::mem::transmute_copy(&textrange)).into()
+                IDWriteTextLayout_Impl::GetFontStyle(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&fontstyle), core::mem::transmute_copy(&textrange))
             }
         }
         unsafe extern "system" fn GetFontStretch<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentposition: super::UINT32, fontstretch: *mut DWRITE_FONT_STRETCH, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::GetFontStretch(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&fontstretch), core::mem::transmute_copy(&textrange)).into()
+                IDWriteTextLayout_Impl::GetFontStretch(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&fontstretch), core::mem::transmute_copy(&textrange))
             }
         }
         unsafe extern "system" fn GetFontSize<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentposition: super::UINT32, fontsize: *mut super::FLOAT, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::GetFontSize(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&fontsize), core::mem::transmute_copy(&textrange)).into()
+                IDWriteTextLayout_Impl::GetFontSize(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&fontsize), core::mem::transmute_copy(&textrange))
             }
         }
         unsafe extern "system" fn GetUnderline<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentposition: super::UINT32, hasunderline: *mut windows_core::BOOL, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::GetUnderline(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&hasunderline), core::mem::transmute_copy(&textrange)).into()
+                IDWriteTextLayout_Impl::GetUnderline(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&hasunderline), core::mem::transmute_copy(&textrange))
             }
         }
         unsafe extern "system" fn GetStrikethrough<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentposition: super::UINT32, hasstrikethrough: *mut windows_core::BOOL, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::GetStrikethrough(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&hasstrikethrough), core::mem::transmute_copy(&textrange)).into()
+                IDWriteTextLayout_Impl::GetStrikethrough(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&hasstrikethrough), core::mem::transmute_copy(&textrange))
             }
         }
         unsafe extern "system" fn GetDrawingEffect<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentposition: super::UINT32, drawingeffect: *mut *mut core::ffi::c_void, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::GetDrawingEffect(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&drawingeffect), core::mem::transmute_copy(&textrange)).into()
+                IDWriteTextLayout_Impl::GetDrawingEffect(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&drawingeffect), core::mem::transmute_copy(&textrange))
             }
         }
         unsafe extern "system" fn GetInlineObject<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentposition: super::UINT32, inlineobject: *mut *mut core::ffi::c_void, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::GetInlineObject(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&inlineobject), core::mem::transmute_copy(&textrange)).into()
+                IDWriteTextLayout_Impl::GetInlineObject(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&inlineobject), core::mem::transmute_copy(&textrange))
             }
         }
         unsafe extern "system" fn GetTypography<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentposition: super::UINT32, typography: *mut *mut core::ffi::c_void, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::GetTypography(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&typography), core::mem::transmute_copy(&textrange)).into()
+                IDWriteTextLayout_Impl::GetTypography(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&typography), core::mem::transmute_copy(&textrange))
             }
         }
         unsafe extern "system" fn GetLocaleNameLength<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentposition: super::UINT32, namelength: *mut super::UINT32, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::GetLocaleNameLength(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&namelength), core::mem::transmute_copy(&textrange)).into()
+                IDWriteTextLayout_Impl::GetLocaleNameLength(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&namelength), core::mem::transmute_copy(&textrange))
             }
         }
         unsafe extern "system" fn GetLocaleName<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentposition: super::UINT32, localename: *mut super::WCHAR, namesize: super::UINT32, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::GetLocaleName(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&localename), core::mem::transmute_copy(&namesize), core::mem::transmute_copy(&textrange)).into()
+                IDWriteTextLayout_Impl::GetLocaleName(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&localename), core::mem::transmute_copy(&namesize), core::mem::transmute_copy(&textrange))
             }
         }
         unsafe extern "system" fn Draw<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clientdrawingcontext: *const core::ffi::c_void, renderer: *mut core::ffi::c_void, originx: super::FLOAT, originy: super::FLOAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::Draw(this, core::mem::transmute_copy(&clientdrawingcontext), core::mem::transmute_copy(&renderer), core::mem::transmute_copy(&originx), core::mem::transmute_copy(&originy)).into()
+                IDWriteTextLayout_Impl::Draw(this, core::mem::transmute_copy(&clientdrawingcontext), core::mem::transmute_copy(&renderer), core::mem::transmute_copy(&originx), core::mem::transmute_copy(&originy))
             }
         }
         unsafe extern "system" fn GetLineMetrics<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, linemetrics: *mut DWRITE_LINE_METRICS, maxlinecount: super::UINT32, actuallinecount: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::GetLineMetrics(this, core::mem::transmute_copy(&linemetrics), core::mem::transmute_copy(&maxlinecount), core::mem::transmute_copy(&actuallinecount)).into()
+                IDWriteTextLayout_Impl::GetLineMetrics(this, core::mem::transmute_copy(&linemetrics), core::mem::transmute_copy(&maxlinecount), core::mem::transmute_copy(&actuallinecount))
             }
         }
         unsafe extern "system" fn GetMetrics<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, textmetrics: *mut DWRITE_TEXT_METRICS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::GetMetrics(this, core::mem::transmute_copy(&textmetrics)).into()
+                IDWriteTextLayout_Impl::GetMetrics(this, core::mem::transmute_copy(&textmetrics))
             }
         }
         unsafe extern "system" fn GetOverhangMetrics<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, overhangs: *mut DWRITE_OVERHANG_METRICS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::GetOverhangMetrics(this, core::mem::transmute_copy(&overhangs)).into()
+                IDWriteTextLayout_Impl::GetOverhangMetrics(this, core::mem::transmute_copy(&overhangs))
             }
         }
         unsafe extern "system" fn GetClusterMetrics<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clustermetrics: *mut DWRITE_CLUSTER_METRICS, maxclustercount: super::UINT32, actualclustercount: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::GetClusterMetrics(this, core::mem::transmute_copy(&clustermetrics), core::mem::transmute_copy(&maxclustercount), core::mem::transmute_copy(&actualclustercount)).into()
+                IDWriteTextLayout_Impl::GetClusterMetrics(this, core::mem::transmute_copy(&clustermetrics), core::mem::transmute_copy(&maxclustercount), core::mem::transmute_copy(&actualclustercount))
             }
         }
         unsafe extern "system" fn DetermineMinWidth<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minwidth: *mut super::FLOAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::DetermineMinWidth(this, core::mem::transmute_copy(&minwidth)).into()
+                IDWriteTextLayout_Impl::DetermineMinWidth(this, core::mem::transmute_copy(&minwidth))
             }
         }
         unsafe extern "system" fn HitTestPoint<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pointx: super::FLOAT, pointy: super::FLOAT, istrailinghit: *mut windows_core::BOOL, isinside: *mut windows_core::BOOL, hittestmetrics: *mut DWRITE_HIT_TEST_METRICS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::HitTestPoint(this, core::mem::transmute_copy(&pointx), core::mem::transmute_copy(&pointy), core::mem::transmute_copy(&istrailinghit), core::mem::transmute_copy(&isinside), core::mem::transmute_copy(&hittestmetrics)).into()
+                IDWriteTextLayout_Impl::HitTestPoint(this, core::mem::transmute_copy(&pointx), core::mem::transmute_copy(&pointy), core::mem::transmute_copy(&istrailinghit), core::mem::transmute_copy(&isinside), core::mem::transmute_copy(&hittestmetrics))
             }
         }
         unsafe extern "system" fn HitTestTextPosition<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, textposition: super::UINT32, istrailinghit: windows_core::BOOL, pointx: *mut super::FLOAT, pointy: *mut super::FLOAT, hittestmetrics: *mut DWRITE_HIT_TEST_METRICS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::HitTestTextPosition(this, core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&istrailinghit), core::mem::transmute_copy(&pointx), core::mem::transmute_copy(&pointy), core::mem::transmute_copy(&hittestmetrics)).into()
+                IDWriteTextLayout_Impl::HitTestTextPosition(this, core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&istrailinghit), core::mem::transmute_copy(&pointx), core::mem::transmute_copy(&pointy), core::mem::transmute_copy(&hittestmetrics))
             }
         }
         unsafe extern "system" fn HitTestTextRange<Identity: IDWriteTextLayout_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, textposition: super::UINT32, textlength: super::UINT32, originx: super::FLOAT, originy: super::FLOAT, hittestmetrics: *mut DWRITE_HIT_TEST_METRICS, maxhittestmetricscount: super::UINT32, actualhittestmetricscount: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout_Impl::HitTestTextRange(this, core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&originx), core::mem::transmute_copy(&originy), core::mem::transmute_copy(&hittestmetrics), core::mem::transmute_copy(&maxhittestmetricscount), core::mem::transmute_copy(&actualhittestmetricscount)).into()
+                IDWriteTextLayout_Impl::HitTestTextRange(this, core::mem::transmute_copy(&textposition), core::mem::transmute_copy(&textlength), core::mem::transmute_copy(&originx), core::mem::transmute_copy(&originy), core::mem::transmute_copy(&hittestmetrics), core::mem::transmute_copy(&maxhittestmetricscount), core::mem::transmute_copy(&actualhittestmetricscount))
             }
         }
         Self {
@@ -12303,10 +12298,10 @@ pub struct IDWriteTextLayout1_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub trait IDWriteTextLayout1_Impl: IDWriteTextLayout_Impl {
-    fn SetPairKerning(&self, ispairkerningenabled: windows_core::BOOL, textrange: &DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn GetPairKerning(&self, currentposition: super::UINT32, ispairkerningenabled: *mut windows_core::BOOL, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn SetCharacterSpacing(&self, leadingspacing: super::FLOAT, trailingspacing: super::FLOAT, minimumadvancewidth: super::FLOAT, textrange: &DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn GetCharacterSpacing(&self, currentposition: super::UINT32, leadingspacing: *mut super::FLOAT, trailingspacing: *mut super::FLOAT, minimumadvancewidth: *mut super::FLOAT, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
+    fn SetPairKerning(&self, ispairkerningenabled: windows_core::BOOL, textrange: &DWRITE_TEXT_RANGE) -> windows_core::HRESULT;
+    fn GetPairKerning(&self, currentposition: super::UINT32, ispairkerningenabled: *mut windows_core::BOOL, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT;
+    fn SetCharacterSpacing(&self, leadingspacing: super::FLOAT, trailingspacing: super::FLOAT, minimumadvancewidth: super::FLOAT, textrange: &DWRITE_TEXT_RANGE) -> windows_core::HRESULT;
+    fn GetCharacterSpacing(&self, currentposition: super::UINT32, leadingspacing: *mut super::FLOAT, trailingspacing: *mut super::FLOAT, minimumadvancewidth: *mut super::FLOAT, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl IDWriteTextLayout1_Vtbl {
@@ -12314,25 +12309,25 @@ impl IDWriteTextLayout1_Vtbl {
         unsafe extern "system" fn SetPairKerning<Identity: IDWriteTextLayout1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ispairkerningenabled: windows_core::BOOL, textrange: DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout1_Impl::SetPairKerning(this, core::mem::transmute_copy(&ispairkerningenabled), core::mem::transmute(&textrange)).into()
+                IDWriteTextLayout1_Impl::SetPairKerning(this, core::mem::transmute_copy(&ispairkerningenabled), core::mem::transmute(&textrange))
             }
         }
         unsafe extern "system" fn GetPairKerning<Identity: IDWriteTextLayout1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentposition: super::UINT32, ispairkerningenabled: *mut windows_core::BOOL, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout1_Impl::GetPairKerning(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&ispairkerningenabled), core::mem::transmute_copy(&textrange)).into()
+                IDWriteTextLayout1_Impl::GetPairKerning(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&ispairkerningenabled), core::mem::transmute_copy(&textrange))
             }
         }
         unsafe extern "system" fn SetCharacterSpacing<Identity: IDWriteTextLayout1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, leadingspacing: super::FLOAT, trailingspacing: super::FLOAT, minimumadvancewidth: super::FLOAT, textrange: DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout1_Impl::SetCharacterSpacing(this, core::mem::transmute_copy(&leadingspacing), core::mem::transmute_copy(&trailingspacing), core::mem::transmute_copy(&minimumadvancewidth), core::mem::transmute(&textrange)).into()
+                IDWriteTextLayout1_Impl::SetCharacterSpacing(this, core::mem::transmute_copy(&leadingspacing), core::mem::transmute_copy(&trailingspacing), core::mem::transmute_copy(&minimumadvancewidth), core::mem::transmute(&textrange))
             }
         }
         unsafe extern "system" fn GetCharacterSpacing<Identity: IDWriteTextLayout1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentposition: super::UINT32, leadingspacing: *mut super::FLOAT, trailingspacing: *mut super::FLOAT, minimumadvancewidth: *mut super::FLOAT, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout1_Impl::GetCharacterSpacing(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&leadingspacing), core::mem::transmute_copy(&trailingspacing), core::mem::transmute_copy(&minimumadvancewidth), core::mem::transmute_copy(&textrange)).into()
+                IDWriteTextLayout1_Impl::GetCharacterSpacing(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&leadingspacing), core::mem::transmute_copy(&trailingspacing), core::mem::transmute_copy(&minimumadvancewidth), core::mem::transmute_copy(&textrange))
             }
         }
         Self {
@@ -12409,15 +12404,15 @@ pub struct IDWriteTextLayout2_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub trait IDWriteTextLayout2_Impl: IDWriteTextLayout1_Impl {
-    fn GetMetrics(&self, textmetrics: *mut DWRITE_TEXT_METRICS1) -> windows_core::Result<()>;
-    fn SetVerticalGlyphOrientation(&self, glyphorientation: DWRITE_VERTICAL_GLYPH_ORIENTATION) -> windows_core::Result<()>;
+    fn GetMetrics(&self, textmetrics: *mut DWRITE_TEXT_METRICS1) -> windows_core::HRESULT;
+    fn SetVerticalGlyphOrientation(&self, glyphorientation: DWRITE_VERTICAL_GLYPH_ORIENTATION) -> windows_core::HRESULT;
     fn GetVerticalGlyphOrientation(&self) -> DWRITE_VERTICAL_GLYPH_ORIENTATION;
-    fn SetLastLineWrapping(&self, islastlinewrappingenabled: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetLastLineWrapping(&self, islastlinewrappingenabled: windows_core::BOOL) -> windows_core::HRESULT;
     fn GetLastLineWrapping(&self) -> windows_core::BOOL;
-    fn SetOpticalAlignment(&self, opticalalignment: DWRITE_OPTICAL_ALIGNMENT) -> windows_core::Result<()>;
+    fn SetOpticalAlignment(&self, opticalalignment: DWRITE_OPTICAL_ALIGNMENT) -> windows_core::HRESULT;
     fn GetOpticalAlignment(&self) -> DWRITE_OPTICAL_ALIGNMENT;
-    fn SetFontFallback(&self, fontfallback: windows_core::Ref<IDWriteFontFallback>) -> windows_core::Result<()>;
-    fn GetFontFallback(&self, fontfallback: windows_core::OutRef<IDWriteFontFallback>) -> windows_core::Result<()>;
+    fn SetFontFallback(&self, fontfallback: windows_core::Ref<IDWriteFontFallback>) -> windows_core::HRESULT;
+    fn GetFontFallback(&self, fontfallback: windows_core::OutRef<IDWriteFontFallback>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl IDWriteTextLayout2_Vtbl {
@@ -12425,13 +12420,13 @@ impl IDWriteTextLayout2_Vtbl {
         unsafe extern "system" fn GetMetrics<Identity: IDWriteTextLayout2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, textmetrics: *mut DWRITE_TEXT_METRICS1) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout2_Impl::GetMetrics(this, core::mem::transmute_copy(&textmetrics)).into()
+                IDWriteTextLayout2_Impl::GetMetrics(this, core::mem::transmute_copy(&textmetrics))
             }
         }
         unsafe extern "system" fn SetVerticalGlyphOrientation<Identity: IDWriteTextLayout2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, glyphorientation: DWRITE_VERTICAL_GLYPH_ORIENTATION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout2_Impl::SetVerticalGlyphOrientation(this, core::mem::transmute_copy(&glyphorientation)).into()
+                IDWriteTextLayout2_Impl::SetVerticalGlyphOrientation(this, core::mem::transmute_copy(&glyphorientation))
             }
         }
         unsafe extern "system" fn GetVerticalGlyphOrientation<Identity: IDWriteTextLayout2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> DWRITE_VERTICAL_GLYPH_ORIENTATION {
@@ -12443,7 +12438,7 @@ impl IDWriteTextLayout2_Vtbl {
         unsafe extern "system" fn SetLastLineWrapping<Identity: IDWriteTextLayout2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, islastlinewrappingenabled: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout2_Impl::SetLastLineWrapping(this, core::mem::transmute_copy(&islastlinewrappingenabled)).into()
+                IDWriteTextLayout2_Impl::SetLastLineWrapping(this, core::mem::transmute_copy(&islastlinewrappingenabled))
             }
         }
         unsafe extern "system" fn GetLastLineWrapping<Identity: IDWriteTextLayout2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
@@ -12455,7 +12450,7 @@ impl IDWriteTextLayout2_Vtbl {
         unsafe extern "system" fn SetOpticalAlignment<Identity: IDWriteTextLayout2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, opticalalignment: DWRITE_OPTICAL_ALIGNMENT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout2_Impl::SetOpticalAlignment(this, core::mem::transmute_copy(&opticalalignment)).into()
+                IDWriteTextLayout2_Impl::SetOpticalAlignment(this, core::mem::transmute_copy(&opticalalignment))
             }
         }
         unsafe extern "system" fn GetOpticalAlignment<Identity: IDWriteTextLayout2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> DWRITE_OPTICAL_ALIGNMENT {
@@ -12467,13 +12462,13 @@ impl IDWriteTextLayout2_Vtbl {
         unsafe extern "system" fn SetFontFallback<Identity: IDWriteTextLayout2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontfallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout2_Impl::SetFontFallback(this, core::mem::transmute_copy(&fontfallback)).into()
+                IDWriteTextLayout2_Impl::SetFontFallback(this, core::mem::transmute_copy(&fontfallback))
             }
         }
         unsafe extern "system" fn GetFontFallback<Identity: IDWriteTextLayout2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontfallback: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout2_Impl::GetFontFallback(this, core::mem::transmute_copy(&fontfallback)).into()
+                IDWriteTextLayout2_Impl::GetFontFallback(this, core::mem::transmute_copy(&fontfallback))
             }
         }
         Self {
@@ -12540,10 +12535,10 @@ pub struct IDWriteTextLayout3_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub trait IDWriteTextLayout3_Impl: IDWriteTextLayout2_Impl {
-    fn InvalidateLayout(&self) -> windows_core::Result<()>;
-    fn SetLineSpacing(&self, linespacingoptions: *const DWRITE_LINE_SPACING) -> windows_core::Result<()>;
-    fn GetLineSpacing(&self, linespacingoptions: *mut DWRITE_LINE_SPACING) -> windows_core::Result<()>;
-    fn GetLineMetrics(&self, linemetrics: *mut DWRITE_LINE_METRICS1, maxlinecount: super::UINT32, actuallinecount: *mut super::UINT32) -> windows_core::Result<()>;
+    fn InvalidateLayout(&self) -> windows_core::HRESULT;
+    fn SetLineSpacing(&self, linespacingoptions: *const DWRITE_LINE_SPACING) -> windows_core::HRESULT;
+    fn GetLineSpacing(&self, linespacingoptions: *mut DWRITE_LINE_SPACING) -> windows_core::HRESULT;
+    fn GetLineMetrics(&self, linemetrics: *mut DWRITE_LINE_METRICS1, maxlinecount: super::UINT32, actuallinecount: *mut super::UINT32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl IDWriteTextLayout3_Vtbl {
@@ -12551,25 +12546,25 @@ impl IDWriteTextLayout3_Vtbl {
         unsafe extern "system" fn InvalidateLayout<Identity: IDWriteTextLayout3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout3_Impl::InvalidateLayout(this).into()
+                IDWriteTextLayout3_Impl::InvalidateLayout(this)
             }
         }
         unsafe extern "system" fn SetLineSpacing<Identity: IDWriteTextLayout3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, linespacingoptions: *const DWRITE_LINE_SPACING) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout3_Impl::SetLineSpacing(this, core::mem::transmute_copy(&linespacingoptions)).into()
+                IDWriteTextLayout3_Impl::SetLineSpacing(this, core::mem::transmute_copy(&linespacingoptions))
             }
         }
         unsafe extern "system" fn GetLineSpacing<Identity: IDWriteTextLayout3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, linespacingoptions: *mut DWRITE_LINE_SPACING) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout3_Impl::GetLineSpacing(this, core::mem::transmute_copy(&linespacingoptions)).into()
+                IDWriteTextLayout3_Impl::GetLineSpacing(this, core::mem::transmute_copy(&linespacingoptions))
             }
         }
         unsafe extern "system" fn GetLineMetrics<Identity: IDWriteTextLayout3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, linemetrics: *mut DWRITE_LINE_METRICS1, maxlinecount: super::UINT32, actuallinecount: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout3_Impl::GetLineMetrics(this, core::mem::transmute_copy(&linemetrics), core::mem::transmute_copy(&maxlinecount), core::mem::transmute_copy(&actuallinecount)).into()
+                IDWriteTextLayout3_Impl::GetLineMetrics(this, core::mem::transmute_copy(&linemetrics), core::mem::transmute_copy(&maxlinecount), core::mem::transmute_copy(&actuallinecount))
             }
         }
         Self {
@@ -12635,11 +12630,11 @@ pub struct IDWriteTextLayout4_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub trait IDWriteTextLayout4_Impl: IDWriteTextLayout3_Impl {
-    fn SetFontAxisValues(&self, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32, textrange: &DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
+    fn SetFontAxisValues(&self, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32, textrange: &DWRITE_TEXT_RANGE) -> windows_core::HRESULT;
     fn GetFontAxisValueCount(&self, currentposition: super::UINT32) -> super::UINT32;
-    fn GetFontAxisValues(&self, currentposition: super::UINT32, fontaxisvalues: *mut DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
+    fn GetFontAxisValues(&self, currentposition: super::UINT32, fontaxisvalues: *mut DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT;
     fn GetAutomaticFontAxes(&self) -> DWRITE_AUTOMATIC_FONT_AXES;
-    fn SetAutomaticFontAxes(&self, automaticfontaxes: DWRITE_AUTOMATIC_FONT_AXES) -> windows_core::Result<()>;
+    fn SetAutomaticFontAxes(&self, automaticfontaxes: DWRITE_AUTOMATIC_FONT_AXES) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl IDWriteTextLayout4_Vtbl {
@@ -12647,7 +12642,7 @@ impl IDWriteTextLayout4_Vtbl {
         unsafe extern "system" fn SetFontAxisValues<Identity: IDWriteTextLayout4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32, textrange: DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout4_Impl::SetFontAxisValues(this, core::mem::transmute_copy(&fontaxisvalues), core::mem::transmute_copy(&fontaxisvaluecount), core::mem::transmute(&textrange)).into()
+                IDWriteTextLayout4_Impl::SetFontAxisValues(this, core::mem::transmute_copy(&fontaxisvalues), core::mem::transmute_copy(&fontaxisvaluecount), core::mem::transmute(&textrange))
             }
         }
         unsafe extern "system" fn GetFontAxisValueCount<Identity: IDWriteTextLayout4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentposition: super::UINT32) -> super::UINT32 {
@@ -12659,7 +12654,7 @@ impl IDWriteTextLayout4_Vtbl {
         unsafe extern "system" fn GetFontAxisValues<Identity: IDWriteTextLayout4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentposition: super::UINT32, fontaxisvalues: *mut DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: super::UINT32, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout4_Impl::GetFontAxisValues(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&fontaxisvalues), core::mem::transmute_copy(&fontaxisvaluecount), core::mem::transmute_copy(&textrange)).into()
+                IDWriteTextLayout4_Impl::GetFontAxisValues(this, core::mem::transmute_copy(&currentposition), core::mem::transmute_copy(&fontaxisvalues), core::mem::transmute_copy(&fontaxisvaluecount), core::mem::transmute_copy(&textrange))
             }
         }
         unsafe extern "system" fn GetAutomaticFontAxes<Identity: IDWriteTextLayout4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> DWRITE_AUTOMATIC_FONT_AXES {
@@ -12671,7 +12666,7 @@ impl IDWriteTextLayout4_Vtbl {
         unsafe extern "system" fn SetAutomaticFontAxes<Identity: IDWriteTextLayout4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, automaticfontaxes: DWRITE_AUTOMATIC_FONT_AXES) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextLayout4_Impl::SetAutomaticFontAxes(this, core::mem::transmute_copy(&automaticfontaxes)).into()
+                IDWriteTextLayout4_Impl::SetAutomaticFontAxes(this, core::mem::transmute_copy(&automaticfontaxes))
             }
         }
         Self {
@@ -12751,10 +12746,10 @@ pub struct IDWriteTextRenderer_Vtbl {
 }
 #[cfg(all(feature = "dcommon", feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub trait IDWriteTextRenderer_Impl: IDWritePixelSnapping_Impl {
-    fn DrawGlyphRun(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: super::FLOAT, baselineoriginy: super::FLOAT, measuringmode: super::DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn DrawUnderline(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: super::FLOAT, baselineoriginy: super::FLOAT, underline: *const DWRITE_UNDERLINE, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn DrawStrikethrough(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: super::FLOAT, baselineoriginy: super::FLOAT, strikethrough: *const DWRITE_STRIKETHROUGH, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn DrawInlineObject(&self, clientdrawingcontext: *const core::ffi::c_void, originx: super::FLOAT, originy: super::FLOAT, inlineobject: windows_core::Ref<IDWriteInlineObject>, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn DrawGlyphRun(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: super::FLOAT, baselineoriginy: super::FLOAT, measuringmode: super::DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn DrawUnderline(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: super::FLOAT, baselineoriginy: super::FLOAT, underline: *const DWRITE_UNDERLINE, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn DrawStrikethrough(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: super::FLOAT, baselineoriginy: super::FLOAT, strikethrough: *const DWRITE_STRIKETHROUGH, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn DrawInlineObject(&self, clientdrawingcontext: *const core::ffi::c_void, originx: super::FLOAT, originy: super::FLOAT, inlineobject: windows_core::Ref<IDWriteInlineObject>, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "dcommon", feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl IDWriteTextRenderer_Vtbl {
@@ -12762,25 +12757,25 @@ impl IDWriteTextRenderer_Vtbl {
         unsafe extern "system" fn DrawGlyphRun<Identity: IDWriteTextRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: super::FLOAT, baselineoriginy: super::FLOAT, measuringmode: super::DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, clientdrawingeffect: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextRenderer_Impl::DrawGlyphRun(this, core::mem::transmute_copy(&clientdrawingcontext), core::mem::transmute_copy(&baselineoriginx), core::mem::transmute_copy(&baselineoriginy), core::mem::transmute_copy(&measuringmode), core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&glyphrundescription), core::mem::transmute_copy(&clientdrawingeffect)).into()
+                IDWriteTextRenderer_Impl::DrawGlyphRun(this, core::mem::transmute_copy(&clientdrawingcontext), core::mem::transmute_copy(&baselineoriginx), core::mem::transmute_copy(&baselineoriginy), core::mem::transmute_copy(&measuringmode), core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&glyphrundescription), core::mem::transmute_copy(&clientdrawingeffect))
             }
         }
         unsafe extern "system" fn DrawUnderline<Identity: IDWriteTextRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: super::FLOAT, baselineoriginy: super::FLOAT, underline: *const DWRITE_UNDERLINE, clientdrawingeffect: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextRenderer_Impl::DrawUnderline(this, core::mem::transmute_copy(&clientdrawingcontext), core::mem::transmute_copy(&baselineoriginx), core::mem::transmute_copy(&baselineoriginy), core::mem::transmute_copy(&underline), core::mem::transmute_copy(&clientdrawingeffect)).into()
+                IDWriteTextRenderer_Impl::DrawUnderline(this, core::mem::transmute_copy(&clientdrawingcontext), core::mem::transmute_copy(&baselineoriginx), core::mem::transmute_copy(&baselineoriginy), core::mem::transmute_copy(&underline), core::mem::transmute_copy(&clientdrawingeffect))
             }
         }
         unsafe extern "system" fn DrawStrikethrough<Identity: IDWriteTextRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: super::FLOAT, baselineoriginy: super::FLOAT, strikethrough: *const DWRITE_STRIKETHROUGH, clientdrawingeffect: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextRenderer_Impl::DrawStrikethrough(this, core::mem::transmute_copy(&clientdrawingcontext), core::mem::transmute_copy(&baselineoriginx), core::mem::transmute_copy(&baselineoriginy), core::mem::transmute_copy(&strikethrough), core::mem::transmute_copy(&clientdrawingeffect)).into()
+                IDWriteTextRenderer_Impl::DrawStrikethrough(this, core::mem::transmute_copy(&clientdrawingcontext), core::mem::transmute_copy(&baselineoriginx), core::mem::transmute_copy(&baselineoriginy), core::mem::transmute_copy(&strikethrough), core::mem::transmute_copy(&clientdrawingeffect))
             }
         }
         unsafe extern "system" fn DrawInlineObject<Identity: IDWriteTextRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clientdrawingcontext: *const core::ffi::c_void, originx: super::FLOAT, originy: super::FLOAT, inlineobject: *mut core::ffi::c_void, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, clientdrawingeffect: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextRenderer_Impl::DrawInlineObject(this, core::mem::transmute_copy(&clientdrawingcontext), core::mem::transmute_copy(&originx), core::mem::transmute_copy(&originy), core::mem::transmute_copy(&inlineobject), core::mem::transmute_copy(&issideways), core::mem::transmute_copy(&isrighttoleft), core::mem::transmute_copy(&clientdrawingeffect)).into()
+                IDWriteTextRenderer_Impl::DrawInlineObject(this, core::mem::transmute_copy(&clientdrawingcontext), core::mem::transmute_copy(&originx), core::mem::transmute_copy(&originy), core::mem::transmute_copy(&inlineobject), core::mem::transmute_copy(&issideways), core::mem::transmute_copy(&isrighttoleft), core::mem::transmute_copy(&clientdrawingeffect))
             }
         }
         Self {
@@ -12859,10 +12854,10 @@ pub struct IDWriteTextRenderer1_Vtbl {
 }
 #[cfg(all(feature = "dcommon", feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub trait IDWriteTextRenderer1_Impl: IDWriteTextRenderer_Impl {
-    fn DrawGlyphRun(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: super::FLOAT, baselineoriginy: super::FLOAT, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, measuringmode: super::DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn DrawUnderline(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: super::FLOAT, baselineoriginy: super::FLOAT, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, underline: *const DWRITE_UNDERLINE, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn DrawStrikethrough(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: super::FLOAT, baselineoriginy: super::FLOAT, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, strikethrough: *const DWRITE_STRIKETHROUGH, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn DrawInlineObject(&self, clientdrawingcontext: *const core::ffi::c_void, originx: super::FLOAT, originy: super::FLOAT, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, inlineobject: windows_core::Ref<IDWriteInlineObject>, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn DrawGlyphRun(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: super::FLOAT, baselineoriginy: super::FLOAT, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, measuringmode: super::DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn DrawUnderline(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: super::FLOAT, baselineoriginy: super::FLOAT, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, underline: *const DWRITE_UNDERLINE, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn DrawStrikethrough(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: super::FLOAT, baselineoriginy: super::FLOAT, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, strikethrough: *const DWRITE_STRIKETHROUGH, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn DrawInlineObject(&self, clientdrawingcontext: *const core::ffi::c_void, originx: super::FLOAT, originy: super::FLOAT, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, inlineobject: windows_core::Ref<IDWriteInlineObject>, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "dcommon", feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl IDWriteTextRenderer1_Vtbl {
@@ -12870,25 +12865,25 @@ impl IDWriteTextRenderer1_Vtbl {
         unsafe extern "system" fn DrawGlyphRun<Identity: IDWriteTextRenderer1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: super::FLOAT, baselineoriginy: super::FLOAT, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, measuringmode: super::DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, clientdrawingeffect: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextRenderer1_Impl::DrawGlyphRun(this, core::mem::transmute_copy(&clientdrawingcontext), core::mem::transmute_copy(&baselineoriginx), core::mem::transmute_copy(&baselineoriginy), core::mem::transmute_copy(&orientationangle), core::mem::transmute_copy(&measuringmode), core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&glyphrundescription), core::mem::transmute_copy(&clientdrawingeffect)).into()
+                IDWriteTextRenderer1_Impl::DrawGlyphRun(this, core::mem::transmute_copy(&clientdrawingcontext), core::mem::transmute_copy(&baselineoriginx), core::mem::transmute_copy(&baselineoriginy), core::mem::transmute_copy(&orientationangle), core::mem::transmute_copy(&measuringmode), core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&glyphrundescription), core::mem::transmute_copy(&clientdrawingeffect))
             }
         }
         unsafe extern "system" fn DrawUnderline<Identity: IDWriteTextRenderer1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: super::FLOAT, baselineoriginy: super::FLOAT, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, underline: *const DWRITE_UNDERLINE, clientdrawingeffect: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextRenderer1_Impl::DrawUnderline(this, core::mem::transmute_copy(&clientdrawingcontext), core::mem::transmute_copy(&baselineoriginx), core::mem::transmute_copy(&baselineoriginy), core::mem::transmute_copy(&orientationangle), core::mem::transmute_copy(&underline), core::mem::transmute_copy(&clientdrawingeffect)).into()
+                IDWriteTextRenderer1_Impl::DrawUnderline(this, core::mem::transmute_copy(&clientdrawingcontext), core::mem::transmute_copy(&baselineoriginx), core::mem::transmute_copy(&baselineoriginy), core::mem::transmute_copy(&orientationangle), core::mem::transmute_copy(&underline), core::mem::transmute_copy(&clientdrawingeffect))
             }
         }
         unsafe extern "system" fn DrawStrikethrough<Identity: IDWriteTextRenderer1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: super::FLOAT, baselineoriginy: super::FLOAT, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, strikethrough: *const DWRITE_STRIKETHROUGH, clientdrawingeffect: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextRenderer1_Impl::DrawStrikethrough(this, core::mem::transmute_copy(&clientdrawingcontext), core::mem::transmute_copy(&baselineoriginx), core::mem::transmute_copy(&baselineoriginy), core::mem::transmute_copy(&orientationangle), core::mem::transmute_copy(&strikethrough), core::mem::transmute_copy(&clientdrawingeffect)).into()
+                IDWriteTextRenderer1_Impl::DrawStrikethrough(this, core::mem::transmute_copy(&clientdrawingcontext), core::mem::transmute_copy(&baselineoriginx), core::mem::transmute_copy(&baselineoriginy), core::mem::transmute_copy(&orientationangle), core::mem::transmute_copy(&strikethrough), core::mem::transmute_copy(&clientdrawingeffect))
             }
         }
         unsafe extern "system" fn DrawInlineObject<Identity: IDWriteTextRenderer1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clientdrawingcontext: *const core::ffi::c_void, originx: super::FLOAT, originy: super::FLOAT, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, inlineobject: *mut core::ffi::c_void, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, clientdrawingeffect: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTextRenderer1_Impl::DrawInlineObject(this, core::mem::transmute_copy(&clientdrawingcontext), core::mem::transmute_copy(&originx), core::mem::transmute_copy(&originy), core::mem::transmute_copy(&orientationangle), core::mem::transmute_copy(&inlineobject), core::mem::transmute_copy(&issideways), core::mem::transmute_copy(&isrighttoleft), core::mem::transmute_copy(&clientdrawingeffect)).into()
+                IDWriteTextRenderer1_Impl::DrawInlineObject(this, core::mem::transmute_copy(&clientdrawingcontext), core::mem::transmute_copy(&originx), core::mem::transmute_copy(&originy), core::mem::transmute_copy(&orientationangle), core::mem::transmute_copy(&inlineobject), core::mem::transmute_copy(&issideways), core::mem::transmute_copy(&isrighttoleft), core::mem::transmute_copy(&clientdrawingeffect))
             }
         }
         Self {
@@ -12940,9 +12935,9 @@ pub struct IDWriteTypography_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IDWriteTypography_Impl: windows_core::IUnknownImpl {
-    fn AddFontFeature(&self, fontfeature: &DWRITE_FONT_FEATURE) -> windows_core::Result<()>;
+    fn AddFontFeature(&self, fontfeature: &DWRITE_FONT_FEATURE) -> windows_core::HRESULT;
     fn GetFontFeatureCount(&self) -> super::UINT32;
-    fn GetFontFeature(&self, fontfeatureindex: super::UINT32, fontfeature: *mut DWRITE_FONT_FEATURE) -> windows_core::Result<()>;
+    fn GetFontFeature(&self, fontfeatureindex: super::UINT32, fontfeature: *mut DWRITE_FONT_FEATURE) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IDWriteTypography_Vtbl {
@@ -12950,7 +12945,7 @@ impl IDWriteTypography_Vtbl {
         unsafe extern "system" fn AddFontFeature<Identity: IDWriteTypography_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontfeature: DWRITE_FONT_FEATURE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTypography_Impl::AddFontFeature(this, core::mem::transmute(&fontfeature)).into()
+                IDWriteTypography_Impl::AddFontFeature(this, core::mem::transmute(&fontfeature))
             }
         }
         unsafe extern "system" fn GetFontFeatureCount<Identity: IDWriteTypography_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::UINT32 {
@@ -12962,7 +12957,7 @@ impl IDWriteTypography_Vtbl {
         unsafe extern "system" fn GetFontFeature<Identity: IDWriteTypography_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontfeatureindex: super::UINT32, fontfeature: *mut DWRITE_FONT_FEATURE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDWriteTypography_Impl::GetFontFeature(this, core::mem::transmute_copy(&fontfeatureindex), core::mem::transmute_copy(&fontfeature)).into()
+                IDWriteTypography_Impl::GetFontFeature(this, core::mem::transmute_copy(&fontfeatureindex), core::mem::transmute_copy(&fontfeature))
             }
         }
         Self {

@@ -15,14 +15,14 @@ pub struct IFindReferenceTargetsCallback_Vtbl {
     pub FoundTrackerTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IFindReferenceTargetsCallback_Impl: windows_core::IUnknownImpl {
-    fn FoundTrackerTarget(&self, target: windows_core::Ref<IReferenceTrackerTarget>) -> windows_core::Result<()>;
+    fn FoundTrackerTarget(&self, target: windows_core::Ref<IReferenceTrackerTarget>) -> windows_core::HRESULT;
 }
 impl IFindReferenceTargetsCallback_Vtbl {
     pub const fn new<Identity: IFindReferenceTargetsCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn FoundTrackerTarget<Identity: IFindReferenceTargetsCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, target: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFindReferenceTargetsCallback_Impl::FoundTrackerTarget(this, core::mem::transmute_copy(&target)).into()
+                IFindReferenceTargetsCallback_Impl::FoundTrackerTarget(this, core::mem::transmute_copy(&target))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), FoundTrackerTarget: FoundTrackerTarget::<Identity, OFFSET> }
@@ -73,56 +73,56 @@ pub struct IReferenceTracker_Vtbl {
     pub PegFromTrackerSource: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IReferenceTracker_Impl: windows_core::IUnknownImpl {
-    fn ConnectFromTrackerSource(&self) -> windows_core::Result<()>;
-    fn DisconnectFromTrackerSource(&self) -> windows_core::Result<()>;
-    fn FindTrackerTargets(&self, callback: windows_core::Ref<IFindReferenceTargetsCallback>) -> windows_core::Result<()>;
-    fn GetReferenceTrackerManager(&self, value: windows_core::OutRef<IReferenceTrackerManager>) -> windows_core::Result<()>;
-    fn AddRefFromTrackerSource(&self) -> windows_core::Result<()>;
-    fn ReleaseFromTrackerSource(&self) -> windows_core::Result<()>;
-    fn PegFromTrackerSource(&self) -> windows_core::Result<()>;
+    fn ConnectFromTrackerSource(&self) -> windows_core::HRESULT;
+    fn DisconnectFromTrackerSource(&self) -> windows_core::HRESULT;
+    fn FindTrackerTargets(&self, callback: windows_core::Ref<IFindReferenceTargetsCallback>) -> windows_core::HRESULT;
+    fn GetReferenceTrackerManager(&self, value: windows_core::OutRef<IReferenceTrackerManager>) -> windows_core::HRESULT;
+    fn AddRefFromTrackerSource(&self) -> windows_core::HRESULT;
+    fn ReleaseFromTrackerSource(&self) -> windows_core::HRESULT;
+    fn PegFromTrackerSource(&self) -> windows_core::HRESULT;
 }
 impl IReferenceTracker_Vtbl {
     pub const fn new<Identity: IReferenceTracker_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ConnectFromTrackerSource<Identity: IReferenceTracker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IReferenceTracker_Impl::ConnectFromTrackerSource(this).into()
+                IReferenceTracker_Impl::ConnectFromTrackerSource(this)
             }
         }
         unsafe extern "system" fn DisconnectFromTrackerSource<Identity: IReferenceTracker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IReferenceTracker_Impl::DisconnectFromTrackerSource(this).into()
+                IReferenceTracker_Impl::DisconnectFromTrackerSource(this)
             }
         }
         unsafe extern "system" fn FindTrackerTargets<Identity: IReferenceTracker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IReferenceTracker_Impl::FindTrackerTargets(this, core::mem::transmute_copy(&callback)).into()
+                IReferenceTracker_Impl::FindTrackerTargets(this, core::mem::transmute_copy(&callback))
             }
         }
         unsafe extern "system" fn GetReferenceTrackerManager<Identity: IReferenceTracker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IReferenceTracker_Impl::GetReferenceTrackerManager(this, core::mem::transmute_copy(&value)).into()
+                IReferenceTracker_Impl::GetReferenceTrackerManager(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn AddRefFromTrackerSource<Identity: IReferenceTracker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IReferenceTracker_Impl::AddRefFromTrackerSource(this).into()
+                IReferenceTracker_Impl::AddRefFromTrackerSource(this)
             }
         }
         unsafe extern "system" fn ReleaseFromTrackerSource<Identity: IReferenceTracker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IReferenceTracker_Impl::ReleaseFromTrackerSource(this).into()
+                IReferenceTracker_Impl::ReleaseFromTrackerSource(this)
             }
         }
         unsafe extern "system" fn PegFromTrackerSource<Identity: IReferenceTracker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IReferenceTracker_Impl::PegFromTrackerSource(this).into()
+                IReferenceTracker_Impl::PegFromTrackerSource(this)
             }
         }
         Self {
@@ -204,12 +204,12 @@ pub struct IReferenceTrackerHost_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IReferenceTrackerHost_Impl: windows_core::IUnknownImpl {
-    fn DisconnectUnusedReferenceSources(&self, options: XAML_REFERENCETRACKER_DISCONNECT) -> windows_core::Result<()>;
-    fn ReleaseDisconnectedReferenceSources(&self) -> windows_core::Result<()>;
-    fn NotifyEndOfReferenceTrackingOnThread(&self) -> windows_core::Result<()>;
-    fn GetTrackerTarget(&self, unknown: windows_core::Ref<windows_core::IUnknown>, newreference: *mut Option<IReferenceTrackerTarget>) -> windows_core::Result<()>;
-    fn AddMemoryPressure(&self, bytesallocated: super::UINT64) -> windows_core::Result<()>;
-    fn RemoveMemoryPressure(&self, bytesallocated: super::UINT64) -> windows_core::Result<()>;
+    fn DisconnectUnusedReferenceSources(&self, options: XAML_REFERENCETRACKER_DISCONNECT) -> windows_core::HRESULT;
+    fn ReleaseDisconnectedReferenceSources(&self) -> windows_core::HRESULT;
+    fn NotifyEndOfReferenceTrackingOnThread(&self) -> windows_core::HRESULT;
+    fn GetTrackerTarget(&self, unknown: windows_core::Ref<windows_core::IUnknown>, newreference: *mut Option<IReferenceTrackerTarget>) -> windows_core::HRESULT;
+    fn AddMemoryPressure(&self, bytesallocated: super::UINT64) -> windows_core::HRESULT;
+    fn RemoveMemoryPressure(&self, bytesallocated: super::UINT64) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IReferenceTrackerHost_Vtbl {
@@ -217,37 +217,37 @@ impl IReferenceTrackerHost_Vtbl {
         unsafe extern "system" fn DisconnectUnusedReferenceSources<Identity: IReferenceTrackerHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: XAML_REFERENCETRACKER_DISCONNECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IReferenceTrackerHost_Impl::DisconnectUnusedReferenceSources(this, core::mem::transmute_copy(&options)).into()
+                IReferenceTrackerHost_Impl::DisconnectUnusedReferenceSources(this, core::mem::transmute_copy(&options))
             }
         }
         unsafe extern "system" fn ReleaseDisconnectedReferenceSources<Identity: IReferenceTrackerHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IReferenceTrackerHost_Impl::ReleaseDisconnectedReferenceSources(this).into()
+                IReferenceTrackerHost_Impl::ReleaseDisconnectedReferenceSources(this)
             }
         }
         unsafe extern "system" fn NotifyEndOfReferenceTrackingOnThread<Identity: IReferenceTrackerHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IReferenceTrackerHost_Impl::NotifyEndOfReferenceTrackingOnThread(this).into()
+                IReferenceTrackerHost_Impl::NotifyEndOfReferenceTrackingOnThread(this)
             }
         }
         unsafe extern "system" fn GetTrackerTarget<Identity: IReferenceTrackerHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unknown: *mut core::ffi::c_void, newreference: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IReferenceTrackerHost_Impl::GetTrackerTarget(this, core::mem::transmute_copy(&unknown), core::mem::transmute_copy(&newreference)).into()
+                IReferenceTrackerHost_Impl::GetTrackerTarget(this, core::mem::transmute_copy(&unknown), core::mem::transmute_copy(&newreference))
             }
         }
         unsafe extern "system" fn AddMemoryPressure<Identity: IReferenceTrackerHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bytesallocated: super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IReferenceTrackerHost_Impl::AddMemoryPressure(this, core::mem::transmute_copy(&bytesallocated)).into()
+                IReferenceTrackerHost_Impl::AddMemoryPressure(this, core::mem::transmute_copy(&bytesallocated))
             }
         }
         unsafe extern "system" fn RemoveMemoryPressure<Identity: IReferenceTrackerHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bytesallocated: super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IReferenceTrackerHost_Impl::RemoveMemoryPressure(this, core::mem::transmute_copy(&bytesallocated)).into()
+                IReferenceTrackerHost_Impl::RemoveMemoryPressure(this, core::mem::transmute_copy(&bytesallocated))
             }
         }
         Self {
@@ -300,10 +300,10 @@ pub struct IReferenceTrackerManager_Vtbl {
 }
 #[cfg(feature = "rpc")]
 pub trait IReferenceTrackerManager_Impl: windows_core::IUnknownImpl {
-    fn ReferenceTrackingStarted(&self) -> windows_core::Result<()>;
-    fn FindTrackerTargetsCompleted(&self, findfailed: super::boolean) -> windows_core::Result<()>;
-    fn ReferenceTrackingCompleted(&self) -> windows_core::Result<()>;
-    fn SetReferenceTrackerHost(&self, value: windows_core::Ref<IReferenceTrackerHost>) -> windows_core::Result<()>;
+    fn ReferenceTrackingStarted(&self) -> windows_core::HRESULT;
+    fn FindTrackerTargetsCompleted(&self, findfailed: super::boolean) -> windows_core::HRESULT;
+    fn ReferenceTrackingCompleted(&self) -> windows_core::HRESULT;
+    fn SetReferenceTrackerHost(&self, value: windows_core::Ref<IReferenceTrackerHost>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "rpc")]
 impl IReferenceTrackerManager_Vtbl {
@@ -311,25 +311,25 @@ impl IReferenceTrackerManager_Vtbl {
         unsafe extern "system" fn ReferenceTrackingStarted<Identity: IReferenceTrackerManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IReferenceTrackerManager_Impl::ReferenceTrackingStarted(this).into()
+                IReferenceTrackerManager_Impl::ReferenceTrackingStarted(this)
             }
         }
         unsafe extern "system" fn FindTrackerTargetsCompleted<Identity: IReferenceTrackerManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, findfailed: super::boolean) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IReferenceTrackerManager_Impl::FindTrackerTargetsCompleted(this, core::mem::transmute_copy(&findfailed)).into()
+                IReferenceTrackerManager_Impl::FindTrackerTargetsCompleted(this, core::mem::transmute_copy(&findfailed))
             }
         }
         unsafe extern "system" fn ReferenceTrackingCompleted<Identity: IReferenceTrackerManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IReferenceTrackerManager_Impl::ReferenceTrackingCompleted(this).into()
+                IReferenceTrackerManager_Impl::ReferenceTrackingCompleted(this)
             }
         }
         unsafe extern "system" fn SetReferenceTrackerHost<Identity: IReferenceTrackerManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IReferenceTrackerManager_Impl::SetReferenceTrackerHost(this, core::mem::transmute_copy(&value)).into()
+                IReferenceTrackerManager_Impl::SetReferenceTrackerHost(this, core::mem::transmute_copy(&value))
             }
         }
         Self {
@@ -383,8 +383,8 @@ pub struct IReferenceTrackerTarget_Vtbl {
 pub trait IReferenceTrackerTarget_Impl: windows_core::IUnknownImpl {
     fn AddRefFromReferenceTracker(&self) -> super::ULONG;
     fn ReleaseFromReferenceTracker(&self) -> super::ULONG;
-    fn Peg(&self) -> windows_core::Result<()>;
-    fn Unpeg(&self) -> windows_core::Result<()>;
+    fn Peg(&self) -> windows_core::HRESULT;
+    fn Unpeg(&self) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IReferenceTrackerTarget_Vtbl {
@@ -404,13 +404,13 @@ impl IReferenceTrackerTarget_Vtbl {
         unsafe extern "system" fn Peg<Identity: IReferenceTrackerTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IReferenceTrackerTarget_Impl::Peg(this).into()
+                IReferenceTrackerTarget_Impl::Peg(this)
             }
         }
         unsafe extern "system" fn Unpeg<Identity: IReferenceTrackerTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IReferenceTrackerTarget_Impl::Unpeg(this).into()
+                IReferenceTrackerTarget_Impl::Unpeg(this)
             }
         }
         Self {
@@ -465,8 +465,8 @@ pub struct ITrackerOwner_Vtbl {
 #[cfg(feature = "rpc")]
 pub trait ITrackerOwner_Impl: windows_core::IUnknownImpl {
     fn CreateTrackerHandle(&self) -> windows_core::Result<TrackerHandle>;
-    fn DeleteTrackerHandle(&self, handle: TrackerHandle) -> windows_core::Result<()>;
-    fn SetTrackerValue(&self, handle: TrackerHandle, value: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn DeleteTrackerHandle(&self, handle: TrackerHandle) -> windows_core::HRESULT;
+    fn SetTrackerValue(&self, handle: TrackerHandle, value: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
     fn TryGetSafeTrackerValue(&self, handle: TrackerHandle, returnvalue: windows_core::OutRef<windows_core::IUnknown>) -> super::boolean;
 }
 #[cfg(feature = "rpc")]
@@ -490,13 +490,13 @@ impl ITrackerOwner_Vtbl {
         unsafe extern "system" fn DeleteTrackerHandle<Identity: ITrackerOwner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: TrackerHandle) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITrackerOwner_Impl::DeleteTrackerHandle(this, core::mem::transmute_copy(&handle)).into()
+                ITrackerOwner_Impl::DeleteTrackerHandle(this, core::mem::transmute_copy(&handle))
             }
         }
         unsafe extern "system" fn SetTrackerValue<Identity: ITrackerOwner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: TrackerHandle, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITrackerOwner_Impl::SetTrackerValue(this, core::mem::transmute_copy(&handle), core::mem::transmute_copy(&value)).into()
+                ITrackerOwner_Impl::SetTrackerValue(this, core::mem::transmute_copy(&handle), core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn TryGetSafeTrackerValue<Identity: ITrackerOwner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: TrackerHandle, returnvalue: *mut *mut core::ffi::c_void) -> super::boolean {

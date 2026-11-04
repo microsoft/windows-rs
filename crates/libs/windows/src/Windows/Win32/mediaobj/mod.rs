@@ -82,9 +82,9 @@ pub struct IDMOQualityControl_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IDMOQualityControl_Impl: windows_core::IUnknownImpl {
-    fn SetNow(&self, rtnow: super::REFERENCE_TIME) -> windows_core::Result<()>;
-    fn SetStatus(&self, dwflags: super::DWORD) -> windows_core::Result<()>;
-    fn GetStatus(&self, pdwflags: *mut super::DWORD) -> windows_core::Result<()>;
+    fn SetNow(&self, rtnow: super::REFERENCE_TIME) -> windows_core::HRESULT;
+    fn SetStatus(&self, dwflags: super::DWORD) -> windows_core::HRESULT;
+    fn GetStatus(&self, pdwflags: *mut super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IDMOQualityControl_Vtbl {
@@ -92,19 +92,19 @@ impl IDMOQualityControl_Vtbl {
         unsafe extern "system" fn SetNow<Identity: IDMOQualityControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rtnow: super::REFERENCE_TIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDMOQualityControl_Impl::SetNow(this, core::mem::transmute_copy(&rtnow)).into()
+                IDMOQualityControl_Impl::SetNow(this, core::mem::transmute_copy(&rtnow))
             }
         }
         unsafe extern "system" fn SetStatus<Identity: IDMOQualityControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDMOQualityControl_Impl::SetStatus(this, core::mem::transmute_copy(&dwflags)).into()
+                IDMOQualityControl_Impl::SetStatus(this, core::mem::transmute_copy(&dwflags))
             }
         }
         unsafe extern "system" fn GetStatus<Identity: IDMOQualityControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwflags: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDMOQualityControl_Impl::GetStatus(this, core::mem::transmute_copy(&pdwflags)).into()
+                IDMOQualityControl_Impl::GetStatus(this, core::mem::transmute_copy(&pdwflags))
             }
         }
         Self {
@@ -163,10 +163,10 @@ pub struct IDMOVideoOutputOptimizations_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IDMOVideoOutputOptimizations_Impl: windows_core::IUnknownImpl {
-    fn QueryOperationModePreferences(&self, uloutputstreamindex: super::ULONG, pdwrequestedcapabilities: *mut super::DWORD) -> windows_core::Result<()>;
-    fn SetOperationMode(&self, uloutputstreamindex: super::ULONG, dwenabledfeatures: super::DWORD) -> windows_core::Result<()>;
-    fn GetCurrentOperationMode(&self, uloutputstreamindex: super::ULONG, pdwenabledfeatures: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetCurrentSampleRequirements(&self, uloutputstreamindex: super::ULONG, pdwrequestedfeatures: *mut super::DWORD) -> windows_core::Result<()>;
+    fn QueryOperationModePreferences(&self, uloutputstreamindex: super::ULONG, pdwrequestedcapabilities: *mut super::DWORD) -> windows_core::HRESULT;
+    fn SetOperationMode(&self, uloutputstreamindex: super::ULONG, dwenabledfeatures: super::DWORD) -> windows_core::HRESULT;
+    fn GetCurrentOperationMode(&self, uloutputstreamindex: super::ULONG, pdwenabledfeatures: *mut super::DWORD) -> windows_core::HRESULT;
+    fn GetCurrentSampleRequirements(&self, uloutputstreamindex: super::ULONG, pdwrequestedfeatures: *mut super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IDMOVideoOutputOptimizations_Vtbl {
@@ -174,25 +174,25 @@ impl IDMOVideoOutputOptimizations_Vtbl {
         unsafe extern "system" fn QueryOperationModePreferences<Identity: IDMOVideoOutputOptimizations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uloutputstreamindex: super::ULONG, pdwrequestedcapabilities: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDMOVideoOutputOptimizations_Impl::QueryOperationModePreferences(this, core::mem::transmute_copy(&uloutputstreamindex), core::mem::transmute_copy(&pdwrequestedcapabilities)).into()
+                IDMOVideoOutputOptimizations_Impl::QueryOperationModePreferences(this, core::mem::transmute_copy(&uloutputstreamindex), core::mem::transmute_copy(&pdwrequestedcapabilities))
             }
         }
         unsafe extern "system" fn SetOperationMode<Identity: IDMOVideoOutputOptimizations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uloutputstreamindex: super::ULONG, dwenabledfeatures: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDMOVideoOutputOptimizations_Impl::SetOperationMode(this, core::mem::transmute_copy(&uloutputstreamindex), core::mem::transmute_copy(&dwenabledfeatures)).into()
+                IDMOVideoOutputOptimizations_Impl::SetOperationMode(this, core::mem::transmute_copy(&uloutputstreamindex), core::mem::transmute_copy(&dwenabledfeatures))
             }
         }
         unsafe extern "system" fn GetCurrentOperationMode<Identity: IDMOVideoOutputOptimizations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uloutputstreamindex: super::ULONG, pdwenabledfeatures: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDMOVideoOutputOptimizations_Impl::GetCurrentOperationMode(this, core::mem::transmute_copy(&uloutputstreamindex), core::mem::transmute_copy(&pdwenabledfeatures)).into()
+                IDMOVideoOutputOptimizations_Impl::GetCurrentOperationMode(this, core::mem::transmute_copy(&uloutputstreamindex), core::mem::transmute_copy(&pdwenabledfeatures))
             }
         }
         unsafe extern "system" fn GetCurrentSampleRequirements<Identity: IDMOVideoOutputOptimizations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uloutputstreamindex: super::ULONG, pdwrequestedfeatures: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDMOVideoOutputOptimizations_Impl::GetCurrentSampleRequirements(this, core::mem::transmute_copy(&uloutputstreamindex), core::mem::transmute_copy(&pdwrequestedfeatures)).into()
+                IDMOVideoOutputOptimizations_Impl::GetCurrentSampleRequirements(this, core::mem::transmute_copy(&uloutputstreamindex), core::mem::transmute_copy(&pdwrequestedfeatures))
             }
         }
         Self {
@@ -244,10 +244,10 @@ pub struct IEnumDMO_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait IEnumDMO_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, citemstofetch: super::DWORD, pclsid: *mut super::CLSID, names: *mut windows_core::PWSTR, pcitemsfetched: *mut super::DWORD) -> windows_core::Result<()>;
-    fn Skip(&self, citemstoskip: super::DWORD) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self, ppenum: windows_core::OutRef<IEnumDMO>) -> windows_core::Result<()>;
+    fn Next(&self, citemstofetch: super::DWORD, pclsid: *mut super::CLSID, names: *mut windows_core::PWSTR, pcitemsfetched: *mut super::DWORD) -> windows_core::HRESULT;
+    fn Skip(&self, citemstoskip: super::DWORD) -> windows_core::HRESULT;
+    fn Reset(&self) -> windows_core::HRESULT;
+    fn Clone(&self, ppenum: windows_core::OutRef<IEnumDMO>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 impl IEnumDMO_Vtbl {
@@ -255,25 +255,25 @@ impl IEnumDMO_Vtbl {
         unsafe extern "system" fn Next<Identity: IEnumDMO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, citemstofetch: super::DWORD, pclsid: *mut super::CLSID, names: *mut windows_core::PWSTR, pcitemsfetched: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumDMO_Impl::Next(this, core::mem::transmute_copy(&citemstofetch), core::mem::transmute_copy(&pclsid), core::mem::transmute_copy(&names), core::mem::transmute_copy(&pcitemsfetched)).into()
+                IEnumDMO_Impl::Next(this, core::mem::transmute_copy(&citemstofetch), core::mem::transmute_copy(&pclsid), core::mem::transmute_copy(&names), core::mem::transmute_copy(&pcitemsfetched))
             }
         }
         unsafe extern "system" fn Skip<Identity: IEnumDMO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, citemstoskip: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumDMO_Impl::Skip(this, core::mem::transmute_copy(&citemstoskip)).into()
+                IEnumDMO_Impl::Skip(this, core::mem::transmute_copy(&citemstoskip))
             }
         }
         unsafe extern "system" fn Reset<Identity: IEnumDMO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumDMO_Impl::Reset(this).into()
+                IEnumDMO_Impl::Reset(this)
             }
         }
         unsafe extern "system" fn Clone<Identity: IEnumDMO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumDMO_Impl::Clone(this, core::mem::transmute_copy(&ppenum)).into()
+                IEnumDMO_Impl::Clone(this, core::mem::transmute_copy(&ppenum))
             }
         }
         Self {
@@ -325,9 +325,9 @@ pub struct IMediaBuffer_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IMediaBuffer_Impl: windows_core::IUnknownImpl {
-    fn SetLength(&self, cblength: super::DWORD) -> windows_core::Result<()>;
-    fn GetMaxLength(&self, pcbmaxlength: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetBufferAndLength(&self, ppbuffer: *mut *mut super::BYTE, pcblength: *mut super::DWORD) -> windows_core::Result<()>;
+    fn SetLength(&self, cblength: super::DWORD) -> windows_core::HRESULT;
+    fn GetMaxLength(&self, pcbmaxlength: *mut super::DWORD) -> windows_core::HRESULT;
+    fn GetBufferAndLength(&self, ppbuffer: *mut *mut super::BYTE, pcblength: *mut super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IMediaBuffer_Vtbl {
@@ -335,19 +335,19 @@ impl IMediaBuffer_Vtbl {
         unsafe extern "system" fn SetLength<Identity: IMediaBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cblength: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaBuffer_Impl::SetLength(this, core::mem::transmute_copy(&cblength)).into()
+                IMediaBuffer_Impl::SetLength(this, core::mem::transmute_copy(&cblength))
             }
         }
         unsafe extern "system" fn GetMaxLength<Identity: IMediaBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbmaxlength: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaBuffer_Impl::GetMaxLength(this, core::mem::transmute_copy(&pcbmaxlength)).into()
+                IMediaBuffer_Impl::GetMaxLength(this, core::mem::transmute_copy(&pcbmaxlength))
             }
         }
         unsafe extern "system" fn GetBufferAndLength<Identity: IMediaBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppbuffer: *mut *mut super::BYTE, pcblength: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaBuffer_Impl::GetBufferAndLength(this, core::mem::transmute_copy(&ppbuffer), core::mem::transmute_copy(&pcblength)).into()
+                IMediaBuffer_Impl::GetBufferAndLength(this, core::mem::transmute_copy(&ppbuffer), core::mem::transmute_copy(&pcblength))
             }
         }
         Self {
@@ -533,27 +533,27 @@ pub struct IMediaObject_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IMediaObject_Impl: windows_core::IUnknownImpl {
-    fn GetStreamCount(&self, pcinputstreams: *mut super::DWORD, pcoutputstreams: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetInputStreamInfo(&self, dwinputstreamindex: super::DWORD, pdwflags: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetOutputStreamInfo(&self, dwoutputstreamindex: super::DWORD, pdwflags: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetInputType(&self, dwinputstreamindex: super::DWORD, dwtypeindex: super::DWORD, pmt: *mut DMO_MEDIA_TYPE) -> windows_core::Result<()>;
-    fn GetOutputType(&self, dwoutputstreamindex: super::DWORD, dwtypeindex: super::DWORD, pmt: *mut DMO_MEDIA_TYPE) -> windows_core::Result<()>;
-    fn SetInputType(&self, dwinputstreamindex: super::DWORD, pmt: *const DMO_MEDIA_TYPE, dwflags: super::DWORD) -> windows_core::Result<()>;
-    fn SetOutputType(&self, dwoutputstreamindex: super::DWORD, pmt: *const DMO_MEDIA_TYPE, dwflags: super::DWORD) -> windows_core::Result<()>;
-    fn GetInputCurrentType(&self, dwinputstreamindex: super::DWORD, pmt: *mut DMO_MEDIA_TYPE) -> windows_core::Result<()>;
-    fn GetOutputCurrentType(&self, dwoutputstreamindex: super::DWORD, pmt: *mut DMO_MEDIA_TYPE) -> windows_core::Result<()>;
-    fn GetInputSizeInfo(&self, dwinputstreamindex: super::DWORD, pcbsize: *mut super::DWORD, pcbmaxlookahead: *mut super::DWORD, pcbalignment: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetOutputSizeInfo(&self, dwoutputstreamindex: super::DWORD, pcbsize: *mut super::DWORD, pcbalignment: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetInputMaxLatency(&self, dwinputstreamindex: super::DWORD, prtmaxlatency: *mut super::REFERENCE_TIME) -> windows_core::Result<()>;
-    fn SetInputMaxLatency(&self, dwinputstreamindex: super::DWORD, rtmaxlatency: super::REFERENCE_TIME) -> windows_core::Result<()>;
-    fn Flush(&self) -> windows_core::Result<()>;
-    fn Discontinuity(&self, dwinputstreamindex: super::DWORD) -> windows_core::Result<()>;
-    fn AllocateStreamingResources(&self) -> windows_core::Result<()>;
-    fn FreeStreamingResources(&self) -> windows_core::Result<()>;
-    fn GetInputStatus(&self, dwinputstreamindex: super::DWORD, dwflags: *mut super::DWORD) -> windows_core::Result<()>;
-    fn ProcessInput(&self, dwinputstreamindex: super::DWORD, pbuffer: windows_core::Ref<IMediaBuffer>, dwflags: super::DWORD, rttimestamp: super::REFERENCE_TIME, rttimelength: super::REFERENCE_TIME) -> windows_core::Result<()>;
-    fn ProcessOutput(&self, dwflags: super::DWORD, coutputbuffercount: super::DWORD, poutputbuffers: *mut DMO_OUTPUT_DATA_BUFFER, pdwstatus: *mut super::DWORD) -> windows_core::Result<()>;
-    fn Lock(&self, block: super::LONG) -> windows_core::Result<()>;
+    fn GetStreamCount(&self, pcinputstreams: *mut super::DWORD, pcoutputstreams: *mut super::DWORD) -> windows_core::HRESULT;
+    fn GetInputStreamInfo(&self, dwinputstreamindex: super::DWORD, pdwflags: *mut super::DWORD) -> windows_core::HRESULT;
+    fn GetOutputStreamInfo(&self, dwoutputstreamindex: super::DWORD, pdwflags: *mut super::DWORD) -> windows_core::HRESULT;
+    fn GetInputType(&self, dwinputstreamindex: super::DWORD, dwtypeindex: super::DWORD, pmt: *mut DMO_MEDIA_TYPE) -> windows_core::HRESULT;
+    fn GetOutputType(&self, dwoutputstreamindex: super::DWORD, dwtypeindex: super::DWORD, pmt: *mut DMO_MEDIA_TYPE) -> windows_core::HRESULT;
+    fn SetInputType(&self, dwinputstreamindex: super::DWORD, pmt: *const DMO_MEDIA_TYPE, dwflags: super::DWORD) -> windows_core::HRESULT;
+    fn SetOutputType(&self, dwoutputstreamindex: super::DWORD, pmt: *const DMO_MEDIA_TYPE, dwflags: super::DWORD) -> windows_core::HRESULT;
+    fn GetInputCurrentType(&self, dwinputstreamindex: super::DWORD, pmt: *mut DMO_MEDIA_TYPE) -> windows_core::HRESULT;
+    fn GetOutputCurrentType(&self, dwoutputstreamindex: super::DWORD, pmt: *mut DMO_MEDIA_TYPE) -> windows_core::HRESULT;
+    fn GetInputSizeInfo(&self, dwinputstreamindex: super::DWORD, pcbsize: *mut super::DWORD, pcbmaxlookahead: *mut super::DWORD, pcbalignment: *mut super::DWORD) -> windows_core::HRESULT;
+    fn GetOutputSizeInfo(&self, dwoutputstreamindex: super::DWORD, pcbsize: *mut super::DWORD, pcbalignment: *mut super::DWORD) -> windows_core::HRESULT;
+    fn GetInputMaxLatency(&self, dwinputstreamindex: super::DWORD, prtmaxlatency: *mut super::REFERENCE_TIME) -> windows_core::HRESULT;
+    fn SetInputMaxLatency(&self, dwinputstreamindex: super::DWORD, rtmaxlatency: super::REFERENCE_TIME) -> windows_core::HRESULT;
+    fn Flush(&self) -> windows_core::HRESULT;
+    fn Discontinuity(&self, dwinputstreamindex: super::DWORD) -> windows_core::HRESULT;
+    fn AllocateStreamingResources(&self) -> windows_core::HRESULT;
+    fn FreeStreamingResources(&self) -> windows_core::HRESULT;
+    fn GetInputStatus(&self, dwinputstreamindex: super::DWORD, dwflags: *mut super::DWORD) -> windows_core::HRESULT;
+    fn ProcessInput(&self, dwinputstreamindex: super::DWORD, pbuffer: windows_core::Ref<IMediaBuffer>, dwflags: super::DWORD, rttimestamp: super::REFERENCE_TIME, rttimelength: super::REFERENCE_TIME) -> windows_core::HRESULT;
+    fn ProcessOutput(&self, dwflags: super::DWORD, coutputbuffercount: super::DWORD, poutputbuffers: *mut DMO_OUTPUT_DATA_BUFFER, pdwstatus: *mut super::DWORD) -> windows_core::HRESULT;
+    fn Lock(&self, block: super::LONG) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IMediaObject_Vtbl {
@@ -561,127 +561,127 @@ impl IMediaObject_Vtbl {
         unsafe extern "system" fn GetStreamCount<Identity: IMediaObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcinputstreams: *mut super::DWORD, pcoutputstreams: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaObject_Impl::GetStreamCount(this, core::mem::transmute_copy(&pcinputstreams), core::mem::transmute_copy(&pcoutputstreams)).into()
+                IMediaObject_Impl::GetStreamCount(this, core::mem::transmute_copy(&pcinputstreams), core::mem::transmute_copy(&pcoutputstreams))
             }
         }
         unsafe extern "system" fn GetInputStreamInfo<Identity: IMediaObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinputstreamindex: super::DWORD, pdwflags: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaObject_Impl::GetInputStreamInfo(this, core::mem::transmute_copy(&dwinputstreamindex), core::mem::transmute_copy(&pdwflags)).into()
+                IMediaObject_Impl::GetInputStreamInfo(this, core::mem::transmute_copy(&dwinputstreamindex), core::mem::transmute_copy(&pdwflags))
             }
         }
         unsafe extern "system" fn GetOutputStreamInfo<Identity: IMediaObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwoutputstreamindex: super::DWORD, pdwflags: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaObject_Impl::GetOutputStreamInfo(this, core::mem::transmute_copy(&dwoutputstreamindex), core::mem::transmute_copy(&pdwflags)).into()
+                IMediaObject_Impl::GetOutputStreamInfo(this, core::mem::transmute_copy(&dwoutputstreamindex), core::mem::transmute_copy(&pdwflags))
             }
         }
         unsafe extern "system" fn GetInputType<Identity: IMediaObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinputstreamindex: super::DWORD, dwtypeindex: super::DWORD, pmt: *mut DMO_MEDIA_TYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaObject_Impl::GetInputType(this, core::mem::transmute_copy(&dwinputstreamindex), core::mem::transmute_copy(&dwtypeindex), core::mem::transmute_copy(&pmt)).into()
+                IMediaObject_Impl::GetInputType(this, core::mem::transmute_copy(&dwinputstreamindex), core::mem::transmute_copy(&dwtypeindex), core::mem::transmute_copy(&pmt))
             }
         }
         unsafe extern "system" fn GetOutputType<Identity: IMediaObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwoutputstreamindex: super::DWORD, dwtypeindex: super::DWORD, pmt: *mut DMO_MEDIA_TYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaObject_Impl::GetOutputType(this, core::mem::transmute_copy(&dwoutputstreamindex), core::mem::transmute_copy(&dwtypeindex), core::mem::transmute_copy(&pmt)).into()
+                IMediaObject_Impl::GetOutputType(this, core::mem::transmute_copy(&dwoutputstreamindex), core::mem::transmute_copy(&dwtypeindex), core::mem::transmute_copy(&pmt))
             }
         }
         unsafe extern "system" fn SetInputType<Identity: IMediaObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinputstreamindex: super::DWORD, pmt: *const DMO_MEDIA_TYPE, dwflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaObject_Impl::SetInputType(this, core::mem::transmute_copy(&dwinputstreamindex), core::mem::transmute_copy(&pmt), core::mem::transmute_copy(&dwflags)).into()
+                IMediaObject_Impl::SetInputType(this, core::mem::transmute_copy(&dwinputstreamindex), core::mem::transmute_copy(&pmt), core::mem::transmute_copy(&dwflags))
             }
         }
         unsafe extern "system" fn SetOutputType<Identity: IMediaObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwoutputstreamindex: super::DWORD, pmt: *const DMO_MEDIA_TYPE, dwflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaObject_Impl::SetOutputType(this, core::mem::transmute_copy(&dwoutputstreamindex), core::mem::transmute_copy(&pmt), core::mem::transmute_copy(&dwflags)).into()
+                IMediaObject_Impl::SetOutputType(this, core::mem::transmute_copy(&dwoutputstreamindex), core::mem::transmute_copy(&pmt), core::mem::transmute_copy(&dwflags))
             }
         }
         unsafe extern "system" fn GetInputCurrentType<Identity: IMediaObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinputstreamindex: super::DWORD, pmt: *mut DMO_MEDIA_TYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaObject_Impl::GetInputCurrentType(this, core::mem::transmute_copy(&dwinputstreamindex), core::mem::transmute_copy(&pmt)).into()
+                IMediaObject_Impl::GetInputCurrentType(this, core::mem::transmute_copy(&dwinputstreamindex), core::mem::transmute_copy(&pmt))
             }
         }
         unsafe extern "system" fn GetOutputCurrentType<Identity: IMediaObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwoutputstreamindex: super::DWORD, pmt: *mut DMO_MEDIA_TYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaObject_Impl::GetOutputCurrentType(this, core::mem::transmute_copy(&dwoutputstreamindex), core::mem::transmute_copy(&pmt)).into()
+                IMediaObject_Impl::GetOutputCurrentType(this, core::mem::transmute_copy(&dwoutputstreamindex), core::mem::transmute_copy(&pmt))
             }
         }
         unsafe extern "system" fn GetInputSizeInfo<Identity: IMediaObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinputstreamindex: super::DWORD, pcbsize: *mut super::DWORD, pcbmaxlookahead: *mut super::DWORD, pcbalignment: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaObject_Impl::GetInputSizeInfo(this, core::mem::transmute_copy(&dwinputstreamindex), core::mem::transmute_copy(&pcbsize), core::mem::transmute_copy(&pcbmaxlookahead), core::mem::transmute_copy(&pcbalignment)).into()
+                IMediaObject_Impl::GetInputSizeInfo(this, core::mem::transmute_copy(&dwinputstreamindex), core::mem::transmute_copy(&pcbsize), core::mem::transmute_copy(&pcbmaxlookahead), core::mem::transmute_copy(&pcbalignment))
             }
         }
         unsafe extern "system" fn GetOutputSizeInfo<Identity: IMediaObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwoutputstreamindex: super::DWORD, pcbsize: *mut super::DWORD, pcbalignment: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaObject_Impl::GetOutputSizeInfo(this, core::mem::transmute_copy(&dwoutputstreamindex), core::mem::transmute_copy(&pcbsize), core::mem::transmute_copy(&pcbalignment)).into()
+                IMediaObject_Impl::GetOutputSizeInfo(this, core::mem::transmute_copy(&dwoutputstreamindex), core::mem::transmute_copy(&pcbsize), core::mem::transmute_copy(&pcbalignment))
             }
         }
         unsafe extern "system" fn GetInputMaxLatency<Identity: IMediaObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinputstreamindex: super::DWORD, prtmaxlatency: *mut super::REFERENCE_TIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaObject_Impl::GetInputMaxLatency(this, core::mem::transmute_copy(&dwinputstreamindex), core::mem::transmute_copy(&prtmaxlatency)).into()
+                IMediaObject_Impl::GetInputMaxLatency(this, core::mem::transmute_copy(&dwinputstreamindex), core::mem::transmute_copy(&prtmaxlatency))
             }
         }
         unsafe extern "system" fn SetInputMaxLatency<Identity: IMediaObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinputstreamindex: super::DWORD, rtmaxlatency: super::REFERENCE_TIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaObject_Impl::SetInputMaxLatency(this, core::mem::transmute_copy(&dwinputstreamindex), core::mem::transmute_copy(&rtmaxlatency)).into()
+                IMediaObject_Impl::SetInputMaxLatency(this, core::mem::transmute_copy(&dwinputstreamindex), core::mem::transmute_copy(&rtmaxlatency))
             }
         }
         unsafe extern "system" fn Flush<Identity: IMediaObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaObject_Impl::Flush(this).into()
+                IMediaObject_Impl::Flush(this)
             }
         }
         unsafe extern "system" fn Discontinuity<Identity: IMediaObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinputstreamindex: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaObject_Impl::Discontinuity(this, core::mem::transmute_copy(&dwinputstreamindex)).into()
+                IMediaObject_Impl::Discontinuity(this, core::mem::transmute_copy(&dwinputstreamindex))
             }
         }
         unsafe extern "system" fn AllocateStreamingResources<Identity: IMediaObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaObject_Impl::AllocateStreamingResources(this).into()
+                IMediaObject_Impl::AllocateStreamingResources(this)
             }
         }
         unsafe extern "system" fn FreeStreamingResources<Identity: IMediaObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaObject_Impl::FreeStreamingResources(this).into()
+                IMediaObject_Impl::FreeStreamingResources(this)
             }
         }
         unsafe extern "system" fn GetInputStatus<Identity: IMediaObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinputstreamindex: super::DWORD, dwflags: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaObject_Impl::GetInputStatus(this, core::mem::transmute_copy(&dwinputstreamindex), core::mem::transmute_copy(&dwflags)).into()
+                IMediaObject_Impl::GetInputStatus(this, core::mem::transmute_copy(&dwinputstreamindex), core::mem::transmute_copy(&dwflags))
             }
         }
         unsafe extern "system" fn ProcessInput<Identity: IMediaObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinputstreamindex: super::DWORD, pbuffer: *mut core::ffi::c_void, dwflags: super::DWORD, rttimestamp: super::REFERENCE_TIME, rttimelength: super::REFERENCE_TIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaObject_Impl::ProcessInput(this, core::mem::transmute_copy(&dwinputstreamindex), core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&rttimestamp), core::mem::transmute_copy(&rttimelength)).into()
+                IMediaObject_Impl::ProcessInput(this, core::mem::transmute_copy(&dwinputstreamindex), core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&rttimestamp), core::mem::transmute_copy(&rttimelength))
             }
         }
         unsafe extern "system" fn ProcessOutput<Identity: IMediaObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD, coutputbuffercount: super::DWORD, poutputbuffers: *mut DMO_OUTPUT_DATA_BUFFER, pdwstatus: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaObject_Impl::ProcessOutput(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&coutputbuffercount), core::mem::transmute_copy(&poutputbuffers), core::mem::transmute_copy(&pdwstatus)).into()
+                IMediaObject_Impl::ProcessOutput(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&coutputbuffercount), core::mem::transmute_copy(&poutputbuffers), core::mem::transmute_copy(&pdwstatus))
             }
         }
         unsafe extern "system" fn Lock<Identity: IMediaObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, block: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaObject_Impl::Lock(this, core::mem::transmute_copy(&block)).into()
+                IMediaObject_Impl::Lock(this, core::mem::transmute_copy(&block))
             }
         }
         Self {
@@ -746,9 +746,9 @@ pub struct IMediaObjectInPlace_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IMediaObjectInPlace_Impl: windows_core::IUnknownImpl {
-    fn Process(&self, ulsize: super::ULONG, pdata: *mut super::BYTE, reftimestart: super::REFERENCE_TIME, dwflags: super::DWORD) -> windows_core::Result<()>;
-    fn Clone(&self, ppmediaobject: windows_core::OutRef<IMediaObjectInPlace>) -> windows_core::Result<()>;
-    fn GetLatency(&self, platencytime: *mut super::REFERENCE_TIME) -> windows_core::Result<()>;
+    fn Process(&self, ulsize: super::ULONG, pdata: *mut super::BYTE, reftimestart: super::REFERENCE_TIME, dwflags: super::DWORD) -> windows_core::HRESULT;
+    fn Clone(&self, ppmediaobject: windows_core::OutRef<IMediaObjectInPlace>) -> windows_core::HRESULT;
+    fn GetLatency(&self, platencytime: *mut super::REFERENCE_TIME) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IMediaObjectInPlace_Vtbl {
@@ -756,19 +756,19 @@ impl IMediaObjectInPlace_Vtbl {
         unsafe extern "system" fn Process<Identity: IMediaObjectInPlace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulsize: super::ULONG, pdata: *mut super::BYTE, reftimestart: super::REFERENCE_TIME, dwflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaObjectInPlace_Impl::Process(this, core::mem::transmute_copy(&ulsize), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&reftimestart), core::mem::transmute_copy(&dwflags)).into()
+                IMediaObjectInPlace_Impl::Process(this, core::mem::transmute_copy(&ulsize), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&reftimestart), core::mem::transmute_copy(&dwflags))
             }
         }
         unsafe extern "system" fn Clone<Identity: IMediaObjectInPlace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppmediaobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaObjectInPlace_Impl::Clone(this, core::mem::transmute_copy(&ppmediaobject)).into()
+                IMediaObjectInPlace_Impl::Clone(this, core::mem::transmute_copy(&ppmediaobject))
             }
         }
         unsafe extern "system" fn GetLatency<Identity: IMediaObjectInPlace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, platencytime: *mut super::REFERENCE_TIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaObjectInPlace_Impl::GetLatency(this, core::mem::transmute_copy(&platencytime)).into()
+                IMediaObjectInPlace_Impl::GetLatency(this, core::mem::transmute_copy(&platencytime))
             }
         }
         Self {

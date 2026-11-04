@@ -254,11 +254,18 @@ Metadata facts do not by themselves authorize a wrapper transformation:
 | `buffer` | Keep native pointers and separate counts; block scalar-result and COM-query transformations on the buffer |
 | `incomplete` | Keep raw parameter storage, except borrowed interface values; block query or `retval` transformations on the parameter |
 | `retval` | Trailing output-only, non-optional, non-reserved pointer with no extent or `incomplete`; `HRESULT` becomes `Result<T>`, `void` becomes `T` |
+| `iid_is` | Output-only `void**` paired with an input-only `GUID*`, neither with an extent or `incomplete`; an `HRESULT` query can project to `Result<T>` without `retval` |
 | `opt` or `reserved` | Optional pointer/reference where the parameter projection supports it |
 
 Unspecified direction stays unspecified in metadata. Bindgen can still treat native types that
-expose no caller-writable storage as inputs. `HRESULT` calls without `retval` or query projection
-already return the raw status; COM implementation methods use `Result`.
+expose no caller-writable storage as inputs. Without eligible `retval` or query projection, both
+callers and native interface implementation methods return `HRESULT` and keep explicit output
+parameters. Implementations can return `S_FALSE` or write outputs on failure without result conversion.
+
+An eligible `iid_is` query acts as an implicit result. Callers get `Result<T>`, or `Result<()>` with
+explicit storage when that storage is optional. Implementations keep the IID and output pointer
+and return `Result<()>`, since the requested interface type is selected at runtime. In/out pointers,
+buffers and incomplete contracts do not qualify. WinRT result projection is unchanged.
 
 Interface results lifted from output parameters use `Result<T>`, including COM queries. A successful
 call that supplies a null interface becomes `Err(Error::empty())`, whose code is `S_OK`. Direct

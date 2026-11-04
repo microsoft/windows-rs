@@ -4,13 +4,13 @@ use windows::{Win32::*, core::*};
 struct Reflection;
 
 impl ID3D12FunctionParameterReflection_Impl for Reflection {
-    fn GetDesc(&self, pdesc: *mut D3D12_PARAMETER_DESC) -> Result<()> {
+    fn GetDesc(&self, pdesc: *mut D3D12_PARAMETER_DESC) -> HRESULT {
         unsafe {
             *pdesc = D3D12_PARAMETER_DESC {
                 Name: s!("test"),
                 ..Default::default()
             };
-            Ok(())
+            S_OK
         }
     }
 }
@@ -24,10 +24,10 @@ impl Default for Variable {
 }
 
 impl ID3D10EffectBlendVariable_Impl for Variable {
-    fn GetBlendState(&self, _: u32, _: *mut Option<ID3D10BlendState>) -> Result<()> {
+    fn GetBlendState(&self, _: u32, _: *mut Option<ID3D10BlendState>) -> HRESULT {
         unimplemented!();
     }
-    fn GetBackingStore(&self, _: u32, _: *mut D3D10_BLEND_DESC) -> Result<()> {
+    fn GetBackingStore(&self, _: u32, _: *mut D3D10_BLEND_DESC) -> HRESULT {
         unimplemented!();
     }
 }
@@ -40,7 +40,7 @@ impl ID3D10EffectVariable_Impl for Variable {
     fn GetType(&self) -> Option<ID3D10EffectType> {
         unimplemented!();
     }
-    fn GetDesc(&self, _: *mut D3D10_EFFECT_VARIABLE_DESC) -> Result<()> {
+    fn GetDesc(&self, _: *mut D3D10_EFFECT_VARIABLE_DESC) -> HRESULT {
         unimplemented!();
     }
     fn GetAnnotationByIndex(&self, _: u32) -> Option<ID3D10EffectVariable> {
@@ -103,10 +103,10 @@ impl ID3D10EffectVariable_Impl for Variable {
     fn AsSampler(&self) -> Option<ID3D10EffectSamplerVariable> {
         unimplemented!();
     }
-    fn SetRawValue(&self, _: *const core::ffi::c_void, _: u32, _: u32) -> Result<()> {
+    fn SetRawValue(&self, _: *const core::ffi::c_void, _: u32, _: u32) -> HRESULT {
         unimplemented!();
     }
-    fn GetRawValue(&self, _: *mut core::ffi::c_void, _: u32, _: u32) -> Result<()> {
+    fn GetRawValue(&self, _: *mut core::ffi::c_void, _: u32, _: u32) -> HRESULT {
         unimplemented!();
     }
 }

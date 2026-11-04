@@ -242,24 +242,19 @@ fn query_id_is_not_a_guid_buffer() {
             self.Reference(count, filters, riid, result)
         }
 
-        fn BufferOnly(&self, _: u32, _: *const GUID, _: *mut *mut core::ffi::c_void) -> Result<()> {
+        fn BufferOnly(&self, _: u32, _: *const GUID, _: *mut *mut core::ffi::c_void) -> HRESULT {
             unreachable!()
         }
 
-        fn ByteBuffer(&self, _: u32, _: *const GUID, _: *mut *mut core::ffi::c_void) -> Result<()> {
+        fn ByteBuffer(&self, _: u32, _: *const GUID, _: *mut *mut core::ffi::c_void) -> HRESULT {
             unreachable!()
         }
 
-        fn FixedBuffer(&self, _: *const GUID, _: *mut *mut core::ffi::c_void) -> Result<()> {
+        fn FixedBuffer(&self, _: *const GUID, _: *mut *mut core::ffi::c_void) -> HRESULT {
             unreachable!()
         }
 
-        fn OutputBuffer(
-            &self,
-            _: *const GUID,
-            _: u32,
-            _: *mut *mut core::ffi::c_void,
-        ) -> Result<()> {
+        fn OutputBuffer(&self, _: *const GUID, _: u32, _: *mut *mut core::ffi::c_void) -> HRESULT {
             unreachable!()
         }
     }

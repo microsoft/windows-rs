@@ -17,7 +17,7 @@ pub struct ICreatePropBagOnRegKey_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "wtypesbase"))]
 pub trait ICreatePropBagOnRegKey_Impl: windows_core::IUnknownImpl {
-    fn Create(&self, hkey: super::HKEY, subkey: super::LPCOLESTR, uloptions: super::DWORD, samdesired: super::DWORD, iid: *const super::IID, ppbag: *mut super::LPVOID) -> windows_core::Result<()>;
+    fn Create(&self, hkey: super::HKEY, subkey: super::LPCOLESTR, uloptions: super::DWORD, samdesired: super::DWORD, iid: *const super::IID, ppbag: *mut super::LPVOID) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "wtypesbase"))]
 impl ICreatePropBagOnRegKey_Vtbl {
@@ -25,7 +25,7 @@ impl ICreatePropBagOnRegKey_Vtbl {
         unsafe extern "system" fn Create<Identity: ICreatePropBagOnRegKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hkey: super::HKEY, subkey: super::LPCOLESTR, uloptions: super::DWORD, samdesired: super::DWORD, iid: *const super::IID, ppbag: *mut super::LPVOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreatePropBagOnRegKey_Impl::Create(this, core::mem::transmute_copy(&hkey), core::mem::transmute_copy(&subkey), core::mem::transmute_copy(&uloptions), core::mem::transmute_copy(&samdesired), core::mem::transmute_copy(&iid), core::mem::transmute_copy(&ppbag)).into()
+                ICreatePropBagOnRegKey_Impl::Create(this, core::mem::transmute_copy(&hkey), core::mem::transmute_copy(&subkey), core::mem::transmute_copy(&uloptions), core::mem::transmute_copy(&samdesired), core::mem::transmute_copy(&iid), core::mem::transmute_copy(&ppbag))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Create: Create::<Identity, OFFSET> }

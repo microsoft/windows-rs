@@ -118,7 +118,7 @@ pub struct IDebugExtendedProperty_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDebugExtendedProperty_Impl: IDebugProperty_Impl {
-    fn GetExtendedPropertyInfo(&self, dwfieldspec: super::DWORD, nradix: super::UINT, pextendedpropertyinfo: *mut ExtendedDebugPropertyInfo) -> windows_core::Result<()>;
+    fn GetExtendedPropertyInfo(&self, dwfieldspec: super::DWORD, nradix: super::UINT, pextendedpropertyinfo: *mut ExtendedDebugPropertyInfo) -> windows_core::HRESULT;
     fn EnumExtendedMembers(&self, dwfieldspec: super::DWORD, nradix: super::UINT) -> windows_core::Result<IEnumDebugExtendedPropertyInfo>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -127,7 +127,7 @@ impl IDebugExtendedProperty_Vtbl {
         unsafe extern "system" fn GetExtendedPropertyInfo<Identity: IDebugExtendedProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwfieldspec: super::DWORD, nradix: super::UINT, pextendedpropertyinfo: *mut ExtendedDebugPropertyInfo) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugExtendedProperty_Impl::GetExtendedPropertyInfo(this, core::mem::transmute_copy(&dwfieldspec), core::mem::transmute_copy(&nradix), core::mem::transmute_copy(&pextendedpropertyinfo)).into()
+                IDebugExtendedProperty_Impl::GetExtendedPropertyInfo(this, core::mem::transmute_copy(&dwfieldspec), core::mem::transmute_copy(&nradix), core::mem::transmute_copy(&pextendedpropertyinfo))
             }
         }
         unsafe extern "system" fn EnumExtendedMembers<Identity: IDebugExtendedProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwfieldspec: super::DWORD, nradix: super::UINT, ppeepi: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -210,9 +210,9 @@ pub struct IDebugProperty_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDebugProperty_Impl: windows_core::IUnknownImpl {
-    fn GetPropertyInfo(&self, dwfieldspec: super::DWORD, nradix: super::UINT, ppropertyinfo: *mut DebugPropertyInfo) -> windows_core::Result<()>;
-    fn GetExtendedInfo(&self, cinfos: super::ULONG, rgguidextendedinfo: *const windows_core::GUID, rgvar: *mut super::VARIANT) -> windows_core::Result<()>;
-    fn SetValueAsString(&self, pszvalue: super::LPCOLESTR, nradix: super::UINT) -> windows_core::Result<()>;
+    fn GetPropertyInfo(&self, dwfieldspec: super::DWORD, nradix: super::UINT, ppropertyinfo: *mut DebugPropertyInfo) -> windows_core::HRESULT;
+    fn GetExtendedInfo(&self, cinfos: super::ULONG, rgguidextendedinfo: *const windows_core::GUID, rgvar: *mut super::VARIANT) -> windows_core::HRESULT;
+    fn SetValueAsString(&self, pszvalue: super::LPCOLESTR, nradix: super::UINT) -> windows_core::HRESULT;
     fn EnumMembers(&self, dwfieldspec: super::DWORD, nradix: super::UINT, refiid: *const super::IID) -> windows_core::Result<IEnumDebugPropertyInfo>;
     fn GetParent(&self) -> windows_core::Result<IDebugProperty>;
 }
@@ -222,19 +222,19 @@ impl IDebugProperty_Vtbl {
         unsafe extern "system" fn GetPropertyInfo<Identity: IDebugProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwfieldspec: super::DWORD, nradix: super::UINT, ppropertyinfo: *mut DebugPropertyInfo) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugProperty_Impl::GetPropertyInfo(this, core::mem::transmute_copy(&dwfieldspec), core::mem::transmute_copy(&nradix), core::mem::transmute_copy(&ppropertyinfo)).into()
+                IDebugProperty_Impl::GetPropertyInfo(this, core::mem::transmute_copy(&dwfieldspec), core::mem::transmute_copy(&nradix), core::mem::transmute_copy(&ppropertyinfo))
             }
         }
         unsafe extern "system" fn GetExtendedInfo<Identity: IDebugProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cinfos: super::ULONG, rgguidextendedinfo: *const windows_core::GUID, rgvar: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugProperty_Impl::GetExtendedInfo(this, core::mem::transmute_copy(&cinfos), core::mem::transmute_copy(&rgguidextendedinfo), core::mem::transmute_copy(&rgvar)).into()
+                IDebugProperty_Impl::GetExtendedInfo(this, core::mem::transmute_copy(&cinfos), core::mem::transmute_copy(&rgguidextendedinfo), core::mem::transmute_copy(&rgvar))
             }
         }
         unsafe extern "system" fn SetValueAsString<Identity: IDebugProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszvalue: super::LPCOLESTR, nradix: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugProperty_Impl::SetValueAsString(this, core::mem::transmute_copy(&pszvalue), core::mem::transmute_copy(&nradix)).into()
+                IDebugProperty_Impl::SetValueAsString(this, core::mem::transmute_copy(&pszvalue), core::mem::transmute_copy(&nradix))
             }
         }
         unsafe extern "system" fn EnumMembers<Identity: IDebugProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwfieldspec: super::DWORD, nradix: super::UINT, refiid: *const super::IID, ppepi: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -296,14 +296,14 @@ pub struct IDebugPropertyEnumType_All_Vtbl {
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDebugPropertyEnumType_All_Impl: windows_core::IUnknownImpl {
-    fn GetName(&self, __midl__idebugpropertyenumtype_all0000: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn GetName(&self, __midl__idebugpropertyenumtype_all0000: *mut windows_core::BSTR) -> windows_core::HRESULT;
 }
 impl IDebugPropertyEnumType_All_Vtbl {
     pub const fn new<Identity: IDebugPropertyEnumType_All_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetName<Identity: IDebugPropertyEnumType_All_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, __midl__idebugpropertyenumtype_all0000: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugPropertyEnumType_All_Impl::GetName(this, core::mem::transmute_copy(&__midl__idebugpropertyenumtype_all0000)).into()
+                IDebugPropertyEnumType_All_Impl::GetName(this, core::mem::transmute_copy(&__midl__idebugpropertyenumtype_all0000))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetName: GetName::<Identity, OFFSET> }
@@ -451,11 +451,11 @@ pub struct IEnumDebugExtendedPropertyInfo_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IEnumDebugExtendedPropertyInfo_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: super::ULONG, rgextendedpropertyinfo: *mut ExtendedDebugPropertyInfo, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
-    fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
+    fn Next(&self, celt: super::ULONG, rgextendedpropertyinfo: *mut ExtendedDebugPropertyInfo, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT;
+    fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT;
+    fn Reset(&self) -> windows_core::HRESULT;
     fn Clone(&self) -> windows_core::Result<IEnumDebugExtendedPropertyInfo>;
-    fn GetCount(&self, pcelt: *mut super::ULONG) -> windows_core::Result<()>;
+    fn GetCount(&self, pcelt: *mut super::ULONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IEnumDebugExtendedPropertyInfo_Vtbl {
@@ -463,19 +463,19 @@ impl IEnumDebugExtendedPropertyInfo_Vtbl {
         unsafe extern "system" fn Next<Identity: IEnumDebugExtendedPropertyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG, rgextendedpropertyinfo: *mut ExtendedDebugPropertyInfo, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumDebugExtendedPropertyInfo_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgextendedpropertyinfo), core::mem::transmute_copy(&pceltfetched)).into()
+                IEnumDebugExtendedPropertyInfo_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgextendedpropertyinfo), core::mem::transmute_copy(&pceltfetched))
             }
         }
         unsafe extern "system" fn Skip<Identity: IEnumDebugExtendedPropertyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumDebugExtendedPropertyInfo_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+                IEnumDebugExtendedPropertyInfo_Impl::Skip(this, core::mem::transmute_copy(&celt))
             }
         }
         unsafe extern "system" fn Reset<Identity: IEnumDebugExtendedPropertyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumDebugExtendedPropertyInfo_Impl::Reset(this).into()
+                IEnumDebugExtendedPropertyInfo_Impl::Reset(this)
             }
         }
         unsafe extern "system" fn Clone<Identity: IEnumDebugExtendedPropertyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pedpe: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -496,7 +496,7 @@ impl IEnumDebugExtendedPropertyInfo_Vtbl {
         unsafe extern "system" fn GetCount<Identity: IEnumDebugExtendedPropertyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumDebugExtendedPropertyInfo_Impl::GetCount(this, core::mem::transmute_copy(&pcelt)).into()
+                IEnumDebugExtendedPropertyInfo_Impl::GetCount(this, core::mem::transmute_copy(&pcelt))
             }
         }
         Self {
@@ -560,11 +560,11 @@ pub struct IEnumDebugPropertyInfo_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IEnumDebugPropertyInfo_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: super::ULONG, pi: *mut DebugPropertyInfo, pceltsfetched: *mut super::ULONG) -> windows_core::Result<()>;
-    fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
+    fn Next(&self, celt: super::ULONG, pi: *mut DebugPropertyInfo, pceltsfetched: *mut super::ULONG) -> windows_core::HRESULT;
+    fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT;
+    fn Reset(&self) -> windows_core::HRESULT;
     fn Clone(&self) -> windows_core::Result<IEnumDebugPropertyInfo>;
-    fn GetCount(&self, pcelt: *mut super::ULONG) -> windows_core::Result<()>;
+    fn GetCount(&self, pcelt: *mut super::ULONG) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IEnumDebugPropertyInfo_Vtbl {
@@ -572,19 +572,19 @@ impl IEnumDebugPropertyInfo_Vtbl {
         unsafe extern "system" fn Next<Identity: IEnumDebugPropertyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG, pi: *mut DebugPropertyInfo, pceltsfetched: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumDebugPropertyInfo_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&pi), core::mem::transmute_copy(&pceltsfetched)).into()
+                IEnumDebugPropertyInfo_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&pi), core::mem::transmute_copy(&pceltsfetched))
             }
         }
         unsafe extern "system" fn Skip<Identity: IEnumDebugPropertyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumDebugPropertyInfo_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+                IEnumDebugPropertyInfo_Impl::Skip(this, core::mem::transmute_copy(&celt))
             }
         }
         unsafe extern "system" fn Reset<Identity: IEnumDebugPropertyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumDebugPropertyInfo_Impl::Reset(this).into()
+                IEnumDebugPropertyInfo_Impl::Reset(this)
             }
         }
         unsafe extern "system" fn Clone<Identity: IEnumDebugPropertyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppepi: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -605,7 +605,7 @@ impl IEnumDebugPropertyInfo_Vtbl {
         unsafe extern "system" fn GetCount<Identity: IEnumDebugPropertyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumDebugPropertyInfo_Impl::GetCount(this, core::mem::transmute_copy(&pcelt)).into()
+                IEnumDebugPropertyInfo_Impl::GetCount(this, core::mem::transmute_copy(&pcelt))
             }
         }
         Self {
@@ -666,10 +666,10 @@ pub struct IPerPropertyBrowsing2_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "ocidl", feature = "shared", feature = "wtypesbase"))]
 pub trait IPerPropertyBrowsing2_Impl: windows_core::IUnknownImpl {
-    fn GetDisplayString(&self, dispid: super::DISPID, pbstr: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn MapPropertyToPage(&self, dispid: super::DISPID, pclsidproppage: *mut super::CLSID) -> windows_core::Result<()>;
-    fn GetPredefinedStrings(&self, dispid: super::DISPID, pcastrings: *mut super::CALPOLESTR, pcacookies: *mut super::CADWORD) -> windows_core::Result<()>;
-    fn SetPredefinedValue(&self, dispid: super::DISPID, dwcookie: super::DWORD) -> windows_core::Result<()>;
+    fn GetDisplayString(&self, dispid: super::DISPID, pbstr: *mut windows_core::BSTR) -> windows_core::HRESULT;
+    fn MapPropertyToPage(&self, dispid: super::DISPID, pclsidproppage: *mut super::CLSID) -> windows_core::HRESULT;
+    fn GetPredefinedStrings(&self, dispid: super::DISPID, pcastrings: *mut super::CALPOLESTR, pcacookies: *mut super::CADWORD) -> windows_core::HRESULT;
+    fn SetPredefinedValue(&self, dispid: super::DISPID, dwcookie: super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "ocidl", feature = "shared", feature = "wtypesbase"))]
 impl IPerPropertyBrowsing2_Vtbl {
@@ -677,25 +677,25 @@ impl IPerPropertyBrowsing2_Vtbl {
         unsafe extern "system" fn GetDisplayString<Identity: IPerPropertyBrowsing2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dispid: super::DISPID, pbstr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPerPropertyBrowsing2_Impl::GetDisplayString(this, core::mem::transmute_copy(&dispid), core::mem::transmute_copy(&pbstr)).into()
+                IPerPropertyBrowsing2_Impl::GetDisplayString(this, core::mem::transmute_copy(&dispid), core::mem::transmute_copy(&pbstr))
             }
         }
         unsafe extern "system" fn MapPropertyToPage<Identity: IPerPropertyBrowsing2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dispid: super::DISPID, pclsidproppage: *mut super::CLSID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPerPropertyBrowsing2_Impl::MapPropertyToPage(this, core::mem::transmute_copy(&dispid), core::mem::transmute_copy(&pclsidproppage)).into()
+                IPerPropertyBrowsing2_Impl::MapPropertyToPage(this, core::mem::transmute_copy(&dispid), core::mem::transmute_copy(&pclsidproppage))
             }
         }
         unsafe extern "system" fn GetPredefinedStrings<Identity: IPerPropertyBrowsing2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dispid: super::DISPID, pcastrings: *mut super::CALPOLESTR, pcacookies: *mut super::CADWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPerPropertyBrowsing2_Impl::GetPredefinedStrings(this, core::mem::transmute_copy(&dispid), core::mem::transmute_copy(&pcastrings), core::mem::transmute_copy(&pcacookies)).into()
+                IPerPropertyBrowsing2_Impl::GetPredefinedStrings(this, core::mem::transmute_copy(&dispid), core::mem::transmute_copy(&pcastrings), core::mem::transmute_copy(&pcacookies))
             }
         }
         unsafe extern "system" fn SetPredefinedValue<Identity: IPerPropertyBrowsing2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dispid: super::DISPID, dwcookie: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPerPropertyBrowsing2_Impl::SetPredefinedValue(this, core::mem::transmute_copy(&dispid), core::mem::transmute_copy(&dwcookie)).into()
+                IPerPropertyBrowsing2_Impl::SetPredefinedValue(this, core::mem::transmute_copy(&dispid), core::mem::transmute_copy(&dwcookie))
             }
         }
         Self {

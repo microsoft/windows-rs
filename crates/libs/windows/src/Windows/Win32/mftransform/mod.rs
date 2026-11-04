@@ -216,26 +216,26 @@ pub struct IMFDeviceTransform_Vtbl {
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 pub trait IMFDeviceTransform_Impl: windows_core::IUnknownImpl {
-    fn InitializeTransform(&self, pattributes: windows_core::Ref<super::IMFAttributes>) -> windows_core::Result<()>;
+    fn InitializeTransform(&self, pattributes: windows_core::Ref<super::IMFAttributes>) -> windows_core::HRESULT;
     fn GetInputAvailableType(&self, dwinputstreamid: super::DWORD, dwtypeindex: super::DWORD) -> windows_core::Result<super::IMFMediaType>;
     fn GetInputCurrentType(&self, dwinputstreamid: super::DWORD) -> windows_core::Result<super::IMFMediaType>;
     fn GetInputStreamAttributes(&self, dwinputstreamid: super::DWORD) -> windows_core::Result<super::IMFAttributes>;
     fn GetOutputAvailableType(&self, dwoutputstreamid: super::DWORD, dwtypeindex: super::DWORD) -> windows_core::Result<super::IMFMediaType>;
     fn GetOutputCurrentType(&self, dwoutputstreamid: super::DWORD) -> windows_core::Result<super::IMFMediaType>;
     fn GetOutputStreamAttributes(&self, dwoutputstreamid: super::DWORD) -> windows_core::Result<super::IMFAttributes>;
-    fn GetStreamCount(&self, pcinputstreams: *mut super::DWORD, pcoutputstreams: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetStreamIDs(&self, dwinputidarraysize: super::DWORD, pdwinputstreamids: *mut super::DWORD, dwoutputidarraysize: super::DWORD, pdwoutputstreamids: *mut super::DWORD) -> windows_core::Result<()>;
-    fn ProcessEvent(&self, dwinputstreamid: super::DWORD, pevent: windows_core::Ref<super::IMFMediaEvent>) -> windows_core::Result<()>;
-    fn ProcessInput(&self, dwinputstreamid: super::DWORD, psample: windows_core::Ref<super::IMFSample>, dwflags: super::DWORD) -> windows_core::Result<()>;
-    fn ProcessMessage(&self, emessage: MFT_MESSAGE_TYPE, ulparam: super::ULONG_PTR) -> windows_core::Result<()>;
-    fn ProcessOutput(&self, dwflags: super::DWORD, coutputbuffercount: super::DWORD, poutputsample: *mut MFT_OUTPUT_DATA_BUFFER, pdwstatus: *mut super::DWORD) -> windows_core::Result<()>;
-    fn SetInputStreamState(&self, dwstreamid: super::DWORD, pmediatype: windows_core::Ref<super::IMFMediaType>, value: DeviceStreamState, dwflags: super::DWORD) -> windows_core::Result<()>;
-    fn GetInputStreamState(&self, dwstreamid: super::DWORD, value: *mut DeviceStreamState) -> windows_core::Result<()>;
-    fn SetOutputStreamState(&self, dwstreamid: super::DWORD, pmediatype: windows_core::Ref<super::IMFMediaType>, value: DeviceStreamState, dwflags: super::DWORD) -> windows_core::Result<()>;
-    fn GetOutputStreamState(&self, dwstreamid: super::DWORD, value: *mut DeviceStreamState) -> windows_core::Result<()>;
+    fn GetStreamCount(&self, pcinputstreams: *mut super::DWORD, pcoutputstreams: *mut super::DWORD) -> windows_core::HRESULT;
+    fn GetStreamIDs(&self, dwinputidarraysize: super::DWORD, pdwinputstreamids: *mut super::DWORD, dwoutputidarraysize: super::DWORD, pdwoutputstreamids: *mut super::DWORD) -> windows_core::HRESULT;
+    fn ProcessEvent(&self, dwinputstreamid: super::DWORD, pevent: windows_core::Ref<super::IMFMediaEvent>) -> windows_core::HRESULT;
+    fn ProcessInput(&self, dwinputstreamid: super::DWORD, psample: windows_core::Ref<super::IMFSample>, dwflags: super::DWORD) -> windows_core::HRESULT;
+    fn ProcessMessage(&self, emessage: MFT_MESSAGE_TYPE, ulparam: super::ULONG_PTR) -> windows_core::HRESULT;
+    fn ProcessOutput(&self, dwflags: super::DWORD, coutputbuffercount: super::DWORD, poutputsample: *mut MFT_OUTPUT_DATA_BUFFER, pdwstatus: *mut super::DWORD) -> windows_core::HRESULT;
+    fn SetInputStreamState(&self, dwstreamid: super::DWORD, pmediatype: windows_core::Ref<super::IMFMediaType>, value: DeviceStreamState, dwflags: super::DWORD) -> windows_core::HRESULT;
+    fn GetInputStreamState(&self, dwstreamid: super::DWORD, value: *mut DeviceStreamState) -> windows_core::HRESULT;
+    fn SetOutputStreamState(&self, dwstreamid: super::DWORD, pmediatype: windows_core::Ref<super::IMFMediaType>, value: DeviceStreamState, dwflags: super::DWORD) -> windows_core::HRESULT;
+    fn GetOutputStreamState(&self, dwstreamid: super::DWORD, value: *mut DeviceStreamState) -> windows_core::HRESULT;
     fn GetInputStreamPreferredState(&self, dwstreamid: super::DWORD, value: *mut DeviceStreamState) -> windows_core::Result<super::IMFMediaType>;
-    fn FlushInputStream(&self, dwstreamindex: super::DWORD, dwflags: super::DWORD) -> windows_core::Result<()>;
-    fn FlushOutputStream(&self, dwstreamindex: super::DWORD, dwflags: super::DWORD) -> windows_core::Result<()>;
+    fn FlushInputStream(&self, dwstreamindex: super::DWORD, dwflags: super::DWORD) -> windows_core::HRESULT;
+    fn FlushOutputStream(&self, dwstreamindex: super::DWORD, dwflags: super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 impl IMFDeviceTransform_Vtbl {
@@ -243,7 +243,7 @@ impl IMFDeviceTransform_Vtbl {
         unsafe extern "system" fn InitializeTransform<Identity: IMFDeviceTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pattributes: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFDeviceTransform_Impl::InitializeTransform(this, core::mem::transmute_copy(&pattributes)).into()
+                IMFDeviceTransform_Impl::InitializeTransform(this, core::mem::transmute_copy(&pattributes))
             }
         }
         unsafe extern "system" fn GetInputAvailableType<Identity: IMFDeviceTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinputstreamid: super::DWORD, dwtypeindex: super::DWORD, pmediatype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -339,61 +339,61 @@ impl IMFDeviceTransform_Vtbl {
         unsafe extern "system" fn GetStreamCount<Identity: IMFDeviceTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcinputstreams: *mut super::DWORD, pcoutputstreams: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFDeviceTransform_Impl::GetStreamCount(this, core::mem::transmute_copy(&pcinputstreams), core::mem::transmute_copy(&pcoutputstreams)).into()
+                IMFDeviceTransform_Impl::GetStreamCount(this, core::mem::transmute_copy(&pcinputstreams), core::mem::transmute_copy(&pcoutputstreams))
             }
         }
         unsafe extern "system" fn GetStreamIDs<Identity: IMFDeviceTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinputidarraysize: super::DWORD, pdwinputstreamids: *mut super::DWORD, dwoutputidarraysize: super::DWORD, pdwoutputstreamids: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFDeviceTransform_Impl::GetStreamIDs(this, core::mem::transmute_copy(&dwinputidarraysize), core::mem::transmute_copy(&pdwinputstreamids), core::mem::transmute_copy(&dwoutputidarraysize), core::mem::transmute_copy(&pdwoutputstreamids)).into()
+                IMFDeviceTransform_Impl::GetStreamIDs(this, core::mem::transmute_copy(&dwinputidarraysize), core::mem::transmute_copy(&pdwinputstreamids), core::mem::transmute_copy(&dwoutputidarraysize), core::mem::transmute_copy(&pdwoutputstreamids))
             }
         }
         unsafe extern "system" fn ProcessEvent<Identity: IMFDeviceTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinputstreamid: super::DWORD, pevent: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFDeviceTransform_Impl::ProcessEvent(this, core::mem::transmute_copy(&dwinputstreamid), core::mem::transmute_copy(&pevent)).into()
+                IMFDeviceTransform_Impl::ProcessEvent(this, core::mem::transmute_copy(&dwinputstreamid), core::mem::transmute_copy(&pevent))
             }
         }
         unsafe extern "system" fn ProcessInput<Identity: IMFDeviceTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinputstreamid: super::DWORD, psample: *mut core::ffi::c_void, dwflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFDeviceTransform_Impl::ProcessInput(this, core::mem::transmute_copy(&dwinputstreamid), core::mem::transmute_copy(&psample), core::mem::transmute_copy(&dwflags)).into()
+                IMFDeviceTransform_Impl::ProcessInput(this, core::mem::transmute_copy(&dwinputstreamid), core::mem::transmute_copy(&psample), core::mem::transmute_copy(&dwflags))
             }
         }
         unsafe extern "system" fn ProcessMessage<Identity: IMFDeviceTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, emessage: MFT_MESSAGE_TYPE, ulparam: super::ULONG_PTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFDeviceTransform_Impl::ProcessMessage(this, core::mem::transmute_copy(&emessage), core::mem::transmute_copy(&ulparam)).into()
+                IMFDeviceTransform_Impl::ProcessMessage(this, core::mem::transmute_copy(&emessage), core::mem::transmute_copy(&ulparam))
             }
         }
         unsafe extern "system" fn ProcessOutput<Identity: IMFDeviceTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD, coutputbuffercount: super::DWORD, poutputsample: *mut MFT_OUTPUT_DATA_BUFFER, pdwstatus: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFDeviceTransform_Impl::ProcessOutput(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&coutputbuffercount), core::mem::transmute_copy(&poutputsample), core::mem::transmute_copy(&pdwstatus)).into()
+                IMFDeviceTransform_Impl::ProcessOutput(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&coutputbuffercount), core::mem::transmute_copy(&poutputsample), core::mem::transmute_copy(&pdwstatus))
             }
         }
         unsafe extern "system" fn SetInputStreamState<Identity: IMFDeviceTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamid: super::DWORD, pmediatype: *mut core::ffi::c_void, value: DeviceStreamState, dwflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFDeviceTransform_Impl::SetInputStreamState(this, core::mem::transmute_copy(&dwstreamid), core::mem::transmute_copy(&pmediatype), core::mem::transmute_copy(&value), core::mem::transmute_copy(&dwflags)).into()
+                IMFDeviceTransform_Impl::SetInputStreamState(this, core::mem::transmute_copy(&dwstreamid), core::mem::transmute_copy(&pmediatype), core::mem::transmute_copy(&value), core::mem::transmute_copy(&dwflags))
             }
         }
         unsafe extern "system" fn GetInputStreamState<Identity: IMFDeviceTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamid: super::DWORD, value: *mut DeviceStreamState) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFDeviceTransform_Impl::GetInputStreamState(this, core::mem::transmute_copy(&dwstreamid), core::mem::transmute_copy(&value)).into()
+                IMFDeviceTransform_Impl::GetInputStreamState(this, core::mem::transmute_copy(&dwstreamid), core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn SetOutputStreamState<Identity: IMFDeviceTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamid: super::DWORD, pmediatype: *mut core::ffi::c_void, value: DeviceStreamState, dwflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFDeviceTransform_Impl::SetOutputStreamState(this, core::mem::transmute_copy(&dwstreamid), core::mem::transmute_copy(&pmediatype), core::mem::transmute_copy(&value), core::mem::transmute_copy(&dwflags)).into()
+                IMFDeviceTransform_Impl::SetOutputStreamState(this, core::mem::transmute_copy(&dwstreamid), core::mem::transmute_copy(&pmediatype), core::mem::transmute_copy(&value), core::mem::transmute_copy(&dwflags))
             }
         }
         unsafe extern "system" fn GetOutputStreamState<Identity: IMFDeviceTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamid: super::DWORD, value: *mut DeviceStreamState) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFDeviceTransform_Impl::GetOutputStreamState(this, core::mem::transmute_copy(&dwstreamid), core::mem::transmute_copy(&value)).into()
+                IMFDeviceTransform_Impl::GetOutputStreamState(this, core::mem::transmute_copy(&dwstreamid), core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn GetInputStreamPreferredState<Identity: IMFDeviceTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamid: super::DWORD, value: *mut DeviceStreamState, ppmediatype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -414,13 +414,13 @@ impl IMFDeviceTransform_Vtbl {
         unsafe extern "system" fn FlushInputStream<Identity: IMFDeviceTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamindex: super::DWORD, dwflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFDeviceTransform_Impl::FlushInputStream(this, core::mem::transmute_copy(&dwstreamindex), core::mem::transmute_copy(&dwflags)).into()
+                IMFDeviceTransform_Impl::FlushInputStream(this, core::mem::transmute_copy(&dwstreamindex), core::mem::transmute_copy(&dwflags))
             }
         }
         unsafe extern "system" fn FlushOutputStream<Identity: IMFDeviceTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamindex: super::DWORD, dwflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFDeviceTransform_Impl::FlushOutputStream(this, core::mem::transmute_copy(&dwstreamindex), core::mem::transmute_copy(&dwflags)).into()
+                IMFDeviceTransform_Impl::FlushOutputStream(this, core::mem::transmute_copy(&dwstreamindex), core::mem::transmute_copy(&dwflags))
             }
         }
         Self {
@@ -531,7 +531,7 @@ pub struct IMFDeviceTransformCallback_Vtbl {
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 pub trait IMFDeviceTransformCallback_Impl: windows_core::IUnknownImpl {
-    fn OnBufferSent(&self, pcallbackattributes: windows_core::Ref<super::IMFAttributes>, pinid: super::DWORD) -> windows_core::Result<()>;
+    fn OnBufferSent(&self, pcallbackattributes: windows_core::Ref<super::IMFAttributes>, pinid: super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 impl IMFDeviceTransformCallback_Vtbl {
@@ -539,7 +539,7 @@ impl IMFDeviceTransformCallback_Vtbl {
         unsafe extern "system" fn OnBufferSent<Identity: IMFDeviceTransformCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallbackattributes: *mut core::ffi::c_void, pinid: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFDeviceTransformCallback_Impl::OnBufferSent(this, core::mem::transmute_copy(&pcallbackattributes), core::mem::transmute_copy(&pinid)).into()
+                IMFDeviceTransformCallback_Impl::OnBufferSent(this, core::mem::transmute_copy(&pcallbackattributes), core::mem::transmute_copy(&pinid))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnBufferSent: OnBufferSent::<Identity, OFFSET> }
@@ -778,29 +778,29 @@ pub struct IMFTransform_Vtbl {
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 pub trait IMFTransform_Impl: windows_core::IUnknownImpl {
-    fn GetStreamLimits(&self, pdwinputminimum: *mut super::DWORD, pdwinputmaximum: *mut super::DWORD, pdwoutputminimum: *mut super::DWORD, pdwoutputmaximum: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetStreamCount(&self, pcinputstreams: *mut super::DWORD, pcoutputstreams: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetStreamIDs(&self, dwinputidarraysize: super::DWORD, pdwinputids: *mut super::DWORD, dwoutputidarraysize: super::DWORD, pdwoutputids: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetInputStreamInfo(&self, dwinputstreamid: super::DWORD, pstreaminfo: *mut MFT_INPUT_STREAM_INFO) -> windows_core::Result<()>;
-    fn GetOutputStreamInfo(&self, dwoutputstreamid: super::DWORD, pstreaminfo: *mut MFT_OUTPUT_STREAM_INFO) -> windows_core::Result<()>;
+    fn GetStreamLimits(&self, pdwinputminimum: *mut super::DWORD, pdwinputmaximum: *mut super::DWORD, pdwoutputminimum: *mut super::DWORD, pdwoutputmaximum: *mut super::DWORD) -> windows_core::HRESULT;
+    fn GetStreamCount(&self, pcinputstreams: *mut super::DWORD, pcoutputstreams: *mut super::DWORD) -> windows_core::HRESULT;
+    fn GetStreamIDs(&self, dwinputidarraysize: super::DWORD, pdwinputids: *mut super::DWORD, dwoutputidarraysize: super::DWORD, pdwoutputids: *mut super::DWORD) -> windows_core::HRESULT;
+    fn GetInputStreamInfo(&self, dwinputstreamid: super::DWORD, pstreaminfo: *mut MFT_INPUT_STREAM_INFO) -> windows_core::HRESULT;
+    fn GetOutputStreamInfo(&self, dwoutputstreamid: super::DWORD, pstreaminfo: *mut MFT_OUTPUT_STREAM_INFO) -> windows_core::HRESULT;
     fn GetAttributes(&self) -> windows_core::Result<super::IMFAttributes>;
     fn GetInputStreamAttributes(&self, dwinputstreamid: super::DWORD) -> windows_core::Result<super::IMFAttributes>;
     fn GetOutputStreamAttributes(&self, dwoutputstreamid: super::DWORD) -> windows_core::Result<super::IMFAttributes>;
-    fn DeleteInputStream(&self, dwstreamid: super::DWORD) -> windows_core::Result<()>;
-    fn AddInputStreams(&self, cstreams: super::DWORD, adwstreamids: *const super::DWORD) -> windows_core::Result<()>;
+    fn DeleteInputStream(&self, dwstreamid: super::DWORD) -> windows_core::HRESULT;
+    fn AddInputStreams(&self, cstreams: super::DWORD, adwstreamids: *const super::DWORD) -> windows_core::HRESULT;
     fn GetInputAvailableType(&self, dwinputstreamid: super::DWORD, dwtypeindex: super::DWORD) -> windows_core::Result<super::IMFMediaType>;
     fn GetOutputAvailableType(&self, dwoutputstreamid: super::DWORD, dwtypeindex: super::DWORD) -> windows_core::Result<super::IMFMediaType>;
-    fn SetInputType(&self, dwinputstreamid: super::DWORD, ptype: windows_core::Ref<super::IMFMediaType>, dwflags: super::DWORD) -> windows_core::Result<()>;
-    fn SetOutputType(&self, dwoutputstreamid: super::DWORD, ptype: windows_core::Ref<super::IMFMediaType>, dwflags: super::DWORD) -> windows_core::Result<()>;
+    fn SetInputType(&self, dwinputstreamid: super::DWORD, ptype: windows_core::Ref<super::IMFMediaType>, dwflags: super::DWORD) -> windows_core::HRESULT;
+    fn SetOutputType(&self, dwoutputstreamid: super::DWORD, ptype: windows_core::Ref<super::IMFMediaType>, dwflags: super::DWORD) -> windows_core::HRESULT;
     fn GetInputCurrentType(&self, dwinputstreamid: super::DWORD) -> windows_core::Result<super::IMFMediaType>;
     fn GetOutputCurrentType(&self, dwoutputstreamid: super::DWORD) -> windows_core::Result<super::IMFMediaType>;
-    fn GetInputStatus(&self, dwinputstreamid: super::DWORD, pdwflags: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetOutputStatus(&self, pdwflags: *mut super::DWORD) -> windows_core::Result<()>;
-    fn SetOutputBounds(&self, hnslowerbound: super::LONGLONG, hnsupperbound: super::LONGLONG) -> windows_core::Result<()>;
-    fn ProcessEvent(&self, dwinputstreamid: super::DWORD, pevent: windows_core::Ref<super::IMFMediaEvent>) -> windows_core::Result<()>;
-    fn ProcessMessage(&self, emessage: MFT_MESSAGE_TYPE, ulparam: super::ULONG_PTR) -> windows_core::Result<()>;
-    fn ProcessInput(&self, dwinputstreamid: super::DWORD, psample: windows_core::Ref<super::IMFSample>, dwflags: super::DWORD) -> windows_core::Result<()>;
-    fn ProcessOutput(&self, dwflags: super::DWORD, coutputbuffercount: super::DWORD, poutputsamples: *mut MFT_OUTPUT_DATA_BUFFER, pdwstatus: *mut super::DWORD) -> windows_core::Result<()>;
+    fn GetInputStatus(&self, dwinputstreamid: super::DWORD, pdwflags: *mut super::DWORD) -> windows_core::HRESULT;
+    fn GetOutputStatus(&self, pdwflags: *mut super::DWORD) -> windows_core::HRESULT;
+    fn SetOutputBounds(&self, hnslowerbound: super::LONGLONG, hnsupperbound: super::LONGLONG) -> windows_core::HRESULT;
+    fn ProcessEvent(&self, dwinputstreamid: super::DWORD, pevent: windows_core::Ref<super::IMFMediaEvent>) -> windows_core::HRESULT;
+    fn ProcessMessage(&self, emessage: MFT_MESSAGE_TYPE, ulparam: super::ULONG_PTR) -> windows_core::HRESULT;
+    fn ProcessInput(&self, dwinputstreamid: super::DWORD, psample: windows_core::Ref<super::IMFSample>, dwflags: super::DWORD) -> windows_core::HRESULT;
+    fn ProcessOutput(&self, dwflags: super::DWORD, coutputbuffercount: super::DWORD, poutputsamples: *mut MFT_OUTPUT_DATA_BUFFER, pdwstatus: *mut super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 impl IMFTransform_Vtbl {
@@ -808,31 +808,31 @@ impl IMFTransform_Vtbl {
         unsafe extern "system" fn GetStreamLimits<Identity: IMFTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwinputminimum: *mut super::DWORD, pdwinputmaximum: *mut super::DWORD, pdwoutputminimum: *mut super::DWORD, pdwoutputmaximum: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFTransform_Impl::GetStreamLimits(this, core::mem::transmute_copy(&pdwinputminimum), core::mem::transmute_copy(&pdwinputmaximum), core::mem::transmute_copy(&pdwoutputminimum), core::mem::transmute_copy(&pdwoutputmaximum)).into()
+                IMFTransform_Impl::GetStreamLimits(this, core::mem::transmute_copy(&pdwinputminimum), core::mem::transmute_copy(&pdwinputmaximum), core::mem::transmute_copy(&pdwoutputminimum), core::mem::transmute_copy(&pdwoutputmaximum))
             }
         }
         unsafe extern "system" fn GetStreamCount<Identity: IMFTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcinputstreams: *mut super::DWORD, pcoutputstreams: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFTransform_Impl::GetStreamCount(this, core::mem::transmute_copy(&pcinputstreams), core::mem::transmute_copy(&pcoutputstreams)).into()
+                IMFTransform_Impl::GetStreamCount(this, core::mem::transmute_copy(&pcinputstreams), core::mem::transmute_copy(&pcoutputstreams))
             }
         }
         unsafe extern "system" fn GetStreamIDs<Identity: IMFTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinputidarraysize: super::DWORD, pdwinputids: *mut super::DWORD, dwoutputidarraysize: super::DWORD, pdwoutputids: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFTransform_Impl::GetStreamIDs(this, core::mem::transmute_copy(&dwinputidarraysize), core::mem::transmute_copy(&pdwinputids), core::mem::transmute_copy(&dwoutputidarraysize), core::mem::transmute_copy(&pdwoutputids)).into()
+                IMFTransform_Impl::GetStreamIDs(this, core::mem::transmute_copy(&dwinputidarraysize), core::mem::transmute_copy(&pdwinputids), core::mem::transmute_copy(&dwoutputidarraysize), core::mem::transmute_copy(&pdwoutputids))
             }
         }
         unsafe extern "system" fn GetInputStreamInfo<Identity: IMFTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinputstreamid: super::DWORD, pstreaminfo: *mut MFT_INPUT_STREAM_INFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFTransform_Impl::GetInputStreamInfo(this, core::mem::transmute_copy(&dwinputstreamid), core::mem::transmute_copy(&pstreaminfo)).into()
+                IMFTransform_Impl::GetInputStreamInfo(this, core::mem::transmute_copy(&dwinputstreamid), core::mem::transmute_copy(&pstreaminfo))
             }
         }
         unsafe extern "system" fn GetOutputStreamInfo<Identity: IMFTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwoutputstreamid: super::DWORD, pstreaminfo: *mut MFT_OUTPUT_STREAM_INFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFTransform_Impl::GetOutputStreamInfo(this, core::mem::transmute_copy(&dwoutputstreamid), core::mem::transmute_copy(&pstreaminfo)).into()
+                IMFTransform_Impl::GetOutputStreamInfo(this, core::mem::transmute_copy(&dwoutputstreamid), core::mem::transmute_copy(&pstreaminfo))
             }
         }
         unsafe extern "system" fn GetAttributes<Identity: IMFTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pattributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -883,13 +883,13 @@ impl IMFTransform_Vtbl {
         unsafe extern "system" fn DeleteInputStream<Identity: IMFTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamid: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFTransform_Impl::DeleteInputStream(this, core::mem::transmute_copy(&dwstreamid)).into()
+                IMFTransform_Impl::DeleteInputStream(this, core::mem::transmute_copy(&dwstreamid))
             }
         }
         unsafe extern "system" fn AddInputStreams<Identity: IMFTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cstreams: super::DWORD, adwstreamids: *const super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFTransform_Impl::AddInputStreams(this, core::mem::transmute_copy(&cstreams), core::mem::transmute_copy(&adwstreamids)).into()
+                IMFTransform_Impl::AddInputStreams(this, core::mem::transmute_copy(&cstreams), core::mem::transmute_copy(&adwstreamids))
             }
         }
         unsafe extern "system" fn GetInputAvailableType<Identity: IMFTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinputstreamid: super::DWORD, dwtypeindex: super::DWORD, pptype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -925,13 +925,13 @@ impl IMFTransform_Vtbl {
         unsafe extern "system" fn SetInputType<Identity: IMFTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinputstreamid: super::DWORD, ptype: *mut core::ffi::c_void, dwflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFTransform_Impl::SetInputType(this, core::mem::transmute_copy(&dwinputstreamid), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&dwflags)).into()
+                IMFTransform_Impl::SetInputType(this, core::mem::transmute_copy(&dwinputstreamid), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&dwflags))
             }
         }
         unsafe extern "system" fn SetOutputType<Identity: IMFTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwoutputstreamid: super::DWORD, ptype: *mut core::ffi::c_void, dwflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFTransform_Impl::SetOutputType(this, core::mem::transmute_copy(&dwoutputstreamid), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&dwflags)).into()
+                IMFTransform_Impl::SetOutputType(this, core::mem::transmute_copy(&dwoutputstreamid), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&dwflags))
             }
         }
         unsafe extern "system" fn GetInputCurrentType<Identity: IMFTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinputstreamid: super::DWORD, pptype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -967,43 +967,43 @@ impl IMFTransform_Vtbl {
         unsafe extern "system" fn GetInputStatus<Identity: IMFTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinputstreamid: super::DWORD, pdwflags: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFTransform_Impl::GetInputStatus(this, core::mem::transmute_copy(&dwinputstreamid), core::mem::transmute_copy(&pdwflags)).into()
+                IMFTransform_Impl::GetInputStatus(this, core::mem::transmute_copy(&dwinputstreamid), core::mem::transmute_copy(&pdwflags))
             }
         }
         unsafe extern "system" fn GetOutputStatus<Identity: IMFTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwflags: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFTransform_Impl::GetOutputStatus(this, core::mem::transmute_copy(&pdwflags)).into()
+                IMFTransform_Impl::GetOutputStatus(this, core::mem::transmute_copy(&pdwflags))
             }
         }
         unsafe extern "system" fn SetOutputBounds<Identity: IMFTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hnslowerbound: super::LONGLONG, hnsupperbound: super::LONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFTransform_Impl::SetOutputBounds(this, core::mem::transmute_copy(&hnslowerbound), core::mem::transmute_copy(&hnsupperbound)).into()
+                IMFTransform_Impl::SetOutputBounds(this, core::mem::transmute_copy(&hnslowerbound), core::mem::transmute_copy(&hnsupperbound))
             }
         }
         unsafe extern "system" fn ProcessEvent<Identity: IMFTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinputstreamid: super::DWORD, pevent: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFTransform_Impl::ProcessEvent(this, core::mem::transmute_copy(&dwinputstreamid), core::mem::transmute_copy(&pevent)).into()
+                IMFTransform_Impl::ProcessEvent(this, core::mem::transmute_copy(&dwinputstreamid), core::mem::transmute_copy(&pevent))
             }
         }
         unsafe extern "system" fn ProcessMessage<Identity: IMFTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, emessage: MFT_MESSAGE_TYPE, ulparam: super::ULONG_PTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFTransform_Impl::ProcessMessage(this, core::mem::transmute_copy(&emessage), core::mem::transmute_copy(&ulparam)).into()
+                IMFTransform_Impl::ProcessMessage(this, core::mem::transmute_copy(&emessage), core::mem::transmute_copy(&ulparam))
             }
         }
         unsafe extern "system" fn ProcessInput<Identity: IMFTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinputstreamid: super::DWORD, psample: *mut core::ffi::c_void, dwflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFTransform_Impl::ProcessInput(this, core::mem::transmute_copy(&dwinputstreamid), core::mem::transmute_copy(&psample), core::mem::transmute_copy(&dwflags)).into()
+                IMFTransform_Impl::ProcessInput(this, core::mem::transmute_copy(&dwinputstreamid), core::mem::transmute_copy(&psample), core::mem::transmute_copy(&dwflags))
             }
         }
         unsafe extern "system" fn ProcessOutput<Identity: IMFTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD, coutputbuffercount: super::DWORD, poutputsamples: *mut MFT_OUTPUT_DATA_BUFFER, pdwstatus: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFTransform_Impl::ProcessOutput(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&coutputbuffercount), core::mem::transmute_copy(&poutputsamples), core::mem::transmute_copy(&pdwstatus)).into()
+                IMFTransform_Impl::ProcessOutput(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&coutputbuffercount), core::mem::transmute_copy(&poutputsamples), core::mem::transmute_copy(&pdwstatus))
             }
         }
         Self {

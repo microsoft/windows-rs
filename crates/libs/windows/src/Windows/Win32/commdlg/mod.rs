@@ -497,9 +497,9 @@ pub struct IPrintDialogCallback_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub trait IPrintDialogCallback_Impl: windows_core::IUnknownImpl {
-    fn InitDone(&self) -> windows_core::Result<()>;
-    fn SelectionChange(&self) -> windows_core::Result<()>;
-    fn HandleMessage(&self, hdlg: super::HWND, umsg: super::UINT, wparam: super::WPARAM, lparam: super::LPARAM, presult: *mut super::LRESULT) -> windows_core::Result<()>;
+    fn InitDone(&self) -> windows_core::HRESULT;
+    fn SelectionChange(&self) -> windows_core::HRESULT;
+    fn HandleMessage(&self, hdlg: super::HWND, umsg: super::UINT, wparam: super::WPARAM, lparam: super::LPARAM, presult: *mut super::LRESULT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 impl IPrintDialogCallback_Vtbl {
@@ -507,19 +507,19 @@ impl IPrintDialogCallback_Vtbl {
         unsafe extern "system" fn InitDone<Identity: IPrintDialogCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPrintDialogCallback_Impl::InitDone(this).into()
+                IPrintDialogCallback_Impl::InitDone(this)
             }
         }
         unsafe extern "system" fn SelectionChange<Identity: IPrintDialogCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPrintDialogCallback_Impl::SelectionChange(this).into()
+                IPrintDialogCallback_Impl::SelectionChange(this)
             }
         }
         unsafe extern "system" fn HandleMessage<Identity: IPrintDialogCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdlg: super::HWND, umsg: super::UINT, wparam: super::WPARAM, lparam: super::LPARAM, presult: *mut super::LRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPrintDialogCallback_Impl::HandleMessage(this, core::mem::transmute_copy(&hdlg), core::mem::transmute_copy(&umsg), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam), core::mem::transmute_copy(&presult)).into()
+                IPrintDialogCallback_Impl::HandleMessage(this, core::mem::transmute_copy(&hdlg), core::mem::transmute_copy(&umsg), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam), core::mem::transmute_copy(&presult))
             }
         }
         Self {
@@ -570,9 +570,9 @@ pub struct IPrintDialogServices_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
 pub trait IPrintDialogServices_Impl: windows_core::IUnknownImpl {
-    fn GetCurrentDevMode(&self, pdevmode: super::LPDEVMODE, pcbsize: *mut super::UINT) -> windows_core::Result<()>;
-    fn GetCurrentPrinterName(&self, pprintername: windows_core::PWSTR, pcchsize: *mut super::UINT) -> windows_core::Result<()>;
-    fn GetCurrentPortName(&self, pportname: windows_core::PWSTR, pcchsize: *mut super::UINT) -> windows_core::Result<()>;
+    fn GetCurrentDevMode(&self, pdevmode: super::LPDEVMODE, pcbsize: *mut super::UINT) -> windows_core::HRESULT;
+    fn GetCurrentPrinterName(&self, pprintername: windows_core::PWSTR, pcchsize: *mut super::UINT) -> windows_core::HRESULT;
+    fn GetCurrentPortName(&self, pportname: windows_core::PWSTR, pcchsize: *mut super::UINT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
 impl IPrintDialogServices_Vtbl {
@@ -580,19 +580,19 @@ impl IPrintDialogServices_Vtbl {
         unsafe extern "system" fn GetCurrentDevMode<Identity: IPrintDialogServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevmode: super::LPDEVMODE, pcbsize: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPrintDialogServices_Impl::GetCurrentDevMode(this, core::mem::transmute_copy(&pdevmode), core::mem::transmute_copy(&pcbsize)).into()
+                IPrintDialogServices_Impl::GetCurrentDevMode(this, core::mem::transmute_copy(&pdevmode), core::mem::transmute_copy(&pcbsize))
             }
         }
         unsafe extern "system" fn GetCurrentPrinterName<Identity: IPrintDialogServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprintername: windows_core::PWSTR, pcchsize: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPrintDialogServices_Impl::GetCurrentPrinterName(this, core::mem::transmute_copy(&pprintername), core::mem::transmute_copy(&pcchsize)).into()
+                IPrintDialogServices_Impl::GetCurrentPrinterName(this, core::mem::transmute_copy(&pprintername), core::mem::transmute_copy(&pcchsize))
             }
         }
         unsafe extern "system" fn GetCurrentPortName<Identity: IPrintDialogServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pportname: windows_core::PWSTR, pcchsize: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPrintDialogServices_Impl::GetCurrentPortName(this, core::mem::transmute_copy(&pportname), core::mem::transmute_copy(&pcchsize)).into()
+                IPrintDialogServices_Impl::GetCurrentPortName(this, core::mem::transmute_copy(&pportname), core::mem::transmute_copy(&pcchsize))
             }
         }
         Self {

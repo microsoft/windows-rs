@@ -140,22 +140,22 @@ pub struct IRichEditOle_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "objidl", feature = "oleidl", feature = "richedit", feature = "shared", feature = "windef", feature = "wtypes"))]
 pub trait IRichEditOle_Impl: windows_core::IUnknownImpl {
-    fn GetClientSite(&self, lplpolesite: *mut Option<super::LPOLECLIENTSITE>) -> windows_core::Result<()>;
+    fn GetClientSite(&self, lplpolesite: *mut Option<super::LPOLECLIENTSITE>) -> windows_core::HRESULT;
     fn GetObjectCount(&self) -> super::LONG;
     fn GetLinkCount(&self) -> super::LONG;
-    fn GetObject(&self, iob: super::LONG, lpreobject: *mut REOBJECT, dwflags: super::DWORD) -> windows_core::Result<()>;
-    fn InsertObject(&self, lpreobject: *mut REOBJECT) -> windows_core::Result<()>;
-    fn ConvertObject(&self, iob: super::LONG, rclsidnew: *const super::IID, lpstrusertypenew: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn ActivateAs(&self, rclsid: *const super::IID, rclsidas: *const super::IID) -> windows_core::Result<()>;
-    fn SetHostNames(&self, lpstrcontainerapp: &windows_core::PCSTR, lpstrcontainerobj: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn SetLinkAvailable(&self, iob: super::LONG, favailable: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetDvaspect(&self, iob: super::LONG, dvaspect: super::DWORD) -> windows_core::Result<()>;
-    fn HandsOffStorage(&self, iob: super::LONG) -> windows_core::Result<()>;
-    fn SaveCompleted(&self, iob: super::LONG, lpstg: windows_core::Ref<super::LPSTORAGE>) -> windows_core::Result<()>;
-    fn InPlaceDeactivate(&self) -> windows_core::Result<()>;
-    fn ContextSensitiveHelp(&self, fentermode: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetClipboardData(&self, lpchrg: *mut super::CHARRANGE, reco: super::DWORD, lplpdataobj: *mut Option<super::LPDATAOBJECT>) -> windows_core::Result<()>;
-    fn ImportDataObject(&self, lpdataobj: windows_core::Ref<super::LPDATAOBJECT>, cf: super::CLIPFORMAT, hmetapict: super::HGLOBAL) -> windows_core::Result<()>;
+    fn GetObject(&self, iob: super::LONG, lpreobject: *mut REOBJECT, dwflags: super::DWORD) -> windows_core::HRESULT;
+    fn InsertObject(&self, lpreobject: *mut REOBJECT) -> windows_core::HRESULT;
+    fn ConvertObject(&self, iob: super::LONG, rclsidnew: *const super::IID, lpstrusertypenew: &windows_core::PCSTR) -> windows_core::HRESULT;
+    fn ActivateAs(&self, rclsid: *const super::IID, rclsidas: *const super::IID) -> windows_core::HRESULT;
+    fn SetHostNames(&self, lpstrcontainerapp: &windows_core::PCSTR, lpstrcontainerobj: &windows_core::PCSTR) -> windows_core::HRESULT;
+    fn SetLinkAvailable(&self, iob: super::LONG, favailable: windows_core::BOOL) -> windows_core::HRESULT;
+    fn SetDvaspect(&self, iob: super::LONG, dvaspect: super::DWORD) -> windows_core::HRESULT;
+    fn HandsOffStorage(&self, iob: super::LONG) -> windows_core::HRESULT;
+    fn SaveCompleted(&self, iob: super::LONG, lpstg: windows_core::Ref<super::LPSTORAGE>) -> windows_core::HRESULT;
+    fn InPlaceDeactivate(&self) -> windows_core::HRESULT;
+    fn ContextSensitiveHelp(&self, fentermode: windows_core::BOOL) -> windows_core::HRESULT;
+    fn GetClipboardData(&self, lpchrg: *mut super::CHARRANGE, reco: super::DWORD, lplpdataobj: *mut Option<super::LPDATAOBJECT>) -> windows_core::HRESULT;
+    fn ImportDataObject(&self, lpdataobj: windows_core::Ref<super::LPDATAOBJECT>, cf: super::CLIPFORMAT, hmetapict: super::HGLOBAL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "objidl", feature = "oleidl", feature = "richedit", feature = "shared", feature = "windef", feature = "wtypes"))]
 impl IRichEditOle_Vtbl {
@@ -163,7 +163,7 @@ impl IRichEditOle_Vtbl {
         unsafe extern "system" fn GetClientSite<Identity: IRichEditOle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lplpolesite: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditOle_Impl::GetClientSite(this, core::mem::transmute_copy(&lplpolesite)).into()
+                IRichEditOle_Impl::GetClientSite(this, core::mem::transmute_copy(&lplpolesite))
             }
         }
         unsafe extern "system" fn GetObjectCount<Identity: IRichEditOle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::LONG {
@@ -181,79 +181,79 @@ impl IRichEditOle_Vtbl {
         unsafe extern "system" fn GetObject<Identity: IRichEditOle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iob: super::LONG, lpreobject: *mut REOBJECT, dwflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditOle_Impl::GetObject(this, core::mem::transmute_copy(&iob), core::mem::transmute_copy(&lpreobject), core::mem::transmute_copy(&dwflags)).into()
+                IRichEditOle_Impl::GetObject(this, core::mem::transmute_copy(&iob), core::mem::transmute_copy(&lpreobject), core::mem::transmute_copy(&dwflags))
             }
         }
         unsafe extern "system" fn InsertObject<Identity: IRichEditOle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpreobject: *mut REOBJECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditOle_Impl::InsertObject(this, core::mem::transmute_copy(&lpreobject)).into()
+                IRichEditOle_Impl::InsertObject(this, core::mem::transmute_copy(&lpreobject))
             }
         }
         unsafe extern "system" fn ConvertObject<Identity: IRichEditOle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iob: super::LONG, rclsidnew: *const super::IID, lpstrusertypenew: windows_core::PCSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditOle_Impl::ConvertObject(this, core::mem::transmute_copy(&iob), core::mem::transmute_copy(&rclsidnew), core::mem::transmute(&lpstrusertypenew)).into()
+                IRichEditOle_Impl::ConvertObject(this, core::mem::transmute_copy(&iob), core::mem::transmute_copy(&rclsidnew), core::mem::transmute(&lpstrusertypenew))
             }
         }
         unsafe extern "system" fn ActivateAs<Identity: IRichEditOle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rclsid: *const super::IID, rclsidas: *const super::IID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditOle_Impl::ActivateAs(this, core::mem::transmute_copy(&rclsid), core::mem::transmute_copy(&rclsidas)).into()
+                IRichEditOle_Impl::ActivateAs(this, core::mem::transmute_copy(&rclsid), core::mem::transmute_copy(&rclsidas))
             }
         }
         unsafe extern "system" fn SetHostNames<Identity: IRichEditOle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpstrcontainerapp: windows_core::PCSTR, lpstrcontainerobj: windows_core::PCSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditOle_Impl::SetHostNames(this, core::mem::transmute(&lpstrcontainerapp), core::mem::transmute(&lpstrcontainerobj)).into()
+                IRichEditOle_Impl::SetHostNames(this, core::mem::transmute(&lpstrcontainerapp), core::mem::transmute(&lpstrcontainerobj))
             }
         }
         unsafe extern "system" fn SetLinkAvailable<Identity: IRichEditOle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iob: super::LONG, favailable: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditOle_Impl::SetLinkAvailable(this, core::mem::transmute_copy(&iob), core::mem::transmute_copy(&favailable)).into()
+                IRichEditOle_Impl::SetLinkAvailable(this, core::mem::transmute_copy(&iob), core::mem::transmute_copy(&favailable))
             }
         }
         unsafe extern "system" fn SetDvaspect<Identity: IRichEditOle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iob: super::LONG, dvaspect: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditOle_Impl::SetDvaspect(this, core::mem::transmute_copy(&iob), core::mem::transmute_copy(&dvaspect)).into()
+                IRichEditOle_Impl::SetDvaspect(this, core::mem::transmute_copy(&iob), core::mem::transmute_copy(&dvaspect))
             }
         }
         unsafe extern "system" fn HandsOffStorage<Identity: IRichEditOle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iob: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditOle_Impl::HandsOffStorage(this, core::mem::transmute_copy(&iob)).into()
+                IRichEditOle_Impl::HandsOffStorage(this, core::mem::transmute_copy(&iob))
             }
         }
         unsafe extern "system" fn SaveCompleted<Identity: IRichEditOle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iob: super::LONG, lpstg: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditOle_Impl::SaveCompleted(this, core::mem::transmute_copy(&iob), core::mem::transmute_copy(&lpstg)).into()
+                IRichEditOle_Impl::SaveCompleted(this, core::mem::transmute_copy(&iob), core::mem::transmute_copy(&lpstg))
             }
         }
         unsafe extern "system" fn InPlaceDeactivate<Identity: IRichEditOle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditOle_Impl::InPlaceDeactivate(this).into()
+                IRichEditOle_Impl::InPlaceDeactivate(this)
             }
         }
         unsafe extern "system" fn ContextSensitiveHelp<Identity: IRichEditOle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fentermode: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditOle_Impl::ContextSensitiveHelp(this, core::mem::transmute_copy(&fentermode)).into()
+                IRichEditOle_Impl::ContextSensitiveHelp(this, core::mem::transmute_copy(&fentermode))
             }
         }
         unsafe extern "system" fn GetClipboardData<Identity: IRichEditOle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpchrg: *mut super::CHARRANGE, reco: super::DWORD, lplpdataobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditOle_Impl::GetClipboardData(this, core::mem::transmute_copy(&lpchrg), core::mem::transmute_copy(&reco), core::mem::transmute_copy(&lplpdataobj)).into()
+                IRichEditOle_Impl::GetClipboardData(this, core::mem::transmute_copy(&lpchrg), core::mem::transmute_copy(&reco), core::mem::transmute_copy(&lplpdataobj))
             }
         }
         unsafe extern "system" fn ImportDataObject<Identity: IRichEditOle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpdataobj: *mut core::ffi::c_void, cf: super::CLIPFORMAT, hmetapict: super::HGLOBAL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditOle_Impl::ImportDataObject(this, core::mem::transmute_copy(&lpdataobj), core::mem::transmute_copy(&cf), core::mem::transmute_copy(&hmetapict)).into()
+                IRichEditOle_Impl::ImportDataObject(this, core::mem::transmute_copy(&lpdataobj), core::mem::transmute_copy(&cf), core::mem::transmute_copy(&hmetapict))
             }
         }
         Self {
@@ -377,16 +377,16 @@ pub struct IRichEditOleCallback_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "objidl", feature = "oleidl", feature = "richedit", feature = "shared", feature = "windef", feature = "wtypes"))]
 pub trait IRichEditOleCallback_Impl: windows_core::IUnknownImpl {
-    fn GetNewStorage(&self, lplpstg: *mut Option<super::LPSTORAGE>) -> windows_core::Result<()>;
-    fn GetInPlaceContext(&self, lplpframe: *mut Option<super::LPOLEINPLACEFRAME>, lplpdoc: *mut Option<super::LPOLEINPLACEUIWINDOW>, lpframeinfo: super::LPOLEINPLACEFRAMEINFO) -> windows_core::Result<()>;
-    fn ShowContainerUI(&self, fshow: windows_core::BOOL) -> windows_core::Result<()>;
-    fn QueryInsertObject(&self, lpclsid: super::LPCLSID, lpstg: windows_core::Ref<super::LPSTORAGE>, cp: super::LONG) -> windows_core::Result<()>;
-    fn DeleteObject(&self, lpoleobj: windows_core::Ref<super::LPOLEOBJECT>) -> windows_core::Result<()>;
-    fn QueryAcceptData(&self, lpdataobj: windows_core::Ref<super::LPDATAOBJECT>, lpcfformat: *mut super::CLIPFORMAT, reco: super::DWORD, freally: windows_core::BOOL, hmetapict: super::HGLOBAL) -> windows_core::Result<()>;
-    fn ContextSensitiveHelp(&self, fentermode: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetClipboardData(&self, lpchrg: *mut super::CHARRANGE, reco: super::DWORD, lplpdataobj: *mut Option<super::LPDATAOBJECT>) -> windows_core::Result<()>;
-    fn GetDragDropEffect(&self, fdrag: windows_core::BOOL, grfkeystate: super::DWORD, pdweffect: super::LPDWORD) -> windows_core::Result<()>;
-    fn GetContextMenu(&self, seltype: super::WORD, lpoleobj: windows_core::Ref<super::LPOLEOBJECT>, lpchrg: *mut super::CHARRANGE, lphmenu: *mut super::HMENU) -> windows_core::Result<()>;
+    fn GetNewStorage(&self, lplpstg: *mut Option<super::LPSTORAGE>) -> windows_core::HRESULT;
+    fn GetInPlaceContext(&self, lplpframe: *mut Option<super::LPOLEINPLACEFRAME>, lplpdoc: *mut Option<super::LPOLEINPLACEUIWINDOW>, lpframeinfo: super::LPOLEINPLACEFRAMEINFO) -> windows_core::HRESULT;
+    fn ShowContainerUI(&self, fshow: windows_core::BOOL) -> windows_core::HRESULT;
+    fn QueryInsertObject(&self, lpclsid: super::LPCLSID, lpstg: windows_core::Ref<super::LPSTORAGE>, cp: super::LONG) -> windows_core::HRESULT;
+    fn DeleteObject(&self, lpoleobj: windows_core::Ref<super::LPOLEOBJECT>) -> windows_core::HRESULT;
+    fn QueryAcceptData(&self, lpdataobj: windows_core::Ref<super::LPDATAOBJECT>, lpcfformat: *mut super::CLIPFORMAT, reco: super::DWORD, freally: windows_core::BOOL, hmetapict: super::HGLOBAL) -> windows_core::HRESULT;
+    fn ContextSensitiveHelp(&self, fentermode: windows_core::BOOL) -> windows_core::HRESULT;
+    fn GetClipboardData(&self, lpchrg: *mut super::CHARRANGE, reco: super::DWORD, lplpdataobj: *mut Option<super::LPDATAOBJECT>) -> windows_core::HRESULT;
+    fn GetDragDropEffect(&self, fdrag: windows_core::BOOL, grfkeystate: super::DWORD, pdweffect: super::LPDWORD) -> windows_core::HRESULT;
+    fn GetContextMenu(&self, seltype: super::WORD, lpoleobj: windows_core::Ref<super::LPOLEOBJECT>, lpchrg: *mut super::CHARRANGE, lphmenu: *mut super::HMENU) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "objidl", feature = "oleidl", feature = "richedit", feature = "shared", feature = "windef", feature = "wtypes"))]
 impl IRichEditOleCallback_Vtbl {
@@ -394,61 +394,61 @@ impl IRichEditOleCallback_Vtbl {
         unsafe extern "system" fn GetNewStorage<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lplpstg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditOleCallback_Impl::GetNewStorage(this, core::mem::transmute_copy(&lplpstg)).into()
+                IRichEditOleCallback_Impl::GetNewStorage(this, core::mem::transmute_copy(&lplpstg))
             }
         }
         unsafe extern "system" fn GetInPlaceContext<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lplpframe: *mut *mut core::ffi::c_void, lplpdoc: *mut *mut core::ffi::c_void, lpframeinfo: super::LPOLEINPLACEFRAMEINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditOleCallback_Impl::GetInPlaceContext(this, core::mem::transmute_copy(&lplpframe), core::mem::transmute_copy(&lplpdoc), core::mem::transmute_copy(&lpframeinfo)).into()
+                IRichEditOleCallback_Impl::GetInPlaceContext(this, core::mem::transmute_copy(&lplpframe), core::mem::transmute_copy(&lplpdoc), core::mem::transmute_copy(&lpframeinfo))
             }
         }
         unsafe extern "system" fn ShowContainerUI<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fshow: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditOleCallback_Impl::ShowContainerUI(this, core::mem::transmute_copy(&fshow)).into()
+                IRichEditOleCallback_Impl::ShowContainerUI(this, core::mem::transmute_copy(&fshow))
             }
         }
         unsafe extern "system" fn QueryInsertObject<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpclsid: super::LPCLSID, lpstg: *mut core::ffi::c_void, cp: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditOleCallback_Impl::QueryInsertObject(this, core::mem::transmute_copy(&lpclsid), core::mem::transmute_copy(&lpstg), core::mem::transmute_copy(&cp)).into()
+                IRichEditOleCallback_Impl::QueryInsertObject(this, core::mem::transmute_copy(&lpclsid), core::mem::transmute_copy(&lpstg), core::mem::transmute_copy(&cp))
             }
         }
         unsafe extern "system" fn DeleteObject<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpoleobj: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditOleCallback_Impl::DeleteObject(this, core::mem::transmute_copy(&lpoleobj)).into()
+                IRichEditOleCallback_Impl::DeleteObject(this, core::mem::transmute_copy(&lpoleobj))
             }
         }
         unsafe extern "system" fn QueryAcceptData<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpdataobj: *mut core::ffi::c_void, lpcfformat: *mut super::CLIPFORMAT, reco: super::DWORD, freally: windows_core::BOOL, hmetapict: super::HGLOBAL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditOleCallback_Impl::QueryAcceptData(this, core::mem::transmute_copy(&lpdataobj), core::mem::transmute_copy(&lpcfformat), core::mem::transmute_copy(&reco), core::mem::transmute_copy(&freally), core::mem::transmute_copy(&hmetapict)).into()
+                IRichEditOleCallback_Impl::QueryAcceptData(this, core::mem::transmute_copy(&lpdataobj), core::mem::transmute_copy(&lpcfformat), core::mem::transmute_copy(&reco), core::mem::transmute_copy(&freally), core::mem::transmute_copy(&hmetapict))
             }
         }
         unsafe extern "system" fn ContextSensitiveHelp<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fentermode: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditOleCallback_Impl::ContextSensitiveHelp(this, core::mem::transmute_copy(&fentermode)).into()
+                IRichEditOleCallback_Impl::ContextSensitiveHelp(this, core::mem::transmute_copy(&fentermode))
             }
         }
         unsafe extern "system" fn GetClipboardData<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpchrg: *mut super::CHARRANGE, reco: super::DWORD, lplpdataobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditOleCallback_Impl::GetClipboardData(this, core::mem::transmute_copy(&lpchrg), core::mem::transmute_copy(&reco), core::mem::transmute_copy(&lplpdataobj)).into()
+                IRichEditOleCallback_Impl::GetClipboardData(this, core::mem::transmute_copy(&lpchrg), core::mem::transmute_copy(&reco), core::mem::transmute_copy(&lplpdataobj))
             }
         }
         unsafe extern "system" fn GetDragDropEffect<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fdrag: windows_core::BOOL, grfkeystate: super::DWORD, pdweffect: super::LPDWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditOleCallback_Impl::GetDragDropEffect(this, core::mem::transmute_copy(&fdrag), core::mem::transmute_copy(&grfkeystate), core::mem::transmute_copy(&pdweffect)).into()
+                IRichEditOleCallback_Impl::GetDragDropEffect(this, core::mem::transmute_copy(&fdrag), core::mem::transmute_copy(&grfkeystate), core::mem::transmute_copy(&pdweffect))
             }
         }
         unsafe extern "system" fn GetContextMenu<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, seltype: super::WORD, lpoleobj: *mut core::ffi::c_void, lpchrg: *mut super::CHARRANGE, lphmenu: *mut super::HMENU) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditOleCallback_Impl::GetContextMenu(this, core::mem::transmute_copy(&seltype), core::mem::transmute_copy(&lpoleobj), core::mem::transmute_copy(&lpchrg), core::mem::transmute_copy(&lphmenu)).into()
+                IRichEditOleCallback_Impl::GetContextMenu(this, core::mem::transmute_copy(&seltype), core::mem::transmute_copy(&lpoleobj), core::mem::transmute_copy(&lpchrg), core::mem::transmute_copy(&lphmenu))
             }
         }
         Self {

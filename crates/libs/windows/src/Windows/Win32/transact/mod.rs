@@ -37,7 +37,7 @@ pub struct IKernelTransaction_Vtbl {
 }
 #[cfg(feature = "winnt")]
 pub trait IKernelTransaction_Impl: windows_core::IUnknownImpl {
-    fn GetHandle(&self, phandle: *mut super::HANDLE) -> windows_core::Result<()>;
+    fn GetHandle(&self, phandle: *mut super::HANDLE) -> windows_core::HRESULT;
 }
 #[cfg(feature = "winnt")]
 impl IKernelTransaction_Vtbl {
@@ -45,7 +45,7 @@ impl IKernelTransaction_Vtbl {
         unsafe extern "system" fn GetHandle<Identity: IKernelTransaction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phandle: *mut super::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IKernelTransaction_Impl::GetHandle(this, core::mem::transmute_copy(&phandle)).into()
+                IKernelTransaction_Impl::GetHandle(this, core::mem::transmute_copy(&phandle))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetHandle: GetHandle::<Identity, OFFSET> }
@@ -106,8 +106,8 @@ pub struct ITmNodeName_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ITmNodeName_Impl: windows_core::IUnknownImpl {
-    fn GetNodeNameSize(&self, pcbnodenamesize: *mut super::ULONG) -> windows_core::Result<()>;
-    fn GetNodeName(&self, cbnodenamebuffersize: super::ULONG, pnodenamebuffer: windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetNodeNameSize(&self, pcbnodenamesize: *mut super::ULONG) -> windows_core::HRESULT;
+    fn GetNodeName(&self, cbnodenamebuffersize: super::ULONG, pnodenamebuffer: windows_core::PWSTR) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ITmNodeName_Vtbl {
@@ -115,13 +115,13 @@ impl ITmNodeName_Vtbl {
         unsafe extern "system" fn GetNodeNameSize<Identity: ITmNodeName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbnodenamesize: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITmNodeName_Impl::GetNodeNameSize(this, core::mem::transmute_copy(&pcbnodenamesize)).into()
+                ITmNodeName_Impl::GetNodeNameSize(this, core::mem::transmute_copy(&pcbnodenamesize))
             }
         }
         unsafe extern "system" fn GetNodeName<Identity: ITmNodeName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbnodenamebuffersize: super::ULONG, pnodenamebuffer: windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITmNodeName_Impl::GetNodeName(this, core::mem::transmute_copy(&cbnodenamebuffersize), core::mem::transmute_copy(&pnodenamebuffer)).into()
+                ITmNodeName_Impl::GetNodeName(this, core::mem::transmute_copy(&cbnodenamebuffersize), core::mem::transmute_copy(&pnodenamebuffer))
             }
         }
         Self {
@@ -171,9 +171,9 @@ pub struct ITransaction_Vtbl {
 }
 #[cfg(all(feature = "rpc", feature = "shared"))]
 pub trait ITransaction_Impl: windows_core::IUnknownImpl {
-    fn Commit(&self, fretaining: windows_core::BOOL, grftc: super::DWORD, grfrm: super::DWORD) -> windows_core::Result<()>;
-    fn Abort(&self, pboidreason: *const BOID, fretaining: windows_core::BOOL, fasync: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetTransactionInfo(&self, pinfo: *mut XACTTRANSINFO) -> windows_core::Result<()>;
+    fn Commit(&self, fretaining: windows_core::BOOL, grftc: super::DWORD, grfrm: super::DWORD) -> windows_core::HRESULT;
+    fn Abort(&self, pboidreason: *const BOID, fretaining: windows_core::BOOL, fasync: windows_core::BOOL) -> windows_core::HRESULT;
+    fn GetTransactionInfo(&self, pinfo: *mut XACTTRANSINFO) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "rpc", feature = "shared"))]
 impl ITransaction_Vtbl {
@@ -181,19 +181,19 @@ impl ITransaction_Vtbl {
         unsafe extern "system" fn Commit<Identity: ITransaction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fretaining: windows_core::BOOL, grftc: super::DWORD, grfrm: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransaction_Impl::Commit(this, core::mem::transmute_copy(&fretaining), core::mem::transmute_copy(&grftc), core::mem::transmute_copy(&grfrm)).into()
+                ITransaction_Impl::Commit(this, core::mem::transmute_copy(&fretaining), core::mem::transmute_copy(&grftc), core::mem::transmute_copy(&grfrm))
             }
         }
         unsafe extern "system" fn Abort<Identity: ITransaction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pboidreason: *const BOID, fretaining: windows_core::BOOL, fasync: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransaction_Impl::Abort(this, core::mem::transmute_copy(&pboidreason), core::mem::transmute_copy(&fretaining), core::mem::transmute_copy(&fasync)).into()
+                ITransaction_Impl::Abort(this, core::mem::transmute_copy(&pboidreason), core::mem::transmute_copy(&fretaining), core::mem::transmute_copy(&fasync))
             }
         }
         unsafe extern "system" fn GetTransactionInfo<Identity: ITransaction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *mut XACTTRANSINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransaction_Impl::GetTransactionInfo(this, core::mem::transmute_copy(&pinfo)).into()
+                ITransaction_Impl::GetTransactionInfo(this, core::mem::transmute_copy(&pinfo))
             }
         }
         Self {
@@ -234,7 +234,7 @@ pub struct ITransaction2_Vtbl {
 }
 #[cfg(all(feature = "rpc", feature = "shared"))]
 pub trait ITransaction2_Impl: ITransactionCloner_Impl {
-    fn GetTransactionInfo2(&self, pinfo: *mut XACTTRANSINFO) -> windows_core::Result<()>;
+    fn GetTransactionInfo2(&self, pinfo: *mut XACTTRANSINFO) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "rpc", feature = "shared"))]
 impl ITransaction2_Vtbl {
@@ -242,7 +242,7 @@ impl ITransaction2_Vtbl {
         unsafe extern "system" fn GetTransactionInfo2<Identity: ITransaction2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *mut XACTTRANSINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransaction2_Impl::GetTransactionInfo2(this, core::mem::transmute_copy(&pinfo)).into()
+                ITransaction2_Impl::GetTransactionInfo2(this, core::mem::transmute_copy(&pinfo))
             }
         }
         Self { base__: ITransactionCloner_Vtbl::new::<Identity, OFFSET>(), GetTransactionInfo2: GetTransactionInfo2::<Identity, OFFSET> }
@@ -413,8 +413,8 @@ pub struct ITransactionOptions_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ITransactionOptions_Impl: windows_core::IUnknownImpl {
-    fn SetOptions(&self, poptions: *const XACTOPT) -> windows_core::Result<()>;
-    fn GetOptions(&self, poptions: *mut XACTOPT) -> windows_core::Result<()>;
+    fn SetOptions(&self, poptions: *const XACTOPT) -> windows_core::HRESULT;
+    fn GetOptions(&self, poptions: *mut XACTOPT) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ITransactionOptions_Vtbl {
@@ -422,13 +422,13 @@ impl ITransactionOptions_Vtbl {
         unsafe extern "system" fn SetOptions<Identity: ITransactionOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, poptions: *const XACTOPT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionOptions_Impl::SetOptions(this, core::mem::transmute_copy(&poptions)).into()
+                ITransactionOptions_Impl::SetOptions(this, core::mem::transmute_copy(&poptions))
             }
         }
         unsafe extern "system" fn GetOptions<Identity: ITransactionOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, poptions: *mut XACTOPT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionOptions_Impl::GetOptions(this, core::mem::transmute_copy(&poptions)).into()
+                ITransactionOptions_Impl::GetOptions(this, core::mem::transmute_copy(&poptions))
             }
         }
         Self {
@@ -482,10 +482,10 @@ pub struct ITransactionOutcomeEvents_Vtbl {
 }
 #[cfg(all(feature = "rpc", feature = "shared"))]
 pub trait ITransactionOutcomeEvents_Impl: windows_core::IUnknownImpl {
-    fn Committed(&self, fretaining: windows_core::BOOL, pnewuow: *const XACTUOW, hr: windows_core::HRESULT) -> windows_core::Result<()>;
-    fn Aborted(&self, pboidreason: *const BOID, fretaining: windows_core::BOOL, pnewuow: *const XACTUOW, hr: windows_core::HRESULT) -> windows_core::Result<()>;
-    fn HeuristicDecision(&self, dwdecision: super::DWORD, pboidreason: *const BOID, hr: windows_core::HRESULT) -> windows_core::Result<()>;
-    fn Indoubt(&self) -> windows_core::Result<()>;
+    fn Committed(&self, fretaining: windows_core::BOOL, pnewuow: *const XACTUOW, hr: windows_core::HRESULT) -> windows_core::HRESULT;
+    fn Aborted(&self, pboidreason: *const BOID, fretaining: windows_core::BOOL, pnewuow: *const XACTUOW, hr: windows_core::HRESULT) -> windows_core::HRESULT;
+    fn HeuristicDecision(&self, dwdecision: super::DWORD, pboidreason: *const BOID, hr: windows_core::HRESULT) -> windows_core::HRESULT;
+    fn Indoubt(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "rpc", feature = "shared"))]
 impl ITransactionOutcomeEvents_Vtbl {
@@ -493,25 +493,25 @@ impl ITransactionOutcomeEvents_Vtbl {
         unsafe extern "system" fn Committed<Identity: ITransactionOutcomeEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fretaining: windows_core::BOOL, pnewuow: *const XACTUOW, hr: windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionOutcomeEvents_Impl::Committed(this, core::mem::transmute_copy(&fretaining), core::mem::transmute_copy(&pnewuow), core::mem::transmute_copy(&hr)).into()
+                ITransactionOutcomeEvents_Impl::Committed(this, core::mem::transmute_copy(&fretaining), core::mem::transmute_copy(&pnewuow), core::mem::transmute_copy(&hr))
             }
         }
         unsafe extern "system" fn Aborted<Identity: ITransactionOutcomeEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pboidreason: *const BOID, fretaining: windows_core::BOOL, pnewuow: *const XACTUOW, hr: windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionOutcomeEvents_Impl::Aborted(this, core::mem::transmute_copy(&pboidreason), core::mem::transmute_copy(&fretaining), core::mem::transmute_copy(&pnewuow), core::mem::transmute_copy(&hr)).into()
+                ITransactionOutcomeEvents_Impl::Aborted(this, core::mem::transmute_copy(&pboidreason), core::mem::transmute_copy(&fretaining), core::mem::transmute_copy(&pnewuow), core::mem::transmute_copy(&hr))
             }
         }
         unsafe extern "system" fn HeuristicDecision<Identity: ITransactionOutcomeEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwdecision: super::DWORD, pboidreason: *const BOID, hr: windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionOutcomeEvents_Impl::HeuristicDecision(this, core::mem::transmute_copy(&dwdecision), core::mem::transmute_copy(&pboidreason), core::mem::transmute_copy(&hr)).into()
+                ITransactionOutcomeEvents_Impl::HeuristicDecision(this, core::mem::transmute_copy(&dwdecision), core::mem::transmute_copy(&pboidreason), core::mem::transmute_copy(&hr))
             }
         }
         unsafe extern "system" fn Indoubt<Identity: ITransactionOutcomeEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionOutcomeEvents_Impl::Indoubt(this).into()
+                ITransactionOutcomeEvents_Impl::Indoubt(this)
             }
         }
         Self {

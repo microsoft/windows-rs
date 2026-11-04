@@ -36,6 +36,40 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(Results, windows_core::IUnknown);
 impl Results {
+    pub unsafe fn Status(&self, status: windows_core::HRESULT) -> StatusCode {
+        unsafe {
+            (windows_core::Interface::vtable(self).Status)(
+                windows_core::Interface::as_raw(self),
+                status,
+            )
+        }
+    }
+    pub unsafe fn Read(
+        &self,
+        status: windows_core::HRESULT,
+        value: *mut u32,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            (windows_core::Interface::vtable(self).Read)(
+                windows_core::Interface::as_raw(self),
+                status,
+                value as _,
+            )
+        }
+    }
+    pub unsafe fn ExplicitObject(
+        &self,
+        status: windows_core::HRESULT,
+        value: *mut Option<Tracked>,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            (windows_core::Interface::vtable(self).ExplicitObject)(
+                windows_core::Interface::as_raw(self),
+                status,
+                core::mem::transmute(value),
+            )
+        }
+    }
     pub unsafe fn Object(&self) -> windows_core::Result<ObjectAlias> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -165,6 +199,18 @@ impl Results {
 #[repr(C)]
 pub struct Results_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
+    pub Status:
+        unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> StatusCode,
+    pub Read: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::HRESULT,
+        *mut u32,
+    ) -> windows_core::HRESULT,
+    pub ExplicitObject: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::HRESULT,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     pub Object: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
@@ -207,6 +253,13 @@ pub struct Results_Vtbl {
         unsafe extern "system" fn(*mut core::ffi::c_void, TrackedSlot) -> windows_core::HRESULT,
 }
 pub trait Results_Impl: windows_core::IUnknownImpl {
+    fn Status(&self, status: windows_core::HRESULT) -> StatusCode;
+    fn Read(&self, status: windows_core::HRESULT, value: *mut u32) -> windows_core::HRESULT;
+    fn ExplicitObject(
+        &self,
+        status: windows_core::HRESULT,
+        value: windows_core::OutRef<Tracked>,
+    ) -> windows_core::HRESULT;
     fn Object(&self) -> windows_core::Result<ObjectAlias>;
     fn Reserved(&self, reserved: usize) -> windows_core::Result<Tracked>;
     fn Required(&self) -> windows_core::Result<Tracked>;
@@ -222,13 +275,53 @@ pub trait Results_Impl: windows_core::IUnknownImpl {
         &self,
         iid: *const windows_core::GUID,
         value: *mut *mut core::ffi::c_void,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
     fn Data(&self) -> windows_core::Result<*mut u8>;
     fn ReadThenFail(&self, input: *const *mut core::ffi::c_void) -> windows_core::Result<Tracked>;
     fn TypedefSlot(&self) -> windows_core::Result<Tracked>;
 }
 impl Results_Vtbl {
     pub const fn new<Identity: Results_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn Status<Identity: Results_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            status: windows_core::HRESULT,
+        ) -> StatusCode {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                Results_Impl::Status(this, core::mem::transmute_copy(&status))
+            }
+        }
+        unsafe extern "system" fn Read<Identity: Results_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            status: windows_core::HRESULT,
+            value: *mut u32,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                Results_Impl::Read(
+                    this,
+                    core::mem::transmute_copy(&status),
+                    core::mem::transmute_copy(&value),
+                )
+            }
+        }
+        unsafe extern "system" fn ExplicitObject<Identity: Results_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            status: windows_core::HRESULT,
+            value: *mut *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                Results_Impl::ExplicitObject(
+                    this,
+                    core::mem::transmute_copy(&status),
+                    core::mem::transmute_copy(&value),
+                )
+            }
+        }
         unsafe extern "system" fn Object<Identity: Results_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             value: *mut *mut core::ffi::c_void,
@@ -361,7 +454,6 @@ impl Results_Vtbl {
                     core::mem::transmute_copy(&iid),
                     core::mem::transmute_copy(&value),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn Data<Identity: Results_Impl, const OFFSET: isize>(
@@ -424,6 +516,9 @@ impl Results_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Status: Status::<Identity, OFFSET>,
+            Read: Read::<Identity, OFFSET>,
+            ExplicitObject: ExplicitObject::<Identity, OFFSET>,
             Object: Object::<Identity, OFFSET>,
             Reserved: Reserved::<Identity, OFFSET>,
             Required: Required::<Identity, OFFSET>,
@@ -442,6 +537,7 @@ impl Results_Vtbl {
     }
 }
 impl windows_core::RuntimeName for Results {}
+pub type StatusCode = windows_core::HRESULT;
 windows_core::imp::define_interface!(
     Tracked,
     Tracked_Vtbl,

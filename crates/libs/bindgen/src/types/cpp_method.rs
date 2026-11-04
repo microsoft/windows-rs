@@ -15,7 +15,6 @@ pub enum ReturnHint {
     Query(usize, usize),
     QueryOptional(usize, usize),
     ResultValue,
-    HResult,
     ReturnStruct,
     ReturnValue,
 }
@@ -80,10 +79,6 @@ impl CppMethod {
             Type::HRESULT => {
                 if is_retval {
                     return_hint = ReturnHint::ResultValue;
-                } else {
-                    // Non-retval HRESULT consumers preserve non-S_OK success codes; producers use
-                    // `Result`.
-                    return_hint = ReturnHint::HResult;
                 }
 
                 if signature.params.len() >= 2
@@ -132,10 +127,7 @@ impl CppMethod {
             )
         };
         let projected_must_use = match self.return_hint {
-            ReturnHint::Query(..)
-            | ReturnHint::QueryOptional(..)
-            | ReturnHint::ResultValue
-            | ReturnHint::HResult => true,
+            ReturnHint::Query(..) | ReturnHint::QueryOptional(..) | ReturnHint::ResultValue => true,
             ReturnHint::ReturnValue => {
                 let param = self.signature.params.last().unwrap();
                 let ty = param.projection_pointee(reader).projection_type(reader);
@@ -303,7 +295,7 @@ impl CppMethod {
                     }
                 }
             }
-            ReturnHint::None | ReturnHint::HResult => {
+            ReturnHint::None => {
                 let where_clause = self.write_where(config, false);
 
                 if matches!(self.signature.return_type, Type::Void) {
@@ -376,7 +368,7 @@ impl CppMethod {
                     }
                 }
             }
-            ReturnHint::Query(..) | ReturnHint::QueryOptional(..) | ReturnHint::HResult => {
+            ReturnHint::Query(..) | ReturnHint::QueryOptional(..) => {
                 let invoke_args = self
                     .signature
                     .params
@@ -445,7 +437,7 @@ impl CppMethod {
         let result = config.write_core();
 
         let return_type = match self.return_hint {
-            ReturnHint::Query(..) | ReturnHint::QueryOptional(..) | ReturnHint::HResult => {
+            ReturnHint::Query(..) | ReturnHint::QueryOptional(..) => {
                 quote! { -> #result Result<()> }
             }
             ReturnHint::ResultValue => {

@@ -165,12 +165,12 @@ pub struct IAMStats_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAMStats_Impl: super::IDispatch_Impl {
-    fn Reset(&self) -> windows_core::Result<()>;
+    fn Reset(&self) -> windows_core::HRESULT;
     fn Count(&self) -> windows_core::Result<super::LONG>;
-    fn GetValueByIndex(&self, lindex: i32, szname: *mut windows_core::BSTR, lcount: *mut i32, dlast: *mut f64, daverage: *mut f64, dstddev: *mut f64, dmin: *mut f64, dmax: *mut f64) -> windows_core::Result<()>;
-    fn GetValueByName(&self, szname: &windows_core::BSTR, lindex: *mut i32, lcount: *mut i32, dlast: *mut f64, daverage: *mut f64, dstddev: *mut f64, dmin: *mut f64, dmax: *mut f64) -> windows_core::Result<()>;
-    fn GetIndex(&self, szname: &windows_core::BSTR, lcreate: i32, plindex: *mut i32) -> windows_core::Result<()>;
-    fn AddValue(&self, lindex: i32, dvalue: f64) -> windows_core::Result<()>;
+    fn GetValueByIndex(&self, lindex: i32, szname: *mut windows_core::BSTR, lcount: *mut i32, dlast: *mut f64, daverage: *mut f64, dstddev: *mut f64, dmin: *mut f64, dmax: *mut f64) -> windows_core::HRESULT;
+    fn GetValueByName(&self, szname: &windows_core::BSTR, lindex: *mut i32, lcount: *mut i32, dlast: *mut f64, daverage: *mut f64, dstddev: *mut f64, dmin: *mut f64, dmax: *mut f64) -> windows_core::HRESULT;
+    fn GetIndex(&self, szname: &windows_core::BSTR, lcreate: i32, plindex: *mut i32) -> windows_core::HRESULT;
+    fn AddValue(&self, lindex: i32, dvalue: f64) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAMStats_Vtbl {
@@ -178,7 +178,7 @@ impl IAMStats_Vtbl {
         unsafe extern "system" fn Reset<Identity: IAMStats_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAMStats_Impl::Reset(this).into()
+                IAMStats_Impl::Reset(this)
             }
         }
         unsafe extern "system" fn Count<Identity: IAMStats_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut super::LONG) -> windows_core::HRESULT {
@@ -199,25 +199,25 @@ impl IAMStats_Vtbl {
         unsafe extern "system" fn GetValueByIndex<Identity: IAMStats_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, szname: *mut *mut core::ffi::c_void, lcount: *mut i32, dlast: *mut f64, daverage: *mut f64, dstddev: *mut f64, dmin: *mut f64, dmax: *mut f64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAMStats_Impl::GetValueByIndex(this, core::mem::transmute_copy(&lindex), core::mem::transmute_copy(&szname), core::mem::transmute_copy(&lcount), core::mem::transmute_copy(&dlast), core::mem::transmute_copy(&daverage), core::mem::transmute_copy(&dstddev), core::mem::transmute_copy(&dmin), core::mem::transmute_copy(&dmax)).into()
+                IAMStats_Impl::GetValueByIndex(this, core::mem::transmute_copy(&lindex), core::mem::transmute_copy(&szname), core::mem::transmute_copy(&lcount), core::mem::transmute_copy(&dlast), core::mem::transmute_copy(&daverage), core::mem::transmute_copy(&dstddev), core::mem::transmute_copy(&dmin), core::mem::transmute_copy(&dmax))
             }
         }
         unsafe extern "system" fn GetValueByName<Identity: IAMStats_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: *mut core::ffi::c_void, lindex: *mut i32, lcount: *mut i32, dlast: *mut f64, daverage: *mut f64, dstddev: *mut f64, dmin: *mut f64, dmax: *mut f64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAMStats_Impl::GetValueByName(this, core::mem::transmute(&szname), core::mem::transmute_copy(&lindex), core::mem::transmute_copy(&lcount), core::mem::transmute_copy(&dlast), core::mem::transmute_copy(&daverage), core::mem::transmute_copy(&dstddev), core::mem::transmute_copy(&dmin), core::mem::transmute_copy(&dmax)).into()
+                IAMStats_Impl::GetValueByName(this, core::mem::transmute(&szname), core::mem::transmute_copy(&lindex), core::mem::transmute_copy(&lcount), core::mem::transmute_copy(&dlast), core::mem::transmute_copy(&daverage), core::mem::transmute_copy(&dstddev), core::mem::transmute_copy(&dmin), core::mem::transmute_copy(&dmax))
             }
         }
         unsafe extern "system" fn GetIndex<Identity: IAMStats_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: *mut core::ffi::c_void, lcreate: i32, plindex: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAMStats_Impl::GetIndex(this, core::mem::transmute(&szname), core::mem::transmute_copy(&lcreate), core::mem::transmute_copy(&plindex)).into()
+                IAMStats_Impl::GetIndex(this, core::mem::transmute(&szname), core::mem::transmute_copy(&lcreate), core::mem::transmute_copy(&plindex))
             }
         }
         unsafe extern "system" fn AddValue<Identity: IAMStats_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, dvalue: f64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAMStats_Impl::AddValue(this, core::mem::transmute_copy(&lindex), core::mem::transmute_copy(&dvalue)).into()
+                IAMStats_Impl::AddValue(this, core::mem::transmute_copy(&lindex), core::mem::transmute_copy(&dvalue))
             }
         }
         Self {
@@ -280,9 +280,9 @@ pub struct IBasicAudio_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IBasicAudio_Impl: super::IDispatch_Impl {
-    fn SetVolume(&self, lvolume: i32) -> windows_core::Result<()>;
+    fn SetVolume(&self, lvolume: i32) -> windows_core::HRESULT;
     fn Volume(&self) -> windows_core::Result<i32>;
-    fn SetBalance(&self, lbalance: i32) -> windows_core::Result<()>;
+    fn SetBalance(&self, lbalance: i32) -> windows_core::HRESULT;
     fn Balance(&self) -> windows_core::Result<i32>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -291,7 +291,7 @@ impl IBasicAudio_Vtbl {
         unsafe extern "system" fn SetVolume<Identity: IBasicAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lvolume: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBasicAudio_Impl::SetVolume(this, core::mem::transmute_copy(&lvolume)).into()
+                IBasicAudio_Impl::SetVolume(this, core::mem::transmute_copy(&lvolume))
             }
         }
         unsafe extern "system" fn Volume<Identity: IBasicAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plvolume: *mut i32) -> windows_core::HRESULT {
@@ -312,7 +312,7 @@ impl IBasicAudio_Vtbl {
         unsafe extern "system" fn SetBalance<Identity: IBasicAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lbalance: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBasicAudio_Impl::SetBalance(this, core::mem::transmute_copy(&lbalance)).into()
+                IBasicAudio_Impl::SetBalance(this, core::mem::transmute_copy(&lbalance))
             }
         }
         unsafe extern "system" fn Balance<Identity: IBasicAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plbalance: *mut i32) -> windows_core::HRESULT {
@@ -542,33 +542,33 @@ pub trait IBasicVideo_Impl: super::IDispatch_Impl {
     fn BitErrorRate(&self) -> windows_core::Result<i32>;
     fn VideoWidth(&self) -> windows_core::Result<i32>;
     fn VideoHeight(&self) -> windows_core::Result<i32>;
-    fn SetSourceLeft(&self, sourceleft: i32) -> windows_core::Result<()>;
+    fn SetSourceLeft(&self, sourceleft: i32) -> windows_core::HRESULT;
     fn SourceLeft(&self) -> windows_core::Result<i32>;
-    fn SetSourceWidth(&self, sourcewidth: i32) -> windows_core::Result<()>;
+    fn SetSourceWidth(&self, sourcewidth: i32) -> windows_core::HRESULT;
     fn SourceWidth(&self) -> windows_core::Result<i32>;
-    fn SetSourceTop(&self, sourcetop: i32) -> windows_core::Result<()>;
+    fn SetSourceTop(&self, sourcetop: i32) -> windows_core::HRESULT;
     fn SourceTop(&self) -> windows_core::Result<i32>;
-    fn SetSourceHeight(&self, sourceheight: i32) -> windows_core::Result<()>;
+    fn SetSourceHeight(&self, sourceheight: i32) -> windows_core::HRESULT;
     fn SourceHeight(&self) -> windows_core::Result<i32>;
-    fn SetDestinationLeft(&self, destinationleft: i32) -> windows_core::Result<()>;
+    fn SetDestinationLeft(&self, destinationleft: i32) -> windows_core::HRESULT;
     fn DestinationLeft(&self) -> windows_core::Result<i32>;
-    fn SetDestinationWidth(&self, destinationwidth: i32) -> windows_core::Result<()>;
+    fn SetDestinationWidth(&self, destinationwidth: i32) -> windows_core::HRESULT;
     fn DestinationWidth(&self) -> windows_core::Result<i32>;
-    fn SetDestinationTop(&self, destinationtop: i32) -> windows_core::Result<()>;
+    fn SetDestinationTop(&self, destinationtop: i32) -> windows_core::HRESULT;
     fn DestinationTop(&self) -> windows_core::Result<i32>;
-    fn SetDestinationHeight(&self, destinationheight: i32) -> windows_core::Result<()>;
+    fn SetDestinationHeight(&self, destinationheight: i32) -> windows_core::HRESULT;
     fn DestinationHeight(&self) -> windows_core::Result<i32>;
-    fn SetSourcePosition(&self, left: i32, top: i32, width: i32, height: i32) -> windows_core::Result<()>;
-    fn GetSourcePosition(&self, pleft: *mut i32, ptop: *mut i32, pwidth: *mut i32, pheight: *mut i32) -> windows_core::Result<()>;
-    fn SetDefaultSourcePosition(&self) -> windows_core::Result<()>;
-    fn SetDestinationPosition(&self, left: i32, top: i32, width: i32, height: i32) -> windows_core::Result<()>;
-    fn GetDestinationPosition(&self, pleft: *mut i32, ptop: *mut i32, pwidth: *mut i32, pheight: *mut i32) -> windows_core::Result<()>;
-    fn SetDefaultDestinationPosition(&self) -> windows_core::Result<()>;
-    fn GetVideoSize(&self, pwidth: *mut i32, pheight: *mut i32) -> windows_core::Result<()>;
-    fn GetVideoPaletteEntries(&self, startindex: i32, entries: i32, pretrieved: *mut i32, ppalette: *mut i32) -> windows_core::Result<()>;
-    fn GetCurrentImage(&self, pbuffersize: *mut i32, pdibimage: *mut i32) -> windows_core::Result<()>;
-    fn IsUsingDefaultSource(&self) -> windows_core::Result<()>;
-    fn IsUsingDefaultDestination(&self) -> windows_core::Result<()>;
+    fn SetSourcePosition(&self, left: i32, top: i32, width: i32, height: i32) -> windows_core::HRESULT;
+    fn GetSourcePosition(&self, pleft: *mut i32, ptop: *mut i32, pwidth: *mut i32, pheight: *mut i32) -> windows_core::HRESULT;
+    fn SetDefaultSourcePosition(&self) -> windows_core::HRESULT;
+    fn SetDestinationPosition(&self, left: i32, top: i32, width: i32, height: i32) -> windows_core::HRESULT;
+    fn GetDestinationPosition(&self, pleft: *mut i32, ptop: *mut i32, pwidth: *mut i32, pheight: *mut i32) -> windows_core::HRESULT;
+    fn SetDefaultDestinationPosition(&self) -> windows_core::HRESULT;
+    fn GetVideoSize(&self, pwidth: *mut i32, pheight: *mut i32) -> windows_core::HRESULT;
+    fn GetVideoPaletteEntries(&self, startindex: i32, entries: i32, pretrieved: *mut i32, ppalette: *mut i32) -> windows_core::HRESULT;
+    fn GetCurrentImage(&self, pbuffersize: *mut i32, pdibimage: *mut i32) -> windows_core::HRESULT;
+    fn IsUsingDefaultSource(&self) -> windows_core::HRESULT;
+    fn IsUsingDefaultDestination(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IBasicVideo_Vtbl {
@@ -651,7 +651,7 @@ impl IBasicVideo_Vtbl {
         unsafe extern "system" fn SetSourceLeft<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourceleft: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBasicVideo_Impl::SetSourceLeft(this, core::mem::transmute_copy(&sourceleft)).into()
+                IBasicVideo_Impl::SetSourceLeft(this, core::mem::transmute_copy(&sourceleft))
             }
         }
         unsafe extern "system" fn SourceLeft<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psourceleft: *mut i32) -> windows_core::HRESULT {
@@ -672,7 +672,7 @@ impl IBasicVideo_Vtbl {
         unsafe extern "system" fn SetSourceWidth<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourcewidth: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBasicVideo_Impl::SetSourceWidth(this, core::mem::transmute_copy(&sourcewidth)).into()
+                IBasicVideo_Impl::SetSourceWidth(this, core::mem::transmute_copy(&sourcewidth))
             }
         }
         unsafe extern "system" fn SourceWidth<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psourcewidth: *mut i32) -> windows_core::HRESULT {
@@ -693,7 +693,7 @@ impl IBasicVideo_Vtbl {
         unsafe extern "system" fn SetSourceTop<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourcetop: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBasicVideo_Impl::SetSourceTop(this, core::mem::transmute_copy(&sourcetop)).into()
+                IBasicVideo_Impl::SetSourceTop(this, core::mem::transmute_copy(&sourcetop))
             }
         }
         unsafe extern "system" fn SourceTop<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psourcetop: *mut i32) -> windows_core::HRESULT {
@@ -714,7 +714,7 @@ impl IBasicVideo_Vtbl {
         unsafe extern "system" fn SetSourceHeight<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourceheight: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBasicVideo_Impl::SetSourceHeight(this, core::mem::transmute_copy(&sourceheight)).into()
+                IBasicVideo_Impl::SetSourceHeight(this, core::mem::transmute_copy(&sourceheight))
             }
         }
         unsafe extern "system" fn SourceHeight<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psourceheight: *mut i32) -> windows_core::HRESULT {
@@ -735,7 +735,7 @@ impl IBasicVideo_Vtbl {
         unsafe extern "system" fn SetDestinationLeft<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationleft: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBasicVideo_Impl::SetDestinationLeft(this, core::mem::transmute_copy(&destinationleft)).into()
+                IBasicVideo_Impl::SetDestinationLeft(this, core::mem::transmute_copy(&destinationleft))
             }
         }
         unsafe extern "system" fn DestinationLeft<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdestinationleft: *mut i32) -> windows_core::HRESULT {
@@ -756,7 +756,7 @@ impl IBasicVideo_Vtbl {
         unsafe extern "system" fn SetDestinationWidth<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationwidth: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBasicVideo_Impl::SetDestinationWidth(this, core::mem::transmute_copy(&destinationwidth)).into()
+                IBasicVideo_Impl::SetDestinationWidth(this, core::mem::transmute_copy(&destinationwidth))
             }
         }
         unsafe extern "system" fn DestinationWidth<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdestinationwidth: *mut i32) -> windows_core::HRESULT {
@@ -777,7 +777,7 @@ impl IBasicVideo_Vtbl {
         unsafe extern "system" fn SetDestinationTop<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationtop: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBasicVideo_Impl::SetDestinationTop(this, core::mem::transmute_copy(&destinationtop)).into()
+                IBasicVideo_Impl::SetDestinationTop(this, core::mem::transmute_copy(&destinationtop))
             }
         }
         unsafe extern "system" fn DestinationTop<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdestinationtop: *mut i32) -> windows_core::HRESULT {
@@ -798,7 +798,7 @@ impl IBasicVideo_Vtbl {
         unsafe extern "system" fn SetDestinationHeight<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationheight: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBasicVideo_Impl::SetDestinationHeight(this, core::mem::transmute_copy(&destinationheight)).into()
+                IBasicVideo_Impl::SetDestinationHeight(this, core::mem::transmute_copy(&destinationheight))
             }
         }
         unsafe extern "system" fn DestinationHeight<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdestinationheight: *mut i32) -> windows_core::HRESULT {
@@ -819,67 +819,67 @@ impl IBasicVideo_Vtbl {
         unsafe extern "system" fn SetSourcePosition<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, left: i32, top: i32, width: i32, height: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBasicVideo_Impl::SetSourcePosition(this, core::mem::transmute_copy(&left), core::mem::transmute_copy(&top), core::mem::transmute_copy(&width), core::mem::transmute_copy(&height)).into()
+                IBasicVideo_Impl::SetSourcePosition(this, core::mem::transmute_copy(&left), core::mem::transmute_copy(&top), core::mem::transmute_copy(&width), core::mem::transmute_copy(&height))
             }
         }
         unsafe extern "system" fn GetSourcePosition<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pleft: *mut i32, ptop: *mut i32, pwidth: *mut i32, pheight: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBasicVideo_Impl::GetSourcePosition(this, core::mem::transmute_copy(&pleft), core::mem::transmute_copy(&ptop), core::mem::transmute_copy(&pwidth), core::mem::transmute_copy(&pheight)).into()
+                IBasicVideo_Impl::GetSourcePosition(this, core::mem::transmute_copy(&pleft), core::mem::transmute_copy(&ptop), core::mem::transmute_copy(&pwidth), core::mem::transmute_copy(&pheight))
             }
         }
         unsafe extern "system" fn SetDefaultSourcePosition<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBasicVideo_Impl::SetDefaultSourcePosition(this).into()
+                IBasicVideo_Impl::SetDefaultSourcePosition(this)
             }
         }
         unsafe extern "system" fn SetDestinationPosition<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, left: i32, top: i32, width: i32, height: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBasicVideo_Impl::SetDestinationPosition(this, core::mem::transmute_copy(&left), core::mem::transmute_copy(&top), core::mem::transmute_copy(&width), core::mem::transmute_copy(&height)).into()
+                IBasicVideo_Impl::SetDestinationPosition(this, core::mem::transmute_copy(&left), core::mem::transmute_copy(&top), core::mem::transmute_copy(&width), core::mem::transmute_copy(&height))
             }
         }
         unsafe extern "system" fn GetDestinationPosition<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pleft: *mut i32, ptop: *mut i32, pwidth: *mut i32, pheight: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBasicVideo_Impl::GetDestinationPosition(this, core::mem::transmute_copy(&pleft), core::mem::transmute_copy(&ptop), core::mem::transmute_copy(&pwidth), core::mem::transmute_copy(&pheight)).into()
+                IBasicVideo_Impl::GetDestinationPosition(this, core::mem::transmute_copy(&pleft), core::mem::transmute_copy(&ptop), core::mem::transmute_copy(&pwidth), core::mem::transmute_copy(&pheight))
             }
         }
         unsafe extern "system" fn SetDefaultDestinationPosition<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBasicVideo_Impl::SetDefaultDestinationPosition(this).into()
+                IBasicVideo_Impl::SetDefaultDestinationPosition(this)
             }
         }
         unsafe extern "system" fn GetVideoSize<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwidth: *mut i32, pheight: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBasicVideo_Impl::GetVideoSize(this, core::mem::transmute_copy(&pwidth), core::mem::transmute_copy(&pheight)).into()
+                IBasicVideo_Impl::GetVideoSize(this, core::mem::transmute_copy(&pwidth), core::mem::transmute_copy(&pheight))
             }
         }
         unsafe extern "system" fn GetVideoPaletteEntries<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startindex: i32, entries: i32, pretrieved: *mut i32, ppalette: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBasicVideo_Impl::GetVideoPaletteEntries(this, core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&entries), core::mem::transmute_copy(&pretrieved), core::mem::transmute_copy(&ppalette)).into()
+                IBasicVideo_Impl::GetVideoPaletteEntries(this, core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&entries), core::mem::transmute_copy(&pretrieved), core::mem::transmute_copy(&ppalette))
             }
         }
         unsafe extern "system" fn GetCurrentImage<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuffersize: *mut i32, pdibimage: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBasicVideo_Impl::GetCurrentImage(this, core::mem::transmute_copy(&pbuffersize), core::mem::transmute_copy(&pdibimage)).into()
+                IBasicVideo_Impl::GetCurrentImage(this, core::mem::transmute_copy(&pbuffersize), core::mem::transmute_copy(&pdibimage))
             }
         }
         unsafe extern "system" fn IsUsingDefaultSource<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBasicVideo_Impl::IsUsingDefaultSource(this).into()
+                IBasicVideo_Impl::IsUsingDefaultSource(this)
             }
         }
         unsafe extern "system" fn IsUsingDefaultDestination<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBasicVideo_Impl::IsUsingDefaultDestination(this).into()
+                IBasicVideo_Impl::IsUsingDefaultDestination(this)
             }
         }
         Self {
@@ -950,7 +950,7 @@ pub struct IBasicVideo2_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IBasicVideo2_Impl: IBasicVideo_Impl {
-    fn GetPreferredAspectRatio(&self, plaspectx: *mut i32, plaspecty: *mut i32) -> windows_core::Result<()>;
+    fn GetPreferredAspectRatio(&self, plaspectx: *mut i32, plaspecty: *mut i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IBasicVideo2_Vtbl {
@@ -958,7 +958,7 @@ impl IBasicVideo2_Vtbl {
         unsafe extern "system" fn GetPreferredAspectRatio<Identity: IBasicVideo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plaspectx: *mut i32, plaspecty: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBasicVideo2_Impl::GetPreferredAspectRatio(this, core::mem::transmute_copy(&plaspectx), core::mem::transmute_copy(&plaspecty)).into()
+                IBasicVideo2_Impl::GetPreferredAspectRatio(this, core::mem::transmute_copy(&plaspectx), core::mem::transmute_copy(&plaspecty))
             }
         }
         Self { base__: IBasicVideo_Vtbl::new::<Identity, OFFSET>(), GetPreferredAspectRatio: GetPreferredAspectRatio::<Identity, OFFSET> }
@@ -1004,10 +1004,10 @@ pub struct IDeferredCommand_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IDeferredCommand_Impl: windows_core::IUnknownImpl {
-    fn Cancel(&self) -> windows_core::Result<()>;
-    fn Confidence(&self, pconfidence: *mut super::LONG) -> windows_core::Result<()>;
-    fn Postpone(&self, newtime: super::REFTIME) -> windows_core::Result<()>;
-    fn GetHResult(&self, phrresult: *mut windows_core::HRESULT) -> windows_core::Result<()>;
+    fn Cancel(&self) -> windows_core::HRESULT;
+    fn Confidence(&self, pconfidence: *mut super::LONG) -> windows_core::HRESULT;
+    fn Postpone(&self, newtime: super::REFTIME) -> windows_core::HRESULT;
+    fn GetHResult(&self, phrresult: *mut windows_core::HRESULT) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IDeferredCommand_Vtbl {
@@ -1015,25 +1015,25 @@ impl IDeferredCommand_Vtbl {
         unsafe extern "system" fn Cancel<Identity: IDeferredCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDeferredCommand_Impl::Cancel(this).into()
+                IDeferredCommand_Impl::Cancel(this)
             }
         }
         unsafe extern "system" fn Confidence<Identity: IDeferredCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pconfidence: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDeferredCommand_Impl::Confidence(this, core::mem::transmute_copy(&pconfidence)).into()
+                IDeferredCommand_Impl::Confidence(this, core::mem::transmute_copy(&pconfidence))
             }
         }
         unsafe extern "system" fn Postpone<Identity: IDeferredCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newtime: super::REFTIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDeferredCommand_Impl::Postpone(this, core::mem::transmute_copy(&newtime)).into()
+                IDeferredCommand_Impl::Postpone(this, core::mem::transmute_copy(&newtime))
             }
         }
         unsafe extern "system" fn GetHResult<Identity: IDeferredCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phrresult: *mut windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDeferredCommand_Impl::GetHResult(this, core::mem::transmute_copy(&phrresult)).into()
+                IDeferredCommand_Impl::GetHResult(this, core::mem::transmute_copy(&phrresult))
             }
         }
         Self {
@@ -1136,7 +1136,7 @@ pub trait IFilterInfo_Impl: super::IDispatch_Impl {
     fn Pins(&self) -> windows_core::Result<super::IDispatch>;
     fn IsFileSource(&self) -> windows_core::Result<super::LONG>;
     fn Filename(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetFilename(&self, strfilename: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetFilename(&self, strfilename: &windows_core::BSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFilterInfo_Vtbl {
@@ -1249,7 +1249,7 @@ impl IFilterInfo_Vtbl {
         unsafe extern "system" fn SetFilename<Identity: IFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strfilename: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFilterInfo_Impl::SetFilename(this, core::mem::transmute(&strfilename)).into()
+                IFilterInfo_Impl::SetFilename(this, core::mem::transmute(&strfilename))
             }
         }
         Self {
@@ -1357,15 +1357,15 @@ pub struct IMediaControl_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMediaControl_Impl: super::IDispatch_Impl {
-    fn Run(&self) -> windows_core::Result<()>;
-    fn Pause(&self) -> windows_core::Result<()>;
-    fn Stop(&self) -> windows_core::Result<()>;
-    fn GetState(&self, mstimeout: super::LONG, pfs: *mut OAFilterState) -> windows_core::Result<()>;
-    fn RenderFile(&self, strfilename: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Run(&self) -> windows_core::HRESULT;
+    fn Pause(&self) -> windows_core::HRESULT;
+    fn Stop(&self) -> windows_core::HRESULT;
+    fn GetState(&self, mstimeout: super::LONG, pfs: *mut OAFilterState) -> windows_core::HRESULT;
+    fn RenderFile(&self, strfilename: &windows_core::BSTR) -> windows_core::HRESULT;
     fn AddSourceFilter(&self, strfilename: &windows_core::BSTR) -> windows_core::Result<super::IDispatch>;
     fn FilterCollection(&self) -> windows_core::Result<super::IDispatch>;
     fn RegFilterCollection(&self) -> windows_core::Result<super::IDispatch>;
-    fn StopWhenReady(&self) -> windows_core::Result<()>;
+    fn StopWhenReady(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMediaControl_Vtbl {
@@ -1373,31 +1373,31 @@ impl IMediaControl_Vtbl {
         unsafe extern "system" fn Run<Identity: IMediaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaControl_Impl::Run(this).into()
+                IMediaControl_Impl::Run(this)
             }
         }
         unsafe extern "system" fn Pause<Identity: IMediaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaControl_Impl::Pause(this).into()
+                IMediaControl_Impl::Pause(this)
             }
         }
         unsafe extern "system" fn Stop<Identity: IMediaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaControl_Impl::Stop(this).into()
+                IMediaControl_Impl::Stop(this)
             }
         }
         unsafe extern "system" fn GetState<Identity: IMediaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mstimeout: super::LONG, pfs: *mut OAFilterState) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaControl_Impl::GetState(this, core::mem::transmute_copy(&mstimeout), core::mem::transmute_copy(&pfs)).into()
+                IMediaControl_Impl::GetState(this, core::mem::transmute_copy(&mstimeout), core::mem::transmute_copy(&pfs))
             }
         }
         unsafe extern "system" fn RenderFile<Identity: IMediaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strfilename: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaControl_Impl::RenderFile(this, core::mem::transmute(&strfilename)).into()
+                IMediaControl_Impl::RenderFile(this, core::mem::transmute(&strfilename))
             }
         }
         unsafe extern "system" fn AddSourceFilter<Identity: IMediaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strfilename: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1448,7 +1448,7 @@ impl IMediaControl_Vtbl {
         unsafe extern "system" fn StopWhenReady<Identity: IMediaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaControl_Impl::StopWhenReady(this).into()
+                IMediaControl_Impl::StopWhenReady(this)
             }
         }
         Self {
@@ -1524,12 +1524,12 @@ pub struct IMediaEvent_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMediaEvent_Impl: super::IDispatch_Impl {
-    fn GetEventHandle(&self, hevent: *mut OAEVENT) -> windows_core::Result<()>;
-    fn GetEvent(&self, leventcode: *mut i32, lparam1: *mut super::LONG_PTR, lparam2: *mut super::LONG_PTR, mstimeout: i32) -> windows_core::Result<()>;
-    fn WaitForCompletion(&self, mstimeout: i32, pevcode: *mut i32) -> windows_core::Result<()>;
-    fn CancelDefaultHandling(&self, levcode: i32) -> windows_core::Result<()>;
-    fn RestoreDefaultHandling(&self, levcode: i32) -> windows_core::Result<()>;
-    fn FreeEventParams(&self, levcode: i32, lparam1: super::LONG_PTR, lparam2: super::LONG_PTR) -> windows_core::Result<()>;
+    fn GetEventHandle(&self, hevent: *mut OAEVENT) -> windows_core::HRESULT;
+    fn GetEvent(&self, leventcode: *mut i32, lparam1: *mut super::LONG_PTR, lparam2: *mut super::LONG_PTR, mstimeout: i32) -> windows_core::HRESULT;
+    fn WaitForCompletion(&self, mstimeout: i32, pevcode: *mut i32) -> windows_core::HRESULT;
+    fn CancelDefaultHandling(&self, levcode: i32) -> windows_core::HRESULT;
+    fn RestoreDefaultHandling(&self, levcode: i32) -> windows_core::HRESULT;
+    fn FreeEventParams(&self, levcode: i32, lparam1: super::LONG_PTR, lparam2: super::LONG_PTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMediaEvent_Vtbl {
@@ -1537,37 +1537,37 @@ impl IMediaEvent_Vtbl {
         unsafe extern "system" fn GetEventHandle<Identity: IMediaEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hevent: *mut OAEVENT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaEvent_Impl::GetEventHandle(this, core::mem::transmute_copy(&hevent)).into()
+                IMediaEvent_Impl::GetEventHandle(this, core::mem::transmute_copy(&hevent))
             }
         }
         unsafe extern "system" fn GetEvent<Identity: IMediaEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, leventcode: *mut i32, lparam1: *mut super::LONG_PTR, lparam2: *mut super::LONG_PTR, mstimeout: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaEvent_Impl::GetEvent(this, core::mem::transmute_copy(&leventcode), core::mem::transmute_copy(&lparam1), core::mem::transmute_copy(&lparam2), core::mem::transmute_copy(&mstimeout)).into()
+                IMediaEvent_Impl::GetEvent(this, core::mem::transmute_copy(&leventcode), core::mem::transmute_copy(&lparam1), core::mem::transmute_copy(&lparam2), core::mem::transmute_copy(&mstimeout))
             }
         }
         unsafe extern "system" fn WaitForCompletion<Identity: IMediaEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mstimeout: i32, pevcode: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaEvent_Impl::WaitForCompletion(this, core::mem::transmute_copy(&mstimeout), core::mem::transmute_copy(&pevcode)).into()
+                IMediaEvent_Impl::WaitForCompletion(this, core::mem::transmute_copy(&mstimeout), core::mem::transmute_copy(&pevcode))
             }
         }
         unsafe extern "system" fn CancelDefaultHandling<Identity: IMediaEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, levcode: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaEvent_Impl::CancelDefaultHandling(this, core::mem::transmute_copy(&levcode)).into()
+                IMediaEvent_Impl::CancelDefaultHandling(this, core::mem::transmute_copy(&levcode))
             }
         }
         unsafe extern "system" fn RestoreDefaultHandling<Identity: IMediaEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, levcode: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaEvent_Impl::RestoreDefaultHandling(this, core::mem::transmute_copy(&levcode)).into()
+                IMediaEvent_Impl::RestoreDefaultHandling(this, core::mem::transmute_copy(&levcode))
             }
         }
         unsafe extern "system" fn FreeEventParams<Identity: IMediaEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, levcode: i32, lparam1: super::LONG_PTR, lparam2: super::LONG_PTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaEvent_Impl::FreeEventParams(this, core::mem::transmute_copy(&levcode), core::mem::transmute_copy(&lparam1), core::mem::transmute_copy(&lparam2)).into()
+                IMediaEvent_Impl::FreeEventParams(this, core::mem::transmute_copy(&levcode), core::mem::transmute_copy(&lparam1), core::mem::transmute_copy(&lparam2))
             }
         }
         Self {
@@ -1624,9 +1624,9 @@ pub struct IMediaEventEx_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMediaEventEx_Impl: IMediaEvent_Impl {
-    fn SetNotifyWindow(&self, hwnd: OAHWND, lmsg: i32, linstancedata: super::LONG_PTR) -> windows_core::Result<()>;
-    fn SetNotifyFlags(&self, lnonotifyflags: i32) -> windows_core::Result<()>;
-    fn GetNotifyFlags(&self, lplnonotifyflags: *mut i32) -> windows_core::Result<()>;
+    fn SetNotifyWindow(&self, hwnd: OAHWND, lmsg: i32, linstancedata: super::LONG_PTR) -> windows_core::HRESULT;
+    fn SetNotifyFlags(&self, lnonotifyflags: i32) -> windows_core::HRESULT;
+    fn GetNotifyFlags(&self, lplnonotifyflags: *mut i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMediaEventEx_Vtbl {
@@ -1634,19 +1634,19 @@ impl IMediaEventEx_Vtbl {
         unsafe extern "system" fn SetNotifyWindow<Identity: IMediaEventEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: OAHWND, lmsg: i32, linstancedata: super::LONG_PTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaEventEx_Impl::SetNotifyWindow(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&lmsg), core::mem::transmute_copy(&linstancedata)).into()
+                IMediaEventEx_Impl::SetNotifyWindow(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&lmsg), core::mem::transmute_copy(&linstancedata))
             }
         }
         unsafe extern "system" fn SetNotifyFlags<Identity: IMediaEventEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lnonotifyflags: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaEventEx_Impl::SetNotifyFlags(this, core::mem::transmute_copy(&lnonotifyflags)).into()
+                IMediaEventEx_Impl::SetNotifyFlags(this, core::mem::transmute_copy(&lnonotifyflags))
             }
         }
         unsafe extern "system" fn GetNotifyFlags<Identity: IMediaEventEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lplnonotifyflags: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaEventEx_Impl::GetNotifyFlags(this, core::mem::transmute_copy(&lplnonotifyflags)).into()
+                IMediaEventEx_Impl::GetNotifyFlags(this, core::mem::transmute_copy(&lplnonotifyflags))
             }
         }
         Self {
@@ -1786,13 +1786,13 @@ pub struct IMediaPosition_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMediaPosition_Impl: super::IDispatch_Impl {
     fn Duration(&self) -> windows_core::Result<super::REFTIME>;
-    fn SetCurrentPosition(&self, lltime: super::REFTIME) -> windows_core::Result<()>;
+    fn SetCurrentPosition(&self, lltime: super::REFTIME) -> windows_core::HRESULT;
     fn CurrentPosition(&self) -> windows_core::Result<super::REFTIME>;
     fn StopTime(&self) -> windows_core::Result<super::REFTIME>;
-    fn SetStopTime(&self, lltime: super::REFTIME) -> windows_core::Result<()>;
+    fn SetStopTime(&self, lltime: super::REFTIME) -> windows_core::HRESULT;
     fn PrerollTime(&self) -> windows_core::Result<super::REFTIME>;
-    fn SetPrerollTime(&self, lltime: super::REFTIME) -> windows_core::Result<()>;
-    fn SetRate(&self, drate: f64) -> windows_core::Result<()>;
+    fn SetPrerollTime(&self, lltime: super::REFTIME) -> windows_core::HRESULT;
+    fn SetRate(&self, drate: f64) -> windows_core::HRESULT;
     fn Rate(&self) -> windows_core::Result<f64>;
     fn CanSeekForward(&self) -> windows_core::Result<super::LONG>;
     fn CanSeekBackward(&self) -> windows_core::Result<super::LONG>;
@@ -1818,7 +1818,7 @@ impl IMediaPosition_Vtbl {
         unsafe extern "system" fn SetCurrentPosition<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lltime: super::REFTIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaPosition_Impl::SetCurrentPosition(this, core::mem::transmute_copy(&lltime)).into()
+                IMediaPosition_Impl::SetCurrentPosition(this, core::mem::transmute_copy(&lltime))
             }
         }
         unsafe extern "system" fn CurrentPosition<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plltime: *mut super::REFTIME) -> windows_core::HRESULT {
@@ -1854,7 +1854,7 @@ impl IMediaPosition_Vtbl {
         unsafe extern "system" fn SetStopTime<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lltime: super::REFTIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaPosition_Impl::SetStopTime(this, core::mem::transmute_copy(&lltime)).into()
+                IMediaPosition_Impl::SetStopTime(this, core::mem::transmute_copy(&lltime))
             }
         }
         unsafe extern "system" fn PrerollTime<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plltime: *mut super::REFTIME) -> windows_core::HRESULT {
@@ -1875,13 +1875,13 @@ impl IMediaPosition_Vtbl {
         unsafe extern "system" fn SetPrerollTime<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lltime: super::REFTIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaPosition_Impl::SetPrerollTime(this, core::mem::transmute_copy(&lltime)).into()
+                IMediaPosition_Impl::SetPrerollTime(this, core::mem::transmute_copy(&lltime))
             }
         }
         unsafe extern "system" fn SetRate<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, drate: f64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaPosition_Impl::SetRate(this, core::mem::transmute_copy(&drate)).into()
+                IMediaPosition_Impl::SetRate(this, core::mem::transmute_copy(&drate))
             }
         }
         unsafe extern "system" fn Rate<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdrate: *mut f64) -> windows_core::HRESULT {
@@ -2150,11 +2150,11 @@ pub trait IPinInfo_Impl: super::IDispatch_Impl {
     fn Direction(&self) -> windows_core::Result<super::LONG>;
     fn PinID(&self) -> windows_core::Result<windows_core::BSTR>;
     fn MediaTypes(&self) -> windows_core::Result<super::IDispatch>;
-    fn Connect(&self, ppin: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn ConnectDirect(&self, ppin: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn ConnectWithType(&self, ppin: windows_core::Ref<windows_core::IUnknown>, pmediatype: windows_core::Ref<super::IDispatch>) -> windows_core::Result<()>;
-    fn Disconnect(&self) -> windows_core::Result<()>;
-    fn Render(&self) -> windows_core::Result<()>;
+    fn Connect(&self, ppin: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn ConnectDirect(&self, ppin: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn ConnectWithType(&self, ppin: windows_core::Ref<windows_core::IUnknown>, pmediatype: windows_core::Ref<super::IDispatch>) -> windows_core::HRESULT;
+    fn Disconnect(&self) -> windows_core::HRESULT;
+    fn Render(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPinInfo_Vtbl {
@@ -2282,31 +2282,31 @@ impl IPinInfo_Vtbl {
         unsafe extern "system" fn Connect<Identity: IPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppin: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPinInfo_Impl::Connect(this, core::mem::transmute_copy(&ppin)).into()
+                IPinInfo_Impl::Connect(this, core::mem::transmute_copy(&ppin))
             }
         }
         unsafe extern "system" fn ConnectDirect<Identity: IPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppin: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPinInfo_Impl::ConnectDirect(this, core::mem::transmute_copy(&ppin)).into()
+                IPinInfo_Impl::ConnectDirect(this, core::mem::transmute_copy(&ppin))
             }
         }
         unsafe extern "system" fn ConnectWithType<Identity: IPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppin: *mut core::ffi::c_void, pmediatype: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPinInfo_Impl::ConnectWithType(this, core::mem::transmute_copy(&ppin), core::mem::transmute_copy(&pmediatype)).into()
+                IPinInfo_Impl::ConnectWithType(this, core::mem::transmute_copy(&ppin), core::mem::transmute_copy(&pmediatype))
             }
         }
         unsafe extern "system" fn Disconnect<Identity: IPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPinInfo_Impl::Disconnect(this).into()
+                IPinInfo_Impl::Disconnect(this)
             }
         }
         unsafe extern "system" fn Render<Identity: IPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPinInfo_Impl::Render(this).into()
+                IPinInfo_Impl::Render(this)
             }
         }
         Self {
@@ -2359,8 +2359,8 @@ pub struct IQueueCommand_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IQueueCommand_Impl: windows_core::IUnknownImpl {
-    fn InvokeAtStreamTime(&self, pcmd: windows_core::OutRef<IDeferredCommand>, time: super::REFTIME, iid: *const windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::VARIANT, pvarresult: *mut super::VARIANT, puargerr: *mut i16) -> windows_core::Result<()>;
-    fn InvokeAtPresentationTime(&self, pcmd: windows_core::OutRef<IDeferredCommand>, time: super::REFTIME, iid: *const windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::VARIANT, pvarresult: *mut super::VARIANT, puargerr: *mut i16) -> windows_core::Result<()>;
+    fn InvokeAtStreamTime(&self, pcmd: windows_core::OutRef<IDeferredCommand>, time: super::REFTIME, iid: *const windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::VARIANT, pvarresult: *mut super::VARIANT, puargerr: *mut i16) -> windows_core::HRESULT;
+    fn InvokeAtPresentationTime(&self, pcmd: windows_core::OutRef<IDeferredCommand>, time: super::REFTIME, iid: *const windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::VARIANT, pvarresult: *mut super::VARIANT, puargerr: *mut i16) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IQueueCommand_Vtbl {
@@ -2368,13 +2368,13 @@ impl IQueueCommand_Vtbl {
         unsafe extern "system" fn InvokeAtStreamTime<Identity: IQueueCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcmd: *mut *mut core::ffi::c_void, time: super::REFTIME, iid: *const windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::VARIANT, pvarresult: *mut super::VARIANT, puargerr: *mut i16) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IQueueCommand_Impl::InvokeAtStreamTime(this, core::mem::transmute_copy(&pcmd), core::mem::transmute_copy(&time), core::mem::transmute_copy(&iid), core::mem::transmute_copy(&dispidmethod), core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&cargs), core::mem::transmute_copy(&pdispparams), core::mem::transmute_copy(&pvarresult), core::mem::transmute_copy(&puargerr)).into()
+                IQueueCommand_Impl::InvokeAtStreamTime(this, core::mem::transmute_copy(&pcmd), core::mem::transmute_copy(&time), core::mem::transmute_copy(&iid), core::mem::transmute_copy(&dispidmethod), core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&cargs), core::mem::transmute_copy(&pdispparams), core::mem::transmute_copy(&pvarresult), core::mem::transmute_copy(&puargerr))
             }
         }
         unsafe extern "system" fn InvokeAtPresentationTime<Identity: IQueueCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcmd: *mut *mut core::ffi::c_void, time: super::REFTIME, iid: *const windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::VARIANT, pvarresult: *mut super::VARIANT, puargerr: *mut i16) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IQueueCommand_Impl::InvokeAtPresentationTime(this, core::mem::transmute_copy(&pcmd), core::mem::transmute_copy(&time), core::mem::transmute_copy(&iid), core::mem::transmute_copy(&dispidmethod), core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&cargs), core::mem::transmute_copy(&pdispparams), core::mem::transmute_copy(&pvarresult), core::mem::transmute_copy(&puargerr)).into()
+                IQueueCommand_Impl::InvokeAtPresentationTime(this, core::mem::transmute_copy(&pcmd), core::mem::transmute_copy(&time), core::mem::transmute_copy(&iid), core::mem::transmute_copy(&dispidmethod), core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&cargs), core::mem::transmute_copy(&pdispparams), core::mem::transmute_copy(&pvarresult), core::mem::transmute_copy(&puargerr))
             }
         }
         Self {
@@ -2696,45 +2696,45 @@ pub struct IVideoWindow_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IVideoWindow_Impl: super::IDispatch_Impl {
-    fn SetCaption(&self, strcaption: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetCaption(&self, strcaption: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Caption(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetWindowStyle(&self, windowstyle: i32) -> windows_core::Result<()>;
+    fn SetWindowStyle(&self, windowstyle: i32) -> windows_core::HRESULT;
     fn WindowStyle(&self) -> windows_core::Result<i32>;
-    fn SetWindowStyleEx(&self, windowstyleex: i32) -> windows_core::Result<()>;
+    fn SetWindowStyleEx(&self, windowstyleex: i32) -> windows_core::HRESULT;
     fn WindowStyleEx(&self) -> windows_core::Result<i32>;
-    fn SetAutoShow(&self, autoshow: i32) -> windows_core::Result<()>;
+    fn SetAutoShow(&self, autoshow: i32) -> windows_core::HRESULT;
     fn AutoShow(&self) -> windows_core::Result<i32>;
-    fn SetWindowState(&self, windowstate: i32) -> windows_core::Result<()>;
+    fn SetWindowState(&self, windowstate: i32) -> windows_core::HRESULT;
     fn WindowState(&self) -> windows_core::Result<i32>;
-    fn SetBackgroundPalette(&self, backgroundpalette: i32) -> windows_core::Result<()>;
+    fn SetBackgroundPalette(&self, backgroundpalette: i32) -> windows_core::HRESULT;
     fn BackgroundPalette(&self) -> windows_core::Result<i32>;
-    fn SetVisible(&self, visible: i32) -> windows_core::Result<()>;
+    fn SetVisible(&self, visible: i32) -> windows_core::HRESULT;
     fn Visible(&self) -> windows_core::Result<i32>;
-    fn SetLeft(&self, left: i32) -> windows_core::Result<()>;
+    fn SetLeft(&self, left: i32) -> windows_core::HRESULT;
     fn Left(&self) -> windows_core::Result<i32>;
-    fn SetWidth(&self, width: i32) -> windows_core::Result<()>;
+    fn SetWidth(&self, width: i32) -> windows_core::HRESULT;
     fn Width(&self) -> windows_core::Result<i32>;
-    fn SetTop(&self, top: i32) -> windows_core::Result<()>;
+    fn SetTop(&self, top: i32) -> windows_core::HRESULT;
     fn Top(&self) -> windows_core::Result<i32>;
-    fn SetHeight(&self, height: i32) -> windows_core::Result<()>;
+    fn SetHeight(&self, height: i32) -> windows_core::HRESULT;
     fn Height(&self) -> windows_core::Result<i32>;
-    fn SetOwner(&self, owner: OAHWND) -> windows_core::Result<()>;
+    fn SetOwner(&self, owner: OAHWND) -> windows_core::HRESULT;
     fn Owner(&self) -> windows_core::Result<OAHWND>;
-    fn SetMessageDrain(&self, drain: OAHWND) -> windows_core::Result<()>;
+    fn SetMessageDrain(&self, drain: OAHWND) -> windows_core::HRESULT;
     fn MessageDrain(&self) -> windows_core::Result<OAHWND>;
     fn BorderColor(&self) -> windows_core::Result<i32>;
-    fn SetBorderColor(&self, color: i32) -> windows_core::Result<()>;
+    fn SetBorderColor(&self, color: i32) -> windows_core::HRESULT;
     fn FullScreenMode(&self) -> windows_core::Result<i32>;
-    fn SetFullScreenMode(&self, fullscreenmode: i32) -> windows_core::Result<()>;
-    fn SetWindowForeground(&self, focus: i32) -> windows_core::Result<()>;
-    fn NotifyOwnerMessage(&self, hwnd: OAHWND, umsg: i32, wparam: super::LONG_PTR, lparam: super::LONG_PTR) -> windows_core::Result<()>;
-    fn SetWindowPosition(&self, left: i32, top: i32, width: i32, height: i32) -> windows_core::Result<()>;
-    fn GetWindowPosition(&self, pleft: *mut i32, ptop: *mut i32, pwidth: *mut i32, pheight: *mut i32) -> windows_core::Result<()>;
-    fn GetMinIdealImageSize(&self, pwidth: *mut i32, pheight: *mut i32) -> windows_core::Result<()>;
-    fn GetMaxIdealImageSize(&self, pwidth: *mut i32, pheight: *mut i32) -> windows_core::Result<()>;
-    fn GetRestorePosition(&self, pleft: *mut i32, ptop: *mut i32, pwidth: *mut i32, pheight: *mut i32) -> windows_core::Result<()>;
-    fn HideCursor(&self, hidecursor: i32) -> windows_core::Result<()>;
-    fn IsCursorHidden(&self, cursorhidden: *mut i32) -> windows_core::Result<()>;
+    fn SetFullScreenMode(&self, fullscreenmode: i32) -> windows_core::HRESULT;
+    fn SetWindowForeground(&self, focus: i32) -> windows_core::HRESULT;
+    fn NotifyOwnerMessage(&self, hwnd: OAHWND, umsg: i32, wparam: super::LONG_PTR, lparam: super::LONG_PTR) -> windows_core::HRESULT;
+    fn SetWindowPosition(&self, left: i32, top: i32, width: i32, height: i32) -> windows_core::HRESULT;
+    fn GetWindowPosition(&self, pleft: *mut i32, ptop: *mut i32, pwidth: *mut i32, pheight: *mut i32) -> windows_core::HRESULT;
+    fn GetMinIdealImageSize(&self, pwidth: *mut i32, pheight: *mut i32) -> windows_core::HRESULT;
+    fn GetMaxIdealImageSize(&self, pwidth: *mut i32, pheight: *mut i32) -> windows_core::HRESULT;
+    fn GetRestorePosition(&self, pleft: *mut i32, ptop: *mut i32, pwidth: *mut i32, pheight: *mut i32) -> windows_core::HRESULT;
+    fn HideCursor(&self, hidecursor: i32) -> windows_core::HRESULT;
+    fn IsCursorHidden(&self, cursorhidden: *mut i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IVideoWindow_Vtbl {
@@ -2742,7 +2742,7 @@ impl IVideoWindow_Vtbl {
         unsafe extern "system" fn SetCaption<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strcaption: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetCaption(this, core::mem::transmute(&strcaption)).into()
+                IVideoWindow_Impl::SetCaption(this, core::mem::transmute(&strcaption))
             }
         }
         unsafe extern "system" fn Caption<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strcaption: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2763,7 +2763,7 @@ impl IVideoWindow_Vtbl {
         unsafe extern "system" fn SetWindowStyle<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, windowstyle: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetWindowStyle(this, core::mem::transmute_copy(&windowstyle)).into()
+                IVideoWindow_Impl::SetWindowStyle(this, core::mem::transmute_copy(&windowstyle))
             }
         }
         unsafe extern "system" fn WindowStyle<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, windowstyle: *mut i32) -> windows_core::HRESULT {
@@ -2784,7 +2784,7 @@ impl IVideoWindow_Vtbl {
         unsafe extern "system" fn SetWindowStyleEx<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, windowstyleex: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetWindowStyleEx(this, core::mem::transmute_copy(&windowstyleex)).into()
+                IVideoWindow_Impl::SetWindowStyleEx(this, core::mem::transmute_copy(&windowstyleex))
             }
         }
         unsafe extern "system" fn WindowStyleEx<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, windowstyleex: *mut i32) -> windows_core::HRESULT {
@@ -2805,7 +2805,7 @@ impl IVideoWindow_Vtbl {
         unsafe extern "system" fn SetAutoShow<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, autoshow: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetAutoShow(this, core::mem::transmute_copy(&autoshow)).into()
+                IVideoWindow_Impl::SetAutoShow(this, core::mem::transmute_copy(&autoshow))
             }
         }
         unsafe extern "system" fn AutoShow<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, autoshow: *mut i32) -> windows_core::HRESULT {
@@ -2826,7 +2826,7 @@ impl IVideoWindow_Vtbl {
         unsafe extern "system" fn SetWindowState<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, windowstate: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetWindowState(this, core::mem::transmute_copy(&windowstate)).into()
+                IVideoWindow_Impl::SetWindowState(this, core::mem::transmute_copy(&windowstate))
             }
         }
         unsafe extern "system" fn WindowState<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, windowstate: *mut i32) -> windows_core::HRESULT {
@@ -2847,7 +2847,7 @@ impl IVideoWindow_Vtbl {
         unsafe extern "system" fn SetBackgroundPalette<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, backgroundpalette: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetBackgroundPalette(this, core::mem::transmute_copy(&backgroundpalette)).into()
+                IVideoWindow_Impl::SetBackgroundPalette(this, core::mem::transmute_copy(&backgroundpalette))
             }
         }
         unsafe extern "system" fn BackgroundPalette<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbackgroundpalette: *mut i32) -> windows_core::HRESULT {
@@ -2868,7 +2868,7 @@ impl IVideoWindow_Vtbl {
         unsafe extern "system" fn SetVisible<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, visible: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetVisible(this, core::mem::transmute_copy(&visible)).into()
+                IVideoWindow_Impl::SetVisible(this, core::mem::transmute_copy(&visible))
             }
         }
         unsafe extern "system" fn Visible<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvisible: *mut i32) -> windows_core::HRESULT {
@@ -2889,7 +2889,7 @@ impl IVideoWindow_Vtbl {
         unsafe extern "system" fn SetLeft<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, left: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetLeft(this, core::mem::transmute_copy(&left)).into()
+                IVideoWindow_Impl::SetLeft(this, core::mem::transmute_copy(&left))
             }
         }
         unsafe extern "system" fn Left<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pleft: *mut i32) -> windows_core::HRESULT {
@@ -2910,7 +2910,7 @@ impl IVideoWindow_Vtbl {
         unsafe extern "system" fn SetWidth<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetWidth(this, core::mem::transmute_copy(&width)).into()
+                IVideoWindow_Impl::SetWidth(this, core::mem::transmute_copy(&width))
             }
         }
         unsafe extern "system" fn Width<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwidth: *mut i32) -> windows_core::HRESULT {
@@ -2931,7 +2931,7 @@ impl IVideoWindow_Vtbl {
         unsafe extern "system" fn SetTop<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, top: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetTop(this, core::mem::transmute_copy(&top)).into()
+                IVideoWindow_Impl::SetTop(this, core::mem::transmute_copy(&top))
             }
         }
         unsafe extern "system" fn Top<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptop: *mut i32) -> windows_core::HRESULT {
@@ -2952,7 +2952,7 @@ impl IVideoWindow_Vtbl {
         unsafe extern "system" fn SetHeight<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, height: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetHeight(this, core::mem::transmute_copy(&height)).into()
+                IVideoWindow_Impl::SetHeight(this, core::mem::transmute_copy(&height))
             }
         }
         unsafe extern "system" fn Height<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pheight: *mut i32) -> windows_core::HRESULT {
@@ -2973,7 +2973,7 @@ impl IVideoWindow_Vtbl {
         unsafe extern "system" fn SetOwner<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, owner: OAHWND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetOwner(this, core::mem::transmute_copy(&owner)).into()
+                IVideoWindow_Impl::SetOwner(this, core::mem::transmute_copy(&owner))
             }
         }
         unsafe extern "system" fn Owner<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, owner: *mut OAHWND) -> windows_core::HRESULT {
@@ -2994,7 +2994,7 @@ impl IVideoWindow_Vtbl {
         unsafe extern "system" fn SetMessageDrain<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, drain: OAHWND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetMessageDrain(this, core::mem::transmute_copy(&drain)).into()
+                IVideoWindow_Impl::SetMessageDrain(this, core::mem::transmute_copy(&drain))
             }
         }
         unsafe extern "system" fn MessageDrain<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, drain: *mut OAHWND) -> windows_core::HRESULT {
@@ -3030,7 +3030,7 @@ impl IVideoWindow_Vtbl {
         unsafe extern "system" fn SetBorderColor<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, color: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetBorderColor(this, core::mem::transmute_copy(&color)).into()
+                IVideoWindow_Impl::SetBorderColor(this, core::mem::transmute_copy(&color))
             }
         }
         unsafe extern "system" fn FullScreenMode<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fullscreenmode: *mut i32) -> windows_core::HRESULT {
@@ -3051,61 +3051,61 @@ impl IVideoWindow_Vtbl {
         unsafe extern "system" fn SetFullScreenMode<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fullscreenmode: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetFullScreenMode(this, core::mem::transmute_copy(&fullscreenmode)).into()
+                IVideoWindow_Impl::SetFullScreenMode(this, core::mem::transmute_copy(&fullscreenmode))
             }
         }
         unsafe extern "system" fn SetWindowForeground<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, focus: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetWindowForeground(this, core::mem::transmute_copy(&focus)).into()
+                IVideoWindow_Impl::SetWindowForeground(this, core::mem::transmute_copy(&focus))
             }
         }
         unsafe extern "system" fn NotifyOwnerMessage<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: OAHWND, umsg: i32, wparam: super::LONG_PTR, lparam: super::LONG_PTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::NotifyOwnerMessage(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&umsg), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)).into()
+                IVideoWindow_Impl::NotifyOwnerMessage(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&umsg), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam))
             }
         }
         unsafe extern "system" fn SetWindowPosition<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, left: i32, top: i32, width: i32, height: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetWindowPosition(this, core::mem::transmute_copy(&left), core::mem::transmute_copy(&top), core::mem::transmute_copy(&width), core::mem::transmute_copy(&height)).into()
+                IVideoWindow_Impl::SetWindowPosition(this, core::mem::transmute_copy(&left), core::mem::transmute_copy(&top), core::mem::transmute_copy(&width), core::mem::transmute_copy(&height))
             }
         }
         unsafe extern "system" fn GetWindowPosition<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pleft: *mut i32, ptop: *mut i32, pwidth: *mut i32, pheight: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::GetWindowPosition(this, core::mem::transmute_copy(&pleft), core::mem::transmute_copy(&ptop), core::mem::transmute_copy(&pwidth), core::mem::transmute_copy(&pheight)).into()
+                IVideoWindow_Impl::GetWindowPosition(this, core::mem::transmute_copy(&pleft), core::mem::transmute_copy(&ptop), core::mem::transmute_copy(&pwidth), core::mem::transmute_copy(&pheight))
             }
         }
         unsafe extern "system" fn GetMinIdealImageSize<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwidth: *mut i32, pheight: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::GetMinIdealImageSize(this, core::mem::transmute_copy(&pwidth), core::mem::transmute_copy(&pheight)).into()
+                IVideoWindow_Impl::GetMinIdealImageSize(this, core::mem::transmute_copy(&pwidth), core::mem::transmute_copy(&pheight))
             }
         }
         unsafe extern "system" fn GetMaxIdealImageSize<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwidth: *mut i32, pheight: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::GetMaxIdealImageSize(this, core::mem::transmute_copy(&pwidth), core::mem::transmute_copy(&pheight)).into()
+                IVideoWindow_Impl::GetMaxIdealImageSize(this, core::mem::transmute_copy(&pwidth), core::mem::transmute_copy(&pheight))
             }
         }
         unsafe extern "system" fn GetRestorePosition<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pleft: *mut i32, ptop: *mut i32, pwidth: *mut i32, pheight: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::GetRestorePosition(this, core::mem::transmute_copy(&pleft), core::mem::transmute_copy(&ptop), core::mem::transmute_copy(&pwidth), core::mem::transmute_copy(&pheight)).into()
+                IVideoWindow_Impl::GetRestorePosition(this, core::mem::transmute_copy(&pleft), core::mem::transmute_copy(&ptop), core::mem::transmute_copy(&pwidth), core::mem::transmute_copy(&pheight))
             }
         }
         unsafe extern "system" fn HideCursor<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hidecursor: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::HideCursor(this, core::mem::transmute_copy(&hidecursor)).into()
+                IVideoWindow_Impl::HideCursor(this, core::mem::transmute_copy(&hidecursor))
             }
         }
         unsafe extern "system" fn IsCursorHidden<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cursorhidden: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::IsCursorHidden(this, core::mem::transmute_copy(&cursorhidden)).into()
+                IVideoWindow_Impl::IsCursorHidden(this, core::mem::transmute_copy(&cursorhidden))
             }
         }
         Self {

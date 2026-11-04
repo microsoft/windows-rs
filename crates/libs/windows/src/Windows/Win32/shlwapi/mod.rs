@@ -3131,11 +3131,11 @@ pub struct IQueryAssociations_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef"))]
 pub trait IQueryAssociations_Impl: windows_core::IUnknownImpl {
-    fn Init(&self, flags: ASSOCF, pszassoc: &windows_core::PCWSTR, hkprogid: super::HKEY, hwnd: super::HWND) -> windows_core::Result<()>;
-    fn GetString(&self, flags: ASSOCF, str: ASSOCSTR, pszextra: &windows_core::PCWSTR, pszout: windows_core::PWSTR, pcchout: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetKey(&self, flags: ASSOCF, key: ASSOCKEY, pszextra: &windows_core::PCWSTR, phkeyout: *mut super::HKEY) -> windows_core::Result<()>;
-    fn GetData(&self, flags: ASSOCF, data: ASSOCDATA, pszextra: &windows_core::PCWSTR, pvout: *mut core::ffi::c_void, pcbout: *mut super::DWORD) -> windows_core::Result<()>;
-    fn GetEnum(&self, flags: ASSOCF, assocenum: ASSOCENUM, pszextra: &windows_core::PCWSTR, riid: *const super::IID, ppvout: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn Init(&self, flags: ASSOCF, pszassoc: &windows_core::PCWSTR, hkprogid: super::HKEY, hwnd: super::HWND) -> windows_core::HRESULT;
+    fn GetString(&self, flags: ASSOCF, str: ASSOCSTR, pszextra: &windows_core::PCWSTR, pszout: windows_core::PWSTR, pcchout: *mut super::DWORD) -> windows_core::HRESULT;
+    fn GetKey(&self, flags: ASSOCF, key: ASSOCKEY, pszextra: &windows_core::PCWSTR, phkeyout: *mut super::HKEY) -> windows_core::HRESULT;
+    fn GetData(&self, flags: ASSOCF, data: ASSOCDATA, pszextra: &windows_core::PCWSTR, pvout: *mut core::ffi::c_void, pcbout: *mut super::DWORD) -> windows_core::HRESULT;
+    fn GetEnum(&self, flags: ASSOCF, assocenum: ASSOCENUM, pszextra: &windows_core::PCWSTR, riid: *const super::IID, ppvout: *mut *mut core::ffi::c_void) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef"))]
 impl IQueryAssociations_Vtbl {
@@ -3143,31 +3143,31 @@ impl IQueryAssociations_Vtbl {
         unsafe extern "system" fn Init<Identity: IQueryAssociations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: ASSOCF, pszassoc: windows_core::PCWSTR, hkprogid: super::HKEY, hwnd: super::HWND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IQueryAssociations_Impl::Init(this, core::mem::transmute_copy(&flags), core::mem::transmute(&pszassoc), core::mem::transmute_copy(&hkprogid), core::mem::transmute_copy(&hwnd)).into()
+                IQueryAssociations_Impl::Init(this, core::mem::transmute_copy(&flags), core::mem::transmute(&pszassoc), core::mem::transmute_copy(&hkprogid), core::mem::transmute_copy(&hwnd))
             }
         }
         unsafe extern "system" fn GetString<Identity: IQueryAssociations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: ASSOCF, str: ASSOCSTR, pszextra: windows_core::PCWSTR, pszout: windows_core::PWSTR, pcchout: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IQueryAssociations_Impl::GetString(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&str), core::mem::transmute(&pszextra), core::mem::transmute_copy(&pszout), core::mem::transmute_copy(&pcchout)).into()
+                IQueryAssociations_Impl::GetString(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&str), core::mem::transmute(&pszextra), core::mem::transmute_copy(&pszout), core::mem::transmute_copy(&pcchout))
             }
         }
         unsafe extern "system" fn GetKey<Identity: IQueryAssociations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: ASSOCF, key: ASSOCKEY, pszextra: windows_core::PCWSTR, phkeyout: *mut super::HKEY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IQueryAssociations_Impl::GetKey(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&key), core::mem::transmute(&pszextra), core::mem::transmute_copy(&phkeyout)).into()
+                IQueryAssociations_Impl::GetKey(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&key), core::mem::transmute(&pszextra), core::mem::transmute_copy(&phkeyout))
             }
         }
         unsafe extern "system" fn GetData<Identity: IQueryAssociations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: ASSOCF, data: ASSOCDATA, pszextra: windows_core::PCWSTR, pvout: *mut core::ffi::c_void, pcbout: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IQueryAssociations_Impl::GetData(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&data), core::mem::transmute(&pszextra), core::mem::transmute_copy(&pvout), core::mem::transmute_copy(&pcbout)).into()
+                IQueryAssociations_Impl::GetData(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&data), core::mem::transmute(&pszextra), core::mem::transmute_copy(&pvout), core::mem::transmute_copy(&pcbout))
             }
         }
         unsafe extern "system" fn GetEnum<Identity: IQueryAssociations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: ASSOCF, assocenum: ASSOCENUM, pszextra: windows_core::PCWSTR, riid: *const super::IID, ppvout: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IQueryAssociations_Impl::GetEnum(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&assocenum), core::mem::transmute(&pszextra), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvout)).into()
+                IQueryAssociations_Impl::GetEnum(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&assocenum), core::mem::transmute(&pszextra), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvout))
             }
         }
         Self {

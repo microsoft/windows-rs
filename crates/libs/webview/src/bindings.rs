@@ -869,7 +869,7 @@ pub trait ICoreWebView2AcceleratorKeyPressedEventHandler_Impl: windows_core::IUn
         &self,
         sender: windows_core::Ref<ICoreWebView2Controller>,
         args: windows_core::Ref<ICoreWebView2AcceleratorKeyPressedEventArgs>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2AcceleratorKeyPressedEventHandler_Vtbl {
     pub const fn new<
@@ -892,7 +892,6 @@ impl ICoreWebView2AcceleratorKeyPressedEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
-                .into()
             }
         }
         Self {
@@ -930,7 +929,7 @@ pub trait ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Impl:
         &self,
         errorcode: windows_core::HRESULT,
         result: &windows_core::PCWSTR,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl {
     pub const fn new<
@@ -953,7 +952,6 @@ impl ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl {
                     core::mem::transmute_copy(&errorcode),
                     core::mem::transmute(&result),
                 )
-                .into()
             }
         }
         Self {
@@ -992,7 +990,7 @@ pub trait ICoreWebView2BytesReceivedChangedEventHandler_Impl: windows_core::IUnk
         &self,
         sender: windows_core::Ref<ICoreWebView2DownloadOperation>,
         args: windows_core::Ref<windows_core::IUnknown>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2BytesReceivedChangedEventHandler_Vtbl {
     pub const fn new<
@@ -1015,7 +1013,6 @@ impl ICoreWebView2BytesReceivedChangedEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
-                .into()
             }
         }
         Self {
@@ -1053,7 +1050,7 @@ pub trait ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Impl:
         &self,
         errorcode: windows_core::HRESULT,
         result: &windows_core::PCWSTR,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Vtbl {
     pub const fn new<
@@ -1076,7 +1073,6 @@ impl ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Vtbl {
                     core::mem::transmute_copy(&errorcode),
                     core::mem::transmute(&result),
                 )
-                .into()
             }
         }
         Self {
@@ -1107,7 +1103,7 @@ pub struct ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl {
     ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2ClearBrowsingDataCompletedHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self, errorcode: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn Invoke(&self, errorcode: windows_core::HRESULT) -> windows_core::HRESULT;
 }
 impl ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl {
     pub const fn new<
@@ -1128,7 +1124,6 @@ impl ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl {
                     this,
                     core::mem::transmute_copy(&errorcode),
                 )
-                .into()
             }
         }
         Self {
@@ -1166,7 +1161,7 @@ pub trait ICoreWebView2ContainsFullScreenElementChangedEventHandler_Impl:
         &self,
         sender: windows_core::Ref<ICoreWebView2>,
         args: windows_core::Ref<windows_core::IUnknown>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2ContainsFullScreenElementChangedEventHandler_Vtbl {
     pub const fn new<
@@ -1189,7 +1184,6 @@ impl ICoreWebView2ContainsFullScreenElementChangedEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
-                .into()
             }
         }
         Self {
@@ -1266,7 +1260,7 @@ pub trait ICoreWebView2ContentLoadingEventHandler_Impl: windows_core::IUnknownIm
         &self,
         sender: windows_core::Ref<ICoreWebView2>,
         args: windows_core::Ref<ICoreWebView2ContentLoadingEventArgs>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2ContentLoadingEventHandler_Vtbl {
     pub const fn new<
@@ -1289,7 +1283,6 @@ impl ICoreWebView2ContentLoadingEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
-                .into()
             }
         }
         Self {
@@ -2224,7 +2217,7 @@ pub trait ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Impl:
         &self,
         errorcode: windows_core::HRESULT,
         result: windows_core::Ref<ICoreWebView2Controller>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Vtbl {
     pub const fn new<
@@ -2247,7 +2240,6 @@ impl ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Vtbl {
                     core::mem::transmute_copy(&errorcode),
                     core::mem::transmute_copy(&result),
                 )
-                .into()
             }
         }
         Self {
@@ -2285,7 +2277,7 @@ pub trait ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Impl:
         &self,
         errorcode: windows_core::HRESULT,
         result: windows_core::Ref<ICoreWebView2Environment>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Vtbl {
     pub const fn new<
@@ -2308,7 +2300,6 @@ impl ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Vtbl {
                     core::mem::transmute_copy(&errorcode),
                     core::mem::transmute_copy(&result),
                 )
-                .into()
             }
         }
         Self {
@@ -2393,7 +2384,7 @@ pub trait ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Impl:
         &self,
         sender: windows_core::Ref<ICoreWebView2>,
         args: windows_core::Ref<ICoreWebView2DevToolsProtocolEventReceivedEventArgs>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Vtbl {
     pub const fn new<
@@ -2416,7 +2407,6 @@ impl ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
-                .into()
             }
         }
         Self {
@@ -2504,7 +2494,7 @@ pub trait ICoreWebView2DocumentTitleChangedEventHandler_Impl: windows_core::IUnk
         &self,
         sender: windows_core::Ref<ICoreWebView2>,
         args: windows_core::Ref<windows_core::IUnknown>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2DocumentTitleChangedEventHandler_Vtbl {
     pub const fn new<
@@ -2527,7 +2517,6 @@ impl ICoreWebView2DocumentTitleChangedEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
-                .into()
             }
         }
         Self {
@@ -2918,7 +2907,7 @@ pub trait ICoreWebView2DownloadStartingEventHandler_Impl: windows_core::IUnknown
         &self,
         sender: windows_core::Ref<ICoreWebView2>,
         args: windows_core::Ref<ICoreWebView2DownloadStartingEventArgs>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2DownloadStartingEventHandler_Vtbl {
     pub const fn new<
@@ -2941,7 +2930,6 @@ impl ICoreWebView2DownloadStartingEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
-                .into()
             }
         }
         Self {
@@ -3378,22 +3366,19 @@ pub struct ICoreWebView2EnvironmentOptions_Vtbl {
 }
 pub trait ICoreWebView2EnvironmentOptions_Impl: windows_core::IUnknownImpl {
     fn AdditionalBrowserArguments(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn SetAdditionalBrowserArguments(
-        &self,
-        value: &windows_core::PCWSTR,
-    ) -> windows_core::Result<()>;
+    fn SetAdditionalBrowserArguments(&self, value: &windows_core::PCWSTR) -> windows_core::HRESULT;
     fn Language(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn SetLanguage(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetLanguage(&self, value: &windows_core::PCWSTR) -> windows_core::HRESULT;
     fn TargetCompatibleBrowserVersion(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn SetTargetCompatibleBrowserVersion(
         &self,
         value: &windows_core::PCWSTR,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
     fn AllowSingleSignOnUsingOSPrimaryAccount(&self) -> windows_core::Result<windows_core::BOOL>;
     fn SetAllowSingleSignOnUsingOSPrimaryAccount(
         &self,
         allow: windows_core::BOOL,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2EnvironmentOptions_Vtbl {
     pub const fn new<Identity: ICoreWebView2EnvironmentOptions_Impl, const OFFSET: isize>() -> Self
@@ -3434,7 +3419,6 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
                     this,
                     core::mem::transmute(&value),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn Language<
@@ -3473,7 +3457,6 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
                     this,
                     core::mem::transmute(&value),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn TargetCompatibleBrowserVersion<
@@ -3512,7 +3495,6 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
                     this,
                     core::mem::transmute(&value),
                 )
-                .into()
             }
         }
         unsafe extern "system" fn AllowSingleSignOnUsingOSPrimaryAccount<
@@ -3553,7 +3535,6 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
                     this,
                     core::mem::transmute_copy(&allow),
                 )
-                .into()
             }
         }
         Self {
@@ -3599,8 +3580,7 @@ pub struct ICoreWebView2EnvironmentOptions6_Vtbl {
 }
 pub trait ICoreWebView2EnvironmentOptions6_Impl: windows_core::IUnknownImpl {
     fn AreBrowserExtensionsEnabled(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn SetAreBrowserExtensionsEnabled(&self, value: windows_core::BOOL)
-    -> windows_core::Result<()>;
+    fn SetAreBrowserExtensionsEnabled(&self, value: windows_core::BOOL) -> windows_core::HRESULT;
 }
 impl ICoreWebView2EnvironmentOptions6_Vtbl {
     pub const fn new<Identity: ICoreWebView2EnvironmentOptions6_Impl, const OFFSET: isize>() -> Self
@@ -3641,7 +3621,6 @@ impl ICoreWebView2EnvironmentOptions6_Vtbl {
                     this,
                     core::mem::transmute_copy(&value),
                 )
-                .into()
             }
         }
         Self {
@@ -3675,7 +3654,7 @@ pub struct ICoreWebView2EnvironmentOptions8_Vtbl {
 }
 pub trait ICoreWebView2EnvironmentOptions8_Impl: windows_core::IUnknownImpl {
     fn ScrollBarStyle(&self) -> windows_core::Result<COREWEBVIEW2_SCROLLBAR_STYLE>;
-    fn SetScrollBarStyle(&self, value: COREWEBVIEW2_SCROLLBAR_STYLE) -> windows_core::Result<()>;
+    fn SetScrollBarStyle(&self, value: COREWEBVIEW2_SCROLLBAR_STYLE) -> windows_core::HRESULT;
 }
 impl ICoreWebView2EnvironmentOptions8_Vtbl {
     pub const fn new<Identity: ICoreWebView2EnvironmentOptions8_Impl, const OFFSET: isize>() -> Self
@@ -3716,7 +3695,6 @@ impl ICoreWebView2EnvironmentOptions8_Vtbl {
                     this,
                     core::mem::transmute_copy(&value),
                 )
-                .into()
             }
         }
         Self {
@@ -3753,7 +3731,7 @@ pub trait ICoreWebView2ExecuteScriptCompletedHandler_Impl: windows_core::IUnknow
         &self,
         errorcode: windows_core::HRESULT,
         result: &windows_core::PCWSTR,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2ExecuteScriptCompletedHandler_Vtbl {
     pub const fn new<
@@ -3776,7 +3754,6 @@ impl ICoreWebView2ExecuteScriptCompletedHandler_Vtbl {
                     core::mem::transmute_copy(&errorcode),
                     core::mem::transmute(&result),
                 )
-                .into()
             }
         }
         Self {
@@ -3812,7 +3789,7 @@ pub trait ICoreWebView2FocusChangedEventHandler_Impl: windows_core::IUnknownImpl
         &self,
         sender: windows_core::Ref<ICoreWebView2Controller>,
         args: windows_core::Ref<windows_core::IUnknown>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2FocusChangedEventHandler_Vtbl {
     pub const fn new<Identity: ICoreWebView2FocusChangedEventHandler_Impl, const OFFSET: isize>()
@@ -3833,7 +3810,6 @@ impl ICoreWebView2FocusChangedEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
-                .into()
             }
         }
         Self {
@@ -3869,7 +3845,7 @@ pub trait ICoreWebView2GetCookiesCompletedHandler_Impl: windows_core::IUnknownIm
         &self,
         errorcode: windows_core::HRESULT,
         result: windows_core::Ref<ICoreWebView2CookieList>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2GetCookiesCompletedHandler_Vtbl {
     pub const fn new<
@@ -3892,7 +3868,6 @@ impl ICoreWebView2GetCookiesCompletedHandler_Vtbl {
                     core::mem::transmute_copy(&errorcode),
                     core::mem::transmute_copy(&result),
                 )
-                .into()
             }
         }
         Self {
@@ -4103,7 +4078,7 @@ pub trait ICoreWebView2MoveFocusRequestedEventHandler_Impl: windows_core::IUnkno
         &self,
         sender: windows_core::Ref<ICoreWebView2Controller>,
         args: windows_core::Ref<ICoreWebView2MoveFocusRequestedEventArgs>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2MoveFocusRequestedEventHandler_Vtbl {
     pub const fn new<
@@ -4126,7 +4101,6 @@ impl ICoreWebView2MoveFocusRequestedEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
-                .into()
             }
         }
         Self {
@@ -4204,7 +4178,7 @@ pub trait ICoreWebView2NavigationCompletedEventHandler_Impl: windows_core::IUnkn
         &self,
         sender: windows_core::Ref<ICoreWebView2>,
         args: windows_core::Ref<ICoreWebView2NavigationCompletedEventArgs>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2NavigationCompletedEventHandler_Vtbl {
     pub const fn new<
@@ -4227,7 +4201,6 @@ impl ICoreWebView2NavigationCompletedEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
-                .into()
             }
         }
         Self {
@@ -4359,7 +4332,7 @@ pub trait ICoreWebView2NavigationStartingEventHandler_Impl: windows_core::IUnkno
         &self,
         sender: windows_core::Ref<ICoreWebView2>,
         args: windows_core::Ref<ICoreWebView2NavigationStartingEventArgs>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2NavigationStartingEventHandler_Vtbl {
     pub const fn new<
@@ -4382,7 +4355,6 @@ impl ICoreWebView2NavigationStartingEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
-                .into()
             }
         }
         Self {
@@ -4518,7 +4490,7 @@ pub trait ICoreWebView2NewWindowRequestedEventHandler_Impl: windows_core::IUnkno
         &self,
         sender: windows_core::Ref<ICoreWebView2>,
         args: windows_core::Ref<ICoreWebView2NewWindowRequestedEventArgs>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2NewWindowRequestedEventHandler_Vtbl {
     pub const fn new<
@@ -4541,7 +4513,6 @@ impl ICoreWebView2NewWindowRequestedEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
-                .into()
             }
         }
         Self {
@@ -4679,7 +4650,7 @@ pub trait ICoreWebView2PermissionRequestedEventHandler_Impl: windows_core::IUnkn
         &self,
         sender: windows_core::Ref<ICoreWebView2>,
         args: windows_core::Ref<ICoreWebView2PermissionRequestedEventArgs>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2PermissionRequestedEventHandler_Vtbl {
     pub const fn new<
@@ -4702,7 +4673,6 @@ impl ICoreWebView2PermissionRequestedEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
-                .into()
             }
         }
         Self {
@@ -4769,7 +4739,7 @@ pub trait ICoreWebView2ProcessFailedEventHandler_Impl: windows_core::IUnknownImp
         &self,
         sender: windows_core::Ref<ICoreWebView2>,
         args: windows_core::Ref<ICoreWebView2ProcessFailedEventArgs>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2ProcessFailedEventHandler_Vtbl {
     pub const fn new<Identity: ICoreWebView2ProcessFailedEventHandler_Impl, const OFFSET: isize>()
@@ -4790,7 +4760,6 @@ impl ICoreWebView2ProcessFailedEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
-                .into()
             }
         }
         Self {
@@ -5657,7 +5626,7 @@ pub trait ICoreWebView2StateChangedEventHandler_Impl: windows_core::IUnknownImpl
         &self,
         sender: windows_core::Ref<ICoreWebView2DownloadOperation>,
         args: windows_core::Ref<windows_core::IUnknown>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2StateChangedEventHandler_Vtbl {
     pub const fn new<Identity: ICoreWebView2StateChangedEventHandler_Impl, const OFFSET: isize>()
@@ -5678,7 +5647,6 @@ impl ICoreWebView2StateChangedEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
-                .into()
             }
         }
         Self {
@@ -5773,7 +5741,7 @@ pub trait ICoreWebView2WebMessageReceivedEventHandler_Impl: windows_core::IUnkno
         &self,
         sender: windows_core::Ref<ICoreWebView2>,
         args: windows_core::Ref<ICoreWebView2WebMessageReceivedEventArgs>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2WebMessageReceivedEventHandler_Vtbl {
     pub const fn new<
@@ -5796,7 +5764,6 @@ impl ICoreWebView2WebMessageReceivedEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
-                .into()
             }
         }
         Self {
@@ -5937,7 +5904,7 @@ pub trait ICoreWebView2WebResourceRequestedEventHandler_Impl: windows_core::IUnk
         &self,
         sender: windows_core::Ref<ICoreWebView2>,
         args: windows_core::Ref<ICoreWebView2WebResourceRequestedEventArgs>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2WebResourceRequestedEventHandler_Vtbl {
     pub const fn new<
@@ -5960,7 +5927,6 @@ impl ICoreWebView2WebResourceRequestedEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
-                .into()
             }
         }
         Self {
@@ -6013,7 +5979,7 @@ pub trait ICoreWebView2WindowCloseRequestedEventHandler_Impl: windows_core::IUnk
         &self,
         sender: windows_core::Ref<ICoreWebView2>,
         args: windows_core::Ref<windows_core::IUnknown>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT;
 }
 impl ICoreWebView2WindowCloseRequestedEventHandler_Vtbl {
     pub const fn new<
@@ -6036,7 +6002,6 @@ impl ICoreWebView2WindowCloseRequestedEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
-                .into()
             }
         }
         Self {

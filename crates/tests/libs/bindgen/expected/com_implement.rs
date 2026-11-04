@@ -24,8 +24,8 @@ pub struct Interface_Vtbl {
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut Struct) -> windows_core::HRESULT,
 }
 pub trait Interface_Impl {
-    fn Method(&self, value: u32) -> windows_core::Result<()>;
-    fn GetValue(&self, result: *mut Struct) -> windows_core::Result<()>;
+    fn Method(&self, value: u32) -> windows_core::HRESULT;
+    fn GetValue(&self, result: *mut Struct) -> windows_core::HRESULT;
 }
 impl Interface_Vtbl {
     pub const fn new<Identity: Interface_Impl>() -> Self {
@@ -36,7 +36,7 @@ impl Interface_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                Interface_Impl::Method(this, core::mem::transmute_copy(&value)).into()
+                Interface_Impl::Method(this, core::mem::transmute_copy(&value))
             }
         }
         unsafe extern "system" fn GetValue<Identity: Interface_Impl>(
@@ -46,7 +46,7 @@ impl Interface_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                Interface_Impl::GetValue(this, core::mem::transmute_copy(&result)).into()
+                Interface_Impl::GetValue(this, core::mem::transmute_copy(&result))
             }
         }
         Self {

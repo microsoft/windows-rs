@@ -10,9 +10,11 @@ unsafe trait ITestPersistMemory: windows::Win32::IPersist {
 struct Test;
 
 impl windows::Win32::IPersist_Impl for Test_Impl {
-    fn GetClassID(&self, class_id: *mut windows::core::GUID) -> windows::core::Result<()> {
-        unsafe { *class_id = "CEE1D356-0860-4262-90D4-C77423F0E352".try_into()? };
-        Ok(())
+    fn GetClassID(&self, class_id: *mut windows::core::GUID) -> windows::core::HRESULT {
+        unsafe {
+            *class_id = windows::core::GUID::from_u128(0xCEE1D356_0860_4262_90D4_C77423F0E352);
+        };
+        windows::Win32::S_OK
     }
 }
 

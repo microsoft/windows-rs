@@ -53,8 +53,8 @@ pub struct IRichEditUiaInformation_Vtbl {
 }
 #[cfg(feature = "uiautomationcore")]
 pub trait IRichEditUiaInformation_Impl: windows_core::IUnknownImpl {
-    fn GetBoundaryRectangle(&self, puiarect: *mut super::UiaRect) -> windows_core::Result<()>;
-    fn IsVisible(&self) -> windows_core::Result<()>;
+    fn GetBoundaryRectangle(&self, puiarect: *mut super::UiaRect) -> windows_core::HRESULT;
+    fn IsVisible(&self) -> windows_core::HRESULT;
 }
 #[cfg(feature = "uiautomationcore")]
 impl IRichEditUiaInformation_Vtbl {
@@ -62,13 +62,13 @@ impl IRichEditUiaInformation_Vtbl {
         unsafe extern "system" fn GetBoundaryRectangle<Identity: IRichEditUiaInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puiarect: *mut super::UiaRect) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditUiaInformation_Impl::GetBoundaryRectangle(this, core::mem::transmute_copy(&puiarect)).into()
+                IRichEditUiaInformation_Impl::GetBoundaryRectangle(this, core::mem::transmute_copy(&puiarect))
             }
         }
         unsafe extern "system" fn IsVisible<Identity: IRichEditUiaInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditUiaInformation_Impl::IsVisible(this).into()
+                IRichEditUiaInformation_Impl::IsVisible(this)
             }
         }
         Self {
@@ -102,7 +102,7 @@ pub struct IRicheditUiaOverrides_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IRicheditUiaOverrides_Impl: windows_core::IUnknownImpl {
-    fn GetPropertyOverrideValue(&self, propertyid: super::PROPERTYID, pretvalue: *mut super::VARIANT) -> windows_core::Result<()>;
+    fn GetPropertyOverrideValue(&self, propertyid: super::PROPERTYID, pretvalue: *mut super::VARIANT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IRicheditUiaOverrides_Vtbl {
@@ -110,7 +110,7 @@ impl IRicheditUiaOverrides_Vtbl {
         unsafe extern "system" fn GetPropertyOverrideValue<Identity: IRicheditUiaOverrides_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: super::PROPERTYID, pretvalue: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRicheditUiaOverrides_Impl::GetPropertyOverrideValue(this, core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&pretvalue)).into()
+                IRicheditUiaOverrides_Impl::GetPropertyOverrideValue(this, core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&pretvalue))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetPropertyOverrideValue: GetPropertyOverrideValue::<Identity, OFFSET> }
@@ -143,7 +143,7 @@ pub struct IRicheditWindowlessAccessibility_Vtbl {
 }
 #[cfg(feature = "uiautomationcore")]
 pub trait IRicheditWindowlessAccessibility_Impl: windows_core::IUnknownImpl {
-    fn CreateProvider(&self, psite: windows_core::Ref<super::IRawElementProviderWindowlessSite>, ppprovider: *mut Option<super::IRawElementProviderSimple>) -> windows_core::Result<()>;
+    fn CreateProvider(&self, psite: windows_core::Ref<super::IRawElementProviderWindowlessSite>, ppprovider: *mut Option<super::IRawElementProviderSimple>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "uiautomationcore")]
 impl IRicheditWindowlessAccessibility_Vtbl {
@@ -151,7 +151,7 @@ impl IRicheditWindowlessAccessibility_Vtbl {
         unsafe extern "system" fn CreateProvider<Identity: IRicheditWindowlessAccessibility_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psite: *mut core::ffi::c_void, ppprovider: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRicheditWindowlessAccessibility_Impl::CreateProvider(this, core::mem::transmute_copy(&psite), core::mem::transmute_copy(&ppprovider)).into()
+                IRicheditWindowlessAccessibility_Impl::CreateProvider(this, core::mem::transmute_copy(&psite), core::mem::transmute_copy(&ppprovider))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateProvider: CreateProvider::<Identity, OFFSET> }

@@ -315,7 +315,7 @@ pub struct ICertConfig2_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertConfig2_Impl: ICertConfig_Impl {
-    fn SetSharedFolder(&self, strsharedfolder: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetSharedFolder(&self, strsharedfolder: &windows_core::BSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertConfig2_Vtbl {
@@ -323,7 +323,7 @@ impl ICertConfig2_Vtbl {
         unsafe extern "system" fn SetSharedFolder<Identity: ICertConfig2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strsharedfolder: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertConfig2_Impl::SetSharedFolder(this, core::mem::transmute(&strsharedfolder)).into()
+                ICertConfig2_Impl::SetSharedFolder(this, core::mem::transmute(&strsharedfolder))
             }
         }
         Self { base__: ICertConfig_Vtbl::new::<Identity, OFFSET>(), SetSharedFolder: SetSharedFolder::<Identity, OFFSET> }
@@ -886,7 +886,7 @@ pub struct ICertRequest3_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertRequest3_Impl: ICertRequest2_Impl {
-    fn SetCredential(&self, hwnd: super::LONG, authtype: X509EnrollmentAuthFlags, strcredential: &windows_core::BSTR, strpassword: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetCredential(&self, hwnd: super::LONG, authtype: X509EnrollmentAuthFlags, strcredential: &windows_core::BSTR, strpassword: &windows_core::BSTR) -> windows_core::HRESULT;
     fn GetRequestIdString(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetIssuedCertificate2(&self, strconfig: &windows_core::BSTR, strrequestid: &windows_core::BSTR, strserialnumber: &windows_core::BSTR) -> windows_core::Result<super::LONG>;
     fn GetRefreshPolicy(&self) -> windows_core::Result<super::VARIANT_BOOL>;
@@ -897,7 +897,7 @@ impl ICertRequest3_Vtbl {
         unsafe extern "system" fn SetCredential<Identity: ICertRequest3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::LONG, authtype: X509EnrollmentAuthFlags, strcredential: *mut core::ffi::c_void, strpassword: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertRequest3_Impl::SetCredential(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&authtype), core::mem::transmute(&strcredential), core::mem::transmute(&strpassword)).into()
+                ICertRequest3_Impl::SetCredential(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&authtype), core::mem::transmute(&strcredential), core::mem::transmute(&strpassword))
             }
         }
         unsafe extern "system" fn GetRequestIdString<Identity: ICertRequest3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrrequestid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {

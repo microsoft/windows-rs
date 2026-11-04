@@ -25,7 +25,7 @@ pub struct GdiplusAbort_Vtbl {
     pub Abort: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait GdiplusAbort_Impl {
-    fn Abort(&self) -> windows_core::Result<()>;
+    fn Abort(&self) -> windows_core::HRESULT;
 }
 impl GdiplusAbort_Vtbl {
     pub const fn new<Identity: GdiplusAbort_Impl>() -> Self {
@@ -33,7 +33,7 @@ impl GdiplusAbort_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                GdiplusAbort_Impl::Abort(this).into()
+                GdiplusAbort_Impl::Abort(this)
             }
         }
         Self { Abort: Abort::<Identity> }

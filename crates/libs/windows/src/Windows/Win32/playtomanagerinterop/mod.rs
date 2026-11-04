@@ -30,7 +30,7 @@ pub struct IPlayToManagerInterop_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "windef"))]
 pub trait IPlayToManagerInterop_Impl: windows_core::IUnknownImpl {
     fn GetForWindow(&self, appwindow: super::HWND, riid: *const super::IID, playtomanager: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn ShowPlayToUIForWindow(&self, appwindow: super::HWND) -> windows_core::Result<()>;
+    fn ShowPlayToUIForWindow(&self, appwindow: super::HWND) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "windef"))]
 impl IPlayToManagerInterop_Vtbl {
@@ -44,7 +44,7 @@ impl IPlayToManagerInterop_Vtbl {
         unsafe extern "system" fn ShowPlayToUIForWindow<Identity: IPlayToManagerInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, appwindow: super::HWND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPlayToManagerInterop_Impl::ShowPlayToUIForWindow(this, core::mem::transmute_copy(&appwindow)).into()
+                IPlayToManagerInterop_Impl::ShowPlayToUIForWindow(this, core::mem::transmute_copy(&appwindow))
             }
         }
         Self {

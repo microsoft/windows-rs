@@ -2048,7 +2048,7 @@ pub trait IDMLBindingTable_Impl: IDMLDeviceChild_Impl {
     fn BindOutputs(&self, bindingcount: super::UINT, bindings: *const DML_BINDING_DESC);
     fn BindTemporaryResource(&self, binding: *const DML_BINDING_DESC);
     fn BindPersistentResource(&self, binding: *const DML_BINDING_DESC);
-    fn Reset(&self, desc: *const DML_BINDING_TABLE_DESC) -> windows_core::Result<()>;
+    fn Reset(&self, desc: *const DML_BINDING_TABLE_DESC) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "d3d12", feature = "guiddef", feature = "shared"))]
 impl IDMLBindingTable_Vtbl {
@@ -2080,7 +2080,7 @@ impl IDMLBindingTable_Vtbl {
         unsafe extern "system" fn Reset<Identity: IDMLBindingTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, desc: *const DML_BINDING_TABLE_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDMLBindingTable_Impl::Reset(this, core::mem::transmute_copy(&desc)).into()
+                IDMLBindingTable_Impl::Reset(this, core::mem::transmute_copy(&desc))
             }
         }
         Self {
@@ -2324,15 +2324,15 @@ pub struct IDMLDevice_Vtbl {
 }
 #[cfg(all(feature = "d3d12", feature = "guiddef", feature = "shared"))]
 pub trait IDMLDevice_Impl: IDMLObject_Impl {
-    fn CheckFeatureSupport(&self, feature: DML_FEATURE, featurequerydatasize: super::UINT, featurequerydata: *const core::ffi::c_void, featuresupportdatasize: super::UINT, featuresupportdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CheckFeatureSupport(&self, feature: DML_FEATURE, featurequerydatasize: super::UINT, featurequerydata: *const core::ffi::c_void, featuresupportdatasize: super::UINT, featuresupportdata: *mut core::ffi::c_void) -> windows_core::HRESULT;
     fn CreateOperator(&self, desc: *const DML_OPERATOR_DESC, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn CompileOperator(&self, op: windows_core::Ref<IDMLOperator>, flags: DML_EXECUTION_FLAGS, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn CreateOperatorInitializer(&self, operatorcount: super::UINT, operators: *const Option<IDMLCompiledOperator>, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn CreateCommandRecorder(&self, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn CreateBindingTable(&self, desc: *const DML_BINDING_TABLE_DESC, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn Evict(&self, count: super::UINT, ppobjects: *const Option<IDMLPageable>) -> windows_core::Result<()>;
-    fn MakeResident(&self, count: super::UINT, ppobjects: *const Option<IDMLPageable>) -> windows_core::Result<()>;
-    fn GetDeviceRemovedReason(&self) -> windows_core::Result<()>;
+    fn Evict(&self, count: super::UINT, ppobjects: *const Option<IDMLPageable>) -> windows_core::HRESULT;
+    fn MakeResident(&self, count: super::UINT, ppobjects: *const Option<IDMLPageable>) -> windows_core::HRESULT;
+    fn GetDeviceRemovedReason(&self) -> windows_core::HRESULT;
     fn GetParentDevice(&self, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "d3d12", feature = "guiddef", feature = "shared"))]
@@ -2341,7 +2341,7 @@ impl IDMLDevice_Vtbl {
         unsafe extern "system" fn CheckFeatureSupport<Identity: IDMLDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, feature: DML_FEATURE, featurequerydatasize: super::UINT, featurequerydata: *const core::ffi::c_void, featuresupportdatasize: super::UINT, featuresupportdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDMLDevice_Impl::CheckFeatureSupport(this, core::mem::transmute_copy(&feature), core::mem::transmute_copy(&featurequerydatasize), core::mem::transmute_copy(&featurequerydata), core::mem::transmute_copy(&featuresupportdatasize), core::mem::transmute_copy(&featuresupportdata)).into()
+                IDMLDevice_Impl::CheckFeatureSupport(this, core::mem::transmute_copy(&feature), core::mem::transmute_copy(&featurequerydatasize), core::mem::transmute_copy(&featurequerydata), core::mem::transmute_copy(&featuresupportdatasize), core::mem::transmute_copy(&featuresupportdata))
             }
         }
         unsafe extern "system" fn CreateOperator<Identity: IDMLDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, desc: *const DML_OPERATOR_DESC, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2377,19 +2377,19 @@ impl IDMLDevice_Vtbl {
         unsafe extern "system" fn Evict<Identity: IDMLDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: super::UINT, ppobjects: *const *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDMLDevice_Impl::Evict(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&ppobjects)).into()
+                IDMLDevice_Impl::Evict(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&ppobjects))
             }
         }
         unsafe extern "system" fn MakeResident<Identity: IDMLDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: super::UINT, ppobjects: *const *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDMLDevice_Impl::MakeResident(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&ppobjects)).into()
+                IDMLDevice_Impl::MakeResident(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&ppobjects))
             }
         }
         unsafe extern "system" fn GetDeviceRemovedReason<Identity: IDMLDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDMLDevice_Impl::GetDeviceRemovedReason(this).into()
+                IDMLDevice_Impl::GetDeviceRemovedReason(this)
             }
         }
         unsafe extern "system" fn GetParentDevice<Identity: IDMLDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2602,10 +2602,10 @@ pub struct IDMLObject_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IDMLObject_Impl: windows_core::IUnknownImpl {
-    fn GetPrivateData(&self, guid: *const windows_core::GUID, datasize: *mut super::UINT, data: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn SetPrivateData(&self, guid: *const windows_core::GUID, datasize: super::UINT, data: *const core::ffi::c_void) -> windows_core::Result<()>;
-    fn SetPrivateDataInterface(&self, guid: *const windows_core::GUID, data: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn SetName(&self, name: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn GetPrivateData(&self, guid: *const windows_core::GUID, datasize: *mut super::UINT, data: *mut core::ffi::c_void) -> windows_core::HRESULT;
+    fn SetPrivateData(&self, guid: *const windows_core::GUID, datasize: super::UINT, data: *const core::ffi::c_void) -> windows_core::HRESULT;
+    fn SetPrivateDataInterface(&self, guid: *const windows_core::GUID, data: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT;
+    fn SetName(&self, name: &windows_core::PCWSTR) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IDMLObject_Vtbl {
@@ -2613,25 +2613,25 @@ impl IDMLObject_Vtbl {
         unsafe extern "system" fn GetPrivateData<Identity: IDMLObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID, datasize: *mut super::UINT, data: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDMLObject_Impl::GetPrivateData(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&datasize), core::mem::transmute_copy(&data)).into()
+                IDMLObject_Impl::GetPrivateData(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&datasize), core::mem::transmute_copy(&data))
             }
         }
         unsafe extern "system" fn SetPrivateData<Identity: IDMLObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID, datasize: super::UINT, data: *const core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDMLObject_Impl::SetPrivateData(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&datasize), core::mem::transmute_copy(&data)).into()
+                IDMLObject_Impl::SetPrivateData(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&datasize), core::mem::transmute_copy(&data))
             }
         }
         unsafe extern "system" fn SetPrivateDataInterface<Identity: IDMLObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID, data: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDMLObject_Impl::SetPrivateDataInterface(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&data)).into()
+                IDMLObject_Impl::SetPrivateDataInterface(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&data))
             }
         }
         unsafe extern "system" fn SetName<Identity: IDMLObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDMLObject_Impl::SetName(this, core::mem::transmute(&name)).into()
+                IDMLObject_Impl::SetName(this, core::mem::transmute(&name))
             }
         }
         Self {
@@ -2699,7 +2699,7 @@ pub struct IDMLOperatorInitializer_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait IDMLOperatorInitializer_Impl: IDMLDispatchable_Impl {
-    fn Reset(&self, operatorcount: super::UINT, operators: *const Option<IDMLCompiledOperator>) -> windows_core::Result<()>;
+    fn Reset(&self, operatorcount: super::UINT, operators: *const Option<IDMLCompiledOperator>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 impl IDMLOperatorInitializer_Vtbl {
@@ -2707,7 +2707,7 @@ impl IDMLOperatorInitializer_Vtbl {
         unsafe extern "system" fn Reset<Identity: IDMLOperatorInitializer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, operatorcount: super::UINT, operators: *const *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDMLOperatorInitializer_Impl::Reset(this, core::mem::transmute_copy(&operatorcount), core::mem::transmute_copy(&operators)).into()
+                IDMLOperatorInitializer_Impl::Reset(this, core::mem::transmute_copy(&operatorcount), core::mem::transmute_copy(&operators))
             }
         }
         Self { base__: IDMLDispatchable_Vtbl::new::<Identity, OFFSET>(), Reset: Reset::<Identity, OFFSET> }

@@ -773,8 +773,8 @@ pub struct ID3DDestructionNotifier_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ID3DDestructionNotifier_Impl: windows_core::IUnknownImpl {
-    fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const core::ffi::c_void, pcallbackid: *mut super::UINT) -> windows_core::Result<()>;
-    fn UnregisterDestructionCallback(&self, callbackid: super::UINT) -> windows_core::Result<()>;
+    fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const core::ffi::c_void, pcallbackid: *mut super::UINT) -> windows_core::HRESULT;
+    fn UnregisterDestructionCallback(&self, callbackid: super::UINT) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ID3DDestructionNotifier_Vtbl {
@@ -782,13 +782,13 @@ impl ID3DDestructionNotifier_Vtbl {
         unsafe extern "system" fn RegisterDestructionCallback<Identity: ID3DDestructionNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const core::ffi::c_void, pcallbackid: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3DDestructionNotifier_Impl::RegisterDestructionCallback(this, core::mem::transmute_copy(&callbackfn), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&pcallbackid)).into()
+                ID3DDestructionNotifier_Impl::RegisterDestructionCallback(this, core::mem::transmute_copy(&callbackfn), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&pcallbackid))
             }
         }
         unsafe extern "system" fn UnregisterDestructionCallback<Identity: ID3DDestructionNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callbackid: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3DDestructionNotifier_Impl::UnregisterDestructionCallback(this, core::mem::transmute_copy(&callbackid)).into()
+                ID3DDestructionNotifier_Impl::UnregisterDestructionCallback(this, core::mem::transmute_copy(&callbackid))
             }
         }
         Self {
@@ -831,8 +831,8 @@ pub struct ID3DInclude_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ID3DInclude_Impl {
-    fn Open(&self, includetype: D3D_INCLUDE_TYPE, pfilename: &windows_core::PCSTR, pparentdata: super::LPCVOID, ppdata: *mut super::LPCVOID, pbytes: *mut super::UINT) -> windows_core::Result<()>;
-    fn Close(&self, pdata: super::LPCVOID) -> windows_core::Result<()>;
+    fn Open(&self, includetype: D3D_INCLUDE_TYPE, pfilename: &windows_core::PCSTR, pparentdata: super::LPCVOID, ppdata: *mut super::LPCVOID, pbytes: *mut super::UINT) -> windows_core::HRESULT;
+    fn Close(&self, pdata: super::LPCVOID) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ID3DInclude_Vtbl {
@@ -841,14 +841,14 @@ impl ID3DInclude_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3DInclude_Impl::Open(this, core::mem::transmute_copy(&includetype), core::mem::transmute(&pfilename), core::mem::transmute_copy(&pparentdata), core::mem::transmute_copy(&ppdata), core::mem::transmute_copy(&pbytes)).into()
+                ID3DInclude_Impl::Open(this, core::mem::transmute_copy(&includetype), core::mem::transmute(&pfilename), core::mem::transmute_copy(&pparentdata), core::mem::transmute_copy(&ppdata), core::mem::transmute_copy(&pbytes))
             }
         }
         unsafe extern "system" fn Close<Identity: ID3DInclude_Impl>(this: *mut core::ffi::c_void, pdata: super::LPCVOID) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3DInclude_Impl::Close(this, core::mem::transmute_copy(&pdata)).into()
+                ID3DInclude_Impl::Close(this, core::mem::transmute_copy(&pdata))
             }
         }
         Self { Open: Open::<Identity>, Close: Close::<Identity> }

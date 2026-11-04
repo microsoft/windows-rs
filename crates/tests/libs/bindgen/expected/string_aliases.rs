@@ -74,10 +74,10 @@ pub struct IStringAliases_Vtbl {
 }
 pub trait IStringAliases_Impl {
     fn get_Language(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn put_Language(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn put_Language(&self, value: &windows_core::PCWSTR) -> windows_core::HRESULT;
     fn get_Ansi(&self) -> windows_core::Result<windows_core::PSTR>;
-    fn put_Ansi(&self, value: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn Buffer(&self, value: *const u16) -> windows_core::Result<()>;
+    fn put_Ansi(&self, value: &windows_core::PCSTR) -> windows_core::HRESULT;
+    fn Buffer(&self, value: *const u16) -> windows_core::HRESULT;
 }
 impl IStringAliases_Vtbl {
     pub const fn new<Identity: IStringAliases_Impl>() -> Self {
@@ -107,7 +107,7 @@ impl IStringAliases_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                IStringAliases_Impl::put_Language(this, core::mem::transmute(&value)).into()
+                IStringAliases_Impl::put_Language(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn get_Ansi<Identity: IStringAliases_Impl>(
@@ -136,7 +136,7 @@ impl IStringAliases_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                IStringAliases_Impl::put_Ansi(this, core::mem::transmute(&value)).into()
+                IStringAliases_Impl::put_Ansi(this, core::mem::transmute(&value))
             }
         }
         unsafe extern "system" fn Buffer<Identity: IStringAliases_Impl>(
@@ -146,7 +146,7 @@ impl IStringAliases_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                IStringAliases_Impl::Buffer(this, core::mem::transmute_copy(&value)).into()
+                IStringAliases_Impl::Buffer(this, core::mem::transmute_copy(&value))
             }
         }
         Self {

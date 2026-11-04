@@ -163,7 +163,7 @@ pub struct IAccIdentity_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IAccIdentity_Impl: windows_core::IUnknownImpl {
-    fn GetIdentityString(&self, dwidchild: super::DWORD, ppidstring: *mut *mut super::BYTE, pdwidstringlen: *mut super::DWORD) -> windows_core::Result<()>;
+    fn GetIdentityString(&self, dwidchild: super::DWORD, ppidstring: *mut *mut super::BYTE, pdwidstringlen: *mut super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl IAccIdentity_Vtbl {
@@ -171,7 +171,7 @@ impl IAccIdentity_Vtbl {
         unsafe extern "system" fn GetIdentityString<Identity: IAccIdentity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwidchild: super::DWORD, ppidstring: *mut *mut super::BYTE, pdwidstringlen: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccIdentity_Impl::GetIdentityString(this, core::mem::transmute_copy(&dwidchild), core::mem::transmute_copy(&ppidstring), core::mem::transmute_copy(&pdwidstringlen)).into()
+                IAccIdentity_Impl::GetIdentityString(this, core::mem::transmute_copy(&dwidchild), core::mem::transmute_copy(&ppidstring), core::mem::transmute_copy(&pdwidstringlen))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetIdentityString: GetIdentityString::<Identity, OFFSET> }
@@ -201,7 +201,7 @@ pub struct IAccPropServer_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAccPropServer_Impl: windows_core::IUnknownImpl {
-    fn GetPropValue(&self, pidstring: *const super::BYTE, dwidstringlen: super::DWORD, idprop: &MSAAPROPID, pvarvalue: *mut super::VARIANT, pfhasprop: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetPropValue(&self, pidstring: *const super::BYTE, dwidstringlen: super::DWORD, idprop: &MSAAPROPID, pvarvalue: *mut super::VARIANT, pfhasprop: *mut windows_core::BOOL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAccPropServer_Vtbl {
@@ -209,7 +209,7 @@ impl IAccPropServer_Vtbl {
         unsafe extern "system" fn GetPropValue<Identity: IAccPropServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidstring: *const super::BYTE, dwidstringlen: super::DWORD, idprop: MSAAPROPID, pvarvalue: *mut super::VARIANT, pfhasprop: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccPropServer_Impl::GetPropValue(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute(&idprop), core::mem::transmute_copy(&pvarvalue), core::mem::transmute_copy(&pfhasprop)).into()
+                IAccPropServer_Impl::GetPropValue(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute(&idprop), core::mem::transmute_copy(&pvarvalue), core::mem::transmute_copy(&pfhasprop))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetPropValue: GetPropValue::<Identity, OFFSET> }
@@ -366,21 +366,21 @@ pub struct IAccPropServices_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAccPropServices_Impl: windows_core::IUnknownImpl {
-    fn SetPropValue(&self, pidstring: *const super::BYTE, dwidstringlen: super::DWORD, idprop: &MSAAPROPID, var: &super::VARIANT) -> windows_core::Result<()>;
-    fn SetPropServer(&self, pidstring: *const super::BYTE, dwidstringlen: super::DWORD, paprops: *const MSAAPROPID, cprops: i32, pserver: windows_core::Ref<IAccPropServer>, annoscope: AnnoScope) -> windows_core::Result<()>;
-    fn ClearProps(&self, pidstring: *const super::BYTE, dwidstringlen: super::DWORD, paprops: *const MSAAPROPID, cprops: i32) -> windows_core::Result<()>;
-    fn SetHwndProp(&self, hwnd: super::HWND, idobject: super::DWORD, idchild: super::DWORD, idprop: &MSAAPROPID, var: &super::VARIANT) -> windows_core::Result<()>;
-    fn SetHwndPropStr(&self, hwnd: super::HWND, idobject: super::DWORD, idchild: super::DWORD, idprop: &MSAAPROPID, str: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetHwndPropServer(&self, hwnd: super::HWND, idobject: super::DWORD, idchild: super::DWORD, paprops: *const MSAAPROPID, cprops: i32, pserver: windows_core::Ref<IAccPropServer>, annoscope: AnnoScope) -> windows_core::Result<()>;
-    fn ClearHwndProps(&self, hwnd: super::HWND, idobject: super::DWORD, idchild: super::DWORD, paprops: *const MSAAPROPID, cprops: i32) -> windows_core::Result<()>;
-    fn ComposeHwndIdentityString(&self, hwnd: super::HWND, idobject: super::DWORD, idchild: super::DWORD, ppidstring: *mut *mut super::BYTE, pdwidstringlen: *mut super::DWORD) -> windows_core::Result<()>;
-    fn DecomposeHwndIdentityString(&self, pidstring: *const super::BYTE, dwidstringlen: super::DWORD, phwnd: *mut super::HWND, pidobject: *mut super::DWORD, pidchild: *mut super::DWORD) -> windows_core::Result<()>;
-    fn SetHmenuProp(&self, hmenu: super::HMENU, idchild: super::DWORD, idprop: &MSAAPROPID, var: &super::VARIANT) -> windows_core::Result<()>;
-    fn SetHmenuPropStr(&self, hmenu: super::HMENU, idchild: super::DWORD, idprop: &MSAAPROPID, str: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetHmenuPropServer(&self, hmenu: super::HMENU, idchild: super::DWORD, paprops: *const MSAAPROPID, cprops: i32, pserver: windows_core::Ref<IAccPropServer>, annoscope: AnnoScope) -> windows_core::Result<()>;
-    fn ClearHmenuProps(&self, hmenu: super::HMENU, idchild: super::DWORD, paprops: *const MSAAPROPID, cprops: i32) -> windows_core::Result<()>;
-    fn ComposeHmenuIdentityString(&self, hmenu: super::HMENU, idchild: super::DWORD, ppidstring: *mut *mut super::BYTE, pdwidstringlen: *mut super::DWORD) -> windows_core::Result<()>;
-    fn DecomposeHmenuIdentityString(&self, pidstring: *const super::BYTE, dwidstringlen: super::DWORD, phmenu: *mut super::HMENU, pidchild: *mut super::DWORD) -> windows_core::Result<()>;
+    fn SetPropValue(&self, pidstring: *const super::BYTE, dwidstringlen: super::DWORD, idprop: &MSAAPROPID, var: &super::VARIANT) -> windows_core::HRESULT;
+    fn SetPropServer(&self, pidstring: *const super::BYTE, dwidstringlen: super::DWORD, paprops: *const MSAAPROPID, cprops: i32, pserver: windows_core::Ref<IAccPropServer>, annoscope: AnnoScope) -> windows_core::HRESULT;
+    fn ClearProps(&self, pidstring: *const super::BYTE, dwidstringlen: super::DWORD, paprops: *const MSAAPROPID, cprops: i32) -> windows_core::HRESULT;
+    fn SetHwndProp(&self, hwnd: super::HWND, idobject: super::DWORD, idchild: super::DWORD, idprop: &MSAAPROPID, var: &super::VARIANT) -> windows_core::HRESULT;
+    fn SetHwndPropStr(&self, hwnd: super::HWND, idobject: super::DWORD, idchild: super::DWORD, idprop: &MSAAPROPID, str: &windows_core::PCWSTR) -> windows_core::HRESULT;
+    fn SetHwndPropServer(&self, hwnd: super::HWND, idobject: super::DWORD, idchild: super::DWORD, paprops: *const MSAAPROPID, cprops: i32, pserver: windows_core::Ref<IAccPropServer>, annoscope: AnnoScope) -> windows_core::HRESULT;
+    fn ClearHwndProps(&self, hwnd: super::HWND, idobject: super::DWORD, idchild: super::DWORD, paprops: *const MSAAPROPID, cprops: i32) -> windows_core::HRESULT;
+    fn ComposeHwndIdentityString(&self, hwnd: super::HWND, idobject: super::DWORD, idchild: super::DWORD, ppidstring: *mut *mut super::BYTE, pdwidstringlen: *mut super::DWORD) -> windows_core::HRESULT;
+    fn DecomposeHwndIdentityString(&self, pidstring: *const super::BYTE, dwidstringlen: super::DWORD, phwnd: *mut super::HWND, pidobject: *mut super::DWORD, pidchild: *mut super::DWORD) -> windows_core::HRESULT;
+    fn SetHmenuProp(&self, hmenu: super::HMENU, idchild: super::DWORD, idprop: &MSAAPROPID, var: &super::VARIANT) -> windows_core::HRESULT;
+    fn SetHmenuPropStr(&self, hmenu: super::HMENU, idchild: super::DWORD, idprop: &MSAAPROPID, str: &windows_core::PCWSTR) -> windows_core::HRESULT;
+    fn SetHmenuPropServer(&self, hmenu: super::HMENU, idchild: super::DWORD, paprops: *const MSAAPROPID, cprops: i32, pserver: windows_core::Ref<IAccPropServer>, annoscope: AnnoScope) -> windows_core::HRESULT;
+    fn ClearHmenuProps(&self, hmenu: super::HMENU, idchild: super::DWORD, paprops: *const MSAAPROPID, cprops: i32) -> windows_core::HRESULT;
+    fn ComposeHmenuIdentityString(&self, hmenu: super::HMENU, idchild: super::DWORD, ppidstring: *mut *mut super::BYTE, pdwidstringlen: *mut super::DWORD) -> windows_core::HRESULT;
+    fn DecomposeHmenuIdentityString(&self, pidstring: *const super::BYTE, dwidstringlen: super::DWORD, phmenu: *mut super::HMENU, pidchild: *mut super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAccPropServices_Vtbl {
@@ -388,91 +388,91 @@ impl IAccPropServices_Vtbl {
         unsafe extern "system" fn SetPropValue<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidstring: *const super::BYTE, dwidstringlen: super::DWORD, idprop: MSAAPROPID, var: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccPropServices_Impl::SetPropValue(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute(&idprop), core::mem::transmute(&var)).into()
+                IAccPropServices_Impl::SetPropValue(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute(&idprop), core::mem::transmute(&var))
             }
         }
         unsafe extern "system" fn SetPropServer<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidstring: *const super::BYTE, dwidstringlen: super::DWORD, paprops: *const MSAAPROPID, cprops: i32, pserver: *mut core::ffi::c_void, annoscope: AnnoScope) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccPropServices_Impl::SetPropServer(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops), core::mem::transmute_copy(&pserver), core::mem::transmute_copy(&annoscope)).into()
+                IAccPropServices_Impl::SetPropServer(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops), core::mem::transmute_copy(&pserver), core::mem::transmute_copy(&annoscope))
             }
         }
         unsafe extern "system" fn ClearProps<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidstring: *const super::BYTE, dwidstringlen: super::DWORD, paprops: *const MSAAPROPID, cprops: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccPropServices_Impl::ClearProps(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops)).into()
+                IAccPropServices_Impl::ClearProps(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops))
             }
         }
         unsafe extern "system" fn SetHwndProp<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::HWND, idobject: super::DWORD, idchild: super::DWORD, idprop: MSAAPROPID, var: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccPropServices_Impl::SetHwndProp(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), core::mem::transmute(&idprop), core::mem::transmute(&var)).into()
+                IAccPropServices_Impl::SetHwndProp(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), core::mem::transmute(&idprop), core::mem::transmute(&var))
             }
         }
         unsafe extern "system" fn SetHwndPropStr<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::HWND, idobject: super::DWORD, idchild: super::DWORD, idprop: MSAAPROPID, str: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccPropServices_Impl::SetHwndPropStr(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), core::mem::transmute(&idprop), core::mem::transmute(&str)).into()
+                IAccPropServices_Impl::SetHwndPropStr(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), core::mem::transmute(&idprop), core::mem::transmute(&str))
             }
         }
         unsafe extern "system" fn SetHwndPropServer<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::HWND, idobject: super::DWORD, idchild: super::DWORD, paprops: *const MSAAPROPID, cprops: i32, pserver: *mut core::ffi::c_void, annoscope: AnnoScope) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccPropServices_Impl::SetHwndPropServer(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops), core::mem::transmute_copy(&pserver), core::mem::transmute_copy(&annoscope)).into()
+                IAccPropServices_Impl::SetHwndPropServer(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops), core::mem::transmute_copy(&pserver), core::mem::transmute_copy(&annoscope))
             }
         }
         unsafe extern "system" fn ClearHwndProps<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::HWND, idobject: super::DWORD, idchild: super::DWORD, paprops: *const MSAAPROPID, cprops: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccPropServices_Impl::ClearHwndProps(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops)).into()
+                IAccPropServices_Impl::ClearHwndProps(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops))
             }
         }
         unsafe extern "system" fn ComposeHwndIdentityString<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::HWND, idobject: super::DWORD, idchild: super::DWORD, ppidstring: *mut *mut super::BYTE, pdwidstringlen: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccPropServices_Impl::ComposeHwndIdentityString(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&ppidstring), core::mem::transmute_copy(&pdwidstringlen)).into()
+                IAccPropServices_Impl::ComposeHwndIdentityString(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&ppidstring), core::mem::transmute_copy(&pdwidstringlen))
             }
         }
         unsafe extern "system" fn DecomposeHwndIdentityString<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidstring: *const super::BYTE, dwidstringlen: super::DWORD, phwnd: *mut super::HWND, pidobject: *mut super::DWORD, pidchild: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccPropServices_Impl::DecomposeHwndIdentityString(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute_copy(&phwnd), core::mem::transmute_copy(&pidobject), core::mem::transmute_copy(&pidchild)).into()
+                IAccPropServices_Impl::DecomposeHwndIdentityString(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute_copy(&phwnd), core::mem::transmute_copy(&pidobject), core::mem::transmute_copy(&pidchild))
             }
         }
         unsafe extern "system" fn SetHmenuProp<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmenu: super::HMENU, idchild: super::DWORD, idprop: MSAAPROPID, var: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccPropServices_Impl::SetHmenuProp(this, core::mem::transmute_copy(&hmenu), core::mem::transmute_copy(&idchild), core::mem::transmute(&idprop), core::mem::transmute(&var)).into()
+                IAccPropServices_Impl::SetHmenuProp(this, core::mem::transmute_copy(&hmenu), core::mem::transmute_copy(&idchild), core::mem::transmute(&idprop), core::mem::transmute(&var))
             }
         }
         unsafe extern "system" fn SetHmenuPropStr<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmenu: super::HMENU, idchild: super::DWORD, idprop: MSAAPROPID, str: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccPropServices_Impl::SetHmenuPropStr(this, core::mem::transmute_copy(&hmenu), core::mem::transmute_copy(&idchild), core::mem::transmute(&idprop), core::mem::transmute(&str)).into()
+                IAccPropServices_Impl::SetHmenuPropStr(this, core::mem::transmute_copy(&hmenu), core::mem::transmute_copy(&idchild), core::mem::transmute(&idprop), core::mem::transmute(&str))
             }
         }
         unsafe extern "system" fn SetHmenuPropServer<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmenu: super::HMENU, idchild: super::DWORD, paprops: *const MSAAPROPID, cprops: i32, pserver: *mut core::ffi::c_void, annoscope: AnnoScope) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccPropServices_Impl::SetHmenuPropServer(this, core::mem::transmute_copy(&hmenu), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops), core::mem::transmute_copy(&pserver), core::mem::transmute_copy(&annoscope)).into()
+                IAccPropServices_Impl::SetHmenuPropServer(this, core::mem::transmute_copy(&hmenu), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops), core::mem::transmute_copy(&pserver), core::mem::transmute_copy(&annoscope))
             }
         }
         unsafe extern "system" fn ClearHmenuProps<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmenu: super::HMENU, idchild: super::DWORD, paprops: *const MSAAPROPID, cprops: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccPropServices_Impl::ClearHmenuProps(this, core::mem::transmute_copy(&hmenu), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops)).into()
+                IAccPropServices_Impl::ClearHmenuProps(this, core::mem::transmute_copy(&hmenu), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops))
             }
         }
         unsafe extern "system" fn ComposeHmenuIdentityString<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmenu: super::HMENU, idchild: super::DWORD, ppidstring: *mut *mut super::BYTE, pdwidstringlen: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccPropServices_Impl::ComposeHmenuIdentityString(this, core::mem::transmute_copy(&hmenu), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&ppidstring), core::mem::transmute_copy(&pdwidstringlen)).into()
+                IAccPropServices_Impl::ComposeHmenuIdentityString(this, core::mem::transmute_copy(&hmenu), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&ppidstring), core::mem::transmute_copy(&pdwidstringlen))
             }
         }
         unsafe extern "system" fn DecomposeHmenuIdentityString<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidstring: *const super::BYTE, dwidstringlen: super::DWORD, phmenu: *mut super::HMENU, pidchild: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccPropServices_Impl::DecomposeHmenuIdentityString(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute_copy(&phmenu), core::mem::transmute_copy(&pidchild)).into()
+                IAccPropServices_Impl::DecomposeHmenuIdentityString(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute_copy(&phmenu), core::mem::transmute_copy(&pidchild))
             }
         }
         Self {
@@ -744,13 +744,13 @@ pub trait IAccessible_Impl: super::IDispatch_Impl {
     fn accFocus(&self) -> windows_core::Result<super::VARIANT>;
     fn accSelection(&self) -> windows_core::Result<super::VARIANT>;
     fn accDefaultAction(&self, varchild: &super::VARIANT) -> windows_core::Result<windows_core::BSTR>;
-    fn accSelect(&self, flagsselect: i32, varchild: &super::VARIANT) -> windows_core::Result<()>;
-    fn accLocation(&self, pxleft: *mut i32, pytop: *mut i32, pcxwidth: *mut i32, pcyheight: *mut i32, varchild: &super::VARIANT) -> windows_core::Result<()>;
+    fn accSelect(&self, flagsselect: i32, varchild: &super::VARIANT) -> windows_core::HRESULT;
+    fn accLocation(&self, pxleft: *mut i32, pytop: *mut i32, pcxwidth: *mut i32, pcyheight: *mut i32, varchild: &super::VARIANT) -> windows_core::HRESULT;
     fn accNavigate(&self, navdir: i32, varstart: &super::VARIANT) -> windows_core::Result<super::VARIANT>;
     fn accHitTest(&self, xleft: i32, ytop: i32) -> windows_core::Result<super::VARIANT>;
-    fn accDoDefaultAction(&self, varchild: &super::VARIANT) -> windows_core::Result<()>;
-    fn SetaccName(&self, varchild: &super::VARIANT, szname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetaccValue(&self, varchild: &super::VARIANT, szvalue: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn accDoDefaultAction(&self, varchild: &super::VARIANT) -> windows_core::HRESULT;
+    fn SetaccName(&self, varchild: &super::VARIANT, szname: &windows_core::BSTR) -> windows_core::HRESULT;
+    fn SetaccValue(&self, varchild: &super::VARIANT, szvalue: &windows_core::BSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAccessible_Vtbl {
@@ -968,13 +968,13 @@ impl IAccessible_Vtbl {
         unsafe extern "system" fn accSelect<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flagsselect: i32, varchild: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccessible_Impl::accSelect(this, core::mem::transmute_copy(&flagsselect), core::mem::transmute(&varchild)).into()
+                IAccessible_Impl::accSelect(this, core::mem::transmute_copy(&flagsselect), core::mem::transmute(&varchild))
             }
         }
         unsafe extern "system" fn accLocation<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxleft: *mut i32, pytop: *mut i32, pcxwidth: *mut i32, pcyheight: *mut i32, varchild: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccessible_Impl::accLocation(this, core::mem::transmute_copy(&pxleft), core::mem::transmute_copy(&pytop), core::mem::transmute_copy(&pcxwidth), core::mem::transmute_copy(&pcyheight), core::mem::transmute(&varchild)).into()
+                IAccessible_Impl::accLocation(this, core::mem::transmute_copy(&pxleft), core::mem::transmute_copy(&pytop), core::mem::transmute_copy(&pcxwidth), core::mem::transmute_copy(&pcyheight), core::mem::transmute(&varchild))
             }
         }
         unsafe extern "system" fn accNavigate<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, navdir: i32, varstart: super::VARIANT, pvarendupat: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -1010,19 +1010,19 @@ impl IAccessible_Vtbl {
         unsafe extern "system" fn accDoDefaultAction<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccessible_Impl::accDoDefaultAction(this, core::mem::transmute(&varchild)).into()
+                IAccessible_Impl::accDoDefaultAction(this, core::mem::transmute(&varchild))
             }
         }
         unsafe extern "system" fn SetaccName<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: super::VARIANT, szname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccessible_Impl::SetaccName(this, core::mem::transmute(&varchild), core::mem::transmute(&szname)).into()
+                IAccessible_Impl::SetaccName(this, core::mem::transmute(&varchild), core::mem::transmute(&szname))
             }
         }
         unsafe extern "system" fn SetaccValue<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: super::VARIANT, szvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccessible_Impl::SetaccValue(this, core::mem::transmute(&varchild), core::mem::transmute(&szvalue)).into()
+                IAccessible_Impl::SetaccValue(this, core::mem::transmute(&varchild), core::mem::transmute(&szvalue))
             }
         }
         Self {
@@ -1153,9 +1153,9 @@ pub struct IAccessibleWindowlessSite_Vtbl {
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
 pub trait IAccessibleWindowlessSite_Impl: windows_core::IUnknownImpl {
-    fn AcquireObjectIdRange(&self, rangesize: i32, prangeowner: windows_core::Ref<IAccessibleHandler>, prangebase: *mut i32) -> windows_core::Result<()>;
-    fn ReleaseObjectIdRange(&self, rangebase: i32, prangeowner: windows_core::Ref<IAccessibleHandler>) -> windows_core::Result<()>;
-    fn QueryObjectIdRanges(&self, prangesowner: windows_core::Ref<IAccessibleHandler>, psaranges: *mut *mut super::SAFEARRAY) -> windows_core::Result<()>;
+    fn AcquireObjectIdRange(&self, rangesize: i32, prangeowner: windows_core::Ref<IAccessibleHandler>, prangebase: *mut i32) -> windows_core::HRESULT;
+    fn ReleaseObjectIdRange(&self, rangebase: i32, prangeowner: windows_core::Ref<IAccessibleHandler>) -> windows_core::HRESULT;
+    fn QueryObjectIdRanges(&self, prangesowner: windows_core::Ref<IAccessibleHandler>, psaranges: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT;
     fn GetParentAccessible(&self) -> windows_core::Result<IAccessible>;
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
@@ -1164,19 +1164,19 @@ impl IAccessibleWindowlessSite_Vtbl {
         unsafe extern "system" fn AcquireObjectIdRange<Identity: IAccessibleWindowlessSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rangesize: i32, prangeowner: *mut core::ffi::c_void, prangebase: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccessibleWindowlessSite_Impl::AcquireObjectIdRange(this, core::mem::transmute_copy(&rangesize), core::mem::transmute_copy(&prangeowner), core::mem::transmute_copy(&prangebase)).into()
+                IAccessibleWindowlessSite_Impl::AcquireObjectIdRange(this, core::mem::transmute_copy(&rangesize), core::mem::transmute_copy(&prangeowner), core::mem::transmute_copy(&prangebase))
             }
         }
         unsafe extern "system" fn ReleaseObjectIdRange<Identity: IAccessibleWindowlessSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rangebase: i32, prangeowner: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccessibleWindowlessSite_Impl::ReleaseObjectIdRange(this, core::mem::transmute_copy(&rangebase), core::mem::transmute_copy(&prangeowner)).into()
+                IAccessibleWindowlessSite_Impl::ReleaseObjectIdRange(this, core::mem::transmute_copy(&rangebase), core::mem::transmute_copy(&prangeowner))
             }
         }
         unsafe extern "system" fn QueryObjectIdRanges<Identity: IAccessibleWindowlessSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prangesowner: *mut core::ffi::c_void, psaranges: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccessibleWindowlessSite_Impl::QueryObjectIdRanges(this, core::mem::transmute_copy(&prangesowner), core::mem::transmute_copy(&psaranges)).into()
+                IAccessibleWindowlessSite_Impl::QueryObjectIdRanges(this, core::mem::transmute_copy(&prangesowner), core::mem::transmute_copy(&psaranges))
             }
         }
         unsafe extern "system" fn GetParentAccessible<Identity: IAccessibleWindowlessSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppparent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {

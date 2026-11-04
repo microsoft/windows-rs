@@ -61,98 +61,98 @@ pub struct IDtcNetworkAccessConfig_Vtbl {
     pub RestartDtcService: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDtcNetworkAccessConfig_Impl: windows_core::IUnknownImpl {
-    fn GetAnyNetworkAccess(&self, pbanynetworkaccess: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetAnyNetworkAccess(&self, banynetworkaccess: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetNetworkAdministrationAccess(&self, pbnetworkadministrationaccess: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetNetworkAdministrationAccess(&self, bnetworkadministrationaccess: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetNetworkTransactionAccess(&self, pbnetworktransactionaccess: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetNetworkTransactionAccess(&self, bnetworktransactionaccess: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetNetworkClientAccess(&self, pbnetworkclientaccess: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetNetworkClientAccess(&self, bnetworkclientaccess: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetNetworkTIPAccess(&self, pbnetworktipaccess: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetNetworkTIPAccess(&self, bnetworktipaccess: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetXAAccess(&self, pbxaaccess: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetXAAccess(&self, bxaaccess: windows_core::BOOL) -> windows_core::Result<()>;
-    fn RestartDtcService(&self) -> windows_core::Result<()>;
+    fn GetAnyNetworkAccess(&self, pbanynetworkaccess: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn SetAnyNetworkAccess(&self, banynetworkaccess: windows_core::BOOL) -> windows_core::HRESULT;
+    fn GetNetworkAdministrationAccess(&self, pbnetworkadministrationaccess: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn SetNetworkAdministrationAccess(&self, bnetworkadministrationaccess: windows_core::BOOL) -> windows_core::HRESULT;
+    fn GetNetworkTransactionAccess(&self, pbnetworktransactionaccess: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn SetNetworkTransactionAccess(&self, bnetworktransactionaccess: windows_core::BOOL) -> windows_core::HRESULT;
+    fn GetNetworkClientAccess(&self, pbnetworkclientaccess: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn SetNetworkClientAccess(&self, bnetworkclientaccess: windows_core::BOOL) -> windows_core::HRESULT;
+    fn GetNetworkTIPAccess(&self, pbnetworktipaccess: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn SetNetworkTIPAccess(&self, bnetworktipaccess: windows_core::BOOL) -> windows_core::HRESULT;
+    fn GetXAAccess(&self, pbxaaccess: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn SetXAAccess(&self, bxaaccess: windows_core::BOOL) -> windows_core::HRESULT;
+    fn RestartDtcService(&self) -> windows_core::HRESULT;
 }
 impl IDtcNetworkAccessConfig_Vtbl {
     pub const fn new<Identity: IDtcNetworkAccessConfig_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetAnyNetworkAccess<Identity: IDtcNetworkAccessConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbanynetworkaccess: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcNetworkAccessConfig_Impl::GetAnyNetworkAccess(this, core::mem::transmute_copy(&pbanynetworkaccess)).into()
+                IDtcNetworkAccessConfig_Impl::GetAnyNetworkAccess(this, core::mem::transmute_copy(&pbanynetworkaccess))
             }
         }
         unsafe extern "system" fn SetAnyNetworkAccess<Identity: IDtcNetworkAccessConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, banynetworkaccess: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcNetworkAccessConfig_Impl::SetAnyNetworkAccess(this, core::mem::transmute_copy(&banynetworkaccess)).into()
+                IDtcNetworkAccessConfig_Impl::SetAnyNetworkAccess(this, core::mem::transmute_copy(&banynetworkaccess))
             }
         }
         unsafe extern "system" fn GetNetworkAdministrationAccess<Identity: IDtcNetworkAccessConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbnetworkadministrationaccess: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcNetworkAccessConfig_Impl::GetNetworkAdministrationAccess(this, core::mem::transmute_copy(&pbnetworkadministrationaccess)).into()
+                IDtcNetworkAccessConfig_Impl::GetNetworkAdministrationAccess(this, core::mem::transmute_copy(&pbnetworkadministrationaccess))
             }
         }
         unsafe extern "system" fn SetNetworkAdministrationAccess<Identity: IDtcNetworkAccessConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bnetworkadministrationaccess: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcNetworkAccessConfig_Impl::SetNetworkAdministrationAccess(this, core::mem::transmute_copy(&bnetworkadministrationaccess)).into()
+                IDtcNetworkAccessConfig_Impl::SetNetworkAdministrationAccess(this, core::mem::transmute_copy(&bnetworkadministrationaccess))
             }
         }
         unsafe extern "system" fn GetNetworkTransactionAccess<Identity: IDtcNetworkAccessConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbnetworktransactionaccess: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcNetworkAccessConfig_Impl::GetNetworkTransactionAccess(this, core::mem::transmute_copy(&pbnetworktransactionaccess)).into()
+                IDtcNetworkAccessConfig_Impl::GetNetworkTransactionAccess(this, core::mem::transmute_copy(&pbnetworktransactionaccess))
             }
         }
         unsafe extern "system" fn SetNetworkTransactionAccess<Identity: IDtcNetworkAccessConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bnetworktransactionaccess: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcNetworkAccessConfig_Impl::SetNetworkTransactionAccess(this, core::mem::transmute_copy(&bnetworktransactionaccess)).into()
+                IDtcNetworkAccessConfig_Impl::SetNetworkTransactionAccess(this, core::mem::transmute_copy(&bnetworktransactionaccess))
             }
         }
         unsafe extern "system" fn GetNetworkClientAccess<Identity: IDtcNetworkAccessConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbnetworkclientaccess: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcNetworkAccessConfig_Impl::GetNetworkClientAccess(this, core::mem::transmute_copy(&pbnetworkclientaccess)).into()
+                IDtcNetworkAccessConfig_Impl::GetNetworkClientAccess(this, core::mem::transmute_copy(&pbnetworkclientaccess))
             }
         }
         unsafe extern "system" fn SetNetworkClientAccess<Identity: IDtcNetworkAccessConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bnetworkclientaccess: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcNetworkAccessConfig_Impl::SetNetworkClientAccess(this, core::mem::transmute_copy(&bnetworkclientaccess)).into()
+                IDtcNetworkAccessConfig_Impl::SetNetworkClientAccess(this, core::mem::transmute_copy(&bnetworkclientaccess))
             }
         }
         unsafe extern "system" fn GetNetworkTIPAccess<Identity: IDtcNetworkAccessConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbnetworktipaccess: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcNetworkAccessConfig_Impl::GetNetworkTIPAccess(this, core::mem::transmute_copy(&pbnetworktipaccess)).into()
+                IDtcNetworkAccessConfig_Impl::GetNetworkTIPAccess(this, core::mem::transmute_copy(&pbnetworktipaccess))
             }
         }
         unsafe extern "system" fn SetNetworkTIPAccess<Identity: IDtcNetworkAccessConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bnetworktipaccess: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcNetworkAccessConfig_Impl::SetNetworkTIPAccess(this, core::mem::transmute_copy(&bnetworktipaccess)).into()
+                IDtcNetworkAccessConfig_Impl::SetNetworkTIPAccess(this, core::mem::transmute_copy(&bnetworktipaccess))
             }
         }
         unsafe extern "system" fn GetXAAccess<Identity: IDtcNetworkAccessConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbxaaccess: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcNetworkAccessConfig_Impl::GetXAAccess(this, core::mem::transmute_copy(&pbxaaccess)).into()
+                IDtcNetworkAccessConfig_Impl::GetXAAccess(this, core::mem::transmute_copy(&pbxaaccess))
             }
         }
         unsafe extern "system" fn SetXAAccess<Identity: IDtcNetworkAccessConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bxaaccess: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcNetworkAccessConfig_Impl::SetXAAccess(this, core::mem::transmute_copy(&bxaaccess)).into()
+                IDtcNetworkAccessConfig_Impl::SetXAAccess(this, core::mem::transmute_copy(&bxaaccess))
             }
         }
         unsafe extern "system" fn RestartDtcService<Identity: IDtcNetworkAccessConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcNetworkAccessConfig_Impl::RestartDtcService(this).into()
+                IDtcNetworkAccessConfig_Impl::RestartDtcService(this)
             }
         }
         Self {
@@ -217,49 +217,49 @@ pub struct IDtcNetworkAccessConfig2_Vtbl {
     pub SetAuthenticationLevel: unsafe extern "system" fn(*mut core::ffi::c_void, AUTHENTICATION_LEVEL) -> windows_core::HRESULT,
 }
 pub trait IDtcNetworkAccessConfig2_Impl: IDtcNetworkAccessConfig_Impl {
-    fn GetNetworkInboundAccess(&self, pbinbound: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetNetworkOutboundAccess(&self, pboutbound: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetNetworkInboundAccess(&self, binbound: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetNetworkOutboundAccess(&self, boutbound: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetAuthenticationLevel(&self, pauthlevel: *mut AUTHENTICATION_LEVEL) -> windows_core::Result<()>;
-    fn SetAuthenticationLevel(&self, authlevel: AUTHENTICATION_LEVEL) -> windows_core::Result<()>;
+    fn GetNetworkInboundAccess(&self, pbinbound: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn GetNetworkOutboundAccess(&self, pboutbound: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn SetNetworkInboundAccess(&self, binbound: windows_core::BOOL) -> windows_core::HRESULT;
+    fn SetNetworkOutboundAccess(&self, boutbound: windows_core::BOOL) -> windows_core::HRESULT;
+    fn GetAuthenticationLevel(&self, pauthlevel: *mut AUTHENTICATION_LEVEL) -> windows_core::HRESULT;
+    fn SetAuthenticationLevel(&self, authlevel: AUTHENTICATION_LEVEL) -> windows_core::HRESULT;
 }
 impl IDtcNetworkAccessConfig2_Vtbl {
     pub const fn new<Identity: IDtcNetworkAccessConfig2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetNetworkInboundAccess<Identity: IDtcNetworkAccessConfig2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbinbound: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcNetworkAccessConfig2_Impl::GetNetworkInboundAccess(this, core::mem::transmute_copy(&pbinbound)).into()
+                IDtcNetworkAccessConfig2_Impl::GetNetworkInboundAccess(this, core::mem::transmute_copy(&pbinbound))
             }
         }
         unsafe extern "system" fn GetNetworkOutboundAccess<Identity: IDtcNetworkAccessConfig2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pboutbound: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcNetworkAccessConfig2_Impl::GetNetworkOutboundAccess(this, core::mem::transmute_copy(&pboutbound)).into()
+                IDtcNetworkAccessConfig2_Impl::GetNetworkOutboundAccess(this, core::mem::transmute_copy(&pboutbound))
             }
         }
         unsafe extern "system" fn SetNetworkInboundAccess<Identity: IDtcNetworkAccessConfig2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, binbound: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcNetworkAccessConfig2_Impl::SetNetworkInboundAccess(this, core::mem::transmute_copy(&binbound)).into()
+                IDtcNetworkAccessConfig2_Impl::SetNetworkInboundAccess(this, core::mem::transmute_copy(&binbound))
             }
         }
         unsafe extern "system" fn SetNetworkOutboundAccess<Identity: IDtcNetworkAccessConfig2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, boutbound: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcNetworkAccessConfig2_Impl::SetNetworkOutboundAccess(this, core::mem::transmute_copy(&boutbound)).into()
+                IDtcNetworkAccessConfig2_Impl::SetNetworkOutboundAccess(this, core::mem::transmute_copy(&boutbound))
             }
         }
         unsafe extern "system" fn GetAuthenticationLevel<Identity: IDtcNetworkAccessConfig2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pauthlevel: *mut AUTHENTICATION_LEVEL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcNetworkAccessConfig2_Impl::GetAuthenticationLevel(this, core::mem::transmute_copy(&pauthlevel)).into()
+                IDtcNetworkAccessConfig2_Impl::GetAuthenticationLevel(this, core::mem::transmute_copy(&pauthlevel))
             }
         }
         unsafe extern "system" fn SetAuthenticationLevel<Identity: IDtcNetworkAccessConfig2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, authlevel: AUTHENTICATION_LEVEL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcNetworkAccessConfig2_Impl::SetAuthenticationLevel(this, core::mem::transmute_copy(&authlevel)).into()
+                IDtcNetworkAccessConfig2_Impl::SetAuthenticationLevel(this, core::mem::transmute_copy(&authlevel))
             }
         }
         Self {
@@ -301,21 +301,21 @@ pub struct IDtcNetworkAccessConfig3_Vtbl {
     pub SetLUAccess: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IDtcNetworkAccessConfig3_Impl: IDtcNetworkAccessConfig2_Impl {
-    fn GetLUAccess(&self, pbluaccess: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetLUAccess(&self, bluaccess: windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetLUAccess(&self, pbluaccess: *mut windows_core::BOOL) -> windows_core::HRESULT;
+    fn SetLUAccess(&self, bluaccess: windows_core::BOOL) -> windows_core::HRESULT;
 }
 impl IDtcNetworkAccessConfig3_Vtbl {
     pub const fn new<Identity: IDtcNetworkAccessConfig3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetLUAccess<Identity: IDtcNetworkAccessConfig3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbluaccess: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcNetworkAccessConfig3_Impl::GetLUAccess(this, core::mem::transmute_copy(&pbluaccess)).into()
+                IDtcNetworkAccessConfig3_Impl::GetLUAccess(this, core::mem::transmute_copy(&pbluaccess))
             }
         }
         unsafe extern "system" fn SetLUAccess<Identity: IDtcNetworkAccessConfig3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bluaccess: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDtcNetworkAccessConfig3_Impl::SetLUAccess(this, core::mem::transmute_copy(&bluaccess)).into()
+                IDtcNetworkAccessConfig3_Impl::SetLUAccess(this, core::mem::transmute_copy(&bluaccess))
             }
         }
         Self {
@@ -387,7 +387,7 @@ pub struct ITipHelper_Vtbl {
 pub trait ITipHelper_Impl: windows_core::IUnknownImpl {
     fn Pull(&self, i_psztxurl: *const i8) -> windows_core::Result<super::ITransaction>;
     fn PullAsync(&self, i_psztxurl: *const i8, i_ptippullsink: windows_core::Ref<ITipPullSink>) -> windows_core::Result<super::ITransaction>;
-    fn GetLocalTmUrl(&self, o_ppszlocaltmurl: *mut *mut i8) -> windows_core::Result<()>;
+    fn GetLocalTmUrl(&self, o_ppszlocaltmurl: *mut *mut i8) -> windows_core::HRESULT;
 }
 #[cfg(feature = "transact")]
 impl ITipHelper_Vtbl {
@@ -425,7 +425,7 @@ impl ITipHelper_Vtbl {
         unsafe extern "system" fn GetLocalTmUrl<Identity: ITipHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, o_ppszlocaltmurl: *mut *mut i8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITipHelper_Impl::GetLocalTmUrl(this, core::mem::transmute_copy(&o_ppszlocaltmurl)).into()
+                ITipHelper_Impl::GetLocalTmUrl(this, core::mem::transmute_copy(&o_ppszlocaltmurl))
             }
         }
         Self {
@@ -455,14 +455,14 @@ pub struct ITipPullSink_Vtbl {
     pub PullComplete: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
 }
 pub trait ITipPullSink_Impl: windows_core::IUnknownImpl {
-    fn PullComplete(&self, i_hrpull: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn PullComplete(&self, i_hrpull: windows_core::HRESULT) -> windows_core::HRESULT;
 }
 impl ITipPullSink_Vtbl {
     pub const fn new<Identity: ITipPullSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn PullComplete<Identity: ITipPullSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, i_hrpull: windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITipPullSink_Impl::PullComplete(this, core::mem::transmute_copy(&i_hrpull)).into()
+                ITipPullSink_Impl::PullComplete(this, core::mem::transmute_copy(&i_hrpull))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), PullComplete: PullComplete::<Identity, OFFSET> }
@@ -490,21 +490,21 @@ pub struct ITipTransaction_Vtbl {
     pub GetTransactionUrl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PSTR) -> windows_core::HRESULT,
 }
 pub trait ITipTransaction_Impl: windows_core::IUnknownImpl {
-    fn Push(&self, i_pszremotetmurl: *const i8, o_ppszremotetxurl: *mut windows_core::PSTR) -> windows_core::Result<()>;
-    fn GetTransactionUrl(&self, o_ppszlocaltxurl: *mut windows_core::PSTR) -> windows_core::Result<()>;
+    fn Push(&self, i_pszremotetmurl: *const i8, o_ppszremotetxurl: *mut windows_core::PSTR) -> windows_core::HRESULT;
+    fn GetTransactionUrl(&self, o_ppszlocaltxurl: *mut windows_core::PSTR) -> windows_core::HRESULT;
 }
 impl ITipTransaction_Vtbl {
     pub const fn new<Identity: ITipTransaction_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Push<Identity: ITipTransaction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, i_pszremotetmurl: *const i8, o_ppszremotetxurl: *mut windows_core::PSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITipTransaction_Impl::Push(this, core::mem::transmute_copy(&i_pszremotetmurl), core::mem::transmute_copy(&o_ppszremotetxurl)).into()
+                ITipTransaction_Impl::Push(this, core::mem::transmute_copy(&i_pszremotetmurl), core::mem::transmute_copy(&o_ppszremotetxurl))
             }
         }
         unsafe extern "system" fn GetTransactionUrl<Identity: ITipTransaction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, o_ppszlocaltxurl: *mut windows_core::PSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITipTransaction_Impl::GetTransactionUrl(this, core::mem::transmute_copy(&o_ppszlocaltxurl)).into()
+                ITipTransaction_Impl::GetTransactionUrl(this, core::mem::transmute_copy(&o_ppszlocaltxurl))
             }
         }
         Self {
@@ -548,9 +548,9 @@ pub struct ITransactionEnlistmentAsync_Vtbl {
 }
 #[cfg(all(feature = "objidl", feature = "rpc", feature = "transact"))]
 pub trait ITransactionEnlistmentAsync_Impl: windows_core::IUnknownImpl {
-    fn PrepareRequestDone(&self, hr: windows_core::HRESULT, pmk: windows_core::Ref<super::IMoniker>, pboidreason: *const super::BOID) -> windows_core::Result<()>;
-    fn CommitRequestDone(&self, hr: windows_core::HRESULT) -> windows_core::Result<()>;
-    fn AbortRequestDone(&self, hr: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn PrepareRequestDone(&self, hr: windows_core::HRESULT, pmk: windows_core::Ref<super::IMoniker>, pboidreason: *const super::BOID) -> windows_core::HRESULT;
+    fn CommitRequestDone(&self, hr: windows_core::HRESULT) -> windows_core::HRESULT;
+    fn AbortRequestDone(&self, hr: windows_core::HRESULT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "objidl", feature = "rpc", feature = "transact"))]
 impl ITransactionEnlistmentAsync_Vtbl {
@@ -558,19 +558,19 @@ impl ITransactionEnlistmentAsync_Vtbl {
         unsafe extern "system" fn PrepareRequestDone<Identity: ITransactionEnlistmentAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hr: windows_core::HRESULT, pmk: *mut core::ffi::c_void, pboidreason: *const super::BOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionEnlistmentAsync_Impl::PrepareRequestDone(this, core::mem::transmute_copy(&hr), core::mem::transmute_copy(&pmk), core::mem::transmute_copy(&pboidreason)).into()
+                ITransactionEnlistmentAsync_Impl::PrepareRequestDone(this, core::mem::transmute_copy(&hr), core::mem::transmute_copy(&pmk), core::mem::transmute_copy(&pboidreason))
             }
         }
         unsafe extern "system" fn CommitRequestDone<Identity: ITransactionEnlistmentAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hr: windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionEnlistmentAsync_Impl::CommitRequestDone(this, core::mem::transmute_copy(&hr)).into()
+                ITransactionEnlistmentAsync_Impl::CommitRequestDone(this, core::mem::transmute_copy(&hr))
             }
         }
         unsafe extern "system" fn AbortRequestDone<Identity: ITransactionEnlistmentAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hr: windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionEnlistmentAsync_Impl::AbortRequestDone(this, core::mem::transmute_copy(&hr)).into()
+                ITransactionEnlistmentAsync_Impl::AbortRequestDone(this, core::mem::transmute_copy(&hr))
             }
         }
         Self {
@@ -619,8 +619,8 @@ pub struct ITransactionExport_Vtbl {
 }
 #[cfg(all(feature = "rpc", feature = "shared"))]
 pub trait ITransactionExport_Impl: windows_core::IUnknownImpl {
-    fn Export(&self, punktransaction: windows_core::Ref<windows_core::IUnknown>, pcbtransactioncookie: *mut super::ULONG) -> windows_core::Result<()>;
-    fn GetTransactionCookie(&self, punktransaction: windows_core::Ref<windows_core::IUnknown>, cbtransactioncookie: super::ULONG, rgbtransactioncookie: *mut super::byte, pcbused: *mut super::ULONG) -> windows_core::Result<()>;
+    fn Export(&self, punktransaction: windows_core::Ref<windows_core::IUnknown>, pcbtransactioncookie: *mut super::ULONG) -> windows_core::HRESULT;
+    fn GetTransactionCookie(&self, punktransaction: windows_core::Ref<windows_core::IUnknown>, cbtransactioncookie: super::ULONG, rgbtransactioncookie: *mut super::byte, pcbused: *mut super::ULONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "rpc", feature = "shared"))]
 impl ITransactionExport_Vtbl {
@@ -628,13 +628,13 @@ impl ITransactionExport_Vtbl {
         unsafe extern "system" fn Export<Identity: ITransactionExport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punktransaction: *mut core::ffi::c_void, pcbtransactioncookie: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionExport_Impl::Export(this, core::mem::transmute_copy(&punktransaction), core::mem::transmute_copy(&pcbtransactioncookie)).into()
+                ITransactionExport_Impl::Export(this, core::mem::transmute_copy(&punktransaction), core::mem::transmute_copy(&pcbtransactioncookie))
             }
         }
         unsafe extern "system" fn GetTransactionCookie<Identity: ITransactionExport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punktransaction: *mut core::ffi::c_void, cbtransactioncookie: super::ULONG, rgbtransactioncookie: *mut super::byte, pcbused: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionExport_Impl::GetTransactionCookie(this, core::mem::transmute_copy(&punktransaction), core::mem::transmute_copy(&cbtransactioncookie), core::mem::transmute_copy(&rgbtransactioncookie), core::mem::transmute_copy(&pcbused)).into()
+                ITransactionExport_Impl::GetTransactionCookie(this, core::mem::transmute_copy(&punktransaction), core::mem::transmute_copy(&cbtransactioncookie), core::mem::transmute_copy(&rgbtransactioncookie), core::mem::transmute_copy(&pcbused))
             }
         }
         Self {
@@ -679,7 +679,7 @@ pub struct ITransactionExportFactory_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "rpc", feature = "shared"))]
 pub trait ITransactionExportFactory_Impl: windows_core::IUnknownImpl {
-    fn GetRemoteClassId(&self, pclsid: *mut super::CLSID) -> windows_core::Result<()>;
+    fn GetRemoteClassId(&self, pclsid: *mut super::CLSID) -> windows_core::HRESULT;
     fn Create(&self, cbwhereabouts: super::ULONG, rgbwhereabouts: *const super::byte) -> windows_core::Result<ITransactionExport>;
 }
 #[cfg(all(feature = "guiddef", feature = "rpc", feature = "shared"))]
@@ -688,7 +688,7 @@ impl ITransactionExportFactory_Vtbl {
         unsafe extern "system" fn GetRemoteClassId<Identity: ITransactionExportFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclsid: *mut super::CLSID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionExportFactory_Impl::GetRemoteClassId(this, core::mem::transmute_copy(&pclsid)).into()
+                ITransactionExportFactory_Impl::GetRemoteClassId(this, core::mem::transmute_copy(&pclsid))
             }
         }
         unsafe extern "system" fn Create<Identity: ITransactionExportFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbwhereabouts: super::ULONG, rgbwhereabouts: *const super::byte, ppexport: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -787,8 +787,8 @@ pub struct ITransactionImportWhereabouts_Vtbl {
 }
 #[cfg(all(feature = "rpc", feature = "shared"))]
 pub trait ITransactionImportWhereabouts_Impl: windows_core::IUnknownImpl {
-    fn GetWhereaboutsSize(&self, pcbwhereabouts: *mut super::ULONG) -> windows_core::Result<()>;
-    fn GetWhereabouts(&self, cbwhereabouts: super::ULONG, rgbwhereabouts: *mut super::byte, pcbused: *mut super::ULONG) -> windows_core::Result<()>;
+    fn GetWhereaboutsSize(&self, pcbwhereabouts: *mut super::ULONG) -> windows_core::HRESULT;
+    fn GetWhereabouts(&self, cbwhereabouts: super::ULONG, rgbwhereabouts: *mut super::byte, pcbused: *mut super::ULONG) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "rpc", feature = "shared"))]
 impl ITransactionImportWhereabouts_Vtbl {
@@ -796,13 +796,13 @@ impl ITransactionImportWhereabouts_Vtbl {
         unsafe extern "system" fn GetWhereaboutsSize<Identity: ITransactionImportWhereabouts_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbwhereabouts: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionImportWhereabouts_Impl::GetWhereaboutsSize(this, core::mem::transmute_copy(&pcbwhereabouts)).into()
+                ITransactionImportWhereabouts_Impl::GetWhereaboutsSize(this, core::mem::transmute_copy(&pcbwhereabouts))
             }
         }
         unsafe extern "system" fn GetWhereabouts<Identity: ITransactionImportWhereabouts_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbwhereabouts: super::ULONG, rgbwhereabouts: *mut super::byte, pcbused: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionImportWhereabouts_Impl::GetWhereabouts(this, core::mem::transmute_copy(&cbwhereabouts), core::mem::transmute_copy(&rgbwhereabouts), core::mem::transmute_copy(&pcbused)).into()
+                ITransactionImportWhereabouts_Impl::GetWhereabouts(this, core::mem::transmute_copy(&cbwhereabouts), core::mem::transmute_copy(&rgbwhereabouts), core::mem::transmute_copy(&pcbused))
             }
         }
         Self {
@@ -836,7 +836,7 @@ pub struct ITransactionLastEnlistmentAsync_Vtbl {
 }
 #[cfg(all(feature = "rpc", feature = "transact"))]
 pub trait ITransactionLastEnlistmentAsync_Impl: windows_core::IUnknownImpl {
-    fn TransactionOutcome(&self, xactstat: super::XACTSTAT, pboidreason: *const super::BOID) -> windows_core::Result<()>;
+    fn TransactionOutcome(&self, xactstat: super::XACTSTAT, pboidreason: *const super::BOID) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "rpc", feature = "transact"))]
 impl ITransactionLastEnlistmentAsync_Vtbl {
@@ -844,7 +844,7 @@ impl ITransactionLastEnlistmentAsync_Vtbl {
         unsafe extern "system" fn TransactionOutcome<Identity: ITransactionLastEnlistmentAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xactstat: super::XACTSTAT, pboidreason: *const super::BOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionLastEnlistmentAsync_Impl::TransactionOutcome(this, core::mem::transmute_copy(&xactstat), core::mem::transmute_copy(&pboidreason)).into()
+                ITransactionLastEnlistmentAsync_Impl::TransactionOutcome(this, core::mem::transmute_copy(&xactstat), core::mem::transmute_copy(&pboidreason))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), TransactionOutcome: TransactionOutcome::<Identity, OFFSET> }
@@ -882,8 +882,8 @@ pub struct ITransactionLastResourceAsync_Vtbl {
 }
 #[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
 pub trait ITransactionLastResourceAsync_Impl: windows_core::IUnknownImpl {
-    fn DelegateCommit(&self, grfrm: super::DWORD) -> windows_core::Result<()>;
-    fn ForgetRequest(&self, pnewuow: *const super::XACTUOW) -> windows_core::Result<()>;
+    fn DelegateCommit(&self, grfrm: super::DWORD) -> windows_core::HRESULT;
+    fn ForgetRequest(&self, pnewuow: *const super::XACTUOW) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
 impl ITransactionLastResourceAsync_Vtbl {
@@ -891,13 +891,13 @@ impl ITransactionLastResourceAsync_Vtbl {
         unsafe extern "system" fn DelegateCommit<Identity: ITransactionLastResourceAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfrm: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionLastResourceAsync_Impl::DelegateCommit(this, core::mem::transmute_copy(&grfrm)).into()
+                ITransactionLastResourceAsync_Impl::DelegateCommit(this, core::mem::transmute_copy(&grfrm))
             }
         }
         unsafe extern "system" fn ForgetRequest<Identity: ITransactionLastResourceAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnewuow: *const super::XACTUOW) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionLastResourceAsync_Impl::ForgetRequest(this, core::mem::transmute_copy(&pnewuow)).into()
+                ITransactionLastResourceAsync_Impl::ForgetRequest(this, core::mem::transmute_copy(&pnewuow))
             }
         }
         Self {
@@ -951,10 +951,10 @@ pub struct ITransactionResource_Vtbl {
 }
 #[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
 pub trait ITransactionResource_Impl: windows_core::IUnknownImpl {
-    fn PrepareRequest(&self, fretaining: windows_core::BOOL, grfrm: super::DWORD, fwantmoniker: windows_core::BOOL, fsinglephase: windows_core::BOOL) -> windows_core::Result<()>;
-    fn CommitRequest(&self, grfrm: super::DWORD, pnewuow: *const super::XACTUOW) -> windows_core::Result<()>;
-    fn AbortRequest(&self, pboidreason: *const super::BOID, fretaining: windows_core::BOOL, pnewuow: *const super::XACTUOW) -> windows_core::Result<()>;
-    fn TMDown(&self) -> windows_core::Result<()>;
+    fn PrepareRequest(&self, fretaining: windows_core::BOOL, grfrm: super::DWORD, fwantmoniker: windows_core::BOOL, fsinglephase: windows_core::BOOL) -> windows_core::HRESULT;
+    fn CommitRequest(&self, grfrm: super::DWORD, pnewuow: *const super::XACTUOW) -> windows_core::HRESULT;
+    fn AbortRequest(&self, pboidreason: *const super::BOID, fretaining: windows_core::BOOL, pnewuow: *const super::XACTUOW) -> windows_core::HRESULT;
+    fn TMDown(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
 impl ITransactionResource_Vtbl {
@@ -962,25 +962,25 @@ impl ITransactionResource_Vtbl {
         unsafe extern "system" fn PrepareRequest<Identity: ITransactionResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fretaining: windows_core::BOOL, grfrm: super::DWORD, fwantmoniker: windows_core::BOOL, fsinglephase: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionResource_Impl::PrepareRequest(this, core::mem::transmute_copy(&fretaining), core::mem::transmute_copy(&grfrm), core::mem::transmute_copy(&fwantmoniker), core::mem::transmute_copy(&fsinglephase)).into()
+                ITransactionResource_Impl::PrepareRequest(this, core::mem::transmute_copy(&fretaining), core::mem::transmute_copy(&grfrm), core::mem::transmute_copy(&fwantmoniker), core::mem::transmute_copy(&fsinglephase))
             }
         }
         unsafe extern "system" fn CommitRequest<Identity: ITransactionResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfrm: super::DWORD, pnewuow: *const super::XACTUOW) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionResource_Impl::CommitRequest(this, core::mem::transmute_copy(&grfrm), core::mem::transmute_copy(&pnewuow)).into()
+                ITransactionResource_Impl::CommitRequest(this, core::mem::transmute_copy(&grfrm), core::mem::transmute_copy(&pnewuow))
             }
         }
         unsafe extern "system" fn AbortRequest<Identity: ITransactionResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pboidreason: *const super::BOID, fretaining: windows_core::BOOL, pnewuow: *const super::XACTUOW) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionResource_Impl::AbortRequest(this, core::mem::transmute_copy(&pboidreason), core::mem::transmute_copy(&fretaining), core::mem::transmute_copy(&pnewuow)).into()
+                ITransactionResource_Impl::AbortRequest(this, core::mem::transmute_copy(&pboidreason), core::mem::transmute_copy(&fretaining), core::mem::transmute_copy(&pnewuow))
             }
         }
         unsafe extern "system" fn TMDown<Identity: ITransactionResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionResource_Impl::TMDown(this).into()
+                ITransactionResource_Impl::TMDown(this)
             }
         }
         Self {
@@ -1036,10 +1036,10 @@ pub struct ITransactionResourceAsync_Vtbl {
 }
 #[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
 pub trait ITransactionResourceAsync_Impl: windows_core::IUnknownImpl {
-    fn PrepareRequest(&self, fretaining: windows_core::BOOL, grfrm: super::DWORD, fwantmoniker: windows_core::BOOL, fsinglephase: windows_core::BOOL) -> windows_core::Result<()>;
-    fn CommitRequest(&self, grfrm: super::DWORD, pnewuow: *const super::XACTUOW) -> windows_core::Result<()>;
-    fn AbortRequest(&self, pboidreason: *const super::BOID, fretaining: windows_core::BOOL, pnewuow: *const super::XACTUOW) -> windows_core::Result<()>;
-    fn TMDown(&self) -> windows_core::Result<()>;
+    fn PrepareRequest(&self, fretaining: windows_core::BOOL, grfrm: super::DWORD, fwantmoniker: windows_core::BOOL, fsinglephase: windows_core::BOOL) -> windows_core::HRESULT;
+    fn CommitRequest(&self, grfrm: super::DWORD, pnewuow: *const super::XACTUOW) -> windows_core::HRESULT;
+    fn AbortRequest(&self, pboidreason: *const super::BOID, fretaining: windows_core::BOOL, pnewuow: *const super::XACTUOW) -> windows_core::HRESULT;
+    fn TMDown(&self) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
 impl ITransactionResourceAsync_Vtbl {
@@ -1047,25 +1047,25 @@ impl ITransactionResourceAsync_Vtbl {
         unsafe extern "system" fn PrepareRequest<Identity: ITransactionResourceAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fretaining: windows_core::BOOL, grfrm: super::DWORD, fwantmoniker: windows_core::BOOL, fsinglephase: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionResourceAsync_Impl::PrepareRequest(this, core::mem::transmute_copy(&fretaining), core::mem::transmute_copy(&grfrm), core::mem::transmute_copy(&fwantmoniker), core::mem::transmute_copy(&fsinglephase)).into()
+                ITransactionResourceAsync_Impl::PrepareRequest(this, core::mem::transmute_copy(&fretaining), core::mem::transmute_copy(&grfrm), core::mem::transmute_copy(&fwantmoniker), core::mem::transmute_copy(&fsinglephase))
             }
         }
         unsafe extern "system" fn CommitRequest<Identity: ITransactionResourceAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfrm: super::DWORD, pnewuow: *const super::XACTUOW) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionResourceAsync_Impl::CommitRequest(this, core::mem::transmute_copy(&grfrm), core::mem::transmute_copy(&pnewuow)).into()
+                ITransactionResourceAsync_Impl::CommitRequest(this, core::mem::transmute_copy(&grfrm), core::mem::transmute_copy(&pnewuow))
             }
         }
         unsafe extern "system" fn AbortRequest<Identity: ITransactionResourceAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pboidreason: *const super::BOID, fretaining: windows_core::BOOL, pnewuow: *const super::XACTUOW) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionResourceAsync_Impl::AbortRequest(this, core::mem::transmute_copy(&pboidreason), core::mem::transmute_copy(&fretaining), core::mem::transmute_copy(&pnewuow)).into()
+                ITransactionResourceAsync_Impl::AbortRequest(this, core::mem::transmute_copy(&pboidreason), core::mem::transmute_copy(&fretaining), core::mem::transmute_copy(&pnewuow))
             }
         }
         unsafe extern "system" fn TMDown<Identity: ITransactionResourceAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionResourceAsync_Impl::TMDown(this).into()
+                ITransactionResourceAsync_Impl::TMDown(this)
             }
         }
         Self {

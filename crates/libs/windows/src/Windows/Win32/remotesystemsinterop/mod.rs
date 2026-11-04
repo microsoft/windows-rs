@@ -28,7 +28,7 @@ pub struct ICorrelationVectorInformation_Vtbl {
 pub trait ICorrelationVectorInformation_Impl: windows_core::IUnknownImpl {
     fn LastCorrelationVectorForThread(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn NextCorrelationVectorForThread(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn SetNextCorrelationVectorForThread(&self, cv: &windows_core::HSTRING) -> windows_core::Result<()>;
+    fn SetNextCorrelationVectorForThread(&self, cv: &windows_core::HSTRING) -> windows_core::HRESULT;
 }
 impl ICorrelationVectorInformation_Vtbl {
     pub const fn new<Identity: ICorrelationVectorInformation_Impl, const OFFSET: isize>() -> Self {
@@ -65,7 +65,7 @@ impl ICorrelationVectorInformation_Vtbl {
         unsafe extern "system" fn SetNextCorrelationVectorForThread<Identity: ICorrelationVectorInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cv: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICorrelationVectorInformation_Impl::SetNextCorrelationVectorForThread(this, core::mem::transmute(&cv)).into()
+                ICorrelationVectorInformation_Impl::SetNextCorrelationVectorForThread(this, core::mem::transmute(&cv))
             }
         }
         Self {

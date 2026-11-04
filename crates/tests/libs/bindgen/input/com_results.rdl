@@ -7,8 +7,12 @@ mod Test {
     type RawObject = *mut void;
     type OutputSlot = *mut RawObject;
     type TrackedSlot = *mut Tracked;
+    type StatusCode = HRESULT;
     #[guid(0x10000000_0000_0000_0000_000000000002)]
     interface Results: Windows::Win32::IUnknown {
+        fn Status(&self, status: HRESULT) -> StatusCode;
+        fn Read(&self, status: HRESULT, #[out] value: *mut u32) -> HRESULT;
+        fn ExplicitObject(&self, status: HRESULT, #[out] value: *mut Tracked) -> HRESULT;
         fn Object(&self, #[out] #[retval] value: *mut ObjectAlias) -> HRESULT;
         fn Reserved(&self, #[reserved] reserved: usize, #[out] #[retval] value: *mut Tracked) -> HRESULT;
         fn Required(&self, #[out] #[retval] value: *mut Tracked) -> HRESULT;

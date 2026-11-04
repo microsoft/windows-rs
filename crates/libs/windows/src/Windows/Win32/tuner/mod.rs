@@ -175,7 +175,7 @@ pub struct IATSCChannelTuneRequest_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IATSCChannelTuneRequest_Impl: IChannelTuneRequest_Impl {
     fn MinorChannel(&self) -> windows_core::Result<i32>;
-    fn SetMinorChannel(&self, minorchannel: i32) -> windows_core::Result<()>;
+    fn SetMinorChannel(&self, minorchannel: i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IATSCChannelTuneRequest_Vtbl {
@@ -198,7 +198,7 @@ impl IATSCChannelTuneRequest_Vtbl {
         unsafe extern "system" fn SetMinorChannel<Identity: IATSCChannelTuneRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minorchannel: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IATSCChannelTuneRequest_Impl::SetMinorChannel(this, core::mem::transmute_copy(&minorchannel)).into()
+                IATSCChannelTuneRequest_Impl::SetMinorChannel(this, core::mem::transmute_copy(&minorchannel))
             }
         }
         Self {
@@ -247,7 +247,7 @@ pub struct IATSCComponentType_Vtbl {
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IATSCComponentType_Impl: IMPEG2ComponentType_Impl {
     fn Flags(&self) -> windows_core::Result<i32>;
-    fn SetFlags(&self, flags: i32) -> windows_core::Result<()>;
+    fn SetFlags(&self, flags: i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IATSCComponentType_Vtbl {
@@ -270,7 +270,7 @@ impl IATSCComponentType_Vtbl {
         unsafe extern "system" fn SetFlags<Identity: IATSCComponentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IATSCComponentType_Impl::SetFlags(this, core::mem::transmute_copy(&flags)).into()
+                IATSCComponentType_Impl::SetFlags(this, core::mem::transmute_copy(&flags))
             }
         }
         Self { base__: IMPEG2ComponentType_Vtbl::new::<Identity, OFFSET>(), Flags: Flags::<Identity, OFFSET>, SetFlags: SetFlags::<Identity, OFFSET> }
@@ -326,9 +326,9 @@ pub struct IATSCLocator_Vtbl {
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IATSCLocator_Impl: IDigitalLocator_Impl {
     fn PhysicalChannel(&self) -> windows_core::Result<i32>;
-    fn SetPhysicalChannel(&self, physicalchannel: i32) -> windows_core::Result<()>;
+    fn SetPhysicalChannel(&self, physicalchannel: i32) -> windows_core::HRESULT;
     fn TSID(&self) -> windows_core::Result<i32>;
-    fn SetTSID(&self, tsid: i32) -> windows_core::Result<()>;
+    fn SetTSID(&self, tsid: i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IATSCLocator_Vtbl {
@@ -351,7 +351,7 @@ impl IATSCLocator_Vtbl {
         unsafe extern "system" fn SetPhysicalChannel<Identity: IATSCLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, physicalchannel: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IATSCLocator_Impl::SetPhysicalChannel(this, core::mem::transmute_copy(&physicalchannel)).into()
+                IATSCLocator_Impl::SetPhysicalChannel(this, core::mem::transmute_copy(&physicalchannel))
             }
         }
         unsafe extern "system" fn TSID<Identity: IATSCLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tsid: *mut i32) -> windows_core::HRESULT {
@@ -372,7 +372,7 @@ impl IATSCLocator_Vtbl {
         unsafe extern "system" fn SetTSID<Identity: IATSCLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tsid: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IATSCLocator_Impl::SetTSID(this, core::mem::transmute_copy(&tsid)).into()
+                IATSCLocator_Impl::SetTSID(this, core::mem::transmute_copy(&tsid))
             }
         }
         Self {
@@ -423,7 +423,7 @@ pub struct IATSCLocator2_Vtbl {
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IATSCLocator2_Impl: IATSCLocator_Impl {
     fn ProgramNumber(&self) -> windows_core::Result<i32>;
-    fn SetProgramNumber(&self, programnumber: i32) -> windows_core::Result<()>;
+    fn SetProgramNumber(&self, programnumber: i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IATSCLocator2_Vtbl {
@@ -446,7 +446,7 @@ impl IATSCLocator2_Vtbl {
         unsafe extern "system" fn SetProgramNumber<Identity: IATSCLocator2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, programnumber: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IATSCLocator2_Impl::SetProgramNumber(this, core::mem::transmute_copy(&programnumber)).into()
+                IATSCLocator2_Impl::SetProgramNumber(this, core::mem::transmute_copy(&programnumber))
             }
         }
         Self {
@@ -528,13 +528,13 @@ pub struct IATSCTuningSpace_Vtbl {
 #[cfg(all(feature = "comcat", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IATSCTuningSpace_Impl: IAnalogTVTuningSpace_Impl {
     fn MinMinorChannel(&self) -> windows_core::Result<i32>;
-    fn SetMinMinorChannel(&self, newminminorchannelval: i32) -> windows_core::Result<()>;
+    fn SetMinMinorChannel(&self, newminminorchannelval: i32) -> windows_core::HRESULT;
     fn MaxMinorChannel(&self) -> windows_core::Result<i32>;
-    fn SetMaxMinorChannel(&self, newmaxminorchannelval: i32) -> windows_core::Result<()>;
+    fn SetMaxMinorChannel(&self, newmaxminorchannelval: i32) -> windows_core::HRESULT;
     fn MinPhysicalChannel(&self) -> windows_core::Result<i32>;
-    fn SetMinPhysicalChannel(&self, newminphysicalchannelval: i32) -> windows_core::Result<()>;
+    fn SetMinPhysicalChannel(&self, newminphysicalchannelval: i32) -> windows_core::HRESULT;
     fn MaxPhysicalChannel(&self) -> windows_core::Result<i32>;
-    fn SetMaxPhysicalChannel(&self, newmaxphysicalchannelval: i32) -> windows_core::Result<()>;
+    fn SetMaxPhysicalChannel(&self, newmaxphysicalchannelval: i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "comcat", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IATSCTuningSpace_Vtbl {
@@ -557,7 +557,7 @@ impl IATSCTuningSpace_Vtbl {
         unsafe extern "system" fn SetMinMinorChannel<Identity: IATSCTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newminminorchannelval: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IATSCTuningSpace_Impl::SetMinMinorChannel(this, core::mem::transmute_copy(&newminminorchannelval)).into()
+                IATSCTuningSpace_Impl::SetMinMinorChannel(this, core::mem::transmute_copy(&newminminorchannelval))
             }
         }
         unsafe extern "system" fn MaxMinorChannel<Identity: IATSCTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxminorchannelval: *mut i32) -> windows_core::HRESULT {
@@ -578,7 +578,7 @@ impl IATSCTuningSpace_Vtbl {
         unsafe extern "system" fn SetMaxMinorChannel<Identity: IATSCTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newmaxminorchannelval: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IATSCTuningSpace_Impl::SetMaxMinorChannel(this, core::mem::transmute_copy(&newmaxminorchannelval)).into()
+                IATSCTuningSpace_Impl::SetMaxMinorChannel(this, core::mem::transmute_copy(&newmaxminorchannelval))
             }
         }
         unsafe extern "system" fn MinPhysicalChannel<Identity: IATSCTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minphysicalchannelval: *mut i32) -> windows_core::HRESULT {
@@ -599,7 +599,7 @@ impl IATSCTuningSpace_Vtbl {
         unsafe extern "system" fn SetMinPhysicalChannel<Identity: IATSCTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newminphysicalchannelval: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IATSCTuningSpace_Impl::SetMinPhysicalChannel(this, core::mem::transmute_copy(&newminphysicalchannelval)).into()
+                IATSCTuningSpace_Impl::SetMinPhysicalChannel(this, core::mem::transmute_copy(&newminphysicalchannelval))
             }
         }
         unsafe extern "system" fn MaxPhysicalChannel<Identity: IATSCTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxphysicalchannelval: *mut i32) -> windows_core::HRESULT {
@@ -620,7 +620,7 @@ impl IATSCTuningSpace_Vtbl {
         unsafe extern "system" fn SetMaxPhysicalChannel<Identity: IATSCTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newmaxphysicalchannelval: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IATSCTuningSpace_Impl::SetMaxPhysicalChannel(this, core::mem::transmute_copy(&newmaxphysicalchannelval)).into()
+                IATSCTuningSpace_Impl::SetMaxPhysicalChannel(this, core::mem::transmute_copy(&newmaxphysicalchannelval))
             }
         }
         Self {
@@ -683,7 +683,7 @@ pub struct IAnalogAudioComponentType_Vtbl {
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAnalogAudioComponentType_Impl: IComponentType_Impl {
     fn AnalogAudioMode(&self) -> windows_core::Result<super::TVAudioMode>;
-    fn SetAnalogAudioMode(&self, mode: super::TVAudioMode) -> windows_core::Result<()>;
+    fn SetAnalogAudioMode(&self, mode: super::TVAudioMode) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAnalogAudioComponentType_Vtbl {
@@ -706,7 +706,7 @@ impl IAnalogAudioComponentType_Vtbl {
         unsafe extern "system" fn SetAnalogAudioMode<Identity: IAnalogAudioComponentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: super::TVAudioMode) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAnalogAudioComponentType_Impl::SetAnalogAudioMode(this, core::mem::transmute_copy(&mode)).into()
+                IAnalogAudioComponentType_Impl::SetAnalogAudioMode(this, core::mem::transmute_copy(&mode))
             }
         }
         Self {
@@ -763,7 +763,7 @@ pub struct IAnalogLocator_Vtbl {
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAnalogLocator_Impl: ILocator_Impl {
     fn VideoStandard(&self) -> windows_core::Result<super::AnalogVideoStandard>;
-    fn SetVideoStandard(&self, avs: super::AnalogVideoStandard) -> windows_core::Result<()>;
+    fn SetVideoStandard(&self, avs: super::AnalogVideoStandard) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAnalogLocator_Vtbl {
@@ -786,7 +786,7 @@ impl IAnalogLocator_Vtbl {
         unsafe extern "system" fn SetVideoStandard<Identity: IAnalogLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, avs: super::AnalogVideoStandard) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAnalogLocator_Impl::SetVideoStandard(this, core::mem::transmute_copy(&avs)).into()
+                IAnalogLocator_Impl::SetVideoStandard(this, core::mem::transmute_copy(&avs))
             }
         }
         Self {
@@ -857,11 +857,11 @@ pub struct IAnalogRadioTuningSpace_Vtbl {
 #[cfg(all(feature = "comcat", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAnalogRadioTuningSpace_Impl: ITuningSpace_Impl {
     fn MinFrequency(&self) -> windows_core::Result<i32>;
-    fn SetMinFrequency(&self, newminfrequencyval: i32) -> windows_core::Result<()>;
+    fn SetMinFrequency(&self, newminfrequencyval: i32) -> windows_core::HRESULT;
     fn MaxFrequency(&self) -> windows_core::Result<i32>;
-    fn SetMaxFrequency(&self, newmaxfrequencyval: i32) -> windows_core::Result<()>;
+    fn SetMaxFrequency(&self, newmaxfrequencyval: i32) -> windows_core::HRESULT;
     fn Step(&self) -> windows_core::Result<i32>;
-    fn SetStep(&self, newstepval: i32) -> windows_core::Result<()>;
+    fn SetStep(&self, newstepval: i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "comcat", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAnalogRadioTuningSpace_Vtbl {
@@ -884,7 +884,7 @@ impl IAnalogRadioTuningSpace_Vtbl {
         unsafe extern "system" fn SetMinFrequency<Identity: IAnalogRadioTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newminfrequencyval: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAnalogRadioTuningSpace_Impl::SetMinFrequency(this, core::mem::transmute_copy(&newminfrequencyval)).into()
+                IAnalogRadioTuningSpace_Impl::SetMinFrequency(this, core::mem::transmute_copy(&newminfrequencyval))
             }
         }
         unsafe extern "system" fn MaxFrequency<Identity: IAnalogRadioTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxfrequencyval: *mut i32) -> windows_core::HRESULT {
@@ -905,7 +905,7 @@ impl IAnalogRadioTuningSpace_Vtbl {
         unsafe extern "system" fn SetMaxFrequency<Identity: IAnalogRadioTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newmaxfrequencyval: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAnalogRadioTuningSpace_Impl::SetMaxFrequency(this, core::mem::transmute_copy(&newmaxfrequencyval)).into()
+                IAnalogRadioTuningSpace_Impl::SetMaxFrequency(this, core::mem::transmute_copy(&newmaxfrequencyval))
             }
         }
         unsafe extern "system" fn Step<Identity: IAnalogRadioTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stepval: *mut i32) -> windows_core::HRESULT {
@@ -926,7 +926,7 @@ impl IAnalogRadioTuningSpace_Vtbl {
         unsafe extern "system" fn SetStep<Identity: IAnalogRadioTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newstepval: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAnalogRadioTuningSpace_Impl::SetStep(this, core::mem::transmute_copy(&newstepval)).into()
+                IAnalogRadioTuningSpace_Impl::SetStep(this, core::mem::transmute_copy(&newstepval))
             }
         }
         Self {
@@ -979,7 +979,7 @@ pub struct IAnalogRadioTuningSpace2_Vtbl {
 #[cfg(all(feature = "comcat", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAnalogRadioTuningSpace2_Impl: IAnalogRadioTuningSpace_Impl {
     fn CountryCode(&self) -> windows_core::Result<i32>;
-    fn SetCountryCode(&self, newcountrycodeval: i32) -> windows_core::Result<()>;
+    fn SetCountryCode(&self, newcountrycodeval: i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "comcat", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAnalogRadioTuningSpace2_Vtbl {
@@ -1002,7 +1002,7 @@ impl IAnalogRadioTuningSpace2_Vtbl {
         unsafe extern "system" fn SetCountryCode<Identity: IAnalogRadioTuningSpace2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newcountrycodeval: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAnalogRadioTuningSpace2_Impl::SetCountryCode(this, core::mem::transmute_copy(&newcountrycodeval)).into()
+                IAnalogRadioTuningSpace2_Impl::SetCountryCode(this, core::mem::transmute_copy(&newcountrycodeval))
             }
         }
         Self {
@@ -1092,13 +1092,13 @@ pub struct IAnalogTVTuningSpace_Vtbl {
 #[cfg(all(feature = "comcat", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAnalogTVTuningSpace_Impl: ITuningSpace_Impl {
     fn MinChannel(&self) -> windows_core::Result<i32>;
-    fn SetMinChannel(&self, newminchannelval: i32) -> windows_core::Result<()>;
+    fn SetMinChannel(&self, newminchannelval: i32) -> windows_core::HRESULT;
     fn MaxChannel(&self) -> windows_core::Result<i32>;
-    fn SetMaxChannel(&self, newmaxchannelval: i32) -> windows_core::Result<()>;
+    fn SetMaxChannel(&self, newmaxchannelval: i32) -> windows_core::HRESULT;
     fn InputType(&self) -> windows_core::Result<super::TunerInputType>;
-    fn SetInputType(&self, newinputtypeval: super::TunerInputType) -> windows_core::Result<()>;
+    fn SetInputType(&self, newinputtypeval: super::TunerInputType) -> windows_core::HRESULT;
     fn CountryCode(&self) -> windows_core::Result<i32>;
-    fn SetCountryCode(&self, newcountrycodeval: i32) -> windows_core::Result<()>;
+    fn SetCountryCode(&self, newcountrycodeval: i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "comcat", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAnalogTVTuningSpace_Vtbl {
@@ -1121,7 +1121,7 @@ impl IAnalogTVTuningSpace_Vtbl {
         unsafe extern "system" fn SetMinChannel<Identity: IAnalogTVTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newminchannelval: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAnalogTVTuningSpace_Impl::SetMinChannel(this, core::mem::transmute_copy(&newminchannelval)).into()
+                IAnalogTVTuningSpace_Impl::SetMinChannel(this, core::mem::transmute_copy(&newminchannelval))
             }
         }
         unsafe extern "system" fn MaxChannel<Identity: IAnalogTVTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxchannelval: *mut i32) -> windows_core::HRESULT {
@@ -1142,7 +1142,7 @@ impl IAnalogTVTuningSpace_Vtbl {
         unsafe extern "system" fn SetMaxChannel<Identity: IAnalogTVTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newmaxchannelval: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAnalogTVTuningSpace_Impl::SetMaxChannel(this, core::mem::transmute_copy(&newmaxchannelval)).into()
+                IAnalogTVTuningSpace_Impl::SetMaxChannel(this, core::mem::transmute_copy(&newmaxchannelval))
             }
         }
         unsafe extern "system" fn InputType<Identity: IAnalogTVTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputtypeval: *mut super::TunerInputType) -> windows_core::HRESULT {
@@ -1163,7 +1163,7 @@ impl IAnalogTVTuningSpace_Vtbl {
         unsafe extern "system" fn SetInputType<Identity: IAnalogTVTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newinputtypeval: super::TunerInputType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAnalogTVTuningSpace_Impl::SetInputType(this, core::mem::transmute_copy(&newinputtypeval)).into()
+                IAnalogTVTuningSpace_Impl::SetInputType(this, core::mem::transmute_copy(&newinputtypeval))
             }
         }
         unsafe extern "system" fn CountryCode<Identity: IAnalogTVTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, countrycodeval: *mut i32) -> windows_core::HRESULT {
@@ -1184,7 +1184,7 @@ impl IAnalogTVTuningSpace_Vtbl {
         unsafe extern "system" fn SetCountryCode<Identity: IAnalogTVTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newcountrycodeval: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAnalogTVTuningSpace_Impl::SetCountryCode(this, core::mem::transmute_copy(&newcountrycodeval)).into()
+                IAnalogTVTuningSpace_Impl::SetCountryCode(this, core::mem::transmute_copy(&newcountrycodeval))
             }
         }
         Self {
@@ -1269,7 +1269,7 @@ pub struct IAuxInTuningSpace2_Vtbl {
 #[cfg(all(feature = "comcat", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAuxInTuningSpace2_Impl: IAuxInTuningSpace_Impl {
     fn CountryCode(&self) -> windows_core::Result<i32>;
-    fn SetCountryCode(&self, newcountrycodeval: i32) -> windows_core::Result<()>;
+    fn SetCountryCode(&self, newcountrycodeval: i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "comcat", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAuxInTuningSpace2_Vtbl {
@@ -1292,7 +1292,7 @@ impl IAuxInTuningSpace2_Vtbl {
         unsafe extern "system" fn SetCountryCode<Identity: IAuxInTuningSpace2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newcountrycodeval: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAuxInTuningSpace2_Impl::SetCountryCode(this, core::mem::transmute_copy(&newcountrycodeval)).into()
+                IAuxInTuningSpace2_Impl::SetCountryCode(this, core::mem::transmute_copy(&newcountrycodeval))
             }
         }
         Self {
@@ -1582,7 +1582,7 @@ pub struct IChannelIDTuneRequest_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IChannelIDTuneRequest_Impl: ITuneRequest_Impl {
     fn ChannelID(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetChannelID(&self, channelid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetChannelID(&self, channelid: &windows_core::BSTR) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IChannelIDTuneRequest_Vtbl {
@@ -1605,7 +1605,7 @@ impl IChannelIDTuneRequest_Vtbl {
         unsafe extern "system" fn SetChannelID<Identity: IChannelIDTuneRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, channelid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IChannelIDTuneRequest_Impl::SetChannelID(this, core::mem::transmute(&channelid)).into()
+                IChannelIDTuneRequest_Impl::SetChannelID(this, core::mem::transmute(&channelid))
             }
         }
         Self { base__: ITuneRequest_Vtbl::new::<Identity, OFFSET>(), ChannelID: ChannelID::<Identity, OFFSET>, SetChannelID: SetChannelID::<Identity, OFFSET> }
@@ -1650,7 +1650,7 @@ pub struct IChannelTuneRequest_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IChannelTuneRequest_Impl: ITuneRequest_Impl {
     fn Channel(&self) -> windows_core::Result<i32>;
-    fn SetChannel(&self, channel: i32) -> windows_core::Result<()>;
+    fn SetChannel(&self, channel: i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IChannelTuneRequest_Vtbl {
@@ -1673,7 +1673,7 @@ impl IChannelTuneRequest_Vtbl {
         unsafe extern "system" fn SetChannel<Identity: IChannelTuneRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, channel: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IChannelTuneRequest_Impl::SetChannel(this, core::mem::transmute_copy(&channel)).into()
+                IChannelTuneRequest_Impl::SetChannel(this, core::mem::transmute_copy(&channel))
             }
         }
         Self { base__: ITuneRequest_Vtbl::new::<Identity, OFFSET>(), Channel: Channel::<Identity, OFFSET>, SetChannel: SetChannel::<Identity, OFFSET> }
@@ -1769,13 +1769,13 @@ pub struct IComponent_Vtbl {
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IComponent_Impl: super::IDispatch_Impl {
     fn Type(&self) -> windows_core::Result<IComponentType>;
-    fn SetType(&self, ct: windows_core::Ref<IComponentType>) -> windows_core::Result<()>;
+    fn SetType(&self, ct: windows_core::Ref<IComponentType>) -> windows_core::HRESULT;
     fn DescLangID(&self) -> windows_core::Result<i32>;
-    fn SetDescLangID(&self, langid: i32) -> windows_core::Result<()>;
+    fn SetDescLangID(&self, langid: i32) -> windows_core::HRESULT;
     fn Status(&self) -> windows_core::Result<super::ComponentStatus>;
-    fn SetStatus(&self, status: super::ComponentStatus) -> windows_core::Result<()>;
+    fn SetStatus(&self, status: super::ComponentStatus) -> windows_core::HRESULT;
     fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetDescription(&self, description: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetDescription(&self, description: &windows_core::BSTR) -> windows_core::HRESULT;
     fn Clone(&self) -> windows_core::Result<IComponent>;
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1799,7 +1799,7 @@ impl IComponent_Vtbl {
         unsafe extern "system" fn SetType<Identity: IComponent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ct: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponent_Impl::SetType(this, core::mem::transmute_copy(&ct)).into()
+                IComponent_Impl::SetType(this, core::mem::transmute_copy(&ct))
             }
         }
         unsafe extern "system" fn DescLangID<Identity: IComponent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, langid: *mut i32) -> windows_core::HRESULT {
@@ -1820,7 +1820,7 @@ impl IComponent_Vtbl {
         unsafe extern "system" fn SetDescLangID<Identity: IComponent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, langid: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponent_Impl::SetDescLangID(this, core::mem::transmute_copy(&langid)).into()
+                IComponent_Impl::SetDescLangID(this, core::mem::transmute_copy(&langid))
             }
         }
         unsafe extern "system" fn Status<Identity: IComponent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, status: *mut super::ComponentStatus) -> windows_core::HRESULT {
@@ -1841,7 +1841,7 @@ impl IComponent_Vtbl {
         unsafe extern "system" fn SetStatus<Identity: IComponent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, status: super::ComponentStatus) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponent_Impl::SetStatus(this, core::mem::transmute_copy(&status)).into()
+                IComponent_Impl::SetStatus(this, core::mem::transmute_copy(&status))
             }
         }
         unsafe extern "system" fn Description<Identity: IComponent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, description: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1862,7 +1862,7 @@ impl IComponent_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: IComponent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, description: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponent_Impl::SetDescription(this, core::mem::transmute(&description)).into()
+                IComponent_Impl::SetDescription(this, core::mem::transmute(&description))
             }
         }
         unsafe extern "system" fn Clone<Identity: IComponent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newcomponent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2045,21 +2045,21 @@ pub struct IComponentType_Vtbl {
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IComponentType_Impl: super::IDispatch_Impl {
     fn Category(&self) -> windows_core::Result<super::ComponentCategory>;
-    fn SetCategory(&self, category: super::ComponentCategory) -> windows_core::Result<()>;
+    fn SetCategory(&self, category: super::ComponentCategory) -> windows_core::HRESULT;
     fn MediaMajorType(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetMediaMajorType(&self, mediamajortype: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetMediaMajorType(&self, mediamajortype: &windows_core::BSTR) -> windows_core::HRESULT;
     fn _MediaMajorType(&self) -> windows_core::Result<windows_core::GUID>;
-    fn Set_MediaMajorType(&self, mediamajortypeguid: *const super::IID) -> windows_core::Result<()>;
+    fn Set_MediaMajorType(&self, mediamajortypeguid: *const super::IID) -> windows_core::HRESULT;
     fn MediaSubType(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetMediaSubType(&self, mediasubtype: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetMediaSubType(&self, mediasubtype: &windows_core::BSTR) -> windows_core::HRESULT;
     fn _MediaSubType(&self) -> windows_core::Result<windows_core::GUID>;
-    fn Set_MediaSubType(&self, mediasubtypeguid: *const super::IID) -> windows_core::Result<()>;
+    fn Set_MediaSubType(&self, mediasubtypeguid: *const super::IID) -> windows_core::HRESULT;
     fn MediaFormatType(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetMediaFormatType(&self, mediaformattype: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetMediaFormatType(&self, mediaformattype: &windows_core::BSTR) -> windows_core::HRESULT;
     fn _MediaFormatType(&self) -> windows_core::Result<windows_core::GUID>;
-    fn Set_MediaFormatType(&self, mediaformattypeguid: *const super::IID) -> windows_core::Result<()>;
+    fn Set_MediaFormatType(&self, mediaformattypeguid: *const super::IID) -> windows_core::HRESULT;
     fn MediaType(&self) -> windows_core::Result<super::AM_MEDIA_TYPE>;
-    fn SetMediaType(&self, mediatype: *const super::AM_MEDIA_TYPE) -> windows_core::Result<()>;
+    fn SetMediaType(&self, mediatype: *const super::AM_MEDIA_TYPE) -> windows_core::HRESULT;
     fn Clone(&self) -> windows_core::Result<IComponentType>;
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2083,7 +2083,7 @@ impl IComponentType_Vtbl {
         unsafe extern "system" fn SetCategory<Identity: IComponentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: super::ComponentCategory) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponentType_Impl::SetCategory(this, core::mem::transmute_copy(&category)).into()
+                IComponentType_Impl::SetCategory(this, core::mem::transmute_copy(&category))
             }
         }
         unsafe extern "system" fn MediaMajorType<Identity: IComponentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediamajortype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2104,7 +2104,7 @@ impl IComponentType_Vtbl {
         unsafe extern "system" fn SetMediaMajorType<Identity: IComponentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediamajortype: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponentType_Impl::SetMediaMajorType(this, core::mem::transmute(&mediamajortype)).into()
+                IComponentType_Impl::SetMediaMajorType(this, core::mem::transmute(&mediamajortype))
             }
         }
         unsafe extern "system" fn _MediaMajorType<Identity: IComponentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediamajortypeguid: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -2125,7 +2125,7 @@ impl IComponentType_Vtbl {
         unsafe extern "system" fn Set_MediaMajorType<Identity: IComponentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediamajortypeguid: *const super::IID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponentType_Impl::Set_MediaMajorType(this, core::mem::transmute_copy(&mediamajortypeguid)).into()
+                IComponentType_Impl::Set_MediaMajorType(this, core::mem::transmute_copy(&mediamajortypeguid))
             }
         }
         unsafe extern "system" fn MediaSubType<Identity: IComponentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediasubtype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2146,7 +2146,7 @@ impl IComponentType_Vtbl {
         unsafe extern "system" fn SetMediaSubType<Identity: IComponentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediasubtype: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponentType_Impl::SetMediaSubType(this, core::mem::transmute(&mediasubtype)).into()
+                IComponentType_Impl::SetMediaSubType(this, core::mem::transmute(&mediasubtype))
             }
         }
         unsafe extern "system" fn _MediaSubType<Identity: IComponentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediasubtypeguid: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -2167,7 +2167,7 @@ impl IComponentType_Vtbl {
         unsafe extern "system" fn Set_MediaSubType<Identity: IComponentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediasubtypeguid: *const super::IID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponentType_Impl::Set_MediaSubType(this, core::mem::transmute_copy(&mediasubtypeguid)).into()
+                IComponentType_Impl::Set_MediaSubType(this, core::mem::transmute_copy(&mediasubtypeguid))
             }
         }
         unsafe extern "system" fn MediaFormatType<Identity: IComponentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediaformattype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2188,7 +2188,7 @@ impl IComponentType_Vtbl {
         unsafe extern "system" fn SetMediaFormatType<Identity: IComponentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediaformattype: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponentType_Impl::SetMediaFormatType(this, core::mem::transmute(&mediaformattype)).into()
+                IComponentType_Impl::SetMediaFormatType(this, core::mem::transmute(&mediaformattype))
             }
         }
         unsafe extern "system" fn _MediaFormatType<Identity: IComponentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediaformattypeguid: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -2209,7 +2209,7 @@ impl IComponentType_Vtbl {
         unsafe extern "system" fn Set_MediaFormatType<Identity: IComponentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediaformattypeguid: *const super::IID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponentType_Impl::Set_MediaFormatType(this, core::mem::transmute_copy(&mediaformattypeguid)).into()
+                IComponentType_Impl::Set_MediaFormatType(this, core::mem::transmute_copy(&mediaformattypeguid))
             }
         }
         unsafe extern "system" fn MediaType<Identity: IComponentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediatype: *mut super::AM_MEDIA_TYPE) -> windows_core::HRESULT {
@@ -2230,7 +2230,7 @@ impl IComponentType_Vtbl {
         unsafe extern "system" fn SetMediaType<Identity: IComponentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediatype: *const super::AM_MEDIA_TYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponentType_Impl::SetMediaType(this, core::mem::transmute_copy(&mediatype)).into()
+                IComponentType_Impl::SetMediaType(this, core::mem::transmute_copy(&mediatype))
             }
         }
         unsafe extern "system" fn Clone<Identity: IComponentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newct: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2373,9 +2373,9 @@ pub trait IComponentTypes_Impl: super::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<super::IEnumVARIANT>;
     fn EnumComponentTypes(&self) -> windows_core::Result<IEnumComponentTypes>;
     fn Item(&self, index: &super::VARIANT) -> windows_core::Result<IComponentType>;
-    fn SetItem(&self, index: &super::VARIANT, componenttype: windows_core::Ref<IComponentType>) -> windows_core::Result<()>;
+    fn SetItem(&self, index: &super::VARIANT, componenttype: windows_core::Ref<IComponentType>) -> windows_core::HRESULT;
     fn Add(&self, componenttype: windows_core::Ref<IComponentType>) -> windows_core::Result<super::VARIANT>;
-    fn Remove(&self, index: &super::VARIANT) -> windows_core::Result<()>;
+    fn Remove(&self, index: &super::VARIANT) -> windows_core::HRESULT;
     fn Clone(&self) -> windows_core::Result<IComponentTypes>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2444,7 +2444,7 @@ impl IComponentTypes_Vtbl {
         unsafe extern "system" fn SetItem<Identity: IComponentTypes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::VARIANT, componenttype: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponentTypes_Impl::SetItem(this, core::mem::transmute(&index), core::mem::transmute_copy(&componenttype)).into()
+                IComponentTypes_Impl::SetItem(this, core::mem::transmute(&index), core::mem::transmute_copy(&componenttype))
             }
         }
         unsafe extern "system" fn Add<Identity: IComponentTypes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, componenttype: *mut core::ffi::c_void, newindex: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -2465,7 +2465,7 @@ impl IComponentTypes_Vtbl {
         unsafe extern "system" fn Remove<Identity: IComponentTypes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponentTypes_Impl::Remove(this, core::mem::transmute(&index)).into()
+                IComponentTypes_Impl::Remove(this, core::mem::transmute(&index))
             }
         }
         unsafe extern "system" fn Clone<Identity: IComponentTypes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2600,9 +2600,9 @@ pub trait IComponents_Impl: super::IDispatch_Impl {
     fn EnumComponents(&self) -> windows_core::Result<IEnumComponents>;
     fn Item(&self, index: &super::VARIANT) -> windows_core::Result<IComponent>;
     fn Add(&self, component: windows_core::Ref<IComponent>) -> windows_core::Result<super::VARIANT>;
-    fn Remove(&self, index: &super::VARIANT) -> windows_core::Result<()>;
+    fn Remove(&self, index: &super::VARIANT) -> windows_core::HRESULT;
     fn Clone(&self) -> windows_core::Result<IComponents>;
-    fn SetItem(&self, index: &super::VARIANT, ppcomponent: windows_core::Ref<IComponent>) -> windows_core::Result<()>;
+    fn SetItem(&self, index: &super::VARIANT, ppcomponent: windows_core::Ref<IComponent>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IComponents_Vtbl {
@@ -2685,7 +2685,7 @@ impl IComponents_Vtbl {
         unsafe extern "system" fn Remove<Identity: IComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponents_Impl::Remove(this, core::mem::transmute(&index)).into()
+                IComponents_Impl::Remove(this, core::mem::transmute(&index))
             }
         }
         unsafe extern "system" fn Clone<Identity: IComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2706,7 +2706,7 @@ impl IComponents_Vtbl {
         unsafe extern "system" fn SetItem<Identity: IComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::VARIANT, ppcomponent: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponents_Impl::SetItem(this, core::mem::transmute(&index), core::mem::transmute_copy(&ppcomponent)).into()
+                IComponents_Impl::SetItem(this, core::mem::transmute(&index), core::mem::transmute_copy(&ppcomponent))
             }
         }
         Self {
@@ -2815,7 +2815,7 @@ pub trait IComponentsOld_Impl: super::IDispatch_Impl {
     fn EnumComponents(&self) -> windows_core::Result<IEnumComponents>;
     fn Item(&self, index: &super::VARIANT) -> windows_core::Result<IComponent>;
     fn Add(&self, component: windows_core::Ref<IComponent>) -> windows_core::Result<super::VARIANT>;
-    fn Remove(&self, index: &super::VARIANT) -> windows_core::Result<()>;
+    fn Remove(&self, index: &super::VARIANT) -> windows_core::HRESULT;
     fn Clone(&self) -> windows_core::Result<IComponents>;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -2899,7 +2899,7 @@ impl IComponentsOld_Vtbl {
         unsafe extern "system" fn Remove<Identity: IComponentsOld_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponentsOld_Impl::Remove(this, core::mem::transmute(&index)).into()
+                IComponentsOld_Impl::Remove(this, core::mem::transmute(&index))
             }
         }
         unsafe extern "system" fn Clone<Identity: IComponentsOld_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3058,15 +3058,15 @@ pub struct IDVBSLocator_Vtbl {
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDVBSLocator_Impl: IDigitalLocator_Impl {
     fn SignalPolarisation(&self) -> windows_core::Result<super::Polarisation>;
-    fn SetSignalPolarisation(&self, polarisationval: super::Polarisation) -> windows_core::Result<()>;
+    fn SetSignalPolarisation(&self, polarisationval: super::Polarisation) -> windows_core::HRESULT;
     fn WestPosition(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetWestPosition(&self, westlongitude: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetWestPosition(&self, westlongitude: super::VARIANT_BOOL) -> windows_core::HRESULT;
     fn OrbitalPosition(&self) -> windows_core::Result<i32>;
-    fn SetOrbitalPosition(&self, longitude: i32) -> windows_core::Result<()>;
+    fn SetOrbitalPosition(&self, longitude: i32) -> windows_core::HRESULT;
     fn Azimuth(&self) -> windows_core::Result<i32>;
-    fn SetAzimuth(&self, azimuth: i32) -> windows_core::Result<()>;
+    fn SetAzimuth(&self, azimuth: i32) -> windows_core::HRESULT;
     fn Elevation(&self) -> windows_core::Result<i32>;
-    fn SetElevation(&self, elevation: i32) -> windows_core::Result<()>;
+    fn SetElevation(&self, elevation: i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDVBSLocator_Vtbl {
@@ -3089,7 +3089,7 @@ impl IDVBSLocator_Vtbl {
         unsafe extern "system" fn SetSignalPolarisation<Identity: IDVBSLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, polarisationval: super::Polarisation) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDVBSLocator_Impl::SetSignalPolarisation(this, core::mem::transmute_copy(&polarisationval)).into()
+                IDVBSLocator_Impl::SetSignalPolarisation(this, core::mem::transmute_copy(&polarisationval))
             }
         }
         unsafe extern "system" fn WestPosition<Identity: IDVBSLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, westlongitude: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -3110,7 +3110,7 @@ impl IDVBSLocator_Vtbl {
         unsafe extern "system" fn SetWestPosition<Identity: IDVBSLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, westlongitude: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDVBSLocator_Impl::SetWestPosition(this, core::mem::transmute_copy(&westlongitude)).into()
+                IDVBSLocator_Impl::SetWestPosition(this, core::mem::transmute_copy(&westlongitude))
             }
         }
         unsafe extern "system" fn OrbitalPosition<Identity: IDVBSLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, longitude: *mut i32) -> windows_core::HRESULT {
@@ -3131,7 +3131,7 @@ impl IDVBSLocator_Vtbl {
         unsafe extern "system" fn SetOrbitalPosition<Identity: IDVBSLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, longitude: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDVBSLocator_Impl::SetOrbitalPosition(this, core::mem::transmute_copy(&longitude)).into()
+                IDVBSLocator_Impl::SetOrbitalPosition(this, core::mem::transmute_copy(&longitude))
             }
         }
         unsafe extern "system" fn Azimuth<Identity: IDVBSLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, azimuth: *mut i32) -> windows_core::HRESULT {
@@ -3152,7 +3152,7 @@ impl IDVBSLocator_Vtbl {
         unsafe extern "system" fn SetAzimuth<Identity: IDVBSLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, azimuth: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDVBSLocator_Impl::SetAzimuth(this, core::mem::transmute_copy(&azimuth)).into()
+                IDVBSLocator_Impl::SetAzimuth(this, core::mem::transmute_copy(&azimuth))
             }
         }
         unsafe extern "system" fn Elevation<Identity: IDVBSLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, elevation: *mut i32) -> windows_core::HRESULT {
@@ -3173,7 +3173,7 @@ impl IDVBSLocator_Vtbl {
         unsafe extern "system" fn SetElevation<Identity: IDVBSLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, elevation: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDVBSLocator_Impl::SetElevation(this, core::mem::transmute_copy(&elevation)).into()
+                IDVBSLocator_Impl::SetElevation(this, core::mem::transmute_copy(&elevation))
             }
         }
         Self {
@@ -3328,19 +3328,19 @@ pub struct IDVBSLocator2_Vtbl {
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDVBSLocator2_Impl: IDVBSLocator_Impl {
     fn DiseqLNBSource(&self) -> windows_core::Result<super::LNB_Source>;
-    fn SetDiseqLNBSource(&self, diseqlnbsourceval: super::LNB_Source) -> windows_core::Result<()>;
+    fn SetDiseqLNBSource(&self, diseqlnbsourceval: super::LNB_Source) -> windows_core::HRESULT;
     fn LocalOscillatorOverrideLow(&self) -> windows_core::Result<i32>;
-    fn SetLocalOscillatorOverrideLow(&self, localoscillatoroverridelowval: i32) -> windows_core::Result<()>;
+    fn SetLocalOscillatorOverrideLow(&self, localoscillatoroverridelowval: i32) -> windows_core::HRESULT;
     fn LocalOscillatorOverrideHigh(&self) -> windows_core::Result<i32>;
-    fn SetLocalOscillatorOverrideHigh(&self, localoscillatoroverridehighval: i32) -> windows_core::Result<()>;
+    fn SetLocalOscillatorOverrideHigh(&self, localoscillatoroverridehighval: i32) -> windows_core::HRESULT;
     fn LocalLNBSwitchOverride(&self) -> windows_core::Result<i32>;
-    fn SetLocalLNBSwitchOverride(&self, locallnbswitchoverrideval: i32) -> windows_core::Result<()>;
+    fn SetLocalLNBSwitchOverride(&self, locallnbswitchoverrideval: i32) -> windows_core::HRESULT;
     fn LocalSpectralInversionOverride(&self) -> windows_core::Result<super::SpectralInversion>;
-    fn SetLocalSpectralInversionOverride(&self, localspectralinversionoverrideval: super::SpectralInversion) -> windows_core::Result<()>;
+    fn SetLocalSpectralInversionOverride(&self, localspectralinversionoverrideval: super::SpectralInversion) -> windows_core::HRESULT;
     fn SignalRollOff(&self) -> windows_core::Result<super::RollOff>;
-    fn SetSignalRollOff(&self, rolloffval: super::RollOff) -> windows_core::Result<()>;
+    fn SetSignalRollOff(&self, rolloffval: super::RollOff) -> windows_core::HRESULT;
     fn SignalPilot(&self) -> windows_core::Result<super::Pilot>;
-    fn SetSignalPilot(&self, pilotval: super::Pilot) -> windows_core::Result<()>;
+    fn SetSignalPilot(&self, pilotval: super::Pilot) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDVBSLocator2_Vtbl {
@@ -3363,7 +3363,7 @@ impl IDVBSLocator2_Vtbl {
         unsafe extern "system" fn SetDiseqLNBSource<Identity: IDVBSLocator2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, diseqlnbsourceval: super::LNB_Source) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDVBSLocator2_Impl::SetDiseqLNBSource(this, core::mem::transmute_copy(&diseqlnbsourceval)).into()
+                IDVBSLocator2_Impl::SetDiseqLNBSource(this, core::mem::transmute_copy(&diseqlnbsourceval))
             }
         }
         unsafe extern "system" fn LocalOscillatorOverrideLow<Identity: IDVBSLocator2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, localoscillatoroverridelowval: *mut i32) -> windows_core::HRESULT {
@@ -3384,7 +3384,7 @@ impl IDVBSLocator2_Vtbl {
         unsafe extern "system" fn SetLocalOscillatorOverrideLow<Identity: IDVBSLocator2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, localoscillatoroverridelowval: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDVBSLocator2_Impl::SetLocalOscillatorOverrideLow(this, core::mem::transmute_copy(&localoscillatoroverridelowval)).into()
+                IDVBSLocator2_Impl::SetLocalOscillatorOverrideLow(this, core::mem::transmute_copy(&localoscillatoroverridelowval))
             }
         }
         unsafe extern "system" fn LocalOscillatorOverrideHigh<Identity: IDVBSLocator2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, localoscillatoroverridehighval: *mut i32) -> windows_core::HRESULT {
@@ -3405,7 +3405,7 @@ impl IDVBSLocator2_Vtbl {
         unsafe extern "system" fn SetLocalOscillatorOverrideHigh<Identity: IDVBSLocator2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, localoscillatoroverridehighval: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDVBSLocator2_Impl::SetLocalOscillatorOverrideHigh(this, core::mem::transmute_copy(&localoscillatoroverridehighval)).into()
+                IDVBSLocator2_Impl::SetLocalOscillatorOverrideHigh(this, core::mem::transmute_copy(&localoscillatoroverridehighval))
             }
         }
         unsafe extern "system" fn LocalLNBSwitchOverride<Identity: IDVBSLocator2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, locallnbswitchoverrideval: *mut i32) -> windows_core::HRESULT {
@@ -3426,7 +3426,7 @@ impl IDVBSLocator2_Vtbl {
         unsafe extern "system" fn SetLocalLNBSwitchOverride<Identity: IDVBSLocator2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, locallnbswitchoverrideval: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDVBSLocator2_Impl::SetLocalLNBSwitchOverride(this, core::mem::transmute_copy(&locallnbswitchoverrideval)).into()
+                IDVBSLocator2_Impl::SetLocalLNBSwitchOverride(this, core::mem::transmute_copy(&locallnbswitchoverrideval))
             }
         }
         unsafe extern "system" fn LocalSpectralInversionOverride<Identity: IDVBSLocator2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, localspectralinversionoverrideval: *mut super::SpectralInversion) -> windows_core::HRESULT {
@@ -3447,7 +3447,7 @@ impl IDVBSLocator2_Vtbl {
         unsafe extern "system" fn SetLocalSpectralInversionOverride<Identity: IDVBSLocator2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, localspectralinversionoverrideval: super::SpectralInversion) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDVBSLocator2_Impl::SetLocalSpectralInversionOverride(this, core::mem::transmute_copy(&localspectralinversionoverrideval)).into()
+                IDVBSLocator2_Impl::SetLocalSpectralInversionOverride(this, core::mem::transmute_copy(&localspectralinversionoverrideval))
             }
         }
         unsafe extern "system" fn SignalRollOff<Identity: IDVBSLocator2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rolloffval: *mut super::RollOff) -> windows_core::HRESULT {
@@ -3468,7 +3468,7 @@ impl IDVBSLocator2_Vtbl {
         unsafe extern "system" fn SetSignalRollOff<Identity: IDVBSLocator2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rolloffval: super::RollOff) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDVBSLocator2_Impl::SetSignalRollOff(this, core::mem::transmute_copy(&rolloffval)).into()
+                IDVBSLocator2_Impl::SetSignalRollOff(this, core::mem::transmute_copy(&rolloffval))
             }
         }
         unsafe extern "system" fn SignalPilot<Identity: IDVBSLocator2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pilotval: *mut super::Pilot) -> windows_core::HRESULT {
@@ -3489,7 +3489,7 @@ impl IDVBSLocator2_Vtbl {
         unsafe extern "system" fn SetSignalPilot<Identity: IDVBSLocator2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pilotval: super::Pilot) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDVBSLocator2_Impl::SetSignalPilot(this, core::mem::transmute_copy(&pilotval)).into()
+                IDVBSLocator2_Impl::SetSignalPilot(this, core::mem::transmute_copy(&pilotval))
             }
         }
         Self {
@@ -3602,15 +3602,15 @@ pub struct IDVBSTuningSpace_Vtbl {
 #[cfg(all(feature = "bdatypes", feature = "comcat", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDVBSTuningSpace_Impl: IDVBTuningSpace2_Impl {
     fn LowOscillator(&self) -> windows_core::Result<i32>;
-    fn SetLowOscillator(&self, lowoscillator: i32) -> windows_core::Result<()>;
+    fn SetLowOscillator(&self, lowoscillator: i32) -> windows_core::HRESULT;
     fn HighOscillator(&self) -> windows_core::Result<i32>;
-    fn SetHighOscillator(&self, highoscillator: i32) -> windows_core::Result<()>;
+    fn SetHighOscillator(&self, highoscillator: i32) -> windows_core::HRESULT;
     fn LNBSwitch(&self) -> windows_core::Result<i32>;
-    fn SetLNBSwitch(&self, lnbswitch: i32) -> windows_core::Result<()>;
+    fn SetLNBSwitch(&self, lnbswitch: i32) -> windows_core::HRESULT;
     fn InputRange(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetInputRange(&self, inputrange: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetInputRange(&self, inputrange: &windows_core::BSTR) -> windows_core::HRESULT;
     fn SpectralInversion(&self) -> windows_core::Result<super::SpectralInversion>;
-    fn SetSpectralInversion(&self, spectralinversionval: super::SpectralInversion) -> windows_core::Result<()>;
+    fn SetSpectralInversion(&self, spectralinversionval: super::SpectralInversion) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "bdatypes", feature = "comcat", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDVBSTuningSpace_Vtbl {
@@ -3633,7 +3633,7 @@ impl IDVBSTuningSpace_Vtbl {
         unsafe extern "system" fn SetLowOscillator<Identity: IDVBSTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lowoscillator: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDVBSTuningSpace_Impl::SetLowOscillator(this, core::mem::transmute_copy(&lowoscillator)).into()
+                IDVBSTuningSpace_Impl::SetLowOscillator(this, core::mem::transmute_copy(&lowoscillator))
             }
         }
         unsafe extern "system" fn HighOscillator<Identity: IDVBSTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, highoscillator: *mut i32) -> windows_core::HRESULT {
@@ -3654,7 +3654,7 @@ impl IDVBSTuningSpace_Vtbl {
         unsafe extern "system" fn SetHighOscillator<Identity: IDVBSTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, highoscillator: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDVBSTuningSpace_Impl::SetHighOscillator(this, core::mem::transmute_copy(&highoscillator)).into()
+                IDVBSTuningSpace_Impl::SetHighOscillator(this, core::mem::transmute_copy(&highoscillator))
             }
         }
         unsafe extern "system" fn LNBSwitch<Identity: IDVBSTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lnbswitch: *mut i32) -> windows_core::HRESULT {
@@ -3675,7 +3675,7 @@ impl IDVBSTuningSpace_Vtbl {
         unsafe extern "system" fn SetLNBSwitch<Identity: IDVBSTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lnbswitch: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDVBSTuningSpace_Impl::SetLNBSwitch(this, core::mem::transmute_copy(&lnbswitch)).into()
+                IDVBSTuningSpace_Impl::SetLNBSwitch(this, core::mem::transmute_copy(&lnbswitch))
             }
         }
         unsafe extern "system" fn InputRange<Identity: IDVBSTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputrange: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3696,7 +3696,7 @@ impl IDVBSTuningSpace_Vtbl {
         unsafe extern "system" fn SetInputRange<Identity: IDVBSTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputrange: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDVBSTuningSpace_Impl::SetInputRange(this, core::mem::transmute(&inputrange)).into()
+                IDVBSTuningSpace_Impl::SetInputRange(this, core::mem::transmute(&inputrange))
             }
         }
         unsafe extern "system" fn SpectralInversion<Identity: IDVBSTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, spectralinversionval: *mut super::SpectralInversion) -> windows_core::HRESULT {
@@ -3717,7 +3717,7 @@ impl IDVBSTuningSpace_Vtbl {
         unsafe extern "system" fn SetSpectralInversion<Identity: IDVBSTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, spectralinversionval: super::SpectralInversion) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDVBSTuningSpace_Impl::SetSpectralInversion(this, core::mem::transmute_copy(&spectralinversionval)).into()
+                IDVBSTuningSpace_Impl::SetSpectralInversion(this, core::mem::transmute_copy(&spectralinversionval))
             }
         }
         Self {
@@ -3888,19 +3888,19 @@ pub struct IDVBTLocator_Vtbl {
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDVBTLocator_Impl: IDigitalLocator_Impl {
     fn Bandwidth(&self) -> windows_core::Result<i32>;
-    fn SetBandwidth(&self, bandwidthval: i32) -> windows_core::Result<()>;
+    fn SetBandwidth(&self, bandwidthval: i32) -> windows_core::HRESULT;
     fn LPInnerFEC(&self) -> windows_core::Result<super::FECMethod>;
-    fn SetLPInnerFEC(&self, fec: super::FECMethod) -> windows_core::Result<()>;
+    fn SetLPInnerFEC(&self, fec: super::FECMethod) -> windows_core::HRESULT;
     fn LPInnerFECRate(&self) -> windows_core::Result<super::BinaryConvolutionCodeRate>;
-    fn SetLPInnerFECRate(&self, fec: super::BinaryConvolutionCodeRate) -> windows_core::Result<()>;
+    fn SetLPInnerFECRate(&self, fec: super::BinaryConvolutionCodeRate) -> windows_core::HRESULT;
     fn HAlpha(&self) -> windows_core::Result<super::HierarchyAlpha>;
-    fn SetHAlpha(&self, alpha: super::HierarchyAlpha) -> windows_core::Result<()>;
+    fn SetHAlpha(&self, alpha: super::HierarchyAlpha) -> windows_core::HRESULT;
     fn Guard(&self) -> windows_core::Result<super::GuardInterval>;
-    fn SetGuard(&self, gi: super::GuardInterval) -> windows_core::Result<()>;
+    fn SetGuard(&self, gi: super::GuardInterval) -> windows_core::HRESULT;
     fn Mode(&self) -> windows_core::Result<super::TransmissionMode>;
-    fn SetMode(&self, mode: super::TransmissionMode) -> windows_core::Result<()>;
+    fn SetMode(&self, mode: super::TransmissionMode) -> windows_core::HRESULT;
     fn OtherFrequencyInUse(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetOtherFrequencyInUse(&self, otherfrequencyinuseval: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetOtherFrequencyInUse(&self, otherfrequencyinuseval: super::VARIANT_BOOL) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDVBTLocator_Vtbl {
@@ -3923,7 +3923,7 @@ impl IDVBTLocator_Vtbl {
         unsafe extern "system" fn SetBandwidth<Identity: IDVBTLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bandwidthval: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDVBTLocator_Impl::SetBandwidth(this, core::mem::transmute_copy(&bandwidthval)).into()
+                IDVBTLocator_Impl::SetBandwidth(this, core::mem::transmute_copy(&bandwidthval))
             }
         }
         unsafe extern "system" fn LPInnerFEC<Identity: IDVBTLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fec: *mut super::FECMethod) -> windows_core::HRESULT {
@@ -3944,7 +3944,7 @@ impl IDVBTLocator_Vtbl {
         unsafe extern "system" fn SetLPInnerFEC<Identity: IDVBTLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fec: super::FECMethod) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDVBTLocator_Impl::SetLPInnerFEC(this, core::mem::transmute_copy(&fec)).into()
+                IDVBTLocator_Impl::SetLPInnerFEC(this, core::mem::transmute_copy(&fec))
             }
         }
         unsafe extern "system" fn LPInnerFECRate<Identity: IDVBTLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fec: *mut super::BinaryConvolutionCodeRate) -> windows_core::HRESULT {
@@ -3965,7 +3965,7 @@ impl IDVBTLocator_Vtbl {
         unsafe extern "system" fn SetLPInnerFECRate<Identity: IDVBTLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fec: super::BinaryConvolutionCodeRate) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDVBTLocator_Impl::SetLPInnerFECRate(this, core::mem::transmute_copy(&fec)).into()
+                IDVBTLocator_Impl::SetLPInnerFECRate(this, core::mem::transmute_copy(&fec))
             }
         }
         unsafe extern "system" fn HAlpha<Identity: IDVBTLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, alpha: *mut super::HierarchyAlpha) -> windows_core::HRESULT {
@@ -3986,7 +3986,7 @@ impl IDVBTLocator_Vtbl {
         unsafe extern "system" fn SetHAlpha<Identity: IDVBTLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, alpha: super::HierarchyAlpha) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDVBTLocator_Impl::SetHAlpha(this, core::mem::transmute_copy(&alpha)).into()
+                IDVBTLocator_Impl::SetHAlpha(this, core::mem::transmute_copy(&alpha))
             }
         }
         unsafe extern "system" fn Guard<Identity: IDVBTLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gi: *mut super::GuardInterval) -> windows_core::HRESULT {
@@ -4007,7 +4007,7 @@ impl IDVBTLocator_Vtbl {
         unsafe extern "system" fn SetGuard<Identity: IDVBTLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gi: super::GuardInterval) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDVBTLocator_Impl::SetGuard(this, core::mem::transmute_copy(&gi)).into()
+                IDVBTLocator_Impl::SetGuard(this, core::mem::transmute_copy(&gi))
             }
         }
         unsafe extern "system" fn Mode<Identity: IDVBTLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: *mut super::TransmissionMode) -> windows_core::HRESULT {
@@ -4028,7 +4028,7 @@ impl IDVBTLocator_Vtbl {
         unsafe extern "system" fn SetMode<Identity: IDVBTLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: super::TransmissionMode) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDVBTLocator_Impl::SetMode(this, core::mem::transmute_copy(&mode)).into()
+                IDVBTLocator_Impl::SetMode(this, core::mem::transmute_copy(&mode))
             }
         }
         unsafe extern "system" fn OtherFrequencyInUse<Identity: IDVBTLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, otherfrequencyinuseval: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -4049,7 +4049,7 @@ impl IDVBTLocator_Vtbl {
         unsafe extern "system" fn SetOtherFrequencyInUse<Identity: IDVBTLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, otherfrequencyinuseval: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDVBTLocator_Impl::SetOtherFrequencyInUse(this, core::mem::transmute_copy(&otherfrequencyinuseval)).into()
+                IDVBTLocator_Impl::SetOtherFrequencyInUse(this, core::mem::transmute_copy(&otherfrequencyinuseval))
             }
         }
         Self {
@@ -4110,7 +4110,7 @@ pub struct IDVBTLocator2_Vtbl {
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDVBTLocator2_Impl: IDVBTLocator_Impl {
     fn PhysicalLayerPipeId(&self) -> windows_core::Result<i32>;
-    fn SetPhysicalLayerPipeId(&self, physicallayerpipeidval: i32) -> windows_core::Result<()>;
+    fn SetPhysicalLayerPipeId(&self, physicallayerpipeidval: i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDVBTLocator2_Vtbl {
@@ -4133,7 +4133,7 @@ impl IDVBTLocator2_Vtbl {
         unsafe extern "system" fn SetPhysicalLayerPipeId<Identity: IDVBTLocator2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, physicallayerpipeidval: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDVBTLocator2_Impl::SetPhysicalLayerPipeId(this, core::mem::transmute_copy(&physicallayerpipeidval)).into()
+                IDVBTLocator2_Impl::SetPhysicalLayerPipeId(this, core::mem::transmute_copy(&physicallayerpipeidval))
             }
         }
         Self {
@@ -4204,11 +4204,11 @@ pub struct IDVBTuneRequest_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDVBTuneRequest_Impl: ITuneRequest_Impl {
     fn ONID(&self) -> windows_core::Result<i32>;
-    fn SetONID(&self, onid: i32) -> windows_core::Result<()>;
+    fn SetONID(&self, onid: i32) -> windows_core::HRESULT;
     fn TSID(&self) -> windows_core::Result<i32>;
-    fn SetTSID(&self, tsid: i32) -> windows_core::Result<()>;
+    fn SetTSID(&self, tsid: i32) -> windows_core::HRESULT;
     fn SID(&self) -> windows_core::Result<i32>;
-    fn SetSID(&self, sid: i32) -> windows_core::Result<()>;
+    fn SetSID(&self, sid: i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDVBTuneRequest_Vtbl {
@@ -4231,7 +4231,7 @@ impl IDVBTuneRequest_Vtbl {
         unsafe extern "system" fn SetONID<Identity: IDVBTuneRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, onid: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDVBTuneRequest_Impl::SetONID(this, core::mem::transmute_copy(&onid)).into()
+                IDVBTuneRequest_Impl::SetONID(this, core::mem::transmute_copy(&onid))
             }
         }
         unsafe extern "system" fn TSID<Identity: IDVBTuneRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tsid: *mut i32) -> windows_core::HRESULT {
@@ -4252,7 +4252,7 @@ impl IDVBTuneRequest_Vtbl {
         unsafe extern "system" fn SetTSID<Identity: IDVBTuneRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tsid: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDVBTuneRequest_Impl::SetTSID(this, core::mem::transmute_copy(&tsid)).into()
+                IDVBTuneRequest_Impl::SetTSID(this, core::mem::transmute_copy(&tsid))
             }
         }
         unsafe extern "system" fn SID<Identity: IDVBTuneRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sid: *mut i32) -> windows_core::HRESULT {
@@ -4273,7 +4273,7 @@ impl IDVBTuneRequest_Vtbl {
         unsafe extern "system" fn SetSID<Identity: IDVBTuneRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sid: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDVBTuneRequest_Impl::SetSID(this, core::mem::transmute_copy(&sid)).into()
+                IDVBTuneRequest_Impl::SetSID(this, core::mem::transmute_copy(&sid))
             }
         }
         Self {
@@ -4334,7 +4334,7 @@ pub struct IDVBTuningSpace_Vtbl {
 #[cfg(all(feature = "bdatypes", feature = "comcat", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDVBTuningSpace_Impl: ITuningSpace_Impl {
     fn SystemType(&self) -> windows_core::Result<super::DVBSystemType>;
-    fn SetSystemType(&self, systype: super::DVBSystemType) -> windows_core::Result<()>;
+    fn SetSystemType(&self, systype: super::DVBSystemType) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "bdatypes", feature = "comcat", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDVBTuningSpace_Vtbl {
@@ -4357,7 +4357,7 @@ impl IDVBTuningSpace_Vtbl {
         unsafe extern "system" fn SetSystemType<Identity: IDVBTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, systype: super::DVBSystemType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDVBTuningSpace_Impl::SetSystemType(this, core::mem::transmute_copy(&systype)).into()
+                IDVBTuningSpace_Impl::SetSystemType(this, core::mem::transmute_copy(&systype))
             }
         }
         Self {
@@ -4406,7 +4406,7 @@ pub struct IDVBTuningSpace2_Vtbl {
 #[cfg(all(feature = "bdatypes", feature = "comcat", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDVBTuningSpace2_Impl: IDVBTuningSpace_Impl {
     fn NetworkID(&self) -> windows_core::Result<i32>;
-    fn SetNetworkID(&self, networkid: i32) -> windows_core::Result<()>;
+    fn SetNetworkID(&self, networkid: i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "bdatypes", feature = "comcat", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDVBTuningSpace2_Vtbl {
@@ -4429,7 +4429,7 @@ impl IDVBTuningSpace2_Vtbl {
         unsafe extern "system" fn SetNetworkID<Identity: IDVBTuningSpace2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, networkid: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDVBTuningSpace2_Impl::SetNetworkID(this, core::mem::transmute_copy(&networkid)).into()
+                IDVBTuningSpace2_Impl::SetNetworkID(this, core::mem::transmute_copy(&networkid))
             }
         }
         Self {
@@ -4519,9 +4519,9 @@ pub struct IDigitalCableTuneRequest_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDigitalCableTuneRequest_Impl: IATSCChannelTuneRequest_Impl {
     fn MajorChannel(&self) -> windows_core::Result<i32>;
-    fn SetMajorChannel(&self, majorchannel: i32) -> windows_core::Result<()>;
+    fn SetMajorChannel(&self, majorchannel: i32) -> windows_core::HRESULT;
     fn SourceID(&self) -> windows_core::Result<i32>;
-    fn SetSourceID(&self, sourceid: i32) -> windows_core::Result<()>;
+    fn SetSourceID(&self, sourceid: i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDigitalCableTuneRequest_Vtbl {
@@ -4544,7 +4544,7 @@ impl IDigitalCableTuneRequest_Vtbl {
         unsafe extern "system" fn SetMajorChannel<Identity: IDigitalCableTuneRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, majorchannel: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDigitalCableTuneRequest_Impl::SetMajorChannel(this, core::mem::transmute_copy(&majorchannel)).into()
+                IDigitalCableTuneRequest_Impl::SetMajorChannel(this, core::mem::transmute_copy(&majorchannel))
             }
         }
         unsafe extern "system" fn SourceID<Identity: IDigitalCableTuneRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psourceid: *mut i32) -> windows_core::HRESULT {
@@ -4565,7 +4565,7 @@ impl IDigitalCableTuneRequest_Vtbl {
         unsafe extern "system" fn SetSourceID<Identity: IDigitalCableTuneRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourceid: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDigitalCableTuneRequest_Impl::SetSourceID(this, core::mem::transmute_copy(&sourceid)).into()
+                IDigitalCableTuneRequest_Impl::SetSourceID(this, core::mem::transmute_copy(&sourceid))
             }
         }
         Self {
@@ -4649,13 +4649,13 @@ pub struct IDigitalCableTuningSpace_Vtbl {
 #[cfg(all(feature = "comcat", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDigitalCableTuningSpace_Impl: IATSCTuningSpace_Impl {
     fn MinMajorChannel(&self) -> windows_core::Result<i32>;
-    fn SetMinMajorChannel(&self, newminmajorchannelval: i32) -> windows_core::Result<()>;
+    fn SetMinMajorChannel(&self, newminmajorchannelval: i32) -> windows_core::HRESULT;
     fn MaxMajorChannel(&self) -> windows_core::Result<i32>;
-    fn SetMaxMajorChannel(&self, newmaxmajorchannelval: i32) -> windows_core::Result<()>;
+    fn SetMaxMajorChannel(&self, newmaxmajorchannelval: i32) -> windows_core::HRESULT;
     fn MinSourceID(&self) -> windows_core::Result<i32>;
-    fn SetMinSourceID(&self, newminsourceidval: i32) -> windows_core::Result<()>;
+    fn SetMinSourceID(&self, newminsourceidval: i32) -> windows_core::HRESULT;
     fn MaxSourceID(&self) -> windows_core::Result<i32>;
-    fn SetMaxSourceID(&self, newmaxsourceidval: i32) -> windows_core::Result<()>;
+    fn SetMaxSourceID(&self, newmaxsourceidval: i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "comcat", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDigitalCableTuningSpace_Vtbl {
@@ -4678,7 +4678,7 @@ impl IDigitalCableTuningSpace_Vtbl {
         unsafe extern "system" fn SetMinMajorChannel<Identity: IDigitalCableTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newminmajorchannelval: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDigitalCableTuningSpace_Impl::SetMinMajorChannel(this, core::mem::transmute_copy(&newminmajorchannelval)).into()
+                IDigitalCableTuningSpace_Impl::SetMinMajorChannel(this, core::mem::transmute_copy(&newminmajorchannelval))
             }
         }
         unsafe extern "system" fn MaxMajorChannel<Identity: IDigitalCableTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxmajorchannelval: *mut i32) -> windows_core::HRESULT {
@@ -4699,7 +4699,7 @@ impl IDigitalCableTuningSpace_Vtbl {
         unsafe extern "system" fn SetMaxMajorChannel<Identity: IDigitalCableTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newmaxmajorchannelval: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDigitalCableTuningSpace_Impl::SetMaxMajorChannel(this, core::mem::transmute_copy(&newmaxmajorchannelval)).into()
+                IDigitalCableTuningSpace_Impl::SetMaxMajorChannel(this, core::mem::transmute_copy(&newmaxmajorchannelval))
             }
         }
         unsafe extern "system" fn MinSourceID<Identity: IDigitalCableTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minsourceidval: *mut i32) -> windows_core::HRESULT {
@@ -4720,7 +4720,7 @@ impl IDigitalCableTuningSpace_Vtbl {
         unsafe extern "system" fn SetMinSourceID<Identity: IDigitalCableTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newminsourceidval: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDigitalCableTuningSpace_Impl::SetMinSourceID(this, core::mem::transmute_copy(&newminsourceidval)).into()
+                IDigitalCableTuningSpace_Impl::SetMinSourceID(this, core::mem::transmute_copy(&newminsourceidval))
             }
         }
         unsafe extern "system" fn MaxSourceID<Identity: IDigitalCableTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxsourceidval: *mut i32) -> windows_core::HRESULT {
@@ -4741,7 +4741,7 @@ impl IDigitalCableTuningSpace_Vtbl {
         unsafe extern "system" fn SetMaxSourceID<Identity: IDigitalCableTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newmaxsourceidval: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDigitalCableTuningSpace_Impl::SetMaxSourceID(this, core::mem::transmute_copy(&newmaxsourceidval)).into()
+                IDigitalCableTuningSpace_Impl::SetMaxSourceID(this, core::mem::transmute_copy(&newmaxsourceidval))
             }
         }
         Self {
@@ -4929,7 +4929,7 @@ pub struct IESEventService_Vtbl {
 }
 #[cfg(feature = "bdaiface")]
 pub trait IESEventService_Impl: windows_core::IUnknownImpl {
-    fn FireESEvent(&self, pesevent: windows_core::Ref<super::IESEvent>) -> windows_core::Result<()>;
+    fn FireESEvent(&self, pesevent: windows_core::Ref<super::IESEvent>) -> windows_core::HRESULT;
 }
 #[cfg(feature = "bdaiface")]
 impl IESEventService_Vtbl {
@@ -4937,7 +4937,7 @@ impl IESEventService_Vtbl {
         unsafe extern "system" fn FireESEvent<Identity: IESEventService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pesevent: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IESEventService_Impl::FireESEvent(this, core::mem::transmute_copy(&pesevent)).into()
+                IESEventService_Impl::FireESEvent(this, core::mem::transmute_copy(&pesevent))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), FireESEvent: FireESEvent::<Identity, OFFSET> }
@@ -5007,12 +5007,12 @@ pub struct IESEventServiceConfiguration_Vtbl {
 }
 #[cfg(all(feature = "bdaiface", feature = "strmif"))]
 pub trait IESEventServiceConfiguration_Impl: windows_core::IUnknownImpl {
-    fn SetParent(&self, peventservice: windows_core::Ref<IESEventService>) -> windows_core::Result<()>;
-    fn RemoveParent(&self) -> windows_core::Result<()>;
-    fn SetOwner(&self, pesevents: windows_core::Ref<super::IESEvents>) -> windows_core::Result<()>;
-    fn RemoveOwner(&self) -> windows_core::Result<()>;
-    fn SetGraph(&self, pgraph: windows_core::Ref<super::IFilterGraph>) -> windows_core::Result<()>;
-    fn RemoveGraph(&self, pgraph: windows_core::Ref<super::IFilterGraph>) -> windows_core::Result<()>;
+    fn SetParent(&self, peventservice: windows_core::Ref<IESEventService>) -> windows_core::HRESULT;
+    fn RemoveParent(&self) -> windows_core::HRESULT;
+    fn SetOwner(&self, pesevents: windows_core::Ref<super::IESEvents>) -> windows_core::HRESULT;
+    fn RemoveOwner(&self) -> windows_core::HRESULT;
+    fn SetGraph(&self, pgraph: windows_core::Ref<super::IFilterGraph>) -> windows_core::HRESULT;
+    fn RemoveGraph(&self, pgraph: windows_core::Ref<super::IFilterGraph>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "bdaiface", feature = "strmif"))]
 impl IESEventServiceConfiguration_Vtbl {
@@ -5020,37 +5020,37 @@ impl IESEventServiceConfiguration_Vtbl {
         unsafe extern "system" fn SetParent<Identity: IESEventServiceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peventservice: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IESEventServiceConfiguration_Impl::SetParent(this, core::mem::transmute_copy(&peventservice)).into()
+                IESEventServiceConfiguration_Impl::SetParent(this, core::mem::transmute_copy(&peventservice))
             }
         }
         unsafe extern "system" fn RemoveParent<Identity: IESEventServiceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IESEventServiceConfiguration_Impl::RemoveParent(this).into()
+                IESEventServiceConfiguration_Impl::RemoveParent(this)
             }
         }
         unsafe extern "system" fn SetOwner<Identity: IESEventServiceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pesevents: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IESEventServiceConfiguration_Impl::SetOwner(this, core::mem::transmute_copy(&pesevents)).into()
+                IESEventServiceConfiguration_Impl::SetOwner(this, core::mem::transmute_copy(&pesevents))
             }
         }
         unsafe extern "system" fn RemoveOwner<Identity: IESEventServiceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IESEventServiceConfiguration_Impl::RemoveOwner(this).into()
+                IESEventServiceConfiguration_Impl::RemoveOwner(this)
             }
         }
         unsafe extern "system" fn SetGraph<Identity: IESEventServiceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pgraph: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IESEventServiceConfiguration_Impl::SetGraph(this, core::mem::transmute_copy(&pgraph)).into()
+                IESEventServiceConfiguration_Impl::SetGraph(this, core::mem::transmute_copy(&pgraph))
             }
         }
         unsafe extern "system" fn RemoveGraph<Identity: IESEventServiceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pgraph: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IESEventServiceConfiguration_Impl::RemoveGraph(this, core::mem::transmute_copy(&pgraph)).into()
+                IESEventServiceConfiguration_Impl::RemoveGraph(this, core::mem::transmute_copy(&pgraph))
             }
         }
         Self {
@@ -6124,9 +6124,9 @@ pub struct IEnumComponentTypes_Vtbl {
 }
 #[cfg(all(feature = "oaidl", feature = "shared"))]
 pub trait IEnumComponentTypes_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: super::ULONG, rgelt: *mut Option<IComponentType>, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
-    fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
+    fn Next(&self, celt: super::ULONG, rgelt: *mut Option<IComponentType>, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT;
+    fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT;
+    fn Reset(&self) -> windows_core::HRESULT;
     fn Clone(&self) -> windows_core::Result<IEnumComponentTypes>;
 }
 #[cfg(all(feature = "oaidl", feature = "shared"))]
@@ -6135,19 +6135,19 @@ impl IEnumComponentTypes_Vtbl {
         unsafe extern "system" fn Next<Identity: IEnumComponentTypes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG, rgelt: *mut *mut core::ffi::c_void, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumComponentTypes_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
+                IEnumComponentTypes_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched))
             }
         }
         unsafe extern "system" fn Skip<Identity: IEnumComponentTypes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumComponentTypes_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+                IEnumComponentTypes_Impl::Skip(this, core::mem::transmute_copy(&celt))
             }
         }
         unsafe extern "system" fn Reset<Identity: IEnumComponentTypes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumComponentTypes_Impl::Reset(this).into()
+                IEnumComponentTypes_Impl::Reset(this)
             }
         }
         unsafe extern "system" fn Clone<Identity: IEnumComponentTypes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6217,9 +6217,9 @@ pub struct IEnumComponents_Vtbl {
 }
 #[cfg(all(feature = "oaidl", feature = "shared"))]
 pub trait IEnumComponents_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: super::ULONG, rgelt: *mut Option<IComponent>, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
-    fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
+    fn Next(&self, celt: super::ULONG, rgelt: *mut Option<IComponent>, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT;
+    fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT;
+    fn Reset(&self) -> windows_core::HRESULT;
     fn Clone(&self) -> windows_core::Result<IEnumComponents>;
 }
 #[cfg(all(feature = "oaidl", feature = "shared"))]
@@ -6228,19 +6228,19 @@ impl IEnumComponents_Vtbl {
         unsafe extern "system" fn Next<Identity: IEnumComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG, rgelt: *mut *mut core::ffi::c_void, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumComponents_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
+                IEnumComponents_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched))
             }
         }
         unsafe extern "system" fn Skip<Identity: IEnumComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumComponents_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+                IEnumComponents_Impl::Skip(this, core::mem::transmute_copy(&celt))
             }
         }
         unsafe extern "system" fn Reset<Identity: IEnumComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumComponents_Impl::Reset(this).into()
+                IEnumComponents_Impl::Reset(this)
             }
         }
         unsafe extern "system" fn Clone<Identity: IEnumComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6310,9 +6310,9 @@ pub struct IEnumTuningSpaces_Vtbl {
 }
 #[cfg(all(feature = "oaidl", feature = "shared"))]
 pub trait IEnumTuningSpaces_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: super::ULONG, rgelt: *mut Option<ITuningSpace>, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
-    fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
+    fn Next(&self, celt: super::ULONG, rgelt: *mut Option<ITuningSpace>, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT;
+    fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT;
+    fn Reset(&self) -> windows_core::HRESULT;
     fn Clone(&self) -> windows_core::Result<IEnumTuningSpaces>;
 }
 #[cfg(all(feature = "oaidl", feature = "shared"))]
@@ -6321,19 +6321,19 @@ impl IEnumTuningSpaces_Vtbl {
         unsafe extern "system" fn Next<Identity: IEnumTuningSpaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG, rgelt: *mut *mut core::ffi::c_void, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumTuningSpaces_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
+                IEnumTuningSpaces_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched))
             }
         }
         unsafe extern "system" fn Skip<Identity: IEnumTuningSpaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumTuningSpaces_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
+                IEnumTuningSpaces_Impl::Skip(this, core::mem::transmute_copy(&celt))
             }
         }
         unsafe extern "system" fn Reset<Identity: IEnumTuningSpaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnumTuningSpaces_Impl::Reset(this).into()
+                IEnumTuningSpaces_Impl::Reset(this)
             }
         }
         unsafe extern "system" fn Clone<Identity: IEnumTuningSpaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6472,7 +6472,7 @@ pub struct ILanguageComponentType_Vtbl {
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ILanguageComponentType_Impl: IComponentType_Impl {
     fn LangID(&self) -> windows_core::Result<i32>;
-    fn SetLangID(&self, langid: i32) -> windows_core::Result<()>;
+    fn SetLangID(&self, langid: i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ILanguageComponentType_Vtbl {
@@ -6495,7 +6495,7 @@ impl ILanguageComponentType_Vtbl {
         unsafe extern "system" fn SetLangID<Identity: ILanguageComponentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, langid: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILanguageComponentType_Impl::SetLangID(this, core::mem::transmute_copy(&langid)).into()
+                ILanguageComponentType_Impl::SetLangID(this, core::mem::transmute_copy(&langid))
             }
         }
         Self { base__: IComponentType_Vtbl::new::<Identity, OFFSET>(), LangID: LangID::<Identity, OFFSET>, SetLangID: SetLangID::<Identity, OFFSET> }
@@ -6653,19 +6653,19 @@ pub struct ILocator_Vtbl {
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ILocator_Impl: super::IDispatch_Impl {
     fn CarrierFrequency(&self) -> windows_core::Result<i32>;
-    fn SetCarrierFrequency(&self, frequency: i32) -> windows_core::Result<()>;
+    fn SetCarrierFrequency(&self, frequency: i32) -> windows_core::HRESULT;
     fn InnerFEC(&self) -> windows_core::Result<super::FECMethod>;
-    fn SetInnerFEC(&self, fec: super::FECMethod) -> windows_core::Result<()>;
+    fn SetInnerFEC(&self, fec: super::FECMethod) -> windows_core::HRESULT;
     fn InnerFECRate(&self) -> windows_core::Result<super::BinaryConvolutionCodeRate>;
-    fn SetInnerFECRate(&self, fec: super::BinaryConvolutionCodeRate) -> windows_core::Result<()>;
+    fn SetInnerFECRate(&self, fec: super::BinaryConvolutionCodeRate) -> windows_core::HRESULT;
     fn OuterFEC(&self) -> windows_core::Result<super::FECMethod>;
-    fn SetOuterFEC(&self, fec: super::FECMethod) -> windows_core::Result<()>;
+    fn SetOuterFEC(&self, fec: super::FECMethod) -> windows_core::HRESULT;
     fn OuterFECRate(&self) -> windows_core::Result<super::BinaryConvolutionCodeRate>;
-    fn SetOuterFECRate(&self, fec: super::BinaryConvolutionCodeRate) -> windows_core::Result<()>;
+    fn SetOuterFECRate(&self, fec: super::BinaryConvolutionCodeRate) -> windows_core::HRESULT;
     fn Modulation(&self) -> windows_core::Result<super::ModulationType>;
-    fn SetModulation(&self, modulation: super::ModulationType) -> windows_core::Result<()>;
+    fn SetModulation(&self, modulation: super::ModulationType) -> windows_core::HRESULT;
     fn SymbolRate(&self) -> windows_core::Result<i32>;
-    fn SetSymbolRate(&self, rate: i32) -> windows_core::Result<()>;
+    fn SetSymbolRate(&self, rate: i32) -> windows_core::HRESULT;
     fn Clone(&self) -> windows_core::Result<ILocator>;
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -6689,7 +6689,7 @@ impl ILocator_Vtbl {
         unsafe extern "system" fn SetCarrierFrequency<Identity: ILocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, frequency: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILocator_Impl::SetCarrierFrequency(this, core::mem::transmute_copy(&frequency)).into()
+                ILocator_Impl::SetCarrierFrequency(this, core::mem::transmute_copy(&frequency))
             }
         }
         unsafe extern "system" fn InnerFEC<Identity: ILocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fec: *mut super::FECMethod) -> windows_core::HRESULT {
@@ -6710,7 +6710,7 @@ impl ILocator_Vtbl {
         unsafe extern "system" fn SetInnerFEC<Identity: ILocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fec: super::FECMethod) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILocator_Impl::SetInnerFEC(this, core::mem::transmute_copy(&fec)).into()
+                ILocator_Impl::SetInnerFEC(this, core::mem::transmute_copy(&fec))
             }
         }
         unsafe extern "system" fn InnerFECRate<Identity: ILocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fec: *mut super::BinaryConvolutionCodeRate) -> windows_core::HRESULT {
@@ -6731,7 +6731,7 @@ impl ILocator_Vtbl {
         unsafe extern "system" fn SetInnerFECRate<Identity: ILocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fec: super::BinaryConvolutionCodeRate) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILocator_Impl::SetInnerFECRate(this, core::mem::transmute_copy(&fec)).into()
+                ILocator_Impl::SetInnerFECRate(this, core::mem::transmute_copy(&fec))
             }
         }
         unsafe extern "system" fn OuterFEC<Identity: ILocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fec: *mut super::FECMethod) -> windows_core::HRESULT {
@@ -6752,7 +6752,7 @@ impl ILocator_Vtbl {
         unsafe extern "system" fn SetOuterFEC<Identity: ILocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fec: super::FECMethod) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILocator_Impl::SetOuterFEC(this, core::mem::transmute_copy(&fec)).into()
+                ILocator_Impl::SetOuterFEC(this, core::mem::transmute_copy(&fec))
             }
         }
         unsafe extern "system" fn OuterFECRate<Identity: ILocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fec: *mut super::BinaryConvolutionCodeRate) -> windows_core::HRESULT {
@@ -6773,7 +6773,7 @@ impl ILocator_Vtbl {
         unsafe extern "system" fn SetOuterFECRate<Identity: ILocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fec: super::BinaryConvolutionCodeRate) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILocator_Impl::SetOuterFECRate(this, core::mem::transmute_copy(&fec)).into()
+                ILocator_Impl::SetOuterFECRate(this, core::mem::transmute_copy(&fec))
             }
         }
         unsafe extern "system" fn Modulation<Identity: ILocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, modulation: *mut super::ModulationType) -> windows_core::HRESULT {
@@ -6794,7 +6794,7 @@ impl ILocator_Vtbl {
         unsafe extern "system" fn SetModulation<Identity: ILocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, modulation: super::ModulationType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILocator_Impl::SetModulation(this, core::mem::transmute_copy(&modulation)).into()
+                ILocator_Impl::SetModulation(this, core::mem::transmute_copy(&modulation))
             }
         }
         unsafe extern "system" fn SymbolRate<Identity: ILocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rate: *mut i32) -> windows_core::HRESULT {
@@ -6815,7 +6815,7 @@ impl ILocator_Vtbl {
         unsafe extern "system" fn SetSymbolRate<Identity: ILocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rate: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILocator_Impl::SetSymbolRate(this, core::mem::transmute_copy(&rate)).into()
+                ILocator_Impl::SetSymbolRate(this, core::mem::transmute_copy(&rate))
             }
         }
         unsafe extern "system" fn Clone<Identity: ILocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newlocator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6914,11 +6914,11 @@ pub struct IMPEG2Component_Vtbl {
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMPEG2Component_Impl: IComponent_Impl {
     fn PID(&self) -> windows_core::Result<i32>;
-    fn SetPID(&self, pid: i32) -> windows_core::Result<()>;
+    fn SetPID(&self, pid: i32) -> windows_core::HRESULT;
     fn PCRPID(&self) -> windows_core::Result<i32>;
-    fn SetPCRPID(&self, pcrpid: i32) -> windows_core::Result<()>;
+    fn SetPCRPID(&self, pcrpid: i32) -> windows_core::HRESULT;
     fn ProgramNumber(&self) -> windows_core::Result<i32>;
-    fn SetProgramNumber(&self, programnumber: i32) -> windows_core::Result<()>;
+    fn SetProgramNumber(&self, programnumber: i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMPEG2Component_Vtbl {
@@ -6941,7 +6941,7 @@ impl IMPEG2Component_Vtbl {
         unsafe extern "system" fn SetPID<Identity: IMPEG2Component_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pid: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMPEG2Component_Impl::SetPID(this, core::mem::transmute_copy(&pid)).into()
+                IMPEG2Component_Impl::SetPID(this, core::mem::transmute_copy(&pid))
             }
         }
         unsafe extern "system" fn PCRPID<Identity: IMPEG2Component_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcrpid: *mut i32) -> windows_core::HRESULT {
@@ -6962,7 +6962,7 @@ impl IMPEG2Component_Vtbl {
         unsafe extern "system" fn SetPCRPID<Identity: IMPEG2Component_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcrpid: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMPEG2Component_Impl::SetPCRPID(this, core::mem::transmute_copy(&pcrpid)).into()
+                IMPEG2Component_Impl::SetPCRPID(this, core::mem::transmute_copy(&pcrpid))
             }
         }
         unsafe extern "system" fn ProgramNumber<Identity: IMPEG2Component_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, programnumber: *mut i32) -> windows_core::HRESULT {
@@ -6983,7 +6983,7 @@ impl IMPEG2Component_Vtbl {
         unsafe extern "system" fn SetProgramNumber<Identity: IMPEG2Component_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, programnumber: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMPEG2Component_Impl::SetProgramNumber(this, core::mem::transmute_copy(&programnumber)).into()
+                IMPEG2Component_Impl::SetProgramNumber(this, core::mem::transmute_copy(&programnumber))
             }
         }
         Self {
@@ -7044,7 +7044,7 @@ pub struct IMPEG2ComponentType_Vtbl {
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMPEG2ComponentType_Impl: ILanguageComponentType_Impl {
     fn StreamType(&self) -> windows_core::Result<super::MPEG2StreamType>;
-    fn SetStreamType(&self, mp2streamtype: super::MPEG2StreamType) -> windows_core::Result<()>;
+    fn SetStreamType(&self, mp2streamtype: super::MPEG2StreamType) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "bdatypes", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMPEG2ComponentType_Vtbl {
@@ -7067,7 +7067,7 @@ impl IMPEG2ComponentType_Vtbl {
         unsafe extern "system" fn SetStreamType<Identity: IMPEG2ComponentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mp2streamtype: super::MPEG2StreamType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMPEG2ComponentType_Impl::SetStreamType(this, core::mem::transmute_copy(&mp2streamtype)).into()
+                IMPEG2ComponentType_Impl::SetStreamType(this, core::mem::transmute_copy(&mp2streamtype))
             }
         }
         Self {
@@ -7127,9 +7127,9 @@ pub struct IMPEG2TuneRequest_Vtbl {
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMPEG2TuneRequest_Impl: ITuneRequest_Impl {
     fn TSID(&self) -> windows_core::Result<i32>;
-    fn SetTSID(&self, tsid: i32) -> windows_core::Result<()>;
+    fn SetTSID(&self, tsid: i32) -> windows_core::HRESULT;
     fn ProgNo(&self) -> windows_core::Result<i32>;
-    fn SetProgNo(&self, progno: i32) -> windows_core::Result<()>;
+    fn SetProgNo(&self, progno: i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMPEG2TuneRequest_Vtbl {
@@ -7152,7 +7152,7 @@ impl IMPEG2TuneRequest_Vtbl {
         unsafe extern "system" fn SetTSID<Identity: IMPEG2TuneRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tsid: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMPEG2TuneRequest_Impl::SetTSID(this, core::mem::transmute_copy(&tsid)).into()
+                IMPEG2TuneRequest_Impl::SetTSID(this, core::mem::transmute_copy(&tsid))
             }
         }
         unsafe extern "system" fn ProgNo<Identity: IMPEG2TuneRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, progno: *mut i32) -> windows_core::HRESULT {
@@ -7173,7 +7173,7 @@ impl IMPEG2TuneRequest_Vtbl {
         unsafe extern "system" fn SetProgNo<Identity: IMPEG2TuneRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, progno: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMPEG2TuneRequest_Impl::SetProgNo(this, core::mem::transmute_copy(&progno)).into()
+                IMPEG2TuneRequest_Impl::SetProgNo(this, core::mem::transmute_copy(&progno))
             }
         }
         Self {
@@ -7309,9 +7309,9 @@ pub struct IPersistTuneXml_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPersistTuneXml_Impl: super::IPersist_Impl {
-    fn InitNew(&self) -> windows_core::Result<()>;
-    fn Load(&self, varvalue: &super::VARIANT) -> windows_core::Result<()>;
-    fn Save(&self, pvarfragment: *mut super::VARIANT) -> windows_core::Result<()>;
+    fn InitNew(&self) -> windows_core::HRESULT;
+    fn Load(&self, varvalue: &super::VARIANT) -> windows_core::HRESULT;
+    fn Save(&self, pvarfragment: *mut super::VARIANT) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPersistTuneXml_Vtbl {
@@ -7319,19 +7319,19 @@ impl IPersistTuneXml_Vtbl {
         unsafe extern "system" fn InitNew<Identity: IPersistTuneXml_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPersistTuneXml_Impl::InitNew(this).into()
+                IPersistTuneXml_Impl::InitNew(this)
             }
         }
         unsafe extern "system" fn Load<Identity: IPersistTuneXml_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varvalue: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPersistTuneXml_Impl::Load(this, core::mem::transmute(&varvalue)).into()
+                IPersistTuneXml_Impl::Load(this, core::mem::transmute(&varvalue))
             }
         }
         unsafe extern "system" fn Save<Identity: IPersistTuneXml_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarfragment: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPersistTuneXml_Impl::Save(this, core::mem::transmute_copy(&pvarfragment)).into()
+                IPersistTuneXml_Impl::Save(this, core::mem::transmute_copy(&pvarfragment))
             }
         }
         Self {
@@ -7483,8 +7483,8 @@ pub struct IRegisterTuner_Vtbl {
 }
 #[cfg(feature = "strmif")]
 pub trait IRegisterTuner_Impl: windows_core::IUnknownImpl {
-    fn Register(&self, ptuner: windows_core::Ref<ITuner>, pgraph: windows_core::Ref<super::IGraphBuilder>) -> windows_core::Result<()>;
-    fn Unregister(&self) -> windows_core::Result<()>;
+    fn Register(&self, ptuner: windows_core::Ref<ITuner>, pgraph: windows_core::Ref<super::IGraphBuilder>) -> windows_core::HRESULT;
+    fn Unregister(&self) -> windows_core::HRESULT;
 }
 #[cfg(feature = "strmif")]
 impl IRegisterTuner_Vtbl {
@@ -7492,13 +7492,13 @@ impl IRegisterTuner_Vtbl {
         unsafe extern "system" fn Register<Identity: IRegisterTuner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptuner: *mut core::ffi::c_void, pgraph: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRegisterTuner_Impl::Register(this, core::mem::transmute_copy(&ptuner), core::mem::transmute_copy(&pgraph)).into()
+                IRegisterTuner_Impl::Register(this, core::mem::transmute_copy(&ptuner), core::mem::transmute_copy(&pgraph))
             }
         }
         unsafe extern "system" fn Unregister<Identity: IRegisterTuner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRegisterTuner_Impl::Unregister(this).into()
+                IRegisterTuner_Impl::Unregister(this)
             }
         }
         Self {
@@ -7551,11 +7551,11 @@ pub struct IScanningTuner_Vtbl {
 }
 #[cfg(feature = "oaidl")]
 pub trait IScanningTuner_Impl: ITuner_Impl {
-    fn SeekUp(&self) -> windows_core::Result<()>;
-    fn SeekDown(&self) -> windows_core::Result<()>;
-    fn ScanUp(&self, millisecondspause: i32) -> windows_core::Result<()>;
-    fn ScanDown(&self, millisecondspause: i32) -> windows_core::Result<()>;
-    fn AutoProgram(&self) -> windows_core::Result<()>;
+    fn SeekUp(&self) -> windows_core::HRESULT;
+    fn SeekDown(&self) -> windows_core::HRESULT;
+    fn ScanUp(&self, millisecondspause: i32) -> windows_core::HRESULT;
+    fn ScanDown(&self, millisecondspause: i32) -> windows_core::HRESULT;
+    fn AutoProgram(&self) -> windows_core::HRESULT;
 }
 #[cfg(feature = "oaidl")]
 impl IScanningTuner_Vtbl {
@@ -7563,31 +7563,31 @@ impl IScanningTuner_Vtbl {
         unsafe extern "system" fn SeekUp<Identity: IScanningTuner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IScanningTuner_Impl::SeekUp(this).into()
+                IScanningTuner_Impl::SeekUp(this)
             }
         }
         unsafe extern "system" fn SeekDown<Identity: IScanningTuner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IScanningTuner_Impl::SeekDown(this).into()
+                IScanningTuner_Impl::SeekDown(this)
             }
         }
         unsafe extern "system" fn ScanUp<Identity: IScanningTuner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, millisecondspause: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IScanningTuner_Impl::ScanUp(this, core::mem::transmute_copy(&millisecondspause)).into()
+                IScanningTuner_Impl::ScanUp(this, core::mem::transmute_copy(&millisecondspause))
             }
         }
         unsafe extern "system" fn ScanDown<Identity: IScanningTuner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, millisecondspause: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IScanningTuner_Impl::ScanDown(this, core::mem::transmute_copy(&millisecondspause)).into()
+                IScanningTuner_Impl::ScanDown(this, core::mem::transmute_copy(&millisecondspause))
             }
         }
         unsafe extern "system" fn AutoProgram<Identity: IScanningTuner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IScanningTuner_Impl::AutoProgram(this).into()
+                IScanningTuner_Impl::AutoProgram(this)
             }
         }
         Self {
@@ -7669,14 +7669,14 @@ pub struct IScanningTunerEx_Vtbl {
 }
 #[cfg(all(feature = "oaidl", feature = "strmif", feature = "wtypes"))]
 pub trait IScanningTunerEx_Impl: IScanningTuner_Impl {
-    fn GetCurrentLocator(&self, pilocator: *const Option<ILocator>) -> windows_core::Result<()>;
-    fn PerformExhaustiveScan(&self, dwlowerfreq: i32, dwhigherfreq: i32, bfinetune: super::VARIANT_BOOL, hevent: super::HEVENT) -> windows_core::Result<()>;
+    fn GetCurrentLocator(&self, pilocator: *const Option<ILocator>) -> windows_core::HRESULT;
+    fn PerformExhaustiveScan(&self, dwlowerfreq: i32, dwhigherfreq: i32, bfinetune: super::VARIANT_BOOL, hevent: super::HEVENT) -> windows_core::HRESULT;
     fn TerminateCurrentScan(&self) -> windows_core::Result<i32>;
-    fn ResumeCurrentScan(&self, hevent: super::HEVENT) -> windows_core::Result<()>;
-    fn GetTunerScanningCapability(&self, hardwareassistedscanning: *mut i32, numstandardssupported: *mut i32, broadcaststandards: *mut windows_core::GUID) -> windows_core::Result<()>;
-    fn GetTunerStatus(&self, secondsleft: *mut i32, currentlocktype: *mut i32, autodetect: *mut i32, currentfreq: *mut i32) -> windows_core::Result<()>;
-    fn GetCurrentTunerStandardCapability(&self, currentbroadcaststandard: &windows_core::GUID, settlingtime: *mut i32, tvstandardssupported: *mut i32) -> windows_core::Result<()>;
-    fn SetScanSignalTypeFilter(&self, scanmodulationtypes: i32, analogvideostandard: i32) -> windows_core::Result<()>;
+    fn ResumeCurrentScan(&self, hevent: super::HEVENT) -> windows_core::HRESULT;
+    fn GetTunerScanningCapability(&self, hardwareassistedscanning: *mut i32, numstandardssupported: *mut i32, broadcaststandards: *mut windows_core::GUID) -> windows_core::HRESULT;
+    fn GetTunerStatus(&self, secondsleft: *mut i32, currentlocktype: *mut i32, autodetect: *mut i32, currentfreq: *mut i32) -> windows_core::HRESULT;
+    fn GetCurrentTunerStandardCapability(&self, currentbroadcaststandard: &windows_core::GUID, settlingtime: *mut i32, tvstandardssupported: *mut i32) -> windows_core::HRESULT;
+    fn SetScanSignalTypeFilter(&self, scanmodulationtypes: i32, analogvideostandard: i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "oaidl", feature = "strmif", feature = "wtypes"))]
 impl IScanningTunerEx_Vtbl {
@@ -7684,13 +7684,13 @@ impl IScanningTunerEx_Vtbl {
         unsafe extern "system" fn GetCurrentLocator<Identity: IScanningTunerEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pilocator: *const *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IScanningTunerEx_Impl::GetCurrentLocator(this, core::mem::transmute_copy(&pilocator)).into()
+                IScanningTunerEx_Impl::GetCurrentLocator(this, core::mem::transmute_copy(&pilocator))
             }
         }
         unsafe extern "system" fn PerformExhaustiveScan<Identity: IScanningTunerEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwlowerfreq: i32, dwhigherfreq: i32, bfinetune: super::VARIANT_BOOL, hevent: super::HEVENT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IScanningTunerEx_Impl::PerformExhaustiveScan(this, core::mem::transmute_copy(&dwlowerfreq), core::mem::transmute_copy(&dwhigherfreq), core::mem::transmute_copy(&bfinetune), core::mem::transmute_copy(&hevent)).into()
+                IScanningTunerEx_Impl::PerformExhaustiveScan(this, core::mem::transmute_copy(&dwlowerfreq), core::mem::transmute_copy(&dwhigherfreq), core::mem::transmute_copy(&bfinetune), core::mem::transmute_copy(&hevent))
             }
         }
         unsafe extern "system" fn TerminateCurrentScan<Identity: IScanningTunerEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcurrentfreq: *mut i32) -> windows_core::HRESULT {
@@ -7711,31 +7711,31 @@ impl IScanningTunerEx_Vtbl {
         unsafe extern "system" fn ResumeCurrentScan<Identity: IScanningTunerEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hevent: super::HEVENT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IScanningTunerEx_Impl::ResumeCurrentScan(this, core::mem::transmute_copy(&hevent)).into()
+                IScanningTunerEx_Impl::ResumeCurrentScan(this, core::mem::transmute_copy(&hevent))
             }
         }
         unsafe extern "system" fn GetTunerScanningCapability<Identity: IScanningTunerEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hardwareassistedscanning: *mut i32, numstandardssupported: *mut i32, broadcaststandards: *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IScanningTunerEx_Impl::GetTunerScanningCapability(this, core::mem::transmute_copy(&hardwareassistedscanning), core::mem::transmute_copy(&numstandardssupported), core::mem::transmute_copy(&broadcaststandards)).into()
+                IScanningTunerEx_Impl::GetTunerScanningCapability(this, core::mem::transmute_copy(&hardwareassistedscanning), core::mem::transmute_copy(&numstandardssupported), core::mem::transmute_copy(&broadcaststandards))
             }
         }
         unsafe extern "system" fn GetTunerStatus<Identity: IScanningTunerEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, secondsleft: *mut i32, currentlocktype: *mut i32, autodetect: *mut i32, currentfreq: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IScanningTunerEx_Impl::GetTunerStatus(this, core::mem::transmute_copy(&secondsleft), core::mem::transmute_copy(&currentlocktype), core::mem::transmute_copy(&autodetect), core::mem::transmute_copy(&currentfreq)).into()
+                IScanningTunerEx_Impl::GetTunerStatus(this, core::mem::transmute_copy(&secondsleft), core::mem::transmute_copy(&currentlocktype), core::mem::transmute_copy(&autodetect), core::mem::transmute_copy(&currentfreq))
             }
         }
         unsafe extern "system" fn GetCurrentTunerStandardCapability<Identity: IScanningTunerEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentbroadcaststandard: windows_core::GUID, settlingtime: *mut i32, tvstandardssupported: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IScanningTunerEx_Impl::GetCurrentTunerStandardCapability(this, core::mem::transmute(&currentbroadcaststandard), core::mem::transmute_copy(&settlingtime), core::mem::transmute_copy(&tvstandardssupported)).into()
+                IScanningTunerEx_Impl::GetCurrentTunerStandardCapability(this, core::mem::transmute(&currentbroadcaststandard), core::mem::transmute_copy(&settlingtime), core::mem::transmute_copy(&tvstandardssupported))
             }
         }
         unsafe extern "system" fn SetScanSignalTypeFilter<Identity: IScanningTunerEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scanmodulationtypes: i32, analogvideostandard: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IScanningTunerEx_Impl::SetScanSignalTypeFilter(this, core::mem::transmute_copy(&scanmodulationtypes), core::mem::transmute_copy(&analogvideostandard)).into()
+                IScanningTunerEx_Impl::SetScanSignalTypeFilter(this, core::mem::transmute_copy(&scanmodulationtypes), core::mem::transmute_copy(&analogvideostandard))
             }
         }
         Self {
@@ -7817,7 +7817,7 @@ pub trait ITuneRequest_Impl: super::IDispatch_Impl {
     fn Components(&self) -> windows_core::Result<IComponents>;
     fn Clone(&self) -> windows_core::Result<ITuneRequest>;
     fn Locator(&self) -> windows_core::Result<ILocator>;
-    fn SetLocator(&self, locator: windows_core::Ref<ILocator>) -> windows_core::Result<()>;
+    fn SetLocator(&self, locator: windows_core::Ref<ILocator>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ITuneRequest_Vtbl {
@@ -7885,7 +7885,7 @@ impl ITuneRequest_Vtbl {
         unsafe extern "system" fn SetLocator<Identity: ITuneRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, locator: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITuneRequest_Impl::SetLocator(this, core::mem::transmute_copy(&locator)).into()
+                ITuneRequest_Impl::SetLocator(this, core::mem::transmute_copy(&locator))
             }
         }
         Self {
@@ -8010,15 +8010,15 @@ pub struct ITuner_Vtbl {
 #[cfg(feature = "oaidl")]
 pub trait ITuner_Impl: windows_core::IUnknownImpl {
     fn TuningSpace(&self) -> windows_core::Result<ITuningSpace>;
-    fn SetTuningSpace(&self, tuningspace: windows_core::Ref<ITuningSpace>) -> windows_core::Result<()>;
+    fn SetTuningSpace(&self, tuningspace: windows_core::Ref<ITuningSpace>) -> windows_core::HRESULT;
     fn EnumTuningSpaces(&self) -> windows_core::Result<IEnumTuningSpaces>;
     fn TuneRequest(&self) -> windows_core::Result<ITuneRequest>;
-    fn SetTuneRequest(&self, tunerequest: windows_core::Ref<ITuneRequest>) -> windows_core::Result<()>;
-    fn Validate(&self, tunerequest: windows_core::Ref<ITuneRequest>) -> windows_core::Result<()>;
+    fn SetTuneRequest(&self, tunerequest: windows_core::Ref<ITuneRequest>) -> windows_core::HRESULT;
+    fn Validate(&self, tunerequest: windows_core::Ref<ITuneRequest>) -> windows_core::HRESULT;
     fn PreferredComponentTypes(&self) -> windows_core::Result<IComponentTypes>;
-    fn SetPreferredComponentTypes(&self, componenttypes: windows_core::Ref<IComponentTypes>) -> windows_core::Result<()>;
+    fn SetPreferredComponentTypes(&self, componenttypes: windows_core::Ref<IComponentTypes>) -> windows_core::HRESULT;
     fn SignalStrength(&self) -> windows_core::Result<i32>;
-    fn TriggerSignalEvents(&self, interval: i32) -> windows_core::Result<()>;
+    fn TriggerSignalEvents(&self, interval: i32) -> windows_core::HRESULT;
 }
 #[cfg(feature = "oaidl")]
 impl ITuner_Vtbl {
@@ -8041,7 +8041,7 @@ impl ITuner_Vtbl {
         unsafe extern "system" fn SetTuningSpace<Identity: ITuner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tuningspace: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITuner_Impl::SetTuningSpace(this, core::mem::transmute_copy(&tuningspace)).into()
+                ITuner_Impl::SetTuningSpace(this, core::mem::transmute_copy(&tuningspace))
             }
         }
         unsafe extern "system" fn EnumTuningSpaces<Identity: ITuner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8077,13 +8077,13 @@ impl ITuner_Vtbl {
         unsafe extern "system" fn SetTuneRequest<Identity: ITuner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tunerequest: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITuner_Impl::SetTuneRequest(this, core::mem::transmute_copy(&tunerequest)).into()
+                ITuner_Impl::SetTuneRequest(this, core::mem::transmute_copy(&tunerequest))
             }
         }
         unsafe extern "system" fn Validate<Identity: ITuner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tunerequest: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITuner_Impl::Validate(this, core::mem::transmute_copy(&tunerequest)).into()
+                ITuner_Impl::Validate(this, core::mem::transmute_copy(&tunerequest))
             }
         }
         unsafe extern "system" fn PreferredComponentTypes<Identity: ITuner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, componenttypes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8104,7 +8104,7 @@ impl ITuner_Vtbl {
         unsafe extern "system" fn SetPreferredComponentTypes<Identity: ITuner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, componenttypes: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITuner_Impl::SetPreferredComponentTypes(this, core::mem::transmute_copy(&componenttypes)).into()
+                ITuner_Impl::SetPreferredComponentTypes(this, core::mem::transmute_copy(&componenttypes))
             }
         }
         unsafe extern "system" fn SignalStrength<Identity: ITuner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strength: *mut i32) -> windows_core::HRESULT {
@@ -8125,7 +8125,7 @@ impl ITuner_Vtbl {
         unsafe extern "system" fn TriggerSignalEvents<Identity: ITuner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interval: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITuner_Impl::TriggerSignalEvents(this, core::mem::transmute_copy(&interval)).into()
+                ITuner_Impl::TriggerSignalEvents(this, core::mem::transmute_copy(&interval))
             }
         }
         Self {
@@ -8183,9 +8183,9 @@ pub struct ITunerCap_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait ITunerCap_Impl: windows_core::IUnknownImpl {
-    fn SupportedNetworkTypes(&self, ulcnetworktypesmax: super::ULONG, pulcnetworktypes: *mut super::ULONG, pguidnetworktypes: *mut windows_core::GUID) -> windows_core::Result<()>;
-    fn SupportedVideoFormats(&self, pulamtunermodetype: *mut super::ULONG, pulanalogvideostandard: *mut super::ULONG) -> windows_core::Result<()>;
-    fn AuxInputCount(&self, pulcompositecount: *mut super::ULONG, pulsvideocount: *mut super::ULONG) -> windows_core::Result<()>;
+    fn SupportedNetworkTypes(&self, ulcnetworktypesmax: super::ULONG, pulcnetworktypes: *mut super::ULONG, pguidnetworktypes: *mut windows_core::GUID) -> windows_core::HRESULT;
+    fn SupportedVideoFormats(&self, pulamtunermodetype: *mut super::ULONG, pulanalogvideostandard: *mut super::ULONG) -> windows_core::HRESULT;
+    fn AuxInputCount(&self, pulcompositecount: *mut super::ULONG, pulsvideocount: *mut super::ULONG) -> windows_core::HRESULT;
 }
 #[cfg(feature = "shared")]
 impl ITunerCap_Vtbl {
@@ -8193,19 +8193,19 @@ impl ITunerCap_Vtbl {
         unsafe extern "system" fn SupportedNetworkTypes<Identity: ITunerCap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulcnetworktypesmax: super::ULONG, pulcnetworktypes: *mut super::ULONG, pguidnetworktypes: *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITunerCap_Impl::SupportedNetworkTypes(this, core::mem::transmute_copy(&ulcnetworktypesmax), core::mem::transmute_copy(&pulcnetworktypes), core::mem::transmute_copy(&pguidnetworktypes)).into()
+                ITunerCap_Impl::SupportedNetworkTypes(this, core::mem::transmute_copy(&ulcnetworktypesmax), core::mem::transmute_copy(&pulcnetworktypes), core::mem::transmute_copy(&pguidnetworktypes))
             }
         }
         unsafe extern "system" fn SupportedVideoFormats<Identity: ITunerCap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulamtunermodetype: *mut super::ULONG, pulanalogvideostandard: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITunerCap_Impl::SupportedVideoFormats(this, core::mem::transmute_copy(&pulamtunermodetype), core::mem::transmute_copy(&pulanalogvideostandard)).into()
+                ITunerCap_Impl::SupportedVideoFormats(this, core::mem::transmute_copy(&pulamtunermodetype), core::mem::transmute_copy(&pulanalogvideostandard))
             }
         }
         unsafe extern "system" fn AuxInputCount<Identity: ITunerCap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulcompositecount: *mut super::ULONG, pulsvideocount: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITunerCap_Impl::AuxInputCount(this, core::mem::transmute_copy(&pulcompositecount), core::mem::transmute_copy(&pulsvideocount)).into()
+                ITunerCap_Impl::AuxInputCount(this, core::mem::transmute_copy(&pulcompositecount), core::mem::transmute_copy(&pulsvideocount))
             }
         }
         Self {
@@ -8424,23 +8424,23 @@ pub struct ITuningSpace_Vtbl {
 #[cfg(all(feature = "comcat", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITuningSpace_Impl: super::IDispatch_Impl {
     fn UniqueName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetUniqueName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetUniqueName(&self, name: &windows_core::BSTR) -> windows_core::HRESULT;
     fn FriendlyName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetFriendlyName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetFriendlyName(&self, name: &windows_core::BSTR) -> windows_core::HRESULT;
     fn CLSID(&self) -> windows_core::Result<windows_core::BSTR>;
     fn NetworkType(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetNetworkType(&self, networktypeguid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetNetworkType(&self, networktypeguid: &windows_core::BSTR) -> windows_core::HRESULT;
     fn _NetworkType(&self) -> windows_core::Result<windows_core::GUID>;
-    fn Set_NetworkType(&self, networktypeguid: *const super::IID) -> windows_core::Result<()>;
+    fn Set_NetworkType(&self, networktypeguid: *const super::IID) -> windows_core::HRESULT;
     fn CreateTuneRequest(&self) -> windows_core::Result<ITuneRequest>;
     fn EnumCategoryGUIDs(&self) -> windows_core::Result<super::IEnumGUID>;
     fn EnumDeviceMonikers(&self) -> windows_core::Result<super::IEnumMoniker>;
     fn DefaultPreferredComponentTypes(&self) -> windows_core::Result<IComponentTypes>;
-    fn SetDefaultPreferredComponentTypes(&self, newcomponenttypes: windows_core::Ref<IComponentTypes>) -> windows_core::Result<()>;
+    fn SetDefaultPreferredComponentTypes(&self, newcomponenttypes: windows_core::Ref<IComponentTypes>) -> windows_core::HRESULT;
     fn FrequencyMapping(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetFrequencyMapping(&self, mapping: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetFrequencyMapping(&self, mapping: &windows_core::BSTR) -> windows_core::HRESULT;
     fn DefaultLocator(&self) -> windows_core::Result<ILocator>;
-    fn SetDefaultLocator(&self, locatorval: windows_core::Ref<ILocator>) -> windows_core::Result<()>;
+    fn SetDefaultLocator(&self, locatorval: windows_core::Ref<ILocator>) -> windows_core::HRESULT;
     fn Clone(&self) -> windows_core::Result<ITuningSpace>;
 }
 #[cfg(all(feature = "comcat", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -8464,7 +8464,7 @@ impl ITuningSpace_Vtbl {
         unsafe extern "system" fn SetUniqueName<Identity: ITuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITuningSpace_Impl::SetUniqueName(this, core::mem::transmute(&name)).into()
+                ITuningSpace_Impl::SetUniqueName(this, core::mem::transmute(&name))
             }
         }
         unsafe extern "system" fn FriendlyName<Identity: ITuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8485,7 +8485,7 @@ impl ITuningSpace_Vtbl {
         unsafe extern "system" fn SetFriendlyName<Identity: ITuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITuningSpace_Impl::SetFriendlyName(this, core::mem::transmute(&name)).into()
+                ITuningSpace_Impl::SetFriendlyName(this, core::mem::transmute(&name))
             }
         }
         unsafe extern "system" fn CLSID<Identity: ITuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, spaceclsid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8521,7 +8521,7 @@ impl ITuningSpace_Vtbl {
         unsafe extern "system" fn SetNetworkType<Identity: ITuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, networktypeguid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITuningSpace_Impl::SetNetworkType(this, core::mem::transmute(&networktypeguid)).into()
+                ITuningSpace_Impl::SetNetworkType(this, core::mem::transmute(&networktypeguid))
             }
         }
         unsafe extern "system" fn _NetworkType<Identity: ITuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, networktypeguid: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -8542,7 +8542,7 @@ impl ITuningSpace_Vtbl {
         unsafe extern "system" fn Set_NetworkType<Identity: ITuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, networktypeguid: *const super::IID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITuningSpace_Impl::Set_NetworkType(this, core::mem::transmute_copy(&networktypeguid)).into()
+                ITuningSpace_Impl::Set_NetworkType(this, core::mem::transmute_copy(&networktypeguid))
             }
         }
         unsafe extern "system" fn CreateTuneRequest<Identity: ITuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tunerequest: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8608,7 +8608,7 @@ impl ITuningSpace_Vtbl {
         unsafe extern "system" fn SetDefaultPreferredComponentTypes<Identity: ITuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newcomponenttypes: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITuningSpace_Impl::SetDefaultPreferredComponentTypes(this, core::mem::transmute_copy(&newcomponenttypes)).into()
+                ITuningSpace_Impl::SetDefaultPreferredComponentTypes(this, core::mem::transmute_copy(&newcomponenttypes))
             }
         }
         unsafe extern "system" fn FrequencyMapping<Identity: ITuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmapping: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8629,7 +8629,7 @@ impl ITuningSpace_Vtbl {
         unsafe extern "system" fn SetFrequencyMapping<Identity: ITuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mapping: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITuningSpace_Impl::SetFrequencyMapping(this, core::mem::transmute(&mapping)).into()
+                ITuningSpace_Impl::SetFrequencyMapping(this, core::mem::transmute(&mapping))
             }
         }
         unsafe extern "system" fn DefaultLocator<Identity: ITuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, locatorval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8650,7 +8650,7 @@ impl ITuningSpace_Vtbl {
         unsafe extern "system" fn SetDefaultLocator<Identity: ITuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, locatorval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITuningSpace_Impl::SetDefaultLocator(this, core::mem::transmute_copy(&locatorval)).into()
+                ITuningSpace_Impl::SetDefaultLocator(this, core::mem::transmute_copy(&locatorval))
             }
         }
         unsafe extern "system" fn Clone<Identity: ITuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newts: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8833,16 +8833,16 @@ pub trait ITuningSpaceContainer_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<super::IEnumVARIANT>;
     fn Item(&self, varindex: &super::VARIANT) -> windows_core::Result<ITuningSpace>;
-    fn SetItem(&self, varindex: &super::VARIANT, tuningspace: windows_core::Ref<ITuningSpace>) -> windows_core::Result<()>;
+    fn SetItem(&self, varindex: &super::VARIANT, tuningspace: windows_core::Ref<ITuningSpace>) -> windows_core::HRESULT;
     fn TuningSpacesForCLSID(&self, spaceclsid: &windows_core::BSTR) -> windows_core::Result<ITuningSpaces>;
     fn _TuningSpacesForCLSID(&self, spaceclsid: *const super::IID) -> windows_core::Result<ITuningSpaces>;
     fn TuningSpacesForName(&self, name: &windows_core::BSTR) -> windows_core::Result<ITuningSpaces>;
     fn FindID(&self, tuningspace: windows_core::Ref<ITuningSpace>) -> windows_core::Result<i32>;
     fn Add(&self, tuningspace: windows_core::Ref<ITuningSpace>) -> windows_core::Result<super::VARIANT>;
     fn EnumTuningSpaces(&self) -> windows_core::Result<IEnumTuningSpaces>;
-    fn Remove(&self, index: &super::VARIANT) -> windows_core::Result<()>;
+    fn Remove(&self, index: &super::VARIANT) -> windows_core::HRESULT;
     fn MaxCount(&self) -> windows_core::Result<i32>;
-    fn SetMaxCount(&self, maxcount: i32) -> windows_core::Result<()>;
+    fn SetMaxCount(&self, maxcount: i32) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ITuningSpaceContainer_Vtbl {
@@ -8895,7 +8895,7 @@ impl ITuningSpaceContainer_Vtbl {
         unsafe extern "system" fn SetItem<Identity: ITuningSpaceContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::VARIANT, tuningspace: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITuningSpaceContainer_Impl::SetItem(this, core::mem::transmute(&varindex), core::mem::transmute_copy(&tuningspace)).into()
+                ITuningSpaceContainer_Impl::SetItem(this, core::mem::transmute(&varindex), core::mem::transmute_copy(&tuningspace))
             }
         }
         unsafe extern "system" fn TuningSpacesForCLSID<Identity: ITuningSpaceContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, spaceclsid: *mut core::ffi::c_void, newcoll: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8991,7 +8991,7 @@ impl ITuningSpaceContainer_Vtbl {
         unsafe extern "system" fn Remove<Identity: ITuningSpaceContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITuningSpaceContainer_Impl::Remove(this, core::mem::transmute(&index)).into()
+                ITuningSpaceContainer_Impl::Remove(this, core::mem::transmute(&index))
             }
         }
         unsafe extern "system" fn MaxCount<Identity: ITuningSpaceContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxcount: *mut i32) -> windows_core::HRESULT {
@@ -9012,7 +9012,7 @@ impl ITuningSpaceContainer_Vtbl {
         unsafe extern "system" fn SetMaxCount<Identity: ITuningSpaceContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxcount: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITuningSpaceContainer_Impl::SetMaxCount(this, core::mem::transmute_copy(&maxcount)).into()
+                ITuningSpaceContainer_Impl::SetMaxCount(this, core::mem::transmute_copy(&maxcount))
             }
         }
         Self {

@@ -2509,7 +2509,7 @@ pub struct IDirectInput2A_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef"))]
 pub trait IDirectInput2A_Impl: IDirectInputA_Impl {
-    fn FindDevice(&self, param0: *const windows_core::GUID, param1: &windows_core::PCSTR, param2: super::LPGUID) -> windows_core::Result<()>;
+    fn FindDevice(&self, param0: *const windows_core::GUID, param1: &windows_core::PCSTR, param2: super::LPGUID) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef"))]
 impl IDirectInput2A_Vtbl {
@@ -2517,7 +2517,7 @@ impl IDirectInput2A_Vtbl {
         unsafe extern "system" fn FindDevice<Identity: IDirectInput2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: windows_core::PCSTR, param2: super::LPGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput2A_Impl::FindDevice(this, core::mem::transmute_copy(&param0), core::mem::transmute(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInput2A_Impl::FindDevice(this, core::mem::transmute_copy(&param0), core::mem::transmute(&param1), core::mem::transmute_copy(&param2))
             }
         }
         Self { base__: IDirectInputA_Vtbl::new::<Identity, OFFSET>(), FindDevice: FindDevice::<Identity, OFFSET> }
@@ -2556,7 +2556,7 @@ pub struct IDirectInput2W_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "winnt"))]
 pub trait IDirectInput2W_Impl: IDirectInputW_Impl {
-    fn FindDevice(&self, param0: *const windows_core::GUID, param1: &windows_core::PCWSTR, param2: super::LPGUID) -> windows_core::Result<()>;
+    fn FindDevice(&self, param0: *const windows_core::GUID, param1: &windows_core::PCWSTR, param2: super::LPGUID) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "winnt"))]
 impl IDirectInput2W_Vtbl {
@@ -2564,7 +2564,7 @@ impl IDirectInput2W_Vtbl {
         unsafe extern "system" fn FindDevice<Identity: IDirectInput2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: windows_core::PCWSTR, param2: super::LPGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput2W_Impl::FindDevice(this, core::mem::transmute_copy(&param0), core::mem::transmute(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInput2W_Impl::FindDevice(this, core::mem::transmute_copy(&param0), core::mem::transmute(&param1), core::mem::transmute_copy(&param2))
             }
         }
         Self { base__: IDirectInputW_Vtbl::new::<Identity, OFFSET>(), FindDevice: FindDevice::<Identity, OFFSET> }
@@ -2603,7 +2603,7 @@ pub struct IDirectInput7A_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef"))]
 pub trait IDirectInput7A_Impl: IDirectInput2A_Impl {
-    fn CreateDeviceEx(&self, param0: *const windows_core::GUID, param1: *const super::IID, param2: *mut super::LPVOID, param3: windows_core::Ref<super::LPUNKNOWN>) -> windows_core::Result<()>;
+    fn CreateDeviceEx(&self, param0: *const windows_core::GUID, param1: *const super::IID, param2: *mut super::LPVOID, param3: windows_core::Ref<super::LPUNKNOWN>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef"))]
 impl IDirectInput7A_Vtbl {
@@ -2611,7 +2611,7 @@ impl IDirectInput7A_Vtbl {
         unsafe extern "system" fn CreateDeviceEx<Identity: IDirectInput7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *const super::IID, param2: *mut super::LPVOID, param3: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput7A_Impl::CreateDeviceEx(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDirectInput7A_Impl::CreateDeviceEx(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3))
             }
         }
         Self { base__: IDirectInput2A_Vtbl::new::<Identity, OFFSET>(), CreateDeviceEx: CreateDeviceEx::<Identity, OFFSET> }
@@ -2650,7 +2650,7 @@ pub struct IDirectInput7W_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "winnt"))]
 pub trait IDirectInput7W_Impl: IDirectInput2W_Impl {
-    fn CreateDeviceEx(&self, param0: *const windows_core::GUID, param1: *const super::IID, param2: *mut super::LPVOID, param3: windows_core::Ref<super::LPUNKNOWN>) -> windows_core::Result<()>;
+    fn CreateDeviceEx(&self, param0: *const windows_core::GUID, param1: *const super::IID, param2: *mut super::LPVOID, param3: windows_core::Ref<super::LPUNKNOWN>) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "winnt"))]
 impl IDirectInput7W_Vtbl {
@@ -2658,7 +2658,7 @@ impl IDirectInput7W_Vtbl {
         unsafe extern "system" fn CreateDeviceEx<Identity: IDirectInput7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *const super::IID, param2: *mut super::LPVOID, param3: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput7W_Impl::CreateDeviceEx(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDirectInput7W_Impl::CreateDeviceEx(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3))
             }
         }
         Self { base__: IDirectInput2W_Vtbl::new::<Identity, OFFSET>(), CreateDeviceEx: CreateDeviceEx::<Identity, OFFSET> }
@@ -2749,14 +2749,14 @@ pub struct IDirectInput8A_Vtbl {
 }
 #[cfg(all(feature = "dsound", feature = "guiddef", feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef"))]
 pub trait IDirectInput8A_Impl: windows_core::IUnknownImpl {
-    fn CreateDevice(&self, param0: *const windows_core::GUID, param1: *mut Option<LPDIRECTINPUTDEVICE8A>, param2: windows_core::Ref<super::LPUNKNOWN>) -> windows_core::Result<()>;
-    fn EnumDevices(&self, param0: super::DWORD, param1: LPDIENUMDEVICESCALLBACKA, param2: super::LPVOID, param3: super::DWORD) -> windows_core::Result<()>;
-    fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn RunControlPanel(&self, param0: super::HWND, param1: super::DWORD) -> windows_core::Result<()>;
-    fn Initialize(&self, param0: super::HINSTANCE, param1: super::DWORD) -> windows_core::Result<()>;
-    fn FindDevice(&self, param0: *const windows_core::GUID, param1: &windows_core::PCSTR, param2: super::LPGUID) -> windows_core::Result<()>;
-    fn EnumDevicesBySemantics(&self, param0: &windows_core::PCSTR, param1: LPDIACTIONFORMATA, param2: LPDIENUMDEVICESBYSEMANTICSCBA, param3: super::LPVOID, param4: super::DWORD) -> windows_core::Result<()>;
-    fn ConfigureDevices(&self, param0: LPDICONFIGUREDEVICESCALLBACK, param1: LPDICONFIGUREDEVICESPARAMSA, param2: super::DWORD, param3: super::LPVOID) -> windows_core::Result<()>;
+    fn CreateDevice(&self, param0: *const windows_core::GUID, param1: *mut Option<LPDIRECTINPUTDEVICE8A>, param2: windows_core::Ref<super::LPUNKNOWN>) -> windows_core::HRESULT;
+    fn EnumDevices(&self, param0: super::DWORD, param1: LPDIENUMDEVICESCALLBACKA, param2: super::LPVOID, param3: super::DWORD) -> windows_core::HRESULT;
+    fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::HRESULT;
+    fn RunControlPanel(&self, param0: super::HWND, param1: super::DWORD) -> windows_core::HRESULT;
+    fn Initialize(&self, param0: super::HINSTANCE, param1: super::DWORD) -> windows_core::HRESULT;
+    fn FindDevice(&self, param0: *const windows_core::GUID, param1: &windows_core::PCSTR, param2: super::LPGUID) -> windows_core::HRESULT;
+    fn EnumDevicesBySemantics(&self, param0: &windows_core::PCSTR, param1: LPDIACTIONFORMATA, param2: LPDIENUMDEVICESBYSEMANTICSCBA, param3: super::LPVOID, param4: super::DWORD) -> windows_core::HRESULT;
+    fn ConfigureDevices(&self, param0: LPDICONFIGUREDEVICESCALLBACK, param1: LPDICONFIGUREDEVICESPARAMSA, param2: super::DWORD, param3: super::LPVOID) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "dsound", feature = "guiddef", feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef"))]
 impl IDirectInput8A_Vtbl {
@@ -2764,49 +2764,49 @@ impl IDirectInput8A_Vtbl {
         unsafe extern "system" fn CreateDevice<Identity: IDirectInput8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput8A_Impl::CreateDevice(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInput8A_Impl::CreateDevice(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2))
             }
         }
         unsafe extern "system" fn EnumDevices<Identity: IDirectInput8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::DWORD, param1: LPDIENUMDEVICESCALLBACKA, param2: super::LPVOID, param3: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput8A_Impl::EnumDevices(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDirectInput8A_Impl::EnumDevices(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3))
             }
         }
         unsafe extern "system" fn GetDeviceStatus<Identity: IDirectInput8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput8A_Impl::GetDeviceStatus(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInput8A_Impl::GetDeviceStatus(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn RunControlPanel<Identity: IDirectInput8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::HWND, param1: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput8A_Impl::RunControlPanel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInput8A_Impl::RunControlPanel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn Initialize<Identity: IDirectInput8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::HINSTANCE, param1: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput8A_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInput8A_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn FindDevice<Identity: IDirectInput8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: windows_core::PCSTR, param2: super::LPGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput8A_Impl::FindDevice(this, core::mem::transmute_copy(&param0), core::mem::transmute(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInput8A_Impl::FindDevice(this, core::mem::transmute_copy(&param0), core::mem::transmute(&param1), core::mem::transmute_copy(&param2))
             }
         }
         unsafe extern "system" fn EnumDevicesBySemantics<Identity: IDirectInput8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: windows_core::PCSTR, param1: LPDIACTIONFORMATA, param2: LPDIENUMDEVICESBYSEMANTICSCBA, param3: super::LPVOID, param4: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput8A_Impl::EnumDevicesBySemantics(this, core::mem::transmute(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
+                IDirectInput8A_Impl::EnumDevicesBySemantics(this, core::mem::transmute(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4))
             }
         }
         unsafe extern "system" fn ConfigureDevices<Identity: IDirectInput8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDICONFIGUREDEVICESCALLBACK, param1: LPDICONFIGUREDEVICESPARAMSA, param2: super::DWORD, param3: super::LPVOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput8A_Impl::ConfigureDevices(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDirectInput8A_Impl::ConfigureDevices(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3))
             }
         }
         Self {
@@ -2907,14 +2907,14 @@ pub struct IDirectInput8W_Vtbl {
 }
 #[cfg(all(feature = "dsound", feature = "guiddef", feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "winnt"))]
 pub trait IDirectInput8W_Impl: windows_core::IUnknownImpl {
-    fn CreateDevice(&self, param0: *const windows_core::GUID, param1: *mut Option<LPDIRECTINPUTDEVICE8W>, param2: windows_core::Ref<super::LPUNKNOWN>) -> windows_core::Result<()>;
-    fn EnumDevices(&self, param0: super::DWORD, param1: LPDIENUMDEVICESCALLBACKW, param2: super::LPVOID, param3: super::DWORD) -> windows_core::Result<()>;
-    fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn RunControlPanel(&self, param0: super::HWND, param1: super::DWORD) -> windows_core::Result<()>;
-    fn Initialize(&self, param0: super::HINSTANCE, param1: super::DWORD) -> windows_core::Result<()>;
-    fn FindDevice(&self, param0: *const windows_core::GUID, param1: &windows_core::PCWSTR, param2: super::LPGUID) -> windows_core::Result<()>;
-    fn EnumDevicesBySemantics(&self, param0: &windows_core::PCWSTR, param1: LPDIACTIONFORMATW, param2: LPDIENUMDEVICESBYSEMANTICSCBW, param3: super::LPVOID, param4: super::DWORD) -> windows_core::Result<()>;
-    fn ConfigureDevices(&self, param0: LPDICONFIGUREDEVICESCALLBACK, param1: LPDICONFIGUREDEVICESPARAMSW, param2: super::DWORD, param3: super::LPVOID) -> windows_core::Result<()>;
+    fn CreateDevice(&self, param0: *const windows_core::GUID, param1: *mut Option<LPDIRECTINPUTDEVICE8W>, param2: windows_core::Ref<super::LPUNKNOWN>) -> windows_core::HRESULT;
+    fn EnumDevices(&self, param0: super::DWORD, param1: LPDIENUMDEVICESCALLBACKW, param2: super::LPVOID, param3: super::DWORD) -> windows_core::HRESULT;
+    fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::HRESULT;
+    fn RunControlPanel(&self, param0: super::HWND, param1: super::DWORD) -> windows_core::HRESULT;
+    fn Initialize(&self, param0: super::HINSTANCE, param1: super::DWORD) -> windows_core::HRESULT;
+    fn FindDevice(&self, param0: *const windows_core::GUID, param1: &windows_core::PCWSTR, param2: super::LPGUID) -> windows_core::HRESULT;
+    fn EnumDevicesBySemantics(&self, param0: &windows_core::PCWSTR, param1: LPDIACTIONFORMATW, param2: LPDIENUMDEVICESBYSEMANTICSCBW, param3: super::LPVOID, param4: super::DWORD) -> windows_core::HRESULT;
+    fn ConfigureDevices(&self, param0: LPDICONFIGUREDEVICESCALLBACK, param1: LPDICONFIGUREDEVICESPARAMSW, param2: super::DWORD, param3: super::LPVOID) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "dsound", feature = "guiddef", feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "winnt"))]
 impl IDirectInput8W_Vtbl {
@@ -2922,49 +2922,49 @@ impl IDirectInput8W_Vtbl {
         unsafe extern "system" fn CreateDevice<Identity: IDirectInput8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput8W_Impl::CreateDevice(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInput8W_Impl::CreateDevice(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2))
             }
         }
         unsafe extern "system" fn EnumDevices<Identity: IDirectInput8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::DWORD, param1: LPDIENUMDEVICESCALLBACKW, param2: super::LPVOID, param3: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput8W_Impl::EnumDevices(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDirectInput8W_Impl::EnumDevices(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3))
             }
         }
         unsafe extern "system" fn GetDeviceStatus<Identity: IDirectInput8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput8W_Impl::GetDeviceStatus(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInput8W_Impl::GetDeviceStatus(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn RunControlPanel<Identity: IDirectInput8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::HWND, param1: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput8W_Impl::RunControlPanel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInput8W_Impl::RunControlPanel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn Initialize<Identity: IDirectInput8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::HINSTANCE, param1: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput8W_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInput8W_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn FindDevice<Identity: IDirectInput8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: windows_core::PCWSTR, param2: super::LPGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput8W_Impl::FindDevice(this, core::mem::transmute_copy(&param0), core::mem::transmute(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInput8W_Impl::FindDevice(this, core::mem::transmute_copy(&param0), core::mem::transmute(&param1), core::mem::transmute_copy(&param2))
             }
         }
         unsafe extern "system" fn EnumDevicesBySemantics<Identity: IDirectInput8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: windows_core::PCWSTR, param1: LPDIACTIONFORMATW, param2: LPDIENUMDEVICESBYSEMANTICSCBW, param3: super::LPVOID, param4: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput8W_Impl::EnumDevicesBySemantics(this, core::mem::transmute(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
+                IDirectInput8W_Impl::EnumDevicesBySemantics(this, core::mem::transmute(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4))
             }
         }
         unsafe extern "system" fn ConfigureDevices<Identity: IDirectInput8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDICONFIGUREDEVICESCALLBACK, param1: LPDICONFIGUREDEVICESPARAMSW, param2: super::DWORD, param3: super::LPVOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput8W_Impl::ConfigureDevices(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDirectInput8W_Impl::ConfigureDevices(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3))
             }
         }
         Self {
@@ -3035,11 +3035,11 @@ pub struct IDirectInputA_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef"))]
 pub trait IDirectInputA_Impl: windows_core::IUnknownImpl {
-    fn CreateDevice(&self, param0: *const windows_core::GUID, param1: *mut Option<LPDIRECTINPUTDEVICEA>, param2: windows_core::Ref<super::LPUNKNOWN>) -> windows_core::Result<()>;
-    fn EnumDevices(&self, param0: super::DWORD, param1: LPDIENUMDEVICESCALLBACKA, param2: super::LPVOID, param3: super::DWORD) -> windows_core::Result<()>;
-    fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn RunControlPanel(&self, param0: super::HWND, param1: super::DWORD) -> windows_core::Result<()>;
-    fn Initialize(&self, param0: super::HINSTANCE, param1: super::DWORD) -> windows_core::Result<()>;
+    fn CreateDevice(&self, param0: *const windows_core::GUID, param1: *mut Option<LPDIRECTINPUTDEVICEA>, param2: windows_core::Ref<super::LPUNKNOWN>) -> windows_core::HRESULT;
+    fn EnumDevices(&self, param0: super::DWORD, param1: LPDIENUMDEVICESCALLBACKA, param2: super::LPVOID, param3: super::DWORD) -> windows_core::HRESULT;
+    fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::HRESULT;
+    fn RunControlPanel(&self, param0: super::HWND, param1: super::DWORD) -> windows_core::HRESULT;
+    fn Initialize(&self, param0: super::HINSTANCE, param1: super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef"))]
 impl IDirectInputA_Vtbl {
@@ -3047,31 +3047,31 @@ impl IDirectInputA_Vtbl {
         unsafe extern "system" fn CreateDevice<Identity: IDirectInputA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputA_Impl::CreateDevice(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInputA_Impl::CreateDevice(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2))
             }
         }
         unsafe extern "system" fn EnumDevices<Identity: IDirectInputA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::DWORD, param1: LPDIENUMDEVICESCALLBACKA, param2: super::LPVOID, param3: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputA_Impl::EnumDevices(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDirectInputA_Impl::EnumDevices(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3))
             }
         }
         unsafe extern "system" fn GetDeviceStatus<Identity: IDirectInputA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputA_Impl::GetDeviceStatus(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputA_Impl::GetDeviceStatus(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn RunControlPanel<Identity: IDirectInputA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::HWND, param1: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputA_Impl::RunControlPanel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInputA_Impl::RunControlPanel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn Initialize<Identity: IDirectInputA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::HINSTANCE, param1: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputA_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInputA_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         Self {
@@ -3177,15 +3177,15 @@ pub struct IDirectInputDevice2A_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "winnt"))]
 pub trait IDirectInputDevice2A_Impl: IDirectInputDeviceA_Impl {
-    fn CreateEffect(&self, param0: *const windows_core::GUID, param1: LPCDIEFFECT, param2: *mut Option<LPDIRECTINPUTEFFECT>, param3: windows_core::Ref<super::LPUNKNOWN>) -> windows_core::Result<()>;
-    fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKA, param1: super::LPVOID, param2: super::DWORD) -> windows_core::Result<()>;
-    fn GetEffectInfo(&self, param0: LPDIEFFECTINFOA, param1: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn GetForceFeedbackState(&self, param0: super::LPDWORD) -> windows_core::Result<()>;
-    fn SendForceFeedbackCommand(&self, param0: super::DWORD) -> windows_core::Result<()>;
-    fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: super::LPVOID, param2: super::DWORD) -> windows_core::Result<()>;
-    fn Escape(&self, param0: LPDIEFFESCAPE) -> windows_core::Result<()>;
-    fn Poll(&self) -> windows_core::Result<()>;
-    fn SendDeviceData(&self, param0: super::DWORD, param1: LPCDIDEVICEOBJECTDATA, param2: super::LPDWORD, param3: super::DWORD) -> windows_core::Result<()>;
+    fn CreateEffect(&self, param0: *const windows_core::GUID, param1: LPCDIEFFECT, param2: *mut Option<LPDIRECTINPUTEFFECT>, param3: windows_core::Ref<super::LPUNKNOWN>) -> windows_core::HRESULT;
+    fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKA, param1: super::LPVOID, param2: super::DWORD) -> windows_core::HRESULT;
+    fn GetEffectInfo(&self, param0: LPDIEFFECTINFOA, param1: *const windows_core::GUID) -> windows_core::HRESULT;
+    fn GetForceFeedbackState(&self, param0: super::LPDWORD) -> windows_core::HRESULT;
+    fn SendForceFeedbackCommand(&self, param0: super::DWORD) -> windows_core::HRESULT;
+    fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: super::LPVOID, param2: super::DWORD) -> windows_core::HRESULT;
+    fn Escape(&self, param0: LPDIEFFESCAPE) -> windows_core::HRESULT;
+    fn Poll(&self) -> windows_core::HRESULT;
+    fn SendDeviceData(&self, param0: super::DWORD, param1: LPCDIDEVICEOBJECTDATA, param2: super::LPDWORD, param3: super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "winnt"))]
 impl IDirectInputDevice2A_Vtbl {
@@ -3193,55 +3193,55 @@ impl IDirectInputDevice2A_Vtbl {
         unsafe extern "system" fn CreateEffect<Identity: IDirectInputDevice2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: LPCDIEFFECT, param2: *mut *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2A_Impl::CreateEffect(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDirectInputDevice2A_Impl::CreateEffect(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3))
             }
         }
         unsafe extern "system" fn EnumEffects<Identity: IDirectInputDevice2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIENUMEFFECTSCALLBACKA, param1: super::LPVOID, param2: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2A_Impl::EnumEffects(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInputDevice2A_Impl::EnumEffects(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2))
             }
         }
         unsafe extern "system" fn GetEffectInfo<Identity: IDirectInputDevice2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIEFFECTINFOA, param1: *const windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2A_Impl::GetEffectInfo(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInputDevice2A_Impl::GetEffectInfo(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn GetForceFeedbackState<Identity: IDirectInputDevice2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::LPDWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2A_Impl::GetForceFeedbackState(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputDevice2A_Impl::GetForceFeedbackState(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn SendForceFeedbackCommand<Identity: IDirectInputDevice2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2A_Impl::SendForceFeedbackCommand(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputDevice2A_Impl::SendForceFeedbackCommand(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn EnumCreatedEffectObjects<Identity: IDirectInputDevice2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: super::LPVOID, param2: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2A_Impl::EnumCreatedEffectObjects(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInputDevice2A_Impl::EnumCreatedEffectObjects(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2))
             }
         }
         unsafe extern "system" fn Escape<Identity: IDirectInputDevice2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIEFFESCAPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2A_Impl::Escape(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputDevice2A_Impl::Escape(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn Poll<Identity: IDirectInputDevice2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2A_Impl::Poll(this).into()
+                IDirectInputDevice2A_Impl::Poll(this)
             }
         }
         unsafe extern "system" fn SendDeviceData<Identity: IDirectInputDevice2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::DWORD, param1: LPCDIDEVICEOBJECTDATA, param2: super::LPDWORD, param3: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2A_Impl::SendDeviceData(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDirectInputDevice2A_Impl::SendDeviceData(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3))
             }
         }
         Self {
@@ -3351,15 +3351,15 @@ pub struct IDirectInputDevice2W_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "winnt"))]
 pub trait IDirectInputDevice2W_Impl: IDirectInputDeviceW_Impl {
-    fn CreateEffect(&self, param0: *const windows_core::GUID, param1: LPCDIEFFECT, param2: *mut Option<LPDIRECTINPUTEFFECT>, param3: windows_core::Ref<super::LPUNKNOWN>) -> windows_core::Result<()>;
-    fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKW, param1: super::LPVOID, param2: super::DWORD) -> windows_core::Result<()>;
-    fn GetEffectInfo(&self, param0: LPDIEFFECTINFOW, param1: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn GetForceFeedbackState(&self, param0: super::LPDWORD) -> windows_core::Result<()>;
-    fn SendForceFeedbackCommand(&self, param0: super::DWORD) -> windows_core::Result<()>;
-    fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: super::LPVOID, param2: super::DWORD) -> windows_core::Result<()>;
-    fn Escape(&self, param0: LPDIEFFESCAPE) -> windows_core::Result<()>;
-    fn Poll(&self) -> windows_core::Result<()>;
-    fn SendDeviceData(&self, param0: super::DWORD, param1: LPCDIDEVICEOBJECTDATA, param2: super::LPDWORD, param3: super::DWORD) -> windows_core::Result<()>;
+    fn CreateEffect(&self, param0: *const windows_core::GUID, param1: LPCDIEFFECT, param2: *mut Option<LPDIRECTINPUTEFFECT>, param3: windows_core::Ref<super::LPUNKNOWN>) -> windows_core::HRESULT;
+    fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKW, param1: super::LPVOID, param2: super::DWORD) -> windows_core::HRESULT;
+    fn GetEffectInfo(&self, param0: LPDIEFFECTINFOW, param1: *const windows_core::GUID) -> windows_core::HRESULT;
+    fn GetForceFeedbackState(&self, param0: super::LPDWORD) -> windows_core::HRESULT;
+    fn SendForceFeedbackCommand(&self, param0: super::DWORD) -> windows_core::HRESULT;
+    fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: super::LPVOID, param2: super::DWORD) -> windows_core::HRESULT;
+    fn Escape(&self, param0: LPDIEFFESCAPE) -> windows_core::HRESULT;
+    fn Poll(&self) -> windows_core::HRESULT;
+    fn SendDeviceData(&self, param0: super::DWORD, param1: LPCDIDEVICEOBJECTDATA, param2: super::LPDWORD, param3: super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "winnt"))]
 impl IDirectInputDevice2W_Vtbl {
@@ -3367,55 +3367,55 @@ impl IDirectInputDevice2W_Vtbl {
         unsafe extern "system" fn CreateEffect<Identity: IDirectInputDevice2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: LPCDIEFFECT, param2: *mut *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2W_Impl::CreateEffect(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDirectInputDevice2W_Impl::CreateEffect(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3))
             }
         }
         unsafe extern "system" fn EnumEffects<Identity: IDirectInputDevice2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIENUMEFFECTSCALLBACKW, param1: super::LPVOID, param2: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2W_Impl::EnumEffects(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInputDevice2W_Impl::EnumEffects(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2))
             }
         }
         unsafe extern "system" fn GetEffectInfo<Identity: IDirectInputDevice2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIEFFECTINFOW, param1: *const windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2W_Impl::GetEffectInfo(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInputDevice2W_Impl::GetEffectInfo(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn GetForceFeedbackState<Identity: IDirectInputDevice2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::LPDWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2W_Impl::GetForceFeedbackState(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputDevice2W_Impl::GetForceFeedbackState(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn SendForceFeedbackCommand<Identity: IDirectInputDevice2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2W_Impl::SendForceFeedbackCommand(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputDevice2W_Impl::SendForceFeedbackCommand(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn EnumCreatedEffectObjects<Identity: IDirectInputDevice2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: super::LPVOID, param2: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2W_Impl::EnumCreatedEffectObjects(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInputDevice2W_Impl::EnumCreatedEffectObjects(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2))
             }
         }
         unsafe extern "system" fn Escape<Identity: IDirectInputDevice2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIEFFESCAPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2W_Impl::Escape(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputDevice2W_Impl::Escape(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn Poll<Identity: IDirectInputDevice2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2W_Impl::Poll(this).into()
+                IDirectInputDevice2W_Impl::Poll(this)
             }
         }
         unsafe extern "system" fn SendDeviceData<Identity: IDirectInputDevice2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::DWORD, param1: LPCDIDEVICEOBJECTDATA, param2: super::LPDWORD, param3: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2W_Impl::SendDeviceData(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDirectInputDevice2W_Impl::SendDeviceData(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3))
             }
         }
         Self {
@@ -3476,8 +3476,8 @@ pub struct IDirectInputDevice7A_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "winnt"))]
 pub trait IDirectInputDevice7A_Impl: IDirectInputDevice2A_Impl {
-    fn EnumEffectsInFile(&self, param0: &windows_core::PCSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: super::LPVOID, param3: super::DWORD) -> windows_core::Result<()>;
-    fn WriteEffectToFile(&self, param0: &windows_core::PCSTR, param1: super::DWORD, param2: LPDIFILEEFFECT, param3: super::DWORD) -> windows_core::Result<()>;
+    fn EnumEffectsInFile(&self, param0: &windows_core::PCSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: super::LPVOID, param3: super::DWORD) -> windows_core::HRESULT;
+    fn WriteEffectToFile(&self, param0: &windows_core::PCSTR, param1: super::DWORD, param2: LPDIFILEEFFECT, param3: super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "winnt"))]
 impl IDirectInputDevice7A_Vtbl {
@@ -3485,13 +3485,13 @@ impl IDirectInputDevice7A_Vtbl {
         unsafe extern "system" fn EnumEffectsInFile<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: windows_core::PCSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: super::LPVOID, param3: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7A_Impl::EnumEffectsInFile(this, core::mem::transmute(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDirectInputDevice7A_Impl::EnumEffectsInFile(this, core::mem::transmute(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3))
             }
         }
         unsafe extern "system" fn WriteEffectToFile<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: windows_core::PCSTR, param1: super::DWORD, param2: LPDIFILEEFFECT, param3: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7A_Impl::WriteEffectToFile(this, core::mem::transmute(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDirectInputDevice7A_Impl::WriteEffectToFile(this, core::mem::transmute(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3))
             }
         }
         Self {
@@ -3545,8 +3545,8 @@ pub struct IDirectInputDevice7W_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "winnt"))]
 pub trait IDirectInputDevice7W_Impl: IDirectInputDevice2W_Impl {
-    fn EnumEffectsInFile(&self, param0: &windows_core::PCWSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: super::LPVOID, param3: super::DWORD) -> windows_core::Result<()>;
-    fn WriteEffectToFile(&self, param0: &windows_core::PCWSTR, param1: super::DWORD, param2: LPDIFILEEFFECT, param3: super::DWORD) -> windows_core::Result<()>;
+    fn EnumEffectsInFile(&self, param0: &windows_core::PCWSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: super::LPVOID, param3: super::DWORD) -> windows_core::HRESULT;
+    fn WriteEffectToFile(&self, param0: &windows_core::PCWSTR, param1: super::DWORD, param2: LPDIFILEEFFECT, param3: super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "winnt"))]
 impl IDirectInputDevice7W_Vtbl {
@@ -3554,13 +3554,13 @@ impl IDirectInputDevice7W_Vtbl {
         unsafe extern "system" fn EnumEffectsInFile<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: windows_core::PCWSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: super::LPVOID, param3: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7W_Impl::EnumEffectsInFile(this, core::mem::transmute(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDirectInputDevice7W_Impl::EnumEffectsInFile(this, core::mem::transmute(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3))
             }
         }
         unsafe extern "system" fn WriteEffectToFile<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: windows_core::PCWSTR, param1: super::DWORD, param2: LPDIFILEEFFECT, param3: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7W_Impl::WriteEffectToFile(this, core::mem::transmute(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDirectInputDevice7W_Impl::WriteEffectToFile(this, core::mem::transmute(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3))
             }
         }
         Self {
@@ -3821,35 +3821,35 @@ pub struct IDirectInputDevice8A_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "winnt"))]
 pub trait IDirectInputDevice8A_Impl: windows_core::IUnknownImpl {
-    fn GetCapabilities(&self, param0: LPDIDEVCAPS) -> windows_core::Result<()>;
-    fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKA, param1: super::LPVOID, param2: super::DWORD) -> windows_core::Result<()>;
-    fn GetProperty(&self, param0: *const windows_core::GUID, param1: LPDIPROPHEADER) -> windows_core::Result<()>;
-    fn SetProperty(&self, param0: *const windows_core::GUID, param1: LPCDIPROPHEADER) -> windows_core::Result<()>;
-    fn Acquire(&self) -> windows_core::Result<()>;
-    fn Unacquire(&self) -> windows_core::Result<()>;
-    fn GetDeviceState(&self, param0: super::DWORD, param1: super::LPVOID) -> windows_core::Result<()>;
-    fn GetDeviceData(&self, param0: super::DWORD, param1: LPDIDEVICEOBJECTDATA, param2: super::LPDWORD, param3: super::DWORD) -> windows_core::Result<()>;
-    fn SetDataFormat(&self, param0: LPCDIDATAFORMAT) -> windows_core::Result<()>;
-    fn SetEventNotification(&self, param0: super::HANDLE) -> windows_core::Result<()>;
-    fn SetCooperativeLevel(&self, param0: super::HWND, param1: super::DWORD) -> windows_core::Result<()>;
-    fn GetObjectInfo(&self, param0: LPDIDEVICEOBJECTINSTANCEA, param1: super::DWORD, param2: super::DWORD) -> windows_core::Result<()>;
-    fn GetDeviceInfo(&self, param0: LPDIDEVICEINSTANCEA) -> windows_core::Result<()>;
-    fn RunControlPanel(&self, param0: super::HWND, param1: super::DWORD) -> windows_core::Result<()>;
-    fn Initialize(&self, param0: super::HINSTANCE, param1: super::DWORD, param2: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn CreateEffect(&self, param0: *const windows_core::GUID, param1: LPCDIEFFECT, param2: *mut Option<LPDIRECTINPUTEFFECT>, param3: windows_core::Ref<super::LPUNKNOWN>) -> windows_core::Result<()>;
-    fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKA, param1: super::LPVOID, param2: super::DWORD) -> windows_core::Result<()>;
-    fn GetEffectInfo(&self, param0: LPDIEFFECTINFOA, param1: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn GetForceFeedbackState(&self, param0: super::LPDWORD) -> windows_core::Result<()>;
-    fn SendForceFeedbackCommand(&self, param0: super::DWORD) -> windows_core::Result<()>;
-    fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: super::LPVOID, param2: super::DWORD) -> windows_core::Result<()>;
-    fn Escape(&self, param0: LPDIEFFESCAPE) -> windows_core::Result<()>;
-    fn Poll(&self) -> windows_core::Result<()>;
-    fn SendDeviceData(&self, param0: super::DWORD, param1: LPCDIDEVICEOBJECTDATA, param2: super::LPDWORD, param3: super::DWORD) -> windows_core::Result<()>;
-    fn EnumEffectsInFile(&self, param0: &windows_core::PCSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: super::LPVOID, param3: super::DWORD) -> windows_core::Result<()>;
-    fn WriteEffectToFile(&self, param0: &windows_core::PCSTR, param1: super::DWORD, param2: LPDIFILEEFFECT, param3: super::DWORD) -> windows_core::Result<()>;
-    fn BuildActionMap(&self, param0: LPDIACTIONFORMATA, param1: &windows_core::PCSTR, param2: super::DWORD) -> windows_core::Result<()>;
-    fn SetActionMap(&self, param0: LPDIACTIONFORMATA, param1: &windows_core::PCSTR, param2: super::DWORD) -> windows_core::Result<()>;
-    fn GetImageInfo(&self, param0: LPDIDEVICEIMAGEINFOHEADERA) -> windows_core::Result<()>;
+    fn GetCapabilities(&self, param0: LPDIDEVCAPS) -> windows_core::HRESULT;
+    fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKA, param1: super::LPVOID, param2: super::DWORD) -> windows_core::HRESULT;
+    fn GetProperty(&self, param0: *const windows_core::GUID, param1: LPDIPROPHEADER) -> windows_core::HRESULT;
+    fn SetProperty(&self, param0: *const windows_core::GUID, param1: LPCDIPROPHEADER) -> windows_core::HRESULT;
+    fn Acquire(&self) -> windows_core::HRESULT;
+    fn Unacquire(&self) -> windows_core::HRESULT;
+    fn GetDeviceState(&self, param0: super::DWORD, param1: super::LPVOID) -> windows_core::HRESULT;
+    fn GetDeviceData(&self, param0: super::DWORD, param1: LPDIDEVICEOBJECTDATA, param2: super::LPDWORD, param3: super::DWORD) -> windows_core::HRESULT;
+    fn SetDataFormat(&self, param0: LPCDIDATAFORMAT) -> windows_core::HRESULT;
+    fn SetEventNotification(&self, param0: super::HANDLE) -> windows_core::HRESULT;
+    fn SetCooperativeLevel(&self, param0: super::HWND, param1: super::DWORD) -> windows_core::HRESULT;
+    fn GetObjectInfo(&self, param0: LPDIDEVICEOBJECTINSTANCEA, param1: super::DWORD, param2: super::DWORD) -> windows_core::HRESULT;
+    fn GetDeviceInfo(&self, param0: LPDIDEVICEINSTANCEA) -> windows_core::HRESULT;
+    fn RunControlPanel(&self, param0: super::HWND, param1: super::DWORD) -> windows_core::HRESULT;
+    fn Initialize(&self, param0: super::HINSTANCE, param1: super::DWORD, param2: *const windows_core::GUID) -> windows_core::HRESULT;
+    fn CreateEffect(&self, param0: *const windows_core::GUID, param1: LPCDIEFFECT, param2: *mut Option<LPDIRECTINPUTEFFECT>, param3: windows_core::Ref<super::LPUNKNOWN>) -> windows_core::HRESULT;
+    fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKA, param1: super::LPVOID, param2: super::DWORD) -> windows_core::HRESULT;
+    fn GetEffectInfo(&self, param0: LPDIEFFECTINFOA, param1: *const windows_core::GUID) -> windows_core::HRESULT;
+    fn GetForceFeedbackState(&self, param0: super::LPDWORD) -> windows_core::HRESULT;
+    fn SendForceFeedbackCommand(&self, param0: super::DWORD) -> windows_core::HRESULT;
+    fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: super::LPVOID, param2: super::DWORD) -> windows_core::HRESULT;
+    fn Escape(&self, param0: LPDIEFFESCAPE) -> windows_core::HRESULT;
+    fn Poll(&self) -> windows_core::HRESULT;
+    fn SendDeviceData(&self, param0: super::DWORD, param1: LPCDIDEVICEOBJECTDATA, param2: super::LPDWORD, param3: super::DWORD) -> windows_core::HRESULT;
+    fn EnumEffectsInFile(&self, param0: &windows_core::PCSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: super::LPVOID, param3: super::DWORD) -> windows_core::HRESULT;
+    fn WriteEffectToFile(&self, param0: &windows_core::PCSTR, param1: super::DWORD, param2: LPDIFILEEFFECT, param3: super::DWORD) -> windows_core::HRESULT;
+    fn BuildActionMap(&self, param0: LPDIACTIONFORMATA, param1: &windows_core::PCSTR, param2: super::DWORD) -> windows_core::HRESULT;
+    fn SetActionMap(&self, param0: LPDIACTIONFORMATA, param1: &windows_core::PCSTR, param2: super::DWORD) -> windows_core::HRESULT;
+    fn GetImageInfo(&self, param0: LPDIDEVICEIMAGEINFOHEADERA) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "winnt"))]
 impl IDirectInputDevice8A_Vtbl {
@@ -3857,175 +3857,175 @@ impl IDirectInputDevice8A_Vtbl {
         unsafe extern "system" fn GetCapabilities<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIDEVCAPS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8A_Impl::GetCapabilities(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputDevice8A_Impl::GetCapabilities(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn EnumObjects<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIENUMDEVICEOBJECTSCALLBACKA, param1: super::LPVOID, param2: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8A_Impl::EnumObjects(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInputDevice8A_Impl::EnumObjects(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2))
             }
         }
         unsafe extern "system" fn GetProperty<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: LPDIPROPHEADER) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8A_Impl::GetProperty(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInputDevice8A_Impl::GetProperty(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn SetProperty<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: LPCDIPROPHEADER) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8A_Impl::SetProperty(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInputDevice8A_Impl::SetProperty(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn Acquire<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8A_Impl::Acquire(this).into()
+                IDirectInputDevice8A_Impl::Acquire(this)
             }
         }
         unsafe extern "system" fn Unacquire<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8A_Impl::Unacquire(this).into()
+                IDirectInputDevice8A_Impl::Unacquire(this)
             }
         }
         unsafe extern "system" fn GetDeviceState<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::DWORD, param1: super::LPVOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8A_Impl::GetDeviceState(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInputDevice8A_Impl::GetDeviceState(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn GetDeviceData<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::DWORD, param1: LPDIDEVICEOBJECTDATA, param2: super::LPDWORD, param3: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8A_Impl::GetDeviceData(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDirectInputDevice8A_Impl::GetDeviceData(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3))
             }
         }
         unsafe extern "system" fn SetDataFormat<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPCDIDATAFORMAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8A_Impl::SetDataFormat(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputDevice8A_Impl::SetDataFormat(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn SetEventNotification<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8A_Impl::SetEventNotification(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputDevice8A_Impl::SetEventNotification(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn SetCooperativeLevel<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::HWND, param1: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8A_Impl::SetCooperativeLevel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInputDevice8A_Impl::SetCooperativeLevel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn GetObjectInfo<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIDEVICEOBJECTINSTANCEA, param1: super::DWORD, param2: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8A_Impl::GetObjectInfo(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInputDevice8A_Impl::GetObjectInfo(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2))
             }
         }
         unsafe extern "system" fn GetDeviceInfo<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIDEVICEINSTANCEA) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8A_Impl::GetDeviceInfo(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputDevice8A_Impl::GetDeviceInfo(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn RunControlPanel<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::HWND, param1: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8A_Impl::RunControlPanel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInputDevice8A_Impl::RunControlPanel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn Initialize<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::HINSTANCE, param1: super::DWORD, param2: *const windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8A_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInputDevice8A_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2))
             }
         }
         unsafe extern "system" fn CreateEffect<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: LPCDIEFFECT, param2: *mut *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8A_Impl::CreateEffect(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDirectInputDevice8A_Impl::CreateEffect(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3))
             }
         }
         unsafe extern "system" fn EnumEffects<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIENUMEFFECTSCALLBACKA, param1: super::LPVOID, param2: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8A_Impl::EnumEffects(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInputDevice8A_Impl::EnumEffects(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2))
             }
         }
         unsafe extern "system" fn GetEffectInfo<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIEFFECTINFOA, param1: *const windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8A_Impl::GetEffectInfo(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInputDevice8A_Impl::GetEffectInfo(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn GetForceFeedbackState<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::LPDWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8A_Impl::GetForceFeedbackState(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputDevice8A_Impl::GetForceFeedbackState(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn SendForceFeedbackCommand<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8A_Impl::SendForceFeedbackCommand(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputDevice8A_Impl::SendForceFeedbackCommand(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn EnumCreatedEffectObjects<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: super::LPVOID, param2: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8A_Impl::EnumCreatedEffectObjects(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInputDevice8A_Impl::EnumCreatedEffectObjects(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2))
             }
         }
         unsafe extern "system" fn Escape<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIEFFESCAPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8A_Impl::Escape(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputDevice8A_Impl::Escape(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn Poll<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8A_Impl::Poll(this).into()
+                IDirectInputDevice8A_Impl::Poll(this)
             }
         }
         unsafe extern "system" fn SendDeviceData<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::DWORD, param1: LPCDIDEVICEOBJECTDATA, param2: super::LPDWORD, param3: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8A_Impl::SendDeviceData(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDirectInputDevice8A_Impl::SendDeviceData(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3))
             }
         }
         unsafe extern "system" fn EnumEffectsInFile<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: windows_core::PCSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: super::LPVOID, param3: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8A_Impl::EnumEffectsInFile(this, core::mem::transmute(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDirectInputDevice8A_Impl::EnumEffectsInFile(this, core::mem::transmute(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3))
             }
         }
         unsafe extern "system" fn WriteEffectToFile<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: windows_core::PCSTR, param1: super::DWORD, param2: LPDIFILEEFFECT, param3: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8A_Impl::WriteEffectToFile(this, core::mem::transmute(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDirectInputDevice8A_Impl::WriteEffectToFile(this, core::mem::transmute(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3))
             }
         }
         unsafe extern "system" fn BuildActionMap<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIACTIONFORMATA, param1: windows_core::PCSTR, param2: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8A_Impl::BuildActionMap(this, core::mem::transmute_copy(&param0), core::mem::transmute(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInputDevice8A_Impl::BuildActionMap(this, core::mem::transmute_copy(&param0), core::mem::transmute(&param1), core::mem::transmute_copy(&param2))
             }
         }
         unsafe extern "system" fn SetActionMap<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIACTIONFORMATA, param1: windows_core::PCSTR, param2: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8A_Impl::SetActionMap(this, core::mem::transmute_copy(&param0), core::mem::transmute(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInputDevice8A_Impl::SetActionMap(this, core::mem::transmute_copy(&param0), core::mem::transmute(&param1), core::mem::transmute_copy(&param2))
             }
         }
         unsafe extern "system" fn GetImageInfo<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIDEVICEIMAGEINFOHEADERA) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8A_Impl::GetImageInfo(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputDevice8A_Impl::GetImageInfo(this, core::mem::transmute_copy(&param0))
             }
         }
         Self {
@@ -4313,35 +4313,35 @@ pub struct IDirectInputDevice8W_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "winnt"))]
 pub trait IDirectInputDevice8W_Impl: windows_core::IUnknownImpl {
-    fn GetCapabilities(&self, param0: LPDIDEVCAPS) -> windows_core::Result<()>;
-    fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKW, param1: super::LPVOID, param2: super::DWORD) -> windows_core::Result<()>;
-    fn GetProperty(&self, param0: *const windows_core::GUID, param1: LPDIPROPHEADER) -> windows_core::Result<()>;
-    fn SetProperty(&self, param0: *const windows_core::GUID, param1: LPCDIPROPHEADER) -> windows_core::Result<()>;
-    fn Acquire(&self) -> windows_core::Result<()>;
-    fn Unacquire(&self) -> windows_core::Result<()>;
-    fn GetDeviceState(&self, param0: super::DWORD, param1: super::LPVOID) -> windows_core::Result<()>;
-    fn GetDeviceData(&self, param0: super::DWORD, param1: LPDIDEVICEOBJECTDATA, param2: super::LPDWORD, param3: super::DWORD) -> windows_core::Result<()>;
-    fn SetDataFormat(&self, param0: LPCDIDATAFORMAT) -> windows_core::Result<()>;
-    fn SetEventNotification(&self, param0: super::HANDLE) -> windows_core::Result<()>;
-    fn SetCooperativeLevel(&self, param0: super::HWND, param1: super::DWORD) -> windows_core::Result<()>;
-    fn GetObjectInfo(&self, param0: LPDIDEVICEOBJECTINSTANCEW, param1: super::DWORD, param2: super::DWORD) -> windows_core::Result<()>;
-    fn GetDeviceInfo(&self, param0: LPDIDEVICEINSTANCEW) -> windows_core::Result<()>;
-    fn RunControlPanel(&self, param0: super::HWND, param1: super::DWORD) -> windows_core::Result<()>;
-    fn Initialize(&self, param0: super::HINSTANCE, param1: super::DWORD, param2: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn CreateEffect(&self, param0: *const windows_core::GUID, param1: LPCDIEFFECT, param2: *mut Option<LPDIRECTINPUTEFFECT>, param3: windows_core::Ref<super::LPUNKNOWN>) -> windows_core::Result<()>;
-    fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKW, param1: super::LPVOID, param2: super::DWORD) -> windows_core::Result<()>;
-    fn GetEffectInfo(&self, param0: LPDIEFFECTINFOW, param1: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn GetForceFeedbackState(&self, param0: super::LPDWORD) -> windows_core::Result<()>;
-    fn SendForceFeedbackCommand(&self, param0: super::DWORD) -> windows_core::Result<()>;
-    fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: super::LPVOID, param2: super::DWORD) -> windows_core::Result<()>;
-    fn Escape(&self, param0: LPDIEFFESCAPE) -> windows_core::Result<()>;
-    fn Poll(&self) -> windows_core::Result<()>;
-    fn SendDeviceData(&self, param0: super::DWORD, param1: LPCDIDEVICEOBJECTDATA, param2: super::LPDWORD, param3: super::DWORD) -> windows_core::Result<()>;
-    fn EnumEffectsInFile(&self, param0: &windows_core::PCWSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: super::LPVOID, param3: super::DWORD) -> windows_core::Result<()>;
-    fn WriteEffectToFile(&self, param0: &windows_core::PCWSTR, param1: super::DWORD, param2: LPDIFILEEFFECT, param3: super::DWORD) -> windows_core::Result<()>;
-    fn BuildActionMap(&self, param0: LPDIACTIONFORMATW, param1: &windows_core::PCWSTR, param2: super::DWORD) -> windows_core::Result<()>;
-    fn SetActionMap(&self, param0: LPDIACTIONFORMATW, param1: &windows_core::PCWSTR, param2: super::DWORD) -> windows_core::Result<()>;
-    fn GetImageInfo(&self, param0: LPDIDEVICEIMAGEINFOHEADERW) -> windows_core::Result<()>;
+    fn GetCapabilities(&self, param0: LPDIDEVCAPS) -> windows_core::HRESULT;
+    fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKW, param1: super::LPVOID, param2: super::DWORD) -> windows_core::HRESULT;
+    fn GetProperty(&self, param0: *const windows_core::GUID, param1: LPDIPROPHEADER) -> windows_core::HRESULT;
+    fn SetProperty(&self, param0: *const windows_core::GUID, param1: LPCDIPROPHEADER) -> windows_core::HRESULT;
+    fn Acquire(&self) -> windows_core::HRESULT;
+    fn Unacquire(&self) -> windows_core::HRESULT;
+    fn GetDeviceState(&self, param0: super::DWORD, param1: super::LPVOID) -> windows_core::HRESULT;
+    fn GetDeviceData(&self, param0: super::DWORD, param1: LPDIDEVICEOBJECTDATA, param2: super::LPDWORD, param3: super::DWORD) -> windows_core::HRESULT;
+    fn SetDataFormat(&self, param0: LPCDIDATAFORMAT) -> windows_core::HRESULT;
+    fn SetEventNotification(&self, param0: super::HANDLE) -> windows_core::HRESULT;
+    fn SetCooperativeLevel(&self, param0: super::HWND, param1: super::DWORD) -> windows_core::HRESULT;
+    fn GetObjectInfo(&self, param0: LPDIDEVICEOBJECTINSTANCEW, param1: super::DWORD, param2: super::DWORD) -> windows_core::HRESULT;
+    fn GetDeviceInfo(&self, param0: LPDIDEVICEINSTANCEW) -> windows_core::HRESULT;
+    fn RunControlPanel(&self, param0: super::HWND, param1: super::DWORD) -> windows_core::HRESULT;
+    fn Initialize(&self, param0: super::HINSTANCE, param1: super::DWORD, param2: *const windows_core::GUID) -> windows_core::HRESULT;
+    fn CreateEffect(&self, param0: *const windows_core::GUID, param1: LPCDIEFFECT, param2: *mut Option<LPDIRECTINPUTEFFECT>, param3: windows_core::Ref<super::LPUNKNOWN>) -> windows_core::HRESULT;
+    fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKW, param1: super::LPVOID, param2: super::DWORD) -> windows_core::HRESULT;
+    fn GetEffectInfo(&self, param0: LPDIEFFECTINFOW, param1: *const windows_core::GUID) -> windows_core::HRESULT;
+    fn GetForceFeedbackState(&self, param0: super::LPDWORD) -> windows_core::HRESULT;
+    fn SendForceFeedbackCommand(&self, param0: super::DWORD) -> windows_core::HRESULT;
+    fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: super::LPVOID, param2: super::DWORD) -> windows_core::HRESULT;
+    fn Escape(&self, param0: LPDIEFFESCAPE) -> windows_core::HRESULT;
+    fn Poll(&self) -> windows_core::HRESULT;
+    fn SendDeviceData(&self, param0: super::DWORD, param1: LPCDIDEVICEOBJECTDATA, param2: super::LPDWORD, param3: super::DWORD) -> windows_core::HRESULT;
+    fn EnumEffectsInFile(&self, param0: &windows_core::PCWSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: super::LPVOID, param3: super::DWORD) -> windows_core::HRESULT;
+    fn WriteEffectToFile(&self, param0: &windows_core::PCWSTR, param1: super::DWORD, param2: LPDIFILEEFFECT, param3: super::DWORD) -> windows_core::HRESULT;
+    fn BuildActionMap(&self, param0: LPDIACTIONFORMATW, param1: &windows_core::PCWSTR, param2: super::DWORD) -> windows_core::HRESULT;
+    fn SetActionMap(&self, param0: LPDIACTIONFORMATW, param1: &windows_core::PCWSTR, param2: super::DWORD) -> windows_core::HRESULT;
+    fn GetImageInfo(&self, param0: LPDIDEVICEIMAGEINFOHEADERW) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "winnt"))]
 impl IDirectInputDevice8W_Vtbl {
@@ -4349,175 +4349,175 @@ impl IDirectInputDevice8W_Vtbl {
         unsafe extern "system" fn GetCapabilities<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIDEVCAPS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8W_Impl::GetCapabilities(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputDevice8W_Impl::GetCapabilities(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn EnumObjects<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIENUMDEVICEOBJECTSCALLBACKW, param1: super::LPVOID, param2: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8W_Impl::EnumObjects(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInputDevice8W_Impl::EnumObjects(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2))
             }
         }
         unsafe extern "system" fn GetProperty<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: LPDIPROPHEADER) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8W_Impl::GetProperty(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInputDevice8W_Impl::GetProperty(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn SetProperty<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: LPCDIPROPHEADER) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8W_Impl::SetProperty(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInputDevice8W_Impl::SetProperty(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn Acquire<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8W_Impl::Acquire(this).into()
+                IDirectInputDevice8W_Impl::Acquire(this)
             }
         }
         unsafe extern "system" fn Unacquire<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8W_Impl::Unacquire(this).into()
+                IDirectInputDevice8W_Impl::Unacquire(this)
             }
         }
         unsafe extern "system" fn GetDeviceState<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::DWORD, param1: super::LPVOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8W_Impl::GetDeviceState(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInputDevice8W_Impl::GetDeviceState(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn GetDeviceData<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::DWORD, param1: LPDIDEVICEOBJECTDATA, param2: super::LPDWORD, param3: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8W_Impl::GetDeviceData(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDirectInputDevice8W_Impl::GetDeviceData(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3))
             }
         }
         unsafe extern "system" fn SetDataFormat<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPCDIDATAFORMAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8W_Impl::SetDataFormat(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputDevice8W_Impl::SetDataFormat(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn SetEventNotification<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8W_Impl::SetEventNotification(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputDevice8W_Impl::SetEventNotification(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn SetCooperativeLevel<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::HWND, param1: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8W_Impl::SetCooperativeLevel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInputDevice8W_Impl::SetCooperativeLevel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn GetObjectInfo<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIDEVICEOBJECTINSTANCEW, param1: super::DWORD, param2: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8W_Impl::GetObjectInfo(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInputDevice8W_Impl::GetObjectInfo(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2))
             }
         }
         unsafe extern "system" fn GetDeviceInfo<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIDEVICEINSTANCEW) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8W_Impl::GetDeviceInfo(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputDevice8W_Impl::GetDeviceInfo(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn RunControlPanel<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::HWND, param1: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8W_Impl::RunControlPanel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInputDevice8W_Impl::RunControlPanel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn Initialize<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::HINSTANCE, param1: super::DWORD, param2: *const windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8W_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInputDevice8W_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2))
             }
         }
         unsafe extern "system" fn CreateEffect<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: LPCDIEFFECT, param2: *mut *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8W_Impl::CreateEffect(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDirectInputDevice8W_Impl::CreateEffect(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3))
             }
         }
         unsafe extern "system" fn EnumEffects<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIENUMEFFECTSCALLBACKW, param1: super::LPVOID, param2: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8W_Impl::EnumEffects(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInputDevice8W_Impl::EnumEffects(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2))
             }
         }
         unsafe extern "system" fn GetEffectInfo<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIEFFECTINFOW, param1: *const windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8W_Impl::GetEffectInfo(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInputDevice8W_Impl::GetEffectInfo(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn GetForceFeedbackState<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::LPDWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8W_Impl::GetForceFeedbackState(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputDevice8W_Impl::GetForceFeedbackState(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn SendForceFeedbackCommand<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8W_Impl::SendForceFeedbackCommand(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputDevice8W_Impl::SendForceFeedbackCommand(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn EnumCreatedEffectObjects<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: super::LPVOID, param2: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8W_Impl::EnumCreatedEffectObjects(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInputDevice8W_Impl::EnumCreatedEffectObjects(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2))
             }
         }
         unsafe extern "system" fn Escape<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIEFFESCAPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8W_Impl::Escape(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputDevice8W_Impl::Escape(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn Poll<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8W_Impl::Poll(this).into()
+                IDirectInputDevice8W_Impl::Poll(this)
             }
         }
         unsafe extern "system" fn SendDeviceData<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::DWORD, param1: LPCDIDEVICEOBJECTDATA, param2: super::LPDWORD, param3: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8W_Impl::SendDeviceData(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDirectInputDevice8W_Impl::SendDeviceData(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3))
             }
         }
         unsafe extern "system" fn EnumEffectsInFile<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: windows_core::PCWSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: super::LPVOID, param3: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8W_Impl::EnumEffectsInFile(this, core::mem::transmute(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDirectInputDevice8W_Impl::EnumEffectsInFile(this, core::mem::transmute(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3))
             }
         }
         unsafe extern "system" fn WriteEffectToFile<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: windows_core::PCWSTR, param1: super::DWORD, param2: LPDIFILEEFFECT, param3: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8W_Impl::WriteEffectToFile(this, core::mem::transmute(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDirectInputDevice8W_Impl::WriteEffectToFile(this, core::mem::transmute(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3))
             }
         }
         unsafe extern "system" fn BuildActionMap<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIACTIONFORMATW, param1: windows_core::PCWSTR, param2: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8W_Impl::BuildActionMap(this, core::mem::transmute_copy(&param0), core::mem::transmute(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInputDevice8W_Impl::BuildActionMap(this, core::mem::transmute_copy(&param0), core::mem::transmute(&param1), core::mem::transmute_copy(&param2))
             }
         }
         unsafe extern "system" fn SetActionMap<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIACTIONFORMATW, param1: windows_core::PCWSTR, param2: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8W_Impl::SetActionMap(this, core::mem::transmute_copy(&param0), core::mem::transmute(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInputDevice8W_Impl::SetActionMap(this, core::mem::transmute_copy(&param0), core::mem::transmute(&param1), core::mem::transmute_copy(&param2))
             }
         }
         unsafe extern "system" fn GetImageInfo<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIDEVICEIMAGEINFOHEADERW) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8W_Impl::GetImageInfo(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputDevice8W_Impl::GetImageInfo(this, core::mem::transmute_copy(&param0))
             }
         }
         Self {
@@ -4682,21 +4682,21 @@ pub struct IDirectInputDeviceA_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IDirectInputDeviceA_Impl: windows_core::IUnknownImpl {
-    fn GetCapabilities(&self, param0: LPDIDEVCAPS) -> windows_core::Result<()>;
-    fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKA, param1: super::LPVOID, param2: super::DWORD) -> windows_core::Result<()>;
-    fn GetProperty(&self, param0: *const windows_core::GUID, param1: LPDIPROPHEADER) -> windows_core::Result<()>;
-    fn SetProperty(&self, param0: *const windows_core::GUID, param1: LPCDIPROPHEADER) -> windows_core::Result<()>;
-    fn Acquire(&self) -> windows_core::Result<()>;
-    fn Unacquire(&self) -> windows_core::Result<()>;
-    fn GetDeviceState(&self, param0: super::DWORD, param1: super::LPVOID) -> windows_core::Result<()>;
-    fn GetDeviceData(&self, param0: super::DWORD, param1: LPDIDEVICEOBJECTDATA, param2: super::LPDWORD, param3: super::DWORD) -> windows_core::Result<()>;
-    fn SetDataFormat(&self, param0: LPCDIDATAFORMAT) -> windows_core::Result<()>;
-    fn SetEventNotification(&self, param0: super::HANDLE) -> windows_core::Result<()>;
-    fn SetCooperativeLevel(&self, param0: super::HWND, param1: super::DWORD) -> windows_core::Result<()>;
-    fn GetObjectInfo(&self, param0: LPDIDEVICEOBJECTINSTANCEA, param1: super::DWORD, param2: super::DWORD) -> windows_core::Result<()>;
-    fn GetDeviceInfo(&self, param0: LPDIDEVICEINSTANCEA) -> windows_core::Result<()>;
-    fn RunControlPanel(&self, param0: super::HWND, param1: super::DWORD) -> windows_core::Result<()>;
-    fn Initialize(&self, param0: super::HINSTANCE, param1: super::DWORD, param2: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn GetCapabilities(&self, param0: LPDIDEVCAPS) -> windows_core::HRESULT;
+    fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKA, param1: super::LPVOID, param2: super::DWORD) -> windows_core::HRESULT;
+    fn GetProperty(&self, param0: *const windows_core::GUID, param1: LPDIPROPHEADER) -> windows_core::HRESULT;
+    fn SetProperty(&self, param0: *const windows_core::GUID, param1: LPCDIPROPHEADER) -> windows_core::HRESULT;
+    fn Acquire(&self) -> windows_core::HRESULT;
+    fn Unacquire(&self) -> windows_core::HRESULT;
+    fn GetDeviceState(&self, param0: super::DWORD, param1: super::LPVOID) -> windows_core::HRESULT;
+    fn GetDeviceData(&self, param0: super::DWORD, param1: LPDIDEVICEOBJECTDATA, param2: super::LPDWORD, param3: super::DWORD) -> windows_core::HRESULT;
+    fn SetDataFormat(&self, param0: LPCDIDATAFORMAT) -> windows_core::HRESULT;
+    fn SetEventNotification(&self, param0: super::HANDLE) -> windows_core::HRESULT;
+    fn SetCooperativeLevel(&self, param0: super::HWND, param1: super::DWORD) -> windows_core::HRESULT;
+    fn GetObjectInfo(&self, param0: LPDIDEVICEOBJECTINSTANCEA, param1: super::DWORD, param2: super::DWORD) -> windows_core::HRESULT;
+    fn GetDeviceInfo(&self, param0: LPDIDEVICEINSTANCEA) -> windows_core::HRESULT;
+    fn RunControlPanel(&self, param0: super::HWND, param1: super::DWORD) -> windows_core::HRESULT;
+    fn Initialize(&self, param0: super::HINSTANCE, param1: super::DWORD, param2: *const windows_core::GUID) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl IDirectInputDeviceA_Vtbl {
@@ -4704,91 +4704,91 @@ impl IDirectInputDeviceA_Vtbl {
         unsafe extern "system" fn GetCapabilities<Identity: IDirectInputDeviceA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIDEVCAPS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceA_Impl::GetCapabilities(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputDeviceA_Impl::GetCapabilities(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn EnumObjects<Identity: IDirectInputDeviceA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIENUMDEVICEOBJECTSCALLBACKA, param1: super::LPVOID, param2: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceA_Impl::EnumObjects(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInputDeviceA_Impl::EnumObjects(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2))
             }
         }
         unsafe extern "system" fn GetProperty<Identity: IDirectInputDeviceA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: LPDIPROPHEADER) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceA_Impl::GetProperty(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInputDeviceA_Impl::GetProperty(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn SetProperty<Identity: IDirectInputDeviceA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: LPCDIPROPHEADER) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceA_Impl::SetProperty(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInputDeviceA_Impl::SetProperty(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn Acquire<Identity: IDirectInputDeviceA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceA_Impl::Acquire(this).into()
+                IDirectInputDeviceA_Impl::Acquire(this)
             }
         }
         unsafe extern "system" fn Unacquire<Identity: IDirectInputDeviceA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceA_Impl::Unacquire(this).into()
+                IDirectInputDeviceA_Impl::Unacquire(this)
             }
         }
         unsafe extern "system" fn GetDeviceState<Identity: IDirectInputDeviceA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::DWORD, param1: super::LPVOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceA_Impl::GetDeviceState(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInputDeviceA_Impl::GetDeviceState(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn GetDeviceData<Identity: IDirectInputDeviceA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::DWORD, param1: LPDIDEVICEOBJECTDATA, param2: super::LPDWORD, param3: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceA_Impl::GetDeviceData(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDirectInputDeviceA_Impl::GetDeviceData(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3))
             }
         }
         unsafe extern "system" fn SetDataFormat<Identity: IDirectInputDeviceA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPCDIDATAFORMAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceA_Impl::SetDataFormat(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputDeviceA_Impl::SetDataFormat(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn SetEventNotification<Identity: IDirectInputDeviceA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceA_Impl::SetEventNotification(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputDeviceA_Impl::SetEventNotification(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn SetCooperativeLevel<Identity: IDirectInputDeviceA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::HWND, param1: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceA_Impl::SetCooperativeLevel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInputDeviceA_Impl::SetCooperativeLevel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn GetObjectInfo<Identity: IDirectInputDeviceA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIDEVICEOBJECTINSTANCEA, param1: super::DWORD, param2: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceA_Impl::GetObjectInfo(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInputDeviceA_Impl::GetObjectInfo(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2))
             }
         }
         unsafe extern "system" fn GetDeviceInfo<Identity: IDirectInputDeviceA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIDEVICEINSTANCEA) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceA_Impl::GetDeviceInfo(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputDeviceA_Impl::GetDeviceInfo(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn RunControlPanel<Identity: IDirectInputDeviceA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::HWND, param1: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceA_Impl::RunControlPanel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInputDeviceA_Impl::RunControlPanel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn Initialize<Identity: IDirectInputDeviceA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::HINSTANCE, param1: super::DWORD, param2: *const windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceA_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInputDeviceA_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2))
             }
         }
         Self {
@@ -4939,21 +4939,21 @@ pub struct IDirectInputDeviceW_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IDirectInputDeviceW_Impl: windows_core::IUnknownImpl {
-    fn GetCapabilities(&self, param0: LPDIDEVCAPS) -> windows_core::Result<()>;
-    fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKW, param1: super::LPVOID, param2: super::DWORD) -> windows_core::Result<()>;
-    fn GetProperty(&self, param0: *const windows_core::GUID, param1: LPDIPROPHEADER) -> windows_core::Result<()>;
-    fn SetProperty(&self, param0: *const windows_core::GUID, param1: LPCDIPROPHEADER) -> windows_core::Result<()>;
-    fn Acquire(&self) -> windows_core::Result<()>;
-    fn Unacquire(&self) -> windows_core::Result<()>;
-    fn GetDeviceState(&self, param0: super::DWORD, param1: super::LPVOID) -> windows_core::Result<()>;
-    fn GetDeviceData(&self, param0: super::DWORD, param1: LPDIDEVICEOBJECTDATA, param2: super::LPDWORD, param3: super::DWORD) -> windows_core::Result<()>;
-    fn SetDataFormat(&self, param0: LPCDIDATAFORMAT) -> windows_core::Result<()>;
-    fn SetEventNotification(&self, param0: super::HANDLE) -> windows_core::Result<()>;
-    fn SetCooperativeLevel(&self, param0: super::HWND, param1: super::DWORD) -> windows_core::Result<()>;
-    fn GetObjectInfo(&self, param0: LPDIDEVICEOBJECTINSTANCEW, param1: super::DWORD, param2: super::DWORD) -> windows_core::Result<()>;
-    fn GetDeviceInfo(&self, param0: LPDIDEVICEINSTANCEW) -> windows_core::Result<()>;
-    fn RunControlPanel(&self, param0: super::HWND, param1: super::DWORD) -> windows_core::Result<()>;
-    fn Initialize(&self, param0: super::HINSTANCE, param1: super::DWORD, param2: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn GetCapabilities(&self, param0: LPDIDEVCAPS) -> windows_core::HRESULT;
+    fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKW, param1: super::LPVOID, param2: super::DWORD) -> windows_core::HRESULT;
+    fn GetProperty(&self, param0: *const windows_core::GUID, param1: LPDIPROPHEADER) -> windows_core::HRESULT;
+    fn SetProperty(&self, param0: *const windows_core::GUID, param1: LPCDIPROPHEADER) -> windows_core::HRESULT;
+    fn Acquire(&self) -> windows_core::HRESULT;
+    fn Unacquire(&self) -> windows_core::HRESULT;
+    fn GetDeviceState(&self, param0: super::DWORD, param1: super::LPVOID) -> windows_core::HRESULT;
+    fn GetDeviceData(&self, param0: super::DWORD, param1: LPDIDEVICEOBJECTDATA, param2: super::LPDWORD, param3: super::DWORD) -> windows_core::HRESULT;
+    fn SetDataFormat(&self, param0: LPCDIDATAFORMAT) -> windows_core::HRESULT;
+    fn SetEventNotification(&self, param0: super::HANDLE) -> windows_core::HRESULT;
+    fn SetCooperativeLevel(&self, param0: super::HWND, param1: super::DWORD) -> windows_core::HRESULT;
+    fn GetObjectInfo(&self, param0: LPDIDEVICEOBJECTINSTANCEW, param1: super::DWORD, param2: super::DWORD) -> windows_core::HRESULT;
+    fn GetDeviceInfo(&self, param0: LPDIDEVICEINSTANCEW) -> windows_core::HRESULT;
+    fn RunControlPanel(&self, param0: super::HWND, param1: super::DWORD) -> windows_core::HRESULT;
+    fn Initialize(&self, param0: super::HINSTANCE, param1: super::DWORD, param2: *const windows_core::GUID) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl IDirectInputDeviceW_Vtbl {
@@ -4961,91 +4961,91 @@ impl IDirectInputDeviceW_Vtbl {
         unsafe extern "system" fn GetCapabilities<Identity: IDirectInputDeviceW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIDEVCAPS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceW_Impl::GetCapabilities(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputDeviceW_Impl::GetCapabilities(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn EnumObjects<Identity: IDirectInputDeviceW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIENUMDEVICEOBJECTSCALLBACKW, param1: super::LPVOID, param2: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceW_Impl::EnumObjects(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInputDeviceW_Impl::EnumObjects(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2))
             }
         }
         unsafe extern "system" fn GetProperty<Identity: IDirectInputDeviceW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: LPDIPROPHEADER) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceW_Impl::GetProperty(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInputDeviceW_Impl::GetProperty(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn SetProperty<Identity: IDirectInputDeviceW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: LPCDIPROPHEADER) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceW_Impl::SetProperty(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInputDeviceW_Impl::SetProperty(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn Acquire<Identity: IDirectInputDeviceW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceW_Impl::Acquire(this).into()
+                IDirectInputDeviceW_Impl::Acquire(this)
             }
         }
         unsafe extern "system" fn Unacquire<Identity: IDirectInputDeviceW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceW_Impl::Unacquire(this).into()
+                IDirectInputDeviceW_Impl::Unacquire(this)
             }
         }
         unsafe extern "system" fn GetDeviceState<Identity: IDirectInputDeviceW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::DWORD, param1: super::LPVOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceW_Impl::GetDeviceState(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInputDeviceW_Impl::GetDeviceState(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn GetDeviceData<Identity: IDirectInputDeviceW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::DWORD, param1: LPDIDEVICEOBJECTDATA, param2: super::LPDWORD, param3: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceW_Impl::GetDeviceData(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDirectInputDeviceW_Impl::GetDeviceData(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3))
             }
         }
         unsafe extern "system" fn SetDataFormat<Identity: IDirectInputDeviceW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPCDIDATAFORMAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceW_Impl::SetDataFormat(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputDeviceW_Impl::SetDataFormat(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn SetEventNotification<Identity: IDirectInputDeviceW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceW_Impl::SetEventNotification(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputDeviceW_Impl::SetEventNotification(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn SetCooperativeLevel<Identity: IDirectInputDeviceW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::HWND, param1: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceW_Impl::SetCooperativeLevel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInputDeviceW_Impl::SetCooperativeLevel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn GetObjectInfo<Identity: IDirectInputDeviceW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIDEVICEOBJECTINSTANCEW, param1: super::DWORD, param2: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceW_Impl::GetObjectInfo(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInputDeviceW_Impl::GetObjectInfo(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2))
             }
         }
         unsafe extern "system" fn GetDeviceInfo<Identity: IDirectInputDeviceW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIDEVICEINSTANCEW) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceW_Impl::GetDeviceInfo(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputDeviceW_Impl::GetDeviceInfo(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn RunControlPanel<Identity: IDirectInputDeviceW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::HWND, param1: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceW_Impl::RunControlPanel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInputDeviceW_Impl::RunControlPanel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn Initialize<Identity: IDirectInputDeviceW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::HINSTANCE, param1: super::DWORD, param2: *const windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceW_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInputDeviceW_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2))
             }
         }
         Self {
@@ -5152,16 +5152,16 @@ pub struct IDirectInputEffect_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 pub trait IDirectInputEffect_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, param0: super::HINSTANCE, param1: super::DWORD, param2: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn GetEffectGuid(&self, param0: super::LPGUID) -> windows_core::Result<()>;
-    fn GetParameters(&self, param0: LPDIEFFECT, param1: super::DWORD) -> windows_core::Result<()>;
-    fn SetParameters(&self, param0: LPCDIEFFECT, param1: super::DWORD) -> windows_core::Result<()>;
-    fn Start(&self, param0: super::DWORD, param1: super::DWORD) -> windows_core::Result<()>;
-    fn Stop(&self) -> windows_core::Result<()>;
-    fn GetEffectStatus(&self, param0: super::LPDWORD) -> windows_core::Result<()>;
-    fn Download(&self) -> windows_core::Result<()>;
-    fn Unload(&self) -> windows_core::Result<()>;
-    fn Escape(&self, param0: LPDIEFFESCAPE) -> windows_core::Result<()>;
+    fn Initialize(&self, param0: super::HINSTANCE, param1: super::DWORD, param2: *const windows_core::GUID) -> windows_core::HRESULT;
+    fn GetEffectGuid(&self, param0: super::LPGUID) -> windows_core::HRESULT;
+    fn GetParameters(&self, param0: LPDIEFFECT, param1: super::DWORD) -> windows_core::HRESULT;
+    fn SetParameters(&self, param0: LPCDIEFFECT, param1: super::DWORD) -> windows_core::HRESULT;
+    fn Start(&self, param0: super::DWORD, param1: super::DWORD) -> windows_core::HRESULT;
+    fn Stop(&self) -> windows_core::HRESULT;
+    fn GetEffectStatus(&self, param0: super::LPDWORD) -> windows_core::HRESULT;
+    fn Download(&self) -> windows_core::HRESULT;
+    fn Unload(&self) -> windows_core::HRESULT;
+    fn Escape(&self, param0: LPDIEFFESCAPE) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 impl IDirectInputEffect_Vtbl {
@@ -5169,61 +5169,61 @@ impl IDirectInputEffect_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IDirectInputEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::HINSTANCE, param1: super::DWORD, param2: *const windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputEffect_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInputEffect_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2))
             }
         }
         unsafe extern "system" fn GetEffectGuid<Identity: IDirectInputEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::LPGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputEffect_Impl::GetEffectGuid(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputEffect_Impl::GetEffectGuid(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn GetParameters<Identity: IDirectInputEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIEFFECT, param1: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputEffect_Impl::GetParameters(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInputEffect_Impl::GetParameters(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn SetParameters<Identity: IDirectInputEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPCDIEFFECT, param1: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputEffect_Impl::SetParameters(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInputEffect_Impl::SetParameters(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn Start<Identity: IDirectInputEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::DWORD, param1: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputEffect_Impl::Start(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInputEffect_Impl::Start(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn Stop<Identity: IDirectInputEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputEffect_Impl::Stop(this).into()
+                IDirectInputEffect_Impl::Stop(this)
             }
         }
         unsafe extern "system" fn GetEffectStatus<Identity: IDirectInputEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::LPDWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputEffect_Impl::GetEffectStatus(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputEffect_Impl::GetEffectStatus(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn Download<Identity: IDirectInputEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputEffect_Impl::Download(this).into()
+                IDirectInputEffect_Impl::Download(this)
             }
         }
         unsafe extern "system" fn Unload<Identity: IDirectInputEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputEffect_Impl::Unload(this).into()
+                IDirectInputEffect_Impl::Unload(this)
             }
         }
         unsafe extern "system" fn Escape<Identity: IDirectInputEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIEFFESCAPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputEffect_Impl::Escape(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputEffect_Impl::Escape(this, core::mem::transmute_copy(&param0))
             }
         }
         Self {
@@ -5296,11 +5296,11 @@ pub struct IDirectInputW_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "winnt"))]
 pub trait IDirectInputW_Impl: windows_core::IUnknownImpl {
-    fn CreateDevice(&self, param0: *const windows_core::GUID, param1: *mut Option<LPDIRECTINPUTDEVICEW>, param2: windows_core::Ref<super::LPUNKNOWN>) -> windows_core::Result<()>;
-    fn EnumDevices(&self, param0: super::DWORD, param1: LPDIENUMDEVICESCALLBACKW, param2: super::LPVOID, param3: super::DWORD) -> windows_core::Result<()>;
-    fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn RunControlPanel(&self, param0: super::HWND, param1: super::DWORD) -> windows_core::Result<()>;
-    fn Initialize(&self, param0: super::HINSTANCE, param1: super::DWORD) -> windows_core::Result<()>;
+    fn CreateDevice(&self, param0: *const windows_core::GUID, param1: *mut Option<LPDIRECTINPUTDEVICEW>, param2: windows_core::Ref<super::LPUNKNOWN>) -> windows_core::HRESULT;
+    fn EnumDevices(&self, param0: super::DWORD, param1: LPDIENUMDEVICESCALLBACKW, param2: super::LPVOID, param3: super::DWORD) -> windows_core::HRESULT;
+    fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::HRESULT;
+    fn RunControlPanel(&self, param0: super::HWND, param1: super::DWORD) -> windows_core::HRESULT;
+    fn Initialize(&self, param0: super::HINSTANCE, param1: super::DWORD) -> windows_core::HRESULT;
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "winnt"))]
 impl IDirectInputW_Vtbl {
@@ -5308,31 +5308,31 @@ impl IDirectInputW_Vtbl {
         unsafe extern "system" fn CreateDevice<Identity: IDirectInputW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputW_Impl::CreateDevice(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectInputW_Impl::CreateDevice(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2))
             }
         }
         unsafe extern "system" fn EnumDevices<Identity: IDirectInputW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::DWORD, param1: LPDIENUMDEVICESCALLBACKW, param2: super::LPVOID, param3: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputW_Impl::EnumDevices(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDirectInputW_Impl::EnumDevices(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3))
             }
         }
         unsafe extern "system" fn GetDeviceStatus<Identity: IDirectInputW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputW_Impl::GetDeviceStatus(this, core::mem::transmute_copy(&param0)).into()
+                IDirectInputW_Impl::GetDeviceStatus(this, core::mem::transmute_copy(&param0))
             }
         }
         unsafe extern "system" fn RunControlPanel<Identity: IDirectInputW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::HWND, param1: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputW_Impl::RunControlPanel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInputW_Impl::RunControlPanel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         unsafe extern "system" fn Initialize<Identity: IDirectInputW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::HINSTANCE, param1: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputW_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectInputW_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1))
             }
         }
         Self {
