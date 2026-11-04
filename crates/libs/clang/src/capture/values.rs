@@ -151,7 +151,7 @@ impl Capture<'_> {
             location: self.location(cursor),
             written,
             canonical,
-            attributes: self.attributes(cursor)?,
+            attributes: self.function_attributes(cursor)?,
             kind: ValueKind::Function {
                 alias: None,
                 parameters,
@@ -161,6 +161,35 @@ impl Capture<'_> {
                 stdcall_candidate,
             },
         })
+    }
+
+    fn function_attributes(&mut self, cursor: CXCursor) -> Result<Vec<Attribute>, Error> {
+        let mut attributes = self.attributes(cursor)?;
+        let mut latest = unsafe { clang_getNullCursor() };
+        let status = unsafe { windows_clang_getLatestFunctionDeclaration(cursor, &raw mut latest) };
+        if status != WindowsClangSuccess {
+            return Err(unsupported(
+                cursor,
+                &format!("function redeclaration query failed: {status}"),
+            ));
+        }
+        if unsafe { clang_equalCursors(cursor, latest) } == 0 {
+            // Retain each declaration's contracts; only fill missing metadata from compiler inheritance.
+            for attribute in self.attributes(latest)? {
+                if matches!(
+                    attribute.kind,
+                    AttributeKind::SetLastError
+                        | AttributeKind::PreserveResult
+                        | AttributeKind::ImportLibrary(_)
+                        | AttributeKind::AssociatedEnum(_)
+                ) && !attributes.iter().any(|other| {
+                    std::mem::discriminant(&other.kind) == std::mem::discriminant(&attribute.kind)
+                }) {
+                    attributes.push(attribute);
+                }
+            }
+        }
+        Ok(attributes)
     }
 
     fn import_convention(

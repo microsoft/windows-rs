@@ -1,3 +1,27 @@
+#define HISTORY_MACRO 32
+const int HistoryOriginal = HISTORY_MACRO;
+#pragma push_macro("HISTORY_MACRO")
+#undef HISTORY_MACRO
+const int HistoryUndefined = 0;
+#define HISTORY_MACRO 99
+const int HistoryReplacement = HISTORY_MACRO;
+#pragma push_macro("HISTORY_MACRO")
+#undef HISTORY_MACRO
+#define HISTORY_MACRO 123
+const int HistoryNested = HISTORY_MACRO;
+#pragma pop_macro("HISTORY_MACRO")
+const int HistoryInnerRestored = HISTORY_MACRO;
+#pragma pop_macro("HISTORY_MACRO")
+const int HistoryRestored = HISTORY_MACRO;
+#undef HISTORY_MACRO
+const int HistoryAfter = 0;
+#define HISTORY_MACRO(x) (x)
+const int HistoryFunction = HISTORY_MACRO(1);
+
+__attribute__((annotate("first"))) int NativeRedeclared(int first);
+__attribute__((annotate("second"))) int NativeRedeclared(int second);
+int NativeRedeclared(int third);
+
 #pragma pack(push, 1)
 struct PackOne { char value; };
 #pragma pack(pop)

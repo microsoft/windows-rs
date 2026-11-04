@@ -19,6 +19,120 @@ fn input(source: &str) -> Input {
 }
 
 #[test]
+fn group_fragments() {
+    helpers::ensure_libclang();
+    let source = include_str!("../input/fixtures/enum_group_fragments.h");
+    let mut inputs = [
+        Input {
+            name: "first.h".into(),
+            source: format!("#define FIRST_ONLY\n{source}"),
+            ..Default::default()
+        },
+        Input {
+            name: "second.h".into(),
+            source: format!("#define SECOND_ONLY\n{source}"),
+            ..Default::default()
+        },
+    ];
+    let output = projection::generate(&inputs, "Fixture").unwrap();
+    let text: String = output
+        .partitions
+        .values()
+        .map(|part| part.rdl.as_str())
+        .collect();
+    for member in ["OPTION_A = 1", "OPTION_B = 2", "OPTION_C = 4"] {
+        assert_eq!(text.matches(member).count(), 1, "{text}");
+    }
+    inputs.reverse();
+    assert_eq!(projection::generate(&inputs, "Fixture").unwrap(), output);
+    let captured = capture_partial(&inputs, &TARGETS).unwrap();
+    assert_eq!(
+        projection::project_partial(captured, "Fixture")
+            .unwrap()
+            .output,
+        output,
+    );
+}
+
+#[test]
+fn group_fragments_preserve_target_membership() {
+    helpers::ensure_libclang();
+    let input = input(
+        "#define COMMON 1\n#define X86_ONLY 2\n\
+         GROUP(G, int, COMMON);\n\
+         #if defined(_M_IX86)\nGROUP(G, int, X86_ONLY);\n#endif",
+    );
+    let output = projection::generate(&[input], "Fixture").unwrap();
+    let text: String = output
+        .partitions
+        .values()
+        .map(|part| part.rdl.as_str())
+        .collect();
+    let path = std::path::Path::new(env!("OUT_DIR")).join("enum_fragment_targets.winmd");
+    windows_rdl::reader()
+        .input("..\\..\\..\\..\\metadata\\metadata.rdl")
+        .input_text(&text)
+        .output(&path)
+        .write()
+        .unwrap();
+    for (architecture, x86_only) in [(1, true), (2, false), (4, false)] {
+        let index = windows_metadata::reader::Index::new_for_architecture(
+            vec![windows_metadata::reader::File::read(&path).unwrap()],
+            architecture,
+        );
+        assert_eq!(
+            index
+                .expect("Fixture", "G")
+                .fields()
+                .any(|field| field.name() == "X86_ONLY"),
+            x86_only,
+            "{text}",
+        );
+    }
+}
+
+#[test]
+fn group_cannot_replace_native_pointer() {
+    helpers::ensure_libclang();
+    let mut input = test_clang::fixture("enum_group_pointer");
+    input.macros = vec!["GR_GLOBAL".into(), "GR_GDIOBJECTS".into()];
+    let snapshots = capture(std::slice::from_ref(&input), &TARGETS).unwrap();
+    let merged = merge(&snapshots).unwrap();
+    let error = projection::project(&merged, "Fixture").unwrap_err();
+    assert!(
+        error.to_string().contains("GR_GLOBAL")
+            && error
+                .to_string()
+                .contains("disagrees with its native definition"),
+        "{error}",
+    );
+    let captured = capture_partial(&[input], &TARGETS).unwrap();
+    assert!(projection::project_partial(captured, "Fixture").is_err());
+}
+
+#[test]
+fn later_group_fragment_dependency() {
+    helpers::ensure_libclang();
+    let source = input(
+        "#define A 1\nGROUP(G, int, A);\n\
+         __attribute__((annotate(\"unsupported\"))) const int B = 2;\n\
+         GROUP(G, int, B);\nextern \"C\" IMPORT void Safe();",
+    );
+    let result = projection::generate_partial(&[source], "Fixture").unwrap();
+    assert_eq!(result.output.enums, 0);
+    assert_eq!(result.output.functions, 1);
+    assert!(
+        result
+            .omissions
+            .iter()
+            .any(|message| message.contains("Alias(\"G\")")
+                && message.contains("depends on omitted")),
+        "{:?}",
+        result.omissions,
+    );
+}
+
+#[test]
 fn namespaced_enum_members() {
     helpers::ensure_libclang();
     for (source, macros) in [
@@ -59,6 +173,14 @@ fn rejected_enum_contracts() {
         ("#define A 1\nGROUP(G, float, A);", "integer storage"),
         ("#define A 1.0\nGROUP(G, int, A);", "integral constant"),
         ("#define A 1\nGROUP(G, int, A, A);", "distinct"),
+        (
+            "#define A 1\n#define B 2\nGROUP(G, int, A); FLAGS(G, int, B);",
+            "conflicting enum groups",
+        ),
+        (
+            "#define A 1\nGROUP(G, int, A);\n#undef A\n#define A 2\nGROUP(G, int, A);",
+            "conflicting enum groups",
+        ),
         ("GROUP(G, int, 1 + 2);", "unqualified"),
         ("enum E { A }; GROUP(G, int, A);", "existing native enum"),
         (

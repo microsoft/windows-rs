@@ -44,7 +44,7 @@ fn macro_probe_provenance() {
         assert!(
             error
                 .to_string()
-                .contains("no expansion at its evaluation probe"),
+                .contains("definition at its evaluation probe unavailable"),
             "{error}"
         );
     }
