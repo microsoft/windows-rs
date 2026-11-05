@@ -21,3 +21,7 @@ quote = { workspace = true, optional = true }
 
 [features]
 projection = ["dep:windows-rdl", "dep:windows-metadata", "dep:proc-macro2", "dep:quote"]
+
+[package.metadata.docs.rs]
+default-target = "x86_64-pc-windows-msvc"
+targets = []

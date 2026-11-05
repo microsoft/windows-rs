@@ -6,7 +6,6 @@
 //! NuGet packages use NUGET_PACKAGES or the user's `.nuget/packages` cache.
 
 use std::path::{Path, PathBuf};
-use windows_clang_sys::{clang_getCString, clang_getClangVersion, load};
 
 /// Pinned libclang version; macro capture changes across major versions.
 pub use windows_clang_sys::LIBCLANG_VERSION;
@@ -14,16 +13,16 @@ pub use windows_clang_sys::LIBCLANG_VERSION;
 /// LLVM repo used to fetch version-matched clang resource headers for non-x64 passes.
 const CLANG_RESOURCE_REPO: &str = "https://github.com/llvm/llvm-project";
 
-/// Ensure libclang is loadable, respecting an existing `LIBCLANG_PATH`.
+/// Load the pinned native libraries, building them unless `LIBCLANG_PATH` is set.
 pub fn ensure_libclang() {
-    if std::env::var_os("LIBCLANG_PATH").is_some() {
-        return;
+    if std::env::var_os("LIBCLANG_PATH").is_none() {
+        let native = libclang_dir();
+        // SAFETY: called before any libclang load or worker thread is spawned.
+        unsafe {
+            std::env::set_var("LIBCLANG_PATH", &native);
+        }
     }
-    let native = libclang_dir();
-    // SAFETY: called before any libclang load or worker thread is spawned.
-    unsafe {
-        std::env::set_var("LIBCLANG_PATH", &native);
-    }
+    windows_clang_sys::load().unwrap();
 }
 
 /// Resolve a fresh pinned host-arch native build without setting environment variables.
@@ -66,50 +65,6 @@ fn libclang_dir() -> PathBuf {
         native.display()
     );
     native
-}
-
-/// Assert the loaded libclang matches [`LIBCLANG_VERSION`].
-pub fn assert_libclang_version() {
-    let version = clang_version().unwrap_or_else(|e| {
-        panic!(
-            "failed to load libclang: {e}\n\
-             Point `LIBCLANG_PATH` at a libclang {LIBCLANG_VERSION} build, or let the tool fetch \
-             the pinned windows-clang native libraries automatically."
-        )
-    });
-    assert!(
-        version_is_pinned(&version, LIBCLANG_VERSION),
-        "libclang version mismatch: the tooling is pinned to {LIBCLANG_VERSION} but the loaded \
-         libclang reports `{version}`.\nUnset `LIBCLANG_PATH` to use the pinned \
-         windows-clang native build, or point it at a matching native library pair."
-    );
-}
-
-fn clang_version() -> Result<String, String> {
-    load().map_err(|error| format!("failed to load libclang: {error}"))?;
-    let version = unsafe { clang_getClangVersion() };
-    let value = unsafe { std::ffi::CStr::from_ptr(clang_getCString(version)) }
-        .to_string_lossy()
-        .into_owned();
-    unsafe {
-        windows_clang_sys::clang_disposeString(version);
-    }
-    Ok(value)
-}
-
-/// True when `reported` contains `pinned` as a whole version token.
-fn version_is_pinned(reported: &str, pinned: &str) -> bool {
-    reported.match_indices(pinned).any(|(i, _)| {
-        let before_ok = reported[..i]
-            .chars()
-            .next_back()
-            .is_none_or(|c| !c.is_ascii_digit() && c != '.');
-        let after_ok = reported[i + pinned.len()..]
-            .chars()
-            .next()
-            .is_none_or(|c| !c.is_ascii_digit() && c != '.');
-        before_ok && after_ok
-    })
 }
 
 /// Resolve the version-matched clang `-resource-dir`, honoring `CLANG_RESOURCE_DIR`.

@@ -10,7 +10,6 @@ use std::path::Path;
 
 fn main() {
     helpers::ensure_libclang();
-    helpers::assert_libclang_version();
 
     // CI captures this value before starting the multithreaded test runner, which cannot
     // safely set process environment variables itself.

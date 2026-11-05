@@ -23,7 +23,6 @@ const KERNEL_SOURCE: &str = "
 
 pub fn run() -> Result<(), Box<dyn std::error::Error>> {
     helpers::ensure_libclang();
-    helpers::assert_libclang_version();
     let scratch = Path::new("target\\win32\\wdk");
     std::fs::create_dir_all(scratch)?;
     let winrt = Path::new("crates\\libs\\default\\Windows.winmd");
