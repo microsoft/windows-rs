@@ -13,6 +13,7 @@ use std::ffi::{CStr, c_void};
 use std::os::windows::ffi::OsStrExt;
 use std::path::{Path, PathBuf};
 use std::sync::OnceLock;
+use std::sync::atomic::{AtomicPtr, Ordering};
 
 /// LLVM version shared by the native bridge, runtime, and resource headers.
 pub const LIBCLANG_VERSION: &str = "22.1.8";
@@ -38,13 +39,8 @@ mod loader {
         ($library:literal $abi:literal fn $name:ident($($arg:ident : $ty:ty),*) $(-> $ret:ty)?) => {
             pub type $name = unsafe extern $abi fn($($ty),*) $(-> $ret)?;
             pub unsafe fn $name($($arg: $ty),*) $(-> $ret)? {
-                use core::sync::atomic::{AtomicPtr, Ordering};
-                static ADDRESS: AtomicPtr<core::ffi::c_void> = AtomicPtr::new(core::ptr::null_mut());
-                let mut address = ADDRESS.load(Ordering::Relaxed);
-                if address.is_null() {
-                    address = $crate::export($library, concat!(stringify!($name), "\0"));
-                    ADDRESS.store(address, Ordering::Relaxed);
-                }
+                static ADDRESS: $crate::Address = $crate::Address::new(core::ptr::null_mut());
+                let address = $crate::resolve(&ADDRESS, $library, concat!(stringify!($name), "\0"));
                 unsafe { core::mem::transmute::<*mut core::ffi::c_void, $name>(address)($($arg),*) }
             }
         };
@@ -56,19 +52,30 @@ mod loader {
 static MODULES: OnceLock<Modules> = OnceLock::new();
 
 struct Modules {
-    base: *mut c_void,
-    extension: *mut c_void,
+    base: Library,
+    extension: Library,
 }
 
-// Module handles are process-wide and remain loaded for the life of the process.
-unsafe impl Send for Modules {}
-unsafe impl Sync for Modules {}
+type Address = AtomicPtr<c_void>;
 
+// Racing threads find the same address, so a relaxed load and store is enough.
+#[inline]
+fn resolve(cache: &Address, library: &str, name: &str) -> *mut c_void {
+    let address = cache.load(Ordering::Relaxed);
+    if !address.is_null() {
+        return address;
+    }
+    let address = export(library, name);
+    cache.store(address, Ordering::Relaxed);
+    address
+}
+
+#[cold]
 fn export(library: &str, name: &str) -> *mut c_void {
     let modules = MODULES.get().unwrap();
     let module = match library {
-        BASE => modules.base,
-        EXTENSION => modules.extension,
+        BASE => modules.base.0,
+        EXTENSION => modules.extension.0,
         _ => unreachable!(),
     };
     let address = unsafe { GetProcAddress(module, name.as_ptr()) };
@@ -113,8 +120,12 @@ fn directory() -> Result<PathBuf, String> {
     ))
 }
 
-// Frees the module unless loading succeeds.
+// Modules kept in `MODULES` are never dropped and stay loaded for the life of the process.
 struct Library(*mut c_void);
+
+// Module handles are process-wide.
+unsafe impl Send for Library {}
+unsafe impl Sync for Library {}
 
 impl Drop for Library {
     fn drop(&mut self) {
@@ -144,10 +155,10 @@ impl Library {
         }
     }
 
-    unsafe fn get<T>(&self, name: &CStr) -> Result<T, String> {
-        let address = unsafe { GetProcAddress(self.0, name.as_ptr().cast()) };
+    unsafe fn get<T>(&self, name: &str) -> Result<T, String> {
+        let address = unsafe { GetProcAddress(self.0, name.as_ptr()) };
         if address.is_null() {
-            Err(format!("missing export {}", name.to_string_lossy()))
+            Err(format!("missing export {}", name.trim_end_matches('\0')))
         } else {
             Ok(unsafe { std::mem::transmute_copy(&address) })
         }
@@ -158,44 +169,42 @@ impl Library {
 fn load_from(directory: &Path) -> Result<Modules, String> {
     let base = Library::open(directory, BASE)?;
     let extension = Library::open(directory, EXTENSION)?;
+    // Looks up an export by the name of its generated function type.
+    macro_rules! symbol {
+        ($library:ident, $name:ident) => {
+            $library.get::<$name>(concat!(stringify!($name), "\0"))?
+        };
+    }
     unsafe {
-        let abi = extension.get::<windows_clang_getABIVersion>(c"windows_clang_getABIVersion")?();
+        let abi = symbol!(extension, windows_clang_getABIVersion)();
         if abi != ABI_VERSION {
             return Err(format!(
                 "unsupported windows-clang native ABI {abi}; expected {ABI_VERSION}"
             ));
         }
-        let identity = extension
-            .get::<windows_clang_getRuntimeIdentity>(c"windows_clang_getRuntimeIdentity")?(
-        );
-        if identity != base.get::<*const c_void>(c"clang_getClangVersion")? {
+        if symbol!(extension, windows_clang_getRuntimeIdentity)()
+            != symbol!(base, clang_getClangVersion) as *const c_void
+        {
             return Err("native extension is linked to a different libclang runtime".into());
         }
-        let version =
-            extension.get::<windows_clang_getLLVMVersion>(c"windows_clang_getLLVMVersion")?();
+        let version = symbol!(extension, windows_clang_getLLVMVersion)();
         if version.is_null() || CStr::from_ptr(version).to_bytes() != LIBCLANG_VERSION.as_bytes() {
             return Err(format!("native extension requires LLVM {LIBCLANG_VERSION}"));
         }
-        let version = base.get::<clang_getClangVersion>(c"clang_getClangVersion")?();
-        let pointer = base.get::<clang_getCString>(c"clang_getCString")?(version);
+        let version = symbol!(base, clang_getClangVersion)();
+        let pointer = symbol!(base, clang_getCString)(version);
         let matches = !pointer.is_null()
             && CStr::from_ptr(pointer)
                 .to_string_lossy()
                 .split_whitespace()
                 .any(|word| word == LIBCLANG_VERSION);
-        base.get::<clang_disposeString>(c"clang_disposeString")?(version);
+        symbol!(base, clang_disposeString)(version);
         if !matches {
             return Err(format!("libclang runtime requires LLVM {LIBCLANG_VERSION}"));
         }
     }
-    let modules = Modules {
-        base: base.0,
-        extension: extension.0,
-    };
-    std::mem::forget((base, extension));
-    Ok(modules)
+    Ok(Modules { base, extension })
 }
-
 #[cfg(test)]
 mod tests {
     #[test]
