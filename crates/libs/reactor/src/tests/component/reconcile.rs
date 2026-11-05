@@ -98,6 +98,43 @@ impl Component for CounterParent {
     }
 }
 
+struct InputReceiver;
+
+impl Component for InputReceiver {
+    type Input = (usize, Callback<usize>);
+    type Message = ();
+
+    fn create(_: &Self::Input, _: &ComponentContext<Self>) -> Self {
+        Self
+    }
+
+    fn update(&mut self, (): (), context: &ComponentContext<Self>) {
+        let input = context.input();
+        input.1.call(input.0);
+    }
+
+    fn view(&self, _: &Self::Input, _: &mut ViewContext<Self>) -> View {
+        Border::new().into()
+    }
+}
+
+struct InputParent;
+
+impl Component for InputParent {
+    type Input = <InputReceiver as Component>::Input;
+    type Message = ();
+
+    fn create(_: &Self::Input, _: &ComponentContext<Self>) -> Self {
+        Self
+    }
+
+    fn view(&self, input: &Self::Input, _: &mut ViewContext<Self>) -> View {
+        Border::new()
+            .content(component::<InputReceiver>("child", input.clone()))
+            .into()
+    }
+}
+
 struct ReorderParent(bool);
 
 impl Component for ReorderParent {
@@ -444,6 +481,57 @@ fn component_boundary_preserves_scope_across_root_type_changes() {
     assert!(label.send(()));
     assert_eq!(host.drain(1).dispatched, 1);
     assert_eq!(label_reference.get(), label_root);
+}
+
+#[test]
+fn update_uses_input_in_message_order() {
+    let seen = Rc::new(RefCell::new(Vec::new()));
+    let before = {
+        let seen = Rc::clone(&seen);
+        Callback::new(move |value| seen.borrow_mut().push(("before", value)))
+    };
+    let after = {
+        let seen = Rc::clone(&seen);
+        Callback::new(move |value| seen.borrow_mut().push(("after", value)))
+    };
+    let mut host = ComponentHost::mount(
+        RecordingAdapter::default(),
+        [component::<InputReceiver>("root", (1, before))],
+    );
+    let sender = host.sender::<InputReceiver>(&Key::from("root")).unwrap();
+    assert!(sender.send(()));
+    host.update_root(component::<InputReceiver>("root", (2, after)));
+    assert!(sender.send(()));
+    host.drain(10);
+    assert_eq!(*seen.borrow(), [("before", 1), ("after", 2)]);
+}
+
+#[test]
+fn retained_child_update_uses_replaced_input_callback() {
+    let before = Rc::new(Cell::new(0));
+    let after = Rc::new(Cell::new(0));
+    let callback = {
+        let before = Rc::clone(&before);
+        Callback::new(move |value| before.set(value))
+    };
+    let mut host = ComponentHost::mount(
+        RecordingAdapter::default(),
+        [component::<InputParent>("parent", (1, callback))],
+    );
+    let path = [Key::from("parent"), Key::from("child")];
+    let sender = host.sender_at::<InputReceiver>(&path).unwrap();
+    assert!(sender.send(()));
+    host.drain(1);
+    assert_eq!(before.get(), 1);
+    let callback = {
+        let after = Rc::clone(&after);
+        Callback::new(move |value| after.set(value))
+    };
+    host.update_input::<InputParent>(&Key::from("parent"), (2, callback));
+    assert!(sender.send(()));
+    host.drain(1);
+    assert_eq!(before.get(), 1);
+    assert_eq!(after.get(), 2);
 }
 
 #[test]

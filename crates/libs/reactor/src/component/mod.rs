@@ -113,6 +113,7 @@ impl<C: Component> ErasedFactory for TypedFactory<C> {
         };
         let tasks = Arc::new(Mutex::new(Vec::new()));
         let context: ComponentContext<C> = ComponentContext {
+            input: &self.input,
             reference: reference.clone(),
             local_sender: local_sender.clone(),
             sender: sender.clone(),

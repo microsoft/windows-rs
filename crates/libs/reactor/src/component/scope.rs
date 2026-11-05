@@ -46,8 +46,9 @@ pub(super) struct TypedScope<C: Component> {
 }
 
 impl<C: Component> TypedScope<C> {
-    fn context(&self, reference: ElementRef) -> ComponentContext<C> {
+    fn context<'a>(&self, input: &'a C::Input, reference: ElementRef) -> ComponentContext<'a, C> {
         ComponentContext {
+            input,
             reference,
             local_sender: self.local_sender.clone(),
             sender: self.sender.clone(),
@@ -63,7 +64,7 @@ impl<C: Component> TypedScope<C> {
         contexts: &HashMap<ContextId, ContextValue>,
     ) -> ComponentRender {
         let mut context: ViewContext<'_, C> = ViewContext {
-            context: self.context(reference),
+            context: self.context(&self.input, reference),
             contexts,
             dependencies: HashSet::new(),
             effects: EffectDraft::default(),
@@ -93,7 +94,7 @@ impl<C: Component> ErasedComponent for TypedScope<C> {
             return None;
         }
         self.input = input.clone();
-        let context = self.context(reference.clone());
+        let context = self.context(&self.input, reference.clone());
         self.component.input_changed(&self.input, &context);
         Some(self.render_view(reference, contexts))
     }
@@ -120,7 +121,7 @@ impl<C: Component> ErasedComponent for TypedScope<C> {
         reference: ElementRef,
         contexts: &HashMap<ContextId, ContextValue>,
     ) -> ComponentRender {
-        let context = self.context(reference.clone());
+        let context = self.context(&self.input, reference.clone());
         self.component
             .update(*message.downcast::<C::Message>().unwrap(), &context);
         self.render_view(reference, contexts)
