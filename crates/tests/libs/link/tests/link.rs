@@ -62,3 +62,36 @@ fn variadic() {
         assert_eq!(&buffer[..len as usize], b"test-123-456!");
     }
 }
+
+#[test]
+fn ordinal() {
+    use core::ffi::c_void;
+
+    // SHCreateMemStream is documented as shlwapi.dll ordinal 12.
+    windows_link::link!("shlwapi.dll" "system" ordinal(12)
+        fn create_stream(data: *const u8, len: u32) -> *mut c_void);
+
+    #[repr(C)]
+    struct Vtable {
+        query_interface:
+            unsafe extern "system" fn(*mut c_void, *const c_void, *mut *mut c_void) -> i32,
+        add_ref: unsafe extern "system" fn(*mut c_void) -> u32,
+        release: unsafe extern "system" fn(*mut c_void) -> u32,
+        read: unsafe extern "system" fn(*mut c_void, *mut u8, u32, *mut u32) -> i32,
+    }
+
+    let function: create_stream = create_stream;
+    let input = b"ordinal import";
+    unsafe {
+        let stream = function(input.as_ptr(), input.len() as u32);
+        assert!(!stream.is_null());
+        let vtable = &**stream.cast::<*const Vtable>();
+        let mut output = [0; 14];
+        let mut read = 0;
+        let result = (vtable.read)(stream, output.as_mut_ptr(), output.len() as u32, &mut read);
+        (vtable.release)(stream);
+        assert_eq!(result, 0);
+        assert_eq!(read as usize, input.len());
+        assert_eq!(&output, input);
+    }
+}

@@ -1,0 +1,8 @@
+//! --filter Test --sys --flat
+#[win32]
+mod Test {
+    #[library("ordinal_fixture.dll", import = "#1")]
+    extern fn First();
+    #[library("ordinal_fixture.dll", import = "#65535")]
+    extern "C" fn Last(value: i32) -> i32;
+}

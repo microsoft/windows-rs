@@ -134,7 +134,9 @@ impl<'a> MethodDef<'a> {
         self.impl_map().map_or("", |map| {
             let flags = map.flags();
 
-            if flags.contains(PInvokeAttributes::CallConvPlatformapi) {
+            if flags.contains(PInvokeAttributes::CallConvFastcall) {
+                "fastcall"
+            } else if flags.contains(PInvokeAttributes::CallConvPlatformapi) {
                 "system"
             } else if flags.contains(PInvokeAttributes::CallConvCdecl) {
                 "C"

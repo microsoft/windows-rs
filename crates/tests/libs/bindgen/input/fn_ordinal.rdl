@@ -1,0 +1,22 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    #[library("ordinal_fixture.dll", import = "#17")]
+    extern fn OrdinalSystem(value: i32) -> i32;
+    #[library("ordinal_fixture.dll", import = "#23")]
+    extern "C" fn OrdinalC(value: i32) -> i32;
+    #[library("ordinal_fixture.dll")]
+    extern fn Named(value: i32) -> i32;
+    #[arch(X86)]
+    #[library("ordinal_fixture.dll", import = "#31")]
+    extern fn PerArch() -> i32;
+    #[arch(X64)]
+    #[library("ordinal_fixture.dll", import = "#32")]
+    extern fn PerArch() -> i32;
+    #[arch(Arm64)]
+    #[library("ordinal_fixture.dll", import = "#33")]
+    extern fn PerArch() -> i32;
+    #[arch(X86)]
+    #[library("ordinal_fixture.dll", import = "#47")]
+    extern "fastcall" fn OrdinalFast(value: i32) -> i32;
+}

@@ -54,3 +54,18 @@ pub fn trim_tick(name: &str) -> &str {
         name
     }
 }
+
+/// Parses an ordinal entry point (`#1` through `#65535`), or returns `None` for a named import.
+pub fn import_ordinal(name: &str) -> Result<Option<u16>, &'static str> {
+    let Some(value) = name.strip_prefix('#') else {
+        return Ok(None);
+    };
+    if !value.is_empty()
+        && value.bytes().all(|byte| byte.is_ascii_digit())
+        && let Ok(ordinal @ 1..=65535) = value.parse::<u16>()
+    {
+        Ok(Some(ordinal))
+    } else {
+        Err("import ordinal must be decimal digits between 1 and 65535")
+    }
+}

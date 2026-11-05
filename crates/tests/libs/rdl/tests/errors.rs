@@ -3,6 +3,25 @@ fn out_path(name: &str) -> std::path::PathBuf {
 }
 
 #[test]
+fn invalid_import_ordinals() {
+    for ordinal in [
+        "#", "#0", "#65536", "#-1", "#+1", "#0x12", "#12x", "# 12", "#12 ",
+    ] {
+        let error = windows_rdl::reader()
+            .input_text(&format!(
+                "#[win32] mod Test {{ #[library(\"example.dll\", import = \"{ordinal}\")] extern fn F(); }}"
+            ))
+            .output(out_path("invalid_import_ordinal"))
+            .write()
+            .unwrap_err();
+        assert_eq!(
+            error.message, "import ordinal must be decimal digits between 1 and 65535",
+            "{ordinal}"
+        );
+    }
+}
+
+#[test]
 fn returned_pointer_short_forms_are_rejected() {
     for attribute in ["out_ptr", "out_ptr(null_on_failure)"] {
         let error = windows_rdl::reader()

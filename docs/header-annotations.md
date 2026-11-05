@@ -159,7 +159,7 @@ Bindgen uses it to select narrow string constants. It specifies neither terminat
 | Never returns | `__declspec(noreturn) void Fail()`; `[[noreturn]]` | `#[noreturn]` | `-> !` |
 | Calling convention | `void __cdecl Log()` | `extern "C" fn Log()`; `extern fn` is system | `extern "C"` or `extern "system"` |
 | Import library | Import library maps `Read` to `ReadEntry` | `#[library("example.dll", import = "ReadEntry")]` | `link!` target |
-| Import override | `_Win32_ImportLibrary_("example.dll", "ReadEntry")` | `#[library("example.dll", import = "ReadEntry")]` | `link!` target for named exports |
+| Import override | `_Win32_ImportLibrary_("example.dll", "ReadEntry")` | `#[library("example.dll", import = "ReadEntry")]` | `link!` target |
 | Last error | `_Win32_SetLastError_` on a free function | `#[library("example.dll", last_error)]` | No change |
 | Property accessor | MIDL `[propget] HRESULT Name(...)` | `#[special]` | Accessor names |
 | Vtable slot | C++ override of an inherited virtual | `#[override_slot(3)]` | Slot validation |
@@ -186,13 +186,15 @@ argument names the export or supplies an integral constant ordinal from 1 throug
 Strings are read from the compiler AST; ordinals are compiler-evaluated. Empty strings, control
 characters, embedded nulls, invalid owners and duplicate annotations fail.
 
-Omitting the entry point preserves the normally resolved export, or the native declaration name
-when no mapping exists. Import overrides do not rename the declaration or establish a calling
-convention. Native ABI checks and target-specific convention evidence still apply. Conflicting
-annotations fail reconciliation before publication.
+Omitting the entry point preserves the resolved export only when the mapping selects the same DLL
+(case-insensitive); otherwise it uses the native declaration name. An ordinal from another DLL is
+not evidence for the selected DLL. Import overrides do not rename the declaration or establish a
+calling convention. Native ABI checks and target-specific convention evidence still apply.
+Conflicting annotations fail reconciliation before publication.
 
 Ordinals encode as `#[library("example.dll", import = "#42")]` and survive RDL/WinMD round trips.
-Bindgen does not support ordinal linking and excludes these imports from generated Rust bindings.
+Bindgen emits `windows_link::link!` ordinal imports. With `--sys --extern`, the caller supplies the
+import library instead.
 
 ## Types and layout
 

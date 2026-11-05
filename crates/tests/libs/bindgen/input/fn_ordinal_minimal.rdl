@@ -1,0 +1,6 @@
+//! --filter Test --minimal --flat
+#[win32]
+mod Test {
+    #[library("ordinal_fixture.dll", import = "#17")]
+    extern fn Ordinal(value: i32) -> i32;
+}
