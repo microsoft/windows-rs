@@ -1234,23 +1234,24 @@ impl<M: core::marker::Send + 'static> windows_reactor::ComponentCompletion<M>
 pub fn windows_reactor::ComponentCompletion<M>::complete(self, M) -> bool
 impl<M> core::clone::Clone for windows_reactor::ComponentCompletion<M>
 pub fn windows_reactor::ComponentCompletion<M>::clone(&self) -> Self
-pub struct windows_reactor::ComponentContext<C: windows_reactor::Component>
-impl<C: windows_reactor::Component> windows_reactor::ComponentContext<C>
-pub fn windows_reactor::ComponentContext<C>::activate_window(&self) -> bool
-pub fn windows_reactor::ComponentContext<C>::callback<T>(&self, impl core::ops::function::Fn(T) -> <C as windows_reactor::Component>::Message + 'static) -> windows_reactor::Callback<T>
-pub fn windows_reactor::ComponentContext<C>::close_window(&self) -> bool
-pub fn windows_reactor::ComponentContext<C>::forward(&self) -> windows_reactor::Callback<<C as windows_reactor::Component>::Message>
-pub fn windows_reactor::ComponentContext<C>::message(&self, <C as windows_reactor::Component>::Message) -> windows_reactor::Callback<()> where <C as windows_reactor::Component>::Message: core::clone::Clone
-pub fn windows_reactor::ComponentContext<C>::open_window<W: windows_reactor::Component>(&self, <W as windows_reactor::Component>::Input) -> bool
-pub fn windows_reactor::ComponentContext<C>::open_window_with_policy<W: windows_reactor::Component>(&self, <W as windows_reactor::Component>::Input, windows_reactor::WindowPolicy) -> bool
-pub fn windows_reactor::ComponentContext<C>::root(&self) -> windows_reactor::ElementRef
-pub fn windows_reactor::ComponentContext<C>::run_window(&self, impl for<'a> core::ops::function::FnOnce(windows_reactor::WindowHandle<'a>) -> <C as windows_reactor::Component>::Message + 'static) -> bool
-pub fn windows_reactor::ComponentContext<C>::sender(&self) -> windows_reactor::LocalSender<<C as windows_reactor::Component>::Message>
-pub fn windows_reactor::ComponentContext<C>::set_local_timeout(&self, core::time::Duration, impl core::ops::function::FnOnce() -> <C as windows_reactor::Component>::Message + core::marker::Send + 'static) -> windows_reactor::ComponentTimer
-impl<C> windows_reactor::ComponentContext<C> where C: windows_reactor::Component, <C as windows_reactor::Component>::Message: core::marker::Send
-pub fn windows_reactor::ComponentContext<C>::completion(&self) -> windows_reactor::ComponentCompletion<<C as windows_reactor::Component>::Message>
-pub fn windows_reactor::ComponentContext<C>::set_timeout(&self, core::time::Duration, <C as windows_reactor::Component>::Message) -> windows_reactor::ComponentTimer
-pub fn windows_reactor::ComponentContext<C>::spawn_background(&self, impl core::ops::function::FnOnce(windows_reactor::CancellationToken) -> <C as windows_reactor::Component>::Message + core::marker::Send + 'static) -> windows_reactor::ComponentTask
+pub struct windows_reactor::ComponentContext<'a, C: windows_reactor::Component>
+impl<C: windows_reactor::Component> windows_reactor::ComponentContext<'_, C>
+pub fn windows_reactor::ComponentContext<'_, C>::activate_window(&self) -> bool
+pub fn windows_reactor::ComponentContext<'_, C>::callback<T>(&self, impl core::ops::function::Fn(T) -> <C as windows_reactor::Component>::Message + 'static) -> windows_reactor::Callback<T>
+pub fn windows_reactor::ComponentContext<'_, C>::close_window(&self) -> bool
+pub fn windows_reactor::ComponentContext<'_, C>::forward(&self) -> windows_reactor::Callback<<C as windows_reactor::Component>::Message>
+pub fn windows_reactor::ComponentContext<'_, C>::input(&self) -> &<C as windows_reactor::Component>::Input
+pub fn windows_reactor::ComponentContext<'_, C>::message(&self, <C as windows_reactor::Component>::Message) -> windows_reactor::Callback<()> where <C as windows_reactor::Component>::Message: core::clone::Clone
+pub fn windows_reactor::ComponentContext<'_, C>::open_window<W: windows_reactor::Component>(&self, <W as windows_reactor::Component>::Input) -> bool
+pub fn windows_reactor::ComponentContext<'_, C>::open_window_with_policy<W: windows_reactor::Component>(&self, <W as windows_reactor::Component>::Input, windows_reactor::WindowPolicy) -> bool
+pub fn windows_reactor::ComponentContext<'_, C>::root(&self) -> windows_reactor::ElementRef
+pub fn windows_reactor::ComponentContext<'_, C>::run_window(&self, impl for<'a> core::ops::function::FnOnce(windows_reactor::WindowHandle<'a>) -> <C as windows_reactor::Component>::Message + 'static) -> bool
+pub fn windows_reactor::ComponentContext<'_, C>::sender(&self) -> windows_reactor::LocalSender<<C as windows_reactor::Component>::Message>
+pub fn windows_reactor::ComponentContext<'_, C>::set_local_timeout(&self, core::time::Duration, impl core::ops::function::FnOnce() -> <C as windows_reactor::Component>::Message + core::marker::Send + 'static) -> windows_reactor::ComponentTimer
+impl<C> windows_reactor::ComponentContext<'_, C> where C: windows_reactor::Component, <C as windows_reactor::Component>::Message: core::marker::Send
+pub fn windows_reactor::ComponentContext<'_, C>::completion(&self) -> windows_reactor::ComponentCompletion<<C as windows_reactor::Component>::Message>
+pub fn windows_reactor::ComponentContext<'_, C>::set_timeout(&self, core::time::Duration, <C as windows_reactor::Component>::Message) -> windows_reactor::ComponentTimer
+pub fn windows_reactor::ComponentContext<'_, C>::spawn_background(&self, impl core::ops::function::FnOnce(windows_reactor::CancellationToken) -> <C as windows_reactor::Component>::Message + core::marker::Send + 'static) -> windows_reactor::ComponentTask
 pub struct windows_reactor::ComponentNode
 impl windows_reactor::ComponentNode
 pub fn windows_reactor::ComponentNode::keyed(self) -> windows_reactor::KeyedView
@@ -4667,9 +4668,9 @@ pub fn windows_reactor::ElementRef<windows_reactor::AnyElement>::erased_ref(&sel
 pub trait windows_reactor::Component: core::marker::Sized + 'static
 pub type windows_reactor::Component::Input: core::clone::Clone + core::cmp::PartialEq + 'static
 pub type windows_reactor::Component::Message: 'static
-pub fn windows_reactor::Component::create(&Self::Input, &windows_reactor::ComponentContext<Self>) -> Self
-pub fn windows_reactor::Component::input_changed(&mut self, &Self::Input, &windows_reactor::ComponentContext<Self>)
-pub fn windows_reactor::Component::update(&mut self, Self::Message, &windows_reactor::ComponentContext<Self>)
+pub fn windows_reactor::Component::create(&Self::Input, &windows_reactor::ComponentContext<'_, Self>) -> Self
+pub fn windows_reactor::Component::input_changed(&mut self, &Self::Input, &windows_reactor::ComponentContext<'_, Self>)
+pub fn windows_reactor::Component::update(&mut self, Self::Message, &windows_reactor::ComponentContext<'_, Self>)
 pub fn windows_reactor::Component::view(&self, &Self::Input, &mut windows_reactor::ViewContext<'_, Self>) -> windows_reactor::View
 pub trait windows_reactor::ContentDialogExt: core::convert::Into<windows_reactor::View> + core::marker::Sized
 pub fn windows_reactor::ContentDialogExt::content_dialog(self, windows_reactor::ContentDialog) -> windows_reactor::View
