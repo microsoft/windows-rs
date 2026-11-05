@@ -71,6 +71,11 @@ mod Windows {
                 Keyboard = 1,
                 Mouse = 2,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IGamepadKeyRoutingConfigurationStatics, 1245184, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class GamepadKeyRoutingConfiguration {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[repr(i32)]
             enum GazeInputAccessStatus {
@@ -192,6 +197,15 @@ mod Windows {
             #[guid(0xbc6a8519_18ee_4043_9839_4fc584d60a14)]
             interface IEdgeGestureStatics {
                 fn GetForCurrentView(&self) -> EdgeGesture;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(GamepadKeyRoutingConfiguration)]
+            #[guid(0xa068e427_0e9e_5174_9012_4fb3a764fdd2)]
+            interface IGamepadKeyRoutingConfigurationStatics {
+                fn IsSupported(&self) -> bool;
+                #[get]
+                IsKeyRoutingEnabled: bool;
+                fn TrySetKeyRoutingEnabled(&self, #[in] enabled: bool) -> bool;
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GestureRecognizer)]
@@ -396,7 +410,6 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PhysicalGestureRecognizer)]
-            #[Windows::Foundation::Metadata::Experimental]
             #[Windows::Foundation::Metadata::WebHostHidden]
             #[guid(0x79a29f4d_32a6_5aa5_a999_42b0b420c66d)]
             interface IPhysicalGestureRecognizer {
@@ -868,7 +881,6 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TouchpadGesturesController)]
-            #[Windows::Foundation::Metadata::Experimental]
             #[Windows::Foundation::Metadata::WebHostHidden]
             #[guid(0x28c13cdd_e068_549f_89c6_1a440c6fc327)]
             interface ITouchpadGesturesController {
@@ -881,7 +893,6 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TouchpadGesturesController)]
-            #[Windows::Foundation::Metadata::Experimental]
             #[Windows::Foundation::Metadata::WebHostHidden]
             #[guid(0x207ef171_1a73_51cd_a694_8840e09dbafa)]
             interface ITouchpadGesturesControllerStatics {
@@ -890,7 +901,6 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TouchpadGlobalActionEventArgs)]
-            #[Windows::Foundation::Metadata::Experimental]
             #[Windows::Foundation::Metadata::WebHostHidden]
             #[guid(0x6edad206_e4e3_5f39_9d13_8575e8e2a12b)]
             interface ITouchpadGlobalActionEventArgs {
@@ -976,12 +986,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::Activatable(1245184, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
-            #[Windows::Foundation::Metadata::Experimental]
             #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class PhysicalGestureRecognizer {
-                #[Windows::Foundation::Metadata::Experimental]
                 IPhysicalGestureRecognizer,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -990,7 +998,6 @@ mod Windows {
             class PointerPoint {
                 IPointerPoint,
                 #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
-                #[Windows::Foundation::Metadata::Experimental]
                 IPointerPointPhysicalPosition,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1188,17 +1195,14 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
-            #[Windows::Foundation::Metadata::Experimental]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(ITouchpadGesturesControllerStatics, 1245184, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class TouchpadGesturesController {
-                #[Windows::Foundation::Metadata::Experimental]
                 ITouchpadGesturesController,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
-            #[Windows::Foundation::Metadata::Experimental]
             #[Windows::Foundation::Metadata::WebHostHidden]
             #[repr(i32)]
             enum TouchpadGlobalAction {
@@ -1214,15 +1218,12 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
-            #[Windows::Foundation::Metadata::Experimental]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class TouchpadGlobalActionEventArgs {
-                #[Windows::Foundation::Metadata::Experimental]
                 ITouchpadGlobalActionEventArgs,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
-            #[Windows::Foundation::Metadata::Experimental]
             #[flags]
             #[repr(u32)]
             enum TouchpadGlobalGestureKinds {

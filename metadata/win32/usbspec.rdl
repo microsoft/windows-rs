@@ -518,6 +518,7 @@ mod Windows {
         const USB_DEVICE_CLASS_POWER: i32 = 6;
         const USB_DEVICE_CLASS_PRINTER: i32 = 7;
         const USB_DEVICE_CLASS_RESERVED: i32 = 0;
+        const USB_DEVICE_CLASS_RVC: i32 = 21;
         const USB_DEVICE_CLASS_SMART_CARD: i32 = 11;
         const USB_DEVICE_CLASS_STORAGE: i32 = 8;
         const USB_DEVICE_CLASS_VENDOR_SPECIFIC: i32 = 255;

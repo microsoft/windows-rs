@@ -27,7 +27,7 @@ windows_link::link!("kernel32.dll" "system" fn GetProcessorSystemCycleTime(group
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 windows_link::link!("kernel32.dll" "system" fn GetProductInfo(dwosmajorversion : super::DWORD, dwosminorversion : super::DWORD, dwspmajorversion : super::DWORD, dwspminorversion : super::DWORD, pdwreturnedproducttype : super::PDWORD) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
-windows_link::link!("kernelbase.dll" "system" fn GetRuntimeAttestationReport(nonce : *const super::UCHAR, packageversion : super::UINT16, reporttypesbitmap : super::UINT64, reportbuffer : super::PVOID, reportbuffersize : super::PUINT32) -> windows_sys::core::BOOL);
+windows_link::link!("api-ms-win-core-sysinfo-l1-2-8.dll" "system" fn GetRuntimeAttestationReport(nonce : *const super::UCHAR, packageversion : super::UINT16, reporttypesbitmap : super::UINT64, reportbuffer : super::PVOID, reportbuffersize : super::PUINT32) -> windows_sys::core::BOOL);
 #[cfg(feature = "shared")]
 windows_link::link!("kernel32.dll" "system" fn GetSystemDirectoryA(lpbuffer : windows_sys::core::PSTR, usize : super::UINT) -> super::UINT);
 #[cfg(feature = "shared")]

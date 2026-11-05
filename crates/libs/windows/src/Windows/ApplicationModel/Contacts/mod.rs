@@ -730,7 +730,6 @@ impl ContactAnnotationOperations {
     pub const VideoCall: Self = Self(8);
     pub const SocialFeeds: Self = Self(16);
     pub const Share: Self = Self(32);
-    pub const Activity: Self = Self(64);
 }
 impl windows_core::imp::TypeKind for ContactAnnotationOperations {
     type TypeKind = windows_core::imp::CopyType;

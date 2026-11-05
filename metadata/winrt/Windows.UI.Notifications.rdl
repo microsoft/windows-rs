@@ -681,6 +681,13 @@ mod Windows {
             interface IToastNotificationManagerStatics5 {
                 fn GetDefault(&self) -> ToastNotificationManagerForUser;
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ToastNotification)]
+            #[guid(0x2aa8f213_d8c9_48fe_b641_4a63d69ce079)]
+            interface IToastNotificationStatics {
+                #[get]
+                IsExpandableContentSupported: bool;
+            }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ToastNotifier)]
             #[guid(0x75927b93_03f3_41ec_91d3_6e5bac1b38e7)]
@@ -1194,6 +1201,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IToastNotificationStatics, 1245184, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(MTA)]
             class ToastNotification {
                 IToastNotification,

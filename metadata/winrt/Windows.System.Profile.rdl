@@ -170,6 +170,13 @@ mod Windows {
                 #[special]
                 fn get_Properties(&self) -> #[Windows::Foundation::Metadata::HasVariant] super::super::Foundation::Collections::IMapView<String, Object>;
             }
+            #[Windows::Foundation::Metadata::ContractVersion(ProfileRetailInfoContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RetailInfo)]
+            #[guid(0xa3b5d762_9e04_4f4c_b8e2_7a3c5d6e8f01)]
+            interface IRetailInfoStatics2 {
+                #[get]
+                IsDemoModeEnabledEx: bool;
+            }
             #[Windows::Foundation::Metadata::ContractVersion(ProfileSharedModeContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SharedModeSettings)]
             #[guid(0x893df40e_cad6_4d50_8c49_6fcfc03edb29)]
@@ -277,7 +284,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(65536)]
             struct ProfileHardwareTokenContract {}
             #[Windows::Foundation::Metadata::ApiContract]
-            #[Windows::Foundation::Metadata::ContractVersion(65536)]
+            #[Windows::Foundation::Metadata::ContractVersion(131072)]
             struct ProfileRetailInfoContract {}
             #[Windows::Foundation::Metadata::ApiContract]
             #[Windows::Foundation::Metadata::ContractVersion(131072)]
@@ -285,6 +292,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(ProfileRetailInfoContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IRetailInfoStatics, 65536, "Windows.System.Profile.ProfileRetailInfoContract")]
+            #[Windows::Foundation::Metadata::Static(IRetailInfoStatics2, 131072, "Windows.System.Profile.ProfileRetailInfoContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class RetailInfo {}
             #[Windows::Foundation::Metadata::ContractVersion(ProfileSharedModeContract, 65536)]

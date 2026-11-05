@@ -5,7 +5,6 @@ mod Windows {
             mod PrintSupport {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportAppInfo)]
-                #[Windows::Foundation::Metadata::Experimental]
                 #[guid(0x913cd9e0_cb44_5ae4_b984_f6e80e872320)]
                 interface IPrintSupportAppInfo {
                     #[get]
@@ -15,7 +14,6 @@ mod Windows {
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportAppInfo)]
-                #[Windows::Foundation::Metadata::Experimental]
                 #[guid(0x3246a41d_2757_544d_aafa_b38461896270)]
                 interface IPrintSupportAppInfoStatics {
                     fn GetPrintJobShowsUI(&self, #[in] printerName: String, #[in] printTicket: super::PrintTicket::WorkflowPrintTicket) -> super::super::super::Foundation::IReference<bool>;
@@ -170,7 +168,6 @@ mod Windows {
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrintTicketValidationRequestedEventArgs)]
-                #[Windows::Foundation::Metadata::Experimental]
                 #[guid(0x39749075_d02d_5fd1_9c4b_46bb8db7316b)]
                 interface IPrintSupportPrintTicketValidationRequestedEventArgs2 {
                     fn SetPrintJobShowsUI(&self, #[in] showsUI: bool);
@@ -246,7 +243,6 @@ mod Windows {
                     VirtualPrinter = 4,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
-                #[Windows::Foundation::Metadata::Experimental]
                 #[flags]
                 #[repr(u32)]
                 enum PrintSupportAppContracts {
@@ -259,12 +255,10 @@ mod Windows {
                     EnterpriseManagementUI = 32,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
-                #[Windows::Foundation::Metadata::Experimental]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(IPrintSupportAppInfoStatics, 1245184, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class PrintSupportAppInfo {
-                    #[Windows::Foundation::Metadata::Experimental]
                     IPrintSupportAppInfo,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1114112)]
@@ -340,7 +334,6 @@ mod Windows {
                 class PrintSupportPrintTicketValidationRequestedEventArgs {
                     IPrintSupportPrintTicketValidationRequestedEventArgs,
                     #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
-                    #[Windows::Foundation::Metadata::Experimental]
                     IPrintSupportPrintTicketValidationRequestedEventArgs2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]

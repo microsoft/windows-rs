@@ -77,7 +77,7 @@ mod Windows {
         const ACCESS_MAX_MS_V2_ACE_TYPE: i32 = 3;
         const ACCESS_MAX_MS_V3_ACE_TYPE: i32 = 4;
         const ACCESS_MAX_MS_V4_ACE_TYPE: i32 = 8;
-        const ACCESS_MAX_MS_V5_ACE_TYPE: i32 = 21;
+        const ACCESS_MAX_MS_V5_ACE_TYPE: i32 = 23;
         const ACCESS_MIN_MS_ACE_TYPE: i32 = 0;
         const ACCESS_MIN_MS_OBJECT_ACE_TYPE: i32 = 5;
         const ACCESS_OBJECT_GUID: i32 = 0;
@@ -400,6 +400,8 @@ mod Windows {
         const ARM64_CNTFRQ_EL0: i32 = 24320;
         #[arch(Arm64)]
         const ARM64_CNTVCT: i32 = 24322;
+        #[arch(Arm64)]
+        const ARM64_CNTVCTSS_EL0: i32 = 24326;
         #[arch(Arm64)]
         const ARM64_CNTVCT_EL0: i32 = 24322;
         #[repr(i32)]
@@ -4772,8 +4774,10 @@ mod Windows {
         type LPOSVERSIONINFOEXA = *mut OSVERSIONINFOEXA;
         type LPOSVERSIONINFOEXW = *mut _OSVERSIONINFOEXW;
         type LPOSVERSIONINFOW = *mut _OSVERSIONINFOW;
+        type LPSECURITY_ANTITAMPER_POLICY = *mut SECURITY_ANTITAMPER_POLICY;
         type LPSECURITY_CAPABILITIES = *mut SECURITY_CAPABILITIES;
         type LPSECURITY_CONTAINMENT_CONFIGURATION = *mut SECURITY_CONTAINMENT_CONFIGURATION;
+        type LPSECURITY_ISOLATION_CONFIGURATION = *mut SECURITY_ISOLATION_CONFIGURATION;
         type LPSTR = *mut i8;
         type LPTCH = *mut i8;
         type LPTSTR = *mut i8;
@@ -4804,6 +4808,7 @@ mod Windows {
         }
         const MAILSLOT_NO_MESSAGE: DWORD = 4294967295;
         const MAILSLOT_WAIT_FOREVER: DWORD = 4294967295;
+        const MANDATORY_ACCESS_SECURITY_INFORMATION: i32 = 512;
         #[repr(i32)]
         enum MANDATORY_LEVEL {
             MandatoryLevelUntrusted = 0,
@@ -5377,9 +5382,12 @@ mod Windows {
         type PFPO_DATA = *mut FPO_DATA;
         const PF_3DNOW_INSTRUCTIONS_AVAILABLE: i32 = 7;
         const PF_ALPHA_BYTE_INSTRUCTIONS: i32 = 5;
+        const PF_APX_F_INSTRUCTIONS_AVAILABLE: i32 = 90;
         const PF_ARM_64BIT_LOADSTORE_ATOMIC: i32 = 25;
         const PF_ARM_DIVIDE_INSTRUCTION_AVAILABLE: i32 = 24;
         const PF_ARM_EXTERNAL_CACHE_AVAILABLE: i32 = 26;
+        const PF_ARM_FEAT_ECV_INSTRUCTIONS_AVAILABLE: i32 = 91;
+        const PF_ARM_FEAT_ECV_POFF_INSTRUCTIONS_AVAILABLE: i32 = 92;
         const PF_ARM_FMAC_INSTRUCTIONS_AVAILABLE: i32 = 27;
         const PF_ARM_LSE2_AVAILABLE: i32 = 62;
         const PF_ARM_NEON_INSTRUCTIONS_AVAILABLE: i32 = 19;
@@ -6485,7 +6493,9 @@ mod Windows {
         struct PROCESSOR_RELATIONSHIP {
             Flags: BYTE,
             EfficiencyClass: BYTE,
-            Reserved: [BYTE; 20],
+            RelativePerformance: WORD,
+            RelativeEfficiency: WORD,
+            Reserved: [BYTE; 16],
             GroupCount: WORD,
             GroupMask: [GROUP_AFFINITY; 1],
         }
@@ -7029,6 +7039,18 @@ mod Windows {
         type PSCRUB_PARITY_EXTENT = *mut SCRUB_PARITY_EXTENT;
         type PSCRUB_PARITY_EXTENT_DATA = *mut SCRUB_PARITY_EXTENT_DATA;
         extern fn PSECURE_MEMORY_CACHE_CALLBACK(#[buffer(bytes(Range))] #[in] Addr: PVOID, #[in] Range: SIZE_T) -> BOOLEAN;
+        type PSECURITY_ANTITAMPER_ENTITLEMENT = *mut SECURITY_ANTITAMPER_ENTITLEMENT;
+        type PSECURITY_ANTITAMPER_IDENTITY = *mut SECURITY_ANTITAMPER_IDENTITY;
+        type PSECURITY_ANTITAMPER_MODULE_IDENTIFIER = *mut SECURITY_ANTITAMPER_MODULE_IDENTIFIER;
+        type PSECURITY_ANTITAMPER_MODULE_IDENTIFIER_TYPE = *mut SECURITY_ANTITAMPER_MODULE_IDENTIFIER_TYPE;
+        type PSECURITY_ANTITAMPER_POLICY = *mut SECURITY_ANTITAMPER_POLICY;
+        type PSECURITY_ANTITAMPER_POLICY_CROSS_INSTANCE_ACCESS = *mut SECURITY_ANTITAMPER_POLICY_CROSS_INSTANCE_ACCESS;
+        type PSECURITY_ANTITAMPER_POLICY_DEBUG = *mut SECURITY_ANTITAMPER_POLICY_DEBUG;
+        type PSECURITY_ANTITAMPER_POLICY_GENERAL = *mut SECURITY_ISOLATION_CONFIGURATION_GENERAL;
+        type PSECURITY_ANTITAMPER_POLICY_MODULES = *mut SECURITY_ANTITAMPER_POLICY_MODULES;
+        type PSECURITY_ANTITAMPER_POLICY_PROCESS = *mut SECURITY_ANTITAMPER_POLICY_PROCESS;
+        type PSECURITY_ANTITAMPER_POLICY_SIGNING = *mut SECURITY_ANTITAMPER_POLICY_SIGNING;
+        type PSECURITY_ANTITAMPER_POLICY_UI = *mut SECURITY_ISOLATION_CONFIGURATION_UI;
         type PSECURITY_ATTRIBUTES_OPAQUE = *mut void;
         type PSECURITY_CAPABILITIES = *mut SECURITY_CAPABILITIES;
         type PSECURITY_CONTAINMENT_CONFIGURATION = *mut SECURITY_CONTAINMENT_CONFIGURATION;
@@ -7037,6 +7059,12 @@ mod Windows {
         type PSECURITY_DESCRIPTOR_CONTROL = *mut u16;
         type PSECURITY_IMPERSONATION_LEVEL = *mut SECURITY_IMPERSONATION_LEVEL;
         type PSECURITY_INFORMATION = *mut u32;
+        type PSECURITY_ISOLATION_CONFIGURATION = *mut SECURITY_ISOLATION_CONFIGURATION;
+        type PSECURITY_ISOLATION_CONFIGURATION_DEBUG = *mut SECURITY_ISOLATION_CONFIGURATION_DEBUG;
+        type PSECURITY_ISOLATION_CONFIGURATION_GENERAL = *mut SECURITY_ISOLATION_CONFIGURATION_GENERAL;
+        type PSECURITY_ISOLATION_CONFIGURATION_PROCESS = *mut SECURITY_ISOLATION_CONFIGURATION_PROCESS;
+        type PSECURITY_ISOLATION_CONFIGURATION_SIGNING = *mut SECURITY_ISOLATION_CONFIGURATION_SIGNING;
+        type PSECURITY_ISOLATION_CONFIGURATION_UI = *mut SECURITY_ISOLATION_CONFIGURATION_UI;
         type PSECURITY_OBJECT_AI_PARAMS = *mut SECURITY_OBJECT_AI_PARAMS;
         type PSECURITY_QUALITY_OF_SERVICE = *mut SECURITY_QUALITY_OF_SERVICE;
         type PSERVERSILO_BASIC_INFORMATION = *mut SERVERSILO_BASIC_INFORMATION;
@@ -7782,6 +7810,126 @@ mod Windows {
         const SECTION_QUERY: i32 = 1;
         const SECURITY_AGENTIC_PLATFORM_BASE_RID: i32 = 101;
         const SECURITY_ANONYMOUS_LOGON_RID: i32 = 7;
+        struct SECURITY_ANTITAMPER_ENTITLEMENT {
+            RequiredSigningLevel: SE_SIGNING_LEVEL,
+            RequiredSidCount: DWORD,
+            RequiredSids: *mut PSID,
+        }
+        struct SECURITY_ANTITAMPER_IDENTITY {
+            Name: PCWSTR,
+            Publisher: PCWSTR,
+        }
+        struct SECURITY_ANTITAMPER_MODULE_IDENTIFIER {
+            Type: SECURITY_ANTITAMPER_MODULE_IDENTIFIER_TYPE,
+            DataSize: DWORD,
+            Data: PBYTE,
+        }
+        #[repr(i32)]
+        enum SECURITY_ANTITAMPER_MODULE_IDENTIFIER_TYPE {
+            SecurityAntiTamperModuleIdentifierHash = 0,
+            SecurityAntiTamperModuleIdentifierPublisher = 1,
+        }
+        struct SECURITY_ANTITAMPER_POLICY {
+            Anonymous: union {
+                Version: DWORD,
+                Anonymous: struct {
+                    _bitfield: u32 {
+                        MinorVersion: DWORD: 20,
+                        MajorVersion: DWORD: 12,
+                    },
+                },
+            },
+            PolicyPresent: DWORD,
+            Identity: SECURITY_ANTITAMPER_IDENTITY,
+            GeneralPolicy: SECURITY_ANTITAMPER_POLICY_GENERAL,
+            DebugPolicy: SECURITY_ANTITAMPER_POLICY_DEBUG,
+            UiPolicy: SECURITY_ANTITAMPER_POLICY_UI,
+            ProcessPolicy: SECURITY_ANTITAMPER_POLICY_PROCESS,
+            SigningPolicy: SECURITY_ANTITAMPER_POLICY_SIGNING,
+            ModulePolicy: SECURITY_ANTITAMPER_POLICY_MODULES,
+        }
+        struct SECURITY_ANTITAMPER_POLICY_CROSS_INSTANCE_ACCESS {
+            Anonymous: union {
+                Flags: DWORD,
+                Anonymous: struct {
+                    _bitfield: u32 {
+                        AllowReadVirtualMemory: DWORD: 1,
+                        AllowDuplicateHandle: DWORD: 1,
+                        Reserved: DWORD: 30,
+                    },
+                },
+            },
+        }
+        struct SECURITY_ANTITAMPER_POLICY_DEBUG {
+            Anonymous: union {
+                Flags: DWORD,
+                Anonymous: struct {
+                    _bitfield: u32 {
+                        AllowDebugging: DWORD: 1,
+                        RequireEntitlement: DWORD: 1,
+                        UseSpecificEntitlement: DWORD: 1,
+                        Reserved: DWORD: 29,
+                    },
+                },
+            },
+            Entitlement: SECURITY_ANTITAMPER_ENTITLEMENT,
+        }
+        type SECURITY_ANTITAMPER_POLICY_GENERAL = SECURITY_ISOLATION_CONFIGURATION_GENERAL;
+        struct SECURITY_ANTITAMPER_POLICY_MODULES {
+            Anonymous: union {
+                Flags: DWORD,
+                Anonymous: struct {
+                    _bitfield: u32 {
+                        RestrictModules: DWORD: 1,
+                        Reserved: DWORD: 31,
+                    },
+                },
+            },
+            AllowedModuleCount: DWORD,
+            AllowedModules: PSECURITY_ANTITAMPER_MODULE_IDENTIFIER,
+        }
+        const SECURITY_ANTITAMPER_POLICY_PRESENT_DEBUG: u32 = 2;
+        const SECURITY_ANTITAMPER_POLICY_PRESENT_GENERAL: u32 = 1;
+        const SECURITY_ANTITAMPER_POLICY_PRESENT_MODULES: u32 = 32;
+        const SECURITY_ANTITAMPER_POLICY_PRESENT_PROCESS: u32 = 8;
+        const SECURITY_ANTITAMPER_POLICY_PRESENT_SIGNING: u32 = 16;
+        const SECURITY_ANTITAMPER_POLICY_PRESENT_UI: u32 = 4;
+        const SECURITY_ANTITAMPER_POLICY_PRESENT_VALID_MASK: u32 = 63;
+        struct SECURITY_ANTITAMPER_POLICY_PROCESS {
+            Anonymous: union {
+                Flags: DWORD,
+                Anonymous: struct {
+                    _bitfield: u32 {
+                        NeverInheritFromParent: DWORD: 1,
+                        AllowInheritFromAnyIdentity: DWORD: 1,
+                        ShareInstanceWithChildren: DWORD: 1,
+                        Reserved: DWORD: 29,
+                    },
+                },
+            },
+            CrossInstanceAccess: SECURITY_ANTITAMPER_POLICY_CROSS_INSTANCE_ACCESS,
+        }
+        struct SECURITY_ANTITAMPER_POLICY_SIGNING {
+            Anonymous: union {
+                Flags: DWORD,
+                Anonymous: struct {
+                    _bitfield: u32 {
+                        RequireExecutableSigning: DWORD: 1,
+                        RequireLibrarySigning: DWORD: 1,
+                        Reserved: DWORD: 30,
+                    },
+                },
+            },
+            RequiredSigningLevel: SE_SIGNING_LEVEL,
+        }
+        type SECURITY_ANTITAMPER_POLICY_UI = SECURITY_ISOLATION_CONFIGURATION_UI;
+        const SECURITY_ANTI_TAMPER_APP_ID_BASE_RID: i32 = 1;
+        const SECURITY_ANTI_TAMPER_APP_INSTANCE_BASE_RID: i32 = 3;
+        const SECURITY_ANTI_TAMPER_APP_SUITE_BASE_RID: i32 = 5;
+        const SECURITY_ANTI_TAMPER_AUTHORITY_INSTANCE_RID_COUNT: i32 = 3;
+        const SECURITY_ANTI_TAMPER_AUTHORITY_RID_COUNT: i32 = 8;
+        const SECURITY_ANTI_TAMPER_ENTITLEMENT_BASE_RID: i32 = 4;
+        const SECURITY_ANTI_TAMPER_MUTABLE_APP_ID_BASE_RID: i32 = 2;
         const SECURITY_APPPOOL_ID_BASE_RID: i32 = 82;
         const SECURITY_APPPOOL_ID_RID_COUNT: i32 = 6;
         const SECURITY_APP_PACKAGE_BASE_RID: i32 = 2;
@@ -7896,6 +8044,77 @@ mod Windows {
         const SECURITY_INSTALLER_GROUP_CAPABILITY_BASE: i32 = 32;
         const SECURITY_INSTALLER_GROUP_CAPABILITY_RID_COUNT: i32 = 9;
         const SECURITY_INTERACTIVE_RID: i32 = 4;
+        struct SECURITY_ISOLATION_CONFIGURATION {
+            Size: DWORD,
+            GeneralConfiguration: SECURITY_ISOLATION_CONFIGURATION_GENERAL,
+            DebugConfiguration: SECURITY_ISOLATION_CONFIGURATION_DEBUG,
+            UiConfiguration: SECURITY_ISOLATION_CONFIGURATION_UI,
+            ProcessConfiguration: SECURITY_ISOLATION_CONFIGURATION_PROCESS,
+            SigningConfiguration: SECURITY_ISOLATION_CONFIGURATION_SIGNING,
+        }
+        struct SECURITY_ISOLATION_CONFIGURATION_DEBUG {
+            Anonymous: union {
+                Flags: DWORD,
+                Anonymous: struct {
+                    _bitfield: u32 {
+                        AllowDebugging: DWORD: 1,
+                        Reserved: DWORD: 31,
+                    },
+                },
+            },
+        }
+        struct SECURITY_ISOLATION_CONFIGURATION_GENERAL {
+            Anonymous: union {
+                Flags: DWORD,
+                Anonymous: struct {
+                    _bitfield: u32 {
+                        ProtectionEnabled: DWORD: 1,
+                        Reserved: DWORD: 31,
+                    },
+                },
+            },
+        }
+        struct SECURITY_ISOLATION_CONFIGURATION_PROCESS {
+            Anonymous: union {
+                Flags: DWORD,
+                Anonymous: struct {
+                    _bitfield: u32 {
+                        NeverInheritFromParent: DWORD: 1,
+                        AllowInheritFromAnyIdentity: DWORD: 1,
+                        ShareInstanceWithChildren: DWORD: 1,
+                        Reserved: DWORD: 29,
+                    },
+                },
+            },
+        }
+        struct SECURITY_ISOLATION_CONFIGURATION_SIGNING {
+            Anonymous: union {
+                Flags: DWORD,
+                Anonymous: struct {
+                    _bitfield: u32 {
+                        RequireSigning: DWORD: 1,
+                        RequireSignedLibraries: DWORD: 1,
+                        Reserved: DWORD: 30,
+                    },
+                },
+            },
+            RequiredSigningLevel: SE_SIGNING_LEVEL,
+        }
+        struct SECURITY_ISOLATION_CONFIGURATION_UI {
+            Anonymous: union {
+                Flags: DWORD,
+                Anonymous: struct {
+                    _bitfield: u32 {
+                        BlockUiAccess: DWORD: 1,
+                        AllowExternalHook: DWORD: 1,
+                        AllowHandleAccess: DWORD: 1,
+                        AllowWindowMessages: DWORD: 1,
+                        AllowSyntheticInput: DWORD: 1,
+                        Reserved: DWORD: 27,
+                    },
+                },
+            },
+        }
         const SECURITY_IUSER_RID: i32 = 17;
         const SECURITY_LOCAL_ACCOUNT_AND_ADMIN_RID: i32 = 114;
         const SECURITY_LOCAL_ACCOUNT_RID: i32 = 113;
@@ -8812,6 +9031,8 @@ mod Windows {
             },
         }
         type SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX = _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX;
+        const SYSTEM_MANDATORY_ACCESS_ALLOWED_ACE_TYPE: i32 = 23;
+        const SYSTEM_MANDATORY_APP_ACCESS_ALLOWED_ACE_TYPE: i32 = 22;
         struct SYSTEM_MANDATORY_LABEL_ACE {
             Header: ACE_HEADER,
             Mask: ACCESS_MASK,
@@ -9304,7 +9525,12 @@ mod Windows {
             TokenLearningMode = 50,
             TokenIsSystemManagedAdmin = 51,
             TokenIsInstaller = 52,
-            MaxTokenInfoClass = 53,
+            TokenHasTamperProtection = 53,
+            TokenAppIdentitySid = 54,
+            TokenAppInstanceSid = 55,
+            TokenAppSuiteSid = 56,
+            TokenEntitlements = 57,
+            MaxTokenInfoClass = 58,
         }
         #[arch(X64 | Arm64)]
         const TOKEN_INTEGRITY_LEVEL_MAX_SIZE: u64 = 84;
@@ -10042,6 +10268,7 @@ mod Windows {
         const XSTATE_ALIGN_MASK: u64 = 2;
         const XSTATE_AMX_TILE_CONFIG: i32 = 17;
         const XSTATE_AMX_TILE_DATA: i32 = 18;
+        const XSTATE_APX_F: i32 = 19;
         const XSTATE_ARM64_SME_TPIDR2: i32 = 4;
         const XSTATE_ARM64_SME_ZA: i32 = 3;
         const XSTATE_ARM64_SME_ZT: i32 = 5;
@@ -10136,12 +10363,13 @@ mod Windows {
         #[arch(Arm64)]
         const XSTATE_MASK_ALLOWED: u64 = 60;
         #[arch(X64)]
-        const XSTATE_MASK_ALLOWED: u64 = 4611686018427784703;
+        const XSTATE_MASK_ALLOWED: u64 = 4611686018428308991;
         #[arch(X86)]
         const XSTATE_MASK_ALLOWED: u64 = 4611686018427388415;
         const XSTATE_MASK_AMD64_LEGACY: u64 = 3;
         const XSTATE_MASK_AMX_TILE_CONFIG: u64 = 131072;
         const XSTATE_MASK_AMX_TILE_DATA: u64 = 262144;
+        const XSTATE_MASK_APX_F: u64 = 524288;
         const XSTATE_MASK_ARM64_SME_TPIDR2: u64 = 16;
         const XSTATE_MASK_ARM64_SME_ZA: u64 = 8;
         const XSTATE_MASK_ARM64_SME_ZT: u64 = 32;

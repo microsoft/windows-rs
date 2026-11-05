@@ -244,11 +244,6 @@ pub const LIBRARY_OVERRIDES: &[LibraryOverride] = &[
         corrected_library: "api-ms-win-eventing-consumer-l1-1-2.dll",
     },
     LibraryOverride {
-        symbol: "GetRuntimeAttestationReport",
-        sdk_library: Some("KERNEL32.dll"),
-        corrected_library: "KernelBase.dll",
-    },
-    LibraryOverride {
         symbol: "GetSystemLeapSecondInformation",
         sdk_library: Some("KERNEL32.dll"),
         corrected_library: "KernelBase.dll",

@@ -585,6 +585,23 @@ mod Windows {
         #[library("GDI32.dll")]
         #[must_use]
         extern fn D3DKMTWaitForVerticalBlankEvent2(#[in] param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT2) -> NTSTATUS;
+        struct D3DKMT_ACQUIREEXCLUSIVEENGINEACCESS {
+            hAdapter: D3DKMT_HANDLE,
+            EngineType: DXGK_ENGINE_TYPE,
+            hProcess: HANDLE,
+            Flags: D3DKMT_ACQUIREEXCLUSIVEENGINEACCESS_FLAGS,
+        }
+        struct D3DKMT_ACQUIREEXCLUSIVEENGINEACCESS_FLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32 {
+                        SetExistingDevicesToError: UINT: 1,
+                        Reserved: UINT: 31,
+                    },
+                },
+                Value: UINT,
+            },
+        }
         struct D3DKMT_ACQUIREKEYEDMUTEX {
             hKeyedMutex: D3DKMT_HANDLE,
             Key: UINT64,
@@ -716,7 +733,8 @@ mod Windows {
                     DisableMigration: UINT: 1,
                     ForceDiscardCpuHostApertureRange: UINT: 1,
                     PeriodicTrimNeverIdle: UINT: 1,
-                    Reserved: UINT: 6,
+                    ExplicitAllocationPreference: UINT: 1,
+                    Reserved: UINT: 5,
                 },
             },
             Value: UINT32,
@@ -854,6 +872,11 @@ mod Windows {
             MemorySegmentGroup: D3DKMT_MEMORY_SEGMENT_GROUP,
             Reservation: UINT64,
             PhysicalAdapterIndex: UINT,
+        }
+        struct D3DKMT_CHECKENGINEACCESS {
+            hAdapter: D3DKMT_HANDLE,
+            EngineType: DXGK_ENGINE_TYPE,
+            EngineAccess: D3DKMT_ENGINE_ACCESS,
         }
         struct D3DKMT_CHECKMONITORPOWERSTATE {
             hAdapter: D3DKMT_HANDLE,
@@ -1448,7 +1471,8 @@ mod Windows {
             D3DKMT_DEVICE_MARKED_AS_ERROR_FAILED_ASYNC_VMBUS_COMMAND = 25,
             D3DKMT_DEVICE_MARKED_AS_ERROR_DISPLAY_DISCONNECT = 26,
             D3DKMT_DEVICE_MARKED_AS_ERROR_GPU_VA_COMMITMENT_ERROR = 27,
-            D3DKMT_DEVICE_MARKED_AS_ERROR_FAILURE_CODE_KERNEL_MAX = 28,
+            D3DKMT_DEVICE_MARKED_AS_ERROR_ENGINE_ACCESS_DENIED = 28,
+            D3DKMT_DEVICE_MARKED_AS_ERROR_FAILURE_CODE_KERNEL_MAX = 29,
             D3DKMT_DEVICE_MARKED_AS_ERROR_FROM_USER_MODE = -2147483648,
         }
         struct D3DKMT_DEVICE_MARKED_AS_ERROR_INFO {
@@ -1536,6 +1560,12 @@ mod Windows {
         }
         struct D3DKMT_DRIVER_DESCRIPTION {
             DriverDescription: [WCHAR; 4096],
+        }
+        #[repr(i32)]
+        enum D3DKMT_ENGINE_ACCESS {
+            D3DKMT_ENGINE_ACCESS_ALLOWED_ALL = 0,
+            D3DKMT_ENGINE_ACCESS_ALLOWED_EXCLUSIVE = 1,
+            D3DKMT_ENGINE_ACCESS_DENIED = 2,
         }
         struct D3DKMT_ENUMADAPTERS {
             NumAdapters: ULONG,
@@ -3693,9 +3723,8 @@ mod Windows {
             Size: UINT64,
             PageSize: UINT,
             SegmentId: ULONG,
-            bAperture: BOOLEAN,
-            bReservedSysMem: BOOLEAN,
             BudgetGroup: D3DKMT_MEMORY_SEGMENT_GROUP,
+            SegmentType: UINT,
         }
         struct D3DKMT_SETALLOCATIONPRIORITY {
             hDevice: D3DKMT_HANDLE,
@@ -4407,6 +4436,10 @@ mod Windows {
             PageTableLevelCount: UINT,
             PageTableLevelDesk: [D3DKMT_PAGE_TABLE_LEVEL_DESC; 6],
         }
+        struct DXGK_FEATURE_EXCLUSIVE_ENGINE_ACCESS_INTERFACE_V1 {
+            pfnAcquireExclusiveEngineAccess: PFND3DKMT_ACQUIREEXCLUSIVEENGINEACCESS,
+            pfnCheckEngineAccess: PFND3DKMT_CHECKENGINEACCESS,
+        }
         struct DXGK_FEATURE_PROCESS_DEBUG_BLOB_COLLECTION_INTERFACE_V1 {
             pfnEnableProcessDebugBlobCollection: PFND3DKMT_ENABLEPROCESSDEBUGBLOBCOLLECTION,
             pfnDisableProcessDebugBlobCollection: PFND3DKMT_DISABLEPROCESSDEBUGBLOBCOLLECTION,
@@ -4568,6 +4601,8 @@ mod Windows {
         #[must_use]
         extern "C" fn PDXGK_SET_SHARED_POWER_COMPONENT_STATE(DeviceHandle: PVOID, PrivateHandle: PVOID, ComponentIndex: ULONG, Active: BOOLEAN) -> NTSTATUS;
         #[must_use]
+        extern fn PFND3DKMT_ACQUIREEXCLUSIVEENGINEACCESS(#[in] #[out] param0: *mut D3DKMT_ACQUIREEXCLUSIVEENGINEACCESS) -> NTSTATUS;
+        #[must_use]
         extern fn PFND3DKMT_ACQUIREKEYEDMUTEX(#[in] #[out] param0: *mut D3DKMT_ACQUIREKEYEDMUTEX) -> NTSTATUS;
         #[must_use]
         extern fn PFND3DKMT_ACQUIREKEYEDMUTEX2(#[in] #[out] param0: *mut D3DKMT_ACQUIREKEYEDMUTEX2) -> NTSTATUS;
@@ -4580,6 +4615,8 @@ mod Windows {
         extern fn PFND3DKMT_CHANGESURFACEPOINTER(#[in] param0: *const D3DKMT_CHANGESURFACEPOINTER) -> NTSTATUS;
         #[must_use]
         extern fn PFND3DKMT_CHANGEVIDEOMEMORYRESERVATION(#[in] param0: *const D3DKMT_CHANGEVIDEOMEMORYRESERVATION) -> NTSTATUS;
+        #[must_use]
+        extern fn PFND3DKMT_CHECKENGINEACCESS(#[in] #[out] param0: *mut D3DKMT_CHECKENGINEACCESS) -> NTSTATUS;
         #[must_use]
         extern fn PFND3DKMT_CHECKEXCLUSIVEOWNERSHIP() -> BOOLEAN;
         #[must_use]

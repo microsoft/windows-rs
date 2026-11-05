@@ -179,7 +179,6 @@ mod Windows {
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(WorkflowPrintTicket)]
-                #[Windows::Foundation::Metadata::Experimental]
                 #[guid(0x966d1166_d9c7_569e_b7d8_f2b341c8f976)]
                 interface IWorkflowPrintTicketFactory {
                     fn CreateInstance(&self, #[in] printerName: String, #[in] printTicketStream: super::super::super::Storage::Streams::IInputStream) -> WorkflowPrintTicket;
