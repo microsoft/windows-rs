@@ -25,6 +25,20 @@ mod Test {
         callback: Callback,
     }
 
+    struct CallbackArray {
+        values: [WithCallback; 2],
+    }
+
+    type CallbackArrayAlias = [WithCallback; 2];
+
+    struct NestedCallbackArray {
+        values: [CallbackArrayAlias; 2],
+    }
+
+    struct CallbackPointers {
+        values: [*const WithCallback; 2],
+    }
+
     #[packed(1)]
     struct NonCopy {
         object: Windows::Win32::IUnknown,

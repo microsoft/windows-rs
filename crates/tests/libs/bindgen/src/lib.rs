@@ -202,6 +202,15 @@ fn packed_derives() {
     equal(&outer, &outer);
     let floating = Floating { tag: 1, value: 1.5 };
     assert_eq!(floating, Floating { tag: 1, value: 1.5 });
+    equal(&CallbackPointers::default(), &CallbackPointers::default());
+    equal(
+        &struct_mixed_layout::PointerOnly::default(),
+        &struct_mixed_layout::PointerOnly::default(),
+    );
+    equal(
+        &struct_mixed_layout::Aligned::default(),
+        &struct_mixed_layout::Aligned::default(),
+    );
 }
 
 #[test]

@@ -588,6 +588,7 @@ impl Type {
         match self {
             Self::CppDelegate(..) | Self::FnPtr(_) => true,
             Self::CppStruct(ty) => ty.has_cpp_delegate(reader),
+            Self::ArrayFixed(ty, _) => ty.has_cpp_delegate(reader),
             _ => false,
         }
     }

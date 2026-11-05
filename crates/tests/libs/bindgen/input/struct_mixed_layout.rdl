@@ -1,0 +1,35 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    #[align(16)]
+    struct Aligned {
+        value: i32,
+    }
+
+    #[packed(4)]
+    struct PackedMixed {
+        tag: u8,
+        pointer: *mut void,
+        value: Aligned,
+        tail: u8,
+    }
+
+    struct Container {
+        values: [PackedMixed; 2],
+        tail: u8,
+    }
+
+    struct NestedContainer {
+        values: [[Container; 2]; 2],
+    }
+
+    type MixedAlias = PackedMixed;
+
+    struct AliasContainer {
+        value: MixedAlias,
+    }
+
+    struct PointerOnly {
+        value: *const PackedMixed,
+    }
+}

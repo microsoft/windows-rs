@@ -1,9 +1,40 @@
 pub type Callback = Option<unsafe extern "system" fn(value: u32)>;
+#[repr(C)]
+#[derive(Clone, Copy, Debug)]
+pub struct CallbackArray {
+    pub values: [WithCallback; 2],
+}
+impl Default for CallbackArray {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type CallbackArrayAlias = [WithCallback; 2];
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct CallbackPointers {
+    pub values: [*const WithCallback; 2],
+}
+impl Default for CallbackPointers {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct Floating {
     pub tag: u8,
     pub value: f64,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug)]
+pub struct NestedCallbackArray {
+    pub values: [CallbackArrayAlias; 2],
+}
+impl Default for NestedCallbackArray {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(1))]
 #[derive(Default)]

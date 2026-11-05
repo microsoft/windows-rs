@@ -438,6 +438,7 @@ impl CppStruct {
             && !has_explicit_layout
             && (!has_packing || is_copyable)
             && !self.has_member_alignment(config.reader)
+            && !self.contains_mixed_layout(config.reader)
         {
             derive.extend(["Debug"]);
 
@@ -562,6 +563,13 @@ impl CppStruct {
             .class_layout()
             .is_some_and(|layout| layout.packing_size() != 0)
             && self.has_required_alignment(reader)
+    }
+
+    fn contains_mixed_layout(&self, reader: &Reader) -> bool {
+        self.has_mixed_layout(reader)
+            || self
+                .multi_struct_fields(reader)
+                .any(|field| field.contains_mixed_layout(reader))
     }
 
     fn has_required_alignment(&self, reader: &Reader) -> bool {
