@@ -22,7 +22,13 @@ pub fn ensure_libclang() {
             std::env::set_var("LIBCLANG_PATH", &native);
         }
     }
-    windows_clang_sys::load().unwrap();
+    windows_clang_sys::load().unwrap_or_else(|error| {
+        panic!(
+            "failed to load libclang: {error}\n\
+             Point `LIBCLANG_PATH` at the pinned windows-clang {LIBCLANG_VERSION} native \
+             libraries, or unset it to build them automatically."
+        )
+    });
 }
 
 /// Resolve a fresh pinned host-arch native build without setting environment variables.
