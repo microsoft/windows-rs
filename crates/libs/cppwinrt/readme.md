@@ -38,8 +38,3 @@ for those inputs too.
 
 `cppwinrt(["-help"])` lists the bundled compiler's options. The wrapper returns standard output on
 success and panics on failure, stopping the build.
-
-The [robot C++ component][component] and [C++ client][client] show the complete pipeline.
-
-[component]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/robot/component_cpp
-[client]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/robot/client_cpp

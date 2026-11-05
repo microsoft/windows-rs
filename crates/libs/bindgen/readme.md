@@ -92,6 +92,4 @@ Use [windows-rdl](https://docs.rs/windows-rdl) to compile RDL or
 and binding generators together.
 
 The [VSS sample](https://github.com/microsoft/windows-rs/tree/master/crates/samples/bindgen/vss_backup)
-uses typed COM bindings. The
-[robot component](https://github.com/microsoft/windows-rs/tree/master/crates/samples/robot/component)
-uses custom metadata and implementation traits.
+uses typed COM bindings.
