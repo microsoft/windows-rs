@@ -89,7 +89,11 @@ impl Projector<'_, '_> {
             .unwrap();
         let export = annotation
             .and_then(|value| value.name.as_deref())
-            .or_else(|| fallback.and_then(|(import, _)| import.name.as_deref()))
+            .or_else(|| {
+                fallback
+                    .filter(|(import, _)| import.library.eq_ignore_ascii_case(library))
+                    .and_then(|(import, _)| import.name.as_deref())
+            })
             .unwrap_or(public_name(native_name));
         let written = fallback.map_or(observation.written, |(_, written)| written);
         if alias.is_some()
@@ -106,11 +110,8 @@ impl Projector<'_, '_> {
         if library.is_empty() || export.is_empty() {
             return Err(Error(format!("empty DLL/export ownership for `{name}`")));
         }
-        if let Some(ordinal) = export.strip_prefix('#')
-            && ordinal.parse::<u16>().is_err()
-        {
-            return Err(Error(format!("invalid import ordinal for `{name}`")));
-        }
+        windows_metadata::import_ordinal(export)
+            .map_err(|error| Error(format!("function `{name}`: {error}")))?;
         Ok(Some(FunctionImport {
             library,
             name: export,

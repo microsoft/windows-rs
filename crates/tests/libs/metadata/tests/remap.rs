@@ -85,6 +85,52 @@ fn remapper_routes_attribute_type_values() {
 }
 
 #[test]
+fn ordinal_import_survives_merge_and_remap() {
+    let dir = test_dir("ordinal_import");
+    std::fs::create_dir_all(&dir).unwrap();
+    let input = dir.join("input.winmd");
+    let merged = dir.join("merged.winmd");
+    let output = dir.join("output.winmd");
+    windows_rdl::reader()
+        .input_text(
+            r##"#[win32] mod Flat {
+                #[library("example.dll", import = "#17", last_error)]
+                extern "C" fn ByOrdinal(value: i32) -> i32;
+            }"##,
+        )
+        .output(&input)
+        .write()
+        .unwrap();
+    merge().input(&input).output(&merged).merge().unwrap();
+    remap()
+        .input(&merged)
+        .sources(["Flat"])
+        .route("ByOrdinal", "Flat.Imports")
+        .output(&output)
+        .remap()
+        .unwrap();
+    let index = reader::Index::read(output.to_str().unwrap()).unwrap();
+    let method = index
+        .expect("Flat.Imports", "Apis")
+        .methods()
+        .next()
+        .unwrap();
+    assert_eq!(method.name(), "ByOrdinal");
+    assert_eq!(method.calling_convention(), "C");
+    let import = method.impl_map().unwrap();
+    assert_eq!(import.import_name(), "#17");
+    assert_eq!(import.import_scope().name(), "example.dll");
+    assert!(
+        import
+            .flags()
+            .contains(PInvokeAttributes::SupportsLastError)
+    );
+    for path in [input, merged, output] {
+        std::fs::remove_file(path).unwrap();
+    }
+}
+
+#[test]
 fn remapper_reports_configuration_and_input_errors() {
     let missing_output = remap().remap().unwrap_err().to_string();
     assert!(missing_output.contains("error: output is required"));

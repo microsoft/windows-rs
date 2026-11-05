@@ -13,9 +13,17 @@ fn import_annotation_precedence() {
     };
     let snapshots = capture(std::slice::from_ref(&input), &TARGETS).unwrap();
     let merged = merge(&snapshots).unwrap();
-    for fallback in [false, true] {
+    for (case, fallback) in [
+        None,
+        Some(("scanned.dll", "ScannedEntry")),
+        Some(("scanned.dll", "#17")),
+        Some(("ACTUAL.DLL", "#17")),
+    ]
+    .into_iter()
+    .enumerate()
+    {
         let mut imports = projection::Imports::default();
-        if fallback {
+        if let Some((library, entry)) = fallback {
             for snapshot in &snapshots {
                 for value in &snapshot.values {
                     for observation in &value.observations {
@@ -25,8 +33,8 @@ fn import_annotation_precedence() {
                         imports.symbols.entry(snapshot.target).or_default().insert(
                             mangling.clone(),
                             projection::Import {
-                                library: "scanned.dll".into(),
-                                name: Some("ScannedEntry".into()),
+                                library: library.into(),
+                                name: Some(entry.into()),
                             },
                         );
                     }
@@ -40,7 +48,7 @@ fn import_annotation_precedence() {
             .values()
             .map(|part| part.rdl.as_str())
             .collect();
-        let winmd = std::path::Path::new(env!("OUT_DIR")).join(format!("import-{fallback}.winmd"));
+        let winmd = std::path::Path::new(env!("OUT_DIR")).join(format!("import-{case}.winmd"));
         windows_rdl::reader()
             .input_text(&text)
             .output(&winmd)
@@ -54,13 +62,9 @@ fn import_annotation_precedence() {
                 "Named" => "NativeEntry",
                 "Ordinal" | "Char16Ordinal" | "Enum16Ordinal" => "#42",
                 "StringOrdinal" | "Char32Ordinal" | "Enum32Ordinal" => "#65535",
-                name => {
-                    if fallback {
-                        "ScannedEntry"
-                    } else {
-                        name
-                    }
-                }
+                name => fallback
+                    .filter(|(library, _)| library.eq_ignore_ascii_case("actual.dll"))
+                    .map_or(name, |(_, entry)| entry),
             };
             assert_eq!(import.import_name(), entry);
             assert_eq!(
@@ -146,8 +150,8 @@ fn import_annotation_rust() {
         .write();
     let generated = std::fs::read_to_string(&rust).unwrap();
     assert!(generated.contains("\"actual.dll\" \"system\" \"NativeEntry\""));
-    assert!(!generated.contains("fn Ordinal("));
-    assert!(!generated.contains("fn StringOrdinal("));
+    assert!(generated.contains("\"actual.dll\" \"system\" ordinal(42) fn Ordinal("));
+    assert!(generated.contains("\"actual.dll\" \"system\" ordinal(65535) fn StringOrdinal("));
 }
 
 #[test]

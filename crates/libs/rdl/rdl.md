@@ -624,8 +624,11 @@ delegate type. It takes no arguments. Consumers can use it to suppress HRESULT-t
 result conversion. It does not change the native ABI. `windows-bindgen` currently ignores the flag.
 
 The `import` option also accepts an ordinal as a string, such as `import = "#42"`. This preserves
-the entry point through metadata round trips; bindgen excludes ordinal imports, which it does not
-support.
+the entry point through metadata round trips. Ordinals must be decimal digits in the range
+1 through 65535. Bindgen emits a `windows_link::link!` ordinal import, keeping the declaration's
+name and calling convention. With `--sys --extern`, the caller supplies the import library instead.
+Use ordinals only when the DLL's contract or the selected target's import library establishes them;
+ordinal linking does not relax the API's OS, manifest, or lifetime requirements.
 
 `#[associated_enum(Options)]` associates integer parameter, return or field storage with a named
 enum. It encodes `Windows.Win32.Metadata.AssociatedEnumAttribute` with a `System.Type` argument;

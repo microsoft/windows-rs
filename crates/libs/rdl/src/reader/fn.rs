@@ -97,6 +97,8 @@ impl Encoder<'_> {
                         if ident == "import" {
                             input.parse::<syn::Token![=]>()?;
                             let value: syn::LitStr = input.parse()?;
+                            metadata::import_ordinal(&value.value())
+                                .map_err(|error| syn::Error::new(value.span(), error))?;
                             import = Some(value.value());
                         } else if ident == "last_error" {
                             if last_error {

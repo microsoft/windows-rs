@@ -112,6 +112,14 @@ impl CppFn {
     pub fn write_link(&self, config: &Config, underlying_types: bool) -> TokenStream {
         let library = self.method.module_name();
         let symbol = self.method.import_name();
+        let ordinal = windows_metadata::import_ordinal(symbol.unwrap_or(self.method.name()))
+            .unwrap_or_else(|error| {
+                panic!(
+                    "windows-bindgen: function `{}.{}`: {error}",
+                    self.namespace,
+                    self.method.name()
+                )
+            });
         let name = to_ident(self.method.name());
         let abi = self.abi(config);
         let signature = self.write_extern_signature(config, underlying_types);
@@ -122,6 +130,11 @@ impl CppFn {
                 unsafe extern #abi {
                     pub fn #name #signature;
                 }
+            }
+        } else if let Some(ordinal) = ordinal {
+            let ordinal = Literal::u16_unsuffixed(ordinal);
+            quote! {
+                #link::link!(#library #abi ordinal(#ordinal) fn #name #signature);
             }
         } else {
             quote! {

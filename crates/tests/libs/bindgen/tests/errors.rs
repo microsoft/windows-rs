@@ -3,6 +3,60 @@
 // reached when a command file cannot be opened.
 
 #[test]
+fn malformed_metadata_ordinals() {
+    use windows_metadata::*;
+
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("malformed_ordinals");
+    std::fs::create_dir_all(&scratch).unwrap();
+    for ordinal in ["#", "#0", "#65536", "#-1", "#+1", "#12x"] {
+        let mut file = writer::File::new("ordinal");
+        let object = writer::TypeDefOrRef::TypeRef(file.TypeRef("System", "Object"));
+        file.TypeDef(
+            "Test",
+            "Apis",
+            object,
+            TypeAttributes::Public | TypeAttributes::Sealed,
+        );
+        let method = file.MethodDef(
+            "Bad",
+            &Signature {
+                flags: MethodCallAttributes::default(),
+                ..Default::default()
+            },
+            MethodAttributes::Public | MethodAttributes::Static | MethodAttributes::PInvokeImpl,
+            MethodImplAttributes::PreserveSig,
+        );
+        file.ImplMap(
+            method,
+            PInvokeAttributes::NoMangle | PInvokeAttributes::CallConvPlatformapi,
+            ordinal,
+            "example.dll",
+        );
+        let bytes = file.into_stream();
+        let error = std::panic::catch_unwind(|| {
+            windows_bindgen::builder()
+                .input_bytes(&bytes)
+                .filter("Test.Bad")
+                .output(scratch.join("output.rs"))
+                .write();
+        })
+        .unwrap_err();
+        let message = error
+            .downcast_ref::<String>()
+            .map(String::as_str)
+            .or_else(|| error.downcast_ref::<&str>().copied())
+            .unwrap();
+        assert!(message.contains("import ordinal"), "{message}");
+        let error = windows_rdl::writer()
+            .input_bytes(&bytes)
+            .output(scratch.join("output.rdl"))
+            .write()
+            .unwrap_err();
+        assert!(error.message.contains("import ordinal"), "{error}");
+    }
+}
+
+#[test]
 fn nested_type_name_collisions() {
     let scratch = std::path::Path::new(env!("OUT_DIR")).join("nested_type_name_collisions");
     std::fs::create_dir_all(&scratch).unwrap();
