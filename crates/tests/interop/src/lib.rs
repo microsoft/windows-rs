@@ -1,5 +1,5 @@
 //! The Rust component that fixture clients activate. Each fixture's optional `component.rs` is a
-//! module of this crate that implements the fixture's API. See `readme.md`.
+//! module of this crate that implements the fixture's API.
 
 #[allow(
     non_snake_case,
