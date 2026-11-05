@@ -56,9 +56,7 @@ struct RowInput {
 struct TaskRow {
     draft: String,
     editing: bool,
-    id: u64,
     input: ElementRef<TextBox>,
-    on_action: Callback<RowAction>,
 }
 
 #[derive(Clone)]
@@ -287,51 +285,50 @@ impl Component for TaskRow {
         Self {
             draft: input.item.title.clone(),
             editing: false,
-            id: input.item.id,
             input: ElementRef::new(),
-            on_action: input.on_action.clone(),
         }
     }
 
     fn input_changed(&mut self, input: &Self::Input, _context: &ComponentContext<Self>) {
-        self.id = input.item.id;
-        self.on_action = input.on_action.clone();
         if !self.editing {
             self.draft.clone_from(&input.item.title);
         }
     }
 
-    fn update(&mut self, message: RowMessage, _context: &ComponentContext<Self>) {
+    fn update(&mut self, message: RowMessage, context: &ComponentContext<Self>) {
+        let input = context.input();
         match message {
             RowMessage::Draft(value) => {
                 self.draft.clone_from(&value);
                 if !value.trim().is_empty() {
-                    self.on_action.call(RowAction::Rename {
-                        id: self.id,
+                    input.on_action.call(RowAction::Rename {
+                        id: input.item.id,
                         title: value,
                     });
                 }
             }
             RowMessage::Edit => self.editing = true,
             RowMessage::Remove => {
-                self.on_action.call(RowAction::Remove(self.id));
+                input.on_action.call(RowAction::Remove(input.item.id));
             }
             RowMessage::Save if self.draft.trim().is_empty() => {
                 _ = self.input.request_focus();
             }
             RowMessage::Save => {
                 self.editing = false;
-                self.on_action.call(RowAction::Rename {
-                    id: self.id,
+                input.on_action.call(RowAction::Rename {
+                    id: input.item.id,
                     title: self.draft.clone(),
                 });
             }
             RowMessage::Select => {
-                self.on_action.call(RowAction::Select(self.id));
+                input.on_action.call(RowAction::Select(input.item.id));
             }
             RowMessage::SetDone(done) => {
-                self.on_action
-                    .call(RowAction::SetDone { id: self.id, done });
+                input.on_action.call(RowAction::SetDone {
+                    id: input.item.id,
+                    done,
+                });
             }
         }
     }

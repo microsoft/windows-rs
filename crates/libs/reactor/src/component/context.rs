@@ -1,6 +1,7 @@
 use super::*;
 
-pub struct ComponentContext<C: Component> {
+pub struct ComponentContext<'a, C: Component> {
+    pub(super) input: &'a C::Input,
     pub(super) reference: ElementRef,
     pub(super) local_sender: LocalSender<C::Message>,
     pub(super) sender: ComponentSender<C::Message>,
@@ -9,7 +10,14 @@ pub struct ComponentContext<C: Component> {
     pub(super) ui_services: Rc<dyn ComponentUiServices>,
 }
 
-impl<C: Component> ComponentContext<C> {
+impl<C: Component> ComponentContext<'_, C> {
+    /// Returns the input most recently applied to this component.
+    ///
+    /// The input is borrowed for this lifecycle call. Clone any values needed by background work.
+    pub fn input(&self) -> &C::Input {
+        self.input
+    }
+
     pub fn sender(&self) -> LocalSender<C::Message> {
         self.local_sender.clone()
     }
@@ -118,7 +126,7 @@ impl<C: Component> ComponentContext<C> {
     }
 }
 
-impl<C> ComponentContext<C>
+impl<C> ComponentContext<'_, C>
 where
     C: Component,
     C::Message: Send,
@@ -175,7 +183,7 @@ where
 }
 
 pub struct ViewContext<'a, C: Component> {
-    pub(super) context: ComponentContext<C>,
+    pub(super) context: ComponentContext<'a, C>,
     pub(super) contexts: &'a HashMap<ContextId, ContextValue>,
     pub(super) dependencies: HashSet<ContextId>,
     pub(super) effects: EffectDraft,

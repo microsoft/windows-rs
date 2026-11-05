@@ -33,7 +33,6 @@ enum RowMessage {
 }
 
 struct ProjectRow {
-    input: ProjectRowInput,
     syncing: bool,
 }
 
@@ -41,20 +40,14 @@ impl Component for ProjectRow {
     type Input = ProjectRowInput;
     type Message = RowMessage;
 
-    fn create(input: &Self::Input, _: &ComponentContext<Self>) -> Self {
-        Self {
-            input: input.clone(),
-            syncing: false,
-        }
-    }
-
-    fn input_changed(&mut self, input: &Self::Input, _: &ComponentContext<Self>) {
-        self.input = input.clone();
+    fn create(_: &Self::Input, _: &ComponentContext<Self>) -> Self {
+        Self { syncing: false }
     }
 
     fn update(&mut self, message: RowMessage, context: &ComponentContext<Self>) {
+        let input = context.input();
         match message {
-            RowMessage::Select => self.input.on_select.call(self.input.project.id),
+            RowMessage::Select => input.on_select.call(input.project.id),
             RowMessage::Sync if !self.syncing => {
                 self.syncing = true;
                 context.spawn_background(|token| {
@@ -70,7 +63,7 @@ impl Component for ProjectRow {
             RowMessage::Sync => {}
             RowMessage::Synced => {
                 self.syncing = false;
-                self.input.on_synced.call(self.input.project.id);
+                input.on_synced.call(input.project.id);
             }
         }
     }

@@ -72,7 +72,6 @@ enum RowMessage {
 }
 
 struct Row {
-    input: RowInput,
     loading: bool,
 }
 
@@ -80,33 +79,27 @@ impl Component for Row {
     type Input = RowInput;
     type Message = RowMessage;
 
-    fn create(input: &Self::Input, _: &ComponentContext<Self>) -> Self {
-        Self {
-            input: input.clone(),
-            loading: false,
-        }
-    }
-
-    fn input_changed(&mut self, input: &Self::Input, _: &ComponentContext<Self>) {
-        self.input = input.clone();
+    fn create(_: &Self::Input, _: &ComponentContext<Self>) -> Self {
+        Self { loading: false }
     }
 
     fn update(&mut self, message: RowMessage, context: &ComponentContext<Self>) {
+        let input = context.input();
         match message {
             RowMessage::Cancelled => self.loading = false,
             RowMessage::Loaded(children) => {
                 self.loading = false;
-                self.input.on_loaded.call(LoadResult {
+                input.on_loaded.call(LoadResult {
                     children,
-                    key: self.input.key.clone(),
+                    key: input.key.clone(),
                 });
             }
-            RowMessage::Select => self.input.on_select.call(self.input.key.clone()),
+            RowMessage::Select => input.on_select.call(input.key.clone()),
             RowMessage::Toggle => {
-                self.input.on_toggle.call(self.input.key.clone());
-                if !self.input.loaded && !self.loading {
+                input.on_toggle.call(input.key.clone());
+                if !input.loaded && !self.loading {
                     self.loading = true;
-                    let key = self.input.key.clone();
+                    let key = input.key.clone();
                     context.spawn_background(move |token| {
                         for _ in 0..10 {
                             if token.is_cancelled() {
