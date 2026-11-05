@@ -315,7 +315,23 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "keyboard" => App::run_component::<keyboard::KeyboardFixture>(())?,
         "list" => App::run_component::<list::ListFixture>(())?,
         "reference" => App::run_component::<reference::ReferenceFixture>(())?,
-        "repeater" => App::run_component::<repeater::RepeaterFixture>(())?,
+        "repeater" => App::run_component::<repeater::RepeaterFixture>(repeater::Rows::Default)?,
+        "repeater_items" => App::run_component::<repeater::RepeaterFixture>(repeater::Rows::Items)?,
+        "repeater_virtual" => {
+            App::run_component::<repeater::RepeaterFixture>(repeater::Rows::Virtual)?;
+        }
+        "repeater_short" => App::run_component::<repeater::RepeaterFixture>(repeater::Rows::Short)?,
+        "repeater_mixed" => App::run_component::<repeater::RepeaterFixture>(repeater::Rows::Mixed)?,
+        "repeater_layout_short" => {
+            App::run_component::<repeater::RepeaterLayoutFixture>(
+                repeater::Selector::FlipViewShort,
+            )?;
+        }
+        "repeater_layout_mixed" => {
+            App::run_component::<repeater::RepeaterLayoutFixture>(
+                repeater::Selector::FlipViewMixed,
+            )?;
+        }
         "repeater_layout" => {
             App::run_component::<repeater::RepeaterLayoutFixture>(
                 repeater::Selector::RadioButtons,

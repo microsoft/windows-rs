@@ -2,13 +2,44 @@ use super::*;
 use std::sync::atomic::{AtomicUsize, Ordering};
 
 static ROWS_CREATED: AtomicUsize = AtomicUsize::new(0);
+static ROWS_RENDERED: AtomicUsize = AtomicUsize::new(0);
+static ROWS_DROPPED: AtomicUsize = AtomicUsize::new(0);
 static CLICKED_ROW_ZERO_DROPS: AtomicUsize = AtomicUsize::new(0);
+
+#[derive(Clone, Copy, PartialEq)]
+pub(super) enum Rows {
+    Default,
+    Items,
+    Virtual,
+    Short,
+    Mixed,
+}
+
+impl Rows {
+    fn count(self) -> usize {
+        match self {
+            Self::Default => 256,
+            Self::Items | Self::Virtual => 200,
+            Self::Short | Self::Mixed => 10_000,
+        }
+    }
+
+    fn height(self, index: usize) -> f64 {
+        match self {
+            Self::Short => 4.0,
+            Self::Mixed => [4.0, 20.0, 96.0][index % 3],
+            _ => 32.0,
+        }
+    }
+}
 
 pub(super) struct RepeaterFixture {
     values: Rc<Vec<u32>>,
     keys: Rc<Vec<usize>>,
     key_revision: u64,
     revision: u32,
+    sample: usize,
+    counts: [usize; 3],
 }
 
 #[derive(Clone)]
@@ -18,18 +49,21 @@ pub(super) enum Message {
     SwapFirst,
     ToggleFirst,
     ToggleEmpty,
+    Count,
 }
 
 impl Component for RepeaterFixture {
-    type Input = ();
+    type Input = Rows;
     type Message = Message;
 
-    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+    fn create(rows: &Rows, _: &ComponentContext<Self>) -> Self {
         Self {
-            values: Rc::new(vec![0; 256]),
-            keys: Rc::new((0..256).collect()),
+            values: Rc::new(vec![0; rows.count()]),
+            keys: Rc::new((0..rows.count()).collect()),
             key_revision: 0,
             revision: 0,
+            sample: 0,
+            counts: [0; 3],
         }
     }
 
@@ -54,23 +88,59 @@ impl Component for RepeaterFixture {
             }
             Message::ToggleEmpty => {
                 self.keys = Rc::new(if self.keys.is_empty() {
-                    (0..256).collect()
+                    (0..self.values.len()).collect()
                 } else {
                     Vec::new()
                 });
                 self.key_revision += 1;
             }
+            Message::Count => {
+                self.sample += 1;
+                self.counts = [
+                    ROWS_CREATED.load(Ordering::Relaxed),
+                    ROWS_RENDERED.load(Ordering::Relaxed),
+                    ROWS_DROPPED.load(Ordering::Relaxed),
+                ];
+                return;
+            }
         }
         self.revision += 1;
     }
 
-    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
-        context.window_title("Reactor UI fixture: repeater");
+    fn view(&self, rows: &Rows, context: &mut ViewContext<Self>) -> View {
+        context.window_title(match rows {
+            Rows::Default => "Reactor UI fixture: repeater",
+            Rows::Items => "Reactor UI fixture: repeater_items",
+            Rows::Virtual => "Reactor UI fixture: repeater_virtual",
+            Rows::Short => "Reactor UI fixture: repeater_short",
+            Rows::Mixed => "Reactor UI fixture: repeater_mixed",
+        });
         context.window_visuals(WindowVisuals::new().client_size(500.0, 360.0));
         let values = Rc::clone(&self.values);
         let keys = Rc::clone(&self.keys);
         let row_keys = Rc::clone(&self.keys);
         let swap = context.message(Message::SwapFirst);
+        let rows = *rows;
+        let row = move |index: usize| {
+            let index = row_keys[index];
+            View::component::<Row>(RowInput {
+                index,
+                value: values[index],
+                on_click: (rows == Rows::Default && index == 1).then(|| swap.clone()),
+                height: rows.height(index),
+            })
+        };
+        let repeater = if rows == Rows::Items {
+            ItemsRepeater::new()
+                .items((0..self.keys.len()).map(|index| keyed(keys[index], row(index))))
+        } else {
+            ItemsRepeater::new().virtual_source(VirtualSource::new(
+                self.key_revision,
+                self.keys.len(),
+                move |index| keys[index],
+                row,
+            ))
+        };
         Grid::new()
             .rows([GridLength::Auto, GridLength::Star(1.0)])
             .children((
@@ -82,6 +152,13 @@ impl Component for RepeaterFixture {
                         "Clicked row 0 drops {}",
                         CLICKED_ROW_ZERO_DROPS.load(Ordering::Relaxed)
                     )),
+                    Button::new()
+                        .automation_id("count")
+                        .content(format!(
+                            "{}:{}:{}:{}",
+                            self.sample, self.counts[0], self.counts[1], self.counts[2]
+                        ))
+                        .on_click(context.message(Message::Count)),
                     StackPanel::new()
                         .orientation(Orientation::Horizontal)
                         .children((
@@ -106,19 +183,7 @@ impl Component for RepeaterFixture {
                 ScrollViewer::new()
                     .automation_id("rows")
                     .grid_row(1)
-                    .content(ItemsRepeater::new().virtual_source(VirtualSource::new(
-                        self.key_revision,
-                        self.keys.len(),
-                        move |index| keys[index],
-                        move |index| {
-                            let index = row_keys[index];
-                            View::component::<Row>(RowInput {
-                                index,
-                                value: values[index],
-                                on_click: (index == 1).then(|| swap.clone()),
-                            })
-                        },
-                    ))),
+                    .content(repeater),
             ))
             .into()
     }
@@ -133,6 +198,8 @@ pub(super) enum Selector {
     FlipView,
     /// Synchronous layout precedes a keyed source reset.
     FlipViewBeforeReset,
+    FlipViewShort,
+    FlipViewMixed,
     /// WinUI's `SelectedIndex` setter lays out the whole window synchronously.
     Pivot,
 }
@@ -174,11 +241,22 @@ impl Component for RepeaterLayoutFixture {
             Selector::RadioButtons => "Reactor UI fixture: repeater_layout",
             Selector::FlipView => "Reactor UI fixture: repeater_layout_flip_view",
             Selector::FlipViewBeforeReset => "Reactor UI fixture: repeater_layout_keyed_reset",
+            Selector::FlipViewShort => "Reactor UI fixture: repeater_layout_short",
+            Selector::FlipViewMixed => "Reactor UI fixture: repeater_layout_mixed",
             Selector::Pivot => "Reactor UI fixture: repeater_layout_pivot",
         });
         context.window_visuals(WindowVisuals::new().client_size(500.0, 360.0));
         let before_reset = *selector == Selector::FlipViewBeforeReset;
-        let count = if self.loaded || before_reset { 256 } else { 0 };
+        let rows = match selector {
+            Selector::FlipViewShort => Rows::Short,
+            Selector::FlipViewMixed => Rows::Mixed,
+            _ => Rows::Default,
+        };
+        let count = if self.loaded || before_reset {
+            rows.count()
+        } else {
+            0
+        };
         let swapped = before_reset && self.loaded;
         let selected = Some(usize::from(self.loaded));
         let items = || ["One", "Two"].map(|name| keyed(name, TextBlock::new().text(name)));
@@ -189,7 +267,10 @@ impl Component for RepeaterLayoutFixture {
                 .selected_index(selected)
                 .on_selection_changed(context.callback(|_| LayoutMessage::Count))
                 .into(),
-            Selector::FlipView | Selector::FlipViewBeforeReset => FlipView::new()
+            Selector::FlipView
+            | Selector::FlipViewBeforeReset
+            | Selector::FlipViewShort
+            | Selector::FlipViewMixed => FlipView::new()
                 .automation_id("choice")
                 .width(120.0)
                 .height(40.0)
@@ -230,6 +311,7 @@ impl Component for RepeaterLayoutFixture {
                         index,
                         value: 0,
                         on_click: None,
+                        height: rows.height(index),
                     })
                 },
             )));
@@ -254,6 +336,7 @@ struct RowInput {
     index: usize,
     value: u32,
     on_click: Option<Callback<()>>,
+    height: f64,
 }
 
 struct Row {
@@ -263,6 +346,7 @@ struct Row {
 
 impl Drop for Row {
     fn drop(&mut self) {
+        ROWS_DROPPED.fetch_add(1, Ordering::Relaxed);
         if self.index == 0 && self.clicks > 0 {
             CLICKED_ROW_ZERO_DROPS.fetch_add(1, Ordering::Relaxed);
         }
@@ -289,9 +373,11 @@ impl Component for Row {
     }
 
     fn view(&self, input: &RowInput, context: &mut ViewContext<Self>) -> View {
+        ROWS_RENDERED.fetch_add(1, Ordering::Relaxed);
         Button::new()
             .automation_id(format!("row-{}", input.index))
-            .height(32.0)
+            .min_height(0.0)
+            .height(input.height)
             .content(format!(
                 "Row {}; value {}; clicks {}",
                 input.index, input.value, self.clicks
