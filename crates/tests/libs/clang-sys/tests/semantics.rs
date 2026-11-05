@@ -20,6 +20,113 @@ fn native_semantics() {
                 .find(|cursor| text(unsafe { clang_getCursorSpelling(**cursor) }) == name)
                 .unwrap()
         };
+        let macro_definitions: Vec<_> = declarations
+            .iter()
+            .filter(|cursor| {
+                cursor.kind == CXCursor_MacroDefinition
+                    && text(unsafe { clang_getCursorSpelling(**cursor) }) == "HISTORY_MACRO"
+            })
+            .collect();
+        assert_eq!(macro_definitions.len(), 4);
+        for (name, expected) in [
+            ("HistoryOriginal", Some(0)),
+            ("HistoryUndefined", None),
+            ("HistoryReplacement", Some(1)),
+            ("HistoryNested", Some(2)),
+            ("HistoryInnerRestored", Some(1)),
+            ("HistoryRestored", Some(0)),
+            ("HistoryAfter", None),
+            ("HistoryFunction", None),
+        ] {
+            let mut definition = *macro_definitions[0];
+            let status = unsafe {
+                windows_clang_getMacroDefinition(
+                    session.unit,
+                    c"HISTORY_MACRO".as_ptr(),
+                    clang_getCursorLocation(find(name)),
+                    &raw mut definition,
+                )
+            };
+            if let Some(expected) = expected {
+                assert_eq!(status, WindowsClangSuccess, "{target}: {name}");
+                assert_ne!(
+                    unsafe { clang_equalCursors(definition, *macro_definitions[expected]) },
+                    0,
+                    "{target}: {name}",
+                );
+            } else {
+                assert_eq!(status, WindowsClangWrongKind, "{target}: {name}");
+                assert_ne!(
+                    unsafe { clang_equalCursors(definition, *macro_definitions[0]) },
+                    0,
+                );
+            }
+        }
+        let location = unsafe { clang_getCursorLocation(find("HistoryOriginal")) };
+        for (unit, name, location) in [
+            (std::ptr::null_mut(), c"HISTORY_MACRO".as_ptr(), location),
+            (session.unit, std::ptr::null(), location),
+            (session.unit, c"".as_ptr(), location),
+            (session.unit, c"HISTORY_MACRO".as_ptr(), unsafe {
+                clang_getNullLocation()
+            }),
+        ] {
+            let mut definition = *macro_definitions[0];
+            assert_eq!(
+                unsafe {
+                    windows_clang_getMacroDefinition(unit, name, location, &raw mut definition)
+                },
+                WindowsClangInvalidArgument,
+            );
+            assert_ne!(
+                unsafe { clang_equalCursors(definition, *macro_definitions[0]) },
+                0,
+            );
+        }
+        assert_eq!(
+            unsafe {
+                windows_clang_getMacroDefinition(
+                    session.unit,
+                    c"HISTORY_MACRO".as_ptr(),
+                    clang_getCursorLocation(find("HistoryOriginal")),
+                    std::ptr::null_mut(),
+                )
+            },
+            WindowsClangInvalidArgument,
+        );
+        let redeclarations: Vec<_> = declarations
+            .iter()
+            .filter(|cursor| {
+                text(unsafe { clang_getCursorSpelling(**cursor) }) == "NativeRedeclared"
+            })
+            .collect();
+        assert_eq!(redeclarations.len(), 3);
+        for cursor in &redeclarations {
+            let mut latest = unsafe { clang_getNullCursor() };
+            assert_eq!(
+                unsafe { windows_clang_getLatestFunctionDeclaration(**cursor, &raw mut latest) },
+                WindowsClangSuccess,
+            );
+            assert_ne!(
+                unsafe { clang_equalCursors(latest, **redeclarations.last().unwrap()) },
+                0,
+            );
+        }
+        let mut unchanged = find("NativeRedeclared");
+        assert_eq!(
+            unsafe {
+                windows_clang_getLatestFunctionDeclaration(find("RecordPlain"), &raw mut unchanged)
+            },
+            WindowsClangWrongKind,
+        );
+        assert_ne!(
+            unsafe { clang_equalCursors(unchanged, find("NativeRedeclared")) },
+            0,
+        );
+        assert_eq!(
+            unsafe { windows_clang_getLatestFunctionDeclaration(unchanged, std::ptr::null_mut()) },
+            WindowsClangInvalidArgument,
+        );
         let annotation = children(find("NativeAnnotationStrings"))
             .into_iter()
             .find(|cursor| (unsafe { clang_getCursorKind(*cursor) }) == CXCursor_AnnotateAttr)
@@ -1073,7 +1180,7 @@ fn native_semantics() {
     std::thread::scope(|scope| {
         for _ in 0..3 {
             scope.spawn(|| {
-                assert_eq!(unsafe { windows_clang_getABIVersion() }, 23);
+                assert_eq!(unsafe { windows_clang_getABIVersion() }, 24);
                 assert_eq!(
                     native_name(unsafe { windows_clang_getLLVMVersion() }),
                     LIBCLANG_VERSION
@@ -1266,7 +1373,8 @@ impl Session {
                 &raw mut file,
                 1,
                 (CXTranslationUnit_IncludeAttributedTypes
-                    | CXTranslationUnit_VisitImplicitAttributes)
+                    | CXTranslationUnit_VisitImplicitAttributes
+                    | CXTranslationUnit_DetailedPreprocessingRecord)
                     .try_into()
                     .unwrap(),
                 &raw mut session.unit,

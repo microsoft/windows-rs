@@ -12,7 +12,7 @@ Reactor is a preview; public APIs may change.
 
 ```toml
 [dependencies]
-windows-reactor = "0.100"
+windows-reactor = "0.101"
 ```
 
 Apps use an installed Windows App Runtime by default. To ship the runtime with your app, configure
@@ -110,8 +110,10 @@ cargo run -p reactor-stacker
 | Split the UI into parts | `View::component`, with input that implements `Clone + PartialEq` | [Component input][component] |
 | Keep state with list items | `KeyedView` with a stable key per item, not its index | [Keyed list][keyed] |
 | Run blocking work | `spawn_background`; the work returns a message | [Async state][async] |
-| Start and stop a subscription | `use_effect` | [Effects][effects] |
-| Add windows or a tray icon | `App::run_application` | [Notification icon][notifyicon] |
+| Focus a newly mounted control | `use_effect` and `ElementRef` | [Effects][effects] |
+| Share state across windows | `App::run_application`, with window inputs and callbacks | [Navigation][navigation] |
+| Keep per-row work with its owner | Keyed components and `spawn_background` | [Workbench][workbench] |
+| Add a tray icon | `ApplicationView::notify_icon` | [Notification icon][notifyicon] |
 | Remember window placement | `initial_placement` and `on_window_placement` | [Window placement][placement] |
 | Configure a window before showing it | `create_window`, `run_window`, and `show_window` | [Window creation][window-creation] |
 
@@ -133,6 +135,8 @@ staged runtime files alongside the executable.
 [keyed]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/keyed-list-reorder
 [effects]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/use-effect
 [async]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/async-state
+[navigation]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/navigation
+[workbench]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/workbench
 [notifyicon]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/notifyicon
 [placement]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/window-placement-registry
 [run-window]: https://docs.rs/windows-reactor/latest/windows_reactor/struct.ComponentContext.html#method.run_window

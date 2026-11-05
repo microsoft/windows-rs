@@ -215,6 +215,7 @@ mod Windows {
         const PROC_THREAD_ATTRIBUTE_REPLACE_VALUE: i32 = 1;
         #[library("KERNEL32.dll")]
         extern fn ProcessIdToSessionId(#[in] dwProcessId: DWORD, #[out] pSessionId: *mut DWORD) -> BOOL;
+        #[flags]
         #[repr(i32)]
         enum QUEUE_USER_APC_FLAGS {
             QUEUE_USER_APC_FLAGS_NONE = 0,

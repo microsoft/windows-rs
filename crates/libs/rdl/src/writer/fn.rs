@@ -46,6 +46,8 @@ pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> Result<T
 
     let mut library_opts = TokenStream::new();
     let import = impl_map.import_name();
+    metadata::import_ordinal(import)
+        .map_err(|error| writer_err!("fn `{}`: {error}", item.name()))?;
     if import != item.name() {
         library_opts.extend(quote! { , import = #import });
     }

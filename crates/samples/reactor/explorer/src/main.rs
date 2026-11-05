@@ -2,8 +2,7 @@
 
 use std::rc::Rc;
 use std::time::Duration;
-use windows_reactor as reactor;
-use windows_reactor::App;
+use windows_reactor::*;
 
 #[derive(Clone, PartialEq)]
 struct Node {
@@ -27,11 +26,8 @@ impl Node {
 
     fn leaf(key: impl Into<String>, label: impl Into<String>) -> Self {
         Self {
-            children: Vec::new(),
-            expanded: false,
-            key: key.into(),
-            label: label.into(),
             loaded: true,
+            ..Self::branch(key, label)
         }
     }
 }
@@ -60,157 +56,108 @@ struct RowInput {
     key: String,
     label: String,
     loaded: bool,
-    on_loaded: reactor::Callback<LoadResult>,
-    on_select: reactor::Callback<String>,
-    on_toggle: reactor::Callback<String>,
+    can_expand: bool,
+    on_loaded: Callback<LoadResult>,
+    on_select: Callback<String>,
+    on_toggle: Callback<String>,
     selected: bool,
 }
 
+#[derive(Clone)]
 enum RowMessage {
     Cancelled,
-    Load,
     Loaded(Vec<Node>),
     Select,
     Toggle,
 }
 
 struct Row {
-    input: RowInput,
     loading: bool,
 }
 
-impl reactor::Component for Row {
+impl Component for Row {
     type Input = RowInput;
     type Message = RowMessage;
 
-    fn create(input: &Self::Input, _context: &reactor::ComponentContext<Self>) -> Self {
-        Self {
-            input: input.clone(),
-            loading: false,
-        }
+    fn create(_: &Self::Input, _: &ComponentContext<Self>) -> Self {
+        Self { loading: false }
     }
 
-    fn input_changed(&mut self, input: &Self::Input, _context: &reactor::ComponentContext<Self>) {
-        self.input = input.clone();
-    }
-
-    fn update(&mut self, message: Self::Message, context: &reactor::ComponentContext<Self>) {
+    fn update(&mut self, message: RowMessage, context: &ComponentContext<Self>) {
+        let input = context.input();
         match message {
             RowMessage::Cancelled => self.loading = false,
-            RowMessage::Load => {
-                if self.input.loaded || self.loading {
-                    return;
-                }
-                self.loading = true;
-                let key = self.input.key.clone();
-                _ = context.spawn_background(move |token| {
-                    for _ in 0..10 {
-                        if token.is_cancelled() {
-                            return RowMessage::Cancelled;
-                        }
-                        std::thread::sleep(Duration::from_millis(20));
-                    }
-                    RowMessage::Loaded(
-                        (0..3)
-                            .map(|index| {
-                                Node::leaf(
-                                    format!("{key}/{index}"),
-                                    format!("Loaded child {}", index + 1),
-                                )
-                            })
-                            .collect(),
-                    )
-                });
-            }
             RowMessage::Loaded(children) => {
                 self.loading = false;
-                self.input.on_loaded.call(LoadResult {
+                input.on_loaded.call(LoadResult {
                     children,
-                    key: self.input.key.clone(),
+                    key: input.key.clone(),
                 });
             }
-            RowMessage::Select => self.input.on_select.call(self.input.key.clone()),
+            RowMessage::Select => input.on_select.call(input.key.clone()),
             RowMessage::Toggle => {
-                self.input.on_toggle.call(self.input.key.clone());
-                if !self.input.loaded && !self.loading {
-                    _ = context.sender().send(RowMessage::Load);
+                input.on_toggle.call(input.key.clone());
+                if !input.loaded && !self.loading {
+                    self.loading = true;
+                    let key = input.key.clone();
+                    context.spawn_background(move |token| {
+                        for _ in 0..10 {
+                            if token.is_cancelled() {
+                                return RowMessage::Cancelled;
+                            }
+                            std::thread::sleep(Duration::from_millis(100));
+                        }
+                        RowMessage::Loaded(
+                            (0..3)
+                                .map(|index| {
+                                    Node::leaf(
+                                        format!("{key}/{index}"),
+                                        format!("Loaded child {}", index + 1),
+                                    )
+                                })
+                                .collect(),
+                        )
+                    });
                 }
             }
         }
     }
 
-    fn view(
-        &self,
-        _input: &Self::Input,
-        context: &mut reactor::ViewContext<Self>,
-    ) -> reactor::View {
-        let select = context.sender();
-        let toggle = context.sender();
-        let marker = if self.input.selected { ">" } else { " " };
-        let state = if self.loading {
-            "loading"
-        } else if self.input.loaded {
-            if self.input.expanded {
-                "collapse"
-            } else {
-                "expand"
-            }
+    fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        let action: View = if input.can_expand {
+            Button::new()
+                .content(if self.loading {
+                    "Loading..."
+                } else if !input.loaded {
+                    "Load"
+                } else if input.expanded {
+                    "Collapse"
+                } else {
+                    "Expand"
+                })
+                .is_enabled(!self.loading)
+                .on_click(context.message(RowMessage::Toggle))
+                .into()
         } else {
-            "load"
+            "File".into()
         };
-        reactor::StackPanel::new()
-            .orientation(reactor::Orientation::Horizontal)
+        StackPanel::new()
+            .orientation(Orientation::Horizontal)
             .spacing(6.0)
-            .children([
-                reactor::TextBlock::new()
-                    .text(format!("{marker} {}", self.input.label))
-                    .into(),
-                reactor::Button::new()
-                    .content(reactor::TextBlock::new().text("Select"))
-                    .on_click(move || {
-                        _ = select.send(RowMessage::Select);
-                    })
-                    .into(),
-                reactor::Button::new()
-                    .content(reactor::TextBlock::new().text(state))
-                    .on_click(move || {
-                        _ = toggle.send(RowMessage::Toggle);
-                    })
-                    .into(),
-            ])
+            .children((
+                input.label.clone(),
+                Button::new()
+                    .content(if input.selected { "Selected" } else { "Select" })
+                    .on_click(context.message(RowMessage::Select)),
+                action,
+            ))
             .into()
     }
 }
 
-struct Details;
-
-impl reactor::Component for Details {
-    type Input = Option<String>;
-    type Message = ();
-
-    fn create(_input: &Self::Input, _context: &reactor::ComponentContext<Self>) -> Self {
-        Self
-    }
-
-    fn view(
-        &self,
-        input: &Self::Input,
-        _context: &mut reactor::ViewContext<Self>,
-    ) -> reactor::View {
-        reactor::TextBlock::new()
-            .text(
-                input
-                    .as_deref()
-                    .map_or("No node selected".to_string(), |key| {
-                        format!("Selected node: {key}")
-                    }),
-            )
-            .into()
-    }
-}
-
-enum ExplorerMessage {
-    Filter(String),
+#[derive(Clone)]
+enum Message {
+    Filter(Rc<str>),
     Loaded(LoadResult),
     Reverse,
     Select(String),
@@ -220,25 +167,20 @@ enum ExplorerMessage {
 struct Explorer {
     filter: Rc<str>,
     nodes: Vec<Node>,
-    on_loaded: reactor::Callback<LoadResult>,
-    on_select: reactor::Callback<String>,
-    on_toggle: reactor::Callback<String>,
+    on_loaded: Callback<LoadResult>,
+    on_select: Callback<String>,
+    on_toggle: Callback<String>,
     selected: Option<String>,
 }
 
 impl Explorer {
-    fn declaration(&self, node: &Node) -> Option<reactor::TreeNode> {
-        let children = node
+    fn declaration(&self, node: &Node, filter: &str) -> Option<TreeNode> {
+        let children: Vec<_> = node
             .children
             .iter()
-            .filter_map(|child| self.declaration(child))
-            .collect::<Vec<_>>();
-        let matches = self.filter.is_empty()
-            || node
-                .label
-                .to_ascii_lowercase()
-                .contains(&self.filter.to_ascii_lowercase());
-        if !matches && children.is_empty() {
+            .filter_map(|child| self.declaration(child, filter))
+            .collect();
+        if !node.label.to_ascii_lowercase().contains(filter) && children.is_empty() {
             return None;
         }
         let row = RowInput {
@@ -246,28 +188,26 @@ impl Explorer {
             key: node.key.clone(),
             label: node.label.clone(),
             loaded: node.loaded,
+            can_expand: !node.loaded || !node.children.is_empty(),
             on_loaded: self.on_loaded.clone(),
             on_select: self.on_select.clone(),
             on_toggle: self.on_toggle.clone(),
             selected: self.selected.as_ref() == Some(&node.key),
         };
         Some(
-            reactor::TreeNode::new(node.key.clone(), node.label.clone())
+            TreeNode::new(node.key.as_str(), &node.label)
                 .expanded(node.expanded)
-                .content(reactor::component::<Row>(format!("row:{}", node.key), row))
+                .content(component::<Row>(format!("row:{}", node.key), row))
                 .children(children),
         )
     }
 }
 
-impl reactor::Component for Explorer {
+impl Component for Explorer {
     type Input = ();
-    type Message = ExplorerMessage;
+    type Message = Message;
 
-    fn create(_input: &Self::Input, context: &reactor::ComponentContext<Self>) -> Self {
-        let loaded = context.sender();
-        let select = context.sender();
-        let toggle = context.sender();
+    fn create(_: &(), context: &ComponentContext<Self>) -> Self {
         Self {
             filter: Rc::from(""),
             nodes: vec![
@@ -275,86 +215,74 @@ impl reactor::Component for Explorer {
                 Node::branch("references", "References"),
                 Node::leaf("readme", "README.md"),
             ],
-            on_loaded: reactor::Callback::new(move |result| {
-                _ = loaded.send(ExplorerMessage::Loaded(result));
-            }),
-            on_select: reactor::Callback::new(move |key| {
-                _ = select.send(ExplorerMessage::Select(key));
-            }),
-            on_toggle: reactor::Callback::new(move |key| {
-                _ = toggle.send(ExplorerMessage::Toggle(key));
-            }),
+            on_loaded: context.callback(Message::Loaded),
+            on_select: context.callback(Message::Select),
+            on_toggle: context.callback(Message::Toggle),
             selected: None,
         }
     }
 
-    fn update(&mut self, message: Self::Message, _context: &reactor::ComponentContext<Self>) {
+    fn update(&mut self, message: Message, _: &ComponentContext<Self>) {
         match message {
-            ExplorerMessage::Filter(value) => self.filter = Rc::from(value),
-            ExplorerMessage::Loaded(result) => {
-                if let Some(node) = find_node_mut(&mut self.nodes, &result.key) {
-                    node.children = result.children;
-                    node.expanded = true;
-                    node.loaded = true;
-                }
+            Message::Filter(value) => self.filter = value,
+            Message::Loaded(result) => {
+                let node = find_node_mut(&mut self.nodes, &result.key).unwrap();
+                node.children = result.children;
+                node.loaded = true;
             }
-            ExplorerMessage::Reverse => self.nodes.reverse(),
-            ExplorerMessage::Select(key) => self.selected = Some(key),
-            ExplorerMessage::Toggle(key) => {
-                if let Some(node) = find_node_mut(&mut self.nodes, &key) {
-                    node.expanded = !node.expanded;
-                }
+            Message::Reverse => self.nodes.reverse(),
+            Message::Select(key) => self.selected = Some(key),
+            Message::Toggle(key) => {
+                let node = find_node_mut(&mut self.nodes, &key).unwrap();
+                node.expanded = !node.loaded || !node.expanded;
             }
         }
     }
 
-    fn view(
-        &self,
-        _input: &Self::Input,
-        context: &mut reactor::ViewContext<Self>,
-    ) -> reactor::View {
-        let filter = context.sender();
-        let reverse = context.sender();
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        let filter = self.filter.to_ascii_lowercase();
         let nodes = self
             .nodes
             .iter()
-            .filter_map(|node| self.declaration(node))
-            .collect::<Vec<_>>();
-        reactor::StackPanel::new()
-            .spacing(8.0)
-            .children([
-                reactor::TextBlock::new()
-                    .text("Reactor TreeView explorer")
-                    .into(),
-                reactor::TextBlock::new()
-                    .text(
-                        "Selection uses row actions until native TreeView selection is projected.",
-                    )
-                    .into(),
-                reactor::TextBox::new()
-                    .text(Rc::clone(&self.filter))
-                    .on_text_changed(move |value: Rc<str>| {
-                        _ = filter.send(ExplorerMessage::Filter(value.to_string()));
-                    })
-                    .into(),
-                reactor::Button::new()
-                    .content(reactor::TextBlock::new().text("Reverse roots"))
-                    .on_click(move || {
-                        _ = reverse.send(ExplorerMessage::Reverse);
-                    })
-                    .into(),
-                reactor::TreeView::new().nodes(nodes).into(),
-                reactor::Border::new()
-                    .content(reactor::component::<Details>(
-                        "details",
-                        self.selected.clone(),
-                    ))
-                    .into(),
-            ])
-            .into()
+            .filter_map(|node| self.declaration(node, &filter));
+        context.window_frame(
+            "Tree explorer",
+            Grid::new()
+                .margin(24.0)
+                .row_spacing(8.0)
+                .rows([
+                    GridLength::Auto,
+                    GridLength::Auto,
+                    GridLength::Auto,
+                    GridLength::STAR,
+                    GridLength::Auto,
+                ])
+                .children((
+                    TextBlock::new()
+                        .text(
+                            "Load branches and filter the tree. Reversing roots keeps each row's \
+                               state; filtering a row out cancels its pending load.",
+                        )
+                        .text_wrapping(TextWrapping::Wrap),
+                    TextBox::new()
+                        .grid_row(1)
+                        .placeholder_text("Filter loaded nodes")
+                        .text(self.filter.clone())
+                        .on_text_changed(context.callback(Message::Filter)),
+                    Button::new()
+                        .grid_row(2)
+                        .content("Reverse roots")
+                        .on_click(context.message(Message::Reverse)),
+                    TreeView::new().grid_row(3).nodes(nodes),
+                    TextBlock::new().grid_row(4).text(match &self.selected {
+                        Some(key) => format!("Selected node: {key}"),
+                        None => "No node selected".into(),
+                    }),
+                )),
+        )
     }
 }
 
-fn main() -> windows_core::Result<()> {
-    App::run_component::<Explorer>(())
+fn main() {
+    App::run_component::<Explorer>(()).unwrap();
 }

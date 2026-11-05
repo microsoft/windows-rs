@@ -12,7 +12,7 @@ API that accepts an `HWND`; it is not a control toolkit.
 
 ```toml
 [dependencies]
-windows-window = "0.100"
+windows-window = "0.101"
 ```
 
 ```rust,no_run

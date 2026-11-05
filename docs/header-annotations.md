@@ -159,7 +159,7 @@ Bindgen uses it to select narrow string constants. It specifies neither terminat
 | Never returns | `__declspec(noreturn) void Fail()`; `[[noreturn]]` | `#[noreturn]` | `-> !` |
 | Calling convention | `void __cdecl Log()` | `extern "C" fn Log()`; `extern fn` is system | `extern "C"` or `extern "system"` |
 | Import library | Import library maps `Read` to `ReadEntry` | `#[library("example.dll", import = "ReadEntry")]` | `link!` target |
-| Import override | `_Win32_ImportLibrary_("example.dll", "ReadEntry")` | `#[library("example.dll", import = "ReadEntry")]` | `link!` target for named exports |
+| Import override | `_Win32_ImportLibrary_("example.dll", "ReadEntry")` | `#[library("example.dll", import = "ReadEntry")]` | `link!` target |
 | Last error | `_Win32_SetLastError_` on a free function | `#[library("example.dll", last_error)]` | No change |
 | Property accessor | MIDL `[propget] HRESULT Name(...)` | `#[special]` | Accessor names |
 | Vtable slot | C++ override of an inherited virtual | `#[override_slot(3)]` | Slot validation |
@@ -168,8 +168,13 @@ Bindgen uses it to select narrow string constants. It specifies neither terminat
 
 `_Win32_SetLastError_` expands to `__attribute__((annotate("Win32Metadata.SetLastError")))`
 with the upstream helper and `WIN32METADATA` enabled. It accepts no arguments and belongs on a
-free function, not a method, callback, type or parameter. Duplicate markers fail, and its presence
-must agree across native observations. It does not supply DLL ownership.
+free function, not a method, callback, type or parameter. Duplicate markers on one declaration fail.
+It does not supply DLL ownership.
+
+Function-level `SetLastError`, `ImportLibrary`, `PreserveResult`, and `AssociatedEnum` annotations
+can accumulate across the compiler's redeclaration chain within one translation unit. Capture fills
+missing metadata from the latest declaration without replacing existing contracts. Separate inputs
+and targets must still agree. Parameter annotations are not combined this way.
 
 The marker requests last-error capture by consumers such as C# P/Invoke. It does not specify when
 the function fails. Rust signatures and error handling are unchanged.
@@ -181,13 +186,15 @@ argument names the export or supplies an integral constant ordinal from 1 throug
 Strings are read from the compiler AST; ordinals are compiler-evaluated. Empty strings, control
 characters, embedded nulls, invalid owners and duplicate annotations fail.
 
-Omitting the entry point preserves the normally resolved export, or the native declaration name
-when no mapping exists. Import overrides do not rename the declaration or establish a calling
-convention. Native ABI checks and target-specific convention evidence still apply. Conflicting
-annotations fail reconciliation before publication.
+Omitting the entry point preserves the resolved export only when the mapping selects the same DLL
+(case-insensitive); otherwise it uses the native declaration name. An ordinal from another DLL is
+not evidence for the selected DLL. Import overrides do not rename the declaration or establish a
+calling convention. Native ABI checks and target-specific convention evidence still apply.
+Conflicting annotations fail reconciliation before publication.
 
 Ordinals encode as `#[library("example.dll", import = "#42")]` and survive RDL/WinMD round trips.
-Bindgen does not support ordinal linking and excludes these imports from generated Rust bindings.
+Bindgen emits `windows_link::link!` ordinal imports. With `--sys --extern`, the caller supplies the
+import library instead.
 
 ## Types and layout
 
@@ -223,9 +230,11 @@ their integer types and values. Every value must fit the declared storage withou
 wrapping. For example, `-1` cannot enter a `u32` group; an explicitly converted native constant such
 as `#define ALL_OPTIONS ((DWORD)-1)` can. Unrelated constants keep their native types.
 
-A group can annotate an existing compatible typedef, as with `ADDRESS_FAMILY`. Members replace
-loose constants of the same name after checking their native definitions. Conflicting group
-declarations, overlapping membership and regrouping native enum members fail.
+A group can annotate an existing compatible typedef, as with `ADDRESS_FAMILY`. Repeated group
+declarations add members; storage and flags must agree, and repeated members must have the same
+native identity, integer type, and value. Members replace loose constants of the same name after
+checking their native definitions. Conflicting group declarations, membership in different groups,
+and regrouping native enum members fail.
 Native constant declarations must be at namespace scope; class-member constants are unsupported.
 
 ### `associated_enum`: enum use beside native storage
@@ -389,6 +398,7 @@ language-neutral API facts.
 | `iid_is` | `ComOutPtr` |
 | `buffer(count)`, `buffer(bytes(count))` | `Buffer`, with `CountConst` or `CountParamIndex`, plus `Dereference` and `Bytes` when needed |
 | `null_terminated`, `encoding` | `NullTerminated`, `Encoding` |
+| `null_null_terminated` | `NullNullTerminated` |
 | `must_use`, `noreturn`, `deprecated` | `MustUse`, `DoesNotReturn`, `Deprecated` |
 | `library("dll", import = "name")` | ImplMap `ImportScope` and `ImportName` |
 | `extern fn`, `extern "C" fn` | ImplMap calling-convention flags on imports; `System.Runtime.InteropServices.UnmanagedFunctionPointer` on named callbacks |

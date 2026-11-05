@@ -7,4 +7,4 @@ pub use pivot::PivotPage;
 mod tab_view;
 pub use tab_view::TabViewPage;
 mod title_bar;
-pub use title_bar::TitleBarPage;
+pub use title_bar::title_bar_page;

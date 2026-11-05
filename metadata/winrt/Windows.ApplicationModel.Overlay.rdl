@@ -1,0 +1,147 @@
+#[winrt]
+mod Windows {
+    mod ApplicationModel {
+        mod Overlay {
+            #[Windows::Foundation::Metadata::ContractVersion(OverlayContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(OverlayActivatedEventArgs)]
+            #[guid(0x277092d8_617c_50ba_9e57_6dc25078beb0)]
+            interface IOverlayActivatedEventArgs {
+                #[get]
+                Command: OverlayCommand;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(OverlayContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(OverlayApp)]
+            #[guid(0x0410c228_3813_54fc_b402_88520526d1f5)]
+            interface IOverlayApp {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn StartAsync(&self) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn DisconnectAsync(&self) -> super::super::Foundation::IAsyncAction;
+                #[get]
+                VisualState: OverlayVisualState;
+                event VisualStateChanged: super::super::Foundation::EventHandler<Object>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestInteractiveAsync(&self, #[in] command: OverlayCommand) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ExitInteractiveAsync(&self) -> super::super::Foundation::IAsyncAction;
+                fn SetPersistentModeEnabled(&self, #[in] enabled: bool);
+                fn SetUnreadNotificationCount(&self, #[in] count: u32);
+                fn SetHasActiveNotification(&self, #[in] hasActive: bool);
+                event Activated: super::super::Foundation::EventHandler<OverlayActivatedEventArgs>;
+                event VisualTransition: super::super::Foundation::EventHandler<OverlayVisualTransitionEventArgs>;
+                event Disconnected: super::super::Foundation::EventHandler<OverlayDisconnectedEventArgs>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(OverlayContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(OverlayAppOptions)]
+            #[guid(0x9e0dd89a_0f2a_5cfd_805d_dbb13164c146)]
+            interface IOverlayAppOptions {
+                CustomTransitionAnimations: bool;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(OverlayContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(OverlayApp)]
+            #[guid(0x2c112604_c435_53d0_9be6_6431e39eb26c)]
+            interface IOverlayAppStatics {
+                #[Windows::Foundation::Metadata::Overload("Create")]
+                fn Create(&self, #[in] hwnd: i64) -> OverlayApp;
+                #[Windows::Foundation::Metadata::Overload("Create2")]
+                fn Create(&self, #[in] hwnd: i64, #[in] options: OverlayAppOptions) -> OverlayApp;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(OverlayContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(OverlayCommand)]
+            #[guid(0xdde596f8_6093_5029_8cbc_06b046d328dc)]
+            interface IOverlayCommand {
+                #[get]
+                Source: OverlayCommandSource;
+                #[get]
+                Uri: super::super::Foundation::Uri;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(OverlayContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(OverlayCommand)]
+            #[guid(0x10210bb2_4755_520d_802b_7490c260f802)]
+            interface IOverlayCommandFactory {
+                fn CreateInstance(&self, #[in] source: OverlayCommandSource, #[in] uri: super::super::Foundation::Uri) -> OverlayCommand;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(OverlayContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(OverlayDisconnectedEventArgs)]
+            #[guid(0x9573e2be_6692_513e_9ed4_71642a182d42)]
+            interface IOverlayDisconnectedEventArgs {
+                fn GetDeferral(&self) -> super::super::Foundation::Deferral;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(OverlayContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(OverlayVisualTransitionEventArgs)]
+            #[guid(0x0cc0e9dd_b088_5f81_a02b_c925259a464d)]
+            interface IOverlayVisualTransitionEventArgs {
+                #[get]
+                NewState: OverlayVisualState;
+                #[get]
+                Command: OverlayCommand;
+                #[get]
+                TransitionAnimation: OverlayTransitionAnimation;
+                fn GetDeferral(&self) -> super::super::Foundation::Deferral;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(OverlayContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class OverlayActivatedEventArgs {
+                IOverlayActivatedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(OverlayContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IOverlayAppStatics, 65536, "Windows.ApplicationModel.Overlay.OverlayContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class OverlayApp {
+                IOverlayApp,
+            }
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.ApplicationModel.Overlay.OverlayContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(OverlayContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class OverlayAppOptions {
+                IOverlayAppOptions,
+            }
+            #[Windows::Foundation::Metadata::Activatable(IOverlayCommandFactory, 65536, "Windows.ApplicationModel.Overlay.OverlayContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(OverlayContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class OverlayCommand {
+                IOverlayCommand,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(OverlayContract, 65536)]
+            #[repr(i32)]
+            enum OverlayCommandSource {
+                Keyboard = 0,
+                Gamepad = 1,
+                Programmatic = 2,
+                Pointer = 3,
+            }
+            #[Windows::Foundation::Metadata::ApiContract]
+            #[Windows::Foundation::Metadata::ContractVersion(65536)]
+            struct OverlayContract {}
+            #[Windows::Foundation::Metadata::ContractVersion(OverlayContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class OverlayDisconnectedEventArgs {
+                IOverlayDisconnectedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(OverlayContract, 65536)]
+            #[repr(i32)]
+            enum OverlayTransitionAnimation {
+                Disabled = 0,
+                PlatformAuto = 1,
+                Fade = 2,
+                SlideLeft = 3,
+                SlideRight = 4,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(OverlayContract, 65536)]
+            #[repr(i32)]
+            enum OverlayVisualState {
+                Hidden = 0,
+                Persistent = 1,
+                Interactive = 2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(OverlayContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class OverlayVisualTransitionEventArgs {
+                IOverlayVisualTransitionEventArgs,
+            }
+        }
+    }
+}

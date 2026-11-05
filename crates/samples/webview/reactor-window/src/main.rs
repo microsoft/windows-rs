@@ -97,9 +97,12 @@ impl Component for BrowserControls {
             Message::Zoom(delta) => {
                 if let Some(window) = &self.window {
                     let controller = window.controller();
-                    _ = controller
-                        .set_zoom_factor((controller.zoom_factor() + delta).clamp(0.25, 5.0));
-                    self.status = format!("zoom: {:.0}%", controller.zoom_factor() * 100.0);
+                    self.status = match controller
+                        .set_zoom_factor((controller.zoom_factor() + delta).clamp(0.25, 5.0))
+                    {
+                        Ok(()) => format!("zoom: {:.0}%", controller.zoom_factor() * 100.0),
+                        Err(error) => format!("zoom failed: {error}"),
+                    };
                 }
             }
             Message::WindowClosed(_) | Message::WindowInitialized(_, _) => {}
@@ -114,9 +117,9 @@ impl Component for BrowserControls {
                 .client_size(720.0, 210.0),
         );
 
-        let sender = context.sender();
+        let open = context.message(Message::Open);
         context.use_effect("open-browser", (), move || {
-            _ = sender.send(Message::Open);
+            open.call(());
             None
         });
 
@@ -130,9 +133,9 @@ impl Component for BrowserControls {
             ])
             .column_spacing(8.0)
             .children((
-                grid_button("Back", Message::Back, 0, context),
-                grid_button("Forward", Message::Forward, 1, context),
-                grid_button("Reload", Message::Reload, 2, context),
+                button("Back", Message::Back, context).grid_column(0),
+                button("Forward", Message::Forward, context).grid_column(1),
+                button("Reload", Message::Reload, context).grid_column(2),
                 TextBox::new()
                     .text(&self.address)
                     .placeholder_text("Enter a URL")
@@ -140,7 +143,7 @@ impl Component for BrowserControls {
                         context.callback(|value: Rc<str>| Message::Address(value.to_string())),
                     )
                     .grid_column(3),
-                grid_button("Go", Message::Go, 4, context),
+                button("Go", Message::Go, context).grid_column(4),
             ));
         let host_controls = StackPanel::new()
             .orientation(Orientation::Horizontal)
@@ -187,24 +190,10 @@ fn button(
     label: impl Into<View>,
     message: Message,
     context: &ViewContext<BrowserControls>,
-) -> View {
+) -> Button {
     Button::new()
         .on_click(context.message(message))
         .content(label)
-        .into()
-}
-
-fn grid_button(
-    label: impl Into<View>,
-    message: Message,
-    column: i32,
-    context: &ViewContext<BrowserControls>,
-) -> View {
-    Button::new()
-        .on_click(context.message(message))
-        .grid_column(column)
-        .content(label)
-        .into()
 }
 
 fn create_window(generation: u64, sender: LocalSender<Message>) -> Result<()> {

@@ -2404,10 +2404,18 @@ pub(crate) struct Functions {
         cursor: CXCursor,
         linkage: *mut WindowsClangLanguageLinkage,
     ) -> WindowsClangStatus,
+    pub windows_clang_getLatestFunctionDeclaration:
+        unsafe extern "C" fn(cursor: CXCursor, declaration: *mut CXCursor) -> WindowsClangStatus,
     pub windows_clang_getLayoutExpression: unsafe extern "C" fn(
         declaration: CXCursor,
         expression: CXCursor,
         is_layout_expression: *mut u32,
+    ) -> WindowsClangStatus,
+    pub windows_clang_getMacroDefinition: unsafe extern "C" fn(
+        unit: CXTranslationUnit,
+        name: *const i8,
+        location: CXSourceLocation,
+        definition: *mut CXCursor,
     ) -> WindowsClangStatus,
     pub windows_clang_getMaxFieldAlignment:
         unsafe extern "C" fn(cursor: CXCursor, alignment_bits: *mut u32) -> WindowsClangStatus,
@@ -4982,11 +4990,28 @@ impl Functions {
                         format!("{}: {error}", stringify!(windows_clang_getLanguageLinkage))
                     })?
             },
+            windows_clang_getLatestFunctionDeclaration: unsafe {
+                *extension
+                    .get(b"windows_clang_getLatestFunctionDeclaration\0")
+                    .map_err(|error| {
+                        format!(
+                            "{}: {error}",
+                            stringify!(windows_clang_getLatestFunctionDeclaration)
+                        )
+                    })?
+            },
             windows_clang_getLayoutExpression: unsafe {
                 *extension
                     .get(b"windows_clang_getLayoutExpression\0")
                     .map_err(|error| {
                         format!("{}: {error}", stringify!(windows_clang_getLayoutExpression))
+                    })?
+            },
+            windows_clang_getMacroDefinition: unsafe {
+                *extension
+                    .get(b"windows_clang_getMacroDefinition\0")
+                    .map_err(|error| {
+                        format!("{}: {error}", stringify!(windows_clang_getMacroDefinition))
                     })?
             },
             windows_clang_getMaxFieldAlignment: unsafe {
@@ -6902,6 +6927,12 @@ pub unsafe fn windows_clang_getLanguageLinkage(
 ) -> WindowsClangStatus {
     unsafe { (crate::functions().windows_clang_getLanguageLinkage)(cursor, linkage) }
 }
+pub unsafe fn windows_clang_getLatestFunctionDeclaration(
+    cursor: CXCursor,
+    declaration: *mut CXCursor,
+) -> WindowsClangStatus {
+    unsafe { (crate::functions().windows_clang_getLatestFunctionDeclaration)(cursor, declaration) }
+}
 pub unsafe fn windows_clang_getLayoutExpression(
     declaration: CXCursor,
     expression: CXCursor,
@@ -6913,6 +6944,16 @@ pub unsafe fn windows_clang_getLayoutExpression(
             expression,
             is_layout_expression,
         )
+    }
+}
+pub unsafe fn windows_clang_getMacroDefinition(
+    unit: CXTranslationUnit,
+    name: *const i8,
+    location: CXSourceLocation,
+    definition: *mut CXCursor,
+) -> WindowsClangStatus {
+    unsafe {
+        (crate::functions().windows_clang_getMacroDefinition)(unit, name, location, definition)
     }
 }
 pub unsafe fn windows_clang_getMaxFieldAlignment(

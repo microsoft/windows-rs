@@ -9,6 +9,8 @@ windows_link::link!("dnsapi.dll" "system" fn DnsCancelQueryRaw(cancelhandle : *c
 #[cfg(feature = "shared")]
 windows_link::link!("dnsapi.dll" "system" fn DnsConnectionDeletePolicyEntries(policyentrytag : DNS_CONNECTION_POLICY_TAG) -> super::DWORD);
 #[cfg(feature = "shared")]
+windows_link::link!("dnsapi.dll" "system" fn DnsConnectionDeletePolicyEntriesByAppSid(cbappsid : super::DWORD, pbappsid : super::PBYTE) -> super::DWORD);
+#[cfg(feature = "shared")]
 windows_link::link!("dnsapi.dll" "system" fn DnsConnectionDeleteProxyInfo(pwszconnectionname : windows_sys::core::PCWSTR, r#type : DNS_CONNECTION_PROXY_TYPE) -> super::DWORD);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dnsapi.dll" "system" fn DnsConnectionFreeNameList(pnamelist : *mut DNS_CONNECTION_NAME_LIST));
@@ -320,6 +322,7 @@ pub struct DNS_CONNECTION_NAME_LIST {
     pub pNames: *mut DNS_CONNECTION_NAME,
 }
 pub const DNS_CONNECTION_NAME_MAX_LENGTH: i32 = 64;
+pub const DNS_CONNECTION_POLICY_ALLOW_DEFAULT_INTERFACE_SELECTION: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]

@@ -1,6 +1,4 @@
-# RDL
-
-> A Rust-like source format for Windows metadata.
+# Rust Definition Language (RDL)
 
 - [windows-rdl getting started](https://github.com/microsoft/windows-rs/blob/master/crates/libs/rdl/readme.md)
 - [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/rdl)
@@ -9,26 +7,23 @@
 emits ECMA-335 `.winmd` metadata for `windows-bindgen`. It also writes canonical RDL from `.winmd`
 files.
 
-## Getting started
+## Example
 
 ```rust
 #[winrt]
 mod Contoso {
     mod Sprockets {
-        // Define an interface
         #[guid(auto)]
         interface ISprocket {
             fn GetStatus(&self) -> SprocketStatus;
             fn Spin(&self, #[in] speed: f32);
         }
 
-        // Define a struct
         struct Sprocket {
             TeethCount: u32,
             Diameter: f32,
         }
 
-        // Define an enum with explicit discriminants
         #[repr(i32)]
         enum SprocketStatus {
             Idle = 0,
@@ -519,18 +514,18 @@ mod Contoso {
 
 #### Functions
 
-Functions declare external signatures from another library. The `#[link]` attribute sets the library
-name and ABI.
+Functions declare imports from a native library. `#[library(...)]` names the DLL; `extern` selects
+the calling convention.
 
 Syntax:
 
 ```rust
-#[link(name = "library", abi = "[system|C]")]
-fn FunctionName(#[in] Parameter: Type, ...) -> ReturnType;
+#[library("library.dll")]
+extern fn FunctionName(#[in] Parameter: Type, ...) -> ReturnType;
 ```
 
-`#[link(name = "...")]` names the library that provides the API. `#[link(abi = "...")]` sets the
-ABI: `"system"` or `"C"`.
+`extern fn` uses the system calling convention, as does `extern "system" fn`.
+Use `extern "C" fn` for the C calling convention.
 
 Example:
 
@@ -539,11 +534,11 @@ Example:
 mod Contoso {
     mod Sprockets {
         mod Platform {
-            #[link(name = "sprockets.dll", abi = "system")]
-            fn InitializeSprocketFactory();
-            
-            #[link(name = "sprockets.dll", abi = "C")]
-            fn GetSprocketCount() -> u32;
+            #[library("sprockets.dll")]
+            extern fn InitializeSprocketFactory();
+
+            #[library("sprockets.dll")]
+            extern "C" fn GetSprocketCount() -> u32;
         }
     }
 }
@@ -578,8 +573,7 @@ The formatter writes `#[in]`. The reader also accepts the Rust raw-identifier sp
 `#[r#in]`.
 
 The writer emits every established direction flag and no marker for missing direction. The
-`direction(unspecified)` attribute is not supported. Inputs relying on implicit directions must
-materialize their old flags before using this reader; the metadata encoding itself is unchanged.
+`direction(unspecified)` attribute is not supported.
 
 Example:
 
@@ -624,8 +618,11 @@ delegate type. It takes no arguments. Consumers can use it to suppress HRESULT-t
 result conversion. It does not change the native ABI. `windows-bindgen` currently ignores the flag.
 
 The `import` option also accepts an ordinal as a string, such as `import = "#42"`. This preserves
-the entry point through metadata round trips; bindgen excludes ordinal imports, which it does not
-support.
+the entry point through metadata round trips. Ordinals must be decimal digits in the range
+1 through 65535. Bindgen emits a `windows_link::link!` ordinal import, keeping the declaration's
+name and calling convention. With `--sys --extern`, the caller supplies the import library instead.
+Use ordinals only when the DLL's contract or the selected target's import library establishes them;
+ordinal linking does not relax the API's OS, manifest, or lifetime requirements.
 
 `#[associated_enum(Options)]` associates integer parameter, return or field storage with a named
 enum. It encodes `Windows.Win32.Metadata.AssociatedEnumAttribute` with a `System.Type` argument;
@@ -711,11 +708,17 @@ full spelling for unsupported storage, repeated attributes and attributes with p
 
 #### WinRT arrays
 
-WinRT arrays are dynamic arrays managed by the runtime. RDL supports three forms:
+WinRT array signatures distinguish caller-supplied storage from callee-allocated results:
 
-1. Input arrays - passed as read-only input.
-2. Output arrays - allocated by the callee and freed by the caller with `CoTaskMemFree`.
-3. Return arrays - returned from methods and managed with `CoTaskMemFree`.
+| Form | RDL | Storage |
+| --- | --- | --- |
+| Pass | `#[in] values: [T]` | Caller supplies elements for the callee to read |
+| Fill | `#[out] values: [T]` | Caller supplies space for the callee to fill |
+| Receive | `#[out] values: &mut [T]` | Callee allocates the result |
+| Return | `-> [T]` | Callee allocates the result |
+
+At the ABI, the caller releases any owned elements and frees received buffers with `CoTaskMemFree`.
+Language projections handle that cleanup for their owned array types.
 
 Example:
 
@@ -725,17 +728,10 @@ mod Contoso {
     mod Sprockets {
         #[guid(auto)]
         interface ISprocketInventory {
-            // Return an array of sprocket IDs
             fn GetAllIds(&self) -> [u32];
-            
-            // Input array - filter by sizes
             fn FilterBySize(&self, #[in] sizes: [f32]) -> u32;
-            
-            // Output array - collect names
+            fn FillCounts(&self, #[out] counts: [u32]);
             fn CollectNames(&self, #[out] output: &mut [String]);
-            
-            // Combined input/output
-            fn Transform(&self, #[in] input: [u32], #[out] output: &mut [Sprocket]);
         }
     }
 }

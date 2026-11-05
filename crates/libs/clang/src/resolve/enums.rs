@@ -93,7 +93,17 @@ pub(super) fn resolve(
             attributes(snapshots, owner, &b.attributes)?;
             if reference != first {
                 work.enum_pairs += 1;
-                let annotations_match = if a.members.is_some() && b.members.is_none() {
+                let forward = a.members.is_some() && b.members.is_none();
+                let a_flags = a
+                    .attributes
+                    .iter()
+                    .any(|attribute| attribute.kind == AttributeKind::FlagEnum);
+                let b_flags = b
+                    .attributes
+                    .iter()
+                    .any(|attribute| attribute.kind == AttributeKind::FlagEnum);
+                let flags_match = a_flags == b_flags || (forward && !b_flags);
+                let annotations_match = if forward {
                     let definition = sal(&a.attributes);
                     sal(&b.attributes)
                         .iter()
@@ -105,7 +115,8 @@ pub(super) fn resolve(
                     || a.anonymous != b.anonymous
                     || a.bitwise != b.bitwise
                     || a.layout != b.layout
-                    || !abi_attributes_equal(&a.attributes, &b.attributes)
+                    || !flags_match
+                    || !abi_attributes_equal_except_enum_flags(&a.attributes, &b.attributes)
                     || !annotations_match
                     || snapshots[first.snapshot].types[a.canonical.0]
                         != snapshot.types[b.canonical.0]

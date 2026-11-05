@@ -3,6 +3,7 @@
 use windows_canvas::*;
 use windows_reactor::*;
 
+#[derive(Clone)]
 enum Message {
     Key(KeyEventInfo),
     Character(u16),
@@ -67,8 +68,8 @@ impl Component for Sample {
     }
 
     fn view(&self, _input: &(), cx: &mut ViewContext<Self>) -> View {
-        let key_sender = cx.sender();
-        let character_sender = cx.sender();
+        let on_key = cx.callback(Message::Key);
+        let on_character = cx.callback(Message::Character);
         let border = Border::new()
             .is_tab_stop(true)
             .automation_name("Keyboard input canvas")
@@ -83,7 +84,7 @@ impl Component for Sample {
             .border_thickness(Thickness::uniform(if self.focused { 3.0 } else { 1.0 }))
             .on_preview_key_down(RoutedCallback::new(move |info: KeyEventInfo| {
                 if matches!(info.key, VirtualKey::BACK | VirtualKey::DELETE) {
-                    _ = key_sender.send(Message::Key(info));
+                    on_key.call(info);
                     true
                 } else {
                     false
@@ -91,7 +92,7 @@ impl Component for Sample {
             }))
             .on_character_received(RoutedCallback::new(move |info: CharacterEventInfo| {
                 if info.character >= 0x20 && info.character != 0x7F {
-                    _ = character_sender.send(Message::Character(info.character));
+                    on_character.call(info.character);
                     true
                 } else {
                     false
@@ -127,7 +128,7 @@ impl Component for Sample {
                 Button::new()
                     .horizontal_alignment(HorizontalAlignment::Left)
                     .grid_row(3)
-                    .on_click(cx.callback(|()| Message::Clear))
+                    .on_click(cx.message(Message::Clear))
                     .content("Clear text"),
             ));
 

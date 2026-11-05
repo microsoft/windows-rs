@@ -30,6 +30,12 @@ pub unsafe fn DnsConnectionDeletePolicyEntries(policyentrytag: DNS_CONNECTION_PO
 }
 #[cfg(feature = "shared")]
 #[inline]
+pub unsafe fn DnsConnectionDeletePolicyEntriesByAppSid(cbappsid: super::DWORD, pbappsid: super::PBYTE) -> super::DWORD {
+    windows_core::link!("dnsapi.dll" "system" fn DnsConnectionDeletePolicyEntriesByAppSid(cbappsid : super::DWORD, pbappsid : super::PBYTE) -> super::DWORD);
+    unsafe { DnsConnectionDeletePolicyEntriesByAppSid(cbappsid, pbappsid) }
+}
+#[cfg(feature = "shared")]
+#[inline]
 pub unsafe fn DnsConnectionDeleteProxyInfo<P0>(pwszconnectionname: P0, r#type: DNS_CONNECTION_PROXY_TYPE) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
@@ -648,6 +654,7 @@ pub struct DNS_CONNECTION_NAME_LIST {
     pub pNames: *mut DNS_CONNECTION_NAME,
 }
 pub const DNS_CONNECTION_NAME_MAX_LENGTH: i32 = 64;
+pub const DNS_CONNECTION_POLICY_ALLOW_DEFAULT_INTERFACE_SELECTION: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

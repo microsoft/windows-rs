@@ -130,6 +130,7 @@ mod Windows {
         enum DXCoreMemoryType {
             Dedicated = 0,
             Shared = 1,
+            ReservedPartition = 2,
         }
         struct DXCoreMemoryUsage {
             committed: uint64_t,
@@ -151,6 +152,21 @@ mod Windows {
         struct DXCoreProcessMemoryQueryOutput {
             memoryUsage: DXCoreMemoryUsage,
             processQuerySucceeded: bool,
+        }
+        #[flags]
+        #[repr(u32)]
+        #[scoped]
+        enum DXCoreReservedAcceleratorMemoryFlags {
+            None = 0,
+            UserConfigured = 1,
+        }
+        struct DXCoreReservedAcceleratorMemoryInfo {
+            maximumSize: uint64_t,
+            recommendedSize: uint64_t,
+            currentSize: uint64_t,
+            userConfiguredSize: uint64_t,
+            currentCacheSize: uint64_t,
+            flags: DXCoreReservedAcceleratorMemoryFlags,
         }
         #[flags]
         #[repr(u32)]
@@ -210,6 +226,10 @@ mod Windows {
         interface IDXCoreAdapterFactory1: IDXCoreAdapterFactory {
             fn CreateAdapterListByWorkload(&self, workload: DXCoreWorkload, runtimeFilter: DXCoreRuntimeFilterFlags, hardwareTypeFilter: DXCoreHardwareTypeFilterFlags, riid: &IID, #[iid_is] #[out] ppvAdapterList: *mut *mut void) -> HRESULT;
         }
+        #[guid(0xb2b98767_bfed_412b_bbde_509171b226ba)]
+        interface IDXCoreAdapterFactory2: IDXCoreAdapterFactory1 {
+            fn GetReservedAcceleratorMemoryInfo(&self, #[out] pReservedAcceleratorMemoryInfo: *mut DXCoreReservedAcceleratorMemoryInfo) -> HRESULT;
+        }
         #[guid(0x526c7776_40e9_459b_b711_f32ad76dfc28)]
         interface IDXCoreAdapterList: IUnknown {
             fn GetAdapter(&self, index: uint32_t, riid: &IID, #[iid_is] #[out] ppvAdapter: *mut *mut void) -> HRESULT;
@@ -223,6 +243,7 @@ mod Windows {
         const IID_IDXCoreAdapter1: GUID = 0xa0783366_cfa3_43be_9d79_55b2da97c63c;
         const IID_IDXCoreAdapterFactory: GUID = 0x78ee5945_c36e_4b13_a669_005dd11c0f06;
         const IID_IDXCoreAdapterFactory1: GUID = 0xd5682e19_6d21_401c_827a_9a51a4ea35d7;
+        const IID_IDXCoreAdapterFactory2: GUID = 0xb2b98767_bfed_412b_bbde_509171b226ba;
         const IID_IDXCoreAdapterList: GUID = 0x526c7776_40e9_459b_b711_f32ad76dfc28;
         extern fn PFN_DXCORE_NOTIFICATION_CALLBACK(notificationType: DXCoreNotificationType, #[in] object: IUnknown, #[in] #[opt] context: *mut void);
         const _FACDXCORE: i32 = 2176;

@@ -524,6 +524,7 @@ mod Windows {
             TlsSignatureAlgorithm_Rsa = 1,
             TlsSignatureAlgorithm_Dsa = 2,
             TlsSignatureAlgorithm_Ecdsa = 3,
+            TlsSignatureAlgorithm_Mldsa = 9,
         }
     }
 }

@@ -12,7 +12,7 @@ your own code names them.
 
 ```toml
 [dependencies]
-windows-core = "0.100"
+windows-core = "0.101"
 ```
 
 ```rust
@@ -60,5 +60,4 @@ COM interface and may need a separate close operation.
 
 The default `proc-macros` feature supplies the authoring attributes. See
 [windows-interface](https://docs.rs/windows-interface) and
-[windows-implement](https://docs.rs/windows-implement), or the
-[robot sample](https://github.com/microsoft/windows-rs/tree/master/crates/samples/robot).
+[windows-implement](https://docs.rs/windows-implement).

@@ -478,7 +478,7 @@ pub const ACCESS_MAX_MS_OBJECT_ACE_TYPE: i32 = 8;
 pub const ACCESS_MAX_MS_V2_ACE_TYPE: i32 = 3;
 pub const ACCESS_MAX_MS_V3_ACE_TYPE: i32 = 4;
 pub const ACCESS_MAX_MS_V4_ACE_TYPE: i32 = 8;
-pub const ACCESS_MAX_MS_V5_ACE_TYPE: i32 = 21;
+pub const ACCESS_MAX_MS_V5_ACE_TYPE: i32 = 23;
 pub const ACCESS_MIN_MS_ACE_TYPE: i32 = 0;
 pub const ACCESS_MIN_MS_OBJECT_ACE_TYPE: i32 = 5;
 pub const ACCESS_OBJECT_GUID: i32 = 0;
@@ -863,6 +863,8 @@ impl Default for ARM64EC_NT_CONTEXT_0_0_0 {
 pub const ARM64_CNTFRQ_EL0: i32 = 24320;
 #[cfg(target_arch = "aarch64")]
 pub const ARM64_CNTVCT: i32 = 24322;
+#[cfg(target_arch = "aarch64")]
+pub const ARM64_CNTVCTSS_EL0: i32 = 24326;
 #[cfg(target_arch = "aarch64")]
 pub const ARM64_CNTVCT_EL0: i32 = 24322;
 pub type ARM64_FNPDATA_CR = i32;
@@ -7566,9 +7568,13 @@ pub type LPOSVERSIONINFOEXW = *mut _OSVERSIONINFOEXW;
 #[cfg(feature = "shared")]
 pub type LPOSVERSIONINFOW = *mut _OSVERSIONINFOW;
 #[cfg(feature = "shared")]
+pub type LPSECURITY_ANTITAMPER_POLICY = *mut SECURITY_ANTITAMPER_POLICY;
+#[cfg(feature = "shared")]
 pub type LPSECURITY_CAPABILITIES = *mut SECURITY_CAPABILITIES;
 #[cfg(feature = "shared")]
 pub type LPSECURITY_CONTAINMENT_CONFIGURATION = *mut SECURITY_CONTAINMENT_CONFIGURATION;
+#[cfg(feature = "shared")]
+pub type LPSECURITY_ISOLATION_CONFIGURATION = *mut SECURITY_ISOLATION_CONFIGURATION;
 pub type LPTCH = *mut i8;
 pub type LPTSTR = *mut i8;
 pub type LPUTSTR = *mut i8;
@@ -7613,6 +7619,7 @@ pub struct M128A {
 pub const MAILSLOT_NO_MESSAGE: super::DWORD = 4294967295;
 #[cfg(feature = "shared")]
 pub const MAILSLOT_WAIT_FOREVER: super::DWORD = 4294967295;
+pub const MANDATORY_ACCESS_SECURITY_INFORMATION: i32 = 512;
 pub type MANDATORY_LEVEL = i32;
 pub const MAXBYTE: i32 = 255;
 pub const MAXCHAR: i32 = 127;
@@ -7897,7 +7904,7 @@ pub const MaxActivationContextInfoClass: ACTIVATION_CONTEXT_INFO_CLASS = 8;
 pub const MaxHardwareCounterType: HARDWARE_COUNTER_TYPE = 1;
 pub const MaxJobObjectInfoClass: JOBOBJECTINFOCLASS = 53;
 pub const MaxProcessMitigationPolicy: PROCESS_MITIGATION_POLICY = 20;
-pub const MaxTokenInfoClass: TOKEN_INFORMATION_CLASS = 53;
+pub const MaxTokenInfoClass: TOKEN_INFORMATION_CLASS = 58;
 pub const MemDedicatedAttributeMax: MEM_DEDICATED_ATTRIBUTE_TYPE = 4;
 pub const MemDedicatedAttributeReadBandwidth: MEM_DEDICATED_ATTRIBUTE_TYPE = 0;
 pub const MemDedicatedAttributeReadLatency: MEM_DEDICATED_ATTRIBUTE_TYPE = 1;
@@ -8530,9 +8537,12 @@ pub type PFLS_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(lpflsdata: PV
 pub type PFPO_DATA = *mut FPO_DATA;
 pub const PF_3DNOW_INSTRUCTIONS_AVAILABLE: i32 = 7;
 pub const PF_ALPHA_BYTE_INSTRUCTIONS: i32 = 5;
+pub const PF_APX_F_INSTRUCTIONS_AVAILABLE: i32 = 90;
 pub const PF_ARM_64BIT_LOADSTORE_ATOMIC: i32 = 25;
 pub const PF_ARM_DIVIDE_INSTRUCTION_AVAILABLE: i32 = 24;
 pub const PF_ARM_EXTERNAL_CACHE_AVAILABLE: i32 = 26;
+pub const PF_ARM_FEAT_ECV_INSTRUCTIONS_AVAILABLE: i32 = 91;
+pub const PF_ARM_FEAT_ECV_POFF_INSTRUCTIONS_AVAILABLE: i32 = 92;
 pub const PF_ARM_FMAC_INSTRUCTIONS_AVAILABLE: i32 = 27;
 pub const PF_ARM_LSE2_AVAILABLE: i32 = 62;
 pub const PF_ARM_NEON_INSTRUCTIONS_AVAILABLE: i32 = 19;
@@ -9986,7 +9996,9 @@ pub const PROCESSOR_PPC_620: i32 = 620;
 pub struct PROCESSOR_RELATIONSHIP {
     pub Flags: super::BYTE,
     pub EfficiencyClass: super::BYTE,
-    pub Reserved: [super::BYTE; 20],
+    pub RelativePerformance: super::WORD,
+    pub RelativeEfficiency: super::WORD,
+    pub Reserved: [super::BYTE; 16],
     pub GroupCount: super::WORD,
     pub GroupMask: [GROUP_AFFINITY; 1],
 }
@@ -11433,6 +11445,28 @@ pub type PSCRUB_PARITY_EXTENT = *mut SCRUB_PARITY_EXTENT;
 pub type PSCRUB_PARITY_EXTENT_DATA = *mut SCRUB_PARITY_EXTENT_DATA;
 #[cfg(feature = "shared")]
 pub type PSECURE_MEMORY_CACHE_CALLBACK = Option<unsafe extern "system" fn(addr: PVOID, range: super::SIZE_T) -> super::BOOLEAN>;
+#[cfg(feature = "shared")]
+pub type PSECURITY_ANTITAMPER_ENTITLEMENT = *mut SECURITY_ANTITAMPER_ENTITLEMENT;
+pub type PSECURITY_ANTITAMPER_IDENTITY = *mut SECURITY_ANTITAMPER_IDENTITY;
+#[cfg(feature = "shared")]
+pub type PSECURITY_ANTITAMPER_MODULE_IDENTIFIER = *mut SECURITY_ANTITAMPER_MODULE_IDENTIFIER;
+pub type PSECURITY_ANTITAMPER_MODULE_IDENTIFIER_TYPE = *mut SECURITY_ANTITAMPER_MODULE_IDENTIFIER_TYPE;
+#[cfg(feature = "shared")]
+pub type PSECURITY_ANTITAMPER_POLICY = *mut SECURITY_ANTITAMPER_POLICY;
+#[cfg(feature = "shared")]
+pub type PSECURITY_ANTITAMPER_POLICY_CROSS_INSTANCE_ACCESS = *mut SECURITY_ANTITAMPER_POLICY_CROSS_INSTANCE_ACCESS;
+#[cfg(feature = "shared")]
+pub type PSECURITY_ANTITAMPER_POLICY_DEBUG = *mut SECURITY_ANTITAMPER_POLICY_DEBUG;
+#[cfg(feature = "shared")]
+pub type PSECURITY_ANTITAMPER_POLICY_GENERAL = *mut SECURITY_ISOLATION_CONFIGURATION_GENERAL;
+#[cfg(feature = "shared")]
+pub type PSECURITY_ANTITAMPER_POLICY_MODULES = *mut SECURITY_ANTITAMPER_POLICY_MODULES;
+#[cfg(feature = "shared")]
+pub type PSECURITY_ANTITAMPER_POLICY_PROCESS = *mut SECURITY_ANTITAMPER_POLICY_PROCESS;
+#[cfg(feature = "shared")]
+pub type PSECURITY_ANTITAMPER_POLICY_SIGNING = *mut SECURITY_ANTITAMPER_POLICY_SIGNING;
+#[cfg(feature = "shared")]
+pub type PSECURITY_ANTITAMPER_POLICY_UI = *mut SECURITY_ISOLATION_CONFIGURATION_UI;
 pub type PSECURITY_ATTRIBUTES_OPAQUE = *mut core::ffi::c_void;
 #[cfg(feature = "shared")]
 pub type PSECURITY_CAPABILITIES = *mut SECURITY_CAPABILITIES;
@@ -11443,6 +11477,18 @@ pub type PSECURITY_DESCRIPTOR = *mut core::ffi::c_void;
 pub type PSECURITY_DESCRIPTOR_CONTROL = *mut u16;
 pub type PSECURITY_IMPERSONATION_LEVEL = *mut SECURITY_IMPERSONATION_LEVEL;
 pub type PSECURITY_INFORMATION = *mut u32;
+#[cfg(feature = "shared")]
+pub type PSECURITY_ISOLATION_CONFIGURATION = *mut SECURITY_ISOLATION_CONFIGURATION;
+#[cfg(feature = "shared")]
+pub type PSECURITY_ISOLATION_CONFIGURATION_DEBUG = *mut SECURITY_ISOLATION_CONFIGURATION_DEBUG;
+#[cfg(feature = "shared")]
+pub type PSECURITY_ISOLATION_CONFIGURATION_GENERAL = *mut SECURITY_ISOLATION_CONFIGURATION_GENERAL;
+#[cfg(feature = "shared")]
+pub type PSECURITY_ISOLATION_CONFIGURATION_PROCESS = *mut SECURITY_ISOLATION_CONFIGURATION_PROCESS;
+#[cfg(feature = "shared")]
+pub type PSECURITY_ISOLATION_CONFIGURATION_SIGNING = *mut SECURITY_ISOLATION_CONFIGURATION_SIGNING;
+#[cfg(feature = "shared")]
+pub type PSECURITY_ISOLATION_CONFIGURATION_UI = *mut SECURITY_ISOLATION_CONFIGURATION_UI;
 #[cfg(feature = "shared")]
 pub type PSECURITY_OBJECT_AI_PARAMS = *mut SECURITY_OBJECT_AI_PARAMS;
 #[cfg(feature = "shared")]
@@ -12396,6 +12442,372 @@ pub const SECTION_MAP_WRITE: i32 = 2;
 pub const SECTION_QUERY: i32 = 1;
 pub const SECURITY_AGENTIC_PLATFORM_BASE_RID: i32 = 101;
 pub const SECURITY_ANONYMOUS_LOGON_RID: i32 = 7;
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SECURITY_ANTITAMPER_ENTITLEMENT {
+    pub RequiredSigningLevel: SE_SIGNING_LEVEL,
+    pub RequiredSidCount: super::DWORD,
+    pub RequiredSids: *mut PSID,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SECURITY_ANTITAMPER_IDENTITY {
+    pub Name: windows_core::PCWSTR,
+    pub Publisher: windows_core::PCWSTR,
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SECURITY_ANTITAMPER_MODULE_IDENTIFIER {
+    pub Type: SECURITY_ANTITAMPER_MODULE_IDENTIFIER_TYPE,
+    pub DataSize: super::DWORD,
+    pub Data: super::PBYTE,
+}
+pub type SECURITY_ANTITAMPER_MODULE_IDENTIFIER_TYPE = i32;
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct SECURITY_ANTITAMPER_POLICY {
+    pub Anonymous: SECURITY_ANTITAMPER_POLICY_0,
+    pub PolicyPresent: super::DWORD,
+    pub Identity: SECURITY_ANTITAMPER_IDENTITY,
+    pub GeneralPolicy: SECURITY_ANTITAMPER_POLICY_GENERAL,
+    pub DebugPolicy: SECURITY_ANTITAMPER_POLICY_DEBUG,
+    pub UiPolicy: SECURITY_ANTITAMPER_POLICY_UI,
+    pub ProcessPolicy: SECURITY_ANTITAMPER_POLICY_PROCESS,
+    pub SigningPolicy: SECURITY_ANTITAMPER_POLICY_SIGNING,
+    pub ModulePolicy: SECURITY_ANTITAMPER_POLICY_MODULES,
+}
+#[cfg(feature = "shared")]
+impl Default for SECURITY_ANTITAMPER_POLICY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union SECURITY_ANTITAMPER_POLICY_0 {
+    pub Version: super::DWORD,
+    pub Anonymous: SECURITY_ANTITAMPER_POLICY_0_0,
+}
+#[cfg(feature = "shared")]
+impl Default for SECURITY_ANTITAMPER_POLICY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SECURITY_ANTITAMPER_POLICY_0_0 {
+    pub _bitfield: u32,
+}
+#[cfg(feature = "shared")]
+impl SECURITY_ANTITAMPER_POLICY_0_0 {
+    pub fn MinorVersion(&self) -> super::DWORD {
+        (self._bitfield) & 1048575
+    }
+    pub fn set_MinorVersion(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1048575) | (value & 1048575);
+    }
+    pub fn MajorVersion(&self) -> super::DWORD {
+        self._bitfield >> 20
+    }
+    pub fn set_MajorVersion(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(4095 << 20)) | ((value & 4095) << 20);
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct SECURITY_ANTITAMPER_POLICY_CROSS_INSTANCE_ACCESS {
+    pub Anonymous: SECURITY_ANTITAMPER_POLICY_CROSS_INSTANCE_ACCESS_0,
+}
+#[cfg(feature = "shared")]
+impl Default for SECURITY_ANTITAMPER_POLICY_CROSS_INSTANCE_ACCESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union SECURITY_ANTITAMPER_POLICY_CROSS_INSTANCE_ACCESS_0 {
+    pub Flags: super::DWORD,
+    pub Anonymous: SECURITY_ANTITAMPER_POLICY_CROSS_INSTANCE_ACCESS_0_0,
+}
+#[cfg(feature = "shared")]
+impl Default for SECURITY_ANTITAMPER_POLICY_CROSS_INSTANCE_ACCESS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SECURITY_ANTITAMPER_POLICY_CROSS_INSTANCE_ACCESS_0_0 {
+    pub _bitfield: u32,
+}
+#[cfg(feature = "shared")]
+impl SECURITY_ANTITAMPER_POLICY_CROSS_INSTANCE_ACCESS_0_0 {
+    pub fn AllowReadVirtualMemory(&self) -> super::DWORD {
+        (self._bitfield) & 1
+    }
+    pub fn set_AllowReadVirtualMemory(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
+    }
+    pub fn AllowDuplicateHandle(&self) -> super::DWORD {
+        (self._bitfield >> 1) & 1
+    }
+    pub fn set_AllowDuplicateHandle(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
+    }
+    pub fn Reserved(&self) -> super::DWORD {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct SECURITY_ANTITAMPER_POLICY_DEBUG {
+    pub Anonymous: SECURITY_ANTITAMPER_POLICY_DEBUG_0,
+    pub Entitlement: SECURITY_ANTITAMPER_ENTITLEMENT,
+}
+#[cfg(feature = "shared")]
+impl Default for SECURITY_ANTITAMPER_POLICY_DEBUG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union SECURITY_ANTITAMPER_POLICY_DEBUG_0 {
+    pub Flags: super::DWORD,
+    pub Anonymous: SECURITY_ANTITAMPER_POLICY_DEBUG_0_0,
+}
+#[cfg(feature = "shared")]
+impl Default for SECURITY_ANTITAMPER_POLICY_DEBUG_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SECURITY_ANTITAMPER_POLICY_DEBUG_0_0 {
+    pub _bitfield: u32,
+}
+#[cfg(feature = "shared")]
+impl SECURITY_ANTITAMPER_POLICY_DEBUG_0_0 {
+    pub fn AllowDebugging(&self) -> super::DWORD {
+        (self._bitfield) & 1
+    }
+    pub fn set_AllowDebugging(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
+    }
+    pub fn RequireEntitlement(&self) -> super::DWORD {
+        (self._bitfield >> 1) & 1
+    }
+    pub fn set_RequireEntitlement(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
+    }
+    pub fn UseSpecificEntitlement(&self) -> super::DWORD {
+        (self._bitfield >> 2) & 1
+    }
+    pub fn set_UseSpecificEntitlement(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
+    }
+    pub fn Reserved(&self) -> super::DWORD {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(536870911 << 3)) | ((value & 536870911) << 3);
+    }
+}
+#[cfg(feature = "shared")]
+pub type SECURITY_ANTITAMPER_POLICY_GENERAL = SECURITY_ISOLATION_CONFIGURATION_GENERAL;
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct SECURITY_ANTITAMPER_POLICY_MODULES {
+    pub Anonymous: SECURITY_ANTITAMPER_POLICY_MODULES_0,
+    pub AllowedModuleCount: super::DWORD,
+    pub AllowedModules: PSECURITY_ANTITAMPER_MODULE_IDENTIFIER,
+}
+#[cfg(feature = "shared")]
+impl Default for SECURITY_ANTITAMPER_POLICY_MODULES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union SECURITY_ANTITAMPER_POLICY_MODULES_0 {
+    pub Flags: super::DWORD,
+    pub Anonymous: SECURITY_ANTITAMPER_POLICY_MODULES_0_0,
+}
+#[cfg(feature = "shared")]
+impl Default for SECURITY_ANTITAMPER_POLICY_MODULES_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SECURITY_ANTITAMPER_POLICY_MODULES_0_0 {
+    pub _bitfield: u32,
+}
+#[cfg(feature = "shared")]
+impl SECURITY_ANTITAMPER_POLICY_MODULES_0_0 {
+    pub fn RestrictModules(&self) -> super::DWORD {
+        (self._bitfield) & 1
+    }
+    pub fn set_RestrictModules(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
+    }
+    pub fn Reserved(&self) -> super::DWORD {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
+}
+pub const SECURITY_ANTITAMPER_POLICY_PRESENT_DEBUG: u32 = 2;
+pub const SECURITY_ANTITAMPER_POLICY_PRESENT_GENERAL: u32 = 1;
+pub const SECURITY_ANTITAMPER_POLICY_PRESENT_MODULES: u32 = 32;
+pub const SECURITY_ANTITAMPER_POLICY_PRESENT_PROCESS: u32 = 8;
+pub const SECURITY_ANTITAMPER_POLICY_PRESENT_SIGNING: u32 = 16;
+pub const SECURITY_ANTITAMPER_POLICY_PRESENT_UI: u32 = 4;
+pub const SECURITY_ANTITAMPER_POLICY_PRESENT_VALID_MASK: u32 = 63;
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct SECURITY_ANTITAMPER_POLICY_PROCESS {
+    pub Anonymous: SECURITY_ANTITAMPER_POLICY_PROCESS_0,
+    pub CrossInstanceAccess: SECURITY_ANTITAMPER_POLICY_CROSS_INSTANCE_ACCESS,
+}
+#[cfg(feature = "shared")]
+impl Default for SECURITY_ANTITAMPER_POLICY_PROCESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union SECURITY_ANTITAMPER_POLICY_PROCESS_0 {
+    pub Flags: super::DWORD,
+    pub Anonymous: SECURITY_ANTITAMPER_POLICY_PROCESS_0_0,
+}
+#[cfg(feature = "shared")]
+impl Default for SECURITY_ANTITAMPER_POLICY_PROCESS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SECURITY_ANTITAMPER_POLICY_PROCESS_0_0 {
+    pub _bitfield: u32,
+}
+#[cfg(feature = "shared")]
+impl SECURITY_ANTITAMPER_POLICY_PROCESS_0_0 {
+    pub fn NeverInheritFromParent(&self) -> super::DWORD {
+        (self._bitfield) & 1
+    }
+    pub fn set_NeverInheritFromParent(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
+    }
+    pub fn AllowInheritFromAnyIdentity(&self) -> super::DWORD {
+        (self._bitfield >> 1) & 1
+    }
+    pub fn set_AllowInheritFromAnyIdentity(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
+    }
+    pub fn ShareInstanceWithChildren(&self) -> super::DWORD {
+        (self._bitfield >> 2) & 1
+    }
+    pub fn set_ShareInstanceWithChildren(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
+    }
+    pub fn Reserved(&self) -> super::DWORD {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(536870911 << 3)) | ((value & 536870911) << 3);
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct SECURITY_ANTITAMPER_POLICY_SIGNING {
+    pub Anonymous: SECURITY_ANTITAMPER_POLICY_SIGNING_0,
+    pub RequiredSigningLevel: SE_SIGNING_LEVEL,
+}
+#[cfg(feature = "shared")]
+impl Default for SECURITY_ANTITAMPER_POLICY_SIGNING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union SECURITY_ANTITAMPER_POLICY_SIGNING_0 {
+    pub Flags: super::DWORD,
+    pub Anonymous: SECURITY_ANTITAMPER_POLICY_SIGNING_0_0,
+}
+#[cfg(feature = "shared")]
+impl Default for SECURITY_ANTITAMPER_POLICY_SIGNING_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SECURITY_ANTITAMPER_POLICY_SIGNING_0_0 {
+    pub _bitfield: u32,
+}
+#[cfg(feature = "shared")]
+impl SECURITY_ANTITAMPER_POLICY_SIGNING_0_0 {
+    pub fn RequireExecutableSigning(&self) -> super::DWORD {
+        (self._bitfield) & 1
+    }
+    pub fn set_RequireExecutableSigning(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
+    }
+    pub fn RequireLibrarySigning(&self) -> super::DWORD {
+        (self._bitfield >> 1) & 1
+    }
+    pub fn set_RequireLibrarySigning(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
+    }
+    pub fn Reserved(&self) -> super::DWORD {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
+    }
+}
+#[cfg(feature = "shared")]
+pub type SECURITY_ANTITAMPER_POLICY_UI = SECURITY_ISOLATION_CONFIGURATION_UI;
+pub const SECURITY_ANTI_TAMPER_APP_ID_BASE_RID: i32 = 1;
+pub const SECURITY_ANTI_TAMPER_APP_INSTANCE_BASE_RID: i32 = 3;
+pub const SECURITY_ANTI_TAMPER_APP_SUITE_BASE_RID: i32 = 5;
+pub const SECURITY_ANTI_TAMPER_AUTHORITY_INSTANCE_RID_COUNT: i32 = 3;
+pub const SECURITY_ANTI_TAMPER_AUTHORITY_RID_COUNT: i32 = 8;
+pub const SECURITY_ANTI_TAMPER_ENTITLEMENT_BASE_RID: i32 = 4;
+pub const SECURITY_ANTI_TAMPER_MUTABLE_APP_ID_BASE_RID: i32 = 2;
 pub const SECURITY_APPPOOL_ID_BASE_RID: i32 = 82;
 pub const SECURITY_APPPOOL_ID_RID_COUNT: i32 = 6;
 pub const SECURITY_APP_PACKAGE_BASE_RID: i32 = 2;
@@ -12548,6 +12960,296 @@ pub const SECURITY_INSTALLER_CAPABILITY_RID_COUNT: i32 = 10;
 pub const SECURITY_INSTALLER_GROUP_CAPABILITY_BASE: i32 = 32;
 pub const SECURITY_INSTALLER_GROUP_CAPABILITY_RID_COUNT: i32 = 9;
 pub const SECURITY_INTERACTIVE_RID: i32 = 4;
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct SECURITY_ISOLATION_CONFIGURATION {
+    pub Size: super::DWORD,
+    pub GeneralConfiguration: SECURITY_ISOLATION_CONFIGURATION_GENERAL,
+    pub DebugConfiguration: SECURITY_ISOLATION_CONFIGURATION_DEBUG,
+    pub UiConfiguration: SECURITY_ISOLATION_CONFIGURATION_UI,
+    pub ProcessConfiguration: SECURITY_ISOLATION_CONFIGURATION_PROCESS,
+    pub SigningConfiguration: SECURITY_ISOLATION_CONFIGURATION_SIGNING,
+}
+#[cfg(feature = "shared")]
+impl Default for SECURITY_ISOLATION_CONFIGURATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct SECURITY_ISOLATION_CONFIGURATION_DEBUG {
+    pub Anonymous: SECURITY_ISOLATION_CONFIGURATION_DEBUG_0,
+}
+#[cfg(feature = "shared")]
+impl Default for SECURITY_ISOLATION_CONFIGURATION_DEBUG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union SECURITY_ISOLATION_CONFIGURATION_DEBUG_0 {
+    pub Flags: super::DWORD,
+    pub Anonymous: SECURITY_ISOLATION_CONFIGURATION_DEBUG_0_0,
+}
+#[cfg(feature = "shared")]
+impl Default for SECURITY_ISOLATION_CONFIGURATION_DEBUG_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SECURITY_ISOLATION_CONFIGURATION_DEBUG_0_0 {
+    pub _bitfield: u32,
+}
+#[cfg(feature = "shared")]
+impl SECURITY_ISOLATION_CONFIGURATION_DEBUG_0_0 {
+    pub fn AllowDebugging(&self) -> super::DWORD {
+        (self._bitfield) & 1
+    }
+    pub fn set_AllowDebugging(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
+    }
+    pub fn Reserved(&self) -> super::DWORD {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct SECURITY_ISOLATION_CONFIGURATION_GENERAL {
+    pub Anonymous: SECURITY_ISOLATION_CONFIGURATION_GENERAL_0,
+}
+#[cfg(feature = "shared")]
+impl Default for SECURITY_ISOLATION_CONFIGURATION_GENERAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union SECURITY_ISOLATION_CONFIGURATION_GENERAL_0 {
+    pub Flags: super::DWORD,
+    pub Anonymous: SECURITY_ISOLATION_CONFIGURATION_GENERAL_0_0,
+}
+#[cfg(feature = "shared")]
+impl Default for SECURITY_ISOLATION_CONFIGURATION_GENERAL_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SECURITY_ISOLATION_CONFIGURATION_GENERAL_0_0 {
+    pub _bitfield: u32,
+}
+#[cfg(feature = "shared")]
+impl SECURITY_ISOLATION_CONFIGURATION_GENERAL_0_0 {
+    pub fn ProtectionEnabled(&self) -> super::DWORD {
+        (self._bitfield) & 1
+    }
+    pub fn set_ProtectionEnabled(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
+    }
+    pub fn Reserved(&self) -> super::DWORD {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct SECURITY_ISOLATION_CONFIGURATION_PROCESS {
+    pub Anonymous: SECURITY_ISOLATION_CONFIGURATION_PROCESS_0,
+}
+#[cfg(feature = "shared")]
+impl Default for SECURITY_ISOLATION_CONFIGURATION_PROCESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union SECURITY_ISOLATION_CONFIGURATION_PROCESS_0 {
+    pub Flags: super::DWORD,
+    pub Anonymous: SECURITY_ISOLATION_CONFIGURATION_PROCESS_0_0,
+}
+#[cfg(feature = "shared")]
+impl Default for SECURITY_ISOLATION_CONFIGURATION_PROCESS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SECURITY_ISOLATION_CONFIGURATION_PROCESS_0_0 {
+    pub _bitfield: u32,
+}
+#[cfg(feature = "shared")]
+impl SECURITY_ISOLATION_CONFIGURATION_PROCESS_0_0 {
+    pub fn NeverInheritFromParent(&self) -> super::DWORD {
+        (self._bitfield) & 1
+    }
+    pub fn set_NeverInheritFromParent(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
+    }
+    pub fn AllowInheritFromAnyIdentity(&self) -> super::DWORD {
+        (self._bitfield >> 1) & 1
+    }
+    pub fn set_AllowInheritFromAnyIdentity(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
+    }
+    pub fn ShareInstanceWithChildren(&self) -> super::DWORD {
+        (self._bitfield >> 2) & 1
+    }
+    pub fn set_ShareInstanceWithChildren(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
+    }
+    pub fn Reserved(&self) -> super::DWORD {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(536870911 << 3)) | ((value & 536870911) << 3);
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct SECURITY_ISOLATION_CONFIGURATION_SIGNING {
+    pub Anonymous: SECURITY_ISOLATION_CONFIGURATION_SIGNING_0,
+    pub RequiredSigningLevel: SE_SIGNING_LEVEL,
+}
+#[cfg(feature = "shared")]
+impl Default for SECURITY_ISOLATION_CONFIGURATION_SIGNING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union SECURITY_ISOLATION_CONFIGURATION_SIGNING_0 {
+    pub Flags: super::DWORD,
+    pub Anonymous: SECURITY_ISOLATION_CONFIGURATION_SIGNING_0_0,
+}
+#[cfg(feature = "shared")]
+impl Default for SECURITY_ISOLATION_CONFIGURATION_SIGNING_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SECURITY_ISOLATION_CONFIGURATION_SIGNING_0_0 {
+    pub _bitfield: u32,
+}
+#[cfg(feature = "shared")]
+impl SECURITY_ISOLATION_CONFIGURATION_SIGNING_0_0 {
+    pub fn RequireSigning(&self) -> super::DWORD {
+        (self._bitfield) & 1
+    }
+    pub fn set_RequireSigning(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
+    }
+    pub fn RequireSignedLibraries(&self) -> super::DWORD {
+        (self._bitfield >> 1) & 1
+    }
+    pub fn set_RequireSignedLibraries(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
+    }
+    pub fn Reserved(&self) -> super::DWORD {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct SECURITY_ISOLATION_CONFIGURATION_UI {
+    pub Anonymous: SECURITY_ISOLATION_CONFIGURATION_UI_0,
+}
+#[cfg(feature = "shared")]
+impl Default for SECURITY_ISOLATION_CONFIGURATION_UI {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union SECURITY_ISOLATION_CONFIGURATION_UI_0 {
+    pub Flags: super::DWORD,
+    pub Anonymous: SECURITY_ISOLATION_CONFIGURATION_UI_0_0,
+}
+#[cfg(feature = "shared")]
+impl Default for SECURITY_ISOLATION_CONFIGURATION_UI_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SECURITY_ISOLATION_CONFIGURATION_UI_0_0 {
+    pub _bitfield: u32,
+}
+#[cfg(feature = "shared")]
+impl SECURITY_ISOLATION_CONFIGURATION_UI_0_0 {
+    pub fn BlockUiAccess(&self) -> super::DWORD {
+        (self._bitfield) & 1
+    }
+    pub fn set_BlockUiAccess(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
+    }
+    pub fn AllowExternalHook(&self) -> super::DWORD {
+        (self._bitfield >> 1) & 1
+    }
+    pub fn set_AllowExternalHook(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
+    }
+    pub fn AllowHandleAccess(&self) -> super::DWORD {
+        (self._bitfield >> 2) & 1
+    }
+    pub fn set_AllowHandleAccess(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
+    }
+    pub fn AllowWindowMessages(&self) -> super::DWORD {
+        (self._bitfield >> 3) & 1
+    }
+    pub fn set_AllowWindowMessages(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
+    }
+    pub fn AllowSyntheticInput(&self) -> super::DWORD {
+        (self._bitfield >> 4) & 1
+    }
+    pub fn set_AllowSyntheticInput(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
+    }
+    pub fn Reserved(&self) -> super::DWORD {
+        self._bitfield >> 5
+    }
+    pub fn set_Reserved(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(134217727 << 5)) | ((value & 134217727) << 5);
+    }
+}
 pub const SECURITY_IUSER_RID: i32 = 17;
 pub const SECURITY_LOCAL_ACCOUNT_AND_ADMIN_RID: i32 = 114;
 pub const SECURITY_LOCAL_ACCOUNT_RID: i32 = 113;
@@ -13638,6 +14340,8 @@ pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
 }
 #[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX = _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX;
+pub const SYSTEM_MANDATORY_ACCESS_ALLOWED_ACE_TYPE: i32 = 23;
+pub const SYSTEM_MANDATORY_APP_ACCESS_ALLOWED_ACE_TYPE: i32 = 22;
 #[repr(C)]
 #[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -13869,6 +14573,8 @@ pub const SeImageSignatureNone: SE_IMAGE_SIGNATURE_TYPE = 0;
 pub const SeImageSignaturePackageCatalog: SE_IMAGE_SIGNATURE_TYPE = 6;
 pub const SeImageSignaturePplMitigated: SE_IMAGE_SIGNATURE_TYPE = 7;
 pub const SecurityAnonymous: SECURITY_IMPERSONATION_LEVEL = 0;
+pub const SecurityAntiTamperModuleIdentifierHash: SECURITY_ANTITAMPER_MODULE_IDENTIFIER_TYPE = 0;
+pub const SecurityAntiTamperModuleIdentifierPublisher: SECURITY_ANTITAMPER_MODULE_IDENTIFIER_TYPE = 1;
 pub const SecurityDelegation: SECURITY_IMPERSONATION_LEVEL = 3;
 pub const SecurityIdentification: SECURITY_IMPERSONATION_LEVEL = 1;
 pub const SecurityImpersonation: SECURITY_IMPERSONATION_LEVEL = 2;
@@ -14668,6 +15374,9 @@ pub const ThermalStandby: POWER_INFORMATION_LEVEL = 88;
 pub const TokenAccessInformation: TOKEN_INFORMATION_CLASS = 22;
 pub const TokenAppContainerNumber: TOKEN_INFORMATION_CLASS = 32;
 pub const TokenAppContainerSid: TOKEN_INFORMATION_CLASS = 31;
+pub const TokenAppIdentitySid: TOKEN_INFORMATION_CLASS = 54;
+pub const TokenAppInstanceSid: TOKEN_INFORMATION_CLASS = 55;
+pub const TokenAppSuiteSid: TOKEN_INFORMATION_CLASS = 56;
 pub const TokenAuditPolicy: TOKEN_INFORMATION_CLASS = 16;
 pub const TokenBnoIsolation: TOKEN_INFORMATION_CLASS = 44;
 pub const TokenCapabilities: TOKEN_INFORMATION_CLASS = 30;
@@ -14680,9 +15389,11 @@ pub const TokenElevationType: TOKEN_INFORMATION_CLASS = 18;
 pub const TokenElevationTypeDefault: TOKEN_ELEVATION_TYPE = 1;
 pub const TokenElevationTypeFull: TOKEN_ELEVATION_TYPE = 2;
 pub const TokenElevationTypeLimited: TOKEN_ELEVATION_TYPE = 3;
+pub const TokenEntitlements: TOKEN_INFORMATION_CLASS = 57;
 pub const TokenGroups: TOKEN_INFORMATION_CLASS = 2;
 pub const TokenGroupsAndPrivileges: TOKEN_INFORMATION_CLASS = 13;
 pub const TokenHasRestrictions: TOKEN_INFORMATION_CLASS = 21;
+pub const TokenHasTamperProtection: TOKEN_INFORMATION_CLASS = 53;
 pub const TokenImpersonation: TOKEN_TYPE = 2;
 pub const TokenImpersonationLevel: TOKEN_INFORMATION_CLASS = 9;
 pub const TokenIntegrityLevel: TOKEN_INFORMATION_CLASS = 25;
@@ -15513,6 +16224,7 @@ pub const XSTATE_ALIGN_BIT: i32 = 1;
 pub const XSTATE_ALIGN_MASK: u64 = 2;
 pub const XSTATE_AMX_TILE_CONFIG: i32 = 17;
 pub const XSTATE_AMX_TILE_DATA: i32 = 18;
+pub const XSTATE_APX_F: i32 = 19;
 pub const XSTATE_ARM64_SME_TPIDR2: i32 = 4;
 pub const XSTATE_ARM64_SME_ZA: i32 = 3;
 pub const XSTATE_ARM64_SME_ZT: i32 = 5;
@@ -15721,12 +16433,13 @@ pub const XSTATE_LWP: i32 = 62;
 #[cfg(target_arch = "x86")]
 pub const XSTATE_MASK_ALLOWED: u64 = 4611686018427388415;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const XSTATE_MASK_ALLOWED: u64 = 4611686018427784703;
+pub const XSTATE_MASK_ALLOWED: u64 = 4611686018428308991;
 #[cfg(target_arch = "aarch64")]
 pub const XSTATE_MASK_ALLOWED: u64 = 60;
 pub const XSTATE_MASK_AMD64_LEGACY: u64 = 3;
 pub const XSTATE_MASK_AMX_TILE_CONFIG: u64 = 131072;
 pub const XSTATE_MASK_AMX_TILE_DATA: u64 = 262144;
+pub const XSTATE_MASK_APX_F: u64 = 524288;
 pub const XSTATE_MASK_ARM64_SME_TPIDR2: u64 = 16;
 pub const XSTATE_MASK_ARM64_SME_ZA: u64 = 8;
 pub const XSTATE_MASK_ARM64_SME_ZT: u64 = 32;

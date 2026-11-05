@@ -1853,6 +1853,23 @@ mod Windows {
         const CMSG_ATTR_CERT_COUNT_PARAM: i32 = 31;
         const CMSG_ATTR_CERT_PARAM: i32 = 32;
         const CMSG_AUTHENTICATED_ATTRIBUTES_FLAG: i32 = 8;
+        const CMSG_AUTH_ENVELOPED: i32 = 7;
+        const CMSG_AUTH_ENVELOPED_DATA_V0: i32 = 0;
+        struct CMSG_AUTH_ENVELOPED_ENCODE_INFO {
+            cbSize: DWORD,
+            ContentEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+            cRecipients: DWORD,
+            rgCmsRecipients: PCMSG_RECIPIENT_ENCODE_INFO,
+            cCertEncoded: DWORD,
+            rgCertEncoded: PCERT_BLOB,
+            cCrlEncoded: DWORD,
+            rgCrlEncoded: PCRL_BLOB,
+            cAuthAttr: DWORD,
+            rgAuthAttr: PCRYPT_ATTRIBUTE,
+            cUnauthAttr: DWORD,
+            rgUnauthAttr: PCRYPT_ATTRIBUTE,
+        }
+        const CMSG_AUTH_ENVELOPED_FLAG: i32 = 128;
         const CMSG_BARE_CONTENT_FLAG: i32 = 1;
         const CMSG_BARE_CONTENT_PARAM: i32 = 3;
         const CMSG_CERT_COUNT_PARAM: i32 = 11;
@@ -1868,6 +1885,7 @@ mod Windows {
                 pKeyTrans: PCMSG_KEY_TRANS_RECIPIENT_INFO,
                 pKeyAgree: PCMSG_KEY_AGREE_RECIPIENT_INFO,
                 pMailList: PCMSG_MAIL_LIST_RECIPIENT_INFO,
+                pKem: PCMSG_KEM_RECIPIENT_INFO,
             },
         }
         const CMSG_CMS_RECIPIENT_INFO_PARAM: i32 = 36;
@@ -1894,6 +1912,7 @@ mod Windows {
         }
         const CMSG_COMPUTED_HASH_PARAM: i32 = 22;
         const CMSG_CONTENTS_OCTETS_FLAG: i32 = 16;
+        const CMSG_CONTENT_ENCRYPT_FREE_ASN1_ENCODE_PARA_FLAG: i32 = 4;
         const CMSG_CONTENT_ENCRYPT_FREE_OBJID_FLAG: i32 = 2;
         const CMSG_CONTENT_ENCRYPT_FREE_PARA_FLAG: i32 = 1;
         struct CMSG_CONTENT_ENCRYPT_INFO {
@@ -1954,6 +1973,13 @@ mod Windows {
             dwUnauthAttrIndex: DWORD,
         }
         const CMSG_CTRL_ENABLE_STRONG_SIGNATURE: i32 = 21;
+        const CMSG_CTRL_KEM_DECRYPT: i32 = 22;
+        struct CMSG_CTRL_KEM_DECRYPT_PARA {
+            cbSize: DWORD,
+            hNCryptKey: NCRYPT_KEY_HANDLE,
+            pKem: PCMSG_KEM_RECIPIENT_INFO,
+            dwRecipientIndex: DWORD,
+        }
         const CMSG_CTRL_KEY_AGREE_DECRYPT: i32 = 17;
         struct CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {
             cbSize: DWORD,
@@ -2020,9 +2046,11 @@ mod Windows {
         const CMSG_ENCRYPT_PARAM: i32 = 26;
         const CMSG_ENVELOPED: i32 = 3;
         const CMSG_ENVELOPED_DATA_CMS_VERSION: i32 = 2;
+        const CMSG_ENVELOPED_DATA_ORI_VERSION: i32 = 3;
         const CMSG_ENVELOPED_DATA_PKCS_1_5_VERSION: i32 = 0;
         const CMSG_ENVELOPED_DATA_V0: i32 = 0;
         const CMSG_ENVELOPED_DATA_V2: i32 = 2;
+        const CMSG_ENVELOPED_DATA_V3: i32 = 3;
         struct CMSG_ENVELOPED_ENCODE_INFO {
             cbSize: DWORD,
             hCryptProv: HCRYPTPROV_LEGACY,
@@ -2053,6 +2081,28 @@ mod Windows {
         const CMSG_HASH_DATA_PARAM: i32 = 21;
         const CMSG_INDEFINITE_LENGTH: u32 = 4294967295;
         const CMSG_INNER_CONTENT_TYPE_PARAM: i32 = 4;
+        const CMSG_KEM_RECIPIENT: i32 = 4;
+        struct CMSG_KEM_RECIPIENT_ENCODE_INFO {
+            cbSize: DWORD,
+            RecipientId: CERT_ID,
+            RecipientPublicKey: CRYPT_BIT_BLOB,
+            KemAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+            KdfAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+            WrapAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+            UserKeyingMaterial: CRYPT_DATA_BLOB,
+        }
+        struct CMSG_KEM_RECIPIENT_INFO {
+            dwVersion: DWORD,
+            RecipientId: CERT_ID,
+            KemAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+            KdfAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+            WrapAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+            EncryptedKey: CRYPT_DATA_BLOB,
+            KemCt: CRYPT_DATA_BLOB,
+            UserKeyingMaterial: CRYPT_DATA_BLOB,
+            dwKekLength: DWORD,
+        }
+        const CMSG_KEM_VERSION: i32 = 0;
         const CMSG_KEY_AGREE_ENCRYPT_FREE_MATERIAL_FLAG: i32 = 2;
         const CMSG_KEY_AGREE_ENCRYPT_FREE_OBJID_FLAG: i32 = 32;
         const CMSG_KEY_AGREE_ENCRYPT_FREE_PARA_FLAG: i32 = 1;
@@ -2457,6 +2507,20 @@ mod Windows {
         }
         const CROSS_CERT_DIST_POINT_ERR_INDEX_MASK: i32 = 255;
         const CROSS_CERT_DIST_POINT_ERR_INDEX_SHIFT: i32 = 24;
+        #[encoding("utf-16")]
+        const CRYPT32_COMPOSITE_MLDSA_44_ECDSA_P256_SHA256_ALGORITHM: String = "Composite-ML-DSA:44-ECDSA-P256-SHA256";
+        #[encoding("utf-16")]
+        const CRYPT32_COMPOSITE_MLDSA_65_ECDSA_P256_SHA512_ALGORITHM: String = "Composite-ML-DSA:65-ECDSA-P256-SHA512";
+        #[encoding("utf-16")]
+        const CRYPT32_COMPOSITE_MLDSA_65_ECDSA_P384_SHA512_ALGORITHM: String = "Composite-ML-DSA:65-ECDSA-P384-SHA512";
+        #[encoding("utf-16")]
+        const CRYPT32_COMPOSITE_MLDSA_87_ECDSA_P384_SHA512_ALGORITHM: String = "Composite-ML-DSA:87-ECDSA-P384-SHA512";
+        #[encoding("utf-16")]
+        const CRYPT32_COMPOSITE_MLKEM_1024_P384_ALGORITHM: String = "Composite-ML-KEM:1024-P384";
+        #[encoding("utf-16")]
+        const CRYPT32_COMPOSITE_MLKEM_768_P256_ALGORITHM: String = "Composite-ML-KEM:768-P256";
+        #[encoding("utf-16")]
+        const CRYPT32_COMPOSITE_MLKEM_768_X25519_ALGORITHM: String = "Composite-ML-KEM:768-X25519";
         #[encoding("utf-16")]
         const CRYPT32_MLDSA_44_ALGORITHM: String = "ML-DSA:44";
         #[encoding("utf-16")]
@@ -2923,6 +2987,8 @@ mod Windows {
         const CRYPT_MESSAGE_ENCAPSULATED_CONTENT_OUT_FLAG: i32 = 2;
         const CRYPT_MESSAGE_KEYID_RECIPIENT_FLAG: i32 = 4;
         const CRYPT_MESSAGE_KEYID_SIGNER_FLAG: i32 = 4;
+        const CRYPT_MESSAGE_REQUIRE_AUTH_FLAG: i32 = 512;
+        const CRYPT_MESSAGE_REQUIRE_OAEP_FLAG: i32 = 256;
         const CRYPT_MESSAGE_SILENT_KEYSET_FLAG: i32 = 64;
         const CRYPT_MODE_CBC: i32 = 1;
         const CRYPT_MODE_CBCI: i32 = 6;
@@ -2966,6 +3032,14 @@ mod Windows {
         }
         const CRYPT_OCSP_ONLY_RETRIEVAL: i32 = 16777216;
         const CRYPT_OFFLINE_CHECK_RETRIEVAL: i32 = 16384;
+        const CRYPT_OID_AES_EXTRA_INFO_BIT_LENGTH_INDEX: i32 = 0;
+        const CRYPT_OID_AES_EXTRA_INFO_CBC_TYPE: i32 = 1;
+        const CRYPT_OID_AES_EXTRA_INFO_CCM_TYPE: i32 = 2;
+        const CRYPT_OID_AES_EXTRA_INFO_GCM_TYPE: i32 = 3;
+        const CRYPT_OID_AES_EXTRA_INFO_MAX_LENGTH: i32 = 2;
+        const CRYPT_OID_AES_EXTRA_INFO_TYPE_INDEX: i32 = 1;
+        const CRYPT_OID_AES_EXTRA_INFO_WRAP_TYPE: i32 = 4;
+        const CRYPT_OID_COMPOSITE_ECDSA_FLAG: i32 = 33554432;
         #[encoding("ansi")]
         const CRYPT_OID_CREATE_COM_OBJECT_FUNC: String = "CryptDllCreateCOMObject";
         #[encoding("ansi")]
@@ -4419,6 +4493,7 @@ mod Windows {
         type PCMC_TAGGED_OTHER_MSG = *mut CMC_TAGGED_OTHER_MSG;
         type PCMC_TAGGED_REQUEST = *mut CMC_TAGGED_REQUEST;
         type PCMSG_ATTR = *mut CRYPT_ATTRIBUTES;
+        type PCMSG_AUTH_ENVELOPED_ENCODE_INFO = *mut CMSG_AUTH_ENVELOPED_ENCODE_INFO;
         type PCMSG_CMS_RECIPIENT_INFO = *mut CMSG_CMS_RECIPIENT_INFO;
         type PCMSG_CMS_SIGNER_INFO = *mut CMSG_CMS_SIGNER_INFO;
         type PCMSG_CNG_CONTENT_DECRYPT_INFO = *mut CMSG_CNG_CONTENT_DECRYPT_INFO;
@@ -4426,6 +4501,7 @@ mod Windows {
         type PCMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA = *mut CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA;
         type PCMSG_CTRL_DECRYPT_PARA = *mut CMSG_CTRL_DECRYPT_PARA;
         type PCMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA = *mut CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA;
+        type PCMSG_CTRL_KEM_DECRYPT_PARA = *mut CMSG_CTRL_KEM_DECRYPT_PARA;
         type PCMSG_CTRL_KEY_AGREE_DECRYPT_PARA = *mut CMSG_CTRL_KEY_AGREE_DECRYPT_PARA;
         type PCMSG_CTRL_KEY_TRANS_DECRYPT_PARA = *mut CMSG_CTRL_KEY_TRANS_DECRYPT_PARA;
         type PCMSG_CTRL_MAIL_LIST_DECRYPT_PARA = *mut CMSG_CTRL_MAIL_LIST_DECRYPT_PARA;
@@ -4433,6 +4509,8 @@ mod Windows {
         type PCMSG_ENCRYPTED_ENCODE_INFO = *mut CMSG_ENCRYPTED_ENCODE_INFO;
         type PCMSG_ENVELOPED_ENCODE_INFO = *mut CMSG_ENVELOPED_ENCODE_INFO;
         type PCMSG_HASHED_ENCODE_INFO = *mut CMSG_HASHED_ENCODE_INFO;
+        type PCMSG_KEM_RECIPIENT_ENCODE_INFO = *mut CMSG_KEM_RECIPIENT_ENCODE_INFO;
+        type PCMSG_KEM_RECIPIENT_INFO = *mut CMSG_KEM_RECIPIENT_INFO;
         type PCMSG_KEY_AGREE_ENCRYPT_INFO = *mut CMSG_KEY_AGREE_ENCRYPT_INFO;
         type PCMSG_KEY_AGREE_KEY_ENCRYPT_INFO = *mut CMSG_KEY_AGREE_KEY_ENCRYPT_INFO;
         type PCMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO = *mut CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO;
@@ -5055,6 +5133,7 @@ mod Windows {
                 pKeyTrans: PCMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO,
                 pKeyAgree: PCMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO,
                 pMailList: PCMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO,
+                pKem: PCMSG_KEM_RECIPIENT_ENCODE_INFO,
             },
         }
         struct _CRYPTOAPI_BLOB {
@@ -5673,6 +5752,20 @@ mod Windows {
         #[encoding("ansi")]
         const szOID_MICROSOFT_PUBLISHER_SIGNER: String = "1.3.6.1.4.1.311.76.8.1";
         #[encoding("ansi")]
+        const szOID_MLDSA44_ECDSA_P256_SHA256: String = "1.3.6.1.5.5.7.6.40";
+        #[encoding("ansi")]
+        const szOID_MLDSA65_ECDSA_P256_SHA512: String = "1.3.6.1.5.5.7.6.45";
+        #[encoding("ansi")]
+        const szOID_MLDSA65_ECDSA_P384_SHA512: String = "1.3.6.1.5.5.7.6.46";
+        #[encoding("ansi")]
+        const szOID_MLDSA87_ECDSA_P384_SHA512: String = "1.3.6.1.5.5.7.6.49";
+        #[encoding("ansi")]
+        const szOID_MLKEM1024_ECDH_P384_SHA3_256: String = "1.3.6.1.5.5.7.6.63";
+        #[encoding("ansi")]
+        const szOID_MLKEM768_ECDH_P256_SHA3_256: String = "1.3.6.1.5.5.7.6.59";
+        #[encoding("ansi")]
+        const szOID_MLKEM768_X25519_SHA3_256: String = "1.3.6.1.5.5.7.6.58";
+        #[encoding("ansi")]
         const szOID_NAME_CONSTRAINTS: String = "2.5.29.30";
         #[encoding("ansi")]
         const szOID_NETSCAPE: String = "2.16.840.1.113730";
@@ -5703,13 +5796,25 @@ mod Windows {
         #[encoding("ansi")]
         const szOID_NIST_AES128_CBC: String = "2.16.840.1.101.3.4.1.2";
         #[encoding("ansi")]
+        const szOID_NIST_AES128_CCM: String = "2.16.840.1.101.3.4.1.7";
+        #[encoding("ansi")]
+        const szOID_NIST_AES128_GCM: String = "2.16.840.1.101.3.4.1.6";
+        #[encoding("ansi")]
         const szOID_NIST_AES128_WRAP: String = "2.16.840.1.101.3.4.1.5";
         #[encoding("ansi")]
         const szOID_NIST_AES192_CBC: String = "2.16.840.1.101.3.4.1.22";
         #[encoding("ansi")]
+        const szOID_NIST_AES192_CCM: String = "2.16.840.1.101.3.4.1.27";
+        #[encoding("ansi")]
+        const szOID_NIST_AES192_GCM: String = "2.16.840.1.101.3.4.1.67";
+        #[encoding("ansi")]
         const szOID_NIST_AES192_WRAP: String = "2.16.840.1.101.3.4.1.25";
         #[encoding("ansi")]
         const szOID_NIST_AES256_CBC: String = "2.16.840.1.101.3.4.1.42";
+        #[encoding("ansi")]
+        const szOID_NIST_AES256_CCM: String = "2.16.840.1.101.3.4.1.47";
+        #[encoding("ansi")]
+        const szOID_NIST_AES256_GCM: String = "2.16.840.1.101.3.4.1.46";
         #[encoding("ansi")]
         const szOID_NIST_AES256_WRAP: String = "2.16.840.1.101.3.4.1.45";
         #[encoding("ansi")]
@@ -5877,6 +5982,8 @@ mod Windows {
         #[encoding("ansi")]
         const szOID_ORGANIZATION_NAME: String = "2.5.4.10";
         #[encoding("ansi")]
+        const szOID_ORI_KEM: String = "1.2.840.113549.1.9.16.13.3";
+        #[encoding("ansi")]
         const szOID_OS_VERSION: String = "1.3.6.1.4.1.311.13.2.3";
         #[encoding("ansi")]
         const szOID_OWNER: String = "2.5.4.32";
@@ -6023,6 +6130,8 @@ mod Windows {
         #[encoding("ansi")]
         const szOID_PREFERRED_DELIVERY_METHOD: String = "2.5.4.28";
         #[encoding("ansi")]
+        const szOID_PREHASH: String = "1.3.6.1.4.1.311.73.2";
+        #[encoding("ansi")]
         const szOID_PRESENTATION_ADDRESS: String = "2.5.4.29";
         #[encoding("ansi")]
         const szOID_PRIVATEKEY_USAGE_PERIOD: String = "2.5.29.16";
@@ -6097,6 +6206,8 @@ mod Windows {
         #[encoding("ansi")]
         const szOID_RSA_HASH: String = "1.2.840.113549.2";
         #[encoding("ansi")]
+        const szOID_RSA_HKDF_WITH_SHA256: String = "1.2.840.113549.1.9.16.3.28";
+        #[encoding("ansi")]
         const szOID_RSA_MD2: String = "1.2.840.113549.2.2";
         #[encoding("ansi")]
         const szOID_RSA_MD2RSA: String = "1.2.840.113549.1.1.2";
@@ -6142,6 +6253,8 @@ mod Windows {
         const szOID_RSA_SMIMEalgESDH: String = "1.2.840.113549.1.9.16.3.5";
         #[encoding("ansi")]
         const szOID_RSA_SSA_PSS: String = "1.2.840.113549.1.1.10";
+        #[encoding("ansi")]
+        const szOID_RSA_authEnvelopedData: String = "1.2.840.113549.1.9.16.1.23";
         #[encoding("ansi")]
         const szOID_RSA_certExtensions: String = "1.2.840.113549.1.9.14";
         #[encoding("ansi")]

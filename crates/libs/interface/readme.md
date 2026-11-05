@@ -11,7 +11,7 @@ already describes the ABI.
 
 ```toml
 [dependencies]
-windows-core = "0.100"
+windows-core = "0.101"
 ```
 
 ```rust

@@ -6,8 +6,13 @@ pub struct MenuFlyoutPage {
     last_format: String,
 }
 
+pub enum Message {
+    Action(String),
+    Format(String),
+}
+
 impl Component for MenuFlyoutPage {
-    type Message = (String, String);
+    type Message = Message;
     type Input = ();
 
     fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
@@ -17,12 +22,10 @@ impl Component for MenuFlyoutPage {
         }
     }
 
-    fn update(&mut self, message: (String, String), _context: &ComponentContext<Self>) {
-        let (which, value) = message;
-        match which.as_str() {
-            "action" => self.last_action = value,
-            "format" => self.last_format = value,
-            _ => {}
+    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
+        match message {
+            Message::Action(value) => self.last_action = value,
+            Message::Format(value) => self.last_format = value,
         }
     }
 
@@ -42,8 +45,7 @@ impl Component for MenuFlyoutPage {
                                     MenuItem::item("copy", "Copy"),
                                     MenuItem::item("paste", "Paste"),
                                 ],
-                                context
-                                    .callback(|key: Key| ("action".to_string(), key_label(&key))),
+                                context.callback(|key: Key| Message::Action(key_label(&key))),
                             )),
                             TextBlock::new()
                                 .text(format!("Last action: {}", self.last_action))
@@ -64,8 +66,7 @@ impl Component for MenuFlyoutPage {
                                     MenuItem::item("underline", "Underline"),
                                     MenuItem::item("strikethrough", "Strikethrough"),
                                 ],
-                                context
-                                    .callback(|key: Key| ("format".to_string(), key_label(&key))),
+                                context.callback(|key: Key| Message::Format(key_label(&key))),
                             )),
                             TextBlock::new()
                                 .text(format!("Last format: {}", self.last_format))

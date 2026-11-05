@@ -4,6 +4,44 @@ use windows_clang::*;
 const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
 
 #[test]
+fn restored_macros_keep_their_definition() {
+    helpers::ensure_libclang();
+    let mut input = selected_fixture("macro_restoration", &[]);
+    for discover in [false, true] {
+        input.macros.clear();
+        input.macro_headers.clear();
+        if discover {
+            input.macro_headers.push(input.name.clone());
+        } else {
+            input.macros = vec!["RESTORED".into(), "SHADOWED".into()];
+        }
+        let captured = capture_partial(std::slice::from_ref(&input), &TARGETS).unwrap();
+        for snapshot in &captured.snapshots {
+            let restored = snapshot
+                .values
+                .iter()
+                .find(|value| value.name == "RESTORED")
+                .unwrap();
+            let observation = &restored.observations[0];
+            assert!(
+                matches!(snapshot.types[observation.written.0].kind, TypeKind::Alias(id)
+                    if snapshot.aliases[id.0].name == "Word")
+            );
+            assert_eq!(observation.location.line, 3);
+        }
+        let result = projection::project_partial(captured, "Fixture").unwrap();
+        let text = &result.output.partitions["macro_restoration"].rdl;
+        assert!(text.contains("const RESTORED: Word = 32;"), "{text}");
+        assert!(text.contains("const Inner: u16 = 99;"), "{text}");
+        assert!(text.contains("const SHADOWED: u16 = 7;"), "{text}");
+        assert!(result.omissions.iter().any(|message| {
+            message.contains("SHADOWED") && message.contains("collides with a native declaration")
+        }));
+        std::fs::write(test_clang::input_dir().join("macro_restoration.rdl"), text).unwrap();
+    }
+}
+
+#[test]
 fn discovers_without_selected_names() {
     helpers::ensure_libclang();
     let mut input = selected_fixture("macro_discovery", &["Safe"]);

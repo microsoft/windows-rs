@@ -25,6 +25,19 @@ fn main() {
 
 The macro declares the imported function and a matching function-pointer type with the same name.
 An optional link-name literal selects an export whose name differs from the Rust identifier.
+Use `ordinal(12)` instead of that literal to select an export by ordinal. For example,
+[`SHCreateMemStream`](https://learn.microsoft.com/windows/win32/api/shlwapi/nf-shlwapi-shcreatememstream)
+has the documented ordinal 12:
+
+```rust,no_run
+windows_link::link!("shlwapi.dll" "system" ordinal(12)
+    fn SHCreateMemStream(data: *const u8, len: u32) -> *mut core::ffi::c_void);
+```
+
+Ordinals must be in the range 1 through 65535. Use a documented stable ordinal or the ordinal
+recorded in the DLL's import library for the target architecture, not an automatically assigned
+number observed in one DLL build. Ordinal imports still require the API's supported OS version and
+any required application manifest.
 
 ## Match the native contract
 

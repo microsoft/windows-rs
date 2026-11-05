@@ -1,0 +1,11 @@
+#[win32]
+mod Fixture {
+    #[repr(i32)]
+    enum WAIT_EVENT {
+        WAIT_READY = 0,
+        WAIT_TIMEOUT = 258,
+    }
+    #[library("fixture.dll", last_error)]
+    #[preserve_sig]
+    extern "C" fn Wait(first: i32) -> #[associated_enum(WAIT_EVENT)] i32;
+}

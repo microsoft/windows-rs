@@ -1,4 +1,4 @@
-//! Shared by the test targets. See `readme.md`.
+//! Shared by the test targets.
 
 use std::path::{Path, PathBuf};
 use std::process::Command;

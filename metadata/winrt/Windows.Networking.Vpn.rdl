@@ -93,6 +93,17 @@ mod Windows {
             interface IVpnChannel6 {
                 fn ActivateForeground(&self, #[in] packageRelativeAppId: String, #[in] sharedContext: super::super::Foundation::Collections::ValueSet) -> super::super::Foundation::Collections::ValueSet;
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VpnChannel)]
+            #[guid(0x19862972_f14b_406b_bf10_f72ee323771b)]
+            interface IVpnChannel7Preview {
+                #[Windows::Foundation::Metadata::Overload("SetErrorMessageWithDetails")]
+                fn SetErrorMessage(&self, #[in] message: String, #[in] errCode: u32);
+                #[get]
+                ConnectionDetail: VpnConnectionDetailsPreview;
+                #[get]
+                DisconnectReason: VpnDisconnectReasonPreview;
+            }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(VpnChannelActivityEventArgs)]
             #[guid(0xa36c88f2_afdc_4775_855d_d4ac0a35fc55)]
@@ -129,6 +140,15 @@ mod Windows {
             #[guid(0x88eb062d_e818_4ffd_98a6_363e3736c95d)]
             interface IVpnChannelStatics {
                 fn ProcessEventAsync(&self, #[in] thirdPartyPlugIn: Object, #[in] event: Object);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VpnConnectionDetailsPreview)]
+            #[guid(0xbbd3e70b_1ab8_49c9_9fb1_dc78564058d4)]
+            interface IVpnConnectionDetailsPreview {
+                #[get]
+                Type: VpnConnectionTypePreview;
+                #[get]
+                Attempt: u32;
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[guid(0xb7e78af3_a46d_404b_8729_1832522853ac)]
@@ -358,6 +378,17 @@ mod Windows {
                 fn ConnectProfileWithPasswordCredentialAsync(&self, #[in] profile: IVpnProfile, #[in] passwordCredential: super::super::Security::Credentials::PasswordCredential) -> super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn DisconnectProfileAsync(&self, #[in] profile: IVpnProfile) -> super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VpnManagementAgent)]
+            #[guid(0x73791cc7_acd7_491b_8bed_e9a17c3433da)]
+            interface IVpnManagementAgent2Preview {
+                fn GetAlwaysOnActiveProfile(&self) -> IVpnProfile;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetAlwaysOnActiveProfileAsync(&self) -> super::super::Foundation::IAsyncOperation<IVpnProfile>;
+                fn SetAlwaysOnActiveProfile(&self, #[in] profile: IVpnProfile);
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetAlwaysOnActiveProfileAsync(&self, #[in] profile: IVpnProfile) -> super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>;
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(VpnNamespaceAssignment)]
@@ -653,6 +684,8 @@ mod Windows {
                 IVpnChannel5,
                 #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 851968)]
                 IVpnChannel6,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
+                IVpnChannel7Preview,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -690,6 +723,23 @@ mod Windows {
                 None = 0,
                 Retrying = 1,
                 UseForSingleSignIn = 2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            class VpnConnectionDetailsPreview {
+                IVpnConnectionDetailsPreview,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            #[repr(i32)]
+            enum VpnConnectionTypePreview {
+                NoConnection = 0,
+                PlatformUXInitiated = 1,
+                ApiInitiated = 2,
+                Auto = 3,
+                FastReconnect = 4,
+                PluginCrashReconnect = 5,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -796,6 +846,23 @@ mod Windows {
                 Send = 0,
                 Receive = 1,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            #[repr(i32)]
+            enum VpnDisconnectReasonPreview {
+                Unknown = 0,
+                NotDisconnected = 1,
+                PlatformUXInitiated = 2,
+                ApiInitiated = 3,
+                Standby = 4,
+                NetworkFailure = 5,
+                ServiceStop = 6,
+                UserLogOff = 7,
+                Shutdown = 8,
+                PluginUninstall = 9,
+                CaptivePortalDetected = 10,
+                AppTriggerDisconnect = 11,
+                EnteredTrustedNetwork = 12,
+            }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -859,6 +926,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             class VpnManagementAgent {
                 IVpnManagementAgent,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
+                IVpnManagementAgent2Preview,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[repr(i32)]

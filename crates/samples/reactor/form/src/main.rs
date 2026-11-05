@@ -181,8 +181,6 @@ impl Component for Summary {
         Self
     }
 
-    fn update(&mut self, _message: (), _context: &ComponentContext<Self>) {}
-
     fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
         let amount = input
             .amount

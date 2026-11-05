@@ -1,29 +1,23 @@
 use crate::controls::*;
+use std::rc::Rc;
 use windows_reactor::*;
 
 pub struct TreeViewPage {
-    last_invoked: String,
-}
-
-#[derive(Clone)]
-pub enum Message {
-    Invoked(String),
+    last_invoked: Rc<str>,
 }
 
 impl Component for TreeViewPage {
-    type Message = Message;
+    type Message = Rc<str>;
     type Input = ();
 
     fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
         Self {
-            last_invoked: "(none)".to_string(),
+            last_invoked: "(none)".into(),
         }
     }
 
-    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
-        match message {
-            Message::Invoked(text) => self.last_invoked = text,
-        }
+    fn update(&mut self, text: Rc<str>, _context: &ComponentContext<Self>) {
+        self.last_invoked = text;
     }
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
@@ -63,9 +57,7 @@ impl Component for TreeViewPage {
                         "File Explorer TreeView",
                         StackPanel::new().spacing(8.0).children((
                             TreeView::new()
-                                .on_item_invoked(context.callback(|value: std::rc::Rc<str>| {
-                                    Message::Invoked(value.to_string())
-                                }))
+                                .on_item_invoked(context.forward())
                                 .nodes(file_system),
                             TextBlock::new()
                                 .text(format!("Last invoked: {}", self.last_invoked))

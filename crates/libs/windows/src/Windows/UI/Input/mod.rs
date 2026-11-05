@@ -267,6 +267,34 @@ impl windows_core::RuntimeType for EdgeGestureKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.EdgeGestureKind;i4)");
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.EdgeGestureKind");
 }
+pub struct GamepadKeyRoutingConfiguration;
+impl GamepadKeyRoutingConfiguration {
+    pub fn IsSupported() -> windows_core::Result<bool> {
+        Self::IGamepadKeyRoutingConfigurationStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn IsKeyRoutingEnabled() -> windows_core::Result<bool> {
+        Self::IGamepadKeyRoutingConfigurationStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsKeyRoutingEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn TrySetKeyRoutingEnabled(enabled: bool) -> windows_core::Result<bool> {
+        Self::IGamepadKeyRoutingConfigurationStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TrySetKeyRoutingEnabled)(windows_core::Interface::as_raw(this), enabled, &mut result__).map(|| result__)
+        })
+    }
+    fn IGamepadKeyRoutingConfigurationStatics<R, F: FnOnce(&IGamepadKeyRoutingConfigurationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<GamepadKeyRoutingConfiguration, IGamepadKeyRoutingConfigurationStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeName for GamepadKeyRoutingConfiguration {
+    const NAME: &'static str = "Windows.UI.Input.GamepadKeyRoutingConfiguration";
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GazeInputAccessStatus(pub i32);
@@ -950,6 +978,19 @@ impl windows_core::RuntimeType for IEdgeGestureStatics {
 pub struct IEdgeGestureStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IGamepadKeyRoutingConfigurationStatics, IGamepadKeyRoutingConfigurationStatics_Vtbl, 0xa068e427_0e9e_5174_9012_4fb3a764fdd2);
+impl windows_core::RuntimeType for IGamepadKeyRoutingConfigurationStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IGamepadKeyRoutingConfigurationStatics");
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGamepadKeyRoutingConfigurationStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsKeyRoutingEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub TrySetKeyRoutingEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGestureRecognizer, IGestureRecognizer_Vtbl, 0xb47a37bf_3d6b_4f88_83e8_6dcb4012ffb0);
 impl windows_core::RuntimeType for IGestureRecognizer {

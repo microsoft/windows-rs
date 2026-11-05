@@ -1,17 +1,10 @@
 #![windows_subsystem = "windows"]
 
-use std::cell::Cell;
+use std::time::Instant;
 use windows_canvas::*;
 use windows_reactor::*;
 
-thread_local! {
-    static FRAME: Cell<u64> = const { Cell::new(0) };
-}
-
-fn draw(ctx: &DrawContext) -> Result<()> {
-    FRAME.with(|f| f.set(f.get() + 1));
-    let t = FRAME.with(|f| f.get()) as f32 * 0.01;
-
+fn draw(ctx: &DrawContext, t: f32) -> Result<()> {
     ctx.clear(ColorF::BLACK);
 
     let brush = ctx.create_solid_brush(ColorF::CORNFLOWER_BLUE)?;
@@ -21,25 +14,14 @@ fn draw(ctx: &DrawContext) -> Result<()> {
     let size = cx.min(cy) * 0.25;
 
     for i in 0..6 {
-        let angle = t + i as f32 * std::f32::consts::PI / 3.0;
-        let (sin, cos) = (angle.sin(), angle.cos());
-        let transform = Matrix3x2 {
-            m11: cos,
-            m12: sin,
-            m21: -sin,
-            m22: cos,
-            m31: cx * (1.0 - cos) + cy * sin,
-            m32: cy * (1.0 - cos) - cx * sin,
-        };
+        let angle = t.to_degrees() + i as f32 * 60.0;
+        let transform = Matrix3x2::rotation(angle) * Matrix3x2::translation(cx, cy);
 
         let frac = i as f32 / 6.0;
         brush.set_color(ColorF::new(0.3 + frac * 0.7, 0.5, 1.0 - frac * 0.5, 0.8));
 
         ctx.with_transform(&transform, || {
-            ctx.fill_rect(
-                &Rect::new(cx - size, cy - size, cx + size, cy + size),
-                &brush,
-            );
+            ctx.fill_rect(&Rect::new(-size, -size, size, size), &brush);
         });
     }
     Ok(())
@@ -49,19 +31,24 @@ fn main() -> Result<()> {
     App::run_component::<Sample>(())
 }
 
-struct Sample;
+struct Sample {
+    start: Instant,
+}
 
 impl Component for Sample {
     type Input = ();
     type Message = ();
 
     fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
-        Self
+        Self {
+            start: Instant::now(),
+        }
     }
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         context.window_title("Transform");
         context.window_visuals(WindowVisuals::new().backdrop(WindowBackdrop::Mica));
-        animated_canvas(draw)
+        let start = self.start;
+        animated_canvas(move |ctx| draw(ctx, start.elapsed().as_secs_f32() * 0.6))
     }
 }

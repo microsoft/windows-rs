@@ -77,7 +77,7 @@ jobs:
       - name: Test
         run: >-
           cargo test --target ${{ matrix.target }}
-          -p test_interop -p 'csharp-*' -p 'robot-*'
+          -p test_interop -p 'csharp-*'
       - name: Check diff
         shell: bash
         run: |

@@ -41,7 +41,7 @@ impl Component for LightweightResources {
                     "Element resources override WinUI lightweight styling values.",
                     target,
                     Button::new()
-                        .on_click(context.callback(|_| ()))
+                        .on_click(context.forward())
                         .content(if self.styled {
                             "Clear resources"
                         } else {

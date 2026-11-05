@@ -34,6 +34,7 @@ pub struct AliasGroup {
     pub name: String,
     /// Name-corresponding bindings, not a claim that their canonical types are identical.
     pub observations: Vec<AliasObservationRef>,
+    pub(crate) annotation: Option<EnumAnnotation>,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -231,15 +232,41 @@ fn alias_groups(
     }
     let mut alias_groups = Vec::new();
     for (name, mut observations) in aliases {
-        let mut group = None;
+        observations.sort_by_key(|reference| {
+            let snapshot = snapshots[reference.snapshot];
+            let location =
+                &snapshot.aliases[reference.alias.0].observations[reference.observation].location;
+            (
+                snapshot.input.as_str(),
+                snapshot.files[location.file.0].as_str(),
+                location.offset,
+            )
+        });
+        let mut group: Option<EnumAnnotation> = None;
+        let mut members = HashMap::new();
         for reference in &observations {
             let observation = &snapshots[reference.snapshot].aliases[reference.alias.0]
                 .observations[reference.observation];
-            if let Some(annotation) = enum_annotation(&observation.attributes) {
-                if group.is_some_and(|previous| previous != annotation) {
+            for annotation in enum_annotations(&observation.attributes) {
+                let group = group.get_or_insert_with(|| EnumAnnotation {
+                    flags: annotation.flags,
+                    members: Vec::new(),
+                });
+                if group.flags != annotation.flags {
                     return Err(Error(format!("conflicting enum groups for `{name}`")));
                 }
-                group = Some(annotation);
+                for member in &annotation.members {
+                    if let Some(previous) = members.insert(member.name.as_str(), member) {
+                        if previous != member {
+                            return Err(Error(format!(
+                                "conflicting enum groups for `{name}` member `{}`",
+                                member.name
+                            )));
+                        }
+                    } else {
+                        group.members.push(member.clone());
+                    }
+                }
             }
         }
         if group.is_some() {
@@ -259,19 +286,10 @@ fn alias_groups(
                 ));
             }
         }
-        observations.sort_by_key(|reference| {
-            let snapshot = snapshots[reference.snapshot];
-            let location =
-                &snapshot.aliases[reference.alias.0].observations[reference.observation].location;
-            (
-                snapshot.input.as_str(),
-                snapshot.files[location.file.0].as_str(),
-                location.offset,
-            )
-        });
         alias_groups.push(AliasGroup {
             name: name.to_string(),
             observations,
+            annotation: group,
         });
     }
     Ok(alias_groups)
@@ -446,9 +464,13 @@ pub(crate) fn alignments(attributes: &[Attribute]) -> Vec<(u32, AlignmentKind)> 
 }
 
 pub(crate) fn abi_attributes_equal(a: &[Attribute], b: &[Attribute]) -> bool {
+    a.iter().any(|value| value.kind == AttributeKind::FlagEnum)
+        == b.iter().any(|value| value.kind == AttributeKind::FlagEnum)
+        && abi_attributes_equal_except_enum_flags(a, b)
+}
+
+fn abi_attributes_equal_except_enum_flags(a: &[Attribute], b: &[Attribute]) -> bool {
     packing(a) == packing(b)
-        && a.iter().any(|value| value.kind == AttributeKind::FlagEnum)
-            == b.iter().any(|value| value.kind == AttributeKind::FlagEnum)
         && alignments(a) == alignments(b)
         && default_type_visibility(a) == default_type_visibility(b)
         && deprecations(a) == deprecations(b)
@@ -497,9 +519,13 @@ pub(crate) fn import_library(attributes: &[Attribute]) -> Option<&ImportLibrary>
 }
 
 pub(crate) fn enum_annotation(attributes: &[Attribute]) -> Option<&EnumAnnotation> {
+    enum_annotations(attributes).next()
+}
+
+pub(crate) fn enum_annotations(attributes: &[Attribute]) -> impl Iterator<Item = &EnumAnnotation> {
     attributes
         .iter()
-        .find_map(|attribute| match &attribute.kind {
+        .filter_map(|attribute| match &attribute.kind {
             AttributeKind::EnumGroup(value) => Some(value.as_ref()),
             _ => None,
         })

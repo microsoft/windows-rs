@@ -1,0 +1,7 @@
+#[win32]
+mod Test {
+    #[library("example.dll", import = "#1")]
+    extern fn First();
+    #[library("example.dll", import = "#65535", last_error)]
+    extern "C" fn Last(value: i32) -> i32;
+}

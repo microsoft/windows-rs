@@ -38,7 +38,8 @@ void LLVMInitializeAArch64AsmParser();
 
 // Stock libclang has no accessors for the AST nodes behind its handles. These follow the handle
 // layouts of the pinned libclang: cursors carry {parent or declaration, attribute or statement,
-// unit}, types carry {QualType, unit}, and units begin {CIndexer*, ASTUnit*}.
+// unit}, types carry {QualType, unit}, units begin {CIndexer*, ASTUnit*}, and locations carry
+// {SourceManager*, LangOptions*, SourceLocation encoding}.
 namespace {
 
 clang::ASTUnit* translationUnitAST(CXTranslationUnit unit) {
@@ -159,7 +160,7 @@ static WindowsClangStatus functionInfo(clang::QualType value, WindowsClangFuncti
 }
 
 unsigned windows_clang_getABIVersion(void) {
-    return 23;
+    return 24;
 }
 
 WindowsClangStatus windows_clang_getRecordInfo(
@@ -747,6 +748,49 @@ WindowsClangStatus windows_clang_getWrittenName(CXCursor cursor, CXString* name)
     if (written != expected) {
         *name = makeString(written);
     }
+    return WindowsClangSuccess;
+}
+
+WindowsClangStatus windows_clang_getMacroDefinition(
+    CXTranslationUnit unit, const char* name, CXSourceLocation location, CXCursor* definition) {
+    auto ast = translationUnitAST(unit);
+    if (!ast || !name || !*name || !definition ||
+        location.ptr_data[0] != &ast->getSourceManager()) {
+        return WindowsClangInvalidArgument;
+    }
+    auto native = clang::SourceLocation::getFromRawEncoding(location.int_data);
+    if (native.isInvalid() || native.isMacroID()) {
+        return WindowsClangInvalidArgument;
+    }
+    auto& preprocessor = ast->getPreprocessor();
+    auto macro = preprocessor.getMacroDefinitionAtLoc(
+        preprocessor.getIdentifierInfo(name), native).getMacroInfo();
+    if (!macro || !macro->isObjectLike()) {
+        return WindowsClangWrongKind;
+    }
+    location.int_data = macro->getDefinitionLoc().getRawEncoding();
+    auto cursor = clang_getCursor(unit, location);
+    if (cursor.kind != CXCursor_MacroDefinition) {
+        return WindowsClangWrongKind;
+    }
+    *definition = cursor;
+    return WindowsClangSuccess;
+}
+
+WindowsClangStatus windows_clang_getLatestFunctionDeclaration(
+    CXCursor cursor, CXCursor* declaration) {
+    if (!declaration) {
+        return WindowsClangInvalidArgument;
+    }
+    if (cursor.kind != CXCursor_FunctionDecl && cursor.kind != CXCursor_CXXMethod) {
+        return WindowsClangWrongKind;
+    }
+    auto function = llvm::dyn_cast_or_null<clang::FunctionDecl>(cursorDecl(cursor));
+    if (!function) {
+        return WindowsClangWrongKind;
+    }
+    cursor.data[0] = function->getMostRecentDecl();
+    *declaration = cursor;
     return WindowsClangSuccess;
 }
 

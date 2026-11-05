@@ -242,6 +242,7 @@ mod Windows {
         const AI_EXCLUSIVE_CUSTOM_SERVERS: i32 = 2097152;
         const AI_EXTENDED: u32 = 2147483648;
         const AI_EXTRA_DNSSEC_REQUIRED: i32 = 1;
+        const AI_EXTRA_UNTRUSTED_QUERY: i32 = 2;
         const AI_FILESERVER: i32 = 262144;
         const AI_FORCE_CLEAR_TEXT: i32 = 32;
         const AI_FQDN: i32 = 131072;

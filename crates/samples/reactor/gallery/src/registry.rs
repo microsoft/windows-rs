@@ -473,13 +473,6 @@ pub const ALL_CONTROLS: &[ControlInfo] = &[
         tag: "rich-text-block",
         image: "RichTextBlock.png",
     },
-    ControlInfo {
-        title: "Type Ramp",
-        description: "Named text factories for the WinUI 3 type ramp.",
-        category: "Text",
-        tag: "type-ramp",
-        image: "TextBlock.png",
-    },
 ];
 
 pub fn controls_in_category(category: &str) -> Vec<&'static ControlInfo> {

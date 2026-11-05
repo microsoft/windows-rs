@@ -12,7 +12,7 @@ This crate is not an async executor.
 
 ```toml
 [dependencies]
-windows-future = "0.100"
+windows-future = "0.101"
 ```
 
 ```rust,no_run

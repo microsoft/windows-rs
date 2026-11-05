@@ -80,7 +80,7 @@ pub(crate) fn prune(snapshots: &mut [Snapshot], issues: &mut Issues) {
     for snapshot in snapshots.iter() {
         for alias in &snapshot.aliases {
             for observation in &alias.observations {
-                if let Some(group) = resolve::enum_annotation(&observation.attributes) {
+                for group in resolve::enum_annotations(&observation.attributes) {
                     for member in &group.members {
                         if let Some(name) = &member.native {
                             dependents

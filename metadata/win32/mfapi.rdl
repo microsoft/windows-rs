@@ -446,6 +446,7 @@ mod Windows {
         const MFSampleExtension_3DVideo: GUID = 0xf86f97a4_dd54_4e2e_9a5e_55fc2d74a005;
         const MFSampleExtension_3DVideo_SampleFormat: GUID = 0x08671772_e36f_4cff_97b3_d72e20987a48;
         const MFSampleExtension_AccumulatedNonRefPicPercent: GUID = 0x79ea74df_a740_445b_bc98_c9ed1f260eee;
+        const MFSampleExtension_AverageBitrate: GUID = 0x217e5a3c_fcec_43f6_8c05_1f97468a9042;
         const MFSampleExtension_BottomFieldFirst: GUID = 0x941ce0a3_6ae3_4dda_9a08_a64298340617;
         const MFSampleExtension_CameraExtrinsics: GUID = 0x6b761658_b7ec_4c3b_8225_8623cabec31d;
         const MFSampleExtension_CaptureMetadata: GUID = 0x2ebe23a8_faf5_444a_a6a2_eb810880ab5d;
@@ -505,6 +506,7 @@ mod Windows {
         const MFSampleExtension_RepeatFirstField: GUID = 0x304d257c_7493_4fbd_b149_9228de8d9a99;
         const MFSampleExtension_RepeatFrame: GUID = 0x88be738f_0711_4f42_b458_344aed42ec2f;
         const MFSampleExtension_SampleKeyID: GUID = 0x9ed713c8_9b87_4b26_8297_a93b0c5a8acc;
+        const MFSampleExtension_ScenarioInfo: GUID = 0x9d1ecd35_a5cf_4cf2_80a8_9dea2e4d803e;
         const MFSampleExtension_SingleField: GUID = 0x9d85f816_658b_455a_bde0_9fa7e15ab8f9;
         const MFSampleExtension_SpatialLayerId: GUID = 0xb7aabc7b_2396_457a_879e_623bfab6e0ac;
         const MFSampleExtension_TargetGlobalLuminance: GUID = 0x3f60ef36_31ef_4daf_8360_940397e41ef3;
@@ -574,6 +576,7 @@ mod Windows {
         const MFT_CATEGORY_VIDEO_ENCODER: GUID = 0xf79eac7d_e545_4387_bdee_d647d7bde42a;
         const MFT_CATEGORY_VIDEO_PROCESSOR: GUID = 0x302ea3fc_aa5f_47f9_9f7a_c2188bb16302;
         const MFT_CATEGORY_VIDEO_RENDERER_EFFECT: GUID = 0x145cd8b4_92f4_4b23_8ae7_e0df06c2da95;
+        const MFT_DECODER_AUTO_POSTPROCESS: GUID = 0xae133dbc_f92a_46ef_a900_2fbe11172488;
         const MFT_ENCODER_ERROR: GUID = 0xc8d1eda4_98e4_41d5_9297_44f53852f90e;
         const MFT_ENUM_ADAPTER_LUID: GUID = 0x1d39518c_e220_4da8_a07f_ba172552d6b1;
         const MFT_ENUM_VIDEO_RENDERER_EXTENSION_PROFILE: GUID = 0x62c56928_9a4e_443b_b9dc_cac830c24100;

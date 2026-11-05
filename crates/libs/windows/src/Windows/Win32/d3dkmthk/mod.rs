@@ -1185,6 +1185,67 @@ pub const D3DKMDT_MPR_MAXVALID: D3DKMDT_MODE_PRUNING_REASON = 10;
 pub const D3DKMDT_MPR_MONITOR_FREQUENCY_RANGE_OVERRIDE: D3DKMDT_MODE_PRUNING_REASON = 8;
 pub const D3DKMDT_MPR_UNINITIALIZED: D3DKMDT_MODE_PRUNING_REASON = 0;
 #[repr(C)]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub struct D3DKMT_ACQUIREEXCLUSIVEENGINEACCESS {
+    pub hAdapter: super::D3DKMT_HANDLE,
+    pub EngineType: super::DXGK_ENGINE_TYPE,
+    pub hProcess: super::HANDLE,
+    pub Flags: D3DKMT_ACQUIREEXCLUSIVEENGINEACCESS_FLAGS,
+}
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
+impl Default for D3DKMT_ACQUIREEXCLUSIVEENGINEACCESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct D3DKMT_ACQUIREEXCLUSIVEENGINEACCESS_FLAGS {
+    pub Anonymous: D3DKMT_ACQUIREEXCLUSIVEENGINEACCESS_FLAGS_0,
+}
+#[cfg(feature = "shared")]
+impl Default for D3DKMT_ACQUIREEXCLUSIVEENGINEACCESS_FLAGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union D3DKMT_ACQUIREEXCLUSIVEENGINEACCESS_FLAGS_0 {
+    pub Anonymous: D3DKMT_ACQUIREEXCLUSIVEENGINEACCESS_FLAGS_0_0,
+    pub Value: super::UINT,
+}
+#[cfg(feature = "shared")]
+impl Default for D3DKMT_ACQUIREEXCLUSIVEENGINEACCESS_FLAGS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_ACQUIREEXCLUSIVEENGINEACCESS_FLAGS_0_0 {
+    pub _bitfield: u32,
+}
+#[cfg(feature = "shared")]
+impl D3DKMT_ACQUIREEXCLUSIVEENGINEACCESS_FLAGS_0_0 {
+    pub fn SetExistingDevicesToError(&self) -> super::UINT {
+        (self._bitfield) & 1
+    }
+    pub fn set_SetExistingDevicesToError(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
+    }
+    pub fn Reserved(&self) -> super::UINT {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
+}
+#[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_ACQUIREKEYEDMUTEX {
@@ -1616,11 +1677,17 @@ impl D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS_0 {
     pub fn set_PeriodicTrimNeverIdle(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(1 << 25)) | ((value & 1) << 25);
     }
+    pub fn ExplicitAllocationPreference(&self) -> super::UINT {
+        (self._bitfield >> 26) & 1
+    }
+    pub fn set_ExplicitAllocationPreference(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 26)) | ((value & 1) << 26);
+    }
     pub fn Reserved(&self) -> super::UINT {
-        self._bitfield >> 26
+        self._bitfield >> 27
     }
     pub fn set_Reserved(&mut self, value: super::UINT) {
-        self._bitfield = (self._bitfield & !(63 << 26)) | ((value & 63) << 26);
+        self._bitfield = (self._bitfield & !(31 << 27)) | ((value & 31) << 27);
     }
 }
 #[repr(C)]
@@ -1859,6 +1926,14 @@ pub struct D3DKMT_CHANGEVIDEOMEMORYRESERVATION {
     pub MemorySegmentGroup: D3DKMT_MEMORY_SEGMENT_GROUP,
     pub Reservation: super::UINT64,
     pub PhysicalAdapterIndex: super::UINT,
+}
+#[repr(C)]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_CHECKENGINEACCESS {
+    pub hAdapter: super::D3DKMT_HANDLE,
+    pub EngineType: super::DXGK_ENGINE_TYPE,
+    pub EngineAccess: D3DKMT_ENGINE_ACCESS,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
@@ -3186,6 +3261,7 @@ pub const D3DKMT_DEVICE_MARKED_AS_ERROR_DEVICE_RESET: D3DKMT_DEVICE_MARKED_AS_ER
 pub const D3DKMT_DEVICE_MARKED_AS_ERROR_DEVICE_TERMINATED_FOR_PROCESS_CLEANUP: D3DKMT_DEVICE_MARKED_AS_ERROR_FAILURE_CODE = 14;
 pub const D3DKMT_DEVICE_MARKED_AS_ERROR_DISPLAY_DISCONNECT: D3DKMT_DEVICE_MARKED_AS_ERROR_FAILURE_CODE = 26;
 pub const D3DKMT_DEVICE_MARKED_AS_ERROR_DRIVER_FAULTED: D3DKMT_DEVICE_MARKED_AS_ERROR_FAILURE_CODE = 6;
+pub const D3DKMT_DEVICE_MARKED_AS_ERROR_ENGINE_ACCESS_DENIED: D3DKMT_DEVICE_MARKED_AS_ERROR_FAILURE_CODE = 28;
 pub const D3DKMT_DEVICE_MARKED_AS_ERROR_EVICTING_WHILE_IN_USE: D3DKMT_DEVICE_MARKED_AS_ERROR_FAILURE_CODE = 15;
 pub const D3DKMT_DEVICE_MARKED_AS_ERROR_EVICT_VALIDATION_FAILURE: D3DKMT_DEVICE_MARKED_AS_ERROR_FAILURE_CODE = 11;
 pub const D3DKMT_DEVICE_MARKED_AS_ERROR_FAILED_ASYNC_VMBUS_COMMAND: D3DKMT_DEVICE_MARKED_AS_ERROR_FAILURE_CODE = 25;
@@ -3196,7 +3272,7 @@ pub const D3DKMT_DEVICE_MARKED_AS_ERROR_FAILED_SUBMIT_COMMAND_VIRTUAL: D3DKMT_DE
 pub const D3DKMT_DEVICE_MARKED_AS_ERROR_FAILED_TO_PAGE_IN_REQUIRED_RESOURCE: D3DKMT_DEVICE_MARKED_AS_ERROR_FAILURE_CODE = 12;
 pub const D3DKMT_DEVICE_MARKED_AS_ERROR_FAILED_UPDATE_ALLOCATION_PROPERTY: D3DKMT_DEVICE_MARKED_AS_ERROR_FAILURE_CODE = 21;
 pub type D3DKMT_DEVICE_MARKED_AS_ERROR_FAILURE_CODE = i32;
-pub const D3DKMT_DEVICE_MARKED_AS_ERROR_FAILURE_CODE_KERNEL_MAX: D3DKMT_DEVICE_MARKED_AS_ERROR_FAILURE_CODE = 28;
+pub const D3DKMT_DEVICE_MARKED_AS_ERROR_FAILURE_CODE_KERNEL_MAX: D3DKMT_DEVICE_MARKED_AS_ERROR_FAILURE_CODE = 29;
 pub const D3DKMT_DEVICE_MARKED_AS_ERROR_FLIP_TO_ADDRESS: D3DKMT_DEVICE_MARKED_AS_ERROR_FAILURE_CODE = 5;
 pub const D3DKMT_DEVICE_MARKED_AS_ERROR_FROM_USER_MODE: D3DKMT_DEVICE_MARKED_AS_ERROR_FAILURE_CODE = -2147483648;
 pub const D3DKMT_DEVICE_MARKED_AS_ERROR_GPU_VA_COMMITMENT_ERROR: D3DKMT_DEVICE_MARKED_AS_ERROR_FAILURE_CODE = 27;
@@ -3342,6 +3418,10 @@ impl Default for D3DKMT_DRIVER_DESCRIPTION {
 pub const D3DKMT_DeferredCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = 1;
 pub const D3DKMT_DeviceCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = 6;
 pub const D3DKMT_DmaPacketTypeMax: D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE = 4;
+pub type D3DKMT_ENGINE_ACCESS = i32;
+pub const D3DKMT_ENGINE_ACCESS_ALLOWED_ALL: D3DKMT_ENGINE_ACCESS = 0;
+pub const D3DKMT_ENGINE_ACCESS_ALLOWED_EXCLUSIVE: D3DKMT_ENGINE_ACCESS = 1;
+pub const D3DKMT_ENGINE_ACCESS_DENIED: D3DKMT_ENGINE_ACCESS = 2;
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -7961,9 +8041,8 @@ pub struct D3DKMT_SEGMENT_CAPS {
     pub Size: super::UINT64,
     pub PageSize: super::UINT,
     pub SegmentId: super::ULONG,
-    pub bAperture: super::BOOLEAN,
-    pub bReservedSysMem: super::BOOLEAN,
     pub BudgetGroup: D3DKMT_MEMORY_SEGMENT_GROUP,
+    pub SegmentType: super::UINT,
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "shared"))]
@@ -9661,6 +9740,13 @@ impl Default for DXGK_ESCAPE_GPUMMUCAPS {
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy, Debug, Default)]
+pub struct DXGK_FEATURE_EXCLUSIVE_ENGINE_ACCESS_INTERFACE_V1 {
+    pub pfnAcquireExclusiveEngineAccess: PFND3DKMT_ACQUIREEXCLUSIVEENGINEACCESS,
+    pub pfnCheckEngineAccess: PFND3DKMT_CHECKENGINEACCESS,
+}
+#[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct DXGK_FEATURE_PROCESS_DEBUG_BLOB_COLLECTION_INTERFACE_V1 {
@@ -9862,6 +9948,8 @@ pub type PDXGK_POWER_NOTIFICATION = Option<unsafe extern "C" fn(graphicsdeviceha
 pub type PDXGK_REMOVAL_NOTIFICATION = Option<unsafe extern "C" fn(graphicsdevicehandle: super::PVOID, privatehandle: super::PVOID)>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDXGK_SET_SHARED_POWER_COMPONENT_STATE = Option<unsafe extern "C" fn(devicehandle: super::PVOID, privatehandle: super::PVOID, componentindex: super::ULONG, active: super::BOOLEAN) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
+pub type PFND3DKMT_ACQUIREEXCLUSIVEENGINEACCESS = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ACQUIREEXCLUSIVEENGINEACCESS) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_ACQUIREKEYEDMUTEX = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ACQUIREKEYEDMUTEX) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
@@ -9876,6 +9964,8 @@ pub type PFND3DKMT_CANCELPRESENTS = Option<unsafe extern "system" fn(param0: *co
 pub type PFND3DKMT_CHANGESURFACEPOINTER = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHANGESURFACEPOINTER) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_CHANGEVIDEOMEMORYRESERVATION = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHANGEVIDEOMEMORYRESERVATION) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt"))]
+pub type PFND3DKMT_CHECKENGINEACCESS = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CHECKENGINEACCESS) -> windows_core::NTSTATUS>;
 #[cfg(feature = "shared")]
 pub type PFND3DKMT_CHECKEXCLUSIVEOWNERSHIP = Option<unsafe extern "system" fn() -> super::BOOLEAN>;
 #[cfg(feature = "d3dukmdt")]

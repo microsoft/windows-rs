@@ -13,7 +13,7 @@ when a retained visual tree is a better fit.
 
 ```toml
 [dependencies]
-windows-canvas = "0.100"
+windows-canvas = "0.101"
 ```
 
 ```rust,no_run

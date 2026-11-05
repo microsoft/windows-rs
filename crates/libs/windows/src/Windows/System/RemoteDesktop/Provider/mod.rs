@@ -108,6 +108,18 @@ pub struct IRemoteDesktopRegistrarStatics_Vtbl {
     pub DesktopInfos: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsSwitchToLocalSessionEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IRemoteDesktopRegistrarStatics2, IRemoteDesktopRegistrarStatics2_Vtbl, 0x4139976d_4f8e_5bb4_b953_d6447cac4e5f);
+impl windows_core::RuntimeType for IRemoteDesktopRegistrarStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteDesktop.Provider.IRemoteDesktopRegistrarStatics2");
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IRemoteDesktopRegistrarStatics2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ConnectionCenterRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveConnectionCenterRequested: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PerformLocalActionRequestedEventArgs(windows_core::IUnknown);
@@ -334,8 +346,26 @@ impl RemoteDesktopRegistrar {
             (windows_core::Interface::vtable(this).IsSwitchToLocalSessionEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
+    pub fn ConnectionCenterRequested<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    where
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+    {
+        let handler = <super::super::super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
+        Self::IRemoteDesktopRegistrarStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            let token__ = (windows_core::Interface::vtable(this).ConnectionCenterRequested)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveConnectionCenterRequested))
+        })
+    }
     fn IRemoteDesktopRegistrarStatics<R, F: FnOnce(&IRemoteDesktopRegistrarStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RemoteDesktopRegistrar, IRemoteDesktopRegistrarStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IRemoteDesktopRegistrarStatics2<R, F: FnOnce(&IRemoteDesktopRegistrarStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<RemoteDesktopRegistrar, IRemoteDesktopRegistrarStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }

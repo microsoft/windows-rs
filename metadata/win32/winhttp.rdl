@@ -101,6 +101,7 @@ mod Windows {
         type PWINHTTP_CERTIFICATE_INFO = *mut WINHTTP_CERTIFICATE_INFO;
         type PWINHTTP_CONNECTION_GROUP = *mut WINHTTP_CONNECTION_GROUP;
         type PWINHTTP_CONNECTION_INFO = *mut WINHTTP_CONNECTION_INFO;
+        type PWINHTTP_CONNECTION_POLICY_ENTRY = *mut WINHTTP_CONNECTION_POLICY_ENTRY;
         type PWINHTTP_CREDS = *mut WINHTTP_CREDS;
         type PWINHTTP_CREDS_EX = *mut WINHTTP_CREDS_EX;
         type PWINHTTP_CURRENT_USER_IE_PROXY_CONFIG = *mut WINHTTP_CURRENT_USER_IE_PROXY_CONFIG;
@@ -330,6 +331,30 @@ mod Windows {
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
+        struct WINHTTP_CONNECTION_IFINDEX_ENTRY {
+            pwszConnectionName: PCWSTR,
+            dwIfIndex: DWORD,
+        }
+        #[arch(X86)]
+        #[packed(4)]
+        struct WINHTTP_CONNECTION_IFINDEX_ENTRY {
+            pwszConnectionName: PCWSTR,
+            dwIfIndex: DWORD,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
+        struct WINHTTP_CONNECTION_IFINDEX_LIST {
+            pConnectionIfIndexEntries: *mut WINHTTP_CONNECTION_IFINDEX_ENTRY,
+            nEntries: DWORD,
+        }
+        #[arch(X86)]
+        #[packed(4)]
+        struct WINHTTP_CONNECTION_IFINDEX_LIST {
+            pConnectionIfIndexEntries: *mut WINHTTP_CONNECTION_IFINDEX_ENTRY,
+            nEntries: DWORD,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct WINHTTP_CONNECTION_INFO {
             cbSize: DWORD,
             LocalAddress: SOCKADDR_STORAGE,
@@ -341,6 +366,123 @@ mod Windows {
             cbSize: DWORD,
             LocalAddress: SOCKADDR_STORAGE,
             RemoteAddress: SOCKADDR_STORAGE,
+        }
+        const WINHTTP_CONNECTION_NAME_MAX_LENGTH: i32 = 64;
+        const WINHTTP_CONNECTION_POLICY_ALLOW_DEFAULT_INTERFACE_SELECTION: i32 = 2;
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
+        struct WINHTTP_CONNECTION_POLICY_ENTRY {
+            pwszHost: PCWSTR,
+            pwszAppId: PCWSTR,
+            cbAppSid: DWORD,
+            pbAppSid: PBYTE,
+            nConnections: DWORD,
+            ppwszConnections: *mut PCWSTR,
+            dwPolicyEntryFlags: DWORD,
+        }
+        #[arch(X86)]
+        #[packed(4)]
+        struct WINHTTP_CONNECTION_POLICY_ENTRY {
+            pwszHost: PCWSTR,
+            pwszAppId: PCWSTR,
+            cbAppSid: DWORD,
+            pbAppSid: PBYTE,
+            nConnections: DWORD,
+            ppwszConnections: *mut PCWSTR,
+            dwPolicyEntryFlags: DWORD,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
+        struct WINHTTP_CONNECTION_POLICY_ENTRY_LIST {
+            pPolicyEntries: *mut WINHTTP_CONNECTION_POLICY_ENTRY,
+            nEntries: DWORD,
+        }
+        #[arch(X86)]
+        #[packed(4)]
+        struct WINHTTP_CONNECTION_POLICY_ENTRY_LIST {
+            pPolicyEntries: *mut WINHTTP_CONNECTION_POLICY_ENTRY,
+            nEntries: DWORD,
+        }
+        #[repr(i32)]
+        enum WINHTTP_CONNECTION_POLICY_TAG {
+            TAG_WINHTTP_CONNECTION_POLICY_TAG_DEFAULT = 0,
+            TAG_WINHTTP_CONNECTION_POLICY_TAG_CONNECTION_MANAGER = 1,
+            TAG_WINHTTP_CONNECTION_POLICY_TAG_WWWPT = 2,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
+        struct WINHTTP_CONNECTION_PROXY_INFO {
+            Version: DWORD,
+            pwszFriendlyName: *mut WCHAR,
+            Flags: DWORD,
+            Switch: WINHTTP_CONNECTION_PROXY_INFO_SWITCH,
+            Anonymous: #[packed(8)] union {
+                #[packed(8)]
+                struct _WINHTTP_CONNECTION_PROXY_INFO_CONFIG {
+                    pwszServer: *mut WCHAR,
+                    pwszUsername: *mut WCHAR,
+                    pwszPassword: *mut WCHAR,
+                    pwszException: *mut WCHAR,
+                    pwszExtraInfo: *mut WCHAR,
+                    Port: WORD,
+                }
+                #[packed(8)]
+                struct _WINHTTP_CONNECTION_PROXY_INFO_SCRIPT {
+                    pwszScript: *mut WCHAR,
+                    pwszUsername: *mut WCHAR,
+                    pwszPassword: *mut WCHAR,
+                }
+                Config: WINHTTP_CONNECTION_PROXY_INFO::WINHTTP_CONNECTION_PROXY_INFO_4::_WINHTTP_CONNECTION_PROXY_INFO_CONFIG,
+                Script: WINHTTP_CONNECTION_PROXY_INFO::WINHTTP_CONNECTION_PROXY_INFO_4::_WINHTTP_CONNECTION_PROXY_INFO_SCRIPT,
+            },
+        }
+        #[arch(X86)]
+        #[packed(4)]
+        struct WINHTTP_CONNECTION_PROXY_INFO {
+            Version: DWORD,
+            pwszFriendlyName: *mut WCHAR,
+            Flags: DWORD,
+            Switch: WINHTTP_CONNECTION_PROXY_INFO_SWITCH,
+            Anonymous: #[packed(4)] union {
+                #[packed(4)]
+                struct _WINHTTP_CONNECTION_PROXY_INFO_CONFIG {
+                    pwszServer: *mut WCHAR,
+                    pwszUsername: *mut WCHAR,
+                    pwszPassword: *mut WCHAR,
+                    pwszException: *mut WCHAR,
+                    pwszExtraInfo: *mut WCHAR,
+                    Port: WORD,
+                }
+                #[packed(4)]
+                struct _WINHTTP_CONNECTION_PROXY_INFO_SCRIPT {
+                    pwszScript: *mut WCHAR,
+                    pwszUsername: *mut WCHAR,
+                    pwszPassword: *mut WCHAR,
+                }
+                Config: WINHTTP_CONNECTION_PROXY_INFO::WINHTTP_CONNECTION_PROXY_INFO_4::_WINHTTP_CONNECTION_PROXY_INFO_CONFIG,
+                Script: WINHTTP_CONNECTION_PROXY_INFO::WINHTTP_CONNECTION_PROXY_INFO_4::_WINHTTP_CONNECTION_PROXY_INFO_SCRIPT,
+            },
+        }
+        const WINHTTP_CONNECTION_PROXY_INFO_CURRENT_VERSION: i32 = 1;
+        const WINHTTP_CONNECTION_PROXY_INFO_EXCEPTION_MAX_LENGTH: i32 = 1024;
+        const WINHTTP_CONNECTION_PROXY_INFO_EXTRA_INFO_MAX_LENGTH: i32 = 1024;
+        const WINHTTP_CONNECTION_PROXY_INFO_FLAG_BYPASSLOCAL: i32 = 2;
+        const WINHTTP_CONNECTION_PROXY_INFO_FLAG_DISABLED: i32 = 1;
+        const WINHTTP_CONNECTION_PROXY_INFO_FRIENDLY_NAME_MAX_LENGTH: i32 = 64;
+        const WINHTTP_CONNECTION_PROXY_INFO_PASSWORD_MAX_LENGTH: i32 = 128;
+        const WINHTTP_CONNECTION_PROXY_INFO_SERVER_MAX_LENGTH: i32 = 256;
+        #[repr(i32)]
+        enum WINHTTP_CONNECTION_PROXY_INFO_SWITCH {
+            WINHTTP_CONNECTION_PROXY_INFO_SWITCH_CONFIG = 0,
+            WINHTTP_CONNECTION_PROXY_INFO_SWITCH_SCRIPT = 1,
+            WINHTTP_CONNECTION_PROXY_INFO_SWITCH_WPAD = 2,
+        }
+        const WINHTTP_CONNECTION_PROXY_INFO_USERNAME_MAX_LENGTH: i32 = 128;
+        #[repr(i32)]
+        enum WINHTTP_CONNECTION_PROXY_TYPE {
+            WINHTTP_CONNECTION_PROXY_TYPE_NULL = 0,
+            WINHTTP_CONNECTION_PROXY_TYPE_HTTP = 1,
+            WINHTTP_CONNECTION_PROXY_TYPE_SOCKS = 2,
         }
         const WINHTTP_CONNECTION_RETRY_CONDITION_408: i32 = 1;
         const WINHTTP_CONNECTION_RETRY_CONDITION_MASK: i32 = 7;
@@ -486,6 +628,7 @@ mod Windows {
         const WINHTTP_FEATURE_ADD_REQUEST_HEADERS_EX: i32 = 46;
         const WINHTTP_FEATURE_BACKGROUND_CONNECTIONS: i32 = 34;
         const WINHTTP_FEATURE_CONNECTION_GUID: i32 = 38;
+        const WINHTTP_FEATURE_CONNECTION_PROXY_EX: i32 = 97;
         const WINHTTP_FEATURE_CONNECTION_STATS_V0: i32 = 3;
         const WINHTTP_FEATURE_CONNECTION_STATS_V1: i32 = 12;
         const WINHTTP_FEATURE_CONNECTION_STATS_V2: i32 = 89;
@@ -1287,6 +1430,18 @@ mod Windows {
         extern fn WinHttpCloseHandle(hInternet: HINTERNET) -> BOOL;
         #[library("WINHTTP.dll")]
         extern fn WinHttpConnect(hSession: HINTERNET, pswzServerName: LPCWSTR, nServerPort: INTERNET_PORT, dwReserved: DWORD) -> HINTERNET;
+        #[library("WINHTTP.dll")]
+        extern fn WinHttpConnectionDeletePolicyEntries(#[in] hSession: HINTERNET, #[in] PolicyEntryTag: WINHTTP_CONNECTION_POLICY_TAG) -> DWORD;
+        #[library("WINHTTP.dll")]
+        extern fn WinHttpConnectionDeletePolicyEntriesByAppSid(#[in] hSession: HINTERNET, #[in] cbAppSid: DWORD, #[buffer(bytes(cbAppSid))] #[in] pbAppSid: PBYTE) -> DWORD;
+        #[library("WINHTTP.dll")]
+        extern fn WinHttpConnectionDeleteProxyInfo(#[in] #[null_terminated] pwszConnectionName: PCWSTR, #[in] Type: WINHTTP_CONNECTION_PROXY_TYPE) -> DWORD;
+        #[library("WINHTTP.dll")]
+        extern fn WinHttpConnectionSetPolicyEntries(#[in] hSession: HINTERNET, #[in] PolicyEntryTag: WINHTTP_CONNECTION_POLICY_TAG, #[in] pPolicyEntryList: *mut WINHTTP_CONNECTION_POLICY_ENTRY_LIST) -> DWORD;
+        #[library("WINHTTP.dll")]
+        extern fn WinHttpConnectionSetProxyInfo(#[in] #[null_terminated] pwszConnectionName: PCWSTR, #[in] Type: WINHTTP_CONNECTION_PROXY_TYPE, #[in] pProxyInfo: *const WINHTTP_CONNECTION_PROXY_INFO) -> DWORD;
+        #[library("WINHTTP.dll")]
+        extern fn WinHttpConnectionUpdateIfIndexTable(#[in] hSession: HINTERNET, #[in] pConnectionIfIndexEntries: *mut WINHTTP_CONNECTION_IFINDEX_LIST) -> DWORD;
         #[library("WINHTTP.dll")]
         extern fn WinHttpCrackUrl(#[buffer(dwUrlLength)] #[in] pwszUrl: LPCWSTR, #[in] dwUrlLength: DWORD, #[in] dwFlags: DWORD, #[in] #[out] lpUrlComponents: LPURL_COMPONENTS) -> BOOL;
         #[library("WINHTTP.dll")]

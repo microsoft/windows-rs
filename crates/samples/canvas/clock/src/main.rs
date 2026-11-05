@@ -29,7 +29,7 @@ struct Startup {
 
 struct Sample {
     resources: Rc<RefCell<Option<Resources>>>,
-    startup: Rc<RefCell<Startup>>,
+    startup: Rc<Startup>,
 }
 
 impl Component for Sample {
@@ -50,14 +50,14 @@ impl Component for Sample {
 
         Self {
             resources: Rc::new(RefCell::new(None)),
-            startup: Rc::new(RefCell::new(Startup {
+            startup: Rc::new(Startup {
                 manager,
                 variable,
                 start: Instant::now(),
                 second,
                 minute,
                 hour,
-            })),
+            }),
         }
     }
 
@@ -70,21 +70,16 @@ impl Component for Sample {
             ctx.clear(ColorF::WHITE);
 
             if ctx.device_changed() {
-                let style = ctx
-                    .device()
-                    .create_stroke_style(
-                        &StrokeStyleBuilder::new()
-                            .start_cap(CapStyle::Round)
-                            .end_cap(CapStyle::Triangle),
-                    )
-                    .unwrap();
+                let style = ctx.device().create_stroke_style(
+                    &StrokeStyleBuilder::new()
+                        .start_cap(CapStyle::Round)
+                        .end_cap(CapStyle::Triangle),
+                )?;
 
-                let brush = ctx
-                    .create_solid_brush(ColorF::new(0.92, 0.38, 0.208, 0.8))
-                    .unwrap();
+                let brush = ctx.create_solid_brush(ColorF::new(0.92, 0.38, 0.208, 0.8))?;
 
-                let target = ctx.create_bitmap_target().unwrap();
-                let shadow = ctx.create_shadow(&target).unwrap();
+                let target = ctx.create_bitmap_target()?;
+                let shadow = ctx.create_shadow(&target)?;
 
                 *resources.borrow_mut() = Some(Resources {
                     style,
@@ -97,12 +92,10 @@ impl Component for Sample {
             let resources = resources.borrow();
             let resources = resources.as_ref().unwrap();
 
-            let startup = startup.borrow();
             startup
                 .manager
-                .update(startup.start.elapsed().as_secs_f64())
-                .unwrap();
-            let swing = startup.variable.value().unwrap() as f32;
+                .update(startup.start.elapsed().as_secs_f64())?;
+            let swing = startup.variable.value()? as f32;
 
             ctx.with_target(&resources.target, || {
                 ctx.clear(ColorF::TRANSPARENT);

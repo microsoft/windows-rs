@@ -302,7 +302,7 @@ pub struct EnumAnnotation {
     pub members: Vec<EnumGroupMember>,
 }
 
-#[derive(Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EnumGroupMember {
     pub name: String,
     pub native: Option<String>,

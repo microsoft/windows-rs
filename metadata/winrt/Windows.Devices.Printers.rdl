@@ -154,7 +154,6 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::ExclusiveTo(IppPrintDeviceInstallationResult)]
-            #[Windows::Foundation::Metadata::Experimental]
             #[guid(0xfb102fcc_87be_57ff_a086_92272148a256)]
             interface IIppPrintDeviceInstallationResult {
                 #[get]
@@ -166,7 +165,6 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::ExclusiveTo(IppPrintDeviceManager)]
-            #[Windows::Foundation::Metadata::Experimental]
             #[guid(0x8f711a45_c1b9_51bb_80c8_38969c81f800)]
             interface IIppPrintDeviceManagerStatics {
                 fn CanInstallIppPrintDevice(&self) -> bool;
@@ -434,14 +432,11 @@ mod Windows {
                 IIppPrintDevice5,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
-            #[Windows::Foundation::Metadata::Experimental]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class IppPrintDeviceInstallationResult {
-                #[Windows::Foundation::Metadata::Experimental]
                 IIppPrintDeviceInstallationResult,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
-            #[Windows::Foundation::Metadata::Experimental]
             #[repr(i32)]
             enum IppPrintDeviceInstallationStatus {
                 InstallationSucceeded = 0,
@@ -457,7 +452,6 @@ mod Windows {
                 VirtualPrinter = 2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
-            #[Windows::Foundation::Metadata::Experimental]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IIppPrintDeviceManagerStatics, 1245184, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]

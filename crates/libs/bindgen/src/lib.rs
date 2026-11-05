@@ -438,6 +438,7 @@ impl Bindgen {
     /// Generate `extern` declarations rather than `link!` macros for sys-style Rust bindings.
     ///
     /// Only valid in combination with [`Bindgen::sys`]; panics otherwise.
+    /// DLL and entry-point selection are left to the caller's import libraries, including ordinals.
     #[track_caller]
     pub fn extern_fns(&mut self) -> &mut Self {
         match &mut self.style {

@@ -5,14 +5,13 @@ and callbacks; calling an existing interface does not require the macro.
 
 - 📦 [crates.io](https://crates.io/crates/windows-implement)
 - 📖 [docs.rs](https://docs.rs/windows-implement)
-- 🧩 [Robot sample](https://github.com/microsoft/windows-rs/tree/master/crates/samples/robot)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/implement)
 
 ## Get started
 
 ```toml
 [dependencies]
-windows-core = "0.100"
+windows-core = "0.101"
 ```
 
 ```rust
