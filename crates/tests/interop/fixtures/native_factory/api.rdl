@@ -1,0 +1,27 @@
+#[winrt]
+mod NativeFactory {
+    #[Windows::Foundation::Metadata::Activatable(1)]
+    class Widget {
+        IWidget,
+    }
+
+    #[Windows::Foundation::Metadata::ExclusiveTo(Widget)]
+    #[guid(auto)]
+    interface IWidget {
+        fn HandleValue(&self) -> u64;
+    }
+}
+
+#[win32]
+mod NativeFactory {
+    #[library("NativeFactory.dll")]
+    extern fn CreateWidgetFromHandle(
+        #[in] handle: *mut void,
+        #[out] widget: *mut Widget,
+    ) -> HRESULT;
+
+    #[guid(0x53c9217e_8e64_4bd7_8b95_bf821db7a198)]
+    interface IWidgetInterop: Windows::Win32::IUnknown {
+        fn Handle(&self) -> *mut void;
+    }
+}

@@ -17,6 +17,7 @@ directory in each test target, so adding a fixture needs no Rust code outside th
 | `client.cpp` | no | Uses the API through the C++/WinRT projection. |
 | `client.cs` | no | Uses the API through the C#/WinRT projection. |
 | `client.rs` | no | Uses the API through the windows-rs projection. Requires a component. |
+| `cswinrt.skip` | no | Nonempty reason to mark only the C# test as ignored. |
 
 Fixture names are lowercase snake_case and not Rust keywords, so they can be module and test
 names, such as `async_methods` rather than `async`. Each fixture declares its types in a namespace
@@ -44,6 +45,10 @@ blittable and nested non-blittable structs, both in component methods and client
 to the client, including concurrent calls that retain their original errors across intervening
 failures. `async_methods` separates synchronous method failures from failed async results,
 including custom error details originating in the component or a client-produced operation.
+
+`native_factory` keeps WinRT and Win32 declarations in one RDL file. Rust and C++ clients call a
+Win32 factory export that returns a WinRT object, then query its non-WinRT interop interface.
+Its C# test is ignored because C#/WinRT 2.3.1 fails to project the mixed namespace.
 
 ### Component
 
