@@ -638,7 +638,7 @@ pub struct NTSCSI_UNICODE_STRING {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NVCACHE_HINT_PAYLOAD {
     pub Command: super::UCHAR,
     pub Feature7_0: super::UCHAR,

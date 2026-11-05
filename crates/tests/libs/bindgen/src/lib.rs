@@ -166,6 +166,64 @@ const _: unsafe fn() -> i32 = package_arches::Windows::Win32::legacy::GetWindowL
 const _: unsafe fn() -> i32 = package_arches::Windows::Win32::split_legacy::SetWindowLongPtrW;
 
 #[test]
+fn packed_derives() {
+    use struct_packed::*;
+
+    fn equal<T: core::fmt::Debug + Eq>(actual: &T, expected: &T) {
+        assert_eq!(actual, expected);
+    }
+
+    #[repr(C, align(8))]
+    struct Carrier {
+        prefix: u8,
+        packed: Packed,
+    }
+
+    let carrier = Carrier {
+        prefix: 0,
+        packed: Packed {
+            tag: 7,
+            value: 42,
+            words: [1, 2, 3],
+        },
+    };
+    assert_ne!(core::ptr::addr_of!(carrier.packed.value) as usize % 8, 0);
+    let mut copy = carrier.packed;
+    equal(&copy, &carrier.packed);
+    assert_eq!(
+        format!("{copy:?}"),
+        "Packed { tag: 7, value: 42, words: [1, 2, 3] }"
+    );
+    copy.value = 43;
+    assert_ne!(copy, carrier.packed);
+    let outer = Outer {
+        values: [carrier.packed, copy],
+    };
+    equal(&outer, &outer);
+    let floating = Floating { tag: 1, value: 1.5 };
+    assert_eq!(floating, Floating { tag: 1, value: 1.5 });
+}
+
+#[test]
+fn packed_nested_minimal_derives() {
+    use struct_packed_minimal::*;
+
+    let parts = Version_Parts {
+        revision: 1,
+        build: 2,
+        minor: 3,
+        major: 4,
+    };
+    assert_eq!(
+        format!("{parts:?}"),
+        "Version_Parts { revision: 1, build: 2, minor: 3, major: 4 }"
+    );
+    let mut changed = parts;
+    changed.major = 5;
+    assert_ne!(parts, changed);
+}
+
+#[test]
 fn nested_member_alignment() {
     use struct_nested_member_alignment::*;
 

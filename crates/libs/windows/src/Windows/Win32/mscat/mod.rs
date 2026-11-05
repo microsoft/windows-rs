@@ -242,7 +242,7 @@ pub unsafe fn IsCatalogFile(hfile: super::HANDLE, pwszfilename: Option<*const su
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CATALOG_INFO {
     pub cbStruct: super::DWORD,
     pub wszCatalogFile: [super::WCHAR; 260],
@@ -255,7 +255,7 @@ impl Default for CATALOG_INFO {
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTCATATTRIBUTE {
     pub cbStruct: super::DWORD,
     pub pwszReferenceTag: windows_core::PWSTR,
@@ -266,7 +266,7 @@ pub struct CRYPTCATATTRIBUTE {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTCATCDF {
     pub cbStruct: super::DWORD,
     pub hFile: super::HANDLE,
@@ -278,7 +278,7 @@ pub struct CRYPTCATCDF {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "mssip", feature = "shared", feature = "wincrypt", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTCATMEMBER {
     pub cbStruct: super::DWORD,
     pub pwszReferenceTag: windows_core::PWSTR,
@@ -294,7 +294,7 @@ pub struct CRYPTCATMEMBER {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wincrypt", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTCATSTORE {
     pub cbStruct: super::DWORD,
     pub dwPublicVersion: super::DWORD,

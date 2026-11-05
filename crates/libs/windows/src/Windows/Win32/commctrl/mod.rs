@@ -2874,7 +2874,7 @@ pub struct NMLVGETINFOTIPW {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMLVKEYDOWN {
     pub hdr: super::NMHDR,
     pub wVKey: super::WORD,
@@ -2948,7 +2948,7 @@ pub struct NMPGHOTITEM {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMPGSCROLL {
     pub hdr: super::NMHDR,
     pub fwKeys: super::WORD,
@@ -3136,7 +3136,7 @@ pub struct NMTBSAVE {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMTCKEYDOWN {
     pub hdr: super::NMHDR,
     pub wVKey: super::WORD,
@@ -3338,7 +3338,7 @@ pub struct NMTVITEMCHANGE {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMTVKEYDOWN {
     pub hdr: super::NMHDR,
     pub wVKey: super::WORD,
@@ -3864,7 +3864,7 @@ impl Default for TASKDIALOGCONFIG_1 {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TASKDIALOG_BUTTON {
     pub nButtonID: i32,
     pub pszButtonText: windows_core::PCWSTR,

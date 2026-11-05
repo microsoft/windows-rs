@@ -1806,7 +1806,7 @@ pub struct CM_DISK_GEOMETRY_DEVICE_DATA {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_EISA_FUNCTION_INFORMATION {
     pub CompressedId: super::ULONG,
     pub IdSlotFlags1: super::UCHAR,
@@ -1830,7 +1830,7 @@ impl Default for CM_EISA_FUNCTION_INFORMATION {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_EISA_SLOT_INFORMATION {
     pub ReturnCode: super::UCHAR,
     pub ReturnFlags: super::UCHAR,
@@ -1886,7 +1886,7 @@ impl Default for CM_FULL_RESOURCE_DESCRIPTOR {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_INT13_DRIVE_PARAMETER {
     pub DriveSelect: super::USHORT,
     pub MaxCylinders: super::ULONG,
@@ -1906,7 +1906,7 @@ pub struct CM_KEYBOARD_DEVICE_DATA {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_MCA_POS_DATA {
     pub AdapterId: super::USHORT,
     pub PosData1: super::UCHAR,
@@ -2053,7 +2053,7 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12 {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13 {
     pub Class: super::UCHAR,
     pub Type: super::UCHAR,
@@ -2064,7 +2064,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13 {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_2 {
     pub Level: super::ULONG,
     pub Vector: super::ULONG,
@@ -2097,7 +2097,7 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_0 {
     pub Reserved: super::USHORT,
     pub MessageCount: super::USHORT,
@@ -2106,7 +2106,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_1 {
     pub Level: super::ULONG,
     pub Vector: super::ULONG,
@@ -2127,7 +2127,7 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4 {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_5 {
     pub Channel: super::ULONG,
     pub Port: super::ULONG,
@@ -2135,7 +2135,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_5 {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
     pub Channel: super::ULONG,
     pub RequestLine: super::ULONG,
@@ -2146,7 +2146,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
     pub Data: [super::ULONG; 3],
 }
@@ -2158,7 +2158,7 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8 {
     pub Start: super::ULONG,
     pub Length: super::ULONG,
@@ -2166,7 +2166,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8 {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_9 {
     pub DataSize: super::ULONG,
     pub Reserved1: super::ULONG,
@@ -2189,7 +2189,7 @@ impl Default for CM_PARTIAL_RESOURCE_LIST {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_PNP_BIOS_DEVICE_NODE {
     pub Size: super::USHORT,
     pub Node: super::UCHAR,
@@ -2205,7 +2205,7 @@ impl Default for CM_PNP_BIOS_DEVICE_NODE {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_PNP_BIOS_INSTALLATION_CHECK {
     pub Signature: [super::UCHAR; 4],
     pub Revision: super::UCHAR,
@@ -4142,7 +4142,7 @@ pub type DMA_COMMON_BUFFER_VECTOR = _DMA_COMMON_BUFFER_VECTOR;
 pub type DMA_COMPLETION_STATUS = i32;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_CONFIGURATION_BYTE0 {
     pub _bitfield: u8,
 }
@@ -4175,7 +4175,7 @@ impl DMA_CONFIGURATION_BYTE0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_CONFIGURATION_BYTE1 {
     pub _bitfield: u8,
 }
@@ -4760,7 +4760,7 @@ pub const EFLAG_SIGN: i32 = 32768;
 pub const EFLAG_ZERO: i32 = 16384;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EISA_DMA_CONFIGURATION {
     pub ConfigurationByte0: DMA_CONFIGURATION_BYTE0,
     pub ConfigurationByte1: DMA_CONFIGURATION_BYTE1,
@@ -4781,14 +4781,14 @@ pub const EISA_INVALID_FUNCTION: i32 = 129;
 pub const EISA_INVALID_SLOT: i32 = 128;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EISA_IRQ_CONFIGURATION {
     pub ConfigurationByte: EISA_IRQ_DESCRIPTOR,
     pub Reserved: super::UCHAR,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EISA_IRQ_DESCRIPTOR {
     pub _bitfield: u8,
 }
@@ -4827,7 +4827,7 @@ impl EISA_IRQ_DESCRIPTOR {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EISA_MEMORY_CONFIGURATION {
     pub ConfigurationByte: EISA_MEMORY_TYPE,
     pub DataSize: super::UCHAR,
@@ -4837,7 +4837,7 @@ pub struct EISA_MEMORY_CONFIGURATION {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EISA_MEMORY_TYPE {
     pub _bitfield: u8,
 }
@@ -4890,14 +4890,14 @@ pub const EISA_MEMORY_TYPE_RAM: i32 = 1;
 pub const EISA_MORE_ENTRIES: i32 = 128;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EISA_PORT_CONFIGURATION {
     pub Configuration: EISA_PORT_DESCRIPTOR,
     pub PortAddress: super::USHORT,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EISA_PORT_DESCRIPTOR {
     pub _bitfield: u8,
 }
@@ -5919,7 +5919,7 @@ pub const HyperCriticalWorkQueue: WORK_QUEUE_TYPE = 2;
 pub const INITIAL_PRIVILEGE_COUNT: i32 = 3;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INITIAL_PRIVILEGE_SET {
     pub PrivilegeCount: super::ULONG,
     pub Control: super::ULONG,
@@ -7169,7 +7169,7 @@ impl Default for IO_STACK_LOCATION_0 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_0 {
     pub SecurityContext: PIO_SECURITY_CONTEXT,
     pub Options: super::ULONG,
@@ -7180,7 +7180,7 @@ pub struct IO_STACK_LOCATION_0_0 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_1 {
     pub SecurityContext: PIO_SECURITY_CONTEXT,
     pub Options: super::ULONG,
@@ -7191,7 +7191,7 @@ pub struct IO_STACK_LOCATION_0_1 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_10 {
     pub Length: super::ULONG,
     pub EaList: super::PVOID,
@@ -7201,14 +7201,14 @@ pub struct IO_STACK_LOCATION_0_10 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_11 {
     pub Length: super::ULONG,
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_12 {
     pub Length: super::ULONG,
     pub FsInformationClass: FS_INFORMATION_CLASS,
@@ -7216,7 +7216,7 @@ pub struct IO_STACK_LOCATION_0_12 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_13 {
     pub Length: super::ULONG,
     pub FsInformationClass: FS_INFORMATION_CLASS,
@@ -7224,7 +7224,7 @@ pub struct IO_STACK_LOCATION_0_13 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_14 {
     pub OutputBufferLength: super::ULONG,
     pub InputBufferLength: super::ULONG,
@@ -7250,7 +7250,7 @@ impl Default for IO_STACK_LOCATION_0_15 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_16 {
     pub OutputBufferLength: super::ULONG,
     pub InputBufferLength: super::ULONG,
@@ -7260,7 +7260,7 @@ pub struct IO_STACK_LOCATION_0_16 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_17 {
     pub SecurityInformation: super::SECURITY_INFORMATION,
     pub Length: super::ULONG,
@@ -7268,7 +7268,7 @@ pub struct IO_STACK_LOCATION_0_17 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_18 {
     pub SecurityInformation: super::SECURITY_INFORMATION,
     pub SecurityDescriptor: super::PSECURITY_DESCRIPTOR,
@@ -7276,7 +7276,7 @@ pub struct IO_STACK_LOCATION_0_18 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_19 {
     pub Vpb: PVPB,
     pub DeviceObject: PDEVICE_OBJECT,
@@ -7285,7 +7285,7 @@ pub struct IO_STACK_LOCATION_0_19 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_2 {
     pub SecurityContext: PIO_SECURITY_CONTEXT,
     pub Options: super::ULONG,
@@ -7296,7 +7296,7 @@ pub struct IO_STACK_LOCATION_0_2 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_20 {
     pub Vpb: PVPB,
     pub DeviceObject: PDEVICE_OBJECT,
@@ -7304,14 +7304,14 @@ pub struct IO_STACK_LOCATION_0_20 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_21 {
     pub Srb: *mut _SCSI_REQUEST_BLOCK,
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_22 {
     pub Length: super::ULONG,
     pub StartSid: super::PSID,
@@ -7321,21 +7321,21 @@ pub struct IO_STACK_LOCATION_0_22 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_23 {
     pub Length: super::ULONG,
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_24 {
     pub Type: DEVICE_RELATION_TYPE,
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_25 {
     pub InterfaceType: *const windows_core::GUID,
     pub Size: super::USHORT,
@@ -7346,21 +7346,21 @@ pub struct IO_STACK_LOCATION_0_25 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_26 {
     pub Capabilities: PDEVICE_CAPABILITIES,
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_27 {
     pub IoResourceRequirementList: PIO_RESOURCE_REQUIREMENTS_LIST,
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_28 {
     pub WhichSpace: super::ULONG,
     pub Buffer: super::PVOID,
@@ -7370,7 +7370,7 @@ pub struct IO_STACK_LOCATION_0_28 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_29 {
     pub Lock: super::BOOLEAN,
 }
@@ -7393,14 +7393,14 @@ impl Default for IO_STACK_LOCATION_0_3 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_30 {
     pub IdType: BUS_QUERY_ID_TYPE,
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_31 {
     pub DeviceTextType: DEVICE_TEXT_TYPE,
     pub LocaleId: super::LCID,
@@ -7408,7 +7408,7 @@ pub struct IO_STACK_LOCATION_0_31 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_32 {
     pub InPath: super::BOOLEAN,
     pub Reserved: [super::BOOLEAN; 3],
@@ -7424,14 +7424,14 @@ impl Default for IO_STACK_LOCATION_0_32 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_33 {
     pub PowerState: super::SYSTEM_POWER_STATE,
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_34 {
     pub PowerSequence: PPOWER_SEQUENCE,
 }
@@ -7470,7 +7470,7 @@ impl Default for IO_STACK_LOCATION_0_35_0 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_36 {
     pub AllocatedResources: PCM_RESOURCE_LIST,
     pub AllocatedResourcesTranslated: PCM_RESOURCE_LIST,
@@ -7478,7 +7478,7 @@ pub struct IO_STACK_LOCATION_0_36 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_37 {
     pub ProviderId: super::ULONG_PTR,
     pub DataPath: super::PVOID,
@@ -7488,7 +7488,7 @@ pub struct IO_STACK_LOCATION_0_37 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_38 {
     pub Argument1: super::PVOID,
     pub Argument2: super::PVOID,
@@ -7514,7 +7514,7 @@ impl Default for IO_STACK_LOCATION_0_4 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_5 {
     pub Length: super::ULONG,
     pub FileName: super::PUNICODE_STRING,
@@ -7524,7 +7524,7 @@ pub struct IO_STACK_LOCATION_0_5 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_6 {
     pub Length: super::ULONG,
     pub CompletionFilter: super::ULONG,
@@ -7532,7 +7532,7 @@ pub struct IO_STACK_LOCATION_0_6 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_7 {
     pub Length: super::ULONG,
     pub CompletionFilter: super::ULONG,
@@ -7541,7 +7541,7 @@ pub struct IO_STACK_LOCATION_0_7 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_8 {
     pub Length: super::ULONG,
     pub FileInformationClass: FILE_INFORMATION_CLASS,
@@ -7582,7 +7582,7 @@ impl Default for IO_STACK_LOCATION_0_9_0 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_9_0_0 {
     pub ReplaceIfExists: super::BOOLEAN,
     pub AdvanceOnly: super::BOOLEAN,

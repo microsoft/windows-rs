@@ -8,7 +8,7 @@ pub const CALLBACK_WINDOW: i32 = 65536;
 pub type DRVCALLBACK = Option<unsafe extern "system" fn(hdrvr: HDRVR, umsg: super::UINT, dwuser: super::DWORD_PTR, dw1: super::DWORD_PTR, dw2: super::DWORD_PTR)>;
 pub type HDRVR = *mut HDRVR__;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HDRVR__ {
     pub unused: i32,
 }
@@ -85,7 +85,7 @@ impl Default for MMTIME_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MMTIME_0_0 {
     pub hour: super::BYTE,
     pub min: super::BYTE,
@@ -103,7 +103,7 @@ impl Default for MMTIME_0_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMTIME_0_1 {
     pub songptrpos: super::DWORD,
 }

@@ -1776,7 +1776,7 @@ pub const BASIC_LOG_CONF: i32 = 0;
 pub const BOOT_LOG_CONF: i32 = 3;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BUSNUMBER_DES {
     pub BUSD_Count: super::DWORD,
     pub BUSD_Type: super::DWORD,
@@ -1786,7 +1786,7 @@ pub struct BUSNUMBER_DES {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BUSNUMBER_RANGE {
     pub BUSR_Min: super::ULONG,
     pub BUSR_Max: super::ULONG,
@@ -1795,7 +1795,7 @@ pub struct BUSNUMBER_RANGE {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BUSNUMBER_RESOURCE {
     pub BusNumber_Header: BUSNUMBER_DES,
     pub BusNumber_Data: [BUSNUMBER_RANGE; 1],
@@ -2294,7 +2294,7 @@ pub const CR_SUCCESS: i32 = 0;
 pub const CR_WRONG_TYPE: i32 = 38;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CS_DES {
     pub CSD_SignatureLength: super::DWORD,
     pub CSD_LegacyDataOffset: super::DWORD,
@@ -2311,7 +2311,7 @@ impl Default for CS_DES {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CS_RESOURCE {
     pub CS_Header: CS_DES,
 }
@@ -2325,7 +2325,7 @@ pub type DEVNODEID_A = *mut i8;
 pub type DEVNODEID_W = *mut u16;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVPRIVATE_DES {
     pub PD_Count: super::DWORD,
     pub PD_Type: super::DWORD,
@@ -2336,7 +2336,7 @@ pub struct DEVPRIVATE_DES {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVPRIVATE_RANGE {
     pub PR_Data1: super::DWORD,
     pub PR_Data2: super::DWORD,
@@ -2344,7 +2344,7 @@ pub struct DEVPRIVATE_RANGE {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVPRIVATE_RESOURCE {
     pub PRV_Header: DEVPRIVATE_DES,
     pub PRV_Data: [DEVPRIVATE_RANGE; 1],
@@ -2357,7 +2357,7 @@ impl Default for DEVPRIVATE_RESOURCE {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_DES {
     pub DD_Count: super::DWORD,
     pub DD_Type: super::DWORD,
@@ -2366,7 +2366,7 @@ pub struct DMA_DES {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_RANGE {
     pub DR_Min: super::ULONG,
     pub DR_Max: super::ULONG,
@@ -2374,7 +2374,7 @@ pub struct DMA_RANGE {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMA_RESOURCE {
     pub DMA_Header: DMA_DES,
     pub DMA_Data: [DMA_RANGE; 1],
@@ -2402,7 +2402,7 @@ pub type HMACHINE = *mut core::ffi::c_void;
 pub type HWPROFILEINFO = HWPROFILEINFO_A;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HWPROFILEINFO_A {
     pub HWPI_ulHWProfile: super::ULONG,
     pub HWPI_szFriendlyName: [super::CHAR; 80],
@@ -2416,7 +2416,7 @@ impl Default for HWPROFILEINFO_A {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HWPROFILEINFO_W {
     pub HWPI_ulHWProfile: super::ULONG,
     pub HWPI_szFriendlyName: [super::WCHAR; 80],
@@ -2439,7 +2439,7 @@ pub const IO_ALIAS_16_BIT_DECODE: i32 = 0;
 pub const IO_ALIAS_POSITIVE_DECODE: i32 = 255;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_DES {
     pub IOD_Count: super::DWORD,
     pub IOD_Type: super::DWORD,
@@ -2449,7 +2449,7 @@ pub struct IO_DES {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_RANGE {
     pub IOR_Align: super::DWORDLONG,
     pub IOR_nPorts: super::DWORD,
@@ -2460,7 +2460,7 @@ pub struct IO_RANGE {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_RESOURCE {
     pub IO_Header: IO_DES,
     pub IO_Data: [IO_RANGE; 1],
@@ -2483,7 +2483,7 @@ pub type IRQ_DES = IRQ_DES_32;
 pub type IRQ_DES = IRQ_DES_64;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "basetsd", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IRQ_DES_32 {
     pub IRQD_Count: super::DWORD,
     pub IRQD_Type: super::DWORD,
@@ -2493,7 +2493,7 @@ pub struct IRQ_DES_32 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IRQ_DES_64 {
     pub IRQD_Count: super::DWORD,
     pub IRQD_Type: super::DWORD,
@@ -2503,7 +2503,7 @@ pub struct IRQ_DES_64 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IRQ_RANGE {
     pub IRQR_Min: super::ULONG,
     pub IRQR_Max: super::ULONG,
@@ -2517,7 +2517,7 @@ pub type IRQ_RESOURCE = IRQ_RESOURCE_32;
 pub type IRQ_RESOURCE = IRQ_RESOURCE_64;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "basetsd", feature = "shared"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IRQ_RESOURCE_32 {
     pub IRQ_Header: IRQ_DES_32,
     pub IRQ_Data: [IRQ_RANGE; 1],
@@ -2530,7 +2530,7 @@ impl Default for IRQ_RESOURCE_32 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IRQ_RESOURCE_64 {
     pub IRQ_Header: IRQ_DES_64,
     pub IRQ_Data: [IRQ_RANGE; 1],
@@ -2555,7 +2555,7 @@ pub const MAX_IRQS: i32 = 7;
 pub const MAX_MEM_REGISTERS: i32 = 9;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEM_DES {
     pub MD_Count: super::DWORD,
     pub MD_Type: super::DWORD,
@@ -2566,7 +2566,7 @@ pub struct MEM_DES {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEM_LARGE_DES {
     pub MLD_Count: super::DWORD,
     pub MLD_Type: super::DWORD,
@@ -2577,7 +2577,7 @@ pub struct MEM_LARGE_DES {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEM_LARGE_RANGE {
     pub MLR_Align: super::DWORDLONG,
     pub MLR_nBytes: super::ULONGLONG,
@@ -2588,7 +2588,7 @@ pub struct MEM_LARGE_RANGE {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MEM_LARGE_RESOURCE {
     pub MEM_LARGE_Header: MEM_LARGE_DES,
     pub MEM_LARGE_Data: [MEM_LARGE_RANGE; 1],
@@ -2601,7 +2601,7 @@ impl Default for MEM_LARGE_RESOURCE {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEM_RANGE {
     pub MR_Align: super::DWORDLONG,
     pub MR_nBytes: super::ULONG,
@@ -2612,7 +2612,7 @@ pub struct MEM_RANGE {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MEM_RESOURCE {
     pub MEM_Header: MEM_DES,
     pub MEM_Data: [MEM_RANGE; 1],
@@ -2625,7 +2625,7 @@ impl Default for MEM_RESOURCE {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFCARD_DES {
     pub PMF_Count: super::DWORD,
     pub PMF_Type: super::DWORD,
@@ -2643,7 +2643,7 @@ impl Default for MFCARD_DES {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFCARD_RESOURCE {
     pub MfCard_Header: MFCARD_DES,
 }
@@ -2666,7 +2666,7 @@ pub type PBUSNUMBER_RANGE = *mut BUSNUMBER_RANGE;
 pub type PBUSNUMBER_RESOURCE = *mut BUSNUMBER_RESOURCE;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCCARD_DES {
     pub PCD_Count: super::DWORD,
     pub PCD_Type: super::DWORD,
@@ -2687,7 +2687,7 @@ impl Default for PCCARD_DES {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCCARD_RESOURCE {
     pub PcCard_Header: PCCARD_DES,
 }

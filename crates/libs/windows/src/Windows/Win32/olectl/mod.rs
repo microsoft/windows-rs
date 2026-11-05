@@ -364,7 +364,7 @@ pub const OCM_VSCROLL: i32 = 8469;
 pub const OCM__BASE: i32 = 8192;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OCPFIPARAMS {
     pub cbStructSize: super::ULONG,
     pub hWndOwner: super::HWND,
@@ -441,14 +441,14 @@ impl Default for PICTDESC_0 {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PICTDESC_0_0 {
     pub hbitmap: super::HBITMAP,
     pub hpal: super::HPALETTE,
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PICTDESC_0_1 {
     pub hmeta: super::HMETAFILE,
     pub xExt: i32,
@@ -456,13 +456,13 @@ pub struct PICTDESC_0_1 {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PICTDESC_0_2 {
     pub hicon: super::HICON,
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PICTDESC_0_3 {
     pub hemf: super::HENHMETAFILE,
 }

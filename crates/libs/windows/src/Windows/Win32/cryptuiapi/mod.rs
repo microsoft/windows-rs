@@ -77,7 +77,7 @@ where
 pub const CERT_CREDENTIAL_PROVIDER_ID: i32 = -509;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_SELECTUI_INPUT {
     pub hStore: super::HCERTSTORE,
     pub prgpChain: *mut super::PCCERT_CHAIN_CONTEXT,
@@ -89,7 +89,7 @@ pub const CRYPTUI_CERT_MGR_PUBLISHER_TAB: i32 = 4;
 pub const CRYPTUI_CERT_MGR_SINGLE_TAB_FLAG: i32 = 32768;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTUI_CERT_MGR_STRUCT {
     pub dwSize: super::DWORD,
     pub hwndParent: super::HWND,
@@ -115,7 +115,7 @@ pub const CRYPTUI_HIDE_HIERARCHYPAGE: i32 = 1;
 pub const CRYPTUI_IGNORE_UNTRUSTED_ROOT: i32 = 128;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTUI_INITDIALOG_STRUCT {
     pub lParam: super::LPARAM,
     pub pCertContext: super::PCCERT_CONTEXT,
@@ -217,7 +217,7 @@ pub const CRYPTUI_WIZ_DIGITAL_SIGN_ADD_CHAIN: i32 = 1;
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_ADD_CHAIN_NO_ROOT: i32 = 2;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {
     pub dwSize: super::DWORD,
     pub pGuidSubject: *mut windows_core::GUID,
@@ -257,7 +257,7 @@ impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO_0 {
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_COMMERCIAL: i32 = 1;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT {
     pub dwSize: super::DWORD,
     pub cbBlob: super::DWORD,
@@ -266,7 +266,7 @@ pub struct CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT {
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_EXCLUDE_PAGE_HASHES: i32 = 2;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wincrypt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
     pub dwSize: super::DWORD,
     pub dwAttrFlags: super::DWORD,
@@ -330,7 +330,7 @@ pub const CRYPTUI_WIZ_DIGITAL_SIGN_PVK: i32 = 3;
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE: i32 = 1;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {
     pub dwSize: super::DWORD,
     pub pwszPvkFileName: windows_core::PWSTR,
@@ -341,7 +341,7 @@ pub const CRYPTUI_WIZ_DIGITAL_SIGN_PVK_PROV: i32 = 2;
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_STORE: i32 = 2;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
     pub dwSize: super::DWORD,
     pub cCertStore: super::DWORD,
@@ -353,7 +353,7 @@ pub const CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT_BLOB: i32 = 2;
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT_FILE: i32 = 1;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {
     pub dwSize: super::DWORD,
     pub dwExportFormat: super::DWORD,

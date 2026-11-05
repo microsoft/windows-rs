@@ -337,7 +337,7 @@ impl Default for BDA_IPv6_ADDRESS_LIST {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_ISDBCAS_EMG_REQ {
     pub bCLA: super::BYTE,
     pub bINS: super::BYTE,
@@ -358,7 +358,7 @@ impl Default for BDA_ISDBCAS_EMG_REQ {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_ISDBCAS_REQUESTHEADER {
     pub bInstruction: super::BYTE,
     pub bReserved: [super::BYTE; 3],
@@ -373,7 +373,7 @@ impl Default for BDA_ISDBCAS_REQUESTHEADER {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_ISDBCAS_RESPONSEDATA {
     pub lResult: PBDARESULT,
     pub ulRequestID: super::ULONG,
@@ -435,7 +435,7 @@ pub const BDA_MOD_RF: ModulationType = 28;
 pub type BDA_MULTICAST_MODE = i32;
 #[repr(C, packed(2))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_MUX_PIDLISTITEM {
     pub usPIDNumber: super::USHORT,
     pub usProgramNumber: super::USHORT,
@@ -638,7 +638,7 @@ pub struct BDA_TEMPLATE_PIN_JOINT {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_TS_SELECTORINFO {
     pub bTSInfolength: super::BYTE,
     pub bReserved: [super::BYTE; 2],
@@ -654,7 +654,7 @@ impl Default for BDA_TS_SELECTORINFO {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_TS_SELECTORINFO_ISDBS_EXT {
     pub bTMCC: [super::BYTE; 48],
 }

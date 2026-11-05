@@ -58,7 +58,7 @@ pub type JOYCAPS = JOYCAPSA;
 pub type JOYCAPS2 = JOYCAPS2A;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct JOYCAPS2A {
     pub wMid: super::WORD,
     pub wPid: super::WORD,
@@ -96,7 +96,7 @@ impl Default for JOYCAPS2A {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct JOYCAPS2W {
     pub wMid: super::WORD,
     pub wPid: super::WORD,
@@ -134,7 +134,7 @@ impl Default for JOYCAPS2W {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct JOYCAPSA {
     pub wMid: super::WORD,
     pub wPid: super::WORD,
@@ -169,7 +169,7 @@ impl Default for JOYCAPSA {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct JOYCAPSW {
     pub wMid: super::WORD,
     pub wPid: super::WORD,
@@ -215,7 +215,7 @@ pub const JOYERR_PARMS: i32 = 165;
 pub const JOYERR_UNPLUGGED: i32 = 167;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOYINFO {
     pub wXpos: super::UINT,
     pub wYpos: super::UINT,
@@ -224,7 +224,7 @@ pub struct JOYINFO {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOYINFOEX {
     pub dwSize: super::DWORD,
     pub dwFlags: super::DWORD,

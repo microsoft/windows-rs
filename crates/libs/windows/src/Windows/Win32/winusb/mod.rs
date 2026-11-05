@@ -246,7 +246,7 @@ pub struct WINUSB_PIPE_INFORMATION_EX {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINUSB_SETUP_PACKET {
     pub RequestType: super::UCHAR,
     pub Request: super::UCHAR,

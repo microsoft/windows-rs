@@ -11,33 +11,33 @@ pub const ACM_MPEG_PROTECTIONBIT: i32 = 8;
 pub const ACM_MPEG_SINGLECHANNEL: i32 = 8;
 pub const ACM_MPEG_STEREO: i32 = 1;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADPCMCOEFSET {
     pub iCoef1: i16,
     pub iCoef2: i16,
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADPCMEWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
     pub wSamplesPerBlock: super::WORD,
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APTXWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIOFILE_AF10WAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIOFILE_AF36WAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
 }
@@ -50,35 +50,35 @@ pub const BICOMP_IBMPHOTOMOTION: super::DWORD = 1330464848;
 pub const BICOMP_IBMULTIMOTION: super::DWORD = 1230261333;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONTRESCR10WAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
     pub wSamplesPerBlock: super::WORD,
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONTRESVQLPCWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
     pub wSamplesPerBlock: super::WORD,
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATIVEADPCMWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
     pub wRevision: super::WORD,
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATIVEFASTSPEECH10WAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
     pub wRevision: super::WORD,
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATIVEFASTSPEECH8WAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
     pub wRevision: super::WORD,
@@ -86,52 +86,52 @@ pub struct CREATIVEFASTSPEECH8WAVEFORMAT {
 pub const CRYSTAL_NET_SFM_CODEC: i32 = 1;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CSIMAADPCMWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIALOGICOKIADPCMWAVEFORMAT {
     pub ewf: super::WAVEFORMATEX,
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIGIADPCMWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
     pub wSamplesPerBlock: super::WORD,
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIGIFIXWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIGIREALWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
     pub wSamplesPerBlock: super::WORD,
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIGISTDWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOLBYAC2WAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
     pub nAuxBitsCode: super::WORD,
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRMWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
     pub wReserved: super::WORD,
@@ -140,20 +140,20 @@ pub struct DRMWAVEFORMAT {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVIADPCMWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
     pub wSamplesPerBlock: super::WORD,
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ECHOSC1WAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ECHOWAVEFILTER {
     pub wfltr: WAVEFILTER,
     pub dwVolume: super::DWORD,
@@ -161,14 +161,14 @@ pub struct ECHOWAVEFILTER {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "wingdi"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXBMINFOHEADER {
     pub bmi: super::BITMAPINFOHEADER,
     pub biExtDataOffset: super::DWORD,
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FMTOWNS_SND_WAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
     pub wRevision: super::WORD,
@@ -177,14 +177,14 @@ pub struct FMTOWNS_SND_WAVEFORMAT {
 pub const FOURCC_RDSP: super::DWORD = 1347634258;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct G721_ADPCMWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
     pub nAuxBlockSize: super::WORD,
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct G723_ADPCMWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
     pub cbExtraSize: super::WORD,
@@ -192,14 +192,14 @@ pub struct G723_ADPCMWAVEFORMAT {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GSM610WAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
     pub wSamplesPerBlock: super::WORD,
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HEAACWAVEFORMAT {
     pub wfInfo: HEAACWAVEINFO,
     pub pbAudioSpecificConfig: [super::BYTE; 1],
@@ -212,7 +212,7 @@ impl Default for HEAACWAVEFORMAT {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEAACWAVEINFO {
     pub wfx: super::WAVEFORMATEX,
     pub wPayloadType: super::WORD,
@@ -227,7 +227,7 @@ pub const ICTYPE_AUDIO: super::DWORD = 1667528033;
 pub const ICTYPE_VIDEO: super::DWORD = 1667524982;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAADPCMWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
     pub wSamplesPerBlock: super::WORD,
@@ -293,7 +293,7 @@ pub const JIFMK_SOS: i32 = 65498;
 pub const JIFMK_TEM: i32 = 65281;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JPEGINFOHEADER {
     pub JPEGSize: super::DWORD,
     pub JPEGProcess: super::DWORD,
@@ -404,7 +404,7 @@ pub type LPWMAUDIO3WAVEFORMAT = *mut WMAUDIO3WAVEFORMAT;
 pub type LPYAMAHA_ADPCMWAVEFORMAT = *mut YAMAHA_ADPCMWAVEFORMAT;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEDIASPACEADPCMWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
     pub wRevision: super::WORD,
@@ -1937,7 +1937,7 @@ pub const MM_ZYXEL: i32 = 9;
 pub const MM_ZYXEL_ACM_ADPCM: i32 = 1;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPEG1WAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
     pub fwHeadLayer: super::WORD,
@@ -1951,7 +1951,7 @@ pub struct MPEG1WAVEFORMAT {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPEGLAYER3WAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
     pub wID: super::WORD,
@@ -1969,7 +1969,7 @@ pub const MPEGLAYER3_ID_UNKNOWN: i32 = 0;
 pub const MPEGLAYER3_WFX_EXTRA_BYTES: i32 = 12;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSAUDIO1WAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
     pub wSamplesPerBlock: super::WORD,
@@ -1983,7 +1983,7 @@ pub const MSAUDIO1_WFX_EXTRA_BYTES: u32 = 4;
 pub const MSAUDIO1_WFX_EXTRA_BYTES: u64 = 4;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMS_VBXADPCMWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
     pub wSamplesPerBlock: super::WORD,
@@ -2077,31 +2077,31 @@ pub type NPWAVEFORMATPCMEX = *mut super::WAVEFORMATEXTENSIBLE;
 pub type NPYAMAHA_ADPCMWAVEFORMAT = *mut YAMAHA_ADPCMWAVEFORMAT;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLIADPCMWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLICELPWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLIGSMWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLIOPRWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLISBCWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
 }
@@ -2292,21 +2292,21 @@ pub const ROCKWELL_WA2_WAVEIN: i32 = 200;
 pub const ROCKWELL_WA2_WAVEOUT: i32 = 201;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SIERRAADPCMWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
     pub wRevision: super::WORD,
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SONARCWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
     pub wCompType: super::WORD,
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRUESPEECHWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
     pub wRevision: super::WORD,
@@ -2321,14 +2321,14 @@ impl Default for TRUESPEECHWAVEFORMAT {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VOLUMEWAVEFILTER {
     pub wfltr: WAVEFILTER,
     pub dwVolume: super::DWORD,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WAVEFILTER {
     pub cbStruct: super::DWORD,
     pub dwFilterTag: super::DWORD,
@@ -2617,7 +2617,7 @@ pub const WAVE_FORMAT_ZOLL_ASAO: i32 = 41224;
 pub const WAVE_FORMAT_ZYXEL_ADPCM: i32 = 151;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMAUDIO2WAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
     pub dwSamplesPerBlock: super::DWORD,
@@ -2632,7 +2632,7 @@ pub const WMAUDIO2_WFX_EXTRA_BYTES: u32 = 10;
 pub const WMAUDIO2_WFX_EXTRA_BYTES: u64 = 10;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMAUDIO3WAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
     pub wValidBitsPerSample: super::WORD,
@@ -2650,7 +2650,7 @@ pub const WMAUDIO_BITS_PER_SAMPLE: i32 = 16;
 pub const WMAUDIO_MAX_CHANNELS: i32 = 2;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct YAMAHA_ADPCMWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
 }
@@ -2661,7 +2661,7 @@ pub type s_RIFFWAVE_inst = tag_s_RIFFWAVE_INST;
 pub struct tag_s_RIFFWAVE_INST(pub u8);
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct tag_s_RIFFWAVE_inst {
     pub bUnshiftedNote: super::BYTE,
     pub chFineTune: i8,

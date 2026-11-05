@@ -576,7 +576,7 @@ pub const OLEIVERB_SHOW: i32 = -1;
 pub const OLEIVERB_UIACTIVATE: i32 = -4;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLESTREAM {
     pub lpstbl: LPOLESTREAMVTBL,
 }
@@ -584,7 +584,7 @@ pub struct OLESTREAM {
 pub type OLESTREAMQUERYCONVERTOLELINKCALLBACK = Option<unsafe extern "system" fn(pclsid: super::LPCLSID, szclass: super::LPOLESTR, sztopicname: super::LPOLESTR, szitemname: super::LPOLESTR, szuncname: super::LPOLESTR, linkupdatingoption: super::ULONG, pvcontext: super::PVOID) -> windows_core::HRESULT>;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct OLESTREAMVTBL {
     pub Get: Option<unsafe extern "system" fn(LPOLESTREAM, *mut core::ffi::c_void, super::DWORD) -> super::DWORD>,
     pub Put: Option<unsafe extern "system" fn(LPOLESTREAM, *const core::ffi::c_void, super::DWORD) -> super::DWORD>,

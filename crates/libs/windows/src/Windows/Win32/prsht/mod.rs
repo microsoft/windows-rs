@@ -1833,7 +1833,7 @@ pub const PSCB_PRECREATE: i32 = 2;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSHNOTIFY {
     pub hdr: super::NMHDR,
     pub lParam: super::LPARAM,
@@ -1841,7 +1841,7 @@ pub struct PSHNOTIFY {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSHNOTIFY {
     pub hdr: super::NMHDR,
     pub lParam: super::LPARAM,

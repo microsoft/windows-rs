@@ -217,7 +217,7 @@ pub const STGM_TRANSACTED: i32 = 65536;
 pub const STGM_WRITE: i32 = 1;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STGOPTIONS {
     pub usVersion: super::USHORT,
     pub reserved: super::USHORT,

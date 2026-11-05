@@ -616,7 +616,7 @@ pub type AUXCAPS = AUXCAPSA;
 pub type AUXCAPS2 = AUXCAPS2A;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmsyscom", feature = "shared"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUXCAPS2A {
     pub wMid: super::WORD,
     pub wPid: super::WORD,
@@ -637,7 +637,7 @@ impl Default for AUXCAPS2A {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUXCAPS2W {
     pub wMid: super::WORD,
     pub wPid: super::WORD,
@@ -658,7 +658,7 @@ impl Default for AUXCAPS2W {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmsyscom", feature = "shared"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUXCAPSA {
     pub wMid: super::WORD,
     pub wPid: super::WORD,
@@ -676,7 +676,7 @@ impl Default for AUXCAPSA {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUXCAPSW {
     pub wMid: super::WORD,
     pub wPid: super::WORD,
@@ -701,54 +701,54 @@ pub const AUX_MAPPER: super::UINT = 4294967295;
 pub type HMIDI = *mut HMIDI__;
 pub type HMIDIIN = *mut HMIDIIN__;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HMIDIIN__ {
     pub unused: i32,
 }
 pub type HMIDIOUT = *mut HMIDIOUT__;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HMIDIOUT__ {
     pub unused: i32,
 }
 pub type HMIDISTRM = *mut HMIDISTRM__;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HMIDISTRM__ {
     pub unused: i32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HMIDI__ {
     pub unused: i32,
 }
 pub type HMIXER = *mut HMIXER__;
 pub type HMIXEROBJ = *mut HMIXEROBJ__;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HMIXEROBJ__ {
     pub unused: i32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HMIXER__ {
     pub unused: i32,
 }
 pub type HWAVE = *mut HWAVE__;
 pub type HWAVEIN = *mut HWAVEIN__;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HWAVEIN__ {
     pub unused: i32,
 }
 pub type HWAVEOUT = *mut HWAVEOUT__;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HWAVEOUT__ {
     pub unused: i32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HWAVE__ {
     pub unused: i32,
 }
@@ -923,7 +923,7 @@ pub const MIDIERR_STILLPLAYING: i32 = 65;
 pub const MIDIERR_UNPREPARED: i32 = 64;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIDIEVENT {
     pub dwDeltaTime: super::DWORD,
     pub dwStreamID: super::DWORD,
@@ -938,7 +938,7 @@ impl Default for MIDIEVENT {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIDIHDR {
     pub lpData: windows_core::PSTR,
     pub dwBufferLength: super::DWORD,
@@ -962,7 +962,7 @@ pub type MIDIINCAPS = MIDIINCAPSA;
 pub type MIDIINCAPS2 = MIDIINCAPS2A;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmsyscom", feature = "shared"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIDIINCAPS2A {
     pub wMid: super::WORD,
     pub wPid: super::WORD,
@@ -981,7 +981,7 @@ impl Default for MIDIINCAPS2A {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIDIINCAPS2W {
     pub wMid: super::WORD,
     pub wPid: super::WORD,
@@ -1000,7 +1000,7 @@ impl Default for MIDIINCAPS2W {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmsyscom", feature = "shared"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIDIINCAPSA {
     pub wMid: super::WORD,
     pub wPid: super::WORD,
@@ -1016,7 +1016,7 @@ impl Default for MIDIINCAPSA {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIDIINCAPSW {
     pub wMid: super::WORD,
     pub wPid: super::WORD,
@@ -1038,7 +1038,7 @@ pub type MIDIOUTCAPS = MIDIOUTCAPSA;
 pub type MIDIOUTCAPS2 = MIDIOUTCAPS2A;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmsyscom", feature = "shared"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIDIOUTCAPS2A {
     pub wMid: super::WORD,
     pub wPid: super::WORD,
@@ -1061,7 +1061,7 @@ impl Default for MIDIOUTCAPS2A {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIDIOUTCAPS2W {
     pub wMid: super::WORD,
     pub wPid: super::WORD,
@@ -1084,7 +1084,7 @@ impl Default for MIDIOUTCAPS2W {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmsyscom", feature = "shared"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIDIOUTCAPSA {
     pub wMid: super::WORD,
     pub wPid: super::WORD,
@@ -1104,7 +1104,7 @@ impl Default for MIDIOUTCAPSA {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIDIOUTCAPSW {
     pub wMid: super::WORD,
     pub wPid: super::WORD,
@@ -1125,14 +1125,14 @@ impl Default for MIDIOUTCAPSW {
 pub const MIDIPATCHSIZE: i32 = 128;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIDIPROPTEMPO {
     pub cbStruct: super::DWORD,
     pub dwTempo: super::DWORD,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIDIPROPTIMEDIV {
     pub cbStruct: super::DWORD,
     pub dwTimeDiv: super::DWORD,
@@ -1143,7 +1143,7 @@ pub const MIDIPROP_TEMPO: i32 = 2;
 pub const MIDIPROP_TIMEDIV: i32 = 1;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIDISTRMBUFFVER {
     pub dwVersion: super::DWORD,
     pub dwMid: super::DWORD,
@@ -1170,7 +1170,7 @@ pub type MIXERCAPS = MIXERCAPSA;
 pub type MIXERCAPS2 = MIXERCAPS2A;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmsyscom", feature = "shared"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIXERCAPS2A {
     pub wMid: super::WORD,
     pub wPid: super::WORD,
@@ -1190,7 +1190,7 @@ impl Default for MIXERCAPS2A {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIXERCAPS2W {
     pub wMid: super::WORD,
     pub wPid: super::WORD,
@@ -1210,7 +1210,7 @@ impl Default for MIXERCAPS2W {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmsyscom", feature = "shared"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIXERCAPSA {
     pub wMid: super::WORD,
     pub wPid: super::WORD,
@@ -1227,7 +1227,7 @@ impl Default for MIXERCAPSA {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIXERCAPSW {
     pub wMid: super::WORD,
     pub wPid: super::WORD,
@@ -1280,14 +1280,14 @@ impl Default for MIXERCONTROLA_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIXERCONTROLA_0_0 {
     pub lMinimum: super::LONG,
     pub lMaximum: super::LONG,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIXERCONTROLA_0_1 {
     pub dwMinimum: super::DWORD,
     pub dwMaximum: super::DWORD,
@@ -1338,7 +1338,7 @@ impl Default for MIXERCONTROLDETAILS_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIXERCONTROLDETAILS_BOOLEAN {
     pub fValue: super::LONG,
 }
@@ -1346,7 +1346,7 @@ pub struct MIXERCONTROLDETAILS_BOOLEAN {
 pub type MIXERCONTROLDETAILS_LISTTEXT = MIXERCONTROLDETAILS_LISTTEXTA;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIXERCONTROLDETAILS_LISTTEXTA {
     pub dwParam1: super::DWORD,
     pub dwParam2: super::DWORD,
@@ -1360,7 +1360,7 @@ impl Default for MIXERCONTROLDETAILS_LISTTEXTA {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIXERCONTROLDETAILS_LISTTEXTW {
     pub dwParam1: super::DWORD,
     pub dwParam2: super::DWORD,
@@ -1374,13 +1374,13 @@ impl Default for MIXERCONTROLDETAILS_LISTTEXTW {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIXERCONTROLDETAILS_SIGNED {
     pub lValue: super::LONG,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIXERCONTROLDETAILS_UNSIGNED {
     pub dwValue: super::DWORD,
 }
@@ -1420,14 +1420,14 @@ impl Default for MIXERCONTROLW_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIXERCONTROLW_0_0 {
     pub lMinimum: super::LONG,
     pub lMaximum: super::LONG,
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIXERCONTROLW_0_1 {
     pub dwMinimum: super::DWORD,
     pub dwMaximum: super::DWORD,
@@ -1508,7 +1508,7 @@ pub const MIXERCONTROL_CT_UNITS_UNSIGNED: i32 = 196608;
 pub type MIXERLINE = MIXERLINEA;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmsyscom", feature = "shared"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIXERLINEA {
     pub cbStruct: super::DWORD,
     pub dwDestination: super::DWORD,
@@ -1532,7 +1532,7 @@ impl Default for MIXERLINEA {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmsyscom", feature = "shared"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIXERLINEA_0 {
     pub dwType: super::DWORD,
     pub dwDeviceID: super::DWORD,
@@ -1611,7 +1611,7 @@ impl Default for MIXERLINECONTROLSW_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIXERLINEW {
     pub cbStruct: super::DWORD,
     pub dwDestination: super::DWORD,
@@ -1635,7 +1635,7 @@ impl Default for MIXERLINEW {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIXERLINEW_0 {
     pub dwType: super::DWORD,
     pub dwDeviceID: super::DWORD,
@@ -1813,7 +1813,7 @@ pub type PAUXCAPSA = *mut AUXCAPSA;
 pub type PAUXCAPSW = *mut AUXCAPSW;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCMWAVEFORMAT {
     pub wf: WAVEFORMAT,
     pub wBitsPerSample: super::WORD,
@@ -1930,7 +1930,7 @@ pub const WAVECAPS_SYNC: i32 = 16;
 pub const WAVECAPS_VOLUME: i32 = 4;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WAVEFORMAT {
     pub wFormatTag: super::WORD,
     pub nChannels: super::WORD,
@@ -1940,7 +1940,7 @@ pub struct WAVEFORMAT {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WAVEFORMATEX {
     pub wFormatTag: super::WORD,
     pub nChannels: super::WORD,
@@ -1952,7 +1952,7 @@ pub struct WAVEFORMATEX {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WAVEHDR {
     pub lpData: windows_core::PSTR,
     pub dwBufferLength: super::DWORD,
@@ -1969,7 +1969,7 @@ pub type WAVEINCAPS = WAVEINCAPSA;
 pub type WAVEINCAPS2 = WAVEINCAPS2A;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmsyscom", feature = "shared"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WAVEINCAPS2A {
     pub wMid: super::WORD,
     pub wPid: super::WORD,
@@ -1990,7 +1990,7 @@ impl Default for WAVEINCAPS2A {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WAVEINCAPS2W {
     pub wMid: super::WORD,
     pub wPid: super::WORD,
@@ -2011,7 +2011,7 @@ impl Default for WAVEINCAPS2W {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmsyscom", feature = "shared"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WAVEINCAPSA {
     pub wMid: super::WORD,
     pub wPid: super::WORD,
@@ -2029,7 +2029,7 @@ impl Default for WAVEINCAPSA {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WAVEINCAPSW {
     pub wMid: super::WORD,
     pub wPid: super::WORD,
@@ -2051,7 +2051,7 @@ pub type WAVEOUTCAPS = WAVEOUTCAPSA;
 pub type WAVEOUTCAPS2 = WAVEOUTCAPS2A;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmsyscom", feature = "shared"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WAVEOUTCAPS2A {
     pub wMid: super::WORD,
     pub wPid: super::WORD,
@@ -2073,7 +2073,7 @@ impl Default for WAVEOUTCAPS2A {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WAVEOUTCAPS2W {
     pub wMid: super::WORD,
     pub wPid: super::WORD,
@@ -2095,7 +2095,7 @@ impl Default for WAVEOUTCAPS2W {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmsyscom", feature = "shared"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WAVEOUTCAPSA {
     pub wMid: super::WORD,
     pub wPid: super::WORD,
@@ -2114,7 +2114,7 @@ impl Default for WAVEOUTCAPSA {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WAVEOUTCAPSW {
     pub wMid: super::WORD,
     pub wPid: super::WORD,

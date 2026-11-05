@@ -10,7 +10,7 @@ pub const PERF_COUNTER_100NS_QUEUELEN_TYPE: i32 = 5571840;
 pub const PERF_COUNTER_BASE: i32 = 196608;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PERF_COUNTER_BLOCK {
     pub ByteLength: super::DWORD,
 }
@@ -19,7 +19,7 @@ pub const PERF_COUNTER_COUNTER: i32 = 272696320;
 #[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PERF_COUNTER_DEFINITION {
     pub ByteLength: super::DWORD,
     pub CounterNameTitleIndex: super::DWORD,
@@ -35,7 +35,7 @@ pub struct PERF_COUNTER_DEFINITION {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PERF_COUNTER_DEFINITION {
     pub ByteLength: super::DWORD,
     pub CounterNameTitleIndex: super::DWORD,
@@ -113,7 +113,7 @@ pub const PERF_DISPLAY_SECONDS: i32 = 805306368;
 pub const PERF_ELAPSED_TIME: i32 = 807666944;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PERF_INSTANCE_DEFINITION {
     pub ByteLength: super::DWORD,
     pub ParentObjectTitleIndex: super::DWORD,

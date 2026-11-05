@@ -784,7 +784,7 @@ pub const AUTHENTICATEF_HTTP: AUTHENTICATEF = 4;
 pub const AUTHENTICATEF_PROXY: AUTHENTICATEF = 1;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHENTICATEINFO {
     pub dwFlags: super::DWORD,
     pub dwReserved: super::DWORD,
@@ -1092,7 +1092,7 @@ pub const CIP_UNSAFE_TO_ABORT: CIP_STATUS = 7;
 pub const CLASSIDPROP: MONIKERPROPERTY = 2;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CODEBASEHOLD {
     pub cbSize: super::ULONG,
     pub szDistUnit: windows_core::PWSTR,
@@ -1112,7 +1112,7 @@ pub struct CONFIRMSAFETY {
 pub const CONFIRMSAFETYACTION_LOADOBJECT: i32 = 1;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DATAINFO {
     pub ulTotalSize: super::ULONG,
     pub ulavrPacketSize: super::ULONG,
@@ -1171,7 +1171,7 @@ pub const GET_FEATURE_FROM_THREAD_RESTRICTED: i32 = 128;
 pub const GET_FEATURE_FROM_THREAD_TRUSTED: i32 = 32;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwinbase", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIT_LOGGING_INFO {
     pub dwStructSize: super::DWORD,
     pub lpszLoggedUrlName: windows_core::PSTR,
@@ -5804,7 +5804,7 @@ pub const POPUPLEVELPROP: MONIKERPROPERTY = 4;
 pub type PREMSECURITY_ATTRIBUTES = *mut REMSECURITY_ATTRIBUTES;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROTOCOLDATA {
     pub grfFlags: super::DWORD,
     pub dwState: super::DWORD,
@@ -5823,7 +5823,7 @@ pub struct PROTOCOLFILTERDATA {
 }
 pub const PROTOCOLFLAG_NO_PICS_CHECK: i32 = 1;
 #[repr(C, packed(8))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROTOCOL_ARGUMENT {
     pub szMethod: windows_core::PCWSTR,
     pub szTargetUrl: windows_core::PCWSTR,
@@ -5875,7 +5875,7 @@ pub const QUERY_USES_HISTORYFOLDER: QUERYOPTION = 15;
 pub const QUERY_USES_NETWORK: QUERYOPTION = 8;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REMSECURITY_ATTRIBUTES {
     pub nLength: super::DWORD,
     pub lpSecurityDescriptor: super::DWORD,
@@ -5901,7 +5901,7 @@ pub struct RemBINDINFO {
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemFORMATETC {
     pub cfFormat: super::DWORD,
     pub ptd: super::DWORD,
@@ -5921,7 +5921,7 @@ pub const SET_FEATURE_ON_THREAD_RESTRICTED: i32 = 128;
 pub const SET_FEATURE_ON_THREAD_TRUSTED: i32 = 32;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOFTDISTINFO {
     pub cbSize: super::ULONG,
     pub dwFlags: super::DWORD,
@@ -6266,7 +6266,7 @@ pub const ZAFLAGS_USE_LOCKED_ZONES: ZAFLAGS = 65536;
 pub const ZAFLAGS_VERIFY_TEMPLATE_SETTINGS: ZAFLAGS = 131072;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ZONEATTRIBUTES {
     pub cbSize: super::ULONG,
     pub szDisplayName: [super::WCHAR; 260],

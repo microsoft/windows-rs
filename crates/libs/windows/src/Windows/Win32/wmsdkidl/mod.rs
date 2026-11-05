@@ -9789,7 +9789,7 @@ pub const WMT_CODECINFO_VIDEO: WMT_CODEC_INFO_TYPE = 1;
 pub type WMT_CODEC_INFO_TYPE = i32;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_COLORSPACEINFO_EXTENSION_DATA {
     pub ucColorPrimaries: super::BYTE,
     pub ucColorTransferChar: super::BYTE,
@@ -9922,7 +9922,7 @@ pub const WMT_Storage_Format_MP3: WMT_STORAGE_FORMAT = 0;
 pub const WMT_Storage_Format_V1: WMT_STORAGE_FORMAT = 1;
 #[repr(C, packed(2))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_TIMECODE_EXTENSION_DATA {
     pub wRange: super::WORD,
     pub dwTimecode: super::DWORD,
@@ -10157,7 +10157,7 @@ pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_DD_TOP: i32 = 5;
 pub const WM_DM_NOTINTERLACED: i32 = 0;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WM_LEAKY_BUCKET_PAIR {
     pub dwBitrate: super::DWORD,
     pub msBufferWindow: super::DWORD,
@@ -10180,7 +10180,7 @@ pub struct WM_MEDIA_TYPE {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WM_PICTURE {
     pub pwszMIMEType: windows_core::PWSTR,
     pub bPictureType: super::BYTE,
@@ -10234,21 +10234,21 @@ pub const WM_SF_DISCONTINUITY: i32 = 2;
 pub const WM_START_CURRENTPOSITION: super::QWORD = 18446744073709551615;
 #[repr(C, packed(2))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WM_STREAM_PRIORITY_RECORD {
     pub wStreamNumber: super::WORD,
     pub fMandatory: windows_core::BOOL,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WM_STREAM_TYPE_INFO {
     pub guidMajorType: windows_core::GUID,
     pub cbFormat: super::DWORD,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WM_SYNCHRONISED_LYRICS {
     pub bTimeStampFormat: super::BYTE,
     pub bContentType: super::BYTE,
@@ -10273,13 +10273,13 @@ pub const WM_SampleExtension_PixelAspectRatio_Size: i32 = 2;
 pub const WM_SampleExtension_SampleDuration_Size: i32 = 2;
 pub const WM_SampleExtension_Timecode_Size: i32 = 14;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WM_USER_TEXT {
     pub pwszDescription: windows_core::PWSTR,
     pub pwszText: windows_core::PWSTR,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WM_USER_WEB_URL {
     pub pwszDescription: windows_core::PWSTR,
     pub pwszURL: windows_core::PWSTR,

@@ -784,7 +784,7 @@ pub const SpatialAudioMetadataCopy_AppendMergeWithLast: SpatialAudioMetadataCopy
 pub const SpatialAudioMetadataCopy_Overwrite: SpatialAudioMetadataCopyMode = 0;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpatialAudioMetadataItemsInfo {
     pub FrameCount: super::UINT16,
     pub ItemCount: super::UINT16,

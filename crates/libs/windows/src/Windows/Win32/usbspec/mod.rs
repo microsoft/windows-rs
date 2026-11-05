@@ -22,7 +22,7 @@ impl Default for BM_REQUEST_TYPE {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BM_REQUEST_TYPE__BM {
     pub _bitfield: u8,
 }
@@ -55,7 +55,7 @@ impl BM_REQUEST_TYPE__BM {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EUSB2_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR {
     pub bLength: super::UCHAR,
     pub bDescriptorType: super::UCHAR,
@@ -189,7 +189,7 @@ impl Default for USB_20_PORT_CHANGE {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_20_PORT_CHANGE_0 {
     pub _bitfield: u16,
 }
@@ -247,7 +247,7 @@ impl Default for USB_20_PORT_STATUS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_20_PORT_STATUS_0 {
     pub _bitfield: u16,
 }
@@ -340,7 +340,7 @@ pub const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_RESERVED10: i32 = 32;
 pub const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_RESERVED11: i32 = 48;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_30_HUB_DESCRIPTOR {
     pub bLength: super::UCHAR,
     pub bDescriptorType: super::UCHAR,
@@ -368,7 +368,7 @@ impl Default for USB_30_PORT_CHANGE {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_30_PORT_CHANGE_0 {
     pub _bitfield: u16,
 }
@@ -438,7 +438,7 @@ impl Default for USB_30_PORT_STATUS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_30_PORT_STATUS_0 {
     pub _bitfield: u16,
 }
@@ -502,7 +502,7 @@ impl USB_30_PORT_STATUS_0 {
 pub const USB_ALLOW_FIRMWARE_UPDATE: i32 = 1;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_BOS_DESCRIPTOR {
     pub bLength: super::UCHAR,
     pub bDescriptorType: super::UCHAR,
@@ -516,14 +516,14 @@ pub const USB_CHARGING_POLICY_ICCLPF: i32 = 2;
 pub const USB_CHARGING_POLICY_NO_POWER: i32 = 3;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_COMMON_DESCRIPTOR {
     pub bLength: super::UCHAR,
     pub bDescriptorType: super::UCHAR,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_CONFIGURATION_DESCRIPTOR {
     pub bLength: super::UCHAR,
     pub bDescriptorType: super::UCHAR,
@@ -537,7 +537,7 @@ pub struct USB_CONFIGURATION_DESCRIPTOR {
 pub const USB_CONFIGURATION_DESCRIPTOR_TYPE: i32 = 2;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USB_CONFIGURATION_POWER_DESCRIPTOR {
     pub bLength: super::UCHAR,
     pub bDescriptorType: super::UCHAR,
@@ -597,7 +597,7 @@ impl Default for USB_DEFAULT_PIPE_SETUP_PACKET__wIndex {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_DEFAULT_PIPE_SETUP_PACKET__wIndex_0 {
     pub LowByte: super::UCHAR,
     pub HiByte: super::UCHAR,
@@ -617,7 +617,7 @@ impl Default for USB_DEFAULT_PIPE_SETUP_PACKET__wValue {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_DEFAULT_PIPE_SETUP_PACKET__wValue_0 {
     pub LowByte: super::UCHAR,
     pub HiByte: super::UCHAR,
@@ -660,7 +660,7 @@ impl Default for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0_0 {
     pub _bitfield: u16,
 }
@@ -687,7 +687,7 @@ impl USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
     pub wSVID: super::USHORT,
     pub bAlternateMode: super::UCHAR,
@@ -696,7 +696,7 @@ pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
 pub const USB_DEVICE_CAPABILITY_CONTAINER_ID: i32 = 4;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR {
     pub bLength: super::UCHAR,
     pub bDescriptorType: super::UCHAR,
@@ -712,7 +712,7 @@ impl Default for USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_DEVICE_CAPABILITY_DESCRIPTOR {
     pub bLength: super::UCHAR,
     pub bDescriptorType: super::UCHAR,
@@ -751,7 +751,7 @@ impl Default for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0_0 {
     pub _bitfield: u32,
 }
@@ -816,7 +816,7 @@ impl Default for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0_0 {
     pub _bitfield: u16,
 }
@@ -851,7 +851,7 @@ pub const USB_DEVICE_CAPABILITY_PD_PROVIDER_PORT: i32 = 9;
 pub const USB_DEVICE_CAPABILITY_PLATFORM: i32 = 5;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {
     pub bLength: super::UCHAR,
     pub bDescriptorType: super::UCHAR,
@@ -903,7 +903,7 @@ impl Default for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0_0 {
     pub _bitfield: u32,
 }
@@ -1010,7 +1010,7 @@ impl Default for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0 {
     pub _bitfield: u32,
 }
@@ -1104,7 +1104,7 @@ impl Default for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0_0 {
     pub _bitfield: u32,
 }
@@ -1144,7 +1144,7 @@ impl Default for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1_0 {
     pub _bitfield: u16,
 }
@@ -1187,7 +1187,7 @@ pub const USB_DEVICE_CAPABILITY_SUPERSPEED_U2_DEVICE_EXIT_MAX_VALUE: i32 = 2047;
 pub const USB_DEVICE_CAPABILITY_SUPERSPEED_USB: i32 = 3;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR {
     pub bLength: super::UCHAR,
     pub bDescriptorType: super::UCHAR,
@@ -1230,7 +1230,7 @@ impl Default for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0_0 {
     pub _bitfield: u32,
 }
@@ -1318,7 +1318,7 @@ pub const USB_DEVICE_CLASS_VIDEO: i32 = 14;
 pub const USB_DEVICE_CLASS_WIRELESS_CONTROLLER: i32 = 224;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_DEVICE_DESCRIPTOR {
     pub bLength: super::UCHAR,
     pub bDescriptorType: super::UCHAR,
@@ -1339,7 +1339,7 @@ pub const USB_DEVICE_DESCRIPTOR_TYPE: i32 = 1;
 pub const USB_DEVICE_FIRMWARE_HASH_LENGTH: i32 = 32;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_DEVICE_QUALIFIER_DESCRIPTOR {
     pub bLength: super::UCHAR,
     pub bDescriptorType: super::UCHAR,
@@ -1368,7 +1368,7 @@ impl Default for USB_DEVICE_STATUS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_DEVICE_STATUS_0 {
     pub _bitfield: u16,
 }
@@ -1416,7 +1416,7 @@ pub const USB_DISALLOW_FIRMWARE_UPDATE: i32 = 0;
 pub const USB_ENDPOINT_ADDRESS_MASK: i32 = 15;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_ENDPOINT_DESCRIPTOR {
     pub bLength: super::UCHAR,
     pub bDescriptorType: super::UCHAR,
@@ -1442,7 +1442,7 @@ impl Default for USB_ENDPOINT_STATUS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_ENDPOINT_STATUS_0 {
     pub _bitfield: u16,
 }
@@ -1514,7 +1514,7 @@ impl Default for USB_FUNCTION_SUSPEND_OPTIONS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_FUNCTION_SUSPEND_OPTIONS_0 {
     pub _bitfield: u8,
 }
@@ -1562,7 +1562,7 @@ impl Default for USB_HIGH_SPEED_MAXPACKET {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_HIGH_SPEED_MAXPACKET__MP {
     pub _bitfield: u16,
 }
@@ -1602,7 +1602,7 @@ impl Default for USB_HUB_30_PORT_REMOTE_WAKE_MASK {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_HUB_30_PORT_REMOTE_WAKE_MASK_0 {
     pub _bitfield: u8,
 }
@@ -1648,7 +1648,7 @@ impl Default for USB_HUB_CHANGE {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_HUB_CHANGE_0 {
     pub _bitfield: u16,
 }
@@ -1675,7 +1675,7 @@ impl USB_HUB_CHANGE_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USB_HUB_DESCRIPTOR {
     pub bDescriptorLength: super::UCHAR,
     pub bDescriptorType: super::UCHAR,
@@ -1706,7 +1706,7 @@ impl Default for USB_HUB_STATUS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_HUB_STATUS_0 {
     pub _bitfield: u16,
 }
@@ -1759,7 +1759,7 @@ impl Default for USB_HUB_STATUS_AND_CHANGE_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
     pub bLength: super::UCHAR,
     pub bDescriptorType: super::UCHAR,
@@ -1773,7 +1773,7 @@ pub struct USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
 pub const USB_INTERFACE_ASSOCIATION_DESCRIPTOR_TYPE: i32 = 11;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_INTERFACE_DESCRIPTOR {
     pub bLength: super::UCHAR,
     pub bDescriptorType: super::UCHAR,
@@ -1788,7 +1788,7 @@ pub struct USB_INTERFACE_DESCRIPTOR {
 pub const USB_INTERFACE_DESCRIPTOR_TYPE: i32 = 4;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_INTERFACE_POWER_DESCRIPTOR {
     pub bLength: super::UCHAR,
     pub bDescriptorType: super::UCHAR,
@@ -1819,7 +1819,7 @@ impl Default for USB_INTERFACE_STATUS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_INTERFACE_STATUS_0 {
     pub _bitfield: u16,
 }
@@ -1875,7 +1875,7 @@ impl Default for USB_PORT_EXT_STATUS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_PORT_EXT_STATUS_0 {
     pub _bitfield: u32,
 }
@@ -2014,7 +2014,7 @@ pub const USB_STATUS_PD_STATUS: i32 = 1;
 pub const USB_STATUS_PORT_STATUS: i32 = 0;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USB_STRING_DESCRIPTOR {
     pub bLength: super::UCHAR,
     pub bDescriptorType: super::UCHAR,
@@ -2031,7 +2031,7 @@ pub const USB_SUPERSPEEDPLUS_ISOCHRONOUS_MAX_BYTESPERINTERVAL: i32 = 16777215;
 pub const USB_SUPERSPEEDPLUS_ISOCHRONOUS_MIN_BYTESPERINTERVAL: i32 = 49153;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR {
     pub bLength: super::UCHAR,
     pub bDescriptorType: super::UCHAR,
@@ -2071,7 +2071,7 @@ impl Default for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0 {
     pub _bitfield: u8,
 }
@@ -2092,7 +2092,7 @@ impl USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1 {
     pub _bitfield: u8,
 }

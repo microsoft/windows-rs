@@ -1,6 +1,6 @@
 #[repr(C, packed(8))]
 #[cfg(all(feature = "gdipluspixelformats", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BitmapData {
     pub Width: super::UINT,
     pub Height: super::UINT,
@@ -11,7 +11,7 @@ pub struct BitmapData {
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EncoderParameter {
     pub Guid: windows_core::GUID,
     pub NumberOfValues: super::ULONG,
@@ -20,7 +20,7 @@ pub struct EncoderParameter {
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EncoderParameters {
     pub Count: super::UINT,
     pub Parameter: [EncoderParameter; 1],
@@ -106,7 +106,7 @@ impl IImageBytes_Vtbl {
 impl windows_core::RuntimeName for IImageBytes {}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ImageCodecInfo {
     pub Clsid: super::CLSID,
     pub FormatID: windows_core::GUID,
@@ -124,7 +124,7 @@ pub struct ImageCodecInfo {
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ImageItemData {
     pub Size: super::UINT,
     pub Position: super::UINT,
@@ -136,7 +136,7 @@ pub struct ImageItemData {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wtypes"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PropertyItem {
     pub id: super::PROPID,
     pub length: super::ULONG,

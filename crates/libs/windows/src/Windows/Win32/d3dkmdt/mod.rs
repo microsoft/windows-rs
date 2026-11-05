@@ -980,7 +980,7 @@ impl Default for D3DKMT_DISPLAY_CAPS_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_DISPLAY_CAPS_0_0 {
     pub _bitfield: u64,
 }
@@ -1038,7 +1038,7 @@ impl Default for D3DKMT_DRIVERCAPS_EXT_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_DRIVERCAPS_EXT_0_0 {
     pub _bitfield: u32,
 }
@@ -1100,7 +1100,7 @@ impl Default for D3DKMT_QUERYCLOCKCALIBRATION {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_TRACKEDWORKLOAD_SUPPORT {
     pub PhysicalAdapterIndex: super::UINT,
     pub EngineType: DXGK_ENGINE_TYPE,
@@ -1234,7 +1234,7 @@ impl Default for D3DKMT_WDDM_1_3_CAPS_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_WDDM_1_3_CAPS_0_0 {
     pub _bitfield: u32,
 }
@@ -1310,7 +1310,7 @@ impl Default for D3DKMT_WDDM_2_0_CAPS_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_WDDM_2_0_CAPS_0_0 {
     pub _bitfield: u32,
 }
@@ -1386,7 +1386,7 @@ impl Default for D3DKMT_WDDM_2_7_CAPS_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_WDDM_2_7_CAPS_0_0 {
     pub _bitfield: u32,
 }
@@ -1450,7 +1450,7 @@ impl Default for D3DKMT_WDDM_3_1_CAPS_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_WDDM_3_1_CAPS_0_0 {
     pub _bitfield: u32,
 }
@@ -1484,7 +1484,7 @@ pub const DIDDT1_Sync_Negative: _DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY 
 pub const DIDDT1_Sync_Positive: _DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY = 0;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I {
     pub Anonymous: DISPLAYID_DETAILED_TIMING_TYPE_I_0,
     pub HorizontalActivePixels: super::USHORT,
@@ -1498,7 +1498,7 @@ pub struct DISPLAYID_DETAILED_TIMING_TYPE_I {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_0 {
     pub _bitfield: u32,
 }
@@ -1543,7 +1543,7 @@ impl DISPLAYID_DETAILED_TIMING_TYPE_I_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_1 {
     pub _bitfield: u16,
 }
@@ -1564,7 +1564,7 @@ impl DISPLAYID_DETAILED_TIMING_TYPE_I_1 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_2 {
     pub _bitfield: u16,
 }
@@ -1608,7 +1608,7 @@ pub const DXGKMDT_INDIRECT_DISPLAY_CERTIFICATE: DXGKMDT_CERTIFICATE_TYPE = 3;
 pub const DXGKMDT_OPM_128_BIT_RANDOM_NUMBER_SIZE: i32 = 16;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_ACP_AND_CGMSA_SIGNALING {
     pub rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
     pub ulStatusFlags: super::ULONG,
@@ -1638,7 +1638,7 @@ pub const DXGKMDT_OPM_ACP_OFF: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = 0;
 pub type DXGKMDT_OPM_ACP_PROTECTION_LEVEL = i32;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_ACTUAL_OUTPUT_FORMAT {
     pub rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
     pub ulStatusFlags: super::ULONG,
@@ -1679,7 +1679,7 @@ pub const DXGKMDT_OPM_CGMSA_COPY_ONE_GENERATION: DXGKMDT_OPM_CGMSA = 3;
 pub const DXGKMDT_OPM_CGMSA_OFF: DXGKMDT_OPM_CGMSA = 0;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_CONFIGURE_PARAMETERS {
     pub omac: DXGKMDT_OPM_OMAC,
     pub guidSetting: windows_core::GUID,
@@ -1696,7 +1696,7 @@ impl Default for DXGKMDT_OPM_CONFIGURE_PARAMETERS {
 pub const DXGKMDT_OPM_CONFIGURE_SETTING_DATA_SIZE: i32 = 4056;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
     pub rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
     pub ulStatusFlags: super::ULONG,
@@ -1735,7 +1735,7 @@ pub const DXGKMDT_OPM_COPP_COMPATIBLE_BUS_TYPE_INTEGRATED: DXGKMDT_OPM_BUS_TYPE_
 pub const DXGKMDT_OPM_COPP_COMPATIBLE_CONNECTOR_TYPE_INTERNAL: DXGKMDT_OPM_CONNECTOR_TYPE = -2147483648;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
     pub rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
     pub guidInformation: windows_core::GUID,
@@ -1751,7 +1751,7 @@ impl Default for DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_CREATE_VIDEO_OUTPUT_FOR_TARGET_PARAMETERS {
     pub AdapterLuid: super::LUID,
     pub TargetId: super::D3DDDI_VIDEO_PRESENT_TARGET_ID,
@@ -1766,7 +1766,7 @@ pub const DXGKMDT_OPM_DVI_CHARACTERISTIC_1_0: DXGKDT_OPM_DVI_CHARACTERISTICS = 1
 pub const DXGKMDT_OPM_DVI_CHARACTERISTIC_1_1_OR_ABOVE: DXGKDT_OPM_DVI_CHARACTERISTICS = 2;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_ENCRYPTED_PARAMETERS {
     pub abEncryptedParameters: [super::BYTE; 256],
 }
@@ -1789,7 +1789,7 @@ pub const DXGKMDT_OPM_GET_DVI_CHARACTERISTICS: windows_core::GUID = windows_core
 pub const DXGKMDT_OPM_GET_INFORMATION_PARAMETERS_SIZE: i32 = 4056;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_GET_INFO_PARAMETERS {
     pub omac: DXGKMDT_OPM_OMAC,
     pub rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
@@ -1814,7 +1814,7 @@ pub const DXGKMDT_OPM_HDCP_FLAG_REPEATER: DXGKMDT_OPM_HDCP_FLAG = 1;
 pub const DXGKMDT_OPM_HDCP_FORCE_ULONG: DXGKMDT_OPM_HDCP_PROTECTION_LEVEL = 2147483647;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_HDCP_KEY_SELECTION_VECTOR {
     pub abKeySelectionVector: [super::BYTE; 5],
 }
@@ -1837,7 +1837,7 @@ pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_OTHER: DXGKMDT_OPM_INTERLEAVE_FORMAT = 0
 pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_PROGRESSIVE: DXGKMDT_OPM_INTERLEAVE_FORMAT = 2;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_OMAC {
     pub abOMAC: [super::BYTE; 16],
 }
@@ -1853,7 +1853,7 @@ pub const DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION_NOT_SUPPORTED: DXGKMDT_OPM_OUTP
 pub const DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION_SUPPORTED: DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION = 1;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_OUTPUT_ID {
     pub rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
     pub ulStatusFlags: super::ULONG,
@@ -1890,7 +1890,7 @@ pub const DXGKMDT_OPM_PROTECTION_TYPE_SIZE: i32 = 4;
 pub const DXGKMDT_OPM_PROTECTION_TYPE_TYPE_ENFORCEMENT_HDCP: DXGKMDT_OPM_PROTECTION_TYPE = 32;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_RANDOM_NUMBER {
     pub abRandomNumber: [super::BYTE; 16],
 }
@@ -1903,7 +1903,7 @@ impl Default for DXGKMDT_OPM_RANDOM_NUMBER {
 pub const DXGKMDT_OPM_REDISTRIBUTION_CONTROL_REQUIRED: DXGKMDT_OPM_CGMSA = 8;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_REQUESTED_INFORMATION {
     pub omac: DXGKMDT_OPM_OMAC,
     pub cbRequestedInformationSize: super::ULONG,
@@ -1919,7 +1919,7 @@ pub const DXGKMDT_OPM_REQUESTED_INFORMATION_SIZE: i32 = 4076;
 pub const DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING: windows_core::GUID = windows_core::GUID::from_u128(0x09a631a5_d684_4c60_8e4d_d3bb0f0be3ee);
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
     pub ulNewTVProtectionStandard: super::ULONG,
     pub ulAspectRatioChangeMask1: super::ULONG,
@@ -1941,7 +1941,7 @@ impl Default for DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
 pub const DXGKMDT_OPM_SET_HDCP_SRM: windows_core::GUID = windows_core::GUID::from_u128(0x8b5ef5d1_c30d_44ff_84a5_ea71dce78f13);
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_SET_HDCP_SRM_PARAMETERS {
     pub ulSRMVersion: super::ULONG,
 }
@@ -1949,7 +1949,7 @@ pub const DXGKMDT_OPM_SET_PROTECTION_LEVEL: windows_core::GUID = windows_core::G
 pub const DXGKMDT_OPM_SET_PROTECTION_LEVEL_ACCORDING_TO_CSS_DVD: windows_core::GUID = windows_core::GUID::from_u128(0x39ce333e_4cc0_44ae_bfcc_da50b5f82e72);
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_SET_PROTECTION_LEVEL_PARAMETERS {
     pub ulProtectionType: super::ULONG,
     pub ulProtectionLevel: super::ULONG,
@@ -1958,7 +1958,7 @@ pub struct DXGKMDT_OPM_SET_PROTECTION_LEVEL_PARAMETERS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_STANDARD_INFORMATION {
     pub rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
     pub ulStatusFlags: super::ULONG,
@@ -1984,7 +1984,7 @@ pub const DXGKMDT_OPM_VOS_OPM_SEMANTICS: DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS = 1;
 pub const DXGKMDT_UAB_CERTIFICATE: DXGKMDT_CERTIFICATE_TYPE = 2;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_ADAPTER_PERFDATA {
     pub MemoryFrequency: super::ULONGLONG,
     pub MaxMemoryFrequency: super::ULONGLONG,
@@ -1998,7 +1998,7 @@ pub struct DXGK_ADAPTER_PERFDATA {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_ADAPTER_PERFDATACAPS {
     pub MaxMemoryBandwidth: super::ULONGLONG,
     pub MaxPCIEBandwidth: super::ULONGLONG,
@@ -2008,7 +2008,7 @@ pub struct DXGK_ADAPTER_PERFDATACAPS {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "d3dukmdt", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_BACKLIGHT_INFO {
     pub BacklightUsersetting: super::USHORT,
     pub BacklightEffective: super::USHORT,
@@ -2043,7 +2043,7 @@ impl Default for DXGK_BRIGHTNESS_CAPS_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_BRIGHTNESS_CAPS_0_0 {
     pub _bitfield: u32,
 }
@@ -2076,7 +2076,7 @@ impl DXGK_BRIGHTNESS_CAPS_0_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGK_BRIGHTNESS_GET_NIT_RANGES_OUT {
     pub NormalRangeCount: super::UINT32,
     pub RangeCount: super::UINT32,
@@ -2091,7 +2091,7 @@ impl Default for DXGK_BRIGHTNESS_GET_NIT_RANGES_OUT {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_BRIGHTNESS_GET_OUT {
     pub CurrentBrightnessMillinits: super::UINT32,
     pub TargetBrightnessMillinits: super::UINT32,
@@ -2099,7 +2099,7 @@ pub struct DXGK_BRIGHTNESS_GET_OUT {
 pub const DXGK_BRIGHTNESS_MAXIMUM_NIT_RANGE_COUNT: i32 = 16;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_BRIGHTNESS_NIT_RANGE {
     pub MinimumLevelMillinit: super::UINT32,
     pub MaximumLevelMillinit: super::UINT32,
@@ -2136,7 +2136,7 @@ impl Default for DXGK_BRIGHTNESS_SENSOR_DATA_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_BRIGHTNESS_SENSOR_DATA_0_0 {
     pub _bitfield: u32,
 }
@@ -2168,7 +2168,7 @@ impl DXGK_BRIGHTNESS_SENSOR_DATA_0_0 {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXGK_BRIGHTNESS_SENSOR_DATA_CHROMATICITY {
     pub ChromaticityX: f32,
     pub ChromaticityY: f32,
@@ -2214,7 +2214,7 @@ impl Default for DXGK_BRIGHTNESS_STATE_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_BRIGHTNESS_STATE_0_0 {
     pub _bitfield: u32,
 }
@@ -2336,7 +2336,7 @@ impl Default for DXGK_FAULT_ERROR_CODE_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_FAULT_ERROR_CODE_0_0 {
     pub _bitfield: u32,
 }
@@ -2357,7 +2357,7 @@ impl DXGK_FAULT_ERROR_CODE_0_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_FAULT_ERROR_CODE_0_1 {
     pub _bitfield: u32,
 }
@@ -2429,7 +2429,7 @@ impl Default for DXGK_GPUCLOCKDATA_FLAGS_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_GPUCLOCKDATA_FLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -2450,7 +2450,7 @@ impl DXGK_GPUCLOCKDATA_FLAGS_0_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGK_GPUVERSION {
     pub BiosVersion: [super::WCHAR; 32],
     pub GpuArchitecture: [super::WCHAR; 32],
@@ -2477,7 +2477,7 @@ impl Default for DXGK_MONITORLINKINFO_CAPABILITIES {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_MONITORLINKINFO_CAPABILITIES_0 {
     pub _bitfield: u32,
 }
@@ -2577,7 +2577,7 @@ impl Default for DXGK_MONITORLINKINFO_USAGEHINTS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_MONITORLINKINFO_USAGEHINTS_0 {
     pub _bitfield: u32,
 }
@@ -2645,7 +2645,7 @@ impl Default for DXGK_NODEMETADATA_FLAGS_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_NODEMETADATA_FLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -2702,7 +2702,7 @@ impl DXGK_NODEMETADATA_FLAGS_0_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_NODE_PERFDATA {
     pub Frequency: super::ULONGLONG,
     pub MaxFrequency: super::ULONGLONG,
@@ -2735,7 +2735,7 @@ pub const DXGK_RENDER_PIPELINE_STAGE_UNKNOWN: DXGK_RENDER_PIPELINE_STAGE = 0;
 pub const DXGK_RENDER_PIPELINE_STAGE_VERTEX_SHADER: DXGK_RENDER_PIPELINE_STAGE = 2;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_TARGETMODE_DETAIL_TIMING {
     pub VideoStandard: D3DKMDT_VIDEO_SIGNAL_STANDARD,
     pub TimingId: super::UINT,

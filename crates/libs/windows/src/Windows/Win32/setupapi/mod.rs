@@ -2726,7 +2726,7 @@ pub type CABINET_INFO = CABINET_INFO_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CABINET_INFO_A {
     pub CabinetPath: windows_core::PCSTR,
     pub CabinetFile: windows_core::PCSTR,
@@ -2737,7 +2737,7 @@ pub struct CABINET_INFO_A {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CABINET_INFO_A {
     pub CabinetPath: windows_core::PCSTR,
     pub CabinetFile: windows_core::PCSTR,
@@ -2748,7 +2748,7 @@ pub struct CABINET_INFO_A {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CABINET_INFO_W {
     pub CabinetPath: windows_core::PCWSTR,
     pub CabinetFile: windows_core::PCWSTR,
@@ -2759,7 +2759,7 @@ pub struct CABINET_INFO_W {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CABINET_INFO_W {
     pub CabinetPath: windows_core::PCWSTR,
     pub CabinetFile: windows_core::PCWSTR,
@@ -2770,7 +2770,7 @@ pub struct CABINET_INFO_W {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COINSTALLER_CONTEXT_DATA {
     pub PostProcessing: windows_core::BOOL,
     pub InstallResult: super::DWORD,
@@ -2779,7 +2779,7 @@ pub struct COINSTALLER_CONTEXT_DATA {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COINSTALLER_CONTEXT_DATA {
     pub PostProcessing: windows_core::BOOL,
     pub InstallResult: super::DWORD,
@@ -3138,7 +3138,7 @@ pub type FILEPATHS = FILEPATHS_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILEPATHS_A {
     pub Target: windows_core::PCSTR,
     pub Source: windows_core::PCSTR,
@@ -3148,7 +3148,7 @@ pub struct FILEPATHS_A {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILEPATHS_A {
     pub Target: windows_core::PCSTR,
     pub Source: windows_core::PCSTR,
@@ -3160,7 +3160,7 @@ pub type FILEPATHS_SIGNERINFO = FILEPATHS_SIGNERINFO_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILEPATHS_SIGNERINFO_A {
     pub Target: windows_core::PCSTR,
     pub Source: windows_core::PCSTR,
@@ -3173,7 +3173,7 @@ pub struct FILEPATHS_SIGNERINFO_A {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILEPATHS_SIGNERINFO_A {
     pub Target: windows_core::PCSTR,
     pub Source: windows_core::PCSTR,
@@ -3186,7 +3186,7 @@ pub struct FILEPATHS_SIGNERINFO_A {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILEPATHS_SIGNERINFO_W {
     pub Target: windows_core::PCWSTR,
     pub Source: windows_core::PCWSTR,
@@ -3199,7 +3199,7 @@ pub struct FILEPATHS_SIGNERINFO_W {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILEPATHS_SIGNERINFO_W {
     pub Target: windows_core::PCWSTR,
     pub Source: windows_core::PCWSTR,
@@ -3212,7 +3212,7 @@ pub struct FILEPATHS_SIGNERINFO_W {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILEPATHS_W {
     pub Target: windows_core::PCWSTR,
     pub Source: windows_core::PCWSTR,
@@ -3222,7 +3222,7 @@ pub struct FILEPATHS_W {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILEPATHS_W {
     pub Target: windows_core::PCWSTR,
     pub Source: windows_core::PCWSTR,
@@ -3238,7 +3238,7 @@ pub type FILE_IN_CABINET_INFO = FILE_IN_CABINET_INFO_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_IN_CABINET_INFO_A {
     pub NameInCabinet: windows_core::PCSTR,
     pub FileSize: super::DWORD,
@@ -3258,7 +3258,7 @@ impl Default for FILE_IN_CABINET_INFO_A {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_IN_CABINET_INFO_A {
     pub NameInCabinet: windows_core::PCSTR,
     pub FileSize: super::DWORD,
@@ -3278,7 +3278,7 @@ impl Default for FILE_IN_CABINET_INFO_A {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_IN_CABINET_INFO_W {
     pub NameInCabinet: windows_core::PCWSTR,
     pub FileSize: super::DWORD,
@@ -3298,7 +3298,7 @@ impl Default for FILE_IN_CABINET_INFO_W {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_IN_CABINET_INFO_W {
     pub NameInCabinet: windows_core::PCWSTR,
     pub FileSize: super::DWORD,
@@ -3407,7 +3407,7 @@ pub const IDI_RESOURCEOVERLAYLAST: i32 = 161;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INFCONTEXT {
     pub Inf: super::PVOID,
     pub CurrentInf: super::PVOID,
@@ -3417,7 +3417,7 @@ pub struct INFCONTEXT {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INFCONTEXT {
     pub Inf: super::PVOID,
     pub CurrentInf: super::PVOID,
@@ -3686,7 +3686,7 @@ pub type SOURCE_MEDIA = SOURCE_MEDIA_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOURCE_MEDIA_A {
     pub Reserved: windows_core::PCSTR,
     pub Tagfile: windows_core::PCSTR,
@@ -3698,7 +3698,7 @@ pub struct SOURCE_MEDIA_A {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOURCE_MEDIA_A {
     pub Reserved: windows_core::PCSTR,
     pub Tagfile: windows_core::PCSTR,
@@ -3710,7 +3710,7 @@ pub struct SOURCE_MEDIA_A {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOURCE_MEDIA_W {
     pub Reserved: windows_core::PCWSTR,
     pub Tagfile: windows_core::PCWSTR,
@@ -3722,7 +3722,7 @@ pub struct SOURCE_MEDIA_W {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOURCE_MEDIA_W {
     pub Reserved: windows_core::PCWSTR,
     pub Tagfile: windows_core::PCWSTR,
@@ -3905,7 +3905,7 @@ pub type SP_ALTPLATFORM_INFO = SP_ALTPLATFORM_INFO_V2;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SP_ALTPLATFORM_INFO_V1 {
     pub cbSize: super::DWORD,
     pub Platform: super::DWORD,
@@ -3917,7 +3917,7 @@ pub struct SP_ALTPLATFORM_INFO_V1 {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SP_ALTPLATFORM_INFO_V1 {
     pub cbSize: super::DWORD,
     pub Platform: super::DWORD,
@@ -4088,7 +4088,7 @@ pub type SP_BACKUP_QUEUE_PARAMS_V1 = SP_BACKUP_QUEUE_PARAMS_V1_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_A {
     pub cbSize: super::DWORD,
     pub FullInfPath: [super::CHAR; 260],
@@ -4104,7 +4104,7 @@ impl Default for SP_BACKUP_QUEUE_PARAMS_V1_A {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_A {
     pub cbSize: super::DWORD,
     pub FullInfPath: [super::CHAR; 260],
@@ -4120,7 +4120,7 @@ impl Default for SP_BACKUP_QUEUE_PARAMS_V1_A {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_W {
     pub cbSize: super::DWORD,
     pub FullInfPath: [super::WCHAR; 260],
@@ -4136,7 +4136,7 @@ impl Default for SP_BACKUP_QUEUE_PARAMS_V1_W {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_W {
     pub cbSize: super::DWORD,
     pub FullInfPath: [super::WCHAR; 260],
@@ -4154,7 +4154,7 @@ pub type SP_BACKUP_QUEUE_PARAMS_V2 = SP_BACKUP_QUEUE_PARAMS_V2_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_A {
     pub cbSize: super::DWORD,
     pub FullInfPath: [super::CHAR; 260],
@@ -4171,7 +4171,7 @@ impl Default for SP_BACKUP_QUEUE_PARAMS_V2_A {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_A {
     pub cbSize: super::DWORD,
     pub FullInfPath: [super::CHAR; 260],
@@ -4188,7 +4188,7 @@ impl Default for SP_BACKUP_QUEUE_PARAMS_V2_A {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_W {
     pub cbSize: super::DWORD,
     pub FullInfPath: [super::WCHAR; 260],
@@ -4205,7 +4205,7 @@ impl Default for SP_BACKUP_QUEUE_PARAMS_V2_W {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_W {
     pub cbSize: super::DWORD,
     pub FullInfPath: [super::WCHAR; 260],
@@ -4225,7 +4225,7 @@ pub const SP_BACKUP_SPECIAL: i32 = 4;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "commctrl", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SP_CLASSIMAGELIST_DATA {
     pub cbSize: super::DWORD,
     pub ImageList: super::HIMAGELIST,
@@ -4234,7 +4234,7 @@ pub struct SP_CLASSIMAGELIST_DATA {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "commctrl", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SP_CLASSIMAGELIST_DATA {
     pub cbSize: super::DWORD,
     pub ImageList: super::HIMAGELIST,
@@ -4243,7 +4243,7 @@ pub struct SP_CLASSIMAGELIST_DATA {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SP_CLASSINSTALL_HEADER {
     pub cbSize: super::DWORD,
     pub InstallFunction: DI_FUNCTION,
@@ -4251,7 +4251,7 @@ pub struct SP_CLASSINSTALL_HEADER {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SP_CLASSINSTALL_HEADER {
     pub cbSize: super::DWORD,
     pub InstallFunction: DI_FUNCTION,
@@ -4287,7 +4287,7 @@ pub const SP_COPY_WINDOWS_SIGNED: i32 = 16777216;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct SP_DETECTDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub DetectProgressNotify: PDETECT_PROGRESS_NOTIFY,
@@ -4296,7 +4296,7 @@ pub struct SP_DETECTDEVICE_PARAMS {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct SP_DETECTDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub DetectProgressNotify: PDETECT_PROGRESS_NOTIFY,
@@ -4305,7 +4305,7 @@ pub struct SP_DETECTDEVICE_PARAMS {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SP_DEVICE_INTERFACE_DATA {
     pub cbSize: super::DWORD,
     pub InterfaceClassGuid: windows_core::GUID,
@@ -4315,7 +4315,7 @@ pub struct SP_DEVICE_INTERFACE_DATA {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SP_DEVICE_INTERFACE_DATA {
     pub cbSize: super::DWORD,
     pub InterfaceClassGuid: windows_core::GUID,
@@ -4327,7 +4327,7 @@ pub type SP_DEVICE_INTERFACE_DETAIL_DATA = SP_DEVICE_INTERFACE_DETAIL_DATA_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_A {
     pub cbSize: super::DWORD,
     pub DevicePath: [super::CHAR; 1],
@@ -4342,7 +4342,7 @@ impl Default for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_A {
     pub cbSize: super::DWORD,
     pub DevicePath: [super::CHAR; 1],
@@ -4357,7 +4357,7 @@ impl Default for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_W {
     pub cbSize: super::DWORD,
     pub DevicePath: [super::WCHAR; 1],
@@ -4372,7 +4372,7 @@ impl Default for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_W {
     pub cbSize: super::DWORD,
     pub DevicePath: [super::WCHAR; 1],
@@ -4387,7 +4387,7 @@ impl Default for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SP_DEVINFO_DATA {
     pub cbSize: super::DWORD,
     pub ClassGuid: windows_core::GUID,
@@ -4397,7 +4397,7 @@ pub struct SP_DEVINFO_DATA {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SP_DEVINFO_DATA {
     pub cbSize: super::DWORD,
     pub ClassGuid: windows_core::GUID,
@@ -4409,7 +4409,7 @@ pub type SP_DEVINFO_LIST_DETAIL_DATA = SP_DEVINFO_LIST_DETAIL_DATA_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_DEVINFO_LIST_DETAIL_DATA_A {
     pub cbSize: super::DWORD,
     pub ClassGuid: windows_core::GUID,
@@ -4426,7 +4426,7 @@ impl Default for SP_DEVINFO_LIST_DETAIL_DATA_A {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_DEVINFO_LIST_DETAIL_DATA_A {
     pub cbSize: super::DWORD,
     pub ClassGuid: windows_core::GUID,
@@ -4443,7 +4443,7 @@ impl Default for SP_DEVINFO_LIST_DETAIL_DATA_A {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_DEVINFO_LIST_DETAIL_DATA_W {
     pub cbSize: super::DWORD,
     pub ClassGuid: windows_core::GUID,
@@ -4460,7 +4460,7 @@ impl Default for SP_DEVINFO_LIST_DETAIL_DATA_W {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_DEVINFO_LIST_DETAIL_DATA_W {
     pub cbSize: super::DWORD,
     pub ClassGuid: windows_core::GUID,
@@ -4479,7 +4479,7 @@ pub type SP_DEVINSTALL_PARAMS = SP_DEVINSTALL_PARAMS_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct SP_DEVINSTALL_PARAMS_A {
     pub cbSize: super::DWORD,
     pub Flags: super::DWORD,
@@ -4502,7 +4502,7 @@ impl Default for SP_DEVINSTALL_PARAMS_A {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct SP_DEVINSTALL_PARAMS_A {
     pub cbSize: super::DWORD,
     pub Flags: super::DWORD,
@@ -4525,7 +4525,7 @@ impl Default for SP_DEVINSTALL_PARAMS_A {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct SP_DEVINSTALL_PARAMS_W {
     pub cbSize: super::DWORD,
     pub Flags: super::DWORD,
@@ -4548,7 +4548,7 @@ impl Default for SP_DEVINSTALL_PARAMS_W {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct SP_DEVINSTALL_PARAMS_W {
     pub cbSize: super::DWORD,
     pub Flags: super::DWORD,
@@ -4577,7 +4577,7 @@ pub type SP_DRVINFO_DATA_V1 = SP_DRVINFO_DATA_V1_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_DRVINFO_DATA_V1_A {
     pub cbSize: super::DWORD,
     pub DriverType: super::DWORD,
@@ -4596,7 +4596,7 @@ impl Default for SP_DRVINFO_DATA_V1_A {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_DRVINFO_DATA_V1_A {
     pub cbSize: super::DWORD,
     pub DriverType: super::DWORD,
@@ -4615,7 +4615,7 @@ impl Default for SP_DRVINFO_DATA_V1_A {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_DRVINFO_DATA_V1_W {
     pub cbSize: super::DWORD,
     pub DriverType: super::DWORD,
@@ -4634,7 +4634,7 @@ impl Default for SP_DRVINFO_DATA_V1_W {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_DRVINFO_DATA_V1_W {
     pub cbSize: super::DWORD,
     pub DriverType: super::DWORD,
@@ -4655,7 +4655,7 @@ pub type SP_DRVINFO_DATA_V2 = SP_DRVINFO_DATA_V2_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_DRVINFO_DATA_V2_A {
     pub cbSize: super::DWORD,
     pub DriverType: super::DWORD,
@@ -4676,7 +4676,7 @@ impl Default for SP_DRVINFO_DATA_V2_A {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_DRVINFO_DATA_V2_A {
     pub cbSize: super::DWORD,
     pub DriverType: super::DWORD,
@@ -4697,7 +4697,7 @@ impl Default for SP_DRVINFO_DATA_V2_A {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_DRVINFO_DATA_V2_W {
     pub cbSize: super::DWORD,
     pub DriverType: super::DWORD,
@@ -4718,7 +4718,7 @@ impl Default for SP_DRVINFO_DATA_V2_W {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_DRVINFO_DATA_V2_W {
     pub cbSize: super::DWORD,
     pub DriverType: super::DWORD,
@@ -4743,7 +4743,7 @@ pub type SP_DRVINFO_DETAIL_DATA = SP_DRVINFO_DETAIL_DATA_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_DRVINFO_DETAIL_DATA_A {
     pub cbSize: super::DWORD,
     pub InfDate: super::FILETIME,
@@ -4765,7 +4765,7 @@ impl Default for SP_DRVINFO_DETAIL_DATA_A {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_DRVINFO_DETAIL_DATA_A {
     pub cbSize: super::DWORD,
     pub InfDate: super::FILETIME,
@@ -4787,7 +4787,7 @@ impl Default for SP_DRVINFO_DETAIL_DATA_A {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_DRVINFO_DETAIL_DATA_W {
     pub cbSize: super::DWORD,
     pub InfDate: super::FILETIME,
@@ -4809,7 +4809,7 @@ impl Default for SP_DRVINFO_DETAIL_DATA_W {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_DRVINFO_DETAIL_DATA_W {
     pub cbSize: super::DWORD,
     pub InfDate: super::FILETIME,
@@ -4831,7 +4831,7 @@ impl Default for SP_DRVINFO_DETAIL_DATA_W {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SP_DRVINSTALL_PARAMS {
     pub cbSize: super::DWORD,
     pub Rank: super::DWORD,
@@ -4842,7 +4842,7 @@ pub struct SP_DRVINSTALL_PARAMS {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SP_DRVINSTALL_PARAMS {
     pub cbSize: super::DWORD,
     pub Rank: super::DWORD,
@@ -4853,7 +4853,7 @@ pub struct SP_DRVINSTALL_PARAMS {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SP_ENABLECLASS_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub ClassGuid: windows_core::GUID,
@@ -4862,7 +4862,7 @@ pub struct SP_ENABLECLASS_PARAMS {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SP_ENABLECLASS_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub ClassGuid: windows_core::GUID,
@@ -4873,7 +4873,7 @@ pub type SP_FILE_COPY_PARAMS = SP_FILE_COPY_PARAMS_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SP_FILE_COPY_PARAMS_A {
     pub cbSize: super::DWORD,
     pub QueueHandle: HSPFILEQ,
@@ -4891,7 +4891,7 @@ pub struct SP_FILE_COPY_PARAMS_A {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SP_FILE_COPY_PARAMS_A {
     pub cbSize: super::DWORD,
     pub QueueHandle: HSPFILEQ,
@@ -4909,7 +4909,7 @@ pub struct SP_FILE_COPY_PARAMS_A {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SP_FILE_COPY_PARAMS_W {
     pub cbSize: super::DWORD,
     pub QueueHandle: HSPFILEQ,
@@ -4927,7 +4927,7 @@ pub struct SP_FILE_COPY_PARAMS_W {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SP_FILE_COPY_PARAMS_W {
     pub cbSize: super::DWORD,
     pub QueueHandle: HSPFILEQ,
@@ -4946,7 +4946,7 @@ pub const SP_FLAG_CABINETCONTINUATION: i32 = 2048;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_INF_INFORMATION {
     pub InfStyle: super::DWORD,
     pub InfCount: super::DWORD,
@@ -4962,7 +4962,7 @@ impl Default for SP_INF_INFORMATION {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_INF_INFORMATION {
     pub InfStyle: super::DWORD,
     pub InfCount: super::DWORD,
@@ -4984,7 +4984,7 @@ pub type SP_INF_SIGNER_INFO_V1 = SP_INF_SIGNER_INFO_V1_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_INF_SIGNER_INFO_V1_A {
     pub cbSize: super::DWORD,
     pub CatalogFile: [super::CHAR; 260],
@@ -5001,7 +5001,7 @@ impl Default for SP_INF_SIGNER_INFO_V1_A {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_INF_SIGNER_INFO_V1_A {
     pub cbSize: super::DWORD,
     pub CatalogFile: [super::CHAR; 260],
@@ -5018,7 +5018,7 @@ impl Default for SP_INF_SIGNER_INFO_V1_A {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_INF_SIGNER_INFO_V1_W {
     pub cbSize: super::DWORD,
     pub CatalogFile: [super::WCHAR; 260],
@@ -5035,7 +5035,7 @@ impl Default for SP_INF_SIGNER_INFO_V1_W {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_INF_SIGNER_INFO_V1_W {
     pub cbSize: super::DWORD,
     pub CatalogFile: [super::WCHAR; 260],
@@ -5054,7 +5054,7 @@ pub type SP_INF_SIGNER_INFO_V2 = SP_INF_SIGNER_INFO_V2_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_INF_SIGNER_INFO_V2_A {
     pub cbSize: super::DWORD,
     pub CatalogFile: [super::CHAR; 260],
@@ -5072,7 +5072,7 @@ impl Default for SP_INF_SIGNER_INFO_V2_A {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_INF_SIGNER_INFO_V2_A {
     pub cbSize: super::DWORD,
     pub CatalogFile: [super::CHAR; 260],
@@ -5090,7 +5090,7 @@ impl Default for SP_INF_SIGNER_INFO_V2_A {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_INF_SIGNER_INFO_V2_W {
     pub cbSize: super::DWORD,
     pub CatalogFile: [super::WCHAR; 260],
@@ -5108,7 +5108,7 @@ impl Default for SP_INF_SIGNER_INFO_V2_W {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_INF_SIGNER_INFO_V2_W {
     pub cbSize: super::DWORD,
     pub CatalogFile: [super::WCHAR; 260],
@@ -5128,7 +5128,7 @@ pub type SP_INF_SIGNER_INFO_W = SP_INF_SIGNER_INFO_V2_W;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "prsht", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_INSTALLWIZARD_DATA {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Flags: super::DWORD,
@@ -5149,7 +5149,7 @@ impl Default for SP_INSTALLWIZARD_DATA {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "prsht", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_INSTALLWIZARD_DATA {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Flags: super::DWORD,
@@ -5179,7 +5179,7 @@ pub const SP_MAX_MACHINENAME_LENGTH: i32 = 263;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "prsht", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_NEWDEVICEWIZARD_DATA {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Flags: super::DWORD,
@@ -5197,7 +5197,7 @@ impl Default for SP_NEWDEVICEWIZARD_DATA {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "prsht", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_NEWDEVICEWIZARD_DATA {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Flags: super::DWORD,
@@ -5217,7 +5217,7 @@ pub type SP_ORIGINAL_FILE_INFO = SP_ORIGINAL_FILE_INFO_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_ORIGINAL_FILE_INFO_A {
     pub cbSize: super::DWORD,
     pub OriginalInfName: [super::CHAR; 260],
@@ -5233,7 +5233,7 @@ impl Default for SP_ORIGINAL_FILE_INFO_A {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_ORIGINAL_FILE_INFO_A {
     pub cbSize: super::DWORD,
     pub OriginalInfName: [super::CHAR; 260],
@@ -5249,7 +5249,7 @@ impl Default for SP_ORIGINAL_FILE_INFO_A {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_ORIGINAL_FILE_INFO_W {
     pub cbSize: super::DWORD,
     pub OriginalInfName: [super::WCHAR; 260],
@@ -5265,7 +5265,7 @@ impl Default for SP_ORIGINAL_FILE_INFO_W {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_ORIGINAL_FILE_INFO_W {
     pub cbSize: super::DWORD,
     pub OriginalInfName: [super::WCHAR; 260],
@@ -5283,7 +5283,7 @@ pub type SP_POWERMESSAGEWAKE_PARAMS = SP_POWERMESSAGEWAKE_PARAMS_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_POWERMESSAGEWAKE_PARAMS_A {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub PowerMessageWake: [super::CHAR; 512],
@@ -5298,7 +5298,7 @@ impl Default for SP_POWERMESSAGEWAKE_PARAMS_A {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_POWERMESSAGEWAKE_PARAMS_A {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub PowerMessageWake: [super::CHAR; 512],
@@ -5313,7 +5313,7 @@ impl Default for SP_POWERMESSAGEWAKE_PARAMS_A {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_POWERMESSAGEWAKE_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub PowerMessageWake: [super::WCHAR; 512],
@@ -5328,7 +5328,7 @@ impl Default for SP_POWERMESSAGEWAKE_PARAMS_W {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_POWERMESSAGEWAKE_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub PowerMessageWake: [super::WCHAR; 512],
@@ -5343,7 +5343,7 @@ impl Default for SP_POWERMESSAGEWAKE_PARAMS_W {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SP_PROPCHANGE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub StateChange: super::DWORD,
@@ -5353,7 +5353,7 @@ pub struct SP_PROPCHANGE_PARAMS {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SP_PROPCHANGE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub StateChange: super::DWORD,
@@ -5363,7 +5363,7 @@ pub struct SP_PROPCHANGE_PARAMS {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SP_PROPSHEETPAGE_REQUEST {
     pub cbSize: super::DWORD,
     pub PageRequested: super::DWORD,
@@ -5373,7 +5373,7 @@ pub struct SP_PROPSHEETPAGE_REQUEST {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SP_PROPSHEETPAGE_REQUEST {
     pub cbSize: super::DWORD,
     pub PageRequested: super::DWORD,
@@ -5385,7 +5385,7 @@ pub type SP_REGISTER_CONTROL_STATUS = SP_REGISTER_CONTROL_STATUSA;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SP_REGISTER_CONTROL_STATUSA {
     pub cbSize: super::DWORD,
     pub FileName: windows_core::PCSTR,
@@ -5395,7 +5395,7 @@ pub struct SP_REGISTER_CONTROL_STATUSA {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SP_REGISTER_CONTROL_STATUSA {
     pub cbSize: super::DWORD,
     pub FileName: windows_core::PCSTR,
@@ -5405,7 +5405,7 @@ pub struct SP_REGISTER_CONTROL_STATUSA {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SP_REGISTER_CONTROL_STATUSW {
     pub cbSize: super::DWORD,
     pub FileName: windows_core::PCWSTR,
@@ -5415,7 +5415,7 @@ pub struct SP_REGISTER_CONTROL_STATUSW {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SP_REGISTER_CONTROL_STATUSW {
     pub cbSize: super::DWORD,
     pub FileName: windows_core::PCWSTR,
@@ -5425,7 +5425,7 @@ pub struct SP_REGISTER_CONTROL_STATUSW {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SP_REMOVEDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Scope: super::DWORD,
@@ -5434,7 +5434,7 @@ pub struct SP_REMOVEDEVICE_PARAMS {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SP_REMOVEDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Scope: super::DWORD,
@@ -5445,7 +5445,7 @@ pub type SP_SELECTDEVICE_PARAMS = SP_SELECTDEVICE_PARAMS_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_SELECTDEVICE_PARAMS_A {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Title: [super::CHAR; 60],
@@ -5464,7 +5464,7 @@ impl Default for SP_SELECTDEVICE_PARAMS_A {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_SELECTDEVICE_PARAMS_A {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Title: [super::CHAR; 60],
@@ -5483,7 +5483,7 @@ impl Default for SP_SELECTDEVICE_PARAMS_A {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_SELECTDEVICE_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Title: [super::WCHAR; 60],
@@ -5501,7 +5501,7 @@ impl Default for SP_SELECTDEVICE_PARAMS_W {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_SELECTDEVICE_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Title: [super::WCHAR; 60],
@@ -5521,7 +5521,7 @@ pub type SP_TROUBLESHOOTER_PARAMS = SP_TROUBLESHOOTER_PARAMS_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_TROUBLESHOOTER_PARAMS_A {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub ChmFile: [super::CHAR; 260],
@@ -5537,7 +5537,7 @@ impl Default for SP_TROUBLESHOOTER_PARAMS_A {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_TROUBLESHOOTER_PARAMS_A {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub ChmFile: [super::CHAR; 260],
@@ -5553,7 +5553,7 @@ impl Default for SP_TROUBLESHOOTER_PARAMS_A {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_TROUBLESHOOTER_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub ChmFile: [super::WCHAR; 260],
@@ -5569,7 +5569,7 @@ impl Default for SP_TROUBLESHOOTER_PARAMS_W {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SP_TROUBLESHOOTER_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub ChmFile: [super::WCHAR; 260],
@@ -5585,7 +5585,7 @@ impl Default for SP_TROUBLESHOOTER_PARAMS_W {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SP_UNREMOVEDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Scope: super::DWORD,
@@ -5594,7 +5594,7 @@ pub struct SP_UNREMOVEDEVICE_PARAMS {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SP_UNREMOVEDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Scope: super::DWORD,

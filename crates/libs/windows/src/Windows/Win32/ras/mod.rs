@@ -682,7 +682,7 @@ pub const ET_Require: i32 = 1;
 pub const ET_RequireMax: i32 = 2;
 pub type HRASCONN = *mut HRASCONN__;
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HRASCONN__ {
     pub unused: i32,
 }
@@ -806,7 +806,7 @@ pub const RASCS_WaitForCallback: tagRASCONNSTATE = 17;
 pub const RASCS_WaitForModemReset: tagRASCONNSTATE = 16;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RASCTRYINFO {
     pub dwSize: super::DWORD,
     pub dwCountryID: super::DWORD,
@@ -816,7 +816,7 @@ pub struct RASCTRYINFO {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RASDEVSPECIFICINFO {
     pub dwSize: super::DWORD,
     pub pbDevSpecificInfo: *mut super::BYTE,
@@ -953,7 +953,7 @@ pub const RASIKEv2_FLAGS_MOBIKESUPPORTED: i32 = 1;
 pub const RASIKEv2_FLAGS_SERVERBEHIND_NAT: i32 = 4;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RASIPADDR {
     pub a: super::BYTE,
     pub b: super::BYTE,
@@ -1076,7 +1076,7 @@ impl Default for RAS_PROJECTION_INFO_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RAS_STATS {
     pub dwSize: super::DWORD,
     pub dwBytesXmited: super::DWORD,
@@ -1141,7 +1141,7 @@ pub const VS_SstpOnly: i32 = 5;
 pub const WM_RASDIALEVENT: i32 = 52429;
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct tagRASADPARAMS {
     pub dwSize: super::DWORD,
     pub hwndOwner: super::HWND,
@@ -1151,7 +1151,7 @@ pub struct tagRASADPARAMS {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASAMBA {
     pub dwSize: super::DWORD,
     pub dwError: super::DWORD,
@@ -1166,7 +1166,7 @@ impl Default for tagRASAMBA {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASAMBW {
     pub dwSize: super::DWORD,
     pub dwError: super::DWORD,
@@ -1181,7 +1181,7 @@ impl Default for tagRASAMBW {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASAUTODIALENTRYA {
     pub dwSize: super::DWORD,
     pub dwFlags: super::DWORD,
@@ -1196,7 +1196,7 @@ impl Default for tagRASAUTODIALENTRYA {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASAUTODIALENTRYW {
     pub dwSize: super::DWORD,
     pub dwFlags: super::DWORD,
@@ -1211,7 +1211,7 @@ impl Default for tagRASAUTODIALENTRYW {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct tagRASCOMMSETTINGS {
     pub dwSize: super::DWORD,
     pub bParity: super::BYTE,
@@ -1221,7 +1221,7 @@ pub struct tagRASCOMMSETTINGS {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASCONNA {
     pub dwSize: super::DWORD,
     pub hrasconn: HRASCONN,
@@ -1285,7 +1285,7 @@ impl Default for tagRASCONNSTATUSW {
 pub type tagRASCONNSUBSTATE = i32;
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASCONNW {
     pub dwSize: super::DWORD,
     pub hrasconn: HRASCONN,
@@ -1307,7 +1307,7 @@ impl Default for tagRASCONNW {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASCREDENTIALSA {
     pub dwSize: super::DWORD,
     pub dwMask: super::DWORD,
@@ -1323,7 +1323,7 @@ impl Default for tagRASCREDENTIALSA {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASCREDENTIALSW {
     pub dwSize: super::DWORD,
     pub dwMask: super::DWORD,
@@ -1339,14 +1339,14 @@ impl Default for tagRASCREDENTIALSW {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct tagRASCUSTOMSCRIPTEXTENSIONS {
     pub dwSize: super::DWORD,
     pub pfnRasSetCommSettings: PFNRASSETCOMMSETTINGS,
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASDEVINFOA {
     pub dwSize: super::DWORD,
     pub szDeviceType: [super::CHAR; 17],
@@ -1360,7 +1360,7 @@ impl Default for tagRASDEVINFOA {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASDEVINFOW {
     pub dwSize: super::DWORD,
     pub szDeviceType: [super::WCHAR; 17],
@@ -1374,7 +1374,7 @@ impl Default for tagRASDEVINFOW {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct tagRASDIALEXTENSIONS {
     pub dwSize: super::DWORD,
     pub dwfOptions: super::DWORD,
@@ -1387,7 +1387,7 @@ pub struct tagRASDIALEXTENSIONS {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASDIALPARAMSA {
     pub dwSize: super::DWORD,
     pub szEntryName: [super::CHAR; 257],
@@ -1409,7 +1409,7 @@ impl Default for tagRASDIALPARAMSA {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASDIALPARAMSW {
     pub dwSize: super::DWORD,
     pub szEntryName: [super::WCHAR; 257],
@@ -1431,14 +1431,14 @@ impl Default for tagRASDIALPARAMSW {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct tagRASEAPINFO {
     pub dwSizeofEapInfo: super::DWORD,
     pub pbEapInfo: *mut super::BYTE,
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASEAPUSERIDENTITYA {
     pub szUserName: [super::CHAR; 257],
     pub dwSizeofEapInfo: super::DWORD,
@@ -1452,7 +1452,7 @@ impl Default for tagRASEAPUSERIDENTITYA {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASEAPUSERIDENTITYW {
     pub szUserName: [super::WCHAR; 257],
     pub dwSizeofEapInfo: super::DWORD,
@@ -1538,7 +1538,7 @@ impl Default for tagRASENTRYA {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASENTRYNAMEA {
     pub dwSize: super::DWORD,
     pub szEntryName: [super::CHAR; 257],
@@ -1553,7 +1553,7 @@ impl Default for tagRASENTRYNAMEA {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASENTRYNAMEW {
     pub dwSize: super::DWORD,
     pub szEntryName: [super::WCHAR; 257],
@@ -1640,7 +1640,7 @@ impl Default for tagRASENTRYW {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASIPXW {
     pub dwSize: super::DWORD,
     pub dwError: super::DWORD,
@@ -1654,7 +1654,7 @@ impl Default for tagRASIPXW {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct tagRASPPPCCP {
     pub dwSize: super::DWORD,
     pub dwError: super::DWORD,
@@ -1665,7 +1665,7 @@ pub struct tagRASPPPCCP {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASPPPIPA {
     pub dwSize: super::DWORD,
     pub dwError: super::DWORD,
@@ -1682,7 +1682,7 @@ impl Default for tagRASPPPIPA {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASPPPIPV6 {
     pub dwSize: super::DWORD,
     pub dwError: super::DWORD,
@@ -1699,7 +1699,7 @@ impl Default for tagRASPPPIPV6 {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASPPPIPW {
     pub dwSize: super::DWORD,
     pub dwError: super::DWORD,
@@ -1716,7 +1716,7 @@ impl Default for tagRASPPPIPW {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASPPPIPXA {
     pub dwSize: super::DWORD,
     pub dwError: super::DWORD,
@@ -1730,7 +1730,7 @@ impl Default for tagRASPPPIPXA {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASPPPLCPA {
     pub dwSize: super::DWORD,
     pub fBundled: windows_core::BOOL,
@@ -1756,7 +1756,7 @@ impl Default for tagRASPPPLCPA {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASPPPLCPW {
     pub dwSize: super::DWORD,
     pub fBundled: windows_core::BOOL,
@@ -1782,7 +1782,7 @@ impl Default for tagRASPPPLCPW {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASPPPNBFA {
     pub dwSize: super::DWORD,
     pub dwError: super::DWORD,
@@ -1799,7 +1799,7 @@ impl Default for tagRASPPPNBFA {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASPPPNBFW {
     pub dwSize: super::DWORD,
     pub dwError: super::DWORD,
@@ -1817,7 +1817,7 @@ impl Default for tagRASPPPNBFW {
 pub type tagRASPROJECTION = i32;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASSUBENTRYA {
     pub dwSize: super::DWORD,
     pub dwfFlags: super::DWORD,
@@ -1834,7 +1834,7 @@ impl Default for tagRASSUBENTRYA {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASSUBENTRYW {
     pub dwSize: super::DWORD,
     pub dwfFlags: super::DWORD,

@@ -638,7 +638,7 @@ pub const STIEDFL_ALLDEVICES: i32 = 0;
 pub const STIEDFL_ATTACHEDONLY: i32 = 1;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STINOTIFY {
     pub dwSize: super::DWORD,
     pub guidNotificationCode: windows_core::GUID,
@@ -652,7 +652,7 @@ impl Default for STINOTIFY {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STISUBSCRIBE {
     pub dwSize: super::DWORD,
     pub dwFlags: super::DWORD,
@@ -671,7 +671,7 @@ pub const STI_DEVICE_CREATE_STATUS: i32 = 1;
 pub type STI_DEVICE_INFORMATION = STI_DEVICE_INFORMATIONW;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STI_DEVICE_INFORMATIONW {
     pub dwSize: super::DWORD,
     pub DeviceType: STI_DEVICE_TYPE,
@@ -693,7 +693,7 @@ impl Default for STI_DEVICE_INFORMATIONW {
 pub type STI_DEVICE_MJ_TYPE = i32;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STI_DEVICE_STATUS {
     pub dwSize: super::DWORD,
     pub StatusMask: super::DWORD,
@@ -707,13 +707,13 @@ pub const STI_DEVSTATUS_EVENTS_STATE: i32 = 2;
 pub const STI_DEVSTATUS_ONLINE_STATE: i32 = 1;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STI_DEV_CAPS {
     pub dwGeneric: super::DWORD,
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STI_DIAG {
     pub dwSize: super::DWORD,
     pub dwBasicDiagCode: super::DWORD,
@@ -726,7 +726,7 @@ pub const STI_DIAGCODE_HWPRESENCE: i32 = 1;
 pub type STI_ERROR_INFO = STI_ERROR_INFOW;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STI_ERROR_INFOW {
     pub dwSize: super::DWORD,
     pub dwGenericError: super::DWORD,
@@ -790,7 +790,7 @@ pub const STI_VERSION_REAL: i32 = 2;
 pub type STI_WIA_DEVICE_INFORMATION = STI_WIA_DEVICE_INFORMATIONW;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STI_WIA_DEVICE_INFORMATIONW {
     pub dwSize: super::DWORD,
     pub DeviceType: STI_DEVICE_TYPE,

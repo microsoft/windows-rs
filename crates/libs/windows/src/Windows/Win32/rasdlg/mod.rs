@@ -96,7 +96,7 @@ pub type RasCustomDialDlgFn = Option<unsafe extern "system" fn(hinstdll: super::
 pub type RasCustomEntryDlgFn = Option<unsafe extern "system" fn(hinstdll: super::HINSTANCE, lpszphonebook: windows_core::PWSTR, lpszentry: windows_core::PWSTR, lpinfo: *mut tagRASENTRYDLGA, dwflags: super::DWORD) -> windows_core::BOOL>;
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct tagRASDIALDLG {
     pub dwSize: super::DWORD,
     pub hwndOwner: super::HWND,
@@ -110,7 +110,7 @@ pub struct tagRASDIALDLG {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASENTRYDLGA {
     pub dwSize: super::DWORD,
     pub hwndOwner: super::HWND,
@@ -130,7 +130,7 @@ impl Default for tagRASENTRYDLGA {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASENTRYDLGW {
     pub dwSize: super::DWORD,
     pub hwndOwner: super::HWND,
@@ -150,7 +150,7 @@ impl Default for tagRASENTRYDLGW {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASNOUSERA {
     pub dwSize: super::DWORD,
     pub dwFlags: super::DWORD,
@@ -167,7 +167,7 @@ impl Default for tagRASNOUSERA {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASNOUSERW {
     pub dwSize: super::DWORD,
     pub dwFlags: super::DWORD,
@@ -184,7 +184,7 @@ impl Default for tagRASNOUSERW {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct tagRASPBDLGA {
     pub dwSize: super::DWORD,
     pub hwndOwner: super::HWND,
@@ -199,7 +199,7 @@ pub struct tagRASPBDLGA {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct tagRASPBDLGW {
     pub dwSize: super::DWORD,
     pub hwndOwner: super::HWND,

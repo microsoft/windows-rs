@@ -637,7 +637,7 @@ impl Default for PACKAGE_VERSION_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PACKAGE_VERSION_0_0 {
     pub Revision: super::USHORT,
     pub Build: super::USHORT,

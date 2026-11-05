@@ -1806,7 +1806,7 @@ pub const KSDSOUND_3D_MODE_HEADRELATIVE: i32 = 1;
 pub const KSDSOUND_3D_MODE_NORMAL: i32 = 0;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDSOUND_BUFFERDESC {
     pub Flags: super::ULONG,
     pub Control: super::ULONG,
@@ -5383,7 +5383,7 @@ impl Default for NABTSFEC_BUFFER {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NABTS_BUFFER {
     pub ScanlinesRequested: VBICODECFILTERING_SCANLINES,
     pub PictureNumber: super::LONGLONG,
@@ -5397,7 +5397,7 @@ impl Default for NABTS_BUFFER {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NABTS_BUFFER_LINE {
     pub Confidence: super::BYTE,
     pub Bytes: [super::BYTE; 36],

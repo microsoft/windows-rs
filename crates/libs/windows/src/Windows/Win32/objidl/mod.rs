@@ -296,7 +296,7 @@ pub const BIND_JUSTTESTEXISTENCE: BIND_FLAGS = 2;
 pub const BIND_MAYBOTHERUSER: BIND_FLAGS = 1;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BIND_OPTS {
     pub cbStruct: super::DWORD,
     pub grfFlags: super::DWORD,
@@ -305,7 +305,7 @@ pub struct BIND_OPTS {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "objidlbase", feature = "shared", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BIND_OPTS2 {
     pub base: BIND_OPTS,
     pub dwTrackFlags: super::DWORD,
@@ -315,7 +315,7 @@ pub struct BIND_OPTS2 {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "objidlbase", feature = "shared", feature = "windef", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BIND_OPTS3 {
     pub base: BIND_OPTS2,
     pub hwnd: super::HWND,
@@ -331,7 +331,7 @@ pub const DATADIR_GET: DATADIR = 1;
 pub const DATADIR_SET: DATADIR = 2;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DVTARGETDEVICE {
     pub tdSize: super::DWORD,
     pub tdDriverNameOffset: super::WORD,
@@ -367,7 +367,7 @@ impl Default for FLAG_STGMEDIUM {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wtypes"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FORMATETC {
     pub cfFormat: super::CLIPFORMAT,
     pub ptd: *mut DVTARGETDEVICE,
@@ -4220,7 +4220,7 @@ pub const PENDINGTYPE_NESTED: PENDINGTYPE = 2;
 pub const PENDINGTYPE_TOPLEVEL: PENDINGTYPE = 1;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RemSNB {
     pub ulCntStr: super::ULONG,
     pub ulCntChar: super::ULONG,
@@ -4234,7 +4234,7 @@ impl Default for RemSNB {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "rpc", feature = "shared"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RemSTGMEDIUM {
     pub tymed: super::DWORD,
     pub dwHandleType: super::DWORD,

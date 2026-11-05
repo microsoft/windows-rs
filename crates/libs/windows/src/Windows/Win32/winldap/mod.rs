@@ -1829,7 +1829,7 @@ pub const LBER_USE_INDEFINITE_LEN: i32 = 2;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LDAP {
     pub ld_sb: LDAP_0,
     pub ld_host: super::PCHAR,
@@ -1859,7 +1859,7 @@ impl Default for LDAP {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LDAP_0 {
     pub sb_sd: super::UINT_PTR,
     pub Reserved1: [super::UCHAR; 41],
@@ -1876,7 +1876,7 @@ impl Default for LDAP_0 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LDAP {
     pub ld_sb: LDAP_0,
     pub ld_host: super::PCHAR,
@@ -1959,7 +1959,7 @@ pub struct LDAPAPIInfoW {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LDAPControlA {
     pub ldctl_oid: super::PCHAR,
     pub ldctl_value: berval,
@@ -1968,7 +1968,7 @@ pub struct LDAPControlA {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LDAPControlA {
     pub ldctl_oid: super::PCHAR,
     pub ldctl_value: berval,
@@ -1977,7 +1977,7 @@ pub struct LDAPControlA {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LDAPControlW {
     pub ldctl_oid: super::PWCHAR,
     pub ldctl_value: berval,
@@ -1986,7 +1986,7 @@ pub struct LDAPControlW {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LDAPControlW {
     pub ldctl_oid: super::PWCHAR,
     pub ldctl_value: berval,
@@ -1995,7 +1995,7 @@ pub struct LDAPControlW {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LDAPMessage {
     pub lm_msgid: super::ULONG,
     pub lm_msgtype: super::ULONG,
@@ -2402,7 +2402,7 @@ pub const LDAP_TIMEOUT: LDAP_RETCODE = 85;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LDAP_TIMEVAL {
     pub tv_sec: super::LONG,
     pub tv_usec: super::LONG,
@@ -2485,7 +2485,7 @@ pub type VERIFYSERVERCERT = Option<unsafe extern "C" fn(connection: PLDAP, pserv
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct berval {
     pub bv_len: super::ULONG,
     pub bv_val: super::PCHAR,

@@ -830,7 +830,7 @@ pub const AVICOMPRESSF_KEYFRAMES: i32 = 4;
 pub const AVICOMPRESSF_VALID: i32 = 8;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AVICOMPRESSOPTIONS {
     pub fccType: super::DWORD,
     pub fccHandler: super::DWORD,
@@ -892,7 +892,7 @@ pub const AVIFILEHANDLER_CANREAD: i32 = 1;
 pub const AVIFILEHANDLER_CANWRITE: i32 = 2;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AVIFILEINFOA {
     pub dwMaxBytesPerSec: super::DWORD,
     pub dwFlags: super::DWORD,
@@ -915,7 +915,7 @@ impl Default for AVIFILEINFOA {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AVIFILEINFOW {
     pub dwMaxBytesPerSec: super::DWORD,
     pub dwFlags: super::DWORD,
@@ -969,7 +969,7 @@ pub const AVISF_DISABLED: i32 = 1;
 pub const AVISF_VIDEO_PALCHANGES: i32 = 65536;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AVISTREAMINFOA {
     pub fccType: super::DWORD,
     pub fccHandler: super::DWORD,
@@ -998,7 +998,7 @@ impl Default for AVISTREAMINFOA {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AVISTREAMINFOW {
     pub fccType: super::DWORD,
     pub fccHandler: super::DWORD,
@@ -1055,7 +1055,7 @@ pub const BI_1632: i32 = 842217009;
 pub type CAPCONTROLCALLBACK = Option<unsafe extern "system" fn(hwnd: super::HWND, nstate: i32) -> super::LRESULT>;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CAPDRIVERCAPS {
     pub wDeviceIndex: super::UINT,
     pub fHasOverlay: windows_core::BOOL,
@@ -1075,7 +1075,7 @@ pub type CAPERRORCALLBACKA = Option<unsafe extern "system" fn(hwnd: super::HWND,
 pub type CAPERRORCALLBACKW = Option<unsafe extern "system" fn(hwnd: super::HWND, nid: i32, lpsz: windows_core::PCWSTR) -> super::LRESULT>;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "mmiscapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CAPINFOCHUNK {
     pub fccInfoID: super::FOURCC,
     pub lpData: super::LPVOID,
@@ -1083,7 +1083,7 @@ pub struct CAPINFOCHUNK {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CAPSTATUS {
     pub uiImageWidth: super::UINT,
     pub uiImageHeight: super::UINT,
@@ -1110,7 +1110,7 @@ pub type CAPSTATUSCALLBACKA = Option<unsafe extern "system" fn(hwnd: super::HWND
 pub type CAPSTATUSCALLBACKW = Option<unsafe extern "system" fn(hwnd: super::HWND, nid: i32, lpsz: windows_core::PCWSTR) -> super::LRESULT>;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CAPTUREPARMS {
     pub dwRequestMicroSecPerFrame: super::DWORD,
     pub fMakeUserHitOKToCapture: windows_core::BOOL,
@@ -1145,7 +1145,7 @@ pub type CAPWAVECALLBACK = Option<unsafe extern "system" fn(hwnd: super::HWND, l
 pub type CAPYIELDCALLBACK = Option<unsafe extern "system" fn(hwnd: super::HWND) -> super::LRESULT>;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANNEL_CAPS {
     pub dwFlags: super::DWORD,
     pub dwSrcRectXMod: super::DWORD,
@@ -1278,7 +1278,7 @@ pub struct HIC__ {
 }
 pub type HVIDEO = *mut HVIDEO__;
 #[repr(C, packed(8))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HVIDEO__ {
     pub unused: i32,
 }
@@ -2460,7 +2460,7 @@ pub const VIDCF_QUALITY: i32 = 1;
 pub const VIDCF_TEMPORAL: i32 = 4;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VIDEOHDR {
     pub lpData: super::LPBYTE,
     pub dwBufferLength: super::DWORD,

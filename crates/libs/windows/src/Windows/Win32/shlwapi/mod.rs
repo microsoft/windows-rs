@@ -2948,7 +2948,7 @@ pub const CTF_WAIT_NO_REENTRANCY: i32 = 512;
 pub type DLLGETVERSIONPROC = Option<unsafe extern "system" fn(param0: *mut DLLVERSIONINFO) -> windows_core::HRESULT>;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DLLVERSIONINFO {
     pub cbSize: super::DWORD,
     pub dwMajorVersion: super::DWORD,
@@ -2958,7 +2958,7 @@ pub struct DLLVERSIONINFO {
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DLLVERSIONINFO2 {
     pub info1: DLLVERSIONINFO,
     pub dwFlags: super::DWORD,
@@ -3229,7 +3229,7 @@ pub const OS_XPORGREATER: i32 = 18;
 pub type PARSEDURL = PARSEDURLA;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PARSEDURLA {
     pub cbSize: super::DWORD,
     pub pszProtocol: windows_core::PCSTR,
@@ -3240,7 +3240,7 @@ pub struct PARSEDURLA {
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PARSEDURLW {
     pub cbSize: super::DWORD,
     pub pszProtocol: windows_core::PCWSTR,
@@ -3265,7 +3265,7 @@ pub type PPARSEDURLA = *mut PARSEDURLA;
 pub type PPARSEDURLW = *mut PARSEDURLW;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "guiddef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QITAB {
     pub piid: *const super::IID,
     pub dwOffset: super::DWORD,

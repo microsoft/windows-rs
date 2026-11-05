@@ -156,7 +156,7 @@ pub unsafe fn HidP_UsageListDifference(previoususagelist: super::PUSAGE, current
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIDP_BUTTON_ARRAY_DATA {
     pub ArrayIndex: super::USHORT,
     pub On: super::BOOLEAN,
@@ -202,7 +202,7 @@ impl Default for HIDP_BUTTON_CAPS_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "hidusage", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIDP_BUTTON_CAPS_0_0 {
     pub UsageMin: super::USAGE,
     pub UsageMax: super::USAGE,
@@ -215,7 +215,7 @@ pub struct HIDP_BUTTON_CAPS_0_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "hidusage", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIDP_BUTTON_CAPS_0_1 {
     pub Usage: super::USAGE,
     pub Reserved1: super::USAGE,
@@ -228,7 +228,7 @@ pub struct HIDP_BUTTON_CAPS_0_1 {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "hidusage", feature = "shared"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HIDP_CAPS {
     pub Usage: super::USAGE,
     pub UsagePage: super::USAGE,
@@ -282,7 +282,7 @@ impl Default for HIDP_DATA_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HIDP_EXTENDED_ATTRIBUTES {
     pub NumGlobalUnknowns: super::UCHAR,
     pub Reserved: [super::UCHAR; 3],
@@ -323,7 +323,7 @@ impl Default for HIDP_KEYBOARD_MODIFIER_STATE_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
     pub _bitfield: u32,
 }
@@ -404,7 +404,7 @@ impl HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "hidusage", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIDP_LINK_COLLECTION_NODE {
     pub LinkUsage: super::USAGE,
     pub LinkUsagePage: super::USAGE,
@@ -464,7 +464,7 @@ pub const HIDP_STATUS_USAGE_NOT_FOUND: windows_core::NTSTATUS = windows_core::NT
 pub const HIDP_STATUS_VALUE_OUT_OF_RANGE: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC0110005_u32 as _);
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HIDP_UNKNOWN_TOKEN {
     pub Token: super::UCHAR,
     pub Reserved: [super::UCHAR; 3],
@@ -525,7 +525,7 @@ impl Default for HIDP_VALUE_CAPS_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "hidusage", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIDP_VALUE_CAPS_0_0 {
     pub UsageMin: super::USAGE,
     pub UsageMax: super::USAGE,
@@ -538,7 +538,7 @@ pub struct HIDP_VALUE_CAPS_0_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "hidusage", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIDP_VALUE_CAPS_0_1 {
     pub Usage: super::USAGE,
     pub Reserved1: super::USAGE,
@@ -582,7 +582,7 @@ pub type PHIDP_VALUE_CAPS = *mut HIDP_VALUE_CAPS;
 pub type PUSAGE_AND_PAGE = *mut USAGE_AND_PAGE;
 #[repr(C, packed(4))]
 #[cfg(feature = "hidusage")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USAGE_AND_PAGE {
     pub Usage: super::USAGE,
     pub UsagePage: super::USAGE,

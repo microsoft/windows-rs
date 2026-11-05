@@ -615,13 +615,13 @@ pub const COWAIT_INPUTAVAILABLE: COWAIT_FLAGS = 4;
 pub const COWAIT_WAITALL: COWAIT_FLAGS = 1;
 pub type CO_DEVICE_CATALOG_COOKIE = *mut CO_DEVICE_CATALOG_COOKIE__;
 #[repr(C, packed(8))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CO_DEVICE_CATALOG_COOKIE__ {
     pub unused: i32,
 }
 pub type CO_MTA_USAGE_COOKIE = *mut CO_MTA_USAGE_COOKIE__;
 #[repr(C, packed(8))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CO_MTA_USAGE_COOKIE__ {
     pub unused: i32,
 }
@@ -647,7 +647,7 @@ pub const SMEXF_SERVER: STDMSHLFLAGS = 1;
 pub type STDMSHLFLAGS = i32;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ServerInformation {
     pub dwServerPid: super::DWORD,
     pub dwServerTid: super::DWORD,

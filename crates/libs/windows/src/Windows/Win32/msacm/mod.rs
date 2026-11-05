@@ -257,7 +257,7 @@ pub const ACMDM_RESERVED_LOW: i32 = 24576;
 pub const ACMDM_USER: i32 = 16384;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmiscapi", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACMDRIVERDETAILSA {
     pub cbStruct: super::DWORD,
     pub fccType: super::FOURCC,
@@ -284,7 +284,7 @@ impl Default for ACMDRIVERDETAILSA {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmiscapi", feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACMDRIVERDETAILSW {
     pub cbStruct: super::DWORD,
     pub fccType: super::FOURCC,
@@ -336,7 +336,7 @@ pub const ACMERR_NOTPOSSIBLE: i32 = 512;
 pub const ACMERR_UNPREPARED: i32 = 514;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "minwindef", feature = "mmreg", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct ACMFILTERCHOOSEA {
     pub cbStruct: super::DWORD,
     pub fdwStyle: super::DWORD,
@@ -367,7 +367,7 @@ pub type ACMFILTERCHOOSEHOOKPROCA = Option<unsafe extern "system" fn(hwnd: super
 pub type ACMFILTERCHOOSEHOOKPROCW = Option<unsafe extern "system" fn(hwnd: super::HWND, umsg: super::UINT, wparam: super::WPARAM, lparam: super::LPARAM) -> super::UINT>;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "minwindef", feature = "mmreg", feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct ACMFILTERCHOOSEW {
     pub cbStruct: super::DWORD,
     pub fdwStyle: super::DWORD,
@@ -400,7 +400,7 @@ pub const ACMFILTERCHOOSE_STYLEF_INITTOFILTERSTRUCT: i32 = 64;
 pub const ACMFILTERCHOOSE_STYLEF_SHOWHELP: i32 = 4;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmreg", feature = "shared"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACMFILTERDETAILSA {
     pub cbStruct: super::DWORD,
     pub dwFilterIndex: super::DWORD,
@@ -418,7 +418,7 @@ impl Default for ACMFILTERDETAILSA {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmreg", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACMFILTERDETAILSW {
     pub cbStruct: super::DWORD,
     pub dwFilterIndex: super::DWORD,
@@ -441,7 +441,7 @@ pub type ACMFILTERENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVERID
 pub type ACMFILTERENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: LPACMFILTERDETAILSW, dwinstance: super::DWORD_PTR, fdwsupport: super::DWORD) -> windows_core::BOOL>;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACMFILTERTAGDETAILSA {
     pub cbStruct: super::DWORD,
     pub dwFilterTagIndex: super::DWORD,
@@ -459,7 +459,7 @@ impl Default for ACMFILTERTAGDETAILSA {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACMFILTERTAGDETAILSW {
     pub cbStruct: super::DWORD,
     pub dwFilterTagIndex: super::DWORD,
@@ -482,7 +482,7 @@ pub type ACMFILTERTAGENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVE
 pub type ACMFILTERTAGENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: LPACMFILTERTAGDETAILSW, dwinstance: super::DWORD_PTR, fdwsupport: super::DWORD) -> windows_core::BOOL>;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct ACMFORMATCHOOSEA {
     pub cbStruct: super::DWORD,
     pub fdwStyle: super::DWORD,
@@ -513,7 +513,7 @@ pub type ACMFORMATCHOOSEHOOKPROCA = Option<unsafe extern "system" fn(hwnd: super
 pub type ACMFORMATCHOOSEHOOKPROCW = Option<unsafe extern "system" fn(hwnd: super::HWND, umsg: super::UINT, wparam: super::WPARAM, lparam: super::LPARAM) -> super::UINT>;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct ACMFORMATCHOOSEW {
     pub cbStruct: super::DWORD,
     pub fdwStyle: super::DWORD,
@@ -546,7 +546,7 @@ pub const ACMFORMATCHOOSE_STYLEF_INITTOWFXSTRUCT: i32 = 64;
 pub const ACMFORMATCHOOSE_STYLEF_SHOWHELP: i32 = 4;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACMFORMATDETAILSA {
     pub cbStruct: super::DWORD,
     pub dwFormatIndex: super::DWORD,
@@ -564,7 +564,7 @@ impl Default for ACMFORMATDETAILSA {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "mmeapi", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACMFORMATDETAILSW {
     pub cbStruct: super::DWORD,
     pub dwFormatIndex: super::DWORD,
@@ -587,7 +587,7 @@ pub type ACMFORMATENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVERID
 pub type ACMFORMATENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: LPACMFORMATDETAILSW, dwinstance: super::DWORD_PTR, fdwsupport: super::DWORD) -> windows_core::BOOL>;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACMFORMATTAGDETAILSA {
     pub cbStruct: super::DWORD,
     pub dwFormatTagIndex: super::DWORD,
@@ -605,7 +605,7 @@ impl Default for ACMFORMATTAGDETAILSA {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACMFORMATTAGDETAILSW {
     pub cbStruct: super::DWORD,
     pub dwFormatTagIndex: super::DWORD,
@@ -638,7 +638,7 @@ pub const ACMHELPMSGSTRINGW: windows_core::PCWSTR = windows_core::w!("acmchoose_
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACMSTREAMHEADER {
     pub cbStruct: super::DWORD,
     pub fdwStatus: super::DWORD,
@@ -663,7 +663,7 @@ impl Default for ACMSTREAMHEADER {
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACMSTREAMHEADER {
     pub cbStruct: super::DWORD,
     pub fdwStatus: super::DWORD,
@@ -772,24 +772,24 @@ pub const FORMATCHOOSE_MESSAGE: i32 = 0;
 pub type HACMDRIVER = *mut HACMDRIVER__;
 pub type HACMDRIVERID = *mut HACMDRIVERID__;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HACMDRIVERID__ {
     pub unused: i32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HACMDRIVER__ {
     pub unused: i32,
 }
 pub type HACMOBJ = *mut HACMOBJ__;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HACMOBJ__ {
     pub unused: i32,
 }
 pub type HACMSTREAM = *mut HACMSTREAM__;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HACMSTREAM__ {
     pub unused: i32,
 }

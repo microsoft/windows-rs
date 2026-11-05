@@ -3,7 +3,7 @@ pub const ENCLAVE_FLAG_DYNAMIC_DEBUG_ENABLED: i32 = 2;
 pub const ENCLAVE_FLAG_FULL_DEBUG_ENABLED: i32 = 1;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENCLAVE_IDENTITY {
     pub OwnerId: [super::UINT8; 32],
     pub UniqueId: [super::UINT8; 32],
@@ -31,7 +31,7 @@ pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_IMAGE: ENCLAVE_SEALING_IDENTITY_POLI
 pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_PRIMARY_CODE: ENCLAVE_SEALING_IDENTITY_POLICY = 2;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENCLAVE_INFORMATION {
     pub EnclaveType: super::ULONG,
     pub Reserved: super::ULONG,
@@ -41,7 +41,7 @@ pub struct ENCLAVE_INFORMATION {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENCLAVE_PACKAGE_IDENTITY {
     pub PackageId: [super::UINT8; 32],
     pub PackageSvn: super::UINT64,
@@ -202,7 +202,7 @@ impl Default for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VBS_ENCLAVE_REPORT {
     pub ReportSize: super::UINT32,
     pub ReportVersion: super::UINT32,
@@ -217,7 +217,7 @@ impl Default for VBS_ENCLAVE_REPORT {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VBS_ENCLAVE_REPORT_MODULE {
     pub Header: VBS_ENCLAVE_REPORT_VARDATA_HEADER,
     pub UniqueId: [super::UINT8; 32],
@@ -235,14 +235,14 @@ impl Default for VBS_ENCLAVE_REPORT_MODULE {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VBS_ENCLAVE_REPORT_PACKAGE_ID {
     pub Header: VBS_ENCLAVE_REPORT_VARDATA_HEADER,
     pub PackageIdentity: ENCLAVE_PACKAGE_IDENTITY,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VBS_ENCLAVE_REPORT_PKG_HEADER {
     pub PackageSize: super::UINT32,
     pub Version: super::UINT32,
@@ -255,7 +255,7 @@ pub const VBS_ENCLAVE_REPORT_PKG_HEADER_VERSION_CURRENT: i32 = 1;
 pub const VBS_ENCLAVE_REPORT_SIGNATURE_SCHEME_SHA256_RSA_PSS_SHA256: i32 = 1;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VBS_ENCLAVE_REPORT_VARDATA_HEADER {
     pub DataType: super::UINT32,
     pub Size: super::UINT32,

@@ -2592,7 +2592,7 @@ pub type LPVIEWOBJECT2 = IViewObject2;
 pub const MK_ALT: i32 = 32;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OBJECTDESCRIPTOR {
     pub cbSize: super::ULONG,
     pub clsid: super::CLSID,
@@ -2620,7 +2620,7 @@ pub const OLEGETMONIKER_TEMPFORUSER: OLEGETMONIKER = 4;
 pub const OLEGETMONIKER_UNASSIGN: OLEGETMONIKER = 3;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLEINPLACEFRAMEINFO {
     pub cb: super::UINT,
     pub fMDIApp: windows_core::BOOL,
@@ -2632,7 +2632,7 @@ pub type OLELINKBIND = i32;
 pub const OLELINKBIND_EVENIFCLASSDIFF: OLELINKBIND = 1;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OLEMENUGROUPWIDTHS {
     pub width: [super::LONG; 6],
 }
@@ -2675,7 +2675,7 @@ pub const OLEUPDATE_ALWAYS: OLEUPDATE = 1;
 pub const OLEUPDATE_ONCALL: OLEUPDATE = 3;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLEVERB {
     pub lVerb: super::LONG,
     pub lpszVerbName: super::LPOLESTR,

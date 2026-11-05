@@ -213,7 +213,7 @@ pub const DRVCNF_OK: i32 = 1;
 pub const DRVCNF_RESTART: i32 = 2;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRVCONFIGINFO {
     pub dwDCISize: super::DWORD,
     pub lpszDCISectionName: windows_core::PCWSTR,
@@ -221,7 +221,7 @@ pub struct DRVCONFIGINFO {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRVCONFIGINFOEX {
     pub dwDCISize: super::DWORD,
     pub lpszDCISectionName: windows_core::PCWSTR,
@@ -258,7 +258,7 @@ pub const FOURCC_MEM: super::DWORD = 541934925;
 pub const FOURCC_RIFF: super::DWORD = 1179011410;
 pub type HMMIO = *mut HMMIO__;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HMMIO__ {
     pub unused: i32,
 }
@@ -279,7 +279,7 @@ pub type LPMMIOINFO = *mut MMIOINFO;
 pub type LPMMIOPROC = Option<unsafe extern "system" fn(lpmmioinfo: windows_core::PSTR, umsg: super::UINT, lparam1: super::LPARAM, lparam2: super::LPARAM) -> super::LRESULT>;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMCKINFO {
     pub ckid: FOURCC,
     pub cksize: super::DWORD,
@@ -306,7 +306,7 @@ pub const MMIOERR_TOOMANYOPENFILES: i32 = 271;
 pub const MMIOERR_UNBUFFERED: i32 = 266;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct MMIOINFO {
     pub dwFlags: super::DWORD,
     pub fccIOProc: FOURCC,

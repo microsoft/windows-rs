@@ -2176,7 +2176,7 @@ pub type MSV1_0_PROFILE_BUFFER_TYPE = i32;
 pub type MSV1_0_PROTOCOL_MESSAGE_TYPE = i32;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL {
     pub Version: super::ULONG,
     pub Flags: super::ULONG,

@@ -1083,7 +1083,7 @@ pub const AD_GETWP_LAST_APPLIED: i32 = 2;
 pub type AUTOCOMPLETELISTOPTIONS = i32;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUTO_SCROLL_DATA {
     pub iNextSample: i32,
     pub dwLastScroll: super::DWORD,
@@ -1133,7 +1133,7 @@ pub const BIF_USENEWUI: i32 = 80;
 pub const BIF_VALIDATE: i32 = 32;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "shtypes", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct BROWSEINFOA {
     pub hwndOwner: super::HWND,
     pub pidlRoot: super::LPCITEMIDLIST,
@@ -1146,7 +1146,7 @@ pub struct BROWSEINFOA {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "shtypes", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct BROWSEINFOW {
     pub hwndOwner: super::HWND,
     pub pidlRoot: super::LPCITEMIDLIST,
@@ -1159,7 +1159,7 @@ pub struct BROWSEINFOW {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CABINETSTATE {
     pub cLength: super::WORD,
     pub nVersion: super::WORD,
@@ -1265,7 +1265,7 @@ pub const CFSTR_UNTRUSTEDDRAGDROP: windows_core::PCSTR = windows_core::s!("Untru
 pub const CFSTR_ZONEIDENTIFIER: windows_core::PCSTR = windows_core::s!("ZoneIdentifier");
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CIDA {
     pub cidl: super::UINT,
     pub aoffset: [super::UINT; 1],
@@ -1279,7 +1279,7 @@ impl Default for CIDA {
 pub const CMDID_INTSHORTCUTCREATE: i32 = 1;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COMPONENT {
     pub dwSize: super::DWORD,
     pub dwID: super::DWORD,
@@ -1303,7 +1303,7 @@ impl Default for COMPONENT {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMPONENTSOPT {
     pub dwSize: super::DWORD,
     pub fEnableComponents: windows_core::BOOL,
@@ -1314,7 +1314,7 @@ pub const COMPONENT_DEFAULT_TOP: i32 = 65535;
 pub const COMPONENT_TOP: i32 = 1073741823;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMPPOS {
     pub dwSize: super::DWORD,
     pub iLeft: i32,
@@ -1330,7 +1330,7 @@ pub struct COMPPOS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMPSTATEINFO {
     pub dwSize: super::DWORD,
     pub iLeft: i32,
@@ -1438,7 +1438,7 @@ pub const CSIDL_TEMPLATES: i32 = 21;
 pub const CSIDL_WINDOWS: i32 = 36;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DATABLOCK_HEADER {
     pub cbSize: super::DWORD,
     pub dwSignature: super::DWORD,
@@ -1529,7 +1529,7 @@ pub const DFM_WM_INITMENUPOPUP: i32 = 8;
 pub const DFM_WM_MEASUREITEM: i32 = 6;
 #[repr(C, packed(1))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DROPDESCRIPTION {
     pub r#type: DROPIMAGETYPE,
     pub szMessage: [super::WCHAR; 260],
@@ -1543,7 +1543,7 @@ impl Default for DROPDESCRIPTION {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DROPFILES {
     pub pFiles: super::DWORD,
     pub pt: super::POINT,
@@ -1568,7 +1568,7 @@ pub const DVASPECT_SHORTNAME: i32 = 2;
 pub const EXP_DARWIN_ID_SIG: u32 = 2684354566;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXP_DARWIN_LINK {
     pub dbh: DATABLOCK_HEADER,
     pub szDarwinID: [super::CHAR; 260],
@@ -1582,7 +1582,7 @@ impl Default for EXP_DARWIN_LINK {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXP_PROPERTYSTORAGE {
     pub cbSize: super::DWORD,
     pub dwSignature: super::DWORD,
@@ -1597,7 +1597,7 @@ impl Default for EXP_PROPERTYSTORAGE {
 pub const EXP_PROPERTYSTORAGE_SIG: u32 = 2684354569;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXP_SPECIAL_FOLDER {
     pub cbSize: super::DWORD,
     pub dwSignature: super::DWORD,
@@ -1608,7 +1608,7 @@ pub const EXP_SPECIAL_FOLDER_SIG: u32 = 2684354565;
 pub const EXP_SZ_ICON_SIG: u32 = 2684354567;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXP_SZ_LINK {
     pub cbSize: super::DWORD,
     pub dwSignature: super::DWORD,
@@ -1662,7 +1662,7 @@ pub const FD_UNICODE: FD_FLAGS = -2147483648;
 pub const FD_WRITESTIME: FD_FLAGS = 32;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILEDESCRIPTORA {
     pub dwFlags: super::DWORD,
     pub clsid: super::CLSID,
@@ -1684,7 +1684,7 @@ impl Default for FILEDESCRIPTORA {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILEDESCRIPTORW {
     pub dwFlags: super::DWORD,
     pub clsid: super::CLSID,
@@ -1706,7 +1706,7 @@ impl Default for FILEDESCRIPTORW {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILEGROUPDESCRIPTORA {
     pub cItems: super::UINT,
     pub fgd: [FILEDESCRIPTORA; 1],
@@ -1719,7 +1719,7 @@ impl Default for FILEGROUPDESCRIPTORA {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILEGROUPDESCRIPTORW {
     pub cItems: super::UINT,
     pub fgd: [FILEDESCRIPTORW; 1],
@@ -1732,7 +1732,7 @@ impl Default for FILEGROUPDESCRIPTORW {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ATTRIBUTES_ARRAY {
     pub cItems: super::UINT,
     pub dwSumFileAttributes: super::DWORD,
@@ -1764,7 +1764,7 @@ pub type GPFIDL_FLAGS = i32;
 pub const GPFIDL_UNCPRINTER: i32 = 2;
 pub type HPSXA = *mut HPSXA__;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HPSXA__ {
     pub unused: i32,
 }
@@ -2304,7 +2304,7 @@ impl IDockingWindowSite_Vtbl {
 impl windows_core::RuntimeName for IDockingWindowSite {}
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IE4COMPONENT {
     pub dwSize: super::DWORD,
     pub dwID: super::DWORD,
@@ -3726,7 +3726,7 @@ impl IShellIconOverlayManager_Vtbl {
 #[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IShellIconOverlayManager {}
 #[repr(C, packed(8))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ITEMSPACING {
     pub cxSmall: i32,
     pub cySmall: i32,
@@ -3929,7 +3929,7 @@ pub const MM_DONTREMOVESEPS: i32 = 4;
 pub const MM_SUBMENUSHAVEIDS: i32 = 2;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnetwk"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NRESARRAY {
     pub cItems: super::UINT,
     pub nr: [super::NETRESOURCE; 1],
@@ -3942,7 +3942,7 @@ impl Default for NRESARRAY {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "wincontypes", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NT_CONSOLE_PROPS {
     pub dbh: DATABLOCK_HEADER,
     pub wFillAttribute: super::WORD,
@@ -3975,7 +3975,7 @@ impl Default for NT_CONSOLE_PROPS {
 pub const NT_CONSOLE_PROPS_SIG: u32 = 2684354562;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NT_FE_CONSOLE_PROPS {
     pub dbh: DATABLOCK_HEADER,
     pub uCodePage: super::UINT,
@@ -3994,7 +3994,7 @@ pub const OFASI_OPENDESKTOP: i32 = 2;
 pub const OI_ASYNC: u32 = 4294962926;
 pub const OI_DEFAULT: i32 = 0;
 #[repr(C, packed(8))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPENASINFO {
     pub pcszFile: windows_core::PCWSTR,
     pub pcszClass: windows_core::PCWSTR,
@@ -4086,7 +4086,7 @@ pub const PROGDLG_NORMAL: i32 = 0;
 pub const PROGDLG_NOTIME: i32 = 4;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROPPRG {
     pub flPrg: super::WORD,
     pub flPrgInit: super::WORD,
@@ -4109,7 +4109,7 @@ impl Default for PROPPRG {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QCMINFO {
     pub hmenu: super::HMENU,
     pub indexMenu: super::UINT,
@@ -4119,7 +4119,7 @@ pub struct QCMINFO {
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QCMINFO_IDMAP {
     pub nMaxIds: super::UINT,
     pub pIdList: [QCMINFO_IDMAP_PLACEMENT; 1],
@@ -4132,7 +4132,7 @@ impl Default for QCMINFO_IDMAP {
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QCMINFO_IDMAP_PLACEMENT {
     pub id: super::UINT,
     pub fFlags: super::UINT,
@@ -4337,7 +4337,7 @@ pub const SFVM_GETTOOLTIPTEXT: i32 = 4;
 pub const SFVM_GETZONE: i32 = 58;
 #[repr(C, packed(8))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SFVM_HELPTOPIC_DATA {
     pub wszHelpFile: [super::WCHAR; 260],
     pub wszHelpTopic: [super::WCHAR; 260],
@@ -4353,7 +4353,7 @@ pub const SFVM_INVOKECOMMAND: i32 = 2;
 pub const SFVM_MERGEMENU: i32 = 1;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "prsht", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct SFVM_PROPPAGE_DATA {
     pub dwReserved: super::DWORD,
     pub pfn: super::LPFNADDPROPSHEETPAGE,
@@ -4390,7 +4390,7 @@ pub struct SHARDAPPIDINFO {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "shtypes"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHARDAPPIDINFOIDLIST {
     pub pidl: super::LPCITEMIDLIST,
     pub pszAppID: windows_core::PCWSTR,
@@ -4457,7 +4457,7 @@ pub const SHCNRF_RecursiveInterrupt: i32 = 4096;
 pub const SHCNRF_ShellLevel: i32 = 2;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHChangeDWORDAsIDList {
     pub cb: super::USHORT,
     pub dwItem1: super::DWORD,
@@ -4466,14 +4466,14 @@ pub struct SHChangeDWORDAsIDList {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "shtypes"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHChangeNotifyEntry {
     pub pidl: super::LPCITEMIDLIST,
     pub fRecursive: windows_core::BOOL,
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHChangeUpdateImageIDList {
     pub cb: super::USHORT,
     pub iIconIndex: i32,
@@ -4491,7 +4491,7 @@ impl Default for SHChangeUpdateImageIDList {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "guiddef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHDESCRIPTIONID {
     pub dwDescriptionId: super::DWORD,
     pub clsid: super::CLSID,
@@ -4520,7 +4520,7 @@ pub const SHDID_REMOTE_DESKTOP_DRIVE: i32 = 22;
 pub const SHDID_ROOT_REGITEM: i32 = 1;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHELLFLAGSTATE {
     pub _bitfield: i32,
 }
@@ -4625,7 +4625,7 @@ impl SHELLFLAGSTATE {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHELLSTATEA {
     pub _bitfield1: i32,
     pub dwWin95Unused: super::DWORD,
@@ -4793,7 +4793,7 @@ pub const SHELLSTATEVERSION_IE4: i32 = 9;
 pub const SHELLSTATEVERSION_WIN2K: i32 = 10;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHELLSTATEW {
     pub _bitfield1: i32,
     pub dwWin95Unused: super::DWORD,
@@ -4976,7 +4976,7 @@ pub const SHFMT_OPT_FULL: i32 = 1;
 pub const SHFMT_OPT_SYSONLY: i32 = 2;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "shobjidl_core"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHFOLDERCUSTOMSETTINGS {
     pub dwSize: super::DWORD,
     pub dwMask: super::DWORD,
@@ -5082,7 +5082,7 @@ pub const VALIDATEUNC_PRINT: i32 = 4;
 pub const VALIDATEUNC_VALID: i32 = 15;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WALLPAPEROPT {
     pub dwSize: super::DWORD,
     pub dwStyle: super::DWORD,

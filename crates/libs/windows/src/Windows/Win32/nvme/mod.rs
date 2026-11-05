@@ -25,7 +25,7 @@ impl Default for ACTIVE_LATENCY_CONFIGURATION_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTIVE_LATENCY_CONFIGURATION_0_0 {
     pub _bitfield: u16,
 }
@@ -112,7 +112,7 @@ impl ACTIVE_LATENCY_CONFIGURATION_0_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BUCKET_COUNTER {
     pub Reserved: super::ULONG,
     pub Trim: super::ULONG,
@@ -121,7 +121,7 @@ pub struct BUCKET_COUNTER {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_BIT_FIELD {
     pub _bitfield: u16,
 }
@@ -208,7 +208,7 @@ impl DEBUG_BIT_FIELD {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSSD_POWER_STATE_DESCRIPTOR {
     pub _bitfield: u8,
 }
@@ -235,7 +235,7 @@ impl DSSD_POWER_STATE_DESCRIPTOR {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FIRMWARE_ACTIVATION_HISTORY_ENTRY {
     pub VersionNumber: super::UCHAR,
     pub Length: super::UCHAR,
@@ -331,7 +331,7 @@ impl Default for LATENCY_MONITOR_FEATURE_STATUS_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LATENCY_MONITOR_FEATURE_STATUS_0_0 {
     pub _bitfield: u8,
 }
@@ -364,7 +364,7 @@ impl LATENCY_MONITOR_FEATURE_STATUS_0_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LATENCY_STAMP {
     pub Trim3: super::ULONGLONG,
     pub Write3: super::ULONGLONG,
@@ -381,7 +381,7 @@ pub struct LATENCY_STAMP {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LATENCY_STAMP_UNITS {
     pub _bitfield: u16,
 }
@@ -468,7 +468,7 @@ impl LATENCY_STAMP_UNITS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEASURED_LATENCY {
     pub Trim3: super::USHORT,
     pub Write3: super::USHORT,
@@ -6286,7 +6286,7 @@ pub type NVME_CSTS_SHST_SHUTDOWN_STATUS = i32;
 pub type NVME_DEALLOCATE_READ_BEHAVIOR = i32;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NVME_DEVICE_SELF_TEST_LOG {
     pub CurrentOperation: NVME_DEVICE_SELF_TEST_LOG_0,
     pub CurrentCompletion: NVME_DEVICE_SELF_TEST_LOG_1,
@@ -6301,7 +6301,7 @@ impl Default for NVME_DEVICE_SELF_TEST_LOG {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_DEVICE_SELF_TEST_LOG_0 {
     pub _bitfield: u8,
 }
@@ -6322,7 +6322,7 @@ impl NVME_DEVICE_SELF_TEST_LOG_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_DEVICE_SELF_TEST_LOG_1 {
     pub _bitfield: u8,
 }
@@ -6343,7 +6343,7 @@ impl NVME_DEVICE_SELF_TEST_LOG_1 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_DEVICE_SELF_TEST_RESULT_DATA {
     pub Status: NVME_DEVICE_SELF_TEST_RESULT_DATA_0,
     pub SegmentNumber: super::UCHAR,
@@ -6358,7 +6358,7 @@ pub struct NVME_DEVICE_SELF_TEST_RESULT_DATA {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_DEVICE_SELF_TEST_RESULT_DATA_0 {
     pub _bitfield: u8,
 }
@@ -6379,7 +6379,7 @@ impl NVME_DEVICE_SELF_TEST_RESULT_DATA_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_DEVICE_SELF_TEST_RESULT_DATA_1 {
     pub _bitfield: u8,
 }
@@ -6418,7 +6418,7 @@ impl NVME_DEVICE_SELF_TEST_RESULT_DATA_1 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_DEVICE_SELF_TEST_RESULT_DATA_2 {
     pub _bitfield: u8,
 }
@@ -6823,7 +6823,7 @@ pub const NVME_DISCOVERY_INFO_MGMT_TASK_UPDATE: NVME_DISCOVERY_INFO_MGMT_TASK = 
 pub type NVME_DISC_CTRL_TYPE = i32;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NVME_ENDURANCE_GROUP_LOG {
     pub Reserved0: super::ULONG,
     pub AvailableSpareThreshold: super::UCHAR,
@@ -9243,7 +9243,7 @@ pub const NVME_IO_COMMAND_SET_NOT_ENABLED: NVME_STATUS_COMMAND_SPECIFIC_CODES = 
 pub const NVME_IO_COMMAND_SET_NOT_SUPPORTED: NVME_STATUS_COMMAND_SPECIFIC_CODES = 41;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NVME_LATENCY_MONITORING_ENTRY {
     pub ActiveBucketTimerThreshold: super::USHORT,
     pub ActiveThresholdA: super::UCHAR,
@@ -9663,7 +9663,7 @@ impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_0_0 {
     pub _bitfield: u16,
 }
@@ -9715,7 +9715,7 @@ impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_1 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_1_0 {
     pub _bitfield: u16,
 }
@@ -9779,7 +9779,7 @@ impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_2 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_2_0 {
     pub _bitfield: u16,
 }
@@ -9843,7 +9843,7 @@ impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_3 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_3_0 {
     pub _bitfield: u16,
 }
@@ -9889,7 +9889,7 @@ impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_4 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_4_0 {
     pub _bitfield: u16,
 }
@@ -9947,7 +9947,7 @@ impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_5 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_5_0 {
     pub _bitfield: u16,
 }
@@ -10004,7 +10004,7 @@ impl Default for NVME_OCP_DEVICE_ERROR_RECOVERY_LOG_V2 {
 pub const NVME_OCP_DEVICE_ERROR_RECOVERY_LOG_VERSION_2: i32 = 2;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NVME_OCP_DEVICE_FIRMWARE_ACTIVATION_HISTORY_LOG {
     pub LID: super::UCHAR,
     pub Reserved0: [super::UCHAR; 3],
@@ -10083,7 +10083,7 @@ impl Default for NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_0_0 {
     pub _bitfield: u8,
 }
@@ -10105,7 +10105,7 @@ impl NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_0_0 {
 pub const NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_VERSION_1: i32 = 1;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3 {
     pub MediaUnitsWritten: [super::UCHAR; 16],
     pub MediaUnitsRead: [super::UCHAR; 16],
@@ -10147,7 +10147,7 @@ impl Default for NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_0 {
     pub RawCount: [super::UCHAR; 6],
     pub Normalized: [super::UCHAR; 2],
@@ -10160,7 +10160,7 @@ impl Default for NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_1 {
     pub RawCount: [super::UCHAR; 6],
     pub Normalized: [super::UCHAR; 2],
@@ -10173,28 +10173,28 @@ impl Default for NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_1 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_2 {
     pub DetectedCounts: super::ULONG,
     pub CorrectedCounts: super::ULONG,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_3 {
     pub MaximumCount: super::ULONG,
     pub MinimumCount: super::ULONG,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_4 {
     pub EventCount: super::UCHAR,
     pub Status: super::UCHAR,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_5 {
     pub Errata: super::UCHAR,
     pub PointVersion: super::USHORT,
@@ -10249,7 +10249,7 @@ impl Default for NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_0_0 {
     pub _bitfield: u8,
 }
@@ -10289,7 +10289,7 @@ impl NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_0_0 {
 pub const NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_VERSION_1: i32 = 1;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NVME_OCP_DEVICE_TCG_HISTORY_LOG {
     pub LID: super::UCHAR,
     pub Reserved0: [super::UCHAR; 3],
@@ -10308,7 +10308,7 @@ impl Default for NVME_OCP_DEVICE_TCG_HISTORY_LOG {
 pub const NVME_OCP_DEVICE_TCG_HISTORY_LOG_VERSION_1: i32 = 1;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NVME_OCP_DEVICE_UNSUPPORTED_REQUIREMENTS_LOG {
     pub UnsupportedCount: super::USHORT,
     pub Reserved0: [super::UCHAR; 14],
@@ -10326,7 +10326,7 @@ impl Default for NVME_OCP_DEVICE_UNSUPPORTED_REQUIREMENTS_LOG {
 pub const NVME_OCP_DEVICE_UNSUPPORTED_REQUIREMENTS_LOG_VERSION_1: i32 = 1;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NVME_PERSISTENT_EVENT_LOG_EVENT_HEADER {
     pub EventType: super::UCHAR,
     pub EventTypeRevision: super::UCHAR,
@@ -10347,7 +10347,7 @@ impl Default for NVME_PERSISTENT_EVENT_LOG_EVENT_HEADER {
 pub type NVME_PERSISTENT_EVENT_LOG_EVENT_TYPES = i32;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NVME_PERSISTENT_EVENT_LOG_HEADER {
     pub LogIdentifier: super::UCHAR,
     pub Reserved0: [super::UCHAR; 3],
@@ -10716,7 +10716,7 @@ pub struct NVME_RESERVATION_RELEASE_DATA_STRUCTURE {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NVME_RESERVATION_REPORT_STATUS_DATA_STRUCTURE {
     pub Header: NVME_RESERVATION_REPORT_STATUS_HEADER,
     pub RegisteredControllersData: [NVME_REGISTERED_CONTROLLER_DATA; 1],
@@ -10729,7 +10729,7 @@ impl Default for NVME_RESERVATION_REPORT_STATUS_DATA_STRUCTURE {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NVME_RESERVATION_REPORT_STATUS_EXTENDED_DATA_STRUCTURE {
     pub Header: NVME_RESERVATION_REPORT_STATUS_HEADER,
     pub Reserved1: [super::UCHAR; 40],
@@ -10743,7 +10743,7 @@ impl Default for NVME_RESERVATION_REPORT_STATUS_EXTENDED_DATA_STRUCTURE {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NVME_RESERVATION_REPORT_STATUS_HEADER {
     pub GEN: super::ULONG,
     pub RTYPE: super::UCHAR,
@@ -11411,7 +11411,7 @@ impl NVME_WCS_DEVICE_RESET_ACTION_0_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG {
     pub VersionSpecificData: [super::UCHAR; 494],
     pub LogPageVersionNumber: super::USHORT,
@@ -11425,7 +11425,7 @@ impl Default for NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2 {
     pub MediaUnitsWritten: [super::UCHAR; 16],
     pub MediaUnitsRead: [super::UCHAR; 16],
@@ -11464,7 +11464,7 @@ impl Default for NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_0 {
     pub RawCount: [super::UCHAR; 6],
     pub Normalized: [super::UCHAR; 2],
@@ -11477,7 +11477,7 @@ impl Default for NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_1 {
     pub RawCount: [super::UCHAR; 6],
     pub Normalized: [super::UCHAR; 2],
@@ -11490,21 +11490,21 @@ impl Default for NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_1 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_2 {
     pub DetectedCounts: super::ULONG,
     pub CorrectedCounts: super::ULONG,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_3 {
     pub MaximumCount: super::ULONG,
     pub MinimumCount: super::ULONG,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_4 {
     pub EventCount: super::UCHAR,
     pub Status: super::UCHAR,
@@ -12378,32 +12378,32 @@ pub type PTCG_REACTIVATE_METHOD_SPECIFIC = *mut TCG_REACTIVATE_METHOD_SPECIFIC;
 pub type PUNSUPPORTED_REQUIREMENT = *mut UNSUPPORTED_REQUIREMENT;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCG_ACTIVATE_METHOD_SPECIFIC {
     pub RangeStartLengthPolicy: super::UCHAR,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCG_ASSIGN_METHOD_SPECIFIC {
     pub NamespaceId: super::ULONG,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCG_AUTH_METHOD_SPECIFIC {
     pub AuthorityId: super::ULONGLONG,
     pub TriesCount: super::UCHAR,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCG_BLOCKSID_METHOD_SPECIFIC {
     pub ClearEvents: super::UCHAR,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCG_HISTORY_ENTRY {
     pub VersionNumber: super::UCHAR,
     pub EntryLength: super::UCHAR,
@@ -12427,13 +12427,13 @@ impl Default for TCG_HISTORY_ENTRY {
 pub const TCG_HISTORY_ENTRY_VERSION_1: i32 = 1;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCG_REACTIVATE_METHOD_SPECIFIC {
     pub RangeStartLengthPolicy: super::UCHAR,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UNSUPPORTED_REQUIREMENT {
     pub ReqId: [super::UCHAR; 16],
 }

@@ -1,0 +1,17 @@
+//! --minimal --filter Test --flat
+#[win32]
+mod Test {
+    type USHORT = u16;
+
+    union Version {
+        #[packed(4)]
+        struct Parts {
+            revision: USHORT,
+            build: USHORT,
+            minor: USHORT,
+            major: USHORT,
+        }
+        value: u64,
+        parts: Version::Parts,
+    }
+}

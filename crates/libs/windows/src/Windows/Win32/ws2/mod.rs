@@ -500,7 +500,7 @@ pub const BTHPROTO_RFCOMM: i32 = 3;
 pub const BTH_ADDR_STRING_SIZE: i32 = 12;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BTH_INFO_REQ {
     pub btAddr: super::BTH_ADDR,
     pub infoType: super::USHORT,
@@ -534,7 +534,7 @@ impl Default for BTH_INFO_RSP_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BTH_PING_REQ {
     pub btAddr: super::BTH_ADDR,
     pub dataLen: super::UCHAR,
@@ -548,7 +548,7 @@ impl Default for BTH_PING_REQ {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BTH_PING_RSP {
     pub dataLen: super::UCHAR,
     pub data: [super::UCHAR; 44],
@@ -561,7 +561,7 @@ impl Default for BTH_PING_RSP {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BTH_QUERY_DEVICE {
     pub LAP: super::ULONG,
     pub length: super::UCHAR,
@@ -585,7 +585,7 @@ impl Default for BTH_QUERY_SERVICE {
 pub const BTH_SDP_VERSION: i32 = 1;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BTH_SET_SERVICE {
     pub pSdpVersion: super::PULONG,
     pub pRecordHandle: *mut super::HANDLE,
@@ -1244,20 +1244,20 @@ pub const RFCOMM_MAX_MTU: i32 = 1011;
 pub const RFCOMM_MIN_MTU: i32 = 23;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RFCOMM_MSC_DATA {
     pub Signals: super::UCHAR,
     pub Break: super::UCHAR,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RFCOMM_RLS_DATA {
     pub LineStatus: super::UCHAR,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RFCOMM_RPN_DATA {
     pub Baud: super::UCHAR,
     pub Data: super::UCHAR,
@@ -1418,7 +1418,7 @@ impl Default for SOCKADDR {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOCKADDR_BTH {
     pub addressFamily: super::USHORT,
     pub btAddr: super::BTH_ADDR,

@@ -2,7 +2,7 @@ pub const Aborted: Status = 9;
 pub const AccessDenied: Status = 12;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CharacterRange {
     pub First: super::INT,
     pub Length: super::INT,
@@ -66,13 +66,13 @@ pub const OutOfMemory: Status = 3;
 pub struct PathData(pub u8);
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Point {
     pub X: super::INT,
     pub Y: super::INT,
 }
 #[repr(C, packed(8))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PointF {
     pub X: REAL,
     pub Y: REAL,
@@ -87,7 +87,7 @@ pub const REAL_MIN: f32 = 0.000000000000000000000000000000000000011754944;
 pub const REAL_TOLERANCE: f32 = 0.00000000000000000000000000000000000117549435;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Rect {
     pub X: super::INT,
     pub Y: super::INT,
@@ -95,7 +95,7 @@ pub struct Rect {
     pub Height: super::INT,
 }
 #[repr(C, packed(8))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RectF {
     pub X: REAL,
     pub Y: REAL,

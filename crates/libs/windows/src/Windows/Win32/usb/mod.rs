@@ -192,7 +192,7 @@ pub const USBD_DEFAULT_MAXIMUM_TRANSFER_SIZE: u32 = 4294967295;
 pub const USBD_DEFAULT_PIPE_TRANSFER: i32 = 8;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USBD_DEVICE_INFORMATION {
     pub OffsetNext: super::ULONG,
     pub UsbdDeviceHandle: super::PVOID,

@@ -595,7 +595,7 @@ impl Default for AER_BRIDGE_DESCRIPTOR_FLAGS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AER_BRIDGE_DESCRIPTOR_FLAGS_0 {
     pub _bitfield: u16,
 }
@@ -665,7 +665,7 @@ impl Default for AER_ENDPOINT_DESCRIPTOR_FLAGS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AER_ENDPOINT_DESCRIPTOR_FLAGS_0 {
     pub _bitfield: u16,
 }
@@ -717,7 +717,7 @@ impl Default for AER_ROOTPORT_DESCRIPTOR_FLAGS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AER_ROOTPORT_DESCRIPTOR_FLAGS_0 {
     pub _bitfield: u16,
 }
@@ -1504,7 +1504,7 @@ impl Default for DIMM_ADDRESS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIMM_ADDRESS_0 {
     pub _bitfield: u64,
     pub Row: super::UINT32,
@@ -1576,7 +1576,7 @@ impl DIMM_ADDRESS_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIMM_ADDRESS_1 {
     pub _bitfield: u64,
     pub Row: super::UINT32,
@@ -1668,7 +1668,7 @@ impl Default for DIMM_ADDR_VALID_BITS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIMM_ADDR_VALID_BITS_DDR4 {
     pub _bitfield: u32,
 }
@@ -1755,7 +1755,7 @@ impl DIMM_ADDR_VALID_BITS_DDR4 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIMM_ADDR_VALID_BITS_DDR5 {
     pub _bitfield: u32,
 }
@@ -2108,7 +2108,7 @@ pub const DockingInformation: CONFIGURATION_TYPE = 38;
 pub const DtiAdapter: CONFIGURATION_TYPE = 11;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EFI_ACPI_RAS_SIGNAL_TABLE {
     pub Header: WHEA_ACPI_HEADER,
     pub NumberRecord: super::UINT32,
@@ -2776,7 +2776,7 @@ pub const IPMI_IOCTL_INDEX: i32 = 1024;
 pub const IPMI_MSR_DUMP_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x1c15b445_9b06_4667_ac25_33c056b88803);
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPMI_OS_SEL_RECORD {
     pub Signature: super::ULONG,
     pub Version: super::ULONG,
@@ -3723,7 +3723,7 @@ impl Default for MCG_CAP {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MCG_CAP_0 {
     pub _bitfield: u64,
 }
@@ -3811,7 +3811,7 @@ impl Default for MCG_STATUS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MCG_STATUS_0 {
     pub _bitfield: u32,
     pub Reserved2: super::ULONG,
@@ -3867,7 +3867,7 @@ impl Default for MCI_STATUS {
 pub const MCI_STATUS: i32 = 2068;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MCI_STATUS_AMD_BITS {
     pub _bitfield: u64,
 }
@@ -3954,7 +3954,7 @@ impl MCI_STATUS_AMD_BITS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MCI_STATUS_BITS_COMMON {
     pub _bitfield: u64,
 }
@@ -4023,7 +4023,7 @@ impl MCI_STATUS_BITS_COMMON {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MCI_STATUS_INTEL_BITS {
     pub _bitfield: u64,
 }
@@ -4151,7 +4151,7 @@ impl Default for MEMORY_DEFECT_FLAGS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEMORY_DEFECT_FLAGS_0 {
     pub _bitfield: u16,
 }
@@ -4230,7 +4230,7 @@ pub const MRLClosed: PCI_EXPRESS_MRL_STATE = 0;
 pub const MRLOpen: PCI_EXPRESS_MRL_STATE = 1;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MU_TELEMETRY_SECTION {
     pub ComponentID: windows_core::GUID,
     pub SubComponentID: windows_core::GUID,
@@ -4317,7 +4317,7 @@ impl Default for PAGE_OFFLINE_VALID_BITS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PAGE_OFFLINE_VALID_BITS_0 {
     pub _bitfield: u8,
 }
@@ -11773,7 +11773,7 @@ pub type PSCREATEPROCESSNOTIFYTYPE = i32;
 pub type PSCREATETHREADNOTIFYTYPE = i32;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSHED_MEMORY_DETAILS {
     pub Version: super::UINT16,
     pub Vb: PSHED_MEMORY_DETAILS_VALID_BITS,
@@ -11788,7 +11788,7 @@ pub struct PSHED_MEMORY_DETAILS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSHED_MEMORY_DETAILS_VALID_BITS {
     pub _bitfield: u32,
 }
@@ -11883,7 +11883,7 @@ pub type PSHED_PI_VENDOR_DEFINED_ACTION = i32;
 pub type PSHED_PI_WRITE_ERROR_RECORD = Option<unsafe extern "system" fn(plugincontext: super::PVOID, flags: super::ULONG, recordlength: super::ULONG, errorrecord: PWHEA_ERROR_RECORD) -> windows_core::NTSTATUS>;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSHED_PLATFORM_DETAILS {
     pub Version: super::UINT32,
     pub Vb: PSHED_PLATFORM_DETAILS_VALID_BITS,
@@ -11891,7 +11891,7 @@ pub struct PSHED_PLATFORM_DETAILS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSHED_PLATFORM_DETAILS_VALID_BITS {
     pub _bitfield: u32,
 }
@@ -12868,7 +12868,7 @@ pub const SHARED_GLOBAL_FLAGS_VIRT_ENABLED: u32 = 4;
 pub const SHARED_GLOBAL_FLAGS_VIRT_ENABLED_V: i32 = 2;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SIGNAL_REG_VALUE {
     pub RegName: [super::UINT8; 32],
     pub MsrAddr: super::UINT32,
@@ -13849,7 +13849,7 @@ impl Default for WHEAP_STUCK_ERROR_EVENT {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHEA_ACPI_HEADER {
     pub Signature: super::UINT32,
     pub Length: super::UINT32,
@@ -13939,7 +13939,7 @@ impl Default for WHEA_AER_ROOTPORT_DESCRIPTOR {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHEA_AMD_EXTENDED_REGISTERS {
     pub IPID: super::ULONGLONG,
     pub SYND: super::ULONGLONG,
@@ -13962,7 +13962,7 @@ impl Default for WHEA_AMD_EXTENDED_REGISTERS {
 pub const WHEA_AMD_EXT_REG_NUM: i32 = 10;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_ARMV8_AARCH32_GPRS {
     pub R0: super::ULONG,
     pub R1: super::ULONG,
@@ -13983,7 +13983,7 @@ pub struct WHEA_ARMV8_AARCH32_GPRS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_ARMV8_AARCH64_EL3_CSR {
     pub ELR_EL3: super::ULONGLONG,
     pub ESR_EL3: super::ULONGLONG,
@@ -13998,7 +13998,7 @@ pub struct WHEA_ARMV8_AARCH64_EL3_CSR {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_ARMV8_AARCH64_GPRS {
     pub X0: super::ULONGLONG,
     pub X1: super::ULONGLONG,
@@ -14035,7 +14035,7 @@ pub struct WHEA_ARMV8_AARCH64_GPRS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_ARM_AARCH32_EL1_CSR {
     pub DFAR: super::ULONG,
     pub DFSR: super::ULONG,
@@ -14064,7 +14064,7 @@ pub struct WHEA_ARM_AARCH32_EL1_CSR {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_ARM_AARCH32_EL2_CSR {
     pub ELR_hyp: super::ULONG,
     pub HAMAIR0: super::ULONG,
@@ -14085,14 +14085,14 @@ pub struct WHEA_ARM_AARCH32_EL2_CSR {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_ARM_AARCH32_SECURE_CSR {
     pub SCTLR: super::ULONG,
     pub SPSR_mon: super::ULONG,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_ARM_AARCH64_EL1_CSR {
     pub ELR_EL1: super::ULONGLONG,
     pub ESR_EL2: super::ULONGLONG,
@@ -14114,7 +14114,7 @@ pub struct WHEA_ARM_AARCH64_EL1_CSR {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_ARM_AARCH64_EL2_CSR {
     pub ELR_EL2: super::ULONGLONG,
     pub ESR_EL2: super::ULONGLONG,
@@ -14246,7 +14246,7 @@ impl Default for WHEA_ARM_BUS_ERROR_VALID_BITS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_ARM_BUS_ERROR_VALID_BITS_0 {
     pub _bitfield: u16,
 }
@@ -14412,7 +14412,7 @@ impl Default for WHEA_ARM_CACHE_ERROR_VALID_BITS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_ARM_CACHE_ERROR_VALID_BITS_0 {
     pub _bitfield: u16,
 }
@@ -14469,7 +14469,7 @@ impl WHEA_ARM_CACHE_ERROR_VALID_BITS_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_ARM_MISC_CSR {
     pub MRSEncoding: super::USHORT,
     pub Value: super::ULONGLONG,
@@ -14491,7 +14491,7 @@ impl Default for WHEA_ARM_PROCESSOR_ERROR {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER {
     pub Version: super::USHORT,
     pub RegisterContextType: super::USHORT,
@@ -14519,7 +14519,7 @@ impl Default for WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER_FLAGS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER_FLAGS_0 {
     pub _bitfield: u32,
 }
@@ -14585,7 +14585,7 @@ impl Default for WHEA_ARM_PROCESSOR_ERROR_INFORMATION_VALID_BITS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_ARM_PROCESSOR_ERROR_INFORMATION_VALID_BITS_0 {
     pub _bitfield: u16,
 }
@@ -14665,7 +14665,7 @@ impl Default for WHEA_ARM_PROCESSOR_ERROR_SECTION_VALID_BITS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_ARM_PROCESSOR_ERROR_SECTION_VALID_BITS_0 {
     pub _bitfield: u32,
 }
@@ -14706,7 +14706,7 @@ pub const WHEA_ARM_RAS_NODE_FIELD_COUNT: i32 = 8;
 pub type WHEA_ARM_RAS_NODE_INTERFACES = i32;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHEA_ARM_RAS_NODE_SECTION {
     pub NodeFieldCount: super::UINT32,
     pub NodeIndex: super::UINT32,
@@ -14809,7 +14809,7 @@ impl Default for WHEA_ARM_TLB_ERROR_VALID_BITS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_ARM_TLB_ERROR_VALID_BITS_0 {
     pub _bitfield: u16,
 }
@@ -14960,7 +14960,7 @@ impl Default for WHEA_CXL_AGENT_ADDRES {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHEA_CXL_AGENT_ADDRES_0 {
     pub FunctionNumber: super::UCHAR,
     pub DeviceNumber: super::UCHAR,
@@ -14976,7 +14976,7 @@ impl Default for WHEA_CXL_AGENT_ADDRES_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHEA_CXL_AGENT_ADDRES_1 {
     pub CxlPortRcrbBaseAddress: [super::UCHAR; 8],
 }
@@ -15018,7 +15018,7 @@ impl Default for WHEA_CXL_COMPONENT_EVENTS_SECTION_VALIDBITS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_CXL_COMPONENT_EVENTS_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
 }
@@ -15051,7 +15051,7 @@ impl WHEA_CXL_COMPONENT_EVENTS_SECTION_VALIDBITS_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHEA_CXL_DEVICE_ID {
     pub VendorID: super::USHORT,
     pub DeviceID: super::USHORT,
@@ -15069,7 +15069,7 @@ impl Default for WHEA_CXL_DEVICE_ID {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_CXL_DEVICE_ID_0 {
     pub _bitfield: u16,
 }
@@ -15103,14 +15103,14 @@ impl Default for WHEA_CXL_DEVICE_SERIAL_NUMBER {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_CXL_DEVICE_SERIAL_NUMBER_0 {
     pub CxlDeviceSerialNumberLowerDW: super::ULONG,
     pub CxlDeviceSerialNumberUpperDW: super::ULONG,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_CXL_PCIE_DEVICE_ID {
     pub VendorID: super::USHORT,
     pub DeviceID: super::USHORT,
@@ -15123,7 +15123,7 @@ pub struct WHEA_CXL_PCIE_DEVICE_ID {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_CXL_PCIE_DEVICE_ID_0 {
     pub _bitfield: u16,
 }
@@ -15179,7 +15179,7 @@ impl Default for WHEA_CXL_PROTOCOL_ERROR_SECTION_VALIDBITS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_CXL_PROTOCOL_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
 }
@@ -15243,7 +15243,7 @@ pub const WHEA_DEVICE_DRIVER_CONFIG_V1: i32 = 1;
 pub const WHEA_DEVICE_DRIVER_CONFIG_V2: i32 = 2;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WHEA_DEVICE_DRIVER_DESCRIPTOR {
     pub Type: super::USHORT,
     pub Enabled: super::BOOLEAN,
@@ -15296,7 +15296,7 @@ pub const WHEA_DISABLE_PRM_ADDRESS_TRANSLATION: i32 = 20;
 pub const WHEA_DPC_CAPABILITY_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xec49534b_30e7_4358_972f_eca6958fae3b);
 #[repr(C, packed(1))]
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_DRIVER_BUFFER_SET {
     pub Version: super::ULONG,
     pub Data: super::PUCHAR,
@@ -15478,7 +15478,7 @@ impl Default for WHEA_ERROR_PACKET_FLAGS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_ERROR_PACKET_FLAGS_0 {
     pub _bitfield: u32,
 }
@@ -15684,7 +15684,7 @@ impl Default for WHEA_ERROR_RECORD_HEADER_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHEA_ERROR_RECORD_HEADER_0_0 {
     pub OsBuildNumber: super::ULONG,
     pub Reserved2: [super::UCHAR; 8],
@@ -15710,7 +15710,7 @@ impl Default for WHEA_ERROR_RECORD_HEADER_FLAGS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_ERROR_RECORD_HEADER_FLAGS_0 {
     pub _bitfield: u32,
 }
@@ -15792,7 +15792,7 @@ impl Default for WHEA_ERROR_RECORD_HEADER_VALIDBITS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_ERROR_RECORD_HEADER_VALIDBITS_0 {
     pub _bitfield: u32,
 }
@@ -15860,7 +15860,7 @@ impl Default for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS_0 {
     pub _bitfield: u32,
 }
@@ -15937,7 +15937,7 @@ impl Default for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_VALIDBITS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_VALIDBITS_0 {
     pub _bitfield: u8,
 }
@@ -16000,7 +16000,7 @@ pub struct WHEA_ERROR_SOURCE_CONFIGURATION {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DD {
     pub Initialize: WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER,
     pub Uninitialize: WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER,
@@ -16008,7 +16008,7 @@ pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DD {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER {
     pub Version: super::ULONG,
     pub SourceGuid: windows_core::GUID,
@@ -16029,7 +16029,7 @@ impl Default for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {
     pub Version: super::ULONG,
     pub SourceGuid: windows_core::GUID,
@@ -16195,7 +16195,7 @@ impl Default for WHEA_ERROR_STATUS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_ERROR_STATUS_0 {
     pub _bitfield: u64,
 }
@@ -16305,7 +16305,7 @@ impl Default for WHEA_EVENT_LOG_ENTRY_FLAGS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_EVENT_LOG_ENTRY_FLAGS_0 {
     pub _bitfield: u32,
 }
@@ -16383,7 +16383,7 @@ pub type WHEA_EVENT_LOG_ENTRY_ID = i32;
 pub type WHEA_EVENT_LOG_ENTRY_TYPE = i32;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHEA_EXTENDED_RAS {
     pub Flag: super::UINT32,
     pub DimmLocation: super::UINT32,
@@ -16410,7 +16410,7 @@ impl Default for WHEA_FAILED_ADD_DEFECT_LIST_EVENT {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHEA_FIRMWARE_ERROR_RECORD_REFERENCE {
     pub Type: super::UCHAR,
     pub Reserved: [super::UCHAR; 7],
@@ -16472,7 +16472,7 @@ impl Default for WHEA_GENERIC_ERROR_BLOCKSTATUS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_GENERIC_ERROR_BLOCKSTATUS_0 {
     pub _bitfield: u32,
 }
@@ -16671,7 +16671,7 @@ impl WHEA_IN_USE_PAGE_NOTIFY_FLAGS_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_IPF_CMC_DESCRIPTOR {
     pub Type: super::USHORT,
     pub Enabled: super::UCHAR,
@@ -16679,7 +16679,7 @@ pub struct WHEA_IPF_CMC_DESCRIPTOR {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_IPF_CPE_DESCRIPTOR {
     pub Type: super::USHORT,
     pub Enabled: super::UCHAR,
@@ -16687,7 +16687,7 @@ pub struct WHEA_IPF_CPE_DESCRIPTOR {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_IPF_MCA_DESCRIPTOR {
     pub Type: super::USHORT,
     pub Enabled: super::UCHAR,
@@ -16753,7 +16753,7 @@ impl Default for WHEA_MEMORY_CORRECTABLE_ERROR_DATA {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_MEMORY_CORRECTABLE_ERROR_HEADER {
     pub Version: super::UINT16,
     pub Count: super::UINT16,
@@ -16786,7 +16786,7 @@ impl Default for WHEA_MEMORY_CORRECTABLE_ERROR_SECTION_VALIDBITS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_MEMORY_CORRECTABLE_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
 }
@@ -16854,7 +16854,7 @@ impl Default for WHEA_MEMORY_ERROR_EXT_SECTION_AMD_VALIDBITS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_MEMORY_ERROR_EXT_SECTION_AMD_VALIDBITS_0 {
     pub _bitfield: u64,
 }
@@ -16954,7 +16954,7 @@ impl Default for WHEA_MEMORY_ERROR_EXT_SECTION_FLAGS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_MEMORY_ERROR_EXT_SECTION_FLAGS_0 {
     pub _bitfield: u64,
 }
@@ -17033,7 +17033,7 @@ impl Default for WHEA_MEMORY_ERROR_EXT_SECTION_INTEL_VALIDBITS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_MEMORY_ERROR_EXT_SECTION_INTEL_VALIDBITS_0 {
     pub _bitfield: u64,
 }
@@ -17248,7 +17248,7 @@ impl Default for WHEA_MEMORY_ERROR_SECTION_VALIDBITS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_MEMORY_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
 }
@@ -17395,7 +17395,7 @@ impl WHEA_MEMORY_ERROR_SECTION_VALIDBITS_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHEA_MEMORY_HARDWARE_ADDRESS_AMD {
     pub SystemPhysicalAddress: super::UINT64,
     pub NormalizedAddress: super::UINT64,
@@ -17419,7 +17419,7 @@ impl Default for WHEA_MEMORY_HARDWARE_ADDRESS_AMD {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHEA_MEMORY_HARDWARE_ADDRESS_INTEL {
     pub MemDef: WHEA_MEMORY_DEFINITION,
     pub SystemAddress: super::UINT64,
@@ -17457,7 +17457,7 @@ impl Default for WHEA_MEMORY_HARDWARE_ADDRESS_INTEL {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_MEMORY_RANGE {
     pub StartSystemPhysicalAddress: super::ULONGLONG,
     pub LengthInBytes: super::ULONGLONG,
@@ -17496,7 +17496,7 @@ impl Default for WHEA_MEMORY_RANGE_ERROR_SECTION_VALIDBITS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_MEMORY_RANGE_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
 }
@@ -17561,7 +17561,7 @@ pub const WHEA_MEM_PFA_TIMEOUT: i32 = 5;
 pub const WHEA_MSCHECK_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x48ab7f57_dc34_4f6c_a7d3_b0b5b0a74314);
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHEA_MSR_DUMP_SECTION {
     pub MsrDumpBuffer: super::UCHAR,
     pub MsrDumpLength: super::ULONG,
@@ -17601,7 +17601,7 @@ impl Default for WHEA_NMI_ERROR_SECTION_FLAGS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_NMI_ERROR_SECTION_FLAGS_0 {
     pub _bitfield: u32,
 }
@@ -17656,13 +17656,13 @@ impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_0 {
     pub PollInterval: super::ULONG,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_1 {
     pub PollInterval: super::ULONG,
     pub Vector: super::ULONG,
@@ -17673,7 +17673,7 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_1 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_2 {
     pub PollInterval: super::ULONG,
     pub Vector: super::ULONG,
@@ -17684,7 +17684,7 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_2 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_3 {
     pub PollInterval: super::ULONG,
     pub Vector: super::ULONG,
@@ -17695,7 +17695,7 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_3 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_4 {
     pub PollInterval: super::ULONG,
     pub Vector: super::ULONG,
@@ -17706,7 +17706,7 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_4 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_5 {
     pub PollInterval: super::ULONG,
     pub Vector: super::ULONG,
@@ -17717,7 +17717,7 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_5 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_6 {
     pub PollInterval: super::ULONG,
     pub Vector: super::ULONG,
@@ -17728,7 +17728,7 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_6 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_7 {
     pub PollInterval: super::ULONG,
     pub Vector: super::ULONG,
@@ -17752,7 +17752,7 @@ impl Default for WHEA_NOTIFICATION_FLAGS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_NOTIFICATION_FLAGS_0 {
     pub _bitfield: u16,
 }
@@ -17856,7 +17856,7 @@ impl Default for WHEA_PCIEXPRESS_BRIDGE_CONTROL_STATUS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PCIEXPRESS_BRIDGE_CONTROL_STATUS_0 {
     pub BridgeSecondaryStatus: super::USHORT,
     pub BridgeControl: super::USHORT,
@@ -17876,14 +17876,14 @@ impl Default for WHEA_PCIEXPRESS_COMMAND_STATUS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PCIEXPRESS_COMMAND_STATUS_0 {
     pub Command: super::USHORT,
     pub Status: super::USHORT,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PCIEXPRESS_DEVICE_ID {
     pub VendorID: super::USHORT,
     pub DeviceID: super::USHORT,
@@ -17985,7 +17985,7 @@ impl Default for WHEA_PCIEXPRESS_ERROR_SECTION_VALIDBITS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PCIEXPRESS_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
 }
@@ -18061,7 +18061,7 @@ impl Default for WHEA_PCIEXPRESS_VERSION {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PCIEXPRESS_VERSION_0 {
     pub MinorVersion: super::UCHAR,
     pub MajorVersion: super::UCHAR,
@@ -18069,7 +18069,7 @@ pub struct WHEA_PCIEXPRESS_VERSION_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PCIE_ADDRESS {
     pub Segment: super::UINT32,
     pub Bus: super::UINT32,
@@ -18106,7 +18106,7 @@ impl Default for WHEA_PCIE_CORRECTABLE_ERROR_DEVICES_VALIDBITS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PCIE_CORRECTABLE_ERROR_DEVICES_VALIDBITS_0 {
     pub _bitfield: u64,
 }
@@ -18171,7 +18171,7 @@ impl Default for WHEA_PCIE_CORRECTABLE_ERROR_SECTION {
 pub const WHEA_PCIE_CORRECTABLE_ERROR_SECTION_COUNT_SIZE: i32 = 32;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PCIE_CORRECTABLE_ERROR_SECTION_HEADER {
     pub Version: super::UINT16,
     pub Count: super::UINT16,
@@ -18191,7 +18191,7 @@ impl Default for WHEA_PCIXBUS_COMMAND {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PCIXBUS_COMMAND_0 {
     pub _bitfield: u64,
 }
@@ -18253,7 +18253,7 @@ impl Default for WHEA_PCIXBUS_ERROR_SECTION_VALIDBITS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PCIXBUS_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
 }
@@ -18335,7 +18335,7 @@ impl Default for WHEA_PCIXBUS_ID {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PCIXBUS_ID_0 {
     pub BusNumber: super::UCHAR,
     pub BusSegment: super::UCHAR,
@@ -18372,7 +18372,7 @@ impl Default for WHEA_PCIXDEVICE_ERROR_SECTION_VALIDBITS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PCIXDEVICE_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
 }
@@ -18417,7 +18417,7 @@ impl WHEA_PCIXDEVICE_ERROR_SECTION_VALIDBITS_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PCIXDEVICE_ID {
     pub VendorId: super::USHORT,
     pub DeviceId: super::USHORT,
@@ -18466,7 +18466,7 @@ impl WHEA_PCIXDEVICE_ID {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PCIXDEVICE_REGISTER_PAIR {
     pub Register: super::ULONGLONG,
     pub Data: super::ULONGLONG,
@@ -18475,7 +18475,7 @@ pub struct WHEA_PCIXDEVICE_REGISTER_PAIR {
 pub type WHEA_PCI_DPC_SECTION = PCI_EXPRESS_DPC_CAPABILITY;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PCI_RECOVERY_SECTION {
     pub SignalType: super::UINT8,
     pub RecoveryAttempted: super::BOOLEAN,
@@ -18510,7 +18510,7 @@ impl Default for WHEA_PCI_SLOT_NUMBER_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PCI_SLOT_NUMBER_0_0 {
     pub _bitfield: u32,
 }
@@ -18551,7 +18551,7 @@ impl Default for WHEA_PERSISTENCE_INFO {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PERSISTENCE_INFO_0 {
     pub _bitfield: u64,
 }
@@ -18633,7 +18633,7 @@ impl Default for WHEA_PMEM_ERROR_SECTION_VALIDBITS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PMEM_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
 }
@@ -18666,7 +18666,7 @@ impl WHEA_PMEM_ERROR_SECTION_VALIDBITS_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PMEM_PAGE_RANGE {
     pub StartingPfn: super::ULONG64,
     pub PageCount: super::ULONG64,
@@ -18674,7 +18674,7 @@ pub struct WHEA_PMEM_PAGE_RANGE {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PRM_ADDRESS_TRANSLATION_BUFFER_INTEL {
     pub SwSmi: super::UINT32,
     pub Command: super::UINT32,
@@ -18726,13 +18726,13 @@ pub const WHEA_PRM_ADDRESS_TRANSLATION_INTEL_SUCCESS: i32 = 0;
 pub const WHEA_PRM_ADDRESS_TRANSLATION_INTEL_UNKNOWN_FAILURE: i32 = 1;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PRM_DRAM_TO_NORMALIZED_OUT_BUFFER_AMD {
     pub NormalizedAddress: super::UINT64,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PRM_DRAM_TO_NORMALIZED_PARAM_BUFFER_AMD {
     pub SocketNumber: super::UINT8,
     pub UmcBankInstanceId: super::UINT64,
@@ -18747,13 +18747,13 @@ pub struct WHEA_PRM_DRAM_TO_NORMALIZED_PARAM_BUFFER_AMD {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PRM_DRAM_TO_SPA_OUT_BUFFER_AMD {
     pub SystemPhysicalAddress: super::UINT64,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PRM_DRAM_TO_SPA_PARAM_BUFFER_AMD {
     pub SocketNumber: super::UINT8,
     pub UmcBankInstanceId: super::UINT64,
@@ -18768,7 +18768,7 @@ pub struct WHEA_PRM_DRAM_TO_SPA_PARAM_BUFFER_AMD {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PRM_NORMALIZED_TO_DRAM_OUT_BUFFER_AMD {
     pub ChipSelect: super::UINT8,
     pub BankGroup: super::UINT8,
@@ -18780,7 +18780,7 @@ pub struct WHEA_PRM_NORMALIZED_TO_DRAM_OUT_BUFFER_AMD {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PRM_NORMALIZED_TO_DRAM_PARAM_BUFFER_AMD {
     pub NormalizedAddress: super::UINT64,
     pub SocketNumber: super::UINT8,
@@ -18789,13 +18789,13 @@ pub struct WHEA_PRM_NORMALIZED_TO_DRAM_PARAM_BUFFER_AMD {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PRM_NORMALIZED_TO_SPA_OUT_BUFFER_AMD {
     pub SystemPhysicalAddress: super::UINT64,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PRM_NORMALIZED_TO_SPA_PARAM_BUFFER_AMD {
     pub NormalizedAddress: super::UINT64,
     pub SocketNumber: super::UINT8,
@@ -18804,7 +18804,7 @@ pub struct WHEA_PRM_NORMALIZED_TO_SPA_PARAM_BUFFER_AMD {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PRM_SPA_TO_DRAM_OUT_BUFFER_AMD {
     pub ChipSelect: super::UINT8,
     pub BankGroup: super::UINT8,
@@ -18818,14 +18818,14 @@ pub struct WHEA_PRM_SPA_TO_DRAM_OUT_BUFFER_AMD {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PRM_SPA_TO_DRAM_PARAM_BUFFER_AMD {
     pub SystemPhysicalAddress: super::UINT64,
     pub OutputBuffer: PWHEA_PRM_SPA_TO_DRAM_OUT_BUFFER_AMD,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PRM_SPA_TO_NORMALIZED_OUT_BUFFER_AMD {
     pub NormalizedAddress: super::UINT64,
     pub SocketNumber: super::UINT8,
@@ -18833,7 +18833,7 @@ pub struct WHEA_PRM_SPA_TO_NORMALIZED_OUT_BUFFER_AMD {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PRM_SPA_TO_NORMALIZED_PARAM_BUFFER_AMD {
     pub SystemPhysicalAddress: super::UINT64,
     pub OutputBuffer: PWHEA_PRM_SPA_TO_NORMALIZED_OUT_BUFFER_AMD,
@@ -18853,7 +18853,7 @@ impl Default for WHEA_PROCESSOR_FAMILY_INFO {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PROCESSOR_FAMILY_INFO_0 {
     pub _bitfield: u32,
     pub NativeModelId: super::ULONG,
@@ -18950,7 +18950,7 @@ impl Default for WHEA_PROCESSOR_GENERIC_ERROR_SECTION_VALIDBITS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PROCESSOR_GENERIC_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
 }
@@ -19298,7 +19298,7 @@ impl Default for WHEA_RECOVERY_ACTION {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_RECOVERY_ACTION_0 {
     pub _bitfield: u64,
 }
@@ -19405,7 +19405,7 @@ impl Default for WHEA_RECOVERY_CONTEXT_ACTION_TAKEN_ADDITIONAL_INFO {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_RECOVERY_CONTEXT_ACTION_TAKEN_ADDITIONAL_INFO_0 {
     pub _bitfield: u64,
 }
@@ -19527,7 +19527,7 @@ impl Default for WHEA_REVISION {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_REVISION_0 {
     pub MinorRevision: super::UCHAR,
     pub MajorRevision: super::UCHAR,
@@ -19537,7 +19537,7 @@ pub const WHEA_ROW_FAIL_CHECK_EXTENT: i32 = 17;
 pub const WHEA_ROW_FAIL_CHECK_THRESHOLD: i32 = 19;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_SEA_SECTION {
     pub Esr: super::ULONG,
     pub Far: super::ULONG64,
@@ -19554,7 +19554,7 @@ pub const WHEA_SECTION_DESCRIPTOR_FLAGS_RESOURCENA: i32 = 16;
 pub const WHEA_SECTION_DESCRIPTOR_FLAGS_THRESHOLDEXCEEDED: i32 = 8;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_SEI_SECTION {
     pub Esr: super::ULONG,
     pub Far: super::ULONG64,
@@ -19606,7 +19606,7 @@ impl Default for WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_EVENT {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_EVENT_0 {
     pub DumpPolicy: super::UCHAR,
     pub Reserved: [super::UCHAR; 3],
@@ -19814,7 +19814,7 @@ impl Default for WHEA_TIMESTAMP {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_TIMESTAMP_0 {
     pub _bitfield: u64,
 }
@@ -19954,7 +19954,7 @@ impl Default for WHEA_X64_REGISTER_STATE {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_X86_REGISTER_STATE {
     pub Eax: super::ULONG,
     pub Ebx: super::ULONG,
@@ -19997,7 +19997,7 @@ impl Default for WHEA_XPF_BUS_CHECK {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_XPF_BUS_CHECK_0 {
     pub _bitfield: u64,
 }
@@ -20163,7 +20163,7 @@ impl Default for WHEA_XPF_CACHE_CHECK {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_XPF_CACHE_CHECK_0 {
     pub _bitfield: u64,
 }
@@ -20314,7 +20314,7 @@ impl Default for WHEA_XPF_CMC_DESCRIPTOR_V2 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_XPF_CONTEXT_INFO {
     pub RegisterContextType: super::USHORT,
     pub RegisterDataSize: super::USHORT,
@@ -20446,7 +20446,7 @@ impl Default for WHEA_XPF_MS_CHECK {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_XPF_MS_CHECK_0 {
     pub _bitfield: u64,
 }
@@ -20539,7 +20539,7 @@ impl WHEA_XPF_MS_CHECK_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_XPF_NMI_DESCRIPTOR {
     pub Type: super::USHORT,
     pub Enabled: super::BOOLEAN,
@@ -20574,7 +20574,7 @@ impl Default for WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
 }
@@ -20660,7 +20660,7 @@ impl Default for WHEA_XPF_PROCINFO_VALIDBITS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_XPF_PROCINFO_VALIDBITS_0 {
     pub _bitfield: u64,
 }
@@ -20718,7 +20718,7 @@ impl Default for WHEA_XPF_TLB_CHECK {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_XPF_TLB_CHECK_0 {
     pub _bitfield: u64,
 }
@@ -21155,7 +21155,7 @@ impl Default for XPF_MCE_FLAGS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPF_MCE_FLAGS_0 {
     pub _bitfield: u32,
 }
@@ -21195,7 +21195,7 @@ impl Default for XPF_MC_BANK_FLAGS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPF_MC_BANK_FLAGS_0 {
     pub _bitfield: u8,
 }
@@ -21229,7 +21229,7 @@ pub const XPF_MS_CHECK_ERRORTYPE_UNCLASSIFIED: i32 = 1;
 pub const XPF_PROCESSOR_ERROR_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xdc3ea0b0_a144_4797_b95b_53fa242b6e1d);
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPF_RECOVERY_INFO {
     pub FailureReason: XPF_RECOVERY_INFO_0,
     pub Action: XPF_RECOVERY_INFO_1,
@@ -21243,7 +21243,7 @@ pub struct XPF_RECOVERY_INFO {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPF_RECOVERY_INFO_0 {
     pub _bitfield: u32,
 }
@@ -21324,7 +21324,7 @@ impl XPF_RECOVERY_INFO_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPF_RECOVERY_INFO_1 {
     pub _bitfield: u32,
 }

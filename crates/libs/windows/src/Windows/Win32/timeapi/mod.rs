@@ -36,7 +36,7 @@ pub type NPTIMECAPS = *mut TIMECAPS;
 pub type PTIMECAPS = *mut TIMECAPS;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TIMECAPS {
     pub wPeriodMin: super::UINT,
     pub wPeriodMax: super::UINT,

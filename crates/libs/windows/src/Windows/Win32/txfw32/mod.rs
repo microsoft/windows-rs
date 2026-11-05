@@ -74,20 +74,20 @@ pub const TXFS_MINIVERSION_DEFAULT_VIEW: i32 = 65534;
 pub const TXFS_MINIVERSION_DIRTY_VIEW: i32 = 65535;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TXF_ID {
     pub Anonymous: TXF_ID_0,
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TXF_ID_0 {
     pub LowPart: super::LONGLONG,
     pub HighPart: super::LONGLONG,
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TXF_LOG_RECORD_AFFECTED_FILE {
     pub Version: super::USHORT,
     pub RecordLength: super::ULONG,
@@ -99,7 +99,7 @@ pub struct TXF_LOG_RECORD_AFFECTED_FILE {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TXF_LOG_RECORD_BASE {
     pub Version: super::USHORT,
     pub RecordType: super::USHORT,
@@ -111,7 +111,7 @@ pub const TXF_LOG_RECORD_GENERIC_TYPE_DATA: i32 = 8;
 pub const TXF_LOG_RECORD_GENERIC_TYPE_PREPARE: i32 = 4;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TXF_LOG_RECORD_TRUNCATE {
     pub Version: super::USHORT,
     pub RecordType: super::USHORT,
@@ -128,7 +128,7 @@ pub const TXF_LOG_RECORD_TYPE_TRUNCATE: i32 = 2;
 pub const TXF_LOG_RECORD_TYPE_WRITE: i32 = 1;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TXF_LOG_RECORD_WRITE {
     pub Version: super::USHORT,
     pub RecordType: super::USHORT,

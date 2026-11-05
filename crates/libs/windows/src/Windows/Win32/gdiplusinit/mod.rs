@@ -17,7 +17,7 @@ pub const DebugEventLevelWarning: DebugEventLevel = 1;
 pub type DebugEventProc = Option<unsafe extern "system" fn(level: DebugEventLevel, message: *mut super::CHAR)>;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct GdiplusStartupInput {
     pub GdiplusVersion: super::UINT32,
     pub DebugEventCallback: DebugEventProc,
@@ -26,7 +26,7 @@ pub struct GdiplusStartupInput {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "gdiplustypes", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct GdiplusStartupOutput {
     pub NotificationHook: NotificationHookProc,
     pub NotificationUnhook: NotificationUnhookProc,

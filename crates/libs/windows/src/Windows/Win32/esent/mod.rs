@@ -1538,7 +1538,7 @@ impl Default for JET_BKLOGTIME_0 {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_BKLOGTIME_0_0 {
     pub _bitfield: u8,
 }
@@ -1568,7 +1568,7 @@ impl Default for JET_BKLOGTIME_1 {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_BKLOGTIME_1_0 {
     pub _bitfield: u8,
 }
@@ -1599,7 +1599,7 @@ pub type JET_CHAR = i8;
 pub type JET_COLTYP = u32;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct JET_COLUMNBASE_A {
     pub cbStruct: JET_UINT32,
     pub columnid: JET_COLUMNID,
@@ -1621,7 +1621,7 @@ impl Default for JET_COLUMNBASE_A {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct JET_COLUMNBASE_A {
     pub cbStruct: JET_UINT32,
     pub columnid: JET_COLUMNID,
@@ -1643,7 +1643,7 @@ impl Default for JET_COLUMNBASE_A {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct JET_COLUMNBASE_W {
     pub cbStruct: JET_UINT32,
     pub columnid: JET_COLUMNID,
@@ -1665,7 +1665,7 @@ impl Default for JET_COLUMNBASE_W {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct JET_COLUMNBASE_W {
     pub cbStruct: JET_UINT32,
     pub columnid: JET_COLUMNID,
@@ -1687,7 +1687,7 @@ impl Default for JET_COLUMNBASE_W {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_COLUMNCREATE_A {
     pub cbStruct: JET_UINT32,
     pub szColumnName: JET_PSTR,
@@ -1702,7 +1702,7 @@ pub struct JET_COLUMNCREATE_A {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_COLUMNCREATE_A {
     pub cbStruct: JET_UINT32,
     pub szColumnName: JET_PSTR,
@@ -1717,7 +1717,7 @@ pub struct JET_COLUMNCREATE_A {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_COLUMNCREATE_W {
     pub cbStruct: JET_UINT32,
     pub szColumnName: JET_PWSTR,
@@ -1732,7 +1732,7 @@ pub struct JET_COLUMNCREATE_W {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_COLUMNCREATE_W {
     pub cbStruct: JET_UINT32,
     pub szColumnName: JET_PWSTR,
@@ -1747,7 +1747,7 @@ pub struct JET_COLUMNCREATE_W {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_COLUMNDEF {
     pub cbStruct: JET_UINT32,
     pub columnid: JET_COLUMNID,
@@ -1761,7 +1761,7 @@ pub struct JET_COLUMNDEF {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_COLUMNDEF {
     pub cbStruct: JET_UINT32,
     pub columnid: JET_COLUMNID,
@@ -1776,7 +1776,7 @@ pub struct JET_COLUMNDEF {
 pub type JET_COLUMNID = u32;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_COLUMNLIST {
     pub cbStruct: JET_UINT32,
     pub tableid: JET_TABLEID,
@@ -1798,7 +1798,7 @@ pub struct JET_COLUMNLIST {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_COLUMNLIST {
     pub cbStruct: JET_UINT32,
     pub tableid: JET_TABLEID,
@@ -1848,7 +1848,7 @@ impl Default for JET_COMMIT_ID {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_CONDITIONALCOLUMN_A {
     pub cbStruct: JET_UINT32,
     pub szColumnName: JET_PSTR,
@@ -1856,7 +1856,7 @@ pub struct JET_CONDITIONALCOLUMN_A {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_CONDITIONALCOLUMN_A {
     pub cbStruct: JET_UINT32,
     pub szColumnName: JET_PSTR,
@@ -1864,7 +1864,7 @@ pub struct JET_CONDITIONALCOLUMN_A {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_CONDITIONALCOLUMN_W {
     pub cbStruct: JET_UINT32,
     pub szColumnName: JET_PWSTR,
@@ -1872,7 +1872,7 @@ pub struct JET_CONDITIONALCOLUMN_W {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_CONDITIONALCOLUMN_W {
     pub cbStruct: JET_UINT32,
     pub szColumnName: JET_PWSTR,
@@ -1906,7 +1906,7 @@ impl Default for JET_CONVERT_A_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_CONVERT_A_0_0 {
     pub _bitfield: u32,
 }
@@ -1947,7 +1947,7 @@ impl Default for JET_CONVERT_A_0 {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_CONVERT_A_0_0 {
     pub _bitfield: u32,
 }
@@ -1988,7 +1988,7 @@ impl Default for JET_CONVERT_W_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_CONVERT_W_0_0 {
     pub _bitfield: u32,
 }
@@ -2029,7 +2029,7 @@ impl Default for JET_CONVERT_W_0 {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_CONVERT_W_0_0 {
     pub _bitfield: u32,
 }
@@ -2443,7 +2443,7 @@ impl Default for JET_DBINFOUPGRADE_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_DBINFOUPGRADE_0_0 {
     pub _bitfield: u32,
 }
@@ -2495,7 +2495,7 @@ impl Default for JET_DBINFOUPGRADE_0 {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_DBINFOUPGRADE_0_0 {
     pub _bitfield: u32,
 }
@@ -2563,14 +2563,14 @@ impl Default for JET_ENUMCOLUMN_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_ENUMCOLUMN_0_0 {
     pub cEnumColumnValue: JET_UINT32,
     pub rgEnumColumnValue: *mut JET_ENUMCOLUMNVALUE,
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_ENUMCOLUMN_0_1 {
     pub cbData: JET_UINT32,
     pub pvData: JET_PVOID,
@@ -2604,21 +2604,21 @@ impl Default for JET_ENUMCOLUMN_0 {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_ENUMCOLUMN_0_0 {
     pub cEnumColumnValue: JET_UINT32,
     pub rgEnumColumnValue: *mut JET_ENUMCOLUMNVALUE,
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_ENUMCOLUMN_0_1 {
     pub cbData: JET_UINT32,
     pub pvData: JET_PVOID,
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_ENUMCOLUMNID {
     pub columnid: JET_COLUMNID,
     pub ctagSequence: JET_UINT32,
@@ -2626,7 +2626,7 @@ pub struct JET_ENUMCOLUMNID {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_ENUMCOLUMNID {
     pub columnid: JET_COLUMNID,
     pub ctagSequence: JET_UINT32,
@@ -2634,7 +2634,7 @@ pub struct JET_ENUMCOLUMNID {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_ENUMCOLUMNVALUE {
     pub itagSequence: JET_UINT32,
     pub err: JET_ERR,
@@ -2643,7 +2643,7 @@ pub struct JET_ENUMCOLUMNVALUE {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_ENUMCOLUMNVALUE {
     pub itagSequence: JET_UINT32,
     pub err: JET_ERR,
@@ -2654,7 +2654,7 @@ pub type JET_ERR = i32;
 pub type JET_ERRCAT = i32;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct JET_ERRINFOBASIC_W {
     pub cbStruct: JET_UINT32,
     pub errValue: JET_ERR,
@@ -2671,7 +2671,7 @@ impl Default for JET_ERRINFOBASIC_W {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct JET_ERRINFOBASIC_W {
     pub cbStruct: JET_UINT32,
     pub errValue: JET_ERR,
@@ -3245,7 +3245,7 @@ impl Default for JET_INDEXCREATE_W_1 {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct JET_INDEXID {
     pub cbStruct: JET_UINT32,
     pub rgbIndexId: [JET_BYTE; 12],
@@ -3258,7 +3258,7 @@ impl Default for JET_INDEXID {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct JET_INDEXID {
     pub cbStruct: JET_UINT32,
     pub rgbIndexId: [JET_BYTE; 16],
@@ -3271,7 +3271,7 @@ impl Default for JET_INDEXID {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_INDEXLIST {
     pub cbStruct: JET_UINT32,
     pub tableid: JET_TABLEID,
@@ -3295,7 +3295,7 @@ pub struct JET_INDEXLIST {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_INDEXLIST {
     pub cbStruct: JET_UINT32,
     pub tableid: JET_TABLEID,
@@ -3319,7 +3319,7 @@ pub struct JET_INDEXLIST {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_INDEXRANGE {
     pub cbStruct: JET_UINT32,
     pub tableid: JET_TABLEID,
@@ -3327,7 +3327,7 @@ pub struct JET_INDEXRANGE {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_INDEXRANGE {
     pub cbStruct: JET_UINT32,
     pub tableid: JET_TABLEID,
@@ -3335,7 +3335,7 @@ pub struct JET_INDEXRANGE {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_INDEX_COLUMN {
     pub columnid: JET_COLUMNID,
     pub relop: JET_RELOP,
@@ -3345,7 +3345,7 @@ pub struct JET_INDEX_COLUMN {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_INDEX_COLUMN {
     pub columnid: JET_COLUMNID,
     pub relop: JET_RELOP,
@@ -3355,7 +3355,7 @@ pub struct JET_INDEX_COLUMN {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_INDEX_RANGE {
     pub rgStartColumns: *mut JET_INDEX_COLUMN,
     pub cStartColumns: JET_UINT32,
@@ -3364,7 +3364,7 @@ pub struct JET_INDEX_RANGE {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_INDEX_RANGE {
     pub rgStartColumns: *mut JET_INDEX_COLUMN,
     pub cStartColumns: JET_UINT32,
@@ -3374,7 +3374,7 @@ pub struct JET_INDEX_RANGE {
 pub type JET_INSTANCE = usize;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_INSTANCE_INFO_A {
     pub hInstanceId: JET_INSTANCE,
     pub szInstanceName: JET_PSTR,
@@ -3385,7 +3385,7 @@ pub struct JET_INSTANCE_INFO_A {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_INSTANCE_INFO_A {
     pub hInstanceId: JET_INSTANCE,
     pub szInstanceName: JET_PSTR,
@@ -3396,7 +3396,7 @@ pub struct JET_INSTANCE_INFO_A {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_INSTANCE_INFO_W {
     pub hInstanceId: JET_INSTANCE,
     pub szInstanceName: JET_PWSTR,
@@ -3407,7 +3407,7 @@ pub struct JET_INSTANCE_INFO_W {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_INSTANCE_INFO_W {
     pub hInstanceId: JET_INSTANCE,
     pub szInstanceName: JET_PWSTR,
@@ -3446,7 +3446,7 @@ pub const JET_InstanceMiscInfoLogSignature: u32 = 0;
 pub type JET_LANGID = u16;
 pub type JET_LCID = u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_LGPOS {
     pub ib: JET_UINT16,
     pub isec: JET_UINT16,
@@ -3454,7 +3454,7 @@ pub struct JET_LGPOS {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct JET_LOGINFO_A {
     pub cbSize: JET_UINT32,
     pub ulGenLow: JET_UINT32,
@@ -3469,7 +3469,7 @@ impl Default for JET_LOGINFO_A {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct JET_LOGINFO_A {
     pub cbSize: JET_UINT32,
     pub ulGenLow: JET_UINT32,
@@ -3484,7 +3484,7 @@ impl Default for JET_LOGINFO_A {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct JET_LOGINFO_W {
     pub cbSize: JET_UINT32,
     pub ulGenLow: JET_UINT32,
@@ -3499,7 +3499,7 @@ impl Default for JET_LOGINFO_W {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct JET_LOGINFO_W {
     pub cbSize: JET_UINT32,
     pub ulGenLow: JET_UINT32,
@@ -3541,7 +3541,7 @@ impl Default for JET_LOGTIME_0 {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_LOGTIME_0_0 {
     pub _bitfield: u8,
 }
@@ -3571,7 +3571,7 @@ impl Default for JET_LOGTIME_1 {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_LOGTIME_1_0 {
     pub _bitfield: u8,
 }
@@ -3607,7 +3607,7 @@ pub const JET_MoveNext: i32 = 1;
 pub const JET_MovePrevious: i32 = -1;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct JET_OBJECTINFO {
     pub cbStruct: JET_UINT32,
     pub objtyp: JET_OBJTYP,
@@ -3620,7 +3620,7 @@ pub struct JET_OBJECTINFO {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct JET_OBJECTINFO {
     pub cbStruct: JET_UINT32,
     pub objtyp: JET_OBJTYP,
@@ -3633,7 +3633,7 @@ pub struct JET_OBJECTINFO {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_OBJECTLIST {
     pub cbStruct: JET_UINT32,
     pub tableid: JET_TABLEID,
@@ -3650,7 +3650,7 @@ pub struct JET_OBJECTLIST {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_OBJECTLIST {
     pub cbStruct: JET_UINT32,
     pub tableid: JET_TABLEID,
@@ -3668,7 +3668,7 @@ pub struct JET_OBJECTLIST {
 pub type JET_OBJTYP = u32;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_OPENTEMPORARYTABLE {
     pub cbStruct: JET_UINT32,
     pub prgcolumndef: *const JET_COLUMNDEF,
@@ -3682,7 +3682,7 @@ pub struct JET_OPENTEMPORARYTABLE {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_OPENTEMPORARYTABLE {
     pub cbStruct: JET_UINT32,
     pub prgcolumndef: *const JET_COLUMNDEF,
@@ -3696,7 +3696,7 @@ pub struct JET_OPENTEMPORARYTABLE {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_OPENTEMPORARYTABLE2 {
     pub cbStruct: JET_UINT32,
     pub prgcolumndef: *const JET_COLUMNDEF,
@@ -3710,7 +3710,7 @@ pub struct JET_OPENTEMPORARYTABLE2 {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_OPENTEMPORARYTABLE2 {
     pub cbStruct: JET_UINT32,
     pub prgcolumndef: *const JET_COLUMNDEF,
@@ -3724,7 +3724,7 @@ pub struct JET_OPENTEMPORARYTABLE2 {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_OPERATIONCONTEXT {
     pub ulUserID: JET_UINT32,
     pub nOperationID: JET_BYTE,
@@ -3734,7 +3734,7 @@ pub struct JET_OPERATIONCONTEXT {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_OPERATIONCONTEXT {
     pub ulUserID: JET_UINT32,
     pub nOperationID: JET_BYTE,
@@ -3768,7 +3768,7 @@ pub type JET_PVOID = *mut core::ffi::c_void;
 pub type JET_PWSTR = *mut u16;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_RECORDLIST {
     pub cbStruct: JET_UINT32,
     pub tableid: JET_TABLEID,
@@ -3777,7 +3777,7 @@ pub struct JET_RECORDLIST {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_RECORDLIST {
     pub cbStruct: JET_UINT32,
     pub tableid: JET_TABLEID,
@@ -3786,7 +3786,7 @@ pub struct JET_RECORDLIST {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_RECPOS {
     pub cbStruct: JET_UINT32,
     pub centriesLT: JET_UINT32,
@@ -3795,7 +3795,7 @@ pub struct JET_RECPOS {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_RECPOS {
     pub cbStruct: JET_UINT32,
     pub centriesLT: JET_UINT32,
@@ -3804,7 +3804,7 @@ pub struct JET_RECPOS {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_RECPOS2 {
     pub cbStruct: JET_UINT32,
     pub centriesLTDeprecated: JET_UINT32,
@@ -3815,7 +3815,7 @@ pub struct JET_RECPOS2 {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_RECPOS2 {
     pub cbStruct: JET_UINT32,
     pub centriesLTDeprecated: JET_UINT32,
@@ -3826,7 +3826,7 @@ pub struct JET_RECPOS2 {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_RECSIZE {
     pub cbData: JET_UINT64,
     pub cbLongValueData: JET_UINT64,
@@ -3839,7 +3839,7 @@ pub struct JET_RECSIZE {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_RECSIZE {
     pub cbData: JET_UINT64,
     pub cbLongValueData: JET_UINT64,
@@ -3852,7 +3852,7 @@ pub struct JET_RECSIZE {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_RECSIZE2 {
     pub cbData: JET_UINT64,
     pub cbLongValueData: JET_UINT64,
@@ -3868,7 +3868,7 @@ pub struct JET_RECSIZE2 {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_RECSIZE2 {
     pub cbData: JET_UINT64,
     pub cbLongValueData: JET_UINT64,
@@ -3885,7 +3885,7 @@ pub struct JET_RECSIZE2 {
 pub type JET_RELOP = i32;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_RETINFO {
     pub cbStruct: JET_UINT32,
     pub ibLongValue: JET_UINT32,
@@ -3894,7 +3894,7 @@ pub struct JET_RETINFO {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_RETINFO {
     pub cbStruct: JET_UINT32,
     pub ibLongValue: JET_UINT32,
@@ -3903,7 +3903,7 @@ pub struct JET_RETINFO {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_RETRIEVECOLUMN {
     pub columnid: JET_COLUMNID,
     pub pvData: JET_PVOID,
@@ -3917,7 +3917,7 @@ pub struct JET_RETRIEVECOLUMN {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_RETRIEVECOLUMN {
     pub columnid: JET_COLUMNID,
     pub pvData: JET_PVOID,
@@ -3999,28 +3999,28 @@ impl Default for JET_RSTINFO_W {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_RSTMAP_A {
     pub szDatabaseName: JET_PSTR,
     pub szNewDatabaseName: JET_PSTR,
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_RSTMAP_A {
     pub szDatabaseName: JET_PSTR,
     pub szNewDatabaseName: JET_PSTR,
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_RSTMAP_W {
     pub szDatabaseName: JET_PWSTR,
     pub szNewDatabaseName: JET_PWSTR,
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_RSTMAP_W {
     pub szDatabaseName: JET_PWSTR,
     pub szNewDatabaseName: JET_PWSTR,
@@ -4028,7 +4028,7 @@ pub struct JET_RSTMAP_W {
 pub type JET_SESID = usize;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_SETCOLUMN {
     pub columnid: JET_COLUMNID,
     pub pvData: JET_PCVOID,
@@ -4040,7 +4040,7 @@ pub struct JET_SETCOLUMN {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_SETCOLUMN {
     pub columnid: JET_COLUMNID,
     pub pvData: JET_PCVOID,
@@ -4052,7 +4052,7 @@ pub struct JET_SETCOLUMN {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_SETINFO {
     pub cbStruct: JET_UINT32,
     pub ibLongValue: JET_UINT32,
@@ -4060,7 +4060,7 @@ pub struct JET_SETINFO {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_SETINFO {
     pub cbStruct: JET_UINT32,
     pub ibLongValue: JET_UINT32,
@@ -4068,7 +4068,7 @@ pub struct JET_SETINFO {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_SETSYSPARAM_A {
     pub paramid: JET_UINT32,
     pub lParam: JET_API_PTR,
@@ -4077,7 +4077,7 @@ pub struct JET_SETSYSPARAM_A {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_SETSYSPARAM_A {
     pub paramid: JET_UINT32,
     pub lParam: JET_API_PTR,
@@ -4086,7 +4086,7 @@ pub struct JET_SETSYSPARAM_A {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_SETSYSPARAM_W {
     pub paramid: JET_UINT32,
     pub lParam: JET_API_PTR,
@@ -4095,7 +4095,7 @@ pub struct JET_SETSYSPARAM_W {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_SETSYSPARAM_W {
     pub paramid: JET_UINT32,
     pub lParam: JET_API_PTR,
@@ -4117,7 +4117,7 @@ impl Default for JET_SIGNATURE {
 pub type JET_SNP = u32;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_SNPROG {
     pub cbStruct: JET_UINT32,
     pub cunitDone: JET_UINT32,
@@ -4125,7 +4125,7 @@ pub struct JET_SNPROG {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_SNPROG {
     pub cbStruct: JET_UINT32,
     pub cunitDone: JET_UINT32,
@@ -4134,7 +4134,7 @@ pub struct JET_SNPROG {
 pub type JET_SNT = u32;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_SPACEHINTS {
     pub cbStruct: JET_UINT32,
     pub ulInitialDensity: JET_UINT32,
@@ -4147,7 +4147,7 @@ pub struct JET_SPACEHINTS {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_SPACEHINTS {
     pub cbStruct: JET_UINT32,
     pub ulInitialDensity: JET_UINT32,
@@ -4160,7 +4160,7 @@ pub struct JET_SPACEHINTS {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_TABLECREATE2_A {
     pub cbStruct: JET_UINT32,
     pub szTableName: JET_PSTR,
@@ -4179,7 +4179,7 @@ pub struct JET_TABLECREATE2_A {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_TABLECREATE2_A {
     pub cbStruct: JET_UINT32,
     pub szTableName: JET_PSTR,
@@ -4198,7 +4198,7 @@ pub struct JET_TABLECREATE2_A {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_TABLECREATE2_W {
     pub cbStruct: JET_UINT32,
     pub szTableName: JET_PWSTR,
@@ -4217,7 +4217,7 @@ pub struct JET_TABLECREATE2_W {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_TABLECREATE2_W {
     pub cbStruct: JET_UINT32,
     pub szTableName: JET_PWSTR,
@@ -4236,7 +4236,7 @@ pub struct JET_TABLECREATE2_W {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_TABLECREATE3_A {
     pub cbStruct: JET_UINT32,
     pub szTableName: JET_PSTR,
@@ -4258,7 +4258,7 @@ pub struct JET_TABLECREATE3_A {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_TABLECREATE3_A {
     pub cbStruct: JET_UINT32,
     pub szTableName: JET_PSTR,
@@ -4280,7 +4280,7 @@ pub struct JET_TABLECREATE3_A {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_TABLECREATE3_W {
     pub cbStruct: JET_UINT32,
     pub szTableName: JET_PWSTR,
@@ -4302,7 +4302,7 @@ pub struct JET_TABLECREATE3_W {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_TABLECREATE3_W {
     pub cbStruct: JET_UINT32,
     pub szTableName: JET_PWSTR,
@@ -4324,7 +4324,7 @@ pub struct JET_TABLECREATE3_W {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_TABLECREATE4_A {
     pub cbStruct: JET_UINT32,
     pub szTableName: JET_PSTR,
@@ -4346,7 +4346,7 @@ pub struct JET_TABLECREATE4_A {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_TABLECREATE4_A {
     pub cbStruct: JET_UINT32,
     pub szTableName: JET_PSTR,
@@ -4368,7 +4368,7 @@ pub struct JET_TABLECREATE4_A {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_TABLECREATE4_W {
     pub cbStruct: JET_UINT32,
     pub szTableName: JET_PWSTR,
@@ -4390,7 +4390,7 @@ pub struct JET_TABLECREATE4_W {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_TABLECREATE4_W {
     pub cbStruct: JET_UINT32,
     pub szTableName: JET_PWSTR,
@@ -4412,7 +4412,7 @@ pub struct JET_TABLECREATE4_W {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_TABLECREATE_A {
     pub cbStruct: JET_UINT32,
     pub szTableName: JET_PSTR,
@@ -4429,7 +4429,7 @@ pub struct JET_TABLECREATE_A {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_TABLECREATE_A {
     pub cbStruct: JET_UINT32,
     pub szTableName: JET_PSTR,
@@ -4446,7 +4446,7 @@ pub struct JET_TABLECREATE_A {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_TABLECREATE_W {
     pub cbStruct: JET_UINT32,
     pub szTableName: JET_PWSTR,
@@ -4463,7 +4463,7 @@ pub struct JET_TABLECREATE_W {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_TABLECREATE_W {
     pub cbStruct: JET_UINT32,
     pub szTableName: JET_PWSTR,
@@ -4481,7 +4481,7 @@ pub struct JET_TABLECREATE_W {
 pub type JET_TABLEID = usize;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_THREADSTATS {
     pub cbStruct: JET_UINT32,
     pub cPageReferenced: JET_UINT32,
@@ -4494,7 +4494,7 @@ pub struct JET_THREADSTATS {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_THREADSTATS {
     pub cbStruct: JET_UINT32,
     pub cPageReferenced: JET_UINT32,
@@ -4507,7 +4507,7 @@ pub struct JET_THREADSTATS {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_THREADSTATS2 {
     pub cbStruct: JET_UINT32,
     pub cPageReferenced: JET_UINT32,
@@ -4522,7 +4522,7 @@ pub struct JET_THREADSTATS2 {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_THREADSTATS2 {
     pub cbStruct: JET_UINT32,
     pub cPageReferenced: JET_UINT32,
@@ -4537,7 +4537,7 @@ pub struct JET_THREADSTATS2 {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_TUPLELIMITS {
     pub chLengthMin: JET_UINT32,
     pub chLengthMax: JET_UINT32,
@@ -4547,7 +4547,7 @@ pub struct JET_TUPLELIMITS {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_TUPLELIMITS {
     pub chLengthMin: JET_UINT32,
     pub chLengthMax: JET_UINT32,
@@ -4574,35 +4574,35 @@ pub type JET_UINT64 = u64;
 pub type JET_UINT8 = u8;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_UNICODEINDEX {
     pub lcid: JET_LCID,
     pub dwMapFlags: JET_UINT32,
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_UNICODEINDEX {
     pub lcid: JET_LCID,
     pub dwMapFlags: JET_UINT32,
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_UNICODEINDEX2 {
     pub szLocaleName: JET_PWSTR,
     pub dwMapFlags: JET_UINT32,
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_UNICODEINDEX2 {
     pub szLocaleName: JET_PWSTR,
     pub dwMapFlags: JET_UINT32,
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_USERDEFINEDDEFAULT_A {
     pub szCallback: JET_PSTR,
     pub pbUserData: *mut JET_BYTE,
@@ -4611,7 +4611,7 @@ pub struct JET_USERDEFINEDDEFAULT_A {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_USERDEFINEDDEFAULT_A {
     pub szCallback: JET_PSTR,
     pub pbUserData: *mut JET_BYTE,
@@ -4620,7 +4620,7 @@ pub struct JET_USERDEFINEDDEFAULT_A {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_USERDEFINEDDEFAULT_W {
     pub szCallback: JET_PWSTR,
     pub pbUserData: *mut JET_BYTE,
@@ -4629,7 +4629,7 @@ pub struct JET_USERDEFINEDDEFAULT_W {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_USERDEFINEDDEFAULT_W {
     pub szCallback: JET_PWSTR,
     pub pbUserData: *mut JET_BYTE,

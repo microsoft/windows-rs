@@ -518,7 +518,7 @@ pub const ABS_AUTOHIDE: i32 = 1;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPBARDATA {
     pub cbSize: super::DWORD,
     pub hWnd: super::HWND,
@@ -555,7 +555,7 @@ pub const ASSOCCLASS_SYSTEM_STR: ASSOCCLASS = 7;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ASSOCIATIONELEMENT {
     pub ac: ASSOCCLASS,
     pub hkClass: super::HKEY,
@@ -575,7 +575,7 @@ pub type DRAGINFO = DRAGINFOA;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRAGINFOA {
     pub uSize: super::UINT,
     pub pt: super::POINT,
@@ -597,7 +597,7 @@ pub struct DRAGINFOA {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRAGINFOW {
     pub uSize: super::UINT,
     pub pt: super::POINT,
@@ -641,7 +641,7 @@ pub const FO_RENAME: i32 = 4;
 pub type HDROP = *mut HDROP__;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HDROP__ {
     pub unused: i32,
 }
@@ -953,7 +953,7 @@ pub const NOTIFYICONDATA_V3_SIZE: super::LONG = 0x208_u32 as _;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NOTIFYICONIDENTIFIER {
     pub cbSize: super::DWORD,
     pub hWnd: super::HWND,
@@ -980,7 +980,7 @@ pub type OPEN_PRINTER_PROPS_INFO = OPEN_PRINTER_PROPS_INFOA;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPEN_PRINTER_PROPS_INFOA {
     pub dwSize: super::DWORD,
     pub pszSheetName: windows_core::PSTR,
@@ -1002,7 +1002,7 @@ pub struct OPEN_PRINTER_PROPS_INFOA {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPEN_PRINTER_PROPS_INFOW {
     pub dwSize: super::DWORD,
     pub pszSheetName: windows_core::PWSTR,
@@ -1101,7 +1101,7 @@ pub const SE_ERR_SHARE: i32 = 26;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "processthreadsapi", feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHCREATEPROCESSINFOW {
     pub cbSize: super::DWORD,
     pub fMask: super::ULONG,
@@ -1318,7 +1318,7 @@ pub type SHFILEINFO = SHFILEINFOA;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHFILEINFOA {
     pub hIcon: super::HICON,
     pub iIcon: i32,
@@ -1354,7 +1354,7 @@ impl Default for SHFILEINFOA {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHFILEINFOW {
     pub hIcon: super::HICON,
     pub iIcon: i32,
@@ -1392,7 +1392,7 @@ pub type SHFILEOPSTRUCT = SHFILEOPSTRUCTA;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHFILEOPSTRUCTA {
     pub hwnd: super::HWND,
     pub wFunc: super::UINT,
@@ -1420,7 +1420,7 @@ pub struct SHFILEOPSTRUCTA {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHFILEOPSTRUCTW {
     pub hwnd: super::HWND,
     pub wFunc: super::UINT,
@@ -1486,7 +1486,7 @@ pub const SHIL_SYSSMALL: i32 = 3;
 pub type SHNAMEMAPPING = SHNAMEMAPPINGA;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHNAMEMAPPINGA {
     pub pszOldPath: windows_core::PSTR,
     pub pszNewPath: windows_core::PSTR,
@@ -1504,7 +1504,7 @@ pub struct SHNAMEMAPPINGA {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHNAMEMAPPINGW {
     pub pszOldPath: windows_core::PWSTR,
     pub pszNewPath: windows_core::PWSTR,
@@ -1523,7 +1523,7 @@ pub struct SHNAMEMAPPINGW {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHQUERYRBINFO {
     pub cbSize: super::DWORD,
     pub i64Size: i64,
@@ -1542,7 +1542,7 @@ pub type SHSTOCKICONID = i32;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHSTOCKICONINFO {
     pub cbSize: super::DWORD,
     pub hIcon: super::HICON,

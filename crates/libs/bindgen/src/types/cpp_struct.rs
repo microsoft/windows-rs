@@ -436,7 +436,7 @@ impl CppStruct {
 
         if !config.bindgen.style.is_sys()
             && !has_explicit_layout
-            && !has_packing
+            && (!has_packing || is_copyable)
             && !self.has_member_alignment(config.reader)
         {
             derive.extend(["Debug"]);

@@ -3583,7 +3583,7 @@ impl Default for WHV_SRIOV_RESOURCE_DESCRIPTOR {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_SVM_NESTED_HOST_STATE {
     pub Rip: super::UINT64,
     pub Rsp: super::UINT64,
@@ -3612,7 +3612,7 @@ impl Default for WHV_SVM_NESTED_HOST_STATE {
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_SVM_VMCB_SELECTOR {
     pub Selector: super::UINT16,
     pub Attrib: super::UINT16,

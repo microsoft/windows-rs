@@ -94,7 +94,7 @@ where
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AASHELLMENUFILENAME {
     pub cbTotal: super::SHORT,
     pub rgbReserved: [super::BYTE; 12],
@@ -108,7 +108,7 @@ impl Default for AASHELLMENUFILENAME {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AASHELLMENUITEM {
     pub lpReserved1: *mut core::ffi::c_void,
     pub iReserved: i32,
@@ -1308,7 +1308,7 @@ pub const SFVM_SETPOINTS: i32 = 23;
 pub const SFVM_UPDATEOBJECT: i32 = 7;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "shtypes", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SFV_SETITEMPOS {
     pub pidl: super::LPCITEMIDLIST,
     pub pt: super::POINT,
@@ -1316,7 +1316,7 @@ pub struct SFV_SETITEMPOS {
 pub const SHCDF_UPDATEITEM: i32 = 1;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHCOLUMNDATA {
     pub dwFlags: super::ULONG,
     pub dwFileAttributes: super::DWORD,
@@ -1332,7 +1332,7 @@ impl Default for SHCOLUMNDATA {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "shtypes", feature = "winnt", feature = "wtypes"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHCOLUMNINFO {
     pub scid: super::SHCOLUMNID,
     pub vt: super::VARTYPE,
@@ -1350,7 +1350,7 @@ impl Default for SHCOLUMNINFO {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHCOLUMNINIT {
     pub dwFlags: super::ULONG,
     pub dwReserved: super::ULONG,
@@ -1364,7 +1364,7 @@ impl Default for SHCOLUMNINIT {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHChangeProductKeyAsIDList {
     pub cb: super::USHORT,
     pub wszProductKey: [super::WCHAR; 39],
@@ -1389,7 +1389,7 @@ pub const TBIF_REPLACE: i32 = 2;
 pub const TBIF_STANDARDTOOLBAR: i32 = 131072;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TBINFO {
     pub cbuttons: super::UINT,
     pub uFlags: super::UINT,

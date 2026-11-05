@@ -1,153 +1,153 @@
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wtypes"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CABOOL {
     pub cElems: super::ULONG,
     pub pElems: *mut super::VARIANT_BOOL,
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CABSTR {
     pub cElems: super::ULONG,
     pub pElems: *mut windows_core::BSTR,
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wtypes"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CABSTRBLOB {
     pub cElems: super::ULONG,
     pub pElems: *mut super::BSTRBLOB,
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CAC {
     pub cElems: super::ULONG,
     pub pElems: *mut super::CHAR,
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wtypes"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CACLIPDATA {
     pub cElems: super::ULONG,
     pub pElems: *mut super::CLIPDATA,
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "guiddef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CACLSID {
     pub cElems: super::ULONG,
     pub pElems: *mut super::CLSID,
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wtypes"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CACY {
     pub cElems: super::ULONG,
     pub pElems: *mut super::CY,
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wtypes"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CADATE {
     pub cElems: super::ULONG,
     pub pElems: *mut super::DATE,
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CADBL {
     pub cElems: super::ULONG,
     pub pElems: *mut super::DOUBLE,
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CAFILETIME {
     pub cElems: super::ULONG,
     pub pElems: *mut super::FILETIME,
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CAFLT {
     pub cElems: super::ULONG,
     pub pElems: *mut super::FLOAT,
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CAH {
     pub cElems: super::ULONG,
     pub pElems: *mut super::LARGE_INTEGER,
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CAI {
     pub cElems: super::ULONG,
     pub pElems: *mut super::SHORT,
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CAL {
     pub cElems: super::ULONG,
     pub pElems: *mut super::LONG,
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CALPSTR {
     pub cElems: super::ULONG,
     pub pElems: *mut windows_core::PSTR,
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CALPWSTR {
     pub cElems: super::ULONG,
     pub pElems: *mut windows_core::PWSTR,
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CAPROPVARIANT {
     pub cElems: super::ULONG,
     pub pElems: *mut PROPVARIANT,
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CASCODE {
     pub cElems: super::ULONG,
     pub pElems: *mut super::SCODE,
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CAUB {
     pub cElems: super::ULONG,
     pub pElems: *mut super::UCHAR,
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CAUH {
     pub cElems: super::ULONG,
     pub pElems: *mut super::ULARGE_INTEGER,
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CAUI {
     pub cElems: super::ULONG,
     pub pElems: *mut super::USHORT,
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CAUL {
     pub cElems: super::ULONG,
     pub pElems: *mut super::ULONG,
@@ -742,7 +742,7 @@ pub const PRSPEC_LPWSTR: i32 = 0;
 pub const PRSPEC_PROPID: i32 = 1;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STATPROPSETSTG {
     pub fmtid: super::FMTID,
     pub clsid: super::CLSID,
@@ -754,7 +754,7 @@ pub struct STATPROPSETSTG {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STATPROPSTG {
     pub lpwstrName: super::LPOLESTR,
     pub propid: super::PROPID,

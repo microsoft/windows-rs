@@ -3,7 +3,7 @@ pub type ARGB = u32;
 pub const BLUE_SHIFT: i32 = 0;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ColorPalette {
     pub Flags: super::UINT,
     pub Count: super::UINT,

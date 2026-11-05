@@ -175,7 +175,7 @@ impl Default for SAFER_HASH_IDENTIFICATION2 {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAFER_IDENTIFICATION_HEADER {
     pub dwIdentificationType: SAFER_IDENTIFICATION_TYPES,
     pub cbStructSize: super::DWORD,
@@ -201,7 +201,7 @@ pub const SAFER_MAX_HASH_SIZE: i32 = 64;
 pub type SAFER_OBJECT_INFO_CLASS = i32;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFER_PATHNAME_IDENTIFICATION {
     pub header: SAFER_IDENTIFICATION_HEADER,
     pub Description: [super::WCHAR; 256],
@@ -235,7 +235,7 @@ pub const SAFER_TOKEN_NULL_IF_EQUAL: i32 = 1;
 pub const SAFER_TOKEN_WANT_FLAGS: i32 = 8;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAFER_URLZONE_IDENTIFICATION {
     pub header: SAFER_IDENTIFICATION_HEADER,
     pub UrlZoneId: super::DWORD,

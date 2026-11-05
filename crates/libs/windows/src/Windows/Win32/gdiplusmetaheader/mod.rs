@@ -1,6 +1,6 @@
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENHMETAHEADER3 {
     pub iType: super::DWORD,
     pub nSize: super::DWORD,
@@ -59,7 +59,7 @@ impl Default for MetafileHeader_0 {
 }
 #[repr(C, packed(2))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PWMFRect16 {
     pub Left: super::INT16,
     pub Top: super::INT16,
@@ -68,7 +68,7 @@ pub struct PWMFRect16 {
 }
 #[repr(C, packed(2))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WmfPlaceableFileHeader {
     pub Key: super::UINT32,
     pub Hmf: super::INT16,

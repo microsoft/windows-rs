@@ -768,14 +768,14 @@ where
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ASF_FLAT_PICTURE {
     pub bPictureType: super::BYTE,
     pub dwDataLen: super::DWORD,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ASF_FLAT_SYNCHRONISED_LYRICS {
     pub bTimeStampFormat: super::BYTE,
     pub bContentType: super::BYTE,

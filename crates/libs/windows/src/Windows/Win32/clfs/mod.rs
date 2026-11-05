@@ -160,7 +160,7 @@ pub struct CLFS_NODE_ID {
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLFS_PHYSICAL_LSN_INFORMATION {
     pub StreamIdentifier: super::UCHAR,
     pub VirtualLsn: CLFS_LSN,

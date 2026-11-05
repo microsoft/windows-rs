@@ -10,7 +10,7 @@ pub type ELEMENTID = windows_core::GUID;
 pub type FOLDERTYPEID = windows_core::GUID;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ITEMIDLIST {
     pub mkid: SHITEMID,
 }
@@ -116,7 +116,7 @@ impl Default for SHELLDETAILS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHITEMID {
     pub cb: super::USHORT,
     pub abID: [super::BYTE; 1],

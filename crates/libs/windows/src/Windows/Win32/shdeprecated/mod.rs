@@ -63,7 +63,7 @@ pub const BSF_TRUSTEDFORACTIVEX: i32 = 131072;
 pub const BSF_UISETBYAUTOMATION: i32 = 256;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "shobjidl_core"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FOLDERSETDATA {
     pub _fs: super::FOLDERSETTINGS,
     pub _vidRestore: super::SHELLVIEWID,

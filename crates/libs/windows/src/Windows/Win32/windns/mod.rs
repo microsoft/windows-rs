@@ -860,7 +860,7 @@ impl Default for DNS_DS_DATA {
 pub type DNS_FREE_TYPE = i32;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_HEADER {
     pub Xid: super::WORD,
     pub _bitfield1: u8,
@@ -1004,7 +1004,7 @@ pub const DNS_MAX_REVERSE_NAME_LENGTH: i32 = 75;
 pub const DNS_MAX_TEXT_STRING_LENGTH: i32 = 255;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_MESSAGE_BUFFER {
     pub MessageHead: DNS_HEADER,
     pub MessageBody: [super::CHAR; 1],
@@ -2465,14 +2465,14 @@ pub const DNS_WINS_FLAG_LOCAL: i32 = 65536;
 pub const DNS_WINS_FLAG_SCOPE: u32 = 2147483648;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_WIRE_QUESTION {
     pub QuestionType: super::WORD,
     pub QuestionClass: super::WORD,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_WIRE_RECORD {
     pub RecordType: super::WORD,
     pub RecordClass: super::WORD,

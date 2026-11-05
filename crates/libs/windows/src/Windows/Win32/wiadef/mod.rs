@@ -144,7 +144,7 @@ pub const WIA_AUTO_DESKEW_OFF: i32 = 1;
 pub const WIA_AUTO_DESKEW_ON: i32 = 0;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_BARCODES {
     pub Tag: super::DWORD,
     pub Version: super::DWORD,
@@ -184,7 +184,7 @@ pub const WIA_BARCODE_HORIZONTAL_SEARCH: i32 = 0;
 pub const WIA_BARCODE_HORIZONTAL_VERTICAL_SEARCH: i32 = 2;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_BARCODE_INFO {
     pub Size: super::DWORD,
     pub Type: super::DWORD,
@@ -934,7 +934,7 @@ pub const WIA_MAJOR_EVENT_PICTURE_TAKEN: i32 = 3;
 pub const WIA_MAX_CTX_SIZE: i32 = 16777216;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_MICR {
     pub Tag: super::DWORD,
     pub Version: super::DWORD,
@@ -952,7 +952,7 @@ impl Default for WIA_MICR {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_MICR_INFO {
     pub Size: super::DWORD,
     pub Page: super::DWORD,
@@ -1045,7 +1045,7 @@ pub const WIA_PAGE_USLETTER: i32 = 1;
 pub const WIA_PAGE_USSTATEMENT: i32 = 5;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_PATCH_CODES {
     pub Tag: super::DWORD,
     pub Version: super::DWORD,
@@ -1075,7 +1075,7 @@ pub const WIA_PATCH_CODE_9: i32 = 9;
 pub const WIA_PATCH_CODE_CUSTOM_BASE: i32 = 32768;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIA_PATCH_CODE_INFO {
     pub Type: super::DWORD,
 }
@@ -1170,7 +1170,7 @@ pub const WIA_RANGE_NUM_ELEMS: i32 = 4;
 pub const WIA_RANGE_STEP: i32 = 3;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_RAW_HEADER {
     pub Tag: super::DWORD,
     pub Version: super::DWORD,

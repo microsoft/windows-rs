@@ -1863,7 +1863,7 @@ pub unsafe fn UnmapDebugInformation(debuginfo: PIMAGE_DEBUG_INFORMATION) -> wind
 #[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADDRESS {
     pub Offset: super::DWORD,
     pub Segment: super::WORD,
@@ -1871,7 +1871,7 @@ pub struct ADDRESS {
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADDRESS64 {
     pub Offset: super::DWORD64,
     pub Segment: super::WORD,
@@ -1880,7 +1880,7 @@ pub struct ADDRESS64 {
 pub type ADDRESS_MODE = i32;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct API_VERSION {
     pub MajorVersion: super::USHORT,
     pub MinorVersion: super::USHORT,
@@ -1913,7 +1913,7 @@ pub const CBA_SYMBOLS_UNLOADED: i32 = 4;
 pub const CBA_UPDATE_STATUS_BAR: i32 = 1342177280;
 pub const CBA_XML_LOG: u32 = 2415919104;
 #[repr(C, packed(8))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBGHELP_DATA_REPORT_STRUCT {
     pub pBinPathNonExist: windows_core::PCWSTR,
     pub pSymbolPathNonExist: windows_core::PCWSTR,
@@ -1923,7 +1923,7 @@ pub const DBHHEADER_DEBUGDIRS: i32 = 1;
 pub const DBHHEADER_PDBGUID: i32 = 3;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DISCRIMINATEDUNION_TAG_VALUE {
     pub value: [super::BYTE; 16],
     pub valueSizeBytes: super::BYTE,
@@ -1953,7 +1953,7 @@ pub const FLAG_ENGOPT_DISALLOW_NETWORK_PATHS: i32 = 8;
 pub const FLAG_OVERRIDE_ARM_MACHINE_TYPE: i32 = 16;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGEHLP_CBA_EVENT {
     pub severity: super::DWORD,
     pub code: super::DWORD,
@@ -1962,7 +1962,7 @@ pub struct IMAGEHLP_CBA_EVENT {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGEHLP_CBA_EVENTW {
     pub severity: super::DWORD,
     pub code: super::DWORD,
@@ -1971,7 +1971,7 @@ pub struct IMAGEHLP_CBA_EVENTW {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGEHLP_CBA_READ_MEMORY {
     pub addr: super::DWORD64,
     pub buf: super::PVOID,
@@ -1982,7 +1982,7 @@ pub type IMAGEHLP_CONTEXT = core::ffi::c_void;
 #[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD {
     pub SizeOfStruct: super::DWORD,
     pub BaseOfImage: super::DWORD,
@@ -2001,7 +2001,7 @@ impl Default for IMAGEHLP_DEFERRED_SYMBOL_LOAD {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
     pub SizeOfStruct: super::DWORD,
     pub BaseOfImage: super::DWORD64,
@@ -2020,7 +2020,7 @@ impl Default for IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
     pub SizeOfStruct: super::DWORD,
     pub BaseOfImage: super::DWORD64,
@@ -2040,7 +2040,7 @@ impl Default for IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
 #[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGEHLP_DUPLICATE_SYMBOL {
     pub SizeOfStruct: super::DWORD,
     pub NumberOfDups: super::DWORD,
@@ -2049,7 +2049,7 @@ pub struct IMAGEHLP_DUPLICATE_SYMBOL {
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGEHLP_DUPLICATE_SYMBOL64 {
     pub SizeOfStruct: super::DWORD,
     pub NumberOfDups: super::DWORD,
@@ -2060,7 +2060,7 @@ pub type IMAGEHLP_EXTENDED_OPTIONS = i32;
 pub const IMAGEHLP_GET_TYPE_INFO_CHILDREN: i32 = 2;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "basetsd", feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGEHLP_GET_TYPE_INFO_PARAMS {
     pub SizeOfStruct: super::ULONG,
     pub Flags: super::ULONG,
@@ -2085,7 +2085,7 @@ pub const IMAGEHLP_GET_TYPE_INFO_UNCACHED: i32 = 1;
 pub type IMAGEHLP_HD_TYPE = i32;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGEHLP_JIT_SYMBOLMAP {
     pub SizeOfStruct: super::DWORD,
     pub Address: super::DWORD64,
@@ -2094,7 +2094,7 @@ pub struct IMAGEHLP_JIT_SYMBOLMAP {
 #[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGEHLP_LINE {
     pub SizeOfStruct: super::DWORD,
     pub Key: super::PVOID,
@@ -2104,7 +2104,7 @@ pub struct IMAGEHLP_LINE {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGEHLP_LINE64 {
     pub SizeOfStruct: super::DWORD,
     pub Key: super::PVOID,
@@ -2115,7 +2115,7 @@ pub struct IMAGEHLP_LINE64 {
 #[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGEHLP_LINEW {
     pub SizeOfStruct: super::DWORD,
     pub Key: super::PVOID,
@@ -2125,7 +2125,7 @@ pub struct IMAGEHLP_LINEW {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGEHLP_LINEW64 {
     pub SizeOfStruct: super::DWORD,
     pub Key: super::PVOID,
@@ -2136,7 +2136,7 @@ pub struct IMAGEHLP_LINEW64 {
 #[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_MODULE {
     pub SizeOfStruct: super::DWORD,
     pub BaseOfImage: super::DWORD,
@@ -2158,7 +2158,7 @@ impl Default for IMAGEHLP_MODULE {
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_MODULE64 {
     pub SizeOfStruct: super::DWORD,
     pub BaseOfImage: super::DWORD64,
@@ -2194,7 +2194,7 @@ impl Default for IMAGEHLP_MODULE64 {
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGEHLP_MODULE64_EX {
     pub Module: IMAGEHLP_MODULE64,
     pub RegionFlags: super::DWORD,
@@ -2202,7 +2202,7 @@ pub struct IMAGEHLP_MODULE64_EX {
 #[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_MODULEW {
     pub SizeOfStruct: super::DWORD,
     pub BaseOfImage: super::DWORD,
@@ -2224,7 +2224,7 @@ impl Default for IMAGEHLP_MODULEW {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_MODULEW64 {
     pub SizeOfStruct: super::DWORD,
     pub BaseOfImage: super::DWORD64,
@@ -2260,7 +2260,7 @@ impl Default for IMAGEHLP_MODULEW64 {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGEHLP_MODULEW64_EX {
     pub Module: IMAGEHLP_MODULEW64,
     pub RegionFlags: super::DWORD,
@@ -2281,7 +2281,7 @@ pub const IMAGEHLP_RMAP_OMIT_SHARED_RW_DATA_SECTIONS: i32 = 1073741824;
 pub type IMAGEHLP_SF_TYPE = i32;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_STACK_FRAME {
     pub InstructionOffset: super::ULONG64,
     pub ReturnOffset: super::ULONG64,
@@ -2303,7 +2303,7 @@ impl Default for IMAGEHLP_STACK_FRAME {
 #[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_SYMBOL {
     pub SizeOfStruct: super::DWORD,
     pub Address: super::DWORD,
@@ -2321,7 +2321,7 @@ impl Default for IMAGEHLP_SYMBOL {
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_SYMBOL64 {
     pub SizeOfStruct: super::DWORD,
     pub Address: super::DWORD64,
@@ -2338,7 +2338,7 @@ impl Default for IMAGEHLP_SYMBOL64 {
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_SYMBOL64_PACKAGE {
     pub sym: IMAGEHLP_SYMBOL64,
     pub name: [super::CHAR; 2001],
@@ -2352,7 +2352,7 @@ impl Default for IMAGEHLP_SYMBOL64_PACKAGE {
 #[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_SYMBOLW {
     pub SizeOfStruct: super::DWORD,
     pub Address: super::DWORD,
@@ -2370,7 +2370,7 @@ impl Default for IMAGEHLP_SYMBOLW {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_SYMBOLW64 {
     pub SizeOfStruct: super::DWORD,
     pub Address: super::DWORD64,
@@ -2387,7 +2387,7 @@ impl Default for IMAGEHLP_SYMBOLW64 {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_SYMBOLW64_PACKAGE {
     pub sym: IMAGEHLP_SYMBOLW64,
     pub name: [super::WCHAR; 2001],
@@ -2401,7 +2401,7 @@ impl Default for IMAGEHLP_SYMBOLW64_PACKAGE {
 #[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_SYMBOLW_PACKAGE {
     pub sym: IMAGEHLP_SYMBOLW,
     pub name: [super::WCHAR; 2001],
@@ -2425,7 +2425,7 @@ pub const IMAGEHLP_SYMBOL_INFO_VALUEPRESENT: i32 = 1;
 #[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_SYMBOL_PACKAGE {
     pub sym: IMAGEHLP_SYMBOL,
     pub name: [super::CHAR; 2001],
@@ -2439,7 +2439,7 @@ impl Default for IMAGEHLP_SYMBOL_PACKAGE {
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_SYMBOL_SRC {
     pub sizeofstruct: super::DWORD,
     pub r#type: super::DWORD,
@@ -2458,7 +2458,7 @@ pub const IMAGEHLP_SYMBOL_VIRTUAL: i32 = 4096;
 #[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_DEBUG_INFORMATION {
     pub List: super::LIST_ENTRY,
     pub ReservedSize: super::DWORD,
@@ -2505,7 +2505,7 @@ pub const INLINE_FRAME_CONTEXT_INIT: i32 = 0;
 #[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KDHELP {
     pub Thread: super::DWORD,
     pub ThCallbackStack: super::DWORD,
@@ -2529,7 +2529,7 @@ impl Default for KDHELP {
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KDHELP64 {
     pub Thread: super::DWORD64,
     pub ThCallbackStack: super::DWORD,
@@ -2558,7 +2558,7 @@ impl Default for KDHELP64 {
 #[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOADED_IMAGE {
     pub ModuleName: windows_core::PSTR,
     pub hFile: super::HANDLE,
@@ -2578,7 +2578,7 @@ pub struct LOADED_IMAGE {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOADED_IMAGE {
     pub ModuleName: windows_core::PSTR,
     pub hFile: super::HANDLE,
@@ -2614,7 +2614,7 @@ pub type LPSTACKFRAME_EX = *mut STACKFRAME_EX;
 pub const MAX_SYM_NAME: i32 = 2000;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MODLOAD_CVMISC {
     pub oCV: super::DWORD,
     pub cCV: super::size_t,
@@ -2625,7 +2625,7 @@ pub struct MODLOAD_CVMISC {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MODLOAD_DATA {
     pub ssize: super::DWORD,
     pub ssig: super::DWORD,
@@ -2635,14 +2635,14 @@ pub struct MODLOAD_DATA {
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MODLOAD_PDBGUID_PDBAGE {
     pub PdbGuid: windows_core::GUID,
     pub PdbAge: super::DWORD,
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MODULE_TYPE_INFO {
     pub dataLength: super::USHORT,
     pub leaf: super::USHORT,
@@ -2659,7 +2659,7 @@ pub const NUM_SSRVOPTS: i32 = 32;
 pub const NumSymTypes: SYM_TYPE = 9;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OMAP {
     pub rva: super::ULONG,
     pub rvaTo: super::ULONG,
@@ -2928,21 +2928,21 @@ pub const SLMFLAG_NO_SYMBOLS: i32 = 4;
 pub const SLMFLAG_VIRTUAL: i32 = 1;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOURCEFILE {
     pub ModBase: super::DWORD64,
     pub FileName: super::PCHAR,
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOURCEFILEW {
     pub ModBase: super::DWORD64,
     pub FileName: windows_core::PWSTR,
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SRCCODEINFO {
     pub SizeOfStruct: super::DWORD,
     pub Key: super::PVOID,
@@ -2960,7 +2960,7 @@ impl Default for SRCCODEINFO {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SRCCODEINFOW {
     pub SizeOfStruct: super::DWORD,
     pub Key: super::PVOID,
@@ -3042,7 +3042,7 @@ pub const SSRVURI_UNC_NORMAL: i32 = 16;
 #[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STACKFRAME {
     pub AddrPC: ADDRESS,
     pub AddrReturn: ADDRESS,
@@ -3065,7 +3065,7 @@ impl Default for STACKFRAME {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STACKFRAME64 {
     pub AddrPC: ADDRESS64,
     pub AddrReturn: ADDRESS64,
@@ -3087,7 +3087,7 @@ impl Default for STACKFRAME64 {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STACKFRAME_EX {
     pub AddrPC: ADDRESS64,
     pub AddrReturn: ADDRESS64,
@@ -3115,7 +3115,7 @@ pub type SYMADDSOURCESTREAM = Option<unsafe extern "system" fn(param0: super::HA
 pub type SYMADDSOURCESTREAMA = Option<unsafe extern "system" fn(param0: super::HANDLE, param1: super::ULONG64, param2: windows_core::PCSTR, param3: super::PBYTE, param4: super::size_t) -> windows_core::BOOL>;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYMBOL_INFO {
     pub SizeOfStruct: super::ULONG,
     pub TypeIndex: super::ULONG,
@@ -3141,7 +3141,7 @@ impl Default for SYMBOL_INFO {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYMBOL_INFOW {
     pub SizeOfStruct: super::ULONG,
     pub TypeIndex: super::ULONG,
@@ -3167,7 +3167,7 @@ impl Default for SYMBOL_INFOW {
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYMBOL_INFO_PACKAGE {
     pub si: SYMBOL_INFO,
     pub name: [super::CHAR; 2001],
@@ -3180,7 +3180,7 @@ impl Default for SYMBOL_INFO_PACKAGE {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYMBOL_INFO_PACKAGEW {
     pub si: SYMBOL_INFOW,
     pub name: [super::WCHAR; 2001],
@@ -3277,7 +3277,7 @@ pub const SYMSEARCH_MASKOBJS: i32 = 1;
 pub const SYMSEARCH_RECURSE: i32 = 2;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYMSRV_EXTENDED_OUTPUT_DATA {
     pub sizeOfStruct: super::DWORD,
     pub version: super::DWORD,
@@ -3291,7 +3291,7 @@ impl Default for SYMSRV_EXTENDED_OUTPUT_DATA {
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYMSRV_INDEX_INFO {
     pub sizeofstruct: super::DWORD,
     pub file: [i8; 261],
@@ -3312,7 +3312,7 @@ impl Default for SYMSRV_INDEX_INFO {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYMSRV_INDEX_INFOW {
     pub sizeofstruct: super::DWORD,
     pub file: [super::WCHAR; 261],
@@ -3363,7 +3363,7 @@ pub const TARGET_ATTRIBUTE_PACMASK_LIVETARGET: u64 = 18446744073709551615;
 pub const TI_FINDCHILDREN: IMAGEHLP_SYMBOL_TYPE_INFO = 7;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TI_FINDCHILDREN_PARAMS {
     pub Count: super::ULONG,
     pub Start: super::ULONG,
@@ -3390,7 +3390,7 @@ pub const TI_GET_DISCRIMINATEDUNION_TAG_RANGES: IMAGEHLP_SYMBOL_TYPE_INFO = 38;
 pub const TI_GET_DISCRIMINATEDUNION_TAG_RANGESCOUNT: IMAGEHLP_SYMBOL_TYPE_INFO = 37;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TI_GET_DISCRIMINATEDUNION_TAG_RANGES_PARAMS {
     pub Count: super::ULONG,
     pub Start: super::ULONG,

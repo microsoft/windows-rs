@@ -5448,7 +5448,7 @@ pub const DLGC_WANTMESSAGE: i32 = 4;
 pub const DLGC_WANTTAB: i32 = 2;
 #[repr(C, packed(2))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DLGITEMTEMPLATE {
     pub style: super::DWORD,
     pub dwExtendedStyle: super::DWORD,
@@ -5462,7 +5462,7 @@ pub struct DLGITEMTEMPLATE {
 pub type DLGPROC = Option<unsafe extern "system" fn(param0: super::HWND, param1: super::UINT, param2: super::WPARAM, param3: super::LPARAM) -> super::INT_PTR>;
 #[repr(C, packed(2))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DLGTEMPLATE {
     pub style: super::DWORD,
     pub dwExtendedStyle: super::DWORD,

@@ -1,0 +1,52 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    #[packed(1)]
+    struct Packed {
+        tag: u8,
+        value: u64,
+        words: [u32; 3],
+    }
+
+    struct Outer {
+        values: [Packed; 2],
+    }
+
+    #[packed(1)]
+    struct Floating {
+        tag: u8,
+        value: f64,
+    }
+
+    extern fn Callback(value: u32);
+
+    #[packed(1)]
+    struct WithCallback {
+        callback: Callback,
+    }
+
+    #[packed(1)]
+    struct NonCopy {
+        object: Windows::Win32::IUnknown,
+    }
+
+    struct NonCopyOuter {
+        value: NonCopy,
+    }
+
+    #[packed(1)]
+    struct WithUnion {
+        tag: u8,
+        value: union {
+            integer: u32,
+            floating: f32,
+        },
+    }
+}
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x00000000_0000_0000_c000_000000000046)]
+        interface IUnknown {}
+    }
+}

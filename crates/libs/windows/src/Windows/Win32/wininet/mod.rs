@@ -1466,7 +1466,7 @@ pub const AUTO_PROXY_FLAG_USER_SET: i32 = 1;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTO_PROXY_SCRIPT_BUFFER {
     pub dwStructSize: super::DWORD,
     pub lpszScriptBuffer: windows_core::PSTR,
@@ -1475,7 +1475,7 @@ pub struct AUTO_PROXY_SCRIPT_BUFFER {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTO_PROXY_SCRIPT_BUFFER {
     pub dwStructSize: super::DWORD,
     pub lpszScriptBuffer: windows_core::PSTR,
@@ -1484,21 +1484,21 @@ pub struct AUTO_PROXY_SCRIPT_BUFFER {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnls"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AutoProxyHelperFunctions {
     pub lpVtbl: *const AutoProxyHelperVtbl,
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnls"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AutoProxyHelperFunctions {
     pub lpVtbl: *const AutoProxyHelperVtbl,
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnls"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct AutoProxyHelperVtbl {
     pub IsResolvable: super::CALINFO_ENUMPROCA,
     pub GetIPAddress: Option<unsafe extern "system" fn(windows_core::PSTR, super::LPDWORD) -> super::DWORD>,
@@ -1513,7 +1513,7 @@ pub struct AutoProxyHelperVtbl {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnls"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct AutoProxyHelperVtbl {
     pub IsResolvable: super::CALINFO_ENUMPROCA,
     pub GetIPAddress: Option<unsafe extern "system" fn(windows_core::PSTR, super::LPDWORD) -> super::DWORD>,
@@ -1559,7 +1559,7 @@ pub const COOKIE_STATE_UNKNOWN: InternetCookieState = 0;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CookieDecision {
     pub dwCookieState: super::DWORD,
     pub fAllowSession: windows_core::BOOL,
@@ -1567,7 +1567,7 @@ pub struct CookieDecision {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CookieDecision {
     pub dwCookieState: super::DWORD,
     pub fAllowSession: windows_core::BOOL,
@@ -1687,7 +1687,7 @@ pub const GOPHER_ABSTRACT_ATTRIBUTE: windows_core::PCSTR = windows_core::s!("Abs
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
     pub ShortAbstract: super::LPCTSTR,
     pub AbstractFile: super::LPCTSTR,
@@ -1695,7 +1695,7 @@ pub struct GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
     pub ShortAbstract: super::LPCTSTR,
     pub AbstractFile: super::LPCTSTR,
@@ -1705,7 +1705,7 @@ pub const GOPHER_ADMIN_ATTRIBUTE: windows_core::PCSTR = windows_core::s!("Admin"
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_ADMIN_ATTRIBUTE_TYPE {
     pub Comment: super::LPCTSTR,
     pub EmailAddress: super::LPCTSTR,
@@ -1713,7 +1713,7 @@ pub struct GOPHER_ADMIN_ATTRIBUTE_TYPE {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_ADMIN_ATTRIBUTE_TYPE {
     pub Comment: super::LPCTSTR,
     pub EmailAddress: super::LPCTSTR,
@@ -1722,7 +1722,7 @@ pub const GOPHER_ADMIN_CATEGORY: windows_core::PCSTR = windows_core::s!("+ADMIN"
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_ASK_ATTRIBUTE_TYPE {
     pub QuestionType: super::LPCTSTR,
     pub QuestionText: super::LPCTSTR,
@@ -1730,7 +1730,7 @@ pub struct GOPHER_ASK_ATTRIBUTE_TYPE {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_ASK_ATTRIBUTE_TYPE {
     pub QuestionType: super::LPCTSTR,
     pub QuestionText: super::LPCTSTR,
@@ -1860,7 +1860,7 @@ pub type GOPHER_FIND_DATA = GOPHER_FIND_DATAA;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GOPHER_FIND_DATAA {
     pub DisplayString: [super::CHAR; 129],
     pub GopherType: super::DWORD,
@@ -1879,7 +1879,7 @@ impl Default for GOPHER_FIND_DATAA {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GOPHER_FIND_DATAA {
     pub DisplayString: [super::CHAR; 129],
     pub GopherType: super::DWORD,
@@ -1898,7 +1898,7 @@ impl Default for GOPHER_FIND_DATAA {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GOPHER_FIND_DATAW {
     pub DisplayString: [super::WCHAR; 129],
     pub GopherType: super::DWORD,
@@ -1917,7 +1917,7 @@ impl Default for GOPHER_FIND_DATAW {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GOPHER_FIND_DATAW {
     pub DisplayString: [super::WCHAR; 129],
     pub GopherType: super::DWORD,
@@ -1936,7 +1936,7 @@ impl Default for GOPHER_FIND_DATAW {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
     pub DegreesNorth: super::INT,
     pub MinutesNorth: super::INT,
@@ -1948,7 +1948,7 @@ pub struct GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
     pub DegreesNorth: super::INT,
     pub MinutesNorth: super::INT,
@@ -1963,14 +1963,14 @@ pub const GOPHER_LOCATION_ATTRIBUTE: windows_core::PCSTR = windows_core::s!("Loc
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_LOCATION_ATTRIBUTE_TYPE {
     pub Location: super::LPCTSTR,
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_LOCATION_ATTRIBUTE_TYPE {
     pub Location: super::LPCTSTR,
 }
@@ -1978,28 +1978,28 @@ pub const GOPHER_MOD_DATE_ATTRIBUTE: windows_core::PCSTR = windows_core::s!("Mod
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_MOD_DATE_ATTRIBUTE_TYPE {
     pub DateAndTime: super::FILETIME,
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_MOD_DATE_ATTRIBUTE_TYPE {
     pub DateAndTime: super::FILETIME,
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
     pub Organization: super::LPCTSTR,
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
     pub Organization: super::LPCTSTR,
 }
@@ -2008,14 +2008,14 @@ pub const GOPHER_PROVIDER_ATTRIBUTE: windows_core::PCSTR = windows_core::s!("Pro
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_PROVIDER_ATTRIBUTE_TYPE {
     pub Provider: super::LPCTSTR,
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_PROVIDER_ATTRIBUTE_TYPE {
     pub Provider: super::LPCTSTR,
 }
@@ -2024,21 +2024,21 @@ pub const GOPHER_SCORE_ATTRIBUTE: windows_core::PCSTR = windows_core::s!("Score"
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_SCORE_ATTRIBUTE_TYPE {
     pub Score: super::INT,
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_SCORE_ATTRIBUTE_TYPE {
     pub Score: super::INT,
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
     pub LowerBound: super::INT,
     pub UpperBound: super::INT,
@@ -2046,7 +2046,7 @@ pub struct GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
     pub LowerBound: super::INT,
     pub UpperBound: super::INT,
@@ -2055,14 +2055,14 @@ pub const GOPHER_SITE_ATTRIBUTE: windows_core::PCSTR = windows_core::s!("Site");
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_SITE_ATTRIBUTE_TYPE {
     pub Site: super::LPCTSTR,
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_SITE_ATTRIBUTE_TYPE {
     pub Site: super::LPCTSTR,
 }
@@ -2070,14 +2070,14 @@ pub const GOPHER_TIMEZONE_ATTRIBUTE: windows_core::PCSTR = windows_core::s!("TZ"
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
     pub Zone: super::INT,
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
     pub Zone: super::INT,
 }
@@ -2086,14 +2086,14 @@ pub const GOPHER_TTL_ATTRIBUTE: windows_core::PCSTR = windows_core::s!("TTL");
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_TTL_ATTRIBUTE_TYPE {
     pub Ttl: super::DWORD,
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_TTL_ATTRIBUTE_TYPE {
     pub Ttl: super::DWORD,
 }
@@ -2125,26 +2125,26 @@ pub const GOPHER_TYPE_UNKNOWN: i32 = 536870912;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
     pub Text: super::LPCTSTR,
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
     pub Text: super::LPCTSTR,
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_VERONICA_ATTRIBUTE_TYPE {
     pub TreeWalk: windows_core::BOOL,
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_VERONICA_ATTRIBUTE_TYPE {
     pub TreeWalk: windows_core::BOOL,
 }
@@ -2153,14 +2153,14 @@ pub const GOPHER_VERSION_ATTRIBUTE: windows_core::PCSTR = windows_core::s!("Vers
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_VERSION_ATTRIBUTE_TYPE {
     pub Version: super::LPCTSTR,
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_VERSION_ATTRIBUTE_TYPE {
     pub Version: super::LPCTSTR,
 }
@@ -2169,7 +2169,7 @@ pub const GOPHER_VIEW_ATTRIBUTE: windows_core::PCSTR = windows_core::s!("View");
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_VIEW_ATTRIBUTE_TYPE {
     pub ContentType: super::LPCTSTR,
     pub Language: super::LPCTSTR,
@@ -2178,7 +2178,7 @@ pub struct GOPHER_VIEW_ATTRIBUTE_TYPE {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_VIEW_ATTRIBUTE_TYPE {
     pub ContentType: super::LPCTSTR,
     pub Language: super::LPCTSTR,
@@ -2380,7 +2380,7 @@ pub const INTERENT_GOONLINE_REFRESH: i32 = 1;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_ASYNC_RESULT {
     pub dwResult: super::DWORD_PTR,
     pub dwError: super::DWORD,
@@ -2388,7 +2388,7 @@ pub struct INTERNET_ASYNC_RESULT {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_ASYNC_RESULT {
     pub dwResult: super::DWORD_PTR,
     pub dwError: super::DWORD,
@@ -2396,7 +2396,7 @@ pub struct INTERNET_ASYNC_RESULT {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct INTERNET_AUTH_NOTIFY_DATA {
     pub cbStruct: super::DWORD,
     pub dwOptions: super::DWORD,
@@ -2406,7 +2406,7 @@ pub struct INTERNET_AUTH_NOTIFY_DATA {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct INTERNET_AUTH_NOTIFY_DATA {
     pub cbStruct: super::DWORD,
     pub dwOptions: super::DWORD,
@@ -2423,7 +2423,7 @@ pub type INTERNET_BUFFERS = INTERNET_BUFFERSA;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_BUFFERSA {
     pub dwStructSize: super::DWORD,
     pub Next: *mut Self,
@@ -2439,7 +2439,7 @@ pub struct INTERNET_BUFFERSA {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_BUFFERSA {
     pub dwStructSize: super::DWORD,
     pub Next: *mut Self,
@@ -2455,7 +2455,7 @@ pub struct INTERNET_BUFFERSA {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_BUFFERSW {
     pub dwStructSize: super::DWORD,
     pub Next: *mut Self,
@@ -2471,7 +2471,7 @@ pub struct INTERNET_BUFFERSW {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_BUFFERSW {
     pub dwStructSize: super::DWORD,
     pub Next: *mut Self,
@@ -2668,7 +2668,7 @@ pub type INTERNET_CACHE_GROUP_INFO = INTERNET_CACHE_GROUP_INFOA;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INTERNET_CACHE_GROUP_INFOA {
     pub dwGroupSize: super::DWORD,
     pub dwGroupFlags: super::DWORD,
@@ -2688,7 +2688,7 @@ impl Default for INTERNET_CACHE_GROUP_INFOA {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INTERNET_CACHE_GROUP_INFOA {
     pub dwGroupSize: super::DWORD,
     pub dwGroupFlags: super::DWORD,
@@ -2708,7 +2708,7 @@ impl Default for INTERNET_CACHE_GROUP_INFOA {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INTERNET_CACHE_GROUP_INFOW {
     pub dwGroupSize: super::DWORD,
     pub dwGroupFlags: super::DWORD,
@@ -2728,7 +2728,7 @@ impl Default for INTERNET_CACHE_GROUP_INFOW {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INTERNET_CACHE_GROUP_INFOW {
     pub dwGroupSize: super::DWORD,
     pub dwGroupFlags: super::DWORD,
@@ -2749,7 +2749,7 @@ pub const INTERNET_CACHE_GROUP_REMOVE: i32 = 1;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_CACHE_TIMESTAMPS {
     pub ftExpires: super::FILETIME,
     pub ftLastModified: super::FILETIME,
@@ -2757,7 +2757,7 @@ pub struct INTERNET_CACHE_TIMESTAMPS {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_CACHE_TIMESTAMPS {
     pub ftExpires: super::FILETIME,
     pub ftLastModified: super::FILETIME,
@@ -2765,7 +2765,7 @@ pub struct INTERNET_CACHE_TIMESTAMPS {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_CERTIFICATE_INFO {
     pub ftExpiry: super::FILETIME,
     pub ftStart: super::FILETIME,
@@ -2779,7 +2779,7 @@ pub struct INTERNET_CERTIFICATE_INFO {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_CERTIFICATE_INFO {
     pub ftExpiry: super::FILETIME,
     pub ftStart: super::FILETIME,
@@ -2793,7 +2793,7 @@ pub struct INTERNET_CERTIFICATE_INFO {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_CONNECTED_INFO {
     pub dwConnectedState: super::DWORD,
     pub dwFlags: super::DWORD,
@@ -2801,7 +2801,7 @@ pub struct INTERNET_CONNECTED_INFO {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_CONNECTED_INFO {
     pub dwConnectedState: super::DWORD,
     pub dwFlags: super::DWORD,
@@ -2815,7 +2815,7 @@ pub const INTERNET_CONNECTION_PROXY: i32 = 4;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_COOKIE2 {
     pub pwszName: windows_core::PWSTR,
     pub pwszValue: windows_core::PWSTR,
@@ -2828,7 +2828,7 @@ pub struct INTERNET_COOKIE2 {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_COOKIE2 {
     pub pwszName: windows_core::PWSTR,
     pub pwszValue: windows_core::PWSTR,
@@ -2871,7 +2871,7 @@ pub const INTERNET_DEFAULT_SOCKS_PORT: i32 = 1080;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_DIAGNOSTIC_SOCKET_INFO {
     pub Socket: super::DWORD_PTR,
     pub SourcePort: super::DWORD,
@@ -2881,7 +2881,7 @@ pub struct INTERNET_DIAGNOSTIC_SOCKET_INFO {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_DIAGNOSTIC_SOCKET_INFO {
     pub Socket: super::DWORD_PTR,
     pub SourcePort: super::DWORD,
@@ -3221,7 +3221,7 @@ pub type INTERNET_PER_CONN_OPTION_LIST = INTERNET_PER_CONN_OPTION_LISTA;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_PER_CONN_OPTION_LISTA {
     pub dwSize: super::DWORD,
     pub pszConnection: windows_core::PSTR,
@@ -3232,7 +3232,7 @@ pub struct INTERNET_PER_CONN_OPTION_LISTA {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_PER_CONN_OPTION_LISTA {
     pub dwSize: super::DWORD,
     pub pszConnection: windows_core::PSTR,
@@ -3243,7 +3243,7 @@ pub struct INTERNET_PER_CONN_OPTION_LISTA {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_PER_CONN_OPTION_LISTW {
     pub dwSize: super::DWORD,
     pub pszConnection: windows_core::PWSTR,
@@ -3254,7 +3254,7 @@ pub struct INTERNET_PER_CONN_OPTION_LISTW {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_PER_CONN_OPTION_LISTW {
     pub dwSize: super::DWORD,
     pub pszConnection: windows_core::PWSTR,
@@ -3268,7 +3268,7 @@ pub const INTERNET_PRIORITY_FOREGROUND: i32 = 1000;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_PROXY_INFO {
     pub dwAccessType: super::DWORD,
     pub lpszProxy: super::LPCTSTR,
@@ -3277,7 +3277,7 @@ pub struct INTERNET_PROXY_INFO {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_PROXY_INFO {
     pub dwAccessType: super::DWORD,
     pub lpszProxy: super::LPCTSTR,
@@ -3335,7 +3335,7 @@ pub const INTERNET_SUPPRESS_RESET_ALL: i32 = 0;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_VERSION_INFO {
     pub dwMajorVersion: super::DWORD,
     pub dwMinorVersion: super::DWORD,
@@ -3343,7 +3343,7 @@ pub struct INTERNET_VERSION_INFO {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_VERSION_INFO {
     pub dwMajorVersion: super::DWORD,
     pub dwMinorVersion: super::DWORD,
@@ -3358,7 +3358,7 @@ pub const ISO_REGISTRY: i32 = 2;
 pub const ISO_VALID_FLAGS: i32 = 3;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IncomingCookieState {
     pub cSession: i32,
     pub cPersistent: i32,
@@ -3370,7 +3370,7 @@ pub struct IncomingCookieState {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IncomingCookieState {
     pub cSession: i32,
     pub cPersistent: i32,
@@ -3382,7 +3382,7 @@ pub struct IncomingCookieState {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InternetCookieHistory {
     pub fAccepted: windows_core::BOOL,
     pub fLeashed: windows_core::BOOL,
@@ -3391,7 +3391,7 @@ pub struct InternetCookieHistory {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InternetCookieHistory {
     pub fAccepted: windows_core::BOOL,
     pub fLeashed: windows_core::BOOL,
@@ -3501,7 +3501,7 @@ pub const MIN_GOPHER_ATTRIBUTE_LENGTH: i32 = 256;
 pub const NORMAL_CACHE_ENTRY: i32 = 1;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OutgoingCookieState {
     pub cSent: i32,
     pub cSuppressed: i32,
@@ -3509,7 +3509,7 @@ pub struct OutgoingCookieState {
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OutgoingCookieState {
     pub cSent: i32,
     pub cSuppressed: i32,
@@ -3573,7 +3573,7 @@ pub const URLHISTORY_CACHE_ENTRY: i32 = 2097152;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winhttp"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct URL_COMPONENTSA {
     pub dwStructSize: super::DWORD,
     pub lpszScheme: windows_core::PSTR,
@@ -3594,7 +3594,7 @@ pub struct URL_COMPONENTSA {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winhttp"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct URL_COMPONENTSA {
     pub dwStructSize: super::DWORD,
     pub lpszScheme: windows_core::PSTR,

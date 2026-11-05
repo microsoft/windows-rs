@@ -130,7 +130,7 @@ pub unsafe fn HidD_SetOutputReport(hiddeviceobject: super::HANDLE, reportbuffer:
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIDD_ATTRIBUTES {
     pub Size: super::ULONG,
     pub VendorID: super::USHORT,
@@ -139,7 +139,7 @@ pub struct HIDD_ATTRIBUTES {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIDD_CONFIGURATION {
     pub cookie: super::PVOID,
     pub size: super::ULONG,

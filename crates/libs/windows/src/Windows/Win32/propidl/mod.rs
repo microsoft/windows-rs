@@ -70,7 +70,7 @@ pub const PIDSI_WORDCOUNT: i32 = 15;
 pub struct PMemoryAllocator(pub u8);
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERIALIZEDPROPERTYVALUE {
     pub dwType: super::DWORD,
     pub rgb: [super::BYTE; 1],

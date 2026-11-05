@@ -634,7 +634,7 @@ pub type DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE = i32;
 pub const DEVICEDUMP_MAX_IDSTRING: i32 = 32;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVICEDUMP_PRIVATE_SUBSECTION {
     pub dwFlags: super::DWORD,
     pub GPLogId: GP_LOG_PAGE_DESCRIPTOR,
@@ -648,7 +648,7 @@ impl Default for DEVICEDUMP_PRIVATE_SUBSECTION {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVICEDUMP_PUBLIC_SUBSECTION {
     pub dwFlags: super::DWORD,
     pub GPLogTable: [GP_LOG_PAGE_DESCRIPTOR; 16],
@@ -663,7 +663,7 @@ impl Default for DEVICEDUMP_PUBLIC_SUBSECTION {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVICEDUMP_RESTRICTED_SUBSECTION {
     pub bData: [super::BYTE; 1],
 }
@@ -675,7 +675,7 @@ impl Default for DEVICEDUMP_RESTRICTED_SUBSECTION {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVICEDUMP_SECTION_HEADER {
     pub guidDeviceDataId: windows_core::GUID,
     pub sOrganizationID: [super::BYTE; 16],
@@ -695,7 +695,7 @@ impl Default for DEVICEDUMP_SECTION_HEADER {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICEDUMP_STORAGEDEVICE_DATA {
     pub Descriptor: DEVICEDUMP_STRUCTURE_VERSION,
     pub SectionHeader: DEVICEDUMP_SECTION_HEADER,
@@ -755,25 +755,25 @@ impl Default for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_0 {
     pub dwReserved: super::DWORD,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_1 {
     pub dwAtaPortSpecific: super::DWORD,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_2 {
     pub SrbTag: super::DWORD,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICEDUMP_STRUCTURE_VERSION {
     pub dwSignature: super::DWORD,
     pub dwVersion: super::DWORD,
@@ -782,7 +782,7 @@ pub struct DEVICEDUMP_STRUCTURE_VERSION {
 pub const DEVICEDUMP_STRUCTURE_VERSION_V1: i32 = 1;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICEDUMP_SUBSECTION_POINTER {
     pub dwSize: super::DWORD,
     pub dwFlags: super::DWORD,
@@ -1683,7 +1683,7 @@ pub const DLT: STORAGE_MEDIA_TYPE = 39;
 pub const DMI: STORAGE_MEDIA_TYPE = 48;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRIVERSTATUS {
     pub bDriverError: super::BYTE,
     pub bIDEError: super::BYTE,
@@ -3277,7 +3277,7 @@ pub const FormFactorUnknown: STORAGE_DEVICE_FORM_FACTOR = 0;
 pub const FormFactormSata: STORAGE_DEVICE_FORM_FACTOR = 7;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GETVERSIONINPARAMS {
     pub bVersion: super::BYTE,
     pub bRevision: super::BYTE,
@@ -3414,7 +3414,7 @@ pub const GPT_BASIC_DATA_ATTRIBUTE_SHADOW_COPY: i64 = 2305843009213693952;
 pub const GPT_SPACES_ATTRIBUTE_NO_METADATA: u64 = 9223372036854775808;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GP_LOG_PAGE_DESCRIPTOR {
     pub LogAddress: super::WORD,
     pub LogSectors: super::WORD,
@@ -3448,7 +3448,7 @@ pub const IBM_Magstar_MP: STORAGE_MEDIA_TYPE = 44;
 pub const IDENTIFY_BUFFER_SIZE: i32 = 512;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IDEREGS {
     pub bFeaturesReg: super::BYTE,
     pub bSectorCountReg: super::BYTE,
@@ -6725,7 +6725,7 @@ pub const SEARCH_PRIMARY: i32 = 1;
 pub const SEARCH_PRI_NO_SEQ: i32 = 5;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SENDCMDINPARAMS {
     pub cBufferSize: super::DWORD,
     pub irDriveRegs: IDEREGS,
@@ -6742,7 +6742,7 @@ impl Default for SENDCMDINPARAMS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SENDCMDOUTPARAMS {
     pub cBufferSize: super::DWORD,
     pub DriverStatus: DRIVERSTATUS,
@@ -8600,7 +8600,7 @@ pub type STORAGE_RESERVE_ID = i32;
 pub type STORAGE_RPMB_COMMAND_TYPE = i32;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_RPMB_DATA_FRAME {
     pub Stuff: [super::BYTE; 196],
     pub KeyOrMAC: [super::BYTE; 32],
@@ -8949,7 +8949,7 @@ impl Default for STOR_PAGING_DEVICE_DUMP_ENTRY_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STOR_PAGING_DEVICE_DUMP_ENTRY_0_0 {
     pub _bitfield: u8,
 }

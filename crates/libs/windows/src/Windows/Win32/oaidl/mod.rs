@@ -64,7 +64,7 @@ pub struct CLEANLOCALSTORAGE {
 pub type CURRENCY = super::CY;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CUSTDATA {
     pub cCustData: super::DWORD,
     pub prgCustData: LPCUSTDATAITEM,
@@ -104,7 +104,7 @@ pub const DISPID_UNKNOWN: i32 = -1;
 pub const DISPID_VALUE: i32 = 0;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPPARAMS {
     pub rgvarg: *mut VARIANTARG,
     pub rgdispidNamedArgs: *mut super::DISPID,
@@ -1233,7 +1233,7 @@ impl ICreateTypeLib2_Vtbl {
 impl windows_core::RuntimeName for ICreateTypeLib2 {}
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IDLDESC {
     pub dwReserved: super::ULONG_PTR,
     pub wIDLFlags: super::USHORT,
@@ -3338,7 +3338,7 @@ pub type LPVARIANT = *mut tagVARIANT;
 pub type LPVARIANTARG = *mut tagVARIANT;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PARAMDESC {
     pub pparamdescex: LPPARAMDESCEX,
     pub wParamFlags: super::USHORT,
@@ -3371,7 +3371,7 @@ pub const PARAMFLAG_FRETVAL: i32 = 8;
 pub const PARAMFLAG_NONE: i32 = 0;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFEARRAY {
     pub cDims: super::USHORT,
     pub fFeatures: super::USHORT,
@@ -3388,7 +3388,7 @@ impl Default for SAFEARRAY {
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAFEARRAYBOUND {
     pub cElements: super::ULONG,
     pub lLbound: super::LONG,
@@ -3429,28 +3429,28 @@ impl Default for SAFEARRAYUNION___MIDL_IOleAutomationTypes_0001 {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "rpc", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAFEARR_BRECORD {
     pub Size: super::ULONG,
     pub aRecord: *mut wireBRECORD,
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAFEARR_BSTR {
     pub Size: super::ULONG,
     pub aBstr: *mut super::wireBSTR,
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAFEARR_DISPATCH {
     pub Size: super::ULONG,
     pub apDispatch: *mut Option<IDispatch>,
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "guiddef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAFEARR_HAVEIID {
     pub Size: super::ULONG,
     pub apUnknown: *mut Option<windows_core::IUnknown>,
@@ -3458,14 +3458,14 @@ pub struct SAFEARR_HAVEIID {
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAFEARR_UNKNOWN {
     pub Size: super::ULONG,
     pub apUnknown: *mut Option<windows_core::IUnknown>,
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "rpc", feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAFEARR_VARIANT {
     pub Size: super::ULONG,
     pub aVariant: *mut wireVARIANT,
@@ -3498,7 +3498,7 @@ pub const TKIND_RECORD: TYPEKIND = 1;
 pub const TKIND_UNION: TYPEKIND = 7;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TLIBATTR {
     pub guid: windows_core::GUID,
     pub lcid: super::LCID,

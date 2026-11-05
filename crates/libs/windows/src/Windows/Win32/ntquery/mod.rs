@@ -49,7 +49,7 @@ pub const CI_PROVIDER_INDEXING_SERVICE: i32 = 2;
 pub const CI_PROVIDER_MSSEARCH: i32 = 1;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CI_STATE {
     pub cbStruct: super::DWORD,
     pub cWordList: super::DWORD,

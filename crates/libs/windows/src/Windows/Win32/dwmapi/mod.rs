@@ -255,7 +255,7 @@ pub const DWM_BB_ENABLE: i32 = 1;
 pub const DWM_BB_TRANSITIONONMAXIMIZED: i32 = 4;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWM_BLURBEHIND {
     pub dwFlags: super::DWORD,
     pub fEnable: windows_core::BOOL,
@@ -271,7 +271,7 @@ pub type DWM_FRAME_COUNT = u64;
 pub const DWM_FRAME_DURATION_DEFAULT: i32 = -1;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWM_PRESENT_PARAMETERS {
     pub cbSize: super::UINT32,
     pub fQueue: windows_core::BOOL,
@@ -292,7 +292,7 @@ pub type DWM_SYSTEMBACKDROP_TYPE = i32;
 pub type DWM_TAB_WINDOW_REQUIREMENTS = i32;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWM_THUMBNAIL_PROPERTIES {
     pub dwFlags: super::DWORD,
     pub rcDestination: super::RECT,
@@ -303,7 +303,7 @@ pub struct DWM_THUMBNAIL_PROPERTIES {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWM_TIMING_INFO {
     pub cbSize: super::UINT32,
     pub rateRefresh: UNSIGNED_RATIO,
@@ -369,7 +369,7 @@ pub type HTHUMBNAIL = *mut core::ffi::c_void;
 pub type MIL_MATRIX3X2D = MilMatrix3x2D;
 #[repr(C, packed(1))]
 #[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MilMatrix3x2D {
     pub S_11: super::DOUBLE,
     pub S_12: super::DOUBLE,
@@ -386,7 +386,7 @@ pub type PHTHUMBNAIL = *mut *mut core::ffi::c_void;
 pub type QPC_TIME = u64;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNSIGNED_RATIO {
     pub uiNumerator: super::UINT32,
     pub uiDenominator: super::UINT32,

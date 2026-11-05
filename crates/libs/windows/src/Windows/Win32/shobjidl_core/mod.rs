@@ -323,7 +323,7 @@ pub const ApplicationDestinations: windows_core::GUID = windows_core::GUID::from
 pub const ApplicationDocumentLists: windows_core::GUID = windows_core::GUID::from_u128(0x86bec222_30f2_47e0_9f25_60d11cd75c28);
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BANDSITEINFO {
     pub dwMask: super::DWORD,
     pub dwState: super::DWORD,
@@ -467,7 +467,7 @@ pub const CMIC_MASK_SHIFT_DOWN: i32 = 268435456;
 pub const CMIC_MASK_UNICODE: i32 = 16384;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CMINVOKECOMMANDINFO {
     pub cbSize: super::DWORD,
     pub fMask: super::DWORD,
@@ -481,7 +481,7 @@ pub struct CMINVOKECOMMANDINFO {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CMINVOKECOMMANDINFOEX {
     pub cbSize: super::DWORD,
     pub fMask: super::DWORD,
@@ -501,7 +501,7 @@ pub struct CMINVOKECOMMANDINFOEX {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CMINVOKECOMMANDINFOEX_REMOTE {
     pub cbSize: super::DWORD,
     pub fMask: super::DWORD,
@@ -608,7 +608,7 @@ pub const DEFSHAREID_USERS: DEF_SHARE_ID = 1;
 pub type DEF_SHARE_ID = i32;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DELEGATEITEMID {
     pub cbSize: super::WORD,
     pub wOuter: super::WORD,
@@ -624,7 +624,7 @@ impl Default for DELEGATEITEMID {
 pub type DEPRECATED_HRESULT = windows_core::HRESULT;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DESKBANDINFO {
     pub dwMask: super::DWORD,
     pub ptMinSize: super::POINTL,
@@ -19662,7 +19662,7 @@ pub const PDOPS_RUNNING: PDOPSTATUS = 1;
 pub const PDOPS_STOPPED: PDOPSTATUS = 4;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "shtypes", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERSIST_FOLDER_TARGET_INFO {
     pub pidlTargetFolder: super::LPITEMIDLIST,
     pub szTargetParsingName: [super::WCHAR; 260],
@@ -19811,7 +19811,7 @@ pub const SHCONTF_SHAREABLE: _SHCONTF = 1024;
 pub const SHCONTF_STORAGE: _SHCONTF = 2048;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHDRAGIMAGE {
     pub sizeDragImage: super::SIZE,
     pub ptOffset: super::POINT,
@@ -19906,7 +19906,7 @@ pub const SMAE_USER: i32 = 4;
 pub const SMAE_VALID: i32 = 7;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "shtypes"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SMCSHCHANGENOTIFYSTRUCT {
     pub lEvent: i32,
     pub pidl1: super::LPCITEMIDLIST,
@@ -19976,7 +19976,7 @@ pub const SMIM_ICON: tagSMINFOMASK = 4;
 pub const SMIM_TYPE: tagSMINFOMASK = 1;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SMINFO {
     pub dwMask: super::DWORD,
     pub dwType: super::DWORD,
@@ -20185,7 +20185,7 @@ pub const THB_ICON: THUMBBUTTONMASK = 2;
 pub const THB_TOOLTIP: THUMBBUTTONMASK = 4;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct THUMBBUTTON {
     pub dwMask: THUMBBUTTONMASK,
     pub iId: super::UINT,

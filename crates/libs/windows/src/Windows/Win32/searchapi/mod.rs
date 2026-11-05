@@ -1,6 +1,6 @@
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHENTICATION_INFO {
     pub dwSize: super::DWORD,
     pub atAuthenticationType: AUTH_TYPE,
@@ -230,7 +230,7 @@ impl IEnumSearchScopeRules_Vtbl {
 impl windows_core::RuntimeName for IEnumSearchScopeRules {}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INCREMENTAL_ACCESS_INFO {
     pub dwSize: super::DWORD,
     pub ftLastModifiedTime: super::FILETIME,
@@ -3319,7 +3319,7 @@ impl windows_core::RuntimeName for ISearchViewChangedSink {}
 pub type ITEMID = i32;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ITEM_INFO {
     pub dwSize: super::DWORD,
     pub pcwszFromEMail: windows_core::PCWSTR,
@@ -3775,7 +3775,7 @@ pub const PROXY_ACCESS_PRECONFIG: PROXY_ACCESS = 0;
 pub const PROXY_ACCESS_PROXY: PROXY_ACCESS = 2;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROXY_INFO {
     pub dwSize: super::DWORD,
     pub pcwszUserAgent: windows_core::PCWSTR,
@@ -3861,7 +3861,7 @@ pub const SEARCH_TERM_PREFIX_ALL: SEARCH_TERM_EXPANSION = 1;
 pub const SEARCH_TERM_STEM_ALL: SEARCH_TERM_EXPANSION = 2;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TIMEOUT_INFO {
     pub dwSize: super::DWORD,
     pub dwConnectTimeout: super::DWORD,

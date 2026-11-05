@@ -21,7 +21,7 @@ pub const COINIT_APARTMENTTHREADED: COINIT = 2;
 pub const CO_E_NOTINITIALIZED: windows_core::HRESULT = windows_core::HRESULT(0x800401F0_u32 as _);
 pub type CO_MTA_USAGE_COOKIE = *mut CO_MTA_USAGE_COOKIE__;
 #[repr(C, packed(8))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CO_MTA_USAGE_COOKIE__ {
     pub unused: i32,
 }

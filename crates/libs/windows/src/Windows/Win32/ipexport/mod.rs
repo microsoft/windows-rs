@@ -9,7 +9,7 @@ pub struct ARP_SEND_REPLY {
 pub type ICMPV6_ECHO_REPLY = ICMPV6_ECHO_REPLY_LH;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ICMPV6_ECHO_REPLY_LH {
     pub Address: IPV6_ADDRESS_EX,
     pub Status: super::ULONG,
@@ -29,7 +29,7 @@ pub struct ICMP_ECHO_REPLY {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPV6_ADDRESS_EX {
     pub sin6_port: super::USHORT,
     pub sin6_flowinfo: super::ULONG,

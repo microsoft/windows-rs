@@ -2430,7 +2430,7 @@ pub const DHCP_OPT_ENUM_IGNORE_VENDOR: i32 = 1;
 pub const DHCP_OPT_ENUM_USE_CLASSNAME: i32 = 2;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_PERF_STATS {
     pub dwNumPacketsReceived: super::ULONG,
     pub dwNumPacketsDuplicate: super::ULONG,

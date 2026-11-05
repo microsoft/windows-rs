@@ -657,7 +657,7 @@ pub const ALTITUDE_RUNTIME_OVERRIDE: POWER_SETTING_ALTITUDE = 2;
 pub const ALTITUDE_USER: POWER_SETTING_ALTITUDE = 1;
 #[repr(C, packed(4))]
 #[cfg(all(feature = "guiddef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ANON_OBJECT_HEADER {
     pub Sig1: super::WORD,
     pub Sig2: super::WORD,
@@ -669,7 +669,7 @@ pub struct ANON_OBJECT_HEADER {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "guiddef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ANON_OBJECT_HEADER_BIGOBJ {
     pub Sig1: super::WORD,
     pub Sig2: super::WORD,
@@ -687,7 +687,7 @@ pub struct ANON_OBJECT_HEADER_BIGOBJ {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "guiddef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ANON_OBJECT_HEADER_V2 {
     pub Sig1: super::WORD,
     pub Sig2: super::WORD,
@@ -1438,7 +1438,7 @@ pub const CONTAINER_INHERIT_ACE: i32 = 2;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONTEXT {
     pub ContextFlags: super::DWORD,
     pub Dr0: super::DWORD,
@@ -2832,7 +2832,7 @@ pub const FLUSH_NV_MEMORY_IN_FLAG_NO_DRAIN: i32 = 1;
 pub const FOREST_USER_RID_MAX: i32 = 499;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FPO_DATA {
     pub ulOffStart: super::DWORD,
     pub cbProcSize: super::DWORD,
@@ -3329,7 +3329,7 @@ pub const HiberFileBucketMax: HIBERFILE_BUCKET_SIZE = 7;
 pub const HiberFileBucketUnlimited: HIBERFILE_BUCKET_SIZE = 6;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {
     pub BeginAddress: super::ULONGLONG,
     pub EndAddress: super::ULONGLONG,
@@ -3339,7 +3339,7 @@ pub struct IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {
     pub BeginAddress: super::DWORD,
     pub EndAddress: super::DWORD,
@@ -3351,14 +3351,14 @@ pub struct IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {
 pub type IMAGE_AMD64_RUNTIME_FUNCTION_ENTRY = _IMAGE_RUNTIME_FUNCTION_ENTRY;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_ARCHITECTURE_ENTRY {
     pub FixupInstRVA: super::DWORD,
     pub NewInst: super::DWORD,
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_ARCHITECTURE_HEADER {
     pub _bitfield: u32,
     pub FirstEntryRVA: super::DWORD,
@@ -3384,7 +3384,7 @@ pub const IMAGE_ARCHIVE_LINKER_MEMBER: windows_core::PCSTR = windows_core::s!("/
 pub const IMAGE_ARCHIVE_LONGNAMES_MEMBER: windows_core::PCSTR = windows_core::s!("//              ");
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_ARCHIVE_MEMBER_HEADER {
     pub Name: [super::BYTE; 16],
     pub Date: [super::BYTE; 12],
@@ -3431,7 +3431,7 @@ impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0 {
     pub _bitfield: u32,
 }
@@ -3495,7 +3495,7 @@ impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0 {
     pub _bitfield: u32,
 }
@@ -3553,7 +3553,7 @@ impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EPILOG_SCOPE {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EPILOG_SCOPE_0 {
     pub _bitfield: u32,
 }
@@ -3593,7 +3593,7 @@ impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EXTENDED {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EXTENDED_0 {
     pub _bitfield: u32,
 }
@@ -3640,7 +3640,7 @@ impl Default for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {
     pub _bitfield: u32,
 }
@@ -3747,7 +3747,7 @@ impl Default for IMAGE_AUX_SYMBOL_0_0 {
 }
 #[repr(C, packed(2))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_AUX_SYMBOL_0_0_0 {
     pub Linenumber: super::WORD,
     pub Size: super::WORD,
@@ -3767,14 +3767,14 @@ impl Default for IMAGE_AUX_SYMBOL_0_1 {
 }
 #[repr(C, packed(2))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_AUX_SYMBOL_0_1_0 {
     pub PointerToLinenumber: super::DWORD,
     pub PointerToNextFunction: super::DWORD,
 }
 #[repr(C, packed(2))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_AUX_SYMBOL_0_1_1 {
     pub Dimension: [super::WORD; 4],
 }
@@ -3786,7 +3786,7 @@ impl Default for IMAGE_AUX_SYMBOL_0_1_1 {
 }
 #[repr(C, packed(2))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_AUX_SYMBOL_1 {
     pub Name: [super::BYTE; 18],
 }
@@ -3798,7 +3798,7 @@ impl Default for IMAGE_AUX_SYMBOL_1 {
 }
 #[repr(C, packed(2))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_AUX_SYMBOL_2 {
     pub Length: super::DWORD,
     pub NumberOfRelocations: super::WORD,
@@ -3811,7 +3811,7 @@ pub struct IMAGE_AUX_SYMBOL_2 {
 }
 #[repr(C, packed(2))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_AUX_SYMBOL_3 {
     pub crc: super::DWORD,
     pub rgbReserved: [super::BYTE; 14],
@@ -3840,7 +3840,7 @@ impl Default for IMAGE_AUX_SYMBOL_EX {
 }
 #[repr(C, packed(2))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_AUX_SYMBOL_EX_0 {
     pub WeakDefaultSymIndex: super::DWORD,
     pub WeakSearchType: super::DWORD,
@@ -3854,7 +3854,7 @@ impl Default for IMAGE_AUX_SYMBOL_EX_0 {
 }
 #[repr(C, packed(2))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_AUX_SYMBOL_EX_1 {
     pub Name: [super::BYTE; 20],
 }
@@ -3866,7 +3866,7 @@ impl Default for IMAGE_AUX_SYMBOL_EX_1 {
 }
 #[repr(C, packed(2))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_AUX_SYMBOL_EX_2 {
     pub Length: super::DWORD,
     pub NumberOfRelocations: super::WORD,
@@ -3886,7 +3886,7 @@ impl Default for IMAGE_AUX_SYMBOL_EX_2 {
 }
 #[repr(C, packed(2))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_AUX_SYMBOL_EX_3 {
     pub TokenDef: IMAGE_AUX_SYMBOL_TOKEN_DEF,
     pub rgbReserved: [super::BYTE; 2],
@@ -3899,7 +3899,7 @@ impl Default for IMAGE_AUX_SYMBOL_EX_3 {
 }
 #[repr(C, packed(2))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_AUX_SYMBOL_EX_4 {
     pub crc: super::DWORD,
     pub rgbReserved: [super::BYTE; 16],
@@ -3912,7 +3912,7 @@ impl Default for IMAGE_AUX_SYMBOL_EX_4 {
 }
 #[repr(C, packed(2))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_AUX_SYMBOL_TOKEN_DEF {
     pub bAuxType: super::BYTE,
     pub bReserved: super::BYTE,
@@ -3929,14 +3929,14 @@ pub type IMAGE_AUX_SYMBOL_TYPE = i32;
 pub const IMAGE_AUX_SYMBOL_TYPE_TOKEN_DEF: IMAGE_AUX_SYMBOL_TYPE = 1;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_BASE_RELOCATION {
     pub VirtualAddress: super::DWORD,
     pub SizeOfBlock: super::DWORD,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_BDD_DYNAMIC_RELOCATION {
     pub Left: super::WORD,
     pub Right: super::WORD,
@@ -3944,14 +3944,14 @@ pub struct IMAGE_BDD_DYNAMIC_RELOCATION {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_BDD_INFO {
     pub Version: super::DWORD,
     pub BDDSize: super::DWORD,
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_BOUND_FORWARDER_REF {
     pub TimeDateStamp: super::DWORD,
     pub OffsetModuleName: super::WORD,
@@ -3959,7 +3959,7 @@ pub struct IMAGE_BOUND_FORWARDER_REF {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_BOUND_IMPORT_DESCRIPTOR {
     pub TimeDateStamp: super::DWORD,
     pub OffsetModuleName: super::WORD,
@@ -3967,7 +3967,7 @@ pub struct IMAGE_BOUND_IMPORT_DESCRIPTOR {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_CE_RUNTIME_FUNCTION_ENTRY {
     pub FuncStart: super::DWORD,
     pub _bitfield: u32,
@@ -4001,7 +4001,7 @@ impl IMAGE_CE_RUNTIME_FUNCTION_ENTRY {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_COFF_SYMBOLS_HEADER {
     pub NumberOfSymbols: super::DWORD,
     pub LvaToFirstSymbol: super::DWORD,
@@ -4061,14 +4061,14 @@ pub const IMAGE_COR_MIH_EHRVA: ReplacesCorHdrNumericDefines = 2;
 pub const IMAGE_COR_MIH_METHODRVA: ReplacesCorHdrNumericDefines = 1;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_DATA_DIRECTORY {
     pub VirtualAddress: super::DWORD,
     pub Size: super::DWORD,
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_DEBUG_DIRECTORY {
     pub Characteristics: super::DWORD,
     pub TimeDateStamp: super::DWORD,
@@ -4081,7 +4081,7 @@ pub struct IMAGE_DEBUG_DIRECTORY {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_DEBUG_MISC {
     pub DataType: super::DWORD,
     pub Length: super::DWORD,
@@ -4150,7 +4150,7 @@ impl Default for IMAGE_DELAYLOAD_DESCRIPTOR_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_DELAYLOAD_DESCRIPTOR_0_0 {
     pub _bitfield: u32,
 }
@@ -4205,7 +4205,7 @@ pub const IMAGE_DLLCHARACTERISTICS_TERMINAL_SERVER_AWARE: i32 = 32768;
 pub const IMAGE_DLLCHARACTERISTICS_WDM_DRIVER: i32 = 8192;
 #[repr(C, packed(2))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_DOS_HEADER {
     pub e_magic: super::WORD,
     pub e_cblp: super::WORD,
@@ -4242,14 +4242,14 @@ pub type IMAGE_DYNAMIC_RELOCATION = IMAGE_DYNAMIC_RELOCATION32;
 pub type IMAGE_DYNAMIC_RELOCATION = IMAGE_DYNAMIC_RELOCATION64;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_DYNAMIC_RELOCATION32 {
     pub Symbol: super::DWORD,
     pub BaseRelocSize: super::DWORD,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_DYNAMIC_RELOCATION32_V2 {
     pub HeaderSize: super::DWORD,
     pub FixupInfoSize: super::DWORD,
@@ -4259,14 +4259,14 @@ pub struct IMAGE_DYNAMIC_RELOCATION32_V2 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_DYNAMIC_RELOCATION64 {
     pub Symbol: super::ULONGLONG,
     pub BaseRelocSize: super::DWORD,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_DYNAMIC_RELOCATION64_V2 {
     pub HeaderSize: super::DWORD,
     pub FixupInfoSize: super::DWORD,
@@ -4287,7 +4287,7 @@ pub const IMAGE_DYNAMIC_RELOCATION_IMPORT_CONTROL_TRANSFER: i32 = 3;
 pub const IMAGE_DYNAMIC_RELOCATION_IMPORT_CONTROL_TRANSFER: i32 = 8;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_DYNAMIC_RELOCATION_TABLE {
     pub Version: super::DWORD,
     pub Size: super::DWORD,
@@ -4306,7 +4306,7 @@ pub type IMAGE_ENCLAVE_CONFIG = IMAGE_ENCLAVE_CONFIG32;
 pub type IMAGE_ENCLAVE_CONFIG = IMAGE_ENCLAVE_CONFIG64;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_ENCLAVE_CONFIG32 {
     pub Size: super::DWORD,
     pub MinimumRequiredConfigSize: super::DWORD,
@@ -4330,7 +4330,7 @@ impl Default for IMAGE_ENCLAVE_CONFIG32 {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_ENCLAVE_CONFIG64 {
     pub Size: super::DWORD,
     pub MinimumRequiredConfigSize: super::DWORD,
@@ -4355,7 +4355,7 @@ impl Default for IMAGE_ENCLAVE_CONFIG64 {
 pub const IMAGE_ENCLAVE_FLAG_PRIMARY_IMAGE: i32 = 1;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_ENCLAVE_IMPORT {
     pub MatchType: super::DWORD,
     pub MinimumSecurityVersion: super::DWORD,
@@ -4388,7 +4388,7 @@ pub const IMAGE_ENCLAVE_POLICY_STRICT_MEMORY: i32 = 2;
 pub const IMAGE_ENCLAVE_SHORT_ID_LENGTH: i32 = 16;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER {
     pub EpilogueCount: super::DWORD,
     pub EpilogueByteCount: super::BYTE,
@@ -4397,7 +4397,7 @@ pub struct IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_EXPORT_DIRECTORY {
     pub Characteristics: super::DWORD,
     pub TimeDateStamp: super::DWORD,
@@ -4420,7 +4420,7 @@ pub const IMAGE_FILE_DLL: i32 = 8192;
 pub const IMAGE_FILE_EXECUTABLE_IMAGE: i32 = 2;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_FILE_HEADER {
     pub Machine: super::WORD,
     pub NumberOfSections: super::WORD,
@@ -4536,7 +4536,7 @@ pub const IMAGE_FILE_SYSTEM: i32 = 4096;
 pub const IMAGE_FILE_UP_SYSTEM_ONLY: i32 = 16384;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_FUNCTION_ENTRY {
     pub StartingAddress: super::DWORD,
     pub EndingAddress: super::DWORD,
@@ -4573,7 +4573,7 @@ pub const IMAGE_FUNCTION_OVERRIDE_ARM64_BRANCH26: i32 = 2;
 pub const IMAGE_FUNCTION_OVERRIDE_ARM64_THUNK: i32 = 3;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_FUNCTION_OVERRIDE_DYNAMIC_RELOCATION {
     pub OriginalRva: super::DWORD,
     pub BDDOffset: super::DWORD,
@@ -4582,7 +4582,7 @@ pub struct IMAGE_FUNCTION_OVERRIDE_DYNAMIC_RELOCATION {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_FUNCTION_OVERRIDE_HEADER {
     pub FuncOverrideSize: super::DWORD,
 }
@@ -4614,7 +4614,7 @@ pub const IMAGE_GUARD_XFG_ENABLED: i32 = 8388608;
 pub type IMAGE_HOTSWAP_ARM64_ENDPOINT_INFO_CC_RETURN = i32;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_HOTSWAP_ARM64_ENDPOINT_INFO_ENTRY_V2 {
     pub Common: IMAGE_HOTSWAP_ENDPOINT_INFO_ENTRY_COMMON,
     pub IntArgs: super::DWORD,
@@ -4631,7 +4631,7 @@ impl Default for IMAGE_HOTSWAP_ARM64_ENDPOINT_INFO_ENTRY_V2 {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_HOTSWAP_ENDPOINT_INFO_ENTRY_COMMON {
     pub Size: super::DWORD,
     pub Rva: super::DWORD,
@@ -4640,14 +4640,14 @@ pub struct IMAGE_HOTSWAP_ENDPOINT_INFO_ENTRY_COMMON {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_HOTSWAP_ENDPOINT_INFO_HEADER_COMMON {
     pub Version: super::DWORD,
     pub Size: super::DWORD,
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_HOTSWAP_ENDPOINT_INFO_HEADER_V2 {
     pub Common: IMAGE_HOTSWAP_ENDPOINT_INFO_HEADER_COMMON,
     pub Count: super::DWORD,
@@ -4657,7 +4657,7 @@ pub const IMAGE_HOTSWAP_ENDPOINT_TABLE_SECTION: windows_core::PCSTR = windows_co
 pub type IMAGE_HOTSWAP_X64_ENDPOINT_INFO_CC_REG = i32;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_HOTSWAP_X64_ENDPOINT_INFO_ENTRY_V2 {
     pub Common: IMAGE_HOTSWAP_ENDPOINT_INFO_ENTRY_COMMON,
     pub ArgRegs: [IMAGE_HOTSWAP_X64_ENDPOINT_INFO_CC_REG; 4],
@@ -4674,7 +4674,7 @@ impl Default for IMAGE_HOTSWAP_X64_ENDPOINT_INFO_ENTRY_V2 {
 pub const IMAGE_HOT_PATCH_ABSOLUTE: i32 = 180224;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_HOT_PATCH_BASE {
     pub SequenceNumber: super::DWORD,
     pub Flags: super::DWORD,
@@ -4702,7 +4702,7 @@ pub const IMAGE_HOT_PATCH_DYNAMIC_VALUE: i32 = 491520;
 pub const IMAGE_HOT_PATCH_FUNCTION: i32 = 114688;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_HOT_PATCH_HASHES {
     pub SHA256: [super::BYTE; 32],
     pub SHA1: [super::BYTE; 20],
@@ -4716,7 +4716,7 @@ impl Default for IMAGE_HOT_PATCH_HASHES {
 pub const IMAGE_HOT_PATCH_INDIRECT: i32 = 376832;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_HOT_PATCH_INFO {
     pub Version: super::DWORD,
     pub Size: super::DWORD,
@@ -4732,13 +4732,13 @@ pub const IMAGE_HOT_PATCH_INFO_FLAG_HOTSWAP: i32 = 2;
 pub const IMAGE_HOT_PATCH_INFO_FLAG_PATCHORDERCRITICAL: i32 = 1;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_HOT_PATCH_MACHINE {
     pub Anonymous: IMAGE_HOT_PATCH_MACHINE_0,
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_HOT_PATCH_MACHINE_0 {
     pub _bitfield: u32,
 }
@@ -4776,7 +4776,7 @@ pub const IMAGE_HOT_PATCH_REL32: i32 = 245760;
 pub type IMAGE_IA64_RUNTIME_FUNCTION_ENTRY = _IMAGE_RUNTIME_FUNCTION_ENTRY;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_IMPORT_BY_NAME {
     pub Hint: super::WORD,
     pub Name: [super::CHAR; 1],
@@ -4789,7 +4789,7 @@ impl Default for IMAGE_IMPORT_BY_NAME {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_IMPORT_CONTROL_TRANSFER_ARM64_RELOCATION {
     pub _bitfield: u32,
 }
@@ -4828,7 +4828,7 @@ impl IMAGE_IMPORT_CONTROL_TRANSFER_ARM64_RELOCATION {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
     pub _bitfield: u32,
 }
@@ -4890,7 +4890,7 @@ impl Default for IMAGE_IMPORT_DESCRIPTOR_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
     pub _bitfield: u16,
 }
@@ -4955,7 +4955,7 @@ impl Default for IMAGE_LINENUMBER_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_LOAD_CONFIG_CODE_INTEGRITY {
     pub Flags: super::WORD,
     pub Catalog: super::WORD,
@@ -4970,7 +4970,7 @@ pub type IMAGE_LOAD_CONFIG_DIRECTORY = IMAGE_LOAD_CONFIG_DIRECTORY32;
 pub type IMAGE_LOAD_CONFIG_DIRECTORY = IMAGE_LOAD_CONFIG_DIRECTORY64;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_LOAD_CONFIG_DIRECTORY32 {
     pub Size: super::DWORD,
     pub TimeDateStamp: super::DWORD,
@@ -5025,7 +5025,7 @@ pub struct IMAGE_LOAD_CONFIG_DIRECTORY32 {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_LOAD_CONFIG_DIRECTORY64 {
     pub Size: super::DWORD,
     pub TimeDateStamp: super::DWORD,
@@ -5086,7 +5086,7 @@ pub type IMAGE_NT_HEADERS = IMAGE_NT_HEADERS32;
 pub type IMAGE_NT_HEADERS = IMAGE_NT_HEADERS64;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_NT_HEADERS32 {
     pub Signature: super::DWORD,
     pub FileHeader: IMAGE_FILE_HEADER,
@@ -5094,7 +5094,7 @@ pub struct IMAGE_NT_HEADERS32 {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_NT_HEADERS64 {
     pub Signature: super::DWORD,
     pub FileHeader: IMAGE_FILE_HEADER,
@@ -5116,7 +5116,7 @@ pub type IMAGE_OPTIONAL_HEADER = IMAGE_OPTIONAL_HEADER32;
 pub type IMAGE_OPTIONAL_HEADER = IMAGE_OPTIONAL_HEADER64;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_OPTIONAL_HEADER32 {
     pub Magic: super::WORD,
     pub MajorLinkerVersion: super::BYTE,
@@ -5158,7 +5158,7 @@ impl Default for IMAGE_OPTIONAL_HEADER32 {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_OPTIONAL_HEADER64 {
     pub Magic: super::WORD,
     pub MajorLinkerVersion: super::BYTE,
@@ -5205,7 +5205,7 @@ pub const IMAGE_ORDINAL_FLAG32: u32 = 2147483648;
 pub const IMAGE_ORDINAL_FLAG64: u64 = 9223372036854775808;
 #[repr(C, packed(2))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_OS2_HEADER {
     pub ne_magic: super::WORD,
     pub ne_ver: super::CHAR,
@@ -5283,7 +5283,7 @@ pub const IMAGE_POLICY_METADATA_VERSION: i32 = 1;
 pub const IMAGE_POLICY_SECTION_NAME: windows_core::PCSTR = windows_core::s!(".tPolicy");
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER {
     pub PrologueByteCount: super::BYTE,
 }
@@ -5576,7 +5576,7 @@ pub const IMAGE_REL_THUMB_BRANCH24: i32 = 20;
 pub const IMAGE_REL_THUMB_MOV32: i32 = 17;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_RESOURCE_DATA_ENTRY {
     pub OffsetToData: super::DWORD,
     pub Size: super::DWORD,
@@ -5586,7 +5586,7 @@ pub struct IMAGE_RESOURCE_DATA_ENTRY {
 pub const IMAGE_RESOURCE_DATA_IS_DIRECTORY: u32 = 2147483648;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_RESOURCE_DIRECTORY {
     pub Characteristics: super::DWORD,
     pub TimeDateStamp: super::DWORD,
@@ -5624,7 +5624,7 @@ impl Default for IMAGE_RESOURCE_DIRECTORY_ENTRY_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0 {
     pub _bitfield: u32,
 }
@@ -5658,7 +5658,7 @@ impl Default for IMAGE_RESOURCE_DIRECTORY_ENTRY_1 {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {
     pub _bitfield: u32,
 }
@@ -5679,7 +5679,7 @@ impl IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_RESOURCE_DIRECTORY_STRING {
     pub Length: super::WORD,
     pub NameString: [super::CHAR; 1],
@@ -5692,7 +5692,7 @@ impl Default for IMAGE_RESOURCE_DIRECTORY_STRING {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_RESOURCE_DIR_STRING_U {
     pub Length: super::WORD,
     pub NameString: [WCHAR; 1],
@@ -5706,7 +5706,7 @@ impl Default for IMAGE_RESOURCE_DIR_STRING_U {
 pub const IMAGE_RESOURCE_NAME_IS_STRING: u32 = 2147483648;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_ROM_HEADERS {
     pub FileHeader: IMAGE_FILE_HEADER,
     pub OptionalHeader: IMAGE_ROM_OPTIONAL_HEADER,
@@ -5714,7 +5714,7 @@ pub struct IMAGE_ROM_HEADERS {
 pub const IMAGE_ROM_OPTIONAL_HDR_MAGIC: i32 = 263;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_ROM_OPTIONAL_HEADER {
     pub Magic: super::WORD,
     pub MajorLinkerVersion: super::BYTE,
@@ -5818,7 +5818,7 @@ impl Default for IMAGE_SECTION_HEADER_0 {
 pub const IMAGE_SEPARATE_DEBUG_FLAGS_MASK: i32 = 32768;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_SEPARATE_DEBUG_HEADER {
     pub Signature: super::WORD,
     pub Flags: super::WORD,
@@ -5864,7 +5864,7 @@ pub const IMAGE_SUBSYSTEM_XBOX: i32 = 14;
 pub const IMAGE_SUBSYSTEM_XBOX_CODE_CATALOG: i32 = 17;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION {
     pub _bitfield: u16,
 }
@@ -5916,7 +5916,7 @@ impl Default for IMAGE_SYMBOL_0 {
 }
 #[repr(C, packed(2))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_SYMBOL_0_0 {
     pub Short: super::DWORD,
     pub Long: super::DWORD,
@@ -5954,7 +5954,7 @@ impl Default for IMAGE_SYMBOL_EX_0 {
 }
 #[repr(C, packed(2))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_SYMBOL_EX_0_0 {
     pub Short: super::DWORD,
     pub Long: super::DWORD,
@@ -6115,7 +6115,7 @@ impl Default for IMAGE_TLS_DIRECTORY32_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_TLS_DIRECTORY32_0_0 {
     pub _bitfield: u32,
 }
@@ -6172,7 +6172,7 @@ impl Default for IMAGE_TLS_DIRECTORY64_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_TLS_DIRECTORY64_0_0 {
     pub _bitfield: u32,
 }
@@ -6199,7 +6199,7 @@ impl IMAGE_TLS_DIRECTORY64_0_0 {
 }
 #[repr(C, packed(2))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_VXD_HEADER {
     pub e32_magic: super::WORD,
     pub e32_border: super::BYTE,
@@ -7592,7 +7592,7 @@ pub struct LUID {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LUID_AND_ATTRIBUTES {
     pub Luid: LUID,
     pub Attributes: super::DWORD,
@@ -8013,7 +8013,7 @@ pub const NONVOL_INT_SIZE_ARM64: u32 = 88;
 pub const NONVOL_INT_SIZE_ARM64: u64 = 88;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NON_PAGED_DEBUG_INFO {
     pub Signature: super::WORD,
     pub Flags: super::WORD,
@@ -9676,7 +9676,7 @@ pub type PRESOURCEMANAGER_COMPLETION_INFORMATION = *mut RESOURCEMANAGER_COMPLETI
 pub type PRESUME_PERFORMANCE = *mut RESUME_PERFORMANCE;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRIVILEGE_SET {
     pub PrivilegeCount: super::DWORD,
     pub Control: super::DWORD,
@@ -12143,7 +12143,7 @@ pub const RTL_CORRELATION_VECTOR_VERSION_2: super::CHAR = 2;
 pub const RTL_CORRELATION_VECTOR_VERSION_CURRENT: super::CHAR = 2;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTL_CRITICAL_SECTION {
     pub DebugInfo: PRTL_CRITICAL_SECTION_DEBUG,
     pub LockCount: super::LONG,
@@ -15046,7 +15046,7 @@ pub struct TOKEN_PRIMARY_GROUP {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_PRIVILEGES {
     pub PrivilegeCount: super::DWORD,
     pub Privileges: [LUID_AND_ATTRIBUTES; 1],
@@ -15632,7 +15632,7 @@ pub type WELL_KNOWN_SID_TYPE = i32;
 pub type WORKERCALLBACKFUNC = Option<unsafe extern "system" fn(param0: PVOID)>;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WOW64_CONTEXT {
     pub ContextFlags: super::DWORD,
     pub Dr0: super::DWORD,

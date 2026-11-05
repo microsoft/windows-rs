@@ -2428,7 +2428,7 @@ pub struct BITMAPCOREHEADER {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BITMAPCOREINFO {
     pub bmciHeader: BITMAPCOREHEADER,
     pub bmciColors: [RGBTRIPLE; 1],
@@ -2441,7 +2441,7 @@ impl Default for BITMAPCOREINFO {
 }
 #[repr(C, packed(2))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BITMAPFILEHEADER {
     pub bfType: super::WORD,
     pub bfSize: super::DWORD,
@@ -5295,14 +5295,14 @@ pub const ENUMPAPERMETRICS: i32 = 34;
 pub type ENUMTEXTMETRIC = ENUMTEXTMETRICA;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENUMTEXTMETRICA {
     pub etmNewTextMetricEx: NEWTEXTMETRICEXA,
     pub etmAxesList: AXESLISTA,
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENUMTEXTMETRICW {
     pub etmNewTextMetricEx: NEWTEXTMETRICEXW,
     pub etmAxesList: AXESLISTW,
@@ -6174,7 +6174,7 @@ pub struct METAFILEPICT {
 pub const METAFILE_DRIVER: i32 = 2049;
 #[repr(C, packed(2))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct METAHEADER {
     pub mtType: super::WORD,
     pub mtHeaderSize: super::WORD,
@@ -6297,7 +6297,7 @@ pub const NEWFRAME: i32 = 1;
 pub type NEWTEXTMETRIC = NEWTEXTMETRICA;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NEWTEXTMETRICA {
     pub tmHeight: super::LONG,
     pub tmAscent: super::LONG,
@@ -6328,21 +6328,21 @@ pub struct NEWTEXTMETRICA {
 pub type NEWTEXTMETRICEX = NEWTEXTMETRICEXA;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NEWTEXTMETRICEXA {
     pub ntmTm: NEWTEXTMETRICA,
     pub ntmFontSig: FONTSIGNATURE,
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NEWTEXTMETRICEXW {
     pub ntmTm: NEWTEXTMETRICW,
     pub ntmFontSig: FONTSIGNATURE,
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NEWTEXTMETRICW {
     pub tmHeight: super::LONG,
     pub tmAscent: super::LONG,
@@ -6491,7 +6491,7 @@ pub const OPENCHANNEL: i32 = 4110;
 pub type OUTLINETEXTMETRIC = OUTLINETEXTMETRICA;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OUTLINETEXTMETRICA {
     pub otmSize: super::UINT,
     pub otmTextMetrics: TEXTMETRICA,
@@ -6528,7 +6528,7 @@ pub struct OUTLINETEXTMETRICA {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OUTLINETEXTMETRICW {
     pub otmSize: super::UINT,
     pub otmTextMetrics: TEXTMETRICW,
@@ -7421,7 +7421,7 @@ pub struct RGBQUAD {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RGBTRIPLE {
     pub rgbtBlue: super::BYTE,
     pub rgbtGreen: super::BYTE,
@@ -7586,7 +7586,7 @@ pub const TEXTCAPS: i32 = 34;
 pub type TEXTMETRIC = TEXTMETRICA;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TEXTMETRICA {
     pub tmHeight: super::LONG,
     pub tmAscent: super::LONG,
@@ -7611,7 +7611,7 @@ pub struct TEXTMETRICA {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TEXTMETRICW {
     pub tmHeight: super::LONG,
     pub tmAscent: super::LONG,

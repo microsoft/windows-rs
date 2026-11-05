@@ -8,7 +8,7 @@ pub const ColorAdjustTypePen: ColorAdjustType = 3;
 pub const ColorAdjustTypeText: ColorAdjustType = 4;
 #[repr(C, packed(8))]
 #[cfg(feature = "gdiplustypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ColorMatrix {
     pub m: [[super::REAL; 5]; 5],
 }
