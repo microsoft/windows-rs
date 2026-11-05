@@ -432,6 +432,39 @@ fn injected_services_preserve_task_and_timer_statuses() {
 }
 
 #[test]
+fn cancelling_old_background_work_preserves_replacement_delivery() {
+    for queued in [false, true] {
+        let services = Arc::new(TestServices::default());
+        let input = ServiceProbeInput::default();
+        let mut host = ComponentHost::mount_with_services(
+            RecordingAdapter::default(),
+            services.clone(),
+            [component::<ServiceProbe>("probe", input.clone())],
+        );
+        let sender = host.sender::<ServiceProbe>(&Key::from("probe")).unwrap();
+        assert!(sender.send(ServiceProbeMessage::Background));
+        assert_eq!(host.drain(1).dispatched, 1);
+        let old = input.task.lock().unwrap().take().unwrap();
+        if queued {
+            services.run_background();
+        }
+        old.cancel();
+
+        assert!(sender.send(ServiceProbeMessage::Background));
+        let restarted = host.drain(2);
+        assert_eq!(restarted.dispatched, 1);
+        assert_eq!(restarted.dropped, usize::from(queued));
+        if !queued {
+            services.run_background();
+        }
+        services.run_background();
+        let completed = host.drain(2);
+        assert_eq!(completed.dispatched, 1);
+        assert_eq!(completed.dropped, 0);
+    }
+}
+
+#[test]
 fn dropping_host_cancels_work_and_releases_component_ownership() {
     let services = Arc::new(TestServices::default());
     let input = ServiceProbeInput::default();
