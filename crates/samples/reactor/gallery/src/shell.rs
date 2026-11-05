@@ -1,5 +1,5 @@
 //! The gallery application shell: a `TitleBar` with search and a theme toggle above a
-//! `NavigationView` that hosts Home, Settings, the 11 category listing pages, and the 65 leaf
+//! `NavigationView` that hosts Home, Settings, the 11 category listing pages, and the 64 leaf
 //! control pages resolved through [`crate::router`].
 //!
 //! The pane lists Home, expandable categories with their control pages, and Settings. Typing in the
@@ -80,9 +80,7 @@ fn nav_item(
     KeyedView::new(tag.to_string(), item)
 }
 
-/// Renders a category's control list as a card grid, matching the incumbent gallery's category
-/// page. This stays a plain view function (not a `Component`) because it owns no state of its
-/// own; it is recomputed directly from the registry and the shell's navigation callback.
+/// Renders a category's control list using the shell's navigation callback.
 fn category_page(category: &'static str, on_navigate: Callback<String>) -> View {
     let controls = registry::controls_in_category(category);
     let count = controls.len();
@@ -102,9 +100,7 @@ fn category_page(category: &'static str, on_navigate: Callback<String>) -> View 
                 .padding(Thickness::new(36.0, 24.0, 36.0, 36.0))
                 .content(StackPanel::new().spacing(24.0).children((
                     page_header(category, &format!("{count} controls")),
-                    card_grid(&items, move |tag| {
-                        on_navigate.call(tag);
-                    }),
+                    card_grid(&items, on_navigate),
                 ))),
         )
         .into()
@@ -174,17 +170,13 @@ impl Component for Gallery {
         );
 
         let content: View = if self.selected_tag == "home" {
-            View::component::<crate::pages::home::HomePage>(crate::pages::home::HomeInput {
-                on_navigate: context.callback(Message::Navigate),
-            })
+            crate::pages::home::home_page(context.callback(Message::Navigate))
         } else if self.selected_tag == "settings" {
-            View::component::<crate::pages::settings::SettingsPage>(())
+            crate::pages::settings::settings_page()
         } else if self.selected_tag == "materials" {
-            View::component::<crate::pages::design::MaterialsPage>(
-                crate::pages::design::MaterialsInput {
-                    backdrop: self.backdrop,
-                    on_backdrop_changed: context.callback(Message::BackdropChanged),
-                },
+            crate::pages::design::materials_page(
+                self.backdrop,
+                context.callback(Message::BackdropChanged),
             )
         } else if let Some(category) = CATEGORIES
             .iter()
@@ -289,7 +281,10 @@ impl Component for Gallery {
             }))
             .grid_row(1)
             .keyed_menu_items(menu_items)
-            .content(content);
+            .content(
+                // Retire native controls when changing destinations, including stateless pages.
+                Grid::new().keyed_children([keyed(self.selected_tag.clone(), content)]),
+            );
 
         let title_bar = TitleBar::new()
             .preferred_height(WindowTitleBarHeight::Tall)

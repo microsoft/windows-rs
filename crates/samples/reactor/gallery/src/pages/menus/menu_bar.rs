@@ -5,13 +5,8 @@ pub struct MenuBarPage {
     last_click: String,
 }
 
-#[derive(Clone)]
-pub enum Message {
-    ItemClicked(String),
-}
-
 impl Component for MenuBarPage {
-    type Message = Message;
+    type Message = String;
     type Input = ();
 
     fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
@@ -20,14 +15,12 @@ impl Component for MenuBarPage {
         }
     }
 
-    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
-        match message {
-            Message::ItemClicked(label) => self.last_click = label,
-        }
+    fn update(&mut self, item: String, _context: &ComponentContext<Self>) {
+        self.last_click = item;
     }
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
-        let callback = context.callback(|key: Key| Message::ItemClicked(key_label(&key)));
+        let callback = context.callback(|key: Key| key_label(&key));
         page_content(
             "MenuBar",
             "A horizontal bar hosting drop-down menus.",

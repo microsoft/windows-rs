@@ -5,13 +5,8 @@ pub struct ImagePage {
     stretch: Stretch,
 }
 
-#[derive(Clone)]
-pub enum Message {
-    SetStretch(Stretch),
-}
-
 impl Component for ImagePage {
-    type Message = Message;
+    type Message = Stretch;
     type Input = ();
 
     fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
@@ -20,10 +15,8 @@ impl Component for ImagePage {
         }
     }
 
-    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
-        match message {
-            Message::SetStretch(stretch) => self.stretch = stretch,
-        }
+    fn update(&mut self, stretch: Stretch, _context: &ComponentContext<Self>) {
+        self.stretch = stretch;
     }
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
@@ -60,26 +53,16 @@ impl Component for ImagePage {
                                 .spacing(4.0)
                                 .children((
                                     Button::new()
-                                        .on_click(
-                                            context.message(Message::SetStretch(Stretch::Uniform)),
-                                        )
+                                        .on_click(context.message(Stretch::Uniform))
                                         .content("Uniform"),
                                     Button::new()
-                                        .on_click(
-                                            context.message(Message::SetStretch(
-                                                Stretch::UniformToFill,
-                                            )),
-                                        )
+                                        .on_click(context.message(Stretch::UniformToFill))
                                         .content("UniformToFill"),
                                     Button::new()
-                                        .on_click(
-                                            context.message(Message::SetStretch(Stretch::Fill)),
-                                        )
+                                        .on_click(context.message(Stretch::Fill))
                                         .content("Fill"),
                                     Button::new()
-                                        .on_click(
-                                            context.message(Message::SetStretch(Stretch::None)),
-                                        )
+                                        .on_click(context.message(Stretch::None))
                                         .content("None"),
                                 )),
                             TextBlock::new()

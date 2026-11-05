@@ -4,6 +4,7 @@ use std::path::PathBuf;
 use windows_pickers::{FolderPicker, OpenFilePicker, Result, SaveFilePicker};
 use windows_reactor::*;
 
+#[derive(Clone)]
 enum Message {
     OpenFile,
     OpenFiles,
@@ -113,19 +114,19 @@ impl Component for PickerSample {
             .spacing(8.0)
             .children((
                 Button::new()
-                    .on_click(context.callback(|()| Message::OpenFile))
+                    .on_click(context.message(Message::OpenFile))
                     .content("Open file"),
                 Button::new()
-                    .on_click(context.callback(|()| Message::OpenFiles))
+                    .on_click(context.message(Message::OpenFiles))
                     .content("Open files"),
                 Button::new()
-                    .on_click(context.callback(|()| Message::PickFolder))
+                    .on_click(context.message(Message::PickFolder))
                     .content("Choose folder"),
                 Button::new()
-                    .on_click(context.callback(|()| Message::PickFolders))
+                    .on_click(context.message(Message::PickFolders))
                     .content("Choose folders"),
                 Button::new()
-                    .on_click(context.callback(|()| Message::SaveFile))
+                    .on_click(context.message(Message::SaveFile))
                     .content("Save file"),
                 self.status.clone(),
             ))

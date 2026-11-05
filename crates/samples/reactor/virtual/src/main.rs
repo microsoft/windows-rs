@@ -20,7 +20,7 @@ struct TaskEditor {
     loading: bool,
     next_id: u64,
     selected: Option<u64>,
-    sender: LocalSender<Message>,
+    on_row: Callback<RowAction>,
     source_revision: u64,
     status: String,
     tasks: Vec<Rc<Task>>,
@@ -46,17 +46,11 @@ enum RowAction {
     SetDone { id: u64, done: bool },
 }
 
-#[derive(Clone)]
+#[derive(Clone, PartialEq)]
 struct RowInput {
     item: Rc<Task>,
     selected: bool,
-    sender: LocalSender<Message>,
-}
-
-impl PartialEq for RowInput {
-    fn eq(&self, other: &Self) -> bool {
-        self.item == other.item && self.selected == other.selected
-    }
+    on_action: Callback<RowAction>,
 }
 
 struct TaskRow {
@@ -64,7 +58,7 @@ struct TaskRow {
     editing: bool,
     id: u64,
     input: ElementRef<TextBox>,
-    sender: LocalSender<Message>,
+    on_action: Callback<RowAction>,
 }
 
 #[derive(Clone)]
@@ -107,13 +101,12 @@ impl Component for TaskEditor {
     type Input = ();
 
     fn create(_input: &Self::Input, context: &ComponentContext<Self>) -> Self {
-        let sender = context.sender();
         Self {
             load_generation: 0,
             loading: false,
             next_id: INITIAL_TASKS as u64,
             selected: Some(0),
-            sender,
+            on_row: context.callback(Message::Row),
             source_revision: 0,
             status: format!("{INITIAL_TASKS} tasks"),
             tasks: Self::tasks(0, INITIAL_TASKS)
@@ -230,7 +223,7 @@ impl Component for TaskEditor {
         let tasks = Rc::new(self.tasks.clone());
         let key_tasks = Rc::clone(&tasks);
         let selected = self.selected;
-        let sender = self.sender.clone();
+        let on_row = self.on_row.clone();
         let rows = VirtualSource::new(
             self.source_revision,
             tasks.len(),
@@ -241,7 +234,7 @@ impl Component for TaskEditor {
                 View::component::<TaskRow>(RowInput {
                     item,
                     selected: selected == Some(id),
-                    sender: sender.clone(),
+                    on_action: on_row.clone(),
                 })
             },
         );
@@ -296,13 +289,13 @@ impl Component for TaskRow {
             editing: false,
             id: input.item.id,
             input: ElementRef::new(),
-            sender: input.sender.clone(),
+            on_action: input.on_action.clone(),
         }
     }
 
     fn input_changed(&mut self, input: &Self::Input, _context: &ComponentContext<Self>) {
         self.id = input.item.id;
-        self.sender = input.sender.clone();
+        self.on_action = input.on_action.clone();
         if !self.editing {
             self.draft.clone_from(&input.item.title);
         }
@@ -313,38 +306,32 @@ impl Component for TaskRow {
             RowMessage::Draft(value) => {
                 self.draft.clone_from(&value);
                 if !value.trim().is_empty() {
-                    _ = self.sender.send(Message::Row(RowAction::Rename {
-                        id: self.item_id(),
+                    self.on_action.call(RowAction::Rename {
+                        id: self.id,
                         title: value,
-                    }));
+                    });
                 }
             }
             RowMessage::Edit => self.editing = true,
             RowMessage::Remove => {
-                _ = self
-                    .sender
-                    .send(Message::Row(RowAction::Remove(self.item_id())));
+                self.on_action.call(RowAction::Remove(self.id));
             }
             RowMessage::Save if self.draft.trim().is_empty() => {
                 _ = self.input.request_focus();
             }
             RowMessage::Save => {
                 self.editing = false;
-                _ = self.sender.send(Message::Row(RowAction::Rename {
-                    id: self.item_id(),
+                self.on_action.call(RowAction::Rename {
+                    id: self.id,
                     title: self.draft.clone(),
-                }));
+                });
             }
             RowMessage::Select => {
-                _ = self
-                    .sender
-                    .send(Message::Row(RowAction::Select(self.item_id())));
+                self.on_action.call(RowAction::Select(self.id));
             }
             RowMessage::SetDone(done) => {
-                _ = self.sender.send(Message::Row(RowAction::SetDone {
-                    id: self.item_id(),
-                    done,
-                }));
+                self.on_action
+                    .call(RowAction::SetDone { id: self.id, done });
             }
         }
     }
@@ -404,12 +391,6 @@ impl Component for TaskRow {
         );
 
         StackPanel::new().spacing(4.0).children(children).into()
-    }
-}
-
-impl TaskRow {
-    fn item_id(&self) -> u64 {
-        self.id
     }
 }
 

@@ -222,12 +222,10 @@ fn draw(ctx: &DrawContext<'_>, model: &RefCell<Model>) -> Result<()> {
 
     for (i, s) in m.shapes.iter_mut().enumerate() {
         if device_changed || s.built_at != Some((s.x, s.y)) {
-            s.path = build_path(ctx.device(), s.kind, s.x, s.y).ok();
+            s.path = Some(build_path(ctx.device(), s.kind, s.x, s.y)?);
             s.built_at = Some((s.x, s.y));
         }
-        let Some(path) = &s.path else {
-            continue;
-        };
+        let path = s.path.as_ref().unwrap();
 
         let brush = ctx.create_solid_brush(s.color)?;
         ctx.fill_path(path, &brush);

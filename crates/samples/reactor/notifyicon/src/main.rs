@@ -40,8 +40,8 @@ impl Application for TrayApp {
             "main",
             WindowInput {
                 icon: self.icon,
-                on_toggle: context.callback(|()| Message::ToggleIcon),
-                on_exit: context.callback(|()| Message::Exit),
+                on_toggle: context.message(Message::ToggleIcon),
+                on_exit: context.message(Message::Exit),
             },
         );
         if self.icon {

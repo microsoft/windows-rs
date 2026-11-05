@@ -12,7 +12,7 @@ fn draw(ctx: &DrawContext) -> Result<()> {
     let margin = 30.0;
     let spacing = (ctx.height - margin * 2.0) / 4.0;
 
-    let styles: Vec<(&str, StrokeStyle)> = [
+    let styles = [
         (
             "Dash + Round caps",
             StrokeStyleBuilder::new()
@@ -35,14 +35,12 @@ fn draw(ctx: &DrawContext) -> Result<()> {
             "Solid + Bevel join",
             StrokeStyleBuilder::new().line_join(LineJoin::Bevel),
         ),
-    ]
-    .into_iter()
-    .filter_map(|(name, builder)| device.create_stroke_style(&builder).ok().map(|s| (name, s)))
-    .collect();
+    ];
 
     let label_fmt = TextFormat::new("Segoe UI", 14.0)?;
 
-    for (i, (name, style)) in styles.iter().enumerate() {
+    for (i, (name, builder)) in styles.iter().enumerate() {
+        let style = device.create_stroke_style(builder)?;
         let y = margin + i as f32 * spacing + spacing / 2.0;
 
         brush.set_color(ColorF::WHITE);
@@ -59,7 +57,7 @@ fn draw(ctx: &DrawContext) -> Result<()> {
             Vector2::new(ctx.width - margin, y),
             &brush,
             6.0,
-            style,
+            &style,
         );
     }
     Ok(())

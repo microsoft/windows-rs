@@ -189,7 +189,7 @@ impl Component for Game {
                     .content("New Game"),
             ));
 
-        let board = build_board(self, context.callback(Message::Play));
+        let board = build_board(self, context);
 
         let title_bar = TitleBar::new().title("windows_reactor — tictactoe");
 
@@ -206,8 +206,8 @@ impl Component for Game {
     }
 }
 
-fn build_board(game: &Game, click_handler: Callback<usize>) -> View {
-    let cells = build_cells(game, click_handler);
+fn build_board(game: &Game, context: &ViewContext<Game>) -> View {
+    let cells = build_cells(game, context);
     Grid::new()
         .rows([GridLength::STAR; SIZE])
         .columns([GridLength::STAR; SIZE])
@@ -220,31 +220,23 @@ fn build_board(game: &Game, click_handler: Callback<usize>) -> View {
         .into()
 }
 
-fn build_cells(game: &Game, click_handler: Callback<usize>) -> Vec<KeyedView> {
+fn build_cells(game: &Game, context: &ViewContext<Game>) -> Vec<KeyedView> {
     let game_over = game.status != Status::Playing;
     (0..TOTAL)
         .map(|pos| {
             let cell = game.cells[pos];
             let row = pos / SIZE;
             let col = pos % SIZE;
-            let label = cell.label().to_string();
-            let mut btn = Button::new()
-                .on_click({
-                    let click_handler = click_handler.clone();
-                    move || {
-                        click_handler.call(pos);
-                    }
-                })
+            let btn = Button::new()
+                .on_click(context.message(Message::Play(pos)))
+                .is_enabled(!game_over && cell == Cell::Empty)
                 .horizontal_alignment(HorizontalAlignment::Stretch)
                 .vertical_alignment(VerticalAlignment::Stretch);
-            if game_over || cell != Cell::Empty {
-                btn = btn.is_enabled(false);
-            }
             keyed(
                 pos,
                 btn.grid_row(row as i32)
                     .grid_column(col as i32)
-                    .content(label),
+                    .content(cell.label()),
             )
         })
         .collect()

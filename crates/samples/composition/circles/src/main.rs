@@ -34,7 +34,7 @@ impl Scene {
         })
     }
 
-    fn set_count(&mut self, count: usize) -> Result<()> {
+    fn set_count(&mut self, count: usize) {
         let children = self.root.children();
         children.remove_all();
         self.circles.clear();
@@ -48,13 +48,13 @@ impl Scene {
             });
             circle.set_brush(&self.compositor.create_color_brush(ring_color(i, count)));
             children.insert_at_top(&circle);
-            self.start_pulse(&circle, i, count)?;
+            self.start_pulse(&circle, i, count);
             self.circles.push(circle);
         }
-        self.layout()
+        self.layout();
     }
 
-    fn start_pulse(&self, circle: &SpriteVisual, index: usize, count: usize) -> Result<()> {
+    fn start_pulse(&self, circle: &SpriteVisual, index: usize, count: usize) {
         let pulse = self.compositor.create_vector3_key_frame_animation();
         pulse.insert_key_frame(
             0.0,
@@ -85,20 +85,19 @@ impl Scene {
         pulse.set_delay(Duration::from_millis((phase * 1800.0) as u64));
         pulse.set_iterate_forever();
         circle.start_animation("Scale", &pulse);
-        Ok(())
     }
 
-    fn resize(&mut self, width: f32, height: f32) -> Result<()> {
+    fn resize(&mut self, width: f32, height: f32) {
         self.width = width;
         self.height = height;
-        self.layout()
+        self.layout();
     }
 
-    fn layout(&self) -> Result<()> {
+    fn layout(&self) {
         self.root.set_size(self.width, self.height);
         let n = self.circles.len();
         if n == 0 {
-            return Ok(());
+            return;
         }
         let cx = self.width / 2.0;
         let cy = self.height / 2.0;
@@ -111,7 +110,6 @@ impl Scene {
                 0.0,
             );
         }
-        Ok(())
     }
 }
 
@@ -168,7 +166,7 @@ impl Component for Sample {
         let count = self.count;
         context.use_effect("circle-count", count, move || {
             if let Some(scene) = scene.borrow_mut().as_mut() {
-                scene.set_count(count as usize).unwrap();
+                scene.set_count(count as usize);
             }
             None
         });
@@ -185,14 +183,14 @@ impl Component for Sample {
                     ..
                 } => match Scene::new(compositor, &event_host, width as f32, height as f32) {
                     Ok(mut built) => {
-                        built.set_count(count as usize).unwrap();
+                        built.set_count(count as usize);
                         *scene.borrow_mut() = Some(built);
                     }
                     Err(error) => eprintln!("composition init failed: {error}"),
                 },
                 CompositionHostEvent::Metrics { width, height, .. } => {
                     if let Some(scene) = scene.borrow_mut().as_mut() {
-                        scene.resize(width as f32, height as f32).unwrap();
+                        scene.resize(width as f32, height as f32);
                     }
                 }
             })

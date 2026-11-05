@@ -1,27 +1,20 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-#[derive(Clone)]
-pub enum Message {
-    Deleted,
-}
-
 pub struct FlyoutPage {
     deleted: bool,
 }
 
 impl Component for FlyoutPage {
-    type Message = Message;
+    type Message = ();
     type Input = ();
 
     fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
         Self { deleted: false }
     }
 
-    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
-        match message {
-            Message::Deleted => self.deleted = true,
-        }
+    fn update(&mut self, _: (), _context: &ComponentContext<Self>) {
+        self.deleted = true;
     }
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
@@ -41,7 +34,7 @@ impl Component for FlyoutPage {
                                         "Are you sure?",
                                         "This cannot be undone.",
                                         Button::new()
-                                            .on_click(context.message(Message::Deleted))
+                                            .on_click(context.forward())
                                             .content("Confirm delete"),
                                     )),
                                 )),

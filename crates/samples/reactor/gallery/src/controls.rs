@@ -1,5 +1,5 @@
 //! Shared page headers, live sample cards, scrollable content, and navigation card grids.
-//! Examples stay in compiled page components rather than duplicated display-only snippets.
+//! Examples stay in compiled pages rather than duplicated display-only snippets.
 
 use windows_reactor::*;
 
@@ -83,9 +83,8 @@ pub fn page_content(
     description: &str,
     cards: impl IntoIterator<Item = KeyedView>,
 ) -> View {
-    let children = std::iter::once(KeyedView::new("header", page_header(title, description)))
-        .chain(cards)
-        .collect::<Vec<_>>();
+    let children =
+        std::iter::once(KeyedView::new("header", page_header(title, description))).chain(cards);
     ScrollViewer::new()
         .content(
             Border::new()
@@ -110,7 +109,7 @@ const CARD_HEIGHT: f64 = 88.0;
 const CARD_GAP: f64 = 12.0;
 
 /// Arranges `items` in a wrapping grid of clickable cards.
-pub fn card_grid(items: &[CardItem], on_click: impl Fn(String) + Clone + 'static) -> View {
+pub fn card_grid(items: &[CardItem], on_click: Callback<String>) -> View {
     let children = items.iter().map(|item| {
         let on_click = on_click.clone();
         let key = item.key.clone();
@@ -123,7 +122,7 @@ pub fn card_grid(items: &[CardItem], on_click: impl Fn(String) + Clone + 'static
                 .margin(CARD_GAP / 2.0)
                 .horizontal_content_alignment(HorizontalAlignment::Stretch)
                 .vertical_content_alignment(VerticalAlignment::Stretch)
-                .on_click(move || on_click(key.clone()))
+                .on_click(move || on_click.call(key.clone()))
                 .content(
                     Border::new()
                         .background(ThemeBrush::CardBackground)

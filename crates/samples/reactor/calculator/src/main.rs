@@ -181,7 +181,7 @@ impl Component for Calculator {
             button(".", Message::Decimal, 5, 2, false),
             button("=", Message::Equals, 5, 3, true),
         ];
-        let mut accelerators = [
+        let accelerators = [
             (AcceleratorKey::NumberPad0, Message::Digit("0")),
             (AcceleratorKey::NumberPad1, Message::Digit("1")),
             (AcceleratorKey::NumberPad2, Message::Digit("2")),
@@ -199,16 +199,14 @@ impl Component for Calculator {
             (AcceleratorKey::Decimal, Message::Decimal),
             (AcceleratorKey::Enter, Message::Equals),
         ]
-        .into_iter()
         .map(|(key, message)| {
             KeyAccelerator::new(key, AcceleratorModifiers::None, context.message(message))
-        })
-        .collect::<Vec<_>>();
+        });
 
         Grid::new()
             .rows([GridLength::Auto, GridLength::Auto, GridLength::STAR])
             .columns([GridLength::STAR])
-            .key_accelerators(KeyAccelerators::new(accelerators.drain(..)))
+            .key_accelerators(KeyAccelerators::new(accelerators))
             .children((
                 TextBlock::new()
                     .text("Calculator")

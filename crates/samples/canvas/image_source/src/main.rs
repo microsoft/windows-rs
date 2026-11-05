@@ -55,11 +55,9 @@ impl Component for Sample {
         context.window_visuals(WindowVisuals::new().backdrop(WindowBackdrop::Mica));
 
         let image = self.image.clone();
-        let sender = context.sender();
+        let on_scale = context.callback(Message::Scale);
         context.use_effect_guard("image-scale", (), move || {
-            image.observe_rasterization_scale(move |scale| {
-                _ = sender.send(Message::Scale(scale));
-            })
+            image.observe_rasterization_scale(move |scale| on_scale.call(scale))
         });
 
         let graphics = Rc::clone(&self.graphics);
@@ -78,7 +76,7 @@ impl Component for Sample {
             .margin(Thickness::uniform(16.0))
             .children((
                 TextBlock::new()
-                    .text("On-demand surface - redraws only when the count changes:")
+                    .text("On-demand surface - redraws when the count or display scale changes:")
                     .grid_row(0),
                 Image::new()
                     .element_ref(&self.image)
@@ -156,7 +154,6 @@ fn draw_dial(session: &DrawingSession, count: u32) -> Result<()> {
     let hub = session.create_solid_brush(ColorF::WHITE)?;
     session.fill_ellipse(&CanvasEllipse::circle(center, 16.0), &hub);
 
-    let count = count.max(1);
     for i in 0..count {
         let phase = i as f32 / count as f32;
         let angle = phase * TAU - TAU / 4.0;

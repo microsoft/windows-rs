@@ -6,6 +6,7 @@ publish = false
 
 [dependencies]
 windows-canvas = { workspace = true, features = ["reactor"] }
+windows-numerics = { workspace = true, features = ["std"] }
 windows-reactor = { workspace = true }
 
 [lints]

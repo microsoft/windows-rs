@@ -44,11 +44,9 @@ impl Component for Sample {
         context.window_visuals(WindowVisuals::new().backdrop(WindowBackdrop::Mica));
 
         let image = self.images[0].clone();
-        let sender = context.sender();
+        let on_scale = context.forward();
         context.use_effect_guard("image-scale", (), move || {
-            image.observe_rasterization_scale(move |scale| {
-                _ = sender.send(scale);
-            })
+            image.observe_rasterization_scale(move |scale| on_scale.call(scale))
         });
 
         let graphics = Rc::clone(&self.graphics);

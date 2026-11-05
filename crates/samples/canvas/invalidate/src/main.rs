@@ -37,8 +37,8 @@ impl Component for Sample {
         context.window_visuals(WindowVisuals::new().backdrop(WindowBackdrop::Mica));
         let points = Rc::clone(&self.points);
         Border::new()
-            .on_pointer_pressed(context.callback(std::convert::identity))
-            .on_pointer_moved(context.callback(std::convert::identity))
+            .on_pointer_pressed(context.forward())
+            .on_pointer_moved(context.forward())
             .content(canvas_invalidated(&self.invalidator, move |context| {
                 draw(context, &points.borrow())
             }))

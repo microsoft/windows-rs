@@ -36,8 +36,7 @@ impl Component for WindowSample {
                     max_height: Some(900.0),
                 }),
         );
-        let on_window_size = context.callback(|size| size);
-        context.on_window_size(on_window_size);
+        context.on_window_size(context.forward());
 
         Grid::new()
             .children([
