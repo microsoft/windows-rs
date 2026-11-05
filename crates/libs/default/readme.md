@@ -10,7 +10,7 @@ Embedded Windows metadata for build tools, available without locating an SDK or 
 
 ```toml
 [dependencies]
-windows-default = "0.100"
+windows-default = "0.101"
 ```
 
 ```rust

@@ -32,7 +32,7 @@ RDL looks like Rust but is a separate language.
 
 ```toml
 [dependencies]
-windows-rdl = "0.100"
+windows-rdl = "0.101"
 ```
 
 ```rust,no_run

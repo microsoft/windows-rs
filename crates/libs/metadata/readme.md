@@ -11,7 +11,7 @@ Use this crate for inspectors and generators, not for calling Windows APIs.
 
 ```toml
 [dependencies]
-windows-metadata = "0.100"
+windows-metadata = "0.101"
 ```
 
 Given a `Windows.winmd` file:

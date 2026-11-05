@@ -12,7 +12,7 @@ Rust, then convert when a Windows API requires a collection interface.
 
 ```toml
 [dependencies]
-windows-collections = "0.100"
+windows-collections = "0.101"
 ```
 
 ```rust

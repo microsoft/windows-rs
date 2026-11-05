@@ -12,7 +12,7 @@ and callbacks; calling an existing interface does not require the macro.
 
 ```toml
 [dependencies]
-windows-core = "0.100"
+windows-core = "0.101"
 ```
 
 ```rust
