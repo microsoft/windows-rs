@@ -5,12 +5,8 @@ pub struct PersonPicturePage {
     show_display_names: bool,
 }
 
-pub enum Message {
-    SetShowDisplayNames(bool),
-}
-
 impl Component for PersonPicturePage {
-    type Message = Message;
+    type Message = bool;
     type Input = ();
 
     fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
@@ -19,10 +15,8 @@ impl Component for PersonPicturePage {
         }
     }
 
-    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
-        match message {
-            Message::SetShowDisplayNames(value) => self.show_display_names = value,
-        }
+    fn update(&mut self, show_display_names: bool, _context: &ComponentContext<Self>) {
+        self.show_display_names = show_display_names;
     }
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
@@ -58,7 +52,7 @@ impl Component for PersonPicturePage {
                     StackPanel::new().spacing(12.0).children((
                         ToggleSwitch::new()
                             .is_on(self.show_display_names)
-                            .on_toggled(context.callback(Message::SetShowDisplayNames))
+                            .on_toggled(context.forward())
                             .header("Use display names"),
                         pictures,
                         TextBlock::new()

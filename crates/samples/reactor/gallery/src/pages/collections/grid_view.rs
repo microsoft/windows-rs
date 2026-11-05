@@ -5,23 +5,16 @@ pub struct GridViewPage {
     selected: Option<usize>,
 }
 
-#[derive(Clone)]
-pub enum Message {
-    Selected(Option<usize>),
-}
-
 impl Component for GridViewPage {
-    type Message = Message;
+    type Message = Option<usize>;
     type Input = ();
 
     fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
         Self { selected: None }
     }
 
-    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
-        match message {
-            Message::Selected(index) => self.selected = index,
-        }
+    fn update(&mut self, selected: Option<usize>, _context: &ComponentContext<Self>) {
+        self.selected = selected;
     }
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
@@ -42,7 +35,7 @@ impl Component for GridViewPage {
                         GridView::new()
                             .height(300.0)
                             .selected_index(self.selected)
-                            .on_selection_changed(context.callback(Message::Selected))
+                            .on_selection_changed(context.forward())
                             .keyed_items(items.iter().map(|item| {
                                 KeyedView::new(
                                     item.clone(),

@@ -388,7 +388,6 @@ struct AppState {
     elapsed_seconds: u32,
     chord_preview: Option<(usize, usize)>,
     rng_seed: u64,
-    timer_generation: u64,
 }
 
 impl AppState {
@@ -398,7 +397,6 @@ impl AppState {
             elapsed_seconds: 0,
             chord_preview: None,
             rng_seed: seed,
-            timer_generation: 0,
         }
     }
 }
@@ -574,22 +572,16 @@ fn build_board(
         })
         .collect();
 
-    let mut g = Grid::new();
-    let mut row_tracks: Vec<GridLength> = Vec::with_capacity(rows);
-    for _ in 0..rows {
-        row_tracks.push(GridLength::Pixel(size));
-    }
-    let mut col_tracks: Vec<GridLength> = Vec::with_capacity(cols);
-    for _ in 0..cols {
-        col_tracks.push(GridLength::Pixel(size));
-    }
-    g = g.rows(row_tracks).columns(col_tracks);
-
     Border::new()
         .background(ThemeBrush::SolidBackground)
         .padding(Thickness::uniform(1.0))
         .horizontal_alignment(HorizontalAlignment::Center)
-        .content(g.keyed_children(children))
+        .content(
+            Grid::new()
+                .rows(vec![GridLength::Pixel(size); rows])
+                .columns(vec![GridLength::Pixel(size); cols])
+                .keyed_children(children),
+        )
         .into()
 }
 
@@ -638,32 +630,25 @@ enum Message {
     PointerExited,
     Reset,
     NewGame(Difficulty),
-    Tick(u64),
+    Tick,
 }
 
 struct Dotsweeper {
     state: AppState,
+    timer: Option<ComponentTimer>,
 }
 
 impl Dotsweeper {
-    fn schedule_tick(&self, context: &ComponentContext<Self>) {
-        let generation = self.state.timer_generation;
-        context.spawn_background(move |cancellation| {
-            std::thread::sleep(Duration::from_secs(1));
-            if cancellation.is_cancelled() {
-                Message::PointerExited
-            } else {
-                Message::Tick(generation)
-            }
-        });
+    fn schedule_tick(&mut self, context: &ComponentContext<Self>) {
+        self.timer = Some(context.set_local_timeout(Duration::from_secs(1), || Message::Tick));
     }
 
     fn reset(&mut self, difficulty: Difficulty) {
+        self.timer = None;
         self.state.board = Board::new_game(difficulty);
         self.state.elapsed_seconds = 0;
         self.state.chord_preview = None;
         self.state.rng_seed = self.state.rng_seed.wrapping_add(RNG_SEED_INCREMENT);
-        self.state.timer_generation = self.state.timer_generation.wrapping_add(1);
     }
 }
 
@@ -674,6 +659,7 @@ impl Component for Dotsweeper {
     fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
         Self {
             state: AppState::initial(Difficulty::BEGINNER, fresh_seed()),
+            timer: None,
         }
     }
 
@@ -716,14 +702,14 @@ impl Component for Dotsweeper {
             Message::PointerExited => self.state.chord_preview = None,
             Message::Reset => self.reset(self.state.board.difficulty),
             Message::NewGame(difficulty) => self.reset(difficulty),
-            Message::Tick(generation)
-                if generation == self.state.timer_generation
-                    && self.state.board.phase == GamePhase::Playing =>
-            {
+            Message::Tick if self.state.board.phase == GamePhase::Playing => {
                 self.state.elapsed_seconds = self.state.elapsed_seconds.saturating_add(1).min(999);
                 self.schedule_tick(context);
             }
-            Message::Tick(_) => {}
+            Message::Tick => {}
+        }
+        if self.state.board.phase != GamePhase::Playing {
+            self.timer = None;
         }
     }
 

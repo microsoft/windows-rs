@@ -5,13 +5,8 @@ pub struct CommandBarPage {
     last_command: String,
 }
 
-#[derive(Clone)]
-pub enum Message {
-    CommandClicked(String),
-}
-
 impl Component for CommandBarPage {
-    type Message = Message;
+    type Message = String;
     type Input = ();
 
     fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
@@ -20,10 +15,8 @@ impl Component for CommandBarPage {
         }
     }
 
-    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
-        match message {
-            Message::CommandClicked(label) => self.last_command = label,
-        }
+    fn update(&mut self, command: String, _context: &ComponentContext<Self>) {
+        self.last_command = command;
     }
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
@@ -50,7 +43,7 @@ impl Component for CommandBarPage {
                                 CommandBarCommand::button("select-all", "Select All"),
                                 CommandBarCommand::button("share", "Share"),
                             ],
-                            context.callback(|key: Key| Message::CommandClicked(key_label(&key))),
+                            context.callback(|key: Key| key_label(&key)),
                         ),
                         TextBlock::new()
                             .text(format!("Last command: {}", self.last_command))

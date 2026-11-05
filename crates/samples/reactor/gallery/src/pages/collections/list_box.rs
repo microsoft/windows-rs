@@ -5,27 +5,18 @@ pub struct ListBoxPage {
     selected: Option<usize>,
 }
 
-#[derive(Clone)]
-pub enum Message {
-    Selected(Option<String>),
-}
-
 const FRUITS: [&str; 5] = ["Apple", "Banana", "Cherry", "Date", "Elderberry"];
 
 impl Component for ListBoxPage {
-    type Message = Message;
+    type Message = Option<usize>;
     type Input = ();
 
     fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
         Self { selected: None }
     }
 
-    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
-        match message {
-            Message::Selected(tag) => {
-                self.selected = tag.and_then(|tag| tag.parse().ok());
-            }
-        }
+    fn update(&mut self, selected: Option<usize>, _context: &ComponentContext<Self>) {
+        self.selected = selected;
     }
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
@@ -71,7 +62,7 @@ impl Component for ListBoxPage {
                             ListBox::new()
                                 .on_selected_tag_changed(context.callback(
                                     |tag: Option<std::rc::Rc<str>>| {
-                                        Message::Selected(tag.map(|tag| tag.to_string()))
+                                        tag.and_then(|tag| tag.parse().ok())
                                     },
                                 ))
                                 .keyed_items(items),

@@ -1,26 +1,55 @@
-#![windows_subsystem = "windows"]
-
-use std::cell::{Cell, RefCell};
-use std::collections::HashMap;
 use std::rc::Rc;
-use std::sync::Arc;
-use std::sync::atomic::{AtomicUsize, Ordering};
-use std::time::Duration;
 use windows_reactor::*;
 
-#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-enum WindowRole {
-    Primary,
-    Secondary,
+struct Workspaces {
+    dark: bool,
 }
 
-impl WindowRole {
-    fn label(self) -> &'static str {
-        match self {
-            Self::Primary => "Primary",
-            Self::Secondary => "Secondary",
+#[derive(Clone)]
+enum ApplicationMessage {
+    Open(&'static str),
+    ToggleTheme,
+}
+
+impl Application for Workspaces {
+    type Input = ();
+    type Message = ApplicationMessage;
+
+    fn create(_: &(), context: &ApplicationContext<Self>) -> Self {
+        context.show_window("primary");
+        Self { dark: false }
+    }
+
+    fn update(&mut self, message: ApplicationMessage, context: &ApplicationContext<Self>) {
+        match message {
+            ApplicationMessage::Open(key) => context.show_window(key),
+            ApplicationMessage::ToggleTheme => self.dark = !self.dark,
         }
     }
+
+    fn view(&self, _: &(), context: &ApplicationViewContext<Self>) -> ApplicationView {
+        let input = |name, other| WorkspaceInput {
+            name,
+            theme: if self.dark {
+                WindowTheme::Dark
+            } else {
+                WindowTheme::Light
+            },
+            open_other: context.message(ApplicationMessage::Open(other)),
+            toggle_theme: context.message(ApplicationMessage::ToggleTheme),
+        };
+        ApplicationView::new()
+            .window::<Workspace>("primary", input("Primary workspace", "secondary"))
+            .window::<Workspace>("secondary", input("Secondary workspace", "primary"))
+    }
+}
+
+#[derive(Clone, PartialEq)]
+struct WorkspaceInput {
+    name: &'static str,
+    theme: WindowTheme,
+    open_other: Callback<()>,
+    toggle_theme: Callback<()>,
 }
 
 #[derive(Clone, Copy, PartialEq)]
@@ -29,379 +58,107 @@ enum Page {
     Editor,
 }
 
-impl Page {
-    fn label(self) -> &'static str {
-        match self {
-            Self::Home => "Home",
-            Self::Editor => "Editor",
-        }
-    }
-}
-
-#[derive(Default)]
-struct LifecycleMetrics {
-    cleanups: Cell<usize>,
-    setups: Cell<usize>,
-}
-
-struct SharedApp {
-    cancellations: Arc<AtomicUsize>,
-    dark: Cell<bool>,
-    lifecycle: HashMap<WindowRole, LifecycleMetrics>,
-    senders: RefCell<HashMap<WindowRole, LocalSender<Message>>>,
-    theme: Rc<Context<bool>>,
-}
-
-impl SharedApp {
-    fn new() -> Rc<Self> {
-        Rc::new(Self {
-            cancellations: Arc::new(AtomicUsize::new(0)),
-            dark: Cell::new(false),
-            lifecycle: HashMap::from([
-                (WindowRole::Primary, LifecycleMetrics::default()),
-                (WindowRole::Secondary, LifecycleMetrics::default()),
-            ]),
-            senders: RefCell::new(HashMap::new()),
-            theme: Rc::new(Context::new(false)),
-        })
-    }
-
-    fn broadcast(&self, message: Message) {
-        for sender in self.senders.borrow().values() {
-            _ = sender.send(message.clone());
-        }
-    }
-
-    fn register(&self, role: WindowRole, sender: LocalSender<Message>) {
-        assert!(self.senders.borrow_mut().insert(role, sender).is_none());
-        self.lifecycle[&role]
-            .setups
-            .set(self.lifecycle[&role].setups.get() + 1);
-    }
-
-    fn unregister(&self, role: WindowRole) {
-        assert!(self.senders.borrow_mut().remove(&role).is_some());
-        self.lifecycle[&role]
-            .cleanups
-            .set(self.lifecycle[&role].cleanups.get() + 1);
-        self.broadcast(Message::PeerClosed(role));
-    }
-}
-
-#[derive(Clone)]
-struct WorkspaceInput {
-    role: WindowRole,
-    shared: Rc<SharedApp>,
-}
-
-impl PartialEq for WorkspaceInput {
-    fn eq(&self, other: &Self) -> bool {
-        self.role == other.role && Rc::ptr_eq(&self.shared, &other.shared)
-    }
-}
-
 struct Workspace {
-    count: u32,
-    editor_ref: ElementRef<TextBox>,
-    note: String,
     page: Page,
-    role: WindowRole,
-    secondary_open: bool,
-    sender: LocalSender<Message>,
-    shared: Rc<SharedApp>,
-    status: String,
-    working: bool,
+    count: u32,
+    note: Rc<str>,
 }
 
 #[derive(Clone)]
 enum Message {
-    CloseWindow,
+    Navigate(Option<Rc<str>>),
     Increment,
-    Navigate(Page),
-    NoteChanged(String),
-    OpenSecondary,
-    PeerClosed(WindowRole),
-    SharedChanged,
-    StartWork,
-    ToggleTheme,
-    WorkCancelled,
-    WorkFinished,
+    Note(Rc<str>),
 }
-
-#[derive(Clone, PartialEq)]
-struct HomeInput {
-    count: u32,
-    increment: Callback<()>,
-    role: WindowRole,
-}
-
-struct HomePage;
-
-#[derive(Clone, PartialEq)]
-struct EditorInput {
-    changed: Callback<Rc<str>>,
-    editor_ref: ElementRef<TextBox>,
-    note: String,
-    role: WindowRole,
-}
-
-struct EditorPage;
-
-#[derive(Clone)]
-struct ThemeInput {
-    context: Rc<Context<bool>>,
-    role: WindowRole,
-}
-
-impl PartialEq for ThemeInput {
-    fn eq(&self, other: &Self) -> bool {
-        self.role == other.role && Rc::ptr_eq(&self.context, &other.context)
-    }
-}
-
-struct ThemeBanner;
 
 impl Component for Workspace {
-    type Message = Message;
     type Input = WorkspaceInput;
+    type Message = Message;
 
-    fn create(input: &Self::Input, context: &ComponentContext<Self>) -> Self {
+    fn create(_: &WorkspaceInput, _: &ComponentContext<Self>) -> Self {
         Self {
-            count: 0,
-            editor_ref: ElementRef::new(),
-            note: format!("{} window note", input.role.label()),
             page: Page::Home,
-            role: input.role,
-            secondary_open: false,
-            sender: context.sender(),
-            shared: Rc::clone(&input.shared),
-            status: "Ready".to_string(),
-            working: false,
+            count: 0,
+            note: Rc::from(""),
         }
     }
 
-    fn update(&mut self, message: Message, context: &ComponentContext<Self>) {
+    fn update(&mut self, message: Message, _: &ComponentContext<Self>) {
         match message {
-            Message::CloseWindow => {
-                if !context.close_window() {
-                    self.status = "Window close request was rejected".to_string();
-                }
-            }
+            Message::Navigate(tag) => match tag.as_deref() {
+                Some("home") => self.page = Page::Home,
+                Some("editor") => self.page = Page::Editor,
+                None => {}
+                Some(_) => unreachable!(),
+            },
             Message::Increment => self.count += 1,
-            Message::Navigate(page) => self.page = page,
-            Message::NoteChanged(note) => self.note = note,
-            Message::PeerClosed(role) if role != self.role => {
-                if role == WindowRole::Secondary {
-                    self.secondary_open = false;
-                }
-                self.status = format!("{} window closed", role.label());
-            }
-            Message::OpenSecondary if self.role == WindowRole::Primary && !self.secondary_open => {
-                let opened = context.open_window::<Self>(WorkspaceInput {
-                    role: WindowRole::Secondary,
-                    shared: Rc::clone(&self.shared),
-                });
-                self.secondary_open = opened;
-                if !opened {
-                    self.status = "Secondary window open request was rejected".to_string();
-                }
-            }
-            Message::SharedChanged => {}
-            Message::StartWork if !self.working => {
-                self.working = true;
-                self.status = "Background work running...".to_string();
-                let cancellations = Arc::clone(&self.shared.cancellations);
-                context.spawn_background(move |cancellation| {
-                    for _ in 0..50 {
-                        std::thread::sleep(Duration::from_millis(10));
-                        if cancellation.is_cancelled() {
-                            cancellations.fetch_add(1, Ordering::AcqRel);
-                            return Message::WorkCancelled;
-                        }
-                    }
-                    Message::WorkFinished
-                });
-            }
-            Message::ToggleTheme => {
-                self.shared.dark.set(!self.shared.dark.get());
-                self.shared.broadcast(Message::SharedChanged);
-            }
-            Message::WorkCancelled => {
-                self.working = false;
-                self.status = "Background work cancelled".to_string();
-            }
-            Message::WorkFinished => {
-                self.working = false;
-                self.status = "Background work finished".to_string();
-            }
-            Message::OpenSecondary | Message::PeerClosed(_) | Message::StartWork => {}
+            Message::Note(note) => self.note = note,
         }
     }
 
-    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-        context.window_title(format!(
-            "{} workspace - {}",
-            self.role.label(),
-            self.page.label()
-        ));
-        let shared = Rc::clone(&self.shared);
-        let role = self.role;
-        let sender = self.sender.clone();
-        context.use_effect("window-registration", (), move || {
-            shared.register(role, sender);
-            Some(Box::new(move || shared.unregister(role)))
-        });
-
-        let editor_active = self.page == Page::Editor;
-        let editor_ref = self.editor_ref.clone();
-        context.use_effect("editor-focus", editor_active, move || {
-            if editor_active {
-                _ = editor_ref.request_focus();
-            }
-            None
-        });
-
-        let page = match self.page {
-            Page::Home => View::component::<HomePage>(HomeInput {
-                count: self.count,
-                increment: context.message(Message::Increment),
-                role: self.role,
-            }),
-            Page::Editor => View::component::<EditorPage>(EditorInput {
-                changed: context.callback(|note: Rc<str>| Message::NoteChanged(note.to_string())),
-                editor_ref: self.editor_ref.clone(),
-                note: self.note.clone(),
-                role: self.role,
-            }),
+    fn view(&self, input: &WorkspaceInput, context: &mut ViewContext<Self>) -> View {
+        context.window_visuals(
+            WindowVisuals::new()
+                .client_size(760.0, 480.0)
+                .theme(input.theme),
+        );
+        let page: View = match self.page {
+            Page::Home => StackPanel::new()
+                .margin(24.0)
+                .spacing(12.0)
+                .children((
+                    format!("Local count: {}", self.count),
+                    Button::new()
+                        .content("Increment")
+                        .on_click(context.message(Message::Increment)),
+                    "Each workspace keeps its own count, page, and note.",
+                ))
+                .into(),
+            Page::Editor => TextBox::new()
+                .margin(24.0)
+                .text(self.note.clone())
+                .accepts_return(true)
+                .placeholder_text("This note survives navigation, but not closing the window.")
+                .on_text_changed(context.callback(Message::Note))
+                .into(),
         };
-        let mut header = vec![
-            View::component::<ThemeBanner>(ThemeInput {
-                context: Rc::clone(&self.shared.theme),
-                role: self.role,
-            }),
-            self.status.clone().into(),
-            Button::new()
-                .on_click(context.message(Message::Navigate(Page::Home)))
-                .content("Home")
-                .into(),
-            Button::new()
-                .on_click(context.message(Message::Navigate(Page::Editor)))
-                .content("Editor")
-                .into(),
-            Button::new()
-                .on_click(context.message(Message::ToggleTheme))
-                .content("Toggle shared theme")
-                .into(),
-        ];
-        if self.role == WindowRole::Primary {
-            header.push(
-                Button::new()
-                    .is_enabled(!self.secondary_open)
-                    .on_click(context.message(Message::OpenSecondary))
-                    .content("Open secondary window")
-                    .into(),
-            );
-        }
-        header.extend([
-            Button::new()
-                .is_enabled(!self.working)
-                .on_click(context.message(Message::StartWork))
-                .content("Start background work")
-                .into(),
-            Button::new()
-                .on_click(context.message(Message::CloseWindow))
-                .content("Close this window")
-                .into(),
-        ]);
-        let header = StackPanel::new().spacing(4.0).children(header);
-
-        provide(
-            &self.shared.theme,
-            self.shared.dark.get(),
-            SplitView::new()
-                .open_pane_length(280.0)
-                .compact_pane_length(48.0)
-                .display_mode(SplitViewDisplayMode::CompactInline)
-                .is_pane_open(true)
-                .pane(header)
+        context.window_frame(
+            input.name,
+            NavigationView::new()
+                .is_settings_visible(false)
+                .menu_items((
+                    NavigationViewItem::new()
+                        .tag("home")
+                        .content("Home")
+                        .is_selected(self.page == Page::Home),
+                    NavigationViewItem::new()
+                        .tag("editor")
+                        .content("Editor")
+                        .is_selected(self.page == Page::Editor),
+                ))
+                .on_selected_tag_changed(context.callback(Message::Navigate))
+                .header(
+                    StackPanel::new()
+                        .orientation(Orientation::Horizontal)
+                        .spacing(8.0)
+                        .children((
+                            Button::new()
+                                .content("Open other workspace")
+                                .on_click(input.open_other.clone()),
+                            Button::new()
+                                .content(if input.theme == WindowTheme::Dark {
+                                    "Use light theme"
+                                } else {
+                                    "Use dark theme"
+                                })
+                                .on_click(input.toggle_theme.clone()),
+                        )),
+                )
                 .content(page),
         )
     }
 }
 
-impl Component for HomePage {
-    type Message = ();
-    type Input = HomeInput;
-
-    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-        Self
-    }
-
-    fn update(&mut self, _message: (), _context: &ComponentContext<Self>) {}
-
-    fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-        StackPanel::new()
-            .spacing(4.0)
-            .children((
-                format!("{} home count: {}", input.role.label(), input.count),
-                Button::new()
-                    .on_click(input.increment.clone())
-                    .content("Increment local count"),
-            ))
-            .into()
-    }
-}
-
-impl Component for EditorPage {
-    type Message = ();
-    type Input = EditorInput;
-
-    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-        Self
-    }
-
-    fn update(&mut self, _message: (), _context: &ComponentContext<Self>) {}
-
-    fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-        StackPanel::new()
-            .spacing(4.0)
-            .children((
-                format!("{} editor", input.role.label()),
-                TextBox::new()
-                    .text(input.note.clone())
-                    .element_ref(&input.editor_ref)
-                    .on_text_changed(input.changed.clone()),
-            ))
-            .into()
-    }
-}
-
-impl Component for ThemeBanner {
-    type Message = ();
-    type Input = ThemeInput;
-
-    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-        Self
-    }
-
-    fn update(&mut self, _message: (), _context: &ComponentContext<Self>) {}
-
-    fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-        let dark = context.use_context(&input.context);
-        format!(
-            "{} workspace - {} theme",
-            input.role.label(),
-            if dark { "dark" } else { "light" }
-        )
-        .into()
-    }
-}
-
 fn main() {
-    let shared = SharedApp::new();
-    App::run_component::<Workspace>(WorkspaceInput {
-        role: WindowRole::Primary,
-        shared,
-    })
-    .unwrap();
+    App::run_application::<Workspaces>(()).unwrap();
 }

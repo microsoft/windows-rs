@@ -1,14 +1,13 @@
 #![windows_subsystem = "windows"]
 
-use std::cell::Cell;
-use std::rc::Rc;
+use std::time::Instant;
 use windows_canvas::*;
 use windows_canvas::{Ellipse as CanvasEllipse, Rect as CanvasRect, TextAlignment};
 use windows_reactor::*;
 
 struct Sample {
     count: u32,
-    frame: Rc<Cell<u64>>,
+    start: Instant,
 }
 
 #[derive(Clone)]
@@ -24,7 +23,7 @@ impl Component for Sample {
     fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
         Self {
             count: 5,
-            frame: Rc::new(Cell::new(0)),
+            start: Instant::now(),
         }
     }
 
@@ -39,11 +38,9 @@ impl Component for Sample {
         context.window_title("Canvas + Reactor");
         context.window_visuals(WindowVisuals::new().backdrop(WindowBackdrop::Mica));
         let count = self.count;
-        let frame = Rc::clone(&self.frame);
+        let start = self.start;
         let surface = animated_canvas(move |ctx| {
-            let current = frame.get() + 1;
-            frame.set(current);
-            let time = current as f32 * 0.02;
+            let time = start.elapsed().as_secs_f32() * 1.2;
             let center_x = ctx.width / 2.0;
             let center_y = ctx.height / 2.0;
             let orbit = center_x.min(center_y) * 0.5;

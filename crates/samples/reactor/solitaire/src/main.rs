@@ -489,8 +489,7 @@ impl Component for Solitaire {
                     .children((
                         title_bar,
                         header,
-                        Viewbox::new()
-                            .content(build_board(&self.game, context.callback(Message::Click))),
+                        Viewbox::new().content(build_board(&self.game, context)),
                     )),
             )
             .into()
@@ -510,31 +509,28 @@ fn status_line(game: &Game) -> String {
     }
 }
 
-fn build_board(game: &Game, click: Callback<Click>) -> View {
+fn build_board(game: &Game, context: &ViewContext<Solitaire>) -> View {
     let mut children: Vec<KeyedView> = Vec::new();
 
     if game.stock.is_empty() {
-        let stock_click = click.clone();
+        let stock_click = context.callback(|_| Message::Click(Click::Stock));
         let view = if game.waste.is_empty() {
-            empty_slot("·", Color::rgb(220, 230, 220), move || {
-                stock_click.call(Click::Stock);
-            })
+            empty_slot("·", Color::rgb(220, 230, 220), stock_click)
         } else {
-            recycle_stock(move || {
-                stock_click.call(Click::Stock);
-            })
+            recycle_stock(stock_click)
         };
         children.push(keyed("stock-slot", positioned(view, pile_x(0), TOP_ROW_Y)));
     }
 
     if game.waste.is_empty() {
-        let waste_click = click.clone();
         children.push(keyed(
             "waste-slot",
             positioned(
-                empty_slot("·", Color::rgb(220, 230, 220), move || {
-                    waste_click.call(Click::Waste);
-                }),
+                empty_slot(
+                    "·",
+                    Color::rgb(220, 230, 220),
+                    context.callback(|_| Message::Click(Click::Waste)),
+                ),
                 pile_x(1),
                 TOP_ROW_Y,
             ),
@@ -543,7 +539,6 @@ fn build_board(game: &Game, click: Callback<Click>) -> View {
 
     for (f, foundation) in game.foundations.iter().enumerate() {
         if foundation.is_empty() {
-            let foundation_click = click.clone();
             let suit = Suit::all()[f];
             let foreground = if suit.is_red() {
                 Color::rgb(180, 120, 120)
@@ -553,9 +548,11 @@ fn build_board(game: &Game, click: Callback<Click>) -> View {
             children.push(keyed(
                 format!("foundation-slot-{f}"),
                 positioned(
-                    empty_slot(suit.symbol(), foreground, move || {
-                        foundation_click.call(Click::Foundation(f));
-                    }),
+                    empty_slot(
+                        suit.symbol(),
+                        foreground,
+                        context.callback(move |_| Message::Click(Click::Foundation(f))),
+                    ),
                     foundation_x(f),
                     TOP_ROW_Y,
                 ),
@@ -565,13 +562,14 @@ fn build_board(game: &Game, click: Callback<Click>) -> View {
 
     for (p, pile) in game.tableau.iter().enumerate() {
         if pile.is_empty() {
-            let tableau_click = click.clone();
             children.push(keyed(
                 format!("tableau-slot-{p}"),
                 positioned(
-                    empty_slot("K", Color::rgb(180, 200, 180), move || {
-                        tableau_click.call(Click::Tableau(p, 0));
-                    }),
+                    empty_slot(
+                        "K",
+                        Color::rgb(180, 200, 180),
+                        context.callback(move |_| Message::Click(Click::Tableau(p, 0))),
+                    ),
                     pile_x(p),
                     TABLEAU_Y,
                 ),
@@ -580,20 +578,16 @@ fn build_board(game: &Game, click: Callback<Click>) -> View {
     }
 
     for placement in board_cards(game) {
-        let card_click = click.clone();
+        let card_click = context.callback(move |_| Message::Click(placement.click));
         let view = if placement.face_up {
             card_face(
                 placement.card,
                 placement.highlighted,
                 placement.failed,
-                move || {
-                    card_click.call(placement.click);
-                },
+                card_click,
             )
         } else {
-            card_back(move || {
-                card_click.call(placement.click);
-            })
+            card_back(card_click)
         };
         children.push(keyed(
             card_key(placement.card),
@@ -695,7 +689,7 @@ fn card_key(card: Card) -> u64 {
     u64::from(card.suit as u8) * 13 + u64::from(card.rank)
 }
 
-fn recycle_stock(on_click: impl Fn() + 'static) -> View {
+fn recycle_stock(on_click: Callback<PointerEventInfo>) -> View {
     let label = TextBlock::new()
         .text("↻")
         .font_size(22.0)
@@ -709,12 +703,17 @@ fn recycle_stock(on_click: impl Fn() + 'static) -> View {
         .background(Color::rgb(70, 110, 80))
         .width(CARD_W)
         .height(CARD_H)
-        .on_pointer_released(move |_| on_click())
+        .on_pointer_released(on_click)
         .content(label)
         .into()
 }
 
-fn card_face(card: Card, highlighted: bool, failed: bool, on_click: impl Fn() + 'static) -> View {
+fn card_face(
+    card: Card,
+    highlighted: bool,
+    failed: bool,
+    on_click: Callback<PointerEventInfo>,
+) -> View {
     let fg = if card.is_red() {
         Color::rgb(192, 0, 32)
     } else {
@@ -754,12 +753,12 @@ fn card_face(card: Card, highlighted: bool, failed: bool, on_click: impl Fn() + 
         .width(CARD_W)
         .height(CARD_H)
         .padding(Thickness::new(4.0, 3.0, 2.0, 2.0))
-        .on_pointer_released(move |_| on_click())
+        .on_pointer_released(on_click)
         .content(content)
         .into()
 }
 
-fn card_back(on_click: impl Fn() + 'static) -> View {
+fn card_back(on_click: Callback<PointerEventInfo>) -> View {
     let label = TextBlock::new()
         .text("🂠")
         .font_size(18.0)
@@ -773,12 +772,12 @@ fn card_back(on_click: impl Fn() + 'static) -> View {
         .background(Color::rgb(40, 80, 160))
         .width(CARD_W)
         .height(CARD_H)
-        .on_pointer_released(move |_| on_click())
+        .on_pointer_released(on_click)
         .content(label)
         .into()
 }
 
-fn empty_slot(label: &str, fg: Color, on_click: impl Fn() + 'static) -> View {
+fn empty_slot(label: &str, fg: Color, on_click: Callback<PointerEventInfo>) -> View {
     let tb = TextBlock::new()
         .text(label)
         .font_size(16.0)
@@ -793,7 +792,7 @@ fn empty_slot(label: &str, fg: Color, on_click: impl Fn() + 'static) -> View {
         .width(CARD_W)
         .height(CARD_H)
         .opacity(0.7)
-        .on_pointer_released(move |_| on_click())
+        .on_pointer_released(on_click)
         .content(tb)
         .into()
 }

@@ -1,7 +1,5 @@
-//! Maps a leaf destination tag to its page component. Home, Settings, the Materials design page
-//! (which needs shell-owned backdrop state), and the 11 category listing pages are resolved
-//! directly by [`crate::shell`] because they need shell input or have no fixed control identity;
-//! every other one of the 65 control destinations is a self-contained component routed here.
+//! Maps control destination tags to stateful components or stateless page functions.
+//! Home, Settings, Materials, and category listings are resolved by [`crate::shell`].
 
 use crate::pages::{
     basic_input, collections, date_time, design, dialogs, layout, media, menus, navigation, status,
@@ -39,12 +37,12 @@ pub fn route(tag: &str) -> View {
         "date-picker" => View::component::<date_time::DatePickerPage>(()),
         "time-picker" => View::component::<date_time::TimePickerPage>(()),
 
-        "typography" => View::component::<design::TypographyPage>(()),
-        "color" => View::component::<design::ColorPage>(()),
-        "spacing" => View::component::<design::SpacingPage>(()),
-        "iconography" => View::component::<design::IconographyPage>(()),
-        "geometry" => View::component::<design::GeometryPage>(()),
-        "theme" => View::component::<design::ThemePage>(()),
+        "typography" => design::typography_page(),
+        "color" => design::color_page(),
+        "spacing" => design::spacing_page(),
+        "iconography" => design::iconography_page(),
+        "geometry" => design::geometry_page(),
+        "theme" => design::theme_page(),
 
         "command-bar-flyout" => View::component::<dialogs::CommandBarFlyoutPage>(()),
         "content-dialog" => View::component::<dialogs::ContentDialogPage>(()),
@@ -73,7 +71,7 @@ pub fn route(tag: &str) -> View {
         "navigation-view" => View::component::<navigation::NavigationViewPage>(()),
         "pivot" => View::component::<navigation::PivotPage>(()),
         "tab-view" => View::component::<navigation::TabViewPage>(()),
-        "title-bar" => View::component::<navigation::TitleBarPage>(()),
+        "title-bar" => navigation::title_bar_page(),
 
         "info-badge" => View::component::<status::InfoBadgePage>(()),
         "info-bar" => View::component::<status::InfoBarPage>(()),
@@ -84,7 +82,6 @@ pub fn route(tag: &str) -> View {
         "auto-suggest-box" => View::component::<text::AutoSuggestBoxPage>(()),
         "rich-edit-box" => View::component::<text::RichEditBoxPage>(()),
         "rich-text-block" => View::component::<text::RichTextBlockPage>(()),
-        "type-ramp" => View::component::<text::TypeRampPage>(()),
 
         _ => TextBlock::new()
             .text(format!("Page not found: {tag}"))

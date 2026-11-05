@@ -41,17 +41,16 @@ impl Scene {
             background,
             square,
         };
-        scene.layout(width, height)?;
+        scene.layout(width, height);
         Ok(scene)
     }
 
-    fn layout(&self, width: f32, height: f32) -> Result<()> {
+    fn layout(&self, width: f32, height: f32) {
         self.root.set_size(width, height);
         self.background.set_size(width, height);
         let size = self.square.size();
         self.square
             .set_offset((width - size.x) / 2.0, (height - size.y) / 2.0, 0.0);
-        Ok(())
     }
 }
 
@@ -104,7 +103,7 @@ impl Component for Sample {
                         scale,
                     } => {
                         if let Some(scene) = scene.borrow().as_ref() {
-                            scene.layout(width as f32, height as f32).unwrap();
+                            scene.layout(width as f32, height as f32);
                         }
                         scale
                     }

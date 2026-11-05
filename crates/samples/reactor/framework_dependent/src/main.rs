@@ -12,8 +12,6 @@ impl Component for HelloWorld {
         Self
     }
 
-    fn update(&mut self, _message: (), _context: &ComponentContext<Self>) {}
-
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         context.window_title("Reactor app");
         "Hello, world!".into()

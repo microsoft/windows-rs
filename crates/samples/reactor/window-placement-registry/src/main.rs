@@ -36,7 +36,7 @@ impl Component for PlacementSample {
             visuals = visuals.initial_placement(*saved);
         }
         context.window_visuals(visuals);
-        context.on_window_placement(context.callback(|placement| placement));
+        context.on_window_placement(context.forward());
         context.window_frame(
             "Persistent window placement",
             StackPanel::new().margin(24.0).spacing(12.0).children((

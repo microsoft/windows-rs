@@ -1,29 +1,24 @@
 use crate::controls::*;
+use std::rc::Rc;
 use windows_reactor::*;
 
 pub struct SelectorBarPage {
-    selected: String,
-}
-
-#[derive(Clone)]
-pub enum Message {
-    SelectionChanged(Option<String>),
+    selected: Rc<str>,
 }
 
 impl Component for SelectorBarPage {
-    type Message = Message;
+    type Message = Option<Rc<str>>;
     type Input = ();
 
     fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
         Self {
-            selected: "Recent".to_string(),
+            selected: "Recent".into(),
         }
     }
 
-    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
-        match message {
-            Message::SelectionChanged(Some(selected)) => self.selected = selected,
-            Message::SelectionChanged(None) => {}
+    fn update(&mut self, selected: Option<Rc<str>>, _context: &ComponentContext<Self>) {
+        if let Some(selected) = selected {
+            self.selected = selected;
         }
     }
 
@@ -33,7 +28,7 @@ impl Component for SelectorBarPage {
                 text,
                 SelectorBarItem::new()
                     .text(text)
-                    .is_selected(self.selected == text),
+                    .is_selected(self.selected.as_ref() == text),
             )
         };
 
@@ -46,11 +41,7 @@ impl Component for SelectorBarPage {
                     "Basic SelectorBar",
                     StackPanel::new().spacing(8.0).children((
                         SelectorBar::new()
-                            .on_selected_text_changed(context.callback(
-                                |value: Option<std::rc::Rc<str>>| {
-                                    Message::SelectionChanged(value.map(|value| value.to_string()))
-                                },
-                            ))
+                            .on_selected_text_changed(context.forward())
                             .keyed_items([item("Recent"), item("Shared"), item("Favorites")]),
                         TextBlock::new()
                             .text(format!("Selected: {}", self.selected))

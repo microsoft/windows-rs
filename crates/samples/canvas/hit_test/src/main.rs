@@ -61,13 +61,12 @@ impl Component for Sample {
                         }
                         None => true,
                     };
-                if stale && let Ok(path) = build_star(ctx.device(), center_x, center_y, radius) {
+                if stale {
+                    let path = build_star(ctx.device(), center_x, center_y, radius)?;
                     *star.borrow_mut() = Some((ctx.width, ctx.height, path));
                 }
                 let cache = star.borrow();
-                let Some((_, _, path)) = &*cache else {
-                    return Ok(());
-                };
+                let (_, _, path) = cache.as_ref().unwrap();
                 let brush = ctx.create_solid_brush(ColorF::new(1.0, 1.0, 1.0, 0.3))?;
                 let bounds = path.compute_bounds();
                 ctx.draw_rect(
