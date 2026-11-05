@@ -1,6 +1,6 @@
 # windows-metadata
 
-Read and write the ECMA-335 metadata used by .NET, WinRT, and Windows API bindings.
+Read and write ECMA-335 metadata for WinRT and Win32 APIs.
 Use this crate for inspectors and generators, not for calling Windows APIs.
 
 - 📦 [crates.io](https://crates.io/crates/windows-metadata)
