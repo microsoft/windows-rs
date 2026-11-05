@@ -15,7 +15,6 @@ The crate requires a matched `libclang.dll` and `windows_clang.dll` pair for its
 From this repository, build the pair and select it for the current PowerShell session:
 
 ```powershell
-cargo run -p tool-clang-sys -- --native
 $env:LIBCLANG_PATH = cargo run -q -p tool-clang -- path
 ```
 

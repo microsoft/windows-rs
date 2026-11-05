@@ -34,7 +34,8 @@ pub struct AliasGroup {
     pub name: String,
     /// Name-corresponding bindings, not a claim that their canonical types are identical.
     pub observations: Vec<AliasObservationRef>,
-    pub(crate) annotation: Option<EnumAnnotation>,
+    /// Enum-group fragments merged across the observations.
+    pub annotation: Option<EnumAnnotation>,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -516,10 +517,6 @@ pub(crate) fn import_library(attributes: &[Attribute]) -> Option<&ImportLibrary>
             AttributeKind::ImportLibrary(value) => Some(value.as_ref()),
             _ => None,
         })
-}
-
-pub(crate) fn enum_annotation(attributes: &[Attribute]) -> Option<&EnumAnnotation> {
-    enum_annotations(attributes).next()
 }
 
 pub(crate) fn enum_annotations(attributes: &[Attribute]) -> impl Iterator<Item = &EnumAnnotation> {

@@ -17,7 +17,6 @@ fn main() {
     let time = std::time::Instant::now();
 
     ensure_libclang();
-    assert_libclang_version();
 
     // The pinned NuGet package lays the C/C++ headers out under `build/native`: the core API and
     // options header live in `include/`, while the COM<->WinRT bridge header sits in

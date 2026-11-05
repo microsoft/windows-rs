@@ -9,7 +9,7 @@ pub(super) fn covering<'a>(
         .collect();
     let Some((attributes, largest)) = sets
         .iter()
-        .max_by_key(|(attrs, sal)| (resolve::enum_annotation(attrs).is_some(), sal.len()))
+        .max_by_key(|(attrs, sal)| (resolve::enum_annotations(attrs).next().is_some(), sal.len()))
     else {
         return Err(Error(format!("no annotation observations for `{name}`")));
     };

@@ -131,7 +131,6 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         headers.truncate(count);
     }
     helpers::ensure_libclang();
-    helpers::assert_libclang_version();
     let include = helpers::nuget_package("microsoft.windows.sdk.cpp", SDK_VERSION)
         .join("c")
         .join("Include")
