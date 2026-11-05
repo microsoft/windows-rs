@@ -8,7 +8,7 @@ mod support;
 use std::process::Command;
 use support::*;
 
-include!(concat!(env!("OUT_DIR"), "/fixtures.rs"));
+include!(concat!(env!("OUT_DIR"), "/cswinrt_fixtures.rs"));
 
 fn run(name: &str, namespace: &str) {
     let fixture = Fixture::new("cswinrt", name);

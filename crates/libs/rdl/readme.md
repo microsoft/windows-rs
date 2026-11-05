@@ -59,6 +59,4 @@ Pass the `.winmd` to [windows-bindgen](https://docs.rs/windows-bindgen) for Rust
 regenerate the binary metadata when it changes.
 
 Use a dedicated output directory with writer `split` or `partition`: these modes remove existing
-`.rdl` files there. The [robot component][robot] combines RDL and binding generation in one build.
-
-[robot]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/robot/component
+`.rdl` files there.
