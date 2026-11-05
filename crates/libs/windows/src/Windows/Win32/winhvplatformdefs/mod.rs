@@ -5785,17 +5785,23 @@ impl WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
     pub fn set_InstructionLength(&mut self, value: super::UINT32) {
         self._bitfield = (self._bitfield & !(15 << 5)) | ((value & 15) << 5);
     }
-    pub fn NestedEvent(&self) -> super::UINT32 {
+    pub fn NestedGuestEvent(&self) -> super::UINT32 {
         (self._bitfield >> 9) & 1
     }
-    pub fn set_NestedEvent(&mut self, value: super::UINT32) {
+    pub fn set_NestedGuestEvent(&mut self, value: super::UINT32) {
         self._bitfield = (self._bitfield & !(1 << 9)) | ((value & 1) << 9);
     }
+    pub fn NestedException(&self) -> super::UINT32 {
+        (self._bitfield >> 10) & 1
+    }
+    pub fn set_NestedException(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value & 1) << 10);
+    }
     pub fn Reserved(&self) -> super::UINT32 {
-        (self._bitfield >> 10) & 63
+        (self._bitfield >> 11) & 31
     }
     pub fn set_Reserved(&mut self, value: super::UINT32) {
-        self._bitfield = (self._bitfield & !(63 << 10)) | ((value & 63) << 10);
+        self._bitfield = (self._bitfield & !(31 << 11)) | ((value & 31) << 11);
     }
     pub fn InterruptionVector(&self) -> super::UINT32 {
         self._bitfield >> 16

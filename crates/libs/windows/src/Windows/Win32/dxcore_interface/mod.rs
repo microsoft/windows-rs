@@ -203,6 +203,7 @@ pub struct DXCoreMemoryType(pub u32);
 impl DXCoreMemoryType {
     pub const Dedicated: Self = Self(0);
     pub const Shared: Self = Self(1);
+    pub const ReservedPartition: Self = Self(2);
 }
 #[repr(C)]
 #[cfg(feature = "stdint")]
@@ -234,6 +235,57 @@ pub struct DXCoreProcessMemoryQueryInput {
 pub struct DXCoreProcessMemoryQueryOutput {
     pub memoryUsage: DXCoreMemoryUsage,
     pub processQuerySucceeded: bool,
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXCoreReservedAcceleratorMemoryFlags(pub u32);
+impl DXCoreReservedAcceleratorMemoryFlags {
+    pub const None: Self = Self(0);
+    pub const UserConfigured: Self = Self(1);
+}
+impl DXCoreReservedAcceleratorMemoryFlags {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DXCoreReservedAcceleratorMemoryFlags {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DXCoreReservedAcceleratorMemoryFlags {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DXCoreReservedAcceleratorMemoryFlags {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0);
+    }
+}
+impl core::ops::BitAndAssign for DXCoreReservedAcceleratorMemoryFlags {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0);
+    }
+}
+impl core::ops::Not for DXCoreReservedAcceleratorMemoryFlags {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(C)]
+#[cfg(feature = "stdint")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXCoreReservedAcceleratorMemoryInfo {
+    pub maximumSize: super::uint64_t,
+    pub recommendedSize: super::uint64_t,
+    pub currentSize: super::uint64_t,
+    pub userConfiguredSize: super::uint64_t,
+    pub currentCacheSize: super::uint64_t,
+    pub flags: DXCoreReservedAcceleratorMemoryFlags,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -673,6 +725,53 @@ impl IDXCoreAdapterFactory1_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "stdint", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXCoreAdapterFactory1 {}
+windows_core::imp::define_interface!(IDXCoreAdapterFactory2, IDXCoreAdapterFactory2_Vtbl, 0xb2b98767_bfed_412b_bbde_509171b226ba);
+impl core::ops::Deref for IDXCoreAdapterFactory2 {
+    type Target = IDXCoreAdapterFactory1;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(IDXCoreAdapterFactory2, windows_core::IUnknown, IDXCoreAdapterFactory, IDXCoreAdapterFactory1);
+impl IDXCoreAdapterFactory2 {
+    #[cfg(feature = "stdint")]
+    pub unsafe fn GetReservedAcceleratorMemoryInfo(&self, preservedacceleratormemoryinfo: *mut DXCoreReservedAcceleratorMemoryInfo) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetReservedAcceleratorMemoryInfo)(windows_core::Interface::as_raw(self), preservedacceleratormemoryinfo as _) }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDXCoreAdapterFactory2_Vtbl {
+    pub base__: IDXCoreAdapterFactory1_Vtbl,
+    #[cfg(feature = "stdint")]
+    pub GetReservedAcceleratorMemoryInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXCoreReservedAcceleratorMemoryInfo) -> windows_core::HRESULT,
+    #[cfg(not(feature = "stdint"))]
+    GetReservedAcceleratorMemoryInfo: usize,
+}
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "stdint", feature = "winnt"))]
+pub trait IDXCoreAdapterFactory2_Impl: IDXCoreAdapterFactory1_Impl {
+    fn GetReservedAcceleratorMemoryInfo(&self, preservedacceleratormemoryinfo: *mut DXCoreReservedAcceleratorMemoryInfo) -> windows_core::HRESULT;
+}
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "stdint", feature = "winnt"))]
+impl IDXCoreAdapterFactory2_Vtbl {
+    pub const fn new<Identity: IDXCoreAdapterFactory2_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetReservedAcceleratorMemoryInfo<Identity: IDXCoreAdapterFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, preservedacceleratormemoryinfo: *mut DXCoreReservedAcceleratorMemoryInfo) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDXCoreAdapterFactory2_Impl::GetReservedAcceleratorMemoryInfo(this, core::mem::transmute_copy(&preservedacceleratormemoryinfo))
+            }
+        }
+        Self {
+            base__: IDXCoreAdapterFactory1_Vtbl::new::<Identity, OFFSET>(),
+            GetReservedAcceleratorMemoryInfo: GetReservedAcceleratorMemoryInfo::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IDXCoreAdapterFactory2 as windows_core::Interface>::IID || IDXCoreAdapterFactory1_Vtbl::matches(iid)
+    }
+}
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "stdint", feature = "winnt"))]
+impl windows_core::RuntimeName for IDXCoreAdapterFactory2 {}
 windows_core::imp::define_interface!(IDXCoreAdapterList, IDXCoreAdapterList_Vtbl, 0x526c7776_40e9_459b_b711_f32ad76dfc28);
 windows_core::imp::interface_hierarchy!(IDXCoreAdapterList, windows_core::IUnknown);
 impl IDXCoreAdapterList {
@@ -798,6 +897,7 @@ pub const IID_IDXCoreAdapter: windows_core::GUID = windows_core::GUID::from_u128
 pub const IID_IDXCoreAdapter1: windows_core::GUID = windows_core::GUID::from_u128(0xa0783366_cfa3_43be_9d79_55b2da97c63c);
 pub const IID_IDXCoreAdapterFactory: windows_core::GUID = windows_core::GUID::from_u128(0x78ee5945_c36e_4b13_a669_005dd11c0f06);
 pub const IID_IDXCoreAdapterFactory1: windows_core::GUID = windows_core::GUID::from_u128(0xd5682e19_6d21_401c_827a_9a51a4ea35d7);
+pub const IID_IDXCoreAdapterFactory2: windows_core::GUID = windows_core::GUID::from_u128(0xb2b98767_bfed_412b_bbde_509171b226ba);
 pub const IID_IDXCoreAdapterList: windows_core::GUID = windows_core::GUID::from_u128(0x526c7776_40e9_459b_b711_f32ad76dfc28);
 pub type PFN_DXCORE_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(notificationtype: DXCoreNotificationType, object: windows_core::Ref<windows_core::IUnknown>, context: *const core::ffi::c_void)>;
 pub const _FACDXCORE: i32 = 2176;

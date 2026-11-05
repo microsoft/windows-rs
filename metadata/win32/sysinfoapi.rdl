@@ -50,7 +50,7 @@ mod Windows {
         extern fn GetProcessorSystemCycleTime(#[in] Group: USHORT, #[buffer(bytes(*ReturnedLength))] #[opt] #[out] Buffer: PSYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION, #[in] #[out] ReturnedLength: PDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetProductInfo(#[in] dwOSMajorVersion: DWORD, #[in] dwOSMinorVersion: DWORD, #[in] dwSpMajorVersion: DWORD, #[in] dwSpMinorVersion: DWORD, #[out] pdwReturnedProductType: PDWORD) -> BOOL;
-        #[library("KernelBase.dll")]
+        #[library("api-ms-win-core-sysinfo-l1-2-8.dll")]
         extern fn GetRuntimeAttestationReport(#[buffer(bytes(32))] #[in] #[opt] Nonce: *mut UCHAR, #[in] PackageVersion: UINT16, #[in] ReportTypesBitmap: UINT64, #[buffer(bytes(*ReportBufferSize))] #[opt] #[out] ReportBuffer: PVOID, #[in] #[out] ReportBufferSize: PUINT32) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetSystemDirectoryA(#[buffer(uSize)] #[incomplete] #[opt] #[out] lpBuffer: LPSTR, #[in] uSize: UINT) -> UINT;

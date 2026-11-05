@@ -12,7 +12,7 @@ const WINMD: &str = "crates/libs/default/Windows.winmd";
 const RDL_DIR: &str = "metadata/winrt";
 const OUT_DIR: &str = "target/winrt";
 const CONTRACTS_ID: &str = "microsoft.windows.sdk.contracts";
-const CONTRACTS_VERSION: &str = "10.0.28000.2270";
+const CONTRACTS_VERSION: &str = "10.0.28000.2957";
 const CONTRACTS_SUBDIR: &str = "ref/netstandard2.0";
 
 fn main() {

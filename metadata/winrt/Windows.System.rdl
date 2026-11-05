@@ -927,6 +927,24 @@ mod Windows {
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn CheckUserAgeConsentGroupAsync(&self, #[in] consentGroup: UserAgeConsentGroup) -> super::Foundation::IAsyncOperation<UserAgeConsentResult>;
         }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 1245184)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(User)]
+        #[guid(0x520e18e2_f00d_53d1_a9f6_88c697561dc0)]
+        interface IUser3 {
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn GetUserAgeRangeAsync(&self) -> super::Foundation::IAsyncOperation<UserAgeRange>;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn GetAgeVerificationStatusAsync(&self) -> super::Foundation::IAsyncOperation<UserAgeVerificationStatus>;
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 1245184)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(UserAgeRange)]
+        #[guid(0xd002ffca_8130_5f64_be0f_e66adb64dd12)]
+        interface IUserAgeRange {
+            #[get]
+            Lower: i32;
+            #[get]
+            Upper: i32;
+        }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::ExclusiveTo(UserAuthenticationStatusChangeDeferral)]
         #[guid(0x88b59568_bb30_42fb_a270_e9902e40efa7)]
@@ -1213,6 +1231,8 @@ mod Windows {
             IUser,
             #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 917504)]
             IUser2,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
+            IUser3,
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 917504)]
         #[repr(i32)]
@@ -1229,6 +1249,20 @@ mod Windows {
             NotIncluded = 2,
             Unknown = 3,
             Ambiguous = 4,
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 1245184)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        class UserAgeRange {
+            IUserAgeRange,
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 1245184)]
+        #[repr(i32)]
+        enum UserAgeVerificationStatus {
+            NotApplicable = 0,
+            TemporarilyUnavailable = 1,
+            Unverified = 2,
+            OptedOut = 3,
+            Verified = 4,
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[repr(i32)]

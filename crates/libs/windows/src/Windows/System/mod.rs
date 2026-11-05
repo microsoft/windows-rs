@@ -2422,6 +2422,30 @@ pub struct IUser2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CheckUserAgeConsentGroupAsync: unsafe extern "system" fn(*mut core::ffi::c_void, UserAgeConsentGroup, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IUser3, IUser3_Vtbl, 0x520e18e2_f00d_53d1_a9f6_88c697561dc0);
+impl windows_core::RuntimeType for IUser3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.IUser3");
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IUser3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetUserAgeRangeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetAgeVerificationStatusAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IUserAgeRange, IUserAgeRange_Vtbl, 0xd002ffca_8130_5f64_be0f_e66adb64dd12);
+impl windows_core::RuntimeType for IUserAgeRange {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.IUserAgeRange");
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IUserAgeRange_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Lower: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub Upper: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IUserAuthenticationStatusChangeDeferral, IUserAuthenticationStatusChangeDeferral_Vtbl, 0x88b59568_bb30_42fb_a270_e9902e40efa7);
 impl windows_core::RuntimeType for IUserAuthenticationStatusChangeDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -3811,6 +3835,20 @@ impl User {
             (windows_core::Interface::vtable(this).CheckUserAgeConsentGroupAsync)(windows_core::Interface::as_raw(this), consentgroup, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
+    pub fn GetUserAgeRangeAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<UserAgeRange>> {
+        let this = &windows_core::Interface::cast::<IUser3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetUserAgeRangeAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
+    pub fn GetAgeVerificationStatusAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<UserAgeVerificationStatus>> {
+        let this = &windows_core::Interface::cast::<IUser3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetAgeVerificationStatusAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
     pub fn CreateWatcher() -> windows_core::Result<UserWatcher> {
         Self::IUserStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3899,6 +3937,53 @@ impl windows_core::imp::TypeKind for UserAgeConsentResult {
 impl windows_core::RuntimeType for UserAgeConsentResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.UserAgeConsentResult;i4)");
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.UserAgeConsentResult");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct UserAgeRange(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(UserAgeRange, windows_core::IUnknown, windows_core::IInspectable);
+impl UserAgeRange {
+    pub fn Lower(&self) -> windows_core::Result<i32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Lower)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Upper(&self) -> windows_core::Result<i32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Upper)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for UserAgeRange {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserAgeRange>();
+}
+unsafe impl windows_core::Interface for UserAgeRange {
+    type Vtable = <IUserAgeRange as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IUserAgeRange as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for UserAgeRange {
+    const NAME: &'static str = "Windows.System.UserAgeRange";
+}
+unsafe impl Send for UserAgeRange {}
+unsafe impl Sync for UserAgeRange {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct UserAgeVerificationStatus(pub i32);
+impl UserAgeVerificationStatus {
+    pub const NotApplicable: Self = Self(0);
+    pub const TemporarilyUnavailable: Self = Self(1);
+    pub const Unverified: Self = Self(2);
+    pub const OptedOut: Self = Self(3);
+    pub const Verified: Self = Self(4);
+}
+impl windows_core::imp::TypeKind for UserAgeVerificationStatus {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for UserAgeVerificationStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.UserAgeVerificationStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.UserAgeVerificationStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

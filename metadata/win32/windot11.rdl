@@ -1135,6 +1135,7 @@ mod Windows {
             dot11_phy_type_dmg = 9,
             dot11_phy_type_he = 10,
             dot11_phy_type_eht = 11,
+            dot11_phy_type_uhr = 12,
             dot11_phy_type_IHV_start = -2147483648,
             dot11_phy_type_IHV_end = -1,
         }
@@ -2591,9 +2592,11 @@ mod Windows {
         const OID_DOT11_SAFE_MODE_ENABLED: u32 = 234946973;
         const OID_DOT11_SAFE_MODE_HT_ENABLED: u32 = 234946976;
         const OID_DOT11_SCAN_REQUEST: i32 = 218170123;
+        const OID_DOT11_SET_EPP_AUTH_PARAMS: u32 = 234946988;
         const OID_DOT11_SET_FT_REASSOCIATION_PARAMETERS: u32 = 234946920;
         const OID_DOT11_SET_NWF_PMKID_LIST: u32 = 234946933;
         const OID_DOT11_SET_SAE_AUTH_PARAMS: u32 = 234946930;
+        const OID_DOT11_SET_ST_ROAM_PARAMS: u32 = 234946989;
         const OID_DOT11_SHORT_PREAMBLE_OPTION_IMPLEMENTED: i32 = 218170181;
         const OID_DOT11_SHORT_RETRY_LIMIT: i32 = 218170144;
         const OID_DOT11_SHORT_SLOT_TIME_OPTION_ENABLED: i32 = 218170211;
@@ -2912,11 +2915,16 @@ mod Windows {
             rsna_akm_owe = 313265920,
             rsna_akm_ft_psk_sha384 = 330043136,
             rsna_akm_psk_sha384 = 346820352,
+            rsna_akm_pasn = 363597568,
             rsna_akm_ft_1x_sha384 = 380374784,
             rsna_akm_1x_sha384 = 397152000,
             rsna_akm_sae_pmk384 = 413929216,
             rsna_akm_ft_sae_pmk384 = 430706432,
-            rsna_akm_max = 430706432,
+            rsna_akm_eppke = 497815296,
+            rsna_akm_mapc_pasn = 514592512,
+            rsna_akm_pqc_1x = 531369728,
+            rsna_akm_pqc_ft_1x = 548146944,
+            rsna_akm_max = 548146944,
         }
         #[repr(i32)]
         enum RSNA_CIPHER_SUITE {
@@ -2937,6 +2945,33 @@ mod Windows {
             rsna_cipher_max = 229379840,
         }
         const RSNA_OUI_PREFIX: i32 = 11276032;
+        #[repr(i32)]
+        enum SECURITY_PROFILE_NUMBER {
+            security_profile_eppke_enhanced_open = 0,
+            security_profile_eppke_sae_akm_24 = 1,
+            security_profile_eppke_sae_ft_akm_25 = 2,
+            security_profile_encapsulated_1x_akm_5 = 3,
+            security_profile_encapsulated_1x_ft_akm_3 = 4,
+            security_profile_encapsulated_1x_akm_23 = 5,
+            security_profile_encapsulated_1x_ft_akm_22 = 6,
+            security_profile_encapsulated_1x_akm_12 = 7,
+            security_profile_owe_akm_18 = 8,
+            security_profile_sae_akm_24 = 9,
+            security_profile_sae_ft_akm_25 = 10,
+            security_profile_1x_akm_5 = 11,
+            security_profile_1x_ft_akm_3 = 12,
+            security_profile_1x_akm_23 = 13,
+            security_profile_1x_ft_akm_22 = 14,
+            security_profile_1x_akm_12 = 15,
+            security_profile_pqc_1x_pqc_profile_0 = 16,
+            security_profile_pqc_1x_pqc_profile_1 = 17,
+            security_profile_pqc_1x_pqc_profile_2 = 18,
+            security_profile_pqc_1x_pqc_profile_3 = 19,
+            security_profile_pqc_1x_ft_pqc_profile_0 = 20,
+            security_profile_pqc_1x_ft_pqc_profile_1 = 21,
+            security_profile_pqc_1x_ft_pqc_profile_2 = 22,
+            security_profile_pqc_1x_ft_pqc_profile_3 = 23,
+        }
         struct WFDSVC_CONNECTION_CAPABILITY {
             bNew: BOOLEAN,
             bClient: BOOLEAN,

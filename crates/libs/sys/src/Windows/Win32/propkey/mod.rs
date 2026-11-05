@@ -1513,6 +1513,8 @@ pub const PKEY_ItemFolderPathDisplay: super::PROPERTYKEY = super::PROPERTYKEY { 
 #[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_ItemFolderPathDisplayNarrow: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xdabd30ed_0043_4789_a7f8_d013a4736622), pid: 100 };
 #[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_ItemFolderPathDisplayNarrowNamespaceRelative: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xdabd30ed_0043_4789_a7f8_d013a4736622), pid: 101 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_ItemName: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6b8da074_3b5c_43bc_886f_0a2cdce00b6f), pid: 100 };
 #[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_ItemNameDisplay: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xb725f130_47ef_101a_a5f1_02608c9eebac), pid: 10 };

@@ -48,9 +48,9 @@ pub unsafe fn FwpmCalloutGetByKey0(enginehandle: super::HANDLE, key: *const wind
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn FwpmCalloutGetSecurityInfoByKey0(enginehandle: super::HANDLE, key: Option<*const windows_core::GUID>, securityinfo: super::SECURITY_INFORMATION, sidowner: *mut super::PSID, sidgroup: *mut super::PSID, dacl: *mut super::PACL, sacl: *mut super::PACL, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD {
+pub unsafe fn FwpmCalloutGetSecurityInfoByKey0(enginehandle: super::HANDLE, key: Option<*const windows_core::GUID>, securityinfo: super::SECURITY_INFORMATION, sidowner: Option<*mut super::PSID>, sidgroup: Option<*mut super::PSID>, dacl: Option<*mut super::PACL>, sacl: Option<*mut super::PACL>, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD {
     windows_core::link!("fwpuclnt.dll" "system" fn FwpmCalloutGetSecurityInfoByKey0(enginehandle : super::HANDLE, key : *const windows_core::GUID, securityinfo : super::SECURITY_INFORMATION, sidowner : *mut super::PSID, sidgroup : *mut super::PSID, dacl : *mut super::PACL, sacl : *mut super::PACL, securitydescriptor : *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD);
-    unsafe { FwpmCalloutGetSecurityInfoByKey0(enginehandle, key.unwrap_or(core::mem::zeroed()) as _, securityinfo, sidowner as _, sidgroup as _, dacl as _, sacl as _, securitydescriptor as _) }
+    unsafe { FwpmCalloutGetSecurityInfoByKey0(enginehandle, key.unwrap_or(core::mem::zeroed()) as _, securityinfo, sidowner.unwrap_or(core::mem::zeroed()) as _, sidgroup.unwrap_or(core::mem::zeroed()) as _, dacl.unwrap_or(core::mem::zeroed()) as _, sacl.unwrap_or(core::mem::zeroed()) as _, securitydescriptor as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -102,9 +102,9 @@ pub unsafe fn FwpmConnectionGetById0(enginehandle: super::HANDLE, id: super::UIN
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn FwpmConnectionGetSecurityInfo0(enginehandle: super::HANDLE, securityinfo: super::SECURITY_INFORMATION, sidowner: *mut super::PSID, sidgroup: *mut super::PSID, dacl: *mut super::PACL, sacl: *mut super::PACL, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD {
+pub unsafe fn FwpmConnectionGetSecurityInfo0(enginehandle: super::HANDLE, securityinfo: super::SECURITY_INFORMATION, sidowner: Option<*mut super::PSID>, sidgroup: Option<*mut super::PSID>, dacl: Option<*mut super::PACL>, sacl: Option<*mut super::PACL>, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD {
     windows_core::link!("fwpuclnt.dll" "system" fn FwpmConnectionGetSecurityInfo0(enginehandle : super::HANDLE, securityinfo : super::SECURITY_INFORMATION, sidowner : *mut super::PSID, sidgroup : *mut super::PSID, dacl : *mut super::PACL, sacl : *mut super::PACL, securitydescriptor : *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD);
-    unsafe { FwpmConnectionGetSecurityInfo0(enginehandle, securityinfo, sidowner as _, sidgroup as _, dacl as _, sacl as _, securitydescriptor as _) }
+    unsafe { FwpmConnectionGetSecurityInfo0(enginehandle, securityinfo, sidowner.unwrap_or(core::mem::zeroed()) as _, sidgroup.unwrap_or(core::mem::zeroed()) as _, dacl.unwrap_or(core::mem::zeroed()) as _, sacl.unwrap_or(core::mem::zeroed()) as _, securitydescriptor as _) }
 }
 #[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "shared", feature = "winnt"))]
 #[inline]
@@ -162,9 +162,9 @@ pub unsafe fn FwpmEngineGetOption0(enginehandle: super::HANDLE, option: super::F
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn FwpmEngineGetSecurityInfo0(enginehandle: super::HANDLE, securityinfo: super::SECURITY_INFORMATION, sidowner: *mut super::PSID, sidgroup: *mut super::PSID, dacl: *mut super::PACL, sacl: *mut super::PACL, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD {
+pub unsafe fn FwpmEngineGetSecurityInfo0(enginehandle: super::HANDLE, securityinfo: super::SECURITY_INFORMATION, sidowner: Option<*mut super::PSID>, sidgroup: Option<*mut super::PSID>, dacl: Option<*mut super::PACL>, sacl: Option<*mut super::PACL>, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD {
     windows_core::link!("fwpuclnt.dll" "system" fn FwpmEngineGetSecurityInfo0(enginehandle : super::HANDLE, securityinfo : super::SECURITY_INFORMATION, sidowner : *mut super::PSID, sidgroup : *mut super::PSID, dacl : *mut super::PACL, sacl : *mut super::PACL, securitydescriptor : *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD);
-    unsafe { FwpmEngineGetSecurityInfo0(enginehandle, securityinfo, sidowner as _, sidgroup as _, dacl as _, sacl as _, securitydescriptor as _) }
+    unsafe { FwpmEngineGetSecurityInfo0(enginehandle, securityinfo, sidowner.unwrap_or(core::mem::zeroed()) as _, sidgroup.unwrap_or(core::mem::zeroed()) as _, dacl.unwrap_or(core::mem::zeroed()) as _, sacl.unwrap_or(core::mem::zeroed()) as _, securitydescriptor as _) }
 }
 #[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "rpc", feature = "shared", feature = "winnt"))]
 #[inline]
@@ -234,9 +234,9 @@ pub unsafe fn FwpmFilterGetByKey0(enginehandle: super::HANDLE, key: *const windo
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn FwpmFilterGetSecurityInfoByKey0(enginehandle: super::HANDLE, key: Option<*const windows_core::GUID>, securityinfo: super::SECURITY_INFORMATION, sidowner: *mut super::PSID, sidgroup: *mut super::PSID, dacl: *mut super::PACL, sacl: *mut super::PACL, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD {
+pub unsafe fn FwpmFilterGetSecurityInfoByKey0(enginehandle: super::HANDLE, key: Option<*const windows_core::GUID>, securityinfo: super::SECURITY_INFORMATION, sidowner: Option<*mut super::PSID>, sidgroup: Option<*mut super::PSID>, dacl: Option<*mut super::PACL>, sacl: Option<*mut super::PACL>, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD {
     windows_core::link!("fwpuclnt.dll" "system" fn FwpmFilterGetSecurityInfoByKey0(enginehandle : super::HANDLE, key : *const windows_core::GUID, securityinfo : super::SECURITY_INFORMATION, sidowner : *mut super::PSID, sidgroup : *mut super::PSID, dacl : *mut super::PACL, sacl : *mut super::PACL, securitydescriptor : *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD);
-    unsafe { FwpmFilterGetSecurityInfoByKey0(enginehandle, key.unwrap_or(core::mem::zeroed()) as _, securityinfo, sidowner as _, sidgroup as _, dacl as _, sacl as _, securitydescriptor as _) }
+    unsafe { FwpmFilterGetSecurityInfoByKey0(enginehandle, key.unwrap_or(core::mem::zeroed()) as _, securityinfo, sidowner.unwrap_or(core::mem::zeroed()) as _, sidgroup.unwrap_or(core::mem::zeroed()) as _, dacl.unwrap_or(core::mem::zeroed()) as _, sacl.unwrap_or(core::mem::zeroed()) as _, securitydescriptor as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -338,9 +338,9 @@ pub unsafe fn FwpmLayerGetByKey0(enginehandle: super::HANDLE, key: *const window
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn FwpmLayerGetSecurityInfoByKey0(enginehandle: super::HANDLE, key: Option<*const windows_core::GUID>, securityinfo: super::SECURITY_INFORMATION, sidowner: *mut super::PSID, sidgroup: *mut super::PSID, dacl: *mut super::PACL, sacl: *mut super::PACL, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD {
+pub unsafe fn FwpmLayerGetSecurityInfoByKey0(enginehandle: super::HANDLE, key: Option<*const windows_core::GUID>, securityinfo: super::SECURITY_INFORMATION, sidowner: Option<*mut super::PSID>, sidgroup: Option<*mut super::PSID>, dacl: Option<*mut super::PACL>, sacl: Option<*mut super::PACL>, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD {
     windows_core::link!("fwpuclnt.dll" "system" fn FwpmLayerGetSecurityInfoByKey0(enginehandle : super::HANDLE, key : *const windows_core::GUID, securityinfo : super::SECURITY_INFORMATION, sidowner : *mut super::PSID, sidgroup : *mut super::PSID, dacl : *mut super::PACL, sacl : *mut super::PACL, securitydescriptor : *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD);
-    unsafe { FwpmLayerGetSecurityInfoByKey0(enginehandle, key.unwrap_or(core::mem::zeroed()) as _, securityinfo, sidowner as _, sidgroup as _, dacl as _, sacl as _, securitydescriptor as _) }
+    unsafe { FwpmLayerGetSecurityInfoByKey0(enginehandle, key.unwrap_or(core::mem::zeroed()) as _, securityinfo, sidowner.unwrap_or(core::mem::zeroed()) as _, sidgroup.unwrap_or(core::mem::zeroed()) as _, dacl.unwrap_or(core::mem::zeroed()) as _, sacl.unwrap_or(core::mem::zeroed()) as _, securitydescriptor as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -440,9 +440,9 @@ pub unsafe fn FwpmNetEventUnsubscribe0(enginehandle: super::HANDLE, eventshandle
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn FwpmNetEventsGetSecurityInfo0(enginehandle: super::HANDLE, securityinfo: super::SECURITY_INFORMATION, sidowner: *mut super::PSID, sidgroup: *mut super::PSID, dacl: *mut super::PACL, sacl: *mut super::PACL, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD {
+pub unsafe fn FwpmNetEventsGetSecurityInfo0(enginehandle: super::HANDLE, securityinfo: super::SECURITY_INFORMATION, sidowner: Option<*mut super::PSID>, sidgroup: Option<*mut super::PSID>, dacl: Option<*mut super::PACL>, sacl: Option<*mut super::PACL>, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD {
     windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventsGetSecurityInfo0(enginehandle : super::HANDLE, securityinfo : super::SECURITY_INFORMATION, sidowner : *mut super::PSID, sidgroup : *mut super::PSID, dacl : *mut super::PACL, sacl : *mut super::PACL, securitydescriptor : *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD);
-    unsafe { FwpmNetEventsGetSecurityInfo0(enginehandle, securityinfo, sidowner as _, sidgroup as _, dacl as _, sacl as _, securitydescriptor as _) }
+    unsafe { FwpmNetEventsGetSecurityInfo0(enginehandle, securityinfo, sidowner.unwrap_or(core::mem::zeroed()) as _, sidgroup.unwrap_or(core::mem::zeroed()) as _, dacl.unwrap_or(core::mem::zeroed()) as _, sacl.unwrap_or(core::mem::zeroed()) as _, securitydescriptor as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -578,9 +578,9 @@ pub unsafe fn FwpmProviderContextGetByKey3(enginehandle: super::HANDLE, key: *co
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn FwpmProviderContextGetSecurityInfoByKey0(enginehandle: super::HANDLE, key: Option<*const windows_core::GUID>, securityinfo: super::SECURITY_INFORMATION, sidowner: *mut super::PSID, sidgroup: *mut super::PSID, dacl: *mut super::PACL, sacl: *mut super::PACL, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD {
+pub unsafe fn FwpmProviderContextGetSecurityInfoByKey0(enginehandle: super::HANDLE, key: Option<*const windows_core::GUID>, securityinfo: super::SECURITY_INFORMATION, sidowner: Option<*mut super::PSID>, sidgroup: Option<*mut super::PSID>, dacl: Option<*mut super::PACL>, sacl: Option<*mut super::PACL>, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD {
     windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetSecurityInfoByKey0(enginehandle : super::HANDLE, key : *const windows_core::GUID, securityinfo : super::SECURITY_INFORMATION, sidowner : *mut super::PSID, sidgroup : *mut super::PSID, dacl : *mut super::PACL, sacl : *mut super::PACL, securitydescriptor : *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD);
-    unsafe { FwpmProviderContextGetSecurityInfoByKey0(enginehandle, key.unwrap_or(core::mem::zeroed()) as _, securityinfo, sidowner as _, sidgroup as _, dacl as _, sacl as _, securitydescriptor as _) }
+    unsafe { FwpmProviderContextGetSecurityInfoByKey0(enginehandle, key.unwrap_or(core::mem::zeroed()) as _, securityinfo, sidowner.unwrap_or(core::mem::zeroed()) as _, sidgroup.unwrap_or(core::mem::zeroed()) as _, dacl.unwrap_or(core::mem::zeroed()) as _, sacl.unwrap_or(core::mem::zeroed()) as _, securitydescriptor as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -638,9 +638,9 @@ pub unsafe fn FwpmProviderGetByKey0(enginehandle: super::HANDLE, key: *const win
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn FwpmProviderGetSecurityInfoByKey0(enginehandle: super::HANDLE, key: Option<*const windows_core::GUID>, securityinfo: super::SECURITY_INFORMATION, sidowner: *mut super::PSID, sidgroup: *mut super::PSID, dacl: *mut super::PACL, sacl: *mut super::PACL, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD {
+pub unsafe fn FwpmProviderGetSecurityInfoByKey0(enginehandle: super::HANDLE, key: Option<*const windows_core::GUID>, securityinfo: super::SECURITY_INFORMATION, sidowner: Option<*mut super::PSID>, sidgroup: Option<*mut super::PSID>, dacl: Option<*mut super::PACL>, sacl: Option<*mut super::PACL>, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD {
     windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderGetSecurityInfoByKey0(enginehandle : super::HANDLE, key : *const windows_core::GUID, securityinfo : super::SECURITY_INFORMATION, sidowner : *mut super::PSID, sidgroup : *mut super::PSID, dacl : *mut super::PACL, sacl : *mut super::PACL, securitydescriptor : *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD);
-    unsafe { FwpmProviderGetSecurityInfoByKey0(enginehandle, key.unwrap_or(core::mem::zeroed()) as _, securityinfo, sidowner as _, sidgroup as _, dacl as _, sacl as _, securitydescriptor as _) }
+    unsafe { FwpmProviderGetSecurityInfoByKey0(enginehandle, key.unwrap_or(core::mem::zeroed()) as _, securityinfo, sidowner.unwrap_or(core::mem::zeroed()) as _, sidgroup.unwrap_or(core::mem::zeroed()) as _, dacl.unwrap_or(core::mem::zeroed()) as _, sacl.unwrap_or(core::mem::zeroed()) as _, securitydescriptor as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -722,9 +722,9 @@ pub unsafe fn FwpmSubLayerGetByKey0(enginehandle: super::HANDLE, key: *const win
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn FwpmSubLayerGetSecurityInfoByKey0(enginehandle: super::HANDLE, key: Option<*const windows_core::GUID>, securityinfo: super::SECURITY_INFORMATION, sidowner: *mut super::PSID, sidgroup: *mut super::PSID, dacl: *mut super::PACL, sacl: *mut super::PACL, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD {
+pub unsafe fn FwpmSubLayerGetSecurityInfoByKey0(enginehandle: super::HANDLE, key: Option<*const windows_core::GUID>, securityinfo: super::SECURITY_INFORMATION, sidowner: Option<*mut super::PSID>, sidgroup: Option<*mut super::PSID>, dacl: Option<*mut super::PACL>, sacl: Option<*mut super::PACL>, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD {
     windows_core::link!("fwpuclnt.dll" "system" fn FwpmSubLayerGetSecurityInfoByKey0(enginehandle : super::HANDLE, key : *const windows_core::GUID, securityinfo : super::SECURITY_INFORMATION, sidowner : *mut super::PSID, sidgroup : *mut super::PSID, dacl : *mut super::PACL, sacl : *mut super::PACL, securitydescriptor : *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD);
-    unsafe { FwpmSubLayerGetSecurityInfoByKey0(enginehandle, key.unwrap_or(core::mem::zeroed()) as _, securityinfo, sidowner as _, sidgroup as _, dacl as _, sacl as _, securitydescriptor as _) }
+    unsafe { FwpmSubLayerGetSecurityInfoByKey0(enginehandle, key.unwrap_or(core::mem::zeroed()) as _, securityinfo, sidowner.unwrap_or(core::mem::zeroed()) as _, sidgroup.unwrap_or(core::mem::zeroed()) as _, dacl.unwrap_or(core::mem::zeroed()) as _, sacl.unwrap_or(core::mem::zeroed()) as _, securitydescriptor as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -800,9 +800,9 @@ pub unsafe fn FwpmvSwitchEventUnsubscribe0(enginehandle: super::HANDLE, subscrip
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn FwpmvSwitchEventsGetSecurityInfo0(enginehandle: super::HANDLE, securityinfo: super::SECURITY_INFORMATION, sidowner: *mut super::PSID, sidgroup: *mut super::PSID, dacl: *mut super::PACL, sacl: *mut super::PACL, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD {
+pub unsafe fn FwpmvSwitchEventsGetSecurityInfo0(enginehandle: super::HANDLE, securityinfo: super::SECURITY_INFORMATION, sidowner: Option<*mut super::PSID>, sidgroup: Option<*mut super::PSID>, dacl: Option<*mut super::PACL>, sacl: Option<*mut super::PACL>, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD {
     windows_core::link!("fwpuclnt.dll" "system" fn FwpmvSwitchEventsGetSecurityInfo0(enginehandle : super::HANDLE, securityinfo : super::SECURITY_INFORMATION, sidowner : *mut super::PSID, sidgroup : *mut super::PSID, dacl : *mut super::PACL, sacl : *mut super::PACL, securitydescriptor : *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD);
-    unsafe { FwpmvSwitchEventsGetSecurityInfo0(enginehandle, securityinfo, sidowner as _, sidgroup as _, dacl as _, sacl as _, securitydescriptor as _) }
+    unsafe { FwpmvSwitchEventsGetSecurityInfo0(enginehandle, securityinfo, sidowner.unwrap_or(core::mem::zeroed()) as _, sidgroup.unwrap_or(core::mem::zeroed()) as _, dacl.unwrap_or(core::mem::zeroed()) as _, sacl.unwrap_or(core::mem::zeroed()) as _, securitydescriptor as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -812,9 +812,9 @@ pub unsafe fn FwpmvSwitchEventsSetSecurityInfo0(enginehandle: super::HANDLE, sec
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn IPsecDospGetSecurityInfo0(enginehandle: super::HANDLE, securityinfo: super::SECURITY_INFORMATION, sidowner: *mut super::PSID, sidgroup: *mut super::PSID, dacl: *mut super::PACL, sacl: *mut super::PACL, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD {
+pub unsafe fn IPsecDospGetSecurityInfo0(enginehandle: super::HANDLE, securityinfo: super::SECURITY_INFORMATION, sidowner: Option<*mut super::PSID>, sidgroup: Option<*mut super::PSID>, dacl: Option<*mut super::PACL>, sacl: Option<*mut super::PACL>, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD {
     windows_core::link!("fwpuclnt.dll" "system" fn IPsecDospGetSecurityInfo0(enginehandle : super::HANDLE, securityinfo : super::SECURITY_INFORMATION, sidowner : *mut super::PSID, sidgroup : *mut super::PSID, dacl : *mut super::PACL, sacl : *mut super::PACL, securitydescriptor : *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD);
-    unsafe { IPsecDospGetSecurityInfo0(enginehandle, securityinfo, sidowner as _, sidgroup as _, dacl as _, sacl as _, securitydescriptor as _) }
+    unsafe { IPsecDospGetSecurityInfo0(enginehandle, securityinfo, sidowner.unwrap_or(core::mem::zeroed()) as _, sidgroup.unwrap_or(core::mem::zeroed()) as _, dacl.unwrap_or(core::mem::zeroed()) as _, sacl.unwrap_or(core::mem::zeroed()) as _, securitydescriptor as _) }
 }
 #[cfg(all(feature = "ipsectypes", feature = "shared", feature = "winnt"))]
 #[inline]
@@ -866,9 +866,9 @@ pub unsafe fn IPsecKeyManagerAddAndRegister0(enginehandle: super::HANDLE, keyman
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn IPsecKeyManagerGetSecurityInfoByKey0(enginehandle: super::HANDLE, reserved: Option<*const core::ffi::c_void>, securityinfo: super::SECURITY_INFORMATION, sidowner: *mut super::PSID, sidgroup: *mut super::PSID, dacl: *mut super::PACL, sacl: *mut super::PACL, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD {
+pub unsafe fn IPsecKeyManagerGetSecurityInfoByKey0(enginehandle: super::HANDLE, reserved: Option<*const core::ffi::c_void>, securityinfo: super::SECURITY_INFORMATION, sidowner: Option<*mut super::PSID>, sidgroup: Option<*mut super::PSID>, dacl: Option<*mut super::PACL>, sacl: Option<*mut super::PACL>, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD {
     windows_core::link!("fwpuclnt.dll" "system" fn IPsecKeyManagerGetSecurityInfoByKey0(enginehandle : super::HANDLE, reserved : *const core::ffi::c_void, securityinfo : super::SECURITY_INFORMATION, sidowner : *mut super::PSID, sidgroup : *mut super::PSID, dacl : *mut super::PACL, sacl : *mut super::PACL, securitydescriptor : *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD);
-    unsafe { IPsecKeyManagerGetSecurityInfoByKey0(enginehandle, reserved.unwrap_or(core::mem::zeroed()) as _, securityinfo, sidowner as _, sidgroup as _, dacl as _, sacl as _, securitydescriptor as _) }
+    unsafe { IPsecKeyManagerGetSecurityInfoByKey0(enginehandle, reserved.unwrap_or(core::mem::zeroed()) as _, securityinfo, sidowner.unwrap_or(core::mem::zeroed()) as _, sidgroup.unwrap_or(core::mem::zeroed()) as _, dacl.unwrap_or(core::mem::zeroed()) as _, sacl.unwrap_or(core::mem::zeroed()) as _, securitydescriptor as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -1022,9 +1022,9 @@ pub unsafe fn IPsecSaCreateEnumHandle0(enginehandle: super::HANDLE, enumtemplate
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn IPsecSaDbGetSecurityInfo0(enginehandle: super::HANDLE, securityinfo: super::SECURITY_INFORMATION, sidowner: *mut super::PSID, sidgroup: *mut super::PSID, dacl: *mut super::PACL, sacl: *mut super::PACL, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD {
+pub unsafe fn IPsecSaDbGetSecurityInfo0(enginehandle: super::HANDLE, securityinfo: super::SECURITY_INFORMATION, sidowner: Option<*mut super::PSID>, sidgroup: Option<*mut super::PSID>, dacl: Option<*mut super::PACL>, sacl: Option<*mut super::PACL>, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD {
     windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaDbGetSecurityInfo0(enginehandle : super::HANDLE, securityinfo : super::SECURITY_INFORMATION, sidowner : *mut super::PSID, sidgroup : *mut super::PSID, dacl : *mut super::PACL, sacl : *mut super::PACL, securitydescriptor : *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD);
-    unsafe { IPsecSaDbGetSecurityInfo0(enginehandle, securityinfo, sidowner as _, sidgroup as _, dacl as _, sacl as _, securitydescriptor as _) }
+    unsafe { IPsecSaDbGetSecurityInfo0(enginehandle, securityinfo, sidowner.unwrap_or(core::mem::zeroed()) as _, sidgroup.unwrap_or(core::mem::zeroed()) as _, dacl.unwrap_or(core::mem::zeroed()) as _, sacl.unwrap_or(core::mem::zeroed()) as _, securitydescriptor as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -1070,9 +1070,9 @@ pub unsafe fn IkeextSaCreateEnumHandle0(enginehandle: super::HANDLE, enumtemplat
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn IkeextSaDbGetSecurityInfo0(enginehandle: super::HANDLE, securityinfo: super::SECURITY_INFORMATION, sidowner: *mut super::PSID, sidgroup: *mut super::PSID, dacl: *mut super::PACL, sacl: *mut super::PACL, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD {
+pub unsafe fn IkeextSaDbGetSecurityInfo0(enginehandle: super::HANDLE, securityinfo: super::SECURITY_INFORMATION, sidowner: Option<*mut super::PSID>, sidgroup: Option<*mut super::PSID>, dacl: Option<*mut super::PACL>, sacl: Option<*mut super::PACL>, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD {
     windows_core::link!("fwpuclnt.dll" "system" fn IkeextSaDbGetSecurityInfo0(enginehandle : super::HANDLE, securityinfo : super::SECURITY_INFORMATION, sidowner : *mut super::PSID, sidgroup : *mut super::PSID, dacl : *mut super::PACL, sacl : *mut super::PACL, securitydescriptor : *mut super::PSECURITY_DESCRIPTOR) -> super::DWORD);
-    unsafe { IkeextSaDbGetSecurityInfo0(enginehandle, securityinfo, sidowner as _, sidgroup as _, dacl as _, sacl as _, securitydescriptor as _) }
+    unsafe { IkeextSaDbGetSecurityInfo0(enginehandle, securityinfo, sidowner.unwrap_or(core::mem::zeroed()) as _, sidgroup.unwrap_or(core::mem::zeroed()) as _, dacl.unwrap_or(core::mem::zeroed()) as _, sacl.unwrap_or(core::mem::zeroed()) as _, securitydescriptor as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]

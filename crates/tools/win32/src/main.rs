@@ -19,7 +19,7 @@ use std::time::Instant;
 use windows_clang::{Input, Target, projection};
 
 // Also supplies support headers for the WDK capture; independent of WinRT CONTRACTS_VERSION.
-const SDK_VERSION: &str = "10.0.28000.2705";
+const SDK_VERSION: &str = "10.0.28000.2957";
 const SUPPORT_PRELUDE: &str = "#include <intsafe.h>\n";
 const PRELUDE: &str = "#define SECURITY_WIN32
 #define WIN32_NO_STATUS
@@ -1344,6 +1344,10 @@ mod tests {
                 ("MessageBoxW", "user32.dll"),
                 ("DWriteCreateFactory", "dwrite.dll"),
                 ("DecodeRemotePointer", "kernelbase.dll"),
+                (
+                    "GetRuntimeAttestationReport",
+                    "api-ms-win-core-sysinfo-l1-2-8.dll",
+                ),
                 (
                     "OpenTraceFromFile",
                     "api-ms-win-eventing-consumer-l1-1-2.dll",

@@ -4055,6 +4055,26 @@ pub type CMSG_ATTR = CRYPT_ATTRIBUTES;
 pub const CMSG_ATTR_CERT_COUNT_PARAM: i32 = 31;
 pub const CMSG_ATTR_CERT_PARAM: i32 = 32;
 pub const CMSG_AUTHENTICATED_ATTRIBUTES_FLAG: i32 = 8;
+pub const CMSG_AUTH_ENVELOPED: i32 = 7;
+pub const CMSG_AUTH_ENVELOPED_DATA_V0: i32 = 0;
+#[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CMSG_AUTH_ENVELOPED_ENCODE_INFO {
+    pub cbSize: super::DWORD,
+    pub ContentEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub cRecipients: super::DWORD,
+    pub rgCmsRecipients: PCMSG_RECIPIENT_ENCODE_INFO,
+    pub cCertEncoded: super::DWORD,
+    pub rgCertEncoded: PCERT_BLOB,
+    pub cCrlEncoded: super::DWORD,
+    pub rgCrlEncoded: PCRL_BLOB,
+    pub cAuthAttr: super::DWORD,
+    pub rgAuthAttr: PCRYPT_ATTRIBUTE,
+    pub cUnauthAttr: super::DWORD,
+    pub rgUnauthAttr: PCRYPT_ATTRIBUTE,
+}
+pub const CMSG_AUTH_ENVELOPED_FLAG: i32 = 128;
 pub const CMSG_BARE_CONTENT_FLAG: i32 = 1;
 pub const CMSG_BARE_CONTENT_PARAM: i32 = 3;
 pub const CMSG_CERT_COUNT_PARAM: i32 = 11;
@@ -4084,6 +4104,7 @@ pub union CMSG_CMS_RECIPIENT_INFO_0 {
     pub pKeyTrans: PCMSG_KEY_TRANS_RECIPIENT_INFO,
     pub pKeyAgree: PCMSG_KEY_AGREE_RECIPIENT_INFO,
     pub pMailList: PCMSG_MAIL_LIST_RECIPIENT_INFO,
+    pub pKem: PCMSG_KEM_RECIPIENT_INFO,
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 impl Default for CMSG_CMS_RECIPIENT_INFO_0 {
@@ -4127,6 +4148,7 @@ pub struct CMSG_CNG_CONTENT_DECRYPT_INFO {
 }
 pub const CMSG_COMPUTED_HASH_PARAM: i32 = 22;
 pub const CMSG_CONTENTS_OCTETS_FLAG: i32 = 16;
+pub const CMSG_CONTENT_ENCRYPT_FREE_ASN1_ENCODE_PARA_FLAG: i32 = 4;
 pub const CMSG_CONTENT_ENCRYPT_FREE_OBJID_FLAG: i32 = 2;
 pub const CMSG_CONTENT_ENCRYPT_FREE_PARA_FLAG: i32 = 1;
 #[repr(C)]
@@ -4231,6 +4253,16 @@ pub struct CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA {
     pub dwUnauthAttrIndex: super::DWORD,
 }
 pub const CMSG_CTRL_ENABLE_STRONG_SIGNATURE: i32 = 21;
+pub const CMSG_CTRL_KEM_DECRYPT: i32 = 22;
+#[repr(C)]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CMSG_CTRL_KEM_DECRYPT_PARA {
+    pub cbSize: super::DWORD,
+    pub hNCryptKey: super::NCRYPT_KEY_HANDLE,
+    pub pKem: PCMSG_KEM_RECIPIENT_INFO,
+    pub dwRecipientIndex: super::DWORD,
+}
 pub const CMSG_CTRL_KEY_AGREE_DECRYPT: i32 = 17;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "ncrypt", feature = "shared"))]
@@ -4360,9 +4392,11 @@ pub const CMSG_ENCRYPTED_FLAG: i32 = 64;
 pub const CMSG_ENCRYPT_PARAM: i32 = 26;
 pub const CMSG_ENVELOPED: i32 = 3;
 pub const CMSG_ENVELOPED_DATA_CMS_VERSION: i32 = 2;
+pub const CMSG_ENVELOPED_DATA_ORI_VERSION: i32 = 3;
 pub const CMSG_ENVELOPED_DATA_PKCS_1_5_VERSION: i32 = 0;
 pub const CMSG_ENVELOPED_DATA_V0: i32 = 0;
 pub const CMSG_ENVELOPED_DATA_V2: i32 = 2;
+pub const CMSG_ENVELOPED_DATA_V3: i32 = 3;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4399,6 +4433,46 @@ pub const CMSG_HASH_ALGORITHM_PARAM: i32 = 20;
 pub const CMSG_HASH_DATA_PARAM: i32 = 21;
 pub const CMSG_INDEFINITE_LENGTH: u32 = 4294967295;
 pub const CMSG_INNER_CONTENT_TYPE_PARAM: i32 = 4;
+pub const CMSG_KEM_RECIPIENT: i32 = 4;
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct CMSG_KEM_RECIPIENT_ENCODE_INFO {
+    pub cbSize: super::DWORD,
+    pub RecipientId: CERT_ID,
+    pub RecipientPublicKey: CRYPT_BIT_BLOB,
+    pub KemAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub KdfAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub WrapAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub UserKeyingMaterial: CRYPT_DATA_BLOB,
+}
+#[cfg(feature = "shared")]
+impl Default for CMSG_KEM_RECIPIENT_ENCODE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct CMSG_KEM_RECIPIENT_INFO {
+    pub dwVersion: super::DWORD,
+    pub RecipientId: CERT_ID,
+    pub KemAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub KdfAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub WrapAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub EncryptedKey: CRYPT_DATA_BLOB,
+    pub KemCt: CRYPT_DATA_BLOB,
+    pub UserKeyingMaterial: CRYPT_DATA_BLOB,
+    pub dwKekLength: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for CMSG_KEM_RECIPIENT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const CMSG_KEM_VERSION: i32 = 0;
 pub const CMSG_KEY_AGREE_ENCRYPT_FREE_MATERIAL_FLAG: i32 = 2;
 pub const CMSG_KEY_AGREE_ENCRYPT_FREE_OBJID_FLAG: i32 = 32;
 pub const CMSG_KEY_AGREE_ENCRYPT_FREE_PARA_FLAG: i32 = 1;
@@ -5012,6 +5086,13 @@ pub struct CROSS_CERT_DIST_POINTS_INFO {
 }
 pub const CROSS_CERT_DIST_POINT_ERR_INDEX_MASK: i32 = 255;
 pub const CROSS_CERT_DIST_POINT_ERR_INDEX_SHIFT: i32 = 24;
+pub const CRYPT32_COMPOSITE_MLDSA_44_ECDSA_P256_SHA256_ALGORITHM: windows_core::PCWSTR = windows_core::w!("Composite-ML-DSA:44-ECDSA-P256-SHA256");
+pub const CRYPT32_COMPOSITE_MLDSA_65_ECDSA_P256_SHA512_ALGORITHM: windows_core::PCWSTR = windows_core::w!("Composite-ML-DSA:65-ECDSA-P256-SHA512");
+pub const CRYPT32_COMPOSITE_MLDSA_65_ECDSA_P384_SHA512_ALGORITHM: windows_core::PCWSTR = windows_core::w!("Composite-ML-DSA:65-ECDSA-P384-SHA512");
+pub const CRYPT32_COMPOSITE_MLDSA_87_ECDSA_P384_SHA512_ALGORITHM: windows_core::PCWSTR = windows_core::w!("Composite-ML-DSA:87-ECDSA-P384-SHA512");
+pub const CRYPT32_COMPOSITE_MLKEM_1024_P384_ALGORITHM: windows_core::PCWSTR = windows_core::w!("Composite-ML-KEM:1024-P384");
+pub const CRYPT32_COMPOSITE_MLKEM_768_P256_ALGORITHM: windows_core::PCWSTR = windows_core::w!("Composite-ML-KEM:768-P256");
+pub const CRYPT32_COMPOSITE_MLKEM_768_X25519_ALGORITHM: windows_core::PCWSTR = windows_core::w!("Composite-ML-KEM:768-X25519");
 pub const CRYPT32_MLDSA_44_ALGORITHM: windows_core::PCWSTR = windows_core::w!("ML-DSA:44");
 pub const CRYPT32_MLDSA_65_ALGORITHM: windows_core::PCWSTR = windows_core::w!("ML-DSA:65");
 pub const CRYPT32_MLDSA_87_ALGORITHM: windows_core::PCWSTR = windows_core::w!("ML-DSA:87");
@@ -5579,6 +5660,8 @@ pub const CRYPT_MESSAGE_BARE_CONTENT_OUT_FLAG: i32 = 1;
 pub const CRYPT_MESSAGE_ENCAPSULATED_CONTENT_OUT_FLAG: i32 = 2;
 pub const CRYPT_MESSAGE_KEYID_RECIPIENT_FLAG: i32 = 4;
 pub const CRYPT_MESSAGE_KEYID_SIGNER_FLAG: i32 = 4;
+pub const CRYPT_MESSAGE_REQUIRE_AUTH_FLAG: i32 = 512;
+pub const CRYPT_MESSAGE_REQUIRE_OAEP_FLAG: i32 = 256;
 pub const CRYPT_MESSAGE_SILENT_KEYSET_FLAG: i32 = 64;
 pub const CRYPT_MODE_CBC: i32 = 1;
 pub const CRYPT_MODE_CBCI: i32 = 6;
@@ -5629,6 +5712,14 @@ pub struct CRYPT_OBJID_TABLE {
 }
 pub const CRYPT_OCSP_ONLY_RETRIEVAL: i32 = 16777216;
 pub const CRYPT_OFFLINE_CHECK_RETRIEVAL: i32 = 16384;
+pub const CRYPT_OID_AES_EXTRA_INFO_BIT_LENGTH_INDEX: i32 = 0;
+pub const CRYPT_OID_AES_EXTRA_INFO_CBC_TYPE: i32 = 1;
+pub const CRYPT_OID_AES_EXTRA_INFO_CCM_TYPE: i32 = 2;
+pub const CRYPT_OID_AES_EXTRA_INFO_GCM_TYPE: i32 = 3;
+pub const CRYPT_OID_AES_EXTRA_INFO_MAX_LENGTH: i32 = 2;
+pub const CRYPT_OID_AES_EXTRA_INFO_TYPE_INDEX: i32 = 1;
+pub const CRYPT_OID_AES_EXTRA_INFO_WRAP_TYPE: i32 = 4;
+pub const CRYPT_OID_COMPOSITE_ECDSA_FLAG: i32 = 33554432;
 pub const CRYPT_OID_CREATE_COM_OBJECT_FUNC: windows_core::PCSTR = windows_core::s!("CryptDllCreateCOMObject");
 pub const CRYPT_OID_DECODE_OBJECT_EX_FUNC: windows_core::PCSTR = windows_core::s!("CryptDllDecodeObjectEx");
 pub const CRYPT_OID_DECODE_OBJECT_FUNC: windows_core::PCSTR = windows_core::s!("CryptDllDecodeObject");
@@ -6868,6 +6959,8 @@ pub type PCMC_TAGGED_REQUEST = *mut CMC_TAGGED_REQUEST;
 #[cfg(feature = "shared")]
 pub type PCMSG_ATTR = *mut CRYPT_ATTRIBUTES;
 #[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCMSG_AUTH_ENVELOPED_ENCODE_INFO = *mut CMSG_AUTH_ENVELOPED_ENCODE_INFO;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PCMSG_CMS_RECIPIENT_INFO = *mut CMSG_CMS_RECIPIENT_INFO;
 #[cfg(feature = "shared")]
 pub type PCMSG_CMS_SIGNER_INFO = *mut CMSG_CMS_SIGNER_INFO;
@@ -6881,6 +6974,8 @@ pub type PCMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA = *mut CMSG_CTRL_ADD_SIGNER_UNAU
 pub type PCMSG_CTRL_DECRYPT_PARA = *mut CMSG_CTRL_DECRYPT_PARA;
 #[cfg(feature = "shared")]
 pub type PCMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA = *mut CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA;
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
+pub type PCMSG_CTRL_KEM_DECRYPT_PARA = *mut CMSG_CTRL_KEM_DECRYPT_PARA;
 #[cfg(all(feature = "minwindef", feature = "ncrypt", feature = "shared"))]
 pub type PCMSG_CTRL_KEY_AGREE_DECRYPT_PARA = *mut CMSG_CTRL_KEY_AGREE_DECRYPT_PARA;
 #[cfg(all(feature = "ncrypt", feature = "shared"))]
@@ -6895,6 +6990,10 @@ pub type PCMSG_ENCRYPTED_ENCODE_INFO = *mut CMSG_ENCRYPTED_ENCODE_INFO;
 pub type PCMSG_ENVELOPED_ENCODE_INFO = *mut CMSG_ENVELOPED_ENCODE_INFO;
 #[cfg(feature = "shared")]
 pub type PCMSG_HASHED_ENCODE_INFO = *mut CMSG_HASHED_ENCODE_INFO;
+#[cfg(feature = "shared")]
+pub type PCMSG_KEM_RECIPIENT_ENCODE_INFO = *mut CMSG_KEM_RECIPIENT_ENCODE_INFO;
+#[cfg(feature = "shared")]
+pub type PCMSG_KEM_RECIPIENT_INFO = *mut CMSG_KEM_RECIPIENT_INFO;
 #[cfg(feature = "shared")]
 pub type PCMSG_KEY_AGREE_ENCRYPT_INFO = *mut CMSG_KEY_AGREE_ENCRYPT_INFO;
 #[cfg(feature = "shared")]
@@ -7797,6 +7896,7 @@ pub union _CMSG_RECIPIENT_ENCODE_INFO_0 {
     pub pKeyTrans: PCMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO,
     pub pKeyAgree: PCMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO,
     pub pMailList: PCMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO,
+    pub pKem: PCMSG_KEM_RECIPIENT_ENCODE_INFO,
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 impl Default for _CMSG_RECIPIENT_ENCODE_INFO_0 {
@@ -8177,6 +8277,13 @@ pub const szOID_LOGOTYPE_EXT: windows_core::PCSTR = windows_core::s!("1.3.6.1.5.
 pub const szOID_LOYALTY_OTHER_LOGOTYPE: windows_core::PCSTR = windows_core::s!("1.3.6.1.5.5.7.20.1");
 pub const szOID_MEMBER: windows_core::PCSTR = windows_core::s!("2.5.4.31");
 pub const szOID_MICROSOFT_PUBLISHER_SIGNER: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.76.8.1");
+pub const szOID_MLDSA44_ECDSA_P256_SHA256: windows_core::PCSTR = windows_core::s!("1.3.6.1.5.5.7.6.40");
+pub const szOID_MLDSA65_ECDSA_P256_SHA512: windows_core::PCSTR = windows_core::s!("1.3.6.1.5.5.7.6.45");
+pub const szOID_MLDSA65_ECDSA_P384_SHA512: windows_core::PCSTR = windows_core::s!("1.3.6.1.5.5.7.6.46");
+pub const szOID_MLDSA87_ECDSA_P384_SHA512: windows_core::PCSTR = windows_core::s!("1.3.6.1.5.5.7.6.49");
+pub const szOID_MLKEM1024_ECDH_P384_SHA3_256: windows_core::PCSTR = windows_core::s!("1.3.6.1.5.5.7.6.63");
+pub const szOID_MLKEM768_ECDH_P256_SHA3_256: windows_core::PCSTR = windows_core::s!("1.3.6.1.5.5.7.6.59");
+pub const szOID_MLKEM768_X25519_SHA3_256: windows_core::PCSTR = windows_core::s!("1.3.6.1.5.5.7.6.58");
 pub const szOID_NAME_CONSTRAINTS: windows_core::PCSTR = windows_core::s!("2.5.29.30");
 pub const szOID_NETSCAPE: windows_core::PCSTR = windows_core::s!("2.16.840.1.113730");
 pub const szOID_NETSCAPE_BASE_URL: windows_core::PCSTR = windows_core::s!("2.16.840.1.113730.1.2");
@@ -8192,10 +8299,16 @@ pub const szOID_NETSCAPE_REVOCATION_URL: windows_core::PCSTR = windows_core::s!(
 pub const szOID_NETSCAPE_SSL_SERVER_NAME: windows_core::PCSTR = windows_core::s!("2.16.840.1.113730.1.12");
 pub const szOID_NEXT_UPDATE_LOCATION: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.10.2");
 pub const szOID_NIST_AES128_CBC: windows_core::PCSTR = windows_core::s!("2.16.840.1.101.3.4.1.2");
+pub const szOID_NIST_AES128_CCM: windows_core::PCSTR = windows_core::s!("2.16.840.1.101.3.4.1.7");
+pub const szOID_NIST_AES128_GCM: windows_core::PCSTR = windows_core::s!("2.16.840.1.101.3.4.1.6");
 pub const szOID_NIST_AES128_WRAP: windows_core::PCSTR = windows_core::s!("2.16.840.1.101.3.4.1.5");
 pub const szOID_NIST_AES192_CBC: windows_core::PCSTR = windows_core::s!("2.16.840.1.101.3.4.1.22");
+pub const szOID_NIST_AES192_CCM: windows_core::PCSTR = windows_core::s!("2.16.840.1.101.3.4.1.27");
+pub const szOID_NIST_AES192_GCM: windows_core::PCSTR = windows_core::s!("2.16.840.1.101.3.4.1.67");
 pub const szOID_NIST_AES192_WRAP: windows_core::PCSTR = windows_core::s!("2.16.840.1.101.3.4.1.25");
 pub const szOID_NIST_AES256_CBC: windows_core::PCSTR = windows_core::s!("2.16.840.1.101.3.4.1.42");
+pub const szOID_NIST_AES256_CCM: windows_core::PCSTR = windows_core::s!("2.16.840.1.101.3.4.1.47");
+pub const szOID_NIST_AES256_GCM: windows_core::PCSTR = windows_core::s!("2.16.840.1.101.3.4.1.46");
 pub const szOID_NIST_AES256_WRAP: windows_core::PCSTR = windows_core::s!("2.16.840.1.101.3.4.1.45");
 pub const szOID_NIST_hash_ml_dsa_44_with_sha512: windows_core::PCSTR = windows_core::s!("2.16.840.1.101.3.4.3.32");
 pub const szOID_NIST_hash_ml_dsa_65_with_sha512: windows_core::PCSTR = windows_core::s!("2.16.840.1.101.3.4.3.33");
@@ -8279,6 +8392,7 @@ pub const szOID_OIWSEC_shaDSA: windows_core::PCSTR = windows_core::s!("1.3.14.3.
 pub const szOID_OIWSEC_shaRSA: windows_core::PCSTR = windows_core::s!("1.3.14.3.2.15");
 pub const szOID_ORGANIZATIONAL_UNIT_NAME: windows_core::PCSTR = windows_core::s!("2.5.4.11");
 pub const szOID_ORGANIZATION_NAME: windows_core::PCSTR = windows_core::s!("2.5.4.10");
+pub const szOID_ORI_KEM: windows_core::PCSTR = windows_core::s!("1.2.840.113549.1.9.16.13.3");
 pub const szOID_OS_VERSION: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.13.2.3");
 pub const szOID_OWNER: windows_core::PCSTR = windows_core::s!("2.5.4.32");
 pub const szOID_PHYSICAL_DELIVERY_OFFICE_NAME: windows_core::PCSTR = windows_core::s!("2.5.4.19");
@@ -8352,6 +8466,7 @@ pub const szOID_POSTAL_ADDRESS: windows_core::PCSTR = windows_core::s!("2.5.4.16
 pub const szOID_POSTAL_CODE: windows_core::PCSTR = windows_core::s!("2.5.4.17");
 pub const szOID_POST_OFFICE_BOX: windows_core::PCSTR = windows_core::s!("2.5.4.18");
 pub const szOID_PREFERRED_DELIVERY_METHOD: windows_core::PCSTR = windows_core::s!("2.5.4.28");
+pub const szOID_PREHASH: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.73.2");
 pub const szOID_PRESENTATION_ADDRESS: windows_core::PCSTR = windows_core::s!("2.5.4.29");
 pub const szOID_PRIVATEKEY_USAGE_PERIOD: windows_core::PCSTR = windows_core::s!("2.5.29.16");
 pub const szOID_PRODUCT_UPDATE: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.31.1");
@@ -8389,6 +8504,7 @@ pub const szOID_RSA_DES_EDE3_CBC: windows_core::PCSTR = windows_core::s!("1.2.84
 pub const szOID_RSA_DH: windows_core::PCSTR = windows_core::s!("1.2.840.113549.1.3.1");
 pub const szOID_RSA_ENCRYPT: windows_core::PCSTR = windows_core::s!("1.2.840.113549.3");
 pub const szOID_RSA_HASH: windows_core::PCSTR = windows_core::s!("1.2.840.113549.2");
+pub const szOID_RSA_HKDF_WITH_SHA256: windows_core::PCSTR = windows_core::s!("1.2.840.113549.1.9.16.3.28");
 pub const szOID_RSA_MD2: windows_core::PCSTR = windows_core::s!("1.2.840.113549.2.2");
 pub const szOID_RSA_MD2RSA: windows_core::PCSTR = windows_core::s!("1.2.840.113549.1.1.2");
 pub const szOID_RSA_MD4: windows_core::PCSTR = windows_core::s!("1.2.840.113549.2.4");
@@ -8412,6 +8528,7 @@ pub const szOID_RSA_SMIMEalgCMS3DESwrap: windows_core::PCSTR = windows_core::s!(
 pub const szOID_RSA_SMIMEalgCMSRC2wrap: windows_core::PCSTR = windows_core::s!("1.2.840.113549.1.9.16.3.7");
 pub const szOID_RSA_SMIMEalgESDH: windows_core::PCSTR = windows_core::s!("1.2.840.113549.1.9.16.3.5");
 pub const szOID_RSA_SSA_PSS: windows_core::PCSTR = windows_core::s!("1.2.840.113549.1.1.10");
+pub const szOID_RSA_authEnvelopedData: windows_core::PCSTR = windows_core::s!("1.2.840.113549.1.9.16.1.23");
 pub const szOID_RSA_certExtensions: windows_core::PCSTR = windows_core::s!("1.2.840.113549.1.9.14");
 pub const szOID_RSA_challengePwd: windows_core::PCSTR = windows_core::s!("1.2.840.113549.1.9.7");
 pub const szOID_RSA_contentType: windows_core::PCSTR = windows_core::s!("1.2.840.113549.1.9.3");

@@ -56,6 +56,7 @@ mod Windows {
             pNames: *mut DNS_CONNECTION_NAME,
         }
         const DNS_CONNECTION_NAME_MAX_LENGTH: i32 = 64;
+        const DNS_CONNECTION_POLICY_ALLOW_DEFAULT_INTERFACE_SELECTION: i32 = 2;
         struct DNS_CONNECTION_POLICY_ENTRY {
             pwszHost: PCWSTR,
             pwszAppId: PCWSTR,
@@ -433,6 +434,8 @@ mod Windows {
         extern fn DnsCancelQueryRaw(#[in] cancelHandle: *mut DNS_QUERY_RAW_CANCEL) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
         extern fn DnsConnectionDeletePolicyEntries(#[in] PolicyEntryTag: DNS_CONNECTION_POLICY_TAG) -> DWORD;
+        #[library("DNSAPI.dll")]
+        extern fn DnsConnectionDeletePolicyEntriesByAppSid(#[in] cbAppSid: DWORD, #[buffer(bytes(cbAppSid))] #[in] pbAppSid: PBYTE) -> DWORD;
         #[library("DNSAPI.dll")]
         extern fn DnsConnectionDeleteProxyInfo(#[in] #[null_terminated] pwszConnectionName: PCWSTR, #[in] Type: DNS_CONNECTION_PROXY_TYPE) -> DWORD;
         #[library("DNSAPI.dll")]

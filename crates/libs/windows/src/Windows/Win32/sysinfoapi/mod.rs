@@ -92,7 +92,7 @@ pub unsafe fn GetProductInfo(dwosmajorversion: super::DWORD, dwosminorversion: s
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetRuntimeAttestationReport(nonce: Option<*const super::UCHAR>, packageversion: super::UINT16, reporttypesbitmap: super::UINT64, reportbuffer: Option<super::PVOID>, reportbuffersize: super::PUINT32) -> windows_core::BOOL {
-    windows_core::link!("kernelbase.dll" "system" fn GetRuntimeAttestationReport(nonce : *const super::UCHAR, packageversion : super::UINT16, reporttypesbitmap : super::UINT64, reportbuffer : super::PVOID, reportbuffersize : super::PUINT32) -> windows_core::BOOL);
+    windows_core::link!("api-ms-win-core-sysinfo-l1-2-8.dll" "system" fn GetRuntimeAttestationReport(nonce : *const super::UCHAR, packageversion : super::UINT16, reporttypesbitmap : super::UINT64, reportbuffer : super::PVOID, reportbuffersize : super::PUINT32) -> windows_core::BOOL);
     unsafe { GetRuntimeAttestationReport(nonce.unwrap_or(core::mem::zeroed()) as _, packageversion, reporttypesbitmap, reportbuffer.unwrap_or(core::mem::zeroed()) as _, reportbuffersize as _) }
 }
 #[cfg(feature = "shared")]

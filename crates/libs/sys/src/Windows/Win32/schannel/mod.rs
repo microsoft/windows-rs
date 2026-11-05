@@ -696,6 +696,7 @@ pub const TlsHashAlgorithm_Sha512: eTlsHashAlgorithm = 6;
 pub const TlsSignatureAlgorithm_Anonymous: eTlsSignatureAlgorithm = 0;
 pub const TlsSignatureAlgorithm_Dsa: eTlsSignatureAlgorithm = 2;
 pub const TlsSignatureAlgorithm_Ecdsa: eTlsSignatureAlgorithm = 3;
+pub const TlsSignatureAlgorithm_Mldsa: eTlsSignatureAlgorithm = 9;
 pub const TlsSignatureAlgorithm_Rsa: eTlsSignatureAlgorithm = 1;
 pub const UNISP_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("Microsoft Unified Security Protocol Provider");
 pub const UNISP_NAME_A: windows_sys::core::PCSTR = windows_sys::core::s!("Microsoft Unified Security Protocol Provider");

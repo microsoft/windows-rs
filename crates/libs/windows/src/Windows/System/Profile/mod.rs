@@ -339,6 +339,17 @@ pub struct IRetailInfoStatics_Vtbl {
     pub IsDemoModeEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IRetailInfoStatics2, IRetailInfoStatics2_Vtbl, 0xa3b5d762_9e04_4f4c_b8e2_7a3c5d6e8f01);
+impl windows_core::RuntimeType for IRetailInfoStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Profile.IRetailInfoStatics2");
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IRetailInfoStatics2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsDemoModeEnabledEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(ISharedModeSettingsStatics, ISharedModeSettingsStatics_Vtbl, 0x893df40e_cad6_4d50_8c49_6fcfc03edb29);
 impl windows_core::RuntimeType for ISharedModeSettingsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -681,8 +692,18 @@ impl RetailInfo {
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
+    pub fn IsDemoModeEnabledEx() -> windows_core::Result<bool> {
+        Self::IRetailInfoStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsDemoModeEnabledEx)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
     fn IRetailInfoStatics<R, F: FnOnce(&IRetailInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RetailInfo, IRetailInfoStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IRetailInfoStatics2<R, F: FnOnce(&IRetailInfoStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<RetailInfo, IRetailInfoStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }

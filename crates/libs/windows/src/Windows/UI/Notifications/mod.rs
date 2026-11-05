@@ -1246,6 +1246,17 @@ pub struct IToastNotificationManagerStatics5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IToastNotificationStatics, IToastNotificationStatics_Vtbl, 0x2aa8f213_d8c9_48fe_b641_4a63d69ce079);
+impl windows_core::RuntimeType for IToastNotificationStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Notifications.IToastNotificationStatics");
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IToastNotificationStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsExpandableContentSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IToastNotifier, IToastNotifier_Vtbl, 0x75927b93_03f3_41ec_91d3_6e5bac1b38e7);
 impl windows_core::RuntimeType for IToastNotifier {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -3015,8 +3026,18 @@ impl ToastNotification {
             (windows_core::Interface::vtable(this).CreateToastNotification)(windows_core::Interface::as_raw(this), content.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
+    pub fn IsExpandableContentSupported() -> windows_core::Result<bool> {
+        Self::IToastNotificationStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsExpandableContentSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
     fn IToastNotificationFactory<R, F: FnOnce(&IToastNotificationFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ToastNotification, IToastNotificationFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IToastNotificationStatics<R, F: FnOnce(&IToastNotificationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<ToastNotification, IToastNotificationStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }

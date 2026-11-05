@@ -67,6 +67,12 @@ mod Windows {
                     DesktopInfos: super::super::super::Foundation::Collections::IVector<RemoteDesktopInfo>;
                     fn IsSwitchToLocalSessionEnabled(&self) -> bool;
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(RemoteDesktopRegistrar)]
+                #[guid(0x4139976d_4f8e_5bb4_b953_d6447cac4e5f)]
+                interface IRemoteDesktopRegistrarStatics2 {
+                    event ConnectionCenterRequested: super::super::super::Foundation::EventHandler<Object>;
+                }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class PerformLocalActionRequestedEventArgs {
@@ -116,6 +122,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(IRemoteDesktopRegistrarStatics, 983040, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IRemoteDesktopRegistrarStatics2, 1245184, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class RemoteDesktopRegistrar {}
             }

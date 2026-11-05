@@ -22,6 +22,14 @@ mod Windows {
                 Off = 1,
                 On = 2,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            #[repr(i32)]
+            enum EnergySaverStatus2 {
+                Unknown = 0,
+                Off = 1,
+                Standard = 2,
+                HighSavings = 3,
+            }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("Foreground Energy Manager has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -109,9 +117,20 @@ mod Windows {
                 RemainingDischargeTime: super::super::Foundation::TimeSpan;
                 event RemainingDischargeTimeChanged: super::super::Foundation::EventHandler<Object>;
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PowerManager)]
+            #[guid(0x67a446c3_4f2e_5d56_b2e8_7707c264745b)]
+            interface IPowerManagerStatics2 {
+                #[get]
+                EnergySaverStatus2: EnergySaverStatus2;
+                #[get]
+                IsEnergySaverStatus2Supported: bool;
+                event EnergySaverStatus2Changed: super::super::Foundation::EventHandler<Object>;
+            }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IPowerManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IPowerManagerStatics2, 1245184, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class PowerManager {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
