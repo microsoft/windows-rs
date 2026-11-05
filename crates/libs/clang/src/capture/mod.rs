@@ -75,7 +75,7 @@ pub(super) fn read(
         for &cursor in &declarations {
             let kind = unsafe { clang_getCursorKind(cursor) };
             if kind == CXCursor_VarDecl {
-                let (file, offset) = expansion_site(cursor);
+                let (file, offset) = expansion(unsafe { clang_getCursorLocation(cursor) });
                 if !file.is_null() && file == main_file {
                     sites.insert((kind, offset), cursor);
                 }
@@ -148,7 +148,7 @@ pub(super) fn read(
         let key = Cursor(unsafe { clang_getCanonicalCursor(cursor) });
         let synthetic = !capture.probes.contains_key(&key)
             && macros.first().is_some_and(|probe| {
-                let (file, offset) = expansion_site(cursor);
+                let (file, offset) = expansion(unsafe { clang_getCursorLocation(cursor) });
                 file == main_file && offset >= probe.start
             });
         let mut included = true;
@@ -379,12 +379,12 @@ pub(super) fn read(
     Ok(issues)
 }
 
-fn expansion_site(cursor: CXCursor) -> (CXFile, u32) {
+fn expansion(location: CXSourceLocation) -> (CXFile, u32) {
     let mut file = std::ptr::null_mut();
     let mut offset = 0;
     unsafe {
         clang_getExpansionLocation(
-            clang_getCursorLocation(cursor),
+            location,
             &raw mut file,
             std::ptr::null_mut(),
             std::ptr::null_mut(),
@@ -459,12 +459,7 @@ fn binary_identity(cursor: CXCursor, kind: CXCursorKind) -> Result<bool, Error> 
         CXCursor_FunctionDecl => {
             let mut language = WindowsClangNoLanguageLinkage;
             let status = unsafe { windows_clang_getLanguageLinkage(cursor, &raw mut language) };
-            if status != WindowsClangSuccess {
-                return Err(unsupported(
-                    cursor,
-                    "declaration language linkage unavailable",
-                ));
-            }
+            check(status, cursor, "declaration language linkage unavailable")?;
             language == WindowsClangCLanguageLinkage
         }
         CXCursor_StructDecl | CXCursor_ClassDecl => children(cursor).into_iter().any(|child| {
@@ -675,12 +670,7 @@ impl Capture<'_> {
         let attributes = self.declaration_attributes(cursor, parameters.is_some(), None)?;
         let mut defines_tag = 0;
         let status = unsafe { windows_clang_getTypedefDefinition(cursor, &raw mut defines_tag) };
-        if status != WindowsClangSuccess {
-            return Err(unsupported(
-                cursor,
-                &format!("typedef definition query failed: {status}"),
-            ));
-        }
+        check(status, cursor, "typedef definition query failed")?;
         let observation = AliasObservation {
             location: self.location(cursor),
             underlying: self.ty(underlying, cursor)?,
@@ -926,14 +916,11 @@ impl Capture<'_> {
                         ));
                     }
                     let mut slot = 0;
-                    if unsafe { windows_clang_getVirtualMethodSlot(child, &raw mut slot) }
-                        != WindowsClangSuccess
-                    {
-                        return Err(unsupported(
-                            child,
-                            "primary virtual method slot unavailable",
-                        ));
-                    }
+                    check(
+                        unsafe { windows_clang_getVirtualMethodSlot(child, &raw mut slot) },
+                        child,
+                        "primary virtual method slot unavailable",
+                    )?;
                     if let Some(inherited) = inherited {
                         let mut inherited_slot = 0;
                         if unsafe {
@@ -1029,13 +1016,11 @@ impl Capture<'_> {
             }
             methods.sort_by_key(|method| method.slot);
             let mut info = WindowsClangRecordInfo::default();
-            if unsafe { windows_clang_getRecordInfo(cursor, &raw mut info) } != WindowsClangSuccess
-            {
-                return Err(unsupported(
-                    cursor,
-                    "record special-member semantics unavailable",
-                ));
-            }
+            check(
+                unsafe { windows_clang_getRecordInfo(cursor, &raw mut info) },
+                cursor,
+                "record special-member semantics unavailable",
+            )?;
             Some(RecordDefinition {
                 layout: layout(unsafe { clang_getCursorType(cursor) })
                     .map_err(|reason| unsupported(cursor, reason))?,
@@ -1095,12 +1080,7 @@ impl Capture<'_> {
                 let status = unsafe {
                     windows_clang_getDeprecation(cursor, &raw mut message, &raw mut replacement)
                 };
-                if status != WindowsClangSuccess {
-                    return Err(unsupported(
-                        cursor,
-                        &format!("deprecation query failed: {status}"),
-                    ));
-                }
+                check(status, cursor, "deprecation query failed")?;
                 // Clang's fix-it replacement is a diagnostic hint, not published metadata.
                 text(replacement);
                 AttributeKind::Deprecated(Box::new(Deprecation {
@@ -1110,9 +1090,7 @@ impl Capture<'_> {
             "Uuid" => {
                 let mut uuid = CXString::default();
                 let status = unsafe { windows_clang_getUuid(cursor, &raw mut uuid) };
-                if status != WindowsClangSuccess {
-                    return Err(unsupported(cursor, &format!("UUID query failed: {status}")));
-                }
+                check(status, cursor, "UUID query failed")?;
                 let uuid = text(uuid);
                 let digits = uuid.trim_matches(['{', '}']).replace('-', "");
                 let value = u128::from_str_radix(&digits, 16)
@@ -1126,12 +1104,7 @@ impl Capture<'_> {
                 let mut visibility = CXVisibility_Invalid;
                 let status =
                     unsafe { windows_clang_getTypeVisibility(cursor, &raw mut visibility) };
-                if status != WindowsClangSuccess {
-                    return Err(unsupported(
-                        cursor,
-                        &format!("type visibility query failed: {status}"),
-                    ));
-                }
+                check(status, cursor, "type visibility query failed")?;
                 if visibility != CXVisibility_Default {
                     return Err(unsupported(
                         cursor,
@@ -1143,12 +1116,7 @@ impl Capture<'_> {
             "Aligned" => {
                 let mut info = WindowsClangAlignmentInfo::default();
                 let status = unsafe { windows_clang_getAlignment(cursor, &raw mut info) };
-                if status != WindowsClangSuccess {
-                    return Err(unsupported(
-                        cursor,
-                        &format!("alignment query failed: {status}"),
-                    ));
-                }
+                check(status, cursor, "alignment query failed")?;
                 let kind = match info.kind {
                     WindowsClangAlignmentGNU => AlignmentKind::Gnu,
                     WindowsClangAlignmentStandard => AlignmentKind::Standard,
@@ -1168,12 +1136,7 @@ impl Capture<'_> {
             "MaxFieldAlignment" => {
                 let mut bits = 0;
                 let status = unsafe { windows_clang_getMaxFieldAlignment(cursor, &raw mut bits) };
-                if status != WindowsClangSuccess {
-                    return Err(unsupported(
-                        cursor,
-                        &format!("packing query failed: {status}"),
-                    ));
-                }
+                check(status, cursor, "packing query failed")?;
                 AttributeKind::MaxFieldAlignment { bits }
             }
             _ => AttributeKind::Unresolved(name.into_owned()),
@@ -1290,12 +1253,7 @@ impl Capture<'_> {
     fn pointer(&mut self, ty: CXType, cursor: CXCursor) -> Result<TypeKind, Error> {
         let mut info = WindowsClangPointerInfo::default();
         let status = unsafe { windows_clang_getPointerInfo(ty, &raw mut info) };
-        if status != WindowsClangSuccess {
-            return Err(unsupported(
-                cursor,
-                &format!("pointer representation query failed: {status}"),
-            ));
-        }
+        check(status, cursor, "pointer representation query failed")?;
         let fixed = match info.representation {
             WindowsClangNativePointer => false,
             WindowsClangPointer64 => true,
@@ -1328,12 +1286,7 @@ impl Capture<'_> {
     fn ty(&mut self, mut ty: CXType, cursor: CXCursor) -> Result<TypeId, Error> {
         let mut qualifiers = 0;
         let status = unsafe { windows_clang_getTypeQualifiers(ty, &raw mut qualifiers) };
-        if status != WindowsClangSuccess {
-            return Err(unsupported(
-                cursor,
-                &format!("type qualifier query failed: {status}"),
-            ));
-        }
+        check(status, cursor, "type qualifier query failed")?;
         let mut supported =
             (WindowsClangConst | WindowsClangVolatile | WindowsClangRestrict) as u32;
         if qualifiers & WindowsClangUnaligned as u32 != 0 {
@@ -1440,12 +1393,7 @@ impl Capture<'_> {
                 CXType_FunctionProto => {
                     let mut info = WindowsClangFunctionInfo::default();
                     let status = windows_clang_getFunctionInfo(ty, &raw mut info);
-                    if status != WindowsClangSuccess {
-                        return Err(unsupported(
-                            cursor,
-                            &format!("function property query failed: {status}"),
-                        ));
-                    }
+                    check(status, cursor, "function property query failed")?;
                     if info.has_regparm != 0
                         || info.produces_result != 0
                         || info.no_caller_saved_registers != 0

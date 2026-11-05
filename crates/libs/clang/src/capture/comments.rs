@@ -2,21 +2,6 @@ use super::*;
 
 type Token = (CXTokenKind, String, CXSourceLocation, u32);
 
-fn expansion(location: CXSourceLocation) -> (CXFile, u32) {
-    let mut file = std::ptr::null_mut();
-    let mut offset = 0;
-    unsafe {
-        clang_getExpansionLocation(
-            location,
-            &raw mut file,
-            std::ptr::null_mut(),
-            std::ptr::null_mut(),
-            &raw mut offset,
-        );
-    }
-    (file, offset)
-}
-
 /// Tokens of `owner`'s extent, or `None` when the extent spans more than one expansion file.
 fn tokens(owner: CXCursor) -> Option<Vec<Token>> {
     let unit = unsafe { clang_Cursor_getTranslationUnit(owner) };

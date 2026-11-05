@@ -73,7 +73,6 @@ pub(super) fn discover(
     if candidates.is_empty() {
         return Ok((accepted, functions, issues));
     }
-    profile::count("candidates", candidates.len());
     let names: Vec<_> = candidates.keys().map(String::as_str).collect();
     let probes = probe(source, arguments, &names)?;
     for ((name, mut origin), probe) in candidates.into_iter().zip(probes) {
@@ -104,14 +103,12 @@ pub(super) fn discover(
         }
         match kind {
             WindowsClangMacroEmpty => {
-                profile::count("empty", 1);
                 issues.reject(
                     partial::Key::Macro(name),
                     format!("{target:?}: {origin}: empty macro replacement is not an expression"),
                 );
             }
             WindowsClangMacroRejected => {
-                profile::count("rejected", 1);
                 issues.reject(
                     partial::Key::Macro(name),
                     format!("{target:?}: {origin}: expression probe failed:\n{diagnostics}"),
@@ -161,26 +158,11 @@ struct Probe {
 }
 
 fn probe(source: &Source, arguments: &[String], names: &[&str]) -> Result<Vec<Probe>, Error> {
-    let names = names
-        .iter()
-        .map(|name| CString::new(*name).map_err(|error| Error(error.to_string())))
-        .collect::<Result<Vec<_>, _>>()?;
+    let names = c_strings(names)?;
     let names: Vec<_> = names.iter().map(|name| name.as_ptr()).collect();
-    let args = arguments
-        .iter()
-        .map(|arg| CString::new(arg.as_str()).map_err(|error| Error(error.to_string())))
-        .collect::<Result<Vec<_>, _>>()?;
+    let args = c_strings(arguments)?;
     let args: Vec<_> = args.iter().map(|arg| arg.as_ptr()).collect();
-    let mut unsaved = CXUnsavedFile {
-        Filename: source.name.as_ptr(),
-        Contents: source.text.as_ptr(),
-        Length: source
-            .text
-            .as_bytes()
-            .len()
-            .try_into()
-            .map_err(|_| Error("source too large".into()))?,
-    };
+    let mut unsaved = source.unsaved()?;
     let mut probes = vec![WindowsClangMacroProbe::default(); names.len()];
     let mut error = CXString::default();
     // One incremental parse checks every candidate's active definition in its own probe input.
