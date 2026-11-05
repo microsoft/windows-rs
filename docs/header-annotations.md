@@ -398,6 +398,7 @@ language-neutral API facts.
 | `iid_is` | `ComOutPtr` |
 | `buffer(count)`, `buffer(bytes(count))` | `Buffer`, with `CountConst` or `CountParamIndex`, plus `Dereference` and `Bytes` when needed |
 | `null_terminated`, `encoding` | `NullTerminated`, `Encoding` |
+| `null_null_terminated` | `NullNullTerminated` |
 | `must_use`, `noreturn`, `deprecated` | `MustUse`, `DoesNotReturn`, `Deprecated` |
 | `library("dll", import = "name")` | ImplMap `ImportScope` and `ImportName` |
 | `extern fn`, `extern "C" fn` | ImplMap calling-convention flags on imports; `System.Runtime.InteropServices.UnmanagedFunctionPointer` on named callbacks |
