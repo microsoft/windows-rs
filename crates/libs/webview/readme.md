@@ -13,7 +13,7 @@ machines.
 
 ```toml
 [dependencies]
-windows-webview = "0.100"
+windows-webview = "0.101"
 ```
 
 ```rust,no_run

@@ -15,7 +15,7 @@ The default `system` feature accepts a `windows-window` owner:
 ```toml
 [dependencies]
 windows-pickers = "0.100"
-windows-window = "0.100"
+windows-window = "0.101"
 ```
 
 ```rust,no_run

@@ -12,8 +12,8 @@ The crate does not draw, request frames, or run a timer.
 
 ```toml
 [dependencies]
-windows-animation = "0.100"
-windows-core = "0.100"
+windows-animation = "0.101"
+windows-core = "0.101"
 ```
 
 ```rust,no_run

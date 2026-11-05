@@ -18,7 +18,7 @@ For RDL output, enable `projection`:
 
 ```toml
 [dependencies]
-windows-clang = { version = "0.100", features = ["projection"] }
+windows-clang = { version = "0.101", features = ["projection"] }
 ```
 
 ## Generate RDL

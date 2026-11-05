@@ -12,7 +12,7 @@ Reactor is a preview; public APIs may change.
 
 ```toml
 [dependencies]
-windows-reactor = "0.100"
+windows-reactor = "0.101"
 ```
 
 Apps use an installed Windows App Runtime by default. To ship the runtime with your app, configure

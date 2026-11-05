@@ -11,7 +11,7 @@ APIs, with arithmetic and transform helpers.
 
 ```toml
 [dependencies]
-windows-numerics = "0.100"
+windows-numerics = "0.101"
 ```
 
 ```rust

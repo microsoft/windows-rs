@@ -12,7 +12,7 @@ substitute for Rust borrowing, `Box`, or `Option`.
 
 ```toml
 [dependencies]
-windows-reference = "0.100"
+windows-reference = "0.101"
 ```
 
 ```rust

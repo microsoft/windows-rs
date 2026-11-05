@@ -12,7 +12,7 @@ Windows compose it without an application frame loop.
 
 ```toml
 [dependencies]
-windows-composition = "0.100"
+windows-composition = "0.101"
 ```
 
 ```rust,no_run

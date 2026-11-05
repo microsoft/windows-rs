@@ -12,7 +12,7 @@ your own code names them.
 
 ```toml
 [dependencies]
-windows-core = "0.100"
+windows-core = "0.101"
 ```
 
 ```rust

@@ -12,7 +12,7 @@ Use them at Windows API boundaries rather than substituting `Duration` or `Syste
 
 ```toml
 [dependencies]
-windows-time = "0.100"
+windows-time = "0.101"
 ```
 
 ```rust

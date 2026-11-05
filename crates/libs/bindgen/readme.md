@@ -15,10 +15,10 @@ dependency:
 
 ```toml
 [dependencies]
-windows-link = "0.100"
+windows-link = "0.100.1"
 
 [build-dependencies]
-windows-bindgen = "0.100"
+windows-bindgen = "0.101"
 ```
 
 In `build.rs`:
