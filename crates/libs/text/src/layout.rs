@@ -1,4 +1,5 @@
 use super::*;
+use std::ops::{Range, RangeBounds};
 
 /// Measured size and position of laid-out text, in device-independent pixels.
 ///
@@ -51,13 +52,74 @@ pub struct HitTest {
     pub bounds: Rect,
 }
 
+/// The metrics of one line in a [`TextLayout`].
+///
+/// Returned by [`TextLayout::line_metrics`].
+#[derive(Clone, Debug, PartialEq)]
+#[non_exhaustive]
+pub struct LineMetrics {
+    /// UTF-8 byte range of the line, including trailing whitespace and the newline.
+    pub text_range: Range<usize>,
+    /// UTF-8 byte length of the whitespace at the end of the line, including the newline.
+    pub trailing_whitespace_length: usize,
+    /// UTF-8 byte length of the newline at the end of the line, or zero.
+    pub newline_length: usize,
+    /// Height of the line.
+    pub height: f32,
+    /// Distance from the top of the line to its baseline.
+    pub baseline: f32,
+    /// `true` if the line is trimmed.
+    pub is_trimmed: bool,
+}
+
+/// The metrics of one cluster in a [`TextLayout`].
+///
+/// Returned by [`TextLayout::cluster_metrics`].
+#[derive(Clone, Debug, PartialEq)]
+#[non_exhaustive]
+pub struct ClusterMetrics {
+    /// UTF-8 byte range of the cluster.
+    pub text_range: Range<usize>,
+    /// Advance width of the cluster.
+    pub width: f32,
+    /// `true` if a line can break after the cluster.
+    pub can_wrap_line_after: bool,
+    /// `true` if the cluster is whitespace.
+    pub is_whitespace: bool,
+    /// `true` if the cluster is a newline.
+    pub is_newline: bool,
+    /// `true` if the cluster is a soft hyphen.
+    pub is_soft_hyphen: bool,
+    /// `true` if the cluster is read right to left.
+    pub is_right_to_left: bool,
+}
+
+/// An OpenType font feature, such as `liga` for standard ligatures or `tnum` for tabular figures.
+///
+/// Applied with [`TextLayout::set_font_features`].
+#[derive(Copy, Clone, Debug, PartialEq, Eq, Hash)]
+pub struct FontFeature {
+    /// The four-character feature tag.
+    pub tag: [u8; 4],
+    /// The feature value. Most features use 1 to enable and 0 to disable; some select an
+    /// alternate glyph by index.
+    pub value: u32,
+}
+
+impl FontFeature {
+    /// Creates a feature from its tag and value, such as `FontFeature::new(b"liga", 0)`.
+    pub const fn new(tag: &[u8; 4], value: u32) -> Self {
+        Self { tag: *tag, value }
+    }
+}
+
 /// A block of text laid out within a box, ready to measure, hit-test, and draw.
 ///
 /// A layout shapes the text once, then answers geometry queries without re-shaping. Text
 /// positions are UTF-8 byte offsets into the string passed to [`TextLayout::new`].
 pub struct TextLayout {
     raw: IDWriteTextLayout,
-    text: Box<str>,
+    offsets: Offsets,
 }
 
 // A layout can move to another thread. It is not `Sync`, because DirectWrite does not document
@@ -68,7 +130,8 @@ impl TextLayout {
     /// Lays out `text` with `format` inside a box of `max_width` by `max_height`
     /// device-independent pixels. Wrapping and alignment come from the [`TextFormat`].
     pub fn new(text: &str, format: &TextFormat, max_width: f32, max_height: f32) -> Result<Self> {
-        let wide: Vec<u16> = text.encode_utf16().collect();
+        let offsets = Offsets::new(text);
+        let wide = offsets.to_utf16();
         let raw = unsafe {
             factory().CreateTextLayout(
                 wide.as_ptr(),
@@ -78,15 +141,12 @@ impl TextLayout {
                 max_height,
             )?
         };
-        Ok(Self {
-            raw,
-            text: text.into(),
-        })
+        Ok(Self { raw, offsets })
     }
 
     /// Returns the text being laid out.
     pub fn text(&self) -> &str {
-        &self.text
+        self.offsets.text()
     }
 
     /// Measures the laid-out text.
@@ -115,8 +175,8 @@ impl TextLayout {
                 .HitTestPoint(point.x, point.y, &mut trailing, &mut inside, &mut m)
                 .unwrap();
         }
-        let start = utf8_offset(&self.text, m.textPosition);
-        let end = utf8_offset(&self.text, m.textPosition + m.length);
+        let start = self.offsets.utf8(m.textPosition);
+        let end = self.offsets.utf8(m.textPosition + m.length);
         HitTest {
             text_position: start,
             length: end - start,
@@ -137,7 +197,7 @@ impl TextLayout {
         unsafe {
             self.raw
                 .HitTestTextPosition(
-                    utf16_offset(&self.text, position),
+                    self.offsets.utf16(position),
                     trailing,
                     &mut x,
                     &mut y,
@@ -161,6 +221,170 @@ impl TextLayout {
         }
     }
 
+    /// Returns the metrics of each line, in order.
+    pub fn line_metrics(&self) -> Vec<LineMetrics> {
+        let lines =
+            read_array(|buffer, len, count| unsafe { self.raw.GetLineMetrics(buffer, len, count) });
+
+        let mut utf8 = self.offsets.utf8_cursor();
+        let mut start = 0;
+
+        lines
+            .iter()
+            .map(|line| {
+                let end = start + line.length;
+                let text_start = utf8(start);
+                let whitespace = utf8(end - line.trailingWhitespaceLength);
+                let newline = utf8(end - line.newlineLength);
+                let text_end = utf8(end);
+                start = end;
+
+                LineMetrics {
+                    text_range: text_start..text_end,
+                    trailing_whitespace_length: text_end - whitespace,
+                    newline_length: text_end - newline,
+                    height: line.height,
+                    baseline: line.baseline,
+                    is_trimmed: line.isTrimmed.as_bool(),
+                }
+            })
+            .collect()
+    }
+
+    /// Returns the metrics of each cluster, in text order. A cluster is the smallest unit of text
+    /// a caret can move across, such as a character with its combining marks or a ligature.
+    pub fn cluster_metrics(&self) -> Vec<ClusterMetrics> {
+        let clusters = read_array(|buffer, len, count| unsafe {
+            self.raw.GetClusterMetrics(buffer, len, count)
+        });
+
+        let mut utf8 = self.offsets.utf8_cursor();
+        let mut start = 0;
+
+        clusters
+            .iter()
+            .map(|cluster| {
+                let end = start + u32::from(cluster.length);
+                let text_range = utf8(start)..utf8(end);
+                start = end;
+
+                ClusterMetrics {
+                    text_range,
+                    width: cluster.width,
+                    can_wrap_line_after: cluster.canWrapLineAfter() != 0,
+                    is_whitespace: cluster.isWhitespace() != 0,
+                    is_newline: cluster.isNewline() != 0,
+                    is_soft_hyphen: cluster.isSoftHyphen() != 0,
+                    is_right_to_left: cluster.isRightToLeft() != 0,
+                }
+            })
+            .collect()
+    }
+
+    /// Returns the rectangles covering `range`, a UTF-8 byte range, relative to the layout box.
+    /// A range that spans lines or changes direction has more than one rectangle. Use this to
+    /// draw a selection.
+    pub fn range_bounds(&self, range: impl RangeBounds<usize>) -> Vec<Rect> {
+        let range = self.offsets.range(range);
+        let hits = read_array(|buffer, len, count| unsafe {
+            self.raw.HitTestTextRange(
+                range.startPosition,
+                range.length,
+                0.0,
+                0.0,
+                buffer,
+                len,
+                count,
+            )
+        });
+
+        hits.iter()
+            .map(|m| Rect::from_xywh(m.left, m.top, m.width, m.height))
+            .collect()
+    }
+
+    /// Sets the font family for `range`, a UTF-8 byte range. The family comes from the format's
+    /// collection unless [`set_font_collection`](Self::set_font_collection) changes it.
+    pub fn set_font_family(&mut self, range: impl RangeBounds<usize>, family: &str) {
+        let range = self.offsets.range(range);
+        unsafe {
+            self.raw
+                .SetFontFamilyName(wide(family).as_ptr(), range)
+                .unwrap();
+        }
+    }
+
+    /// Sets the font collection that family names are found in for `range`.
+    pub fn set_font_collection(
+        &mut self,
+        range: impl RangeBounds<usize>,
+        collection: &FontCollection,
+    ) {
+        let range = self.offsets.range(range);
+        unsafe {
+            self.raw.SetFontCollection(collection.raw(), range).unwrap();
+        }
+    }
+
+    /// Sets the font size, in device-independent pixels, for `range`.
+    pub fn set_font_size(&mut self, range: impl RangeBounds<usize>, size: f32) {
+        let range = self.offsets.range(range);
+        unsafe { self.raw.SetFontSize(size, range).unwrap() };
+    }
+
+    /// Sets the font weight for `range`.
+    pub fn set_font_weight(&mut self, range: impl RangeBounds<usize>, weight: FontWeight) {
+        let range = self.offsets.range(range);
+        unsafe { self.raw.SetFontWeight(weight.0.into(), range).unwrap() };
+    }
+
+    /// Sets the font style for `range`.
+    pub fn set_font_style(&mut self, range: impl RangeBounds<usize>, style: FontStyle) {
+        let range = self.offsets.range(range);
+        unsafe { self.raw.SetFontStyle(style.to_abi(), range).unwrap() };
+    }
+
+    /// Underlines `range`, or removes the underline.
+    pub fn set_underline(&mut self, range: impl RangeBounds<usize>, underline: bool) {
+        let range = self.offsets.range(range);
+        unsafe { self.raw.SetUnderline(underline, range).unwrap() };
+    }
+
+    /// Strikes through `range`, or removes the strikethrough.
+    pub fn set_strikethrough(&mut self, range: impl RangeBounds<usize>, strikethrough: bool) {
+        let range = self.offsets.range(range);
+        unsafe { self.raw.SetStrikethrough(strikethrough, range).unwrap() };
+    }
+
+    /// Shapes `range` with the OpenType `features`, such as `liga` or `tnum`. The list replaces
+    /// the features DirectWrite applies by default, so include any defaults to keep, such as
+    /// `liga` and `kern`. An empty list restores the defaults. Pass `..` for all of the text.
+    pub fn set_font_features(&mut self, range: impl RangeBounds<usize>, features: &[FontFeature]) {
+        let range = self.offsets.range(range);
+
+        if features.is_empty() {
+            unsafe {
+                self.raw
+                    .SetTypography(None::<&IDWriteTypography>, range)
+                    .unwrap();
+            }
+            return;
+        }
+
+        unsafe {
+            let typography = factory().CreateTypography().unwrap();
+            for feature in features {
+                typography
+                    .AddFontFeature(DWRITE_FONT_FEATURE {
+                        nameTag: i32::from_le_bytes(feature.tag),
+                        parameter: feature.value,
+                    })
+                    .unwrap();
+            }
+            self.raw.SetTypography(&typography, range).unwrap();
+        }
+    }
+
     /// Casts the underlying `IDWriteTextLayout` to `T`.
     ///
     /// Use this to draw the layout with Direct2D or query DirectWrite through your own bindings,
@@ -171,23 +395,20 @@ impl TextLayout {
     }
 }
 
-/// Converts a UTF-8 byte offset to a UTF-16 code-unit offset. Panics if `offset` is not a
-/// character boundary in `text`.
-fn utf16_offset(text: &str, offset: usize) -> u32 {
-    text[..offset].encode_utf16().count().try_into().unwrap()
-}
-
-/// Converts a UTF-16 code-unit offset to a UTF-8 byte offset, rounding down to a character
-/// boundary and clamping to the end of `text`.
-fn utf8_offset(text: &str, offset: u32) -> usize {
-    let offset = offset as usize;
-    let mut utf16 = 0;
-    for (byte, ch) in text.char_indices() {
-        let next = utf16 + ch.len_utf16();
-        if next > offset {
-            return byte;
-        }
-        utf16 = next;
+// Calls a DirectWrite method that fills a caller-supplied array, first to get the length and then
+// to fill it.
+fn read_array<T: Clone + Default>(
+    read: impl Fn(Option<*mut T>, u32, *mut u32) -> HRESULT,
+) -> Vec<T> {
+    let mut len = 0;
+    let result = read(None, 0, &mut len);
+    if len == 0 {
+        result.unwrap();
+        return Vec::new();
     }
-    text.len()
+
+    let mut buffer = vec![T::default(); len as usize];
+    read(Some(buffer.as_mut_ptr()), len, &mut len).unwrap();
+    buffer.truncate(len as usize);
+    buffer
 }

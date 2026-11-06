@@ -16,11 +16,15 @@
     DWRITE_WORD_WRAPPING_WRAP
     DWRITE_WORD_WRAPPING_NO_WRAP
     DWRITE_TEXT_METRICS
+    DWRITE_TEXT_RANGE
+    DWRITE_LINE_METRICS
+    DWRITE_CLUSTER_METRICS
+    DWRITE_FONT_FEATURE
     DWRITE_HIT_TEST_METRICS
     DWriteCreateFactory
     GetUserDefaultLocaleName
     LOCALE_NAME_MAX_LENGTH
-    IDWriteFactory::{CreateTextFormat, CreateTextLayout, RegisterFontFileLoader}
+    IDWriteFactory::{CreateTextFormat, CreateTextLayout, CreateTypography, RegisterFontFileLoader}
     IDWriteFactory2::{CreateFontFallbackBuilder, GetSystemFontFallback}
     IDWriteFactory3::{CreateFontCollectionFromFontSet, GetSystemFontCollection}
     IDWriteFactory5::{CreateFontSetBuilder, CreateInMemoryFontFileLoader}
@@ -38,4 +42,7 @@
     IDWriteLocalizedStrings::{FindLocaleName, GetString, GetStringLength}
     IDWriteTextFormat::{SetTextAlignment, SetParagraphAlignment, SetWordWrapping}
     IDWriteTextFormat1::SetFontFallback
-    IDWriteTextLayout::{GetMetrics, HitTestPoint, HitTestTextPosition, GetMaxWidth, GetMaxHeight, SetMaxWidth, SetMaxHeight}
+    IDWriteTextLayout::{GetMetrics, HitTestPoint, HitTestTextPosition, HitTestTextRange, GetMaxWidth, GetMaxHeight, SetMaxWidth, SetMaxHeight}
+    IDWriteTextLayout::{GetClusterMetrics, GetLineMetrics}
+    IDWriteTextLayout::{SetFontCollection, SetFontFamilyName, SetFontSize, SetFontStyle, SetFontWeight, SetStrikethrough, SetTypography, SetUnderline}
+    IDWriteTypography::AddFontFeature

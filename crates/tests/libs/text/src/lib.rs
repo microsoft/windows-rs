@@ -142,19 +142,19 @@ mod tests {
 
     #[test]
     fn positions_are_utf8_offsets() {
-        // 'a' is 1 byte, 'e' with acute is 2 bytes, the emoji is 4 bytes (a UTF-16 surrogate
-        // pair), and 'b' is 1 byte.
-        let text = "a\u{e9}\u{1f600}b";
+        // 'a' is 1 byte, 'e' with acute is 2 bytes, the euro sign is 3 bytes, the emoji is 4 bytes
+        // (a UTF-16 surrogate pair), and 'b' is 1 byte.
+        let text = "a\u{e9}\u{20ac}\u{1f600}b";
         let layout = layout(text);
 
-        let carets: Vec<f32> = [0, 1, 3, 7, 8]
+        let carets: Vec<f32> = [0, 1, 3, 6, 10, 11]
             .into_iter()
             .map(|i| layout.caret_bounds(i, false).left)
             .collect();
         assert!(carets.windows(2).all(|w| w[1] > w[0]));
         assert_eq!(
-            layout.caret_bounds(3, true).left,
-            layout.caret_bounds(7, false).left
+            layout.caret_bounds(6, true).left,
+            layout.caret_bounds(10, false).left
         );
 
         for (start, ch) in text.char_indices() {
@@ -322,6 +322,145 @@ mod tests {
         // Families without the character leave it to the system fallback.
         let fallback = FontFallback::new(&system, &["Consolas"]);
         assert_eq!(width(Some(&fallback)), width(None));
+    }
+
+    fn ranges(clusters: &[ClusterMetrics]) -> Vec<(usize, usize)> {
+        clusters
+            .iter()
+            .map(|c| (c.text_range.start, c.text_range.end))
+            .collect()
+    }
+
+    #[test]
+    fn range_formatting() {
+        let mut text = layout("ab");
+        let height = text.metrics().height;
+        text.set_font_size(1..2, 48.0);
+        assert!(text.metrics().height > height);
+
+        let mut text = layout("iiiiWWWW");
+        let widths = |text: &TextLayout| {
+            let clusters = text.cluster_metrics();
+            (clusters[0].width, clusters[7].width)
+        };
+        let (narrow, wide) = widths(&text);
+        assert!(narrow < wide);
+        text.set_font_family(.., "Consolas");
+        let (narrow, wide) = widths(&text);
+        assert_eq!(narrow, wide);
+
+        let mut text = layout("Hello");
+        let width = text.metrics().width;
+        text.set_font_weight(.., FontWeight::BLACK);
+        assert!(text.metrics().width > width);
+
+        let mut text = layout("Hello");
+        let collection = FontCollection::system();
+        text.set_font_collection(.., &collection);
+        text.set_font_style(..2, FontStyle::Italic);
+        text.set_underline(1..3, true);
+        text.set_strikethrough(2.., true);
+        text.set_underline(.., false);
+        assert_eq!(text.metrics().line_count, 1);
+    }
+
+    #[test]
+    fn font_features() {
+        let format = TextFormat::new("Calibri", 24.0).unwrap();
+        let mut layout = TextLayout::new("fi", &format, 400.0, 200.0).unwrap();
+        assert_eq!(ranges(&layout.cluster_metrics()), [(0, 2)]);
+
+        layout.set_font_features(.., &[FontFeature::new(b"liga", 0)]);
+        assert_eq!(ranges(&layout.cluster_metrics()), [(0, 1), (1, 2)]);
+
+        // The features replace the defaults, so ligatures need `liga` in the list.
+        layout.set_font_features(.., &[FontFeature::new(b"kern", 1)]);
+        assert_eq!(ranges(&layout.cluster_metrics()), [(0, 1), (1, 2)]);
+        layout.set_font_features(.., &[FontFeature::new(b"liga", 1)]);
+        assert_eq!(ranges(&layout.cluster_metrics()), [(0, 2)]);
+
+        layout.set_font_features(.., &[FontFeature::new(b"kern", 1)]);
+        layout.set_font_features(.., &[]);
+        assert_eq!(ranges(&layout.cluster_metrics()), [(0, 2)]);
+    }
+
+    #[test]
+    #[should_panic]
+    fn range_must_be_on_char_boundaries() {
+        layout("\u{e9}").set_underline(0..1, true);
+    }
+
+    #[test]
+    fn line_metrics() {
+        let lines = layout("one\r\ntwo \n\u{e9}\u{1f600}").line_metrics();
+        assert_eq!(lines.len(), 3);
+        assert_eq!(lines[0].text_range, 0..5);
+        assert_eq!(lines[0].newline_length, 2);
+        assert_eq!(lines[0].trailing_whitespace_length, 2);
+        assert_eq!(lines[1].text_range, 5..10);
+        assert_eq!(lines[1].newline_length, 1);
+        assert_eq!(lines[1].trailing_whitespace_length, 2);
+        assert_eq!(lines[2].text_range, 10..16);
+        assert_eq!(lines[2].newline_length, 0);
+        assert!(
+            lines
+                .iter()
+                .all(|line| line.height > 0.0 && line.baseline > 0.0)
+        );
+
+        let format = TextFormat::new("Segoe UI", 24.0).unwrap();
+        let wrapped = TextLayout::new("aaaa bbbb", &format, 70.0, 200.0).unwrap();
+        let lines = wrapped.line_metrics();
+        assert_eq!(lines.len(), 2);
+        assert_eq!(lines[0].text_range, 0..5);
+        assert_eq!(lines[0].trailing_whitespace_length, 1);
+        assert_eq!(lines[1].text_range, 5..9);
+
+        let bounds = wrapped.range_bounds(..);
+        assert_eq!(bounds.len(), 2);
+        assert!(bounds[0].top < bounds[1].top);
+        assert_eq!(wrapped.range_bounds(1..3).len(), 1);
+    }
+
+    #[test]
+    fn cluster_metrics() {
+        let clusters = layout("a e\u{301}\u{1f600}\n").cluster_metrics();
+        assert_eq!(ranges(&clusters), [(0, 1), (1, 2), (2, 5), (5, 9), (9, 10)]);
+        assert!(clusters[1].is_whitespace && clusters[1].can_wrap_line_after);
+        assert!(clusters[4].is_newline);
+        assert!(!clusters[0].is_whitespace && !clusters[0].is_right_to_left);
+
+        assert!(layout("\u{5d0}").cluster_metrics()[0].is_right_to_left);
+        assert!(layout("").cluster_metrics().is_empty());
+    }
+
+    #[test]
+    fn long_text_offsets() {
+        // Characters of every UTF-8 length, so that chunks of the offset index split them.
+        let text = "a\u{e9}\u{20ac}\u{1f600}".repeat(100);
+        let format = TextFormat::new("Segoe UI", 24.0).unwrap();
+        let layout = TextLayout::new(&text, &format, 1e6, 200.0).unwrap();
+
+        let clusters = layout.cluster_metrics();
+        let expected: Vec<_> = text
+            .char_indices()
+            .map(|(index, ch)| (index, index + ch.len_utf8()))
+            .collect();
+        assert_eq!(ranges(&clusters), expected);
+
+        let mut left = 0.0;
+        for cluster in &clusters {
+            let start = cluster.text_range.start;
+            let caret = layout.caret_bounds(start, false);
+            assert!((caret.left - left).abs() < 0.01);
+
+            let hit = layout.hit_test_point(Vector2::new(left + cluster.width / 2.0, 10.0));
+            assert_eq!(
+                hit.text_position..hit.text_position + hit.length,
+                cluster.text_range
+            );
+            left += cluster.width;
+        }
     }
 
     #[test]
