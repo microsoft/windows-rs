@@ -68,7 +68,7 @@ fn rasterize(layout: &TextLayout, scale: f32) -> Target {
     let metrics = layout.metrics();
     let mut target = Target {
         width: (metrics.layout_width * scale).ceil() as usize,
-        height: ((metrics.top + metrics.height) * scale).ceil() as usize,
+        height: (metrics.bounds().bottom * scale).ceil() as usize,
         pixels: Vec::new(),
     };
     target.pixels = vec![0; target.width * target.height * 4];
@@ -126,13 +126,13 @@ fn draw(ctx: &DrawContext) -> Result<()> {
     let mut layout = TextLayout::new(TEXT, &format, width, ctx.height)?;
     let underline = TEXT.find("underline").unwrap();
     layout.set_underline(underline..underline + "underline".len(), true);
-    let height = layout.metrics().top + layout.metrics().height;
+    let bottom = layout.metrics().bounds().bottom;
 
     let label = TextLayout::new("Direct2D", &label_format, ctx.width, MARGIN)?;
     ctx.draw_text_layout(Vector2::new(MARGIN, MARGIN), &label, &dim);
     ctx.draw_text_layout(Vector2::new(MARGIN, 2.0 * MARGIN), &layout, &white);
 
-    let y = 3.0 * MARGIN + height;
+    let y = 3.0 * MARGIN + bottom;
     let label = TextLayout::new("Glyph runs, by hand", &label_format, ctx.width, MARGIN)?;
     ctx.draw_text_layout(Vector2::new(MARGIN, y), &label, &dim);
 

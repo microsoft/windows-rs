@@ -52,6 +52,20 @@ pub struct HitTest {
     pub bounds: Rect,
 }
 
+impl HitTest {
+    /// The UTF-8 byte offset of the caret nearest the point: before the cluster, or after it for
+    /// a trailing hit. Use this to place a caret or extend a selection. To draw the caret, pass
+    /// `text_position` and `is_trailing_hit` to [`TextLayout::caret_bounds`], which keeps a caret
+    /// at the end of a wrapped line on that line.
+    pub fn caret_position(&self) -> usize {
+        if self.is_trailing_hit {
+            self.text_position + self.length
+        } else {
+            self.text_position
+        }
+    }
+}
+
 /// The metrics of one line in a [`TextLayout`].
 ///
 /// Returned by [`TextLayout::line_metrics`].
@@ -64,6 +78,8 @@ pub struct LineMetrics {
     pub trailing_whitespace_length: usize,
     /// UTF-8 byte length of the newline at the end of the line, or zero.
     pub newline_length: usize,
+    /// Top edge of the line relative to the layout box.
+    pub top: f32,
     /// Height of the line.
     pub height: f32,
     /// Distance from the top of the line to its baseline.
@@ -222,12 +238,15 @@ impl TextLayout {
 
     /// Returns the metrics of each line, in order.
     pub fn line_metrics(&self) -> Vec<LineMetrics> {
-        let lines = read_array(self.metrics().line_count, |buffer, len, count| unsafe {
+        let metrics = self.metrics();
+        let lines = read_array(metrics.line_count, |buffer, len, count| unsafe {
             self.raw.GetLineMetrics(buffer, len, count)
         });
 
         let mut cursor = self.offsets.cursor();
         let mut start = 0;
+        // Lines stack down from the top of the text.
+        let mut top = metrics.top;
 
         lines
             .iter()
@@ -239,11 +258,14 @@ impl TextLayout {
                 let newline = cursor.utf8(end - line.newlineLength);
                 let text_end = cursor.utf8(end);
                 start = end;
+                let line_top = top;
+                top += line.height;
 
                 LineMetrics {
                     text_range: text_start..text_end,
                     trailing_whitespace_length: text_end - whitespace,
                     newline_length: text_end - newline,
+                    top: line_top,
                     height: line.height,
                     baseline: line.baseline,
                 }
