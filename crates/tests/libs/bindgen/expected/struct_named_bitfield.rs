@@ -172,18 +172,18 @@ pub union ScopedUnion {
     pub All: i16,
 }
 impl ScopedUnion {
-    pub fn Signed(&self) -> i16 {
+    pub unsafe fn Signed(&self) -> i16 {
         (((((unsafe { self._bitfield }).0 as u16) & 31) as i16) << 11) >> 11
     }
-    pub fn set_Signed(&mut self, value: i16) {
+    pub unsafe fn set_Signed(&mut self, value: i16) {
         self._bitfield = ScopedKind(
             ((((unsafe { self._bitfield }).0 as u16) & !31) | ((value as u16) & 31)) as i16,
         );
     }
-    pub fn Flag(&self) -> bool {
+    pub unsafe fn Flag(&self) -> bool {
         ((((unsafe { self._bitfield }).0 as u16) >> 5) & 1) != 0
     }
-    pub fn set_Flag(&mut self, value: bool) {
+    pub unsafe fn set_Flag(&mut self, value: bool) {
         self._bitfield = ScopedKind(
             ((((unsafe { self._bitfield }).0 as u16) & !(1 << 5)) | (((value as u16) & 1) << 5))
                 as i16,

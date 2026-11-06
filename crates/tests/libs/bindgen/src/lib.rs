@@ -14,6 +14,9 @@ mod abi_exports;
 #[cfg(all(test, windows))]
 mod abi_tests;
 
+#[cfg(test)]
+mod record_tests;
+
 #[test]
 fn associated_enum_storage_and_sign_extension() {
     use associated_enum::*;
@@ -327,10 +330,12 @@ fn named_bitfield_storage() {
     enumerated.set_Flag(true);
     assert_eq!((enumerated.Signed(), enumerated.Flag()), (-3, true));
     let mut union = ScopedUnion { All: 0x4000 };
-    union.set_Signed(-3);
-    union.set_Flag(true);
-    assert_eq!((union.Signed(), union.Flag()), (-3, true));
-    assert_eq!(unsafe { union.All }, 0x403d);
+    unsafe {
+        union.set_Signed(-3);
+        union.set_Flag(true);
+        assert_eq!((union.Signed(), union.Flag()), (-3, true));
+        assert_eq!(union.All, 0x403d);
+    }
     let mut typed = Typed {
         storage: Byte(0xa0),
     };

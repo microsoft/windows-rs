@@ -883,7 +883,7 @@ impl CppStruct {
                     accessors.push(backing.write_typed_accessor(
                         config,
                         &field_ident,
-                        (&read, &wrappers, unaligned),
+                        (&read, &wrappers, unaligned, unaligned || is_union),
                         (member, &ty),
                         (offset, width),
                         arch,
@@ -1122,14 +1122,14 @@ impl BitfieldBacking {
         &self,
         config: &Config,
         field: &TokenStream,
-        storage: (&TokenStream, &[TokenStream], bool),
+        storage: (&TokenStream, &[TokenStream], bool, bool),
         member: (&str, &Type),
         range: (u32, u32),
         arch: i32,
     ) -> TokenStream {
         let (member, ty) = member;
         let (offset, width) = range;
-        let (read, storage_wrappers, unaligned) = storage;
+        let (read, storage_wrappers, unaligned, unsafe_access) = storage;
         let (scalar, wrappers) = bitfield_scalar(ty, config, arch);
         let prim = &self.prim;
         let uprim = &self.uprim;
@@ -1237,25 +1237,16 @@ impl BitfieldBacking {
             let helper = Type::UnalignedHelper.type_name().write(config, &[]);
             set = quote! { #helper::new(#set) };
         }
-        let safety = unaligned.then(|| {
-            quote! {
-                /// # Safety
-                ///
-                /// The backing storage must be initialized.
-            }
-        });
-        let unsafety = unaligned.then(|| quote! { unsafe });
+        let unsafety = unsafe_access.then(|| quote! { unsafe });
         let getter = to_ident(member);
         let setter = to_ident(&format!("set_{member}"));
         let name = ty.write_name(config);
         quote! {
-            #safety
             pub #unsafety fn #getter(&self) -> #name {
                 #bounds
                 #member_bounds
                 #get
             }
-            #safety
             pub #unsafety fn #setter(&mut self, value: #name) {
                 #bounds
                 #member_bounds
