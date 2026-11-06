@@ -58,6 +58,11 @@ images. Text formats and layouts come from [windows-text](https://docs.rs/window
 dependency to draw text. `with_transform` scopes a transform without leaving it active for later
 commands. Drawing dimensions are in device-independent pixels.
 
+To call Direct2D or DXGI through other bindings, such as the `windows` crate, `as_interface`
+borrows the interface behind a `DrawingSession`, `Path`, or `SwapChain`, and `to_interface`
+queries for other interfaces. `DrawingSession::from_borrowed_context` accepts a device context
+from any bindings.
+
 See the [transform][transform], [text layout][text], and [circles][circles] samples.
 
 [standalone]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/canvas/standalone

@@ -627,7 +627,7 @@ impl CanvasRuntime {
             let Some(state) = state_slot.as_mut() else {
                 return;
             };
-            let raw: IUnknown = state.chain.raw_swap_chain().clone().into();
+            let raw: IUnknown = state.chain.swap_chain.clone().into();
             let chain = state.chain_generation;
             let Some(request) = state.lifecycle.begin_attachment(panel, chain) else {
                 return;

@@ -26,7 +26,6 @@ mod session;
 mod swap_chain;
 mod types;
 
-pub use bindings::ID2D1DeviceContext;
 use bindings::*;
 pub use device_lost::{check_device_lost, device_lost_error, is_device_lost};
 use std::cell::Cell;

@@ -30,9 +30,11 @@ impl<'a> DrawingSession<'a> {
 
     /// Wraps a context that is already inside a caller-owned `BeginDraw`/`EndDraw` bracket.
     ///
-    /// `offset` maps surface-local coordinates into a shared atlas while keeping caller-visible
-    /// transforms relative to `(0, 0)`.
-    pub fn from_borrowed_context(context: &'a ID2D1DeviceContext, offset: Matrix3x2) -> Self {
+    /// `context` is an `ID2D1DeviceContext` from any bindings, such as the `windows` crate; other
+    /// interfaces fail to build. `offset` maps surface-local coordinates into a shared atlas while
+    /// keeping caller-visible transforms relative to `(0, 0)`.
+    pub fn from_borrowed_context<T: Interface>(context: &'a T, offset: Matrix3x2) -> Self {
+        let context = context.as_interface::<ID2D1DeviceContext>();
         debug_assert!(
             offset.m11 == 1.0 && offset.m12 == 0.0 && offset.m21 == 0.0 && offset.m22 == 1.0,
             "offset must be a pure translation: get_transform decomposes it by negating m31/m32"
@@ -45,11 +47,14 @@ impl<'a> DrawingSession<'a> {
     }
 
     /// Wraps a borrowed context whose coordinates are device-independent pixels at `dpi`.
-    pub fn from_borrowed_context_with_dpi(
-        context: &'a ID2D1DeviceContext,
+    ///
+    /// See [`from_borrowed_context`](Self::from_borrowed_context).
+    pub fn from_borrowed_context_with_dpi<T: Interface>(
+        context: &'a T,
         offset: Matrix3x2,
         dpi: f32,
     ) -> Self {
+        let context = context.as_interface::<ID2D1DeviceContext>();
         unsafe { context.SetDpi(dpi, dpi) };
         Self::from_borrowed_context(context, offset)
     }
@@ -271,7 +276,7 @@ impl<'a> DrawingSession<'a> {
     pub fn draw_path(&self, path: &Path, brush: &impl Paint, width: f32) {
         unsafe {
             self.context
-                .DrawGeometry(path.raw(), brush.as_raw_brush(), width, None);
+                .DrawGeometry(&path.raw, brush.as_raw_brush(), width, None);
         }
     }
 
@@ -285,7 +290,7 @@ impl<'a> DrawingSession<'a> {
     ) {
         unsafe {
             self.context
-                .DrawGeometry(path.raw(), brush.as_raw_brush(), width, &style.0);
+                .DrawGeometry(&path.raw, brush.as_raw_brush(), width, &style.0);
         }
     }
 
@@ -293,7 +298,7 @@ impl<'a> DrawingSession<'a> {
     pub fn fill_path(&self, path: &Path, brush: &impl Paint) {
         unsafe {
             self.context
-                .FillGeometry(path.raw(), brush.as_raw_brush(), None);
+                .FillGeometry(&path.raw, brush.as_raw_brush(), None);
         }
     }
 
@@ -367,9 +372,18 @@ impl<'a> DrawingSession<'a> {
         self.set_transform(&prev);
     }
 
-    /// Returns the underlying Direct2D device context for interop.
-    pub fn raw(&self) -> &ID2D1DeviceContext {
-        self.context
+    /// Borrows the underlying `ID2D1DeviceContext` as `T` without a `QueryInterface` call.
+    ///
+    /// `T` is `ID2D1DeviceContext` from other bindings, such as the `windows` crate; other
+    /// interfaces fail to build. Use [`to_interface`](Self::to_interface) to query for other
+    /// interfaces.
+    pub fn as_interface<T: Interface>(&self) -> &T {
+        self.context.as_interface()
+    }
+
+    /// Casts the underlying `ID2D1DeviceContext` to `T`.
+    pub fn to_interface<T: Interface>(&self) -> Result<T> {
+        self.context.cast()
     }
 
     /// Creates a bitmap suitable for use as a render target.
