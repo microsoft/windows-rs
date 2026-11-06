@@ -61,7 +61,7 @@
     IDWriteGlyphRunAnalysis::{CreateAlphaTexture, GetAlphaTextureBounds}
     IDWriteInMemoryFontFileLoader::CreateInMemoryFontFileReference
     IDWriteLocalizedStrings::{FindLocaleName, GetString, GetStringLength}
-    IDWriteRenderingParams::{GetEnhancedContrast, GetGamma, GetPixelGeometry}
+    IDWriteRenderingParams::{GetClearTypeLevel, GetEnhancedContrast, GetGamma, GetPixelGeometry}
     IDWriteRenderingParams1::GetGrayscaleEnhancedContrast
     IDWriteTextFormat::{SetTextAlignment, SetParagraphAlignment, SetWordWrapping}
     IDWriteTextFormat1::SetFontFallback

@@ -1734,6 +1734,13 @@ impl IDWriteRenderingParams {
             )
         }
     }
+    pub(crate) unsafe fn GetClearTypeLevel(&self) -> FLOAT {
+        unsafe {
+            (windows_core::Interface::vtable(self).GetClearTypeLevel)(
+                windows_core::Interface::as_raw(self),
+            )
+        }
+    }
     pub(crate) unsafe fn GetPixelGeometry(&self) -> DWRITE_PIXEL_GEOMETRY {
         unsafe {
             (windows_core::Interface::vtable(self).GetPixelGeometry)(
@@ -1747,7 +1754,7 @@ pub struct IDWriteRenderingParams_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetGamma: unsafe extern "system" fn(*mut core::ffi::c_void) -> FLOAT,
     pub GetEnhancedContrast: unsafe extern "system" fn(*mut core::ffi::c_void) -> FLOAT,
-    GetClearTypeLevel: usize,
+    pub GetClearTypeLevel: unsafe extern "system" fn(*mut core::ffi::c_void) -> FLOAT,
     pub GetPixelGeometry:
         unsafe extern "system" fn(*mut core::ffi::c_void) -> DWRITE_PIXEL_GEOMETRY,
     GetRenderingMode: usize,

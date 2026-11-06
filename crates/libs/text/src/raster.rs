@@ -54,6 +54,9 @@ pub struct RenderingParams {
     pub grayscale_enhanced_contrast: f32,
     /// The contrast added to ClearType coverage before blending, where 0.0 adds none.
     pub enhanced_contrast: f32,
+    /// How much color ClearType adds, from 0.0 to 1.0. Below 1.0, mix each channel's coverage
+    /// with the average of the three: `level * channel + (1.0 - level) * average`.
+    pub cleartype_level: f32,
     /// Whether the user has ClearType font smoothing turned on. Use
     /// [`FontFace::rasterize_cleartype`] when it is on and the monitor has
     /// [`Rgb`](PixelGeometry::Rgb) or [`Bgr`](PixelGeometry::Bgr) stripes, and
@@ -99,6 +102,7 @@ impl RenderingParams {
                 gamma: params.GetGamma(),
                 grayscale_enhanced_contrast: params.GetGrayscaleEnhancedContrast(),
                 enhanced_contrast: params.GetEnhancedContrast(),
+                cleartype_level: params.GetClearTypeLevel(),
                 cleartype,
                 pixel_geometry,
             }

@@ -769,6 +769,7 @@ mod tests {
         assert!(params.gamma > 0.0);
         assert!(params.grayscale_enhanced_contrast >= 0.0);
         assert!(params.enhanced_contrast >= 0.0);
+        assert!((0.0..=1.0).contains(&params.cleartype_level));
         assert_eq!(params, RenderingParams::system());
     }
 
