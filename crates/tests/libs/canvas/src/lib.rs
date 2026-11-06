@@ -1237,4 +1237,54 @@ mod tests {
         let bold = Ink::render(200, 40, &text_layout("Weight", &bold, 200.0), origin);
         assert!(bold.total() > normal.total() * 5 / 4);
     }
+
+    #[test]
+    fn underline_and_strikethrough_have_ink() {
+        let format = TextFormat::new("Segoe UI", 24.0).unwrap();
+        let origin = Vector2::new(0.0, 0.0);
+        let plain = Ink::render(200, 40, &text_layout("aaaa", &format, 200.0), origin).bounds();
+
+        let mut underlined = text_layout("aaaa", &format, 200.0);
+        underlined.set_underline(.., true);
+        let underlined = Ink::render(200, 40, &underlined, origin).bounds();
+        assert!(underlined.bottom > plain.bottom, "{underlined:?} {plain:?}");
+
+        // The spaces between the glyphs have no ink until they are struck through.
+        let mut struck = text_layout("a    a", &format, 200.0);
+        let spaces = struck.range_bounds(2..4)[0];
+        let lit = |ink: &Ink| {
+            let (left, right) = (spaces.left as usize, spaces.right as usize);
+            ink.coverage
+                .chunks_exact(ink.width)
+                .enumerate()
+                .filter(|(_, row)| row[left..right].iter().all(|c| *c > 0))
+                .map(|(y, _)| y as f32)
+                .collect::<Vec<_>>()
+        };
+        assert!(lit(&Ink::render(200, 40, &struck, origin)).is_empty());
+        struck.set_strikethrough(1..5, true);
+        let rows = lit(&Ink::render(200, 40, &struck, origin));
+        assert!(!rows.is_empty());
+        // The line crosses the glyphs above the baseline.
+        let baseline = struck.line_metrics()[0].baseline;
+        assert!(
+            rows.iter().all(|y| *y > spaces.top && *y < baseline),
+            "{rows:?} {baseline}"
+        );
+    }
+
+    #[test]
+    fn range_weight_has_more_ink() {
+        let format = TextFormat::new("Segoe UI", 24.0).unwrap();
+        let origin = Vector2::new(0.0, 0.0);
+        let ink = |bold: std::ops::Range<usize>| {
+            let mut layout = text_layout("WeightWeight", &format, 300.0);
+            layout.set_font_weight(bold, windows_text::FontWeight::BOLD);
+            Ink::render(300, 40, &layout, origin).total()
+        };
+        let normal = ink(0..0);
+        let half = ink(6..12);
+        let bold = ink(0..12);
+        assert!(normal < half && half < bold, "{normal} {half} {bold}");
+    }
 }

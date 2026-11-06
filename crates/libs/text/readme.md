@@ -37,6 +37,30 @@ Text positions are UTF-8 byte offsets into the string passed to `TextLayout::new
 pass in must lie on character boundaries. A hit test reports the cluster it found, so a caret
 after a multi-byte character or emoji goes at `text_position + length`.
 
+## Rich text
+
+A layout can change the font, size, weight, style, decorations, and OpenType features of any
+range of its text. Ranges are UTF-8 byte ranges:
+
+```rust
+use windows_text::*;
+
+fn main() -> Result<()> {
+    let format = TextFormat::new("Calibri", 16.0)?;
+    let mut layout = TextLayout::new("Bold, underlined, final", &format, 300.0, 100.0)?;
+    layout.set_font_weight(0..4, FontWeight::BOLD);
+    layout.set_underline(6..16, true);
+    layout.set_font_features(18.., &[FontFeature::new(b"liga", 0)]);
+
+    for line in layout.line_metrics() {
+        println!("{:?} is {} high", line.text_range, line.height);
+    }
+    let selection = layout.range_bounds(6..16);
+    println!("selection covers {} rectangle(s)", selection.len());
+    Ok(())
+}
+```
+
 ## Fonts
 
 `FontCollection::system()` holds the installed fonts, and `FontCollection::from_data` loads
