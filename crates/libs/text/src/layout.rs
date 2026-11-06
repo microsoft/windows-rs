@@ -303,6 +303,19 @@ impl TextLayout {
             .collect()
     }
 
+    /// Returns the shaped glyphs in drawing order, positioned relative to the layout box. Use
+    /// this to draw the layout with your own renderer, such as a glyph atlas, along with
+    /// [`decorations`](Self::decorations).
+    pub fn glyph_runs(&self) -> Vec<GlyphRun> {
+        Collector::glyph_runs(&self.raw, &self.offsets)
+    }
+
+    /// Returns the underlines and strikethroughs set with [`set_underline`](Self::set_underline)
+    /// and [`set_strikethrough`](Self::set_strikethrough), relative to the layout box.
+    pub fn decorations(&self) -> Vec<Decoration> {
+        Collector::decorations(&self.raw, &self.offsets)
+    }
+
     /// Sets the font family for `range`, a UTF-8 byte range. The family comes from the format's
     /// collection unless [`set_font_collection`](Self::set_font_collection) changes it.
     pub fn set_font_family(&mut self, range: impl RangeBounds<usize>, family: &str) {

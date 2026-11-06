@@ -1,5 +1,8 @@
 --out crates/libs/text/src/bindings.rs
 --flat --minimal --dead-code
+--implement
+    Windows.Win32.IDWritePixelSnapping
+    Windows.Win32.IDWriteTextRenderer
 
 --filter
     DWRITE_FACTORY_TYPE_SHARED
@@ -44,6 +47,6 @@
     IDWriteTextFormat::{SetTextAlignment, SetParagraphAlignment, SetWordWrapping}
     IDWriteTextFormat1::SetFontFallback
     IDWriteTextLayout::{GetMetrics, HitTestPoint, HitTestTextPosition, HitTestTextRange, GetMaxWidth, GetMaxHeight, SetMaxWidth, SetMaxHeight}
-    IDWriteTextLayout::{GetClusterMetrics, GetLineMetrics}
+    IDWriteTextLayout::{Draw, GetClusterMetrics, GetLineMetrics}
     IDWriteTextLayout::{SetFontCollection, SetFontFamilyName, SetFontSize, SetFontStyle, SetFontWeight, SetStrikethrough, SetTypography, SetUnderline}
     IDWriteTypography::AddFontFeature

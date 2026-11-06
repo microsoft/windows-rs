@@ -11,18 +11,21 @@ mod factory;
 mod fallback;
 mod font;
 mod format;
+mod glyph_run;
 mod layout;
 mod offsets;
 mod types;
 
 use bindings::*;
 use factory::{factory, localized, memory_loader, user_locale, wide};
+use glyph_run::Collector;
 use offsets::Offsets;
 use windows_core::*;
 
 pub use fallback::*;
 pub use font::*;
 pub use format::*;
+pub use glyph_run::*;
 pub use layout::*;
 pub use types::*;
 
