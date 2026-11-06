@@ -201,7 +201,7 @@ impl<F: Fn(&[u8]) -> windows_core::Result<bool> + Send + 'static> RemoteTextConn
     };
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, pdudata_array_size: u32, pdudata: *const u8, result__: *mut bool) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<RemoteTextConnectionDataHandler, F>);
+            let this = &*(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<RemoteTextConnectionDataHandler, F>);
             match (this.invoke)(windows_core::imp::array_slice(core::mem::transmute_copy(&pdudata), pdudata_array_size)) {
                 Ok(ok__) => {
                     result__.write(ok__);

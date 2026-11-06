@@ -1,5 +1,12 @@
 use core::ffi::c_void;
 
+// Event tokens need a stable, one-to-one encoding, not a dereferenceable pointer.
+#[cfg(miri)]
+#[unsafe(export_name = "EncodePointer")]
+pub extern "system" fn encode_pointer(pointer: *mut c_void) -> *mut c_void {
+    core::ptr::without_provenance_mut(pointer.addr().rotate_left(13))
+}
+
 #[unsafe(export_name = "AbiFill")]
 pub unsafe extern "system" fn fill(values: *mut u32, count: u32, written: *mut u32) -> u32 {
     unsafe {

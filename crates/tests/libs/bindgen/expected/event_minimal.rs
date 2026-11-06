@@ -36,7 +36,7 @@ impl<F: Fn(i32) + 'static> DelegateBox<F> {
         sender: i32,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void
+            let this = &*(this as *mut *mut core::ffi::c_void
                 as *mut windows_core::imp::DelegateBox<Delegate, F>);
             (this.invoke)(sender);
             windows_core::HRESULT(0)

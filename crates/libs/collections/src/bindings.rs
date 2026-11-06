@@ -3066,7 +3066,7 @@ impl<
         event: *mut core::ffi::c_void,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void
+            let this = &*(this as *mut *mut core::ffi::c_void
                 as *mut windows_core::imp::DelegateBox<MapChangedEventHandler<K, V>, F>);
             (this.invoke)(
                 core::mem::transmute_copy(&sender),
@@ -3179,7 +3179,7 @@ impl<
         event: *mut core::ffi::c_void,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void
+            let this = &*(this as *mut *mut core::ffi::c_void
                 as *mut windows_core::imp::DelegateBox<VectorChangedEventHandler<T>, F>);
             (this.invoke)(
                 core::mem::transmute_copy(&sender),

@@ -66,7 +66,7 @@ impl<
         asyncstatus: AsyncStatus,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void
+            let this = &*(this as *mut *mut core::ffi::c_void
                 as *mut windows_core::imp::DelegateBox<AsyncActionCompletedHandler, F>);
             (this.invoke)(core::mem::transmute_copy(&asyncinfo), asyncstatus).into()
         }
@@ -184,7 +184,7 @@ impl<
         progressinfo: windows_core::imp::AbiType<TProgress>,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void
+            let this = &*(this as *mut *mut core::ffi::c_void
                 as *mut windows_core::imp::DelegateBox<AsyncActionProgressHandler<TProgress>, F>);
             (this.invoke)(
                 core::mem::transmute_copy(&asyncinfo),
@@ -310,7 +310,7 @@ impl<
         asyncstatus: AsyncStatus,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void
+            let this = &*(this as *mut *mut core::ffi::c_void
                 as *mut windows_core::imp::DelegateBox<
                     AsyncActionWithProgressCompletedHandler<TProgress>,
                     F,
@@ -425,7 +425,7 @@ impl<
         asyncstatus: AsyncStatus,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void
+            let this = &*(this as *mut *mut core::ffi::c_void
                 as *mut windows_core::imp::DelegateBox<AsyncOperationCompletedHandler<TResult>, F>);
             (this.invoke)(core::mem::transmute_copy(&asyncinfo), asyncstatus).into()
         }
@@ -560,7 +560,7 @@ impl<
         progressinfo: windows_core::imp::AbiType<TProgress>,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void
+            let this = &*(this as *mut *mut core::ffi::c_void
                 as *mut windows_core::imp::DelegateBox<
                     AsyncOperationProgressHandler<TResult, TProgress>,
                     F,
@@ -701,7 +701,7 @@ impl<
         asyncstatus: AsyncStatus,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void
+            let this = &*(this as *mut *mut core::ffi::c_void
                 as *mut windows_core::imp::DelegateBox<
                     AsyncOperationWithProgressCompletedHandler<TResult, TProgress>,
                     F,

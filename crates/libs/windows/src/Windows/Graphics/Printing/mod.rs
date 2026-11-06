@@ -2124,7 +2124,7 @@ impl<F: Fn(windows_core::Ref<PrintTaskSourceRequestedArgs>) -> windows_core::Res
     };
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<PrintTaskSourceRequestedHandler, F>);
+            let this = &*(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<PrintTaskSourceRequestedHandler, F>);
             (this.invoke)(core::mem::transmute_copy(&args)).into()
         }
     }

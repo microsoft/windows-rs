@@ -170,7 +170,7 @@ impl Delegate {
                 };
                 unsafe extern "system" fn Invoke(#invoke_vtbl) -> windows_core::HRESULT {
                     unsafe {
-                        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox::<#name, F>);
+                        let this = &*(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox::<#name, F>);
                         #invoke_upcall
                     }
                 }

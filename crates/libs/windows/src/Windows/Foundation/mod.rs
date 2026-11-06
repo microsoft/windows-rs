@@ -76,7 +76,7 @@ impl<F: Fn() -> windows_core::Result<()> + Send + 'static> DeferralCompletedHand
     };
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<DeferralCompletedHandler, F>);
+            let this = &*(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<DeferralCompletedHandler, F>);
             (this.invoke)().into()
         }
     }
@@ -131,7 +131,7 @@ impl<T: windows_core::RuntimeType + 'static, F: Fn(windows_core::Ref<windows_cor
     };
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: windows_core::imp::AbiType<T>) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<EventHandler<T>, F>);
+            let this = &*(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<EventHandler<T>, F>);
             (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&args)).into()
         }
     }
@@ -2218,7 +2218,7 @@ impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::Runtim
     };
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: windows_core::imp::AbiType<TSender>, args: windows_core::imp::AbiType<TResult>) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<TypedEventHandler<TSender, TResult>, F>);
+            let this = &*(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<TypedEventHandler<TSender, TResult>, F>);
             (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&args)).into()
         }
     }

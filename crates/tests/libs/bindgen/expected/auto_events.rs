@@ -39,7 +39,7 @@ impl<F: Fn(i32) + 'static> CompletedCallbackBox<F> {
         result: i32,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void
+            let this = &*(this as *mut *mut core::ffi::c_void
                 as *mut windows_core::imp::DelegateBox<CompletedCallback, F>);
             (this.invoke)(result);
             windows_core::HRESULT(0)
@@ -82,7 +82,7 @@ impl<F: Fn(windows_core::Ref<IFoo>, i32) + 'static> HandlerBox<F> {
         args: i32,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void
+            let this = &*(this as *mut *mut core::ffi::c_void
                 as *mut windows_core::imp::DelegateBox<Handler, F>);
             (this.invoke)(core::mem::transmute_copy(&sender), args);
             windows_core::HRESULT(0)

@@ -252,7 +252,7 @@ impl<F: Fn(windows_core::Ref<CredentialCommand>) -> windows_core::Result<()> + S
     };
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, command: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<CredentialCommandCredentialDeletedHandler, F>);
+            let this = &*(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<CredentialCommandCredentialDeletedHandler, F>);
             (this.invoke)(core::mem::transmute_copy(&command)).into()
         }
     }
@@ -877,7 +877,7 @@ impl<F: Fn(windows_core::Ref<WebAccountCommand>, windows_core::Ref<WebAccountInv
     };
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, command: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<WebAccountCommandInvokedHandler, F>);
+            let this = &*(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<WebAccountCommandInvokedHandler, F>);
             (this.invoke)(core::mem::transmute_copy(&command), core::mem::transmute_copy(&args)).into()
         }
     }
@@ -982,7 +982,7 @@ impl<F: Fn(windows_core::Ref<WebAccountProviderCommand>) -> windows_core::Result
     };
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, command: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<WebAccountProviderCommandInvokedHandler, F>);
+            let this = &*(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<WebAccountProviderCommandInvokedHandler, F>);
             (this.invoke)(core::mem::transmute_copy(&command)).into()
         }
     }
