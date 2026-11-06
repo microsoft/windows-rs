@@ -60,9 +60,9 @@ jobs:
       - name: Check scoped interface macro
         if: contains(matrix.target, 'windows')
         run: cargo +nightly miri test --target ${{ matrix.target }} -p test_interface --test non_com_new
-      - name: Check one-shot completion ownership
+      - name: Check async completion ownership
         if: contains(matrix.target, 'windows')
-        run: cargo +nightly miri test --target ${{ matrix.target }} -p windows-future --features std --lib once_
+        run: cargo +nightly miri test --target ${{ matrix.target }} -p windows-future --features std --lib -- once_ future::tests
       - name: Check UI callback ownership
         if: contains(matrix.target, 'windows')
         run: >-
