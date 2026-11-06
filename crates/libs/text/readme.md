@@ -90,9 +90,10 @@ between threads. Formats use the user's locale unless you call `with_locale`.
 
 ## Notes
 
-The crate requires Windows 10 version 1703 or later. Text objects do not need a graphics device, and a `TextLayout` can be reused across frames until
-its text or format changes. Use `to_interface` to pass a format or layout to DirectWrite or
-Direct2D through other bindings, such as the `windows` crate.
+The crate requires Windows 10 version 1703 or later. Text objects do not need a graphics device,
+and a `TextLayout` can be reused across frames until its text or format changes. Use
+`as_interface` to pass a format or layout to DirectWrite or Direct2D through other bindings, such
+as the `windows` crate, and `to_interface` to query for other interfaces.
 
 The [measure sample](https://github.com/microsoft/windows-rs/tree/master/crates/samples/text/measure)
 prints metrics and caret positions without a window.

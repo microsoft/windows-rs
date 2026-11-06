@@ -2071,6 +2071,34 @@ pub struct IDWriteTextFormat_Vtbl {
     GetLocaleName: usize,
 }
 windows_core::imp::define_interface!(
+    IDWriteTextFormat1,
+    IDWriteTextFormat1_Vtbl,
+    0x5f174b49_0d8b_4cfb_8bca_f1cce9d06c67
+);
+impl core::ops::Deref for IDWriteTextFormat1 {
+    type Target = IDWriteTextFormat;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    IDWriteTextFormat1,
+    windows_core::IUnknown,
+    IDWriteTextFormat
+);
+#[repr(C)]
+pub struct IDWriteTextFormat1_Vtbl {
+    pub base__: IDWriteTextFormat_Vtbl,
+    SetVerticalGlyphOrientation: usize,
+    GetVerticalGlyphOrientation: usize,
+    SetLastLineWrapping: usize,
+    GetLastLineWrapping: usize,
+    SetOpticalAlignment: usize,
+    GetOpticalAlignment: usize,
+    SetFontFallback: usize,
+    GetFontFallback: usize,
+}
+windows_core::imp::define_interface!(
     IDWriteTextLayout,
     IDWriteTextLayout_Vtbl,
     0x53737037_6d14_410b_9bfe_0b182bb70961

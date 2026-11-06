@@ -83,6 +83,23 @@ pub unsafe trait Interface: Sized + Clone {
         }
     }
 
+    /// Borrows this interface as `T` without calling `QueryInterface` or `AddRef`.
+    ///
+    /// `T` is the same COM interface from other bindings, such as a crate's private bindings and
+    /// the `windows` crate. A `T` with a different IID fails to build; use [`cast`](Self::cast)
+    /// to query for another interface.
+    #[inline(always)]
+    fn as_interface<T: Interface>(&self) -> &T {
+        const {
+            assert!(
+                Self::UNKNOWN && T::UNKNOWN && Self::IID.to_u128() == T::IID.to_u128(),
+                "`T` must be a COM interface with the same IID"
+            );
+        }
+        // SAFETY: both types are transparent wrappers over a pointer to the same interface.
+        unsafe { &*(self as *const Self).cast::<T>() }
+    }
+
     /// Queries the object for another interface.
     #[cfg_attr(windows_cast_diagnostics, track_caller)]
     #[inline(always)]

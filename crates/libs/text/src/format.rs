@@ -139,6 +139,15 @@ impl TextFormat {
         self.update(|settings| settings.fallback = Some(fallback.clone()))
     }
 
+    /// Borrows the underlying `IDWriteTextFormat1` as `T` without a `QueryInterface` call.
+    ///
+    /// `T` is `IDWriteTextFormat1` from other bindings, such as the `windows` crate; other
+    /// interfaces fail to build. Use [`to_interface`](Self::to_interface) to query for other
+    /// interfaces. Treat the result as read-only.
+    pub fn as_interface<T: Interface>(&self) -> &T {
+        self.0.raw.as_interface()
+    }
+
     /// Casts the underlying `IDWriteTextFormat1` to `T`.
     ///
     /// Use this to pass the format to DirectWrite or Direct2D through your own bindings, such
