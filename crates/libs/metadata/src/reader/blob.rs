@@ -36,7 +36,7 @@ impl<'a> Blob<'a> {
             (self[0] as usize, 1)
         } else if self[0] & 0xC0 == 0x80 {
             ((((self[0] & 0x3F) as usize) << 8) | self[1] as usize, 2)
-        } else {
+        } else if self[0] & 0xE0 == 0xC0 {
             (
                 (((self[0] & 0x1F) as usize) << 24)
                     | ((self[1] as usize) << 16)
@@ -44,6 +44,8 @@ impl<'a> Blob<'a> {
                     | self[3] as usize,
                 4,
             )
+        } else {
+            panic!("invalid compressed integer prefix");
         }
     }
 
@@ -283,6 +285,7 @@ impl<'a> Blob<'a> {
     }
 
     pub fn read_utf16(&mut self) -> String {
+        assert_eq!(self.len() % 2, 0, "expected an even UTF-16 byte length");
         let slice = self.slice;
 
         let value = if cfg!(target_endian = "little") {

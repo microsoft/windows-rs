@@ -75,7 +75,7 @@ impl<
         args: i32,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void
+            let this = &*(this as *mut *mut core::ffi::c_void
                 as *mut windows_core::imp::DelegateBox<Handler<T>, F>);
             (this.invoke)(core::mem::transmute_copy(&sender), args).into()
         }

@@ -137,7 +137,7 @@ impl<F: Fn(windows_core::Ref<SignalNotifier>, bool) -> windows_core::Result<()> 
     };
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, signalnotifier: *mut core::ffi::c_void, timedout: bool) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<SignalHandler, F>);
+            let this = &*(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<SignalHandler, F>);
             (this.invoke)(core::mem::transmute_copy(&signalnotifier), timedout).into()
         }
     }

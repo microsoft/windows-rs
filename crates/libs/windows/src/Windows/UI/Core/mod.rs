@@ -2174,7 +2174,7 @@ impl<F: Fn() -> windows_core::Result<()> + Send + 'static> DispatchedHandlerBox<
     };
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<DispatchedHandler, F>);
+            let this = &*(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<DispatchedHandler, F>);
             (this.invoke)().into()
         }
     }
@@ -5000,7 +5000,7 @@ impl<F: Fn(windows_core::Ref<IdleDispatchedHandlerArgs>) -> windows_core::Result
     };
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<IdleDispatchedHandler, F>);
+            let this = &*(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<IdleDispatchedHandler, F>);
             (this.invoke)(core::mem::transmute_copy(&e)).into()
         }
     }

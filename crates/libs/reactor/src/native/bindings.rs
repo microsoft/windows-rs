@@ -438,7 +438,7 @@ impl<F: Fn(windows_core::Ref<ApplicationInitializationCallbackParams>) + 'static
         p: *mut core::ffi::c_void,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void
+            let this = &*(this as *mut *mut core::ffi::c_void
                 as *mut windows_core::imp::DelegateBox<ApplicationInitializationCallback, F>);
             (this.invoke)(core::mem::transmute_copy(&p));
             windows_core::HRESULT(0)
@@ -3200,7 +3200,7 @@ impl<F: Fn(windows_core::Ref<DependencyObject>, windows_core::Ref<DependencyProp
         dp: *mut core::ffi::c_void,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void
+            let this = &*(this as *mut *mut core::ffi::c_void
                 as *mut windows_core::imp::DelegateBox<DependencyPropertyChangedCallback, F>);
             (this.invoke)(
                 core::mem::transmute_copy(&sender),
@@ -3457,7 +3457,7 @@ impl<F: Fn() + 'static> DispatcherQueueHandlerBox<F> {
     };
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void
+            let this = &*(this as *mut *mut core::ffi::c_void
                 as *mut windows_core::imp::DelegateBox<DispatcherQueueHandler, F>);
             (this.invoke)();
             windows_core::HRESULT(0)
@@ -3588,7 +3588,7 @@ impl<
         e: *mut core::ffi::c_void,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void
+            let this = &*(this as *mut *mut core::ffi::c_void
                 as *mut windows_core::imp::DelegateBox<DragEventHandler, F>);
             (this.invoke)(
                 core::mem::transmute_copy(&sender),
@@ -3986,7 +3986,7 @@ impl<
         args: windows_core::imp::AbiType<T>,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void
+            let this = &*(this as *mut *mut core::ffi::c_void
                 as *mut windows_core::imp::DelegateBox<EventHandler<T>, F>);
             (this.invoke)(
                 core::mem::transmute_copy(&sender),
@@ -4070,7 +4070,7 @@ impl<
         e: *mut core::ffi::c_void,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void
+            let this = &*(this as *mut *mut core::ffi::c_void
                 as *mut windows_core::imp::DelegateBox<ExceptionRoutedEventHandler, F>);
             (this.invoke)(
                 core::mem::transmute_copy(&sender),
@@ -22433,7 +22433,7 @@ impl<
         e: *mut core::ffi::c_void,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void
+            let this = &*(this as *mut *mut core::ffi::c_void
                 as *mut windows_core::imp::DelegateBox<KeyEventHandler, F>);
             (this.invoke)(
                 core::mem::transmute_copy(&sender),
@@ -24887,7 +24887,7 @@ impl<
         e: *mut core::ffi::c_void,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void
+            let this = &*(this as *mut *mut core::ffi::c_void
                 as *mut windows_core::imp::DelegateBox<PointerEventHandler, F>);
             (this.invoke)(
                 core::mem::transmute_copy(&sender),
@@ -25515,7 +25515,7 @@ impl<
         e: *mut core::ffi::c_void,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void
+            let this = &*(this as *mut *mut core::ffi::c_void
                 as *mut windows_core::imp::DelegateBox<RangeBaseValueChangedEventHandler, F>);
             (this.invoke)(
                 core::mem::transmute_copy(&sender),
@@ -26244,7 +26244,7 @@ impl<
         e: *mut core::ffi::c_void,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void
+            let this = &*(this as *mut *mut core::ffi::c_void
                 as *mut windows_core::imp::DelegateBox<RoutedEventHandler, F>);
             (this.invoke)(
                 core::mem::transmute_copy(&sender),
@@ -26702,7 +26702,7 @@ impl<
         e: *mut core::ffi::c_void,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void
+            let this = &*(this as *mut *mut core::ffi::c_void
                 as *mut windows_core::imp::DelegateBox<SelectionChangedEventHandler, F>);
             (this.invoke)(
                 core::mem::transmute_copy(&sender),
@@ -27128,7 +27128,7 @@ impl<
         e: *mut core::ffi::c_void,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void
+            let this = &*(this as *mut *mut core::ffi::c_void
                 as *mut windows_core::imp::DelegateBox<SizeChangedEventHandler, F>);
             (this.invoke)(
                 core::mem::transmute_copy(&sender),
@@ -28941,7 +28941,7 @@ impl<
         e: *mut core::ffi::c_void,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void
+            let this = &*(this as *mut *mut core::ffi::c_void
                 as *mut windows_core::imp::DelegateBox<TextChangedEventHandler, F>);
             (this.invoke)(
                 core::mem::transmute_copy(&sender),
@@ -30008,7 +30008,7 @@ impl<
         args: windows_core::imp::AbiType<TResult>,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void
+            let this = &*(this as *mut *mut core::ffi::c_void
                 as *mut windows_core::imp::DelegateBox<TypedEventHandler<TSender, TResult>, F>);
             (this.invoke)(
                 core::mem::transmute_copy(&sender),

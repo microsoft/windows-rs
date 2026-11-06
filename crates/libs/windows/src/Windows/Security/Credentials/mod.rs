@@ -43,7 +43,7 @@ impl<F: Fn(windows_core::Ref<super::super::Storage::Streams::IBuffer>) -> window
     };
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, challenge: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<AttestationChallengeHandler, F>);
+            let this = &*(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<AttestationChallengeHandler, F>);
             match (this.invoke)(core::mem::transmute_copy(&challenge)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));

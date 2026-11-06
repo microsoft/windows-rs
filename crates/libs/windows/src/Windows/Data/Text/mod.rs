@@ -372,7 +372,7 @@ impl<F: Fn(windows_core::Ref<windows_collections::IIterable<SelectableWordSegmen
     };
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, precedingwords: *mut core::ffi::c_void, words: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<SelectableWordSegmentsTokenizingHandler, F>);
+            let this = &*(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<SelectableWordSegmentsTokenizingHandler, F>);
             (this.invoke)(core::mem::transmute_copy(&precedingwords), core::mem::transmute_copy(&words)).into()
         }
     }
@@ -994,7 +994,7 @@ impl<F: Fn(windows_core::Ref<windows_collections::IIterable<WordSegment>>, windo
     };
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, precedingwords: *mut core::ffi::c_void, words: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<WordSegmentsTokenizingHandler, F>);
+            let this = &*(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<WordSegmentsTokenizingHandler, F>);
             (this.invoke)(core::mem::transmute_copy(&precedingwords), core::mem::transmute_copy(&words)).into()
         }
     }

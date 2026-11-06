@@ -10,7 +10,7 @@ doctest = false
 
 [dependencies]
 windows-collections = { workspace = true }
-windows-core = { workspace = true, features = ["proc-macros"] }
+windows-core = { workspace = true, features = ["proc-macros", "std"] }
 windows-link = { workspace = true }
 windows-numerics = { workspace = true }
 windows-result = { workspace = true }

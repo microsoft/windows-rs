@@ -105,7 +105,7 @@ impl<
         result__: *mut *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void
+            let this = &*(this as *mut *mut core::ffi::c_void
                 as *mut windows_core::imp::DelegateBox<ArrayRoundtrip, F>);
             match (this.invoke)(
                 windows_core::imp::array_slice(core::mem::transmute_copy(&input), input_array_size),
@@ -190,7 +190,7 @@ impl<F: Fn() -> windows_core::Result<windows_core::Array<u32>> + Send + 'static>
         result__: *mut *mut u32,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void
+            let this = &*(this as *mut *mut core::ffi::c_void
                 as *mut windows_core::imp::DelegateBox<EmptyArray, F>);
             match (this.invoke)() {
                 Ok(ok__) => {
@@ -315,7 +315,7 @@ impl<
         value: *mut windows_core::imp::AbiType<T>,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void
+            let this = &*(this as *mut *mut core::ffi::c_void
                 as *mut windows_core::imp::DelegateBox<GenericOutputs<T>, F>);
             (this.invoke)(
                 windows_core::imp::array_slice_mut(
@@ -393,7 +393,7 @@ impl<F: Fn(windows_core::OutRef<Tracked>) -> windows_core::Result<Tracked> + Sen
         result__: *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void
+            let this = &*(this as *mut *mut core::ffi::c_void
                 as *mut windows_core::imp::DelegateBox<InterfaceOutputs, F>);
             match (this.invoke)(core::mem::transmute_copy(&value)) {
                 Ok(ok__) => {
@@ -449,7 +449,7 @@ impl<F: Fn() -> windows_core::Result<()> + Send + 'static> TrackedBox<F> {
     };
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void
+            let this = &*(this as *mut *mut core::ffi::c_void
                 as *mut windows_core::imp::DelegateBox<Tracked, F>);
             (this.invoke)().into()
         }

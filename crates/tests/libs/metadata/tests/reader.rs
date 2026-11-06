@@ -169,6 +169,107 @@ mod boundaries {
     }
 }
 
+mod blobs {
+    use super::*;
+
+    fn rejects(bytes: &[u8], read: impl FnOnce(&mut reader::Blob<'_>)) {
+        let index = reader::Index::new(vec![]);
+        let mut blob = reader::Blob::new(&index, 0, bytes);
+        let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| read(&mut blob)));
+        // Satisfy Blob's consumption assertion after catching the decoding failure.
+        while !blob.is_empty() {
+            blob.read_u8();
+        }
+        assert!(result.is_err(), "accepted malformed blob: {bytes:?}");
+    }
+
+    #[test]
+    fn compressed_integer_boundaries() {
+        let index = reader::Index::new(vec![]);
+        for (bytes, value) in [
+            (&[0x00][..], 0),
+            (&[0x7f][..], 0x7f),
+            (&[0x80, 0x80][..], 0x80),
+            (&[0xbf, 0xff][..], 0x3fff),
+            (&[0xc0, 0x00, 0x40, 0x00][..], 0x4000),
+            (&[0xdf, 0xff, 0xff, 0xff][..], 0x1fff_ffff),
+        ] {
+            let mut input = bytes.to_vec();
+            input.push(0x42);
+            let mut blob = reader::Blob::new(&index, 0, &input);
+            assert!(!blob.try_read(value + 1));
+            assert_eq!(blob.read_compressed(), value);
+            assert_eq!(blob.read_u8(), 0x42);
+
+            let mut blob = reader::Blob::new(&index, 0, &input);
+            assert!(blob.try_read(value));
+            assert_eq!(blob.read_u8(), 0x42);
+        }
+    }
+
+    #[test]
+    fn reserved_compressed_prefixes() {
+        for prefix in [0xe0, 0xef, 0xff] {
+            rejects(&[prefix, 0, 0, 0], |blob| {
+                blob.read_compressed();
+            });
+        }
+    }
+
+    #[test]
+    fn truncated_compressed_integers() {
+        for bytes in [&[0x80, 0x80][..], &[0xc0, 0x00, 0x40, 0x00][..]] {
+            for len in 0..bytes.len() {
+                rejects(&bytes[..len], |blob| {
+                    blob.read_compressed();
+                });
+            }
+        }
+    }
+
+    #[test]
+    fn utf8_bounds() {
+        let index = reader::Index::new(vec![]);
+        let mut blob = reader::Blob::new(&index, 0, &[0, 3, b'A', 0, b'B', 0x42]);
+        assert_eq!(blob.read_utf8(), "");
+        assert_eq!(blob.read_utf8(), "A\0B");
+        assert_eq!(blob.read_u8(), 0x42);
+
+        for bytes in [&[3, b'A', b'B'][..], &[1, 0xff][..]] {
+            rejects(bytes, |blob| {
+                blob.read_utf8();
+            });
+        }
+    }
+
+    #[test]
+    fn utf16_alignment() {
+        #[repr(C, align(2))]
+        struct Storage([u8; 14]);
+
+        let index = reader::Index::new(vec![]);
+        let bytes = [0x41, 0, 0, 0, 0x3d, 0xd8, 0, 0xde, 0, 0xd8, 0x42, 0];
+        for offset in 0..=1 {
+            let mut storage = Storage([0; 14]);
+            let input = &mut storage.0[offset..offset + bytes.len()];
+            input.copy_from_slice(&bytes);
+            assert_eq!(input.as_ptr().addr() % 2, offset);
+            let mut blob = reader::Blob::new(&index, 0, input);
+            assert_eq!(blob.read_utf16(), "A\0\u{1f600}\u{fffd}B");
+        }
+        assert_eq!(reader::Blob::new(&index, 0, &[]).read_utf16(), "");
+    }
+
+    #[test]
+    fn odd_utf16_length() {
+        for bytes in [&[0x41][..], &[0x41, 0, 0x42][..]] {
+            rejects(bytes, |blob| {
+                blob.read_utf16();
+            });
+        }
+    }
+}
+
 #[test]
 fn in_memory_roundtrip() {
     let mut file = writer::File::new("test");

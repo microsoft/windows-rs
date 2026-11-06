@@ -186,7 +186,7 @@ impl<F: Fn(windows_core::Ref<ThreadPoolTimer>) -> windows_core::Result<()> + Sen
     };
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, timer: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<TimerDestroyedHandler, F>);
+            let this = &*(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<TimerDestroyedHandler, F>);
             (this.invoke)(core::mem::transmute_copy(&timer)).into()
         }
     }
@@ -225,7 +225,7 @@ impl<F: Fn(windows_core::Ref<ThreadPoolTimer>) -> windows_core::Result<()> + Sen
     };
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, timer: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<TimerElapsedHandler, F>);
+            let this = &*(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<TimerElapsedHandler, F>);
             (this.invoke)(core::mem::transmute_copy(&timer)).into()
         }
     }
@@ -264,7 +264,7 @@ impl<F: Fn(windows_core::Ref<windows_future::IAsyncAction>) -> windows_core::Res
     };
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, operation: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<WorkItemHandler, F>);
+            let this = &*(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<WorkItemHandler, F>);
             (this.invoke)(core::mem::transmute_copy(&operation)).into()
         }
     }
