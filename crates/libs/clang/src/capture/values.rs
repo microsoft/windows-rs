@@ -167,12 +167,7 @@ impl Capture<'_> {
         let mut attributes = self.attributes(cursor)?;
         let mut latest = unsafe { clang_getNullCursor() };
         let status = unsafe { windows_clang_getLatestFunctionDeclaration(cursor, &raw mut latest) };
-        if status != WindowsClangSuccess {
-            return Err(unsupported(
-                cursor,
-                &format!("function redeclaration query failed: {status}"),
-            ));
-        }
+        check(status, cursor, "function redeclaration query failed")?;
         if unsafe { clang_equalCursors(cursor, latest) } == 0 {
             // Retain each declaration's contracts; only fill missing metadata from compiler inheritance.
             for attribute in self.attributes(latest)? {
@@ -199,12 +194,7 @@ impl Capture<'_> {
     ) -> Result<(CallingConventionOrigin, Option<Box<FunctionCandidate>>), Error> {
         let mut info = WindowsClangImportConvention::default();
         let status = unsafe { windows_clang_getImportConvention(cursor, &raw mut info) };
-        if status != WindowsClangSuccess {
-            return Err(unsupported(
-                cursor,
-                &format!("import convention query failed: {status}"),
-            ));
-        }
+        check(status, cursor, "import convention query failed")?;
         let mangling = text(info.stdcall_symbol);
         let origin = match info.origin {
             WindowsClangConventionUnknown => CallingConventionOrigin::Unknown,
@@ -262,12 +252,7 @@ impl Capture<'_> {
                 &raw mut spelling,
             )
         };
-        if status != WindowsClangSuccess {
-            return Err(unsupported(
-                cursor,
-                &format!("parameter default query failed: {status}"),
-            ));
-        }
+        check(status, cursor, "parameter default query failed")?;
         let spelling = text(spelling);
         let default = (unsafe { clang_Cursor_isNull(expression) } == 0).then_some(expression);
         Ok(Parameter {
@@ -370,12 +355,7 @@ impl Capture<'_> {
             written: if definition.is_some() {
                 let mut expression = unsafe { clang_getNullCursor() };
                 let status = unsafe { windows_clang_getTypeOfOperand(cursor, &raw mut expression) };
-                if status != WindowsClangSuccess {
-                    return Err(unsupported(
-                        cursor,
-                        &format!("macro expression type unavailable: {status}"),
-                    ));
-                }
+                check(status, cursor, "macro expression type unavailable")?;
                 self.ty(unsafe { clang_getCursorType(expression) }, expression)?
             } else {
                 self.ty(ty, cursor)?
@@ -404,22 +384,12 @@ impl Capture<'_> {
             let mut value = 0;
             let status =
                 unsafe { windows_clang_getConstantPointerInitializer(cursor, &raw mut value) };
-            if status != WindowsClangSuccess {
-                return Err(unsupported(
-                    cursor,
-                    &format!("numeric pointer initializer unavailable: {status}"),
-                ));
-            }
+            check(status, cursor, "numeric pointer initializer unavailable")?;
             Some(value)
         } else {
             let mut constant = 0;
             let status = unsafe { windows_clang_getConstantInitializer(cursor, &raw mut constant) };
-            if status != WindowsClangSuccess {
-                return Err(unsupported(
-                    cursor,
-                    &format!("constant initializer query failed: {status}"),
-                ));
-            }
+            check(status, cursor, "constant initializer query failed")?;
             if constant == 0 {
                 return Err(unsupported(
                     cursor,
@@ -507,12 +477,7 @@ fn aggregate_constant(cursor: CXCursor, ty: CXType) -> Result<ConstantValue, Err
                 "aggregate initializer is not a constant expression",
             ));
         }
-        if status != WindowsClangSuccess {
-            return Err(unsupported(
-                cursor,
-                &format!("aggregate constant element query failed: {status}"),
-            ));
-        }
+        check(status, cursor, "aggregate constant element query failed")?;
         Ok(value)
     };
     let canonical = unsafe { clang_getCanonicalType(ty) };

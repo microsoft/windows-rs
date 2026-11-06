@@ -226,7 +226,7 @@ fn tighten_macro_segment(segment: &str) -> String {
 }
 
 fn tighten_non_literal(chunk: &str) -> String {
-    chunk
+    let chunk = chunk
         .replace(" ! (", "!(")
         .replace(" ! [", "![")
         .replace(" ! {", "!{")
@@ -235,18 +235,8 @@ fn tighten_non_literal(chunk: &str) -> String {
         .replace(" ,", ",")
         .replace(" ;", ";")
         .replace("* mut ", "*mut ")
-        .replace("* const ", "*const ")
-        .pipe(collapse_space_before_paren)
-}
-
-trait StrPipe {
-    fn pipe<F: Fn(String) -> String>(self, f: F) -> String;
-}
-
-impl StrPipe for String {
-    fn pipe<F: Fn(Self) -> Self>(self, f: F) -> String {
-        f(self)
-    }
+        .replace("* const ", "*const ");
+    collapse_space_before_paren(chunk)
 }
 
 /// Collapse `name (` -> `name(` after an identifier character.

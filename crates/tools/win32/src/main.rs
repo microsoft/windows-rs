@@ -271,14 +271,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         references: Some(&references),
     };
     let output = if partial {
-        let projection_started = Instant::now();
         let result = projection::project_partial_with_options(captured, "Windows.Win32", &options)?;
-        if std::env::var_os("WINDOWS_CLANG_PROFILE").is_some() {
-            eprintln!(
-                "clang-profile\tall-targets\tprojection\twall\t1\t{:.6}",
-                projection_started.elapsed().as_secs_f64(),
-            );
-        }
         std::fs::write(
             scratch.join("omissions.txt"),
             result.omissions.join("\n") + "\n",

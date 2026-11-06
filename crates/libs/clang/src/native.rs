@@ -68,19 +68,36 @@ pub(super) fn unsupported(cursor: CXCursor, reason: &str) -> Error {
     Error(format!("{file}:{line}:{column}: {kind} `{name}`: {reason}"))
 }
 
+/// Fails with `reason` and the status unless a companion query succeeded.
+pub(super) fn check(
+    status: WindowsClangStatus,
+    cursor: CXCursor,
+    reason: &str,
+) -> Result<(), Error> {
+    if status == WindowsClangSuccess {
+        Ok(())
+    } else {
+        Err(unsupported(cursor, &format!("{reason}: {status}")))
+    }
+}
+
 pub(super) fn field_initializer(cursor: CXCursor) -> Result<bool, Error> {
     let mut value = 0;
-    if unsafe { windows_clang_getFieldInitializer(cursor, &raw mut value) } != WindowsClangSuccess {
-        return Err(unsupported(cursor, "field initializer query failed"));
-    }
+    check(
+        unsafe { windows_clang_getFieldInitializer(cursor, &raw mut value) },
+        cursor,
+        "field initializer query failed",
+    )?;
     Ok(value != 0)
 }
 
 pub(super) fn typedef_implicit(cursor: CXCursor) -> Result<bool, Error> {
     let mut value = 0;
-    if unsafe { windows_clang_getTypedefImplicit(cursor, &raw mut value) } != WindowsClangSuccess {
-        return Err(unsupported(cursor, "implicit typedef query failed"));
-    }
+    check(
+        unsafe { windows_clang_getTypedefImplicit(cursor, &raw mut value) },
+        cursor,
+        "implicit typedef query failed",
+    )?;
     Ok(value != 0)
 }
 
@@ -89,11 +106,11 @@ pub(super) fn layout_expression(
     expression: CXCursor,
 ) -> Result<bool, Error> {
     let mut value = 0;
-    if unsafe { windows_clang_getLayoutExpression(declaration, expression, &raw mut value) }
-        != WindowsClangSuccess
-    {
-        return Err(unsupported(expression, "layout expression query failed"));
-    }
+    check(
+        unsafe { windows_clang_getLayoutExpression(declaration, expression, &raw mut value) },
+        expression,
+        "layout expression query failed",
+    )?;
     Ok(value != 0)
 }
 
@@ -101,9 +118,11 @@ pub(super) fn layout_expression(
 /// SDK's `DrawText -> DrawTextA` do not change their identity; the written name is retained.
 pub(super) fn member_name(cursor: CXCursor) -> Result<String, Error> {
     let mut written = CXString::default();
-    if unsafe { windows_clang_getWrittenName(cursor, &raw mut written) } != WindowsClangSuccess {
-        return Err(unsupported(cursor, "written name query failed"));
-    }
+    check(
+        unsafe { windows_clang_getWrittenName(cursor, &raw mut written) },
+        cursor,
+        "written name query failed",
+    )?;
     let written = text(written);
     if written.is_empty() {
         Ok(text(unsafe { clang_getCursorSpelling(cursor) }))
@@ -126,23 +145,11 @@ pub(super) fn text(value: CXString) -> String {
 }
 
 pub(super) fn record_fields(cursor: CXCursor) -> Vec<CXCursor> {
-    #[derive(Default)]
-    struct Fields {
-        values: Vec<CXCursor>,
-        panic: Option<Box<dyn std::any::Any + Send>>,
-    }
     extern "C" fn visit(cursor: CXCursor, data: CXClientData) -> CXVisitorResult {
-        let fields = unsafe { &mut *data.cast::<Fields>() };
-        match std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| fields.values.push(cursor)))
-        {
-            Ok(()) => CXVisit_Continue,
-            Err(panic) => {
-                fields.panic = Some(panic);
-                CXVisit_Break
-            }
-        }
+        unsafe { &mut *data.cast::<Vec<CXCursor>>() }.push(cursor);
+        CXVisit_Continue
     }
-    let mut result = Fields::default();
+    let mut result = Vec::new();
     unsafe {
         clang_Type_visitFields(
             clang_getCursorType(cursor),
@@ -150,10 +157,7 @@ pub(super) fn record_fields(cursor: CXCursor) -> Vec<CXCursor> {
             (&raw mut result).cast(),
         );
     }
-    if let Some(panic) = result.panic {
-        std::panic::resume_unwind(panic);
-    }
-    result.values
+    result
 }
 
 pub(super) fn contains_record(ty: CXType, record: Cursor) -> bool {
@@ -193,27 +197,11 @@ pub(super) fn owner_reference(cursor: CXCursor, reference: CXCursor) -> bool {
 }
 
 pub(super) fn children(cursor: CXCursor) -> Vec<CXCursor> {
-    #[derive(Default)]
-    struct Children {
-        values: Vec<CXCursor>,
-        panic: Option<Box<dyn std::any::Any + Send>>,
-    }
     extern "C" fn visit(cursor: CXCursor, _: CXCursor, data: CXClientData) -> CXChildVisitResult {
-        let children = unsafe { &mut *data.cast::<Children>() };
-        match std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
-            children.values.push(cursor);
-        })) {
-            Ok(()) => CXChildVisit_Continue,
-            Err(panic) => {
-                children.panic = Some(panic);
-                CXChildVisit_Break
-            }
-        }
+        unsafe { &mut *data.cast::<Vec<CXCursor>>() }.push(cursor);
+        CXChildVisit_Continue
     }
-    let mut result = Children::default();
+    let mut result = Vec::new();
     unsafe { clang_visitChildren(cursor, Some(visit), (&raw mut result).cast()) };
-    if let Some(panic) = result.panic {
-        std::panic::resume_unwind(panic);
-    }
-    result.values
+    result
 }

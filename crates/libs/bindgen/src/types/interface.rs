@@ -552,20 +552,15 @@ impl Interface {
                 let runtime_name = format!("{type_name}");
 
                 let cfg = if config.bindgen.layout.is_package() {
-                    fn combine(interface: &Interface, dependencies: &mut TypeMap, config: &Config) {
-                        for method in &interface.get_methods(config) {
+                    let mut dependencies = self.dependencies(config.reader);
+
+                    for interface in std::iter::once(self).chain(&required_interfaces) {
+                        for method in interface.get_methods(config) {
                             if let MethodOrName::Method(method) = method {
                                 dependencies.combine(&method.dependencies);
                             }
                         }
                     }
-
-                    let mut dependencies = self.dependencies(config.reader);
-                    combine(self, &mut dependencies, config);
-
-                    required_interfaces
-                        .iter()
-                        .for_each(|interface| combine(interface, &mut dependencies, config));
 
                     Cfg::new(&dependencies, config).write(config, false)
                 } else {
