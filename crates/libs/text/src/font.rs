@@ -38,7 +38,7 @@ impl FontStyle {
 #[derive(Clone)]
 pub struct FontCollection(IDWriteFontCollection1);
 
-// DirectWrite font collections are immutable and thread-safe.
+// A DirectWrite font collection cannot change after creation and is not tied to a thread.
 unsafe impl Send for FontCollection {}
 unsafe impl Sync for FontCollection {}
 
@@ -138,7 +138,7 @@ impl FontCollection {
 #[derive(Clone)]
 pub struct FontFace(IDWriteFontFace3);
 
-// DirectWrite font faces are immutable and thread-safe.
+// A DirectWrite font face cannot change after creation and is not tied to a thread.
 unsafe impl Send for FontFace {}
 unsafe impl Sync for FontFace {}
 

@@ -1,8 +1,9 @@
 use super::*;
 use std::sync::OnceLock;
 
-// The shared factory and the in-memory loader are thread-safe, but the metadata does not mark
-// them `[agile]`. Wrap them for the process-wide statics.
+// The shared factory is shared by every DirectWrite component in the process and is not tied to a
+// thread, nor is the in-memory loader. The metadata does not mark them `[agile]`, so wrap them
+// for the process-wide statics.
 struct Shared<T>(T);
 unsafe impl<T> Send for Shared<T> {}
 unsafe impl<T> Sync for Shared<T> {}

@@ -325,24 +325,52 @@ mod tests {
     }
 
     #[test]
-    fn fallback_and_threads() {
+    fn shared_across_threads() {
+        let data = std::fs::read(std::env::var("WINDIR").unwrap() + r"\Fonts\consola.ttf").unwrap();
+        let loaded = FontCollection::from_data([data.as_slice()]).unwrap();
         let system = FontCollection::system();
-        let fallback = FontFallback::new(&system, &["Segoe UI Symbol", "No Such Family"]);
+        let fallback = FontFallback::new(&system, &["Segoe UI Symbol"]);
         let format = TextFormat::new("Consolas", 24.0)
             .unwrap()
+            .with_collection(&loaded)
             .with_fallback(&fallback);
+        let face = loaded
+            .find("Consolas", FontWeight::NORMAL, FontStyle::Normal)
+            .unwrap();
 
-        // Formats, collections, faces, and fallbacks can be shared across threads, and layouts
-        // can move between them.
-        let layout = std::thread::spawn(move || {
-            _ = (
-                system.find("Consolas", FontWeight::NORMAL, FontStyle::Normal),
-                fallback,
-            );
-            TextLayout::new("\u{2603} snow", &format, 400.0, 200.0).unwrap()
-        })
-        .join()
-        .unwrap();
-        assert!(layout.metrics().width > 0.0);
+        let work = |face: &FontFace| {
+            let glyph = face.glyph_index('W').unwrap();
+            let layout = TextLayout::new("\u{2603} snow", &format, 400.0, 200.0).unwrap();
+            (
+                face.metrics(),
+                face.glyph_metrics(glyph),
+                layout.metrics(),
+                system
+                    .find("Segoe UI", FontWeight::BOLD, FontStyle::Normal)
+                    .unwrap()
+                    .weight(),
+            )
+        };
+        let expected = work(&face);
+
+        // Use the same objects from several threads at once.
+        let barrier = std::sync::Barrier::new(8);
+        std::thread::scope(|scope| {
+            for _ in 0..8 {
+                scope.spawn(|| {
+                    barrier.wait();
+                    for _ in 0..50 {
+                        assert_eq!(work(&face), expected);
+                    }
+                });
+            }
+        });
+
+        // A layout can move to another thread.
+        let layout = TextLayout::new("snow", &format, 400.0, 200.0).unwrap();
+        let width = std::thread::spawn(move || layout.metrics().width)
+            .join()
+            .unwrap();
+        assert!(width > 0.0);
     }
 }

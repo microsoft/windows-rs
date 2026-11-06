@@ -7,7 +7,7 @@ use super::*;
 #[derive(Clone)]
 pub struct FontFallback(IDWriteFontFallback);
 
-// DirectWrite font fallbacks are immutable and thread-safe.
+// A DirectWrite font fallback cannot change after creation and is not tied to a thread.
 unsafe impl Send for FontFallback {}
 unsafe impl Sync for FontFallback {}
 
