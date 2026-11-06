@@ -58,14 +58,14 @@ impl IDispError {
         unsafe { (windows_core::Interface::vtable(self).GetHresult)(windows_core::Interface::as_raw(self), phr as _) }
     }
     pub unsafe fn GetSource(&self, pbstrsource: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSource)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrsource)) }
+        unsafe { (windows_core::Interface::vtable(self).GetSource)(windows_core::Interface::as_raw(self), pbstrsource as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetHelpInfo(&self, pbstrfilename: *mut windows_core::BSTR, pdwcontext: *mut super::DWORD) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetHelpInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrfilename), pdwcontext as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetHelpInfo)(windows_core::Interface::as_raw(self), pbstrfilename as _, pdwcontext as _) }
     }
     pub unsafe fn GetDescription(&self, pbstrdescription: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrdescription)) }
+        unsafe { (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), pbstrdescription as _) }
     }
 }
 #[repr(C)]
@@ -97,9 +97,9 @@ impl IDispError_Vtbl {
         unsafe extern "system" fn QueryErrorInfo<Identity: IDispError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guiderrortype: windows_core::GUID, ppde: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDispError_Impl::QueryErrorInfo(this, core::mem::transmute(&guiderrortype)) {
+                match IDispError_Impl::QueryErrorInfo(this, &*(&raw const guiderrortype).cast()) {
                     Ok(ok__) => {
-                        ppde.write(core::mem::transmute(ok__));
+                        ppde.cast::<IDispError>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -114,7 +114,7 @@ impl IDispError_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDispError_Impl::GetNext(this) {
                     Ok(ok__) => {
-                        ppde.write(core::mem::transmute(ok__));
+                        ppde.cast::<IDispError>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -202,7 +202,7 @@ impl IDispatchEx {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetMemberName(&self, id: super::DISPID, pbstrname: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetMemberName)(windows_core::Interface::as_raw(self), id, core::mem::transmute(pbstrname)) }
+        unsafe { (windows_core::Interface::vtable(self).GetMemberName)(windows_core::Interface::as_raw(self), id, pbstrname as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetNextDispID(&self, grfdex: super::DWORD, id: super::DISPID, pid: *mut super::DISPID) -> windows_core::HRESULT {
@@ -267,7 +267,7 @@ impl IDispatchEx_Vtbl {
         unsafe extern "system" fn GetDispID<Identity: IDispatchEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: *mut core::ffi::c_void, grfdex: super::DWORD, pid: *mut super::DISPID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDispatchEx_Impl::GetDispID(this, core::mem::transmute(&bstrname), core::mem::transmute_copy(&grfdex), core::mem::transmute_copy(&pid))
+                IDispatchEx_Impl::GetDispID(this, &*(&raw const bstrname).cast(), core::mem::transmute_copy(&grfdex), core::mem::transmute_copy(&pid))
             }
         }
         unsafe extern "system" fn InvokeEx<Identity: IDispatchEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: super::DISPID, lcid: super::LCID, wflags: super::WORD, pdp: *const super::DISPPARAMS, pvarres: *mut super::VARIANT, pei: *mut super::EXCEPINFO, pspcaller: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -279,7 +279,7 @@ impl IDispatchEx_Vtbl {
         unsafe extern "system" fn DeleteMemberByName<Identity: IDispatchEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: *mut core::ffi::c_void, grfdex: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDispatchEx_Impl::DeleteMemberByName(this, core::mem::transmute(&bstrname), core::mem::transmute_copy(&grfdex))
+                IDispatchEx_Impl::DeleteMemberByName(this, &*(&raw const bstrname).cast(), core::mem::transmute_copy(&grfdex))
             }
         }
         unsafe extern "system" fn DeleteMemberByDispID<Identity: IDispatchEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: super::DISPID) -> windows_core::HRESULT {
@@ -311,7 +311,7 @@ impl IDispatchEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDispatchEx_Impl::GetNameSpaceParent(this) {
                     Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
+                        ppunk.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

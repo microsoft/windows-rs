@@ -477,7 +477,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
         unsafe extern "system" fn SetSelectedScanRegion<Identity: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::super::Foundation::Rect) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IImageScannerSourceConfiguration_Impl::SetSelectedScanRegion(this, core::mem::transmute(&value)).into()
+                IImageScannerSourceConfiguration_Impl::SetSelectedScanRegion(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn AutoCroppingMode<Identity: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ImageScannerAutoCroppingMode) -> windows_core::HRESULT {
@@ -579,7 +579,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
         unsafe extern "system" fn SetDesiredResolution<Identity: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: ImageScannerResolution) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IImageScannerSourceConfiguration_Impl::SetDesiredResolution(this, core::mem::transmute(&value)).into()
+                IImageScannerSourceConfiguration_Impl::SetDesiredResolution(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn ActualResolution<Identity: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ImageScannerResolution) -> windows_core::HRESULT {

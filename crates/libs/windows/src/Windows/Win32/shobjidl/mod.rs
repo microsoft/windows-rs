@@ -190,7 +190,7 @@ impl IAccessibleObject_Vtbl {
         unsafe extern "system" fn SetAccessibleName<Identity: IAccessibleObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccessibleObject_Impl::SetAccessibleName(this, core::mem::transmute(&pszname))
+                IAccessibleObject_Impl::SetAccessibleName(this, &*(&raw const pszname).cast())
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetAccessibleName: SetAccessibleName::<Identity, OFFSET> }
@@ -224,7 +224,7 @@ impl IApplicationAssociationRegistrationUI_Vtbl {
         unsafe extern "system" fn LaunchAdvancedAssociationUI<Identity: IApplicationAssociationRegistrationUI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszappregistryname: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IApplicationAssociationRegistrationUI_Impl::LaunchAdvancedAssociationUI(this, core::mem::transmute(&pszappregistryname))
+                IApplicationAssociationRegistrationUI_Impl::LaunchAdvancedAssociationUI(this, &*(&raw const pszappregistryname).cast())
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), LaunchAdvancedAssociationUI: LaunchAdvancedAssociationUI::<Identity, OFFSET> }
@@ -682,7 +682,7 @@ impl IDesktopGadget_Vtbl {
         unsafe extern "system" fn RunGadget<Identity: IDesktopGadget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gadgetpath: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDesktopGadget_Impl::RunGadget(this, core::mem::transmute(&gadgetpath))
+                IDesktopGadget_Impl::RunGadget(this, &*(&raw const gadgetpath).cast())
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), RunGadget: RunGadget::<Identity, OFFSET> }
@@ -771,7 +771,7 @@ impl IDynamicHWHandler_Vtbl {
         unsafe extern "system" fn GetDynamicInfo<Identity: IDynamicHWHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszdeviceid: windows_core::PCWSTR, dwcontenttype: super::DWORD, ppszaction: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDynamicHWHandler_Impl::GetDynamicInfo(this, core::mem::transmute(&pszdeviceid), core::mem::transmute_copy(&dwcontenttype), core::mem::transmute_copy(&ppszaction))
+                IDynamicHWHandler_Impl::GetDynamicInfo(this, &*(&raw const pszdeviceid).cast(), core::mem::transmute_copy(&dwcontenttype), core::mem::transmute_copy(&ppszaction))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDynamicInfo: GetDynamicInfo::<Identity, OFFSET> }
@@ -860,7 +860,7 @@ impl IEnumerableView_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumerableView_Impl::CreateEnumIDListFromContents(this, core::mem::transmute_copy(&pidlfolder), core::mem::transmute_copy(&dwenumflags)) {
                     Ok(ok__) => {
-                        ppenumidlist.write(core::mem::transmute(ok__));
+                        ppenumidlist.cast::<super::IEnumIDList>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -927,7 +927,7 @@ impl IFileDialog2_Vtbl {
         unsafe extern "system" fn SetCancelButtonLabel<Identity: IFileDialog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszlabel: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileDialog2_Impl::SetCancelButtonLabel(this, core::mem::transmute(&pszlabel))
+                IFileDialog2_Impl::SetCancelButtonLabel(this, &*(&raw const pszlabel).cast())
             }
         }
         unsafe extern "system" fn SetNavigationRoot<Identity: IFileDialog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psi: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1258,19 +1258,19 @@ impl IHWEventHandler_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IHWEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszparams: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IHWEventHandler_Impl::Initialize(this, core::mem::transmute(&pszparams))
+                IHWEventHandler_Impl::Initialize(this, &*(&raw const pszparams).cast())
             }
         }
         unsafe extern "system" fn HandleEvent<Identity: IHWEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszdeviceid: windows_core::PCWSTR, pszaltdeviceid: windows_core::PCWSTR, pszeventtype: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IHWEventHandler_Impl::HandleEvent(this, core::mem::transmute(&pszdeviceid), core::mem::transmute(&pszaltdeviceid), core::mem::transmute(&pszeventtype))
+                IHWEventHandler_Impl::HandleEvent(this, &*(&raw const pszdeviceid).cast(), &*(&raw const pszaltdeviceid).cast(), &*(&raw const pszeventtype).cast())
             }
         }
         unsafe extern "system" fn HandleEventWithContent<Identity: IHWEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszdeviceid: windows_core::PCWSTR, pszaltdeviceid: windows_core::PCWSTR, pszeventtype: windows_core::PCWSTR, pszcontenttypehandler: windows_core::PCWSTR, pdataobject: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IHWEventHandler_Impl::HandleEventWithContent(this, core::mem::transmute(&pszdeviceid), core::mem::transmute(&pszaltdeviceid), core::mem::transmute(&pszeventtype), core::mem::transmute(&pszcontenttypehandler), core::mem::transmute_copy(&pdataobject))
+                IHWEventHandler_Impl::HandleEventWithContent(this, &*(&raw const pszdeviceid).cast(), &*(&raw const pszaltdeviceid).cast(), &*(&raw const pszeventtype).cast(), &*(&raw const pszcontenttypehandler).cast(), core::mem::transmute_copy(&pdataobject))
             }
         }
         Self {
@@ -1324,7 +1324,7 @@ impl IHWEventHandler2_Vtbl {
         unsafe extern "system" fn HandleEventWithHWND<Identity: IHWEventHandler2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszdeviceid: windows_core::PCWSTR, pszaltdeviceid: windows_core::PCWSTR, pszeventtype: windows_core::PCWSTR, hwndowner: super::HWND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IHWEventHandler2_Impl::HandleEventWithHWND(this, core::mem::transmute(&pszdeviceid), core::mem::transmute(&pszaltdeviceid), core::mem::transmute(&pszeventtype), core::mem::transmute_copy(&hwndowner))
+                IHWEventHandler2_Impl::HandleEventWithHWND(this, &*(&raw const pszdeviceid).cast(), &*(&raw const pszaltdeviceid).cast(), &*(&raw const pszeventtype).cast(), core::mem::transmute_copy(&hwndowner))
             }
         }
         Self { base__: IHWEventHandler_Vtbl::new::<Identity, OFFSET>(), HandleEventWithHWND: HandleEventWithHWND::<Identity, OFFSET> }
@@ -1371,7 +1371,7 @@ impl IImageRecompress_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IImageRecompress_Impl::RecompressImage(this, core::mem::transmute_copy(&psi), core::mem::transmute_copy(&cx), core::mem::transmute_copy(&cy), core::mem::transmute_copy(&iquality), core::mem::transmute_copy(&pstg)) {
                     Ok(ok__) => {
-                        ppstrmout.write(core::mem::transmute(ok__));
+                        ppstrmout.cast::<super::IStream>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1438,7 +1438,7 @@ impl INameSpaceTreeAccessible {
     where
         P0: windows_core::Param<super::IShellItem>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnGetDefaultAccessibilityAction)(windows_core::Interface::as_raw(self), psi.param().abi(), core::mem::transmute(pbstrdefaultaction)) }
+        unsafe { (windows_core::Interface::vtable(self).OnGetDefaultAccessibilityAction)(windows_core::Interface::as_raw(self), psi.param().abi(), pbstrdefaultaction as _) }
     }
     #[cfg(feature = "shobjidl_core")]
     pub unsafe fn OnDoDefaultAccessibilityAction<P0>(&self, psi: P0) -> windows_core::HRESULT
@@ -2222,7 +2222,7 @@ impl IPreviousVersionsInfo_Vtbl {
         unsafe extern "system" fn AreSnapshotsAvailable<Identity: IPreviousVersionsInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpath: windows_core::PCWSTR, foktobeslow: windows_core::BOOL, pfavailable: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPreviousVersionsInfo_Impl::AreSnapshotsAvailable(this, core::mem::transmute(&pszpath), core::mem::transmute_copy(&foktobeslow), core::mem::transmute_copy(&pfavailable))
+                IPreviousVersionsInfo_Impl::AreSnapshotsAvailable(this, &*(&raw const pszpath).cast(), core::mem::transmute_copy(&foktobeslow), core::mem::transmute_copy(&pfavailable))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AreSnapshotsAvailable: AreSnapshotsAvailable::<Identity, OFFSET> }
@@ -2278,7 +2278,7 @@ impl IPublishingWizard_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IPublishingWizard_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdo: *mut core::ffi::c_void, dwoptions: super::DWORD, pszservicescope: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPublishingWizard_Impl::Initialize(this, core::mem::transmute_copy(&pdo), core::mem::transmute_copy(&dwoptions), core::mem::transmute(&pszservicescope))
+                IPublishingWizard_Impl::Initialize(this, core::mem::transmute_copy(&pdo), core::mem::transmute_copy(&dwoptions), &*(&raw const pszservicescope).cast())
             }
         }
         unsafe extern "system" fn GetTransferManifest<Identity: IPublishingWizard_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phrfromtransfer: *mut windows_core::HRESULT, pdocmanifest: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2330,7 +2330,7 @@ impl IQueryCancelAutoPlay_Vtbl {
         unsafe extern "system" fn AllowAutoPlay<Identity: IQueryCancelAutoPlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpath: windows_core::PCWSTR, dwcontenttype: super::DWORD, pszlabel: windows_core::PCWSTR, dwserialnumber: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IQueryCancelAutoPlay_Impl::AllowAutoPlay(this, core::mem::transmute(&pszpath), core::mem::transmute_copy(&dwcontenttype), core::mem::transmute(&pszlabel), core::mem::transmute_copy(&dwserialnumber))
+                IQueryCancelAutoPlay_Impl::AllowAutoPlay(this, &*(&raw const pszpath).cast(), core::mem::transmute_copy(&dwcontenttype), &*(&raw const pszlabel).cast(), core::mem::transmute_copy(&dwserialnumber))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AllowAutoPlay: AllowAutoPlay::<Identity, OFFSET> }
@@ -2586,7 +2586,7 @@ impl IShellRunDll_Vtbl {
         unsafe extern "system" fn Run<Identity: IShellRunDll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszargs: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellRunDll_Impl::Run(this, core::mem::transmute(&pszargs))
+                IShellRunDll_Impl::Run(this, &*(&raw const pszargs).cast())
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Run: Run::<Identity, OFFSET> }
@@ -2742,25 +2742,25 @@ impl IStorageProviderBanners_Vtbl {
         unsafe extern "system" fn SetBanner<Identity: IStorageProviderBanners_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, provideridentity: windows_core::PCWSTR, subscriptionid: windows_core::PCWSTR, contentid: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStorageProviderBanners_Impl::SetBanner(this, core::mem::transmute(&provideridentity), core::mem::transmute(&subscriptionid), core::mem::transmute(&contentid))
+                IStorageProviderBanners_Impl::SetBanner(this, &*(&raw const provideridentity).cast(), &*(&raw const subscriptionid).cast(), &*(&raw const contentid).cast())
             }
         }
         unsafe extern "system" fn ClearBanner<Identity: IStorageProviderBanners_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, provideridentity: windows_core::PCWSTR, subscriptionid: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStorageProviderBanners_Impl::ClearBanner(this, core::mem::transmute(&provideridentity), core::mem::transmute(&subscriptionid))
+                IStorageProviderBanners_Impl::ClearBanner(this, &*(&raw const provideridentity).cast(), &*(&raw const subscriptionid).cast())
             }
         }
         unsafe extern "system" fn ClearAllBanners<Identity: IStorageProviderBanners_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, provideridentity: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStorageProviderBanners_Impl::ClearAllBanners(this, core::mem::transmute(&provideridentity))
+                IStorageProviderBanners_Impl::ClearAllBanners(this, &*(&raw const provideridentity).cast())
             }
         }
         unsafe extern "system" fn GetBanner<Identity: IStorageProviderBanners_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, provideridentity: windows_core::PCWSTR, subscriptionid: windows_core::PCWSTR, contentid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStorageProviderBanners_Impl::GetBanner(this, core::mem::transmute(&provideridentity), core::mem::transmute(&subscriptionid), core::mem::transmute_copy(&contentid))
+                IStorageProviderBanners_Impl::GetBanner(this, &*(&raw const provideridentity).cast(), &*(&raw const subscriptionid).cast(), core::mem::transmute_copy(&contentid))
             }
         }
         Self {
@@ -2807,7 +2807,7 @@ impl IStorageProviderCopyHook_Vtbl {
         unsafe extern "system" fn CopyCallback<Identity: IStorageProviderCopyHook_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::HWND, operation: super::UINT, flags: super::UINT, srcfile: windows_core::PCWSTR, srcattribs: super::DWORD, destfile: windows_core::PCWSTR, destattribs: super::DWORD, result: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStorageProviderCopyHook_Impl::CopyCallback(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&operation), core::mem::transmute_copy(&flags), core::mem::transmute(&srcfile), core::mem::transmute_copy(&srcattribs), core::mem::transmute(&destfile), core::mem::transmute_copy(&destattribs), core::mem::transmute_copy(&result))
+                IStorageProviderCopyHook_Impl::CopyCallback(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&operation), core::mem::transmute_copy(&flags), &*(&raw const srcfile).cast(), core::mem::transmute_copy(&srcattribs), &*(&raw const destfile).cast(), core::mem::transmute_copy(&destattribs), core::mem::transmute_copy(&result))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CopyCallback: CopyCallback::<Identity, OFFSET> }
@@ -3091,7 +3091,7 @@ impl IUserAccountChangeCallback_Vtbl {
         unsafe extern "system" fn OnPictureChange<Identity: IUserAccountChangeCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszusername: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUserAccountChangeCallback_Impl::OnPictureChange(this, core::mem::transmute(&pszusername))
+                IUserAccountChangeCallback_Impl::OnPictureChange(this, &*(&raw const pszusername).cast())
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnPictureChange: OnPictureChange::<Identity, OFFSET> }
@@ -3174,7 +3174,7 @@ impl IUserNotification2_Vtbl {
         unsafe extern "system" fn SetBalloonInfo<Identity: IUserNotification2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psztitle: windows_core::PCWSTR, psztext: windows_core::PCWSTR, dwinfoflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUserNotification2_Impl::SetBalloonInfo(this, core::mem::transmute(&psztitle), core::mem::transmute(&psztext), core::mem::transmute_copy(&dwinfoflags))
+                IUserNotification2_Impl::SetBalloonInfo(this, &*(&raw const psztitle).cast(), &*(&raw const psztext).cast(), core::mem::transmute_copy(&dwinfoflags))
             }
         }
         unsafe extern "system" fn SetBalloonRetry<Identity: IUserNotification2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwshowtime: super::DWORD, dwinterval: super::DWORD, cretrycount: super::UINT) -> windows_core::HRESULT {
@@ -3186,7 +3186,7 @@ impl IUserNotification2_Vtbl {
         unsafe extern "system" fn SetIconInfo<Identity: IUserNotification2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hicon: super::HICON, psztooltip: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUserNotification2_Impl::SetIconInfo(this, core::mem::transmute_copy(&hicon), core::mem::transmute(&psztooltip))
+                IUserNotification2_Impl::SetIconInfo(this, core::mem::transmute_copy(&hicon), &*(&raw const psztooltip).cast())
             }
         }
         unsafe extern "system" fn Show<Identity: IUserNotification2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqc: *mut core::ffi::c_void, dwcontinuepollinterval: super::DWORD, psink: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3198,7 +3198,7 @@ impl IUserNotification2_Vtbl {
         unsafe extern "system" fn PlaySound<Identity: IUserNotification2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszsoundname: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUserNotification2_Impl::PlaySound(this, core::mem::transmute(&pszsoundname))
+                IUserNotification2_Impl::PlaySound(this, &*(&raw const pszsoundname).cast())
             }
         }
         Self {
@@ -3413,7 +3413,7 @@ impl IVisualProperties_Vtbl {
         unsafe extern "system" fn SetTheme<Identity: IVisualProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszsubappname: windows_core::PCWSTR, pszsubidlist: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVisualProperties_Impl::SetTheme(this, core::mem::transmute(&pszsubappname), core::mem::transmute(&pszsubidlist))
+                IVisualProperties_Impl::SetTheme(this, &*(&raw const pszsubappname).cast(), &*(&raw const pszsubidlist).cast())
             }
         }
         Self {
@@ -3474,13 +3474,13 @@ impl IWebWizardExtension_Vtbl {
         unsafe extern "system" fn SetInitialURL<Identity: IWebWizardExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszurl: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWebWizardExtension_Impl::SetInitialURL(this, core::mem::transmute(&pszurl))
+                IWebWizardExtension_Impl::SetInitialURL(this, &*(&raw const pszurl).cast())
             }
         }
         unsafe extern "system" fn SetErrorURL<Identity: IWebWizardExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszerrorurl: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWebWizardExtension_Impl::SetErrorURL(this, core::mem::transmute(&pszerrorurl))
+                IWebWizardExtension_Impl::SetErrorURL(this, &*(&raw const pszerrorurl).cast())
             }
         }
         Self {

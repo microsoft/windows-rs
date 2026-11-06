@@ -587,7 +587,7 @@ impl IClusterNativeEnvironmentOperationsPlugin_Vtbl {
         unsafe extern "system" fn CreateEnvironmentOperations<Identity: IClusterNativeEnvironmentOperationsPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clustername: *mut core::ffi::c_void, runid: *mut core::ffi::c_void, options: *mut core::ffi::c_void, updateservices: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IClusterNativeEnvironmentOperationsPlugin_Impl::CreateEnvironmentOperations(this, core::mem::transmute(&clustername), core::mem::transmute(&runid), core::mem::transmute_copy(&options), core::mem::transmute_copy(&updateservices)) {
+                match IClusterNativeEnvironmentOperationsPlugin_Impl::CreateEnvironmentOperations(this, &*(&raw const clustername).cast(), &*(&raw const runid).cast(), core::mem::transmute_copy(&options), core::mem::transmute_copy(&updateservices)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1122,7 +1122,7 @@ impl IClusterNativeNodeOperationsPlugin_Vtbl {
         unsafe extern "system" fn CreateNodeOperations<Identity: IClusterNativeNodeOperationsPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clustername: *mut core::ffi::c_void, runid: *mut core::ffi::c_void, options: *mut core::ffi::c_void, updateservices: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IClusterNativeNodeOperationsPlugin_Impl::CreateNodeOperations(this, core::mem::transmute(&clustername), core::mem::transmute(&runid), core::mem::transmute_copy(&options), core::mem::transmute_copy(&updateservices)) {
+                match IClusterNativeNodeOperationsPlugin_Impl::CreateNodeOperations(this, &*(&raw const clustername).cast(), &*(&raw const runid).cast(), core::mem::transmute_copy(&options), core::mem::transmute_copy(&updateservices)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1726,7 +1726,7 @@ impl IUpdateInstallerPlugin_Vtbl {
         unsafe extern "system" fn CreateUpdateInstaller<Identity: IUpdateInstallerPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clustername: *mut core::ffi::c_void, runid: *mut core::ffi::c_void, options: *mut core::ffi::c_void, updateservices: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUpdateInstallerPlugin_Impl::CreateUpdateInstaller(this, core::mem::transmute(&clustername), core::mem::transmute(&runid), core::mem::transmute_copy(&options), core::mem::transmute_copy(&updateservices)) {
+                match IUpdateInstallerPlugin_Impl::CreateUpdateInstaller(this, &*(&raw const clustername).cast(), &*(&raw const runid).cast(), core::mem::transmute_copy(&options), core::mem::transmute_copy(&updateservices)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);

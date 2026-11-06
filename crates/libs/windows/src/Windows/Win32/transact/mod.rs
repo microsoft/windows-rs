@@ -287,7 +287,7 @@ impl ITransactionCloner_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITransactionCloner_Impl::CloneWithCommitDisabled(this) {
                     Ok(ok__) => {
-                        ppitransaction.write(core::mem::transmute(ok__));
+                        ppitransaction.cast::<ITransaction>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -349,7 +349,7 @@ impl ITransactionDispenser_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITransactionDispenser_Impl::GetOptionsObject(this) {
                     Ok(ok__) => {
-                        ppoptions.write(core::mem::transmute(ok__));
+                        ppoptions.cast::<ITransactionOptions>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -364,7 +364,7 @@ impl ITransactionDispenser_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITransactionDispenser_Impl::BeginTransaction(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&isolevel), core::mem::transmute_copy(&isoflags), core::mem::transmute_copy(&poptions)) {
                     Ok(ok__) => {
-                        pptransaction.write(core::mem::transmute(ok__));
+                        pptransaction.cast::<ITransaction>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

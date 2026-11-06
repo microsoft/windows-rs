@@ -30,7 +30,7 @@ impl ICatInformation {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn EnumClassesOfCategories(&self, cimplemented: super::ULONG, rgcatidimpl: *const CATID, crequired: super::ULONG, rgcatidreq: *const CATID, ppenumclsid: *mut Option<IEnumGUID>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumClassesOfCategories)(windows_core::Interface::as_raw(self), cimplemented, rgcatidimpl, crequired, rgcatidreq, core::mem::transmute(ppenumclsid)) }
+        unsafe { (windows_core::Interface::vtable(self).EnumClassesOfCategories)(windows_core::Interface::as_raw(self), cimplemented, rgcatidimpl, crequired, rgcatidreq, ppenumclsid as _) }
     }
     #[cfg(all(feature = "guiddef", feature = "shared"))]
     pub unsafe fn IsClassOfCategories(&self, rclsid: *const super::IID, cimplemented: super::ULONG, rgcatidimpl: *const CATID, crequired: super::ULONG, rgcatidreq: *const CATID) -> windows_core::HRESULT {
@@ -97,7 +97,7 @@ impl ICatInformation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICatInformation_Impl::EnumCategories(this, core::mem::transmute_copy(&lcid)) {
                     Ok(ok__) => {
-                        ppenumcategoryinfo.write(core::mem::transmute(ok__));
+                        ppenumcategoryinfo.cast::<IEnumCATEGORYINFO>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -130,7 +130,7 @@ impl ICatInformation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICatInformation_Impl::EnumImplCategoriesOfClass(this, core::mem::transmute_copy(&rclsid)) {
                     Ok(ok__) => {
-                        ppenumcatid.write(core::mem::transmute(ok__));
+                        ppenumcatid.cast::<IEnumGUID>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -145,7 +145,7 @@ impl ICatInformation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICatInformation_Impl::EnumReqCategoriesOfClass(this, core::mem::transmute_copy(&rclsid)) {
                     Ok(ok__) => {
-                        ppenumcatid.write(core::mem::transmute(ok__));
+                        ppenumcatid.cast::<IEnumGUID>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -361,7 +361,7 @@ impl IEnumCATEGORYINFO_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumCATEGORYINFO_Impl::Clone(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumCATEGORYINFO>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -454,7 +454,7 @@ impl IEnumGUID_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumGUID_Impl::Clone(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumGUID>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

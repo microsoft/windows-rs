@@ -27,13 +27,13 @@ impl IMcpMessageFilterExperimental_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IMcpMessageFilterExperimental_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clientappusermodelid: *mut core::ffi::c_void, clientprocessid: u32, serveridentity: *mut core::ffi::c_void, servername: *mut core::ffi::c_void, serverprocessid: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMcpMessageFilterExperimental_Impl::Initialize(this, core::mem::transmute(&clientappusermodelid), clientprocessid, core::mem::transmute(&serveridentity), core::mem::transmute(&servername), serverprocessid).into()
+                IMcpMessageFilterExperimental_Impl::Initialize(this, &*(&raw const clientappusermodelid).cast(), clientprocessid, &*(&raw const serveridentity).cast(), &*(&raw const servername).cast(), serverprocessid).into()
             }
         }
         unsafe extern "system" fn OnMessage<Identity: IMcpMessageFilterExperimental_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, message: *mut core::ffi::c_void, direction: McpMessageDirection, filterresponse: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMcpMessageFilterExperimental_Impl::OnMessage(this, core::mem::transmute(&message), direction, core::mem::transmute_copy(&filterresponse)).into()
+                IMcpMessageFilterExperimental_Impl::OnMessage(this, &*(&raw const message).cast(), direction, core::mem::transmute_copy(&filterresponse)).into()
             }
         }
         Self {
@@ -85,7 +85,7 @@ impl IMcpMessageFilterExperimental2_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IMcpMessageFilterExperimental2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clientprocessidentifier: *mut core::ffi::c_void, clientprocessid: u32, serverprocessidentifier: *mut core::ffi::c_void, serverprocessid: u32, serverid: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMcpMessageFilterExperimental2_Impl::Initialize(this, core::mem::transmute(&clientprocessidentifier), clientprocessid, core::mem::transmute(&serverprocessidentifier), serverprocessid, core::mem::transmute(&serverid)) {
+                match IMcpMessageFilterExperimental2_Impl::Initialize(this, &*(&raw const clientprocessidentifier).cast(), clientprocessid, &*(&raw const serverprocessidentifier).cast(), serverprocessid, &*(&raw const serverid).cast()) {
                     Ok(ok__) => {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
@@ -100,7 +100,7 @@ impl IMcpMessageFilterExperimental2_Vtbl {
         unsafe extern "system" fn OnMessage<Identity: IMcpMessageFilterExperimental2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, message: *mut core::ffi::c_void, direction: McpMessageDirection, filterresponse: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMcpMessageFilterExperimental2_Impl::OnMessage(this, core::mem::transmute(&message), direction, core::mem::transmute_copy(&filterresponse)).into()
+                IMcpMessageFilterExperimental2_Impl::OnMessage(this, &*(&raw const message).cast(), direction, core::mem::transmute_copy(&filterresponse)).into()
             }
         }
         Self {
@@ -207,7 +207,7 @@ impl IMcpMessageFilterResponseExperimental_Vtbl {
         unsafe extern "system" fn SetMessageIfNotAllowed<Identity: IMcpMessageFilterResponseExperimental_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMcpMessageFilterResponseExperimental_Impl::SetMessageIfNotAllowed(this, core::mem::transmute(&value)).into()
+                IMcpMessageFilterResponseExperimental_Impl::SetMessageIfNotAllowed(this, &*(&raw const value).cast()).into()
             }
         }
         Self {
@@ -263,7 +263,7 @@ impl IMcpMessageFilterResponseExperimental2_Vtbl {
         unsafe extern "system" fn Reject<Identity: IMcpMessageFilterResponseExperimental2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reason: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMcpMessageFilterResponseExperimental2_Impl::Reject(this, core::mem::transmute(&reason)).into()
+                IMcpMessageFilterResponseExperimental2_Impl::Reject(this, &*(&raw const reason).cast()).into()
             }
         }
         Self {

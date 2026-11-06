@@ -525,7 +525,7 @@ impl IConnector {
         unsafe { (windows_core::Interface::vtable(self).IsConnected)(windows_core::Interface::as_raw(self), pbconnected as _) }
     }
     pub unsafe fn GetConnectedTo(&self, ppconto: *mut Option<Self>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetConnectedTo)(windows_core::Interface::as_raw(self), core::mem::transmute(ppconto)) }
+        unsafe { (windows_core::Interface::vtable(self).GetConnectedTo)(windows_core::Interface::as_raw(self), ppconto as _) }
     }
     pub unsafe fn GetConnectorIdConnectedTo(&self, ppwstrconnectorid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetConnectorIdConnectedTo)(windows_core::Interface::as_raw(self), ppwstrconnectorid as _) }
@@ -802,7 +802,7 @@ impl IDeviceTopology {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetConnector(&self, nindex: super::UINT, ppconnector: *mut Option<IConnector>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetConnector)(windows_core::Interface::as_raw(self), nindex, core::mem::transmute(ppconnector)) }
+        unsafe { (windows_core::Interface::vtable(self).GetConnector)(windows_core::Interface::as_raw(self), nindex, ppconnector as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetSubunitCount(&self, pcount: *mut super::UINT) -> windows_core::HRESULT {
@@ -899,7 +899,7 @@ impl IDeviceTopology_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDeviceTopology_Impl::GetSubunit(this, core::mem::transmute_copy(&nindex)) {
                     Ok(ok__) => {
-                        ppsubunit.write(core::mem::transmute(ok__));
+                        ppsubunit.cast::<ISubunit>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -914,7 +914,7 @@ impl IDeviceTopology_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDeviceTopology_Impl::GetPartById(this, core::mem::transmute_copy(&nid)) {
                     Ok(ok__) => {
-                        pppart.write(core::mem::transmute(ok__));
+                        pppart.cast::<IPart>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -935,7 +935,7 @@ impl IDeviceTopology_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDeviceTopology_Impl::GetSignalPath(this, core::mem::transmute_copy(&pipartfrom), core::mem::transmute_copy(&pipartto), core::mem::transmute_copy(&brejectmixedpaths)) {
                     Ok(ok__) => {
-                        ppparts.write(core::mem::transmute(ok__));
+                        ppparts.cast::<IPartsList>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1357,16 +1357,16 @@ impl IPart {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetControlInterface(&self, nindex: super::UINT, ppinterfacedesc: *mut Option<IControlInterface>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetControlInterface)(windows_core::Interface::as_raw(self), nindex, core::mem::transmute(ppinterfacedesc)) }
+        unsafe { (windows_core::Interface::vtable(self).GetControlInterface)(windows_core::Interface::as_raw(self), nindex, ppinterfacedesc as _) }
     }
     pub unsafe fn EnumPartsIncoming(&self, ppparts: *mut Option<IPartsList>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumPartsIncoming)(windows_core::Interface::as_raw(self), core::mem::transmute(ppparts)) }
+        unsafe { (windows_core::Interface::vtable(self).EnumPartsIncoming)(windows_core::Interface::as_raw(self), ppparts as _) }
     }
     pub unsafe fn EnumPartsOutgoing(&self, ppparts: *mut Option<IPartsList>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumPartsOutgoing)(windows_core::Interface::as_raw(self), core::mem::transmute(ppparts)) }
+        unsafe { (windows_core::Interface::vtable(self).EnumPartsOutgoing)(windows_core::Interface::as_raw(self), ppparts as _) }
     }
     pub unsafe fn GetTopologyObject(&self, pptopology: *mut Option<IDeviceTopology>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTopologyObject)(windows_core::Interface::as_raw(self), core::mem::transmute(pptopology)) }
+        unsafe { (windows_core::Interface::vtable(self).GetTopologyObject)(windows_core::Interface::as_raw(self), pptopology as _) }
     }
     #[cfg(all(feature = "guiddef", feature = "shared"))]
     pub unsafe fn Activate<T>(&self, dwclscontext: super::DWORD, result__: *mut Option<T>) -> windows_core::Result<()>
@@ -1547,7 +1547,7 @@ impl IPartsList {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetPart(&self, nindex: super::UINT, pppart: *mut Option<IPart>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPart)(windows_core::Interface::as_raw(self), nindex, core::mem::transmute(pppart)) }
+        unsafe { (windows_core::Interface::vtable(self).GetPart)(windows_core::Interface::as_raw(self), nindex, pppart as _) }
     }
 }
 #[repr(C)]

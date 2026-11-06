@@ -644,7 +644,7 @@ impl ICreateTypeInfo_Vtbl {
         unsafe extern "system" fn SetMops<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT, bstrmops: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo_Impl::SetMops(this, core::mem::transmute_copy(&index), core::mem::transmute(&bstrmops))
+                ICreateTypeInfo_Impl::SetMops(this, core::mem::transmute_copy(&index), &*(&raw const bstrmops).cast())
             }
         }
         unsafe extern "system" fn SetTypeIdldesc<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidldesc: *const IDLDESC) -> windows_core::HRESULT {
@@ -964,7 +964,7 @@ windows_core::imp::interface_hierarchy!(ICreateTypeLib, windows_core::IUnknown);
 impl ICreateTypeLib {
     #[cfg(feature = "wtypesbase")]
     pub unsafe fn CreateTypeInfo(&self, szname: super::LPOLESTR, tkind: TYPEKIND, ppctinfo: *mut Option<ICreateTypeInfo>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateTypeInfo)(windows_core::Interface::as_raw(self), szname, tkind, core::mem::transmute(ppctinfo)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateTypeInfo)(windows_core::Interface::as_raw(self), szname, tkind, ppctinfo as _) }
     }
     #[cfg(feature = "wtypesbase")]
     pub unsafe fn SetName(&self, szname: super::LPOLESTR) -> windows_core::HRESULT {
@@ -1308,7 +1308,7 @@ impl IDispatch_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDispatch_Impl::GetTypeInfo(this, core::mem::transmute_copy(&itinfo), core::mem::transmute_copy(&lcid)) {
                     Ok(ok__) => {
-                        pptinfo.write(core::mem::transmute(ok__));
+                        pptinfo.cast::<ITypeInfo>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1413,7 +1413,7 @@ impl IEnumVARIANT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumVARIANT_Impl::Clone(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1444,13 +1444,13 @@ impl IErrorInfo {
         unsafe { (windows_core::Interface::vtable(self).GetGUID)(windows_core::Interface::as_raw(self), pguid as _) }
     }
     pub unsafe fn GetSource(&self, pbstrsource: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSource)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrsource)) }
+        unsafe { (windows_core::Interface::vtable(self).GetSource)(windows_core::Interface::as_raw(self), pbstrsource as _) }
     }
     pub unsafe fn GetDescription(&self, pbstrdescription: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrdescription)) }
+        unsafe { (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), pbstrdescription as _) }
     }
     pub unsafe fn GetHelpFile(&self, pbstrhelpfile: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetHelpFile)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrhelpfile)) }
+        unsafe { (windows_core::Interface::vtable(self).GetHelpFile)(windows_core::Interface::as_raw(self), pbstrhelpfile as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetHelpContext(&self, pdwhelpcontext: *mut super::DWORD) -> windows_core::HRESULT {
@@ -1648,14 +1648,14 @@ impl IRecordInfo {
         unsafe { (windows_core::Interface::vtable(self).GetGuid)(windows_core::Interface::as_raw(self), pguid as _) }
     }
     pub unsafe fn GetName(&self, pbstrname: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrname)) }
+        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), pbstrname as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetSize(&self, pcbsize: *mut super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSize)(windows_core::Interface::as_raw(self), pcbsize as _) }
     }
     pub unsafe fn GetTypeInfo(&self, pptypeinfo: *mut Option<ITypeInfo>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTypeInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pptypeinfo)) }
+        unsafe { (windows_core::Interface::vtable(self).GetTypeInfo)(windows_core::Interface::as_raw(self), pptypeinfo as _) }
     }
     #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetField(&self, pvdata: super::PVOID, szfieldname: super::LPCOLESTR, pvarfield: *mut VARIANT) -> windows_core::HRESULT {
@@ -1675,7 +1675,7 @@ impl IRecordInfo {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetFieldNames(&self, pcnames: *mut super::ULONG, rgbstrnames: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFieldNames)(windows_core::Interface::as_raw(self), pcnames as _, core::mem::transmute(rgbstrnames)) }
+        unsafe { (windows_core::Interface::vtable(self).GetFieldNames)(windows_core::Interface::as_raw(self), pcnames as _, rgbstrnames as _) }
     }
     pub unsafe fn IsMatchingType<P0>(&self, precordinfo: P0) -> windows_core::BOOL
     where
@@ -2003,11 +2003,11 @@ windows_core::imp::interface_hierarchy!(ITypeComp, windows_core::IUnknown);
 impl ITypeComp {
     #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Bind(&self, szname: super::LPOLESTR, lhashval: super::ULONG, wflags: super::WORD, pptinfo: *mut Option<ITypeInfo>, pdesckind: *mut DESCKIND, pbindptr: *mut BINDPTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Bind)(windows_core::Interface::as_raw(self), szname, lhashval, wflags, core::mem::transmute(pptinfo), pdesckind as _, pbindptr) }
+        unsafe { (windows_core::Interface::vtable(self).Bind)(windows_core::Interface::as_raw(self), szname, lhashval, wflags, pptinfo as _, pdesckind as _, pbindptr) }
     }
     #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub unsafe fn BindType(&self, szname: super::LPOLESTR, lhashval: super::ULONG, pptinfo: *mut Option<ITypeInfo>, pptcomp: *mut Option<Self>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).BindType)(windows_core::Interface::as_raw(self), szname, lhashval, core::mem::transmute(pptinfo), core::mem::transmute(pptcomp)) }
+        unsafe { (windows_core::Interface::vtable(self).BindType)(windows_core::Interface::as_raw(self), szname, lhashval, pptinfo as _, pptcomp as _) }
     }
 }
 #[repr(C)]
@@ -2059,7 +2059,7 @@ impl ITypeFactory {
     where
         P0: windows_core::Param<ITypeInfo>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateFromTypeInfo)(windows_core::Interface::as_raw(self), ptypeinfo.param().abi(), riid, core::mem::transmute(ppv)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateFromTypeInfo)(windows_core::Interface::as_raw(self), ptypeinfo.param().abi(), riid, ppv as _) }
     }
 }
 #[repr(C)]
@@ -2115,7 +2115,7 @@ impl ITypeInfo {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetNames(&self, memid: super::MEMBERID, rgbstrnames: *mut windows_core::BSTR, cmaxnames: super::UINT, pcnames: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNames)(windows_core::Interface::as_raw(self), memid, core::mem::transmute(rgbstrnames), cmaxnames, pcnames as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetNames)(windows_core::Interface::as_raw(self), memid, rgbstrnames as _, cmaxnames, pcnames as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetRefTypeOfImplType(&self, index: super::UINT, preftype: *mut HREFTYPE) -> windows_core::HRESULT {
@@ -2162,11 +2162,11 @@ impl ITypeInfo {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetMops(&self, memid: super::MEMBERID, pbstrmops: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetMops)(windows_core::Interface::as_raw(self), memid, core::mem::transmute(pbstrmops)) }
+        unsafe { (windows_core::Interface::vtable(self).GetMops)(windows_core::Interface::as_raw(self), memid, pbstrmops as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetContainingTypeLib(&self, pptlib: *mut Option<ITypeLib>, pindex: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetContainingTypeLib)(windows_core::Interface::as_raw(self), core::mem::transmute(pptlib), pindex as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetContainingTypeLib)(windows_core::Interface::as_raw(self), pptlib as _, pindex as _) }
     }
     #[cfg(all(feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ReleaseTypeAttr(&self, ptypeattr: *const TYPEATTR) {
@@ -2298,7 +2298,7 @@ impl ITypeInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITypeInfo_Impl::GetTypeComp(this) {
                     Ok(ok__) => {
-                        pptcomp.write(core::mem::transmute(ok__));
+                        pptcomp.cast::<ITypeComp>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2367,7 +2367,7 @@ impl ITypeInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITypeInfo_Impl::GetRefTypeInfo(this, core::mem::transmute_copy(&hreftype)) {
                     Ok(ok__) => {
-                        pptinfo.write(core::mem::transmute(ok__));
+                        pptinfo.cast::<ITypeInfo>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2759,7 +2759,7 @@ impl ITypeLib {
     }
     #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub unsafe fn FindName(&self, sznamebuf: super::LPOLESTR, lhashval: super::ULONG, pptinfo: *mut Option<ITypeInfo>, rgmemid: *mut super::MEMBERID, pcfound: *mut super::USHORT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).FindName)(windows_core::Interface::as_raw(self), sznamebuf as _, lhashval, core::mem::transmute(pptinfo), rgmemid as _, pcfound as _) }
+        unsafe { (windows_core::Interface::vtable(self).FindName)(windows_core::Interface::as_raw(self), sznamebuf as _, lhashval, pptinfo as _, rgmemid as _, pcfound as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn ReleaseTLibAttr(&self, ptlibattr: *const TLIBATTR) {
@@ -2834,7 +2834,7 @@ impl ITypeLib_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITypeLib_Impl::GetTypeInfo(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        pptinfo.write(core::mem::transmute(ok__));
+                        pptinfo.cast::<ITypeInfo>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2855,7 +2855,7 @@ impl ITypeLib_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITypeLib_Impl::GetTypeInfoOfGuid(this, core::mem::transmute_copy(&guid)) {
                     Ok(ok__) => {
-                        pptinfo.write(core::mem::transmute(ok__));
+                        pptinfo.cast::<ITypeInfo>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2876,7 +2876,7 @@ impl ITypeLib_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITypeLib_Impl::GetTypeComp(this) {
                     Ok(ok__) => {
-                        pptcomp.write(core::mem::transmute(ok__));
+                        pptcomp.cast::<ITypeComp>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3032,27 +3032,27 @@ impl ITypeLibRegistration {
         unsafe { (windows_core::Interface::vtable(self).GetGuid)(windows_core::Interface::as_raw(self), pguid as _) }
     }
     pub unsafe fn GetVersion(&self, pversion: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetVersion)(windows_core::Interface::as_raw(self), core::mem::transmute(pversion)) }
+        unsafe { (windows_core::Interface::vtable(self).GetVersion)(windows_core::Interface::as_raw(self), pversion as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetLcid(&self, plcid: *mut super::LCID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetLcid)(windows_core::Interface::as_raw(self), plcid as _) }
     }
     pub unsafe fn GetWin32Path(&self, pwin32path: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetWin32Path)(windows_core::Interface::as_raw(self), core::mem::transmute(pwin32path)) }
+        unsafe { (windows_core::Interface::vtable(self).GetWin32Path)(windows_core::Interface::as_raw(self), pwin32path as _) }
     }
     pub unsafe fn GetWin64Path(&self, pwin64path: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetWin64Path)(windows_core::Interface::as_raw(self), core::mem::transmute(pwin64path)) }
+        unsafe { (windows_core::Interface::vtable(self).GetWin64Path)(windows_core::Interface::as_raw(self), pwin64path as _) }
     }
     pub unsafe fn GetDisplayName(&self, pdisplayname: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDisplayName)(windows_core::Interface::as_raw(self), core::mem::transmute(pdisplayname)) }
+        unsafe { (windows_core::Interface::vtable(self).GetDisplayName)(windows_core::Interface::as_raw(self), pdisplayname as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetFlags(&self, pflags: *mut super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetFlags)(windows_core::Interface::as_raw(self), pflags as _) }
     }
     pub unsafe fn GetHelpDir(&self, phelpdir: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetHelpDir)(windows_core::Interface::as_raw(self), core::mem::transmute(phelpdir)) }
+        unsafe { (windows_core::Interface::vtable(self).GetHelpDir)(windows_core::Interface::as_raw(self), phelpdir as _) }
     }
 }
 #[repr(C)]
@@ -3159,7 +3159,7 @@ windows_core::imp::interface_hierarchy!(ITypeLibRegistrationReader, windows_core
 impl ITypeLibRegistrationReader {
     #[cfg(feature = "objidlbase")]
     pub unsafe fn EnumTypeLibRegistrations(&self, ppenumunknown: *mut Option<super::IEnumUnknown>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumTypeLibRegistrations)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenumunknown)) }
+        unsafe { (windows_core::Interface::vtable(self).EnumTypeLibRegistrations)(windows_core::Interface::as_raw(self), ppenumunknown as _) }
     }
 }
 #[repr(C)]

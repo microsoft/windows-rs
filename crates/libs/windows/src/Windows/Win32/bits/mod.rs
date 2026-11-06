@@ -709,7 +709,7 @@ impl IBackgroundCopyError_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyError_Impl::GetFile(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<IBackgroundCopyFile>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -864,7 +864,7 @@ impl IBackgroundCopyFile2_Vtbl {
         unsafe extern "system" fn SetRemoteName<Identity: IBackgroundCopyFile2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, val: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBackgroundCopyFile2_Impl::SetRemoteName(this, core::mem::transmute(&val))
+                IBackgroundCopyFile2_Impl::SetRemoteName(this, &*(&raw const val).cast())
             }
         }
         Self {
@@ -1036,7 +1036,7 @@ impl IBackgroundCopyFile5_Vtbl {
         unsafe extern "system" fn SetProperty<Identity: IBackgroundCopyFile5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: BITS_FILE_PROPERTY_ID, propertyvalue: BITS_FILE_PROPERTY_VALUE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBackgroundCopyFile5_Impl::SetProperty(this, core::mem::transmute_copy(&propertyid), core::mem::transmute(&propertyvalue))
+                IBackgroundCopyFile5_Impl::SetProperty(this, core::mem::transmute_copy(&propertyid), &*(&raw const propertyvalue).cast())
             }
         }
         unsafe extern "system" fn GetProperty<Identity: IBackgroundCopyFile5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: BITS_FILE_PROPERTY_ID, propertyvalue: *mut BITS_FILE_PROPERTY_VALUE) -> windows_core::HRESULT {
@@ -1386,7 +1386,7 @@ impl IBackgroundCopyJob_Vtbl {
         unsafe extern "system" fn AddFile<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remoteurl: windows_core::PCWSTR, localname: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBackgroundCopyJob_Impl::AddFile(this, core::mem::transmute(&remoteurl), core::mem::transmute(&localname))
+                IBackgroundCopyJob_Impl::AddFile(this, &*(&raw const remoteurl).cast(), &*(&raw const localname).cast())
             }
         }
         unsafe extern "system" fn EnumFiles<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, penum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1394,7 +1394,7 @@ impl IBackgroundCopyJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob_Impl::EnumFiles(this) {
                     Ok(ok__) => {
-                        penum.write(core::mem::transmute(ok__));
+                        penum.cast::<IEnumBackgroundCopyFiles>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1463,7 +1463,7 @@ impl IBackgroundCopyJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob_Impl::GetError(this) {
                     Ok(ok__) => {
-                        pperror.write(core::mem::transmute(ok__));
+                        pperror.cast::<IBackgroundCopyError>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1482,7 +1482,7 @@ impl IBackgroundCopyJob_Vtbl {
         unsafe extern "system" fn SetDisplayName<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, val: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBackgroundCopyJob_Impl::SetDisplayName(this, core::mem::transmute(&val))
+                IBackgroundCopyJob_Impl::SetDisplayName(this, &*(&raw const val).cast())
             }
         }
         unsafe extern "system" fn GetDisplayName<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -1494,7 +1494,7 @@ impl IBackgroundCopyJob_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, val: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBackgroundCopyJob_Impl::SetDescription(this, core::mem::transmute(&val))
+                IBackgroundCopyJob_Impl::SetDescription(this, &*(&raw const val).cast())
             }
         }
         unsafe extern "system" fn GetDescription<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -1538,7 +1538,7 @@ impl IBackgroundCopyJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob_Impl::GetNotifyInterface(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1717,7 +1717,7 @@ impl IBackgroundCopyJob2_Vtbl {
         unsafe extern "system" fn SetNotifyCmdLine<Identity: IBackgroundCopyJob2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, program: windows_core::PCWSTR, parameters: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBackgroundCopyJob2_Impl::SetNotifyCmdLine(this, core::mem::transmute(&program), core::mem::transmute(&parameters))
+                IBackgroundCopyJob2_Impl::SetNotifyCmdLine(this, &*(&raw const program).cast(), &*(&raw const parameters).cast())
             }
         }
         unsafe extern "system" fn GetNotifyCmdLine<Identity: IBackgroundCopyJob2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprogram: *mut windows_core::PWSTR, pparameters: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -1741,7 +1741,7 @@ impl IBackgroundCopyJob2_Vtbl {
         unsafe extern "system" fn SetReplyFileName<Identity: IBackgroundCopyJob2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, replyfilename: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBackgroundCopyJob2_Impl::SetReplyFileName(this, core::mem::transmute(&replyfilename))
+                IBackgroundCopyJob2_Impl::SetReplyFileName(this, &*(&raw const replyfilename).cast())
             }
         }
         unsafe extern "system" fn GetReplyFileName<Identity: IBackgroundCopyJob2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, preplyfilename: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -1844,13 +1844,13 @@ impl IBackgroundCopyJob3_Vtbl {
         unsafe extern "system" fn ReplaceRemotePrefix<Identity: IBackgroundCopyJob3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, oldprefix: windows_core::PCWSTR, newprefix: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBackgroundCopyJob3_Impl::ReplaceRemotePrefix(this, core::mem::transmute(&oldprefix), core::mem::transmute(&newprefix))
+                IBackgroundCopyJob3_Impl::ReplaceRemotePrefix(this, &*(&raw const oldprefix).cast(), &*(&raw const newprefix).cast())
             }
         }
         unsafe extern "system" fn AddFileWithRanges<Identity: IBackgroundCopyJob3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remoteurl: windows_core::PCWSTR, localname: windows_core::PCWSTR, rangecount: super::DWORD, ranges: *const BG_FILE_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBackgroundCopyJob3_Impl::AddFileWithRanges(this, core::mem::transmute(&remoteurl), core::mem::transmute(&localname), core::mem::transmute_copy(&rangecount), core::mem::transmute_copy(&ranges))
+                IBackgroundCopyJob3_Impl::AddFileWithRanges(this, &*(&raw const remoteurl).cast(), &*(&raw const localname).cast(), core::mem::transmute_copy(&rangecount), core::mem::transmute_copy(&ranges))
             }
         }
         unsafe extern "system" fn SetFileACLFlags<Identity: IBackgroundCopyJob3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: super::DWORD) -> windows_core::HRESULT {
@@ -2044,7 +2044,7 @@ impl IBackgroundCopyJob5_Vtbl {
         unsafe extern "system" fn SetProperty<Identity: IBackgroundCopyJob5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: BITS_JOB_PROPERTY_ID, propertyvalue: BITS_JOB_PROPERTY_VALUE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBackgroundCopyJob5_Impl::SetProperty(this, core::mem::transmute_copy(&propertyid), core::mem::transmute(&propertyvalue))
+                IBackgroundCopyJob5_Impl::SetProperty(this, core::mem::transmute_copy(&propertyid), &*(&raw const propertyvalue).cast())
             }
         }
         unsafe extern "system" fn GetProperty<Identity: IBackgroundCopyJob5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: BITS_JOB_PROPERTY_ID, propertyvalue: *mut BITS_JOB_PROPERTY_VALUE) -> windows_core::HRESULT {
@@ -2149,13 +2149,13 @@ impl IBackgroundCopyJobHttpOptions_Vtbl {
         unsafe extern "system" fn SetClientCertificateByID<Identity: IBackgroundCopyJobHttpOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, storelocation: BG_CERT_STORE_LOCATION, storename: windows_core::PCWSTR, pcerthashblob: *const super::byte) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBackgroundCopyJobHttpOptions_Impl::SetClientCertificateByID(this, core::mem::transmute_copy(&storelocation), core::mem::transmute(&storename), core::mem::transmute_copy(&pcerthashblob))
+                IBackgroundCopyJobHttpOptions_Impl::SetClientCertificateByID(this, core::mem::transmute_copy(&storelocation), &*(&raw const storename).cast(), core::mem::transmute_copy(&pcerthashblob))
             }
         }
         unsafe extern "system" fn SetClientCertificateByName<Identity: IBackgroundCopyJobHttpOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, storelocation: BG_CERT_STORE_LOCATION, storename: windows_core::PCWSTR, subjectname: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBackgroundCopyJobHttpOptions_Impl::SetClientCertificateByName(this, core::mem::transmute_copy(&storelocation), core::mem::transmute(&storename), core::mem::transmute(&subjectname))
+                IBackgroundCopyJobHttpOptions_Impl::SetClientCertificateByName(this, core::mem::transmute_copy(&storelocation), &*(&raw const storename).cast(), &*(&raw const subjectname).cast())
             }
         }
         unsafe extern "system" fn RemoveClientCertificate<Identity: IBackgroundCopyJobHttpOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2173,7 +2173,7 @@ impl IBackgroundCopyJobHttpOptions_Vtbl {
         unsafe extern "system" fn SetCustomHeaders<Identity: IBackgroundCopyJobHttpOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requestheaders: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBackgroundCopyJobHttpOptions_Impl::SetCustomHeaders(this, core::mem::transmute(&requestheaders))
+                IBackgroundCopyJobHttpOptions_Impl::SetCustomHeaders(this, &*(&raw const requestheaders).cast())
             }
         }
         unsafe extern "system" fn GetCustomHeaders<Identity: IBackgroundCopyJobHttpOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prequestheaders: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -2249,7 +2249,7 @@ impl IBackgroundCopyJobHttpOptions2_Vtbl {
         unsafe extern "system" fn SetHttpMethod<Identity: IBackgroundCopyJobHttpOptions2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, method: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBackgroundCopyJobHttpOptions2_Impl::SetHttpMethod(this, core::mem::transmute(&method))
+                IBackgroundCopyJobHttpOptions2_Impl::SetHttpMethod(this, &*(&raw const method).cast())
             }
         }
         unsafe extern "system" fn GetHttpMethod<Identity: IBackgroundCopyJobHttpOptions2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, method: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -2386,9 +2386,9 @@ impl IBackgroundCopyManager_Vtbl {
         unsafe extern "system" fn CreateJob<Identity: IBackgroundCopyManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, displayname: windows_core::PCWSTR, r#type: BG_JOB_TYPE, pjobid: *mut windows_core::GUID, ppjob: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBackgroundCopyManager_Impl::CreateJob(this, core::mem::transmute(&displayname), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pjobid)) {
+                match IBackgroundCopyManager_Impl::CreateJob(this, &*(&raw const displayname).cast(), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pjobid)) {
                     Ok(ok__) => {
-                        ppjob.write(core::mem::transmute(ok__));
+                        ppjob.cast::<IBackgroundCopyJob>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2403,7 +2403,7 @@ impl IBackgroundCopyManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyManager_Impl::GetJob(this, core::mem::transmute_copy(&jobid)) {
                     Ok(ok__) => {
-                        ppjob.write(core::mem::transmute(ok__));
+                        ppjob.cast::<IBackgroundCopyJob>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2418,7 +2418,7 @@ impl IBackgroundCopyManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyManager_Impl::EnumJobs(this, core::mem::transmute_copy(&dwflags)) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumBackgroundCopyJobs>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2710,7 +2710,7 @@ impl IBitsPeerCacheAdministration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBitsPeerCacheAdministration_Impl::EnumRecords(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumBitsPeerCacheRecords>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2725,7 +2725,7 @@ impl IBitsPeerCacheAdministration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBitsPeerCacheAdministration_Impl::GetRecord(this, core::mem::transmute_copy(&id)) {
                     Ok(ok__) => {
-                        pprecord.write(core::mem::transmute(ok__));
+                        pprecord.cast::<IBitsPeerCacheRecord>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2750,7 +2750,7 @@ impl IBitsPeerCacheAdministration_Vtbl {
         unsafe extern "system" fn DeleteUrl<Identity: IBitsPeerCacheAdministration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, url: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBitsPeerCacheAdministration_Impl::DeleteUrl(this, core::mem::transmute(&url))
+                IBitsPeerCacheAdministration_Impl::DeleteUrl(this, &*(&raw const url).cast())
             }
         }
         unsafe extern "system" fn EnumPeers<Identity: IBitsPeerCacheAdministration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2758,7 +2758,7 @@ impl IBitsPeerCacheAdministration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBitsPeerCacheAdministration_Impl::EnumPeers(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumBitsPeers>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3027,7 +3027,7 @@ windows_core::imp::interface_hierarchy!(IEnumBackgroundCopyFiles, windows_core::
 impl IEnumBackgroundCopyFiles {
     #[cfg(feature = "shared")]
     pub unsafe fn Next(&self, celt: super::ULONG, rgelt: *mut Option<IBackgroundCopyFile>, pceltfetched: Option<*mut super::ULONG>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgelt as _, pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT {
@@ -3100,7 +3100,7 @@ impl IEnumBackgroundCopyFiles_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumBackgroundCopyFiles_Impl::Clone(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumBackgroundCopyFiles>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3136,7 +3136,7 @@ windows_core::imp::interface_hierarchy!(IEnumBackgroundCopyJobs, windows_core::I
 impl IEnumBackgroundCopyJobs {
     #[cfg(feature = "shared")]
     pub unsafe fn Next(&self, celt: super::ULONG, rgelt: *mut Option<IBackgroundCopyJob>, pceltfetched: Option<*mut super::ULONG>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgelt as _, pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT {
@@ -3209,7 +3209,7 @@ impl IEnumBackgroundCopyJobs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumBackgroundCopyJobs_Impl::Clone(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumBackgroundCopyJobs>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3245,7 +3245,7 @@ windows_core::imp::interface_hierarchy!(IEnumBitsPeerCacheRecords, windows_core:
 impl IEnumBitsPeerCacheRecords {
     #[cfg(feature = "shared")]
     pub unsafe fn Next(&self, celt: super::ULONG, rgelt: *mut Option<IBitsPeerCacheRecord>, pceltfetched: Option<*mut super::ULONG>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgelt as _, pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT {
@@ -3318,7 +3318,7 @@ impl IEnumBitsPeerCacheRecords_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumBitsPeerCacheRecords_Impl::Clone(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumBitsPeerCacheRecords>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3354,7 +3354,7 @@ windows_core::imp::interface_hierarchy!(IEnumBitsPeers, windows_core::IUnknown);
 impl IEnumBitsPeers {
     #[cfg(feature = "shared")]
     pub unsafe fn Next(&self, celt: super::ULONG, rgelt: *mut Option<IBitsPeer>, pceltfetched: Option<*mut super::ULONG>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgelt as _, pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT {
@@ -3427,7 +3427,7 @@ impl IEnumBitsPeers_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumBitsPeers_Impl::Clone(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumBitsPeers>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

@@ -232,7 +232,7 @@ impl IAlertDataCollector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAlertDataCollector_Impl::Task(this) {
                     Ok(ok__) => {
-                        task.write(core::mem::transmute(ok__));
+                        task.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -245,7 +245,7 @@ impl IAlertDataCollector_Vtbl {
         unsafe extern "system" fn SetTask<Identity: IAlertDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, task: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAlertDataCollector_Impl::SetTask(this, core::mem::transmute(&task))
+                IAlertDataCollector_Impl::SetTask(this, &*(&raw const task).cast())
             }
         }
         unsafe extern "system" fn TaskRunAsSelf<Identity: IAlertDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, runasself: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -274,7 +274,7 @@ impl IAlertDataCollector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAlertDataCollector_Impl::TaskArguments(this) {
                     Ok(ok__) => {
-                        task.write(core::mem::transmute(ok__));
+                        task.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -287,7 +287,7 @@ impl IAlertDataCollector_Vtbl {
         unsafe extern "system" fn SetTaskArguments<Identity: IAlertDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, task: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAlertDataCollector_Impl::SetTaskArguments(this, core::mem::transmute(&task))
+                IAlertDataCollector_Impl::SetTaskArguments(this, &*(&raw const task).cast())
             }
         }
         unsafe extern "system" fn TaskUserTextArguments<Identity: IAlertDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, task: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -295,7 +295,7 @@ impl IAlertDataCollector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAlertDataCollector_Impl::TaskUserTextArguments(this) {
                     Ok(ok__) => {
-                        task.write(core::mem::transmute(ok__));
+                        task.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -308,7 +308,7 @@ impl IAlertDataCollector_Vtbl {
         unsafe extern "system" fn SetTaskUserTextArguments<Identity: IAlertDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, task: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAlertDataCollector_Impl::SetTaskUserTextArguments(this, core::mem::transmute(&task))
+                IAlertDataCollector_Impl::SetTaskUserTextArguments(this, &*(&raw const task).cast())
             }
         }
         unsafe extern "system" fn TriggerDataCollectorSet<Identity: IAlertDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -316,7 +316,7 @@ impl IAlertDataCollector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAlertDataCollector_Impl::TriggerDataCollectorSet(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -329,7 +329,7 @@ impl IAlertDataCollector_Vtbl {
         unsafe extern "system" fn SetTriggerDataCollectorSet<Identity: IAlertDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAlertDataCollector_Impl::SetTriggerDataCollectorSet(this, core::mem::transmute(&name))
+                IAlertDataCollector_Impl::SetTriggerDataCollectorSet(this, &*(&raw const name).cast())
             }
         }
         Self {
@@ -562,7 +562,7 @@ impl IApiTracingDataCollector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IApiTracingDataCollector_Impl::ExePath(this) {
                     Ok(ok__) => {
-                        exepath.write(core::mem::transmute(ok__));
+                        exepath.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -575,7 +575,7 @@ impl IApiTracingDataCollector_Vtbl {
         unsafe extern "system" fn SetExePath<Identity: IApiTracingDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, exepath: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IApiTracingDataCollector_Impl::SetExePath(this, core::mem::transmute(&exepath))
+                IApiTracingDataCollector_Impl::SetExePath(this, &*(&raw const exepath).cast())
             }
         }
         unsafe extern "system" fn LogFilePath<Identity: IApiTracingDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, logfilepath: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -583,7 +583,7 @@ impl IApiTracingDataCollector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IApiTracingDataCollector_Impl::LogFilePath(this) {
                     Ok(ok__) => {
-                        logfilepath.write(core::mem::transmute(ok__));
+                        logfilepath.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -596,7 +596,7 @@ impl IApiTracingDataCollector_Vtbl {
         unsafe extern "system" fn SetLogFilePath<Identity: IApiTracingDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, logfilepath: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IApiTracingDataCollector_Impl::SetLogFilePath(this, core::mem::transmute(&logfilepath))
+                IApiTracingDataCollector_Impl::SetLogFilePath(this, &*(&raw const logfilepath).cast())
             }
         }
         unsafe extern "system" fn IncludeModules<Identity: IApiTracingDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, includemodules: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
@@ -1034,7 +1034,7 @@ impl IConfigurationDataCollector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IConfigurationDataCollector_Impl::SystemStateFile(this) {
                     Ok(ok__) => {
-                        filename.write(core::mem::transmute(ok__));
+                        filename.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1047,7 +1047,7 @@ impl IConfigurationDataCollector_Vtbl {
         unsafe extern "system" fn SetSystemStateFile<Identity: IConfigurationDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IConfigurationDataCollector_Impl::SetSystemStateFile(this, core::mem::transmute(&filename))
+                IConfigurationDataCollector_Impl::SetSystemStateFile(this, &*(&raw const filename).cast())
             }
         }
         Self {
@@ -1310,7 +1310,7 @@ impl IDataCollector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataCollector_Impl::DataCollectorSet(this) {
                     Ok(ok__) => {
-                        group.write(core::mem::transmute(ok__));
+                        group.cast::<IDataCollectorSet>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1346,7 +1346,7 @@ impl IDataCollector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataCollector_Impl::FileName(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1359,7 +1359,7 @@ impl IDataCollector_Vtbl {
         unsafe extern "system" fn SetFileName<Identity: IDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollector_Impl::SetFileName(this, core::mem::transmute(&name))
+                IDataCollector_Impl::SetFileName(this, &*(&raw const name).cast())
             }
         }
         unsafe extern "system" fn FileNameFormat<Identity: IDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: *mut AutoPathFormat) -> windows_core::HRESULT {
@@ -1388,7 +1388,7 @@ impl IDataCollector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataCollector_Impl::FileNameFormatPattern(this) {
                     Ok(ok__) => {
-                        pattern.write(core::mem::transmute(ok__));
+                        pattern.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1401,7 +1401,7 @@ impl IDataCollector_Vtbl {
         unsafe extern "system" fn SetFileNameFormatPattern<Identity: IDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pattern: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollector_Impl::SetFileNameFormatPattern(this, core::mem::transmute(&pattern))
+                IDataCollector_Impl::SetFileNameFormatPattern(this, &*(&raw const pattern).cast())
             }
         }
         unsafe extern "system" fn LatestOutputLocation<Identity: IDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1409,7 +1409,7 @@ impl IDataCollector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataCollector_Impl::LatestOutputLocation(this) {
                     Ok(ok__) => {
-                        path.write(core::mem::transmute(ok__));
+                        path.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1422,7 +1422,7 @@ impl IDataCollector_Vtbl {
         unsafe extern "system" fn SetLatestOutputLocation<Identity: IDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollector_Impl::SetLatestOutputLocation(this, core::mem::transmute(&path))
+                IDataCollector_Impl::SetLatestOutputLocation(this, &*(&raw const path).cast())
             }
         }
         unsafe extern "system" fn LogAppend<Identity: IDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, append: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -1493,7 +1493,7 @@ impl IDataCollector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataCollector_Impl::Name(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1506,7 +1506,7 @@ impl IDataCollector_Vtbl {
         unsafe extern "system" fn SetName<Identity: IDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollector_Impl::SetName(this, core::mem::transmute(&name))
+                IDataCollector_Impl::SetName(this, &*(&raw const name).cast())
             }
         }
         unsafe extern "system" fn OutputLocation<Identity: IDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1514,7 +1514,7 @@ impl IDataCollector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataCollector_Impl::OutputLocation(this) {
                     Ok(ok__) => {
-                        path.write(core::mem::transmute(ok__));
+                        path.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1550,7 +1550,7 @@ impl IDataCollector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataCollector_Impl::Xml(this) {
                     Ok(ok__) => {
-                        xml.write(core::mem::transmute(ok__));
+                        xml.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1563,9 +1563,9 @@ impl IDataCollector_Vtbl {
         unsafe extern "system" fn SetXml<Identity: IDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xml: *mut core::ffi::c_void, validation: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDataCollector_Impl::SetXml(this, core::mem::transmute(&xml)) {
+                match IDataCollector_Impl::SetXml(this, &*(&raw const xml).cast()) {
                     Ok(ok__) => {
-                        validation.write(core::mem::transmute(ok__));
+                        validation.cast::<IValueMap>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1580,7 +1580,7 @@ impl IDataCollector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataCollector_Impl::CreateOutputLocation(this, core::mem::transmute_copy(&latest)) {
                     Ok(ok__) => {
-                        location.write(core::mem::transmute(ok__));
+                        location.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1679,7 +1679,7 @@ impl IDataCollectorCollection {
     pub unsafe fn CreateDataCollectorFromXml(&self, bstrxml: &windows_core::BSTR, pvalidation: *mut Option<IValueMap>) -> windows_core::Result<IDataCollector> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateDataCollectorFromXml)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrxml), core::mem::transmute(pvalidation), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateDataCollectorFromXml)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrxml), pvalidation as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateDataCollector(&self, r#type: DataCollectorType) -> windows_core::Result<IDataCollector> {
@@ -1743,9 +1743,9 @@ impl IDataCollectorCollection_Vtbl {
         unsafe extern "system" fn Item<Identity: IDataCollectorCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::VARIANT, collector: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDataCollectorCollection_Impl::Item(this, core::mem::transmute(&index)) {
+                match IDataCollectorCollection_Impl::Item(this, &*(&raw const index).cast()) {
                     Ok(ok__) => {
-                        collector.write(core::mem::transmute(ok__));
+                        collector.cast::<IDataCollector>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1760,7 +1760,7 @@ impl IDataCollectorCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataCollectorCollection_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1779,7 +1779,7 @@ impl IDataCollectorCollection_Vtbl {
         unsafe extern "system" fn Remove<Identity: IDataCollectorCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, collector: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorCollection_Impl::Remove(this, core::mem::transmute(&collector))
+                IDataCollectorCollection_Impl::Remove(this, &*(&raw const collector).cast())
             }
         }
         unsafe extern "system" fn Clear<Identity: IDataCollectorCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1797,9 +1797,9 @@ impl IDataCollectorCollection_Vtbl {
         unsafe extern "system" fn CreateDataCollectorFromXml<Identity: IDataCollectorCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrxml: *mut core::ffi::c_void, pvalidation: *mut *mut core::ffi::c_void, pcollector: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDataCollectorCollection_Impl::CreateDataCollectorFromXml(this, core::mem::transmute(&bstrxml), core::mem::transmute_copy(&pvalidation)) {
+                match IDataCollectorCollection_Impl::CreateDataCollectorFromXml(this, &*(&raw const bstrxml).cast(), core::mem::transmute_copy(&pvalidation)) {
                     Ok(ok__) => {
-                        pcollector.write(core::mem::transmute(ok__));
+                        pcollector.cast::<IDataCollector>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1814,7 +1814,7 @@ impl IDataCollectorCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataCollectorCollection_Impl::CreateDataCollector(this, core::mem::transmute_copy(&r#type)) {
                     Ok(ok__) => {
-                        collector.write(core::mem::transmute(ok__));
+                        collector.cast::<IDataCollector>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2324,7 +2324,7 @@ impl IDataCollectorSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataCollectorSet_Impl::DataCollectors(this) {
                     Ok(ok__) => {
-                        collectors.write(core::mem::transmute(ok__));
+                        collectors.cast::<IDataCollectorCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2360,7 +2360,7 @@ impl IDataCollectorSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataCollectorSet_Impl::Description(this) {
                     Ok(ok__) => {
-                        description.write(core::mem::transmute(ok__));
+                        description.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2373,7 +2373,7 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, description: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetDescription(this, core::mem::transmute(&description))
+                IDataCollectorSet_Impl::SetDescription(this, &*(&raw const description).cast())
             }
         }
         unsafe extern "system" fn DescriptionUnresolved<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, descr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2381,7 +2381,7 @@ impl IDataCollectorSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataCollectorSet_Impl::DescriptionUnresolved(this) {
                     Ok(ok__) => {
-                        descr.write(core::mem::transmute(ok__));
+                        descr.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2396,7 +2396,7 @@ impl IDataCollectorSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataCollectorSet_Impl::DisplayName(this) {
                     Ok(ok__) => {
-                        displayname.write(core::mem::transmute(ok__));
+                        displayname.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2409,7 +2409,7 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetDisplayName<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, displayname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetDisplayName(this, core::mem::transmute(&displayname))
+                IDataCollectorSet_Impl::SetDisplayName(this, &*(&raw const displayname).cast())
             }
         }
         unsafe extern "system" fn DisplayNameUnresolved<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2417,7 +2417,7 @@ impl IDataCollectorSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataCollectorSet_Impl::DisplayNameUnresolved(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2453,7 +2453,7 @@ impl IDataCollectorSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataCollectorSet_Impl::LatestOutputLocation(this) {
                     Ok(ok__) => {
-                        path.write(core::mem::transmute(ok__));
+                        path.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2466,7 +2466,7 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetLatestOutputLocation<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetLatestOutputLocation(this, core::mem::transmute(&path))
+                IDataCollectorSet_Impl::SetLatestOutputLocation(this, &*(&raw const path).cast())
             }
         }
         unsafe extern "system" fn Name<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2474,7 +2474,7 @@ impl IDataCollectorSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataCollectorSet_Impl::Name(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2489,7 +2489,7 @@ impl IDataCollectorSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataCollectorSet_Impl::OutputLocation(this) {
                     Ok(ok__) => {
-                        path.write(core::mem::transmute(ok__));
+                        path.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2504,7 +2504,7 @@ impl IDataCollectorSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataCollectorSet_Impl::RootPath(this) {
                     Ok(ok__) => {
-                        folder.write(core::mem::transmute(ok__));
+                        folder.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2517,7 +2517,7 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetRootPath<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, folder: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetRootPath(this, core::mem::transmute(&folder))
+                IDataCollectorSet_Impl::SetRootPath(this, &*(&raw const folder).cast())
             }
         }
         unsafe extern "system" fn Segment<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, segment: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2609,7 +2609,7 @@ impl IDataCollectorSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataCollectorSet_Impl::Server(this) {
                     Ok(ok__) => {
-                        server.write(core::mem::transmute(ok__));
+                        server.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2639,7 +2639,7 @@ impl IDataCollectorSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataCollectorSet_Impl::Subdirectory(this) {
                     Ok(ok__) => {
-                        folder.write(core::mem::transmute(ok__));
+                        folder.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2652,7 +2652,7 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetSubdirectory<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, folder: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetSubdirectory(this, core::mem::transmute(&folder))
+                IDataCollectorSet_Impl::SetSubdirectory(this, &*(&raw const folder).cast())
             }
         }
         unsafe extern "system" fn SubdirectoryFormat<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: *mut AutoPathFormat) -> windows_core::HRESULT {
@@ -2681,7 +2681,7 @@ impl IDataCollectorSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataCollectorSet_Impl::SubdirectoryFormatPattern(this) {
                     Ok(ok__) => {
-                        pattern.write(core::mem::transmute(ok__));
+                        pattern.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2694,7 +2694,7 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetSubdirectoryFormatPattern<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pattern: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetSubdirectoryFormatPattern(this, core::mem::transmute(&pattern))
+                IDataCollectorSet_Impl::SetSubdirectoryFormatPattern(this, &*(&raw const pattern).cast())
             }
         }
         unsafe extern "system" fn Task<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, task: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2702,7 +2702,7 @@ impl IDataCollectorSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataCollectorSet_Impl::Task(this) {
                     Ok(ok__) => {
-                        task.write(core::mem::transmute(ok__));
+                        task.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2715,7 +2715,7 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetTask<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, task: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetTask(this, core::mem::transmute(&task))
+                IDataCollectorSet_Impl::SetTask(this, &*(&raw const task).cast())
             }
         }
         unsafe extern "system" fn TaskRunAsSelf<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, runasself: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2744,7 +2744,7 @@ impl IDataCollectorSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataCollectorSet_Impl::TaskArguments(this) {
                     Ok(ok__) => {
-                        task.write(core::mem::transmute(ok__));
+                        task.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2757,7 +2757,7 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetTaskArguments<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, task: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetTaskArguments(this, core::mem::transmute(&task))
+                IDataCollectorSet_Impl::SetTaskArguments(this, &*(&raw const task).cast())
             }
         }
         unsafe extern "system" fn TaskUserTextArguments<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, usertext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2765,7 +2765,7 @@ impl IDataCollectorSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataCollectorSet_Impl::TaskUserTextArguments(this) {
                     Ok(ok__) => {
-                        usertext.write(core::mem::transmute(ok__));
+                        usertext.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2778,7 +2778,7 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetTaskUserTextArguments<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, usertext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetTaskUserTextArguments(this, core::mem::transmute(&usertext))
+                IDataCollectorSet_Impl::SetTaskUserTextArguments(this, &*(&raw const usertext).cast())
             }
         }
         unsafe extern "system" fn Schedules<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppschedules: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2786,7 +2786,7 @@ impl IDataCollectorSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataCollectorSet_Impl::Schedules(this) {
                     Ok(ok__) => {
-                        ppschedules.write(core::mem::transmute(ok__));
+                        ppschedules.cast::<IScheduleCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2822,7 +2822,7 @@ impl IDataCollectorSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataCollectorSet_Impl::UserAccount(this) {
                     Ok(ok__) => {
-                        user.write(core::mem::transmute(ok__));
+                        user.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2837,7 +2837,7 @@ impl IDataCollectorSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataCollectorSet_Impl::Xml(this) {
                     Ok(ok__) => {
-                        xml.write(core::mem::transmute(ok__));
+                        xml.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2852,7 +2852,7 @@ impl IDataCollectorSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataCollectorSet_Impl::Security(this) {
                     Ok(ok__) => {
-                        pbstrsecurity.write(core::mem::transmute(ok__));
+                        pbstrsecurity.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2865,7 +2865,7 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetSecurity<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsecurity: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetSecurity(this, core::mem::transmute(&bstrsecurity))
+                IDataCollectorSet_Impl::SetSecurity(this, &*(&raw const bstrsecurity).cast())
             }
         }
         unsafe extern "system" fn StopOnCompletion<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stop: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2894,7 +2894,7 @@ impl IDataCollectorSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataCollectorSet_Impl::DataManager(this) {
                     Ok(ok__) => {
-                        datamanager.write(core::mem::transmute(ok__));
+                        datamanager.cast::<IDataManager>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2907,21 +2907,21 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetCredentials<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, user: *mut core::ffi::c_void, password: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetCredentials(this, core::mem::transmute(&user), core::mem::transmute(&password))
+                IDataCollectorSet_Impl::SetCredentials(this, &*(&raw const user).cast(), &*(&raw const password).cast())
             }
         }
         unsafe extern "system" fn Query<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, server: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::Query(this, core::mem::transmute(&name), core::mem::transmute(&server))
+                IDataCollectorSet_Impl::Query(this, &*(&raw const name).cast(), &*(&raw const server).cast())
             }
         }
         unsafe extern "system" fn Commit<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, server: *mut core::ffi::c_void, mode: CommitMode, validation: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDataCollectorSet_Impl::Commit(this, core::mem::transmute(&name), core::mem::transmute(&server), core::mem::transmute_copy(&mode)) {
+                match IDataCollectorSet_Impl::Commit(this, &*(&raw const name).cast(), &*(&raw const server).cast(), core::mem::transmute_copy(&mode)) {
                     Ok(ok__) => {
-                        validation.write(core::mem::transmute(ok__));
+                        validation.cast::<IValueMap>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2952,9 +2952,9 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetXml<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xml: *mut core::ffi::c_void, validation: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDataCollectorSet_Impl::SetXml(this, core::mem::transmute(&xml)) {
+                match IDataCollectorSet_Impl::SetXml(this, &*(&raw const xml).cast()) {
                     Ok(ok__) => {
-                        validation.write(core::mem::transmute(ok__));
+                        validation.cast::<IValueMap>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2967,15 +2967,15 @@ impl IDataCollectorSet_Vtbl {
         unsafe extern "system" fn SetValue<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSet_Impl::SetValue(this, core::mem::transmute(&key), core::mem::transmute(&value))
+                IDataCollectorSet_Impl::SetValue(this, &*(&raw const key).cast(), &*(&raw const value).cast())
             }
         }
         unsafe extern "system" fn GetValue<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDataCollectorSet_Impl::GetValue(this, core::mem::transmute(&key)) {
+                match IDataCollectorSet_Impl::GetValue(this, &*(&raw const key).cast()) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3162,9 +3162,9 @@ impl IDataCollectorSetCollection_Vtbl {
         unsafe extern "system" fn Item<Identity: IDataCollectorSetCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::VARIANT, set: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDataCollectorSetCollection_Impl::Item(this, core::mem::transmute(&index)) {
+                match IDataCollectorSetCollection_Impl::Item(this, &*(&raw const index).cast()) {
                     Ok(ok__) => {
-                        set.write(core::mem::transmute(ok__));
+                        set.cast::<IDataCollectorSet>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3179,7 +3179,7 @@ impl IDataCollectorSetCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataCollectorSetCollection_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3198,7 +3198,7 @@ impl IDataCollectorSetCollection_Vtbl {
         unsafe extern "system" fn Remove<Identity: IDataCollectorSetCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, set: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSetCollection_Impl::Remove(this, core::mem::transmute(&set))
+                IDataCollectorSetCollection_Impl::Remove(this, &*(&raw const set).cast())
             }
         }
         unsafe extern "system" fn Clear<Identity: IDataCollectorSetCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3216,7 +3216,7 @@ impl IDataCollectorSetCollection_Vtbl {
         unsafe extern "system" fn GetDataCollectorSets<Identity: IDataCollectorSetCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, server: *mut core::ffi::c_void, filter: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSetCollection_Impl::GetDataCollectorSets(this, core::mem::transmute(&server), core::mem::transmute(&filter))
+                IDataCollectorSetCollection_Impl::GetDataCollectorSets(this, &*(&raw const server).cast(), &*(&raw const filter).cast())
             }
         }
         Self {
@@ -3598,7 +3598,7 @@ impl IDataManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataManager_Impl::FolderActions(this) {
                     Ok(ok__) => {
-                        actions.write(core::mem::transmute(ok__));
+                        actions.cast::<IFolderActionCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3613,7 +3613,7 @@ impl IDataManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataManager_Impl::ReportSchema(this) {
                     Ok(ok__) => {
-                        reportschema.write(core::mem::transmute(ok__));
+                        reportschema.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3626,7 +3626,7 @@ impl IDataManager_Vtbl {
         unsafe extern "system" fn SetReportSchema<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reportschema: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataManager_Impl::SetReportSchema(this, core::mem::transmute(&reportschema))
+                IDataManager_Impl::SetReportSchema(this, &*(&raw const reportschema).cast())
             }
         }
         unsafe extern "system" fn ReportFileName<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrfilename: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3634,7 +3634,7 @@ impl IDataManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataManager_Impl::ReportFileName(this) {
                     Ok(ok__) => {
-                        pbstrfilename.write(core::mem::transmute(ok__));
+                        pbstrfilename.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3647,7 +3647,7 @@ impl IDataManager_Vtbl {
         unsafe extern "system" fn SetReportFileName<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrfilename: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataManager_Impl::SetReportFileName(this, core::mem::transmute(&pbstrfilename))
+                IDataManager_Impl::SetReportFileName(this, &*(&raw const pbstrfilename).cast())
             }
         }
         unsafe extern "system" fn RuleTargetFileName<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3655,7 +3655,7 @@ impl IDataManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataManager_Impl::RuleTargetFileName(this) {
                     Ok(ok__) => {
-                        filename.write(core::mem::transmute(ok__));
+                        filename.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3668,7 +3668,7 @@ impl IDataManager_Vtbl {
         unsafe extern "system" fn SetRuleTargetFileName<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataManager_Impl::SetRuleTargetFileName(this, core::mem::transmute(&filename))
+                IDataManager_Impl::SetRuleTargetFileName(this, &*(&raw const filename).cast())
             }
         }
         unsafe extern "system" fn EventsFileName<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrfilename: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3676,7 +3676,7 @@ impl IDataManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataManager_Impl::EventsFileName(this) {
                     Ok(ok__) => {
-                        pbstrfilename.write(core::mem::transmute(ok__));
+                        pbstrfilename.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3689,7 +3689,7 @@ impl IDataManager_Vtbl {
         unsafe extern "system" fn SetEventsFileName<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrfilename: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataManager_Impl::SetEventsFileName(this, core::mem::transmute(&pbstrfilename))
+                IDataManager_Impl::SetEventsFileName(this, &*(&raw const pbstrfilename).cast())
             }
         }
         unsafe extern "system" fn Rules<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrxml: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3697,7 +3697,7 @@ impl IDataManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataManager_Impl::Rules(this) {
                     Ok(ok__) => {
-                        pbstrxml.write(core::mem::transmute(ok__));
+                        pbstrxml.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3710,15 +3710,15 @@ impl IDataManager_Vtbl {
         unsafe extern "system" fn SetRules<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrxml: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataManager_Impl::SetRules(this, core::mem::transmute(&bstrxml))
+                IDataManager_Impl::SetRules(this, &*(&raw const bstrxml).cast())
             }
         }
         unsafe extern "system" fn Run<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, steps: DataManagerSteps, bstrfolder: *mut core::ffi::c_void, errors: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDataManager_Impl::Run(this, core::mem::transmute_copy(&steps), core::mem::transmute(&bstrfolder)) {
+                match IDataManager_Impl::Run(this, core::mem::transmute_copy(&steps), &*(&raw const bstrfolder).cast()) {
                     Ok(ok__) => {
-                        errors.write(core::mem::transmute(ok__));
+                        errors.cast::<IValueMap>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3731,7 +3731,7 @@ impl IDataManager_Vtbl {
         unsafe extern "system" fn Extract<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cabfilename: *mut core::ffi::c_void, destinationpath: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataManager_Impl::Extract(this, core::mem::transmute(&cabfilename), core::mem::transmute(&destinationpath))
+                IDataManager_Impl::Extract(this, &*(&raw const cabfilename).cast(), &*(&raw const destinationpath).cast())
             }
         }
         Self {
@@ -3931,7 +3931,7 @@ impl IFolderAction_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFolderAction_Impl::SendCabTo(this) {
                     Ok(ok__) => {
-                        pbstrdestination.write(core::mem::transmute(ok__));
+                        pbstrdestination.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3944,7 +3944,7 @@ impl IFolderAction_Vtbl {
         unsafe extern "system" fn SetSendCabTo<Identity: IFolderAction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdestination: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFolderAction_Impl::SetSendCabTo(this, core::mem::transmute(&bstrdestination))
+                IFolderAction_Impl::SetSendCabTo(this, &*(&raw const bstrdestination).cast())
             }
         }
         Self {
@@ -4079,9 +4079,9 @@ impl IFolderActionCollection_Vtbl {
         unsafe extern "system" fn Item<Identity: IFolderActionCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::VARIANT, action: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFolderActionCollection_Impl::Item(this, core::mem::transmute(&index)) {
+                match IFolderActionCollection_Impl::Item(this, &*(&raw const index).cast()) {
                     Ok(ok__) => {
-                        action.write(core::mem::transmute(ok__));
+                        action.cast::<IFolderAction>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4096,7 +4096,7 @@ impl IFolderActionCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFolderActionCollection_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        r#enum.write(core::mem::transmute(ok__));
+                        r#enum.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4115,7 +4115,7 @@ impl IFolderActionCollection_Vtbl {
         unsafe extern "system" fn Remove<Identity: IFolderActionCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFolderActionCollection_Impl::Remove(this, core::mem::transmute(&index))
+                IFolderActionCollection_Impl::Remove(this, &*(&raw const index).cast())
             }
         }
         unsafe extern "system" fn Clear<Identity: IFolderActionCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4135,7 +4135,7 @@ impl IFolderActionCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFolderActionCollection_Impl::CreateFolderAction(this) {
                     Ok(ok__) => {
-                        folderaction.write(core::mem::transmute(ok__));
+                        folderaction.cast::<IFolderAction>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4267,7 +4267,7 @@ impl IPerformanceCounterDataCollector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPerformanceCounterDataCollector_Impl::DataSourceName(this) {
                     Ok(ok__) => {
-                        dsn.write(core::mem::transmute(ok__));
+                        dsn.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4280,7 +4280,7 @@ impl IPerformanceCounterDataCollector_Vtbl {
         unsafe extern "system" fn SetDataSourceName<Identity: IPerformanceCounterDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dsn: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPerformanceCounterDataCollector_Impl::SetDataSourceName(this, core::mem::transmute(&dsn))
+                IPerformanceCounterDataCollector_Impl::SetDataSourceName(this, &*(&raw const dsn).cast())
             }
         }
         unsafe extern "system" fn PerformanceCounters<Identity: IPerformanceCounterDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, counters: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
@@ -4494,7 +4494,7 @@ impl ISchedule_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchedule_Impl::StartDate(this) {
                     Ok(ok__) => {
-                        start.write(core::mem::transmute(ok__));
+                        start.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4507,7 +4507,7 @@ impl ISchedule_Vtbl {
         unsafe extern "system" fn SetStartDate<Identity: ISchedule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, start: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISchedule_Impl::SetStartDate(this, core::mem::transmute(&start))
+                ISchedule_Impl::SetStartDate(this, &*(&raw const start).cast())
             }
         }
         unsafe extern "system" fn EndDate<Identity: ISchedule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, end: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -4515,7 +4515,7 @@ impl ISchedule_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchedule_Impl::EndDate(this) {
                     Ok(ok__) => {
-                        end.write(core::mem::transmute(ok__));
+                        end.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4528,7 +4528,7 @@ impl ISchedule_Vtbl {
         unsafe extern "system" fn SetEndDate<Identity: ISchedule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, end: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISchedule_Impl::SetEndDate(this, core::mem::transmute(&end))
+                ISchedule_Impl::SetEndDate(this, &*(&raw const end).cast())
             }
         }
         unsafe extern "system" fn StartTime<Identity: ISchedule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, start: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -4536,7 +4536,7 @@ impl ISchedule_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchedule_Impl::StartTime(this) {
                     Ok(ok__) => {
-                        start.write(core::mem::transmute(ok__));
+                        start.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4549,7 +4549,7 @@ impl ISchedule_Vtbl {
         unsafe extern "system" fn SetStartTime<Identity: ISchedule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, start: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISchedule_Impl::SetStartTime(this, core::mem::transmute(&start))
+                ISchedule_Impl::SetStartTime(this, &*(&raw const start).cast())
             }
         }
         unsafe extern "system" fn Days<Identity: ISchedule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, days: *mut WeekDays) -> windows_core::HRESULT {
@@ -4701,9 +4701,9 @@ impl IScheduleCollection_Vtbl {
         unsafe extern "system" fn Item<Identity: IScheduleCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::VARIANT, ppschedule: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IScheduleCollection_Impl::Item(this, core::mem::transmute(&index)) {
+                match IScheduleCollection_Impl::Item(this, &*(&raw const index).cast()) {
                     Ok(ok__) => {
-                        ppschedule.write(core::mem::transmute(ok__));
+                        ppschedule.cast::<ISchedule>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4718,7 +4718,7 @@ impl IScheduleCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IScheduleCollection_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        ienum.write(core::mem::transmute(ok__));
+                        ienum.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4737,7 +4737,7 @@ impl IScheduleCollection_Vtbl {
         unsafe extern "system" fn Remove<Identity: IScheduleCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vschedule: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IScheduleCollection_Impl::Remove(this, core::mem::transmute(&vschedule))
+                IScheduleCollection_Impl::Remove(this, &*(&raw const vschedule).cast())
             }
         }
         unsafe extern "system" fn Clear<Identity: IScheduleCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4757,7 +4757,7 @@ impl IScheduleCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IScheduleCollection_Impl::CreateSchedule(this) {
                     Ok(ok__) => {
-                        schedule.write(core::mem::transmute(ok__));
+                        schedule.cast::<ISchedule>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5288,7 +5288,7 @@ impl ITraceDataCollector_Vtbl {
         unsafe extern "system" fn SetGuid<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataCollector_Impl::SetGuid(this, core::mem::transmute(&guid))
+                ITraceDataCollector_Impl::SetGuid(this, &*(&raw const guid).cast())
             }
         }
         unsafe extern "system" fn IsKernelTrace<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, kernel: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -5458,7 +5458,7 @@ impl ITraceDataCollector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITraceDataCollector_Impl::SessionName(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5471,7 +5471,7 @@ impl ITraceDataCollector_Vtbl {
         unsafe extern "system" fn SetSessionName<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataCollector_Impl::SetSessionName(this, core::mem::transmute(&name))
+                ITraceDataCollector_Impl::SetSessionName(this, &*(&raw const name).cast())
             }
         }
         unsafe extern "system" fn SessionThreadId<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tid: *mut u32) -> windows_core::HRESULT {
@@ -5521,7 +5521,7 @@ impl ITraceDataCollector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITraceDataCollector_Impl::TraceDataProviders(this) {
                     Ok(ok__) => {
-                        providers.write(core::mem::transmute(ok__));
+                        providers.cast::<ITraceDataProviderCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5771,7 +5771,7 @@ impl ITraceDataProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITraceDataProvider_Impl::DisplayName(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5784,7 +5784,7 @@ impl ITraceDataProvider_Vtbl {
         unsafe extern "system" fn SetDisplayName<Identity: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataProvider_Impl::SetDisplayName(this, core::mem::transmute(&name))
+                ITraceDataProvider_Impl::SetDisplayName(this, &*(&raw const name).cast())
             }
         }
         unsafe extern "system" fn Guid<Identity: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -5805,7 +5805,7 @@ impl ITraceDataProvider_Vtbl {
         unsafe extern "system" fn SetGuid<Identity: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataProvider_Impl::SetGuid(this, core::mem::transmute(&guid))
+                ITraceDataProvider_Impl::SetGuid(this, &*(&raw const guid).cast())
             }
         }
         unsafe extern "system" fn Level<Identity: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pplevel: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5813,7 +5813,7 @@ impl ITraceDataProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITraceDataProvider_Impl::Level(this) {
                     Ok(ok__) => {
-                        pplevel.write(core::mem::transmute(ok__));
+                        pplevel.cast::<IValueMap>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5828,7 +5828,7 @@ impl ITraceDataProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITraceDataProvider_Impl::KeywordsAny(this) {
                     Ok(ok__) => {
-                        ppkeywords.write(core::mem::transmute(ok__));
+                        ppkeywords.cast::<IValueMap>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5843,7 +5843,7 @@ impl ITraceDataProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITraceDataProvider_Impl::KeywordsAll(this) {
                     Ok(ok__) => {
-                        ppkeywords.write(core::mem::transmute(ok__));
+                        ppkeywords.cast::<IValueMap>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5858,7 +5858,7 @@ impl ITraceDataProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITraceDataProvider_Impl::Properties(this) {
                     Ok(ok__) => {
-                        ppproperties.write(core::mem::transmute(ok__));
+                        ppproperties.cast::<IValueMap>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5934,7 +5934,7 @@ impl ITraceDataProvider_Vtbl {
         unsafe extern "system" fn Query<Identity: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: *mut core::ffi::c_void, bstrserver: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataProvider_Impl::Query(this, core::mem::transmute(&bstrname), core::mem::transmute(&bstrserver))
+                ITraceDataProvider_Impl::Query(this, &*(&raw const bstrname).cast(), &*(&raw const bstrserver).cast())
             }
         }
         unsafe extern "system" fn Resolve<Identity: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfrom: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5946,7 +5946,7 @@ impl ITraceDataProvider_Vtbl {
         unsafe extern "system" fn SetSecurity<Identity: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sddl: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataProvider_Impl::SetSecurity(this, core::mem::transmute(&sddl))
+                ITraceDataProvider_Impl::SetSecurity(this, &*(&raw const sddl).cast())
             }
         }
         unsafe extern "system" fn GetSecurity<Identity: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, securityinfo: super::ULONG, sddl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5954,7 +5954,7 @@ impl ITraceDataProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITraceDataProvider_Impl::GetSecurity(this, core::mem::transmute_copy(&securityinfo)) {
                     Ok(ok__) => {
-                        sddl.write(core::mem::transmute(ok__));
+                        sddl.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5969,7 +5969,7 @@ impl ITraceDataProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITraceDataProvider_Impl::GetRegisteredProcesses(this) {
                     Ok(ok__) => {
-                        processes.write(core::mem::transmute(ok__));
+                        processes.cast::<IValueMap>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6132,9 +6132,9 @@ impl ITraceDataProviderCollection_Vtbl {
         unsafe extern "system" fn Item<Identity: ITraceDataProviderCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::VARIANT, ppprovider: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITraceDataProviderCollection_Impl::Item(this, core::mem::transmute(&index)) {
+                match ITraceDataProviderCollection_Impl::Item(this, &*(&raw const index).cast()) {
                     Ok(ok__) => {
-                        ppprovider.write(core::mem::transmute(ok__));
+                        ppprovider.cast::<ITraceDataProvider>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6149,7 +6149,7 @@ impl ITraceDataProviderCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITraceDataProviderCollection_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6168,7 +6168,7 @@ impl ITraceDataProviderCollection_Vtbl {
         unsafe extern "system" fn Remove<Identity: ITraceDataProviderCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vprovider: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataProviderCollection_Impl::Remove(this, core::mem::transmute(&vprovider))
+                ITraceDataProviderCollection_Impl::Remove(this, &*(&raw const vprovider).cast())
             }
         }
         unsafe extern "system" fn Clear<Identity: ITraceDataProviderCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6188,7 +6188,7 @@ impl ITraceDataProviderCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITraceDataProviderCollection_Impl::CreateTraceDataProvider(this) {
                     Ok(ok__) => {
-                        provider.write(core::mem::transmute(ok__));
+                        provider.cast::<ITraceDataProvider>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6201,13 +6201,13 @@ impl ITraceDataProviderCollection_Vtbl {
         unsafe extern "system" fn GetTraceDataProviders<Identity: ITraceDataProviderCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, server: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataProviderCollection_Impl::GetTraceDataProviders(this, core::mem::transmute(&server))
+                ITraceDataProviderCollection_Impl::GetTraceDataProviders(this, &*(&raw const server).cast())
             }
         }
         unsafe extern "system" fn GetTraceDataProvidersByProcess<Identity: ITraceDataProviderCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, server: *mut core::ffi::c_void, pid: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataProviderCollection_Impl::GetTraceDataProvidersByProcess(this, core::mem::transmute(&server), core::mem::transmute_copy(&pid))
+                ITraceDataProviderCollection_Impl::GetTraceDataProvidersByProcess(this, &*(&raw const server).cast(), core::mem::transmute_copy(&pid))
             }
         }
         Self {
@@ -6388,9 +6388,9 @@ impl IValueMap_Vtbl {
         unsafe extern "system" fn Item<Identity: IValueMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::VARIANT, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IValueMap_Impl::Item(this, core::mem::transmute(&index)) {
+                match IValueMap_Impl::Item(this, &*(&raw const index).cast()) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<IValueMapItem>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6405,7 +6405,7 @@ impl IValueMap_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IValueMap_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6420,7 +6420,7 @@ impl IValueMap_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IValueMap_Impl::Description(this) {
                     Ok(ok__) => {
-                        description.write(core::mem::transmute(ok__));
+                        description.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6433,7 +6433,7 @@ impl IValueMap_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: IValueMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, description: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IValueMap_Impl::SetDescription(this, core::mem::transmute(&description))
+                IValueMap_Impl::SetDescription(this, &*(&raw const description).cast())
             }
         }
         unsafe extern "system" fn Value<Identity: IValueMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -6441,7 +6441,7 @@ impl IValueMap_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IValueMap_Impl::Value(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6454,7 +6454,7 @@ impl IValueMap_Vtbl {
         unsafe extern "system" fn SetValue<Identity: IValueMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IValueMap_Impl::SetValue(this, core::mem::transmute(&value))
+                IValueMap_Impl::SetValue(this, &*(&raw const value).cast())
             }
         }
         unsafe extern "system" fn ValueMapType<Identity: IValueMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: *mut ValueMapType) -> windows_core::HRESULT {
@@ -6481,13 +6481,13 @@ impl IValueMap_Vtbl {
         unsafe extern "system" fn Add<Identity: IValueMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IValueMap_Impl::Add(this, core::mem::transmute(&value))
+                IValueMap_Impl::Add(this, &*(&raw const value).cast())
             }
         }
         unsafe extern "system" fn Remove<Identity: IValueMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IValueMap_Impl::Remove(this, core::mem::transmute(&value))
+                IValueMap_Impl::Remove(this, &*(&raw const value).cast())
             }
         }
         unsafe extern "system" fn Clear<Identity: IValueMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6507,7 +6507,7 @@ impl IValueMap_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IValueMap_Impl::CreateValueMapItem(this) {
                     Ok(ok__) => {
-                        item.write(core::mem::transmute(ok__));
+                        item.cast::<IValueMapItem>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6653,7 +6653,7 @@ impl IValueMapItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IValueMapItem_Impl::Description(this) {
                     Ok(ok__) => {
-                        description.write(core::mem::transmute(ok__));
+                        description.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6666,7 +6666,7 @@ impl IValueMapItem_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: IValueMapItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, description: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IValueMapItem_Impl::SetDescription(this, core::mem::transmute(&description))
+                IValueMapItem_Impl::SetDescription(this, &*(&raw const description).cast())
             }
         }
         unsafe extern "system" fn Enabled<Identity: IValueMapItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -6695,7 +6695,7 @@ impl IValueMapItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IValueMapItem_Impl::Key(this) {
                     Ok(ok__) => {
-                        key.write(core::mem::transmute(ok__));
+                        key.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6708,7 +6708,7 @@ impl IValueMapItem_Vtbl {
         unsafe extern "system" fn SetKey<Identity: IValueMapItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IValueMapItem_Impl::SetKey(this, core::mem::transmute(&key))
+                IValueMapItem_Impl::SetKey(this, &*(&raw const key).cast())
             }
         }
         unsafe extern "system" fn Value<Identity: IValueMapItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -6716,7 +6716,7 @@ impl IValueMapItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IValueMapItem_Impl::Value(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6729,7 +6729,7 @@ impl IValueMapItem_Vtbl {
         unsafe extern "system" fn SetValue<Identity: IValueMapItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IValueMapItem_Impl::SetValue(this, core::mem::transmute(&value))
+                IValueMapItem_Impl::SetValue(this, &*(&raw const value).cast())
             }
         }
         unsafe extern "system" fn ValueMapType<Identity: IValueMapItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: *mut ValueMapType) -> windows_core::HRESULT {

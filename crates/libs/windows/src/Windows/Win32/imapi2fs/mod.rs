@@ -42,7 +42,7 @@ impl DFileSystemImageEvents_Vtbl {
         unsafe extern "system" fn Update<Identity: DFileSystemImageEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, object: *mut core::ffi::c_void, currentfile: *mut core::ffi::c_void, copiedsectors: super::LONG, totalsectors: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                DFileSystemImageEvents_Impl::Update(this, core::mem::transmute_copy(&object), core::mem::transmute(&currentfile), core::mem::transmute_copy(&copiedsectors), core::mem::transmute_copy(&totalsectors))
+                DFileSystemImageEvents_Impl::Update(this, core::mem::transmute_copy(&object), &*(&raw const currentfile).cast(), core::mem::transmute_copy(&copiedsectors), core::mem::transmute_copy(&totalsectors))
             }
         }
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), Update: Update::<Identity, OFFSET> }
@@ -94,7 +94,7 @@ impl DFileSystemImageImportEvents_Vtbl {
         unsafe extern "system" fn UpdateImport<Identity: DFileSystemImageImportEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, object: *mut core::ffi::c_void, filesystem: FsiFileSystems, currentitem: *mut core::ffi::c_void, importeddirectoryitems: super::LONG, totaldirectoryitems: super::LONG, importedfileitems: super::LONG, totalfileitems: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                DFileSystemImageImportEvents_Impl::UpdateImport(this, core::mem::transmute_copy(&object), core::mem::transmute_copy(&filesystem), core::mem::transmute(&currentitem), core::mem::transmute_copy(&importeddirectoryitems), core::mem::transmute_copy(&totaldirectoryitems), core::mem::transmute_copy(&importedfileitems), core::mem::transmute_copy(&totalfileitems))
+                DFileSystemImageImportEvents_Impl::UpdateImport(this, core::mem::transmute_copy(&object), core::mem::transmute_copy(&filesystem), &*(&raw const currentitem).cast(), core::mem::transmute_copy(&importeddirectoryitems), core::mem::transmute_copy(&totaldirectoryitems), core::mem::transmute_copy(&importedfileitems), core::mem::transmute_copy(&totalfileitems))
             }
         }
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), UpdateImport: UpdateImport::<Identity, OFFSET> }
@@ -236,7 +236,7 @@ impl IBootOptions_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBootOptions_Impl::BootImage(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<super::IStream>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -251,7 +251,7 @@ impl IBootOptions_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBootOptions_Impl::Manufacturer(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -264,7 +264,7 @@ impl IBootOptions_Vtbl {
         unsafe extern "system" fn SetManufacturer<Identity: IBootOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBootOptions_Impl::SetManufacturer(this, core::mem::transmute(&newval))
+                IBootOptions_Impl::SetManufacturer(this, &*(&raw const newval).cast())
             }
         }
         unsafe extern "system" fn PlatformId<Identity: IBootOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut PlatformId) -> windows_core::HRESULT {
@@ -354,7 +354,7 @@ windows_core::imp::interface_hierarchy!(IEnumFsiItems, windows_core::IUnknown);
 impl IEnumFsiItems {
     #[cfg(all(feature = "oaidl", feature = "shared"))]
     pub unsafe fn Next(&self, celt: super::ULONG, rgelt: *mut Option<IFsiItem>, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), pceltfetched as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgelt as _, pceltfetched as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT {
@@ -418,7 +418,7 @@ impl IEnumFsiItems_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumFsiItems_Impl::Clone(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumFsiItems>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -447,7 +447,7 @@ windows_core::imp::interface_hierarchy!(IEnumProgressItems, windows_core::IUnkno
 impl IEnumProgressItems {
     #[cfg(all(feature = "oaidl", feature = "shared"))]
     pub unsafe fn Next(&self, celt: super::ULONG, rgelt: *mut Option<IProgressItem>, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), pceltfetched as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgelt as _, pceltfetched as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT {
@@ -511,7 +511,7 @@ impl IEnumProgressItems_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumProgressItems_Impl::Clone(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumProgressItems>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1032,7 +1032,7 @@ impl IFileSystemImage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage_Impl::Root(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<IFsiDirectoryItem>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1110,7 +1110,7 @@ impl IFileSystemImage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage_Impl::VolumeName(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1123,7 +1123,7 @@ impl IFileSystemImage_Vtbl {
         unsafe extern "system" fn SetVolumeName<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileSystemImage_Impl::SetVolumeName(this, core::mem::transmute(&newval))
+                IFileSystemImage_Impl::SetVolumeName(this, &*(&raw const newval).cast())
             }
         }
         unsafe extern "system" fn ImportedVolumeName<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1131,7 +1131,7 @@ impl IFileSystemImage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage_Impl::ImportedVolumeName(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1146,7 +1146,7 @@ impl IFileSystemImage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage_Impl::BootImageOptions(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<IBootOptions>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1197,7 +1197,7 @@ impl IFileSystemImage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage_Impl::WorkingDirectory(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1210,7 +1210,7 @@ impl IFileSystemImage_Vtbl {
         unsafe extern "system" fn SetWorkingDirectory<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileSystemImage_Impl::SetWorkingDirectory(this, core::mem::transmute(&newval))
+                IFileSystemImage_Impl::SetWorkingDirectory(this, &*(&raw const newval).cast())
             }
         }
         unsafe extern "system" fn ChangePoint<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::LONG) -> windows_core::HRESULT {
@@ -1395,7 +1395,7 @@ impl IFileSystemImage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage_Impl::CreateResultImage(this) {
                     Ok(ok__) => {
-                        resultstream.write(core::mem::transmute(ok__));
+                        resultstream.cast::<IFileSystemImageResult>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1408,7 +1408,7 @@ impl IFileSystemImage_Vtbl {
         unsafe extern "system" fn Exists<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fullpath: *mut core::ffi::c_void, itemtype: *mut FsiItemType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFileSystemImage_Impl::Exists(this, core::mem::transmute(&fullpath)) {
+                match IFileSystemImage_Impl::Exists(this, &*(&raw const fullpath).cast()) {
                     Ok(ok__) => {
                         itemtype.write(ok__);
                         windows_core::HRESULT(0)
@@ -1425,7 +1425,7 @@ impl IFileSystemImage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage_Impl::CalculateDiscIdentifier(this) {
                     Ok(ok__) => {
-                        discidentifier.write(core::mem::transmute(ok__));
+                        discidentifier.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1501,9 +1501,9 @@ impl IFileSystemImage_Vtbl {
         unsafe extern "system" fn CreateDirectoryItem<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, newitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFileSystemImage_Impl::CreateDirectoryItem(this, core::mem::transmute(&name)) {
+                match IFileSystemImage_Impl::CreateDirectoryItem(this, &*(&raw const name).cast()) {
                     Ok(ok__) => {
-                        newitem.write(core::mem::transmute(ok__));
+                        newitem.cast::<IFsiDirectoryItem>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1516,9 +1516,9 @@ impl IFileSystemImage_Vtbl {
         unsafe extern "system" fn CreateFileItem<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, newitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFileSystemImage_Impl::CreateFileItem(this, core::mem::transmute(&name)) {
+                match IFileSystemImage_Impl::CreateFileItem(this, &*(&raw const name).cast()) {
                     Ok(ok__) => {
-                        newitem.write(core::mem::transmute(ok__));
+                        newitem.cast::<IFsiFileItem>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1533,7 +1533,7 @@ impl IFileSystemImage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage_Impl::VolumeNameUDF(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1548,7 +1548,7 @@ impl IFileSystemImage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage_Impl::VolumeNameJoliet(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1563,7 +1563,7 @@ impl IFileSystemImage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage_Impl::VolumeNameISO9660(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1946,7 +1946,7 @@ impl IFileSystemImageResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImageResult_Impl::ImageStream(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<super::IStream>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1961,7 +1961,7 @@ impl IFileSystemImageResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImageResult_Impl::ProgressItems(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<IProgressItems>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2006,7 +2006,7 @@ impl IFileSystemImageResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImageResult_Impl::DiscId(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2074,7 +2074,7 @@ impl IFileSystemImageResult2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImageResult2_Impl::ModifiedBlocks(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<super::IBlockRangeList>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2203,7 +2203,7 @@ impl IFsiDirectoryItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsiDirectoryItem_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        newenum.write(core::mem::transmute(ok__));
+                        newenum.cast::<super::IEnumVARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2216,9 +2216,9 @@ impl IFsiDirectoryItem_Vtbl {
         unsafe extern "system" fn Item<Identity: IFsiDirectoryItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut core::ffi::c_void, item: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFsiDirectoryItem_Impl::Item(this, core::mem::transmute(&path)) {
+                match IFsiDirectoryItem_Impl::Item(this, &*(&raw const path).cast()) {
                     Ok(ok__) => {
-                        item.write(core::mem::transmute(ok__));
+                        item.cast::<IFsiItem>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2248,7 +2248,7 @@ impl IFsiDirectoryItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsiDirectoryItem_Impl::EnumFsiItems(this) {
                     Ok(ok__) => {
-                        newenum.write(core::mem::transmute(ok__));
+                        newenum.cast::<IEnumFsiItems>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2261,19 +2261,19 @@ impl IFsiDirectoryItem_Vtbl {
         unsafe extern "system" fn AddDirectory<Identity: IFsiDirectoryItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsiDirectoryItem_Impl::AddDirectory(this, core::mem::transmute(&path))
+                IFsiDirectoryItem_Impl::AddDirectory(this, &*(&raw const path).cast())
             }
         }
         unsafe extern "system" fn AddFile<Identity: IFsiDirectoryItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut core::ffi::c_void, filedata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsiDirectoryItem_Impl::AddFile(this, core::mem::transmute(&path), core::mem::transmute_copy(&filedata))
+                IFsiDirectoryItem_Impl::AddFile(this, &*(&raw const path).cast(), core::mem::transmute_copy(&filedata))
             }
         }
         unsafe extern "system" fn AddTree<Identity: IFsiDirectoryItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourcedirectory: *mut core::ffi::c_void, includebasedirectory: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsiDirectoryItem_Impl::AddTree(this, core::mem::transmute(&sourcedirectory), core::mem::transmute_copy(&includebasedirectory))
+                IFsiDirectoryItem_Impl::AddTree(this, &*(&raw const sourcedirectory).cast(), core::mem::transmute_copy(&includebasedirectory))
             }
         }
         unsafe extern "system" fn Add<Identity: IFsiDirectoryItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, item: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2285,13 +2285,13 @@ impl IFsiDirectoryItem_Vtbl {
         unsafe extern "system" fn Remove<Identity: IFsiDirectoryItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsiDirectoryItem_Impl::Remove(this, core::mem::transmute(&path))
+                IFsiDirectoryItem_Impl::Remove(this, &*(&raw const path).cast())
             }
         }
         unsafe extern "system" fn RemoveTree<Identity: IFsiDirectoryItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsiDirectoryItem_Impl::RemoveTree(this, core::mem::transmute(&path))
+                IFsiDirectoryItem_Impl::RemoveTree(this, &*(&raw const path).cast())
             }
         }
         Self {
@@ -2352,7 +2352,7 @@ impl IFsiDirectoryItem2_Vtbl {
         unsafe extern "system" fn AddTreeWithNamedStreams<Identity: IFsiDirectoryItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourcedirectory: *mut core::ffi::c_void, includebasedirectory: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsiDirectoryItem2_Impl::AddTreeWithNamedStreams(this, core::mem::transmute(&sourcedirectory), core::mem::transmute_copy(&includebasedirectory))
+                IFsiDirectoryItem2_Impl::AddTreeWithNamedStreams(this, &*(&raw const sourcedirectory).cast(), core::mem::transmute_copy(&includebasedirectory))
             }
         }
         Self { base__: IFsiDirectoryItem_Vtbl::new::<Identity, OFFSET>(), AddTreeWithNamedStreams: AddTreeWithNamedStreams::<Identity, OFFSET> }
@@ -2499,7 +2499,7 @@ impl IFsiFileItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsiFileItem_Impl::Data(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<super::IStream>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2619,7 +2619,7 @@ impl IFsiFileItem2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsiFileItem2_Impl::FsiNamedStreams(this) {
                     Ok(ok__) => {
-                        streams.write(core::mem::transmute(ok__));
+                        streams.cast::<IFsiNamedStreams>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2647,13 +2647,13 @@ impl IFsiFileItem2_Vtbl {
         unsafe extern "system" fn AddStream<Identity: IFsiFileItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, streamdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsiFileItem2_Impl::AddStream(this, core::mem::transmute(&name), core::mem::transmute_copy(&streamdata))
+                IFsiFileItem2_Impl::AddStream(this, &*(&raw const name).cast(), core::mem::transmute_copy(&streamdata))
             }
         }
         unsafe extern "system" fn RemoveStream<Identity: IFsiFileItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsiFileItem2_Impl::RemoveStream(this, core::mem::transmute(&name))
+                IFsiFileItem2_Impl::RemoveStream(this, &*(&raw const name).cast())
             }
         }
         unsafe extern "system" fn IsRealTime<Identity: IFsiFileItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2840,7 +2840,7 @@ impl IFsiItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsiItem_Impl::Name(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2855,7 +2855,7 @@ impl IFsiItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsiItem_Impl::FullPath(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2954,7 +2954,7 @@ impl IFsiItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsiItem_Impl::FileSystemName(this, core::mem::transmute_copy(&filesystem)) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2969,7 +2969,7 @@ impl IFsiItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsiItem_Impl::FileSystemPath(this, core::mem::transmute_copy(&filesystem)) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3072,7 +3072,7 @@ impl IFsiNamedStreams_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsiNamedStreams_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        newenum.write(core::mem::transmute(ok__));
+                        newenum.cast::<super::IEnumVARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3087,7 +3087,7 @@ impl IFsiNamedStreams_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsiNamedStreams_Impl::Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        item.write(core::mem::transmute(ok__));
+                        item.cast::<IFsiFileItem2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3117,7 +3117,7 @@ impl IFsiNamedStreams_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsiNamedStreams_Impl::EnumNamedStreams(this) {
                     Ok(ok__) => {
-                        newenum.write(core::mem::transmute(ok__));
+                        newenum.cast::<IEnumFsiItems>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3214,7 +3214,7 @@ impl IIsoImageManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsoImageManager_Impl::Path(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3229,7 +3229,7 @@ impl IIsoImageManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsoImageManager_Impl::Stream(this) {
                     Ok(ok__) => {
-                        data.write(core::mem::transmute(ok__));
+                        data.cast::<super::IStream>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3242,7 +3242,7 @@ impl IIsoImageManager_Vtbl {
         unsafe extern "system" fn SetPath<Identity: IIsoImageManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, val: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IIsoImageManager_Impl::SetPath(this, core::mem::transmute(&val))
+                IIsoImageManager_Impl::SetPath(this, &*(&raw const val).cast())
             }
         }
         unsafe extern "system" fn SetStream<Identity: IIsoImageManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3352,7 +3352,7 @@ impl IProgressItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProgressItem_Impl::Description(this) {
                     Ok(ok__) => {
-                        desc.write(core::mem::transmute(ok__));
+                        desc.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3504,7 +3504,7 @@ impl IProgressItems_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProgressItems_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        newenum.write(core::mem::transmute(ok__));
+                        newenum.cast::<super::IEnumVARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3519,7 +3519,7 @@ impl IProgressItems_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProgressItems_Impl::Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        item.write(core::mem::transmute(ok__));
+                        item.cast::<IProgressItem>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3549,7 +3549,7 @@ impl IProgressItems_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProgressItems_Impl::ProgressItemFromBlock(this, core::mem::transmute_copy(&block)) {
                     Ok(ok__) => {
-                        item.write(core::mem::transmute(ok__));
+                        item.cast::<IProgressItem>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3562,9 +3562,9 @@ impl IProgressItems_Vtbl {
         unsafe extern "system" fn ProgressItemFromDescription<Identity: IProgressItems_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, description: *mut core::ffi::c_void, item: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IProgressItems_Impl::ProgressItemFromDescription(this, core::mem::transmute(&description)) {
+                match IProgressItems_Impl::ProgressItemFromDescription(this, &*(&raw const description).cast()) {
                     Ok(ok__) => {
-                        item.write(core::mem::transmute(ok__));
+                        item.cast::<IProgressItem>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3579,7 +3579,7 @@ impl IProgressItems_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProgressItems_Impl::EnumProgressItems(this) {
                     Ok(ok__) => {
-                        newenum.write(core::mem::transmute(ok__));
+                        newenum.cast::<IEnumProgressItems>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

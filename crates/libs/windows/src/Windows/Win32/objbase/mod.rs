@@ -317,7 +317,7 @@ where
     P1: windows_core::Param<super::LPMONIKER>,
 {
     windows_core::link!("ole32.dll" "system" fn MonikerRelativePathTo(pmksrc : *mut core::ffi::c_void, pmkdest : *mut core::ffi::c_void, ppmkrelpath : *mut *mut core::ffi::c_void, dwreserved : windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe { MonikerRelativePathTo(pmksrc.param().abi(), pmkdest.param().abi(), core::mem::transmute(ppmkrelpath), dwreserved.into()) }
+    unsafe { MonikerRelativePathTo(pmksrc.param().abi(), pmkdest.param().abi(), ppmkrelpath as _, dwreserved.into()) }
 }
 #[cfg(all(feature = "objidl", feature = "wtypesbase"))]
 #[inline]

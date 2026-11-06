@@ -101,7 +101,7 @@ impl IMFSpatialAudioObjectBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSpatialAudioObjectBuffer_Impl::GetMetadataItems(this) {
                     Ok(ok__) => {
-                        ppmetadataitems.write(core::mem::transmute(ok__));
+                        ppmetadataitems.cast::<super::ISpatialAudioMetadataItems>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -198,7 +198,7 @@ impl IMFSpatialAudioSample_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSpatialAudioSample_Impl::GetSpatialAudioObjectByIndex(this, core::mem::transmute_copy(&dwindex)) {
                     Ok(ok__) => {
-                        ppaudioobjbuffer.write(core::mem::transmute(ok__));
+                        ppaudioobjbuffer.cast::<IMFSpatialAudioObjectBuffer>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

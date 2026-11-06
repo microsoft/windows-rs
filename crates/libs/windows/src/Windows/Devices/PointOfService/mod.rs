@@ -4332,7 +4332,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
         unsafe extern "system" fn ValidateData<Identity: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICommonClaimedPosPrinterStation_Impl::ValidateData(this, core::mem::transmute(&data)) {
+                match ICommonClaimedPosPrinterStation_Impl::ValidateData(this, &*(&raw const data).cast()) {
                     Ok(ok__) => {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
@@ -5723,13 +5723,13 @@ impl IPosPrinterJob_Vtbl {
         unsafe extern "system" fn Print<Identity: IPosPrinterJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPosPrinterJob_Impl::Print(this, core::mem::transmute(&data)).into()
+                IPosPrinterJob_Impl::Print(this, &*(&raw const data).cast()).into()
             }
         }
         unsafe extern "system" fn PrintLine<Identity: IPosPrinterJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPosPrinterJob_Impl::PrintLine(this, core::mem::transmute(&data)).into()
+                IPosPrinterJob_Impl::PrintLine(this, &*(&raw const data).cast()).into()
             }
         }
         unsafe extern "system" fn PrintNewline<Identity: IPosPrinterJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6013,7 +6013,7 @@ impl IReceiptOrSlipJob_Vtbl {
         unsafe extern "system" fn SetPrintArea<Identity: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::super::Foundation::Rect) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IReceiptOrSlipJob_Impl::SetPrintArea(this, core::mem::transmute(&value)).into()
+                IReceiptOrSlipJob_Impl::SetPrintArea(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn SetBitmap<Identity: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmapnumber: u32, bitmap: *mut core::ffi::c_void, alignment: PosPrinterAlignment) -> windows_core::HRESULT {
@@ -6049,19 +6049,19 @@ impl IReceiptOrSlipJob_Vtbl {
         unsafe extern "system" fn DrawRuledLine<Identity: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, positionlist: *mut core::ffi::c_void, linedirection: PosPrinterLineDirection, linewidth: u32, linestyle: PosPrinterLineStyle, linecolor: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IReceiptOrSlipJob_Impl::DrawRuledLine(this, core::mem::transmute(&positionlist), linedirection, linewidth, linestyle, linecolor).into()
+                IReceiptOrSlipJob_Impl::DrawRuledLine(this, &*(&raw const positionlist).cast(), linedirection, linewidth, linestyle, linecolor).into()
             }
         }
         unsafe extern "system" fn PrintBarcode<Identity: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignment: PosPrinterAlignment) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IReceiptOrSlipJob_Impl::PrintBarcode(this, core::mem::transmute(&data), symbology, height, width, textposition, alignment).into()
+                IReceiptOrSlipJob_Impl::PrintBarcode(this, &*(&raw const data).cast(), symbology, height, width, textposition, alignment).into()
             }
         }
         unsafe extern "system" fn PrintBarcodeCustomAlign<Identity: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignmentdistance: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IReceiptOrSlipJob_Impl::PrintBarcodeCustomAlign(this, core::mem::transmute(&data), symbology, height, width, textposition, alignmentdistance).into()
+                IReceiptOrSlipJob_Impl::PrintBarcodeCustomAlign(this, &*(&raw const data).cast(), symbology, height, width, textposition, alignmentdistance).into()
             }
         }
         unsafe extern "system" fn PrintBitmap<Identity: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmap: *mut core::ffi::c_void, alignment: PosPrinterAlignment) -> windows_core::HRESULT {
@@ -7446,7 +7446,7 @@ impl MagneticStripeReader {
     pub fn SupportedCardTypes(&self) -> windows_core::Result<windows_core::Array<u32>> {
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).SupportedCardTypes)(windows_core::Interface::as_raw(self), windows_core::Array::<u32>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(self).SupportedCardTypes)(windows_core::Interface::as_raw(self), windows_core::Array::<u32>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
     pub fn DeviceAuthenticationProtocol(&self) -> windows_core::Result<MagneticStripeReaderAuthenticationProtocol> {

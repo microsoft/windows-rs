@@ -66,7 +66,7 @@ impl Results {
             (windows_core::Interface::vtable(self).ExplicitObject)(
                 windows_core::Interface::as_raw(self),
                 status,
-                core::mem::transmute(value),
+                value as _,
             )
         }
     }
@@ -331,7 +331,7 @@ impl Results_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match Results_Impl::Object(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<ObjectAlias>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -351,7 +351,7 @@ impl Results_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match Results_Impl::Reserved(this, core::mem::transmute_copy(&reserved)) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<Tracked>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -370,7 +370,7 @@ impl Results_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match Results_Impl::Required(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<Tracked>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -485,7 +485,7 @@ impl Results_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match Results_Impl::ReadThenFail(this, core::mem::transmute_copy(&input)) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<Tracked>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -504,7 +504,7 @@ impl Results_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match Results_Impl::TypedefSlot(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<Tracked>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

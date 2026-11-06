@@ -154,7 +154,7 @@ impl ICertAdmin_Vtbl {
         unsafe extern "system" fn IsValidCertificate<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, strserialnumber: *mut core::ffi::c_void, pdisposition: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICertAdmin_Impl::IsValidCertificate(this, core::mem::transmute(&strconfig), core::mem::transmute(&strserialnumber)) {
+                match ICertAdmin_Impl::IsValidCertificate(this, &*(&raw const strconfig).cast(), &*(&raw const strserialnumber).cast()) {
                     Ok(ok__) => {
                         pdisposition.write(ok__);
                         windows_core::HRESULT(0)
@@ -184,31 +184,31 @@ impl ICertAdmin_Vtbl {
         unsafe extern "system" fn RevokeCertificate<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, strserialnumber: *mut core::ffi::c_void, reason: super::LONG, date: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertAdmin_Impl::RevokeCertificate(this, core::mem::transmute(&strconfig), core::mem::transmute(&strserialnumber), core::mem::transmute_copy(&reason), core::mem::transmute_copy(&date))
+                ICertAdmin_Impl::RevokeCertificate(this, &*(&raw const strconfig).cast(), &*(&raw const strserialnumber).cast(), core::mem::transmute_copy(&reason), core::mem::transmute_copy(&date))
             }
         }
         unsafe extern "system" fn SetRequestAttributes<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, requestid: super::LONG, strattributes: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertAdmin_Impl::SetRequestAttributes(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&requestid), core::mem::transmute(&strattributes))
+                ICertAdmin_Impl::SetRequestAttributes(this, &*(&raw const strconfig).cast(), core::mem::transmute_copy(&requestid), &*(&raw const strattributes).cast())
             }
         }
         unsafe extern "system" fn SetCertificateExtension<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, requestid: super::LONG, strextensionname: *mut core::ffi::c_void, r#type: super::LONG, flags: super::LONG, pvarvalue: *const super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertAdmin_Impl::SetCertificateExtension(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&requestid), core::mem::transmute(&strextensionname), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&pvarvalue))
+                ICertAdmin_Impl::SetCertificateExtension(this, &*(&raw const strconfig).cast(), core::mem::transmute_copy(&requestid), &*(&raw const strextensionname).cast(), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&pvarvalue))
             }
         }
         unsafe extern "system" fn DenyRequest<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, requestid: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertAdmin_Impl::DenyRequest(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&requestid))
+                ICertAdmin_Impl::DenyRequest(this, &*(&raw const strconfig).cast(), core::mem::transmute_copy(&requestid))
             }
         }
         unsafe extern "system" fn ResubmitRequest<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, requestid: super::LONG, pdisposition: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICertAdmin_Impl::ResubmitRequest(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&requestid)) {
+                match ICertAdmin_Impl::ResubmitRequest(this, &*(&raw const strconfig).cast(), core::mem::transmute_copy(&requestid)) {
                     Ok(ok__) => {
                         pdisposition.write(ok__);
                         windows_core::HRESULT(0)
@@ -223,15 +223,15 @@ impl ICertAdmin_Vtbl {
         unsafe extern "system" fn PublishCRL<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, date: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertAdmin_Impl::PublishCRL(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&date))
+                ICertAdmin_Impl::PublishCRL(this, &*(&raw const strconfig).cast(), core::mem::transmute_copy(&date))
             }
         }
         unsafe extern "system" fn GetCRL<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, flags: super::LONG, pstrcrl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICertAdmin_Impl::GetCRL(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&flags)) {
+                match ICertAdmin_Impl::GetCRL(this, &*(&raw const strconfig).cast(), core::mem::transmute_copy(&flags)) {
                     Ok(ok__) => {
-                        pstrcrl.write(core::mem::transmute(ok__));
+                        pstrcrl.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -244,7 +244,7 @@ impl ICertAdmin_Vtbl {
         unsafe extern "system" fn ImportCertificate<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, strcertificate: *mut core::ffi::c_void, flags: super::LONG, prequestid: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICertAdmin_Impl::ImportCertificate(this, core::mem::transmute(&strconfig), core::mem::transmute(&strcertificate), core::mem::transmute_copy(&flags)) {
+                match ICertAdmin_Impl::ImportCertificate(this, &*(&raw const strconfig).cast(), &*(&raw const strcertificate).cast(), core::mem::transmute_copy(&flags)) {
                     Ok(ok__) => {
                         prequestid.write(ok__);
                         windows_core::HRESULT(0)
@@ -425,15 +425,15 @@ impl ICertAdmin2_Vtbl {
         unsafe extern "system" fn PublishCRLs<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, date: super::DATE, crlflags: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertAdmin2_Impl::PublishCRLs(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&date), core::mem::transmute_copy(&crlflags))
+                ICertAdmin2_Impl::PublishCRLs(this, &*(&raw const strconfig).cast(), core::mem::transmute_copy(&date), core::mem::transmute_copy(&crlflags))
             }
         }
         unsafe extern "system" fn GetCAProperty<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, propid: super::LONG, propindex: super::LONG, proptype: super::LONG, flags: super::LONG, pvarpropertyvalue: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICertAdmin2_Impl::GetCAProperty(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&propid), core::mem::transmute_copy(&propindex), core::mem::transmute_copy(&proptype), core::mem::transmute_copy(&flags)) {
+                match ICertAdmin2_Impl::GetCAProperty(this, &*(&raw const strconfig).cast(), core::mem::transmute_copy(&propid), core::mem::transmute_copy(&propindex), core::mem::transmute_copy(&proptype), core::mem::transmute_copy(&flags)) {
                     Ok(ok__) => {
-                        pvarpropertyvalue.write(core::mem::transmute(ok__));
+                        pvarpropertyvalue.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -446,13 +446,13 @@ impl ICertAdmin2_Vtbl {
         unsafe extern "system" fn SetCAProperty<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, propid: super::LONG, propindex: super::LONG, proptype: super::LONG, pvarpropertyvalue: *const super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertAdmin2_Impl::SetCAProperty(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&propid), core::mem::transmute_copy(&propindex), core::mem::transmute_copy(&proptype), core::mem::transmute_copy(&pvarpropertyvalue))
+                ICertAdmin2_Impl::SetCAProperty(this, &*(&raw const strconfig).cast(), core::mem::transmute_copy(&propid), core::mem::transmute_copy(&propindex), core::mem::transmute_copy(&proptype), core::mem::transmute_copy(&pvarpropertyvalue))
             }
         }
         unsafe extern "system" fn GetCAPropertyFlags<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, propid: super::LONG, ppropflags: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICertAdmin2_Impl::GetCAPropertyFlags(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&propid)) {
+                match ICertAdmin2_Impl::GetCAPropertyFlags(this, &*(&raw const strconfig).cast(), core::mem::transmute_copy(&propid)) {
                     Ok(ok__) => {
                         ppropflags.write(ok__);
                         windows_core::HRESULT(0)
@@ -467,9 +467,9 @@ impl ICertAdmin2_Vtbl {
         unsafe extern "system" fn GetCAPropertyDisplayName<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, propid: super::LONG, pstrdisplayname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICertAdmin2_Impl::GetCAPropertyDisplayName(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&propid)) {
+                match ICertAdmin2_Impl::GetCAPropertyDisplayName(this, &*(&raw const strconfig).cast(), core::mem::transmute_copy(&propid)) {
                     Ok(ok__) => {
-                        pstrdisplayname.write(core::mem::transmute(ok__));
+                        pstrdisplayname.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -482,9 +482,9 @@ impl ICertAdmin2_Vtbl {
         unsafe extern "system" fn GetArchivedKey<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, requestid: super::LONG, flags: super::LONG, pstrarchivedkey: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICertAdmin2_Impl::GetArchivedKey(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&flags)) {
+                match ICertAdmin2_Impl::GetArchivedKey(this, &*(&raw const strconfig).cast(), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&flags)) {
                     Ok(ok__) => {
-                        pstrarchivedkey.write(core::mem::transmute(ok__));
+                        pstrarchivedkey.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -497,9 +497,9 @@ impl ICertAdmin2_Vtbl {
         unsafe extern "system" fn GetConfigEntry<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, strnodepath: *mut core::ffi::c_void, strentryname: *mut core::ffi::c_void, pvarentry: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICertAdmin2_Impl::GetConfigEntry(this, core::mem::transmute(&strconfig), core::mem::transmute(&strnodepath), core::mem::transmute(&strentryname)) {
+                match ICertAdmin2_Impl::GetConfigEntry(this, &*(&raw const strconfig).cast(), &*(&raw const strnodepath).cast(), &*(&raw const strentryname).cast()) {
                     Ok(ok__) => {
-                        pvarentry.write(core::mem::transmute(ok__));
+                        pvarentry.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -512,19 +512,19 @@ impl ICertAdmin2_Vtbl {
         unsafe extern "system" fn SetConfigEntry<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, strnodepath: *mut core::ffi::c_void, strentryname: *mut core::ffi::c_void, pvarentry: *const super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertAdmin2_Impl::SetConfigEntry(this, core::mem::transmute(&strconfig), core::mem::transmute(&strnodepath), core::mem::transmute(&strentryname), core::mem::transmute_copy(&pvarentry))
+                ICertAdmin2_Impl::SetConfigEntry(this, &*(&raw const strconfig).cast(), &*(&raw const strnodepath).cast(), &*(&raw const strentryname).cast(), core::mem::transmute_copy(&pvarentry))
             }
         }
         unsafe extern "system" fn ImportKey<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, requestid: super::LONG, strcerthash: *mut core::ffi::c_void, flags: super::LONG, strkey: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertAdmin2_Impl::ImportKey(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&requestid), core::mem::transmute(&strcerthash), core::mem::transmute_copy(&flags), core::mem::transmute(&strkey))
+                ICertAdmin2_Impl::ImportKey(this, &*(&raw const strconfig).cast(), core::mem::transmute_copy(&requestid), &*(&raw const strcerthash).cast(), core::mem::transmute_copy(&flags), &*(&raw const strkey).cast())
             }
         }
         unsafe extern "system" fn GetMyRoles<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, proles: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICertAdmin2_Impl::GetMyRoles(this, core::mem::transmute(&strconfig)) {
+                match ICertAdmin2_Impl::GetMyRoles(this, &*(&raw const strconfig).cast()) {
                     Ok(ok__) => {
                         proles.write(ok__);
                         windows_core::HRESULT(0)
@@ -539,7 +539,7 @@ impl ICertAdmin2_Vtbl {
         unsafe extern "system" fn DeleteRow<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, flags: super::LONG, date: super::DATE, table: super::LONG, rowid: super::LONG, pcdeleted: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICertAdmin2_Impl::DeleteRow(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&date), core::mem::transmute_copy(&table), core::mem::transmute_copy(&rowid)) {
+                match ICertAdmin2_Impl::DeleteRow(this, &*(&raw const strconfig).cast(), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&date), core::mem::transmute_copy(&table), core::mem::transmute_copy(&rowid)) {
                     Ok(ok__) => {
                         pcdeleted.write(ok__);
                         windows_core::HRESULT(0)
@@ -692,7 +692,7 @@ impl IOCSPAdmin_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPAdmin_Impl::OCSPServiceProperties(this) {
                     Ok(ok__) => {
-                        ppval.write(core::mem::transmute(ok__));
+                        ppval.cast::<IOCSPPropertyCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -707,7 +707,7 @@ impl IOCSPAdmin_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPAdmin_Impl::OCSPCAConfigurationCollection(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<IOCSPCAConfigurationCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -720,19 +720,19 @@ impl IOCSPAdmin_Vtbl {
         unsafe extern "system" fn GetConfiguration<Identity: IOCSPAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrservername: *mut core::ffi::c_void, bforce: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOCSPAdmin_Impl::GetConfiguration(this, core::mem::transmute(&bstrservername), core::mem::transmute_copy(&bforce))
+                IOCSPAdmin_Impl::GetConfiguration(this, &*(&raw const bstrservername).cast(), core::mem::transmute_copy(&bforce))
             }
         }
         unsafe extern "system" fn SetConfiguration<Identity: IOCSPAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrservername: *mut core::ffi::c_void, bforce: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOCSPAdmin_Impl::SetConfiguration(this, core::mem::transmute(&bstrservername), core::mem::transmute_copy(&bforce))
+                IOCSPAdmin_Impl::SetConfiguration(this, &*(&raw const bstrservername).cast(), core::mem::transmute_copy(&bforce))
             }
         }
         unsafe extern "system" fn GetMyRoles<Identity: IOCSPAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrservername: *mut core::ffi::c_void, proles: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IOCSPAdmin_Impl::GetMyRoles(this, core::mem::transmute(&bstrservername)) {
+                match IOCSPAdmin_Impl::GetMyRoles(this, &*(&raw const bstrservername).cast()) {
                     Ok(ok__) => {
                         proles.write(ok__);
                         windows_core::HRESULT(0)
@@ -747,21 +747,21 @@ impl IOCSPAdmin_Vtbl {
         unsafe extern "system" fn Ping<Identity: IOCSPAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrservername: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOCSPAdmin_Impl::Ping(this, core::mem::transmute(&bstrservername))
+                IOCSPAdmin_Impl::Ping(this, &*(&raw const bstrservername).cast())
             }
         }
         unsafe extern "system" fn SetSecurity<Identity: IOCSPAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrservername: *mut core::ffi::c_void, bstrval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOCSPAdmin_Impl::SetSecurity(this, core::mem::transmute(&bstrservername), core::mem::transmute(&bstrval))
+                IOCSPAdmin_Impl::SetSecurity(this, &*(&raw const bstrservername).cast(), &*(&raw const bstrval).cast())
             }
         }
         unsafe extern "system" fn GetSecurity<Identity: IOCSPAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrservername: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IOCSPAdmin_Impl::GetSecurity(this, core::mem::transmute(&bstrservername)) {
+                match IOCSPAdmin_Impl::GetSecurity(this, &*(&raw const bstrservername).cast()) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -774,9 +774,9 @@ impl IOCSPAdmin_Vtbl {
         unsafe extern "system" fn GetSigningCertificates<Identity: IOCSPAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrservername: *mut core::ffi::c_void, pcacertvar: *const super::VARIANT, pval: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IOCSPAdmin_Impl::GetSigningCertificates(this, core::mem::transmute(&bstrservername), core::mem::transmute_copy(&pcacertvar)) {
+                match IOCSPAdmin_Impl::GetSigningCertificates(this, &*(&raw const bstrservername).cast(), core::mem::transmute_copy(&pcacertvar)) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -789,9 +789,9 @@ impl IOCSPAdmin_Vtbl {
         unsafe extern "system" fn GetHashAlgorithms<Identity: IOCSPAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrservername: *mut core::ffi::c_void, bstrcaid: *mut core::ffi::c_void, pval: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IOCSPAdmin_Impl::GetHashAlgorithms(this, core::mem::transmute(&bstrservername), core::mem::transmute(&bstrcaid)) {
+                match IOCSPAdmin_Impl::GetHashAlgorithms(this, &*(&raw const bstrservername).cast(), &*(&raw const bstrcaid).cast()) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1073,7 +1073,7 @@ impl IOCSPCAConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPCAConfiguration_Impl::Identifier(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1088,7 +1088,7 @@ impl IOCSPCAConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPCAConfiguration_Impl::CACertificate(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1103,7 +1103,7 @@ impl IOCSPCAConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPCAConfiguration_Impl::HashAlgorithm(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1116,7 +1116,7 @@ impl IOCSPCAConfiguration_Vtbl {
         unsafe extern "system" fn SetHashAlgorithm<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOCSPCAConfiguration_Impl::SetHashAlgorithm(this, core::mem::transmute(&newval))
+                IOCSPCAConfiguration_Impl::SetHashAlgorithm(this, &*(&raw const newval).cast())
             }
         }
         unsafe extern "system" fn SigningFlags<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::ULONG) -> windows_core::HRESULT {
@@ -1145,7 +1145,7 @@ impl IOCSPCAConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPCAConfiguration_Impl::SigningCertificate(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1158,7 +1158,7 @@ impl IOCSPCAConfiguration_Vtbl {
         unsafe extern "system" fn SetSigningCertificate<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOCSPCAConfiguration_Impl::SetSigningCertificate(this, core::mem::transmute(&newval))
+                IOCSPCAConfiguration_Impl::SetSigningCertificate(this, &*(&raw const newval).cast())
             }
         }
         unsafe extern "system" fn ReminderDuration<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::ULONG) -> windows_core::HRESULT {
@@ -1202,7 +1202,7 @@ impl IOCSPCAConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPCAConfiguration_Impl::CSPName(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1232,7 +1232,7 @@ impl IOCSPCAConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPCAConfiguration_Impl::ProviderCLSID(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1245,7 +1245,7 @@ impl IOCSPCAConfiguration_Vtbl {
         unsafe extern "system" fn SetProviderCLSID<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOCSPCAConfiguration_Impl::SetProviderCLSID(this, core::mem::transmute(&newval))
+                IOCSPCAConfiguration_Impl::SetProviderCLSID(this, &*(&raw const newval).cast())
             }
         }
         unsafe extern "system" fn ProviderProperties<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -1253,7 +1253,7 @@ impl IOCSPCAConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPCAConfiguration_Impl::ProviderProperties(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1266,7 +1266,7 @@ impl IOCSPCAConfiguration_Vtbl {
         unsafe extern "system" fn SetProviderProperties<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOCSPCAConfiguration_Impl::SetProviderProperties(this, core::mem::transmute(&newval))
+                IOCSPCAConfiguration_Impl::SetProviderProperties(this, &*(&raw const newval).cast())
             }
         }
         unsafe extern "system" fn Modified<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -1289,7 +1289,7 @@ impl IOCSPCAConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPCAConfiguration_Impl::LocalRevocationInformation(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1302,7 +1302,7 @@ impl IOCSPCAConfiguration_Vtbl {
         unsafe extern "system" fn SetLocalRevocationInformation<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOCSPCAConfiguration_Impl::SetLocalRevocationInformation(this, core::mem::transmute(&newval))
+                IOCSPCAConfiguration_Impl::SetLocalRevocationInformation(this, &*(&raw const newval).cast())
             }
         }
         unsafe extern "system" fn SigningCertificateTemplate<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1310,7 +1310,7 @@ impl IOCSPCAConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPCAConfiguration_Impl::SigningCertificateTemplate(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1323,7 +1323,7 @@ impl IOCSPCAConfiguration_Vtbl {
         unsafe extern "system" fn SetSigningCertificateTemplate<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOCSPCAConfiguration_Impl::SetSigningCertificateTemplate(this, core::mem::transmute(&newval))
+                IOCSPCAConfiguration_Impl::SetSigningCertificateTemplate(this, &*(&raw const newval).cast())
             }
         }
         unsafe extern "system" fn CAConfig<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1331,7 +1331,7 @@ impl IOCSPCAConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPCAConfiguration_Impl::CAConfig(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1344,7 +1344,7 @@ impl IOCSPCAConfiguration_Vtbl {
         unsafe extern "system" fn SetCAConfig<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOCSPCAConfiguration_Impl::SetCAConfig(this, core::mem::transmute(&newval))
+                IOCSPCAConfiguration_Impl::SetCAConfig(this, &*(&raw const newval).cast())
             }
         }
         Self {
@@ -1473,7 +1473,7 @@ impl IOCSPCAConfigurationCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPCAConfigurationCollection_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1488,7 +1488,7 @@ impl IOCSPCAConfigurationCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPCAConfigurationCollection_Impl::Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1516,9 +1516,9 @@ impl IOCSPCAConfigurationCollection_Vtbl {
         unsafe extern "system" fn ItemByName<Identity: IOCSPCAConfigurationCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstridentifier: *mut core::ffi::c_void, pval: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IOCSPCAConfigurationCollection_Impl::ItemByName(this, core::mem::transmute(&bstridentifier)) {
+                match IOCSPCAConfigurationCollection_Impl::ItemByName(this, &*(&raw const bstridentifier).cast()) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1531,9 +1531,9 @@ impl IOCSPCAConfigurationCollection_Vtbl {
         unsafe extern "system" fn CreateCAConfiguration<Identity: IOCSPCAConfigurationCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstridentifier: *mut core::ffi::c_void, varcacert: super::VARIANT, ppval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IOCSPCAConfigurationCollection_Impl::CreateCAConfiguration(this, core::mem::transmute(&bstridentifier), core::mem::transmute(&varcacert)) {
+                match IOCSPCAConfigurationCollection_Impl::CreateCAConfiguration(this, &*(&raw const bstridentifier).cast(), &*(&raw const varcacert).cast()) {
                     Ok(ok__) => {
-                        ppval.write(core::mem::transmute(ok__));
+                        ppval.cast::<IOCSPCAConfiguration>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1546,7 +1546,7 @@ impl IOCSPCAConfigurationCollection_Vtbl {
         unsafe extern "system" fn DeleteCAConfiguration<Identity: IOCSPCAConfigurationCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstridentifier: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOCSPCAConfigurationCollection_Impl::DeleteCAConfiguration(this, core::mem::transmute(&bstridentifier))
+                IOCSPCAConfigurationCollection_Impl::DeleteCAConfiguration(this, &*(&raw const bstridentifier).cast())
             }
         }
         Self {
@@ -1637,7 +1637,7 @@ impl IOCSPProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPProperty_Impl::Name(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1652,7 +1652,7 @@ impl IOCSPProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPProperty_Impl::Value(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1665,7 +1665,7 @@ impl IOCSPProperty_Vtbl {
         unsafe extern "system" fn SetValue<Identity: IOCSPProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOCSPProperty_Impl::SetValue(this, core::mem::transmute(&newval))
+                IOCSPProperty_Impl::SetValue(this, &*(&raw const newval).cast())
             }
         }
         unsafe extern "system" fn Modified<Identity: IOCSPProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -1810,7 +1810,7 @@ impl IOCSPPropertyCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPPropertyCollection_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        ppval.write(core::mem::transmute(ok__));
+                        ppval.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1825,7 +1825,7 @@ impl IOCSPPropertyCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPPropertyCollection_Impl::Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1853,9 +1853,9 @@ impl IOCSPPropertyCollection_Vtbl {
         unsafe extern "system" fn ItemByName<Identity: IOCSPPropertyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropname: *mut core::ffi::c_void, pval: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IOCSPPropertyCollection_Impl::ItemByName(this, core::mem::transmute(&bstrpropname)) {
+                match IOCSPPropertyCollection_Impl::ItemByName(this, &*(&raw const bstrpropname).cast()) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1868,9 +1868,9 @@ impl IOCSPPropertyCollection_Vtbl {
         unsafe extern "system" fn CreateProperty<Identity: IOCSPPropertyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropname: *mut core::ffi::c_void, pvarpropvalue: *const super::VARIANT, ppval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IOCSPPropertyCollection_Impl::CreateProperty(this, core::mem::transmute(&bstrpropname), core::mem::transmute_copy(&pvarpropvalue)) {
+                match IOCSPPropertyCollection_Impl::CreateProperty(this, &*(&raw const bstrpropname).cast(), core::mem::transmute_copy(&pvarpropvalue)) {
                     Ok(ok__) => {
-                        ppval.write(core::mem::transmute(ok__));
+                        ppval.cast::<IOCSPProperty>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1883,7 +1883,7 @@ impl IOCSPPropertyCollection_Vtbl {
         unsafe extern "system" fn DeleteProperty<Identity: IOCSPPropertyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOCSPPropertyCollection_Impl::DeleteProperty(this, core::mem::transmute(&bstrpropname))
+                IOCSPPropertyCollection_Impl::DeleteProperty(this, &*(&raw const bstrpropname).cast())
             }
         }
         unsafe extern "system" fn InitializeFromProperties<Identity: IOCSPPropertyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarproperties: *const super::VARIANT) -> windows_core::HRESULT {
@@ -1897,7 +1897,7 @@ impl IOCSPPropertyCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPPropertyCollection_Impl::GetAllProperties(this) {
                     Ok(ok__) => {
-                        pvarproperties.write(core::mem::transmute(ok__));
+                        pvarproperties.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

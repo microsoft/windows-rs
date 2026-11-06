@@ -60,7 +60,7 @@ windows_core::imp::define_interface!(IActivateAudioInterfaceAsyncOperation, IAct
 windows_core::imp::interface_hierarchy!(IActivateAudioInterfaceAsyncOperation, windows_core::IUnknown);
 impl IActivateAudioInterfaceAsyncOperation {
     pub unsafe fn GetActivateResult(&self, activateresult: *mut windows_core::HRESULT, activatedinterface: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetActivateResult)(windows_core::Interface::as_raw(self), activateresult as _, core::mem::transmute(activatedinterface)) }
+        unsafe { (windows_core::Interface::vtable(self).GetActivateResult)(windows_core::Interface::as_raw(self), activateresult as _, activatedinterface as _) }
     }
 }
 #[repr(C)]
@@ -148,7 +148,7 @@ impl IAudioSystemEffectsPropertyChangeNotificationClient_Vtbl {
         unsafe extern "system" fn OnPropertyChanged<Identity: IAudioSystemEffectsPropertyChangeNotificationClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE, key: super::PROPERTYKEY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioSystemEffectsPropertyChangeNotificationClient_Impl::OnPropertyChanged(this, core::mem::transmute_copy(&r#type), core::mem::transmute(&key))
+                IAudioSystemEffectsPropertyChangeNotificationClient_Impl::OnPropertyChanged(this, core::mem::transmute_copy(&r#type), &*(&raw const key).cast())
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnPropertyChanged: OnPropertyChanged::<Identity, OFFSET> }
@@ -241,7 +241,7 @@ impl IAudioSystemEffectsPropertyStore_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioSystemEffectsPropertyStore_Impl::OpenDefaultPropertyStore(this, core::mem::transmute_copy(&stgmaccess)) {
                     Ok(ok__) => {
-                        propstore.write(core::mem::transmute(ok__));
+                        propstore.cast::<super::IPropertyStore>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -256,7 +256,7 @@ impl IAudioSystemEffectsPropertyStore_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioSystemEffectsPropertyStore_Impl::OpenUserPropertyStore(this, core::mem::transmute_copy(&stgmaccess)) {
                     Ok(ok__) => {
-                        propstore.write(core::mem::transmute(ok__));
+                        propstore.cast::<super::IPropertyStore>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -271,7 +271,7 @@ impl IAudioSystemEffectsPropertyStore_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioSystemEffectsPropertyStore_Impl::OpenVolatilePropertyStore(this, core::mem::transmute_copy(&stgmaccess)) {
                     Ok(ok__) => {
-                        propstore.write(core::mem::transmute(ok__));
+                        propstore.cast::<super::IPropertyStore>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -335,7 +335,7 @@ impl IMMDevice {
     }
     #[cfg(all(feature = "propsys", feature = "shared"))]
     pub unsafe fn OpenPropertyStore(&self, stgmaccess: super::DWORD, ppproperties: *mut Option<super::IPropertyStore>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OpenPropertyStore)(windows_core::Interface::as_raw(self), stgmaccess, core::mem::transmute(ppproperties)) }
+        unsafe { (windows_core::Interface::vtable(self).OpenPropertyStore)(windows_core::Interface::as_raw(self), stgmaccess, ppproperties as _) }
     }
     pub unsafe fn GetId(&self, ppstrid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetId)(windows_core::Interface::as_raw(self), ppstrid as _) }
@@ -463,7 +463,7 @@ impl IMMDeviceCollection {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Item(&self, ndevice: super::UINT, ppdevice: *mut Option<IMMDevice>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), ndevice, core::mem::transmute(ppdevice)) }
+        unsafe { (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), ndevice, ppdevice as _) }
     }
 }
 #[repr(C)]
@@ -512,16 +512,16 @@ windows_core::imp::interface_hierarchy!(IMMDeviceEnumerator, windows_core::IUnkn
 impl IMMDeviceEnumerator {
     #[cfg(feature = "shared")]
     pub unsafe fn EnumAudioEndpoints(&self, dataflow: EDataFlow, dwstatemask: super::DWORD, ppdevices: *mut Option<IMMDeviceCollection>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumAudioEndpoints)(windows_core::Interface::as_raw(self), dataflow, dwstatemask, core::mem::transmute(ppdevices)) }
+        unsafe { (windows_core::Interface::vtable(self).EnumAudioEndpoints)(windows_core::Interface::as_raw(self), dataflow, dwstatemask, ppdevices as _) }
     }
     pub unsafe fn GetDefaultAudioEndpoint(&self, dataflow: EDataFlow, role: ERole, ppendpoint: *mut Option<IMMDevice>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDefaultAudioEndpoint)(windows_core::Interface::as_raw(self), dataflow, role, core::mem::transmute(ppendpoint)) }
+        unsafe { (windows_core::Interface::vtable(self).GetDefaultAudioEndpoint)(windows_core::Interface::as_raw(self), dataflow, role, ppendpoint as _) }
     }
     pub unsafe fn GetDevice<P0>(&self, pwstrid: P0, ppdevice: *mut Option<IMMDevice>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetDevice)(windows_core::Interface::as_raw(self), pwstrid.param().abi(), core::mem::transmute(ppdevice)) }
+        unsafe { (windows_core::Interface::vtable(self).GetDevice)(windows_core::Interface::as_raw(self), pwstrid.param().abi(), ppdevice as _) }
     }
     pub unsafe fn RegisterEndpointNotificationCallback<P0>(&self, pclient: P0) -> windows_core::HRESULT
     where
@@ -575,7 +575,7 @@ impl IMMDeviceEnumerator_Vtbl {
         unsafe extern "system" fn GetDevice<Identity: IMMDeviceEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwstrid: windows_core::PCWSTR, ppdevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMMDeviceEnumerator_Impl::GetDevice(this, core::mem::transmute(&pwstrid), core::mem::transmute_copy(&ppdevice))
+                IMMDeviceEnumerator_Impl::GetDevice(this, &*(&raw const pwstrid).cast(), core::mem::transmute_copy(&ppdevice))
             }
         }
         unsafe extern "system" fn RegisterEndpointNotificationCallback<Identity: IMMDeviceEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclient: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -702,31 +702,31 @@ impl IMMNotificationClient_Vtbl {
         unsafe extern "system" fn OnDeviceStateChanged<Identity: IMMNotificationClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwstrdeviceid: windows_core::PCWSTR, dwnewstate: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMMNotificationClient_Impl::OnDeviceStateChanged(this, core::mem::transmute(&pwstrdeviceid), core::mem::transmute_copy(&dwnewstate))
+                IMMNotificationClient_Impl::OnDeviceStateChanged(this, &*(&raw const pwstrdeviceid).cast(), core::mem::transmute_copy(&dwnewstate))
             }
         }
         unsafe extern "system" fn OnDeviceAdded<Identity: IMMNotificationClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwstrdeviceid: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMMNotificationClient_Impl::OnDeviceAdded(this, core::mem::transmute(&pwstrdeviceid))
+                IMMNotificationClient_Impl::OnDeviceAdded(this, &*(&raw const pwstrdeviceid).cast())
             }
         }
         unsafe extern "system" fn OnDeviceRemoved<Identity: IMMNotificationClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwstrdeviceid: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMMNotificationClient_Impl::OnDeviceRemoved(this, core::mem::transmute(&pwstrdeviceid))
+                IMMNotificationClient_Impl::OnDeviceRemoved(this, &*(&raw const pwstrdeviceid).cast())
             }
         }
         unsafe extern "system" fn OnDefaultDeviceChanged<Identity: IMMNotificationClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flow: EDataFlow, role: ERole, pwstrdefaultdeviceid: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMMNotificationClient_Impl::OnDefaultDeviceChanged(this, core::mem::transmute_copy(&flow), core::mem::transmute_copy(&role), core::mem::transmute(&pwstrdefaultdeviceid))
+                IMMNotificationClient_Impl::OnDefaultDeviceChanged(this, core::mem::transmute_copy(&flow), core::mem::transmute_copy(&role), &*(&raw const pwstrdefaultdeviceid).cast())
             }
         }
         unsafe extern "system" fn OnPropertyValueChanged<Identity: IMMNotificationClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwstrdeviceid: windows_core::PCWSTR, key: super::PROPERTYKEY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMMNotificationClient_Impl::OnPropertyValueChanged(this, core::mem::transmute(&pwstrdeviceid), core::mem::transmute(&key))
+                IMMNotificationClient_Impl::OnPropertyValueChanged(this, &*(&raw const pwstrdeviceid).cast(), &*(&raw const key).cast())
             }
         }
         Self {

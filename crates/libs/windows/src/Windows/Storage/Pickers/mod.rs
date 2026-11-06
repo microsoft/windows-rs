@@ -62,7 +62,7 @@ impl FileExtensionVector {
         }
     }
     pub fn ReplaceAll(&self, items: &[windows_core::HSTRING]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ReplaceAll)(windows_core::Interface::as_raw(self), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ReplaceAll)(windows_core::Interface::as_raw(self), items.len().try_into().unwrap(), items.as_ptr().cast()).ok() }
     }
 }
 impl windows_core::RuntimeType for FileExtensionVector {

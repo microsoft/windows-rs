@@ -108,7 +108,7 @@ impl IAudioSessionControl_Vtbl {
         unsafe extern "system" fn SetDisplayName<Identity: IAudioSessionControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: windows_core::PCWSTR, eventcontext: super::LPCGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioSessionControl_Impl::SetDisplayName(this, core::mem::transmute(&value), core::mem::transmute_copy(&eventcontext))
+                IAudioSessionControl_Impl::SetDisplayName(this, &*(&raw const value).cast(), core::mem::transmute_copy(&eventcontext))
             }
         }
         unsafe extern "system" fn GetIconPath<Identity: IAudioSessionControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -120,7 +120,7 @@ impl IAudioSessionControl_Vtbl {
         unsafe extern "system" fn SetIconPath<Identity: IAudioSessionControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: windows_core::PCWSTR, eventcontext: super::LPCGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioSessionControl_Impl::SetIconPath(this, core::mem::transmute(&value), core::mem::transmute_copy(&eventcontext))
+                IAudioSessionControl_Impl::SetIconPath(this, &*(&raw const value).cast(), core::mem::transmute_copy(&eventcontext))
             }
         }
         unsafe extern "system" fn GetGroupingParam<Identity: IAudioSessionControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -268,7 +268,7 @@ impl IAudioSessionEnumerator {
         unsafe { (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), sessioncount as _) }
     }
     pub unsafe fn GetSession(&self, sessioncount: i32, session: *mut Option<IAudioSessionControl>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSession)(windows_core::Interface::as_raw(self), sessioncount, core::mem::transmute(session)) }
+        unsafe { (windows_core::Interface::vtable(self).GetSession)(windows_core::Interface::as_raw(self), sessioncount, session as _) }
     }
 }
 #[repr(C)]
@@ -390,13 +390,13 @@ impl IAudioSessionEvents_Vtbl {
         unsafe extern "system" fn OnDisplayNameChanged<Identity: IAudioSessionEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newdisplayname: windows_core::PCWSTR, eventcontext: super::LPCGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioSessionEvents_Impl::OnDisplayNameChanged(this, core::mem::transmute(&newdisplayname), core::mem::transmute_copy(&eventcontext))
+                IAudioSessionEvents_Impl::OnDisplayNameChanged(this, &*(&raw const newdisplayname).cast(), core::mem::transmute_copy(&eventcontext))
             }
         }
         unsafe extern "system" fn OnIconPathChanged<Identity: IAudioSessionEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newiconpath: windows_core::PCWSTR, eventcontext: super::LPCGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioSessionEvents_Impl::OnIconPathChanged(this, core::mem::transmute(&newiconpath), core::mem::transmute_copy(&eventcontext))
+                IAudioSessionEvents_Impl::OnIconPathChanged(this, &*(&raw const newiconpath).cast(), core::mem::transmute_copy(&eventcontext))
             }
         }
         unsafe extern "system" fn OnSimpleVolumeChanged<Identity: IAudioSessionEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newvolume: f32, newmute: windows_core::BOOL, eventcontext: super::LPCGUID) -> windows_core::HRESULT {
@@ -490,7 +490,7 @@ impl IAudioSessionManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioSessionManager_Impl::GetAudioSessionControl(this, core::mem::transmute_copy(&audiosessionguid), core::mem::transmute_copy(&streamflags)) {
                     Ok(ok__) => {
-                        sessioncontrol.write(core::mem::transmute(ok__));
+                        sessioncontrol.cast::<IAudioSessionControl>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -505,7 +505,7 @@ impl IAudioSessionManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioSessionManager_Impl::GetSimpleAudioVolume(this, core::mem::transmute_copy(&audiosessionguid), core::mem::transmute_copy(&streamflags)) {
                     Ok(ok__) => {
-                        audiovolume.write(core::mem::transmute(ok__));
+                        audiovolume.cast::<super::ISimpleAudioVolume>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -594,7 +594,7 @@ impl IAudioSessionManager2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioSessionManager2_Impl::GetSessionEnumerator(this) {
                     Ok(ok__) => {
-                        sessionenum.write(core::mem::transmute(ok__));
+                        sessionenum.cast::<IAudioSessionEnumerator>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -619,7 +619,7 @@ impl IAudioSessionManager2_Vtbl {
         unsafe extern "system" fn RegisterDuckNotification<Identity: IAudioSessionManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sessionid: windows_core::PCWSTR, ducknotification: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioSessionManager2_Impl::RegisterDuckNotification(this, core::mem::transmute(&sessionid), core::mem::transmute_copy(&ducknotification))
+                IAudioSessionManager2_Impl::RegisterDuckNotification(this, &*(&raw const sessionid).cast(), core::mem::transmute_copy(&ducknotification))
             }
         }
         unsafe extern "system" fn UnregisterDuckNotification<Identity: IAudioSessionManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ducknotification: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -715,13 +715,13 @@ impl IAudioVolumeDuckNotification_Vtbl {
         unsafe extern "system" fn OnVolumeDuckNotification<Identity: IAudioVolumeDuckNotification_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sessionid: windows_core::PCWSTR, countcommunicationsessions: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioVolumeDuckNotification_Impl::OnVolumeDuckNotification(this, core::mem::transmute(&sessionid), core::mem::transmute_copy(&countcommunicationsessions))
+                IAudioVolumeDuckNotification_Impl::OnVolumeDuckNotification(this, &*(&raw const sessionid).cast(), core::mem::transmute_copy(&countcommunicationsessions))
             }
         }
         unsafe extern "system" fn OnVolumeUnduckNotification<Identity: IAudioVolumeDuckNotification_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sessionid: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioVolumeDuckNotification_Impl::OnVolumeUnduckNotification(this, core::mem::transmute(&sessionid))
+                IAudioVolumeDuckNotification_Impl::OnVolumeUnduckNotification(this, &*(&raw const sessionid).cast())
             }
         }
         Self {

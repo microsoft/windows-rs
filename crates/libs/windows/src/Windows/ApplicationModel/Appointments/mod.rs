@@ -2577,7 +2577,7 @@ impl IAppointmentParticipant_Vtbl {
         unsafe extern "system" fn SetDisplayName<Identity: IAppointmentParticipant_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAppointmentParticipant_Impl::SetDisplayName(this, core::mem::transmute(&value)).into()
+                IAppointmentParticipant_Impl::SetDisplayName(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn Address<Identity: IAppointmentParticipant_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2599,7 +2599,7 @@ impl IAppointmentParticipant_Vtbl {
         unsafe extern "system" fn SetAddress<Identity: IAppointmentParticipant_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAppointmentParticipant_Impl::SetAddress(this, core::mem::transmute(&value)).into()
+                IAppointmentParticipant_Impl::SetAddress(this, &*(&raw const value).cast()).into()
             }
         }
         Self {

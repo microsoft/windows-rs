@@ -320,7 +320,7 @@ impl IStorageItemAccessList_Vtbl {
         unsafe extern "system" fn Add<Identity: IStorageItemAccessList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: *mut core::ffi::c_void, metadata: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageItemAccessList_Impl::Add(this, core::mem::transmute_copy(&file), core::mem::transmute(&metadata)) {
+                match IStorageItemAccessList_Impl::Add(this, core::mem::transmute_copy(&file), &*(&raw const metadata).cast()) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -336,19 +336,19 @@ impl IStorageItemAccessList_Vtbl {
         unsafe extern "system" fn AddOrReplaceOverloadDefaultMetadata<Identity: IStorageItemAccessList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: *mut core::ffi::c_void, file: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStorageItemAccessList_Impl::AddOrReplaceOverloadDefaultMetadata(this, core::mem::transmute(&token), core::mem::transmute_copy(&file)).into()
+                IStorageItemAccessList_Impl::AddOrReplaceOverloadDefaultMetadata(this, &*(&raw const token).cast(), core::mem::transmute_copy(&file)).into()
             }
         }
         unsafe extern "system" fn AddOrReplace<Identity: IStorageItemAccessList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: *mut core::ffi::c_void, file: *mut core::ffi::c_void, metadata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStorageItemAccessList_Impl::AddOrReplace(this, core::mem::transmute(&token), core::mem::transmute_copy(&file), core::mem::transmute(&metadata)).into()
+                IStorageItemAccessList_Impl::AddOrReplace(this, &*(&raw const token).cast(), core::mem::transmute_copy(&file), &*(&raw const metadata).cast()).into()
             }
         }
         unsafe extern "system" fn GetItemAsync<Identity: IStorageItemAccessList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageItemAccessList_Impl::GetItemAsync(this, core::mem::transmute(&token)) {
+                match IStorageItemAccessList_Impl::GetItemAsync(this, &*(&raw const token).cast()) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -364,7 +364,7 @@ impl IStorageItemAccessList_Vtbl {
         unsafe extern "system" fn GetFileAsync<Identity: IStorageItemAccessList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageItemAccessList_Impl::GetFileAsync(this, core::mem::transmute(&token)) {
+                match IStorageItemAccessList_Impl::GetFileAsync(this, &*(&raw const token).cast()) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -380,7 +380,7 @@ impl IStorageItemAccessList_Vtbl {
         unsafe extern "system" fn GetFolderAsync<Identity: IStorageItemAccessList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageItemAccessList_Impl::GetFolderAsync(this, core::mem::transmute(&token)) {
+                match IStorageItemAccessList_Impl::GetFolderAsync(this, &*(&raw const token).cast()) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -396,7 +396,7 @@ impl IStorageItemAccessList_Vtbl {
         unsafe extern "system" fn GetItemWithOptionsAsync<Identity: IStorageItemAccessList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: *mut core::ffi::c_void, options: AccessCacheOptions, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageItemAccessList_Impl::GetItemWithOptionsAsync(this, core::mem::transmute(&token), options) {
+                match IStorageItemAccessList_Impl::GetItemWithOptionsAsync(this, &*(&raw const token).cast(), options) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -412,7 +412,7 @@ impl IStorageItemAccessList_Vtbl {
         unsafe extern "system" fn GetFileWithOptionsAsync<Identity: IStorageItemAccessList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: *mut core::ffi::c_void, options: AccessCacheOptions, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageItemAccessList_Impl::GetFileWithOptionsAsync(this, core::mem::transmute(&token), options) {
+                match IStorageItemAccessList_Impl::GetFileWithOptionsAsync(this, &*(&raw const token).cast(), options) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -428,7 +428,7 @@ impl IStorageItemAccessList_Vtbl {
         unsafe extern "system" fn GetFolderWithOptionsAsync<Identity: IStorageItemAccessList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: *mut core::ffi::c_void, options: AccessCacheOptions, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageItemAccessList_Impl::GetFolderWithOptionsAsync(this, core::mem::transmute(&token), options) {
+                match IStorageItemAccessList_Impl::GetFolderWithOptionsAsync(this, &*(&raw const token).cast(), options) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -444,13 +444,13 @@ impl IStorageItemAccessList_Vtbl {
         unsafe extern "system" fn Remove<Identity: IStorageItemAccessList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStorageItemAccessList_Impl::Remove(this, core::mem::transmute(&token)).into()
+                IStorageItemAccessList_Impl::Remove(this, &*(&raw const token).cast()).into()
             }
         }
         unsafe extern "system" fn ContainsItem<Identity: IStorageItemAccessList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageItemAccessList_Impl::ContainsItem(this, core::mem::transmute(&token)) {
+                match IStorageItemAccessList_Impl::ContainsItem(this, &*(&raw const token).cast()) {
                     Ok(ok__) => {
                         result__.write(ok__);
                         windows_core::HRESULT(0)

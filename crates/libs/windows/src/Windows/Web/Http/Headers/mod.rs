@@ -140,7 +140,7 @@ impl HttpCacheDirectiveHeaderValueCollection {
     }
     pub fn ReplaceAll(&self, items: &[Option<HttpNameValueHeaderValue>]) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpNameValueHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), items.as_ptr().cast()).ok() }
     }
 }
 impl windows_core::RuntimeType for HttpCacheDirectiveHeaderValueCollection {
@@ -347,7 +347,7 @@ impl HttpChallengeHeaderValueCollection {
     }
     pub fn ReplaceAll(&self, items: &[Option<HttpChallengeHeaderValue>]) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpChallengeHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), items.as_ptr().cast()).ok() }
     }
 }
 impl windows_core::RuntimeType for HttpChallengeHeaderValueCollection {
@@ -536,7 +536,7 @@ impl HttpConnectionOptionHeaderValueCollection {
     }
     pub fn ReplaceAll(&self, items: &[Option<HttpConnectionOptionHeaderValue>]) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), items.as_ptr().cast()).ok() }
     }
 }
 impl windows_core::RuntimeType for HttpConnectionOptionHeaderValueCollection {
@@ -725,7 +725,7 @@ impl HttpContentCodingHeaderValueCollection {
     }
     pub fn ReplaceAll(&self, items: &[Option<HttpContentCodingHeaderValue>]) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), items.as_ptr().cast()).ok() }
     }
 }
 impl windows_core::RuntimeType for HttpContentCodingHeaderValueCollection {
@@ -926,7 +926,7 @@ impl HttpContentCodingWithQualityHeaderValueCollection {
     }
     pub fn ReplaceAll(&self, items: &[Option<HttpContentCodingWithQualityHeaderValue>]) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), items.as_ptr().cast()).ok() }
     }
 }
 impl windows_core::RuntimeType for HttpContentCodingWithQualityHeaderValueCollection {
@@ -1536,7 +1536,7 @@ impl HttpCookiePairHeaderValueCollection {
     }
     pub fn ReplaceAll(&self, items: &[Option<HttpCookiePairHeaderValue>]) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpCookiePairHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), items.as_ptr().cast()).ok() }
     }
 }
 impl windows_core::RuntimeType for HttpCookiePairHeaderValueCollection {
@@ -1876,7 +1876,7 @@ impl HttpExpectationHeaderValueCollection {
     }
     pub fn ReplaceAll(&self, items: &[Option<HttpExpectationHeaderValue>]) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpExpectationHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), items.as_ptr().cast()).ok() }
     }
 }
 impl windows_core::RuntimeType for HttpExpectationHeaderValueCollection {
@@ -2011,7 +2011,7 @@ impl HttpLanguageHeaderValueCollection {
     }
     pub fn ReplaceAll(&self, items: &[Option<super::super::super::Globalization::Language>]) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<super::super::super::Globalization::Language>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), items.as_ptr().cast()).ok() }
     }
 }
 #[cfg(feature = "Globalization")]
@@ -2219,7 +2219,7 @@ impl HttpLanguageRangeWithQualityHeaderValueCollection {
     }
     pub fn ReplaceAll(&self, items: &[Option<HttpLanguageRangeWithQualityHeaderValue>]) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), items.as_ptr().cast()).ok() }
     }
 }
 impl windows_core::RuntimeType for HttpLanguageRangeWithQualityHeaderValueCollection {
@@ -2518,7 +2518,7 @@ impl HttpMediaTypeWithQualityHeaderValueCollection {
     }
     pub fn ReplaceAll(&self, items: &[Option<HttpMediaTypeWithQualityHeaderValue>]) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), items.as_ptr().cast()).ok() }
     }
 }
 impl windows_core::RuntimeType for HttpMediaTypeWithQualityHeaderValueCollection {
@@ -2649,7 +2649,7 @@ impl HttpMethodHeaderValueCollection {
     }
     pub fn ReplaceAll(&self, items: &[Option<super::HttpMethod>]) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<super::HttpMethod>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), items.as_ptr().cast()).ok() }
     }
 }
 impl windows_core::RuntimeType for HttpMethodHeaderValueCollection {
@@ -2993,7 +2993,7 @@ impl HttpProductInfoHeaderValueCollection {
     }
     pub fn ReplaceAll(&self, items: &[Option<HttpProductInfoHeaderValue>]) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpProductInfoHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), items.as_ptr().cast()).ok() }
     }
 }
 impl windows_core::RuntimeType for HttpProductInfoHeaderValueCollection {
@@ -3619,7 +3619,7 @@ impl HttpTransferCodingHeaderValueCollection {
     }
     pub fn ReplaceAll(&self, items: &[Option<HttpTransferCodingHeaderValue>]) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), items.as_ptr().cast()).ok() }
     }
 }
 impl windows_core::RuntimeType for HttpTransferCodingHeaderValueCollection {

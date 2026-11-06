@@ -1004,7 +1004,7 @@ impl DisplayServices {
     pub fn FindAll() -> windows_core::Result<windows_core::Array<super::DisplayId>> {
         Self::IDisplayServicesStatics(|this| unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(this).FindAll)(windows_core::Interface::as_raw(this), windows_core::Array::<super::DisplayId>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(this).FindAll)(windows_core::Interface::as_raw(this), windows_core::Array::<super::DisplayId>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         })
     }
     fn IDisplayServicesStatics<R, F: FnOnce(&IDisplayServicesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

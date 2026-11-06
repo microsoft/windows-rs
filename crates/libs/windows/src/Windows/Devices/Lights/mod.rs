@@ -360,13 +360,13 @@ impl LampArray {
     pub fn GetIndicesForKey(&self, key: super::super::System::VirtualKey) -> windows_core::Result<windows_core::Array<i32>> {
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetIndicesForKey)(windows_core::Interface::as_raw(self), key, windows_core::Array::<i32>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(self).GetIndicesForKey)(windows_core::Interface::as_raw(self), key, windows_core::Array::<i32>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
     pub fn GetIndicesForPurposes(&self, purposes: LampPurposes) -> windows_core::Result<windows_core::Array<i32>> {
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetIndicesForPurposes)(windows_core::Interface::as_raw(self), purposes, windows_core::Array::<i32>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(self).GetIndicesForPurposes)(windows_core::Interface::as_raw(self), purposes, windows_core::Array::<i32>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
     #[cfg(feature = "UI")]

@@ -1886,7 +1886,7 @@ impl<T: windows_core::RuntimeType + 'static> IObservableVector<T> {
             (windows_core::Interface::vtable(this).ReplaceAll)(
                 windows_core::Interface::as_raw(this),
                 items.len().try_into().unwrap(),
-                core::mem::transmute(items.as_ptr()),
+                items.as_ptr().cast(),
             )
             .ok()
         }
@@ -2158,7 +2158,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
             (windows_core::Interface::vtable(self).ReplaceAll)(
                 windows_core::Interface::as_raw(self),
                 items.len().try_into().unwrap(),
-                core::mem::transmute(items.as_ptr()),
+                items.as_ptr().cast(),
             )
             .ok()
         }

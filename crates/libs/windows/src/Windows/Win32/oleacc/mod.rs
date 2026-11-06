@@ -23,13 +23,13 @@ where
 #[inline]
 pub unsafe fn AccessibleObjectFromEvent(hwnd: super::HWND, dwid: super::DWORD, dwchildid: super::DWORD, ppacc: *mut Option<IAccessible>, pvarchild: *mut super::VARIANT) -> windows_core::HRESULT {
     windows_core::link!("oleacc.dll" "system" fn AccessibleObjectFromEvent(hwnd : super::HWND, dwid : super::DWORD, dwchildid : super::DWORD, ppacc : *mut *mut core::ffi::c_void, pvarchild : *mut super::VARIANT) -> windows_core::HRESULT);
-    unsafe { AccessibleObjectFromEvent(hwnd, dwid, dwchildid, core::mem::transmute(ppacc), pvarchild) }
+    unsafe { AccessibleObjectFromEvent(hwnd, dwid, dwchildid, ppacc as _, pvarchild) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn AccessibleObjectFromPoint(ptscreen: super::POINT, ppacc: *mut Option<IAccessible>, pvarchild: *mut super::VARIANT) -> windows_core::HRESULT {
     windows_core::link!("oleacc.dll" "system" fn AccessibleObjectFromPoint(ptscreen : super::POINT, ppacc : *mut *mut core::ffi::c_void, pvarchild : *mut super::VARIANT) -> windows_core::HRESULT);
-    unsafe { AccessibleObjectFromPoint(ptscreen, core::mem::transmute(ppacc), pvarchild) }
+    unsafe { AccessibleObjectFromPoint(ptscreen, ppacc as _, pvarchild) }
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
 #[inline]
@@ -209,7 +209,7 @@ impl IAccPropServer_Vtbl {
         unsafe extern "system" fn GetPropValue<Identity: IAccPropServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidstring: *const super::BYTE, dwidstringlen: super::DWORD, idprop: MSAAPROPID, pvarvalue: *mut super::VARIANT, pfhasprop: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccPropServer_Impl::GetPropValue(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute(&idprop), core::mem::transmute_copy(&pvarvalue), core::mem::transmute_copy(&pfhasprop))
+                IAccPropServer_Impl::GetPropValue(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), &*(&raw const idprop).cast(), core::mem::transmute_copy(&pvarvalue), core::mem::transmute_copy(&pfhasprop))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetPropValue: GetPropValue::<Identity, OFFSET> }
@@ -388,7 +388,7 @@ impl IAccPropServices_Vtbl {
         unsafe extern "system" fn SetPropValue<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidstring: *const super::BYTE, dwidstringlen: super::DWORD, idprop: MSAAPROPID, var: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccPropServices_Impl::SetPropValue(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute(&idprop), core::mem::transmute(&var))
+                IAccPropServices_Impl::SetPropValue(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), &*(&raw const idprop).cast(), &*(&raw const var).cast())
             }
         }
         unsafe extern "system" fn SetPropServer<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidstring: *const super::BYTE, dwidstringlen: super::DWORD, paprops: *const MSAAPROPID, cprops: i32, pserver: *mut core::ffi::c_void, annoscope: AnnoScope) -> windows_core::HRESULT {
@@ -406,13 +406,13 @@ impl IAccPropServices_Vtbl {
         unsafe extern "system" fn SetHwndProp<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::HWND, idobject: super::DWORD, idchild: super::DWORD, idprop: MSAAPROPID, var: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccPropServices_Impl::SetHwndProp(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), core::mem::transmute(&idprop), core::mem::transmute(&var))
+                IAccPropServices_Impl::SetHwndProp(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), &*(&raw const idprop).cast(), &*(&raw const var).cast())
             }
         }
         unsafe extern "system" fn SetHwndPropStr<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::HWND, idobject: super::DWORD, idchild: super::DWORD, idprop: MSAAPROPID, str: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccPropServices_Impl::SetHwndPropStr(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), core::mem::transmute(&idprop), core::mem::transmute(&str))
+                IAccPropServices_Impl::SetHwndPropStr(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), &*(&raw const idprop).cast(), &*(&raw const str).cast())
             }
         }
         unsafe extern "system" fn SetHwndPropServer<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::HWND, idobject: super::DWORD, idchild: super::DWORD, paprops: *const MSAAPROPID, cprops: i32, pserver: *mut core::ffi::c_void, annoscope: AnnoScope) -> windows_core::HRESULT {
@@ -442,13 +442,13 @@ impl IAccPropServices_Vtbl {
         unsafe extern "system" fn SetHmenuProp<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmenu: super::HMENU, idchild: super::DWORD, idprop: MSAAPROPID, var: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccPropServices_Impl::SetHmenuProp(this, core::mem::transmute_copy(&hmenu), core::mem::transmute_copy(&idchild), core::mem::transmute(&idprop), core::mem::transmute(&var))
+                IAccPropServices_Impl::SetHmenuProp(this, core::mem::transmute_copy(&hmenu), core::mem::transmute_copy(&idchild), &*(&raw const idprop).cast(), &*(&raw const var).cast())
             }
         }
         unsafe extern "system" fn SetHmenuPropStr<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmenu: super::HMENU, idchild: super::DWORD, idprop: MSAAPROPID, str: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccPropServices_Impl::SetHmenuPropStr(this, core::mem::transmute_copy(&hmenu), core::mem::transmute_copy(&idchild), core::mem::transmute(&idprop), core::mem::transmute(&str))
+                IAccPropServices_Impl::SetHmenuPropStr(this, core::mem::transmute_copy(&hmenu), core::mem::transmute_copy(&idchild), &*(&raw const idprop).cast(), &*(&raw const str).cast())
             }
         }
         unsafe extern "system" fn SetHmenuPropServer<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmenu: super::HMENU, idchild: super::DWORD, paprops: *const MSAAPROPID, cprops: i32, pserver: *mut core::ffi::c_void, annoscope: AnnoScope) -> windows_core::HRESULT {
@@ -578,7 +578,7 @@ impl IAccessible {
     pub unsafe fn accHelpTopic(&self, pszhelpfile: *mut windows_core::BSTR, varchild: &super::VARIANT) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).accHelpTopic)(windows_core::Interface::as_raw(self), core::mem::transmute(pszhelpfile), core::mem::transmute_copy(varchild), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).accHelpTopic)(windows_core::Interface::as_raw(self), pszhelpfile as _, core::mem::transmute_copy(varchild), &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -760,7 +760,7 @@ impl IAccessible_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAccessible_Impl::accParent(this) {
                     Ok(ok__) => {
-                        ppdispparent.write(core::mem::transmute(ok__));
+                        ppdispparent.cast::<super::IDispatch>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -788,9 +788,9 @@ impl IAccessible_Vtbl {
         unsafe extern "system" fn accChild<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: super::VARIANT, ppdispchild: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAccessible_Impl::accChild(this, core::mem::transmute(&varchild)) {
+                match IAccessible_Impl::accChild(this, &*(&raw const varchild).cast()) {
                     Ok(ok__) => {
-                        ppdispchild.write(core::mem::transmute(ok__));
+                        ppdispchild.cast::<super::IDispatch>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -803,9 +803,9 @@ impl IAccessible_Vtbl {
         unsafe extern "system" fn accName<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: super::VARIANT, pszname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAccessible_Impl::accName(this, core::mem::transmute(&varchild)) {
+                match IAccessible_Impl::accName(this, &*(&raw const varchild).cast()) {
                     Ok(ok__) => {
-                        pszname.write(core::mem::transmute(ok__));
+                        pszname.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -818,9 +818,9 @@ impl IAccessible_Vtbl {
         unsafe extern "system" fn accValue<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: super::VARIANT, pszvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAccessible_Impl::accValue(this, core::mem::transmute(&varchild)) {
+                match IAccessible_Impl::accValue(this, &*(&raw const varchild).cast()) {
                     Ok(ok__) => {
-                        pszvalue.write(core::mem::transmute(ok__));
+                        pszvalue.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -833,9 +833,9 @@ impl IAccessible_Vtbl {
         unsafe extern "system" fn accDescription<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: super::VARIANT, pszdescription: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAccessible_Impl::accDescription(this, core::mem::transmute(&varchild)) {
+                match IAccessible_Impl::accDescription(this, &*(&raw const varchild).cast()) {
                     Ok(ok__) => {
-                        pszdescription.write(core::mem::transmute(ok__));
+                        pszdescription.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -848,9 +848,9 @@ impl IAccessible_Vtbl {
         unsafe extern "system" fn accRole<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: super::VARIANT, pvarrole: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAccessible_Impl::accRole(this, core::mem::transmute(&varchild)) {
+                match IAccessible_Impl::accRole(this, &*(&raw const varchild).cast()) {
                     Ok(ok__) => {
-                        pvarrole.write(core::mem::transmute(ok__));
+                        pvarrole.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -863,9 +863,9 @@ impl IAccessible_Vtbl {
         unsafe extern "system" fn accState<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: super::VARIANT, pvarstate: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAccessible_Impl::accState(this, core::mem::transmute(&varchild)) {
+                match IAccessible_Impl::accState(this, &*(&raw const varchild).cast()) {
                     Ok(ok__) => {
-                        pvarstate.write(core::mem::transmute(ok__));
+                        pvarstate.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -878,9 +878,9 @@ impl IAccessible_Vtbl {
         unsafe extern "system" fn accHelp<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: super::VARIANT, pszhelp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAccessible_Impl::accHelp(this, core::mem::transmute(&varchild)) {
+                match IAccessible_Impl::accHelp(this, &*(&raw const varchild).cast()) {
                     Ok(ok__) => {
-                        pszhelp.write(core::mem::transmute(ok__));
+                        pszhelp.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -893,7 +893,7 @@ impl IAccessible_Vtbl {
         unsafe extern "system" fn accHelpTopic<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszhelpfile: *mut *mut core::ffi::c_void, varchild: super::VARIANT, pidtopic: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAccessible_Impl::accHelpTopic(this, core::mem::transmute_copy(&pszhelpfile), core::mem::transmute(&varchild)) {
+                match IAccessible_Impl::accHelpTopic(this, core::mem::transmute_copy(&pszhelpfile), &*(&raw const varchild).cast()) {
                     Ok(ok__) => {
                         pidtopic.write(ok__);
                         windows_core::HRESULT(0)
@@ -908,9 +908,9 @@ impl IAccessible_Vtbl {
         unsafe extern "system" fn accKeyboardShortcut<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: super::VARIANT, pszkeyboardshortcut: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAccessible_Impl::accKeyboardShortcut(this, core::mem::transmute(&varchild)) {
+                match IAccessible_Impl::accKeyboardShortcut(this, &*(&raw const varchild).cast()) {
                     Ok(ok__) => {
-                        pszkeyboardshortcut.write(core::mem::transmute(ok__));
+                        pszkeyboardshortcut.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -925,7 +925,7 @@ impl IAccessible_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAccessible_Impl::accFocus(this) {
                     Ok(ok__) => {
-                        pvarchild.write(core::mem::transmute(ok__));
+                        pvarchild.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -940,7 +940,7 @@ impl IAccessible_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAccessible_Impl::accSelection(this) {
                     Ok(ok__) => {
-                        pvarchildren.write(core::mem::transmute(ok__));
+                        pvarchildren.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -953,9 +953,9 @@ impl IAccessible_Vtbl {
         unsafe extern "system" fn accDefaultAction<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: super::VARIANT, pszdefaultaction: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAccessible_Impl::accDefaultAction(this, core::mem::transmute(&varchild)) {
+                match IAccessible_Impl::accDefaultAction(this, &*(&raw const varchild).cast()) {
                     Ok(ok__) => {
-                        pszdefaultaction.write(core::mem::transmute(ok__));
+                        pszdefaultaction.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -968,21 +968,21 @@ impl IAccessible_Vtbl {
         unsafe extern "system" fn accSelect<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flagsselect: i32, varchild: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccessible_Impl::accSelect(this, core::mem::transmute_copy(&flagsselect), core::mem::transmute(&varchild))
+                IAccessible_Impl::accSelect(this, core::mem::transmute_copy(&flagsselect), &*(&raw const varchild).cast())
             }
         }
         unsafe extern "system" fn accLocation<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxleft: *mut i32, pytop: *mut i32, pcxwidth: *mut i32, pcyheight: *mut i32, varchild: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccessible_Impl::accLocation(this, core::mem::transmute_copy(&pxleft), core::mem::transmute_copy(&pytop), core::mem::transmute_copy(&pcxwidth), core::mem::transmute_copy(&pcyheight), core::mem::transmute(&varchild))
+                IAccessible_Impl::accLocation(this, core::mem::transmute_copy(&pxleft), core::mem::transmute_copy(&pytop), core::mem::transmute_copy(&pcxwidth), core::mem::transmute_copy(&pcyheight), &*(&raw const varchild).cast())
             }
         }
         unsafe extern "system" fn accNavigate<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, navdir: i32, varstart: super::VARIANT, pvarendupat: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAccessible_Impl::accNavigate(this, core::mem::transmute_copy(&navdir), core::mem::transmute(&varstart)) {
+                match IAccessible_Impl::accNavigate(this, core::mem::transmute_copy(&navdir), &*(&raw const varstart).cast()) {
                     Ok(ok__) => {
-                        pvarendupat.write(core::mem::transmute(ok__));
+                        pvarendupat.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -997,7 +997,7 @@ impl IAccessible_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAccessible_Impl::accHitTest(this, core::mem::transmute_copy(&xleft), core::mem::transmute_copy(&ytop)) {
                     Ok(ok__) => {
-                        pvarchild.write(core::mem::transmute(ok__));
+                        pvarchild.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1010,19 +1010,19 @@ impl IAccessible_Vtbl {
         unsafe extern "system" fn accDoDefaultAction<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccessible_Impl::accDoDefaultAction(this, core::mem::transmute(&varchild))
+                IAccessible_Impl::accDoDefaultAction(this, &*(&raw const varchild).cast())
             }
         }
         unsafe extern "system" fn SetaccName<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: super::VARIANT, szname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccessible_Impl::SetaccName(this, core::mem::transmute(&varchild), core::mem::transmute(&szname))
+                IAccessible_Impl::SetaccName(this, &*(&raw const varchild).cast(), &*(&raw const szname).cast())
             }
         }
         unsafe extern "system" fn SetaccValue<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: super::VARIANT, szvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccessible_Impl::SetaccValue(this, core::mem::transmute(&varchild), core::mem::transmute(&szvalue))
+                IAccessible_Impl::SetaccValue(this, &*(&raw const varchild).cast(), &*(&raw const szvalue).cast())
             }
         }
         Self {
@@ -1088,7 +1088,7 @@ impl IAccessibleHandler_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAccessibleHandler_Impl::AccessibleObjectFromID(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&lobjectid)) {
                     Ok(ok__) => {
-                        piaccessible.write(core::mem::transmute(ok__));
+                        piaccessible.cast::<LPACCESSIBLE>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1184,7 +1184,7 @@ impl IAccessibleWindowlessSite_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAccessibleWindowlessSite_Impl::GetParentAccessible(this) {
                     Ok(ok__) => {
-                        ppparent.write(core::mem::transmute(ok__));
+                        ppparent.cast::<IAccessible>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

@@ -329,7 +329,7 @@ windows_core::imp::interface_hierarchy!(IWMAddressAccess2, windows_core::IUnknow
 impl IWMAddressAccess2 {
     #[cfg(feature = "shared")]
     pub unsafe fn GetAccessEntryEx(&self, aetype: WM_AETYPE, dwentrynum: super::DWORD, pbstraddress: *mut windows_core::BSTR, pbstrmask: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetAccessEntryEx)(windows_core::Interface::as_raw(self), aetype, dwentrynum, core::mem::transmute(pbstraddress), core::mem::transmute(pbstrmask)) }
+        unsafe { (windows_core::Interface::vtable(self).GetAccessEntryEx)(windows_core::Interface::as_raw(self), aetype, dwentrynum, pbstraddress as _, pbstrmask as _) }
     }
     pub unsafe fn AddAccessEntryEx(&self, aetype: WM_AETYPE, bstraddress: &windows_core::BSTR, bstrmask: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddAccessEntryEx)(windows_core::Interface::as_raw(self), aetype, core::mem::transmute_copy(bstraddress), core::mem::transmute_copy(bstrmask)) }
@@ -362,7 +362,7 @@ impl IWMAddressAccess2_Vtbl {
         unsafe extern "system" fn AddAccessEntryEx<Identity: IWMAddressAccess2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, aetype: WM_AETYPE, bstraddress: *mut core::ffi::c_void, bstrmask: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMAddressAccess2_Impl::AddAccessEntryEx(this, core::mem::transmute_copy(&aetype), core::mem::transmute(&bstraddress), core::mem::transmute(&bstrmask))
+                IWMAddressAccess2_Impl::AddAccessEntryEx(this, core::mem::transmute_copy(&aetype), &*(&raw const bstraddress).cast(), &*(&raw const bstrmask).cast())
             }
         }
         Self {
@@ -462,19 +462,19 @@ impl IWMBackupRestoreProps_Vtbl {
         unsafe extern "system" fn GetPropByName<Identity: IWMBackupRestoreProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut super::BYTE, pcblength: *mut super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMBackupRestoreProps_Impl::GetPropByName(this, core::mem::transmute(&pszname), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pcblength))
+                IWMBackupRestoreProps_Impl::GetPropByName(this, &*(&raw const pszname).cast(), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pcblength))
             }
         }
         unsafe extern "system" fn SetProp<Identity: IWMBackupRestoreProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const super::BYTE, cblength: super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMBackupRestoreProps_Impl::SetProp(this, core::mem::transmute(&pszname), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&cblength))
+                IWMBackupRestoreProps_Impl::SetProp(this, &*(&raw const pszname).cast(), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&cblength))
             }
         }
         unsafe extern "system" fn RemoveProp<Identity: IWMBackupRestoreProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcwszname: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMBackupRestoreProps_Impl::RemoveProp(this, core::mem::transmute(&pcwszname))
+                IWMBackupRestoreProps_Impl::RemoveProp(this, &*(&raw const pcwszname).cast())
             }
         }
         unsafe extern "system" fn RemoveAllProps<Identity: IWMBackupRestoreProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -700,7 +700,7 @@ impl IWMCodecInfo {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetCodecFormat(&self, guidtype: *const windows_core::GUID, dwcodecindex: super::DWORD, dwformatindex: super::DWORD, ppistreamconfig: *mut Option<IWMStreamConfig>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCodecFormat)(windows_core::Interface::as_raw(self), guidtype, dwcodecindex, dwformatindex, core::mem::transmute(ppistreamconfig)) }
+        unsafe { (windows_core::Interface::vtable(self).GetCodecFormat)(windows_core::Interface::as_raw(self), guidtype, dwcodecindex, dwformatindex, ppistreamconfig as _) }
     }
 }
 #[repr(C)]
@@ -775,7 +775,7 @@ impl IWMCodecInfo2 {
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn GetCodecFormatDesc(&self, guidtype: *const windows_core::GUID, dwcodecindex: super::DWORD, dwformatindex: super::DWORD, ppistreamconfig: *mut Option<IWMStreamConfig>, wszdesc: *mut super::WCHAR, pcchdesc: *mut super::DWORD) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCodecFormatDesc)(windows_core::Interface::as_raw(self), guidtype, dwcodecindex, dwformatindex, core::mem::transmute(ppistreamconfig), wszdesc as _, pcchdesc as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetCodecFormatDesc)(windows_core::Interface::as_raw(self), guidtype, dwcodecindex, dwformatindex, ppistreamconfig as _, wszdesc as _, pcchdesc as _) }
     }
 }
 #[repr(C)]
@@ -895,25 +895,25 @@ impl IWMCodecInfo3_Vtbl {
         unsafe extern "system" fn GetCodecFormatProp<Identity: IWMCodecInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidtype: *const windows_core::GUID, dwcodecindex: super::DWORD, dwformatindex: super::DWORD, pszname: windows_core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut super::BYTE, pdwsize: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMCodecInfo3_Impl::GetCodecFormatProp(this, core::mem::transmute_copy(&guidtype), core::mem::transmute_copy(&dwcodecindex), core::mem::transmute_copy(&dwformatindex), core::mem::transmute(&pszname), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pdwsize))
+                IWMCodecInfo3_Impl::GetCodecFormatProp(this, core::mem::transmute_copy(&guidtype), core::mem::transmute_copy(&dwcodecindex), core::mem::transmute_copy(&dwformatindex), &*(&raw const pszname).cast(), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pdwsize))
             }
         }
         unsafe extern "system" fn GetCodecProp<Identity: IWMCodecInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidtype: *const windows_core::GUID, dwcodecindex: super::DWORD, pszname: windows_core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut super::BYTE, pdwsize: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMCodecInfo3_Impl::GetCodecProp(this, core::mem::transmute_copy(&guidtype), core::mem::transmute_copy(&dwcodecindex), core::mem::transmute(&pszname), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pdwsize))
+                IWMCodecInfo3_Impl::GetCodecProp(this, core::mem::transmute_copy(&guidtype), core::mem::transmute_copy(&dwcodecindex), &*(&raw const pszname).cast(), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pdwsize))
             }
         }
         unsafe extern "system" fn SetCodecEnumerationSetting<Identity: IWMCodecInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidtype: *const windows_core::GUID, dwcodecindex: super::DWORD, pszname: windows_core::PCWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const super::BYTE, dwsize: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMCodecInfo3_Impl::SetCodecEnumerationSetting(this, core::mem::transmute_copy(&guidtype), core::mem::transmute_copy(&dwcodecindex), core::mem::transmute(&pszname), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&dwsize))
+                IWMCodecInfo3_Impl::SetCodecEnumerationSetting(this, core::mem::transmute_copy(&guidtype), core::mem::transmute_copy(&dwcodecindex), &*(&raw const pszname).cast(), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&dwsize))
             }
         }
         unsafe extern "system" fn GetCodecEnumerationSetting<Identity: IWMCodecInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidtype: *const windows_core::GUID, dwcodecindex: super::DWORD, pszname: windows_core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut super::BYTE, pdwsize: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMCodecInfo3_Impl::GetCodecEnumerationSetting(this, core::mem::transmute_copy(&guidtype), core::mem::transmute_copy(&dwcodecindex), core::mem::transmute(&pszname), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pdwsize))
+                IWMCodecInfo3_Impl::GetCodecEnumerationSetting(this, core::mem::transmute_copy(&guidtype), core::mem::transmute_copy(&dwcodecindex), &*(&raw const pszname).cast(), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pdwsize))
             }
         }
         Self {
@@ -998,7 +998,7 @@ impl IWMDRMEditor_Vtbl {
         unsafe extern "system" fn GetDRMProperty<Identity: IWMDRMEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwstrname: windows_core::PCWSTR, pdwtype: *mut WMT_ATTR_DATATYPE, pvalue: *mut super::BYTE, pcblength: *mut super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMDRMEditor_Impl::GetDRMProperty(this, core::mem::transmute(&pwstrname), core::mem::transmute_copy(&pdwtype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pcblength))
+                IWMDRMEditor_Impl::GetDRMProperty(this, &*(&raw const pwstrname).cast(), core::mem::transmute_copy(&pdwtype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pcblength))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDRMProperty: GetDRMProperty::<Identity, OFFSET> }
@@ -1014,11 +1014,11 @@ windows_core::imp::interface_hierarchy!(IWMDRMMessageParser, windows_core::IUnkn
 impl IWMDRMMessageParser {
     #[cfg(all(feature = "shared", feature = "wmsbuffer"))]
     pub unsafe fn ParseRegistrationReqMsg(&self, pbregistrationreqmsg: *const super::BYTE, cbregistrationreqmsg: super::DWORD, ppdevicecert: *mut Option<super::INSSBuffer>, pdeviceserialnumber: *mut DRM_VAL16) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ParseRegistrationReqMsg)(windows_core::Interface::as_raw(self), pbregistrationreqmsg, cbregistrationreqmsg, core::mem::transmute(ppdevicecert), pdeviceserialnumber as _) }
+        unsafe { (windows_core::Interface::vtable(self).ParseRegistrationReqMsg)(windows_core::Interface::as_raw(self), pbregistrationreqmsg, cbregistrationreqmsg, ppdevicecert as _, pdeviceserialnumber as _) }
     }
     #[cfg(all(feature = "shared", feature = "wmsbuffer"))]
     pub unsafe fn ParseLicenseRequestMsg(&self, pblicenserequestmsg: *const super::BYTE, cblicenserequestmsg: super::DWORD, ppdevicecert: *mut Option<super::INSSBuffer>, pdeviceserialnumber: *mut DRM_VAL16, pbstraction: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ParseLicenseRequestMsg)(windows_core::Interface::as_raw(self), pblicenserequestmsg, cblicenserequestmsg, core::mem::transmute(ppdevicecert), pdeviceserialnumber as _, core::mem::transmute(pbstraction)) }
+        unsafe { (windows_core::Interface::vtable(self).ParseLicenseRequestMsg)(windows_core::Interface::as_raw(self), pblicenserequestmsg, cblicenserequestmsg, ppdevicecert as _, pdeviceserialnumber as _, pbstraction as _) }
     }
 }
 #[repr(C)]
@@ -1182,13 +1182,13 @@ impl IWMDRMReader_Vtbl {
         unsafe extern "system" fn SetDRMProperty<Identity: IWMDRMReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwstrname: windows_core::PCWSTR, dwtype: WMT_ATTR_DATATYPE, pvalue: *const super::BYTE, cblength: super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMDRMReader_Impl::SetDRMProperty(this, core::mem::transmute(&pwstrname), core::mem::transmute_copy(&dwtype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&cblength))
+                IWMDRMReader_Impl::SetDRMProperty(this, &*(&raw const pwstrname).cast(), core::mem::transmute_copy(&dwtype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&cblength))
             }
         }
         unsafe extern "system" fn GetDRMProperty<Identity: IWMDRMReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwstrname: windows_core::PCWSTR, pdwtype: *mut WMT_ATTR_DATATYPE, pvalue: *mut super::BYTE, pcblength: *mut super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMDRMReader_Impl::GetDRMProperty(this, core::mem::transmute(&pwstrname), core::mem::transmute_copy(&pdwtype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pcblength))
+                IWMDRMReader_Impl::GetDRMProperty(this, &*(&raw const pwstrname).cast(), core::mem::transmute_copy(&pdwtype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pcblength))
             }
         }
         Self {
@@ -1344,7 +1344,7 @@ windows_core::imp::define_interface!(IWMDRMTranscryptionManager, IWMDRMTranscryp
 windows_core::imp::interface_hierarchy!(IWMDRMTranscryptionManager, windows_core::IUnknown);
 impl IWMDRMTranscryptionManager {
     pub unsafe fn CreateTranscryptor(&self, pptranscryptor: *mut Option<IWMDRMTranscryptor>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateTranscryptor)(windows_core::Interface::as_raw(self), core::mem::transmute(pptranscryptor)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateTranscryptor)(windows_core::Interface::as_raw(self), pptranscryptor as _) }
     }
 }
 #[repr(C)]
@@ -1379,7 +1379,7 @@ impl IWMDRMTranscryptor {
     where
         P4: windows_core::Param<IWMStatusCallback>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrfilename), pblicenserequestmsg, cblicenserequestmsg, core::mem::transmute(pplicenseresponsemsg), pcallback.param().abi(), pvcontext) }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrfilename), pblicenserequestmsg, cblicenserequestmsg, pplicenseresponsemsg as _, pcallback.param().abi(), pvcontext) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Seek(&self, hnstime: super::QWORD) -> windows_core::HRESULT {
@@ -1424,7 +1424,7 @@ impl IWMDRMTranscryptor_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IWMDRMTranscryptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrfilename: *mut core::ffi::c_void, pblicenserequestmsg: *const super::BYTE, cblicenserequestmsg: super::DWORD, pplicenseresponsemsg: *mut *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMDRMTranscryptor_Impl::Initialize(this, core::mem::transmute(&bstrfilename), core::mem::transmute_copy(&pblicenserequestmsg), core::mem::transmute_copy(&cblicenserequestmsg), core::mem::transmute_copy(&pplicenseresponsemsg), core::mem::transmute_copy(&pcallback), core::mem::transmute_copy(&pvcontext))
+                IWMDRMTranscryptor_Impl::Initialize(this, &*(&raw const bstrfilename).cast(), core::mem::transmute_copy(&pblicenserequestmsg), core::mem::transmute_copy(&cblicenserequestmsg), core::mem::transmute_copy(&pplicenseresponsemsg), core::mem::transmute_copy(&pcallback), core::mem::transmute_copy(&pvcontext))
             }
         }
         unsafe extern "system" fn Seek<Identity: IWMDRMTranscryptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hnstime: super::QWORD) -> windows_core::HRESULT {
@@ -1625,7 +1625,7 @@ impl IWMDRMWriter_Vtbl {
         unsafe extern "system" fn SetDRMAttribute<Identity: IWMDRMWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wstreamnum: super::WORD, pszname: windows_core::PCWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const super::BYTE, cblength: super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMDRMWriter_Impl::SetDRMAttribute(this, core::mem::transmute_copy(&wstreamnum), core::mem::transmute(&pszname), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&cblength))
+                IWMDRMWriter_Impl::SetDRMAttribute(this, core::mem::transmute_copy(&wstreamnum), &*(&raw const pszname).cast(), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&cblength))
             }
         }
         Self {
@@ -1735,7 +1735,7 @@ windows_core::imp::interface_hierarchy!(IWMDeviceRegistration, windows_core::IUn
 impl IWMDeviceRegistration {
     #[cfg(feature = "shared")]
     pub unsafe fn RegisterDevice(&self, dwregistertype: super::DWORD, pbcertificate: *const super::BYTE, cbcertificate: super::DWORD, serialnumber: DRM_VAL16, ppdevice: *mut Option<IWMRegisteredDevice>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RegisterDevice)(windows_core::Interface::as_raw(self), dwregistertype, pbcertificate, cbcertificate, serialnumber, core::mem::transmute(ppdevice)) }
+        unsafe { (windows_core::Interface::vtable(self).RegisterDevice)(windows_core::Interface::as_raw(self), dwregistertype, pbcertificate, cbcertificate, serialnumber, ppdevice as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn UnregisterDevice(&self, dwregistertype: super::DWORD, pbcertificate: *const super::BYTE, cbcertificate: super::DWORD, serialnumber: DRM_VAL16) -> windows_core::HRESULT {
@@ -1747,14 +1747,14 @@ impl IWMDeviceRegistration {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetFirstRegisteredDevice(&self, dwregistertype: super::DWORD, ppdevice: *mut Option<IWMRegisteredDevice>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFirstRegisteredDevice)(windows_core::Interface::as_raw(self), dwregistertype, core::mem::transmute(ppdevice)) }
+        unsafe { (windows_core::Interface::vtable(self).GetFirstRegisteredDevice)(windows_core::Interface::as_raw(self), dwregistertype, ppdevice as _) }
     }
     pub unsafe fn GetNextRegisteredDevice(&self, ppdevice: *mut Option<IWMRegisteredDevice>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNextRegisteredDevice)(windows_core::Interface::as_raw(self), core::mem::transmute(ppdevice)) }
+        unsafe { (windows_core::Interface::vtable(self).GetNextRegisteredDevice)(windows_core::Interface::as_raw(self), ppdevice as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetRegisteredDeviceByID(&self, dwregistertype: super::DWORD, pbcertificate: *const super::BYTE, cbcertificate: super::DWORD, serialnumber: DRM_VAL16, ppdevice: *mut Option<IWMRegisteredDevice>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetRegisteredDeviceByID)(windows_core::Interface::as_raw(self), dwregistertype, pbcertificate, cbcertificate, serialnumber, core::mem::transmute(ppdevice)) }
+        unsafe { (windows_core::Interface::vtable(self).GetRegisteredDeviceByID)(windows_core::Interface::as_raw(self), dwregistertype, pbcertificate, cbcertificate, serialnumber, ppdevice as _) }
     }
 }
 #[repr(C)]
@@ -1798,13 +1798,13 @@ impl IWMDeviceRegistration_Vtbl {
         unsafe extern "system" fn RegisterDevice<Identity: IWMDeviceRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwregistertype: super::DWORD, pbcertificate: *const super::BYTE, cbcertificate: super::DWORD, serialnumber: DRM_VAL16, ppdevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMDeviceRegistration_Impl::RegisterDevice(this, core::mem::transmute_copy(&dwregistertype), core::mem::transmute_copy(&pbcertificate), core::mem::transmute_copy(&cbcertificate), core::mem::transmute(&serialnumber), core::mem::transmute_copy(&ppdevice))
+                IWMDeviceRegistration_Impl::RegisterDevice(this, core::mem::transmute_copy(&dwregistertype), core::mem::transmute_copy(&pbcertificate), core::mem::transmute_copy(&cbcertificate), &*(&raw const serialnumber).cast(), core::mem::transmute_copy(&ppdevice))
             }
         }
         unsafe extern "system" fn UnregisterDevice<Identity: IWMDeviceRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwregistertype: super::DWORD, pbcertificate: *const super::BYTE, cbcertificate: super::DWORD, serialnumber: DRM_VAL16) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMDeviceRegistration_Impl::UnregisterDevice(this, core::mem::transmute_copy(&dwregistertype), core::mem::transmute_copy(&pbcertificate), core::mem::transmute_copy(&cbcertificate), core::mem::transmute(&serialnumber))
+                IWMDeviceRegistration_Impl::UnregisterDevice(this, core::mem::transmute_copy(&dwregistertype), core::mem::transmute_copy(&pbcertificate), core::mem::transmute_copy(&cbcertificate), &*(&raw const serialnumber).cast())
             }
         }
         unsafe extern "system" fn GetRegistrationStats<Identity: IWMDeviceRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwregistertype: super::DWORD, pcregistereddevices: *mut super::DWORD) -> windows_core::HRESULT {
@@ -1828,7 +1828,7 @@ impl IWMDeviceRegistration_Vtbl {
         unsafe extern "system" fn GetRegisteredDeviceByID<Identity: IWMDeviceRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwregistertype: super::DWORD, pbcertificate: *const super::BYTE, cbcertificate: super::DWORD, serialnumber: DRM_VAL16, ppdevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMDeviceRegistration_Impl::GetRegisteredDeviceByID(this, core::mem::transmute_copy(&dwregistertype), core::mem::transmute_copy(&pbcertificate), core::mem::transmute_copy(&cbcertificate), core::mem::transmute(&serialnumber), core::mem::transmute_copy(&ppdevice))
+                IWMDeviceRegistration_Impl::GetRegisteredDeviceByID(this, core::mem::transmute_copy(&dwregistertype), core::mem::transmute_copy(&pbcertificate), core::mem::transmute_copy(&cbcertificate), &*(&raw const serialnumber).cast(), core::mem::transmute_copy(&ppdevice))
             }
         }
         Self {
@@ -1998,13 +1998,13 @@ impl IWMHeaderInfo_Vtbl {
         unsafe extern "system" fn GetAttributeByName<Identity: IWMHeaderInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwstreamnum: *mut super::WORD, pszname: windows_core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut super::BYTE, pcblength: *mut super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMHeaderInfo_Impl::GetAttributeByName(this, core::mem::transmute_copy(&pwstreamnum), core::mem::transmute(&pszname), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pcblength))
+                IWMHeaderInfo_Impl::GetAttributeByName(this, core::mem::transmute_copy(&pwstreamnum), &*(&raw const pszname).cast(), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pcblength))
             }
         }
         unsafe extern "system" fn SetAttribute<Identity: IWMHeaderInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wstreamnum: super::WORD, pszname: windows_core::PCWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const super::BYTE, cblength: super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMHeaderInfo_Impl::SetAttribute(this, core::mem::transmute_copy(&wstreamnum), core::mem::transmute(&pszname), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&cblength))
+                IWMHeaderInfo_Impl::SetAttribute(this, core::mem::transmute_copy(&wstreamnum), &*(&raw const pszname).cast(), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&cblength))
             }
         }
         unsafe extern "system" fn GetMarkerCount<Identity: IWMHeaderInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcmarkers: *mut super::WORD) -> windows_core::HRESULT {
@@ -2022,7 +2022,7 @@ impl IWMHeaderInfo_Vtbl {
         unsafe extern "system" fn AddMarker<Identity: IWMHeaderInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszmarkername: windows_core::PCWSTR, cnsmarkertime: super::QWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMHeaderInfo_Impl::AddMarker(this, core::mem::transmute(&pwszmarkername), core::mem::transmute_copy(&cnsmarkertime))
+                IWMHeaderInfo_Impl::AddMarker(this, &*(&raw const pwszmarkername).cast(), core::mem::transmute_copy(&cnsmarkertime))
             }
         }
         unsafe extern "system" fn RemoveMarker<Identity: IWMHeaderInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, windex: super::WORD) -> windows_core::HRESULT {
@@ -2046,7 +2046,7 @@ impl IWMHeaderInfo_Vtbl {
         unsafe extern "system" fn AddScript<Identity: IWMHeaderInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwsztype: windows_core::PCWSTR, pwszcommand: windows_core::PCWSTR, cnsscripttime: super::QWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMHeaderInfo_Impl::AddScript(this, core::mem::transmute(&pwsztype), core::mem::transmute(&pwszcommand), core::mem::transmute_copy(&cnsscripttime))
+                IWMHeaderInfo_Impl::AddScript(this, &*(&raw const pwsztype).cast(), &*(&raw const pwszcommand).cast(), core::mem::transmute_copy(&cnsscripttime))
             }
         }
         unsafe extern "system" fn RemoveScript<Identity: IWMHeaderInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, windex: super::WORD) -> windows_core::HRESULT {
@@ -2243,7 +2243,7 @@ impl IWMHeaderInfo3_Vtbl {
         unsafe extern "system" fn GetAttributeIndices<Identity: IWMHeaderInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wstreamnum: super::WORD, pwszname: windows_core::PCWSTR, pwlangindex: *const super::WORD, pwindices: *mut super::WORD, pwcount: *mut super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMHeaderInfo3_Impl::GetAttributeIndices(this, core::mem::transmute_copy(&wstreamnum), core::mem::transmute(&pwszname), core::mem::transmute_copy(&pwlangindex), core::mem::transmute_copy(&pwindices), core::mem::transmute_copy(&pwcount))
+                IWMHeaderInfo3_Impl::GetAttributeIndices(this, core::mem::transmute_copy(&wstreamnum), &*(&raw const pwszname).cast(), core::mem::transmute_copy(&pwlangindex), core::mem::transmute_copy(&pwindices), core::mem::transmute_copy(&pwcount))
             }
         }
         unsafe extern "system" fn GetAttributeByIndexEx<Identity: IWMHeaderInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wstreamnum: super::WORD, windex: super::WORD, pwszname: windows_core::PWSTR, pwnamelen: *mut super::WORD, ptype: *mut WMT_ATTR_DATATYPE, pwlangindex: *mut super::WORD, pvalue: *mut super::BYTE, pdwdatalength: *mut super::DWORD) -> windows_core::HRESULT {
@@ -2261,7 +2261,7 @@ impl IWMHeaderInfo3_Vtbl {
         unsafe extern "system" fn AddAttribute<Identity: IWMHeaderInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wstreamnum: super::WORD, pszname: windows_core::PCWSTR, pwindex: *mut super::WORD, r#type: WMT_ATTR_DATATYPE, wlangindex: super::WORD, pvalue: *const super::BYTE, dwlength: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMHeaderInfo3_Impl::AddAttribute(this, core::mem::transmute_copy(&wstreamnum), core::mem::transmute(&pszname), core::mem::transmute_copy(&pwindex), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&wlangindex), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&dwlength))
+                IWMHeaderInfo3_Impl::AddAttribute(this, core::mem::transmute_copy(&wstreamnum), &*(&raw const pszname).cast(), core::mem::transmute_copy(&pwindex), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&wlangindex), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&dwlength))
             }
         }
         unsafe extern "system" fn DeleteAttribute<Identity: IWMHeaderInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wstreamnum: super::WORD, windex: super::WORD) -> windows_core::HRESULT {
@@ -2273,7 +2273,7 @@ impl IWMHeaderInfo3_Vtbl {
         unsafe extern "system" fn AddCodecInfo<Identity: IWMHeaderInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszname: windows_core::PCWSTR, pwszdescription: windows_core::PCWSTR, codectype: WMT_CODEC_INFO_TYPE, cbcodecinfo: super::WORD, pbcodecinfo: *const super::BYTE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMHeaderInfo3_Impl::AddCodecInfo(this, core::mem::transmute(&pwszname), core::mem::transmute(&pwszdescription), core::mem::transmute_copy(&codectype), core::mem::transmute_copy(&cbcodecinfo), core::mem::transmute_copy(&pbcodecinfo))
+                IWMHeaderInfo3_Impl::AddCodecInfo(this, &*(&raw const pwszname).cast(), &*(&raw const pwszdescription).cast(), core::mem::transmute_copy(&codectype), core::mem::transmute_copy(&cbcodecinfo), core::mem::transmute_copy(&pbcodecinfo))
             }
         }
         Self {
@@ -2323,7 +2323,7 @@ impl IWMIStreamProps_Vtbl {
         unsafe extern "system" fn GetProperty<Identity: IWMIStreamProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut super::BYTE, pdwsize: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMIStreamProps_Impl::GetProperty(this, core::mem::transmute(&pszname), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pdwsize))
+                IWMIStreamProps_Impl::GetProperty(this, &*(&raw const pszname).cast(), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pdwsize))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetProperty: GetProperty::<Identity, OFFSET> }
@@ -2614,7 +2614,7 @@ impl IWMLanguageList_Vtbl {
         unsafe extern "system" fn AddLanguageByRFC1766String<Identity: IWMLanguageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszlanguagestring: windows_core::PCWSTR, pwindex: *mut super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMLanguageList_Impl::AddLanguageByRFC1766String(this, core::mem::transmute(&pwszlanguagestring), core::mem::transmute_copy(&pwindex))
+                IWMLanguageList_Impl::AddLanguageByRFC1766String(this, &*(&raw const pwszlanguagestring).cast(), core::mem::transmute_copy(&pwindex))
             }
         }
         Self {
@@ -3146,7 +3146,7 @@ impl IWMMutualExclusion2_Vtbl {
         unsafe extern "system" fn SetName<Identity: IWMMutualExclusion2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszname: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMMutualExclusion2_Impl::SetName(this, core::mem::transmute(&pwszname))
+                IWMMutualExclusion2_Impl::SetName(this, &*(&raw const pwszname).cast())
             }
         }
         unsafe extern "system" fn GetRecordCount<Identity: IWMMutualExclusion2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwrecordcount: *mut super::WORD) -> windows_core::HRESULT {
@@ -3176,7 +3176,7 @@ impl IWMMutualExclusion2_Vtbl {
         unsafe extern "system" fn SetRecordName<Identity: IWMMutualExclusion2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wrecordnumber: super::WORD, pwszrecordname: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMMutualExclusion2_Impl::SetRecordName(this, core::mem::transmute_copy(&wrecordnumber), core::mem::transmute(&pwszrecordname))
+                IWMMutualExclusion2_Impl::SetRecordName(this, core::mem::transmute_copy(&wrecordnumber), &*(&raw const pwszrecordname).cast())
             }
         }
         unsafe extern "system" fn GetStreamsForRecord<Identity: IWMMutualExclusion2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wrecordnumber: super::WORD, pwstreamnumarray: *mut super::WORD, pcstreams: *mut super::WORD) -> windows_core::HRESULT {
@@ -3459,11 +3459,11 @@ impl IWMProfile {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetStream(&self, dwstreamindex: super::DWORD, ppconfig: *mut Option<IWMStreamConfig>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetStream)(windows_core::Interface::as_raw(self), dwstreamindex, core::mem::transmute(ppconfig)) }
+        unsafe { (windows_core::Interface::vtable(self).GetStream)(windows_core::Interface::as_raw(self), dwstreamindex, ppconfig as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetStreamByNumber(&self, wstreamnum: super::WORD, ppconfig: *mut Option<IWMStreamConfig>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetStreamByNumber)(windows_core::Interface::as_raw(self), wstreamnum, core::mem::transmute(ppconfig)) }
+        unsafe { (windows_core::Interface::vtable(self).GetStreamByNumber)(windows_core::Interface::as_raw(self), wstreamnum, ppconfig as _) }
     }
     pub unsafe fn RemoveStream<P0>(&self, pconfig: P0) -> windows_core::HRESULT
     where
@@ -3488,7 +3488,7 @@ impl IWMProfile {
         unsafe { (windows_core::Interface::vtable(self).ReconfigStream)(windows_core::Interface::as_raw(self), pconfig.param().abi()) }
     }
     pub unsafe fn CreateNewStream(&self, guidstreamtype: *const windows_core::GUID, ppconfig: *mut Option<IWMStreamConfig>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateNewStream)(windows_core::Interface::as_raw(self), guidstreamtype, core::mem::transmute(ppconfig)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateNewStream)(windows_core::Interface::as_raw(self), guidstreamtype, ppconfig as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetMutualExclusionCount(&self, pcme: *mut super::DWORD) -> windows_core::HRESULT {
@@ -3496,7 +3496,7 @@ impl IWMProfile {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetMutualExclusion(&self, dwmeindex: super::DWORD, ppme: *mut Option<IWMMutualExclusion>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetMutualExclusion)(windows_core::Interface::as_raw(self), dwmeindex, core::mem::transmute(ppme)) }
+        unsafe { (windows_core::Interface::vtable(self).GetMutualExclusion)(windows_core::Interface::as_raw(self), dwmeindex, ppme as _) }
     }
     pub unsafe fn RemoveMutualExclusion<P0>(&self, pme: P0) -> windows_core::HRESULT
     where
@@ -3511,7 +3511,7 @@ impl IWMProfile {
         unsafe { (windows_core::Interface::vtable(self).AddMutualExclusion)(windows_core::Interface::as_raw(self), pme.param().abi()) }
     }
     pub unsafe fn CreateNewMutualExclusion(&self, ppme: *mut Option<IWMMutualExclusion>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateNewMutualExclusion)(windows_core::Interface::as_raw(self), core::mem::transmute(ppme)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateNewMutualExclusion)(windows_core::Interface::as_raw(self), ppme as _) }
     }
 }
 #[repr(C)]
@@ -3788,7 +3788,7 @@ impl IWMProfile3 {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetBandwidthSharing(&self, dwbsindex: super::DWORD, ppbs: *mut Option<IWMBandwidthSharing>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetBandwidthSharing)(windows_core::Interface::as_raw(self), dwbsindex, core::mem::transmute(ppbs)) }
+        unsafe { (windows_core::Interface::vtable(self).GetBandwidthSharing)(windows_core::Interface::as_raw(self), dwbsindex, ppbs as _) }
     }
     pub unsafe fn RemoveBandwidthSharing<P0>(&self, pbs: P0) -> windows_core::HRESULT
     where
@@ -3803,10 +3803,10 @@ impl IWMProfile3 {
         unsafe { (windows_core::Interface::vtable(self).AddBandwidthSharing)(windows_core::Interface::as_raw(self), pbs.param().abi()) }
     }
     pub unsafe fn CreateNewBandwidthSharing(&self, ppbs: *mut Option<IWMBandwidthSharing>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateNewBandwidthSharing)(windows_core::Interface::as_raw(self), core::mem::transmute(ppbs)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateNewBandwidthSharing)(windows_core::Interface::as_raw(self), ppbs as _) }
     }
     pub unsafe fn GetStreamPrioritization(&self, ppsp: *mut Option<IWMStreamPrioritization>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetStreamPrioritization)(windows_core::Interface::as_raw(self), core::mem::transmute(ppsp)) }
+        unsafe { (windows_core::Interface::vtable(self).GetStreamPrioritization)(windows_core::Interface::as_raw(self), ppsp as _) }
     }
     pub unsafe fn SetStreamPrioritization<P0>(&self, psp: P0) -> windows_core::HRESULT
     where
@@ -3818,7 +3818,7 @@ impl IWMProfile3 {
         unsafe { (windows_core::Interface::vtable(self).RemoveStreamPrioritization)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn CreateNewStreamPrioritization(&self, ppsp: *mut Option<IWMStreamPrioritization>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateNewStreamPrioritization)(windows_core::Interface::as_raw(self), core::mem::transmute(ppsp)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateNewStreamPrioritization)(windows_core::Interface::as_raw(self), ppsp as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetExpectedPacketCount(&self, msduration: super::QWORD, pcpackets: *mut super::QWORD) -> windows_core::HRESULT {
@@ -3967,14 +3967,14 @@ windows_core::imp::define_interface!(IWMProfileManager, IWMProfileManager_Vtbl, 
 windows_core::imp::interface_hierarchy!(IWMProfileManager, windows_core::IUnknown);
 impl IWMProfileManager {
     pub unsafe fn CreateEmptyProfile(&self, dwversion: WMT_VERSION, ppprofile: *mut Option<IWMProfile>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateEmptyProfile)(windows_core::Interface::as_raw(self), dwversion, core::mem::transmute(ppprofile)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateEmptyProfile)(windows_core::Interface::as_raw(self), dwversion, ppprofile as _) }
     }
     pub unsafe fn LoadProfileByID(&self, guidprofile: *const windows_core::GUID, ppprofile: *mut Option<IWMProfile>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).LoadProfileByID)(windows_core::Interface::as_raw(self), guidprofile, core::mem::transmute(ppprofile)) }
+        unsafe { (windows_core::Interface::vtable(self).LoadProfileByID)(windows_core::Interface::as_raw(self), guidprofile, ppprofile as _) }
     }
     #[cfg(feature = "winnt")]
     pub unsafe fn LoadProfileByData(&self, pwszprofile: *const super::WCHAR, ppprofile: *mut Option<IWMProfile>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).LoadProfileByData)(windows_core::Interface::as_raw(self), pwszprofile, core::mem::transmute(ppprofile)) }
+        unsafe { (windows_core::Interface::vtable(self).LoadProfileByData)(windows_core::Interface::as_raw(self), pwszprofile, ppprofile as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn SaveProfile<P0>(&self, piwmprofile: P0, pwszprofile: *const super::WCHAR, pdwlength: *mut super::DWORD) -> windows_core::HRESULT
@@ -3989,7 +3989,7 @@ impl IWMProfileManager {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn LoadSystemProfile(&self, dwprofileindex: super::DWORD, ppprofile: *mut Option<IWMProfile>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).LoadSystemProfile)(windows_core::Interface::as_raw(self), dwprofileindex, core::mem::transmute(ppprofile)) }
+        unsafe { (windows_core::Interface::vtable(self).LoadSystemProfile)(windows_core::Interface::as_raw(self), dwprofileindex, ppprofile as _) }
     }
 }
 #[repr(C)]
@@ -4270,13 +4270,13 @@ impl IWMPropertyVault_Vtbl {
         unsafe extern "system" fn GetPropertyByName<Identity: IWMPropertyVault_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut super::BYTE, pdwsize: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPropertyVault_Impl::GetPropertyByName(this, core::mem::transmute(&pszname), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pdwsize))
+                IWMPropertyVault_Impl::GetPropertyByName(this, &*(&raw const pszname).cast(), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pdwsize))
             }
         }
         unsafe extern "system" fn SetProperty<Identity: IWMPropertyVault_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR, ptype: WMT_ATTR_DATATYPE, pvalue: *const super::BYTE, dwsize: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPropertyVault_Impl::SetProperty(this, core::mem::transmute(&pszname), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&dwsize))
+                IWMPropertyVault_Impl::SetProperty(this, &*(&raw const pszname).cast(), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&dwsize))
             }
         }
         unsafe extern "system" fn GetPropertyByIndex<Identity: IWMPropertyVault_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: super::DWORD, pszname: windows_core::PWSTR, pdwnamelen: *mut super::DWORD, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut super::BYTE, pdwsize: *mut super::DWORD) -> windows_core::HRESULT {
@@ -4321,7 +4321,7 @@ impl IWMProximityDetection {
     where
         P6: windows_core::Param<IWMStatusCallback>,
     {
-        unsafe { (windows_core::Interface::vtable(self).StartDetection)(windows_core::Interface::as_raw(self), pbregistrationmsg, cbregistrationmsg, pblocaladdress, cblocaladdress, dwextraportsallowed, core::mem::transmute(ppregistrationresponsemsg), pcallback.param().abi(), pvcontext) }
+        unsafe { (windows_core::Interface::vtable(self).StartDetection)(windows_core::Interface::as_raw(self), pbregistrationmsg, cbregistrationmsg, pblocaladdress, cblocaladdress, dwextraportsallowed, ppregistrationresponsemsg as _, pcallback.param().abi(), pvcontext) }
     }
 }
 #[repr(C)]
@@ -4373,7 +4373,7 @@ impl IWMReader {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetOutputProps(&self, dwoutputnum: super::DWORD, ppoutput: *mut Option<IWMOutputMediaProps>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetOutputProps)(windows_core::Interface::as_raw(self), dwoutputnum, core::mem::transmute(ppoutput)) }
+        unsafe { (windows_core::Interface::vtable(self).GetOutputProps)(windows_core::Interface::as_raw(self), dwoutputnum, ppoutput as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetOutputProps<P1>(&self, dwoutputnum: super::DWORD, poutput: P1) -> windows_core::HRESULT
@@ -4388,7 +4388,7 @@ impl IWMReader {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetOutputFormat(&self, dwoutputnumber: super::DWORD, dwformatnumber: super::DWORD, ppprops: *mut Option<IWMOutputMediaProps>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetOutputFormat)(windows_core::Interface::as_raw(self), dwoutputnumber, dwformatnumber, core::mem::transmute(ppprops)) }
+        unsafe { (windows_core::Interface::vtable(self).GetOutputFormat)(windows_core::Interface::as_raw(self), dwoutputnumber, dwformatnumber, ppprops as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Start(&self, cnsstart: super::QWORD, cnsduration: super::QWORD, frate: f32, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT {
@@ -5120,13 +5120,13 @@ impl IWMReaderAdvanced2_Vtbl {
         unsafe extern "system" fn GetOutputSetting<Identity: IWMReaderAdvanced2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwoutputnum: super::DWORD, pszname: windows_core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut super::BYTE, pcblength: *mut super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMReaderAdvanced2_Impl::GetOutputSetting(this, core::mem::transmute_copy(&dwoutputnum), core::mem::transmute(&pszname), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pcblength))
+                IWMReaderAdvanced2_Impl::GetOutputSetting(this, core::mem::transmute_copy(&dwoutputnum), &*(&raw const pszname).cast(), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pcblength))
             }
         }
         unsafe extern "system" fn SetOutputSetting<Identity: IWMReaderAdvanced2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwoutputnum: super::DWORD, pszname: windows_core::PCWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const super::BYTE, cblength: super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMReaderAdvanced2_Impl::SetOutputSetting(this, core::mem::transmute_copy(&dwoutputnum), core::mem::transmute(&pszname), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&cblength))
+                IWMReaderAdvanced2_Impl::SetOutputSetting(this, core::mem::transmute_copy(&dwoutputnum), &*(&raw const pszname).cast(), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&cblength))
             }
         }
         unsafe extern "system" fn Preroll<Identity: IWMReaderAdvanced2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cnsstart: super::QWORD, cnsduration: super::QWORD, frate: f32) -> windows_core::HRESULT {
@@ -5353,7 +5353,7 @@ impl IWMReaderAdvanced4_Vtbl {
         unsafe extern "system" fn AddLogParam<Identity: IWMReaderAdvanced4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wsznamespace: windows_core::PCWSTR, wszname: windows_core::PCWSTR, wszvalue: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMReaderAdvanced4_Impl::AddLogParam(this, core::mem::transmute(&wsznamespace), core::mem::transmute(&wszname), core::mem::transmute(&wszvalue))
+                IWMReaderAdvanced4_Impl::AddLogParam(this, &*(&raw const wsznamespace).cast(), &*(&raw const wszname).cast(), &*(&raw const wszvalue).cast())
             }
         }
         unsafe extern "system" fn SendLogParams<Identity: IWMReaderAdvanced4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5495,11 +5495,11 @@ windows_core::imp::interface_hierarchy!(IWMReaderAllocatorEx, windows_core::IUnk
 impl IWMReaderAllocatorEx {
     #[cfg(all(feature = "shared", feature = "wmsbuffer"))]
     pub unsafe fn AllocateForStreamEx(&self, wstreamnum: super::WORD, cbbuffer: super::DWORD, ppbuffer: *mut Option<super::INSSBuffer>, dwflags: super::DWORD, cnssampletime: super::QWORD, cnssampleduration: super::QWORD, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AllocateForStreamEx)(windows_core::Interface::as_raw(self), wstreamnum, cbbuffer, core::mem::transmute(ppbuffer), dwflags, cnssampletime, cnssampleduration, pvcontext) }
+        unsafe { (windows_core::Interface::vtable(self).AllocateForStreamEx)(windows_core::Interface::as_raw(self), wstreamnum, cbbuffer, ppbuffer as _, dwflags, cnssampletime, cnssampleduration, pvcontext) }
     }
     #[cfg(all(feature = "shared", feature = "wmsbuffer"))]
     pub unsafe fn AllocateForOutputEx(&self, dwoutputnum: super::DWORD, cbbuffer: super::DWORD, ppbuffer: *mut Option<super::INSSBuffer>, dwflags: super::DWORD, cnssampletime: super::QWORD, cnssampleduration: super::QWORD, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AllocateForOutputEx)(windows_core::Interface::as_raw(self), dwoutputnum, cbbuffer, core::mem::transmute(ppbuffer), dwflags, cnssampletime, cnssampleduration, pvcontext) }
+        unsafe { (windows_core::Interface::vtable(self).AllocateForOutputEx)(windows_core::Interface::as_raw(self), dwoutputnum, cbbuffer, ppbuffer as _, dwflags, cnssampletime, cnssampleduration, pvcontext) }
     }
 }
 #[repr(C)]
@@ -5618,11 +5618,11 @@ impl IWMReaderCallbackAdvanced {
     }
     #[cfg(all(feature = "shared", feature = "wmsbuffer"))]
     pub unsafe fn AllocateForStream(&self, wstreamnum: super::WORD, cbbuffer: super::DWORD, ppbuffer: *mut Option<super::INSSBuffer>, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AllocateForStream)(windows_core::Interface::as_raw(self), wstreamnum, cbbuffer, core::mem::transmute(ppbuffer), pvcontext) }
+        unsafe { (windows_core::Interface::vtable(self).AllocateForStream)(windows_core::Interface::as_raw(self), wstreamnum, cbbuffer, ppbuffer as _, pvcontext) }
     }
     #[cfg(all(feature = "shared", feature = "wmsbuffer"))]
     pub unsafe fn AllocateForOutput(&self, dwoutputnum: super::DWORD, cbbuffer: super::DWORD, ppbuffer: *mut Option<super::INSSBuffer>, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AllocateForOutput)(windows_core::Interface::as_raw(self), dwoutputnum, cbbuffer, core::mem::transmute(ppbuffer), pvcontext) }
+        unsafe { (windows_core::Interface::vtable(self).AllocateForOutput)(windows_core::Interface::as_raw(self), dwoutputnum, cbbuffer, ppbuffer as _, pvcontext) }
     }
 }
 #[repr(C)]
@@ -6016,61 +6016,61 @@ impl IWMReaderNetworkConfig_Vtbl {
         unsafe extern "system" fn GetProxySettings<Identity: IWMReaderNetworkConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszprotocol: windows_core::PCWSTR, pproxysetting: *mut WMT_PROXY_SETTINGS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMReaderNetworkConfig_Impl::GetProxySettings(this, core::mem::transmute(&pwszprotocol), core::mem::transmute_copy(&pproxysetting))
+                IWMReaderNetworkConfig_Impl::GetProxySettings(this, &*(&raw const pwszprotocol).cast(), core::mem::transmute_copy(&pproxysetting))
             }
         }
         unsafe extern "system" fn SetProxySettings<Identity: IWMReaderNetworkConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszprotocol: windows_core::PCWSTR, proxysetting: WMT_PROXY_SETTINGS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMReaderNetworkConfig_Impl::SetProxySettings(this, core::mem::transmute(&pwszprotocol), core::mem::transmute_copy(&proxysetting))
+                IWMReaderNetworkConfig_Impl::SetProxySettings(this, &*(&raw const pwszprotocol).cast(), core::mem::transmute_copy(&proxysetting))
             }
         }
         unsafe extern "system" fn GetProxyHostName<Identity: IWMReaderNetworkConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszprotocol: windows_core::PCWSTR, pwszhostname: *mut super::WCHAR, pcchhostname: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMReaderNetworkConfig_Impl::GetProxyHostName(this, core::mem::transmute(&pwszprotocol), core::mem::transmute_copy(&pwszhostname), core::mem::transmute_copy(&pcchhostname))
+                IWMReaderNetworkConfig_Impl::GetProxyHostName(this, &*(&raw const pwszprotocol).cast(), core::mem::transmute_copy(&pwszhostname), core::mem::transmute_copy(&pcchhostname))
             }
         }
         unsafe extern "system" fn SetProxyHostName<Identity: IWMReaderNetworkConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszprotocol: windows_core::PCWSTR, pwszhostname: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMReaderNetworkConfig_Impl::SetProxyHostName(this, core::mem::transmute(&pwszprotocol), core::mem::transmute(&pwszhostname))
+                IWMReaderNetworkConfig_Impl::SetProxyHostName(this, &*(&raw const pwszprotocol).cast(), &*(&raw const pwszhostname).cast())
             }
         }
         unsafe extern "system" fn GetProxyPort<Identity: IWMReaderNetworkConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszprotocol: windows_core::PCWSTR, pdwport: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMReaderNetworkConfig_Impl::GetProxyPort(this, core::mem::transmute(&pwszprotocol), core::mem::transmute_copy(&pdwport))
+                IWMReaderNetworkConfig_Impl::GetProxyPort(this, &*(&raw const pwszprotocol).cast(), core::mem::transmute_copy(&pdwport))
             }
         }
         unsafe extern "system" fn SetProxyPort<Identity: IWMReaderNetworkConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszprotocol: windows_core::PCWSTR, dwport: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMReaderNetworkConfig_Impl::SetProxyPort(this, core::mem::transmute(&pwszprotocol), core::mem::transmute_copy(&dwport))
+                IWMReaderNetworkConfig_Impl::SetProxyPort(this, &*(&raw const pwszprotocol).cast(), core::mem::transmute_copy(&dwport))
             }
         }
         unsafe extern "system" fn GetProxyExceptionList<Identity: IWMReaderNetworkConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszprotocol: windows_core::PCWSTR, pwszexceptionlist: *mut super::WCHAR, pcchexceptionlist: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMReaderNetworkConfig_Impl::GetProxyExceptionList(this, core::mem::transmute(&pwszprotocol), core::mem::transmute_copy(&pwszexceptionlist), core::mem::transmute_copy(&pcchexceptionlist))
+                IWMReaderNetworkConfig_Impl::GetProxyExceptionList(this, &*(&raw const pwszprotocol).cast(), core::mem::transmute_copy(&pwszexceptionlist), core::mem::transmute_copy(&pcchexceptionlist))
             }
         }
         unsafe extern "system" fn SetProxyExceptionList<Identity: IWMReaderNetworkConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszprotocol: windows_core::PCWSTR, pwszexceptionlist: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMReaderNetworkConfig_Impl::SetProxyExceptionList(this, core::mem::transmute(&pwszprotocol), core::mem::transmute(&pwszexceptionlist))
+                IWMReaderNetworkConfig_Impl::SetProxyExceptionList(this, &*(&raw const pwszprotocol).cast(), &*(&raw const pwszexceptionlist).cast())
             }
         }
         unsafe extern "system" fn GetProxyBypassForLocal<Identity: IWMReaderNetworkConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszprotocol: windows_core::PCWSTR, pfbypassforlocal: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMReaderNetworkConfig_Impl::GetProxyBypassForLocal(this, core::mem::transmute(&pwszprotocol), core::mem::transmute_copy(&pfbypassforlocal))
+                IWMReaderNetworkConfig_Impl::GetProxyBypassForLocal(this, &*(&raw const pwszprotocol).cast(), core::mem::transmute_copy(&pfbypassforlocal))
             }
         }
         unsafe extern "system" fn SetProxyBypassForLocal<Identity: IWMReaderNetworkConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszprotocol: windows_core::PCWSTR, fbypassforlocal: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMReaderNetworkConfig_Impl::SetProxyBypassForLocal(this, core::mem::transmute(&pwszprotocol), core::mem::transmute_copy(&fbypassforlocal))
+                IWMReaderNetworkConfig_Impl::SetProxyBypassForLocal(this, &*(&raw const pwszprotocol).cast(), core::mem::transmute_copy(&fbypassforlocal))
             }
         }
         unsafe extern "system" fn GetForceRerunAutoProxyDetection<Identity: IWMReaderNetworkConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfforcererundetection: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -6166,7 +6166,7 @@ impl IWMReaderNetworkConfig_Vtbl {
         unsafe extern "system" fn AddLoggingUrl<Identity: IWMReaderNetworkConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszurl: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMReaderNetworkConfig_Impl::AddLoggingUrl(this, core::mem::transmute(&pwszurl))
+                IWMReaderNetworkConfig_Impl::AddLoggingUrl(this, &*(&raw const pwszurl).cast())
             }
         }
         unsafe extern "system" fn GetLoggingUrl<Identity: IWMReaderNetworkConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: super::DWORD, pwszurl: windows_core::PWSTR, pcchurl: *mut super::DWORD) -> windows_core::HRESULT {
@@ -6749,7 +6749,7 @@ impl IWMRegisteredDevice {
     }
     #[cfg(feature = "wmsbuffer")]
     pub unsafe fn GetDeviceCertificate(&self, ppcertificate: *mut Option<super::INSSBuffer>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDeviceCertificate)(windows_core::Interface::as_raw(self), core::mem::transmute(ppcertificate)) }
+        unsafe { (windows_core::Interface::vtable(self).GetDeviceCertificate)(windows_core::Interface::as_raw(self), ppcertificate as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetDeviceType(&self, pdwtype: *mut super::DWORD) -> windows_core::HRESULT {
@@ -6761,10 +6761,10 @@ impl IWMRegisteredDevice {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetAttributeByIndex(&self, dwindex: super::DWORD, pbstrname: *mut windows_core::BSTR, pbstrvalue: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetAttributeByIndex)(windows_core::Interface::as_raw(self), dwindex, core::mem::transmute(pbstrname), core::mem::transmute(pbstrvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).GetAttributeByIndex)(windows_core::Interface::as_raw(self), dwindex, pbstrname as _, pbstrvalue as _) }
     }
     pub unsafe fn GetAttributeByName(&self, bstrname: &windows_core::BSTR, pbstrvalue: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetAttributeByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname), core::mem::transmute(pbstrvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).GetAttributeByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname), pbstrvalue as _) }
     }
     pub unsafe fn SetAttributeByName(&self, bstrname: &windows_core::BSTR, bstrvalue: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAttributeByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname), core::mem::transmute_copy(bstrvalue)) }
@@ -6878,13 +6878,13 @@ impl IWMRegisteredDevice_Vtbl {
         unsafe extern "system" fn GetAttributeByName<Identity: IWMRegisteredDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: *mut core::ffi::c_void, pbstrvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMRegisteredDevice_Impl::GetAttributeByName(this, core::mem::transmute(&bstrname), core::mem::transmute_copy(&pbstrvalue))
+                IWMRegisteredDevice_Impl::GetAttributeByName(this, &*(&raw const bstrname).cast(), core::mem::transmute_copy(&pbstrvalue))
             }
         }
         unsafe extern "system" fn SetAttributeByName<Identity: IWMRegisteredDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: *mut core::ffi::c_void, bstrvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMRegisteredDevice_Impl::SetAttributeByName(this, core::mem::transmute(&bstrname), core::mem::transmute(&bstrvalue))
+                IWMRegisteredDevice_Impl::SetAttributeByName(this, &*(&raw const bstrname).cast(), &*(&raw const bstrvalue).cast())
             }
         }
         unsafe extern "system" fn Approve<Identity: IWMRegisteredDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fapprove: windows_core::BOOL) -> windows_core::HRESULT {
@@ -7126,7 +7126,7 @@ impl IWMStreamConfig_Vtbl {
         unsafe extern "system" fn SetStreamName<Identity: IWMStreamConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszstreamname: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMStreamConfig_Impl::SetStreamName(this, core::mem::transmute(&pwszstreamname))
+                IWMStreamConfig_Impl::SetStreamName(this, &*(&raw const pwszstreamname).cast())
             }
         }
         unsafe extern "system" fn GetConnectionName<Identity: IWMStreamConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszinputname: *mut super::WCHAR, pcchinputname: *mut super::WORD) -> windows_core::HRESULT {
@@ -7138,7 +7138,7 @@ impl IWMStreamConfig_Vtbl {
         unsafe extern "system" fn SetConnectionName<Identity: IWMStreamConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszinputname: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMStreamConfig_Impl::SetConnectionName(this, core::mem::transmute(&pwszinputname))
+                IWMStreamConfig_Impl::SetConnectionName(this, &*(&raw const pwszinputname).cast())
             }
         }
         unsafe extern "system" fn GetBitrate<Identity: IWMStreamConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwbitrate: *mut super::DWORD) -> windows_core::HRESULT {
@@ -7264,7 +7264,7 @@ impl IWMStreamConfig2_Vtbl {
         unsafe extern "system" fn AddDataUnitExtension<Identity: IWMStreamConfig2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidextensionsystemid: windows_core::GUID, cbextensiondatasize: super::WORD, pbextensionsysteminfo: *const super::BYTE, cbextensionsysteminfo: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMStreamConfig2_Impl::AddDataUnitExtension(this, core::mem::transmute(&guidextensionsystemid), core::mem::transmute_copy(&cbextensiondatasize), core::mem::transmute_copy(&pbextensionsysteminfo), core::mem::transmute_copy(&cbextensionsysteminfo))
+                IWMStreamConfig2_Impl::AddDataUnitExtension(this, &*(&raw const guidextensionsystemid).cast(), core::mem::transmute_copy(&cbextensiondatasize), core::mem::transmute_copy(&pbextensionsysteminfo), core::mem::transmute_copy(&cbextensionsysteminfo))
             }
         }
         unsafe extern "system" fn GetDataUnitExtensionCount<Identity: IWMStreamConfig2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcdataunitextensions: *mut super::WORD) -> windows_core::HRESULT {
@@ -7348,7 +7348,7 @@ impl IWMStreamConfig3_Vtbl {
         unsafe extern "system" fn SetLanguage<Identity: IWMStreamConfig3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszlanguagestring: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMStreamConfig3_Impl::SetLanguage(this, core::mem::transmute(&pwszlanguagestring))
+                IWMStreamConfig3_Impl::SetLanguage(this, &*(&raw const pwszlanguagestring).cast())
             }
         }
         Self {
@@ -7513,7 +7513,7 @@ impl IWMSyncReader {
     }
     #[cfg(all(feature = "shared", feature = "wmsbuffer"))]
     pub unsafe fn GetNextSample(&self, wstreamnum: super::WORD, ppsample: *mut Option<super::INSSBuffer>, pcnssampletime: *mut super::QWORD, pcnsduration: *mut super::QWORD, pdwflags: *mut super::DWORD, pdwoutputnum: *mut super::DWORD, pwstreamnum: *mut super::WORD) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNextSample)(windows_core::Interface::as_raw(self), wstreamnum, core::mem::transmute(ppsample), pcnssampletime as _, pcnsduration as _, pdwflags as _, pdwoutputnum as _, pwstreamnum as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetNextSample)(windows_core::Interface::as_raw(self), wstreamnum, ppsample as _, pcnssampletime as _, pcnsduration as _, pdwflags as _, pdwoutputnum as _, pwstreamnum as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetStreamsSelected(&self, cstreamcount: super::WORD, pwstreamnumbers: *const super::WORD, pselections: *const WMT_STREAM_SELECTION) -> windows_core::HRESULT {
@@ -7551,7 +7551,7 @@ impl IWMSyncReader {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetOutputProps(&self, dwoutputnum: super::DWORD, ppoutput: *mut Option<IWMOutputMediaProps>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetOutputProps)(windows_core::Interface::as_raw(self), dwoutputnum, core::mem::transmute(ppoutput)) }
+        unsafe { (windows_core::Interface::vtable(self).GetOutputProps)(windows_core::Interface::as_raw(self), dwoutputnum, ppoutput as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetOutputProps<P1>(&self, dwoutputnum: super::DWORD, poutput: P1) -> windows_core::HRESULT
@@ -7566,7 +7566,7 @@ impl IWMSyncReader {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetOutputFormat(&self, dwoutputnum: super::DWORD, dwformatnum: super::DWORD, ppprops: *mut Option<IWMOutputMediaProps>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetOutputFormat)(windows_core::Interface::as_raw(self), dwoutputnum, dwformatnum, core::mem::transmute(ppprops)) }
+        unsafe { (windows_core::Interface::vtable(self).GetOutputFormat)(windows_core::Interface::as_raw(self), dwoutputnum, dwformatnum, ppprops as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetOutputNumberForStream(&self, wstreamnum: super::WORD, pdwoutputnum: *mut super::DWORD) -> windows_core::HRESULT {
@@ -7762,13 +7762,13 @@ impl IWMSyncReader_Vtbl {
         unsafe extern "system" fn GetOutputSetting<Identity: IWMSyncReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwoutputnum: super::DWORD, pszname: windows_core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut super::BYTE, pcblength: *mut super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMSyncReader_Impl::GetOutputSetting(this, core::mem::transmute_copy(&dwoutputnum), core::mem::transmute(&pszname), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pcblength))
+                IWMSyncReader_Impl::GetOutputSetting(this, core::mem::transmute_copy(&dwoutputnum), &*(&raw const pszname).cast(), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pcblength))
             }
         }
         unsafe extern "system" fn SetOutputSetting<Identity: IWMSyncReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwoutputnum: super::DWORD, pszname: windows_core::PCWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const super::BYTE, cblength: super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMSyncReader_Impl::SetOutputSetting(this, core::mem::transmute_copy(&dwoutputnum), core::mem::transmute(&pszname), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&cblength))
+                IWMSyncReader_Impl::SetOutputSetting(this, core::mem::transmute_copy(&dwoutputnum), &*(&raw const pszname).cast(), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&cblength))
             }
         }
         unsafe extern "system" fn GetOutputCount<Identity: IWMSyncReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcoutputs: *mut super::DWORD) -> windows_core::HRESULT {
@@ -7888,7 +7888,7 @@ impl IWMSyncReader2 {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetAllocateForOutput(&self, dwoutputnum: super::DWORD, ppallocator: *mut Option<IWMReaderAllocatorEx>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetAllocateForOutput)(windows_core::Interface::as_raw(self), dwoutputnum, core::mem::transmute(ppallocator)) }
+        unsafe { (windows_core::Interface::vtable(self).GetAllocateForOutput)(windows_core::Interface::as_raw(self), dwoutputnum, ppallocator as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetAllocateForStream<P1>(&self, wstreamnum: super::WORD, pallocator: P1) -> windows_core::HRESULT
@@ -7899,7 +7899,7 @@ impl IWMSyncReader2 {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetAllocateForStream(&self, dwsreamnum: super::WORD, ppallocator: *mut Option<IWMReaderAllocatorEx>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetAllocateForStream)(windows_core::Interface::as_raw(self), dwsreamnum, core::mem::transmute(ppallocator)) }
+        unsafe { (windows_core::Interface::vtable(self).GetAllocateForStream)(windows_core::Interface::as_raw(self), dwsreamnum, ppallocator as _) }
     }
 }
 #[repr(C)]
@@ -8169,7 +8169,7 @@ impl IWMWriter {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetInputProps(&self, dwinputnum: super::DWORD, ppinput: *mut Option<IWMInputMediaProps>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetInputProps)(windows_core::Interface::as_raw(self), dwinputnum, core::mem::transmute(ppinput)) }
+        unsafe { (windows_core::Interface::vtable(self).GetInputProps)(windows_core::Interface::as_raw(self), dwinputnum, ppinput as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetInputProps<P1>(&self, dwinputnum: super::DWORD, pinput: P1) -> windows_core::HRESULT
@@ -8184,7 +8184,7 @@ impl IWMWriter {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetInputFormat(&self, dwinputnumber: super::DWORD, dwformatnumber: super::DWORD, pprops: *mut Option<IWMInputMediaProps>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetInputFormat)(windows_core::Interface::as_raw(self), dwinputnumber, dwformatnumber, core::mem::transmute(pprops)) }
+        unsafe { (windows_core::Interface::vtable(self).GetInputFormat)(windows_core::Interface::as_raw(self), dwinputnumber, dwformatnumber, pprops as _) }
     }
     pub unsafe fn BeginWriting(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).BeginWriting)(windows_core::Interface::as_raw(self)) }
@@ -8194,7 +8194,7 @@ impl IWMWriter {
     }
     #[cfg(all(feature = "shared", feature = "wmsbuffer"))]
     pub unsafe fn AllocateSample(&self, dwsamplesize: super::DWORD, ppsample: *mut Option<super::INSSBuffer>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AllocateSample)(windows_core::Interface::as_raw(self), dwsamplesize, core::mem::transmute(ppsample)) }
+        unsafe { (windows_core::Interface::vtable(self).AllocateSample)(windows_core::Interface::as_raw(self), dwsamplesize, ppsample as _) }
     }
     #[cfg(all(feature = "shared", feature = "wmsbuffer"))]
     pub unsafe fn WriteSample<P3>(&self, dwinputnum: super::DWORD, cnssampletime: super::QWORD, dwflags: super::DWORD, psample: P3) -> windows_core::HRESULT
@@ -8378,7 +8378,7 @@ impl IWMWriterAdvanced {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetSink(&self, dwsinknum: super::DWORD, ppsink: *mut Option<IWMWriterSink>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSink)(windows_core::Interface::as_raw(self), dwsinknum, core::mem::transmute(ppsink)) }
+        unsafe { (windows_core::Interface::vtable(self).GetSink)(windows_core::Interface::as_raw(self), dwsinknum, ppsink as _) }
     }
     pub unsafe fn AddSink<P0>(&self, psink: P0) -> windows_core::HRESULT
     where
@@ -8611,13 +8611,13 @@ impl IWMWriterAdvanced2_Vtbl {
         unsafe extern "system" fn GetInputSetting<Identity: IWMWriterAdvanced2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinputnum: super::DWORD, pszname: windows_core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut super::BYTE, pcblength: *mut super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMWriterAdvanced2_Impl::GetInputSetting(this, core::mem::transmute_copy(&dwinputnum), core::mem::transmute(&pszname), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pcblength))
+                IWMWriterAdvanced2_Impl::GetInputSetting(this, core::mem::transmute_copy(&dwinputnum), &*(&raw const pszname).cast(), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pcblength))
             }
         }
         unsafe extern "system" fn SetInputSetting<Identity: IWMWriterAdvanced2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinputnum: super::DWORD, pszname: windows_core::PCWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const super::BYTE, cblength: super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMWriterAdvanced2_Impl::SetInputSetting(this, core::mem::transmute_copy(&dwinputnum), core::mem::transmute(&pszname), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&cblength))
+                IWMWriterAdvanced2_Impl::SetInputSetting(this, core::mem::transmute_copy(&dwinputnum), &*(&raw const pszname).cast(), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&cblength))
             }
         }
         Self {
@@ -9167,7 +9167,7 @@ impl IWMWriterPostView {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetPostViewProps(&self, wstreamnumber: super::WORD, ppoutput: *mut Option<IWMMediaProps>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPostViewProps)(windows_core::Interface::as_raw(self), wstreamnumber, core::mem::transmute(ppoutput)) }
+        unsafe { (windows_core::Interface::vtable(self).GetPostViewProps)(windows_core::Interface::as_raw(self), wstreamnumber, ppoutput as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetPostViewProps<P1>(&self, wstreamnumber: super::WORD, poutput: P1) -> windows_core::HRESULT
@@ -9182,7 +9182,7 @@ impl IWMWriterPostView {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetPostViewFormat(&self, wstreamnumber: super::WORD, dwformatnumber: super::DWORD, ppprops: *mut Option<IWMMediaProps>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPostViewFormat)(windows_core::Interface::as_raw(self), wstreamnumber, dwformatnumber, core::mem::transmute(ppprops)) }
+        unsafe { (windows_core::Interface::vtable(self).GetPostViewFormat)(windows_core::Interface::as_raw(self), wstreamnumber, dwformatnumber, ppprops as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetAllocateForPostView(&self, wstreamnumber: super::WORD, fallocate: bool) -> windows_core::HRESULT {
@@ -9337,7 +9337,7 @@ impl IWMWriterPostViewCallback {
     }
     #[cfg(all(feature = "shared", feature = "wmsbuffer"))]
     pub unsafe fn AllocateForPostView(&self, wstreamnum: super::WORD, cbbuffer: super::DWORD, ppbuffer: *mut Option<super::INSSBuffer>, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AllocateForPostView)(windows_core::Interface::as_raw(self), wstreamnum, cbbuffer, core::mem::transmute(ppbuffer), pvcontext) }
+        unsafe { (windows_core::Interface::vtable(self).AllocateForPostView)(windows_core::Interface::as_raw(self), wstreamnum, cbbuffer, ppbuffer as _, pvcontext) }
     }
 }
 #[repr(C)]
@@ -9536,7 +9536,7 @@ impl IWMWriterPushSink_Vtbl {
         unsafe extern "system" fn Connect<Identity: IWMWriterPushSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszurl: windows_core::PCWSTR, pwsztemplateurl: windows_core::PCWSTR, fautodestroy: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMWriterPushSink_Impl::Connect(this, core::mem::transmute(&pwszurl), core::mem::transmute(&pwsztemplateurl), core::mem::transmute_copy(&fautodestroy))
+                IWMWriterPushSink_Impl::Connect(this, &*(&raw const pwszurl).cast(), &*(&raw const pwsztemplateurl).cast(), core::mem::transmute_copy(&fautodestroy))
             }
         }
         unsafe extern "system" fn Disconnect<Identity: IWMWriterPushSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9579,7 +9579,7 @@ impl IWMWriterSink {
     }
     #[cfg(all(feature = "shared", feature = "wmsbuffer"))]
     pub unsafe fn AllocateDataUnit(&self, cbdataunit: super::DWORD, ppdataunit: *mut Option<super::INSSBuffer>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AllocateDataUnit)(windows_core::Interface::as_raw(self), cbdataunit, core::mem::transmute(ppdataunit)) }
+        unsafe { (windows_core::Interface::vtable(self).AllocateDataUnit)(windows_core::Interface::as_raw(self), cbdataunit, ppdataunit as _) }
     }
     #[cfg(feature = "wmsbuffer")]
     pub unsafe fn OnDataUnit<P0>(&self, pdataunit: P0) -> windows_core::HRESULT

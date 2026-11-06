@@ -1720,7 +1720,7 @@ impl IDataWriter_Vtbl {
         unsafe extern "system" fn WriteGuid<Identity: IDataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataWriter_Impl::WriteGuid(this, core::mem::transmute(&value)).into()
+                IDataWriter_Impl::WriteGuid(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn WriteInt16<Identity: IDataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: i16) -> windows_core::HRESULT {
@@ -1774,19 +1774,19 @@ impl IDataWriter_Vtbl {
         unsafe extern "system" fn WriteDateTime<Identity: IDataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: windows_time::DateTime) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataWriter_Impl::WriteDateTime(this, core::mem::transmute(&value)).into()
+                IDataWriter_Impl::WriteDateTime(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn WriteTimeSpan<Identity: IDataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: windows_time::TimeSpan) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataWriter_Impl::WriteTimeSpan(this, core::mem::transmute(&value)).into()
+                IDataWriter_Impl::WriteTimeSpan(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn WriteString<Identity: IDataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDataWriter_Impl::WriteString(this, core::mem::transmute(&value)) {
+                match IDataWriter_Impl::WriteString(this, &*(&raw const value).cast()) {
                     Ok(ok__) => {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
@@ -1801,7 +1801,7 @@ impl IDataWriter_Vtbl {
         unsafe extern "system" fn MeasureString<Identity: IDataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDataWriter_Impl::MeasureString(this, core::mem::transmute(&value)) {
+                match IDataWriter_Impl::MeasureString(this, &*(&raw const value).cast()) {
                     Ok(ok__) => {
                         result__.write(ok__);
                         windows_core::HRESULT(0)

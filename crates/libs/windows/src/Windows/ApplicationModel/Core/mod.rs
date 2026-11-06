@@ -897,7 +897,7 @@ impl IFrameworkView_Vtbl {
         unsafe extern "system" fn Load<Identity: IFrameworkView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entrypoint: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFrameworkView_Impl::Load(this, core::mem::transmute(&entrypoint)).into()
+                IFrameworkView_Impl::Load(this, &*(&raw const entrypoint).cast()).into()
             }
         }
         unsafe extern "system" fn Run<Identity: IFrameworkView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {

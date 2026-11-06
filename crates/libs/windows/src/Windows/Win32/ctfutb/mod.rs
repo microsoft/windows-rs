@@ -9,7 +9,7 @@ impl IEnumTfLangBarItems {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Next(&self, ulcount: super::ULONG, ppitem: *mut Option<ITfLangBarItem>, pcfetched: Option<*mut super::ULONG>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ulcount, core::mem::transmute(ppitem), pcfetched.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ulcount, ppitem as _, pcfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
@@ -49,7 +49,7 @@ impl IEnumTfLangBarItems_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumTfLangBarItems_Impl::Clone(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumTfLangBarItems>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -227,7 +227,7 @@ impl ITfLangBarItem {
         unsafe { (windows_core::Interface::vtable(self).Show)(windows_core::Interface::as_raw(self), fshow.into()) }
     }
     pub unsafe fn GetTooltipString(&self, pbstrtooltip: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTooltipString)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrtooltip)) }
+        unsafe { (windows_core::Interface::vtable(self).GetTooltipString)(windows_core::Interface::as_raw(self), pbstrtooltip as _) }
     }
 }
 #[repr(C)]
@@ -340,7 +340,7 @@ impl ITfLangBarItemBalloon_Vtbl {
         unsafe extern "system" fn OnClick<Identity: ITfLangBarItemBalloon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, click: TfLBIClick, pt: super::POINT, prcarea: *const super::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITfLangBarItemBalloon_Impl::OnClick(this, core::mem::transmute_copy(&click), core::mem::transmute(&pt), core::mem::transmute_copy(&prcarea))
+                ITfLangBarItemBalloon_Impl::OnClick(this, core::mem::transmute_copy(&click), &*(&raw const pt).cast(), core::mem::transmute_copy(&prcarea))
             }
         }
         unsafe extern "system" fn GetPreferredSize<Identity: ITfLangBarItemBalloon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszdefault: *const super::SIZE, psz: *mut super::SIZE) -> windows_core::HRESULT {
@@ -419,7 +419,7 @@ impl ITfLangBarItemBitmap_Vtbl {
         unsafe extern "system" fn OnClick<Identity: ITfLangBarItemBitmap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, click: TfLBIClick, pt: super::POINT, prcarea: *const super::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITfLangBarItemBitmap_Impl::OnClick(this, core::mem::transmute_copy(&click), core::mem::transmute(&pt), core::mem::transmute_copy(&prcarea))
+                ITfLangBarItemBitmap_Impl::OnClick(this, core::mem::transmute_copy(&click), &*(&raw const pt).cast(), core::mem::transmute_copy(&prcarea))
             }
         }
         unsafe extern "system" fn GetPreferredSize<Identity: ITfLangBarItemBitmap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszdefault: *const super::SIZE, psz: *mut super::SIZE) -> windows_core::HRESULT {
@@ -479,7 +479,7 @@ impl ITfLangBarItemBitmapButton {
         unsafe { (windows_core::Interface::vtable(self).DrawBitmap)(windows_core::Interface::as_raw(self), bmwidth, bmheight, dwflags, phbmp as _, phbmpmask as _) }
     }
     pub unsafe fn GetText(&self, pbstrtext: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrtext)) }
+        unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), pbstrtext as _) }
     }
 }
 #[repr(C)]
@@ -520,7 +520,7 @@ impl ITfLangBarItemBitmapButton_Vtbl {
         unsafe extern "system" fn OnClick<Identity: ITfLangBarItemBitmapButton_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, click: TfLBIClick, pt: super::POINT, prcarea: *const super::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITfLangBarItemBitmapButton_Impl::OnClick(this, core::mem::transmute_copy(&click), core::mem::transmute(&pt), core::mem::transmute_copy(&prcarea))
+                ITfLangBarItemBitmapButton_Impl::OnClick(this, core::mem::transmute_copy(&click), &*(&raw const pt).cast(), core::mem::transmute_copy(&prcarea))
             }
         }
         unsafe extern "system" fn InitMenu<Identity: ITfLangBarItemBitmapButton_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmenu: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -597,7 +597,7 @@ impl ITfLangBarItemButton {
         unsafe { (windows_core::Interface::vtable(self).GetIcon)(windows_core::Interface::as_raw(self), phicon as _) }
     }
     pub unsafe fn GetText(&self, pbstrtext: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrtext)) }
+        unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), pbstrtext as _) }
     }
 }
 #[repr(C)]
@@ -633,7 +633,7 @@ impl ITfLangBarItemButton_Vtbl {
         unsafe extern "system" fn OnClick<Identity: ITfLangBarItemButton_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, click: TfLBIClick, pt: super::POINT, prcarea: *const super::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITfLangBarItemButton_Impl::OnClick(this, core::mem::transmute_copy(&click), core::mem::transmute(&pt), core::mem::transmute_copy(&prcarea))
+                ITfLangBarItemButton_Impl::OnClick(this, core::mem::transmute_copy(&click), &*(&raw const pt).cast(), core::mem::transmute_copy(&prcarea))
             }
         }
         unsafe extern "system" fn InitMenu<Identity: ITfLangBarItemButton_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmenu: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -727,11 +727,11 @@ impl ITfLangBarItemMgr {
     }
     #[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
     pub unsafe fn GetItems(&self, ulcount: super::ULONG, ppitem: *mut Option<ITfLangBarItem>, pinfo: *mut TF_LANGBARITEMINFO, pdwstatus: *mut super::DWORD, pcfetched: Option<*mut super::ULONG>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetItems)(windows_core::Interface::as_raw(self), ulcount, core::mem::transmute(ppitem), pinfo as _, pdwstatus as _, pcfetched.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetItems)(windows_core::Interface::as_raw(self), ulcount, ppitem as _, pinfo as _, pdwstatus as _, pcfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn AdviseItemsSink(&self, ulcount: super::ULONG, ppunk: *const Option<ITfLangBarItemSink>, pguiditem: *const windows_core::GUID, pdwcookie: *mut super::DWORD) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AdviseItemsSink)(windows_core::Interface::as_raw(self), ulcount, core::mem::transmute(ppunk), pguiditem, pdwcookie as _) }
+        unsafe { (windows_core::Interface::vtable(self).AdviseItemsSink)(windows_core::Interface::as_raw(self), ulcount, ppunk as _, pguiditem, pdwcookie as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn UnadviseItemsSink(&self, ulcount: super::ULONG, pdwcookie: *const super::DWORD) -> windows_core::HRESULT {
@@ -802,7 +802,7 @@ impl ITfLangBarItemMgr_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITfLangBarItemMgr_Impl::EnumItems(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumTfLangBarItems>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -817,7 +817,7 @@ impl ITfLangBarItemMgr_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITfLangBarItemMgr_Impl::GetItem(this, core::mem::transmute_copy(&rguid)) {
                     Ok(ok__) => {
-                        ppitem.write(core::mem::transmute(ok__));
+                        ppitem.cast::<ITfLangBarItem>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -963,15 +963,15 @@ impl ITfLangBarMgr {
     }
     #[cfg(all(feature = "guiddef", feature = "shared"))]
     pub unsafe fn GetThreadMarshalInterface(&self, dwthreadid: super::DWORD, dwtype: super::DWORD, riid: *const super::IID, ppunk: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetThreadMarshalInterface)(windows_core::Interface::as_raw(self), dwthreadid, dwtype, riid, core::mem::transmute(ppunk)) }
+        unsafe { (windows_core::Interface::vtable(self).GetThreadMarshalInterface)(windows_core::Interface::as_raw(self), dwthreadid, dwtype, riid, ppunk as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetThreadLangBarItemMgr(&self, dwthreadid: super::DWORD, pplbi: *mut Option<ITfLangBarItemMgr>, pdwthreadid: *mut super::DWORD) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetThreadLangBarItemMgr)(windows_core::Interface::as_raw(self), dwthreadid, core::mem::transmute(pplbi), pdwthreadid as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetThreadLangBarItemMgr)(windows_core::Interface::as_raw(self), dwthreadid, pplbi as _, pdwthreadid as _) }
     }
     #[cfg(all(feature = "msctf", feature = "shared"))]
     pub unsafe fn GetInputProcessorProfiles(&self, dwthreadid: super::DWORD, ppaip: *mut Option<super::ITfInputProcessorProfiles>, pdwthreadid: *mut super::DWORD) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetInputProcessorProfiles)(windows_core::Interface::as_raw(self), dwthreadid, core::mem::transmute(ppaip), pdwthreadid as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetInputProcessorProfiles)(windows_core::Interface::as_raw(self), dwthreadid, ppaip as _, pdwthreadid as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn RestoreLastFocus(&self, pdwthreadid: *mut super::DWORD, fprev: bool) -> windows_core::HRESULT {
@@ -1338,7 +1338,7 @@ impl ITfSystemLangBarItemText {
         unsafe { (windows_core::Interface::vtable(self).SetItemText)(windows_core::Interface::as_raw(self), pch, cch) }
     }
     pub unsafe fn GetItemText(&self, pbstrtext: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetItemText)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrtext)) }
+        unsafe { (windows_core::Interface::vtable(self).GetItemText)(windows_core::Interface::as_raw(self), pbstrtext as _) }
     }
 }
 #[repr(C)]

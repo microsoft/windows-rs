@@ -9,7 +9,6 @@ use windows_core::{
 };
 
 #[allow(
-    clippy::missing_transmute_annotations,
     clippy::upper_case_acronyms,
     non_camel_case_types,
     non_snake_case,

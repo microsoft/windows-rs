@@ -241,7 +241,7 @@ impl IAntimalware {
     where
         P0: windows_core::Param<IAmsiStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Scan)(windows_core::Interface::as_raw(self), stream.param().abi(), result as _, core::mem::transmute(provider)) }
+        unsafe { (windows_core::Interface::vtable(self).Scan)(windows_core::Interface::as_raw(self), stream.param().abi(), result as _, provider as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn CloseSession(&self, session: super::ULONGLONG) {
@@ -325,7 +325,7 @@ impl IAntimalware2_Vtbl {
         unsafe extern "system" fn Notify<Identity: IAntimalware2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: super::PVOID, length: super::ULONG, contentname: windows_core::PCWSTR, appname: windows_core::PCWSTR, presult: *mut AMSI_RESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAntimalware2_Impl::Notify(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&length), core::mem::transmute(&contentname), core::mem::transmute(&appname), core::mem::transmute_copy(&presult))
+                IAntimalware2_Impl::Notify(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&length), &*(&raw const contentname).cast(), &*(&raw const appname).cast(), core::mem::transmute_copy(&presult))
             }
         }
         Self { base__: IAntimalware_Vtbl::new::<Identity, OFFSET>(), Notify: Notify::<Identity, OFFSET> }
@@ -443,7 +443,7 @@ impl IAntimalwareProvider2_Vtbl {
         unsafe extern "system" fn Notify<Identity: IAntimalwareProvider2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: super::PVOID, length: super::ULONG, contentname: windows_core::PCWSTR, appname: windows_core::PCWSTR, presult: *mut AMSI_RESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAntimalwareProvider2_Impl::Notify(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&length), core::mem::transmute(&contentname), core::mem::transmute(&appname), core::mem::transmute_copy(&presult))
+                IAntimalwareProvider2_Impl::Notify(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&length), &*(&raw const contentname).cast(), &*(&raw const appname).cast(), core::mem::transmute_copy(&presult))
             }
         }
         Self { base__: IAntimalwareProvider_Vtbl::new::<Identity, OFFSET>(), Notify: Notify::<Identity, OFFSET> }

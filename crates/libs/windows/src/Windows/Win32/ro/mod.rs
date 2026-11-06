@@ -2,7 +2,7 @@
 #[inline]
 pub unsafe fn GetRestrictedErrorInfo(pprestrictederrorinfo: *mut Option<super::IRestrictedErrorInfo>) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn GetRestrictedErrorInfo(pprestrictederrorinfo : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { GetRestrictedErrorInfo(core::mem::transmute(pprestrictederrorinfo)) }
+    unsafe { GetRestrictedErrorInfo(pprestrictederrorinfo as _) }
 }
 #[inline]
 pub unsafe fn IsErrorPropagationEnabled() -> windows_core::BOOL {
@@ -134,7 +134,7 @@ pub unsafe fn RoParameterizedTypeExtraGetTypeSignature(extra: ROPARAMIIDHANDLE) 
 #[inline]
 pub unsafe fn RoRegisterActivationFactories(activatableclassids: *const windows_core::HSTRING, activationfactorycallbacks: *const PFNGETACTIVATIONFACTORY, count: super::UINT32, cookie: *mut RO_REGISTRATION_COOKIE) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoRegisterActivationFactories(activatableclassids : *const *mut core::ffi::c_void, activationfactorycallbacks : *const PFNGETACTIVATIONFACTORY, count : super::UINT32, cookie : *mut RO_REGISTRATION_COOKIE) -> windows_core::HRESULT);
-    unsafe { RoRegisterActivationFactories(core::mem::transmute(activatableclassids), activationfactorycallbacks, count, cookie as _) }
+    unsafe { RoRegisterActivationFactories(activatableclassids as _, activationfactorycallbacks, count, cookie as _) }
 }
 #[cfg(all(feature = "objidl", feature = "shared"))]
 #[inline]
@@ -289,7 +289,7 @@ impl IRoMetaDataLocator_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                IRoMetaDataLocator_Impl::Locate(this, core::mem::transmute(&nameelement), core::mem::transmute_copy(&metadatadestination))
+                IRoMetaDataLocator_Impl::Locate(this, &*(&raw const nameelement).cast(), core::mem::transmute_copy(&metadatadestination))
             }
         }
         Self { Locate: Locate::<Identity> }
@@ -303,7 +303,7 @@ impl IRoMetaDataLocator {
     pub fn new<'a, T: IRoMetaDataLocator_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &IRoMetaDataLocator_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
         let this = windows_core::imp::box_into_raw(windows_core::imp::box_new(this));
-        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(this)) }
+        unsafe { windows_core::ScopedInterface::new(<Self as windows_core::Interface>::from_raw(this as *mut _)) }
     }
 }
 windows_core::imp::define_interface!(IRoSimpleMetaDataBuilder, IRoSimpleMetaDataBuilder_Vtbl);
@@ -414,70 +414,70 @@ impl IRoSimpleMetaDataBuilder_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                IRoSimpleMetaDataBuilder_Impl::SetWinRtInterface(this, core::mem::transmute(&iid))
+                IRoSimpleMetaDataBuilder_Impl::SetWinRtInterface(this, &*(&raw const iid).cast())
             }
         }
         unsafe extern "system" fn SetDelegate<Identity: IRoSimpleMetaDataBuilder_Impl>(this: *mut core::ffi::c_void, iid: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                IRoSimpleMetaDataBuilder_Impl::SetDelegate(this, core::mem::transmute(&iid))
+                IRoSimpleMetaDataBuilder_Impl::SetDelegate(this, &*(&raw const iid).cast())
             }
         }
         unsafe extern "system" fn SetInterfaceGroupSimpleDefault<Identity: IRoSimpleMetaDataBuilder_Impl>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, defaultinterfacename: windows_core::PCWSTR, defaultinterfaceiid: *const windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                IRoSimpleMetaDataBuilder_Impl::SetInterfaceGroupSimpleDefault(this, core::mem::transmute(&name), core::mem::transmute(&defaultinterfacename), core::mem::transmute_copy(&defaultinterfaceiid))
+                IRoSimpleMetaDataBuilder_Impl::SetInterfaceGroupSimpleDefault(this, &*(&raw const name).cast(), &*(&raw const defaultinterfacename).cast(), core::mem::transmute_copy(&defaultinterfaceiid))
             }
         }
         unsafe extern "system" fn SetInterfaceGroupParameterizedDefault<Identity: IRoSimpleMetaDataBuilder_Impl>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, elementcount: super::UINT32, defaultinterfacenameelements: *const windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                IRoSimpleMetaDataBuilder_Impl::SetInterfaceGroupParameterizedDefault(this, core::mem::transmute(&name), core::mem::transmute_copy(&elementcount), core::mem::transmute_copy(&defaultinterfacenameelements))
+                IRoSimpleMetaDataBuilder_Impl::SetInterfaceGroupParameterizedDefault(this, &*(&raw const name).cast(), core::mem::transmute_copy(&elementcount), core::mem::transmute_copy(&defaultinterfacenameelements))
             }
         }
         unsafe extern "system" fn SetRuntimeClassSimpleDefault<Identity: IRoSimpleMetaDataBuilder_Impl>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, defaultinterfacename: windows_core::PCWSTR, defaultinterfaceiid: *const windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                IRoSimpleMetaDataBuilder_Impl::SetRuntimeClassSimpleDefault(this, core::mem::transmute(&name), core::mem::transmute(&defaultinterfacename), core::mem::transmute_copy(&defaultinterfaceiid))
+                IRoSimpleMetaDataBuilder_Impl::SetRuntimeClassSimpleDefault(this, &*(&raw const name).cast(), &*(&raw const defaultinterfacename).cast(), core::mem::transmute_copy(&defaultinterfaceiid))
             }
         }
         unsafe extern "system" fn SetRuntimeClassParameterizedDefault<Identity: IRoSimpleMetaDataBuilder_Impl>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, elementcount: super::UINT32, defaultinterfacenameelements: *const windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                IRoSimpleMetaDataBuilder_Impl::SetRuntimeClassParameterizedDefault(this, core::mem::transmute(&name), core::mem::transmute_copy(&elementcount), core::mem::transmute_copy(&defaultinterfacenameelements))
+                IRoSimpleMetaDataBuilder_Impl::SetRuntimeClassParameterizedDefault(this, &*(&raw const name).cast(), core::mem::transmute_copy(&elementcount), core::mem::transmute_copy(&defaultinterfacenameelements))
             }
         }
         unsafe extern "system" fn SetStruct<Identity: IRoSimpleMetaDataBuilder_Impl>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, numfields: super::UINT32, fieldtypenames: *const windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                IRoSimpleMetaDataBuilder_Impl::SetStruct(this, core::mem::transmute(&name), core::mem::transmute_copy(&numfields), core::mem::transmute_copy(&fieldtypenames))
+                IRoSimpleMetaDataBuilder_Impl::SetStruct(this, &*(&raw const name).cast(), core::mem::transmute_copy(&numfields), core::mem::transmute_copy(&fieldtypenames))
             }
         }
         unsafe extern "system" fn SetEnum<Identity: IRoSimpleMetaDataBuilder_Impl>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, basetype: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                IRoSimpleMetaDataBuilder_Impl::SetEnum(this, core::mem::transmute(&name), core::mem::transmute(&basetype))
+                IRoSimpleMetaDataBuilder_Impl::SetEnum(this, &*(&raw const name).cast(), &*(&raw const basetype).cast())
             }
         }
         unsafe extern "system" fn SetParameterizedInterface<Identity: IRoSimpleMetaDataBuilder_Impl>(this: *mut core::ffi::c_void, piid: windows_core::GUID, numargs: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                IRoSimpleMetaDataBuilder_Impl::SetParameterizedInterface(this, core::mem::transmute(&piid), core::mem::transmute_copy(&numargs))
+                IRoSimpleMetaDataBuilder_Impl::SetParameterizedInterface(this, &*(&raw const piid).cast(), core::mem::transmute_copy(&numargs))
             }
         }
         unsafe extern "system" fn SetParameterizedDelegate<Identity: IRoSimpleMetaDataBuilder_Impl>(this: *mut core::ffi::c_void, piid: windows_core::GUID, numargs: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                IRoSimpleMetaDataBuilder_Impl::SetParameterizedDelegate(this, core::mem::transmute(&piid), core::mem::transmute_copy(&numargs))
+                IRoSimpleMetaDataBuilder_Impl::SetParameterizedDelegate(this, &*(&raw const piid).cast(), core::mem::transmute_copy(&numargs))
             }
         }
         Self {
@@ -505,7 +505,7 @@ impl IRoSimpleMetaDataBuilder {
     pub fn new<'a, T: IRoSimpleMetaDataBuilder_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &IRoSimpleMetaDataBuilder_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
         let this = windows_core::imp::box_into_raw(windows_core::imp::box_new(this));
-        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(this)) }
+        unsafe { windows_core::ScopedInterface::new(<Self as windows_core::Interface>::from_raw(this as *mut _)) }
     }
 }
 pub const MAX_ERROR_MESSAGE_CHARS: i32 = 512;

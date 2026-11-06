@@ -45,7 +45,7 @@ where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("evr.dll" "system" fn MFCreateVideoSampleFromSurface(punksurface : *mut core::ffi::c_void, ppsample : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateVideoSampleFromSurface(punksurface.param().abi(), core::mem::transmute(ppsample)) }
+    unsafe { MFCreateVideoSampleFromSurface(punksurface.param().abi(), ppsample as _) }
 }
 pub type EVRFilterConfigPrefs = i32;
 pub const EVRFilterConfigPrefs_EnableQoS: EVRFilterConfigPrefs = 1;
@@ -965,7 +965,7 @@ impl IMFVideoPresenter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFVideoPresenter_Impl::GetCurrentMediaType(this) {
                     Ok(ok__) => {
-                        ppmediatype.write(core::mem::transmute(ok__));
+                        ppmediatype.cast::<super::IMFVideoMediaType>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

@@ -739,25 +739,25 @@ impl ILoggingChannel_Vtbl {
         unsafe extern "system" fn LogMessage<Identity: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventstring: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILoggingChannel_Impl::LogMessage(this, core::mem::transmute(&eventstring)).into()
+                ILoggingChannel_Impl::LogMessage(this, &*(&raw const eventstring).cast()).into()
             }
         }
         unsafe extern "system" fn LogMessageWithLevel<Identity: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventstring: *mut core::ffi::c_void, level: LoggingLevel) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILoggingChannel_Impl::LogMessageWithLevel(this, core::mem::transmute(&eventstring), level).into()
+                ILoggingChannel_Impl::LogMessageWithLevel(this, &*(&raw const eventstring).cast(), level).into()
             }
         }
         unsafe extern "system" fn LogValuePair<Identity: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value1: *mut core::ffi::c_void, value2: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILoggingChannel_Impl::LogValuePair(this, core::mem::transmute(&value1), value2).into()
+                ILoggingChannel_Impl::LogValuePair(this, &*(&raw const value1).cast(), value2).into()
             }
         }
         unsafe extern "system" fn LogValuePairWithLevel<Identity: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value1: *mut core::ffi::c_void, value2: i32, level: LoggingLevel) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILoggingChannel_Impl::LogValuePairWithLevel(this, core::mem::transmute(&value1), value2, level).into()
+                ILoggingChannel_Impl::LogValuePairWithLevel(this, &*(&raw const value1).cast(), value2, level).into()
             }
         }
         unsafe extern "system" fn LoggingEnabled<Identity: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
@@ -1108,7 +1108,7 @@ impl ILoggingSession_Vtbl {
         unsafe extern "system" fn SaveToFileAsync<Identity: ILoggingSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, folder: *mut core::ffi::c_void, filename: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ILoggingSession_Impl::SaveToFileAsync(this, core::mem::transmute_copy(&folder), core::mem::transmute(&filename)) {
+                match ILoggingSession_Impl::SaveToFileAsync(this, core::mem::transmute_copy(&folder), &*(&raw const filename).cast()) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1324,31 +1324,31 @@ impl ILoggingTarget_Vtbl {
         unsafe extern "system" fn LogEvent<Identity: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILoggingTarget_Impl::LogEvent(this, core::mem::transmute(&eventname)).into()
+                ILoggingTarget_Impl::LogEvent(this, &*(&raw const eventname).cast()).into()
             }
         }
         unsafe extern "system" fn LogEventWithFields<Identity: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventname: *mut core::ffi::c_void, fields: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILoggingTarget_Impl::LogEventWithFields(this, core::mem::transmute(&eventname), core::mem::transmute_copy(&fields)).into()
+                ILoggingTarget_Impl::LogEventWithFields(this, &*(&raw const eventname).cast(), core::mem::transmute_copy(&fields)).into()
             }
         }
         unsafe extern "system" fn LogEventWithFieldsAndLevel<Identity: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventname: *mut core::ffi::c_void, fields: *mut core::ffi::c_void, level: LoggingLevel) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILoggingTarget_Impl::LogEventWithFieldsAndLevel(this, core::mem::transmute(&eventname), core::mem::transmute_copy(&fields), level).into()
+                ILoggingTarget_Impl::LogEventWithFieldsAndLevel(this, &*(&raw const eventname).cast(), core::mem::transmute_copy(&fields), level).into()
             }
         }
         unsafe extern "system" fn LogEventWithFieldsAndOptions<Identity: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventname: *mut core::ffi::c_void, fields: *mut core::ffi::c_void, level: LoggingLevel, options: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILoggingTarget_Impl::LogEventWithFieldsAndOptions(this, core::mem::transmute(&eventname), core::mem::transmute_copy(&fields), level, core::mem::transmute_copy(&options)).into()
+                ILoggingTarget_Impl::LogEventWithFieldsAndOptions(this, &*(&raw const eventname).cast(), core::mem::transmute_copy(&fields), level, core::mem::transmute_copy(&options)).into()
             }
         }
         unsafe extern "system" fn StartActivity<Identity: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, starteventname: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ILoggingTarget_Impl::StartActivity(this, core::mem::transmute(&starteventname)) {
+                match ILoggingTarget_Impl::StartActivity(this, &*(&raw const starteventname).cast()) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1364,7 +1364,7 @@ impl ILoggingTarget_Vtbl {
         unsafe extern "system" fn StartActivityWithFields<Identity: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, starteventname: *mut core::ffi::c_void, fields: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ILoggingTarget_Impl::StartActivityWithFields(this, core::mem::transmute(&starteventname), core::mem::transmute_copy(&fields)) {
+                match ILoggingTarget_Impl::StartActivityWithFields(this, &*(&raw const starteventname).cast(), core::mem::transmute_copy(&fields)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1380,7 +1380,7 @@ impl ILoggingTarget_Vtbl {
         unsafe extern "system" fn StartActivityWithFieldsAndLevel<Identity: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, starteventname: *mut core::ffi::c_void, fields: *mut core::ffi::c_void, level: LoggingLevel, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ILoggingTarget_Impl::StartActivityWithFieldsAndLevel(this, core::mem::transmute(&starteventname), core::mem::transmute_copy(&fields), level) {
+                match ILoggingTarget_Impl::StartActivityWithFieldsAndLevel(this, &*(&raw const starteventname).cast(), core::mem::transmute_copy(&fields), level) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1396,7 +1396,7 @@ impl ILoggingTarget_Vtbl {
         unsafe extern "system" fn StartActivityWithFieldsAndOptions<Identity: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, starteventname: *mut core::ffi::c_void, fields: *mut core::ffi::c_void, level: LoggingLevel, options: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ILoggingTarget_Impl::StartActivityWithFieldsAndOptions(this, core::mem::transmute(&starteventname), core::mem::transmute_copy(&fields), level, core::mem::transmute_copy(&options)) {
+                match ILoggingTarget_Impl::StartActivityWithFieldsAndOptions(this, &*(&raw const starteventname).cast(), core::mem::transmute_copy(&fields), level, core::mem::transmute_copy(&options)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -2156,13 +2156,13 @@ impl LoggingFields {
         unsafe { (windows_core::Interface::vtable(self).AddStringWithFormatAndTags)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), core::mem::transmute_copy(value), format, tags).ok() }
     }
     pub fn AddStringArray(&self, name: &windows_core::HSTRING, value: &[windows_core::HSTRING]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddStringArray)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), value.len().try_into().unwrap(), core::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddStringArray)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr().cast()).ok() }
     }
     pub fn AddStringArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[windows_core::HSTRING], format: LoggingFieldFormat) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddStringArrayWithFormat)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), value.len().try_into().unwrap(), core::mem::transmute(value.as_ptr()), format).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddStringArrayWithFormat)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr().cast(), format).ok() }
     }
     pub fn AddStringArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[windows_core::HSTRING], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddStringArrayWithFormatAndTags)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), value.len().try_into().unwrap(), core::mem::transmute(value.as_ptr()), format, tags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddStringArrayWithFormatAndTags)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr().cast(), format, tags).ok() }
     }
     pub fn AddGuid(&self, name: &windows_core::HSTRING, value: windows_core::GUID) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddGuid)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), value).ok() }

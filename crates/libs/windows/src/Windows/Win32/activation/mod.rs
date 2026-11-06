@@ -24,7 +24,7 @@ impl IActivationFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IActivationFactory_Impl::ActivateInstance(this) {
                     Ok(ok__) => {
-                        instance.write(core::mem::transmute(ok__));
+                        instance.cast::<windows_core::IInspectable>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

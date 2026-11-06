@@ -29,7 +29,7 @@ impl IEnumSpellingError_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumSpellingError_Impl::Next(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<ISpellingError>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -147,7 +147,7 @@ impl IOptionDescription_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOptionDescription_Impl::Labels(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<super::IEnumString>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -352,9 +352,9 @@ impl ISpellChecker_Vtbl {
         unsafe extern "system" fn Check<Identity: ISpellChecker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: windows_core::PCWSTR, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISpellChecker_Impl::Check(this, core::mem::transmute(&text)) {
+                match ISpellChecker_Impl::Check(this, &*(&raw const text).cast()) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<IEnumSpellingError>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -367,9 +367,9 @@ impl ISpellChecker_Vtbl {
         unsafe extern "system" fn Suggest<Identity: ISpellChecker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, word: windows_core::PCWSTR, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISpellChecker_Impl::Suggest(this, core::mem::transmute(&word)) {
+                match ISpellChecker_Impl::Suggest(this, &*(&raw const word).cast()) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<super::IEnumString>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -382,25 +382,25 @@ impl ISpellChecker_Vtbl {
         unsafe extern "system" fn Add<Identity: ISpellChecker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, word: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpellChecker_Impl::Add(this, core::mem::transmute(&word))
+                ISpellChecker_Impl::Add(this, &*(&raw const word).cast())
             }
         }
         unsafe extern "system" fn Ignore<Identity: ISpellChecker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, word: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpellChecker_Impl::Ignore(this, core::mem::transmute(&word))
+                ISpellChecker_Impl::Ignore(this, &*(&raw const word).cast())
             }
         }
         unsafe extern "system" fn AutoCorrect<Identity: ISpellChecker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, from: windows_core::PCWSTR, to: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpellChecker_Impl::AutoCorrect(this, core::mem::transmute(&from), core::mem::transmute(&to))
+                ISpellChecker_Impl::AutoCorrect(this, &*(&raw const from).cast(), &*(&raw const to).cast())
             }
         }
         unsafe extern "system" fn GetOptionValue<Identity: ISpellChecker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, optionid: windows_core::PCWSTR, value: *mut super::BYTE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISpellChecker_Impl::GetOptionValue(this, core::mem::transmute(&optionid)) {
+                match ISpellChecker_Impl::GetOptionValue(this, &*(&raw const optionid).cast()) {
                     Ok(ok__) => {
                         value.write(ok__);
                         windows_core::HRESULT(0)
@@ -417,7 +417,7 @@ impl ISpellChecker_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpellChecker_Impl::OptionIds(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<super::IEnumString>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -481,9 +481,9 @@ impl ISpellChecker_Vtbl {
         unsafe extern "system" fn GetOptionDescription<Identity: ISpellChecker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, optionid: windows_core::PCWSTR, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISpellChecker_Impl::GetOptionDescription(this, core::mem::transmute(&optionid)) {
+                match ISpellChecker_Impl::GetOptionDescription(this, &*(&raw const optionid).cast()) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<IOptionDescription>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -496,9 +496,9 @@ impl ISpellChecker_Vtbl {
         unsafe extern "system" fn ComprehensiveCheck<Identity: ISpellChecker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: windows_core::PCWSTR, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISpellChecker_Impl::ComprehensiveCheck(this, core::mem::transmute(&text)) {
+                match ISpellChecker_Impl::ComprehensiveCheck(this, &*(&raw const text).cast()) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<IEnumSpellingError>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -564,7 +564,7 @@ impl ISpellChecker2_Vtbl {
         unsafe extern "system" fn Remove<Identity: ISpellChecker2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, word: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpellChecker2_Impl::Remove(this, core::mem::transmute(&word))
+                ISpellChecker2_Impl::Remove(this, &*(&raw const word).cast())
             }
         }
         Self { base__: ISpellChecker_Vtbl::new::<Identity, OFFSET>(), Remove: Remove::<Identity, OFFSET> }
@@ -663,7 +663,7 @@ impl ISpellCheckerFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpellCheckerFactory_Impl::SupportedLanguages(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<super::IEnumString>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -676,7 +676,7 @@ impl ISpellCheckerFactory_Vtbl {
         unsafe extern "system" fn IsSupported<Identity: ISpellCheckerFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, languagetag: windows_core::PCWSTR, value: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISpellCheckerFactory_Impl::IsSupported(this, core::mem::transmute(&languagetag)) {
+                match ISpellCheckerFactory_Impl::IsSupported(this, &*(&raw const languagetag).cast()) {
                     Ok(ok__) => {
                         value.write(ok__);
                         windows_core::HRESULT(0)
@@ -691,9 +691,9 @@ impl ISpellCheckerFactory_Vtbl {
         unsafe extern "system" fn CreateSpellChecker<Identity: ISpellCheckerFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, languagetag: windows_core::PCWSTR, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISpellCheckerFactory_Impl::CreateSpellChecker(this, core::mem::transmute(&languagetag)) {
+                match ISpellCheckerFactory_Impl::CreateSpellChecker(this, &*(&raw const languagetag).cast()) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<ISpellChecker>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -879,13 +879,13 @@ impl IUserDictionariesRegistrar_Vtbl {
         unsafe extern "system" fn RegisterUserDictionary<Identity: IUserDictionariesRegistrar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dictionarypath: windows_core::PCWSTR, languagetag: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUserDictionariesRegistrar_Impl::RegisterUserDictionary(this, core::mem::transmute(&dictionarypath), core::mem::transmute(&languagetag))
+                IUserDictionariesRegistrar_Impl::RegisterUserDictionary(this, &*(&raw const dictionarypath).cast(), &*(&raw const languagetag).cast())
             }
         }
         unsafe extern "system" fn UnregisterUserDictionary<Identity: IUserDictionariesRegistrar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dictionarypath: windows_core::PCWSTR, languagetag: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUserDictionariesRegistrar_Impl::UnregisterUserDictionary(this, core::mem::transmute(&dictionarypath), core::mem::transmute(&languagetag))
+                IUserDictionariesRegistrar_Impl::UnregisterUserDictionary(this, &*(&raw const dictionarypath).cast(), &*(&raw const languagetag).cast())
             }
         }
         Self {

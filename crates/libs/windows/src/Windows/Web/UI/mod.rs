@@ -513,7 +513,7 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn SetDefaultBackgroundColor<Identity: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::super::UI::Color) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWebViewControl_Impl::SetDefaultBackgroundColor(this, core::mem::transmute(&value)).into()
+                IWebViewControl_Impl::SetDefaultBackgroundColor(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn DefaultBackgroundColor<Identity: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::UI::Color) -> windows_core::HRESULT {
@@ -611,7 +611,7 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn NavigateToString<Identity: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWebViewControl_Impl::NavigateToString(this, core::mem::transmute(&text)).into()
+                IWebViewControl_Impl::NavigateToString(this, &*(&raw const text).cast()).into()
             }
         }
         unsafe extern "system" fn NavigateToLocalStreamUri<Identity: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, source: *mut core::ffi::c_void, streamresolver: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -629,7 +629,7 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn InvokeScriptAsync<Identity: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scriptname: *mut core::ffi::c_void, arguments: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWebViewControl_Impl::InvokeScriptAsync(this, core::mem::transmute(&scriptname), core::mem::transmute_copy(&arguments)) {
+                match IWebViewControl_Impl::InvokeScriptAsync(this, &*(&raw const scriptname).cast(), core::mem::transmute_copy(&arguments)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -677,7 +677,7 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn BuildLocalStreamUri<Identity: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contentidentifier: *mut core::ffi::c_void, relativepath: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWebViewControl_Impl::BuildLocalStreamUri(this, core::mem::transmute(&contentidentifier), core::mem::transmute(&relativepath)) {
+                match IWebViewControl_Impl::BuildLocalStreamUri(this, &*(&raw const contentidentifier).cast(), &*(&raw const relativepath).cast()) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1217,7 +1217,7 @@ impl IWebViewControl2_Vtbl {
         unsafe extern "system" fn AddInitializeScript<Identity: IWebViewControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, script: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWebViewControl2_Impl::AddInitializeScript(this, core::mem::transmute(&script)).into()
+                IWebViewControl2_Impl::AddInitializeScript(this, &*(&raw const script).cast()).into()
             }
         }
         Self {

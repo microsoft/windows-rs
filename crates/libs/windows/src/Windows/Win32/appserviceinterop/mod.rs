@@ -66,7 +66,7 @@ impl ICorrelationVectorSource_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICorrelationVectorSource_Impl::CorrelationVector(this) {
                     Ok(ok__) => {
-                        cv.write(core::mem::transmute(ok__));
+                        cv.cast::<windows_core::HSTRING>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

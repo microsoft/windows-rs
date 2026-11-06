@@ -132,7 +132,7 @@ windows_core::imp::interface_hierarchy!(IEnumVdsObject, windows_core::IUnknown);
 impl IEnumVdsObject {
     #[cfg(feature = "shared")]
     pub unsafe fn Next(&self, celt: super::ULONG, ppobjectarray: *mut Option<windows_core::IUnknown>, pcfetched: *mut super::ULONG) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppobjectarray), pcfetched as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, ppobjectarray as _, pcfetched as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT {
@@ -196,7 +196,7 @@ impl IEnumVdsObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumVdsObject_Impl::Clone(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVdsObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -350,7 +350,7 @@ impl IVdsAdvancedDisk_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsAdvancedDisk_Impl::CreatePartition(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&ullsize), core::mem::transmute_copy(&para)) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -393,9 +393,9 @@ impl IVdsAdvancedDisk_Vtbl {
         unsafe extern "system" fn FormatPartition<Identity: IVdsAdvancedDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffset: super::ULONGLONG, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: windows_core::PCWSTR, dwunitallocationsize: super::DWORD, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVdsAdvancedDisk_Impl::FormatPartition(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&r#type), core::mem::transmute(&pwszlabel), core::mem::transmute_copy(&dwunitallocationsize), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bquickformat), core::mem::transmute_copy(&benablecompression)) {
+                match IVdsAdvancedDisk_Impl::FormatPartition(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&r#type), &*(&raw const pwszlabel).cast(), core::mem::transmute_copy(&dwunitallocationsize), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bquickformat), core::mem::transmute_copy(&benablecompression)) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -410,7 +410,7 @@ impl IVdsAdvancedDisk_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsAdvancedDisk_Impl::Clean(this, core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bforceoem), core::mem::transmute_copy(&bfullclean)) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -718,7 +718,7 @@ impl IVdsController_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsController_Impl::GetSubSystem(this) {
                     Ok(ok__) => {
-                        ppsubsystem.write(core::mem::transmute(ok__));
+                        ppsubsystem.cast::<IVdsSubSystem>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -757,7 +757,7 @@ impl IVdsController_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsController_Impl::QueryAssociatedLuns(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVdsObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -817,7 +817,7 @@ impl IVdsControllerControllerPort_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsControllerControllerPort_Impl::QueryControllerPorts(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVdsObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -889,7 +889,7 @@ impl IVdsControllerPort_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsControllerPort_Impl::GetController(this) {
                     Ok(ok__) => {
-                        ppcontroller.write(core::mem::transmute(ok__));
+                        ppcontroller.cast::<IVdsController>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -904,7 +904,7 @@ impl IVdsControllerPort_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsControllerPort_Impl::QueryAssociatedLuns(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVdsObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -972,7 +972,7 @@ impl IVdsCreatePartitionEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsCreatePartitionEx_Impl::CreatePartitionEx(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&ullsize), core::mem::transmute_copy(&ulalign), core::mem::transmute_copy(&para)) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1074,7 +1074,7 @@ impl IVdsDisk_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsDisk_Impl::GetPack(this) {
                     Ok(ok__) => {
-                        pppack.write(core::mem::transmute(ok__));
+                        pppack.cast::<IVdsPack>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1340,9 +1340,9 @@ impl IVdsDiskPartitionMF_Vtbl {
         unsafe extern "system" fn FormatPartitionEx<Identity: IVdsDiskPartitionMF_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffset: super::ULONGLONG, pwszfilesystemtypename: windows_core::PCWSTR, usfilesystemrevision: super::USHORT, uldesiredunitallocationsize: super::ULONG, pwszlabel: windows_core::PCWSTR, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVdsDiskPartitionMF_Impl::FormatPartitionEx(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute(&pwszfilesystemtypename), core::mem::transmute_copy(&usfilesystemrevision), core::mem::transmute_copy(&uldesiredunitallocationsize), core::mem::transmute(&pwszlabel), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bquickformat), core::mem::transmute_copy(&benablecompression)) {
+                match IVdsDiskPartitionMF_Impl::FormatPartitionEx(this, core::mem::transmute_copy(&ulloffset), &*(&raw const pwszfilesystemtypename).cast(), core::mem::transmute_copy(&usfilesystemrevision), core::mem::transmute_copy(&uldesiredunitallocationsize), &*(&raw const pwszlabel).cast(), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bquickformat), core::mem::transmute_copy(&benablecompression)) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1400,9 +1400,9 @@ impl IVdsDiskPartitionMF2_Vtbl {
         unsafe extern "system" fn FormatPartitionEx2<Identity: IVdsDiskPartitionMF2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffset: super::ULONGLONG, pwszfilesystemtypename: windows_core::PCWSTR, usfilesystemrevision: super::USHORT, uldesiredunitallocationsize: super::ULONG, pwszlabel: windows_core::PCWSTR, options: super::DWORD, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVdsDiskPartitionMF2_Impl::FormatPartitionEx2(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute(&pwszfilesystemtypename), core::mem::transmute_copy(&usfilesystemrevision), core::mem::transmute_copy(&uldesiredunitallocationsize), core::mem::transmute(&pwszlabel), core::mem::transmute_copy(&options)) {
+                match IVdsDiskPartitionMF2_Impl::FormatPartitionEx2(this, core::mem::transmute_copy(&ulloffset), &*(&raw const pwszfilesystemtypename).cast(), core::mem::transmute_copy(&usfilesystemrevision), core::mem::transmute_copy(&uldesiredunitallocationsize), &*(&raw const pwszlabel).cast(), core::mem::transmute_copy(&options)) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1495,7 +1495,7 @@ impl IVdsDrive_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsDrive_Impl::GetSubSystem(this) {
                     Ok(ok__) => {
-                        ppsubsystem.write(core::mem::transmute(ok__));
+                        ppsubsystem.cast::<IVdsSubSystem>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1672,7 +1672,7 @@ impl IVdsHwProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsHwProvider_Impl::QuerySubSystems(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVdsObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1762,7 +1762,7 @@ impl IVdsHwProviderStoragePools_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsHwProviderStoragePools_Impl::QueryStoragePools(this, core::mem::transmute_copy(&ulflags), core::mem::transmute_copy(&ullremainingfreespace), core::mem::transmute_copy(&ppoolattributes)) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVdsObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1775,9 +1775,9 @@ impl IVdsHwProviderStoragePools_Vtbl {
         unsafe extern "system" fn CreateLunInStoragePool<Identity: IVdsHwProviderStoragePools_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: VDS_LUN_TYPE, ullsizeinbytes: super::ULONGLONG, storagepoolid: VDS_OBJECT_ID, pwszunmaskinglist: windows_core::PCWSTR, phints2: *const VDS_HINTS2, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVdsHwProviderStoragePools_Impl::CreateLunInStoragePool(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&ullsizeinbytes), core::mem::transmute(&storagepoolid), core::mem::transmute(&pwszunmaskinglist), core::mem::transmute_copy(&phints2)) {
+                match IVdsHwProviderStoragePools_Impl::CreateLunInStoragePool(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&ullsizeinbytes), &*(&raw const storagepoolid).cast(), &*(&raw const pwszunmaskinglist).cast(), core::mem::transmute_copy(&phints2)) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1790,7 +1790,7 @@ impl IVdsHwProviderStoragePools_Vtbl {
         unsafe extern "system" fn QueryMaxLunCreateSizeInStoragePool<Identity: IVdsHwProviderStoragePools_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: VDS_LUN_TYPE, storagepoolid: VDS_OBJECT_ID, phints2: *const VDS_HINTS2, pullmaxlunsize: *mut super::ULONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsHwProviderStoragePools_Impl::QueryMaxLunCreateSizeInStoragePool(this, core::mem::transmute_copy(&r#type), core::mem::transmute(&storagepoolid), core::mem::transmute_copy(&phints2), core::mem::transmute_copy(&pullmaxlunsize))
+                IVdsHwProviderStoragePools_Impl::QueryMaxLunCreateSizeInStoragePool(this, core::mem::transmute_copy(&r#type), &*(&raw const storagepoolid).cast(), core::mem::transmute_copy(&phints2), core::mem::transmute_copy(&pullmaxlunsize))
             }
         }
         Self {
@@ -1927,7 +1927,7 @@ impl IVdsIscsiInitiatorAdapter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsIscsiInitiatorAdapter_Impl::QueryInitiatorPortals(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVdsObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1940,9 +1940,9 @@ impl IVdsIscsiInitiatorAdapter_Vtbl {
         unsafe extern "system" fn LoginToTarget<Identity: IVdsIscsiInitiatorAdapter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, logintype: VDS_ISCSI_LOGIN_TYPE, targetid: VDS_OBJECT_ID, targetportalid: VDS_OBJECT_ID, initiatorportalid: VDS_OBJECT_ID, ulloginflags: super::ULONG, bheaderdigest: windows_core::BOOL, bdatadigest: windows_core::BOOL, authtype: VDS_ISCSI_AUTH_TYPE, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVdsIscsiInitiatorAdapter_Impl::LoginToTarget(this, core::mem::transmute_copy(&logintype), core::mem::transmute(&targetid), core::mem::transmute(&targetportalid), core::mem::transmute(&initiatorportalid), core::mem::transmute_copy(&ulloginflags), core::mem::transmute_copy(&bheaderdigest), core::mem::transmute_copy(&bdatadigest), core::mem::transmute_copy(&authtype)) {
+                match IVdsIscsiInitiatorAdapter_Impl::LoginToTarget(this, core::mem::transmute_copy(&logintype), &*(&raw const targetid).cast(), &*(&raw const targetportalid).cast(), &*(&raw const initiatorportalid).cast(), core::mem::transmute_copy(&ulloginflags), core::mem::transmute_copy(&bheaderdigest), core::mem::transmute_copy(&bdatadigest), core::mem::transmute_copy(&authtype)) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1955,9 +1955,9 @@ impl IVdsIscsiInitiatorAdapter_Vtbl {
         unsafe extern "system" fn LogoutFromTarget<Identity: IVdsIscsiInitiatorAdapter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetid: VDS_OBJECT_ID, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVdsIscsiInitiatorAdapter_Impl::LogoutFromTarget(this, core::mem::transmute(&targetid)) {
+                match IVdsIscsiInitiatorAdapter_Impl::LogoutFromTarget(this, &*(&raw const targetid).cast()) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2051,7 +2051,7 @@ impl IVdsIscsiInitiatorPortal_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsIscsiInitiatorPortal_Impl::GetInitiatorAdapter(this) {
                     Ok(ok__) => {
-                        ppinitiatoradapter.write(core::mem::transmute(ok__));
+                        ppinitiatoradapter.cast::<IVdsIscsiInitiatorAdapter>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2070,13 +2070,13 @@ impl IVdsIscsiInitiatorPortal_Vtbl {
         unsafe extern "system" fn GetIpsecSecurity<Identity: IVdsIscsiInitiatorPortal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetportalid: VDS_OBJECT_ID, pullsecurityflags: *mut super::ULONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiInitiatorPortal_Impl::GetIpsecSecurity(this, core::mem::transmute(&targetportalid), core::mem::transmute_copy(&pullsecurityflags))
+                IVdsIscsiInitiatorPortal_Impl::GetIpsecSecurity(this, &*(&raw const targetportalid).cast(), core::mem::transmute_copy(&pullsecurityflags))
             }
         }
         unsafe extern "system" fn SetIpsecSecurity<Identity: IVdsIscsiInitiatorPortal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetportalid: VDS_OBJECT_ID, ullsecurityflags: super::ULONGLONG, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiInitiatorPortal_Impl::SetIpsecSecurity(this, core::mem::transmute(&targetportalid), core::mem::transmute_copy(&ullsecurityflags), core::mem::transmute_copy(&pipseckey))
+                IVdsIscsiInitiatorPortal_Impl::SetIpsecSecurity(this, &*(&raw const targetportalid).cast(), core::mem::transmute_copy(&ullsecurityflags), core::mem::transmute_copy(&pipseckey))
             }
         }
         Self {
@@ -2177,7 +2177,7 @@ impl IVdsIscsiPortal_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsIscsiPortal_Impl::GetSubSystem(this) {
                     Ok(ok__) => {
-                        ppsubsystem.write(core::mem::transmute(ok__));
+                        ppsubsystem.cast::<IVdsSubSystem>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2192,7 +2192,7 @@ impl IVdsIscsiPortal_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsIscsiPortal_Impl::QueryAssociatedPortalGroups(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVdsObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2312,7 +2312,7 @@ impl IVdsIscsiPortalGroup_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsIscsiPortalGroup_Impl::GetTarget(this) {
                     Ok(ok__) => {
-                        pptarget.write(core::mem::transmute(ok__));
+                        pptarget.cast::<IVdsIscsiTarget>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2327,7 +2327,7 @@ impl IVdsIscsiPortalGroup_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsIscsiPortalGroup_Impl::QueryAssociatedPortals(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVdsObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2340,9 +2340,9 @@ impl IVdsIscsiPortalGroup_Vtbl {
         unsafe extern "system" fn AddPortal<Identity: IVdsIscsiPortalGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, portalid: VDS_OBJECT_ID, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVdsIscsiPortalGroup_Impl::AddPortal(this, core::mem::transmute(&portalid)) {
+                match IVdsIscsiPortalGroup_Impl::AddPortal(this, &*(&raw const portalid).cast()) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2355,9 +2355,9 @@ impl IVdsIscsiPortalGroup_Vtbl {
         unsafe extern "system" fn RemovePortal<Identity: IVdsIscsiPortalGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, portalid: VDS_OBJECT_ID, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVdsIscsiPortalGroup_Impl::RemovePortal(this, core::mem::transmute(&portalid)) {
+                match IVdsIscsiPortalGroup_Impl::RemovePortal(this, &*(&raw const portalid).cast()) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2372,7 +2372,7 @@ impl IVdsIscsiPortalGroup_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsIscsiPortalGroup_Impl::Delete(this) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2547,7 +2547,7 @@ impl IVdsIscsiTarget_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsIscsiTarget_Impl::GetSubSystem(this) {
                     Ok(ok__) => {
-                        ppsubsystem.write(core::mem::transmute(ok__));
+                        ppsubsystem.cast::<IVdsSubSystem>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2562,7 +2562,7 @@ impl IVdsIscsiTarget_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsIscsiTarget_Impl::QueryPortalGroups(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVdsObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2577,7 +2577,7 @@ impl IVdsIscsiTarget_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsIscsiTarget_Impl::QueryAssociatedLuns(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVdsObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2592,7 +2592,7 @@ impl IVdsIscsiTarget_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsIscsiTarget_Impl::CreatePortalGroup(this) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2607,7 +2607,7 @@ impl IVdsIscsiTarget_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsIscsiTarget_Impl::Delete(this) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2620,19 +2620,19 @@ impl IVdsIscsiTarget_Vtbl {
         unsafe extern "system" fn SetFriendlyName<Identity: IVdsIscsiTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszfriendlyname: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiTarget_Impl::SetFriendlyName(this, core::mem::transmute(&pwszfriendlyname))
+                IVdsIscsiTarget_Impl::SetFriendlyName(this, &*(&raw const pwszfriendlyname).cast())
             }
         }
         unsafe extern "system" fn SetSharedSecret<Identity: IVdsIscsiTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptargetsharedsecret: *const VDS_ISCSI_SHARED_SECRET, pwszinitiatorname: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiTarget_Impl::SetSharedSecret(this, core::mem::transmute_copy(&ptargetsharedsecret), core::mem::transmute(&pwszinitiatorname))
+                IVdsIscsiTarget_Impl::SetSharedSecret(this, core::mem::transmute_copy(&ptargetsharedsecret), &*(&raw const pwszinitiatorname).cast())
             }
         }
         unsafe extern "system" fn RememberInitiatorSharedSecret<Identity: IVdsIscsiTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszinitiatorname: windows_core::PCWSTR, pinitiatorsharedsecret: *const VDS_ISCSI_SHARED_SECRET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsIscsiTarget_Impl::RememberInitiatorSharedSecret(this, core::mem::transmute(&pwszinitiatorname), core::mem::transmute_copy(&pinitiatorsharedsecret))
+                IVdsIscsiTarget_Impl::RememberInitiatorSharedSecret(this, &*(&raw const pwszinitiatorname).cast(), core::mem::transmute_copy(&pinitiatorsharedsecret))
             }
         }
         unsafe extern "system" fn GetConnectedInitiators<Identity: IVdsIscsiTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppwszinitiatorlist: *mut *mut windows_core::PWSTR, plnumberofinitiators: *mut super::LONG) -> windows_core::HRESULT {
@@ -2831,7 +2831,7 @@ impl IVdsLun_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsLun_Impl::GetSubSystem(this) {
                     Ok(ok__) => {
-                        ppsubsystem.write(core::mem::transmute(ok__));
+                        ppsubsystem.cast::<IVdsSubSystem>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2852,7 +2852,7 @@ impl IVdsLun_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsLun_Impl::QueryActiveControllers(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVdsObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2867,7 +2867,7 @@ impl IVdsLun_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsLun_Impl::Extend(this, core::mem::transmute_copy(&ullnumberofbytestoadd), core::mem::transmute_copy(&pdriveidarray), core::mem::transmute_copy(&lnumberofdrives)) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2882,7 +2882,7 @@ impl IVdsLun_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsLun_Impl::Shrink(this, core::mem::transmute_copy(&ullnumberofbytestoremove)) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2897,7 +2897,7 @@ impl IVdsLun_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsLun_Impl::QueryPlexes(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVdsObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2910,9 +2910,9 @@ impl IVdsLun_Vtbl {
         unsafe extern "system" fn AddPlex<Identity: IVdsLun_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lunid: VDS_OBJECT_ID, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVdsLun_Impl::AddPlex(this, core::mem::transmute(&lunid)) {
+                match IVdsLun_Impl::AddPlex(this, &*(&raw const lunid).cast()) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2925,9 +2925,9 @@ impl IVdsLun_Vtbl {
         unsafe extern "system" fn RemovePlex<Identity: IVdsLun_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plexid: VDS_OBJECT_ID, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVdsLun_Impl::RemovePlex(this, core::mem::transmute(&plexid)) {
+                match IVdsLun_Impl::RemovePlex(this, &*(&raw const plexid).cast()) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2942,7 +2942,7 @@ impl IVdsLun_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsLun_Impl::Recover(this) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2955,7 +2955,7 @@ impl IVdsLun_Vtbl {
         unsafe extern "system" fn SetMask<Identity: IVdsLun_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszunmaskinglist: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLun_Impl::SetMask(this, core::mem::transmute(&pwszunmaskinglist))
+                IVdsLun_Impl::SetMask(this, &*(&raw const pwszunmaskinglist).cast())
             }
         }
         unsafe extern "system" fn Delete<Identity: IVdsLun_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3121,7 +3121,7 @@ impl IVdsLunControllerPorts_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsLunControllerPorts_Impl::QueryActiveControllerPorts(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVdsObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3186,7 +3186,7 @@ impl IVdsLunIscsi_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsLunIscsi_Impl::QueryAssociatedTargets(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVdsObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3321,7 +3321,7 @@ impl IVdsLunNaming_Vtbl {
         unsafe extern "system" fn SetFriendlyName<Identity: IVdsLunNaming_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszfriendlyname: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsLunNaming_Impl::SetFriendlyName(this, core::mem::transmute(&pwszfriendlyname))
+                IVdsLunNaming_Impl::SetFriendlyName(this, &*(&raw const pwszfriendlyname).cast())
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetFriendlyName: SetFriendlyName::<Identity, OFFSET> }
@@ -3439,7 +3439,7 @@ impl IVdsLunPlex_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsLunPlex_Impl::GetLun(this) {
                     Ok(ok__) => {
-                        pplun.write(core::mem::transmute(ok__));
+                        pplun.cast::<IVdsLun>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3634,9 +3634,9 @@ impl IVdsOpenVDisk_Vtbl {
         unsafe extern "system" fn Attach<Identity: IVdsOpenVDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstringsecuritydescriptor: windows_core::PCWSTR, flags: super::ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: super::ULONG, timeoutinms: super::ULONG, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVdsOpenVDisk_Impl::Attach(this, core::mem::transmute(&pstringsecuritydescriptor), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&providerspecificflags), core::mem::transmute_copy(&timeoutinms)) {
+                match IVdsOpenVDisk_Impl::Attach(this, &*(&raw const pstringsecuritydescriptor).cast(), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&providerspecificflags), core::mem::transmute_copy(&timeoutinms)) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3663,7 +3663,7 @@ impl IVdsOpenVDisk_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsOpenVDisk_Impl::Compact(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&reserved)) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3678,7 +3678,7 @@ impl IVdsOpenVDisk_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsOpenVDisk_Impl::Merge(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&mergedepth)) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3693,7 +3693,7 @@ impl IVdsOpenVDisk_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsOpenVDisk_Impl::Expand(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&newsize)) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3825,7 +3825,7 @@ impl IVdsPack_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsPack_Impl::GetProvider(this) {
                     Ok(ok__) => {
-                        ppprovider.write(core::mem::transmute(ok__));
+                        ppprovider.cast::<IVdsProvider>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3840,7 +3840,7 @@ impl IVdsPack_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsPack_Impl::QueryVolumes(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVdsObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3855,7 +3855,7 @@ impl IVdsPack_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsPack_Impl::QueryDisks(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVdsObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3870,7 +3870,7 @@ impl IVdsPack_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsPack_Impl::CreateVolume(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pinputdiskarray), core::mem::transmute_copy(&lnumberofdisks), core::mem::transmute_copy(&ulstripesize)) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3883,21 +3883,21 @@ impl IVdsPack_Vtbl {
         unsafe extern "system" fn AddDisk<Identity: IVdsPack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, diskid: VDS_OBJECT_ID, partitionstyle: VDS_PARTITION_STYLE, bashotspare: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsPack_Impl::AddDisk(this, core::mem::transmute(&diskid), core::mem::transmute_copy(&partitionstyle), core::mem::transmute_copy(&bashotspare))
+                IVdsPack_Impl::AddDisk(this, &*(&raw const diskid).cast(), core::mem::transmute_copy(&partitionstyle), core::mem::transmute_copy(&bashotspare))
             }
         }
         unsafe extern "system" fn MigrateDisks<Identity: IVdsPack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdiskarray: *const VDS_OBJECT_ID, lnumberofdisks: super::LONG, targetpack: VDS_OBJECT_ID, bforce: windows_core::BOOL, bqueryonly: windows_core::BOOL, presults: *mut windows_core::HRESULT, pbrebootneeded: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsPack_Impl::MigrateDisks(this, core::mem::transmute_copy(&pdiskarray), core::mem::transmute_copy(&lnumberofdisks), core::mem::transmute(&targetpack), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bqueryonly), core::mem::transmute_copy(&presults), core::mem::transmute_copy(&pbrebootneeded))
+                IVdsPack_Impl::MigrateDisks(this, core::mem::transmute_copy(&pdiskarray), core::mem::transmute_copy(&lnumberofdisks), &*(&raw const targetpack).cast(), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bqueryonly), core::mem::transmute_copy(&presults), core::mem::transmute_copy(&pbrebootneeded))
             }
         }
         unsafe extern "system" fn ReplaceDisk<Identity: IVdsPack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, olddiskid: VDS_OBJECT_ID, newdiskid: VDS_OBJECT_ID, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVdsPack_Impl::ReplaceDisk(this, core::mem::transmute(&olddiskid), core::mem::transmute(&newdiskid)) {
+                match IVdsPack_Impl::ReplaceDisk(this, &*(&raw const olddiskid).cast(), &*(&raw const newdiskid).cast()) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3910,7 +3910,7 @@ impl IVdsPack_Vtbl {
         unsafe extern "system" fn RemoveMissingDisk<Identity: IVdsPack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, diskid: VDS_OBJECT_ID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsPack_Impl::RemoveMissingDisk(this, core::mem::transmute(&diskid))
+                IVdsPack_Impl::RemoveMissingDisk(this, &*(&raw const diskid).cast())
             }
         }
         unsafe extern "system" fn Recover<Identity: IVdsPack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3918,7 +3918,7 @@ impl IVdsPack_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsPack_Impl::Recover(this) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3980,7 +3980,7 @@ impl IVdsPack2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsPack2_Impl::CreateVolume2(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pinputdiskarray), core::mem::transmute_copy(&lnumberofdisks), core::mem::transmute_copy(&ulstripesize), core::mem::transmute_copy(&ulalign)) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4286,7 +4286,7 @@ impl IVdsService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsService_Impl::QueryProviders(this, core::mem::transmute_copy(&masks)) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVdsObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4301,7 +4301,7 @@ impl IVdsService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsService_Impl::QueryMaskedDisks(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVdsObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4316,7 +4316,7 @@ impl IVdsService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsService_Impl::QueryUnallocatedDisks(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVdsObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4329,9 +4329,9 @@ impl IVdsService_Vtbl {
         unsafe extern "system" fn GetObject<Identity: IVdsService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectid: VDS_OBJECT_ID, r#type: VDS_OBJECT_TYPE, ppobjectunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVdsService_Impl::GetObject(this, core::mem::transmute(&objectid), core::mem::transmute_copy(&r#type)) {
+                match IVdsService_Impl::GetObject(this, &*(&raw const objectid).cast(), core::mem::transmute_copy(&r#type)) {
                     Ok(ok__) => {
-                        ppobjectunk.write(core::mem::transmute(ok__));
+                        ppobjectunk.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4454,7 +4454,7 @@ impl IVdsServiceHba_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsServiceHba_Impl::QueryHbaPorts(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVdsObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4495,7 +4495,7 @@ impl IVdsServiceInitialization_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IVdsServiceInitialization_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszmachinename: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsServiceInitialization_Impl::Initialize(this, core::mem::transmute(&pwszmachinename))
+                IVdsServiceInitialization_Impl::Initialize(this, &*(&raw const pwszmachinename).cast())
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, OFFSET> }
@@ -4589,7 +4589,7 @@ impl IVdsServiceIscsi_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsServiceIscsi_Impl::QueryInitiatorAdapters(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVdsObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4614,19 +4614,19 @@ impl IVdsServiceIscsi_Vtbl {
         unsafe extern "system" fn SetAllIpsecSecurity<Identity: IVdsServiceIscsi_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetportalid: VDS_OBJECT_ID, ullsecurityflags: super::ULONGLONG, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsServiceIscsi_Impl::SetAllIpsecSecurity(this, core::mem::transmute(&targetportalid), core::mem::transmute_copy(&ullsecurityflags), core::mem::transmute_copy(&pipseckey))
+                IVdsServiceIscsi_Impl::SetAllIpsecSecurity(this, &*(&raw const targetportalid).cast(), core::mem::transmute_copy(&ullsecurityflags), core::mem::transmute_copy(&pipseckey))
             }
         }
         unsafe extern "system" fn SetInitiatorSharedSecret<Identity: IVdsServiceIscsi_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinitiatorsharedsecret: *const VDS_ISCSI_SHARED_SECRET, targetid: VDS_OBJECT_ID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsServiceIscsi_Impl::SetInitiatorSharedSecret(this, core::mem::transmute_copy(&pinitiatorsharedsecret), core::mem::transmute(&targetid))
+                IVdsServiceIscsi_Impl::SetInitiatorSharedSecret(this, core::mem::transmute_copy(&pinitiatorsharedsecret), &*(&raw const targetid).cast())
             }
         }
         unsafe extern "system" fn RememberTargetSharedSecret<Identity: IVdsServiceIscsi_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetid: VDS_OBJECT_ID, ptargetsharedsecret: *const VDS_ISCSI_SHARED_SECRET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsServiceIscsi_Impl::RememberTargetSharedSecret(this, core::mem::transmute(&targetid), core::mem::transmute_copy(&ptargetsharedsecret))
+                IVdsServiceIscsi_Impl::RememberTargetSharedSecret(this, &*(&raw const targetid).cast(), core::mem::transmute_copy(&ptargetsharedsecret))
             }
         }
         Self {
@@ -4673,9 +4673,9 @@ impl IVdsServiceLoader_Vtbl {
         unsafe extern "system" fn LoadService<Identity: IVdsServiceLoader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszmachinename: windows_core::PCWSTR, ppservice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVdsServiceLoader_Impl::LoadService(this, core::mem::transmute(&pwszmachinename)) {
+                match IVdsServiceLoader_Impl::LoadService(this, &*(&raw const pwszmachinename).cast()) {
                     Ok(ok__) => {
-                        ppservice.write(core::mem::transmute(ok__));
+                        ppservice.cast::<IVdsService>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4765,9 +4765,9 @@ impl IVdsServiceSw_Vtbl {
         unsafe extern "system" fn GetDiskObject<Identity: IVdsServiceSw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszdeviceid: windows_core::PCWSTR, ppdiskunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVdsServiceSw_Impl::GetDiskObject(this, core::mem::transmute(&pwszdeviceid)) {
+                match IVdsServiceSw_Impl::GetDiskObject(this, &*(&raw const pwszdeviceid).cast()) {
                     Ok(ok__) => {
-                        ppdiskunk.write(core::mem::transmute(ok__));
+                        ppdiskunk.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4912,7 +4912,7 @@ impl IVdsStoragePool_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsStoragePool_Impl::GetProvider(this) {
                     Ok(ok__) => {
-                        ppprovider.write(core::mem::transmute(ok__));
+                        ppprovider.cast::<IVdsProvider>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4945,7 +4945,7 @@ impl IVdsStoragePool_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsStoragePool_Impl::QueryAllocatedLuns(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVdsObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4960,7 +4960,7 @@ impl IVdsStoragePool_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsStoragePool_Impl::QueryAllocatedStoragePools(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVdsObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5113,7 +5113,7 @@ impl IVdsSubSystem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsSubSystem_Impl::GetProvider(this) {
                     Ok(ok__) => {
-                        ppprovider.write(core::mem::transmute(ok__));
+                        ppprovider.cast::<IVdsProvider>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5128,7 +5128,7 @@ impl IVdsSubSystem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsSubSystem_Impl::QueryControllers(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVdsObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5143,7 +5143,7 @@ impl IVdsSubSystem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsSubSystem_Impl::QueryLuns(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVdsObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5158,7 +5158,7 @@ impl IVdsSubSystem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsSubSystem_Impl::QueryDrives(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVdsObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5173,7 +5173,7 @@ impl IVdsSubSystem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsSubSystem_Impl::GetDrive(this, core::mem::transmute_copy(&sbusnumber), core::mem::transmute_copy(&sslotnumber)) {
                     Ok(ok__) => {
-                        ppdrive.write(core::mem::transmute(ok__));
+                        ppdrive.cast::<IVdsDrive>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5198,9 +5198,9 @@ impl IVdsSubSystem_Vtbl {
         unsafe extern "system" fn CreateLun<Identity: IVdsSubSystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: VDS_LUN_TYPE, ullsizeinbytes: super::ULONGLONG, pdriveidarray: *const VDS_OBJECT_ID, lnumberofdrives: super::LONG, pwszunmaskinglist: windows_core::PCWSTR, phints: *const VDS_HINTS, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVdsSubSystem_Impl::CreateLun(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&ullsizeinbytes), core::mem::transmute_copy(&pdriveidarray), core::mem::transmute_copy(&lnumberofdrives), core::mem::transmute(&pwszunmaskinglist), core::mem::transmute_copy(&phints)) {
+                match IVdsSubSystem_Impl::CreateLun(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&ullsizeinbytes), core::mem::transmute_copy(&pdriveidarray), core::mem::transmute_copy(&lnumberofdrives), &*(&raw const pwszunmaskinglist).cast(), core::mem::transmute_copy(&phints)) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5213,7 +5213,7 @@ impl IVdsSubSystem_Vtbl {
         unsafe extern "system" fn ReplaceDrive<Identity: IVdsSubSystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, drivetobereplaced: VDS_OBJECT_ID, replacementdrive: VDS_OBJECT_ID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsSubSystem_Impl::ReplaceDrive(this, core::mem::transmute(&drivetobereplaced), core::mem::transmute(&replacementdrive))
+                IVdsSubSystem_Impl::ReplaceDrive(this, &*(&raw const drivetobereplaced).cast(), &*(&raw const replacementdrive).cast())
             }
         }
         unsafe extern "system" fn SetStatus<Identity: IVdsSubSystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, status: VDS_SUB_SYSTEM_STATUS) -> windows_core::HRESULT {
@@ -5321,7 +5321,7 @@ impl IVdsSubSystem2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsSubSystem2_Impl::GetDrive2(this, core::mem::transmute_copy(&sbusnumber), core::mem::transmute_copy(&sslotnumber), core::mem::transmute_copy(&ulenclosurenumber)) {
                     Ok(ok__) => {
-                        ppdrive.write(core::mem::transmute(ok__));
+                        ppdrive.cast::<IVdsDrive>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5334,9 +5334,9 @@ impl IVdsSubSystem2_Vtbl {
         unsafe extern "system" fn CreateLun2<Identity: IVdsSubSystem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: VDS_LUN_TYPE, ullsizeinbytes: super::ULONGLONG, pdriveidarray: *const VDS_OBJECT_ID, lnumberofdrives: super::LONG, pwszunmaskinglist: windows_core::PCWSTR, phints2: *const VDS_HINTS2, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVdsSubSystem2_Impl::CreateLun2(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&ullsizeinbytes), core::mem::transmute_copy(&pdriveidarray), core::mem::transmute_copy(&lnumberofdrives), core::mem::transmute(&pwszunmaskinglist), core::mem::transmute_copy(&phints2)) {
+                match IVdsSubSystem2_Impl::CreateLun2(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&ullsizeinbytes), core::mem::transmute_copy(&pdriveidarray), core::mem::transmute_copy(&lnumberofdrives), &*(&raw const pwszunmaskinglist).cast(), core::mem::transmute_copy(&phints2)) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5401,7 +5401,7 @@ impl IVdsSubSystemImportTarget_Vtbl {
         unsafe extern "system" fn SetImportTarget<Identity: IVdsSubSystemImportTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwsziscsiname: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsSubSystemImportTarget_Impl::SetImportTarget(this, core::mem::transmute(&pwsziscsiname))
+                IVdsSubSystemImportTarget_Impl::SetImportTarget(this, &*(&raw const pwsziscsiname).cast())
             }
         }
         Self {
@@ -5510,7 +5510,7 @@ impl IVdsSubSystemIscsi_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsSubSystemIscsi_Impl::QueryTargets(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVdsObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5525,7 +5525,7 @@ impl IVdsSubSystemIscsi_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsSubSystemIscsi_Impl::QueryPortals(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVdsObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5538,9 +5538,9 @@ impl IVdsSubSystemIscsi_Vtbl {
         unsafe extern "system" fn CreateTarget<Identity: IVdsSubSystemIscsi_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwsziscsiname: windows_core::PCWSTR, pwszfriendlyname: windows_core::PCWSTR, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVdsSubSystemIscsi_Impl::CreateTarget(this, core::mem::transmute(&pwsziscsiname), core::mem::transmute(&pwszfriendlyname)) {
+                match IVdsSubSystemIscsi_Impl::CreateTarget(this, &*(&raw const pwsziscsiname).cast(), &*(&raw const pwszfriendlyname).cast()) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5594,7 +5594,7 @@ impl IVdsSubSystemNaming_Vtbl {
         unsafe extern "system" fn SetFriendlyName<Identity: IVdsSubSystemNaming_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszfriendlyname: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsSubSystemNaming_Impl::SetFriendlyName(this, core::mem::transmute(&pwszfriendlyname))
+                IVdsSubSystemNaming_Impl::SetFriendlyName(this, &*(&raw const pwszfriendlyname).cast())
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetFriendlyName: SetFriendlyName::<Identity, OFFSET> }
@@ -5638,7 +5638,7 @@ impl IVdsSwProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsSwProvider_Impl::QueryPacks(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVdsObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5653,7 +5653,7 @@ impl IVdsSwProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsSwProvider_Impl::CreatePack(this) {
                     Ok(ok__) => {
-                        pppack.write(core::mem::transmute(ok__));
+                        pppack.cast::<IVdsPack>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5728,7 +5728,7 @@ impl IVdsVDisk_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsVDisk_Impl::Open(this, core::mem::transmute_copy(&accessmask), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&readwritedepth)) {
                     Ok(ok__) => {
-                        ppopenvdisk.write(core::mem::transmute(ok__));
+                        ppopenvdisk.cast::<IVdsOpenVDisk>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5749,7 +5749,7 @@ impl IVdsVDisk_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsVDisk_Impl::GetHostVolume(this) {
                     Ok(ok__) => {
-                        ppvolume.write(core::mem::transmute(ok__));
+                        ppvolume.cast::<IVdsVolume>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5854,7 +5854,7 @@ impl IVdsVdProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsVdProvider_Impl::QueryVDisks(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVdsObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5867,13 +5867,13 @@ impl IVdsVdProvider_Vtbl {
         unsafe extern "system" fn CreateVDisk<Identity: IVdsVdProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, virtualdevicetype: super::PVIRTUAL_STORAGE_TYPE, ppath: windows_core::PCWSTR, pstringsecuritydescriptor: windows_core::PCWSTR, flags: super::CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: super::ULONG, reserved: super::ULONG, pcreatediskparameters: PVDS_CREATE_VDISK_PARAMETERS, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVdProvider_Impl::CreateVDisk(this, core::mem::transmute_copy(&virtualdevicetype), core::mem::transmute(&ppath), core::mem::transmute(&pstringsecuritydescriptor), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&providerspecificflags), core::mem::transmute_copy(&reserved), core::mem::transmute_copy(&pcreatediskparameters), core::mem::transmute_copy(&ppasync))
+                IVdsVdProvider_Impl::CreateVDisk(this, core::mem::transmute_copy(&virtualdevicetype), &*(&raw const ppath).cast(), &*(&raw const pstringsecuritydescriptor).cast(), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&providerspecificflags), core::mem::transmute_copy(&reserved), core::mem::transmute_copy(&pcreatediskparameters), core::mem::transmute_copy(&ppasync))
             }
         }
         unsafe extern "system" fn AddVDisk<Identity: IVdsVdProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, virtualdevicetype: super::PVIRTUAL_STORAGE_TYPE, ppath: windows_core::PCWSTR, ppvdisk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVdProvider_Impl::AddVDisk(this, core::mem::transmute_copy(&virtualdevicetype), core::mem::transmute(&ppath), core::mem::transmute_copy(&ppvdisk))
+                IVdsVdProvider_Impl::AddVDisk(this, core::mem::transmute_copy(&virtualdevicetype), &*(&raw const ppath).cast(), core::mem::transmute_copy(&ppvdisk))
             }
         }
         unsafe extern "system" fn GetDiskFromVDisk<Identity: IVdsVdProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvdisk: *mut core::ffi::c_void, ppdisk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5881,7 +5881,7 @@ impl IVdsVdProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsVdProvider_Impl::GetDiskFromVDisk(this, core::mem::transmute_copy(&pvdisk)) {
                     Ok(ok__) => {
-                        ppdisk.write(core::mem::transmute(ok__));
+                        ppdisk.cast::<IVdsDisk>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5896,7 +5896,7 @@ impl IVdsVdProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsVdProvider_Impl::GetVDiskFromDisk(this, core::mem::transmute_copy(&pdisk)) {
                     Ok(ok__) => {
-                        ppvdisk.write(core::mem::transmute(ok__));
+                        ppvdisk.cast::<IVdsVDisk>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6043,7 +6043,7 @@ impl IVdsVolume_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsVolume_Impl::GetPack(this) {
                     Ok(ok__) => {
-                        pppack.write(core::mem::transmute(ok__));
+                        pppack.cast::<IVdsPack>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6058,7 +6058,7 @@ impl IVdsVolume_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsVolume_Impl::QueryPlexes(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumVdsObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6073,7 +6073,7 @@ impl IVdsVolume_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsVolume_Impl::Extend(this, core::mem::transmute_copy(&pinputdiskarray), core::mem::transmute_copy(&lnumberofdisks)) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6088,7 +6088,7 @@ impl IVdsVolume_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsVolume_Impl::Shrink(this, core::mem::transmute_copy(&ullnumberofbytestoremove)) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6101,9 +6101,9 @@ impl IVdsVolume_Vtbl {
         unsafe extern "system" fn AddPlex<Identity: IVdsVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, volumeid: VDS_OBJECT_ID, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVdsVolume_Impl::AddPlex(this, core::mem::transmute(&volumeid)) {
+                match IVdsVolume_Impl::AddPlex(this, &*(&raw const volumeid).cast()) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6116,9 +6116,9 @@ impl IVdsVolume_Vtbl {
         unsafe extern "system" fn BreakPlex<Identity: IVdsVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plexid: VDS_OBJECT_ID, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVdsVolume_Impl::BreakPlex(this, core::mem::transmute(&plexid)) {
+                match IVdsVolume_Impl::BreakPlex(this, &*(&raw const plexid).cast()) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6131,9 +6131,9 @@ impl IVdsVolume_Vtbl {
         unsafe extern "system" fn RemovePlex<Identity: IVdsVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plexid: VDS_OBJECT_ID, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVdsVolume_Impl::RemovePlex(this, core::mem::transmute(&plexid)) {
+                match IVdsVolume_Impl::RemovePlex(this, &*(&raw const plexid).cast()) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6324,9 +6324,9 @@ impl IVdsVolumeMF_Vtbl {
         unsafe extern "system" fn Format<Identity: IVdsVolumeMF_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: windows_core::PCWSTR, dwunitallocationsize: super::DWORD, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVdsVolumeMF_Impl::Format(this, core::mem::transmute_copy(&r#type), core::mem::transmute(&pwszlabel), core::mem::transmute_copy(&dwunitallocationsize), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bquickformat), core::mem::transmute_copy(&benablecompression)) {
+                match IVdsVolumeMF_Impl::Format(this, core::mem::transmute_copy(&r#type), &*(&raw const pwszlabel).cast(), core::mem::transmute_copy(&dwunitallocationsize), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bquickformat), core::mem::transmute_copy(&benablecompression)) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6339,7 +6339,7 @@ impl IVdsVolumeMF_Vtbl {
         unsafe extern "system" fn AddAccessPath<Identity: IVdsVolumeMF_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszpath: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolumeMF_Impl::AddAccessPath(this, core::mem::transmute(&pwszpath))
+                IVdsVolumeMF_Impl::AddAccessPath(this, &*(&raw const pwszpath).cast())
             }
         }
         unsafe extern "system" fn QueryAccessPaths<Identity: IVdsVolumeMF_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszpatharray: *mut *mut windows_core::PWSTR, plnumberofaccesspaths: *mut super::LONG) -> windows_core::HRESULT {
@@ -6357,7 +6357,7 @@ impl IVdsVolumeMF_Vtbl {
         unsafe extern "system" fn DeleteAccessPath<Identity: IVdsVolumeMF_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszpath: windows_core::PCWSTR, bforce: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVdsVolumeMF_Impl::DeleteAccessPath(this, core::mem::transmute(&pwszpath), core::mem::transmute_copy(&bforce))
+                IVdsVolumeMF_Impl::DeleteAccessPath(this, &*(&raw const pwszpath).cast(), core::mem::transmute_copy(&bforce))
             }
         }
         unsafe extern "system" fn Mount<Identity: IVdsVolumeMF_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6464,9 +6464,9 @@ impl IVdsVolumeMF2_Vtbl {
         unsafe extern "system" fn FormatEx<Identity: IVdsVolumeMF2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszfilesystemtypename: windows_core::PCWSTR, usfilesystemrevision: super::USHORT, uldesiredunitallocationsize: super::ULONG, pwszlabel: windows_core::PCWSTR, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVdsVolumeMF2_Impl::FormatEx(this, core::mem::transmute(&pwszfilesystemtypename), core::mem::transmute_copy(&usfilesystemrevision), core::mem::transmute_copy(&uldesiredunitallocationsize), core::mem::transmute(&pwszlabel), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bquickformat), core::mem::transmute_copy(&benablecompression)) {
+                match IVdsVolumeMF2_Impl::FormatEx(this, &*(&raw const pwszfilesystemtypename).cast(), core::mem::transmute_copy(&usfilesystemrevision), core::mem::transmute_copy(&uldesiredunitallocationsize), &*(&raw const pwszlabel).cast(), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bquickformat), core::mem::transmute_copy(&benablecompression)) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6543,9 +6543,9 @@ impl IVdsVolumeMF3_Vtbl {
         unsafe extern "system" fn FormatEx2<Identity: IVdsVolumeMF3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszfilesystemtypename: windows_core::PCWSTR, usfilesystemrevision: super::USHORT, uldesiredunitallocationsize: super::ULONG, pwszlabel: windows_core::PCWSTR, options: super::DWORD, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVdsVolumeMF3_Impl::FormatEx2(this, core::mem::transmute(&pwszfilesystemtypename), core::mem::transmute_copy(&usfilesystemrevision), core::mem::transmute_copy(&uldesiredunitallocationsize), core::mem::transmute(&pwszlabel), core::mem::transmute_copy(&options)) {
+                match IVdsVolumeMF3_Impl::FormatEx2(this, &*(&raw const pwszfilesystemtypename).cast(), core::mem::transmute_copy(&usfilesystemrevision), core::mem::transmute_copy(&uldesiredunitallocationsize), &*(&raw const pwszlabel).cast(), core::mem::transmute_copy(&options)) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6669,7 +6669,7 @@ impl IVdsVolumePlex_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsVolumePlex_Impl::GetVolume(this) {
                     Ok(ok__) => {
-                        ppvolume.write(core::mem::transmute(ok__));
+                        ppvolume.cast::<IVdsVolume>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6690,7 +6690,7 @@ impl IVdsVolumePlex_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsVolumePlex_Impl::Repair(this, core::mem::transmute_copy(&pinputdiskarray), core::mem::transmute_copy(&lnumberofdisks)) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6761,7 +6761,7 @@ impl IVdsVolumeShrink_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsVolumeShrink_Impl::Shrink(this, core::mem::transmute_copy(&ulldesirednumberofreclaimablebytes), core::mem::transmute_copy(&ullminnumberofreclaimablebytes)) {
                     Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
+                        ppasync.cast::<IVdsAsync>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

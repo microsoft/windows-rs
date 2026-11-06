@@ -40,7 +40,7 @@ where
     P0: windows_core::Param<PAVIFILE>,
 {
     windows_core::link!("avifil32.dll" "system" fn AVIFileCreateStreamA(pfile : *mut core::ffi::c_void, ppavi : *mut *mut core::ffi::c_void, psi : *const AVISTREAMINFOA) -> windows_core::HRESULT);
-    unsafe { AVIFileCreateStreamA(pfile.param().abi(), core::mem::transmute(ppavi), psi) }
+    unsafe { AVIFileCreateStreamA(pfile.param().abi(), ppavi as _, psi) }
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
@@ -49,7 +49,7 @@ where
     P0: windows_core::Param<PAVIFILE>,
 {
     windows_core::link!("avifil32.dll" "system" fn AVIFileCreateStreamW(pfile : *mut core::ffi::c_void, ppavi : *mut *mut core::ffi::c_void, psi : *const AVISTREAMINFOW) -> windows_core::HRESULT);
-    unsafe { AVIFileCreateStreamW(pfile.param().abi(), core::mem::transmute(ppavi), psi) }
+    unsafe { AVIFileCreateStreamW(pfile.param().abi(), ppavi as _, psi) }
 }
 #[inline]
 pub unsafe fn AVIFileEndRecord<P0>(pfile: P0) -> windows_core::HRESULT
@@ -71,7 +71,7 @@ where
     P0: windows_core::Param<PAVIFILE>,
 {
     windows_core::link!("avifil32.dll" "system" fn AVIFileGetStream(pfile : *mut core::ffi::c_void, ppavi : *mut *mut core::ffi::c_void, fcctype : super::DWORD, lparam : super::LONG) -> windows_core::HRESULT);
-    unsafe { AVIFileGetStream(pfile.param().abi(), core::mem::transmute(ppavi), fcctype, lparam) }
+    unsafe { AVIFileGetStream(pfile.param().abi(), ppavi as _, fcctype, lparam) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -103,7 +103,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("avifil32.dll" "system" fn AVIFileOpenA(ppfile : *mut *mut core::ffi::c_void, szfile : windows_core::PCSTR, umode : super::UINT, lphandler : super::LPCLSID) -> windows_core::HRESULT);
-    unsafe { AVIFileOpenA(core::mem::transmute(ppfile), szfile.param().abi(), umode, lphandler.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { AVIFileOpenA(ppfile as _, szfile.param().abi(), umode, lphandler.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 #[inline]
@@ -112,7 +112,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("avifil32.dll" "system" fn AVIFileOpenW(ppfile : *mut *mut core::ffi::c_void, szfile : windows_core::PCWSTR, umode : super::UINT, lphandler : super::LPCLSID) -> windows_core::HRESULT);
-    unsafe { AVIFileOpenW(core::mem::transmute(ppfile), szfile.param().abi(), umode, lphandler.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { AVIFileOpenW(ppfile as _, szfile.param().abi(), umode, lphandler.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -156,12 +156,12 @@ where
     P1: windows_core::Param<PAVISTREAM>,
 {
     windows_core::link!("avifil32.dll" "system" fn AVIMakeCompressedStream(ppscompressed : *mut *mut core::ffi::c_void, ppssource : *mut core::ffi::c_void, lpoptions : *const AVICOMPRESSOPTIONS, pclsidhandler : *const super::CLSID) -> windows_core::HRESULT);
-    unsafe { AVIMakeCompressedStream(core::mem::transmute(ppscompressed), ppssource.param().abi(), lpoptions, pclsidhandler.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { AVIMakeCompressedStream(ppscompressed as _, ppssource.param().abi(), lpoptions, pclsidhandler.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn AVIMakeFileFromStreams(ppfile: *mut Option<PAVIFILE>, nstreams: i32, papstreams: *const Option<PAVISTREAM>) -> windows_core::HRESULT {
     windows_core::link!("avifil32.dll" "system" fn AVIMakeFileFromStreams(ppfile : *mut *mut core::ffi::c_void, nstreams : i32, papstreams : *const *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { AVIMakeFileFromStreams(core::mem::transmute(ppfile), nstreams, core::mem::transmute(papstreams)) }
+    unsafe { AVIMakeFileFromStreams(ppfile as _, nstreams, papstreams as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -184,7 +184,7 @@ where
 #[inline]
 pub unsafe fn AVISaveOptions(hwnd: super::HWND, uiflags: super::UINT, nstreams: i32, ppavi: *const Option<PAVISTREAM>, plpoptions: *mut LPAVICOMPRESSOPTIONS) -> super::INT_PTR {
     windows_core::link!("avifil32.dll" "system" fn AVISaveOptions(hwnd : super::HWND, uiflags : super::UINT, nstreams : i32, ppavi : *const *mut core::ffi::c_void, plpoptions : *mut LPAVICOMPRESSOPTIONS) -> super::INT_PTR);
-    unsafe { AVISaveOptions(hwnd, uiflags, nstreams, core::mem::transmute(ppavi), plpoptions as _) }
+    unsafe { AVISaveOptions(hwnd, uiflags, nstreams, ppavi as _, plpoptions as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -199,7 +199,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("avifil32.dll" "system" fn AVISaveVA(szfile : windows_core::PCSTR, pclsidhandler : *const super::CLSID, lpfncallback : AVISAVECALLBACK, nstreams : i32, ppavi : *const *mut core::ffi::c_void, plpoptions : *const LPAVICOMPRESSOPTIONS) -> windows_core::HRESULT);
-    unsafe { AVISaveVA(szfile.param().abi(), pclsidhandler.unwrap_or(core::mem::zeroed()) as _, lpfncallback, nstreams, core::mem::transmute(ppavi), plpoptions) }
+    unsafe { AVISaveVA(szfile.param().abi(), pclsidhandler.unwrap_or(core::mem::zeroed()) as _, lpfncallback, nstreams, ppavi as _, plpoptions) }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -208,7 +208,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("avifil32.dll" "system" fn AVISaveVW(szfile : windows_core::PCWSTR, pclsidhandler : *const super::CLSID, lpfncallback : AVISAVECALLBACK, nstreams : i32, ppavi : *const *mut core::ffi::c_void, plpoptions : *const LPAVICOMPRESSOPTIONS) -> windows_core::HRESULT);
-    unsafe { AVISaveVW(szfile.param().abi(), pclsidhandler.unwrap_or(core::mem::zeroed()) as _, lpfncallback, nstreams, core::mem::transmute(ppavi), plpoptions) }
+    unsafe { AVISaveVW(szfile.param().abi(), pclsidhandler.unwrap_or(core::mem::zeroed()) as _, lpfncallback, nstreams, ppavi as _, plpoptions) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -241,7 +241,7 @@ where
 #[inline]
 pub unsafe fn AVIStreamCreate(ppavi: *mut Option<PAVISTREAM>, lparam1: super::LONG, lparam2: super::LONG, pclsidhandler: Option<*const super::CLSID>) -> windows_core::HRESULT {
     windows_core::link!("avifil32.dll" "system" fn AVIStreamCreate(ppavi : *mut *mut core::ffi::c_void, lparam1 : super::LONG, lparam2 : super::LONG, pclsidhandler : *const super::CLSID) -> windows_core::HRESULT);
-    unsafe { AVIStreamCreate(core::mem::transmute(ppavi), lparam1, lparam2, pclsidhandler.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { AVIStreamCreate(ppavi as _, lparam1, lparam2, pclsidhandler.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn AVIStreamEndStreaming<P0>(pavi: P0) -> windows_core::HRESULT
@@ -339,7 +339,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("avifil32.dll" "system" fn AVIStreamOpenFromFileA(ppavi : *mut *mut core::ffi::c_void, szfile : windows_core::PCSTR, fcctype : super::DWORD, lparam : super::LONG, mode : super::UINT, pclsidhandler : *const super::CLSID) -> windows_core::HRESULT);
-    unsafe { AVIStreamOpenFromFileA(core::mem::transmute(ppavi), szfile.param().abi(), fcctype, lparam, mode, pclsidhandler.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { AVIStreamOpenFromFileA(ppavi as _, szfile.param().abi(), fcctype, lparam, mode, pclsidhandler.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 #[inline]
@@ -348,7 +348,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("avifil32.dll" "system" fn AVIStreamOpenFromFileW(ppavi : *mut *mut core::ffi::c_void, szfile : windows_core::PCWSTR, fcctype : super::DWORD, lparam : super::LONG, mode : super::UINT, pclsidhandler : *const super::CLSID) -> windows_core::HRESULT);
-    unsafe { AVIStreamOpenFromFileW(core::mem::transmute(ppavi), szfile.param().abi(), fcctype, lparam, mode, pclsidhandler.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { AVIStreamOpenFromFileW(ppavi as _, szfile.param().abi(), fcctype, lparam, mode, pclsidhandler.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -446,7 +446,7 @@ where
     P1: windows_core::Param<PAVISTREAM>,
 {
     windows_core::link!("avifil32.dll" "system" fn CreateEditableStream(ppseditable : *mut *mut core::ffi::c_void, pssource : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateEditableStream(core::mem::transmute(ppseditable), pssource.param().abi()) }
+    unsafe { CreateEditableStream(ppseditable as _, pssource.param().abi()) }
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
 #[inline]
@@ -1355,7 +1355,7 @@ impl IAVIEditStream_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAVIEditStream_Impl::Cut(this, core::mem::transmute_copy(&plstart), core::mem::transmute_copy(&pllength)) {
                     Ok(ok__) => {
-                        ppresult.write(core::mem::transmute(ok__));
+                        ppresult.cast::<PAVISTREAM>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1370,7 +1370,7 @@ impl IAVIEditStream_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAVIEditStream_Impl::Copy(this, core::mem::transmute_copy(&plstart), core::mem::transmute_copy(&pllength)) {
                     Ok(ok__) => {
-                        ppresult.write(core::mem::transmute(ok__));
+                        ppresult.cast::<PAVISTREAM>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1391,7 +1391,7 @@ impl IAVIEditStream_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAVIEditStream_Impl::Clone(this) {
                     Ok(ok__) => {
-                        ppresult.write(core::mem::transmute(ok__));
+                        ppresult.cast::<PAVISTREAM>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1431,11 +1431,11 @@ impl IAVIFile {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetStream(&self, ppstream: *mut Option<PAVISTREAM>, fcctype: super::DWORD, lparam: super::LONG) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetStream)(windows_core::Interface::as_raw(self), core::mem::transmute(ppstream), fcctype, lparam) }
+        unsafe { (windows_core::Interface::vtable(self).GetStream)(windows_core::Interface::as_raw(self), ppstream as _, fcctype, lparam) }
     }
     #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
     pub unsafe fn CreateStream(&self, ppstream: *mut Option<PAVISTREAM>, psi: *const AVISTREAMINFOW) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateStream)(windows_core::Interface::as_raw(self), core::mem::transmute(ppstream), psi) }
+        unsafe { (windows_core::Interface::vtable(self).CreateStream)(windows_core::Interface::as_raw(self), ppstream as _, psi) }
     }
     #[cfg(all(feature = "minwindef", feature = "shared"))]
     pub unsafe fn WriteData(&self, ckid: super::DWORD, lpdata: super::LPVOID, cbdata: super::LONG) -> windows_core::HRESULT {

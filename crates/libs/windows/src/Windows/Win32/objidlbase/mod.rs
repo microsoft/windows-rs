@@ -791,7 +791,7 @@ impl ICallFactory {
     where
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateCall)(windows_core::Interface::as_raw(self), riid, pctrlunk.param().abi(), riid2, core::mem::transmute(ppv)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateCall)(windows_core::Interface::as_raw(self), riid, pctrlunk.param().abi(), riid2, ppv as _) }
     }
 }
 #[repr(C)]
@@ -1073,7 +1073,7 @@ impl IClientSecurity_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IClientSecurity_Impl::CopyProxy(this, core::mem::transmute_copy(&pproxy)) {
                     Ok(ok__) => {
-                        ppcopy.write(core::mem::transmute(ok__));
+                        ppcopy.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1241,7 +1241,7 @@ impl IEnumString_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumString_Impl::Clone(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumString>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1270,7 +1270,7 @@ windows_core::imp::interface_hierarchy!(IEnumUnknown, windows_core::IUnknown);
 impl IEnumUnknown {
     #[cfg(feature = "shared")]
     pub unsafe fn Next(&self, celt: super::ULONG, rgelt: *mut Option<windows_core::IUnknown>, pceltfetched: Option<*mut super::ULONG>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgelt as _, pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT {
@@ -1334,7 +1334,7 @@ impl IEnumUnknown_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumUnknown_Impl::Clone(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1653,13 +1653,13 @@ impl IMachineGlobalObjectTable_Vtbl {
         unsafe extern "system" fn RegisterObject<Identity: IMachineGlobalObjectTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clsid: *const super::IID, identifier: windows_core::PCWSTR, object: *mut core::ffi::c_void, token: *mut MachineGlobalObjectTableRegistrationToken) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMachineGlobalObjectTable_Impl::RegisterObject(this, core::mem::transmute_copy(&clsid), core::mem::transmute(&identifier), core::mem::transmute_copy(&object), core::mem::transmute_copy(&token))
+                IMachineGlobalObjectTable_Impl::RegisterObject(this, core::mem::transmute_copy(&clsid), &*(&raw const identifier).cast(), core::mem::transmute_copy(&object), core::mem::transmute_copy(&token))
             }
         }
         unsafe extern "system" fn GetObject<Identity: IMachineGlobalObjectTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clsid: *const super::IID, identifier: windows_core::PCWSTR, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMachineGlobalObjectTable_Impl::GetObject(this, core::mem::transmute_copy(&clsid), core::mem::transmute(&identifier), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+                IMachineGlobalObjectTable_Impl::GetObject(this, core::mem::transmute_copy(&clsid), &*(&raw const identifier).cast(), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
             }
         }
         unsafe extern "system" fn RevokeObject<Identity: IMachineGlobalObjectTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: MachineGlobalObjectTableRegistrationToken) -> windows_core::HRESULT {
@@ -2056,7 +2056,7 @@ impl IPSFactoryBuffer {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateProxy)(windows_core::Interface::as_raw(self), punkouter.param().abi(), riid, core::mem::transmute(ppproxy), ppv as _) }
+        unsafe { (windows_core::Interface::vtable(self).CreateProxy)(windows_core::Interface::as_raw(self), punkouter.param().abi(), riid, ppproxy as _, ppv as _) }
     }
     #[cfg(feature = "guiddef")]
     pub unsafe fn CreateStub<P1>(&self, riid: *const super::IID, punkserver: P1) -> windows_core::Result<IRpcStubBuffer>
@@ -2101,7 +2101,7 @@ impl IPSFactoryBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPSFactoryBuffer_Impl::CreateStub(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&punkserver)) {
                     Ok(ok__) => {
-                        ppstub.write(core::mem::transmute(ok__));
+                        ppstub.cast::<IRpcStubBuffer>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3293,19 +3293,19 @@ impl IStream_Vtbl {
         unsafe extern "system" fn Seek<Identity: IStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dlibmove: super::LARGE_INTEGER, dworigin: super::DWORD, plibnewposition: *mut super::ULARGE_INTEGER) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStream_Impl::Seek(this, core::mem::transmute(&dlibmove), core::mem::transmute_copy(&dworigin), core::mem::transmute_copy(&plibnewposition))
+                IStream_Impl::Seek(this, &*(&raw const dlibmove).cast(), core::mem::transmute_copy(&dworigin), core::mem::transmute_copy(&plibnewposition))
             }
         }
         unsafe extern "system" fn SetSize<Identity: IStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, libnewsize: super::ULARGE_INTEGER) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStream_Impl::SetSize(this, core::mem::transmute(&libnewsize))
+                IStream_Impl::SetSize(this, &*(&raw const libnewsize).cast())
             }
         }
         unsafe extern "system" fn CopyTo<Identity: IStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstm: *mut core::ffi::c_void, cb: super::ULARGE_INTEGER, pcbread: *mut super::ULARGE_INTEGER, pcbwritten: *mut super::ULARGE_INTEGER) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStream_Impl::CopyTo(this, core::mem::transmute_copy(&pstm), core::mem::transmute(&cb), core::mem::transmute_copy(&pcbread), core::mem::transmute_copy(&pcbwritten))
+                IStream_Impl::CopyTo(this, core::mem::transmute_copy(&pstm), &*(&raw const cb).cast(), core::mem::transmute_copy(&pcbread), core::mem::transmute_copy(&pcbwritten))
             }
         }
         unsafe extern "system" fn Commit<Identity: IStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfcommitflags: super::DWORD) -> windows_core::HRESULT {
@@ -3323,13 +3323,13 @@ impl IStream_Vtbl {
         unsafe extern "system" fn LockRegion<Identity: IStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, liboffset: super::ULARGE_INTEGER, cb: super::ULARGE_INTEGER, dwlocktype: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStream_Impl::LockRegion(this, core::mem::transmute(&liboffset), core::mem::transmute(&cb), core::mem::transmute_copy(&dwlocktype))
+                IStream_Impl::LockRegion(this, &*(&raw const liboffset).cast(), &*(&raw const cb).cast(), core::mem::transmute_copy(&dwlocktype))
             }
         }
         unsafe extern "system" fn UnlockRegion<Identity: IStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, liboffset: super::ULARGE_INTEGER, cb: super::ULARGE_INTEGER, dwlocktype: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStream_Impl::UnlockRegion(this, core::mem::transmute(&liboffset), core::mem::transmute(&cb), core::mem::transmute_copy(&dwlocktype))
+                IStream_Impl::UnlockRegion(this, &*(&raw const liboffset).cast(), &*(&raw const cb).cast(), core::mem::transmute_copy(&dwlocktype))
             }
         }
         unsafe extern "system" fn Stat<Identity: IStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstatstg: *mut STATSTG, grfstatflag: super::DWORD) -> windows_core::HRESULT {
@@ -3343,7 +3343,7 @@ impl IStream_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStream_Impl::Clone(this) {
                     Ok(ok__) => {
-                        ppstm.write(core::mem::transmute(ok__));
+                        ppstm.cast::<IStream>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3672,7 +3672,7 @@ impl ISynchronizeContainer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISynchronizeContainer_Impl::WaitMultiple(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&dwtimeout)) {
                     Ok(ok__) => {
-                        ppsync.write(core::mem::transmute(ok__));
+                        ppsync.cast::<ISynchronize>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3856,7 +3856,7 @@ impl IWaitMultiple_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWaitMultiple_Impl::WaitMultiple(this, core::mem::transmute_copy(&timeout)) {
                     Ok(ok__) => {
-                        psync.write(core::mem::transmute(ok__));
+                        psync.cast::<ISynchronize>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

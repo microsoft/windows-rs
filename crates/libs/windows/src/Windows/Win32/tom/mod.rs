@@ -198,7 +198,7 @@ impl ITextDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextDocument_Impl::GetName(this) {
                     Ok(ok__) => {
-                        pname.write(core::mem::transmute(ok__));
+                        pname.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -213,7 +213,7 @@ impl ITextDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextDocument_Impl::GetSelection(this) {
                     Ok(ok__) => {
-                        ppsel.write(core::mem::transmute(ok__));
+                        ppsel.cast::<ITextSelection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -243,7 +243,7 @@ impl ITextDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextDocument_Impl::GetStoryRanges(this) {
                     Ok(ok__) => {
-                        ppstories.write(core::mem::transmute(ok__));
+                        ppstories.cast::<ITextStoryRanges>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -390,7 +390,7 @@ impl ITextDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextDocument_Impl::Range(this, core::mem::transmute_copy(&cpactive), core::mem::transmute_copy(&cpanchor)) {
                     Ok(ok__) => {
-                        pprange.write(core::mem::transmute(ok__));
+                        pprange.cast::<ITextRange>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -405,7 +405,7 @@ impl ITextDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextDocument_Impl::RangeFromPoint(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)) {
                     Ok(ok__) => {
-                        pprange.write(core::mem::transmute(ok__));
+                        pprange.cast::<ITextRange>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -578,7 +578,7 @@ impl ITextDocument2 {
         }
     }
     pub unsafe fn GetPreferredFont(&self, cp: i32, charrep: i32, options: i32, curcharrep: i32, curfontsize: i32, pbstr: *mut windows_core::BSTR, ppitchandfamily: *mut i32, pnewfontsize: *mut i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPreferredFont)(windows_core::Interface::as_raw(self), cp, charrep, options, curcharrep, curfontsize, core::mem::transmute(pbstr), ppitchandfamily as _, pnewfontsize as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetPreferredFont)(windows_core::Interface::as_raw(self), cp, charrep, options, curcharrep, curfontsize, pbstr as _, ppitchandfamily as _, pnewfontsize as _) }
     }
     pub unsafe fn GetProperty(&self, r#type: i32, pvalue: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), r#type, pvalue as _) }
@@ -794,7 +794,7 @@ impl ITextDocument2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextDocument2_Impl::GetDisplays(this) {
                     Ok(ok__) => {
-                        ppdisplays.write(core::mem::transmute(ok__));
+                        ppdisplays.cast::<ITextDisplays>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -809,7 +809,7 @@ impl ITextDocument2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextDocument2_Impl::GetDocumentFont(this) {
                     Ok(ok__) => {
-                        ppfont.write(core::mem::transmute(ok__));
+                        ppfont.cast::<ITextFont2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -830,7 +830,7 @@ impl ITextDocument2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextDocument2_Impl::GetDocumentPara(this) {
                     Ok(ok__) => {
-                        pppara.write(core::mem::transmute(ok__));
+                        pppara.cast::<ITextPara2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -866,7 +866,7 @@ impl ITextDocument2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextDocument2_Impl::GetGenerator(this) {
                     Ok(ok__) => {
-                        pbstr.write(core::mem::transmute(ok__));
+                        pbstr.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -908,7 +908,7 @@ impl ITextDocument2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextDocument2_Impl::GetSelection2(this) {
                     Ok(ok__) => {
-                        ppsel.write(core::mem::transmute(ok__));
+                        ppsel.cast::<ITextSelection2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -923,7 +923,7 @@ impl ITextDocument2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextDocument2_Impl::GetStoryRanges2(this) {
                     Ok(ok__) => {
-                        ppstories.write(core::mem::transmute(ok__));
+                        ppstories.cast::<ITextStoryRanges2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -995,7 +995,7 @@ impl ITextDocument2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextDocument2_Impl::GetCallManager(this) {
                     Ok(ok__) => {
-                        ppvoid.write(core::mem::transmute(ok__));
+                        ppvoid.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1049,7 +1049,7 @@ impl ITextDocument2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextDocument2_Impl::GetStrings(this) {
                     Ok(ok__) => {
-                        ppstrs.write(core::mem::transmute(ok__));
+                        ppstrs.cast::<ITextStrings>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1070,7 +1070,7 @@ impl ITextDocument2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextDocument2_Impl::Range2(this, core::mem::transmute_copy(&cpactive), core::mem::transmute_copy(&cpanchor)) {
                     Ok(ok__) => {
-                        pprange.write(core::mem::transmute(ok__));
+                        pprange.cast::<ITextRange2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1085,7 +1085,7 @@ impl ITextDocument2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextDocument2_Impl::RangeFromPoint2(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&r#type)) {
                     Ok(ok__) => {
-                        pprange.write(core::mem::transmute(ok__));
+                        pprange.cast::<ITextRange2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1160,7 +1160,7 @@ impl ITextDocument2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextDocument2_Impl::GetActiveStory(this) {
                     Ok(ok__) => {
-                        ppstory.write(core::mem::transmute(ok__));
+                        ppstory.cast::<ITextStory>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1181,7 +1181,7 @@ impl ITextDocument2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextDocument2_Impl::GetMainStory(this) {
                     Ok(ok__) => {
-                        ppstory.write(core::mem::transmute(ok__));
+                        ppstory.cast::<ITextStory>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1196,7 +1196,7 @@ impl ITextDocument2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextDocument2_Impl::GetNewStory(this) {
                     Ok(ok__) => {
-                        ppstory.write(core::mem::transmute(ok__));
+                        ppstory.cast::<ITextStory>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1211,7 +1211,7 @@ impl ITextDocument2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextDocument2_Impl::GetStory(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        ppstory.write(core::mem::transmute(ok__));
+                        ppstory.cast::<ITextStory>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1321,7 +1321,7 @@ impl ITextDocument2Old {
         unsafe { (windows_core::Interface::vtable(self).ReleaseImmContext)(windows_core::Interface::as_raw(self), context) }
     }
     pub unsafe fn GetPreferredFont(&self, cp: i32, charrep: i32, option: i32, charrepcur: i32, curfontsize: i32, pbstr: *mut windows_core::BSTR, ppitchandfamily: *mut i32, pnewfontsize: *mut i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPreferredFont)(windows_core::Interface::as_raw(self), cp, charrep, option, charrepcur, curfontsize, core::mem::transmute(pbstr), ppitchandfamily as _, pnewfontsize as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetPreferredFont)(windows_core::Interface::as_raw(self), cp, charrep, option, charrepcur, curfontsize, pbstr as _, ppitchandfamily as _, pnewfontsize as _) }
     }
     pub unsafe fn GetNotificationMode(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -1554,7 +1554,7 @@ impl ITextDocument2Old_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextDocument2Old_Impl::GetSelection2(this) {
                     Ok(ok__) => {
-                        ppsel.write(core::mem::transmute(ok__));
+                        ppsel.cast::<ITextSelection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1617,7 +1617,7 @@ impl ITextDocument2Old_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextDocument2Old_Impl::GetDocumentFont(this) {
                     Ok(ok__) => {
-                        ppitextfont.write(core::mem::transmute(ok__));
+                        ppitextfont.cast::<ITextFont>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1632,7 +1632,7 @@ impl ITextDocument2Old_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextDocument2Old_Impl::GetDocumentPara(this) {
                     Ok(ok__) => {
-                        ppitextpara.write(core::mem::transmute(ok__));
+                        ppitextpara.cast::<ITextPara>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1647,7 +1647,7 @@ impl ITextDocument2Old_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextDocument2Old_Impl::GetCallManager(this) {
                     Ok(ok__) => {
-                        ppvoid.write(core::mem::transmute(ok__));
+                        ppvoid.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2093,7 +2093,7 @@ impl ITextFont_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextFont_Impl::GetDuplicate(this) {
                     Ok(ok__) => {
-                        ppfont.write(core::mem::transmute(ok__));
+                        ppfont.cast::<ITextFont>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2402,7 +2402,7 @@ impl ITextFont_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextFont_Impl::GetName(this) {
                     Ok(ok__) => {
-                        pbstr.write(core::mem::transmute(ok__));
+                        pbstr.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2415,7 +2415,7 @@ impl ITextFont_Vtbl {
         unsafe extern "system" fn SetName<Identity: ITextFont_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITextFont_Impl::SetName(this, core::mem::transmute(&bstr))
+                ITextFont_Impl::SetName(this, &*(&raw const bstr).cast())
             }
         }
         unsafe extern "system" fn GetOutline<Identity: ITextFont_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut i32) -> windows_core::HRESULT {
@@ -3251,7 +3251,7 @@ impl ITextFont2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextFont2_Impl::GetDuplicate2(this) {
                     Ok(ok__) => {
-                        ppfont.write(core::mem::transmute(ok__));
+                        ppfont.cast::<ITextFont2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3942,7 +3942,7 @@ impl ITextPara_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextPara_Impl::GetDuplicate(this) {
                     Ok(ok__) => {
-                        pppara.write(core::mem::transmute(ok__));
+                        pppara.cast::<ITextPara>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4640,7 +4640,7 @@ impl ITextPara2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextPara2_Impl::GetBorders(this) {
                     Ok(ok__) => {
-                        ppborders.write(core::mem::transmute(ok__));
+                        ppborders.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4655,7 +4655,7 @@ impl ITextPara2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextPara2_Impl::GetDuplicate2(this) {
                     Ok(ok__) => {
-                        pppara.write(core::mem::transmute(ok__));
+                        pppara.cast::<ITextPara2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5272,7 +5272,7 @@ impl ITextRange_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextRange_Impl::GetText(this) {
                     Ok(ok__) => {
-                        pbstr.write(core::mem::transmute(ok__));
+                        pbstr.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5285,7 +5285,7 @@ impl ITextRange_Vtbl {
         unsafe extern "system" fn SetText<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITextRange_Impl::SetText(this, core::mem::transmute(&bstr))
+                ITextRange_Impl::SetText(this, &*(&raw const bstr).cast())
             }
         }
         unsafe extern "system" fn GetChar<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pchar: *mut i32) -> windows_core::HRESULT {
@@ -5314,7 +5314,7 @@ impl ITextRange_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextRange_Impl::GetDuplicate(this) {
                     Ok(ok__) => {
-                        pprange.write(core::mem::transmute(ok__));
+                        pprange.cast::<ITextRange>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5329,7 +5329,7 @@ impl ITextRange_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextRange_Impl::GetFormattedText(this) {
                     Ok(ok__) => {
-                        pprange.write(core::mem::transmute(ok__));
+                        pprange.cast::<ITextRange>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5392,7 +5392,7 @@ impl ITextRange_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextRange_Impl::GetFont(this) {
                     Ok(ok__) => {
-                        ppfont.write(core::mem::transmute(ok__));
+                        ppfont.cast::<ITextFont>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5413,7 +5413,7 @@ impl ITextRange_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextRange_Impl::GetPara(this) {
                     Ok(ok__) => {
-                        pppara.write(core::mem::transmute(ok__));
+                        pppara.cast::<ITextPara>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5726,7 +5726,7 @@ impl ITextRange_Vtbl {
         unsafe extern "system" fn FindText<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: *mut core::ffi::c_void, count: i32, flags: i32, plength: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextRange_Impl::FindText(this, core::mem::transmute(&bstr), core::mem::transmute_copy(&count), core::mem::transmute_copy(&flags)) {
+                match ITextRange_Impl::FindText(this, &*(&raw const bstr).cast(), core::mem::transmute_copy(&count), core::mem::transmute_copy(&flags)) {
                     Ok(ok__) => {
                         plength.write(ok__);
                         windows_core::HRESULT(0)
@@ -5741,7 +5741,7 @@ impl ITextRange_Vtbl {
         unsafe extern "system" fn FindTextStart<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: *mut core::ffi::c_void, count: i32, flags: i32, plength: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextRange_Impl::FindTextStart(this, core::mem::transmute(&bstr), core::mem::transmute_copy(&count), core::mem::transmute_copy(&flags)) {
+                match ITextRange_Impl::FindTextStart(this, &*(&raw const bstr).cast(), core::mem::transmute_copy(&count), core::mem::transmute_copy(&flags)) {
                     Ok(ok__) => {
                         plength.write(ok__);
                         windows_core::HRESULT(0)
@@ -5756,7 +5756,7 @@ impl ITextRange_Vtbl {
         unsafe extern "system" fn FindTextEnd<Identity: ITextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: *mut core::ffi::c_void, count: i32, flags: i32, plength: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextRange_Impl::FindTextEnd(this, core::mem::transmute(&bstr), core::mem::transmute_copy(&count), core::mem::transmute_copy(&flags)) {
+                match ITextRange_Impl::FindTextEnd(this, &*(&raw const bstr).cast(), core::mem::transmute_copy(&count), core::mem::transmute_copy(&flags)) {
                     Ok(ok__) => {
                         plength.write(ok__);
                         windows_core::HRESULT(0)
@@ -5860,7 +5860,7 @@ impl ITextRange_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextRange_Impl::GetEmbeddedObject(this) {
                     Ok(ok__) => {
-                        ppobject.write(core::mem::transmute(ok__));
+                        ppobject.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6080,7 +6080,7 @@ impl ITextRange2 {
         unsafe { (windows_core::Interface::vtable(self).GetSubrange)(windows_core::Interface::as_raw(self), isubrange, pcpfirst as _, pcplim as _) }
     }
     pub unsafe fn GetText2(&self, flags: i32, pbstr: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetText2)(windows_core::Interface::as_raw(self), flags, core::mem::transmute(pbstr)) }
+        unsafe { (windows_core::Interface::vtable(self).GetText2)(windows_core::Interface::as_raw(self), flags, pbstr as _) }
     }
     pub unsafe fn HexToUnicode(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).HexToUnicode)(windows_core::Interface::as_raw(self)) }
@@ -6235,7 +6235,7 @@ impl ITextRange2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextRange2_Impl::GetCells(this) {
                     Ok(ok__) => {
-                        ppcells.write(core::mem::transmute(ok__));
+                        ppcells.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6250,7 +6250,7 @@ impl ITextRange2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextRange2_Impl::GetColumn(this) {
                     Ok(ok__) => {
-                        ppcolumn.write(core::mem::transmute(ok__));
+                        ppcolumn.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6280,7 +6280,7 @@ impl ITextRange2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextRange2_Impl::GetDuplicate2(this) {
                     Ok(ok__) => {
-                        pprange.write(core::mem::transmute(ok__));
+                        pprange.cast::<ITextRange2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6295,7 +6295,7 @@ impl ITextRange2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextRange2_Impl::GetFont2(this) {
                     Ok(ok__) => {
-                        ppfont.write(core::mem::transmute(ok__));
+                        ppfont.cast::<ITextFont2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6316,7 +6316,7 @@ impl ITextRange2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextRange2_Impl::GetFormattedText2(this) {
                     Ok(ok__) => {
-                        pprange.write(core::mem::transmute(ok__));
+                        pprange.cast::<ITextRange2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6358,7 +6358,7 @@ impl ITextRange2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextRange2_Impl::GetPara2(this) {
                     Ok(ok__) => {
-                        pppara.write(core::mem::transmute(ok__));
+                        pppara.cast::<ITextPara2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6379,7 +6379,7 @@ impl ITextRange2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextRange2_Impl::GetRow(this) {
                     Ok(ok__) => {
-                        pprow.write(core::mem::transmute(ok__));
+                        pprow.cast::<ITextRow>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6409,7 +6409,7 @@ impl ITextRange2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextRange2_Impl::GetTable(this) {
                     Ok(ok__) => {
-                        pptable.write(core::mem::transmute(ok__));
+                        pptable.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6424,7 +6424,7 @@ impl ITextRange2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextRange2_Impl::GetURL(this) {
                     Ok(ok__) => {
-                        pbstr.write(core::mem::transmute(ok__));
+                        pbstr.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6437,7 +6437,7 @@ impl ITextRange2_Vtbl {
         unsafe extern "system" fn SetURL<Identity: ITextRange2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITextRange2_Impl::SetURL(this, core::mem::transmute(&bstr))
+                ITextRange2_Impl::SetURL(this, &*(&raw const bstr).cast())
             }
         }
         unsafe extern "system" fn AddSubrange<Identity: ITextRange2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cp1: i32, cp2: i32, activate: i32) -> windows_core::HRESULT {
@@ -6545,7 +6545,7 @@ impl ITextRange2_Vtbl {
         unsafe extern "system" fn SetText2<Identity: ITextRange2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: i32, bstr: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITextRange2_Impl::SetText2(this, core::mem::transmute_copy(&flags), core::mem::transmute(&bstr))
+                ITextRange2_Impl::SetText2(this, core::mem::transmute_copy(&flags), &*(&raw const bstr).cast())
             }
         }
         unsafe extern "system" fn UnicodeToHex<Identity: ITextRange2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6563,13 +6563,13 @@ impl ITextRange2_Vtbl {
         unsafe extern "system" fn GetMathFunctionType<Identity: ITextRange2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: *mut core::ffi::c_void, pvalue: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITextRange2_Impl::GetMathFunctionType(this, core::mem::transmute(&bstr), core::mem::transmute_copy(&pvalue))
+                ITextRange2_Impl::GetMathFunctionType(this, &*(&raw const bstr).cast(), core::mem::transmute_copy(&pvalue))
             }
         }
         unsafe extern "system" fn InsertImage<Identity: ITextRange2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: i32, height: i32, ascent: i32, r#type: i32, bstralttext: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITextRange2_Impl::InsertImage(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&ascent), core::mem::transmute_copy(&r#type), core::mem::transmute(&bstralttext), core::mem::transmute_copy(&pstream))
+                ITextRange2_Impl::InsertImage(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&ascent), core::mem::transmute_copy(&r#type), &*(&raw const bstralttext).cast(), core::mem::transmute_copy(&pstream))
             }
         }
         Self {
@@ -7682,7 +7682,7 @@ impl ITextSelection_Vtbl {
         unsafe extern "system" fn TypeText<Identity: ITextSelection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITextSelection_Impl::TypeText(this, core::mem::transmute(&bstr))
+                ITextSelection_Impl::TypeText(this, &*(&raw const bstr).cast())
             }
         }
         Self {
@@ -7861,7 +7861,7 @@ impl ITextStory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextStory_Impl::GetDisplay(this) {
                     Ok(ok__) => {
-                        ppdisplay.write(core::mem::transmute(ok__));
+                        ppdisplay.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7918,7 +7918,7 @@ impl ITextStory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextStory_Impl::GetRange(this, core::mem::transmute_copy(&cpactive), core::mem::transmute_copy(&cpanchor)) {
                     Ok(ok__) => {
-                        pprange.write(core::mem::transmute(ok__));
+                        pprange.cast::<ITextRange2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7933,7 +7933,7 @@ impl ITextStory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextStory_Impl::GetText(this, core::mem::transmute_copy(&flags)) {
                     Ok(ok__) => {
-                        pbstr.write(core::mem::transmute(ok__));
+                        pbstr.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7958,7 +7958,7 @@ impl ITextStory_Vtbl {
         unsafe extern "system" fn SetText<Identity: ITextStory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: i32, bstr: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITextStory_Impl::SetText(this, core::mem::transmute_copy(&flags), core::mem::transmute(&bstr))
+                ITextStory_Impl::SetText(this, core::mem::transmute_copy(&flags), &*(&raw const bstr).cast())
             }
         }
         Self {
@@ -8038,7 +8038,7 @@ impl ITextStoryRanges_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextStoryRanges_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        ppunkenum.write(core::mem::transmute(ok__));
+                        ppunkenum.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8053,7 +8053,7 @@ impl ITextStoryRanges_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextStoryRanges_Impl::Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        pprange.write(core::mem::transmute(ok__));
+                        pprange.cast::<ITextRange>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8130,7 +8130,7 @@ impl ITextStoryRanges2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextStoryRanges2_Impl::Item2(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        pprange.write(core::mem::transmute(ok__));
+                        pprange.cast::<ITextRange2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8286,7 +8286,7 @@ impl ITextStrings_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextStrings_Impl::Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        pprange.write(core::mem::transmute(ok__));
+                        pprange.cast::<ITextRange2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8314,7 +8314,7 @@ impl ITextStrings_Vtbl {
         unsafe extern "system" fn Add<Identity: ITextStrings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITextStrings_Impl::Add(this, core::mem::transmute(&bstr))
+                ITextStrings_Impl::Add(this, &*(&raw const bstr).cast())
             }
         }
         unsafe extern "system" fn Append<Identity: ITextStrings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prange: *mut core::ffi::c_void, istring: i32) -> windows_core::HRESULT {
@@ -8332,7 +8332,7 @@ impl ITextStrings_Vtbl {
         unsafe extern "system" fn CatTop2<Identity: ITextStrings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITextStrings_Impl::CatTop2(this, core::mem::transmute(&bstr))
+                ITextStrings_Impl::CatTop2(this, &*(&raw const bstr).cast())
             }
         }
         unsafe extern "system" fn DeleteRange<Identity: ITextStrings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prange: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8368,7 +8368,7 @@ impl ITextStrings_Vtbl {
         unsafe extern "system" fn PrefixTop<Identity: ITextStrings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITextStrings_Impl::PrefixTop(this, core::mem::transmute(&bstr))
+                ITextStrings_Impl::PrefixTop(this, &*(&raw const bstr).cast())
             }
         }
         unsafe extern "system" fn Remove<Identity: ITextStrings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, istring: i32, cstring: i32) -> windows_core::HRESULT {
@@ -8392,7 +8392,7 @@ impl ITextStrings_Vtbl {
         unsafe extern "system" fn SuffixTop<Identity: ITextStrings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstr: *mut core::ffi::c_void, prange: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITextStrings_Impl::SuffixTop(this, core::mem::transmute(&bstr), core::mem::transmute_copy(&prange))
+                ITextStrings_Impl::SuffixTop(this, &*(&raw const bstr).cast(), core::mem::transmute_copy(&prange))
             }
         }
         unsafe extern "system" fn Swap<Identity: ITextStrings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {

@@ -359,7 +359,7 @@ impl IFsrmClassificationManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmClassificationManager_Impl::ClassificationReportMailTo(this) {
                     Ok(ok__) => {
-                        mailto.write(core::mem::transmute(ok__));
+                        mailto.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -372,7 +372,7 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn SetClassificationReportMailTo<Identity: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailto: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmClassificationManager_Impl::SetClassificationReportMailTo(this, core::mem::transmute(&mailto))
+                IFsrmClassificationManager_Impl::SetClassificationReportMailTo(this, &*(&raw const mailto).cast())
             }
         }
         unsafe extern "system" fn ClassificationReportEnabled<Identity: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reportenabled: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -401,7 +401,7 @@ impl IFsrmClassificationManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmClassificationManager_Impl::ClassificationLastReportPathWithoutExtension(this) {
                     Ok(ok__) => {
-                        lastreportpath.write(core::mem::transmute(ok__));
+                        lastreportpath.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -416,7 +416,7 @@ impl IFsrmClassificationManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmClassificationManager_Impl::ClassificationLastError(this) {
                     Ok(ok__) => {
-                        lasterror.write(core::mem::transmute(ok__));
+                        lasterror.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -446,7 +446,7 @@ impl IFsrmClassificationManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmClassificationManager_Impl::EnumPropertyDefinitions(this, core::mem::transmute_copy(&options)) {
                     Ok(ok__) => {
-                        propertydefinitions.write(core::mem::transmute(ok__));
+                        propertydefinitions.cast::<super::IFsrmCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -461,7 +461,7 @@ impl IFsrmClassificationManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmClassificationManager_Impl::CreatePropertyDefinition(this) {
                     Ok(ok__) => {
-                        propertydefinition.write(core::mem::transmute(ok__));
+                        propertydefinition.cast::<IFsrmPropertyDefinition>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -474,9 +474,9 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn GetPropertyDefinition<Identity: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyname: *mut core::ffi::c_void, propertydefinition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFsrmClassificationManager_Impl::GetPropertyDefinition(this, core::mem::transmute(&propertyname)) {
+                match IFsrmClassificationManager_Impl::GetPropertyDefinition(this, &*(&raw const propertyname).cast()) {
                     Ok(ok__) => {
-                        propertydefinition.write(core::mem::transmute(ok__));
+                        propertydefinition.cast::<IFsrmPropertyDefinition>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -491,7 +491,7 @@ impl IFsrmClassificationManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmClassificationManager_Impl::EnumRules(this, core::mem::transmute_copy(&ruletype), core::mem::transmute_copy(&options)) {
                     Ok(ok__) => {
-                        rules.write(core::mem::transmute(ok__));
+                        rules.cast::<super::IFsrmCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -506,7 +506,7 @@ impl IFsrmClassificationManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmClassificationManager_Impl::CreateRule(this, core::mem::transmute_copy(&ruletype)) {
                     Ok(ok__) => {
-                        rule.write(core::mem::transmute(ok__));
+                        rule.cast::<IFsrmRule>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -519,9 +519,9 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn GetRule<Identity: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rulename: *mut core::ffi::c_void, ruletype: super::FsrmRuleType, rule: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFsrmClassificationManager_Impl::GetRule(this, core::mem::transmute(&rulename), core::mem::transmute_copy(&ruletype)) {
+                match IFsrmClassificationManager_Impl::GetRule(this, &*(&raw const rulename).cast(), core::mem::transmute_copy(&ruletype)) {
                     Ok(ok__) => {
-                        rule.write(core::mem::transmute(ok__));
+                        rule.cast::<IFsrmRule>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -536,7 +536,7 @@ impl IFsrmClassificationManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmClassificationManager_Impl::EnumModuleDefinitions(this, core::mem::transmute_copy(&moduletype), core::mem::transmute_copy(&options)) {
                     Ok(ok__) => {
-                        moduledefinitions.write(core::mem::transmute(ok__));
+                        moduledefinitions.cast::<super::IFsrmCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -551,7 +551,7 @@ impl IFsrmClassificationManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmClassificationManager_Impl::CreateModuleDefinition(this, core::mem::transmute_copy(&moduletype)) {
                     Ok(ok__) => {
-                        moduledefinition.write(core::mem::transmute(ok__));
+                        moduledefinition.cast::<IFsrmPipelineModuleDefinition>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -564,9 +564,9 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn GetModuleDefinition<Identity: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, modulename: *mut core::ffi::c_void, moduletype: super::FsrmPipelineModuleType, moduledefinition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFsrmClassificationManager_Impl::GetModuleDefinition(this, core::mem::transmute(&modulename), core::mem::transmute_copy(&moduletype)) {
+                match IFsrmClassificationManager_Impl::GetModuleDefinition(this, &*(&raw const modulename).cast(), core::mem::transmute_copy(&moduletype)) {
                     Ok(ok__) => {
-                        moduledefinition.write(core::mem::transmute(ok__));
+                        moduledefinition.cast::<IFsrmPipelineModuleDefinition>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -579,7 +579,7 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn RunClassification<Identity: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: super::FsrmReportGenerationContext, reserved: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmClassificationManager_Impl::RunClassification(this, core::mem::transmute_copy(&context), core::mem::transmute(&reserved))
+                IFsrmClassificationManager_Impl::RunClassification(this, core::mem::transmute_copy(&context), &*(&raw const reserved).cast())
             }
         }
         unsafe extern "system" fn WaitForClassificationCompletion<Identity: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, waitseconds: i32, completed: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -606,9 +606,9 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn EnumFileProperties<Identity: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: *mut core::ffi::c_void, options: super::FsrmGetFilePropertyOptions, fileproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFsrmClassificationManager_Impl::EnumFileProperties(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&options)) {
+                match IFsrmClassificationManager_Impl::EnumFileProperties(this, &*(&raw const filepath).cast(), core::mem::transmute_copy(&options)) {
                     Ok(ok__) => {
-                        fileproperties.write(core::mem::transmute(ok__));
+                        fileproperties.cast::<super::IFsrmCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -621,9 +621,9 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn GetFileProperty<Identity: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: *mut core::ffi::c_void, propertyname: *mut core::ffi::c_void, options: super::FsrmGetFilePropertyOptions, property: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFsrmClassificationManager_Impl::GetFileProperty(this, core::mem::transmute(&filepath), core::mem::transmute(&propertyname), core::mem::transmute_copy(&options)) {
+                match IFsrmClassificationManager_Impl::GetFileProperty(this, &*(&raw const filepath).cast(), &*(&raw const propertyname).cast(), core::mem::transmute_copy(&options)) {
                     Ok(ok__) => {
-                        property.write(core::mem::transmute(ok__));
+                        property.cast::<IFsrmProperty>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -636,13 +636,13 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn SetFileProperty<Identity: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: *mut core::ffi::c_void, propertyname: *mut core::ffi::c_void, propertyvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmClassificationManager_Impl::SetFileProperty(this, core::mem::transmute(&filepath), core::mem::transmute(&propertyname), core::mem::transmute(&propertyvalue))
+                IFsrmClassificationManager_Impl::SetFileProperty(this, &*(&raw const filepath).cast(), &*(&raw const propertyname).cast(), &*(&raw const propertyvalue).cast())
             }
         }
         unsafe extern "system" fn ClearFileProperty<Identity: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: *mut core::ffi::c_void, property: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmClassificationManager_Impl::ClearFileProperty(this, core::mem::transmute(&filepath), core::mem::transmute(&property))
+                IFsrmClassificationManager_Impl::ClearFileProperty(this, &*(&raw const filepath).cast(), &*(&raw const property).cast())
             }
         }
         Self {
@@ -830,7 +830,7 @@ impl IFsrmClassificationRule_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmClassificationRule_Impl::PropertyAffected(this) {
                     Ok(ok__) => {
-                        property.write(core::mem::transmute(ok__));
+                        property.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -843,7 +843,7 @@ impl IFsrmClassificationRule_Vtbl {
         unsafe extern "system" fn SetPropertyAffected<Identity: IFsrmClassificationRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmClassificationRule_Impl::SetPropertyAffected(this, core::mem::transmute(&property))
+                IFsrmClassificationRule_Impl::SetPropertyAffected(this, &*(&raw const property).cast())
             }
         }
         unsafe extern "system" fn Value<Identity: IFsrmClassificationRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -851,7 +851,7 @@ impl IFsrmClassificationRule_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmClassificationRule_Impl::Value(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -864,7 +864,7 @@ impl IFsrmClassificationRule_Vtbl {
         unsafe extern "system" fn SetValue<Identity: IFsrmClassificationRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmClassificationRule_Impl::SetValue(this, core::mem::transmute(&value))
+                IFsrmClassificationRule_Impl::SetValue(this, &*(&raw const value).cast())
             }
         }
         Self {
@@ -1092,7 +1092,7 @@ impl IFsrmClassifierModuleImplementation {
     }
     #[cfg(feature = "fsrmenums")]
     pub unsafe fn GetPropertyValueToApply(&self, property: &windows_core::BSTR, value: *mut windows_core::BSTR, idrule: super::FSRM_OBJECT_ID, idpropdef: super::FSRM_OBJECT_ID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPropertyValueToApply)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(property), core::mem::transmute(value), idrule, idpropdef) }
+        unsafe { (windows_core::Interface::vtable(self).GetPropertyValueToApply)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(property), value as _, idrule, idpropdef) }
     }
     pub unsafe fn OnEndFile(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnEndFile)(windows_core::Interface::as_raw(self)) }
@@ -1142,7 +1142,7 @@ impl IFsrmClassifierModuleImplementation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmClassifierModuleImplementation_Impl::LastModified(this) {
                     Ok(ok__) => {
-                        lastmodified.write(core::mem::transmute(ok__));
+                        lastmodified.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1167,13 +1167,13 @@ impl IFsrmClassifierModuleImplementation_Vtbl {
         unsafe extern "system" fn DoesPropertyValueApply<Identity: IFsrmClassifierModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: *mut core::ffi::c_void, value: *mut core::ffi::c_void, applyvalue: *mut super::VARIANT_BOOL, idrule: super::FSRM_OBJECT_ID, idpropdef: super::FSRM_OBJECT_ID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmClassifierModuleImplementation_Impl::DoesPropertyValueApply(this, core::mem::transmute(&property), core::mem::transmute(&value), core::mem::transmute_copy(&applyvalue), core::mem::transmute(&idrule), core::mem::transmute(&idpropdef))
+                IFsrmClassifierModuleImplementation_Impl::DoesPropertyValueApply(this, &*(&raw const property).cast(), &*(&raw const value).cast(), core::mem::transmute_copy(&applyvalue), &*(&raw const idrule).cast(), &*(&raw const idpropdef).cast())
             }
         }
         unsafe extern "system" fn GetPropertyValueToApply<Identity: IFsrmClassifierModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void, idrule: super::FSRM_OBJECT_ID, idpropdef: super::FSRM_OBJECT_ID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmClassifierModuleImplementation_Impl::GetPropertyValueToApply(this, core::mem::transmute(&property), core::mem::transmute_copy(&value), core::mem::transmute(&idrule), core::mem::transmute(&idpropdef))
+                IFsrmClassifierModuleImplementation_Impl::GetPropertyValueToApply(this, &*(&raw const property).cast(), core::mem::transmute_copy(&value), &*(&raw const idrule).cast(), &*(&raw const idpropdef).cast())
             }
         }
         unsafe extern "system" fn OnEndFile<Identity: IFsrmClassifierModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1274,7 +1274,7 @@ impl IFsrmPipelineModuleConnector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPipelineModuleConnector_Impl::ModuleImplementation(this) {
                     Ok(ok__) => {
-                        pipelinemoduleimplementation.write(core::mem::transmute(ok__));
+                        pipelinemoduleimplementation.cast::<IFsrmPipelineModuleImplementation>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1289,7 +1289,7 @@ impl IFsrmPipelineModuleConnector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPipelineModuleConnector_Impl::ModuleName(this) {
                     Ok(ok__) => {
-                        username.write(core::mem::transmute(ok__));
+                        username.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1304,7 +1304,7 @@ impl IFsrmPipelineModuleConnector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPipelineModuleConnector_Impl::HostingUserAccount(this) {
                     Ok(ok__) => {
-                        useraccount.write(core::mem::transmute(ok__));
+                        useraccount.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1550,7 +1550,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPipelineModuleDefinition_Impl::ModuleClsid(this) {
                     Ok(ok__) => {
-                        moduleclsid.write(core::mem::transmute(ok__));
+                        moduleclsid.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1563,7 +1563,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
         unsafe extern "system" fn SetModuleClsid<Identity: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleclsid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmPipelineModuleDefinition_Impl::SetModuleClsid(this, core::mem::transmute(&moduleclsid))
+                IFsrmPipelineModuleDefinition_Impl::SetModuleClsid(this, &*(&raw const moduleclsid).cast())
             }
         }
         unsafe extern "system" fn Name<Identity: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1571,7 +1571,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPipelineModuleDefinition_Impl::Name(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1584,7 +1584,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
         unsafe extern "system" fn SetName<Identity: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmPipelineModuleDefinition_Impl::SetName(this, core::mem::transmute(&name))
+                IFsrmPipelineModuleDefinition_Impl::SetName(this, &*(&raw const name).cast())
             }
         }
         unsafe extern "system" fn Company<Identity: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, company: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1592,7 +1592,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPipelineModuleDefinition_Impl::Company(this) {
                     Ok(ok__) => {
-                        company.write(core::mem::transmute(ok__));
+                        company.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1605,7 +1605,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
         unsafe extern "system" fn SetCompany<Identity: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, company: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmPipelineModuleDefinition_Impl::SetCompany(this, core::mem::transmute(&company))
+                IFsrmPipelineModuleDefinition_Impl::SetCompany(this, &*(&raw const company).cast())
             }
         }
         unsafe extern "system" fn Version<Identity: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, version: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1613,7 +1613,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPipelineModuleDefinition_Impl::Version(this) {
                     Ok(ok__) => {
-                        version.write(core::mem::transmute(ok__));
+                        version.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1626,7 +1626,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
         unsafe extern "system" fn SetVersion<Identity: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, version: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmPipelineModuleDefinition_Impl::SetVersion(this, core::mem::transmute(&version))
+                IFsrmPipelineModuleDefinition_Impl::SetVersion(this, &*(&raw const version).cast())
             }
         }
         unsafe extern "system" fn ModuleType<Identity: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduletype: *mut super::FsrmPipelineModuleType) -> windows_core::HRESULT {
@@ -1829,7 +1829,7 @@ impl IFsrmPipelineModuleImplementation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPipelineModuleImplementation_Impl::OnLoad(this, core::mem::transmute_copy(&moduledefinition)) {
                     Ok(ok__) => {
-                        moduleconnector.write(core::mem::transmute(ok__));
+                        moduleconnector.cast::<IFsrmPipelineModuleConnector>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1920,7 +1920,7 @@ impl IFsrmProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmProperty_Impl::Name(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1935,7 +1935,7 @@ impl IFsrmProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmProperty_Impl::Value(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2222,7 +2222,7 @@ impl IFsrmPropertyBag_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyBag_Impl::Name(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2237,7 +2237,7 @@ impl IFsrmPropertyBag_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyBag_Impl::RelativePath(this) {
                     Ok(ok__) => {
-                        path.write(core::mem::transmute(ok__));
+                        path.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2252,7 +2252,7 @@ impl IFsrmPropertyBag_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyBag_Impl::VolumeName(this) {
                     Ok(ok__) => {
-                        volumename.write(core::mem::transmute(ok__));
+                        volumename.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2267,7 +2267,7 @@ impl IFsrmPropertyBag_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyBag_Impl::RelativeNamespaceRoot(this) {
                     Ok(ok__) => {
-                        relativenamespaceroot.write(core::mem::transmute(ok__));
+                        relativenamespaceroot.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2297,7 +2297,7 @@ impl IFsrmPropertyBag_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyBag_Impl::FileId(this) {
                     Ok(ok__) => {
-                        fileid.write(core::mem::transmute(ok__));
+                        fileid.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2312,7 +2312,7 @@ impl IFsrmPropertyBag_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyBag_Impl::ParentDirectoryId(this) {
                     Ok(ok__) => {
-                        parentdirectoryid.write(core::mem::transmute(ok__));
+                        parentdirectoryid.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2327,7 +2327,7 @@ impl IFsrmPropertyBag_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyBag_Impl::Size(this) {
                     Ok(ok__) => {
-                        size.write(core::mem::transmute(ok__));
+                        size.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2342,7 +2342,7 @@ impl IFsrmPropertyBag_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyBag_Impl::SizeAllocated(this) {
                     Ok(ok__) => {
-                        sizeallocated.write(core::mem::transmute(ok__));
+                        sizeallocated.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2357,7 +2357,7 @@ impl IFsrmPropertyBag_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyBag_Impl::CreationTime(this) {
                     Ok(ok__) => {
-                        creationtime.write(core::mem::transmute(ok__));
+                        creationtime.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2372,7 +2372,7 @@ impl IFsrmPropertyBag_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyBag_Impl::LastAccessTime(this) {
                     Ok(ok__) => {
-                        lastaccesstime.write(core::mem::transmute(ok__));
+                        lastaccesstime.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2387,7 +2387,7 @@ impl IFsrmPropertyBag_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyBag_Impl::LastModificationTime(this) {
                     Ok(ok__) => {
-                        lastmodificationtime.write(core::mem::transmute(ok__));
+                        lastmodificationtime.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2417,7 +2417,7 @@ impl IFsrmPropertyBag_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyBag_Impl::OwnerSid(this) {
                     Ok(ok__) => {
-                        ownersid.write(core::mem::transmute(ok__));
+                        ownersid.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2475,9 +2475,9 @@ impl IFsrmPropertyBag_Vtbl {
         unsafe extern "system" fn GetFileProperty<Identity: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, fileproperty: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFsrmPropertyBag_Impl::GetFileProperty(this, core::mem::transmute(&name)) {
+                match IFsrmPropertyBag_Impl::GetFileProperty(this, &*(&raw const name).cast()) {
                     Ok(ok__) => {
-                        fileproperty.write(core::mem::transmute(ok__));
+                        fileproperty.cast::<IFsrmProperty>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2490,13 +2490,13 @@ impl IFsrmPropertyBag_Vtbl {
         unsafe extern "system" fn SetFileProperty<Identity: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmPropertyBag_Impl::SetFileProperty(this, core::mem::transmute(&name), core::mem::transmute(&value))
+                IFsrmPropertyBag_Impl::SetFileProperty(this, &*(&raw const name).cast(), &*(&raw const value).cast())
             }
         }
         unsafe extern "system" fn AddMessage<Identity: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, message: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmPropertyBag_Impl::AddMessage(this, core::mem::transmute(&message))
+                IFsrmPropertyBag_Impl::AddMessage(this, &*(&raw const message).cast())
             }
         }
         unsafe extern "system" fn GetFileStreamInterface<Identity: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, accessmode: super::FsrmFileStreamingMode, interfacetype: super::FsrmFileStreamingInterfaceType, pstreaminterface: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -2504,7 +2504,7 @@ impl IFsrmPropertyBag_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyBag_Impl::GetFileStreamInterface(this, core::mem::transmute_copy(&accessmode), core::mem::transmute_copy(&interfacetype)) {
                     Ok(ok__) => {
-                        pstreaminterface.write(core::mem::transmute(ok__));
+                        pstreaminterface.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2600,7 +2600,7 @@ impl IFsrmPropertyBag2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyBag2_Impl::GetFieldValue(this, core::mem::transmute_copy(&field)) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2615,7 +2615,7 @@ impl IFsrmPropertyBag2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyBag2_Impl::GetUntrustedInFileProperties(this) {
                     Ok(ok__) => {
-                        props.write(core::mem::transmute(ok__));
+                        props.cast::<super::IFsrmCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2765,7 +2765,7 @@ impl IFsrmPropertyDefinition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyDefinition_Impl::Name(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2778,7 +2778,7 @@ impl IFsrmPropertyDefinition_Vtbl {
         unsafe extern "system" fn SetName<Identity: IFsrmPropertyDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmPropertyDefinition_Impl::SetName(this, core::mem::transmute(&name))
+                IFsrmPropertyDefinition_Impl::SetName(this, &*(&raw const name).cast())
             }
         }
         unsafe extern "system" fn Type<Identity: IFsrmPropertyDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: *mut super::FsrmPropertyDefinitionType) -> windows_core::HRESULT {
@@ -2968,7 +2968,7 @@ impl IFsrmPropertyDefinition2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyDefinition2_Impl::DisplayName(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2981,7 +2981,7 @@ impl IFsrmPropertyDefinition2_Vtbl {
         unsafe extern "system" fn SetDisplayName<Identity: IFsrmPropertyDefinition2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmPropertyDefinition2_Impl::SetDisplayName(this, core::mem::transmute(&name))
+                IFsrmPropertyDefinition2_Impl::SetDisplayName(this, &*(&raw const name).cast())
             }
         }
         unsafe extern "system" fn AppliesTo<Identity: IFsrmPropertyDefinition2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, appliesto: *mut i32) -> windows_core::HRESULT {
@@ -3004,7 +3004,7 @@ impl IFsrmPropertyDefinition2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyDefinition2_Impl::ValueDefinitions(this) {
                     Ok(ok__) => {
-                        valuedefinitions.write(core::mem::transmute(ok__));
+                        valuedefinitions.cast::<super::IFsrmCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3092,7 +3092,7 @@ impl IFsrmPropertyDefinitionValue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyDefinitionValue_Impl::Name(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3107,7 +3107,7 @@ impl IFsrmPropertyDefinitionValue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyDefinitionValue_Impl::DisplayName(this) {
                     Ok(ok__) => {
-                        displayname.write(core::mem::transmute(ok__));
+                        displayname.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3122,7 +3122,7 @@ impl IFsrmPropertyDefinitionValue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyDefinitionValue_Impl::Description(this) {
                     Ok(ok__) => {
-                        description.write(core::mem::transmute(ok__));
+                        description.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3137,7 +3137,7 @@ impl IFsrmPropertyDefinitionValue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyDefinitionValue_Impl::UniqueID(this) {
                     Ok(ok__) => {
-                        uniqueid.write(core::mem::transmute(ok__));
+                        uniqueid.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3297,7 +3297,7 @@ impl IFsrmRule_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmRule_Impl::Name(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3310,7 +3310,7 @@ impl IFsrmRule_Vtbl {
         unsafe extern "system" fn SetName<Identity: IFsrmRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmRule_Impl::SetName(this, core::mem::transmute(&name))
+                IFsrmRule_Impl::SetName(this, &*(&raw const name).cast())
             }
         }
         unsafe extern "system" fn RuleType<Identity: IFsrmRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ruletype: *mut super::FsrmRuleType) -> windows_core::HRESULT {
@@ -3333,7 +3333,7 @@ impl IFsrmRule_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmRule_Impl::ModuleDefinitionName(this) {
                     Ok(ok__) => {
-                        moduledefinitionname.write(core::mem::transmute(ok__));
+                        moduledefinitionname.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3346,7 +3346,7 @@ impl IFsrmRule_Vtbl {
         unsafe extern "system" fn SetModuleDefinitionName<Identity: IFsrmRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduledefinitionname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmRule_Impl::SetModuleDefinitionName(this, core::mem::transmute(&moduledefinitionname))
+                IFsrmRule_Impl::SetModuleDefinitionName(this, &*(&raw const moduledefinitionname).cast())
             }
         }
         unsafe extern "system" fn NamespaceRoots<Identity: IFsrmRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaceroots: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
@@ -3417,7 +3417,7 @@ impl IFsrmRule_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmRule_Impl::LastModified(this) {
                     Ok(ok__) => {
-                        lastmodified.write(core::mem::transmute(ok__));
+                        lastmodified.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

@@ -44,7 +44,7 @@ impl Interface {
             (windows_core::Interface::vtable(self).OutInterfaces)(
                 windows_core::Interface::as_raw(self),
                 count,
-                core::mem::transmute(values),
+                values as _,
             )
         }
     }

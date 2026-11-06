@@ -1494,7 +1494,7 @@ impl IPointerPointTransform_Vtbl {
         unsafe extern "system" fn TryTransform<Identity: IPointerPointTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inpoint: super::super::Foundation::Point, outpoint: *mut super::super::Foundation::Point, result__: *mut bool) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPointerPointTransform_Impl::TryTransform(this, core::mem::transmute(&inpoint), core::mem::transmute_copy(&outpoint)) {
+                match IPointerPointTransform_Impl::TryTransform(this, &*(&raw const inpoint).cast(), core::mem::transmute_copy(&outpoint)) {
                     Ok(ok__) => {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
@@ -1509,7 +1509,7 @@ impl IPointerPointTransform_Vtbl {
         unsafe extern "system" fn TransformBounds<Identity: IPointerPointTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rect: super::super::Foundation::Rect, result__: *mut super::super::Foundation::Rect) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPointerPointTransform_Impl::TransformBounds(this, core::mem::transmute(&rect)) {
+                match IPointerPointTransform_Impl::TransformBounds(this, &*(&raw const rect).cast()) {
                     Ok(ok__) => {
                         result__.write(ok__);
                         windows_core::HRESULT(0)

@@ -172,7 +172,7 @@ impl IFunctionDiscovery_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFunctionDiscovery_Impl::GetInstanceCollection(this, core::mem::transmute_copy(&pszcategory), core::mem::transmute_copy(&pszsubcategory), core::mem::transmute_copy(&fincludeallsubcategories)) {
                     Ok(ok__) => {
-                        ppifunctioninstancecollection.write(core::mem::transmute(ok__));
+                        ppifunctioninstancecollection.cast::<IFunctionInstanceCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -187,7 +187,7 @@ impl IFunctionDiscovery_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFunctionDiscovery_Impl::GetInstance(this, core::mem::transmute_copy(&pszfunctioninstanceidentity)) {
                     Ok(ok__) => {
-                        ppifunctioninstance.write(core::mem::transmute(ok__));
+                        ppifunctioninstance.cast::<IFunctionInstance>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -202,7 +202,7 @@ impl IFunctionDiscovery_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFunctionDiscovery_Impl::CreateInstanceCollectionQuery(this, core::mem::transmute_copy(&pszcategory), core::mem::transmute_copy(&pszsubcategory), core::mem::transmute_copy(&fincludeallsubcategories), core::mem::transmute_copy(&pifunctiondiscoverynotification), core::mem::transmute_copy(&pfdqcquerycontext)) {
                     Ok(ok__) => {
-                        ppifunctioninstancecollectionquery.write(core::mem::transmute(ok__));
+                        ppifunctioninstancecollectionquery.cast::<IFunctionInstanceCollectionQuery>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -217,7 +217,7 @@ impl IFunctionDiscovery_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFunctionDiscovery_Impl::CreateInstanceQuery(this, core::mem::transmute_copy(&pszfunctioninstanceidentity), core::mem::transmute_copy(&pifunctiondiscoverynotification), core::mem::transmute_copy(&pfdqcquerycontext)) {
                     Ok(ok__) => {
-                        ppifunctioninstancequery.write(core::mem::transmute(ok__));
+                        ppifunctioninstancequery.cast::<IFunctionInstanceQuery>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -232,7 +232,7 @@ impl IFunctionDiscovery_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFunctionDiscovery_Impl::AddInstance(this, core::mem::transmute_copy(&enumsystemvisibility), core::mem::transmute_copy(&pszcategory), core::mem::transmute_copy(&pszsubcategory), core::mem::transmute_copy(&pszcategoryidentity)) {
                     Ok(ok__) => {
-                        ppifunctioninstance.write(core::mem::transmute(ok__));
+                        ppifunctioninstance.cast::<IFunctionInstance>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -425,7 +425,7 @@ impl IFunctionInstance_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFunctionInstance_Impl::OpenPropertyStore(this, core::mem::transmute_copy(&dwstgaccess)) {
                     Ok(ok__) => {
-                        ppipropertystore.write(core::mem::transmute(ok__));
+                        ppipropertystore.cast::<super::IPropertyStore>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -564,7 +564,7 @@ impl IFunctionInstanceCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFunctionInstanceCollection_Impl::Get(this, core::mem::transmute_copy(&pszinstanceidentity), core::mem::transmute_copy(&pdwindex)) {
                     Ok(ok__) => {
-                        ppifunctioninstance.write(core::mem::transmute(ok__));
+                        ppifunctioninstance.cast::<IFunctionInstance>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -579,7 +579,7 @@ impl IFunctionInstanceCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFunctionInstanceCollection_Impl::Item(this, core::mem::transmute_copy(&dwindex)) {
                     Ok(ok__) => {
-                        ppifunctioninstance.write(core::mem::transmute(ok__));
+                        ppifunctioninstance.cast::<IFunctionInstance>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -600,7 +600,7 @@ impl IFunctionInstanceCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFunctionInstanceCollection_Impl::Remove(this, core::mem::transmute_copy(&dwindex)) {
                     Ok(ok__) => {
-                        ppifunctioninstance.write(core::mem::transmute(ok__));
+                        ppifunctioninstance.cast::<IFunctionInstance>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -697,7 +697,7 @@ impl IFunctionInstanceCollectionQuery_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFunctionInstanceCollectionQuery_Impl::Execute(this) {
                     Ok(ok__) => {
-                        ppifunctioninstancecollection.write(core::mem::transmute(ok__));
+                        ppifunctioninstancecollection.cast::<IFunctionInstanceCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -758,7 +758,7 @@ impl IFunctionInstanceQuery_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFunctionInstanceQuery_Impl::Execute(this) {
                     Ok(ok__) => {
-                        ppifunctioninstance.write(core::mem::transmute(ok__));
+                        ppifunctioninstance.cast::<IFunctionInstance>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -888,7 +888,7 @@ impl IPropertyStoreCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyStoreCollection_Impl::Get(this, core::mem::transmute_copy(&pszinstanceidentity), core::mem::transmute_copy(&pdwindex)) {
                     Ok(ok__) => {
-                        ppipropertystore.write(core::mem::transmute(ok__));
+                        ppipropertystore.cast::<super::IPropertyStore>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -903,7 +903,7 @@ impl IPropertyStoreCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyStoreCollection_Impl::Item(this, core::mem::transmute_copy(&dwindex)) {
                     Ok(ok__) => {
-                        ppipropertystore.write(core::mem::transmute(ok__));
+                        ppipropertystore.cast::<super::IPropertyStore>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -924,7 +924,7 @@ impl IPropertyStoreCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyStoreCollection_Impl::Remove(this, core::mem::transmute_copy(&dwindex)) {
                     Ok(ok__) => {
-                        pipropertystore.write(core::mem::transmute(ok__));
+                        pipropertystore.cast::<super::IPropertyStore>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

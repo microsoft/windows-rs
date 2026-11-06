@@ -5,8 +5,7 @@
     non_upper_case_globals,
     non_camel_case_types,
     clippy::upper_case_acronyms,
-    clippy::too_many_arguments,
-    clippy::missing_transmute_annotations
+    clippy::too_many_arguments
 )]
 mod bindings;
 mod bitmap;

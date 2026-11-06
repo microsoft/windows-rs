@@ -193,7 +193,7 @@ impl IRichEditOle_Vtbl {
         unsafe extern "system" fn ConvertObject<Identity: IRichEditOle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iob: super::LONG, rclsidnew: *const super::IID, lpstrusertypenew: windows_core::PCSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditOle_Impl::ConvertObject(this, core::mem::transmute_copy(&iob), core::mem::transmute_copy(&rclsidnew), core::mem::transmute(&lpstrusertypenew))
+                IRichEditOle_Impl::ConvertObject(this, core::mem::transmute_copy(&iob), core::mem::transmute_copy(&rclsidnew), &*(&raw const lpstrusertypenew).cast())
             }
         }
         unsafe extern "system" fn ActivateAs<Identity: IRichEditOle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rclsid: *const super::IID, rclsidas: *const super::IID) -> windows_core::HRESULT {
@@ -205,7 +205,7 @@ impl IRichEditOle_Vtbl {
         unsafe extern "system" fn SetHostNames<Identity: IRichEditOle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpstrcontainerapp: windows_core::PCSTR, lpstrcontainerobj: windows_core::PCSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditOle_Impl::SetHostNames(this, core::mem::transmute(&lpstrcontainerapp), core::mem::transmute(&lpstrcontainerobj))
+                IRichEditOle_Impl::SetHostNames(this, &*(&raw const lpstrcontainerapp).cast(), &*(&raw const lpstrcontainerobj).cast())
             }
         }
         unsafe extern "system" fn SetLinkAvailable<Identity: IRichEditOle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iob: super::LONG, favailable: windows_core::BOOL) -> windows_core::HRESULT {

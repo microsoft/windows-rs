@@ -69,7 +69,7 @@ impl IFsrmAccessDeniedRemediationClient_Vtbl {
         unsafe extern "system" fn Show<Identity: IFsrmAccessDeniedRemediationClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parentwnd: super::ULONG_PTR, accesspath: *mut core::ffi::c_void, errortype: super::AdrClientErrorType, flags: i32, windowtitle: *mut core::ffi::c_void, windowmessage: *mut core::ffi::c_void, result: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFsrmAccessDeniedRemediationClient_Impl::Show(this, core::mem::transmute_copy(&parentwnd), core::mem::transmute(&accesspath), core::mem::transmute_copy(&errortype), core::mem::transmute_copy(&flags), core::mem::transmute(&windowtitle), core::mem::transmute(&windowmessage)) {
+                match IFsrmAccessDeniedRemediationClient_Impl::Show(this, core::mem::transmute_copy(&parentwnd), &*(&raw const accesspath).cast(), core::mem::transmute_copy(&errortype), core::mem::transmute_copy(&flags), &*(&raw const windowtitle).cast(), &*(&raw const windowmessage).cast()) {
                     Ok(ok__) => {
                         result.write(ok__);
                         windows_core::HRESULT(0)
@@ -375,7 +375,7 @@ impl IFsrmActionCommand_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmActionCommand_Impl::ExecutablePath(this) {
                     Ok(ok__) => {
-                        executablepath.write(core::mem::transmute(ok__));
+                        executablepath.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -388,7 +388,7 @@ impl IFsrmActionCommand_Vtbl {
         unsafe extern "system" fn SetExecutablePath<Identity: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, executablepath: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmActionCommand_Impl::SetExecutablePath(this, core::mem::transmute(&executablepath))
+                IFsrmActionCommand_Impl::SetExecutablePath(this, &*(&raw const executablepath).cast())
             }
         }
         unsafe extern "system" fn Arguments<Identity: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, arguments: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -396,7 +396,7 @@ impl IFsrmActionCommand_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmActionCommand_Impl::Arguments(this) {
                     Ok(ok__) => {
-                        arguments.write(core::mem::transmute(ok__));
+                        arguments.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -409,7 +409,7 @@ impl IFsrmActionCommand_Vtbl {
         unsafe extern "system" fn SetArguments<Identity: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, arguments: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmActionCommand_Impl::SetArguments(this, core::mem::transmute(&arguments))
+                IFsrmActionCommand_Impl::SetArguments(this, &*(&raw const arguments).cast())
             }
         }
         unsafe extern "system" fn Account<Identity: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, account: *mut super::FsrmAccountType) -> windows_core::HRESULT {
@@ -438,7 +438,7 @@ impl IFsrmActionCommand_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmActionCommand_Impl::WorkingDirectory(this) {
                     Ok(ok__) => {
-                        workingdirectory.write(core::mem::transmute(ok__));
+                        workingdirectory.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -451,7 +451,7 @@ impl IFsrmActionCommand_Vtbl {
         unsafe extern "system" fn SetWorkingDirectory<Identity: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, workingdirectory: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmActionCommand_Impl::SetWorkingDirectory(this, core::mem::transmute(&workingdirectory))
+                IFsrmActionCommand_Impl::SetWorkingDirectory(this, &*(&raw const workingdirectory).cast())
             }
         }
         unsafe extern "system" fn MonitorCommand<Identity: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, monitorcommand: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -663,7 +663,7 @@ impl IFsrmActionEmail_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmActionEmail_Impl::MailFrom(this) {
                     Ok(ok__) => {
-                        mailfrom.write(core::mem::transmute(ok__));
+                        mailfrom.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -676,7 +676,7 @@ impl IFsrmActionEmail_Vtbl {
         unsafe extern "system" fn SetMailFrom<Identity: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailfrom: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmActionEmail_Impl::SetMailFrom(this, core::mem::transmute(&mailfrom))
+                IFsrmActionEmail_Impl::SetMailFrom(this, &*(&raw const mailfrom).cast())
             }
         }
         unsafe extern "system" fn MailReplyTo<Identity: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailreplyto: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -684,7 +684,7 @@ impl IFsrmActionEmail_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmActionEmail_Impl::MailReplyTo(this) {
                     Ok(ok__) => {
-                        mailreplyto.write(core::mem::transmute(ok__));
+                        mailreplyto.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -697,7 +697,7 @@ impl IFsrmActionEmail_Vtbl {
         unsafe extern "system" fn SetMailReplyTo<Identity: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailreplyto: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmActionEmail_Impl::SetMailReplyTo(this, core::mem::transmute(&mailreplyto))
+                IFsrmActionEmail_Impl::SetMailReplyTo(this, &*(&raw const mailreplyto).cast())
             }
         }
         unsafe extern "system" fn MailTo<Identity: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailto: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -705,7 +705,7 @@ impl IFsrmActionEmail_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmActionEmail_Impl::MailTo(this) {
                     Ok(ok__) => {
-                        mailto.write(core::mem::transmute(ok__));
+                        mailto.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -718,7 +718,7 @@ impl IFsrmActionEmail_Vtbl {
         unsafe extern "system" fn SetMailTo<Identity: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailto: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmActionEmail_Impl::SetMailTo(this, core::mem::transmute(&mailto))
+                IFsrmActionEmail_Impl::SetMailTo(this, &*(&raw const mailto).cast())
             }
         }
         unsafe extern "system" fn MailCc<Identity: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailcc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -726,7 +726,7 @@ impl IFsrmActionEmail_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmActionEmail_Impl::MailCc(this) {
                     Ok(ok__) => {
-                        mailcc.write(core::mem::transmute(ok__));
+                        mailcc.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -739,7 +739,7 @@ impl IFsrmActionEmail_Vtbl {
         unsafe extern "system" fn SetMailCc<Identity: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailcc: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmActionEmail_Impl::SetMailCc(this, core::mem::transmute(&mailcc))
+                IFsrmActionEmail_Impl::SetMailCc(this, &*(&raw const mailcc).cast())
             }
         }
         unsafe extern "system" fn MailBcc<Identity: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailbcc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -747,7 +747,7 @@ impl IFsrmActionEmail_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmActionEmail_Impl::MailBcc(this) {
                     Ok(ok__) => {
-                        mailbcc.write(core::mem::transmute(ok__));
+                        mailbcc.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -760,7 +760,7 @@ impl IFsrmActionEmail_Vtbl {
         unsafe extern "system" fn SetMailBcc<Identity: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailbcc: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmActionEmail_Impl::SetMailBcc(this, core::mem::transmute(&mailbcc))
+                IFsrmActionEmail_Impl::SetMailBcc(this, &*(&raw const mailbcc).cast())
             }
         }
         unsafe extern "system" fn MailSubject<Identity: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailsubject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -768,7 +768,7 @@ impl IFsrmActionEmail_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmActionEmail_Impl::MailSubject(this) {
                     Ok(ok__) => {
-                        mailsubject.write(core::mem::transmute(ok__));
+                        mailsubject.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -781,7 +781,7 @@ impl IFsrmActionEmail_Vtbl {
         unsafe extern "system" fn SetMailSubject<Identity: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailsubject: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmActionEmail_Impl::SetMailSubject(this, core::mem::transmute(&mailsubject))
+                IFsrmActionEmail_Impl::SetMailSubject(this, &*(&raw const mailsubject).cast())
             }
         }
         unsafe extern "system" fn MessageText<Identity: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, messagetext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -789,7 +789,7 @@ impl IFsrmActionEmail_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmActionEmail_Impl::MessageText(this) {
                     Ok(ok__) => {
-                        messagetext.write(core::mem::transmute(ok__));
+                        messagetext.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -802,7 +802,7 @@ impl IFsrmActionEmail_Vtbl {
         unsafe extern "system" fn SetMessageText<Identity: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, messagetext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmActionEmail_Impl::SetMessageText(this, core::mem::transmute(&messagetext))
+                IFsrmActionEmail_Impl::SetMessageText(this, &*(&raw const messagetext).cast())
             }
         }
         Self {
@@ -987,7 +987,7 @@ impl IFsrmActionEventLog_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmActionEventLog_Impl::MessageText(this) {
                     Ok(ok__) => {
-                        messagetext.write(core::mem::transmute(ok__));
+                        messagetext.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1000,7 +1000,7 @@ impl IFsrmActionEventLog_Vtbl {
         unsafe extern "system" fn SetMessageText<Identity: IFsrmActionEventLog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, messagetext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmActionEventLog_Impl::SetMessageText(this, core::mem::transmute(&messagetext))
+                IFsrmActionEventLog_Impl::SetMessageText(this, &*(&raw const messagetext).cast())
             }
         }
         Self {
@@ -1103,7 +1103,7 @@ impl IFsrmActionReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmActionReport_Impl::MailTo(this) {
                     Ok(ok__) => {
-                        mailto.write(core::mem::transmute(ok__));
+                        mailto.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1116,7 +1116,7 @@ impl IFsrmActionReport_Vtbl {
         unsafe extern "system" fn SetMailTo<Identity: IFsrmActionReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailto: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmActionReport_Impl::SetMailTo(this, core::mem::transmute(&mailto))
+                IFsrmActionReport_Impl::SetMailTo(this, &*(&raw const mailto).cast())
             }
         }
         Self {
@@ -1233,7 +1233,7 @@ impl IFsrmCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmCollection_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        unknown.write(core::mem::transmute(ok__));
+                        unknown.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1248,7 +1248,7 @@ impl IFsrmCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmCollection_Impl::Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        item.write(core::mem::transmute(ok__));
+                        item.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1312,9 +1312,9 @@ impl IFsrmCollection_Vtbl {
         unsafe extern "system" fn GetById<Identity: IFsrmCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: super::FSRM_OBJECT_ID, entry: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFsrmCollection_Impl::GetById(this, core::mem::transmute(&id)) {
+                match IFsrmCollection_Impl::GetById(this, &*(&raw const id).cast()) {
                     Ok(ok__) => {
-                        entry.write(core::mem::transmute(ok__));
+                        entry.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1384,7 +1384,7 @@ impl IFsrmCommittableCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmCommittableCollection_Impl::Commit(this, core::mem::transmute_copy(&options)) {
                     Ok(ok__) => {
-                        results.write(core::mem::transmute(ok__));
+                        results.cast::<IFsrmCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1449,7 +1449,7 @@ impl IFsrmDerivedObjectsResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmDerivedObjectsResult_Impl::DerivedObjects(this) {
                     Ok(ok__) => {
-                        derivedobjects.write(core::mem::transmute(ok__));
+                        derivedobjects.cast::<IFsrmCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1464,7 +1464,7 @@ impl IFsrmDerivedObjectsResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmDerivedObjectsResult_Impl::Results(this) {
                     Ok(ok__) => {
-                        results.write(core::mem::transmute(ok__));
+                        results.cast::<IFsrmCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1578,15 +1578,15 @@ impl IFsrmExportImport_Vtbl {
         unsafe extern "system" fn ExportFileGroups<Identity: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: *mut core::ffi::c_void, filegroupnamessafearray: *const super::VARIANT, remotehost: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmExportImport_Impl::ExportFileGroups(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&filegroupnamessafearray), core::mem::transmute(&remotehost))
+                IFsrmExportImport_Impl::ExportFileGroups(this, &*(&raw const filepath).cast(), core::mem::transmute_copy(&filegroupnamessafearray), &*(&raw const remotehost).cast())
             }
         }
         unsafe extern "system" fn ImportFileGroups<Identity: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: *mut core::ffi::c_void, filegroupnamessafearray: *const super::VARIANT, remotehost: *mut core::ffi::c_void, filegroups: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFsrmExportImport_Impl::ImportFileGroups(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&filegroupnamessafearray), core::mem::transmute(&remotehost)) {
+                match IFsrmExportImport_Impl::ImportFileGroups(this, &*(&raw const filepath).cast(), core::mem::transmute_copy(&filegroupnamessafearray), &*(&raw const remotehost).cast()) {
                     Ok(ok__) => {
-                        filegroups.write(core::mem::transmute(ok__));
+                        filegroups.cast::<IFsrmCommittableCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1599,15 +1599,15 @@ impl IFsrmExportImport_Vtbl {
         unsafe extern "system" fn ExportFileScreenTemplates<Identity: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: *mut core::ffi::c_void, templatenamessafearray: *const super::VARIANT, remotehost: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmExportImport_Impl::ExportFileScreenTemplates(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&templatenamessafearray), core::mem::transmute(&remotehost))
+                IFsrmExportImport_Impl::ExportFileScreenTemplates(this, &*(&raw const filepath).cast(), core::mem::transmute_copy(&templatenamessafearray), &*(&raw const remotehost).cast())
             }
         }
         unsafe extern "system" fn ImportFileScreenTemplates<Identity: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: *mut core::ffi::c_void, templatenamessafearray: *const super::VARIANT, remotehost: *mut core::ffi::c_void, templates: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFsrmExportImport_Impl::ImportFileScreenTemplates(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&templatenamessafearray), core::mem::transmute(&remotehost)) {
+                match IFsrmExportImport_Impl::ImportFileScreenTemplates(this, &*(&raw const filepath).cast(), core::mem::transmute_copy(&templatenamessafearray), &*(&raw const remotehost).cast()) {
                     Ok(ok__) => {
-                        templates.write(core::mem::transmute(ok__));
+                        templates.cast::<IFsrmCommittableCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1620,15 +1620,15 @@ impl IFsrmExportImport_Vtbl {
         unsafe extern "system" fn ExportQuotaTemplates<Identity: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: *mut core::ffi::c_void, templatenamessafearray: *const super::VARIANT, remotehost: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmExportImport_Impl::ExportQuotaTemplates(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&templatenamessafearray), core::mem::transmute(&remotehost))
+                IFsrmExportImport_Impl::ExportQuotaTemplates(this, &*(&raw const filepath).cast(), core::mem::transmute_copy(&templatenamessafearray), &*(&raw const remotehost).cast())
             }
         }
         unsafe extern "system" fn ImportQuotaTemplates<Identity: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: *mut core::ffi::c_void, templatenamessafearray: *const super::VARIANT, remotehost: *mut core::ffi::c_void, templates: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFsrmExportImport_Impl::ImportQuotaTemplates(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&templatenamessafearray), core::mem::transmute(&remotehost)) {
+                match IFsrmExportImport_Impl::ImportQuotaTemplates(this, &*(&raw const filepath).cast(), core::mem::transmute_copy(&templatenamessafearray), &*(&raw const remotehost).cast()) {
                     Ok(ok__) => {
-                        templates.write(core::mem::transmute(ok__));
+                        templates.cast::<IFsrmCommittableCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1714,7 +1714,7 @@ impl IFsrmMutableCollection_Vtbl {
         unsafe extern "system" fn Add<Identity: IFsrmMutableCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, item: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmMutableCollection_Impl::Add(this, core::mem::transmute(&item))
+                IFsrmMutableCollection_Impl::Add(this, &*(&raw const item).cast())
             }
         }
         unsafe extern "system" fn Remove<Identity: IFsrmMutableCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32) -> windows_core::HRESULT {
@@ -1726,7 +1726,7 @@ impl IFsrmMutableCollection_Vtbl {
         unsafe extern "system" fn RemoveById<Identity: IFsrmMutableCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: super::FSRM_OBJECT_ID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmMutableCollection_Impl::RemoveById(this, core::mem::transmute(&id))
+                IFsrmMutableCollection_Impl::RemoveById(this, &*(&raw const id).cast())
             }
         }
         unsafe extern "system" fn Clone<Identity: IFsrmMutableCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, collection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1734,7 +1734,7 @@ impl IFsrmMutableCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmMutableCollection_Impl::Clone(this) {
                     Ok(ok__) => {
-                        collection.write(core::mem::transmute(ok__));
+                        collection.cast::<IFsrmMutableCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1839,7 +1839,7 @@ impl IFsrmObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmObject_Impl::Description(this) {
                     Ok(ok__) => {
-                        description.write(core::mem::transmute(ok__));
+                        description.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1852,7 +1852,7 @@ impl IFsrmObject_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: IFsrmObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, description: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmObject_Impl::SetDescription(this, core::mem::transmute(&description))
+                IFsrmObject_Impl::SetDescription(this, &*(&raw const description).cast())
             }
         }
         unsafe extern "system" fn Delete<Identity: IFsrmObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1923,7 +1923,7 @@ impl IFsrmPathMapper_Vtbl {
         unsafe extern "system" fn GetSharePathsForLocalPath<Identity: IFsrmPathMapper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, localpath: *mut core::ffi::c_void, sharepaths: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFsrmPathMapper_Impl::GetSharePathsForLocalPath(this, core::mem::transmute(&localpath)) {
+                match IFsrmPathMapper_Impl::GetSharePathsForLocalPath(this, &*(&raw const localpath).cast()) {
                     Ok(ok__) => {
                         sharepaths.write(ok__);
                         windows_core::HRESULT(0)
@@ -2081,7 +2081,7 @@ impl IFsrmSetting_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmSetting_Impl::SmtpServer(this) {
                     Ok(ok__) => {
-                        smtpserver.write(core::mem::transmute(ok__));
+                        smtpserver.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2094,7 +2094,7 @@ impl IFsrmSetting_Vtbl {
         unsafe extern "system" fn SetSmtpServer<Identity: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, smtpserver: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmSetting_Impl::SetSmtpServer(this, core::mem::transmute(&smtpserver))
+                IFsrmSetting_Impl::SetSmtpServer(this, &*(&raw const smtpserver).cast())
             }
         }
         unsafe extern "system" fn MailFrom<Identity: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailfrom: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2102,7 +2102,7 @@ impl IFsrmSetting_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmSetting_Impl::MailFrom(this) {
                     Ok(ok__) => {
-                        mailfrom.write(core::mem::transmute(ok__));
+                        mailfrom.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2115,7 +2115,7 @@ impl IFsrmSetting_Vtbl {
         unsafe extern "system" fn SetMailFrom<Identity: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailfrom: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmSetting_Impl::SetMailFrom(this, core::mem::transmute(&mailfrom))
+                IFsrmSetting_Impl::SetMailFrom(this, &*(&raw const mailfrom).cast())
             }
         }
         unsafe extern "system" fn AdminEmail<Identity: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adminemail: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2123,7 +2123,7 @@ impl IFsrmSetting_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmSetting_Impl::AdminEmail(this) {
                     Ok(ok__) => {
-                        adminemail.write(core::mem::transmute(ok__));
+                        adminemail.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2136,7 +2136,7 @@ impl IFsrmSetting_Vtbl {
         unsafe extern "system" fn SetAdminEmail<Identity: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adminemail: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmSetting_Impl::SetAdminEmail(this, core::mem::transmute(&adminemail))
+                IFsrmSetting_Impl::SetAdminEmail(this, &*(&raw const adminemail).cast())
             }
         }
         unsafe extern "system" fn DisableCommandLine<Identity: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, disablecommandline: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2184,7 +2184,7 @@ impl IFsrmSetting_Vtbl {
         unsafe extern "system" fn EmailTest<Identity: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailto: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFsrmSetting_Impl::EmailTest(this, core::mem::transmute(&mailto))
+                IFsrmSetting_Impl::EmailTest(this, &*(&raw const mailto).cast())
             }
         }
         unsafe extern "system" fn SetActionRunLimitInterval<Identity: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, actiontype: super::FsrmActionType, delaytimeminutes: i32) -> windows_core::HRESULT {

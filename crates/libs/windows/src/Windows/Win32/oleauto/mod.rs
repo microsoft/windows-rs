@@ -2,7 +2,7 @@
 #[inline]
 pub unsafe fn BstrFromVector(psa: *const super::SAFEARRAY, pbstr: *mut windows_core::BSTR) -> windows_core::HRESULT {
     windows_core::link!("oleaut32.dll" "system" fn BstrFromVector(psa : *const super::SAFEARRAY, pbstr : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { BstrFromVector(psa, core::mem::transmute(pbstr)) }
+    unsafe { BstrFromVector(psa, pbstr as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -446,14 +446,14 @@ pub unsafe fn SysFreeString(bstrstring: windows_core::BSTR) {
 #[inline]
 pub unsafe fn SysReAllocString(pbstr: *mut windows_core::BSTR, psz: Option<*const super::OLECHAR>) -> super::INT {
     windows_core::link!("oleaut32.dll" "system" fn SysReAllocString(pbstr : *mut *mut core::ffi::c_void, psz : *const super::OLECHAR) -> super::INT);
-    unsafe { SysReAllocString(core::mem::transmute(pbstr), psz.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SysReAllocString(pbstr as _, psz.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[must_use]
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn SysReAllocStringLen(pbstr: *mut windows_core::BSTR, psz: Option<*const super::OLECHAR>, len: u32) -> super::INT {
     windows_core::link!("oleaut32.dll" "system" fn SysReAllocStringLen(pbstr : *mut *mut core::ffi::c_void, psz : *const super::OLECHAR, len : u32) -> super::INT);
-    unsafe { SysReAllocStringLen(core::mem::transmute(pbstr), psz.unwrap_or(core::mem::zeroed()) as _, len) }
+    unsafe { SysReAllocStringLen(pbstr as _, psz.unwrap_or(core::mem::zeroed()) as _, len) }
 }
 #[inline]
 pub unsafe fn SysReleaseString(bstrstring: &windows_core::BSTR) {
@@ -629,25 +629,25 @@ pub unsafe fn VarBstrCmp(bstrleft: &windows_core::BSTR, bstrright: &windows_core
 #[inline]
 pub unsafe fn VarBstrFromBool(boolin: super::VARIANT_BOOL, lcid: super::LCID, dwflags: super::ULONG, pbstrout: *mut windows_core::BSTR) -> windows_core::HRESULT {
     windows_core::link!("oleaut32.dll" "system" fn VarBstrFromBool(boolin : super::VARIANT_BOOL, lcid : super::LCID, dwflags : super::ULONG, pbstrout : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { VarBstrFromBool(boolin, lcid, dwflags, core::mem::transmute(pbstrout)) }
+    unsafe { VarBstrFromBool(boolin, lcid, dwflags, pbstrout as _) }
 }
 #[cfg(all(feature = "shared", feature = "wtypes"))]
 #[inline]
 pub unsafe fn VarBstrFromCy(cyin: super::CY, lcid: super::LCID, dwflags: super::ULONG, pbstrout: *mut windows_core::BSTR) -> windows_core::HRESULT {
     windows_core::link!("oleaut32.dll" "system" fn VarBstrFromCy(cyin : super::CY, lcid : super::LCID, dwflags : super::ULONG, pbstrout : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { VarBstrFromCy(cyin, lcid, dwflags, core::mem::transmute(pbstrout)) }
+    unsafe { VarBstrFromCy(cyin, lcid, dwflags, pbstrout as _) }
 }
 #[cfg(all(feature = "shared", feature = "wtypes"))]
 #[inline]
 pub unsafe fn VarBstrFromDate(datein: super::DATE, lcid: super::LCID, dwflags: super::ULONG, pbstrout: *mut windows_core::BSTR) -> windows_core::HRESULT {
     windows_core::link!("oleaut32.dll" "system" fn VarBstrFromDate(datein : super::DATE, lcid : super::LCID, dwflags : super::ULONG, pbstrout : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { VarBstrFromDate(datein, lcid, dwflags, core::mem::transmute(pbstrout)) }
+    unsafe { VarBstrFromDate(datein, lcid, dwflags, pbstrout as _) }
 }
 #[cfg(all(feature = "shared", feature = "wtypes"))]
 #[inline]
 pub unsafe fn VarBstrFromDec(pdecin: *const super::DECIMAL, lcid: super::LCID, dwflags: super::ULONG, pbstrout: *mut windows_core::BSTR) -> windows_core::HRESULT {
     windows_core::link!("oleaut32.dll" "system" fn VarBstrFromDec(pdecin : *const super::DECIMAL, lcid : super::LCID, dwflags : super::ULONG, pbstrout : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { VarBstrFromDec(pdecin, lcid, dwflags, core::mem::transmute(pbstrout)) }
+    unsafe { VarBstrFromDec(pdecin, lcid, dwflags, pbstrout as _) }
 }
 #[cfg(all(feature = "oaidl", feature = "shared"))]
 #[inline]
@@ -656,79 +656,79 @@ where
     P0: windows_core::Param<super::IDispatch>,
 {
     windows_core::link!("oleaut32.dll" "system" fn VarBstrFromDisp(pdispin : *mut core::ffi::c_void, lcid : super::LCID, dwflags : super::ULONG, pbstrout : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { VarBstrFromDisp(pdispin.param().abi(), lcid, dwflags, core::mem::transmute(pbstrout)) }
+    unsafe { VarBstrFromDisp(pdispin.param().abi(), lcid, dwflags, pbstrout as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn VarBstrFromI1(cin: super::CHAR, lcid: super::LCID, dwflags: super::ULONG, pbstrout: *mut windows_core::BSTR) -> windows_core::HRESULT {
     windows_core::link!("oleaut32.dll" "system" fn VarBstrFromI1(cin : super::CHAR, lcid : super::LCID, dwflags : super::ULONG, pbstrout : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { VarBstrFromI1(cin, lcid, dwflags, core::mem::transmute(pbstrout)) }
+    unsafe { VarBstrFromI1(cin, lcid, dwflags, pbstrout as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn VarBstrFromI2(ival: super::SHORT, lcid: super::LCID, dwflags: super::ULONG, pbstrout: *mut windows_core::BSTR) -> windows_core::HRESULT {
     windows_core::link!("oleaut32.dll" "system" fn VarBstrFromI2(ival : super::SHORT, lcid : super::LCID, dwflags : super::ULONG, pbstrout : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { VarBstrFromI2(ival, lcid, dwflags, core::mem::transmute(pbstrout)) }
+    unsafe { VarBstrFromI2(ival, lcid, dwflags, pbstrout as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn VarBstrFromI4(lin: super::LONG, lcid: super::LCID, dwflags: super::ULONG, pbstrout: *mut windows_core::BSTR) -> windows_core::HRESULT {
     windows_core::link!("oleaut32.dll" "system" fn VarBstrFromI4(lin : super::LONG, lcid : super::LCID, dwflags : super::ULONG, pbstrout : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { VarBstrFromI4(lin, lcid, dwflags, core::mem::transmute(pbstrout)) }
+    unsafe { VarBstrFromI4(lin, lcid, dwflags, pbstrout as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn VarBstrFromI8(i64in: super::LONG64, lcid: super::LCID, dwflags: super::ULONG, pbstrout: *mut windows_core::BSTR) -> windows_core::HRESULT {
     windows_core::link!("oleaut32.dll" "system" fn VarBstrFromI8(i64in : super::LONG64, lcid : super::LCID, dwflags : super::ULONG, pbstrout : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { VarBstrFromI8(i64in, lcid, dwflags, core::mem::transmute(pbstrout)) }
+    unsafe { VarBstrFromI8(i64in, lcid, dwflags, pbstrout as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn VarBstrFromInt(lin: super::LONG, lcid: super::LCID, dwflags: super::ULONG, pbstrout: *mut windows_core::BSTR) -> windows_core::HRESULT {
     windows_core::link!("oleaut32.dll" "system" "VarBstrFromI4" fn VarBstrFromInt(lin : super::LONG, lcid : super::LCID, dwflags : super::ULONG, pbstrout : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { VarBstrFromInt(lin, lcid, dwflags, core::mem::transmute(pbstrout)) }
+    unsafe { VarBstrFromInt(lin, lcid, dwflags, pbstrout as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn VarBstrFromR4(fltin: super::FLOAT, lcid: super::LCID, dwflags: super::ULONG, pbstrout: *mut windows_core::BSTR) -> windows_core::HRESULT {
     windows_core::link!("oleaut32.dll" "system" fn VarBstrFromR4(fltin : super::FLOAT, lcid : super::LCID, dwflags : super::ULONG, pbstrout : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { VarBstrFromR4(fltin, lcid, dwflags, core::mem::transmute(pbstrout)) }
+    unsafe { VarBstrFromR4(fltin, lcid, dwflags, pbstrout as _) }
 }
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn VarBstrFromR8(dblin: super::DOUBLE, lcid: super::LCID, dwflags: super::ULONG, pbstrout: *mut windows_core::BSTR) -> windows_core::HRESULT {
     windows_core::link!("oleaut32.dll" "system" fn VarBstrFromR8(dblin : super::DOUBLE, lcid : super::LCID, dwflags : super::ULONG, pbstrout : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { VarBstrFromR8(dblin, lcid, dwflags, core::mem::transmute(pbstrout)) }
+    unsafe { VarBstrFromR8(dblin, lcid, dwflags, pbstrout as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn VarBstrFromUI1(bval: super::BYTE, lcid: super::LCID, dwflags: super::ULONG, pbstrout: *mut windows_core::BSTR) -> windows_core::HRESULT {
     windows_core::link!("oleaut32.dll" "system" fn VarBstrFromUI1(bval : super::BYTE, lcid : super::LCID, dwflags : super::ULONG, pbstrout : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { VarBstrFromUI1(bval, lcid, dwflags, core::mem::transmute(pbstrout)) }
+    unsafe { VarBstrFromUI1(bval, lcid, dwflags, pbstrout as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn VarBstrFromUI2(uiin: super::USHORT, lcid: super::LCID, dwflags: super::ULONG, pbstrout: *mut windows_core::BSTR) -> windows_core::HRESULT {
     windows_core::link!("oleaut32.dll" "system" fn VarBstrFromUI2(uiin : super::USHORT, lcid : super::LCID, dwflags : super::ULONG, pbstrout : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { VarBstrFromUI2(uiin, lcid, dwflags, core::mem::transmute(pbstrout)) }
+    unsafe { VarBstrFromUI2(uiin, lcid, dwflags, pbstrout as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn VarBstrFromUI4(ulin: super::ULONG, lcid: super::LCID, dwflags: super::ULONG, pbstrout: *mut windows_core::BSTR) -> windows_core::HRESULT {
     windows_core::link!("oleaut32.dll" "system" fn VarBstrFromUI4(ulin : super::ULONG, lcid : super::LCID, dwflags : super::ULONG, pbstrout : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { VarBstrFromUI4(ulin, lcid, dwflags, core::mem::transmute(pbstrout)) }
+    unsafe { VarBstrFromUI4(ulin, lcid, dwflags, pbstrout as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn VarBstrFromUI8(ui64in: super::ULONG64, lcid: super::LCID, dwflags: super::ULONG, pbstrout: *mut windows_core::BSTR) -> windows_core::HRESULT {
     windows_core::link!("oleaut32.dll" "system" fn VarBstrFromUI8(ui64in : super::ULONG64, lcid : super::LCID, dwflags : super::ULONG, pbstrout : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { VarBstrFromUI8(ui64in, lcid, dwflags, core::mem::transmute(pbstrout)) }
+    unsafe { VarBstrFromUI8(ui64in, lcid, dwflags, pbstrout as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn VarBstrFromUint(ulin: super::ULONG, lcid: super::LCID, dwflags: super::ULONG, pbstrout: *mut windows_core::BSTR) -> windows_core::HRESULT {
     windows_core::link!("oleaut32.dll" "system" "VarBstrFromUI4" fn VarBstrFromUint(ulin : super::ULONG, lcid : super::LCID, dwflags : super::ULONG, pbstrout : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { VarBstrFromUint(ulin, lcid, dwflags, core::mem::transmute(pbstrout)) }
+    unsafe { VarBstrFromUint(ulin, lcid, dwflags, pbstrout as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -1229,37 +1229,37 @@ pub unsafe fn VarFix(pvarin: super::LPVARIANT, pvarresult: super::LPVARIANT) -> 
 #[inline]
 pub unsafe fn VarFormat(pvarin: super::LPVARIANT, pstrformat: Option<super::LPOLESTR>, ifirstday: i32, ifirstweek: i32, dwflags: super::ULONG, pbstrout: *mut windows_core::BSTR) -> windows_core::HRESULT {
     windows_core::link!("oleaut32.dll" "system" fn VarFormat(pvarin : super::LPVARIANT, pstrformat : super::LPOLESTR, ifirstday : i32, ifirstweek : i32, dwflags : super::ULONG, pbstrout : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { VarFormat(pvarin, pstrformat.unwrap_or(core::mem::zeroed()) as _, ifirstday, ifirstweek, dwflags, core::mem::transmute(pbstrout)) }
+    unsafe { VarFormat(pvarin, pstrformat.unwrap_or(core::mem::zeroed()) as _, ifirstday, ifirstweek, dwflags, pbstrout as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn VarFormatCurrency(pvarin: super::LPVARIANT, inumdig: i32, iinclead: i32, iuseparens: i32, igroup: i32, dwflags: super::ULONG, pbstrout: *mut windows_core::BSTR) -> windows_core::HRESULT {
     windows_core::link!("oleaut32.dll" "system" fn VarFormatCurrency(pvarin : super::LPVARIANT, inumdig : i32, iinclead : i32, iuseparens : i32, igroup : i32, dwflags : super::ULONG, pbstrout : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { VarFormatCurrency(pvarin, inumdig, iinclead, iuseparens, igroup, dwflags, core::mem::transmute(pbstrout)) }
+    unsafe { VarFormatCurrency(pvarin, inumdig, iinclead, iuseparens, igroup, dwflags, pbstrout as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn VarFormatDateTime(pvarin: super::LPVARIANT, inamedformat: i32, dwflags: super::ULONG, pbstrout: *mut windows_core::BSTR) -> windows_core::HRESULT {
     windows_core::link!("oleaut32.dll" "system" fn VarFormatDateTime(pvarin : super::LPVARIANT, inamedformat : i32, dwflags : super::ULONG, pbstrout : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { VarFormatDateTime(pvarin, inamedformat, dwflags, core::mem::transmute(pbstrout)) }
+    unsafe { VarFormatDateTime(pvarin, inamedformat, dwflags, pbstrout as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn VarFormatFromTokens(pvarin: super::LPVARIANT, pstrformat: Option<super::LPOLESTR>, pbtokcur: super::LPBYTE, dwflags: super::ULONG, pbstrout: *mut windows_core::BSTR, lcid: super::LCID) -> windows_core::HRESULT {
     windows_core::link!("oleaut32.dll" "system" fn VarFormatFromTokens(pvarin : super::LPVARIANT, pstrformat : super::LPOLESTR, pbtokcur : super::LPBYTE, dwflags : super::ULONG, pbstrout : *mut *mut core::ffi::c_void, lcid : super::LCID) -> windows_core::HRESULT);
-    unsafe { VarFormatFromTokens(pvarin, pstrformat.unwrap_or(core::mem::zeroed()) as _, pbtokcur, dwflags, core::mem::transmute(pbstrout), lcid) }
+    unsafe { VarFormatFromTokens(pvarin, pstrformat.unwrap_or(core::mem::zeroed()) as _, pbtokcur, dwflags, pbstrout as _, lcid) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn VarFormatNumber(pvarin: super::LPVARIANT, inumdig: i32, iinclead: i32, iuseparens: i32, igroup: i32, dwflags: super::ULONG, pbstrout: *mut windows_core::BSTR) -> windows_core::HRESULT {
     windows_core::link!("oleaut32.dll" "system" fn VarFormatNumber(pvarin : super::LPVARIANT, inumdig : i32, iinclead : i32, iuseparens : i32, igroup : i32, dwflags : super::ULONG, pbstrout : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { VarFormatNumber(pvarin, inumdig, iinclead, iuseparens, igroup, dwflags, core::mem::transmute(pbstrout)) }
+    unsafe { VarFormatNumber(pvarin, inumdig, iinclead, iuseparens, igroup, dwflags, pbstrout as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn VarFormatPercent(pvarin: super::LPVARIANT, inumdig: i32, iinclead: i32, iuseparens: i32, igroup: i32, dwflags: super::ULONG, pbstrout: *mut windows_core::BSTR) -> windows_core::HRESULT {
     windows_core::link!("oleaut32.dll" "system" fn VarFormatPercent(pvarin : super::LPVARIANT, inumdig : i32, iinclead : i32, iuseparens : i32, igroup : i32, dwflags : super::ULONG, pbstrout : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { VarFormatPercent(pvarin, inumdig, iinclead, iuseparens, igroup, dwflags, core::mem::transmute(pbstrout)) }
+    unsafe { VarFormatPercent(pvarin, inumdig, iinclead, iuseparens, igroup, dwflags, pbstrout as _) }
 }
 #[cfg(all(feature = "shared", feature = "wtypes"))]
 #[inline]
@@ -1790,7 +1790,7 @@ pub unsafe fn VarMod(pvarleft: super::LPVARIANT, pvarright: super::LPVARIANT, pv
 #[inline]
 pub unsafe fn VarMonthName(imonth: i32, fabbrev: i32, dwflags: super::ULONG, pbstrout: *mut windows_core::BSTR) -> windows_core::HRESULT {
     windows_core::link!("oleaut32.dll" "system" fn VarMonthName(imonth : i32, fabbrev : i32, dwflags : super::ULONG, pbstrout : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { VarMonthName(imonth, fabbrev, dwflags, core::mem::transmute(pbstrout)) }
+    unsafe { VarMonthName(imonth, fabbrev, dwflags, pbstrout as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -2582,7 +2582,7 @@ pub unsafe fn VarUintFromUI8(ui64in: super::ULONG64, plout: *mut super::ULONG) -
 #[inline]
 pub unsafe fn VarWeekdayName(iweekday: i32, fabbrev: i32, ifirstday: i32, dwflags: super::ULONG, pbstrout: *mut windows_core::BSTR) -> windows_core::HRESULT {
     windows_core::link!("oleaut32.dll" "system" fn VarWeekdayName(iweekday : i32, fabbrev : i32, ifirstday : i32, dwflags : super::ULONG, pbstrout : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { VarWeekdayName(iweekday, fabbrev, ifirstday, dwflags, core::mem::transmute(pbstrout)) }
+    unsafe { VarWeekdayName(iweekday, fabbrev, ifirstday, dwflags, pbstrout as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]

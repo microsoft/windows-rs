@@ -59,7 +59,7 @@ where
     P2: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("rtworkq.dll" "system" fn RtwqCreateAsyncResult(appobject : *mut core::ffi::c_void, callback : *mut core::ffi::c_void, appstate : *mut core::ffi::c_void, asyncresult : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { RtwqCreateAsyncResult(appobject.param().abi(), callback.param().abi(), appstate.param().abi(), core::mem::transmute(asyncresult)) }
+    unsafe { RtwqCreateAsyncResult(appobject.param().abi(), callback.param().abi(), appstate.param().abi(), asyncresult as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -290,7 +290,7 @@ windows_core::imp::define_interface!(IRtwqAsyncResult, IRtwqAsyncResult_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IRtwqAsyncResult, windows_core::IUnknown);
 impl IRtwqAsyncResult {
     pub unsafe fn GetState(&self, ppunkstate: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetState)(windows_core::Interface::as_raw(self), core::mem::transmute(ppunkstate)) }
+        unsafe { (windows_core::Interface::vtable(self).GetState)(windows_core::Interface::as_raw(self), ppunkstate as _) }
     }
     pub unsafe fn GetStatus(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self)) }
@@ -299,7 +299,7 @@ impl IRtwqAsyncResult {
         unsafe { (windows_core::Interface::vtable(self).SetStatus)(windows_core::Interface::as_raw(self), hrstatus) }
     }
     pub unsafe fn GetObject(&self, ppobject: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), core::mem::transmute(ppobject)) }
+        unsafe { (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), ppobject as _) }
     }
     pub unsafe fn GetStateNoAddRef(&self) -> Option<windows_core::IUnknown> {
         unsafe { (windows_core::Interface::vtable(self).GetStateNoAddRef)(windows_core::Interface::as_raw(self)) }

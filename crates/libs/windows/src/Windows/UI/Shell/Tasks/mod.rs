@@ -18,7 +18,7 @@ impl AppTaskContent {
     pub fn CreateSequenceOfSteps(completedsteps: &[windows_core::HSTRING], executingstep: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IAppTaskContentStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateSequenceOfSteps)(windows_core::Interface::as_raw(this), completedsteps.len().try_into().unwrap(), core::mem::transmute(completedsteps.as_ptr()), core::mem::transmute_copy(executingstep), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateSequenceOfSteps)(windows_core::Interface::as_raw(this), completedsteps.len().try_into().unwrap(), completedsteps.as_ptr().cast(), core::mem::transmute_copy(executingstep), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn CreatePreviewThumbnail<P0>(imageuri: P0, executingstep: &windows_core::HSTRING) -> windows_core::Result<Self>
@@ -39,7 +39,7 @@ impl AppTaskContent {
     pub fn CreateGeneratedAssetsResult(assets: &[Option<AppTaskResultAsset>]) -> windows_core::Result<Self> {
         Self::IAppTaskContentStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateGeneratedAssetsResult)(windows_core::Interface::as_raw(this), assets.len().try_into().unwrap(), core::mem::transmute(assets.as_ptr()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateGeneratedAssetsResult)(windows_core::Interface::as_raw(this), assets.len().try_into().unwrap(), assets.as_ptr().cast(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn MaxButtons() -> windows_core::Result<u32> {
@@ -88,7 +88,7 @@ impl AppTaskInfo {
     pub fn GetCompletedSteps(&self) -> windows_core::Result<windows_core::Array<windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetCompletedSteps)(windows_core::Interface::as_raw(self), windows_core::Array::<windows_core::HSTRING>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(self).GetCompletedSteps)(windows_core::Interface::as_raw(self), windows_core::Array::<windows_core::HSTRING>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
     pub fn GetExecutingStep(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -169,7 +169,7 @@ impl AppTaskInfo {
     pub fn FindAll() -> windows_core::Result<windows_core::Array<Self>> {
         Self::IAppTaskInfoStatics(|this| unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(this).FindAll)(windows_core::Interface::as_raw(this), windows_core::Array::<Self>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(this).FindAll)(windows_core::Interface::as_raw(this), windows_core::Array::<Self>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         })
     }
     pub fn Create<P2, P3, P4>(title: &windows_core::HSTRING, subtitle: &windows_core::HSTRING, deeplink: P2, iconuri: P3, content: P4) -> windows_core::Result<Self>

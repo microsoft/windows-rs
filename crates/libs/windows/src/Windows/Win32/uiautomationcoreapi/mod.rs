@@ -388,7 +388,7 @@ where
     P0: windows_core::Param<super::IRawElementProviderSimple>,
 {
     windows_core::link!("uiautomationcore.dll" "system" fn UiaIAccessibleFromProvider(pprovider : *mut core::ffi::c_void, dwflags : super::DWORD, ppaccessible : *mut *mut core::ffi::c_void, pvarchild : *mut super::VARIANT) -> windows_core::HRESULT);
-    unsafe { UiaIAccessibleFromProvider(pprovider.param().abi(), dwflags, core::mem::transmute(ppaccessible), pvarchild) }
+    unsafe { UiaIAccessibleFromProvider(pprovider.param().abi(), dwflags, ppaccessible as _, pvarchild) }
 }
 #[inline]
 pub unsafe fn UiaLookupId(r#type: AutomationIdentifierType, pguid: *const windows_core::GUID) -> i32 {

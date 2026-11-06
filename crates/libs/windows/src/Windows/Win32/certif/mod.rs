@@ -143,9 +143,9 @@ impl ICertServerExit_Vtbl {
         unsafe extern "system" fn GetRequestProperty<Identity: ICertServerExit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void, propertytype: super::LONG, pvarpropertyvalue: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICertServerExit_Impl::GetRequestProperty(this, core::mem::transmute(&strpropertyname), core::mem::transmute_copy(&propertytype)) {
+                match ICertServerExit_Impl::GetRequestProperty(this, &*(&raw const strpropertyname).cast(), core::mem::transmute_copy(&propertytype)) {
                     Ok(ok__) => {
-                        pvarpropertyvalue.write(core::mem::transmute(ok__));
+                        pvarpropertyvalue.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -158,9 +158,9 @@ impl ICertServerExit_Vtbl {
         unsafe extern "system" fn GetRequestAttribute<Identity: ICertServerExit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strattributename: *mut core::ffi::c_void, pstrattributevalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICertServerExit_Impl::GetRequestAttribute(this, core::mem::transmute(&strattributename)) {
+                match ICertServerExit_Impl::GetRequestAttribute(this, &*(&raw const strattributename).cast()) {
                     Ok(ok__) => {
-                        pstrattributevalue.write(core::mem::transmute(ok__));
+                        pstrattributevalue.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -173,9 +173,9 @@ impl ICertServerExit_Vtbl {
         unsafe extern "system" fn GetCertificateProperty<Identity: ICertServerExit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void, propertytype: super::LONG, pvarpropertyvalue: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICertServerExit_Impl::GetCertificateProperty(this, core::mem::transmute(&strpropertyname), core::mem::transmute_copy(&propertytype)) {
+                match ICertServerExit_Impl::GetCertificateProperty(this, &*(&raw const strpropertyname).cast(), core::mem::transmute_copy(&propertytype)) {
                     Ok(ok__) => {
-                        pvarpropertyvalue.write(core::mem::transmute(ok__));
+                        pvarpropertyvalue.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -188,9 +188,9 @@ impl ICertServerExit_Vtbl {
         unsafe extern "system" fn GetCertificateExtension<Identity: ICertServerExit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strextensionname: *mut core::ffi::c_void, r#type: super::LONG, pvarvalue: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICertServerExit_Impl::GetCertificateExtension(this, core::mem::transmute(&strextensionname), core::mem::transmute_copy(&r#type)) {
+                match ICertServerExit_Impl::GetCertificateExtension(this, &*(&raw const strextensionname).cast(), core::mem::transmute_copy(&r#type)) {
                     Ok(ok__) => {
-                        pvarvalue.write(core::mem::transmute(ok__));
+                        pvarvalue.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -226,7 +226,7 @@ impl ICertServerExit_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertServerExit_Impl::EnumerateExtensions(this) {
                     Ok(ok__) => {
-                        pstrextensionname.write(core::mem::transmute(ok__));
+                        pstrextensionname.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -253,7 +253,7 @@ impl ICertServerExit_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertServerExit_Impl::EnumerateAttributes(this) {
                     Ok(ok__) => {
-                        pstrattributename.write(core::mem::transmute(ok__));
+                        pstrattributename.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -453,9 +453,9 @@ impl ICertServerPolicy_Vtbl {
         unsafe extern "system" fn GetRequestProperty<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void, propertytype: super::LONG, pvarpropertyvalue: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICertServerPolicy_Impl::GetRequestProperty(this, core::mem::transmute(&strpropertyname), core::mem::transmute_copy(&propertytype)) {
+                match ICertServerPolicy_Impl::GetRequestProperty(this, &*(&raw const strpropertyname).cast(), core::mem::transmute_copy(&propertytype)) {
                     Ok(ok__) => {
-                        pvarpropertyvalue.write(core::mem::transmute(ok__));
+                        pvarpropertyvalue.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -468,9 +468,9 @@ impl ICertServerPolicy_Vtbl {
         unsafe extern "system" fn GetRequestAttribute<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strattributename: *mut core::ffi::c_void, pstrattributevalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICertServerPolicy_Impl::GetRequestAttribute(this, core::mem::transmute(&strattributename)) {
+                match ICertServerPolicy_Impl::GetRequestAttribute(this, &*(&raw const strattributename).cast()) {
                     Ok(ok__) => {
-                        pstrattributevalue.write(core::mem::transmute(ok__));
+                        pstrattributevalue.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -483,9 +483,9 @@ impl ICertServerPolicy_Vtbl {
         unsafe extern "system" fn GetCertificateProperty<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void, propertytype: super::LONG, pvarpropertyvalue: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICertServerPolicy_Impl::GetCertificateProperty(this, core::mem::transmute(&strpropertyname), core::mem::transmute_copy(&propertytype)) {
+                match ICertServerPolicy_Impl::GetCertificateProperty(this, &*(&raw const strpropertyname).cast(), core::mem::transmute_copy(&propertytype)) {
                     Ok(ok__) => {
-                        pvarpropertyvalue.write(core::mem::transmute(ok__));
+                        pvarpropertyvalue.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -498,15 +498,15 @@ impl ICertServerPolicy_Vtbl {
         unsafe extern "system" fn SetCertificateProperty<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void, propertytype: super::LONG, pvarpropertyvalue: *const super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertServerPolicy_Impl::SetCertificateProperty(this, core::mem::transmute(&strpropertyname), core::mem::transmute_copy(&propertytype), core::mem::transmute_copy(&pvarpropertyvalue))
+                ICertServerPolicy_Impl::SetCertificateProperty(this, &*(&raw const strpropertyname).cast(), core::mem::transmute_copy(&propertytype), core::mem::transmute_copy(&pvarpropertyvalue))
             }
         }
         unsafe extern "system" fn GetCertificateExtension<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strextensionname: *mut core::ffi::c_void, r#type: super::LONG, pvarvalue: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICertServerPolicy_Impl::GetCertificateExtension(this, core::mem::transmute(&strextensionname), core::mem::transmute_copy(&r#type)) {
+                match ICertServerPolicy_Impl::GetCertificateExtension(this, &*(&raw const strextensionname).cast(), core::mem::transmute_copy(&r#type)) {
                     Ok(ok__) => {
-                        pvarvalue.write(core::mem::transmute(ok__));
+                        pvarvalue.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -534,7 +534,7 @@ impl ICertServerPolicy_Vtbl {
         unsafe extern "system" fn SetCertificateExtension<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strextensionname: *mut core::ffi::c_void, r#type: super::LONG, extflags: super::LONG, pvarvalue: *const super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertServerPolicy_Impl::SetCertificateExtension(this, core::mem::transmute(&strextensionname), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&extflags), core::mem::transmute_copy(&pvarvalue))
+                ICertServerPolicy_Impl::SetCertificateExtension(this, &*(&raw const strextensionname).cast(), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&extflags), core::mem::transmute_copy(&pvarvalue))
             }
         }
         unsafe extern "system" fn EnumerateExtensionsSetup<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: super::LONG) -> windows_core::HRESULT {
@@ -548,7 +548,7 @@ impl ICertServerPolicy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertServerPolicy_Impl::EnumerateExtensions(this) {
                     Ok(ok__) => {
-                        pstrextensionname.write(core::mem::transmute(ok__));
+                        pstrextensionname.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -575,7 +575,7 @@ impl ICertServerPolicy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertServerPolicy_Impl::EnumerateAttributes(this) {
                     Ok(ok__) => {
-                        pstrattributename.write(core::mem::transmute(ok__));
+                        pstrattributename.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

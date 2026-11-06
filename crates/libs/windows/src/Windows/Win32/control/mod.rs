@@ -74,7 +74,7 @@ impl IAMCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAMCollection_Impl::Item(this, core::mem::transmute_copy(&litem)) {
                     Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
+                        ppunk.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -89,7 +89,7 @@ impl IAMCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAMCollection_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
+                        ppunk.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -136,7 +136,7 @@ impl IAMStats {
         }
     }
     pub unsafe fn GetValueByIndex(&self, lindex: i32, szname: *mut windows_core::BSTR, lcount: *mut i32, dlast: *mut f64, daverage: *mut f64, dstddev: *mut f64, dmin: *mut f64, dmax: *mut f64) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetValueByIndex)(windows_core::Interface::as_raw(self), lindex, core::mem::transmute(szname), lcount as _, dlast as _, daverage as _, dstddev as _, dmin as _, dmax as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetValueByIndex)(windows_core::Interface::as_raw(self), lindex, szname as _, lcount as _, dlast as _, daverage as _, dstddev as _, dmin as _, dmax as _) }
     }
     pub unsafe fn GetValueByName(&self, szname: &windows_core::BSTR, lindex: *mut i32, lcount: *mut i32, dlast: *mut f64, daverage: *mut f64, dstddev: *mut f64, dmin: *mut f64, dmax: *mut f64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetValueByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(szname), lindex as _, lcount as _, dlast as _, daverage as _, dstddev as _, dmin as _, dmax as _) }
@@ -205,13 +205,13 @@ impl IAMStats_Vtbl {
         unsafe extern "system" fn GetValueByName<Identity: IAMStats_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: *mut core::ffi::c_void, lindex: *mut i32, lcount: *mut i32, dlast: *mut f64, daverage: *mut f64, dstddev: *mut f64, dmin: *mut f64, dmax: *mut f64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAMStats_Impl::GetValueByName(this, core::mem::transmute(&szname), core::mem::transmute_copy(&lindex), core::mem::transmute_copy(&lcount), core::mem::transmute_copy(&dlast), core::mem::transmute_copy(&daverage), core::mem::transmute_copy(&dstddev), core::mem::transmute_copy(&dmin), core::mem::transmute_copy(&dmax))
+                IAMStats_Impl::GetValueByName(this, &*(&raw const szname).cast(), core::mem::transmute_copy(&lindex), core::mem::transmute_copy(&lcount), core::mem::transmute_copy(&dlast), core::mem::transmute_copy(&daverage), core::mem::transmute_copy(&dstddev), core::mem::transmute_copy(&dmin), core::mem::transmute_copy(&dmax))
             }
         }
         unsafe extern "system" fn GetIndex<Identity: IAMStats_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: *mut core::ffi::c_void, lcreate: i32, plindex: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAMStats_Impl::GetIndex(this, core::mem::transmute(&szname), core::mem::transmute_copy(&lcreate), core::mem::transmute_copy(&plindex))
+                IAMStats_Impl::GetIndex(this, &*(&raw const szname).cast(), core::mem::transmute_copy(&lcreate), core::mem::transmute_copy(&plindex))
             }
         }
         unsafe extern "system" fn AddValue<Identity: IAMStats_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, dvalue: f64) -> windows_core::HRESULT {
@@ -1144,9 +1144,9 @@ impl IFilterInfo_Vtbl {
         unsafe extern "system" fn FindPin<Identity: IFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpinid: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFilterInfo_Impl::FindPin(this, core::mem::transmute(&strpinid)) {
+                match IFilterInfo_Impl::FindPin(this, &*(&raw const strpinid).cast()) {
                     Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
+                        ppunk.cast::<super::IDispatch>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1161,7 +1161,7 @@ impl IFilterInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFilterInfo_Impl::Name(this) {
                     Ok(ok__) => {
-                        strname.write(core::mem::transmute(ok__));
+                        strname.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1176,7 +1176,7 @@ impl IFilterInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFilterInfo_Impl::VendorInfo(this) {
                     Ok(ok__) => {
-                        strvendorinfo.write(core::mem::transmute(ok__));
+                        strvendorinfo.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1191,7 +1191,7 @@ impl IFilterInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFilterInfo_Impl::Filter(this) {
                     Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
+                        ppunk.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1206,7 +1206,7 @@ impl IFilterInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFilterInfo_Impl::Pins(this) {
                     Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
+                        ppunk.cast::<super::IDispatch>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1236,7 +1236,7 @@ impl IFilterInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFilterInfo_Impl::Filename(this) {
                     Ok(ok__) => {
-                        pstrfilename.write(core::mem::transmute(ok__));
+                        pstrfilename.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1249,7 +1249,7 @@ impl IFilterInfo_Vtbl {
         unsafe extern "system" fn SetFilename<Identity: IFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strfilename: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFilterInfo_Impl::SetFilename(this, core::mem::transmute(&strfilename))
+                IFilterInfo_Impl::SetFilename(this, &*(&raw const strfilename).cast())
             }
         }
         Self {
@@ -1397,15 +1397,15 @@ impl IMediaControl_Vtbl {
         unsafe extern "system" fn RenderFile<Identity: IMediaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strfilename: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaControl_Impl::RenderFile(this, core::mem::transmute(&strfilename))
+                IMediaControl_Impl::RenderFile(this, &*(&raw const strfilename).cast())
             }
         }
         unsafe extern "system" fn AddSourceFilter<Identity: IMediaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strfilename: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMediaControl_Impl::AddSourceFilter(this, core::mem::transmute(&strfilename)) {
+                match IMediaControl_Impl::AddSourceFilter(this, &*(&raw const strfilename).cast()) {
                     Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
+                        ppunk.cast::<super::IDispatch>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1420,7 +1420,7 @@ impl IMediaControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMediaControl_Impl::FilterCollection(this) {
                     Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
+                        ppunk.cast::<super::IDispatch>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1435,7 +1435,7 @@ impl IMediaControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMediaControl_Impl::RegFilterCollection(this) {
                     Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
+                        ppunk.cast::<super::IDispatch>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1997,7 +1997,7 @@ impl IMediaTypeInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMediaTypeInfo_Impl::Type(this) {
                     Ok(ok__) => {
-                        strtype.write(core::mem::transmute(ok__));
+                        strtype.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2012,7 +2012,7 @@ impl IMediaTypeInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMediaTypeInfo_Impl::Subtype(this) {
                     Ok(ok__) => {
-                        strtype.write(core::mem::transmute(ok__));
+                        strtype.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2164,7 +2164,7 @@ impl IPinInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPinInfo_Impl::Pin(this) {
                     Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
+                        ppunk.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2179,7 +2179,7 @@ impl IPinInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPinInfo_Impl::ConnectedTo(this) {
                     Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
+                        ppunk.cast::<super::IDispatch>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2194,7 +2194,7 @@ impl IPinInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPinInfo_Impl::ConnectionMediaType(this) {
                     Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
+                        ppunk.cast::<super::IDispatch>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2209,7 +2209,7 @@ impl IPinInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPinInfo_Impl::FilterInfo(this) {
                     Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
+                        ppunk.cast::<super::IDispatch>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2224,7 +2224,7 @@ impl IPinInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPinInfo_Impl::Name(this) {
                     Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
+                        ppunk.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2254,7 +2254,7 @@ impl IPinInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPinInfo_Impl::PinID(this) {
                     Ok(ok__) => {
-                        strpinid.write(core::mem::transmute(ok__));
+                        strpinid.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2269,7 +2269,7 @@ impl IPinInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPinInfo_Impl::MediaTypes(this) {
                     Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
+                        ppunk.cast::<super::IDispatch>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2337,11 +2337,11 @@ windows_core::imp::interface_hierarchy!(IQueueCommand, windows_core::IUnknown);
 impl IQueueCommand {
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn InvokeAtStreamTime(&self, pcmd: *mut Option<IDeferredCommand>, time: super::REFTIME, iid: *const windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::VARIANT, pvarresult: *mut super::VARIANT, puargerr: *mut i16) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).InvokeAtStreamTime)(windows_core::Interface::as_raw(self), core::mem::transmute(pcmd), time, iid, dispidmethod, wflags, cargs, pdispparams, pvarresult, puargerr as _) }
+        unsafe { (windows_core::Interface::vtable(self).InvokeAtStreamTime)(windows_core::Interface::as_raw(self), pcmd as _, time, iid, dispidmethod, wflags, cargs, pdispparams, pvarresult, puargerr as _) }
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn InvokeAtPresentationTime(&self, pcmd: *mut Option<IDeferredCommand>, time: super::REFTIME, iid: *const windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::VARIANT, pvarresult: *mut super::VARIANT, puargerr: *mut i16) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).InvokeAtPresentationTime)(windows_core::Interface::as_raw(self), core::mem::transmute(pcmd), time, iid, dispidmethod, wflags, cargs, pdispparams, pvarresult, puargerr as _) }
+        unsafe { (windows_core::Interface::vtable(self).InvokeAtPresentationTime)(windows_core::Interface::as_raw(self), pcmd as _, time, iid, dispidmethod, wflags, cargs, pdispparams, pvarresult, puargerr as _) }
     }
 }
 #[repr(C)]
@@ -2436,7 +2436,7 @@ impl IRegFilterInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRegFilterInfo_Impl::Name(this) {
                     Ok(ok__) => {
-                        strname.write(core::mem::transmute(ok__));
+                        strname.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2451,7 +2451,7 @@ impl IRegFilterInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRegFilterInfo_Impl::Filter(this) {
                     Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
+                        ppunk.cast::<super::IDispatch>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2742,7 +2742,7 @@ impl IVideoWindow_Vtbl {
         unsafe extern "system" fn SetCaption<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strcaption: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetCaption(this, core::mem::transmute(&strcaption))
+                IVideoWindow_Impl::SetCaption(this, &*(&raw const strcaption).cast())
             }
         }
         unsafe extern "system" fn Caption<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strcaption: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2750,7 +2750,7 @@ impl IVideoWindow_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVideoWindow_Impl::Caption(this) {
                     Ok(ok__) => {
-                        strcaption.write(core::mem::transmute(ok__));
+                        strcaption.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
