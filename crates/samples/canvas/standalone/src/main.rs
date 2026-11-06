@@ -3,6 +3,7 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 use windows_canvas::*;
+use windows_text::{ParagraphAlignment, TextAlignment, TextFormat};
 use windows_window::*;
 
 struct Graphics {

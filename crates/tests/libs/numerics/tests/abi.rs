@@ -1,10 +1,10 @@
 use std::mem::{align_of, size_of, transmute};
-use windows_numerics::{Matrix3x2, Matrix4x4, Vector2, Vector3, Vector4};
+use windows_numerics::{Matrix3x2, Matrix4x4, Rect, Vector2, Vector3, Vector4};
 use windows_sys::Win32::{
     d3d9::{D3DMATRIX, D3DMATRIX_0},
     dcommon::{
         D2D_MATRIX_3X2_F, D2D_MATRIX_3X2_F_0, D2D_MATRIX_4X4_F, D2D_MATRIX_4X4_F_0, D2D_POINT_2F,
-        D2D_VECTOR_2F, D2D_VECTOR_3F, D2D_VECTOR_4F,
+        D2D_RECT_F, D2D_VECTOR_2F, D2D_VECTOR_3F, D2D_VECTOR_4F,
     },
 };
 
@@ -22,6 +22,7 @@ fn native_numeric_types_match_windows_numerics() {
     assert_abi::<D2D_VECTOR_2F, Vector2>();
     assert_abi::<D2D_VECTOR_3F, Vector3>();
     assert_abi::<D2D_VECTOR_4F, Vector4>();
+    assert_abi::<D2D_RECT_F, Rect>();
 }
 
 #[test]
@@ -99,6 +100,15 @@ fn native_numeric_fields_match_windows_numerics() {
             w: 4.0,
         })
     };
+    let rect: Rect = unsafe {
+        transmute(D2D_RECT_F {
+            left: 1.0,
+            top: 2.0,
+            right: 3.0,
+            bottom: 4.0,
+        })
+    };
+    assert_eq!(rect, Rect::new(1.0, 2.0, 3.0, 4.0));
     assert_eq!(point, Vector2 { x: 1.0, y: 2.0 });
     assert_eq!(vector2, Vector2 { x: 1.0, y: 2.0 });
     assert_eq!(

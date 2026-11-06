@@ -7,6 +7,7 @@ use windows_canvas::*;
 use windows_reactor::{
     App, Component, ComponentContext, View, ViewContext, WindowBackdrop, WindowVisuals,
 };
+use windows_text::{TextFormat, TextLayout, TextMetrics, WordWrapping};
 
 const TEXT: &str = "TextLayout shapes this paragraph and measures it, then draws it without \
 re-shaping. Resize the window and the text reflows to fit the box, redrawing only when the size \

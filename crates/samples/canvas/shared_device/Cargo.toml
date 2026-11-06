@@ -9,6 +9,7 @@ windows-canvas = { workspace = true, features = ["reactor"] }
 windows-core = { workspace = true }
 windows-numerics = { workspace = true, features = ["std"] }
 windows-reactor = { workspace = true }
+windows-text = { workspace = true }
 
 [lints]
 workspace = true

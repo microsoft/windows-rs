@@ -31,7 +31,7 @@ links for API documentation and samples.
 | Crate | Description |
 | --- | --- |
 | [windows-collections](../crates/libs/collections/readme.md) | WinRT collections. |
-| [windows-numerics](../crates/libs/numerics/readme.md) | Graphics vectors and matrices. |
+| [windows-numerics](../crates/libs/numerics/readme.md) | Graphics vectors, matrices, and rectangles. |
 | [windows-reference](../crates/libs/reference/readme.md) | Implementation of WinRT `IReference<T>`. |
 | [windows-time](../crates/libs/time/readme.md) | WinRT `DateTime` and `TimeSpan` types. |
 

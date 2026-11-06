@@ -54,8 +54,9 @@ true.
 ## Add drawing operations
 
 Use `PathBuilder` for geometry, `TextLayout` for reusable or measured text, and `load_bitmap` for
-images. `with_transform` scopes a transform without leaving it active for later commands.
-Drawing dimensions are in device-independent pixels.
+images. Text formats and layouts come from [windows-text](https://docs.rs/windows-text); add it as a
+dependency to draw text. `with_transform` scopes a transform without leaving it active for later
+commands. Drawing dimensions are in device-independent pixels.
 
 See the [transform][transform], [text layout][text], and [circles][circles] samples.
 

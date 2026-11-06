@@ -1,8 +1,9 @@
 #![windows_subsystem = "windows"]
 
-use windows_canvas::TextAlignment;
 use windows_canvas::*;
+
 use windows_reactor::*;
+use windows_text::{ParagraphAlignment, TextAlignment, TextFormat};
 
 fn draw(ctx: &DrawContext) -> Result<()> {
     ctx.clear(ColorF::BLACK);

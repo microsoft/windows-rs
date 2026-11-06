@@ -27,4 +27,4 @@ pub use layout::*;
 pub use types::*;
 
 pub use windows_core::Result;
-pub use windows_numerics::Vector2;
+pub use windows_numerics::{Rect, Vector2};

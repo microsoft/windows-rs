@@ -7,6 +7,7 @@ use windows_reactor::{
     App, Border, Component, ComponentContext, PointerEventInfo, View, ViewContext, WindowBackdrop,
     WindowVisuals,
 };
+use windows_text::{TextAlignment, TextFormat};
 
 struct Sample {
     pointer: Rc<RefCell<Option<(f32, f32)>>>,

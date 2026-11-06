@@ -7,6 +7,9 @@ pub use bindings::*;
 
 mod matrix3x2;
 mod matrix4x4;
+mod rect;
 mod vector2;
 mod vector3;
 mod vector4;
+
+pub use rect::Rect;
