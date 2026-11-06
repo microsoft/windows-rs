@@ -55,7 +55,9 @@ pub struct RenderingParams {
     /// The contrast added to ClearType coverage before blending, where 0.0 adds none.
     pub enhanced_contrast: f32,
     /// Whether the user has ClearType font smoothing turned on. Use
-    /// [`FontFace::rasterize_cleartype`] when it is on and [`FontFace::rasterize`] otherwise.
+    /// [`FontFace::rasterize_cleartype`] when it is on and the monitor has
+    /// [`Rgb`](PixelGeometry::Rgb) or [`Bgr`](PixelGeometry::Bgr) stripes, and
+    /// [`FontFace::rasterize`] otherwise.
     pub cleartype: bool,
     /// The order of the color stripes within the primary monitor's pixels.
     pub pixel_geometry: PixelGeometry,
@@ -67,7 +69,8 @@ pub struct RenderingParams {
 /// the red and blue coverage when drawing to a [`Bgr`](Self::Bgr) monitor.
 #[derive(Copy, Clone, Debug, Default, PartialEq, Eq, Hash)]
 pub enum PixelGeometry {
-    /// The pixels have no stripes in a known order.
+    /// The pixels have no stripes in a known order. Use [`FontFace::rasterize`] for such a
+    /// monitor even if ClearType is on.
     #[default]
     Flat,
     /// Red, green, then blue from left to right.

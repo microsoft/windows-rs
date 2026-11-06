@@ -174,14 +174,15 @@ fn draw(ctx: &DrawContext) -> Result<()> {
     ctx.draw_text_layout(Vector2::new(MARGIN, MARGIN), &label, &dim);
     ctx.draw_text_layout(Vector2::new(MARGIN, 2.0 * MARGIN), &layout, &white);
 
-    let geometry = RenderingParams::system().pixel_geometry;
-    let sections = [
-        ("Glyph runs by hand, grayscale", None),
-        ("Glyph runs by hand, ClearType", Some(geometry)),
-    ];
+    // ClearType needs a monitor with known stripes, so it is shown only for one.
+    let cleartype = match RenderingParams::system().pixel_geometry {
+        PixelGeometry::Flat => None,
+        geometry => Some(("Glyph runs by hand, ClearType", Some(geometry))),
+    };
+    let sections = [Some(("Glyph runs by hand, grayscale", None)), cleartype];
     let mut y = 3.0 * MARGIN + height;
 
-    for (text, cleartype) in sections {
+    for (text, cleartype) in sections.into_iter().flatten() {
         let label = TextLayout::new(text, &label_format, ctx.width, MARGIN)?;
         ctx.draw_text_layout(Vector2::new(MARGIN, y), &label, &dim);
 
