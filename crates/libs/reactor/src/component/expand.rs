@@ -123,6 +123,7 @@ impl<A: Adapter> ComponentHost<A> {
                 relation_key,
                 attachments,
             } => {
+                validate_limits(location.depth + 1, expansion.objects);
                 let (child, declaration) = self.expand_component(
                     owner,
                     ComponentExpansion {
