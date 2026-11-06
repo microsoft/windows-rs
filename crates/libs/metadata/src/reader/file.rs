@@ -20,7 +20,7 @@ impl File {
             tables: Default::default(),
         };
 
-        let dos = result.bytes.view_as::<IMAGE_DOS_HEADER>(0)?;
+        let dos = result.bytes.copy_as::<IMAGE_DOS_HEADER>(0)?;
 
         if dos.e_magic != IMAGE_DOS_SIGNATURE as u16
             || result.bytes.copy_as::<u32>(dos.e_lfanew as usize)? != IMAGE_NT_SIGNATURE as u32
@@ -29,43 +29,42 @@ impl File {
         }
 
         let file_offset = dos.e_lfanew as usize + size_of::<u32>();
-        let file = result.bytes.view_as::<IMAGE_FILE_HEADER>(file_offset)?;
+        let file = result.bytes.copy_as::<IMAGE_FILE_HEADER>(file_offset)?;
 
         let optional_offset = file_offset + size_of::<IMAGE_FILE_HEADER>();
 
-        let (com_virtual_address, sections) =
+        let (com_virtual_address, sections_offset) =
             match result.bytes.copy_as::<u16>(optional_offset)? as i32 {
                 IMAGE_NT_OPTIONAL_HDR32_MAGIC => {
                     let optional = result
                         .bytes
-                        .view_as::<IMAGE_OPTIONAL_HEADER32>(optional_offset)?;
+                        .copy_as::<IMAGE_OPTIONAL_HEADER32>(optional_offset)?;
                     (
                         optional.DataDirectory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize]
                             .VirtualAddress,
-                        result.bytes.view_as_slice_of::<IMAGE_SECTION_HEADER>(
-                            optional_offset + size_of::<IMAGE_OPTIONAL_HEADER32>(),
-                            file.NumberOfSections as usize,
-                        )?,
+                        optional_offset + size_of::<IMAGE_OPTIONAL_HEADER32>(),
                     )
                 }
                 IMAGE_NT_OPTIONAL_HDR64_MAGIC => {
                     let optional = result
                         .bytes
-                        .view_as::<IMAGE_OPTIONAL_HEADER64>(optional_offset)?;
+                        .copy_as::<IMAGE_OPTIONAL_HEADER64>(optional_offset)?;
                     (
                         optional.DataDirectory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize]
                             .VirtualAddress,
-                        result.bytes.view_as_slice_of::<IMAGE_SECTION_HEADER>(
-                            optional_offset + size_of::<IMAGE_OPTIONAL_HEADER64>(),
-                            file.NumberOfSections as usize,
-                        )?,
+                        optional_offset + size_of::<IMAGE_OPTIONAL_HEADER64>(),
                     )
                 }
                 _ => return None,
             };
 
-        let clr = result.bytes.view_as::<IMAGE_COR20_HEADER>(offset_from_rva(
-            section_from_rva(sections, com_virtual_address)?,
+        let sections_len = file.NumberOfSections as usize * size_of::<IMAGE_SECTION_HEADER>();
+        let sections = result
+            .bytes
+            .get(sections_offset..sections_offset.checked_add(sections_len)?)?;
+
+        let clr = result.bytes.copy_as::<IMAGE_COR20_HEADER>(offset_from_rva(
+            &section_from_rva(sections, com_virtual_address)?,
             com_virtual_address,
         ))?;
 
@@ -74,10 +73,10 @@ impl File {
         }
 
         let metadata_offset = offset_from_rva(
-            section_from_rva(sections, clr.MetaData.VirtualAddress)?,
+            &section_from_rva(sections, clr.MetaData.VirtualAddress)?,
             clr.MetaData.VirtualAddress,
         );
-        let metadata = result.bytes.view_as::<METADATA_HEADER>(metadata_offset)?;
+        let metadata = result.bytes.copy_as::<METADATA_HEADER>(metadata_offset)?;
 
         if metadata.signature != METADATA_SIGNATURE {
             return None;
@@ -651,10 +650,17 @@ impl File {
     }
 }
 
-fn section_from_rva(sections: &[IMAGE_SECTION_HEADER], rva: u32) -> Option<&IMAGE_SECTION_HEADER> {
-    sections.iter().find(|&s| {
-        rva >= s.VirtualAddress && rva < s.VirtualAddress + unsafe { s.Misc.VirtualSize }
-    })
+fn section_from_rva(sections: &[u8], rva: u32) -> Option<IMAGE_SECTION_HEADER> {
+    sections
+        .as_chunks::<{ size_of::<IMAGE_SECTION_HEADER>() }>()
+        .0
+        .iter()
+        .find_map(|bytes| {
+            let section = bytes.copy_as::<IMAGE_SECTION_HEADER>(0)?;
+            (rva >= section.VirtualAddress
+                && rva < section.VirtualAddress + unsafe { section.Misc.VirtualSize })
+            .then_some(section)
+        })
 }
 
 fn offset_from_rva(section: &IMAGE_SECTION_HEADER, rva: u32) -> usize {
@@ -662,28 +668,12 @@ fn offset_from_rva(section: &IMAGE_SECTION_HEADER, rva: u32) -> usize {
 }
 
 trait View {
-    fn view_as<T>(&self, offset: usize) -> Option<&T>;
-    fn view_as_slice_of<T>(&self, offset: usize, len: usize) -> Option<&[T]>;
     fn copy_as<T: Copy>(&self, offset: usize) -> Option<T>;
     fn view_as_str(&self, offset: usize) -> Option<&[u8]>;
     fn is_proper_length<T>(&self, offset: usize, count: usize) -> Option<()>;
-    fn is_proper_length_and_alignment<T>(&self, offset: usize, count: usize) -> Option<*const T>;
 }
 
 impl View for [u8] {
-    fn view_as<T>(&self, offset: usize) -> Option<&T> {
-        unsafe { Some(&*self.is_proper_length_and_alignment(offset, 1)?) }
-    }
-
-    fn view_as_slice_of<T>(&self, offset: usize, len: usize) -> Option<&[T]> {
-        unsafe {
-            Some(std::slice::from_raw_parts(
-                self.is_proper_length_and_alignment(offset, len)?,
-                len,
-            ))
-        }
-    }
-
     fn copy_as<T>(&self, offset: usize) -> Option<T> {
         self.is_proper_length::<T>(offset, 1)?;
 
@@ -702,17 +692,6 @@ impl View for [u8] {
     fn is_proper_length<T>(&self, offset: usize, count: usize) -> Option<()> {
         if offset.checked_add(count.checked_mul(size_of::<T>())?)? <= self.len() {
             Some(())
-        } else {
-            None
-        }
-    }
-
-    fn is_proper_length_and_alignment<T>(&self, offset: usize, count: usize) -> Option<*const T> {
-        self.is_proper_length::<T>(offset, count)?;
-        let ptr = &self[offset] as *const u8 as *const T;
-
-        if ptr.align_offset(align_of::<T>()) == 0 {
-            Some(ptr)
         } else {
             None
         }
@@ -774,7 +753,7 @@ impl Column {
 }
 
 #[repr(C)]
-#[derive(Default)]
+#[derive(Clone, Copy, Default)]
 struct METADATA_HEADER {
     signature: u32,
     major_version: u16,

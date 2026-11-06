@@ -16,7 +16,9 @@ pub struct HStringHeader {
 impl HStringHeader {
     /// Bytes required for `len` code units plus the header's inline terminator.
     fn alloc_bytes(len: u32) -> usize {
-        size_of::<Self>() + 2 * len as usize
+        size_of::<Self>()
+            .checked_add((len as usize).checked_mul(2).unwrap())
+            .unwrap()
     }
 
     pub fn alloc(len: u32) -> *mut Self {
@@ -39,7 +41,7 @@ impl HStringHeader {
                 count: RefCount::new(1),
                 buffer_start: 0,
             });
-            (*header).data = &mut (*header).buffer_start;
+            (*header).data = &raw mut (*header).buffer_start;
         }
 
         header
@@ -51,22 +53,29 @@ impl HStringHeader {
         }
 
         unsafe {
-            let bytes = Self::alloc_bytes((*header).len);
-            heap_free(header as *mut u8, bytes);
+            heap_free(header.cast());
         }
     }
 
-    pub fn duplicate(&self) -> *mut Self {
-        if self.flags & HSTRING_REFERENCE_FLAG == 0 {
-            self.count.add_ref();
-            self as *const Self as *mut Self
-        } else {
-            let copy = Self::alloc(self.len);
-            // SAFETY: `copy` is initialized and sized for `len + 1`, including the terminator.
-            unsafe {
-                core::ptr::copy_nonoverlapping(self.data, (*copy).data, self.len as usize + 1);
+    pub unsafe fn duplicate(header: *mut Self) -> *mut Self {
+        unsafe {
+            if header.is_null() {
+                return header;
             }
-            copy
+
+            if (*header).flags & HSTRING_REFERENCE_FLAG == 0 {
+                (*header).count.add_ref();
+                header
+            } else {
+                let copy = Self::alloc((*header).len);
+                // Fast-pass strings keep the terminator in the referenced buffer.
+                core::ptr::copy_nonoverlapping(
+                    (*header).data,
+                    (*copy).data,
+                    (*header).len as usize + 1,
+                );
+                copy
+            }
         }
     }
 }
@@ -85,31 +94,45 @@ unsafe fn heap_alloc(bytes: usize) -> *mut u8 {
     }
     #[cfg(not(windows))]
     {
-        // The alignment is fixed, and callers supply sizes accepted by the allocator.
-        let layout = alloc::alloc::Layout::from_size_align(bytes, ALIGN).unwrap();
-        unsafe { alloc::alloc::alloc(layout) }
+        // The logical string length can shrink. Keep the allocation size outside the ABI header.
+        let layout =
+            alloc::alloc::Layout::from_size_align(bytes.checked_add(PREFIX).unwrap(), ALIGN)
+                .unwrap();
+        unsafe {
+            let allocation = alloc::alloc::alloc(layout);
+            if allocation.is_null() {
+                return allocation;
+            }
+            allocation.cast::<usize>().write(layout.size());
+            allocation.add(PREFIX)
+        }
     }
 }
 
 /// Frees a block previously returned by `heap_alloc`.
 ///
 /// # Safety
-/// `ptr` must come from an unfreed `heap_alloc(bytes)` call.
-unsafe fn heap_free(ptr: *mut u8, bytes: usize) {
+/// `ptr` must come from an unfreed `heap_alloc` call.
+unsafe fn heap_free(ptr: *mut u8) {
     #[cfg(windows)]
     {
-        let _ = bytes;
         unsafe {
             bindings::HeapFree(bindings::GetProcessHeap(), 0, ptr as *mut _);
         }
     }
     #[cfg(not(windows))]
     {
-        // SAFETY: `bytes` and `ALIGN` match the allocation contract above.
-        let layout = alloc::alloc::Layout::from_size_align(bytes, ALIGN).unwrap();
-        unsafe { alloc::alloc::dealloc(ptr, layout) };
+        unsafe {
+            let allocation = ptr.sub(PREFIX);
+            let bytes = allocation.cast::<usize>().read();
+            let layout = alloc::alloc::Layout::from_size_align(bytes, ALIGN).unwrap();
+            alloc::alloc::dealloc(allocation, layout);
+        }
     }
 }
 
 #[cfg(not(windows))]
 const ALIGN: usize = align_of::<HStringHeader>();
+
+#[cfg(not(windows))]
+const PREFIX: usize = size_of::<usize>().next_multiple_of(ALIGN);

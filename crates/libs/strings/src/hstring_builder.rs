@@ -26,35 +26,27 @@ impl HStringBuilder {
                 HStringHeader::free(self.0);
             }
             self.0 = core::ptr::null_mut();
-        } else if let Some(header) = self.as_header_mut() {
-            header.len = new_len as u32;
+        } else {
+            unsafe { (*self.0).len = new_len as u32 };
         }
     }
 
     /// Returns the mutable UTF-16 buffer as bytes.
     pub fn as_bytes_mut(&mut self) -> &mut [u8] {
-        if let Some(header) = self.as_header() {
+        if !self.0.is_null() {
             unsafe {
-                core::slice::from_raw_parts_mut(header.data as *mut _, header.len as usize * 2)
+                core::slice::from_raw_parts_mut((*self.0).data.cast(), (*self.0).len as usize * 2)
             }
         } else {
             &mut []
         }
     }
-
-    fn as_header(&self) -> Option<&HStringHeader> {
-        unsafe { self.0.as_ref() }
-    }
-
-    fn as_header_mut(&mut self) -> Option<&mut HStringHeader> {
-        unsafe { self.0.as_mut() }
-    }
 }
 
 impl From<HStringBuilder> for HSTRING {
     fn from(value: HStringBuilder) -> Self {
-        if let Some(header) = value.as_header() {
-            unsafe { header.data.offset(header.len as isize).write(0) };
+        if !value.0.is_null() {
+            unsafe { (*value.0).data.add((*value.0).len as usize).write(0) };
             let result = Self(value.0);
             core::mem::forget(value);
             result
@@ -68,8 +60,8 @@ impl core::ops::Deref for HStringBuilder {
     type Target = [u16];
 
     fn deref(&self) -> &[u16] {
-        if let Some(header) = self.as_header() {
-            unsafe { core::slice::from_raw_parts(header.data, header.len as usize) }
+        if !self.0.is_null() {
+            unsafe { core::slice::from_raw_parts((*self.0).data, (*self.0).len as usize) }
         } else {
             &[]
         }
@@ -78,8 +70,8 @@ impl core::ops::Deref for HStringBuilder {
 
 impl core::ops::DerefMut for HStringBuilder {
     fn deref_mut(&mut self) -> &mut [u16] {
-        if let Some(header) = self.as_header() {
-            unsafe { core::slice::from_raw_parts_mut(header.data, header.len as usize) }
+        if !self.0.is_null() {
+            unsafe { core::slice::from_raw_parts_mut((*self.0).data, (*self.0).len as usize) }
         } else {
             &mut []
         }

@@ -1,4 +1,3 @@
-#![cfg(windows)]
 use windows_strings::*;
 
 #[test]
@@ -57,4 +56,30 @@ fn debug() {
     let mut b = HStringBuilder::new(5);
     b.copy_from_slice(&HELLO);
     assert_eq!(format!("{b:?}"), "\"Hello\"");
+}
+
+#[test]
+fn trimmed_storage() {
+    let mut builder = HStringBuilder::new(4);
+    builder.copy_from_slice(&[65, 66, 0, 0]);
+    builder.trim_end();
+    builder[1] = 0;
+    builder.trim_end();
+    assert_eq!(*builder, [65]);
+    builder.as_bytes_mut()[0] = 67;
+    let value: HSTRING = builder.into();
+    assert_eq!(value, "C");
+    unsafe {
+        assert_eq!(*value.as_ptr().add(value.len()), 0);
+    }
+    drop(value);
+
+    let mut builder = HStringBuilder::new(4);
+    builder[0] = 65;
+    builder.trim_end();
+    drop(builder);
+
+    let mut builder = HStringBuilder::new(4);
+    builder.trim_end();
+    assert!(builder.is_empty());
 }

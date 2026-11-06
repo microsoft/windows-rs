@@ -17,6 +17,18 @@ impl HSTRING {
         unsafe { Self::from_wide_iter(value.iter().copied(), value.len()) }
     }
 
+    /// Returns a pointer to the UTF-16 buffer, including its trailing null terminator.
+    ///
+    /// The pointer remains valid while this string is alive, including for an empty string.
+    pub fn as_ptr(&self) -> *const u16 {
+        if let Some(header) = self.as_header() {
+            header.data
+        } else {
+            const EMPTY: [u16; 1] = [0];
+            EMPTY.as_ptr()
+        }
+    }
+
     /// Converts the string to a lossy UTF-8 `String`.
     pub fn to_string_lossy(&self) -> String {
         String::from_utf16_lossy(self)
@@ -69,7 +81,6 @@ impl Deref for HSTRING {
         if let Some(header) = self.as_header() {
             unsafe { core::slice::from_raw_parts(header.data, header.len as usize) }
         } else {
-            // Keep `as_ptr` on the empty slice null-terminated.
             const EMPTY: [u16; 1] = [0];
             &EMPTY[..0]
         }
@@ -84,11 +95,7 @@ impl Default for HSTRING {
 
 impl Clone for HSTRING {
     fn clone(&self) -> Self {
-        if let Some(header) = self.as_header() {
-            Self(header.duplicate())
-        } else {
-            Self::new()
-        }
+        unsafe { Self(HStringHeader::duplicate(self.0)) }
     }
 }
 
