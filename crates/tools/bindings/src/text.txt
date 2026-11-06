@@ -7,9 +7,10 @@
 --filter
     DWRITE_E_NOCOLOR
     DWRITE_FACTORY_TYPE_SHARED
-    DWRITE_GRID_FIT_MODE_DEFAULT
     DWRITE_MEASURING_MODE_NATURAL
+    DWRITE_OUTLINE_THRESHOLD_ANTIALIASED
     DWRITE_RENDERING_MODE1_NATURAL_SYMMETRIC
+    DWRITE_RENDERING_MODE1_OUTLINE
     DWRITE_TEXT_ANTIALIAS_MODE_GRAYSCALE
     DWRITE_TEXTURE_ALIASED_1x1
     DWRITE_FONT_STRETCH_NORMAL
@@ -34,7 +35,7 @@
     E_NOT_SUFFICIENT_BUFFER
     GetUserDefaultLocaleName
     LOCALE_NAME_MAX_LENGTH
-    IDWriteFactory::{CreateTextFormat, CreateTextLayout, CreateTypography, RegisterFontFileLoader}
+    IDWriteFactory::{CreateRenderingParams, CreateTextFormat, CreateTextLayout, CreateTypography, RegisterFontFileLoader}
     IDWriteFactory2::{CreateFontFallbackBuilder, GetSystemFontFallback, TranslateColorGlyphRun}
     IDWriteFactory3::{CreateFontCollectionFromFontSet, CreateGlyphRunAnalysis, GetSystemFontCollection}
     IDWriteFactory5::{CreateFontSetBuilder, CreateInMemoryFontFileLoader}
@@ -44,7 +45,7 @@
     IDWriteFontFace::{GetDesignGlyphMetrics, GetGlyphIndices}
     IDWriteFontFace1::GetMetrics
     IDWriteFontFace2::IsColorFont
-    IDWriteFontFace3::{GetFamilyNames, GetStyle, GetWeight}
+    IDWriteFontFace3::{GetFamilyNames, GetRecommendedRenderingMode, GetStyle, GetWeight}
     IDWriteFontFallbackBuilder::{AddMapping, AddMappings, CreateFontFallback}
     IDWriteFontFamily::{GetFamilyNames, GetFirstMatchingFont}
     IDWriteFontSetBuilder::CreateFontSet
@@ -52,6 +53,8 @@
     IDWriteGlyphRunAnalysis::{CreateAlphaTexture, GetAlphaTextureBounds}
     IDWriteInMemoryFontFileLoader::CreateInMemoryFontFileReference
     IDWriteLocalizedStrings::{FindLocaleName, GetString, GetStringLength}
+    IDWriteRenderingParams::GetGamma
+    IDWriteRenderingParams1::GetGrayscaleEnhancedContrast
     IDWriteTextFormat::{SetTextAlignment, SetParagraphAlignment, SetWordWrapping}
     IDWriteTextFormat1::SetFontFallback
     IDWriteTextLayout::{GetMetrics, HitTestPoint, HitTestTextPosition, HitTestTextRange, GetMaxWidth, GetMaxHeight, SetMaxWidth, SetMaxHeight}

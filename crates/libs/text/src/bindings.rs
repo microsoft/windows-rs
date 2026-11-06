@@ -154,7 +154,6 @@ pub struct DWRITE_GLYPH_RUN_DESCRIPTION {
     pub textPosition: UINT32,
 }
 pub type DWRITE_GRID_FIT_MODE = i32;
-pub const DWRITE_GRID_FIT_MODE_DEFAULT: DWRITE_GRID_FIT_MODE = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DWRITE_HIT_TEST_METRICS {
@@ -190,6 +189,8 @@ pub struct DWRITE_MATRIX {
 }
 pub type DWRITE_MEASURING_MODE = i32;
 pub const DWRITE_MEASURING_MODE_NATURAL: DWRITE_MEASURING_MODE = 0;
+pub type DWRITE_OUTLINE_THRESHOLD = i32;
+pub const DWRITE_OUTLINE_THRESHOLD_ANTIALIASED: DWRITE_OUTLINE_THRESHOLD = 0;
 pub type DWRITE_PARAGRAPH_ALIGNMENT = i32;
 pub const DWRITE_PARAGRAPH_ALIGNMENT_CENTER: DWRITE_PARAGRAPH_ALIGNMENT = 2;
 pub const DWRITE_PARAGRAPH_ALIGNMENT_FAR: DWRITE_PARAGRAPH_ALIGNMENT = 1;
@@ -197,6 +198,7 @@ pub const DWRITE_PARAGRAPH_ALIGNMENT_NEAR: DWRITE_PARAGRAPH_ALIGNMENT = 0;
 pub type DWRITE_READING_DIRECTION = i32;
 pub type DWRITE_RENDERING_MODE1 = i32;
 pub const DWRITE_RENDERING_MODE1_NATURAL_SYMMETRIC: DWRITE_RENDERING_MODE1 = 5;
+pub const DWRITE_RENDERING_MODE1_OUTLINE: DWRITE_RENDERING_MODE1 = 6;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DWRITE_STRIKETHROUGH {
@@ -305,6 +307,18 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(IDWriteFactory, windows_core::IUnknown);
 impl IDWriteFactory {
+    pub(crate) unsafe fn CreateRenderingParams(
+        &self,
+    ) -> windows_core::Result<IDWriteRenderingParams> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateRenderingParams)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
     pub(crate) unsafe fn RegisterFontFileLoader<P0>(
         &self,
         fontfileloader: P0,
@@ -394,7 +408,10 @@ pub struct IDWriteFactory_Vtbl {
     CreateFontFileReference: usize,
     CreateCustomFontFileReference: usize,
     CreateFontFace: usize,
-    CreateRenderingParams: usize,
+    pub CreateRenderingParams: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     CreateMonitorRenderingParams: usize,
     CreateCustomRenderingParams: usize,
     pub RegisterFontFileLoader: unsafe extern "system" fn(
@@ -1044,6 +1061,38 @@ impl IDWriteFontFace3 {
             .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
+    pub(crate) unsafe fn GetRecommendedRenderingMode<P7>(
+        &self,
+        fontemsize: FLOAT,
+        dpix: FLOAT,
+        dpiy: FLOAT,
+        transform: Option<*const DWRITE_MATRIX>,
+        issideways: bool,
+        outlinethreshold: DWRITE_OUTLINE_THRESHOLD,
+        measuringmode: DWRITE_MEASURING_MODE,
+        renderingparams: P7,
+        renderingmode: *mut DWRITE_RENDERING_MODE1,
+        gridfitmode: *mut DWRITE_GRID_FIT_MODE,
+    ) -> windows_core::HRESULT
+    where
+        P7: windows_core::Param<IDWriteRenderingParams>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).GetRecommendedRenderingMode)(
+                windows_core::Interface::as_raw(self),
+                fontemsize,
+                dpix,
+                dpiy,
+                transform.unwrap_or(core::mem::zeroed()) as _,
+                issideways.into(),
+                outlinethreshold,
+                measuringmode,
+                renderingparams.param().abi(),
+                renderingmode as _,
+                gridfitmode as _,
+            )
+        }
+    }
 }
 #[repr(C)]
 pub struct IDWriteFontFace3_Vtbl {
@@ -1060,7 +1109,19 @@ pub struct IDWriteFontFace3_Vtbl {
     GetFaceNames: usize,
     GetInformationalStrings: usize,
     HasCharacter: usize,
-    GetRecommendedRenderingMode: usize,
+    pub GetRecommendedRenderingMode: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        FLOAT,
+        FLOAT,
+        FLOAT,
+        *const DWRITE_MATRIX,
+        windows_core::BOOL,
+        DWRITE_OUTLINE_THRESHOLD,
+        DWRITE_MEASURING_MODE,
+        *mut core::ffi::c_void,
+        *mut DWRITE_RENDERING_MODE1,
+        *mut DWRITE_GRID_FIT_MODE,
+    ) -> windows_core::HRESULT,
     IsCharacterLocal: usize,
     IsGlyphLocal: usize,
     AreCharactersLocal: usize,
@@ -1647,6 +1708,58 @@ impl IDWritePixelSnapping_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWritePixelSnapping {}
+windows_core::imp::define_interface!(
+    IDWriteRenderingParams,
+    IDWriteRenderingParams_Vtbl,
+    0x2f0da53a_2add_47cd_82ee_d9ec34688e75
+);
+windows_core::imp::interface_hierarchy!(IDWriteRenderingParams, windows_core::IUnknown);
+impl IDWriteRenderingParams {
+    pub(crate) unsafe fn GetGamma(&self) -> FLOAT {
+        unsafe {
+            (windows_core::Interface::vtable(self).GetGamma)(windows_core::Interface::as_raw(self))
+        }
+    }
+}
+#[repr(C)]
+pub struct IDWriteRenderingParams_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub GetGamma: unsafe extern "system" fn(*mut core::ffi::c_void) -> FLOAT,
+    GetEnhancedContrast: usize,
+    GetClearTypeLevel: usize,
+    GetPixelGeometry: usize,
+    GetRenderingMode: usize,
+}
+windows_core::imp::define_interface!(
+    IDWriteRenderingParams1,
+    IDWriteRenderingParams1_Vtbl,
+    0x94413cf4_a6fc_4248_8b50_6674348fcad3
+);
+impl core::ops::Deref for IDWriteRenderingParams1 {
+    type Target = IDWriteRenderingParams;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    IDWriteRenderingParams1,
+    windows_core::IUnknown,
+    IDWriteRenderingParams
+);
+impl IDWriteRenderingParams1 {
+    pub(crate) unsafe fn GetGrayscaleEnhancedContrast(&self) -> FLOAT {
+        unsafe {
+            (windows_core::Interface::vtable(self).GetGrayscaleEnhancedContrast)(
+                windows_core::Interface::as_raw(self),
+            )
+        }
+    }
+}
+#[repr(C)]
+pub struct IDWriteRenderingParams1_Vtbl {
+    pub base__: IDWriteRenderingParams_Vtbl,
+    pub GetGrayscaleEnhancedContrast: unsafe extern "system" fn(*mut core::ffi::c_void) -> FLOAT,
+}
 windows_core::imp::define_interface!(
     IDWriteTextFormat,
     IDWriteTextFormat_Vtbl,

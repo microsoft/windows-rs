@@ -39,27 +39,83 @@ pub struct ColorLayer {
 // The palette index DirectWrite reports for a layer drawn in the foreground color.
 const FOREGROUND: u16 = 0xFFFF;
 
+/// The text rendering settings Windows applies when blending glyph coverage.
+///
+/// Returned by [`RenderingParams::system`]. A renderer that blends coverage from
+/// [`FontFace::rasterize`] with these values matches the weight and contrast of native Windows
+/// text.
+#[derive(Copy, Clone, Debug, PartialEq)]
+#[non_exhaustive]
+pub struct RenderingParams {
+    /// The gamma used when blending text with the background, such as 1.8.
+    pub gamma: f32,
+    /// The contrast added to grayscale coverage before blending, where 0.0 adds none.
+    pub grayscale_enhanced_contrast: f32,
+}
+
+impl RenderingParams {
+    /// Returns the user's settings for the primary monitor. The settings are read on each call.
+    pub fn system() -> Self {
+        let params: IDWriteRenderingParams1 =
+            unsafe { factory().CreateRenderingParams().unwrap().cast().unwrap() };
+
+        unsafe {
+            Self {
+                gamma: params.GetGamma(),
+                grayscale_enhanced_contrast: params.GetGrayscaleEnhancedContrast(),
+            }
+        }
+    }
+}
+
 impl FontFace {
     /// Rasterizes `glyph` at an em size of `size` physical pixels, such as the run's font size
     /// multiplied by the display scale. `offset` is the pen's subpixel position, usually from 0.0
     /// to 1.0 on each axis, so a cache can keep a few variants per glyph. Returns `None` for a
     /// glyph with no ink, such as a space. Panics if `size` is negative.
     ///
-    /// The glyph is antialiased in grayscale without pixel snapping, matching the positions from
+    /// The glyph is antialiased in grayscale, using the rendering mode and hinting DirectWrite
+    /// recommends for the font at this size; small glyphs are usually antialiased horizontally
+    /// only, keeping horizontal edges sharp, and a vertical offset rounds to whole pixels.
+    /// Positions are not snapped, matching
     /// [`TextLayout::glyph_runs`]. A color glyph rasterizes as its outline; use
     /// [`color_layers`](Self::color_layers) to draw it in color.
     pub fn rasterize(&self, glyph: u16, size: f32, offset: Vector2) -> Option<GlyphImage> {
         let run = self.run(&glyph, size);
         let mut bounds = RECT::default();
+        let mut mode = DWRITE_RENDERING_MODE1::default();
+        let mut grid_fit = DWRITE_GRID_FIT_MODE::default();
+
+        unsafe {
+            self.0
+                .GetRecommendedRenderingMode(
+                    size,
+                    96.0,
+                    96.0,
+                    None,
+                    false,
+                    DWRITE_OUTLINE_THRESHOLD_ANTIALIASED,
+                    DWRITE_MEASURING_MODE_NATURAL,
+                    None,
+                    &mut mode,
+                    &mut grid_fit,
+                )
+                .unwrap();
+        }
+
+        // Outline mode is for large glyphs drawn as geometry; an alpha texture needs a raster mode.
+        if mode == DWRITE_RENDERING_MODE1_OUTLINE {
+            mode = DWRITE_RENDERING_MODE1_NATURAL_SYMMETRIC;
+        }
 
         let analysis = unsafe {
             factory()
                 .CreateGlyphRunAnalysis(
                     &run,
                     None,
-                    DWRITE_RENDERING_MODE1_NATURAL_SYMMETRIC,
+                    mode,
                     DWRITE_MEASURING_MODE_NATURAL,
-                    DWRITE_GRID_FIT_MODE_DEFAULT,
+                    grid_fit,
                     DWRITE_TEXT_ANTIALIAS_MODE_GRAYSCALE,
                     offset.x,
                     offset.y,
