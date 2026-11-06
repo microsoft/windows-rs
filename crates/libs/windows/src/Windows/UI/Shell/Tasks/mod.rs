@@ -87,8 +87,9 @@ impl AppTaskInfo {
     }
     pub fn GetCompletedSteps(&self) -> windows_core::Result<windows_core::Array<windows_core::HSTRING>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetCompletedSteps)(windows_core::Interface::as_raw(self), windows_core::Array::<windows_core::HSTRING>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).GetCompletedSteps)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<windows_core::HSTRING>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn GetExecutingStep(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -168,8 +169,9 @@ impl AppTaskInfo {
     }
     pub fn FindAll() -> windows_core::Result<windows_core::Array<Self>> {
         Self::IAppTaskInfoStatics(|this| unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(this).FindAll)(windows_core::Interface::as_raw(this), windows_core::Array::<Self>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(this).FindAll)(windows_core::Interface::as_raw(this), &mut result_size__, &mut result__).map(|| windows_core::Array::<Self>::from_raw_parts(result__.cast(), result_size__))
         })
     }
     pub fn Create<P2, P3, P4>(title: &windows_core::HSTRING, subtitle: &windows_core::HSTRING, deeplink: P2, iconuri: P3, content: P4) -> windows_core::Result<Self>

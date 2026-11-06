@@ -58,7 +58,8 @@ impl<T: Type<T>> Array<T> {
     ///
     /// # Safety
     ///
-    /// The `data` argument must have been allocated with `CoTaskMemAlloc`.
+    /// `data` must point to `len` initialized elements allocated with `CoTaskMemAlloc`.
+    /// It may be null if `len` is zero. Ownership of the buffer and elements transfers to the array.
     pub unsafe fn from_raw_parts(data: *mut T::Default, len: u32) -> Self {
         Self { data, len }
     }
@@ -80,7 +81,7 @@ impl<T: Type<T>> Array<T> {
 
     /// Clears the contents of the array.
     pub fn clear(&mut self) {
-        if self.is_empty() {
+        if self.data.is_null() {
             return;
         }
 

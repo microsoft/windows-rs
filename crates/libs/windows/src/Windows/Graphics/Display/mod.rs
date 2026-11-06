@@ -1003,8 +1003,9 @@ windows_core::imp::interface_hierarchy!(DisplayServices, windows_core::IUnknown,
 impl DisplayServices {
     pub fn FindAll() -> windows_core::Result<windows_core::Array<super::DisplayId>> {
         Self::IDisplayServicesStatics(|this| unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(this).FindAll)(windows_core::Interface::as_raw(this), windows_core::Array::<super::DisplayId>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(this).FindAll)(windows_core::Interface::as_raw(this), &mut result_size__, &mut result__).map(|| windows_core::Array::<super::DisplayId>::from_raw_parts(result__.cast(), result_size__))
         })
     }
     fn IDisplayServicesStatics<R, F: FnOnce(&IDisplayServicesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

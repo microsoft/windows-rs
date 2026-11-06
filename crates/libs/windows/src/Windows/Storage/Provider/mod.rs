@@ -2655,8 +2655,9 @@ windows_core::imp::interface_hierarchy!(StorageProviderQueryResultSet, windows_c
 impl StorageProviderQueryResultSet {
     pub fn GetResults(&self) -> windows_core::Result<windows_core::Array<IStorageProviderQueryResult>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetResults)(windows_core::Interface::as_raw(self), windows_core::Array::<IStorageProviderQueryResult>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).GetResults)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<IStorageProviderQueryResult>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn QueryResultId(&self) -> windows_core::Result<windows_core::HSTRING> {

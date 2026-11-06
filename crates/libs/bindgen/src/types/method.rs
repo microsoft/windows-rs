@@ -428,8 +428,7 @@ impl Method {
             Type::Void => quote! {},
             ty => {
                 if ty.is_winrt_array() {
-                    let ty = ty.write_name(config);
-                    quote! { windows_core::Array::<#ty>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _ }
+                    quote! { &mut result_size__, &mut result__ }
                 } else {
                     quote! { &mut result__ }
                 }
@@ -663,18 +662,21 @@ impl Method {
                     }
                 }
                 _ if self.signature.return_type.is_winrt_array() => {
+                    let ty = self.signature.return_type.write_name(config);
                     if noexcept {
                         quote! {
-                            let mut result__ = core::mem::MaybeUninit::zeroed();
+                            let mut result__ = core::ptr::null_mut();
+                            let mut result_size__ = 0;
                             let hresult__ = #vcall;
                             #assert_success
-                            result__.assume_init()
+                            windows_core::Array::<#ty>::from_raw_parts(result__.cast(), result_size__)
                         }
                     } else {
                         quote! {
-                            let mut result__ = core::mem::MaybeUninit::zeroed();
+                            let mut result__ = core::ptr::null_mut();
+                            let mut result_size__ = 0;
                             #vcall
-                                .map(|| result__.assume_init())
+                                .map(|| windows_core::Array::<#ty>::from_raw_parts(result__.cast(), result_size__))
                         }
                     }
                 }

@@ -1,0 +1,19 @@
+//! --filter Test --flat
+#[winrt]
+mod Test {
+    #[guid(auto)]
+    delegate fn Tracked();
+
+    #[guid(auto)]
+    delegate fn ArrayRoundtrip(
+        #[in] input: [Tracked],
+        #[out] fill: [Tracked],
+        #[out] receive: &mut [Tracked],
+    ) -> [Tracked];
+
+    #[guid(auto)]
+    delegate fn InterfaceOutputs(#[out] value: Tracked) -> Tracked;
+
+    #[guid(auto)]
+    delegate fn EmptyArray() -> [u32];
+}

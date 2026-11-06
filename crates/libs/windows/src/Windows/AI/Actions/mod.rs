@@ -317,8 +317,9 @@ impl ActionInvocationContext {
     }
     pub fn GetInputEntities(&self) -> windows_core::Result<windows_core::Array<NamedActionEntity>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetInputEntities)(windows_core::Interface::as_raw(self), windows_core::Array::<NamedActionEntity>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).GetInputEntities)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<NamedActionEntity>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn SetOutputEntity<P1>(&self, outputname: &windows_core::HSTRING, outputvalue: P1) -> windows_core::Result<()>
@@ -329,8 +330,9 @@ impl ActionInvocationContext {
     }
     pub fn GetOutputEntities(&self) -> windows_core::Result<windows_core::Array<NamedActionEntity>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetOutputEntities)(windows_core::Interface::as_raw(self), windows_core::Array::<NamedActionEntity>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).GetOutputEntities)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<NamedActionEntity>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn Result(&self) -> windows_core::Result<ActionInvocationResult> {
@@ -662,14 +664,16 @@ impl AppointmentActionEntity {
     }
     pub fn GetAttendees(&self) -> windows_core::Result<windows_core::Array<ContactActionEntity>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetAttendees)(windows_core::Interface::as_raw(self), windows_core::Array::<ContactActionEntity>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).GetAttendees)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<ContactActionEntity>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn GetPresentedFiles(&self) -> windows_core::Result<windows_core::Array<RemoteFileActionEntity>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetPresentedFiles)(windows_core::Interface::as_raw(self), windows_core::Array::<RemoteFileActionEntity>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).GetPresentedFiles)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<RemoteFileActionEntity>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn SetPresentedFiles(&self, files: &[Option<RemoteFileActionEntity>]) -> windows_core::Result<()> {
@@ -677,8 +681,9 @@ impl AppointmentActionEntity {
     }
     pub fn GetSharedFiles(&self) -> windows_core::Result<windows_core::Array<RemoteFileActionEntity>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetSharedFiles)(windows_core::Interface::as_raw(self), windows_core::Array::<RemoteFileActionEntity>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).GetSharedFiles)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<RemoteFileActionEntity>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn SetSharedFiles(&self, files: &[Option<RemoteFileActionEntity>]) -> windows_core::Result<()> {
@@ -736,8 +741,9 @@ impl ArrayActionEntity {
     }
     pub fn GetAll(&self) -> windows_core::Result<windows_core::Array<ActionEntity>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetAll)(windows_core::Interface::as_raw(self), windows_core::Array::<ActionEntity>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).GetAll)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<ActionEntity>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn CustomElementKind(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -1861,8 +1867,9 @@ impl RemoteFileActionEntity {
     pub fn GetContributors(&self) -> windows_core::Result<windows_core::Array<ContactActionEntity>> {
         let this = &windows_core::Interface::cast::<IRemoteFileActionEntity2>(self)?;
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(this).GetContributors)(windows_core::Interface::as_raw(this), windows_core::Array::<ContactActionEntity>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(this).GetContributors)(windows_core::Interface::as_raw(this), &mut result_size__, &mut result__).map(|| windows_core::Array::<ContactActionEntity>::from_raw_parts(result__.cast(), result_size__))
         }
     }
 }
@@ -2070,8 +2077,9 @@ impl TableActionEntity {
     }
     pub fn GetTextContent(&self) -> windows_core::Result<windows_core::Array<windows_core::HSTRING>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetTextContent)(windows_core::Interface::as_raw(self), windows_core::Array::<windows_core::HSTRING>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).GetTextContent)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<windows_core::HSTRING>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn RowCount(&self) -> windows_core::Result<u32> {
